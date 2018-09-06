@@ -13,7 +13,7 @@ let map = new mapboxgl.Map({
   container: "map", // container id
   style: "mapbox://styles/mapbox/streets-v9", // stylesheet location
   center: [-71.31, 42.63], // starting position [lng, lat]
-  zoom: 9 // starting zoom
+  zoom: 12 // starting zoom
 });
 
 map.on("load", function() {
