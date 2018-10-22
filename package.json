@@ -1,0 +1,33 @@
+{
+    "name": "districtr",
+    "version": "0.0.1",
+    "description": "A tool for drawing districting plans",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "develop": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gerrymandr/districtr.git"
+    },
+    "keywords": [
+        "gis",
+        "voting-rights"
+    ],
+    "author": "Metric Geometry and Gerrymandering Group",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/gerrymandr/districtr/issues"
+    },
+    "homepage": "https://github.com/gerrymandr/districtr#readme",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "parcel-bundler": "^1.10.3"
+    },
+    "dependencies": {
+        "mapbox-gl": "^0.50.0"
+    }
+}
