@@ -5,8 +5,8 @@
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "develop": "webpack-dev-server",
-        "build": "webpack"
+        "develop": "parcel index.html",
+        "build": "parcel build index.html"
     },
     "repository": {
         "type": "git",
