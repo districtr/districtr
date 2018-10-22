@@ -11,6 +11,7 @@ export function initializeMap(mapContainer) {
         zoom: 12
     });
     map.on("load", () => addPlaceholderLayers(map));
+    return map;
 }
 
 function addPlaceholderLayers(map) {
@@ -21,17 +22,27 @@ function addPlaceholderLayers(map) {
 
     map.addSource("units", placeholderLayerSource);
 
-    const placeholderLayers = [
+    const units = new Layer(
+        map,
         {
             id: "units",
             source: "units",
             "source-layer": "data-cktc5t",
             type: "fill",
             paint: {
-                "fill-color": "#0099cd",
-                "fill-opacity": 0.3
+                "fill-color": [
+                    "case",
+                    ["boolean", ["feature-state", "hover"], false],
+                    "#aaaaaa",
+                    "#f9f9f9"
+                ],
+                "fill-opacity": 0.8
             }
         },
+        addBelowLabels
+    );
+    const unitsBorders = new Layer(
+        map,
         {
             id: "units-borders",
             type: "line",
@@ -42,12 +53,11 @@ function addPlaceholderLayers(map) {
                 "line-width": 1,
                 "line-opacity": 0.3
             }
-        }
-    ];
+        },
+        addBelowLabels
+    );
 
-    placeholderLayers.forEach(layer => {
-        addBelowLabels(map, layer);
-    });
+    const hover = new HoverWithRadius(units, 50);
 }
 
 function addBelowLabels(map, layer) {
@@ -62,4 +72,97 @@ function getFirstSymbolID(layers) {
             return layers[i].id;
         }
     }
+}
+
+class Layer {
+    constructor(map, layer, adder) {
+        this.map = map;
+        this.id = layer.id;
+        this.sourceID = layer.source;
+        this.sourceLayer = layer["source-layer"];
+
+        adder(map, layer);
+    }
+    setFeatureState(featureID, state) {
+        this.map.setFeatureState(
+            {
+                source: this.sourceID,
+                sourceLayer: this.sourceLayer,
+                id: featureID
+            },
+            state
+        );
+    }
+}
+
+class Hover {
+    constructor(layer) {
+        this.layer = layer;
+
+        this.hoveredStateId = null;
+
+        layer.map.on("mousemove", this.layer.id, this.onMouseMove.bind(this));
+        layer.map.on("mouseleave", this.layer.id, this.onMouseLeave.bind(this));
+    }
+    hoverOff() {
+        this.layer.setFeatureState(this.hoveredStateId, { hover: false });
+    }
+    hoverOn() {
+        this.layer.setFeatureState(this.hoveredStateId, { hover: true });
+    }
+    onMouseMove(e) {
+        if (e.features.length > 0) {
+            if (this.hoveredStateId) {
+                this.hoverOff();
+            }
+            this.hoveredStateId = e.features[0].id;
+            this.hoverOn();
+        }
+    }
+    onMouseLeave() {
+        if (this.hoveredStateId) {
+            this.hoverOff();
+        }
+        this.hoveredStateId = null;
+    }
+}
+
+class HoverWithRadius {
+    constructor(layer, radius) {
+        this.layer = layer;
+        this.radius = radius;
+
+        this.hoveredFeatures = [];
+
+        layer.map.on("mousemove", this.layer.id, this.onMouseMove.bind(this));
+        layer.map.on("mouseleave", this.layer.id, this.hoverOff.bind(this));
+    }
+    hoverOff() {
+        while (this.hoveredFeatures.length > 0) {
+            let feature = this.hoveredFeatures.pop();
+            this.layer.setFeatureState(feature.id, { hover: false });
+        }
+    }
+    hoverOn(features) {
+        this.hoveredFeatures = features;
+        this.hoveredFeatures.forEach(feature => {
+            this.layer.setFeatureState(feature.id, { hover: true });
+        });
+    }
+    onMouseMove(e) {
+        const box = boxAround(e.point, this.radius, this.layer.map);
+        const features = this.layer.map.queryRenderedFeatures(box, {
+            layers: [this.layer.id]
+        });
+        if (features.length > 0) {
+            this.hoverOff();
+            this.hoverOn(features);
+        }
+    }
+}
+
+function boxAround(point, radius, map) {
+    const southwest = [point.x + radius, point.y + radius];
+    const northeast = [point.x - radius, point.y - radius];
+    return [northeast, southwest];
 }

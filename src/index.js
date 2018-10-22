@@ -1,3 +1,3 @@
 import { initializeMap } from "./map";
 
-initializeMap("map");
+const map = initializeMap("map");
