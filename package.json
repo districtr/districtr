@@ -1,31 +1,33 @@
 {
-  "name": "districtr",
-  "version": "0.0.1",
-  "description": "A tool for drawing districting plans",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gerrymandr/districtr.git"
-  },
-  "keywords": [
-    "gis",
-    "voting-rights"
-  ],
-  "author": "Metric Geometry and Gerrymandering Group",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gerrymandr/districtr/issues"
-  },
-  "homepage": "https://github.com/gerrymandr/districtr#readme",
-  "devDependencies": {
-    "webpack": "^4.22.0",
-    "webpack-cli": "^3.1.2"
-  },
-  "dependencies": {
-    "mapbox-gl": "^0.50.0"
-  }
+    "name": "districtr",
+    "version": "0.0.1",
+    "description": "A tool for drawing districting plans",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "develop": "webpack-dev-server",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gerrymandr/districtr.git"
+    },
+    "keywords": [
+        "gis",
+        "voting-rights"
+    ],
+    "author": "Metric Geometry and Gerrymandering Group",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/gerrymandr/districtr/issues"
+    },
+    "homepage": "https://github.com/gerrymandr/districtr#readme",
+    "devDependencies": {
+        "webpack": "^4.22.0",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.9"
+    },
+    "dependencies": {
+        "mapbox-gl": "^0.50.0"
+    }
 }
