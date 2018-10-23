@@ -2,16 +2,29 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Districtr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
 </head>
 
 <body>
   <div id="map"></div>
+  <div id="toolbar">
+    <fieldset>
+      <legend>Tools</legend>
+      <input type="radio" id="pan" name="tool" value="pan" checked>
+      <label for="pan">Pan</label>
+      <input type="radio" id="brush" name="tool" value="brush">
+      <label for="brush">Brush</label>
+    </fieldset>
+    <h3>Brush Radius</h3>
+    <input id="brush-radius" type="range" value="10" min="1" max="100">
+    <input id="brush-radius-value" type="number" value="10">
+  </div>
   <script src="src/index.js"></script>
 </body>
 

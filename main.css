@@ -1,3 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Source Sans Pro";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #map {
     width: 100%;
     top: 0;
@@ -7,7 +20,10 @@
     position: absolute;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+#toolbar {
+    position: fixed;
+    right: 0;
+    height: 400px;
+    background: white;
+    padding: 1rem;
 }

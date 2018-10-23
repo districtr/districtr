@@ -35,4 +35,10 @@ export default class Layer {
             state
         );
     }
+    on(type, ...args) {
+        this.map.on(type, this.id, ...args);
+    }
+    off(type, ...args) {
+        this.map.off(type, this.id, ...args);
+    }
 }

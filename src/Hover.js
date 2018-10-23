@@ -5,8 +5,8 @@ export class HoverWithRadius {
 
         this.hoveredFeatures = [];
 
-        layer.map.on("mousemove", this.layer.id, this.onMouseMove.bind(this));
-        layer.map.on("mouseleave", this.layer.id, this.hoverOff.bind(this));
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.hoverOff = this.hoverOff.bind(this);
     }
     hoverOff() {
         while (this.hoveredFeatures.length > 0) {
@@ -29,6 +29,17 @@ export class HoverWithRadius {
             this.hoverOff();
             this.hoverOn(features);
         }
+    }
+    setRadius(radius) {
+        this.radius = radius;
+    }
+    activate() {
+        this.layer.on("mousemove", this.onMouseMove);
+        this.layer.on("mouseleave", this.hoverOff);
+    }
+    deactivate() {
+        this.layer.off("mousemove", this.onMouseMove);
+        this.layer.off("mouseleave", this.hoverOff);
     }
 }
 
