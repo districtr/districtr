@@ -17,25 +17,32 @@ function addPlaceholderLayers(map) {
 
     map.addSource("units", placeholderLayerSource);
 
-    const hoverStyle = [
-        "case",
-        ["boolean", ["feature-state", "hover"], false],
-        "#aaaaaa",
-        "#f9f9f9"
-    ];
-
     // Right now I'm assuming colors are numbered, and that -1 means
     // a block hasn't been colored. I don't think this is a good system.
 
     const districtColors = ["#0099cd", "#cd9900"];
-    const districtColorStyle = [
+    const districtHoverColors = ["#006b9c", "#9c6b00"];
+    const blockColorStyle = [
         "case",
         ...districtColors
             .map((color, i) => [["==", ["feature-state", "color"], i], color])
             .reduce((list, pair) => [...list, ...pair]),
-        ["==", ["feature-state", "hover"], true],
-        "#aaaaaa",
         "#f9f9f9"
+    ];
+
+    const hoveredBlockColorStyle = [
+        "case",
+        ...districtHoverColors
+            .map((color, i) => [["==", ["feature-state", "color"], i], color])
+            .reduce((list, pair) => [...list, ...pair]),
+        "#aaaaaa"
+    ];
+
+    const blockColorProperty = [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        hoveredBlockColorStyle,
+        blockColorStyle
     ];
 
     const units = new Layer(
@@ -46,7 +53,7 @@ function addPlaceholderLayers(map) {
             "source-layer": "Lowell_blocks-aosczb",
             type: "fill",
             paint: {
-                "fill-color": districtColorStyle,
+                "fill-color": blockColorProperty,
                 "fill-opacity": 0.8
             }
         },
@@ -141,7 +148,6 @@ export class BrushColorPicker {
 
         const elements = colorIds.map(id => document.getElementById(id));
         for (let element of elements) {
-            console.log(elements);
             if (element.checked) {
                 this.brush.setColor(parseInt(element.value));
             }
@@ -150,7 +156,6 @@ export class BrushColorPicker {
     }
     selectColor(e) {
         const color = parseInt(e.target.value);
-        console.log(color);
         this.brush.setColor(color);
     }
 }
