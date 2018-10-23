@@ -4,6 +4,8 @@ export default class Brush {
         this.color = color;
 
         this.colorFeatures = this.colorFeatures.bind(this);
+        this.onMouseDown = this.onMouseDown.bind(this);
+        this.onMouseUp = this.onMouseUp.bind(this);
     }
     setColor(color) {
         this.color = color;
@@ -19,15 +21,33 @@ export default class Brush {
             this.hover.layer.setFeatureState(feature.id, { color: this.color });
         });
     }
+    onMouseDown() {
+        this.hover.layer.on("mousemove", this.colorFeatures);
+        window.addEventListener("mouseup", this.onMouseUp);
+    }
+    onMouseUp() {
+        this.hover.layer.off("mousemove", this.colorFeatures);
+        document.removeEventListener("mouseup", this.onMouseUp);
+    }
     activate() {
+        this.hover.layer.map.getCanvas().classList.add("brush-tool");
+
         this.hover.activate();
         this.hover.layer.map.dragPan.disable();
-        this.hover.layer.on("mousedown", this.colorFeatures);
+
+        this.hover.layer.on("click", this.colorFeatures);
+
+        window.addEventListener("mousedown", this.onMouseDown);
     }
     deactivate() {
+        this.hover.layer.map.getCanvas().classList.remove("brush-tool");
+
         this.hover.deactivate();
         this.hover.layer.map.dragPan.enable();
-        this.hover.layer.off("mousedown", this.colorFeatures);
+
+        this.hover.layer.off("click", this.colorFeatures);
+
+        window.removeEventListener("mousedown", this.onMouseDown);
     }
 }
 

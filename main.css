@@ -20,6 +20,10 @@ body {
     position: absolute;
 }
 
+.brush-tool {
+    cursor: pointer;
+}
+
 #toolbar {
     position: fixed;
     right: 0;

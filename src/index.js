@@ -66,8 +66,10 @@ function addPlaceholderLayers(map) {
         addBelowLabels
     );
 
+    // Tools
+
     const hover = new HoverWithRadius(units, 10);
-    const brush = new Brush(hover, 1);
+    const brush = new Brush(hover, 0);
     const brushSlider = new BrushSlider(
         document.getElementById("brush-radius"),
         document.getElementById("brush-radius-value"),
