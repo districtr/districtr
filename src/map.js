@@ -6,7 +6,7 @@ mapbox.accessToken =
 export function initializeMap(mapContainer) {
     const map = new mapbox.Map({
         container: mapContainer,
-        style: "mapbox://styles/mapbox/streets-v10",
+        style: "mapbox://styles/mapbox/light-v9",
         center: [-71.32, 42.64],
         zoom: 12
     });
