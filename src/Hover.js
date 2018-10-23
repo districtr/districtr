@@ -1,38 +1,3 @@
-class Hover {
-    constructor(layer) {
-        this.layer = layer;
-
-        this.hoveredStateId = null;
-
-        layer.map.on("mousemove", this.layer.id, this.onMouseMove.bind(this));
-        layer.map.on("mouseleave", this.layer.id, this.onMouseLeave.bind(this));
-    }
-    hoverOff() {
-        this.layer.setFeatureState(this.hoveredStateId, { hover: false });
-    }
-    hoverOn() {
-        this.layer.setFeatureState(this.hoveredStateId, { hover: true });
-    }
-    onMouseMove(e) {
-        if (e.features.length > 0) {
-            if (this.hoveredStateId) {
-                this.hoverOff();
-            }
-            this.hoveredStateId = e.features[0].id;
-            this.hoverOn();
-        }
-    }
-    onMouseLeave() {
-        if (this.hoveredStateId) {
-            this.hoverOff();
-        }
-        this.hoveredStateId = null;
-    }
-    setRadius(radius) {
-        this.radius = radius;
-    }
-}
-
 export class HoverWithRadius {
     constructor(layer, radius) {
         this.layer = layer;
