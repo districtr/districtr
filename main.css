@@ -3,7 +3,8 @@
 }
 
 html {
-    font-family: "Source Sans Pro";
+    font-family: "Source Sans Pro", sans-serif;
+    color: #111;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 #toolbar {
     position: fixed;
     right: 0;
-    height: 400px;
+    height: 200px;
     background: white;
     padding: 1rem;
 }

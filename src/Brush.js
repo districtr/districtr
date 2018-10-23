@@ -33,7 +33,9 @@ export default class Brush {
         this.hover.layer.map.getCanvas().classList.add("brush-tool");
 
         this.hover.activate();
+
         this.hover.layer.map.dragPan.disable();
+        this.hover.layer.map.doubleClickZoom.disable();
 
         this.hover.layer.on("click", this.colorFeatures);
 
@@ -43,7 +45,9 @@ export default class Brush {
         this.hover.layer.map.getCanvas().classList.remove("brush-tool");
 
         this.hover.deactivate();
+
         this.hover.layer.map.dragPan.enable();
+        this.hover.layer.map.doubleClickZoom.enable();
 
         this.hover.layer.off("click", this.colorFeatures);
 
