@@ -5,12 +5,14 @@ import { initializeMap } from "./map";
 
 const map = initializeMap("map");
 
+document.getElementById("toolbar").style = "display: none;";
+
 map.on("load", () => addPlaceholderLayers(map));
 
 function addPlaceholderLayers(map) {
     const placeholderLayerSource = {
         type: "vector",
-        url: "mapbox://districtr.5rvygwsf"
+        url: "mapbox://districtr.5hsufp8g"
     };
 
     map.addSource("units", placeholderLayerSource);
@@ -41,7 +43,7 @@ function addPlaceholderLayers(map) {
         {
             id: "units",
             source: "units",
-            "source-layer": "data-cktc5t",
+            "source-layer": "Lowell_blocks-aosczb",
             type: "fill",
             paint: {
                 "fill-color": districtColorStyle,
@@ -56,7 +58,7 @@ function addPlaceholderLayers(map) {
             id: "units-borders",
             type: "line",
             source: "units",
-            "source-layer": "data-cktc5t",
+            "source-layer": "Lowell_blocks-aosczb",
             paint: {
                 "line-color": "#010101",
                 "line-width": 1,
@@ -83,6 +85,13 @@ function addPlaceholderLayers(map) {
         },
         "tool"
     );
+
+    const colorPicker = new BrushColorPicker(
+        brush,
+        districtColors.map((v, i) => `brush-color__${i}`)
+    );
+
+    document.getElementById("toolbar").style = "";
 }
 
 class PanTool {
@@ -115,12 +124,33 @@ export class ToolSelector {
         return checkedInput ? checkedInput.value : null;
     }
     selectTool(e) {
-        console.log(e);
         const toolId = e.target.value;
         if (this.activeTool !== toolId) {
             this.tools[this.activeTool].deactivate();
             this.activeTool = toolId;
             this.tools[toolId].activate();
         }
+    }
+}
+
+export class BrushColorPicker {
+    constructor(brush, colorIds) {
+        this.brush = brush;
+
+        this.selectColor = this.selectColor.bind(this);
+
+        const elements = colorIds.map(id => document.getElementById(id));
+        for (let element of elements) {
+            console.log(elements);
+            if (element.checked) {
+                this.brush.setColor(parseInt(element.value));
+            }
+            element.addEventListener("input", this.selectColor);
+        }
+    }
+    selectColor(e) {
+        const color = parseInt(e.target.value);
+        console.log(color);
+        this.brush.setColor(color);
     }
 }
