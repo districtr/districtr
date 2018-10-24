@@ -9,13 +9,13 @@ export class HoverWithRadius {
         this.hoverOff = this.hoverOff.bind(this);
     }
     hoverOff() {
-        while (this.hoveredFeatures.length > 0) {
-            let feature = this.hoveredFeatures.pop();
+        this.hoveredFeatures.forEach(feature => {
             this.layer.setFeatureState(feature.id, {
                 ...feature.state,
                 hover: false
             });
-        }
+        });
+        this.hoveredFeatures = [];
     }
     hoverOn(features) {
         this.hoveredFeatures = features;

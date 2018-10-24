@@ -3,14 +3,11 @@ import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
 import ToolSelector from "./ToolSelector";
 
-const template = (toolSelector, brushSlider, colorPicker) => html`
+const template = (toolSelector, brushSlider, colorPicker, brushActive) => html`
 ${toolSelector}
+<section style="${brushActive ? "" : "display: none"}">
 ${brushSlider}
 ${colorPicker}
-<section>
-<h3>Population</h3>
-<ul id="population-values">
-</ul>
 </section>
 `;
 
@@ -29,7 +26,8 @@ export default class Toolbar {
         return template(
             this.toolSelector.view(),
             this.brushSlider.view(),
-            this.colorPicker.view()
+            this.colorPicker.view(),
+            this.toolSelector.activeTool === "brush"
         );
     }
 }

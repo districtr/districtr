@@ -1,18 +1,25 @@
 import { html } from "lit-html";
 
 const template = (tools, selectTool) => html`
-<fieldset>
+<fieldset class="icon-list">
 <legend>Tools</legend>
 ${tools.map(
     tool => html`
-<input type="radio" id="${tool.id}" name="tool" value="${
-        tool.id
-    }" @input=${selectTool} ?checked=${tool.active}>
-<label for="${tool.id}">${tool.name}</label>
-`
+    <div class="icon-list__item">
+    <label>${tool.name}</label>
+    <input
+        type="radio"
+        id="tool-${tool.id}"
+        name="tool"
+        value="${tool.id}"
+        @input=${selectTool}
+        ?checked=${tool.active}
+    >
+    <div class="icon-list__item__radio"></div>
+    <i class="material-icons">${tool.icon}</i>
+    </div>`
 )}
-</fieldset>
-`;
+</fieldset>`;
 
 export default class ToolSelector {
     constructor(tools, render) {

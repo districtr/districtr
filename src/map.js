@@ -23,7 +23,7 @@ export const islip = {
     sourceLayer: "blocks-cczvxy",
     populationAttribute: "tot_pop",
     mapOptions: {
-        center: [-73.2, 40.76],
+        center: [-73.17, 40.76],
         zoom: 11
     }
 };

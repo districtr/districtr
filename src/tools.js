@@ -4,7 +4,7 @@ import Toolbar from "./Toolbar";
 
 export default function initializeTools(units) {
     const population = new Population(districtColors.map(() => 0), "tot_pop");
-    const brush = new Brush(units, 10, 0, population.update, population.render);
+    const brush = new Brush(units, 20, 0, population.update, population.render);
     let colors = districtColors.map((x, i) => ({
         id: i,
         name: x,
@@ -12,7 +12,7 @@ export default function initializeTools(units) {
     }));
     colors[0].checked = true;
 
-    let tools = [new Tool("pan", "Pan"), new BrushTool(brush)];
+    let tools = [new Tool("pan", "Pan", "pan_tool"), new BrushTool(brush)];
     tools[0].activate();
 
     const toolbar = new Toolbar(tools, colors, brush);
@@ -20,9 +20,10 @@ export default function initializeTools(units) {
 }
 
 class Tool {
-    constructor(id, name) {
+    constructor(id, name, icon) {
         this.id = id;
         this.name = name;
+        this.icon = icon;
         this.active = false;
     }
     activate() {
@@ -35,7 +36,7 @@ class Tool {
 
 class BrushTool extends Tool {
     constructor(brush) {
-        super("brush", "Brush");
+        super("brush", "Brush", "brush");
         this.brush = brush;
     }
     activate() {

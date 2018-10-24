@@ -32,7 +32,7 @@ function addPlaceholderLayers(map, layerInfo) {
             source: "units",
             "source-layer": layerInfo.sourceLayer,
             paint: {
-                "line-color": "#010101",
+                "line-color": "#777777",
                 "line-width": 1,
                 "line-opacity": 0.3
             }

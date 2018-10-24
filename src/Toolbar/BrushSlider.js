@@ -1,13 +1,15 @@
 import { html } from "lit-html";
 
 const brushSliderTemplate = (radius, onChange) => html`<section>
-<label for="brush-radius">Brush Size</label>
+<fieldset>
+<legend>Brush Size</legend>
 <div>
-  <input id="brush-radius" type="range" value="${radius}" min="1" max="100" @change=${onChange}>
+  <input class="slider" type="range" value="${radius}" min="1" max="100" @change=${onChange}>
 </div>
 <div>
-  <input id="brush-radius-value" type="number" value="${radius}" @change=${onChange}>
+  <input class="slider-value" type="number" value="${radius}" min="1" max="100" @change=${onChange}>
 </div>
+</fieldset>
 </section>`;
 
 export default class BrushSlider {

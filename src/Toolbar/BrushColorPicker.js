@@ -1,17 +1,17 @@
 import { html } from "lit-html";
 
 const colorPickerTemplate = (colors, onInput, activeColor) => html`
-<fieldset class="brush-colors">
-<legend>Brush Color</legend>
+<fieldset class="icon-list">
+<legend>Color</legend>
 ${colors.map(
     color => html`
-    <div class="color-picker">
+    <div class="icon-list__item">
     <input type="radio" id="brush-color__${
         color.id
     }" name="brush-color" value="${color.id}"
     ?checked=${color.id === activeColor}
     @input=${onInput}>
-    <div class="color-picker__radio" style="background: ${color.name}"></div>
+    <div class="icon-list__item__radio" style="background: ${color.name}"></div>
     </div>`
 )}
 </fieldset>`;
