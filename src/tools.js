@@ -4,7 +4,7 @@ import { districtColors } from "./colors";
 export default function initializeTools(units) {
     const population = new Population(districtColors.map(() => 0), "tot_pop");
 
-    const brush = new Brush(units, 10, 0, population.update);
+    const brush = new Brush(units, 10, 0, population.update, population.render);
 
     const brushSlider = new BrushSlider(
         document.getElementById("brush-radius"),
@@ -71,10 +71,16 @@ class Population {
         this.populationKey = populationKey;
 
         this.update = this.update.bind(this);
+        this.render = this.render.bind(this);
     }
 
     update(feature, color) {
         this.data[color] += feature.properties[this.populationKey];
-        this.data[feature.color] -= feature.properties[this.populationKey];
+        this.data[feature.state.color] -=
+            feature.properties[this.populationKey];
+    }
+
+    render() {
+        console.log(this.data);
     }
 }

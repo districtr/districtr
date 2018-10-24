@@ -1,19 +1,22 @@
 import { HoverWithRadius } from "./Hover";
 
 export default class Brush extends HoverWithRadius {
-    constructor(layer, radius, color, callback) {
+    constructor(layer, radius, color, callback, postColoringCallback) {
         super(layer, radius);
 
         this.color = color;
         this.coloring = false;
         this.callback = callback ? callback : () => null;
+        this.postColoringCallback = postColoringCallback
+            ? postColoringCallback
+            : () => null;
 
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
         this.onClick = this.onClick.bind(this);
     }
     setColor(color) {
-        this.color = color;
+        this.color = parseInt(color);
     }
     hoverOn(features) {
         this.hoveredFeatures = features;
@@ -25,27 +28,37 @@ export default class Brush extends HoverWithRadius {
         }
     }
     colorFeatures() {
-        this.hoveredFeatures.forEach(feature => {
-            if (feature.color !== this.color) {
+        for (let feature of this.hoveredFeatures) {
+            if (feature.state.color !== this.color) {
+                this.callback(feature, this.color);
                 this.layer.setFeatureState(feature.id, {
+                    ...feature.state,
                     color: this.color,
                     hover: true
                 });
-                this.callback(feature, this.color);
-                feature.color = this.color;
+                feature.state.color = this.color;
+                console.log(this.layer.getFeatureState(feature.id));
+                console.log(feature);
             } else {
-                this.layer.setFeatureState(feature.id, { hover: true });
+                this.layer.setFeatureState(feature.id, {
+                    ...feature.state,
+                    hover: true
+                });
             }
-        });
+        }
     }
     onClick() {
         this.colorFeatures();
+        this.postColoringCallback();
     }
     onMouseDown() {
         this.coloring = true;
+        window.addEventListener("mouseup", this.onMouseUp);
     }
     onMouseUp() {
         this.coloring = false;
+        this.postColoringCallback();
+        window.removeEventListener("mouseup", this.onMouseUp);
     }
     activate() {
         this.layer.map.getCanvas().classList.add("brush-tool");
@@ -57,8 +70,7 @@ export default class Brush extends HoverWithRadius {
 
         this.layer.on("click", this.onClick);
 
-        window.addEventListener("mousedown", this.onMouseDown);
-        window.addEventListener("mouseup", this.onMouseUp);
+        this.layer.map.on("mousedown", this.onMouseDown);
     }
     deactivate() {
         this.layer.map.getCanvas().classList.remove("brush-tool");
@@ -70,8 +82,7 @@ export default class Brush extends HoverWithRadius {
 
         this.layer.off("click", this.onClick);
 
-        window.removeEventListener("mousedown", this.onMouseDown);
-        window.removeEventListener("mouseup", this.onMouseUp);
+        this.layer.map.off("mousedown", this.onMouseDown);
     }
 }
 
@@ -104,13 +115,12 @@ export class BrushColorPicker {
         const elements = colorIds.map(id => document.getElementById(id));
         for (let element of elements) {
             if (element.checked) {
-                this.brush.setColor(parseInt(element.value));
+                this.brush.setColor(element.value);
             }
             element.addEventListener("input", this.selectColor);
         }
     }
     selectColor(e) {
-        const color = parseInt(e.target.value);
-        this.brush.setColor(color);
+        this.brush.setColor(e.target.value);
     }
 }
