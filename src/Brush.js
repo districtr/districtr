@@ -6,7 +6,7 @@ export default class Brush extends HoverWithRadius {
 
         this.color = color;
         this.coloring = false;
-        this.callback = callback;
+        this.callback = callback ? callback : () => null;
 
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
@@ -18,20 +18,28 @@ export default class Brush extends HoverWithRadius {
     hoverOn(features) {
         this.hoveredFeatures = features;
 
+        if (this.coloring === true) {
+            this.colorFeatures();
+        } else {
+            super.hoverOn(features);
+        }
+    }
+    colorFeatures() {
         this.hoveredFeatures.forEach(feature => {
-            if (this.coloring === true && feature.color !== this.color) {
+            if (feature.color !== this.color) {
                 this.layer.setFeatureState(feature.id, {
                     color: this.color,
                     hover: true
                 });
+                this.callback(feature, this.color);
                 feature.color = this.color;
             } else {
                 this.layer.setFeatureState(feature.id, { hover: true });
             }
         });
     }
-    onClick(e) {
-        this.layer.setFeatureState(e.target.id, { color: this.color });
+    onClick() {
+        this.colorFeatures();
     }
     onMouseDown() {
         this.coloring = true;
