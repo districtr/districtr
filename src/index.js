@@ -1,56 +1,23 @@
-import Brush, { BrushSlider } from "./Brush";
-import { HoverWithRadius } from "./Hover";
+import { blockColorProperty } from "./colors";
 import Layer, { addBelowLabels } from "./Layer";
-import { initializeMap } from "./map";
+import { initializeMap, islip } from "./map";
+import initializeTools from "./tools";
 
-const map = initializeMap("map");
+const map = initializeMap("map", islip);
 
 document.getElementById("toolbar").style = "display: none;";
 
-map.on("load", () => addPlaceholderLayers(map));
+map.on("load", () => addPlaceholderLayers(map, islip));
 
-function addPlaceholderLayers(map) {
-    const placeholderLayerSource = {
-        type: "vector",
-        url: "mapbox://districtr.5hsufp8g"
-    };
-
-    map.addSource("units", placeholderLayerSource);
-
-    // Right now I'm assuming colors are numbered, and that -1 means
-    // a block hasn't been colored. I don't think this is a good system.
-
-    const districtColors = ["#0099cd", "#cd9900"];
-    const districtHoverColors = ["#006b9c", "#9c6b00"];
-    const blockColorStyle = [
-        "case",
-        ...districtColors
-            .map((color, i) => [["==", ["feature-state", "color"], i], color])
-            .reduce((list, pair) => [...list, ...pair]),
-        "#f9f9f9"
-    ];
-
-    const hoveredBlockColorStyle = [
-        "case",
-        ...districtHoverColors
-            .map((color, i) => [["==", ["feature-state", "color"], i], color])
-            .reduce((list, pair) => [...list, ...pair]),
-        "#aaaaaa"
-    ];
-
-    const blockColorProperty = [
-        "case",
-        ["boolean", ["feature-state", "hover"], false],
-        hoveredBlockColorStyle,
-        blockColorStyle
-    ];
+function addPlaceholderLayers(map, layerInfo) {
+    map.addSource("units", layerInfo.source);
 
     const units = new Layer(
         map,
         {
             id: "units",
             source: "units",
-            "source-layer": "Lowell_blocks-aosczb",
+            "source-layer": layerInfo.sourceLayer,
             type: "fill",
             paint: {
                 "fill-color": blockColorProperty,
@@ -65,7 +32,7 @@ function addPlaceholderLayers(map) {
             id: "units-borders",
             type: "line",
             source: "units",
-            "source-layer": "Lowell_blocks-aosczb",
+            "source-layer": layerInfo.sourceLayer,
             paint: {
                 "line-color": "#010101",
                 "line-width": 1,
@@ -76,86 +43,7 @@ function addPlaceholderLayers(map) {
     );
 
     // Tools
-
-    const hover = new HoverWithRadius(units, 10);
-    const brush = new Brush(hover, 0);
-    const brushSlider = new BrushSlider(
-        document.getElementById("brush-radius"),
-        document.getElementById("brush-radius-value"),
-        brush
-    );
-
-    const toolSelector = new ToolSelector(
-        {
-            pan: new PanTool(),
-            brush: brush
-        },
-        "tool"
-    );
-
-    const colorPicker = new BrushColorPicker(
-        brush,
-        districtColors.map((v, i) => `brush-color__${i}`)
-    );
+    initializeTools(units);
 
     document.getElementById("toolbar").style = "";
-}
-
-class PanTool {
-    activate() {
-        return null;
-    }
-    deactivate() {
-        return null;
-    }
-}
-
-export class ToolSelector {
-    constructor(tools, name) {
-        this.tools = tools;
-        this.name = name;
-        this.activeTool = this.getActiveTool();
-
-        this.selectTool = this.selectTool.bind(this);
-
-        for (let toolId in tools) {
-            document
-                .getElementById(toolId)
-                .addEventListener("input", this.selectTool);
-        }
-    }
-    getActiveTool() {
-        const checkedInput = document.querySelector(
-            `input[name="${this.name}"]:checked`
-        );
-        return checkedInput ? checkedInput.value : null;
-    }
-    selectTool(e) {
-        const toolId = e.target.value;
-        if (this.activeTool !== toolId) {
-            this.tools[this.activeTool].deactivate();
-            this.activeTool = toolId;
-            this.tools[toolId].activate();
-        }
-    }
-}
-
-export class BrushColorPicker {
-    constructor(brush, colorIds) {
-        this.brush = brush;
-
-        this.selectColor = this.selectColor.bind(this);
-
-        const elements = colorIds.map(id => document.getElementById(id));
-        for (let element of elements) {
-            if (element.checked) {
-                this.brush.setColor(parseInt(element.value));
-            }
-            element.addEventListener("input", this.selectColor);
-        }
-    }
-    selectColor(e) {
-        const color = parseInt(e.target.value);
-        this.brush.setColor(color);
-    }
 }

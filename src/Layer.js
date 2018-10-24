@@ -35,6 +35,13 @@ export default class Layer {
             state
         );
     }
+    getFeatureState(featureID) {
+        return this.map.getFeatureState({
+            source: this.sourceID,
+            sourceLayer: this.sourceLayer,
+            id: featureID
+        });
+    }
     on(type, ...args) {
         this.map.on(type, this.id, ...args);
     }

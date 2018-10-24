@@ -21,7 +21,7 @@ export class HoverWithRadius {
         });
     }
     onMouseMove(e) {
-        const box = boxAround(e.point, this.radius, this.layer.map);
+        const box = boxAround(e.point, this.radius);
         const features = this.layer.map.queryRenderedFeatures(box, {
             layers: [this.layer.id]
         });
@@ -29,9 +29,6 @@ export class HoverWithRadius {
             this.hoverOff();
             this.hoverOn(features);
         }
-    }
-    setRadius(radius) {
-        this.radius = radius;
     }
     activate() {
         this.layer.on("mousemove", this.onMouseMove);
@@ -43,7 +40,7 @@ export class HoverWithRadius {
     }
 }
 
-function boxAround(point, radius, map) {
+function boxAround(point, radius) {
     const southwest = [point.x + radius, point.y + radius];
     const northeast = [point.x - radius, point.y - radius];
     return [northeast, southwest];
