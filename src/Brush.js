@@ -37,8 +37,6 @@ export default class Brush extends HoverWithRadius {
                     hover: true
                 });
                 feature.state.color = this.color;
-                console.log(this.layer.getFeatureState(feature.id));
-                console.log(feature);
             } else {
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
