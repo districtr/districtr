@@ -14,7 +14,8 @@
     },
     "keywords": [
         "gis",
-        "voting-rights"
+        "voting-rights",
+        "redistricting"
     ],
     "author": "Metric Geometry and Gerrymandering Group",
     "license": "MIT",
@@ -28,6 +29,7 @@
         "parcel-bundler": "^1.10.3"
     },
     "dependencies": {
+        "lit-html": "^0.12.0",
         "mapbox-gl": "^0.50.0"
     }
 }

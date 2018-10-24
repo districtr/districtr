@@ -5,8 +5,6 @@ import initializeTools from "./tools";
 
 const map = initializeMap("map", islip);
 
-document.getElementById("toolbar").style = "display: none;";
-
 map.on("load", () => addPlaceholderLayers(map, islip));
 
 function addPlaceholderLayers(map, layerInfo) {
@@ -44,6 +42,4 @@ function addPlaceholderLayers(map, layerInfo) {
 
     // Tools
     initializeTools(units);
-
-    document.getElementById("toolbar").style = "";
 }
