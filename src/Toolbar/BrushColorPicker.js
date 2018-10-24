@@ -1,17 +1,17 @@
 import { html } from "lit-html";
 
-const colorPickerTemplate = (colors, onInput) => html`
-<fieldset>
+const colorPickerTemplate = (colors, onInput, activeColor) => html`
+<fieldset class="brush-colors">
 <legend>Brush Color</legend>
 ${colors.map(
     color => html`
-    <div>
+    <div class="color-picker">
     <input type="radio" id="brush-color__${
         color.id
     }" name="brush-color" value="${color.id}"
-    ?checked=${color.checked}
+    ?checked=${color.id === activeColor}
     @input=${onInput}>
-    <label for="brush-color-${color.id}">${color.name}</label>
+    <div class="color-picker__radio" style="background: ${color.name}"></div>
     </div>`
 )}
 </fieldset>`;
@@ -26,9 +26,12 @@ export default class BrushColorPicker {
     }
     selectColor(e) {
         this.brush.setColor(e.target.value);
-        this.render();
     }
     view() {
-        return colorPickerTemplate(this.colors, this.selectColor);
+        return colorPickerTemplate(
+            this.colors,
+            this.selectColor,
+            this.colors[this.brush.color].id
+        );
     }
 }

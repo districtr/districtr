@@ -32,3 +32,63 @@ body {
     background: white;
     padding: 1rem;
 }
+
+/* Customize the label (the container) */
+.color-picker {
+    margin: 0 auto;
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    position: relative;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.color-picker input {
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    height: 100%;
+    width: 100%;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+/* Create a custom radio button */
+.color-picker__radio {
+    transition: border-radius ease-out 100ms;
+
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3rem;
+    width: 3rem;
+    background: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+/* .color-picker:hover input ~ .color-picker__radio {
+
+} */
+
+/* When the radio button is checked, add a blue background */
+.color-picker input:checked ~ .color-picker__radio {
+    border-radius: 50%;
+}
