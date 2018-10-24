@@ -1,23 +1,27 @@
 #toolbar {
+    position: fixed;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    max-height: 100vh;
+    overflow-y: auto;
+    // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    // 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+#toolbar section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    right: 0;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 1rem 0;
-    margin: 0;
-    min-width: 150px;
-    max-height: 100vh;
-    overflow-y: auto;
 }
 
 fieldset {
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
     border: 0;
-    margin-bottom: 2rem;
 }
 
 legend {
@@ -27,23 +31,10 @@ legend {
 }
 
 .icon-list {
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-@media only screen and (max-width: 400px) {
-    #toolbar {
-        top: 0;
-        flex-direction: row;
-        overflow: auto;
-        width: 100%;
-    }
-    .icon-list {
-        flex-direction: row;
-    }
 }
 
 .icon-list__item i {
@@ -121,6 +112,12 @@ of the whole element */
     border-radius: 50%;
 }
 
+.color-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: none;
+}
+
 // Brush radius slider
 
 .slider-value {
@@ -136,4 +133,21 @@ of the whole element */
 
 .slider {
     width: 6rem;
+}
+
+@media only screen and (max-width: 400px) {
+    #toolbar,
+    #toolbar section {
+        top: 0;
+        flex-direction: row;
+        overflow: auto;
+        width: 100%;
+    }
+    .icon-list {
+        flex-direction: row;
+    }
+    .color-list {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }

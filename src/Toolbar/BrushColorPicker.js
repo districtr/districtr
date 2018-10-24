@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 
 const colorPickerTemplate = (colors, onInput, activeColor) => html`
-<fieldset class="icon-list">
+<fieldset class="icon-list color-list">
 <legend>Color</legend>
 ${colors.map(
     color => html`

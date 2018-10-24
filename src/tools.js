@@ -2,15 +2,23 @@ import Brush from "./Brush";
 import { districtColors } from "./colors";
 import Toolbar from "./Toolbar";
 
-export default function initializeTools(units) {
-    const population = new Population(districtColors.map(() => 0), "tot_pop");
-    const brush = new Brush(units, 20, 0, population.update, population.render);
+export default function initializeTools(units, layerInfo) {
     let colors = districtColors.map((x, i) => ({
         id: i,
         name: x,
         checked: false
     }));
+
+    if (layerInfo.numberOfDistricts) {
+        colors = colors.slice(0, layerInfo.numberOfDistricts);
+    }
     colors[0].checked = true;
+
+    const population = new Population(
+        colors.map(() => 0),
+        layerInfo.populationAttribute
+    );
+    const brush = new Brush(units, 20, 0, population.update, population.render);
 
     let tools = [new Tool("pan", "Pan", "pan_tool"), new BrushTool(brush)];
     tools[0].activate();

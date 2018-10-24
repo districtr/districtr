@@ -28,6 +28,20 @@ export const islip = {
     }
 };
 
+export const MA_sec_state_vtds = {
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.d1ci1avi"
+    },
+    sourceLayer: "MA_FINAL_VTD2010_LEDRC-71bhd3",
+    populationAttribute: "Population",
+    mapOptions: {
+        center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
+        zoom: 7
+    },
+    numberOfDistricts: 9
+};
+
 export function initializeMap(mapContainer, layerInfo) {
     const map = new mapbox.Map({
         container: mapContainer,
