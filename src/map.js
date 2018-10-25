@@ -23,9 +23,23 @@ export const islip = {
     sourceLayer: "blocks-cczvxy",
     populationAttribute: "tot_pop",
     mapOptions: {
-        center: [-73.2, 40.76],
+        center: [-73.17, 40.76],
         zoom: 11
     }
+};
+
+export const MA_sec_state_vtds = {
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.d1ci1avi"
+    },
+    sourceLayer: "MA_FINAL_VTD2010_LEDRC-71bhd3",
+    populationAttribute: "Population",
+    mapOptions: {
+        center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
+        zoom: 7
+    },
+    numberOfDistricts: 9
 };
 
 export function initializeMap(mapContainer, layerInfo) {

@@ -1,13 +1,11 @@
 import { blockColorProperty } from "./colors";
 import Layer, { addBelowLabels } from "./Layer";
-import { initializeMap, islip } from "./map";
+import { initializeMap, MA_sec_state_vtds } from "./map";
 import initializeTools from "./tools";
 
-const map = initializeMap("map", islip);
+const map = initializeMap("map", MA_sec_state_vtds);
 
-document.getElementById("toolbar").style = "display: none;";
-
-map.on("load", () => addPlaceholderLayers(map, islip));
+map.on("load", () => addPlaceholderLayers(map, MA_sec_state_vtds));
 
 function addPlaceholderLayers(map, layerInfo) {
     map.addSource("units", layerInfo.source);
@@ -34,7 +32,7 @@ function addPlaceholderLayers(map, layerInfo) {
             source: "units",
             "source-layer": layerInfo.sourceLayer,
             paint: {
-                "line-color": "#010101",
+                "line-color": "#777777",
                 "line-width": 1,
                 "line-opacity": 0.3
             }
@@ -43,7 +41,5 @@ function addPlaceholderLayers(map, layerInfo) {
     );
 
     // Tools
-    initializeTools(units);
-
-    document.getElementById("toolbar").style = "";
+    initializeTools(units, layerInfo);
 }

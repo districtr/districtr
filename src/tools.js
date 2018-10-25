@@ -1,67 +1,59 @@
-import Brush, { BrushColorPicker, BrushSlider } from "./Brush";
+import Brush from "./Brush";
 import { districtColors } from "./colors";
+import Toolbar from "./Toolbar";
 
-export default function initializeTools(units) {
-    const population = new Population(districtColors.map(() => 0), "tot_pop");
+export default function initializeTools(units, layerInfo) {
+    let colors = districtColors.map((x, i) => ({
+        id: i,
+        name: x,
+        checked: false
+    }));
 
-    const brush = new Brush(units, 10, 0, population.update);
+    if (layerInfo.numberOfDistricts) {
+        colors = colors.slice(0, layerInfo.numberOfDistricts);
+    }
+    colors[0].checked = true;
 
-    const brushSlider = new BrushSlider(
-        document.getElementById("brush-radius"),
-        document.getElementById("brush-radius-value"),
-        brush
+    const population = new Population(
+        colors.map(() => 0),
+        layerInfo.populationAttribute
     );
+    const brush = new Brush(units, 20, 0, population.update, population.render);
 
-    const toolSelector = new ToolSelector(
-        {
-            pan: new PanTool(),
-            brush: brush
-        },
-        "tool"
-    );
+    let tools = [new Tool("pan", "Pan", "pan_tool"), new BrushTool(brush)];
+    tools[0].activate();
 
-    const colorPicker = new BrushColorPicker(
-        brush,
-        districtColors.map((v, i) => `brush-color__${i}`)
-    );
+    const toolbar = new Toolbar(tools, colors, brush);
+    toolbar.render();
 }
 
-class PanTool {
+class Tool {
+    constructor(id, name, icon) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+        this.active = false;
+    }
     activate() {
-        return null;
+        this.active = true;
     }
     deactivate() {
-        return null;
+        this.active = false;
     }
 }
 
-export class ToolSelector {
-    constructor(tools, name) {
-        this.tools = tools;
-        this.name = name;
-        this.activeTool = this.getActiveTool();
-
-        this.selectTool = this.selectTool.bind(this);
-
-        for (let toolId in tools) {
-            document
-                .getElementById(toolId)
-                .addEventListener("input", this.selectTool);
-        }
+class BrushTool extends Tool {
+    constructor(brush) {
+        super("brush", "Brush", "brush");
+        this.brush = brush;
     }
-    getActiveTool() {
-        const checkedInput = document.querySelector(
-            `input[name="${this.name}"]:checked`
-        );
-        return checkedInput ? checkedInput.value : null;
+    activate() {
+        super.activate();
+        this.brush.activate();
     }
-    selectTool(e) {
-        const toolId = e.target.value;
-        if (this.activeTool !== toolId) {
-            this.tools[this.activeTool].deactivate();
-            this.activeTool = toolId;
-            this.tools[toolId].activate();
-        }
+    deactivate() {
+        super.deactivate();
+        this.brush.deactivate();
     }
 }
 
@@ -71,10 +63,16 @@ class Population {
         this.populationKey = populationKey;
 
         this.update = this.update.bind(this);
+        this.render = this.render.bind(this);
     }
 
     update(feature, color) {
         this.data[color] += feature.properties[this.populationKey];
-        this.data[feature.color] -= feature.properties[this.populationKey];
+        this.data[feature.state.color] -=
+            feature.properties[this.populationKey];
+    }
+
+    render() {
+        console.log(this.data);
     }
 }
