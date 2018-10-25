@@ -45,6 +45,9 @@ export const MA_sec_state_vtds = {
     numberOfDistricts: 9
 };
 
+// TODO: Just use map.fitBounds() on the bounding box of the tileset,
+// instead of computing the center and guessing the zoom.
+
 export function initializeMap(mapContainer, layerInfo) {
     const map = new mapbox.Map({
         container: mapContainer,
