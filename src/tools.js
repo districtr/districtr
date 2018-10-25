@@ -1,4 +1,5 @@
 import Brush from "./Brush";
+import Tally from "./Charts/Tally";
 import { districtColors } from "./colors";
 import Toolbar from "./Toolbar";
 
@@ -14,7 +15,7 @@ export default function initializeTools(units, layerInfo) {
     }
     colors[0].checked = true;
 
-    const population = new Population(
+    const population = new Tally(
         colors.map(() => 0),
         layerInfo.populationAttribute
     );
@@ -54,25 +55,5 @@ class BrushTool extends Tool {
     deactivate() {
         super.deactivate();
         this.brush.deactivate();
-    }
-}
-
-class Population {
-    constructor(initialData, populationKey) {
-        this.data = initialData;
-        this.populationKey = populationKey;
-
-        this.update = this.update.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    update(feature, color) {
-        this.data[color] += feature.properties[this.populationKey];
-        this.data[feature.state.color] -=
-            feature.properties[this.populationKey];
-    }
-
-    render() {
-        console.log(this.data);
     }
 }

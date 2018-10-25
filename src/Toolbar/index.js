@@ -8,6 +8,7 @@ ${toolSelector}
 <section style="${brushActive ? "" : "display: none"}">
 ${brushSlider}
 ${colorPicker}
+<div id="tally"></div>
 </section>
 `;
 

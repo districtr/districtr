@@ -28,6 +28,10 @@ legend {
     font-weight: 400;
     margin: 0 auto;
     line-height: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .icon-list {
