@@ -17,14 +17,16 @@ ${colors.map(
 </fieldset>`;
 
 export default class BrushColorPicker {
-    constructor(brush, colors, render) {
+    constructor(brush, colors, render, toolSelector) {
         this.brush = brush;
         this.colors = colors;
         this.render = render;
+        this.toolSelector = toolSelector;
 
         this.selectColor = this.selectColor.bind(this);
     }
     selectColor(e) {
+        this.toolSelector.selectTool("brush");
         this.brush.setColor(e.target.value);
     }
     view() {

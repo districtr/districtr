@@ -28,9 +28,13 @@ export default class Brush extends HoverWithRadius {
         }
     }
     colorFeatures() {
+        let seenFeatures = new Set();
         for (let feature of this.hoveredFeatures) {
             if (feature.state.color !== this.color) {
-                this.callback(feature, this.color);
+                if (!seenFeatures.has(feature.id)) {
+                    seenFeatures.add(feature.id);
+                    this.callback(feature, this.color);
+                }
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
                     color: this.color,
@@ -44,10 +48,10 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
+        this.postColoringCallback();
     }
     onClick() {
         this.colorFeatures();
-        this.postColoringCallback();
     }
     onMouseDown() {
         this.coloring = true;
@@ -55,7 +59,6 @@ export default class Brush extends HoverWithRadius {
     }
     onMouseUp() {
         this.coloring = false;
-        this.postColoringCallback();
         window.removeEventListener("mouseup", this.onMouseUp);
     }
     activate() {

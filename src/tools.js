@@ -1,4 +1,5 @@
 import Brush from "./Brush";
+import PopulationBarChart from "./Charts/PopulationBarChart";
 import { districtColors } from "./colors";
 import Toolbar from "./Toolbar";
 
@@ -14,8 +15,10 @@ export default function initializeTools(units, layerInfo) {
     }
     colors[0].checked = true;
 
-    const population = new Population(
+    const population = new PopulationBarChart(
         colors.map(() => 0),
+        colors,
+        layerInfo.aggregated.population,
         layerInfo.populationAttribute
     );
     const brush = new Brush(units, 20, 0, population.update, population.render);
@@ -25,6 +28,7 @@ export default function initializeTools(units, layerInfo) {
 
     const toolbar = new Toolbar(tools, colors, brush);
     toolbar.render();
+    population.render();
 }
 
 class Tool {
@@ -54,25 +58,5 @@ class BrushTool extends Tool {
     deactivate() {
         super.deactivate();
         this.brush.deactivate();
-    }
-}
-
-class Population {
-    constructor(initialData, populationKey) {
-        this.data = initialData;
-        this.populationKey = populationKey;
-
-        this.update = this.update.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    update(feature, color) {
-        this.data[color] += feature.properties[this.populationKey];
-        this.data[feature.state.color] -=
-            feature.properties[this.populationKey];
-    }
-
-    render() {
-        console.log(this.data);
     }
 }

@@ -39,6 +39,9 @@ export const MA_sec_state_vtds = {
         center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
         zoom: 7
     },
+    aggregated: {
+        population: 6.54782e6
+    },
     numberOfDistricts: 9
 };
 
