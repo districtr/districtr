@@ -1,5 +1,5 @@
 import Brush from "./Brush";
-import Tally from "./Charts/Tally";
+import PopulationBarChart from "./Charts/PopulationBarChart";
 import { districtColors } from "./colors";
 import Toolbar from "./Toolbar";
 
@@ -15,8 +15,10 @@ export default function initializeTools(units, layerInfo) {
     }
     colors[0].checked = true;
 
-    const population = new Tally(
+    const population = new PopulationBarChart(
         colors.map(() => 0),
+        colors,
+        layerInfo.aggregated.population,
         layerInfo.populationAttribute
     );
     const brush = new Brush(units, 20, 0, population.update, population.render);
@@ -26,6 +28,7 @@ export default function initializeTools(units, layerInfo) {
 
     const toolbar = new Toolbar(tools, colors, brush);
     toolbar.render();
+    population.render();
 }
 
 class Tool {

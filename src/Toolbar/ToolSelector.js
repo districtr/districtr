@@ -34,21 +34,25 @@ export default class ToolSelector {
             {}
         );
 
-        this.selectTool = this.selectTool.bind(this);
+        this.handleToolSelect = this.handleToolSelect.bind(this);
+
         for (let tool of tools) {
             if (tool.active === true) {
                 this.activeTool = tool.id;
             }
         }
     }
-    selectTool(e) {
+    handleToolSelect(e) {
         const toolId = e.target.value;
+        this.selectTool(toolId);
+    }
+    selectTool(toolId) {
         this.toolsById[this.activeTool].deactivate();
         this.toolsById[toolId].activate();
         this.activeTool = toolId;
         this.render();
     }
     view() {
-        return template(this.tools, this.selectTool);
+        return template(this.tools, this.handleToolSelect);
     }
 }
