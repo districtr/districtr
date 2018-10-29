@@ -108,11 +108,14 @@ export default class PopulationBarChart {
 
     update(feature, color) {
         if (color !== undefined && color !== null) {
-            this.data[color].value += feature.properties[this.attributeKey];
+            this.data[color].value += parseFloat(
+                feature.properties[this.attributeKey]
+            );
         }
         if (feature.state.color !== undefined && feature.state.color !== null) {
-            this.data[feature.state.color].value -=
-                feature.properties[this.attributeKey];
+            this.data[feature.state.color].value -= parseFloat(
+                feature.properties[this.attributeKey]
+            );
         }
     }
 
