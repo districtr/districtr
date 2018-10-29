@@ -1,0 +1,19 @@
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.slider-value {
+    width: 3rem;
+    background: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    display: block;
+}
+
+.slider {
+    width: 10rem;
+}

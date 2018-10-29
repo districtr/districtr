@@ -2,3 +2,21 @@ rect {
     fill: #aaa;
     transition: all 1000ms ease;
 }
+
+.report-data-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.report-data-list dd,
+.report-data-list dt {
+    margin: 0;
+}
+
+.report-data-list dt::after {
+    content: ":";
+}
+
+.report-data-list dd {
+    text-align: right;
+}

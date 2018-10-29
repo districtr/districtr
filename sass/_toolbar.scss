@@ -1,3 +1,6 @@
+@import "icon-list";
+@import "slider";
+
 #toolbar {
     position: fixed;
     right: 0;
@@ -35,91 +38,6 @@ legend {
     user-select: none;
 }
 
-.icon-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon-list__item i {
-    color: #f9f9f9;
-    z-index: 100;
-}
-
-.icon-list__item__text {
-    color: white;
-}
-
-.icon-list__item label {
-    display: none;
-}
-
-/* Customize the label (the container) */
-.icon-list__item {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 0.1rem;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default radio button, lay it on top
-of the whole element */
-.icon-list__item input {
-    margin: 0;
-    padding: 0;
-
-    position: absolute;
-
-    opacity: 0;
-
-    cursor: pointer;
-
-    height: 100%;
-    width: 100%;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-
-    z-index: 1000;
-}
-
-/* Create a custom radio button */
-.icon-list__item__radio {
-    transition: all 160ms cubic-bezier(0.25, 0.8, 0.25, 1);
-
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 3rem;
-    width: 3rem;
-
-    background: #111;
-}
-
-.icon-list__item:hover input ~ .icon-list__item__radio {
-    border-radius: 20%;
-}
-
-.icon-list__item input:active ~ .icon-list__item__radio {
-    border-radius: 20%;
-}
-
-/* When the radio button is checked, add a blue background */
-.icon-list__item input:checked ~ .icon-list__item__radio {
-    border-radius: 50%;
-}
-
 .color-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -141,26 +59,6 @@ of the whole element */
 
 // Brush radius slider
 
-.slider-container {
-    display: flex;
-    align-items: center;
-}
-
-.slider-value {
-    width: 3rem;
-    background: none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    border: none;
-    outline: none;
-    margin: 0 auto;
-    display: block;
-}
-
-.slider {
-    width: 10rem;
-}
-
 @media only screen and (max-width: 400px) {
     #toolbar,
     #toolbar section {
@@ -168,9 +66,6 @@ of the whole element */
         flex-direction: row;
         overflow: auto;
         width: 100%;
-    }
-    .icon-list {
-        flex-direction: row;
     }
     .color-list {
         grid-template-columns: none;
