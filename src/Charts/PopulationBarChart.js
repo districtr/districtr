@@ -1,9 +1,4 @@
-import { html, render, svg } from "lit-html";
-
-const template = data => html`
-<ul>
-${data.map(d => html`<li>${d}</li>`)}
-</ul>`;
+import { render, svg } from "lit-html";
 
 const width = 200;
 const height = 200;
