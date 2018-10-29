@@ -1,8 +1,8 @@
 import { html, render, svg } from "lit-html";
 
-const width = 200;
-const height = 200;
-const gap = 1;
+const width = 240;
+const height = 300;
+const gap = 2;
 
 function barWidth(data) {
     return (width - (gap * data.length - 1)) / data.length;
@@ -15,7 +15,7 @@ function barHeight(d, maxValue) {
     return height * (d / maxValue);
 }
 
-const barChart = (data, maxValue, idealValue, tooltip) => {
+const barChart = (data, maxValue, idealValue) => {
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
@@ -29,9 +29,6 @@ const barChart = (data, maxValue, idealValue, tooltip) => {
         x="${i * (w + gap)}"
         y="${height - barH}"
         style="fill: ${d.color}"
-        @mousemove=${e => tooltip.onMouseMove(e, i)}
-        @mouseleave=${e => tooltip.onMouseLeave(e, i)}
-        @mouseenter=${e => tooltip.onMouseEnter(e, i)}
     ></rect>
     `;
     })}
@@ -43,6 +40,48 @@ const barChart = (data, maxValue, idealValue, tooltip) => {
                   4}" fill="black" style="font-size: 0.8rem">Ideal</text>`
             : ""
     }
+    </svg>
+    `;
+};
+
+const extra = 20;
+
+const horizontalBarChart = (data, maxValue, idealValue) => {
+    const w = barWidth(data);
+    const idealY = height - barHeight(idealValue, maxValue);
+    return svg`
+    <svg viewBox="0 0 ${height} ${width +
+        extra}" width="${height}" height="${width + extra}" class="bar-chart">
+    ${data.map((d, i) => {
+        const barH = barHeight(d.value, maxValue);
+        return svg`
+    <rect
+        width="${barH}"
+        height="${w}"
+        x="0"
+        y="${i * (w + gap)}"
+        style="fill: ${d.color}"
+    ></rect>`;
+    })}
+    ${
+        idealValue > 0
+            ? svg`<line x1="${height - idealY}" y1="${0}" x2="${height -
+                  idealY}" y2="${width + extra}" stroke="#aaa" />
+                  <text x="${height - idealY + 3}" y="${width +
+                  extra -
+                  4}" fill="black" style="font-size: 0.8rem">Ideal</text>`
+            : ""
+    }
+    ${data.map((d, i) => {
+        const barH = barHeight(d.value, maxValue);
+        return barH > 0
+            ? svg`
+    <text
+        x="${barH + 2 * gap}"
+        y="${i * (w + gap) + 16}">${numberWithCommas(d.value)}</text>
+    `
+            : "";
+    })}
     </svg>
     `;
 };
@@ -61,8 +100,6 @@ export default class PopulationBarChart {
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
-
-        this.tooltip = new Tooltip(i => html`<h4>${i}</h4>`);
     }
 
     update(feature, color) {
@@ -81,50 +118,33 @@ export default class PopulationBarChart {
             this.maxDisplayValue,
             ...this.data.map(d => d.value)
         );
+
+        const populationDeviations = this.data.map(
+            d => Math.abs(d.value - this.ideal) / this.ideal
+        );
+        const maxPopDev = Math.max(...populationDeviations);
+
         render(
             html`
-            ${barChart(
-                this.data,
-                maxValueOrLargestDatum,
-                this.ideal,
-                this.tooltip
-            )}
-            <div id="tooltip"></div>
-            `,
+            ${horizontalBarChart(this.data, maxValueOrLargestDatum, this.ideal)}
+            ${
+                maxPopDev < 0.1
+                    ? html`<dl class="report-data-list">
+                    <dt>Largest Population Deviation</dt>
+                    <dd>
+                    ${Math.round(10000 * maxPopDev) / 100}%
+                    </dd>
+                    </dl>
+            `
+                    : ""
+            }`,
             document.getElementById("tally")
         );
     }
 }
 
-class Tooltip {
-    constructor(template, target) {
-        this.template = template;
-        this.target = document.getElementById("tooltip");
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-        this.onMouseMove = this.onMouseMove.bind(this);
-    }
-    onMouseLeave(e, state) {
-        this.state = state;
-        this.render();
-    }
-    onMouseEnter(e, state) {
-        this.state = state;
-        this.render(e.pageX, e.pageY);
-    }
-    onMouseMove(e, state) {
-        this.state = state;
-        this.render(e.pageX, e.pageY);
-    }
-    render(x, y) {
-        const style =
-            x && y ? `transform: translate(${x}, ${y})` : "display: none";
-        render(
-            html`
-        <div class="tooltip-container" style=${style}>
-        ${this.template(this.state)}
-        </div>`,
-            this.target
-        );
-    }
+// From https://stackoverflow.com/questions/2901102/
+// how-to-print-a-number-with-commas-as-thousands-separators-in-javascript#2901298
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

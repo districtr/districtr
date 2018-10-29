@@ -1,0 +1,11 @@
+#tooltip {
+    position: absolute;
+    z-index: 10000;
+}
+
+.tooltip-container {
+    transition: opacity 100ms ease;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    color: #f9f9f9;
+}
