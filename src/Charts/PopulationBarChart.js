@@ -46,7 +46,7 @@ const barChart = (data, maxValue, idealValue) => {
 
 const extra = 20;
 
-const horizontalBarChart = (data, maxValue, idealValue) => {
+const horizontalBarChart = (data, maxValue, idealValue, formattedIdeal) => {
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
@@ -71,7 +71,7 @@ const horizontalBarChart = (data, maxValue, idealValue) => {
                   extra -
                   4}" fill="black" style="font-size: 0.8rem">
                   Ideal:
-                  ${numberWithCommas(idealValue)}
+                  ${formattedIdeal}
                   </text>`
             : ""
     }
@@ -93,6 +93,7 @@ export default class PopulationBarChart {
     constructor(initialData, colors, total, attributeKey) {
         this.total = total;
         this.ideal = total / colors.length;
+        this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
         this.maxDisplayValue = this.ideal * 2;
 
         this.data = initialData.map((v, i) => ({
@@ -128,13 +129,18 @@ export default class PopulationBarChart {
 
         render(
             html`
-            ${horizontalBarChart(this.data, maxValueOrLargestDatum, this.ideal)}
+            ${horizontalBarChart(
+                this.data,
+                maxValueOrLargestDatum,
+                this.ideal,
+                this.formattedIdeal
+            )}
             ${
                 maxPopDev < 0.1
                     ? html`<dl class="report-data-list">
                     <dt>Largest Population Deviation</dt>
                     <dd>
-                    ${Math.round(10000 * maxPopDev) / 100}%
+                    ${roundToDecimal(maxPopDev, 2)}%
                     </dd>
                     </dl>
             `
@@ -149,4 +155,8 @@ export default class PopulationBarChart {
 // how-to-print-a-number-with-commas-as-thousands-separators-in-javascript#2901298
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function roundToDecimal(n, places) {
+    return Math.round(n * Math.pow(10, places)) / Math.pow(10, places);
 }
