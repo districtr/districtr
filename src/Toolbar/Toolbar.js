@@ -49,7 +49,7 @@ export default class Toolbar {
             </section>
             <section>
             <legend>Population</legend>
-            <div id="tally" style="background: #eee"></div>
+            <div id="tally"></div>
             </section>`,
             this.target
         );

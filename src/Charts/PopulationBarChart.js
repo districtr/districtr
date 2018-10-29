@@ -1,4 +1,4 @@
-import { render, svg } from "lit-html";
+import { html, render, svg } from "lit-html";
 
 const width = 200;
 const height = 200;
@@ -15,16 +15,24 @@ function barHeight(d, maxValue) {
     return height * (d / maxValue);
 }
 
-const barChart = (data, maxValue, idealValue) => {
+const barChart = (data, maxValue, idealValue, tooltip) => {
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
-    <svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
+    <svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="background: #eee">
     ${data.map((d, i) => {
         const barH = barHeight(d.value, maxValue);
         return svg`
-    <rect width=${w} height=${barH} x="${i * (w + gap)}" y="${height -
-            barH}" style="fill: ${d.color}"></rect>
+    <rect
+        width=${w}
+        height=${barH}
+        x="${i * (w + gap)}"
+        y="${height - barH}"
+        style="fill: ${d.color}"
+        @mousemove=${e => tooltip.onMouseMove(e, i)}
+        @mouseleave=${e => tooltip.onMouseLeave(e, i)}
+        @mouseenter=${e => tooltip.onMouseEnter(e, i)}
+    ></rect>
     `;
     })}
     1
@@ -53,6 +61,8 @@ export default class PopulationBarChart {
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
+
+        this.tooltip = new Tooltip(i => html`<h4>${i}</h4>`);
     }
 
     update(feature, color) {
@@ -72,8 +82,49 @@ export default class PopulationBarChart {
             ...this.data.map(d => d.value)
         );
         render(
-            barChart(this.data, maxValueOrLargestDatum, this.ideal),
+            html`
+            ${barChart(
+                this.data,
+                maxValueOrLargestDatum,
+                this.ideal,
+                this.tooltip
+            )}
+            <div id="tooltip"></div>
+            `,
             document.getElementById("tally")
+        );
+    }
+}
+
+class Tooltip {
+    constructor(template, target) {
+        this.template = template;
+        this.target = document.getElementById("tooltip");
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+    }
+    onMouseLeave(e, state) {
+        this.state = state;
+        this.render();
+    }
+    onMouseEnter(e, state) {
+        this.state = state;
+        this.render(e.pageX, e.pageY);
+    }
+    onMouseMove(e, state) {
+        this.state = state;
+        this.render(e.pageX, e.pageY);
+    }
+    render(x, y) {
+        const style =
+            x && y ? `transform: translate(${x}, ${y})` : "display: none";
+        render(
+            html`
+        <div class="tooltip-container" style=${style}>
+        ${this.template(this.state)}
+        </div>`,
+            this.target
         );
     }
 }
