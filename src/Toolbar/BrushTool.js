@@ -3,10 +3,19 @@ import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
 
+const icon = (active, color, colors) => {
+    if (active && color !== undefined) {
+        return html`
+        <i class="material-icons"
+        style="color: ${colors[color].name};">brush</i>`;
+    } else {
+        return html`<i class="material-icons">brush</i>`;
+    }
+};
+
 export default class BrushTool extends Tool {
     constructor(brush, colors) {
-        super("brush", "Brush", "brush");
-        this._icon = "brush";
+        super("brush", "Brush", icon);
         this.brush = brush;
         this.colors = colors;
         this.options = new BrushToolOptions(brush, colors);
@@ -20,13 +29,7 @@ export default class BrushTool extends Tool {
         this.brush.deactivate();
     }
     render(selectTool) {
-        if (this.active && this.brush.color !== undefined) {
-            this.icon = html`<span style="color: ${
-                this.colors[this.brush.color].name
-            }">${this._icon}</span>`;
-        } else {
-            this.icon = this._icon;
-        }
+        this.icon = icon(this.active, this.brush.color, this.colors);
         return super.render(selectTool);
     }
 }
@@ -35,7 +38,7 @@ class BrushToolOptions {
     constructor(brush, colors, renderToolbar) {
         this.brush = brush;
         this.colors = colors;
-        this.renderToolbar = this.renderToolbar;
+        this.renderToolbar = renderToolbar;
         this.selectColor = this.selectColor.bind(this);
         this.changeRadius = this.changeRadius.bind(this);
     }

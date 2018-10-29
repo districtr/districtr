@@ -7,7 +7,6 @@ export const districtColors = [
     "#9900cd",
     // Color brewer:
     "#8dd3c7",
-    "#ffffb3",
     "#bebada",
     "#fb8072",
     "#80b1d3",
@@ -17,7 +16,8 @@ export const districtColors = [
     "#d9d9d9",
     "#bc80bd",
     "#ccebc5",
-    "#ffed6f"
+    "#ffed6f",
+    "#ffffb3"
 ];
 export const districtHoverColors = [
     "#006b9c",
@@ -28,7 +28,6 @@ export const districtHoverColors = [
     "#6b009c",
     // Color brewer:
     "#71a99f",
-    "#cccc8f",
     "#9895ae",
     "#c9665b",
     "#668ea9",
@@ -38,7 +37,8 @@ export const districtHoverColors = [
     "#aeaeae",
     "#966697",
     "#a3bc9e",
-    "#ccbe59"
+    "#ccbe59",
+    "#cccc8f"
 ];
 
 // I got this from stack overflow to adjust the color brewer colors

@@ -69,7 +69,10 @@ const horizontalBarChart = (data, maxValue, idealValue) => {
                   idealY}" y2="${width + extra}" stroke="#aaa" />
                   <text x="${height - idealY + 3}" y="${width +
                   extra -
-                  4}" fill="black" style="font-size: 0.8rem">Ideal</text>`
+                  4}" fill="black" style="font-size: 0.8rem">
+                  Ideal:
+                  ${numberWithCommas(idealValue)}
+                  </text>`
             : ""
     }
     ${data.map((d, i) => {
@@ -103,11 +106,10 @@ export default class PopulationBarChart {
     }
 
     update(feature, color) {
-        this.data[color].value += feature.properties[this.attributeKey];
-        // Unassigned features have undefined color. We could avoid this by designating a
-        // color for the unassigned features. That might be a good idea, because messing
-        // with undefined seems misguided.
-        if (feature.state.color !== undefined) {
+        if (color !== undefined && color !== null) {
+            this.data[color].value += feature.properties[this.attributeKey];
+        }
+        if (feature.state.color !== undefined && feature.state.color !== null) {
             this.data[feature.state.color].value -=
                 feature.properties[this.attributeKey];
         }

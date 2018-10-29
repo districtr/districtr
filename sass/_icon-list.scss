@@ -82,3 +82,7 @@ of the whole element */
 .icon-list__item input:checked ~ .icon-list__item__radio {
     border-radius: 50%;
 }
+
+i {
+    transition: color 160ms ease;
+}

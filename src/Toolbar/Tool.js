@@ -26,7 +26,7 @@ export default class Tool {
         ?checked=${this.active}
     >
     <div class="icon-list__item__radio"></div>
-    <i class="material-icons">${this.icon}</i>
+    ${this.icon}
     </div>`;
     }
 }

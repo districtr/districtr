@@ -40,12 +40,11 @@ export default class Toolbar {
             <section id="tool-options" class="${
                 activeTool.options !== undefined ? "active" : ""
             }">
-            ${this.tools.map(
-                // This is a hack to get the transition to look the way I want
-                // it to
-                tool =>
-                    tool.options !== undefined ? tool.options.render() : ""
-            )}
+            ${
+                activeTool.options !== undefined
+                    ? activeTool.options.render()
+                    : ""
+            }
             </section>
             <section>
             <legend>Population</legend>
