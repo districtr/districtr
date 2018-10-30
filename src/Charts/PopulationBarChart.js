@@ -37,7 +37,7 @@ const barChart = (data, maxValue, idealValue) => {
         idealValue > 0
             ? svg`<line x1="0" y1="${idealY}" x2="${width}" y2="${idealY}" stroke="black" />
                   <text x="${width - 30}" y="${idealY -
-                  4}" fill="black" style="font-size: 0.8rem">Ideal</text>`
+                  4}" fill="#111">Ideal</text>`
             : ""
     }
     </svg>
@@ -69,7 +69,7 @@ const horizontalBarChart = (data, maxValue, idealValue, formattedIdeal) => {
                   idealY}" y2="${width + extra}" stroke="#aaa" />
                   <text x="${height - idealY + 3}" y="${width +
                   extra -
-                  4}" fill="black" style="font-size: 0.8rem">
+                  4}" fill="#111">
                   Ideal:
                   ${formattedIdeal}
                   </text>`

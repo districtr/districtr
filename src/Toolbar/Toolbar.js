@@ -1,4 +1,5 @@
 import { html, render } from "lit-html";
+import Tabs from "./Tabs";
 
 export default class Toolbar {
     constructor(tools, activeTool, target) {
@@ -46,11 +47,17 @@ export default class Toolbar {
                     : ""
             }
             </section>
-            <section>
-            <legend>Population</legend>
+            <section id="reports">
+            ${Tabs(tabs, () => null)}
+            <h3>Population</h3>
             <div id="tally"></div>
             </section>`,
             this.target
         );
     }
 }
+
+const tabs = [
+    { value: "charts", name: "Charts", checked: true },
+    { value: "layers", name: "Layers" }
+];

@@ -13,6 +13,7 @@
     overflow-y: auto;
     // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     // 0 2px 4px rgba(0, 0, 0, 0.24);
+    box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
 }
@@ -84,17 +85,10 @@ legend {
 
 .tabs {
     list-style: none;
-
     margin: 0;
-
     padding: 0;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-
+    display: flex;
     width: 100%;
-
     justify-items: center;
 }
 
@@ -109,9 +103,13 @@ legend {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background: #f9f9f9;
+    box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
+        0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
 .tabs li {
+    position: relative;
     width: 100%;
 }
 
@@ -125,17 +123,19 @@ legend {
 
     cursor: pointer;
 
-    height: 100%;
-    width: 100%;
-
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
+    width: 100%;
+    height: 100%;
 
     z-index: 1000;
 }
 
-.tabs input:checked ~ .tabs__tab {
-    border-bottom: none;
+input:checked ~ .tabs__tab {
+    border-bottom: 0;
+    font-weight: 600;
+    background: #fff;
+    box-shadow: none;
 }

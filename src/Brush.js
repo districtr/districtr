@@ -128,7 +128,5 @@ export default class Brush extends HoverWithRadius {
         this.layer.off("click", this.onClick);
 
         this.layer.map.off("mousedown", this.onMouseDown);
-
-        this.locked = false;
     }
 }
