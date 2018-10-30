@@ -1,19 +1,27 @@
 import { html } from "lit-html";
 
+const defaultTemplate = items => html`
+${items.map(item => item.render())}
+`;
+
 export default class ChartsList {
-    constructor(items, target) {
+    constructor(items, template) {
         this.items = items;
-        this.target = target;
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
+
+        if (template === undefined) {
+            template = defaultTemplate;
+        }
+        this.template = template;
     }
     update(...args) {
-        this.items.forEach(item => item.update(...args));
+        for (let item of this.items) {
+            item.update(...args);
+        }
     }
     render() {
-        return html`
-            ${this.items.map(item => item.render())}
-        `;
+        return this.template(this.items);
     }
 }

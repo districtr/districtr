@@ -1,4 +1,5 @@
 import mapbox from "mapbox-gl";
+import { getCurrentContext } from "./context";
 
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
@@ -66,6 +67,10 @@ export const MA_towns = {
 // instead of computing the center and guessing the zoom.
 
 export function initializeMap(mapContainer, layerInfo) {
+    getCurrentContext().registerAttribute(
+        "population",
+        layerInfo.populationAttribute
+    );
     const map = new mapbox.Map({
         container: mapContainer,
         style: "mapbox://styles/mapbox/light-v9",

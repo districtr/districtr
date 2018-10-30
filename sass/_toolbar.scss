@@ -14,8 +14,7 @@
     // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     // 0 2px 4px rgba(0, 0, 0, 0.24);
     box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
+    width: 320px;
 }
 
 #toolbar section {
@@ -157,4 +156,14 @@ input:checked ~ .tabs__tab {
     // Should adjust depending on color to make sure
     // contrast ratio is OK
     color: white;
+}
+
+#reports {
+    overflow-y: auto;
+    margin: 1rem 0;
+    flex-shrink: 1;
+}
+
+#reports h3 {
+    margin: 0 0 1rem;
 }
