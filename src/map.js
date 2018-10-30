@@ -45,6 +45,23 @@ export const MA_sec_state_vtds = {
     numberOfDistricts: 9
 };
 
+export const MA_towns = {
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.20p0zp1z"
+    },
+    sourceLayer: "FinalMass-ahm0xy",
+    populationAttribute: "POP2010",
+    mapOptions: {
+        center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
+        zoom: 7
+    },
+    aggregated: {
+        population: 6547629
+    },
+    numberOfDistricts: 9
+};
+
 // TODO: Just use map.fitBounds() on the bounding box of the tileset,
 // instead of computing the center and guessing the zoom.
 

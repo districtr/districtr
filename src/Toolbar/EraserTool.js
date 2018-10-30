@@ -5,7 +5,7 @@ import Tool from "./Tool";
 export default class EraserTool extends Tool {
     constructor(brush) {
         const icon = html`<i style="font-size: 1.4em" class="fas fa-eraser"></i>`;
-        super("eraser", "Eraser", icon);
+        super("eraser", "Erase", icon);
         this.brush = brush;
         this.options = new EraserToolOptions(brush);
     }

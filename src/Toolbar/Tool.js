@@ -15,7 +15,7 @@ export default class Tool {
     }
     render(selectTool) {
         return html`
-    <div class="icon-list__item">
+    <div class="icon-list__item" title="${this.name}">
     <label>${this.name}</label>
     <input
         type="radio"

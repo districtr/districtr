@@ -15,7 +15,7 @@ const icon = (active, color, colors) => {
 
 export default class BrushTool extends Tool {
     constructor(brush, colors) {
-        super("brush", "Brush", icon);
+        super("brush", "Paint", icon);
         this.brush = brush;
         this.colors = colors;
         this.options = new BrushToolOptions(brush, colors);

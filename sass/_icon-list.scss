@@ -78,7 +78,10 @@ of the whole element */
     border-radius: 20%;
 }
 
-/* When the radio button is checked, add a blue background */
+.icon-list__item input:focus ~ .icon-list__item__radio {
+    border-radius: 20%;
+}
+
 .icon-list__item input:checked ~ .icon-list__item__radio {
     border-radius: 50%;
 }
