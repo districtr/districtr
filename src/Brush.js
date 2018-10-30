@@ -1,16 +1,14 @@
 import { HoverWithRadius } from "./Hover";
 
 export default class Brush extends HoverWithRadius {
-    constructor(layer, radius, color, callback, postColoringCallback) {
+    constructor(layer, radius, color, subscribers) {
         super(layer, radius);
 
         this.color = color;
         this.coloring = false;
         this.locked = false;
-        this.callback = callback ? callback : () => null;
-        this.postColoringCallback = postColoringCallback
-            ? postColoringCallback
-            : () => null;
+
+        this.subscribers = subscribers ? this.subscribers : [];
 
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
@@ -50,7 +48,9 @@ export default class Brush extends HoverWithRadius {
             if (feature.state.color !== this.color) {
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
-                    this.callback(feature, this.color);
+                    this.subscribers.forEach(s =>
+                        s.afterFeature(feature, this.color)
+                    );
                 }
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
@@ -65,7 +65,7 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        this.postColoringCallback();
+        this.subscribers.forEach(s => s.afterColoring());
     }
     colorFeaturesLocked() {
         let seenFeatures = new Set();
@@ -77,7 +77,9 @@ export default class Brush extends HoverWithRadius {
             ) {
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
-                    this.callback(feature, this.color);
+                    this.subscribers.forEach(s =>
+                        s.afterFeature(feature, this.color)
+                    );
                 }
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
@@ -92,7 +94,7 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        this.postColoringCallback();
+        this.subscribers.forEach(s => s.afterColoring());
     }
     onClick() {
         this.colorFeatures();
@@ -128,5 +130,8 @@ export default class Brush extends HoverWithRadius {
         this.layer.off("click", this.onClick);
 
         this.layer.map.off("mousedown", this.onMouseDown);
+    }
+    subscribe(subscriber) {
+        this.subscribers.push(subscriber);
     }
 }

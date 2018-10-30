@@ -32,7 +32,7 @@ export default function initializeTools(units, layerInfo) {
 
     const charts = new ChartsList([population]);
 
-    const brush = new Brush(units, 20, 0, reports.update);
+    const brush = new Brush(units, 20, 0);
 
     let tools = [
         new PanTool(),
@@ -50,5 +50,8 @@ export default function initializeTools(units, layerInfo) {
     toolbar.render();
 
     // unfortunately have to register this after the fact
-    brush.postColoringCallback = toolbar.render;
+    brush.subscribe({
+        afterFeature: charts.update,
+        afterColoring: toolbar.render
+    });
 }

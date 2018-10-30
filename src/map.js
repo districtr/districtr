@@ -72,5 +72,7 @@ export function initializeMap(mapContainer, layerInfo) {
         attributionControl: false,
         ...layerInfo.mapOptions
     });
+    const nav = new mapbox.NavigationControl();
+    map.addControl(nav, "top-left");
     return map;
 }
