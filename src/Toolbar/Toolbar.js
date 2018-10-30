@@ -35,10 +35,9 @@ export default class Toolbar {
         const activeTool = this.toolsById[this.activeTool];
         render(
             html`
-            <fieldset class="icon-list">
-            <legend>Tools</legend>
+            <div class="icon-list">
             ${this.tools.map(tool => tool.render(this.selectTool))}
-            </fieldset>
+            </div>
             <section id="tool-options" class="${
                 activeTool.options !== undefined ? "active" : ""
             }">

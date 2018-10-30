@@ -23,7 +23,8 @@ const horizontalBarChart = (data, maxValue, idealValue, formattedIdeal) => {
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
-    <svg viewBox="0 0 ${height} ${width + extra}" class="bar-chart">
+    <svg viewBox="0 0 ${height} ${width +
+        extra}" width="${height}" height="${width + extra}" class="bar-chart">
     ${data.map((d, i) => {
         const barH = barHeight(d.value, maxValue);
         return svg`
