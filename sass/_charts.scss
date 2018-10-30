@@ -2,3 +2,38 @@ rect {
     fill: #aaa;
     transition: all 1000ms ease;
 }
+
+.report-data-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+    max-width: 300px;
+}
+
+.report-data-list dd,
+.report-data-list dt {
+    margin: 0;
+}
+
+.report-data-list dt {
+    font-weight: bold;
+}
+
+.report-data-list dt::after {
+    content: ":";
+}
+
+.report-data-list dd {
+    text-align: right;
+}
+
+.bar-chart {
+    background: #f9f9f9;
+    box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
+        0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
+}
+
+.bar-chart text {
+    text-shadow: 1px 1px #f9f9f9;
+}

@@ -1,11 +1,11 @@
 import { blockColorProperty } from "./colors";
 import Layer, { addBelowLabels } from "./Layer";
-import { initializeMap, MA_sec_state_vtds } from "./map";
+import { initializeMap, MA_towns } from "./map";
 import initializeTools from "./tools";
 
-const map = initializeMap("map", MA_sec_state_vtds);
+const map = initializeMap("map", MA_towns);
 
-map.on("load", () => addPlaceholderLayers(map, MA_sec_state_vtds));
+map.on("load", () => addPlaceholderLayers(map, MA_towns));
 
 function addPlaceholderLayers(map, layerInfo) {
     map.addSource("units", layerInfo.source);

@@ -18,6 +18,13 @@ export default class Brush extends HoverWithRadius {
     setColor(color) {
         this.color = parseInt(color);
     }
+    startErasing() {
+        this._previousColor = this.color;
+        this.color = null;
+    }
+    stopErasing() {
+        this.color = this._previousColor;
+    }
     hoverOn(features) {
         this.hoveredFeatures = features;
 
