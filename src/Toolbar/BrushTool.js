@@ -7,7 +7,7 @@ const icon = (active, color, colors) => {
     if (active && color !== undefined) {
         return html`
         <i class="material-icons"
-        style="color: ${colors[color].name};">brush</i>`;
+        style="color: ${colors[color].hex};">brush</i>`;
     } else {
         return html`<i class="material-icons">brush</i>`;
     }
@@ -41,6 +41,7 @@ class BrushToolOptions {
         this.renderToolbar = renderToolbar;
         this.selectColor = this.selectColor.bind(this);
         this.changeRadius = this.changeRadius.bind(this);
+        this.toggleBrushLock = this.toggleBrushLock.bind(this);
     }
     selectColor(e) {
         this.brush.setColor(e.target.value);
@@ -54,11 +55,24 @@ class BrushToolOptions {
         }
         this.renderToolbar();
     }
+    toggleBrushLock() {
+        this.brush.locked = this.brush.locked ? false : true;
+    }
     render() {
         const activeColor = this.colors[this.brush.color].id;
         return html`
         ${BrushColorPicker(this.colors, this.selectColor, activeColor)}
         ${BrushSlider(this.brush.radius, this.changeRadius)}
+        ${BrushLock(this.brush.locked, this.toggleBrushLock)}
         `;
     }
 }
+
+const BrushLock = (locked, toggle) => html`
+<label class="toolbar-checkbox-item">
+<input type="checkbox" name="brush-lock" value="brush-lock"
+?checked=${locked}
+@input=${toggle}>
+Lock already-painted units
+</label>
+`;

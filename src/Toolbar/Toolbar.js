@@ -1,10 +1,12 @@
 import { html, render } from "lit-html";
+import Tabs from "./Tabs";
 
 export default class Toolbar {
-    constructor(tools, activeTool, target) {
+    constructor(tools, activeTool, children, target) {
         this.tools = tools;
         this.activeTool = activeTool;
         this.target = target;
+        this.children = children;
 
         this.render = this.render.bind(this);
         this.selectTool = this.selectTool.bind(this);
@@ -33,10 +35,9 @@ export default class Toolbar {
         const activeTool = this.toolsById[this.activeTool];
         render(
             html`
-            <fieldset class="icon-list">
-            <legend>Tools</legend>
+            <div class="icon-list">
             ${this.tools.map(tool => tool.render(this.selectTool))}
-            </fieldset>
+            </div>
             <section id="tool-options" class="${
                 activeTool.options !== undefined ? "active" : ""
             }">
@@ -46,11 +47,18 @@ export default class Toolbar {
                     : ""
             }
             </section>
-            <section>
-            <legend>Population</legend>
-            <div id="tally"></div>
-            </section>`,
+            ${tabMenu.render()}
+            <div id="tab-section-body">
+            ${this.children.map(x => x.render())}
+            </div>`,
             this.target
         );
     }
 }
+
+const tabs = [
+    { id: "charts", name: "Charts", checked: true },
+    { id: "layers", name: "Layers" }
+];
+
+const tabMenu = new Tabs(tabs);

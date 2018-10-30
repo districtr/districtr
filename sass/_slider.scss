@@ -1,6 +1,7 @@
 .slider-container {
     display: flex;
     align-items: center;
+    margin: 0.5rem 0;
 }
 
 .slider-value {
@@ -12,8 +13,10 @@
     outline: none;
     margin: 0 auto;
     display: block;
+    cursor: pointer;
 }
 
 .slider {
+    cursor: pointer;
     width: 10rem;
 }
