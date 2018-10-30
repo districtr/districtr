@@ -6,6 +6,7 @@ export default class Brush extends HoverWithRadius {
 
         this.color = color;
         this.coloring = false;
+        this.locked = false;
         this.callback = callback ? callback : () => null;
         this.postColoringCallback = postColoringCallback
             ? postColoringCallback
@@ -21,9 +22,11 @@ export default class Brush extends HoverWithRadius {
     startErasing() {
         this._previousColor = this.color;
         this.color = null;
+        this.erasing = true;
     }
     stopErasing() {
         this.color = this._previousColor;
+        this.erasing = false;
     }
     hoverOn(features) {
         this.hoveredFeatures = features;
@@ -35,9 +38,43 @@ export default class Brush extends HoverWithRadius {
         }
     }
     colorFeatures() {
+        if (this.locked && !this.erasing) {
+            this.colorFeaturesLocked();
+        } else {
+            this.colorFeaturesUnlocked();
+        }
+    }
+    colorFeaturesUnlocked() {
         let seenFeatures = new Set();
         for (let feature of this.hoveredFeatures) {
             if (feature.state.color !== this.color) {
+                if (!seenFeatures.has(feature.id)) {
+                    seenFeatures.add(feature.id);
+                    this.callback(feature, this.color);
+                }
+                this.layer.setFeatureState(feature.id, {
+                    ...feature.state,
+                    color: this.color,
+                    hover: true
+                });
+                feature.state.color = this.color;
+            } else {
+                this.layer.setFeatureState(feature.id, {
+                    ...feature.state,
+                    hover: true
+                });
+            }
+        }
+        this.postColoringCallback();
+    }
+    colorFeaturesLocked() {
+        let seenFeatures = new Set();
+        for (let feature of this.hoveredFeatures) {
+            // This is the only difference between this and the unlocked version:
+            if (
+                feature.state.color === null ||
+                feature.state.color === undefined
+            ) {
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     this.callback(feature, this.color);
@@ -91,5 +128,7 @@ export default class Brush extends HoverWithRadius {
         this.layer.off("click", this.onClick);
 
         this.layer.map.off("mousedown", this.onMouseDown);
+
+        this.locked = false;
     }
 }

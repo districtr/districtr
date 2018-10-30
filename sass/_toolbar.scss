@@ -9,10 +9,12 @@
     padding: 0;
     margin: 0;
     min-width: 300px;
-    max-height: 100vh;
+    height: 100vh;
     overflow-y: auto;
     // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     // 0 2px 4px rgba(0, 0, 0, 0.24);
+    display: flex;
+    flex-direction: column;
 }
 
 #toolbar section {
@@ -57,7 +59,14 @@ legend {
     max-height: 400px;
 }
 
-// Brush radius slider
+.toolbar-checkbox-item {
+    margin: 1rem 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 400px) {
     #toolbar,
@@ -71,4 +80,62 @@ legend {
         grid-template-columns: none;
         grid-template-rows: 1fr 1fr 1fr;
     }
+}
+
+.tabs {
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    width: 100%;
+
+    justify-items: center;
+}
+
+.tabs__tab {
+    padding: 0.5rem 1rem;
+    border: solid #aaa 1px;
+    border-left: none;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tabs li {
+    width: 100%;
+}
+
+.tabs input {
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    height: 100%;
+    width: 100%;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+.tabs input:checked ~ .tabs__tab {
+    border-bottom: none;
 }

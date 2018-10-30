@@ -69,6 +69,7 @@ export function initializeMap(mapContainer, layerInfo) {
     const map = new mapbox.Map({
         container: mapContainer,
         style: "mapbox://styles/mapbox/light-v9",
+        attributionControl: false,
         ...layerInfo.mapOptions
     });
     return map;
