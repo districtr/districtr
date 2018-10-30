@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-export default (tabs, onChange) => html`
+const template = (tabs, onChange) => html`
     <ul class="tabs">
         ${tabs.map(
             tab => html`
@@ -8,7 +8,7 @@ export default (tabs, onChange) => html`
             <input
                 type="radio"
                 name="tabs"
-                value="${tab.value}"
+                value="${tab.id}"
                 ?checked=${tab.checked}
                 @input=${onChange}>
             <div class="tabs__tab">
@@ -18,3 +18,22 @@ export default (tabs, onChange) => html`
         `
         )}
     </ul>`;
+
+export default class Tabs {
+    constructor(tabs) {
+        this.tabs = tabs;
+        this.onChange = this.onChange.bind(this);
+    }
+    onChange(e) {
+        const activeTabId = e.target.value;
+        this.tabs.forEach(tab => {
+            let tabBody = document.getElementById(tab.id);
+            if (tabBody !== null) {
+                tabBody.style.display = tab.id === activeTabId ? null : "none";
+            }
+        });
+    }
+    render() {
+        return template(this.tabs, this.onChange);
+    }
+}

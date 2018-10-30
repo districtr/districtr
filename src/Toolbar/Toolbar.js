@@ -48,16 +48,18 @@ export default class Toolbar {
                     : ""
             }
             </section>
-            ${Tabs(tabs, () => null)}
-            <section id="reports">
+            ${tabMenu.render()}
+            <div id="tab-section-body">
             ${this.children.map(x => x.render())}
-            </section>`,
+            </div>`,
             this.target
         );
     }
 }
 
 const tabs = [
-    { value: "charts", name: "Charts", checked: true },
-    { value: "layers", name: "Layers" }
+    { id: "charts", name: "Charts", checked: true },
+    { id: "layers", name: "Layers" }
 ];
+
+const tabMenu = new Tabs(tabs);

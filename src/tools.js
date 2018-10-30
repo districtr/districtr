@@ -39,12 +39,14 @@ function getCharts(colors, layerInfo) {
     const charts = new ChartsList(
         [population, unassigned, popDev],
         ([population, unassigned, popDev]) => html`
+        <section id="charts">
             ${population.render()}
             <dl class="report-data-list">
             ${unassigned.render()}
             ${popDev.render()}
             </dl>
-            `
+        </section>
+        `
     );
     return charts;
 }

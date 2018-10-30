@@ -15,6 +15,8 @@
     // 0 2px 4px rgba(0, 0, 0, 0.24);
     box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
     width: 320px;
+    display: flex;
+    flex-direction: column;
 }
 
 #toolbar section {
@@ -103,6 +105,7 @@ legend {
     -ms-user-select: none;
     user-select: none;
     background: #f9f9f9;
+    transition: all ease 160ms;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
@@ -158,12 +161,20 @@ input:checked ~ .tabs__tab {
     color: white;
 }
 
-#reports {
-    overflow-y: auto;
-    margin: 1rem 0;
-    flex-shrink: 1;
+#tool-options {
+    flex-shrink: 0;
 }
 
-#reports h3 {
+.icon-list {
+    flex-shrink: 0;
+}
+
+#tab-section-body {
+    overflow-y: auto;
+    margin: 1rem 0;
+    flex-shrink: 10;
+}
+
+#tab-section-body h3 {
     margin: 0 0 1rem;
 }
