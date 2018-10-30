@@ -110,6 +110,10 @@ legend {
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
+li:last-child .tabs__tab {
+    border-right: none;
+}
+
 .tabs li {
     position: relative;
     width: 100%;
