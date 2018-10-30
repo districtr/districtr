@@ -7,7 +7,7 @@ const icon = (active, color, colors) => {
     if (active && color !== undefined) {
         return html`
         <i class="material-icons"
-        style="color: ${colors[color].name};">brush</i>`;
+        style="color: ${colors[color].hex};">brush</i>`;
     } else {
         return html`<i class="material-icons">brush</i>`;
     }

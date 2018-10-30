@@ -11,7 +11,7 @@ ${colors.map(
     }" name="brush-color" value="${color.id}"
     ?checked=${color.id === activeColor}
     @input=${onInput}>
-    <div class="icon-list__item__radio" style="background: ${color.name}"></div>
+    <div class="icon-list__item__radio" style="background: ${color.hex}"></div>
     </div>`
 )}
 </fieldset>`;

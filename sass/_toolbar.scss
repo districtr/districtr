@@ -139,3 +139,22 @@ input:checked ~ .tabs__tab {
     background: #fff;
     box-shadow: none;
 }
+
+.part-number {
+    // override this with style attribute to match
+    // district color
+    background: #aaa;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    border-radius: 50%;
+
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+
+    // Should adjust depending on color to make sure
+    // contrast ratio is OK
+    color: white;
+}

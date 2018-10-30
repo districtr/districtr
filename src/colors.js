@@ -1,4 +1,4 @@
-export const districtColors = [
+const colorScheme = [
     "#0099cd",
     "#cd9900",
     "#00cd99",
@@ -19,7 +19,7 @@ export const districtColors = [
     "#ffed6f",
     "#ffffb3"
 ];
-export const districtHoverColors = [
+const hoverColorScheme = [
     "#006b9c",
     "#9c6b00",
     "#009c6b",
@@ -63,6 +63,13 @@ function changeColorLuminance(hex, lum) {
     return rgb;
 }
 
+export const districtColors = colorScheme.map((hex, i) => ({
+    id: i,
+    name: hex,
+    hex: hex,
+    hoverHex: hoverColorScheme[i]
+}));
+
 // Right now I'm assuming colors are numbered, and that -1 or null means
 // a block hasn't been colored. I don't think this is a good system.
 
@@ -70,7 +77,7 @@ const blockColorStyle = [
     "match",
     ["feature-state", "color"],
     ...districtColors
-        .map((color, i) => [i, color])
+        .map((color, i) => [i, color.hex])
         .reduce((list, pair) => [...list, ...pair]),
     "#f9f9f9"
 ];
@@ -78,8 +85,8 @@ const blockColorStyle = [
 const hoveredBlockColorStyle = [
     "match",
     ["feature-state", "color"],
-    ...districtHoverColors
-        .map((color, i) => [i, color])
+    ...districtColors
+        .map((color, i) => [i, color.hoverHex])
         .reduce((list, pair) => [...list, ...pair]),
     "#aaaaaa"
 ];

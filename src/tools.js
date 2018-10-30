@@ -1,4 +1,5 @@
 import Brush from "./Brush";
+import ChartsList from "./Charts/ChartsList";
 import PopulationBarChart from "./Charts/PopulationBarChart";
 import { districtColors } from "./colors";
 import Toolbar from "./Toolbar";
@@ -6,17 +7,21 @@ import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 
-export default function initializeTools(units, layerInfo) {
-    let colors = districtColors.map((x, i) => ({
-        id: i,
-        name: x,
-        checked: false
-    }));
+function getColors(layerInfo) {
+    let colors = districtColors;
+    for (let color of colors) {
+        color.checked = false;
+    }
+    colors[0].checked = true;
 
     if (layerInfo.numberOfDistricts) {
         colors = colors.slice(0, layerInfo.numberOfDistricts);
     }
-    colors[0].checked = true;
+    return colors;
+}
+
+export default function initializeTools(units, layerInfo) {
+    const colors = getColors(layerInfo);
 
     const population = new PopulationBarChart(
         colors.map(() => 0),
@@ -24,7 +29,10 @@ export default function initializeTools(units, layerInfo) {
         layerInfo.aggregated.population,
         layerInfo.populationAttribute
     );
-    const brush = new Brush(units, 20, 0, population.update, population.render);
+
+    const charts = new ChartsList([population]);
+
+    const brush = new Brush(units, 20, 0, reports.update);
 
     let tools = [
         new PanTool(),
@@ -36,8 +44,11 @@ export default function initializeTools(units, layerInfo) {
     const toolbar = new Toolbar(
         tools,
         "pan",
+        [charts],
         document.getElementById("toolbar")
     );
     toolbar.render();
-    population.render();
+
+    // unfortunately have to register this after the fact
+    brush.postColoringCallback = toolbar.render;
 }

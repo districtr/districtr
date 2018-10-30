@@ -1,4 +1,4 @@
-import { html, render, svg } from "lit-html";
+import { html, svg } from "lit-html";
 
 const width = 240;
 const height = 300;
@@ -98,7 +98,7 @@ export default class PopulationBarChart {
 
         this.data = initialData.map((v, i) => ({
             value: v,
-            color: colors[i].name
+            color: colors[i].hex
         }));
         this.attributeKey = attributeKey;
 
@@ -130,8 +130,9 @@ export default class PopulationBarChart {
         );
         const maxPopDev = Math.max(...populationDeviations);
 
-        render(
-            html`
+        return html`
+            <section>
+            <h3>Population</h3>
             ${horizontalBarChart(
                 this.data,
                 maxValueOrLargestDatum,
@@ -148,9 +149,8 @@ export default class PopulationBarChart {
                     </dl>
             `
                     : ""
-            }`,
-            document.getElementById("tally")
-        );
+            }
+            </section>`;
     }
 }
 

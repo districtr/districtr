@@ -2,10 +2,11 @@ import { html, render } from "lit-html";
 import Tabs from "./Tabs";
 
 export default class Toolbar {
-    constructor(tools, activeTool, target) {
+    constructor(tools, activeTool, children, target) {
         this.tools = tools;
         this.activeTool = activeTool;
         this.target = target;
+        this.children = children;
 
         this.render = this.render.bind(this);
         this.selectTool = this.selectTool.bind(this);
@@ -47,10 +48,9 @@ export default class Toolbar {
                     : ""
             }
             </section>
-            <section id="reports">
             ${Tabs(tabs, () => null)}
-            <h3>Population</h3>
-            <div id="tally"></div>
+            <section id="reports">
+            ${this.children.map(x => x.render())}
             </section>`,
             this.target
         );
