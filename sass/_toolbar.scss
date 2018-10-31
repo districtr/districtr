@@ -62,7 +62,7 @@ legend {
 }
 
 .toolbar-checkbox-item {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -181,4 +181,8 @@ input:checked ~ .tabs__tab {
 
 #tab-section-body h3 {
     margin: 0 0 1rem;
+}
+
+#tab-section-body h4 {
+    margin: 0.5rem 0;
 }

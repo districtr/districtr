@@ -5,7 +5,7 @@ import PopulationBarChart from "./Charts/PopulationBarChart";
 import PopulationDeviation from "./Charts/PopulationDeviation";
 import UnassignedPopulation from "./Charts/UnassignedPopulation";
 import { districtColors } from "./colors";
-import RepublicanOverlay from "./RepublicanOverlay";
+import PartisanOverlay from "./PartisanOverlay";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
@@ -37,7 +37,18 @@ function getCharts(colors, units, layerInfo) {
 
     const popDev = new PopulationDeviation(population);
 
-    const republicanOverlay = new RepublicanOverlay(units);
+    const repub2004 = new PartisanOverlay(
+        units,
+        election04,
+        "Republican",
+        repubColorStops
+    );
+    const dem2004 = new PartisanOverlay(
+        units,
+        election04,
+        "Democratic",
+        demColorStops
+    );
 
     const charts = new ChartsList(
         [population, unassigned, popDev],
@@ -50,7 +61,9 @@ function getCharts(colors, units, layerInfo) {
             </dl>
         </section>
         <section id="layers">
-            ${republicanOverlay.render()}
+            <h4>2004 Election</h4>
+            ${repub2004.render()}
+            ${dem2004.render()}
         </section>
         `
     );
@@ -85,3 +98,33 @@ export default function initializeTools(units, layerInfo) {
         afterColoring: toolbar.render
     });
 }
+
+const election04 = {
+    id: "2004",
+    parties: {
+        Democratic: "Pres04D",
+        Republican: "Pres04R"
+    }
+};
+
+const repubColorStops = [
+    0,
+    "rgba(0,0,0,0)",
+    0.5,
+    "rgba(0,0,0,0)",
+    0.51,
+    "#ff5d5d",
+    0.6,
+    "#ff0000"
+];
+
+const demColorStops = [
+    0,
+    "rgba(0,0,0,0)",
+    0.5,
+    "rgba(0,0,0,0)",
+    0.55,
+    "#5d5dff",
+    1.0,
+    "#0000ff"
+];
