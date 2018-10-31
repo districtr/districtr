@@ -1,5 +1,5 @@
-import { html } from "lit-html";
 import Layer from "./Layer";
+import LayerToggle from "./LayerToggle";
 
 // TODO: Make this work using a generic "election" record
 // TODO: Include legend
@@ -22,10 +22,10 @@ function colorByConcentration(election, party, colorStops) {
     ];
 }
 
-export default class PartisanOverlay {
+export default class PartisanOverlay extends LayerToggle {
     constructor(unitsLayer, election, party, colorStops) {
-        this.partyName = party;
-        this.layer = new Layer(
+        const partyName = party;
+        const layer = new Layer(
             unitsLayer.map,
             {
                 id: `${election}-${party}-overlay`,
@@ -43,23 +43,7 @@ export default class PartisanOverlay {
             },
             (map, layer) => map.addLayer(layer, unitsLayer.id)
         );
-        this.render = this.render.bind(this);
-        this.onChange = this.onChange.bind(this);
-    }
-    onChange(e) {
-        if (e.target.checked) {
-            this.layer.setPaintProperty("fill-opacity", 0.8);
-        } else {
-            this.layer.setPaintProperty("fill-opacity", 0);
-        }
-    }
-    render() {
-        return html`
-<label class="toolbar-checkbox-item">
-<input type="checkbox"
-@input=${this.onChange}>
-Show ${this.partyName} hot spots
-</label>
-        `;
+
+        super(layer, `Show ${partyName} hotspots`);
     }
 }

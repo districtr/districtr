@@ -5,7 +5,8 @@ import PopulationBarChart from "./Charts/PopulationBarChart";
 import PopulationDeviation from "./Charts/PopulationDeviation";
 import UnassignedPopulation from "./Charts/UnassignedPopulation";
 import { districtColors } from "./colors";
-import PartisanOverlay from "./PartisanOverlay";
+import LayerToggle from "./Layers/LayerToggle";
+import PartisanOverlay from "./Layers/PartisanOverlay";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
@@ -49,6 +50,7 @@ function getCharts(colors, units, layerInfo) {
         "Democratic",
         demColorStops
     );
+    const toggleDistricts = new LayerToggle(units, "Show districts", true);
 
     const charts = new ChartsList(
         [population, unassigned, popDev],
@@ -64,6 +66,7 @@ function getCharts(colors, units, layerInfo) {
             <h4>2004 Election</h4>
             ${repub2004.render()}
             ${dem2004.render()}
+            ${toggleDistricts.render()}
         </section>
         `
     );
