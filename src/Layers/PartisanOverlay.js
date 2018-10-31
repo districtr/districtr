@@ -28,7 +28,7 @@ export default class PartisanOverlay extends LayerToggle {
         const layer = new Layer(
             unitsLayer.map,
             {
-                id: `${election}-${party}-overlay`,
+                id: `${election.id}-${party}-overlay`,
                 source: unitsLayer.sourceID,
                 "source-layer": unitsLayer.sourceLayer,
                 type: "fill",

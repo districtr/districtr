@@ -152,14 +152,15 @@ input:checked ~ .tabs__tab {
     // district color
     background: #aaa;
 
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.2rem;
 
     border-radius: 50%;
 
-    display: inline-flex;
+    display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 
     // Should adjust depending on color to make sure
     // contrast ratio is OK
@@ -186,4 +187,14 @@ input:checked ~ .tabs__tab {
 
 #tab-section-body h4 {
     margin: 0.5rem 0;
+}
+
+.election-results-table {
+    border: none;
+    width: 90%;
+}
+
+.election-results-table td {
+    text-align: right;
+    background: #f9f9f9;
 }

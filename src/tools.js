@@ -1,12 +1,15 @@
 import { html } from "lit-html";
 import Brush from "./Brush";
 import ChartsList from "./Charts/ChartsList";
+import ElectionResults from "./Charts/ElectionResults";
 import PopulationBarChart from "./Charts/PopulationBarChart";
 import PopulationDeviation from "./Charts/PopulationDeviation";
 import UnassignedPopulation from "./Charts/UnassignedPopulation";
 import { districtColors } from "./colors";
+import Election from "./Election";
 import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlay from "./Layers/PartisanOverlay";
+import Part from "./Part";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
@@ -28,7 +31,7 @@ function getColors(layerInfo) {
 function getCharts(colors, units, layerInfo) {
     const population = new PopulationBarChart(
         colors.map(() => 0),
-        colors,
+        colors.map(color => color.hex),
         layerInfo.aggregated.population
     );
 
@@ -50,11 +53,22 @@ function getCharts(colors, units, layerInfo) {
         "Democratic",
         demColorStops
     );
+
+    const parts = colors.map(
+        color => new Part(color.id, "District", color.hex)
+    );
+
+    console.log(parts);
+
+    const election = new Election(election04.id, election04.parties, parts);
+
+    const electionResults = new ElectionResults(election, parts);
+
     const toggleDistricts = new LayerToggle(units, "Show districts", true);
 
     const charts = new ChartsList(
-        [population, unassigned, popDev],
-        ([population, unassigned, popDev]) => html`
+        [population, unassigned, popDev, electionResults],
+        ([population, unassigned, popDev, electionResults]) => html`
         <section id="charts">
             ${population.render()}
             <dl class="report-data-list">
@@ -62,8 +76,12 @@ function getCharts(colors, units, layerInfo) {
             ${popDev.render()}
             </dl>
         </section>
+        <section id="elections" style="display: none">
+            <h4>2004 Presidential Election</h4>
+            ${electionResults.render()}
+        </section>
         <section id="layers" style="display: none">
-            <h4>2004 Election</h4>
+            <h4>2004 Presidential Election</h4>
             ${repub2004.render()}
             ${dem2004.render()}
             ${toggleDistricts.render()}
