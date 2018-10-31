@@ -9,10 +9,8 @@ export default class PopulationDeviation {
         return null;
     }
     render() {
-        const populationDeviations = this.population.data.map(
-            d =>
-                Math.abs(d.value - this.population.ideal) /
-                this.population.ideal
+        const populationDeviations = this.population.tally.data.map(
+            d => Math.abs(d - this.population.ideal) / this.population.ideal
         );
         const maxPopDev = Math.max(...populationDeviations);
         return html`

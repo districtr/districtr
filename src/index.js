@@ -1,5 +1,5 @@
 import { blockColorProperty } from "./colors";
-import Layer, { addBelowLabels } from "./Layer";
+import Layer, { addBelowLabels } from "./Layers/Layer";
 import { initializeMap, MA_towns } from "./map";
 import initializeTools from "./tools";
 

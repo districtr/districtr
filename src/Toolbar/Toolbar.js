@@ -58,6 +58,7 @@ export default class Toolbar {
 
 const tabs = [
     { id: "charts", name: "Charts", checked: true },
+    { id: "elections", name: "Votes" },
     { id: "layers", name: "Layers" }
 ];
 

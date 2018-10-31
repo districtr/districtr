@@ -1,6 +1,6 @@
 const colorScheme = [
     "#0099cd",
-    "#cd9900",
+    "#ffca5d",
     "#00cd99",
     "#99cd00",
     "#cd0099",
@@ -19,27 +19,9 @@ const colorScheme = [
     "#ffed6f",
     "#ffffb3"
 ];
-const hoverColorScheme = [
-    "#006b9c",
-    "#9c6b00",
-    "#009c6b",
-    "#6b9c00",
-    "#9c006b",
-    "#6b009c",
-    // Color brewer:
-    "#71a99f",
-    "#9895ae",
-    "#c9665b",
-    "#668ea9",
-    "#ca904e",
-    "#8fb254",
-    "#caa4b7",
-    "#aeaeae",
-    "#966697",
-    "#a3bc9e",
-    "#ccbe59",
-    "#cccc8f"
-];
+const hoverColorScheme = colorScheme.map(hex =>
+    changeColorLuminance(hex, -0.3)
+);
 
 // I got this from stack overflow to adjust the color brewer colors
 function changeColorLuminance(hex, lum) {
@@ -79,7 +61,7 @@ const blockColorStyle = [
     ...districtColors
         .map((color, i) => [i, color.hex])
         .reduce((list, pair) => [...list, ...pair]),
-    "#f9f9f9"
+    "rgba(0,0,0,0)"
 ];
 
 const hoveredBlockColorStyle = [

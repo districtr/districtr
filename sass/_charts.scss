@@ -1,4 +1,4 @@
-rect {
+.bar-chart rect {
     fill: #aaa;
     transition: all ease;
 }
@@ -7,7 +7,7 @@ rect {
     display: grid;
     grid-template-columns: auto auto;
     margin: 1rem 0;
-    padding: 0 1rem;
+    padding: 0;
     max-width: 300px;
     grid-gap: 0.5rem;
 }

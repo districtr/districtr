@@ -1,5 +1,6 @@
 import { html, svg } from "lit-html";
 import { getPopulation } from "../context";
+import Tally from "./Tally";
 import { numberWithCommas, roundToDecimal } from "./utils";
 
 const width = 240;
@@ -19,21 +20,27 @@ function barHeight(d, maxValue) {
 
 const extra = 20;
 
-const horizontalBarChart = (data, maxValue, idealValue, formattedIdeal) => {
+const horizontalBarChart = (
+    data,
+    colors,
+    maxValue,
+    idealValue,
+    formattedIdeal
+) => {
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
     <svg viewBox="0 0 ${height} ${width +
         extra}" width="${height}" height="${width + extra}" class="bar-chart">
     ${data.map((d, i) => {
-        const barH = barHeight(d.value, maxValue);
+        const barH = barHeight(d, maxValue);
         return svg`
     <rect
         width="${barH}"
         height="${w}"
         x="0"
         y="${i * (w + gap)}"
-        style="fill: ${d.color}"
+        style="fill: ${colors[i]}"
     ></rect>`;
     })}
     ${
@@ -49,12 +56,12 @@ const horizontalBarChart = (data, maxValue, idealValue, formattedIdeal) => {
             : ""
     }
     ${data.map((d, i) => {
-        const barH = barHeight(d.value, maxValue);
+        const barH = barHeight(d, maxValue);
         return barH > 0
             ? svg`
     <text
         x="${barH + 2 * gap}"
-        y="${i * (w + gap) + 16}">${numberWithCommas(d.value)}</text>
+        y="${i * (w + gap) + 16}">${numberWithCommas(d)}</text>
     `
             : "";
     })}
@@ -69,37 +76,29 @@ export default class PopulationBarChart {
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
         this.maxDisplayValue = this.ideal * 2;
 
-        this.data = initialData.map((v, i) => ({
-            value: v,
-            color: colors[i].hex
-        }));
+        this.tally = new Tally(getPopulation, initialData);
+        this.colors = colors;
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
     }
 
     update(feature, color) {
-        if (color !== undefined && color !== null) {
-            this.data[color].value += parseFloat(getPopulation(feature));
-        }
-        if (feature.state.color !== undefined && feature.state.color !== null) {
-            this.data[feature.state.color].value -= parseFloat(
-                getPopulation(feature)
-            );
-        }
+        this.tally.update(feature, color);
     }
 
     render() {
         const maxValueOrLargestDatum = Math.max(
             this.maxDisplayValue,
-            ...this.data.map(d => d.value)
+            ...this.tally.data
         );
 
         return html`
             <section>
             <h3>Population</h3>
             ${horizontalBarChart(
-                this.data,
+                this.tally.data,
+                this.colors,
                 maxValueOrLargestDatum,
                 this.ideal,
                 this.formattedIdeal
