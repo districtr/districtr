@@ -5,6 +5,7 @@ import PopulationBarChart from "./Charts/PopulationBarChart";
 import PopulationDeviation from "./Charts/PopulationDeviation";
 import UnassignedPopulation from "./Charts/UnassignedPopulation";
 import { districtColors } from "./colors";
+import RepublicanOverlay from "./RepublicanOverlay";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
@@ -23,7 +24,7 @@ function getColors(layerInfo) {
     return colors;
 }
 
-function getCharts(colors, layerInfo) {
+function getCharts(colors, units, layerInfo) {
     const population = new PopulationBarChart(
         colors.map(() => 0),
         colors,
@@ -36,6 +37,8 @@ function getCharts(colors, layerInfo) {
 
     const popDev = new PopulationDeviation(population);
 
+    const republicanOverlay = new RepublicanOverlay(units);
+
     const charts = new ChartsList(
         [population, unassigned, popDev],
         ([population, unassigned, popDev]) => html`
@@ -46,6 +49,9 @@ function getCharts(colors, layerInfo) {
             ${popDev.render()}
             </dl>
         </section>
+        <section id="layers">
+            ${republicanOverlay.render()}
+        </section>
         `
     );
     return charts;
@@ -54,7 +60,7 @@ function getCharts(colors, layerInfo) {
 export default function initializeTools(units, layerInfo) {
     const colors = getColors(layerInfo);
 
-    const charts = getCharts(colors, layerInfo);
+    const charts = getCharts(colors, units, layerInfo);
 
     const brush = new Brush(units, 20, 0);
 

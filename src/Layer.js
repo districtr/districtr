@@ -19,6 +19,8 @@ export default class Layer {
         this.sourceID = layer.source;
         this.sourceLayer = layer["source-layer"];
 
+        this.defaultPaint = layer.paint;
+
         if (adder) {
             adder(map, layer);
         } else {
@@ -34,6 +36,12 @@ export default class Layer {
             },
             state
         );
+    }
+    setPaintProperty(name, value) {
+        this.map.setPaintProperty(this.id, name, value);
+    }
+    resetPaintProperty(name) {
+        this.map.setPaintProperty(this.id, name, this.defaultPaint[name]);
     }
     getFeatureState(featureID) {
         return this.map.getFeatureState({

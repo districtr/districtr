@@ -19,6 +19,8 @@ const template = (tabs, onChange) => html`
         )}
     </ul>`;
 
+// TODO: Use just CSS for hide/show
+
 export default class Tabs {
     constructor(tabs) {
         this.tabs = tabs;
