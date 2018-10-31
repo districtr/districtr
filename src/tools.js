@@ -60,7 +60,7 @@ function getCharts(colors, units, layerInfo) {
             ${popDev.render()}
             </dl>
         </section>
-        <section id="layers">
+        <section id="layers" style="display: none">
             <h4>2004 Election</h4>
             ${repub2004.render()}
             ${dem2004.render()}
