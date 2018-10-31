@@ -58,8 +58,6 @@ function getCharts(colors, units, layerInfo) {
         color => new Part(color.id, "District", color.hex)
     );
 
-    console.log(parts);
-
     const election = new Election(election04.id, election04.parties, parts);
 
     const electionResults = new ElectionResults(election, parts);
