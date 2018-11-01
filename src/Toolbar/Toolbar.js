@@ -1,4 +1,5 @@
 import { html, render } from "lit-html";
+import OptionsContainer from "./OptionsContainer";
 import Tabs from "./Tabs";
 
 export default class Toolbar {
@@ -38,15 +39,7 @@ export default class Toolbar {
             <div class="icon-list">
             ${this.tools.map(tool => tool.render(this.selectTool))}
             </div>
-            <section id="tool-options" class="${
-                activeTool.options !== undefined ? "active" : ""
-            }">
-            ${
-                activeTool.options !== undefined
-                    ? activeTool.options.render()
-                    : ""
-            }
-            </section>
+            ${OptionsContainer(activeTool)}
             ${tabMenu.render()}
             <div id="tab-section-body">
             ${this.children.map(child => child())}
