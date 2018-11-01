@@ -11,9 +11,9 @@ function colorByConcentration(election, party, colorStops) {
     }
     let total = ["+"];
     for (let partyKey in election.parties) {
-        total.push(["to-number", ["get", election.parties[partyKey]]]);
+        total.push(["to-number", ["get", election.partiesToColumns[partyKey]]]);
     }
-    const partyVotes = ["to-number", ["get", election.parties[party]]];
+    const partyVotes = ["to-number", ["get", election.partiesToColumns[party]]];
     return [
         "let",
         "proportion",

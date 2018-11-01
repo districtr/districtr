@@ -1,9 +1,11 @@
+import { zeros } from "../utils";
 import Tally from "./Charts/Tally";
 
 export default class Election {
-    constructor(id, parties, parts) {
+    constructor(id, partiesToColumns, numberOfParts) {
         this.id = id;
-        this.parties = parties;
+        this.partiesToColumns = partiesToColumns;
+        this.parties = Object.keys(partiesToColumns);
 
         this.getVotes = this.getVotes.bind(this);
         this.update = this.update.bind(this);
@@ -13,12 +15,12 @@ export default class Election {
         for (let party in parties) {
             this.votes[party] = new Tally(
                 feature => this.getVotes(feature, party),
-                parts.map(() => 0)
+                zeros(numberOfParts)
             );
         }
     }
     getVotes(feature, party) {
-        return feature.properties[this.parties[party]];
+        return feature.properties[this.partiesToColumns[party]];
     }
     update(feature, part) {
         for (let party in this.votes) {
