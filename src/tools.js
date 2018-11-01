@@ -9,16 +9,16 @@ import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 
-function getLayers(colors, units, layerInfo) {
+function getLayers(state, units) {
     const repub2004 = new PartisanOverlay(
         units,
-        election04,
+        state.elections[0],
         "Republican",
         repubColorStops
     );
     const dem2004 = new PartisanOverlay(
         units,
-        election04,
+        state.elections[0],
         "Democratic",
         demColorStops
     );
@@ -41,13 +41,13 @@ export default function initializeTools(units, layerInfo) {
     let state = new State(layerInfo);
 
     const charts = () => ChartsList(state);
-    const layersTab = getLayers();
+    const layersTab = getLayers(state, units);
 
     const brush = new Brush(units, 20, 0);
 
     let tools = [
         new PanTool(),
-        new BrushTool(brush, colors),
+        new BrushTool(brush, state.parts),
         new EraserTool(brush)
     ];
     tools[0].activate();

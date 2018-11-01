@@ -1,3 +1,4 @@
+import { numberWithCommas, roundToDecimal } from "../Charts/utils";
 import Tally from "./Tally";
 
 export default class Population {
@@ -6,22 +7,19 @@ export default class Population {
         this.total = total;
         this.ideal = total / this.tally.data.length;
 
-        this.formattedIdeal = numberWithCommas(
-            roundToDecimal(this.population.ideal, 2)
-        );
+        this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 
         this.update = this.update.bind(this);
         this.deviations = this.deviations.bind(this);
+        this.maxDisplayValue = this.maxDisplayValue.bind(this);
     }
     update(feature, color) {
         this.tally.update(feature, color);
     }
     deviations() {
-        return this.tally.data.map(
-            d => Math.abs(d - this.population.ideal) / this.population.ideal
-        );
+        return this.tally.data.map(d => Math.abs(d - this.ideal) / this.ideal);
     }
     maxDisplayValue() {
-        return Math.max(this.maxDisplayValue, ...this.tally.data);
+        return Math.max(this.ideal * 2, ...this.tally.data);
     }
 }

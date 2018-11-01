@@ -10,7 +10,7 @@ function colorByConcentration(election, party, colorStops) {
         colorStops = repubColorStops;
     }
     let total = ["+"];
-    for (let partyKey in election.parties) {
+    for (let partyKey of election.parties) {
         total.push(["to-number", ["get", election.partiesToColumns[partyKey]]]);
     }
     const partyVotes = ["to-number", ["get", election.partiesToColumns[party]]];

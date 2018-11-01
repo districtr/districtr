@@ -42,7 +42,7 @@ export const MA_sec_state_vtds = {
     aggregated: {
         population: 6.54782e6
     },
-    numberOfDistricts: 9
+    numberOfParts: 9
 };
 
 export const MA_towns = {
@@ -59,7 +59,7 @@ export const MA_towns = {
     aggregated: {
         population: 6547629
     },
-    numberOfDistricts: 9,
+    numberOfParts: 9,
     elections: [
         {
             id: "2004",

@@ -1,5 +1,5 @@
 import { zeros } from "../utils";
-import Tally from "./Charts/Tally";
+import Tally from "./Tally";
 
 export default class Election {
     constructor(id, partiesToColumns, numberOfParts) {
@@ -12,7 +12,7 @@ export default class Election {
         this.percent = this.percent.bind(this);
 
         this.votes = {};
-        for (let party in parties) {
+        for (let party of this.parties) {
             this.votes[party] = new Tally(
                 feature => this.getVotes(feature, party),
                 zeros(numberOfParts)

@@ -1,8 +1,11 @@
+import { districtColors } from "../colors";
+import { zeros } from "../utils";
 import Election from "./Election";
+import Part from "./Part";
 import Population from "./Population";
 
 function getParts(layerInfo) {
-    let colors = districtColors.slice(0, layerInfo.numberOfDistricts);
+    let colors = districtColors.slice(0, layerInfo.numberOfParts);
     const parts = colors.map(
         color => new Part(color.id, "District", color.hex)
     );
@@ -11,7 +14,7 @@ function getParts(layerInfo) {
 
 function getPopulation(layerInfo) {
     return new Population(
-        this.parts.map(() => 0),
+        zeros(layerInfo.numberOfParts),
         feature => feature.properties[layerInfo.populationAttribute],
         layerInfo.aggregated.population
     );
@@ -33,6 +36,7 @@ export default class State {
         this.parts = getParts(layerInfo);
         this.elections = getElections(layerInfo);
         this.population = getPopulation(layerInfo);
+        this.update = this.update.bind(this);
     }
     update(...args) {
         this.population.update(...args);

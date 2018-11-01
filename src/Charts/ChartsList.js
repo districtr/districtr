@@ -13,6 +13,8 @@ export default state => html`
         </dl>
     </section>
     <section id="elections" style="display: none">
-        ${state.elections.map(election => electionResults(election))}
+        ${state.elections.map(election =>
+            electionResults(election, state.parts)
+        )}
     </section>
     `;

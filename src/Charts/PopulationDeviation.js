@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { roundToDecimal } from "./utils";
 
-const populationDeviation = population => {
+export default population => {
     const maxPopDev = Math.max(...population.deviations());
     return html`
         <dt>Max. Population Deviation</dt>
