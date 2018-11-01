@@ -13,6 +13,7 @@ export default state => html`
         </dl>
     </section>
     <section id="elections" style="display: none">
+        <h4>2004 Presidential Election</h4>
         ${state.elections.map(election =>
             electionResults(election, state.parts)
         )}
