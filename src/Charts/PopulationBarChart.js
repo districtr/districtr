@@ -1,7 +1,5 @@
 import { html, svg } from "lit-html";
-import { getPopulation } from "../context";
-import Tally from "./Tally";
-import { numberWithCommas, roundToDecimal } from "./utils";
+import { numberWithCommas } from "./utils";
 
 const width = 240;
 const height = 300;
@@ -20,13 +18,13 @@ function barHeight(d, maxValue) {
 
 const extra = 20;
 
-const horizontalBarChart = (
-    data,
-    colors,
-    maxValue,
-    idealValue,
-    formattedIdeal
-) => {
+const horizontalBarChart = (population, parts) => {
+    const data = population.tally.data;
+    const idealValue = population.ideal;
+    const maxValue = population.maxDisplayValue();
+    const colors = parts.map(part => part.color);
+    const formattedIdeal = population.formattedIdeal;
+
     const w = barWidth(data);
     const idealY = height - barHeight(idealValue, maxValue);
     return svg`
@@ -69,40 +67,10 @@ const horizontalBarChart = (
     `;
 };
 
-export default class PopulationBarChart {
-    constructor(initialData, colors, total) {
-        this.total = total;
-        this.ideal = total / colors.length;
-        this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
-        this.maxDisplayValue = this.ideal * 2;
+const populationBarChart = (population, parts) => html`
+    <section>
+    <h3>Population</h3>
+    ${horizontalBarChart(population, parts)}
+    </section>`;
 
-        this.tally = new Tally(getPopulation, initialData);
-        this.colors = colors;
-
-        this.update = this.update.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    update(feature, color) {
-        this.tally.update(feature, color);
-    }
-
-    render() {
-        const maxValueOrLargestDatum = Math.max(
-            this.maxDisplayValue,
-            ...this.tally.data
-        );
-
-        return html`
-            <section>
-            <h3>Population</h3>
-            ${horizontalBarChart(
-                this.tally.data,
-                this.colors,
-                maxValueOrLargestDatum,
-                this.ideal,
-                this.formattedIdeal
-            )}
-            </section>`;
-    }
-}
+export default populationBarChart;

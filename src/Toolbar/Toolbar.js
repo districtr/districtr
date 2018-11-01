@@ -49,7 +49,7 @@ export default class Toolbar {
             </section>
             ${tabMenu.render()}
             <div id="tab-section-body">
-            ${this.children.map(x => x.render())}
+            ${this.children.map(child => child())}
             </div>`,
             this.target
         );

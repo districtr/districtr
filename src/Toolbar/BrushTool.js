@@ -3,11 +3,11 @@ import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
 
-const icon = (active, color, colors) => {
-    if (active && color !== undefined) {
+const icon = (active, colorId, colors) => {
+    if (active && colorId !== undefined) {
         return html`
         <i class="material-icons"
-        style="color: ${colors[color].hex};">brush</i>`;
+        style="color: ${colors[colorId].color};">brush</i>`;
     } else {
         return html`<i class="material-icons">brush</i>`;
     }

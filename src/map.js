@@ -1,5 +1,4 @@
 import mapbox from "mapbox-gl";
-import { getCurrentContext } from "./context";
 
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
@@ -43,7 +42,7 @@ export const MA_sec_state_vtds = {
     aggregated: {
         population: 6.54782e6
     },
-    numberOfDistricts: 9
+    numberOfParts: 9
 };
 
 export const MA_towns = {
@@ -60,17 +59,22 @@ export const MA_towns = {
     aggregated: {
         population: 6547629
     },
-    numberOfDistricts: 9
+    numberOfParts: 9,
+    elections: [
+        {
+            id: "2004",
+            partiesToColumns: {
+                Democratic: "Pres04D",
+                Republican: "Pres04R"
+            }
+        }
+    ]
 };
 
 // TODO: Just use map.fitBounds() on the bounding box of the tileset,
 // instead of computing the center and guessing the zoom.
 
 export function initializeMap(mapContainer, layerInfo) {
-    getCurrentContext().registerAttribute(
-        "population",
-        layerInfo.populationAttribute
-    );
     const map = new mapbox.Map({
         container: mapContainer,
         style: "mapbox://styles/mapbox/light-v9",

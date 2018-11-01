@@ -12,7 +12,9 @@ function getCellStyle(percent, party) {
     return `background: #f9f9f9`;
 }
 
-const template = (election, parties, parts, getCellStyle) => html`
+export default (election, parts) => {
+    const parties = election.parties;
+    return html`
     <table class="election-results-table">
         <thead>
             <tr>
@@ -36,29 +38,6 @@ const template = (election, parties, parts, getCellStyle) => html`
                 </tr>`
             )}
         </tbody>
-    </table>
-`;
-
-function abbreviate(party) {
-    return party[0];
-}
-
-export default class ElectionResults {
-    constructor(election, parts) {
-        this.election = election;
-        this.parts = parts;
-
-        this.parties = [];
-        for (let party in election.parties) {
-            this.parties.push(party);
-        }
-
-        this.render = this.render.bind(this);
-    }
-    update(...args) {
-        this.election.update(...args);
-    }
-    render() {
-        return template(this.election, this.parties, this.parts, getCellStyle);
-    }
-}
+    </table>    
+    `;
+};
