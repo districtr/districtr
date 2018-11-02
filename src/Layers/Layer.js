@@ -43,6 +43,9 @@ export default class Layer {
     resetPaintProperty(name) {
         this.map.setPaintProperty(this.id, name, this.defaultPaint[name]);
     }
+    getPaintProperty(name) {
+        return this.map.getPaintProperty(this.id, name);
+    }
     getFeatureState(featureID) {
         return this.map.getFeatureState({
             source: this.sourceId,

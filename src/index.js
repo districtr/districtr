@@ -1,13 +1,14 @@
 import { blockColorProperty } from "./colors";
 import Layer, { addBelowLabels } from "./Layers/Layer";
-import { initializeMap, MA_precincts } from "./map";
+import { initializeMap } from "./map";
+import { MA_towns } from "./mockApi";
 import initializeTools from "./tools";
 
-const map = initializeMap("map", MA_precincts);
+const map = initializeMap("map", MA_towns);
 
 map.on("load", () => {
-    addPlaceholderLayers(map, MA_precincts).then(units => {
-        initializeTools(units, MA_precincts);
+    addPlaceholderLayers(map, MA_towns).then(units => {
+        initializeTools(units, MA_towns);
     });
 });
 

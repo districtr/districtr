@@ -1,6 +1,5 @@
 import { sum, summarize } from "../utils";
 import Layer from "./Layer";
-import LayerToggle from "./LayerToggle";
 
 // TODO: Make this work using a generic "election" record
 // TODO: Include legend
@@ -15,7 +14,7 @@ function colorByConcentration(election, party, colorStops) {
     return [
         "let",
         "proportion",
-        ["/", partyVotes, total],
+        ["case", [">", partyVotes, 0], ["/", partyVotes, total], 0],
         ["interpolate", ["linear"], ["var", "proportion"], ...colorStops]
     ];
 }
@@ -34,41 +33,44 @@ const partyColors = {
     Republican: "#ff0000"
 };
 
-export default class PartisanOverlay extends LayerToggle {
+function getFillColorRule(layer, election, party) {
+    const columns = election.parties.map(p => election.partiesToColumns[p]);
+    const votesForParty = election.partiesToColumns[party];
+
+    const percentages = layer.query(
+        f =>
+            sum(columns.map(c => f.properties[c])) > 0
+                ? f.properties[votesForParty] /
+                  sum(columns.map(c => f.properties[c]))
+                : 0
+    );
+
+    const colorStops = getPartisanColorStops(partyColors[party], percentages);
+    return colorByConcentration(election, party, colorStops);
+}
+
+export default class PartisanOverlay extends Layer {
     constructor(unitsLayer, election, party) {
-        const columns = election.parties.map(p => election.partiesToColumns[p]);
-        const votesForParty = election.partiesToColumns[party];
-
-        const percentages = unitsLayer.query(
-            f =>
-                f.properties[votesForParty] /
-                sum(columns.map(c => f.properties[c]))
-        );
-
-        const colorStops = getPartisanColorStops(
-            partyColors[party],
-            percentages
-        );
-
-        const layer = new Layer(
+        super(
             unitsLayer.map,
             {
-                id: `${election.id}-${party}-overlay`,
+                id: `${party}-overlay`,
                 source: unitsLayer.sourceId,
                 "source-layer": unitsLayer.sourceLayer,
                 type: "fill",
                 paint: {
-                    "fill-color": colorByConcentration(
-                        election,
-                        party,
-                        colorStops
-                    ),
+                    "fill-color": getFillColorRule(unitsLayer, election, party),
                     "fill-opacity": 0
                 }
             },
             (map, layer) => map.addLayer(layer, unitsLayer.id)
         );
-
-        super(layer, `Show ${party} hotspots`);
+        this.party = party;
+    }
+    changeElection(election) {
+        this.setPaintProperty(
+            "fill-color",
+            getFillColorRule(this, election, this.party)
+        );
     }
 }

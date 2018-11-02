@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import Brush from "./Brush";
 import ChartsList from "./Charts/ChartsList";
 import LayerToggle from "./Layers/LayerToggle";
-import PartisanOverlay from "./Layers/PartisanOverlay";
+import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import State from "./models/State";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
@@ -10,24 +10,15 @@ import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 
 function getLayers(state, units) {
-    const repub2004 = new PartisanOverlay(
-        units,
-        state.elections[0],
-        "Republican"
-    );
-    const dem2004 = new PartisanOverlay(
-        units,
-        state.elections[0],
-        "Democratic"
-    );
-
     const toggleDistricts = new LayerToggle(units, "Show districts", true);
+    const partisanOverlays = new PartisanOverlayContainer(
+        units,
+        state.elections
+    );
 
     const layersTab = () => html`
     <section id="layers" style="display: none">
-    <h4>2004 Presidential Election</h4>
-    ${repub2004.render()}
-    ${dem2004.render()}
+    ${partisanOverlays.render()}
     ${toggleDistricts.render()}
     </section>
     `;
