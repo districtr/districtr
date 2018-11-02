@@ -15,6 +15,7 @@ function getCellStyle(percent, party) {
 export default (election, parts) => {
     const parties = election.parties;
     return html`
+    <h4>${election.name}</h4>
     <table class="election-results-table">
         <thead>
             <tr>

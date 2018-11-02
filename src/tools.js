@@ -13,14 +13,12 @@ function getLayers(state, units) {
     const repub2004 = new PartisanOverlay(
         units,
         state.elections[0],
-        "Republican",
-        repubColorStops
+        "Republican"
     );
     const dem2004 = new PartisanOverlay(
         units,
         state.elections[0],
-        "Democratic",
-        demColorStops
+        "Democratic"
     );
 
     const toggleDistricts = new LayerToggle(units, "Show districts", true);
@@ -38,7 +36,7 @@ function getLayers(state, units) {
 }
 
 export default function initializeTools(units, layerInfo) {
-    let state = new State(layerInfo);
+    let state = new State(layerInfo, units);
 
     const charts = () => ChartsList(state);
     const layersTab = getLayers(state, units);
@@ -66,25 +64,3 @@ export default function initializeTools(units, layerInfo) {
         afterColoring: toolbar.render
     });
 }
-
-const repubColorStops = [
-    0,
-    "rgba(0,0,0,0)",
-    0.5,
-    "rgba(0,0,0,0)",
-    0.51,
-    "#ff5d5d",
-    0.6,
-    "#ff0000"
-];
-
-const demColorStops = [
-    0,
-    "rgba(0,0,0,0)",
-    0.5,
-    "rgba(0,0,0,0)",
-    0.55,
-    "#5d5dff",
-    1.0,
-    "#0000ff"
-];

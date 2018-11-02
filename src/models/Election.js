@@ -2,10 +2,11 @@ import { zeros } from "../utils";
 import Tally from "./Tally";
 
 export default class Election {
-    constructor(id, partiesToColumns, numberOfParts) {
+    constructor(id, name, partiesToColumns, numberOfParts) {
         this.id = id;
         this.partiesToColumns = partiesToColumns;
         this.parties = Object.keys(partiesToColumns);
+        this.name = name;
 
         this.getVotes = this.getVotes.bind(this);
         this.update = this.update.bind(this);
@@ -36,5 +37,8 @@ export default class Election {
             return 0;
         }
         return this.votes[party].data[part] / total;
+    }
+    getColumnName(party) {
+        return this.partiesToColumns[party];
     }
 }

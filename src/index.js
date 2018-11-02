@@ -1,11 +1,15 @@
 import { blockColorProperty } from "./colors";
 import Layer, { addBelowLabels } from "./Layers/Layer";
-import { initializeMap, MA_towns } from "./map";
+import { initializeMap, MA_precincts } from "./map";
 import initializeTools from "./tools";
 
-const map = initializeMap("map", MA_towns);
+const map = initializeMap("map", MA_precincts);
 
-map.on("load", () => addPlaceholderLayers(map, MA_towns));
+map.on("load", () => {
+    addPlaceholderLayers(map, MA_precincts).then(units => {
+        initializeTools(units, MA_precincts);
+    });
+});
 
 function addPlaceholderLayers(map, layerInfo) {
     map.addSource("units", layerInfo.source);
@@ -40,6 +44,5 @@ function addPlaceholderLayers(map, layerInfo) {
         addBelowLabels
     );
 
-    // Tools
-    initializeTools(units, layerInfo);
+    return units.waitUntilLoaded();
 }
