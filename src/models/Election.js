@@ -38,6 +38,15 @@ export default class Election {
             this.voteShare(feature, party) - this.voteShare(feature, otherParty)
         );
     }
+    marginAsMapboxExpression(party) {
+        const otherParty =
+            party === this.parties[0] ? this.parties[1] : this.parties[0];
+        return [
+            "-",
+            this.voteShareAsMapboxExpression(party),
+            this.voteShareAsMapboxExpression(otherParty)
+        ];
+    }
     voteShareAsMapboxExpression(party) {
         let total = ["+"];
         for (let partyKey of this.parties) {

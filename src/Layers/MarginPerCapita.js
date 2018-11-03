@@ -8,32 +8,18 @@ import { partyColors } from "./PartisanOverlay";
 
 function marginPerCapitaExpression(election, party, population) {
     return [
-        "let",
-        "population",
-        population.asMapboxExpression(),
-        [
-            "case",
-            [">", ["var", "population"], 0],
-            [
-                "/",
-                [
-                    "max",
-                    ["-", election.voteShareAsMapboxExpression(party), 0.5],
-                    0
-                ],
-                ["var", "population"]
-            ],
-            0
-        ]
+        "/",
+        election.marginAsMapboxExpression(party),
+        population.asMapboxExpression()
     ];
 }
 
 function colorByMarginPerCapita(election, party, population, colorStops) {
     return [
-        "let",
-        "marginPerCapita",
+        "interpolate",
+        ["linear"],
         marginPerCapitaExpression(election, party, population),
-        ["interpolate", ["linear"], ["var", "marginPerCapita"], ...colorStops]
+        ...colorStops
     ];
 }
 
@@ -44,12 +30,21 @@ function getFillColorRule(layer, population, election, party) {
                 ? election.voteMargin(f, party) / population.getPopulation(f)
                 : 0
     );
-    const { max } = summarize(data);
-    let colorStops = [0, "rgba(0,0,0,0)"];
-    if (max > 0) {
-        colorStops.push(max / 10, "#f9f9f9");
-        colorStops.push(max, partyColors[party]);
-    }
+    const { min, max } = summarize(data);
+    // TODO: Make sure parties point the right way
+    // Fix this
+    let colorStops = [
+        min,
+        partyColors.Republican,
+        0,
+        "#f9f9f9",
+        max,
+        partyColors.Democratic
+    ];
+    // if (max > 0) {
+    // colorStops.push(max / 10, "#f9f9f9");
+    // colorStops.push(max, partyColors[party]);
+    // }
     return colorByMarginPerCapita(election, party, population, colorStops);
 }
 
