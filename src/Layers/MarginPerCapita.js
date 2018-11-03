@@ -55,7 +55,6 @@ function getFillColorRule(layer, population, election, party) {
 
 export default class MarginPerCapita extends Layer {
     constructor(unitsLayer, election, population, party) {
-        console.log(getFillColorRule(unitsLayer, population, election, party));
         super(
             unitsLayer.map,
             {
