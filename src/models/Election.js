@@ -1,4 +1,4 @@
-import { zeros } from "../utils";
+import { sum, zeros } from "../utils";
 import Tally from "./Tally";
 
 export default class Election {
@@ -21,7 +21,22 @@ export default class Election {
         }
     }
     getVotes(feature, party) {
-        return feature.properties[this.partiesToColumns[party]];
+        return parseInt(feature.properties[this.partiesToColumns[party]]);
+    }
+    totalVotes(feature) {
+        return sum(this.parties.map(party => this.getVotes(feature, party)));
+    }
+    voteShare(feature, party) {
+        const total = this.totalVotes(feature);
+        return total > 0 ? this.getVotes(feature, party) / total : 0;
+    }
+    voteShareAsMapboxExpression(party) {
+        let total = ["+"];
+        for (let partyKey of this.parties) {
+            total.push(["to-number", ["get", this.partiesToColumns[partyKey]]]);
+        }
+        const votes = ["to-number", ["get", this.partiesToColumns[party]]];
+        return ["case", [">", votes, 0], ["/", votes, total], 0];
     }
     update(feature, part) {
         for (let party in this.votes) {
