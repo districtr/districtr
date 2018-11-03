@@ -1,4 +1,3 @@
-import { interpolateRdBu } from "d3-scale-chromatic";
 import { summarize } from "../utils";
 import Layer from "./Layer";
 
@@ -6,7 +5,7 @@ import Layer from "./Layer";
 // TODO: Include legend
 // TODO: Consult with Ruth
 
-function colorByConcentration(election, party, colorStops) {
+function colorbyVoteShare(election, party, colorStops) {
     return [
         "let",
         "proportion",
@@ -15,20 +14,18 @@ function colorByConcentration(election, party, colorStops) {
     ];
 }
 
-console.log(interpolateRdBu(0), interpolateRdBu(1));
-
-function getPartisanColorStops(color, data) {
+function getPartisanColorStops(party, data) {
     const { max } = summarize(data);
 
     let stops = [0, "rgba(0,0,0,0)", 0.499, "rgba(0,0,0,0)", 0.5, "#f9f9f9"];
     if (0.5 < max) {
-        stops.push(max, color);
+        stops.push(max, partyColors[party]);
     }
 
     return stops;
 }
 
-const partyColors = {
+export const partyColors = {
     Democratic: "#1976d2",
     Republican: "#d32f2f"
 };
@@ -36,7 +33,7 @@ const partyColors = {
 function getFillColorRule(layer, election, party) {
     const percentages = layer.query(f => election.voteShare(f, party));
     const colorStops = getPartisanColorStops(partyColors[party], percentages);
-    return colorByConcentration(election, party, colorStops);
+    return colorbyVoteShare(election, party, colorStops);
 }
 
 export default class PartisanOverlay extends Layer {

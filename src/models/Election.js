@@ -21,7 +21,8 @@ export default class Election {
         }
     }
     getVotes(feature, party) {
-        return parseInt(feature.properties[this.partiesToColumns[party]]);
+        // Use float in case the numbers have been interpolated
+        return parseFloat(feature.properties[this.partiesToColumns[party]]);
     }
     totalVotes(feature) {
         return sum(this.parties.map(party => this.getVotes(feature, party)));
@@ -29,6 +30,13 @@ export default class Election {
     voteShare(feature, party) {
         const total = this.totalVotes(feature);
         return total > 0 ? this.getVotes(feature, party) / total : 0;
+    }
+    voteMargin(feature, party) {
+        const otherParty =
+            party === this.parties[0] ? this.parties[1] : this.parties[0];
+        return (
+            this.voteShare(feature, party) - this.voteShare(feature, otherParty)
+        );
     }
     voteShareAsMapboxExpression(party) {
         let total = ["+"];

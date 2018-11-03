@@ -1,22 +1,32 @@
 import { html } from "lit-html";
 import LayerToggle from "./LayerToggle";
-import PartisanOverlay from "./PartisanOverlay";
+import MarginPerCapita from "./MarginPerCapita";
 
 export default class PartisanOverlayContainer {
-    constructor(units, elections) {
+    constructor(units, elections, population) {
         this.elections = elections;
-        this.demLayer = new PartisanOverlay(units, elections[0], "Democratic");
-        this.repLayer = new PartisanOverlay(units, elections[0], "Republican");
+        this.demLayer = new MarginPerCapita(
+            units,
+            elections[0],
+            population,
+            "Democratic"
+        );
+        this.repLayer = new MarginPerCapita(
+            units,
+            elections[0],
+            population,
+            "Republican"
+        );
         this.activeElection = 0;
 
         this.demToggle = new LayerToggle(
             this.demLayer,
-            `Show Democratic hotspots`,
+            `Show Democratic units`,
             false
         );
         this.repToggle = new LayerToggle(
             this.repLayer,
-            `Show Republican hotspots`,
+            `Show Republican units`,
             false
         );
 
@@ -30,7 +40,7 @@ export default class PartisanOverlayContainer {
     }
     render() {
         return html`
-        <label for="election-overlay">Overlay Partisan Lean</label>
+        <label for="election-overlay"><h4>Overlay Partisan Lean</h4></label>
         <select name="election-overlay" @input=${this.onChangeElection}>
             ${this.elections.map(
                 (election, i) => html`

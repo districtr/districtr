@@ -13,7 +13,8 @@ function getLayers(state, units) {
     const toggleDistricts = new LayerToggle(units, "Show districts", true);
     const partisanOverlays = new PartisanOverlayContainer(
         units,
-        state.elections
+        state.elections,
+        state.population
     );
 
     const layersTab = () => html`
