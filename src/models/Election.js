@@ -31,11 +31,18 @@ export default class Election {
         const total = this.totalVotes(feature);
         return total > 0 ? this.getVotes(feature, party) / total : 0;
     }
+    /**
+     * The absolute (integer, not percentage) vote margin that the given party
+     * had in this election. If the party lost the election, the margin is
+     * negative.
+     * @param {object} feature
+     * @param {string} party
+     */
     voteMargin(feature, party) {
         const otherParty =
             party === this.parties[0] ? this.parties[1] : this.parties[0];
         return (
-            this.voteShare(feature, party) - this.voteShare(feature, otherParty)
+            this.getVotes(feature, party) - this.getVotes(feature, otherParty)
         );
     }
     marginAsMapboxExpression(party) {

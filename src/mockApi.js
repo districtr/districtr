@@ -1,9 +1,10 @@
 export const MA_towns = {
+    name: "Massachusetts Towns",
     source: {
         type: "vector",
-        url: "mapbox://districtr.20p0zp1z"
+        url: "mapbox://districtr.aaxemxed"
     },
-    sourceLayer: "FinalMass-ahm0xy",
+    sourceLayer: "FinalMass-atlf9p",
     properties: {
         population: {
             key: "POP2010",
@@ -12,10 +13,7 @@ export const MA_towns = {
             max: 617594
         }
     },
-    mapOptions: {
-        center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
-        zoom: 7
-    },
+    bounds: [[-73.5, 41.2], [-69.9, 42.9]],
     numberOfParts: 9,
     elections: [
         {
@@ -140,6 +138,7 @@ export const MA_towns = {
 };
 
 export const MA_precincts = {
+    name: "Massachusetts Precincts",
     source: {
         type: "vector",
         url: "mapbox://districtr.btydwuhf"
@@ -153,10 +152,7 @@ export const MA_precincts = {
             max: 10172
         }
     },
-    mapOptions: {
-        center: [(-73.5 + -69.9) / 2, (41.2 + 42.9) / 2],
-        zoom: 7
-    },
+    bounds: [[-73.5, 41.2], [-69.9, 42.9]],
     numberOfParts: 9,
     elections: [
         {
@@ -206,3 +202,7 @@ export const MA_precincts = {
         }
     ]
 };
+
+const places = [MA_precincts, MA_towns];
+
+export default places;

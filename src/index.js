@@ -1,49 +1,39 @@
-import { blockColorProperty } from "./colors";
-import Layer, { addBelowLabels } from "./Layers/Layer";
-import { initializeMap } from "./map";
-import { MA_towns } from "./mockApi";
+import { render } from "lit-html";
+import { addLayers, initializeMap } from "./map";
+import apiResponse from "./mockApi";
+import PlacesList from "./PlacesList";
 import initializeTools from "./tools";
 
-const map = initializeMap("map", MA_towns);
+// const API = "https://districtr.mggg.org/api";
 
-map.on("load", () => {
-    addPlaceholderLayers(map, MA_towns).then(units => {
-        initializeTools(units, MA_towns);
-    });
-});
+const map = initializeMap("map");
 
-function addPlaceholderLayers(map, layerInfo) {
-    map.addSource("units", layerInfo.source);
-
-    const units = new Layer(
-        map,
-        {
-            id: "units",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
-            type: "fill",
-            paint: {
-                "fill-color": blockColorProperty,
-                "fill-opacity": 0.8
-            }
-        },
-        addBelowLabels
+function main() {
+    // fetch(`${API}/places/`)
+    return (
+        new Promise(resolve => resolve(apiResponse))
+            // .then(resp => {
+            //     if (!resp.ok()) {
+            //         throw Error("API call failed");
+            //     } else {
+            //         return resp.json();
+            //     }
+            // })
+            .then(places => {
+                renderInitialView(places);
+            })
     );
-    const unitsBorders = new Layer(
-        map,
-        {
-            id: "units-borders",
-            type: "line",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
-            paint: {
-                "line-color": "#777777",
-                "line-width": 1,
-                "line-opacity": 0.3
-            }
-        },
-        addBelowLabels
-    );
-
-    return units.waitUntilLoaded();
 }
+function initialize(layerInfo) {
+    addLayers(map, layerInfo).then(units => {
+        initializeTools(units, layerInfo);
+    });
+}
+
+function renderInitialView(places) {
+    console.log("rendering");
+    const listOfPlaces = new PlacesList(places, initialize);
+    render(listOfPlaces.render(), document.getElementById("toolbar"));
+}
+
+main();

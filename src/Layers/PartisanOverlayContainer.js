@@ -1,22 +1,12 @@
 import { html } from "lit-html";
 import LayerToggle from "./LayerToggle";
-import MarginPerCapita from "./MarginPerCapita";
+import PartisanOverlay from "./PartisanOverlay";
 
 export default class PartisanOverlayContainer {
     constructor(units, elections, population) {
         this.elections = elections;
-        this.demLayer = new MarginPerCapita(
-            units,
-            elections[0],
-            population,
-            "Democratic"
-        );
-        this.repLayer = new MarginPerCapita(
-            units,
-            elections[0],
-            population,
-            "Republican"
-        );
+        this.demLayer = new PartisanOverlay(units, elections[0], "Democratic");
+        this.repLayer = new PartisanOverlay(units, elections[0], "Republican");
         this.activeElection = 0;
 
         this.demToggle = new LayerToggle(
