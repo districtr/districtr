@@ -13,7 +13,7 @@ export const MA_towns = {
             max: 617594
         }
     },
-    bounds: [[-73.5, 41.2], [-69.9, 42.9]],
+    bounds: [[-74, 41.2], [-68, 43]],
     numberOfParts: 9,
     elections: [
         {
@@ -147,12 +147,12 @@ export const MA_precincts = {
     properties: {
         population: {
             key: "POP10",
-            total: 6.54782e6,
+            total: 6547816,
             min: 75,
             max: 10172
         }
     },
-    bounds: [[-73.5, 41.2], [-69.9, 42.9]],
+    bounds: [[-74, 41.2], [-68, 43]],
     numberOfParts: 9,
     elections: [
         {
@@ -203,6 +203,36 @@ export const MA_precincts = {
     ]
 };
 
-const places = [MA_precincts, MA_towns];
+export const alaska = {
+    name: "Alaska Precincts",
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.5x4innca"
+    },
+    sourceLayer: "alaska-ce2eim",
+    properties: {
+        population: {
+            key: "POPULATION",
+            total: 710231,
+            min: 44,
+            max: 7994
+        }
+    },
+    bounds: [[-175.0, 51.2], [-130.0, 71.4]],
+    numberOfParts: 20,
+    elections: [
+        {
+            id: "Pres",
+            year: 2016,
+            race: "Presidential",
+            partiesToColumns: {
+                Democratic: "D-Pres Vot",
+                Republican: "R-Pres Vot"
+            }
+        }
+    ]
+};
+
+const places = [MA_precincts, MA_towns, alaska];
 
 export default places;
