@@ -1,4 +1,5 @@
 import { districtColors } from "../colors";
+import { addLayers } from "../map";
 import { zeros } from "../utils";
 import Election from "./Election";
 import Part from "./Part";
@@ -15,31 +16,55 @@ function getParts(layerInfo) {
 function getPopulation(layerInfo) {
     return new Population(
         zeros(layerInfo.numberOfParts),
-        feature => feature.properties[layerInfo.populationAttribute],
-        layerInfo.aggregated.population
+        layerInfo.properties.population.key,
+        layerInfo.properties.population.total
     );
 }
 
-function getElections(layerInfo, parts) {
+function getElections(layerInfo, layer) {
     return layerInfo.elections.map(
         election =>
             new Election(
                 election.id,
+                `${election.year} ${election.race} Election`,
                 election.partiesToColumns,
-                layerInfo.numberOfParts
+                layerInfo.numberOfParts,
+                layer
             )
     );
 }
 
+function getAssignment(layer) {
+    const features = layer.query(feature => feature);
+    let assignment = {};
+    for (let feature of features) {
+        let part = layer.getAssignment(feature.id);
+        if (part === undefined) {
+            part = null;
+        }
+        assignment[feature.id] = part;
+    }
+    return assignment;
+}
+
 export default class State {
-    constructor(layerInfo) {
+    constructor(map, layerInfo) {
+        const { units, unitsBorders } = addLayers(map, layerInfo);
+
+        this.units = units;
+        this.unitsBorders = unitsBorders;
+        this.map = map;
+
         this.parts = getParts(layerInfo);
-        this.elections = getElections(layerInfo);
+        this.elections = getElections(layerInfo, this.units);
         this.population = getPopulation(layerInfo);
+        this.assignment = getAssignment(this.units);
+
         this.update = this.update.bind(this);
     }
-    update(...args) {
-        this.population.update(...args);
-        this.elections.forEach(election => election.update(...args));
+    update(feature, part) {
+        this.population.update(feature, part);
+        this.elections.forEach(election => election.update(feature, part));
+        this.assignment[feature.id] = part;
     }
 }

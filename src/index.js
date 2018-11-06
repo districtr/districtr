@@ -1,45 +1,34 @@
-import { blockColorProperty } from "./colors";
-import Layer, { addBelowLabels } from "./Layers/Layer";
-import { initializeMap, MA_towns } from "./map";
-import initializeTools from "./tools";
+import { html, render } from "lit-html";
+import { initializeMap } from "./map";
+import apiResponse from "./mockApi";
+import State from "./models/State";
+import PlacesList from "./PlacesList";
+import toolbarView from "./tools";
 
-const map = initializeMap("map", MA_towns);
+// const API = "https://districtr.mggg.org/api";
 
-map.on("load", () => addPlaceholderLayers(map, MA_towns));
-
-function addPlaceholderLayers(map, layerInfo) {
-    map.addSource("units", layerInfo.source);
-
-    const units = new Layer(
-        map,
-        {
-            id: "units",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
-            type: "fill",
-            paint: {
-                "fill-color": blockColorProperty,
-                "fill-opacity": 0.8
-            }
-        },
-        addBelowLabels
-    );
-    const unitsBorders = new Layer(
-        map,
-        {
-            id: "units-borders",
-            type: "line",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
-            paint: {
-                "line-color": "#777777",
-                "line-width": 1,
-                "line-opacity": 0.3
-            }
-        },
-        addBelowLabels
-    );
-
-    // Tools
-    initializeTools(units, layerInfo);
+export function main() {
+    renderInitialView(new Promise(resolve => resolve(apiResponse)));
 }
+function renderEditView(layerInfo) {
+    render(
+        html`<div id="map"></div><div id="toolbar"></div>`,
+        document.getElementById("root")
+    );
+    const map = initializeMap("map");
+    map.on("load", () => {
+        let state = new State(map, layerInfo);
+        state.units.whenLoaded(() => {
+            // We can and should use lit-html to start rendering before the layers
+            // are all loaded
+            toolbarView(state);
+        });
+    });
+}
+
+export function renderInitialView(places) {
+    const listOfPlaces = new PlacesList(places, renderEditView);
+    render(listOfPlaces.render(), document.getElementById("root"));
+}
+
+main();

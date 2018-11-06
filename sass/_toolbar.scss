@@ -192,9 +192,17 @@ input:checked ~ .tabs__tab {
 .election-results-table {
     border: none;
     width: 90%;
+    margin-bottom: 1rem;
 }
 
 .election-results-table td {
     text-align: right;
     background: #f9f9f9;
+}
+
+.toolbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.5rem;
 }

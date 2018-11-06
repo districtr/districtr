@@ -1,11 +1,9 @@
 import { html } from "lit-html";
+import { sum } from "../utils";
 import { numberWithCommas } from "./utils";
 
 export default population => {
-    const totalAssignedPop = population.tally.data.reduce(
-        (sum, pop) => sum + pop,
-        0
-    );
+    const totalAssignedPop = sum(population.tally.data);
     const unassignedPop = population.total - totalAssignedPop;
     return html`
     <dt>Unassigned population</dt>
