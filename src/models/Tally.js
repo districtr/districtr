@@ -6,9 +6,6 @@ export default class Tally {
     }
     update(feature, color) {
         if (color !== undefined && color !== null) {
-            if (isNaN(this.accessor(feature))) {
-                console.log(feature);
-            }
             this.data[color] += this.accessor(feature);
         }
         if (feature.state.color !== undefined && feature.state.color !== null) {

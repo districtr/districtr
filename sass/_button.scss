@@ -1,0 +1,34 @@
+.new-map-button {
+    background: black;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0.1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #f9f9f9;
+    font-weight: normal;
+    transition: all ease 200ms;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.new-map-button:hover {
+    border-radius: 20%;
+}
+
+.new-map-button:active {
+    border-radius: 20%;
+}
+
+.new-map-button:focus {
+    border-radius: 20%;
+}

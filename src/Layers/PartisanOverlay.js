@@ -32,7 +32,8 @@ export const partyColors = {
 
 function getFillColorRule(layer, election, party) {
     const percentages = layer.query(f => election.voteShare(f, party));
-    const colorStops = getPartisanColorStops(partyColors[party], percentages);
+    const colorStops = getPartisanColorStops(party, percentages);
+    console.log(colorbyVoteShare(election, party, colorStops));
     return colorbyVoteShare(election, party, colorStops);
 }
 
@@ -53,6 +54,7 @@ export default class PartisanOverlay extends Layer {
             (map, layer) => map.addLayer(layer, unitsLayer.id)
         );
         this.party = party;
+        this.changeElection = this.changeElection.bind(this);
     }
     changeElection(election) {
         this.setPaintProperty(

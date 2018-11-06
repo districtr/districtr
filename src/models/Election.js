@@ -8,9 +8,7 @@ export default class Election {
         this.parties = Object.keys(partiesToColumns);
         this.name = name;
 
-        this.getVotes = this.getVotes.bind(this);
-        this.update = this.update.bind(this);
-        this.percent = this.percent.bind(this);
+        this.bindMethods();
 
         this.votes = {};
         for (let party of this.parties) {
@@ -19,6 +17,20 @@ export default class Election {
                 zeros(numberOfParts)
             );
         }
+    }
+    bindMethods() {
+        this.getVotes = this.getVotes.bind(this);
+        this.totalVotes = this.totalVotes.bind(this);
+        this.voteShare = this.voteShare.bind(this);
+        this.voteMargin = this.voteMargin.bind(this);
+        this.update = this.update.bind(this);
+        this.percent = this.percent.bind(this);
+        this.voteShareAsMapboxExpression = this.voteShareAsMapboxExpression.bind(
+            this
+        );
+        this.marginAsMapboxExpression = this.marginAsMapboxExpression.bind(
+            this
+        );
     }
     getVotes(feature, party) {
         // Use float in case the numbers have been interpolated

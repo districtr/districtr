@@ -6,7 +6,6 @@ import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
-import NewMapButton from "./Toolbar/NewMapButton";
 import PanTool from "./Toolbar/PanTool";
 
 function getLayers(state, units) {
@@ -36,8 +35,7 @@ export default function toolbarView(state) {
     let tools = [
         new PanTool(),
         new BrushTool(brush, state.parts),
-        new EraserTool(brush),
-        new NewMapButton()
+        new EraserTool(brush)
     ];
     tools[0].activate();
 

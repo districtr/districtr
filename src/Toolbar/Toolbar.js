@@ -1,4 +1,5 @@
 import { html, render } from "lit-html";
+import { main } from "../index";
 import OptionsContainer from "./OptionsContainer";
 import Tabs from "./Tabs";
 
@@ -39,8 +40,14 @@ export default class Toolbar {
         const activeTool = this.toolsById[this.activeTool];
         render(
             html`
+            <div class="toolbar-top">
             <div class="icon-list">
             ${this.tools.map(tool => tool.render(this.selectTool))}
+            </div>
+            <button class="new-map-button"
+            @click=${main}>
+            New Map
+            </button>
             </div>
             ${OptionsContainer(activeTool)}
             ${tabMenu.render()}
