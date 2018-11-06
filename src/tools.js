@@ -8,12 +8,15 @@ import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 
-function getLayers(state, units) {
-    const toggleDistricts = new LayerToggle(units, "Show districts", true);
+function getLayers(state) {
+    const toggleDistricts = new LayerToggle(
+        state.units,
+        "Show districts",
+        true
+    );
     const partisanOverlays = new PartisanOverlayContainer(
-        units,
-        state.elections,
-        state.population
+        state.units,
+        state.elections
     );
 
     const layersTab = () => html`
@@ -28,7 +31,7 @@ function getLayers(state, units) {
 
 export default function toolbarView(state) {
     const charts = () => ChartsList(state);
-    const layersTab = getLayers(state, state.units);
+    const layersTab = getLayers(state);
 
     const brush = new Brush(state.units, 20, 0);
 

@@ -33,7 +33,6 @@ export const partyColors = {
 function getFillColorRule(layer, election, party) {
     const percentages = layer.query(f => election.voteShare(f, party));
     const colorStops = getPartisanColorStops(party, percentages);
-    console.log(colorbyVoteShare(election, party, colorStops));
     return colorbyVoteShare(election, party, colorStops);
 }
 
@@ -55,6 +54,13 @@ export default class PartisanOverlay extends Layer {
         );
         this.party = party;
         this.changeElection = this.changeElection.bind(this);
+
+        // Awful hack to wait one second and refresh the fill color rule:
+        window.setTimeout(() => this.changeElection(election), 2000);
+        // The real problem is that we can't rely on querying the mapbox
+        // vector tile source to get aggregate feature data, because there
+        // is no guarantee that they'll load every feature. We'll need to
+        // draw from CSV or json sent by the backend.
     }
     changeElection(election) {
         this.setPaintProperty(

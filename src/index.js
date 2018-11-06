@@ -18,9 +18,11 @@ function renderEditView(layerInfo) {
     const map = initializeMap("map");
     map.on("load", () => {
         let state = new State(map, layerInfo);
-        // We can and should use lit-html to start rendering before the layers
-        // are all loaded
-        toolbarView(state);
+        state.units.whenLoaded(() => {
+            // We can and should use lit-html to start rendering before the layers
+            // are all loaded
+            toolbarView(state);
+        });
     });
 }
 
