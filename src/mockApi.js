@@ -146,7 +146,7 @@ export const MA_precincts = {
     sourceLayer: "MA_precincts_correct_types-8f0w6d",
     properties: {
         population: {
-            key: "Population",
+            key: "POP10",
             total: 6.54782e6,
             min: 75,
             max: 10172

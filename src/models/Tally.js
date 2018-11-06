@@ -6,12 +6,13 @@ export default class Tally {
     }
     update(feature, color) {
         if (color !== undefined && color !== null) {
-            this.data[color] += parseFloat(this.accessor(feature));
+            if (isNaN(this.accessor(feature))) {
+                console.log(feature);
+            }
+            this.data[color] += this.accessor(feature);
         }
         if (feature.state.color !== undefined && feature.state.color !== null) {
-            this.data[feature.state.color] -= parseFloat(
-                this.accessor(feature)
-            );
+            this.data[feature.state.color] -= this.accessor(feature);
         }
     }
 }

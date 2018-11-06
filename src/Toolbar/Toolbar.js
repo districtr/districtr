@@ -3,10 +3,9 @@ import OptionsContainer from "./OptionsContainer";
 import Tabs from "./Tabs";
 
 export default class Toolbar {
-    constructor(tools, activeTool, children, target) {
+    constructor(tools, activeTool, children) {
         this.tools = tools;
         this.activeTool = activeTool;
-        this.target = target;
         this.children = children;
 
         this.render = this.render.bind(this);
@@ -33,6 +32,10 @@ export default class Toolbar {
         this.render();
     }
     render() {
+        const target = document.getElementById("toolbar");
+        if (target === null) {
+            return null;
+        }
         const activeTool = this.toolsById[this.activeTool];
         render(
             html`
@@ -44,7 +47,7 @@ export default class Toolbar {
             <div id="tab-section-body">
             ${this.children.map(child => child())}
             </div>`,
-            this.target
+            target
         );
     }
 }

@@ -3,7 +3,7 @@ import LayerToggle from "./LayerToggle";
 import PartisanOverlay from "./PartisanOverlay";
 
 export default class PartisanOverlayContainer {
-    constructor(units, elections, population) {
+    constructor(units, elections) {
         this.elections = elections;
         this.demLayer = new PartisanOverlay(units, elections[0], "Democratic");
         this.repLayer = new PartisanOverlay(units, elections[0], "Republican");

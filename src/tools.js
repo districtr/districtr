@@ -3,10 +3,10 @@ import Brush from "./Brush";
 import ChartsList from "./Charts/ChartsList";
 import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
-import State from "./models/State";
 import Toolbar from "./Toolbar";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
+import NewMapButton from "./Toolbar/NewMapButton";
 import PanTool from "./Toolbar/PanTool";
 
 function getLayers(state, units) {
@@ -27,30 +27,24 @@ function getLayers(state, units) {
     return layersTab;
 }
 
-export default function initializeTools(units, layerInfo) {
-    let state = new State(layerInfo, units);
-
+export default function toolbarView(state) {
     const charts = () => ChartsList(state);
-    const layersTab = getLayers(state, units);
+    const layersTab = getLayers(state, state.units);
 
-    const brush = new Brush(units, 20, 0);
+    const brush = new Brush(state.units, 20, 0);
 
     let tools = [
         new PanTool(),
         new BrushTool(brush, state.parts),
-        new EraserTool(brush)
+        new EraserTool(brush),
+        new NewMapButton()
     ];
     tools[0].activate();
 
-    const toolbar = new Toolbar(
-        tools,
-        "pan",
-        [charts, layersTab],
-        document.getElementById("toolbar")
-    );
+    const toolbar = new Toolbar(tools, "pan", [charts, layersTab]);
+
     toolbar.render();
 
-    // unfortunately have to register this after the fact
     brush.subscribe({
         afterFeature: state.update,
         afterColoring: toolbar.render

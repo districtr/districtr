@@ -7,14 +7,20 @@ export default class PlacesList {
     }
     render() {
         return html`
-        <ul>
-            ${this.places.map(
-                place =>
-                    html`<li><button @click=${() => this.choosePlace(place)}>${
-                        place.name
-                    }</button></li>`
+        <section class="places-list-container">
+        <h1>Where would you like to redistrict?</h1>
+        <ul class="places-list">
+            ${this.places.then(p =>
+                p.map(
+                    place =>
+                        html`<li class="places-list__item"
+                    @click=${() => this.choosePlace(place)}>
+                    ${place.name}
+                    </li>`
+                )
             )}
         </ul>
+        </section>
         `;
     }
 }

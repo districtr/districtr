@@ -98,7 +98,12 @@ export default class Layer {
         }
     }
     waitUntilLoaded() {
-        return new Promise((resolve, reject) => {
+        if (this.map.isSourceLoaded(this.sourceId)) {
+            return new Promise(resolve => {
+                resolve(true);
+            });
+        }
+        return new Promise(resolve => {
             this.listener = this.listener.bind(this, resolve);
             this.map.on("data", this.listener);
         }).then(listener => {

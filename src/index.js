@@ -1,39 +1,32 @@
-import { render } from "lit-html";
-import { addLayers, initializeMap } from "./map";
+import { html, render } from "lit-html";
+import { initializeMap } from "./map";
 import apiResponse from "./mockApi";
+import State from "./models/State";
 import PlacesList from "./PlacesList";
-import initializeTools from "./tools";
+import toolbarView from "./tools";
 
 // const API = "https://districtr.mggg.org/api";
 
-const map = initializeMap("map");
-
-function main() {
-    // fetch(`${API}/places/`)
-    return (
-        new Promise(resolve => resolve(apiResponse))
-            // .then(resp => {
-            //     if (!resp.ok()) {
-            //         throw Error("API call failed");
-            //     } else {
-            //         return resp.json();
-            //     }
-            // })
-            .then(places => {
-                renderInitialView(places);
-            })
-    );
+export function main() {
+    renderInitialView(new Promise(resolve => resolve(apiResponse)));
 }
-function initialize(layerInfo) {
-    addLayers(map, layerInfo).then(units => {
-        initializeTools(units, layerInfo);
+function renderEditView(layerInfo) {
+    render(
+        html`<div id="map"></div><div id="toolbar"></div>`,
+        document.getElementById("root")
+    );
+    const map = initializeMap("map");
+    map.on("load", () => {
+        let state = new State(map, layerInfo);
+        // We can and should use lit-html to start rendering before the layers
+        // are all loaded
+        toolbarView(state);
     });
 }
 
-function renderInitialView(places) {
-    console.log("rendering");
-    const listOfPlaces = new PlacesList(places, initialize);
-    render(listOfPlaces.render(), document.getElementById("toolbar"));
+export function renderInitialView(places) {
+    const listOfPlaces = new PlacesList(places, renderEditView);
+    render(listOfPlaces.render(), document.getElementById("root"));
 }
 
 main();

@@ -4,14 +4,18 @@ import Tally from "./Tally";
 export default class Population {
     constructor(initialData, populationKey, total) {
         this.populationKey = populationKey;
+        this.getPopulation = this.getPopulation.bind(this);
         this.tally = new Tally(this.getPopulation, initialData);
+
         this.total = total;
-        this.ideal = total / this.tally.data.length;
+        this.ideal = total / initialData.length;
 
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 
+        this.bindMethods();
+    }
+    bindMethods() {
         this.update = this.update.bind(this);
-        this.getPopulation = this.getPopulation.bind(this);
         this.asMapboxExpression = this.asMapboxExpression.bind(this);
         this.deviations = this.deviations.bind(this);
         this.maxDisplayValue = this.maxDisplayValue.bind(this);

@@ -1,4 +1,5 @@
 import { districtColors } from "../colors";
+import { addLayers } from "../map";
 import { zeros } from "../utils";
 import Election from "./Election";
 import Part from "./Part";
@@ -47,13 +48,17 @@ function getAssignment(layer) {
 }
 
 export default class State {
-    constructor(layerInfo, units) {
+    constructor(map, layerInfo) {
+        const { units, unitsBorders } = addLayers(map, layerInfo);
+
         this.units = units;
+        this.unitsBorders = unitsBorders;
+        this.map = map;
 
         this.parts = getParts(layerInfo);
-        this.elections = getElections(layerInfo, units);
+        this.elections = getElections(layerInfo, this.units);
         this.population = getPopulation(layerInfo);
-        this.assignment = getAssignment(units);
+        this.assignment = getAssignment(this.units);
 
         this.update = this.update.bind(this);
     }

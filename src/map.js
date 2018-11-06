@@ -12,7 +12,9 @@ export function initializeMap(mapContainer) {
     const map = new mapbox.Map({
         container: mapContainer,
         style: "mapbox://styles/mapbox/light-v9",
-        attributionControl: false
+        attributionControl: false,
+        center: [-86.0, 37.83],
+        zoom: 3
     });
     const nav = new mapbox.NavigationControl();
     map.addControl(nav, "top-left");
@@ -54,5 +56,5 @@ export function addLayers(map, layerInfo) {
 
     map.fitBounds(layerInfo.bounds);
 
-    return units.waitUntilLoaded();
+    return { units, unitsBorders };
 }
