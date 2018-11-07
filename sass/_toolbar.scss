@@ -34,8 +34,8 @@ fieldset {
 
 legend {
     font-weight: 600;
-    margin: 0.25rem auto 0;
-    line-height: 2;
+    margin: 0 auto;
+    line-height: 1.8;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -44,20 +44,31 @@ legend {
 
 .color-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: none;
+    grid-template-columns: repeat(auto-fill, 24px);
+    grid-gap: 0.2rem;
+    margin: 0 auto;
+    width: 100%;
 }
 
-#tool-options {
+.color-list__item {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
+
+.tool-options {
     background: #f9f9f9;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
     max-height: 0;
     overflow: hidden;
     transition: all 200ms ease;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
 }
 
-#tool-options.active {
+.tool-options.active {
     border-top: solid 1px #aaa;
     max-height: 400px;
 }
@@ -78,10 +89,6 @@ legend {
         flex-direction: row;
         overflow: auto;
         width: 100%;
-    }
-    .color-list {
-        grid-template-columns: none;
-        grid-template-rows: 1fr 1fr 1fr;
     }
 }
 
@@ -167,7 +174,7 @@ input:checked ~ .tabs__tab {
     color: white;
 }
 
-#tool-options {
+.tool-options {
     flex-shrink: 0;
 }
 

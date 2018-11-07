@@ -21,8 +21,8 @@
 
 /* Customize the label (the container) */
 .icon-list__item {
-    width: 3rem;
-    height: 3rem;
+    width: 36px;
+    height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,8 +67,8 @@ of the whole element */
     position: absolute;
     top: 0;
     left: 0;
-    height: 3rem;
-    width: 3rem;
+    height: 100%;
+    width: 100%;
 
     background: #111;
 }
