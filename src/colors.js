@@ -17,7 +17,32 @@ const colorScheme = [
     "#bc80bd",
     "#ccebc5",
     "#ffed6f",
-    "#ffffb3"
+    "#ffffb3",
+    // other color brewer scheme:
+    "#a6cee3",
+    "#1f78b4",
+    "#b2df8a",
+    "#33a02c",
+    "#fb9a99",
+    "#e31a1c",
+    "#fdbf6f",
+    "#ff7f00",
+    "#cab2d6",
+    "#6a3d9a",
+    //    "#ffff99",
+    "#b15928",
+    // random material design colors:
+    "#64ffda",
+    "#00B8D4",
+    "#A1887F",
+    "#76FF03",
+    "#DCE775",
+    "#B388FF",
+    "#FF80AB",
+    "#D81B60",
+    "#26A69A",
+    "#FFEA00",
+    "#6200EA"
 ];
 const hoverColorScheme = colorScheme.map(hex =>
     changeColorLuminance(hex, -0.3)
