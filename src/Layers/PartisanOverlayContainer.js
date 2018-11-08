@@ -5,9 +5,19 @@ import PartisanOverlay from "./PartisanOverlay";
 export default class PartisanOverlayContainer {
     constructor(units, elections) {
         this.elections = elections;
-        this.demLayer = new PartisanOverlay(units, elections[0], "Democratic");
-        this.repLayer = new PartisanOverlay(units, elections[0], "Republican");
-        this.activeElection = 0;
+        if (elections.length > 0) {
+            this.demLayer = new PartisanOverlay(
+                units,
+                elections[0],
+                "Democratic"
+            );
+            this.repLayer = new PartisanOverlay(
+                units,
+                elections[0],
+                "Republican"
+            );
+            this.activeElection = 0;
+        }
 
         this.demToggle = new LayerToggle(
             this.demLayer,
@@ -30,16 +40,17 @@ export default class PartisanOverlayContainer {
     }
     render() {
         return html`
-        <label for="election-overlay"><h4>Overlay Partisan Lean</h4></label>
-        <select name="election-overlay" @input=${this.onChangeElection}>
-            ${this.elections.map(
-                (election, i) => html`
-            <option value="${i}">${election.name}</option>
-            `
-            )}
-        </select>
-        ${this.repToggle.render()}
-        ${this.demToggle.render()}
+            <label for="election-overlay"><h4>Overlay Partisan Lean</h4></label>
+            <select name="election-overlay" @input="${this.onChangeElection}">
+                ${
+                    this.elections.map(
+                        (election, i) => html`
+                            <option value="${i}">${election.name}</option>
+                        `
+                    )
+                }
+            </select>
+            ${this.repToggle.render()} ${this.demToggle.render()}
         `;
     }
 }

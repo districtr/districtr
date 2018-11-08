@@ -154,6 +154,14 @@ input:checked ~ .tabs__tab {
     box-shadow: none;
 }
 
+.tab__body.active {
+    display: block;
+}
+
+.tab__body {
+    display: none;
+}
+
 .part-number {
     // override this with style attribute to match
     // district color
@@ -182,17 +190,17 @@ input:checked ~ .tabs__tab {
     flex-shrink: 0;
 }
 
-#tab-section-body {
+.tab__body {
     overflow-y: auto;
     margin: 1rem 0;
     flex-shrink: 10;
 }
 
-#tab-section-body h3 {
+.tab__body h3 {
     margin: 0 0 1rem;
 }
 
-#tab-section-body h4 {
+.tab__body h4 {
     margin: 0.5rem 0;
 }
 
