@@ -1,5 +1,5 @@
 export const MA_towns = {
-    name: "Massachusetts Towns",
+    name: "Massachusetts (Towns)",
     source: {
         type: "vector",
         url: "mapbox://districtr.aaxemxed"
@@ -138,7 +138,7 @@ export const MA_towns = {
 };
 
 export const MA_precincts = {
-    name: "Massachusetts Precincts",
+    name: "Massachusetts (Precincts)",
     source: {
         type: "vector",
         url: "mapbox://districtr.btydwuhf"
@@ -204,7 +204,7 @@ export const MA_precincts = {
 };
 
 export const alaska = {
-    name: "Alaska Precincts",
+    name: "Alaska (Precincts)",
     source: {
         type: "vector",
         url: "mapbox://districtr.5x4innca"
@@ -233,6 +233,26 @@ export const alaska = {
     ]
 };
 
-const places = [MA_precincts, MA_towns, alaska];
+export const lowell = {
+    name: "Lowell, MA (Blocks)",
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.6q5m5cw7"
+    },
+    sourceLayer: "lowell-c2pah6",
+    properties: {
+        population: {
+            key: "population",
+            total: 101867,
+            min: 0,
+            max: 1469
+        }
+    },
+    bounds: [[-71.35, 42.59], [-71.25, 42.69]],
+    numberOfParts: 9,
+    elections: []
+};
+
+const places = [MA_precincts, MA_towns, alaska, lowell];
 
 export default places;

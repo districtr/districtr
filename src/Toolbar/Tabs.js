@@ -1,41 +1,61 @@
 import { html } from "lit-html";
 
-const template = (tabs, onChange) => html`
-    <ul class="tabs">
-        ${tabs.map(
-            tab => html`
-        <li>
-            <input
-                type="radio"
-                name="tabs"
-                value="${tab.id}"
-                ?checked=${tab.checked}
-                @input=${onChange}>
-            <div class="tabs__tab">
-            ${tab.name}
-            </div>
-        </li>
-        `
-        )}
-    </ul>`;
+const template = (tabs, activeTab, onChange) => {
+    if (tabs.length <= 1) {
+        return html``;
+    }
+    return html`
+        <ul class="tabs">
+            ${
+                tabs.map(
+                    tab => html`
+                        <li>
+                            <input
+                                type="radio"
+                                name="tabs"
+                                value="${tab.id}"
+                                ?checked="${tab.id == activeTab}"
+                                @input="${() => onChange(tab.id)}"
+                            />
+                            <div class="tabs__tab">${tab.name}</div>
+                        </li>
+                    `
+                )
+            }
+        </ul>
+    `;
+};
 
 // TODO: Use just CSS for hide/show
 
 export default class Tabs {
-    constructor(tabs) {
+    constructor(tabs, renderCallback) {
         this.tabs = tabs;
+        this.render = this.render.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.activeTab = tabs.length > 0 ? tabs[0].id : null;
+        this.renderCallback = renderCallback;
     }
-    onChange(e) {
-        const activeTabId = e.target.value;
-        this.tabs.forEach(tab => {
-            let tabBody = document.getElementById(tab.id);
-            if (tabBody !== null) {
-                tabBody.style.display = tab.id === activeTabId ? null : "none";
-            }
-        });
+    onChange(id) {
+        this.activeTab = id;
+        this.renderCallback();
     }
     render() {
-        return template(this.tabs, this.onChange);
+        return html`
+            ${template(this.tabs, this.activeTab, this.onChange)}
+            ${
+                this.tabs.map(
+                    tab => html`
+                        <div
+                            class="tab__body ${
+                                tab.id == this.activeTab ? "active" : ""
+                            }"
+                        >
+                            ${tab.render()}
+                        </div>
+                    `
+                )
+            }
+        `;
     }
 }

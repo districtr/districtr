@@ -4,13 +4,14 @@ import OptionsContainer from "./OptionsContainer";
 import Tabs from "./Tabs";
 
 export default class Toolbar {
-    constructor(tools, activeTool, children) {
+    constructor(tools, activeTool, tabs) {
         this.tools = tools;
         this.activeTool = activeTool;
-        this.children = children;
 
         this.render = this.render.bind(this);
         this.selectTool = this.selectTool.bind(this);
+
+        this.tabs = new Tabs(tabs, this.render);
 
         this.toolsById = tools.reduce(
             (lookup, tool) => ({
@@ -40,29 +41,17 @@ export default class Toolbar {
         const activeTool = this.toolsById[this.activeTool];
         render(
             html`
-            <div class="toolbar-top">
-            <div class="icon-list">
-            ${this.tools.map(tool => tool.render(this.selectTool))}
-            </div>
-            <button class="new-map-button"
-            @click=${main}>
-            New Map
-            </button>
-            </div>
-            ${OptionsContainer(activeTool)}
-            ${tabMenu.render()}
-            <div id="tab-section-body">
-            ${this.children.map(child => child())}
-            </div>`,
+                <div class="toolbar-top">
+                    <div class="icon-list">
+                        ${this.tools.map(tool => tool.render(this.selectTool))}
+                    </div>
+                    <button class="new-map-button" @click="${main}">
+                        New Map
+                    </button>
+                </div>
+                ${OptionsContainer(activeTool)} ${this.tabs.render()}
+            `,
             target
         );
     }
 }
-
-const tabs = [
-    { id: "charts", name: "Charts", checked: true },
-    { id: "elections", name: "Votes" },
-    { id: "layers", name: "Layers" }
-];
-
-const tabMenu = new Tabs(tabs);
