@@ -16,8 +16,7 @@ function getParts(layerInfo) {
 function getPopulation(layerInfo) {
     return new Population(
         zeros(layerInfo.numberOfParts),
-        layerInfo.properties.population.key,
-        layerInfo.properties.population.total
+        layerInfo.properties.population
     );
 }
 
