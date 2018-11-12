@@ -1,6 +1,6 @@
 import { html, render } from "lit-html";
 import { initializeMap } from "./Map/map";
-import apiResponse from "./mockApi";
+import { fetchApi } from "./mockApi";
 import State from "./models/State";
 import PlacesList from "./PlacesList";
 import toolbarView from "./tools";
@@ -8,7 +8,7 @@ import toolbarView from "./tools";
 // const API = "https://districtr.mggg.org/api";
 
 export function main() {
-    renderInitialView(new Promise(resolve => resolve(apiResponse)));
+    renderInitialView(fetchApi());
 }
 function renderEditView(layerInfo) {
     render(

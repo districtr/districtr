@@ -1,4 +1,5 @@
 export const MA_towns = {
+    id: "ma-towns",
     name: "Massachusetts (Towns)",
     source: {
         type: "vector",
@@ -138,6 +139,7 @@ export const MA_towns = {
 };
 
 export const MA_precincts = {
+    id: "ma-precincts",
     name: "Massachusetts (Precincts)",
     source: {
         type: "vector",
@@ -204,6 +206,7 @@ export const MA_precincts = {
 };
 
 export const alaska = {
+    id: "alaska-precincts",
     name: "Alaska (Precincts)",
     source: {
         type: "vector",
@@ -234,6 +237,7 @@ export const alaska = {
 };
 
 export const lowell = {
+    id: "lowell-blocks",
     name: "Lowell, MA (Blocks)",
     source: {
         type: "vector",
@@ -254,5 +258,9 @@ export const lowell = {
 };
 
 const places = [MA_precincts, MA_towns, alaska, lowell];
+
+export function fetchApi() {
+    return new Promise(resolve => resolve(places));
+}
 
 export default places;
