@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
-import main from "./index";
+import { main } from "./index";
 import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Brush from "./Map/Brush";

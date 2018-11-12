@@ -1,6 +1,5 @@
 import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
-import { fetchApi } from "../mockApi";
 import { zeros } from "../utils";
 import Election from "./Election";
 import Part from "./Part";
@@ -40,7 +39,7 @@ export default class State {
         if (id) {
             this.id = id;
         } else {
-            this.id = randomishString(8);
+            this.id = generateId(8);
         }
 
         this.placeId = layerInfo.id;
@@ -85,17 +84,6 @@ export default class State {
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);
     }
-    static importFromJSON(map, serialized) {
-        fetchApi()
-            .then(places => places.find(p => p.id === serialized.placeId))
-            .then(place => {
-                if (place === undefined) {
-                    throw Error(`This place ${place} does not exist`);
-                } else {
-                    return new State(map, place, serialized.assignment);
-                }
-            });
-    }
 }
 
 function download(filename, text) {
@@ -114,18 +102,13 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
 
-function randomishString(length) {
-    const alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789".split(
-        ""
-    );
-    let string = "";
-    for (let i = 0; i < length; i++) {
-        string += randomChoice(alphabet);
-    }
-    return string;
+// Copied from stackoverflow https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+function dec2hex(dec) {
+    return ("0" + dec.toString(16)).substr(-2);
 }
 
-function randomChoice(sequence) {
-    const index = Math.floor(Math.random() * sequence.length);
-    return sequence[index];
+function generateId(len) {
+    var arr = new Uint8Array((len || 40) / 2);
+    window.crypto.getRandomValues(arr);
+    return Array.from(arr, dec2hex).join("");
 }
