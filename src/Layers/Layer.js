@@ -58,6 +58,9 @@ export default class Layer {
     getAssignment(featureID) {
         return this.getFeatureState(featureID).color;
     }
+    setAssignment(featureId, part) {
+        this.setFeatureState(featureId, { color: part });
+    }
     on(type, ...args) {
         this.map.on(type, this.id, ...args);
     }

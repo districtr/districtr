@@ -1,10 +1,9 @@
 import { html, render } from "lit-html";
-import { main } from "../index";
 import OptionsContainer from "./OptionsContainer";
 import Tabs from "./Tabs";
 
 export default class Toolbar {
-    constructor(tools, activeTool, tabs) {
+    constructor(tools, activeTool, tabs, menuItems) {
         this.tools = tools;
         this.activeTool = activeTool;
 
@@ -12,6 +11,7 @@ export default class Toolbar {
         this.selectTool = this.selectTool.bind(this);
 
         this.tabs = new Tabs(tabs, this.render);
+        this.menuItems = menuItems;
 
         this.toolsById = tools.reduce(
             (lookup, tool) => ({
@@ -45,9 +45,7 @@ export default class Toolbar {
                     <div class="icon-list">
                         ${this.tools.map(tool => tool.render(this.selectTool))}
                     </div>
-                    <button class="new-map-button" @click="${main}">
-                        New Map
-                    </button>
+                    ${this.menuItems.map(item => item.render())}
                 </div>
                 ${OptionsContainer(activeTool)} ${this.tabs.render()}
             `,

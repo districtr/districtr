@@ -1,9 +1,10 @@
 import { html } from "lit-html";
-import Brush from "./Brush";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
+import { main } from "./index";
 import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
+import Brush from "./Map/Brush";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
@@ -73,7 +74,12 @@ export default function toolbarView(state) {
     ];
     tools[0].activate();
 
-    const toolbar = new Toolbar(tools, "pan", getTabs(state));
+    const toolbar = new Toolbar(
+        tools,
+        "pan",
+        getTabs(state),
+        getMenuItems(state)
+    );
 
     toolbar.render();
 
@@ -81,4 +87,23 @@ export default function toolbarView(state) {
         afterFeature: state.update,
         afterColoring: toolbar.render
     });
+}
+
+function getMenuItems(state) {
+    return [
+        {
+            render: () => html`
+                <button class="new-map-button" @click="${state.exportAsJSON}">
+                    Export Plan
+                </button>
+            `
+        },
+        {
+            render: () => html`
+                <button class="new-map-button" @click="${main}">
+                    New Plan
+                </button>
+            `
+        }
+    ];
 }
