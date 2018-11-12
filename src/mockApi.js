@@ -236,7 +236,7 @@ export const MA_precincts_02_10 = {
         {
             id: "PRES04",
             year: 2004,
-            race: "Senate",
+            race: "Presidential",
             partiesToColumns: {
                 Democratic: "PRES04D",
                 Republican: "PRES04R"
@@ -255,7 +255,7 @@ export const MA_precincts_02_10 = {
         {
             id: "PRES08",
             year: 2008,
-            race: "Senate",
+            race: "Presidential",
             partiesToColumns: {
                 Democratic: "PRES08D",
                 Republican: "PRES08R"
