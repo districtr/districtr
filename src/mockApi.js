@@ -210,9 +210,9 @@ export const MA_precincts_02_10 = {
     name: "Massachusetts (Precincts, 2002-2010)",
     source: {
         type: "vector",
-        url: "mapbox://districtr.5sjtftnw"
+        url: "mapbox://districtr.bc8u6avu"
     },
-    sourceLayer: "MA_precincts_02_10-cuzw43",
+    sourceLayer: "MA_precincts_02_10",
     properties: {
         population: {
             key: "POP2000",
