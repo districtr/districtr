@@ -1,6 +1,6 @@
 import mapbox from "mapbox-gl";
-import { blockColorProperty } from "./colors";
-import Layer, { addBelowLabels } from "./Layers/Layer";
+import { blockColorProperty } from "../colors";
+import Layer, { addBelowLabels } from "../Layers/Layer";
 
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";

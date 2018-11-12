@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import { initializeMap } from "./map";
+import { initializeMap } from "./Map/map";
 import apiResponse from "./mockApi";
 import State from "./models/State";
 import PlacesList from "./PlacesList";
@@ -12,7 +12,10 @@ export function main() {
 }
 function renderEditView(layerInfo) {
     render(
-        html`<div id="map"></div><div id="toolbar"></div>`,
+        html`
+            <div id="map"></div>
+            <div id="toolbar"></div>
+        `,
         document.getElementById("root")
     );
     const map = initializeMap("map");
