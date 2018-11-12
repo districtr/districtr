@@ -138,14 +138,14 @@ export const MA_towns = {
     ]
 };
 
-export const MA_precincts = {
-    id: "ma-precincts",
-    name: "Massachusetts (Precincts)",
+export const MA_precincts_12_16 = {
+    id: "ma-precincts-12-16",
+    name: "Massachusetts (Precincts, 2012-2016)",
     source: {
         type: "vector",
-        url: "mapbox://districtr.btydwuhf"
+        url: "mapbox://districtr.7qdsiqc6"
     },
-    sourceLayer: "MA_precincts_correct_types-8f0w6d",
+    sourceLayer: "MA_precincts_12_16",
     properties: {
         population: {
             key: "POP10",
@@ -205,6 +205,83 @@ export const MA_precincts = {
     ]
 };
 
+export const MA_precincts_02_10 = {
+    id: "ma-precincts-02-10",
+    name: "Massachusetts (Precincts, 2002-2010)",
+    source: {
+        type: "vector",
+        url: "mapbox://districtr.bc8u6avu"
+    },
+    sourceLayer: "MA_precincts_02_10",
+    properties: {
+        population: {
+            key: "POP2000",
+            total: 6348403,
+            min: 86,
+            max: 9520
+        }
+    },
+    bounds: [[-74, 41.2], [-68, 43]],
+    numberOfParts: 9,
+    elections: [
+        {
+            id: "SEN02",
+            year: 2002,
+            race: "Senate",
+            partiesToColumns: {
+                Democratic: "SEN02D",
+                Republican: "SEN02R"
+            }
+        },
+        {
+            id: "PRES04",
+            year: 2004,
+            race: "Presidential",
+            partiesToColumns: {
+                Democratic: "PRES04D",
+                Republican: "PRES04R"
+            }
+        },
+        {
+            id: "SEN06",
+            year: 2006,
+            race: "Senate",
+            partiesToColumns: {
+                Democratic: "SEN06D",
+                Republican: "SEN06R"
+            }
+        },
+
+        {
+            id: "PRES08",
+            year: 2008,
+            race: "Presidential",
+            partiesToColumns: {
+                Democratic: "PRES08D",
+                Republican: "PRES08R"
+            }
+        },
+        {
+            id: "SEN08",
+            year: 2008,
+            race: "Senate",
+            partiesToColumns: {
+                Democratic: "SEN08D",
+                Republican: "SEN08R"
+            }
+        },
+        {
+            id: "SEN10",
+            year: 2010,
+            race: "Senate",
+            partiesToColumns: {
+                Democratic: "SEN10D",
+                Republican: "SEN10R"
+            }
+        }
+    ]
+};
+
 export const alaska = {
     id: "alaska-precincts",
     name: "Alaska (Precincts)",
@@ -257,7 +334,13 @@ export const lowell = {
     elections: []
 };
 
-const places = [MA_precincts, MA_towns, alaska, lowell];
+const places = [
+    MA_precincts_02_10,
+    MA_precincts_12_16,
+    MA_towns,
+    alaska,
+    lowell
+];
 
 export function fetchApi() {
     return new Promise(resolve => resolve(places));
