@@ -100,7 +100,15 @@ function getMenuItems(state) {
         },
         {
             render: () => html`
-                <button class="new-map-button" @click="${main}">
+                <button
+                    class="new-map-button"
+                    @click="${
+                        () => {
+                            state.map.remove();
+                            main();
+                        }
+                    }"
+                >
                     New Plan
                 </button>
             `
