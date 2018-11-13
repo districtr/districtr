@@ -65,13 +65,22 @@ export default class State {
         this.parts = getParts(layerInfo);
         this.elections = getElections(layerInfo, this.units);
         this.population = getPopulation(layerInfo);
+        this.assignment = {};
         if (assignment) {
-            this.assignment = assignment;
-            for (let unitId in assignment) {
-                this.units.setAssignment(unitId, assignment[unitId]);
-            }
-        } else {
-            this.assignment = {};
+            this.units.whenLoaded(() => {
+                const features = this.units.query().reduce(
+                    (lookup, feature) => ({
+                        ...lookup,
+                        [feature.id]: feature
+                    }),
+                    {}
+                );
+                // Q: Should we just keep this data around all the time?
+                for (let unitId in assignment) {
+                    this.update(features[unitId], assignment[unitId]);
+                    this.units.setAssignment(unitId, assignment[unitId]);
+                }
+            });
         }
     }
     exportAsJSON() {

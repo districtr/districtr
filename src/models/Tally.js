@@ -8,7 +8,11 @@ export default class Tally {
         if (color !== undefined && color !== null) {
             this.data[color] += this.accessor(feature);
         }
-        if (feature.state.color !== undefined && feature.state.color !== null) {
+        if (
+            feature.state !== undefined &&
+            feature.state.color !== undefined &&
+            feature.state.color !== null
+        ) {
             this.data[feature.state.color] -= this.accessor(feature);
         }
     }
