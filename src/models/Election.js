@@ -19,6 +19,7 @@ export default class Election {
         }
     }
     bindMethods() {
+        this.getOtherParty = this.getOtherParty.bind(this);
         this.getVotes = this.getVotes.bind(this);
         this.totalVotes = this.totalVotes.bind(this);
         this.voteShare = this.voteShare.bind(this);
@@ -26,6 +27,9 @@ export default class Election {
         this.update = this.update.bind(this);
         this.percent = this.percent.bind(this);
         this.voteShareAsMapboxExpression = this.voteShareAsMapboxExpression.bind(
+            this
+        );
+        this.voteCountAsMapboxExpression = this.voteCountAsMapboxExpression.bind(
             this
         );
         this.marginAsMapboxExpression = this.marginAsMapboxExpression.bind(
@@ -51,27 +55,31 @@ export default class Election {
      * @param {string} party
      */
     voteMargin(feature, party) {
-        const otherParty =
-            party === this.parties[0] ? this.parties[1] : this.parties[0];
+        const otherParty = this.getOtherParty(party);
         return (
             this.getVotes(feature, party) - this.getVotes(feature, otherParty)
         );
     }
+    getOtherParty(party) {
+        return party === this.parties[0] ? this.parties[1] : this.parties[0];
+    }
     marginAsMapboxExpression(party) {
-        const otherParty =
-            party === this.parties[0] ? this.parties[1] : this.parties[0];
+        const otherParty = this.getOtherParty(party);
         return [
             "-",
-            this.voteShareAsMapboxExpression(party),
-            this.voteShareAsMapboxExpression(otherParty)
+            this.voteCountAsMapboxExpression(party),
+            this.voteCountAsMapboxExpression(otherParty)
         ];
+    }
+    voteCountAsMapboxExpression(party) {
+        return ["to-number", ["get", this.partiesToColumns[party]]];
     }
     voteShareAsMapboxExpression(party) {
         let total = ["+"];
         for (let partyKey of this.parties) {
-            total.push(["to-number", ["get", this.partiesToColumns[partyKey]]]);
+            total.push(this.voteCountAsMapboxExpression(partyKey));
         }
-        const votes = ["to-number", ["get", this.partiesToColumns[party]]];
+        const votes = this.voteCountAsMapboxExpression(party);
         return ["case", [">", votes, 0], ["/", votes, total], 0];
     }
     update(feature, part) {

@@ -2,6 +2,7 @@ import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
 import { main } from "./index";
+import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
 import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Brush from "./Map/Brush";
@@ -16,18 +17,26 @@ function getLayers(state) {
         "Show districts",
         true
     );
+
+    const colorRules = [
+        {
+            name: "Margin per capita",
+            rule: createMarginPerCapitaRule(state.population)
+        },
+        { name: "Vote share", rule: voteShareRule }
+    ];
+
     const partisanOverlays = new PartisanOverlayContainer(
         state.units,
-        state.elections
+        state.elections,
+        colorRules
     );
 
-    const layersTab = () => html`
+    return () => html`
         <section id="layers">
-            ${partisanOverlays.render()} ${toggleDistricts.render()}
+            ${partisanOverlays.render()}${toggleDistricts.render()}
         </section>
     `;
-
-    return layersTab;
 }
 
 function getTabs(state) {

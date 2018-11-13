@@ -2,13 +2,15 @@ import { numberWithCommas, roundToDecimal } from "../Charts/utils";
 import Tally from "./Tally";
 
 export default class Population {
-    constructor(initialData, populationKey, total) {
-        this.populationKey = populationKey;
+    constructor(initialData, populationSummary) {
+        this.populationKey = populationSummary.key;
         this.getPopulation = this.getPopulation.bind(this);
         this.tally = new Tally(this.getPopulation, initialData);
 
-        this.total = total;
-        this.ideal = total / initialData.length;
+        this.total = populationSummary.total;
+        this.min = populationSummary.min;
+        this.max = populationSummary.max;
+        this.ideal = this.total / initialData.length;
 
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 

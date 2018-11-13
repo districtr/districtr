@@ -154,6 +154,7 @@ export const MA_precincts_12_16 = {
             max: 10172
         }
     },
+    idColumn: "OBJECTID_1",
     bounds: [[-74, 41.2], [-68, 43]],
     numberOfParts: 9,
     elections: [
@@ -221,6 +222,7 @@ export const MA_precincts_02_10 = {
             max: 9520
         }
     },
+    idColumn: "GEOID10",
     bounds: [[-74, 41.2], [-68, 43]],
     numberOfParts: 9,
     elections: [
