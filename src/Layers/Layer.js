@@ -17,9 +17,8 @@ export default class Layer {
         this.map = map;
         this.id = layer.id;
         this.sourceId = layer.source;
+        this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
-
-        this.defaultPaint = layer.paint;
 
         if (adder) {
             adder(map, layer);
@@ -29,6 +28,12 @@ export default class Layer {
 
         this.whenLoaded = this.whenLoaded.bind(this);
         this.getFeature = this.getFeature.bind(this);
+    }
+    setOpacity(opacity) {
+        this.setPaintProperty(`${this.type}-opacity`, opacity);
+    }
+    setColor(color) {
+        this.setPaintProperty(`${this.type}-color`, color);
     }
     setFeatureState(featureID, state) {
         this.map.setFeatureState(
@@ -42,9 +47,6 @@ export default class Layer {
     }
     setPaintProperty(name, value) {
         this.map.setPaintProperty(this.id, name, value);
-    }
-    resetPaintProperty(name) {
-        this.map.setPaintProperty(this.id, name, this.defaultPaint[name]);
     }
     getPaintProperty(name) {
         return this.map.getPaintProperty(this.id, name);
@@ -113,7 +115,7 @@ function isString(x) {
     return typeof x === "string" || x instanceof String;
 }
 
-function getQueryFunction(getter) {
+const getQueryFunction = getter => {
     // If it's a string key, get that property for each feature
     let queryFunction = f => f;
     if (getter !== undefined) {
@@ -122,4 +124,4 @@ function getQueryFunction(getter) {
             : getter;
     }
     return queryFunction;
-}
+};

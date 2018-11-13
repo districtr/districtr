@@ -11,6 +11,41 @@ import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 import Toolbar from "./Toolbar/Toolbar";
 
+class Select {
+    constructor(items, renderCallback) {
+        this.items = items;
+        this.renderCallback = renderCallback;
+        this.current = 0;
+
+        this.onChange = this.onChange.bind(this);
+        this.render = this.render.bind(this);
+    }
+    onChange(e) {
+        this.current = parseInt(e.target.value);
+        for (let i = 0; i < this.items.length; i++) {
+            if (i !== this.current) {
+                this.items[i].hide();
+            }
+        }
+        this.renderCallback();
+    }
+    render() {
+        return html`
+            <select @input="${this.onChange}">
+                ${
+                    this.items.map(
+                        (item, i) =>
+                            html`
+                                <option value="${i}">${item.name}</option>
+                            `
+                    )
+                }
+            </select>
+            ${this.items[this.current].render()}
+        `;
+    }
+}
+
 function getLayers(state) {
     const toggleDistricts = new LayerToggle(
         state.units,
@@ -26,15 +61,17 @@ function getLayers(state) {
         { name: "Vote share", rule: voteShareRule }
     ];
 
-    const partisanOverlays = new PartisanOverlayContainer(
-        state.units,
+    const overlayUnits =
+        state.centroids === null ? state.units : state.centroids;
+
+    let partisanOverlays = new PartisanOverlayContainer(
+        overlayUnits,
         state.elections,
         colorRules
     );
-
     return () => html`
         <section id="layers">
-            ${partisanOverlays.render()}${toggleDistricts.render()}
+            ${partisanOverlays.render()} ${toggleDistricts.render()}
         </section>
     `;
 }
@@ -92,9 +129,11 @@ export default function toolbarView(state) {
 
     toolbar.render();
 
+    state.subscribe(toolbar.render);
+
     brush.subscribe({
         afterFeature: state.update,
-        afterColoring: toolbar.render
+        afterColoring: state.render
     });
 }
 

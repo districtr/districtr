@@ -11,19 +11,23 @@ export default class LayerToggle {
     }
     onChange(e) {
         if (e.target.checked) {
-            this.layer.setPaintProperty("fill-opacity", 0.8);
+            this.checked = true;
+            this.layer.setOpacity(0.8);
         } else {
-            this.layer.setPaintProperty("fill-opacity", 0);
+            this.checked = false;
+            this.layer.setOpacity(0);
         }
     }
     render() {
         return html`
-    <label class="toolbar-checkbox-item">
-    <input type="checkbox"
-    ?checked=${this.checked}
-    @input=${this.onChange}>
-    ${this.toggleText}
-    </label>
+            <label class="toolbar-checkbox-item">
+                <input
+                    type="checkbox"
+                    ?checked="${this.checked}"
+                    @input="${this.onChange}"
+                />
+                ${this.toggleText}
+            </label>
         `;
     }
 }

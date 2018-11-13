@@ -146,6 +146,11 @@ export const MA_precincts_12_16 = {
         url: "mapbox://districtr.7qdsiqc6"
     },
     sourceLayer: "MA_precincts_12_16",
+    centroidsSource: {
+        type: "geojson",
+        data: "http://localhost:1234/data/MA_precincts_12_16_centroids.geojson",
+        generateId: true
+    },
     properties: {
         population: {
             key: "POP10",
@@ -212,6 +217,11 @@ export const MA_precincts_02_10 = {
     source: {
         type: "vector",
         url: "mapbox://districtr.bc8u6avu"
+    },
+    centroidsSource: {
+        type: "geojson",
+        data: "http://localhost:1234/data/MA_precincts_02_10_centroids.geojson",
+        generateId: true
     },
     sourceLayer: "MA_precincts_02_10",
     properties: {
@@ -320,13 +330,13 @@ export const lowell = {
     name: "Lowell, MA (Blocks)",
     source: {
         type: "vector",
-        url: "mapbox://districtr.6q5m5cw7"
+        url: "mapbox://districtr.01nm90ka"
     },
-    sourceLayer: "lowell-c2pah6",
+    sourceLayer: "lowell_bl_pop",
     properties: {
         population: {
-            key: "population",
-            total: 101867,
+            key: "P0010001",
+            total: 106519,
             min: 0,
             max: 1469
         }

@@ -21,7 +21,14 @@ function colorbyVoteShare(election, party, colorStops) {
 function getPartisanColorStops(party, data) {
     const { max } = summarize(data);
 
-    let stops = [0, "rgba(0,0,0,0)", 0.499, "rgba(0,0,0,0)", 0.5, "#f9f9f9"];
+    let stops = [
+        0,
+        "rgba(0,0,0,0)",
+        0.499,
+        "rgba(0,0,0,0)",
+        0.5,
+        "rgba(249,249,249,1)"
+    ];
     if (0.5 < max) {
         stops.push(max, partyColors[party]);
     }
@@ -74,7 +81,7 @@ export const createMarginPerCapitaRule = population => (
 
     const { max } = summarize(data);
 
-    let stops = [0, "rgba(255, 255, 255, 0)"];
+    let stops = [0, "rgba(249, 249, 249, 0)"];
     if (max > 0) {
         stops.push(max, partyColors[party]);
     }

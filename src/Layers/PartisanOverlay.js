@@ -2,19 +2,25 @@ import Layer from "./Layer";
 
 export default class PartisanOverlay extends Layer {
     constructor(unitsLayer, election, party, getFillColorRule) {
-        super(
-            unitsLayer.map,
-            {
-                id: `${party}-overlay`,
-                source: unitsLayer.sourceId,
-                "source-layer": unitsLayer.sourceLayer,
-                type: "fill",
-                paint: {
-                    "fill-color": getFillColorRule(unitsLayer, election, party),
-                    "fill-opacity": 0
-                }
-            },
-            (map, layer) => map.addLayer(layer, unitsLayer.id)
+        let layerSpec = {
+            id: `${unitsLayer.id}-${party}-overlay`,
+            source: unitsLayer.sourceId,
+            type: unitsLayer.type,
+            paint: {
+                [`${unitsLayer.type}-color`]: getFillColorRule(
+                    unitsLayer,
+                    election,
+                    party
+                ),
+                [`${unitsLayer.type}-opacity`]: 0
+            }
+        };
+        if (unitsLayer.sourceLayer !== undefined) {
+            layerSpec["source-layer"] = unitsLayer.sourceLayer;
+        }
+
+        super(unitsLayer.map, layerSpec, (map, layer) =>
+            map.addLayer(layer, unitsLayer.id)
         );
         this.party = party;
         this.getFillColorRule = getFillColorRule;
@@ -40,9 +46,6 @@ export default class PartisanOverlay extends Layer {
         this.paint();
     }
     paint() {
-        this.setPaintProperty(
-            "fill-color",
-            this.getFillColorRule(this, this.election, this.party)
-        );
+        this.setColor(this.getFillColorRule(this, this.election, this.party));
     }
 }

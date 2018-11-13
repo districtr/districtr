@@ -45,15 +45,18 @@ export default class State {
 
         this.initializeMapState(map, layerInfo);
         this.getInitialState(layerInfo, assignment);
+        this.subscribers = [];
 
         this.update = this.update.bind(this);
         this.exportAsJSON = this.exportAsJSON.bind(this);
+        this.render = this.render.bind(this);
     }
     initializeMapState(map, layerInfo) {
-        const { units, unitsBorders } = addLayers(map, layerInfo);
+        const { units, unitsBorders, centroids } = addLayers(map, layerInfo);
 
         this.units = units;
         this.unitsBorders = unitsBorders;
+        this.centroids = centroids;
         this.map = map;
     }
     update(feature, part) {
@@ -91,6 +94,14 @@ export default class State {
         };
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);
+    }
+    subscribe(f) {
+        this.subscribers.push(f);
+    }
+    render() {
+        for (let f of this.subscribers) {
+            f();
+        }
     }
 }
 
