@@ -1,6 +1,6 @@
 import { html } from "lit-html";
+import Toggle from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
-import Toggle from "./Toggle";
 
 function createLayerToggle(layer) {
     return new Toggle(`Show ${layer.party}-leaning units`, false, checked => {
