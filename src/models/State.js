@@ -24,7 +24,6 @@ function getElections(layerInfo, layer) {
     return layerInfo.elections.map(
         election =>
             new Election(
-                election.id,
                 `${election.year} ${election.race} Election`,
                 election.partiesToColumns,
                 layerInfo.numberOfParts,

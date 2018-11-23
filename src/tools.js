@@ -11,41 +11,6 @@ import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 import Toolbar from "./Toolbar/Toolbar";
 
-class Select {
-    constructor(items, renderCallback) {
-        this.items = items;
-        this.renderCallback = renderCallback;
-        this.current = 0;
-
-        this.onChange = this.onChange.bind(this);
-        this.render = this.render.bind(this);
-    }
-    onChange(e) {
-        this.current = parseInt(e.target.value);
-        for (let i = 0; i < this.items.length; i++) {
-            if (i !== this.current) {
-                this.items[i].hide();
-            }
-        }
-        this.renderCallback();
-    }
-    render() {
-        return html`
-            <select @input="${this.onChange}">
-                ${
-                    this.items.map(
-                        (item, i) =>
-                            html`
-                                <option value="${i}">${item.name}</option>
-                            `
-                    )
-                }
-            </select>
-            ${this.items[this.current].render()}
-        `;
-    }
-}
-
 function getLayers(state) {
     const toggleDistricts = new LayerToggle(
         state.units,
