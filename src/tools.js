@@ -98,10 +98,8 @@ export default function toolbarView(state) {
 
     state.subscribe(toolbar.render);
 
-    brush.subscribe({
-        afterFeature: state.update,
-        afterColoring: state.render
-    });
+    brush.on("colorfeature", state.update);
+    brush.on("colorend", state.render);
 }
 
 function getMenuItems(state) {
