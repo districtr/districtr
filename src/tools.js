@@ -3,8 +3,8 @@ import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
 import { main } from "./index";
 import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
-import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
+import Toggle from "./Layers/Toggle";
 import Brush from "./Map/Brush";
 import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
@@ -12,11 +12,13 @@ import PanTool from "./Toolbar/PanTool";
 import Toolbar from "./Toolbar/Toolbar";
 
 function getLayers(state) {
-    const toggleDistricts = new LayerToggle(
-        state.units,
-        "Show districts",
-        true
-    );
+    const toggleDistricts = new Toggle("Show districts", true, checked => {
+        if (checked) {
+            state.units.setOpacity(0.8);
+        } else {
+            state.units.setOpacity(0);
+        }
+    });
 
     const colorRules = [
         {

@@ -1,6 +1,16 @@
 import { html } from "lit-html";
-import LayerToggle from "./LayerToggle";
 import PartisanOverlay from "./PartisanOverlay";
+import Toggle from "./Toggle";
+
+function createLayerToggle(layer) {
+    return new Toggle(`Show ${layer.party}-leaning units`, false, checked => {
+        if (checked) {
+            layer.setOpacity(0.8);
+        } else {
+            layer.setOpacity(0);
+        }
+    });
+}
 
 export default class PartisanOverlayContainer {
     constructor(units, elections, layerTypes) {
@@ -9,52 +19,39 @@ export default class PartisanOverlayContainer {
         this.currentLayerType = 0;
 
         this.createLayers(units);
-        this.createToggles();
+        this.toggles = this.layers.map(createLayerToggle);
 
         this.onChangeElection = this.onChangeElection.bind(this);
         this.onChangeLayerType = this.onChangeLayerType.bind(this);
         this.render = this.render.bind(this);
     }
-    createToggles() {
-        this.demToggle = new LayerToggle(
-            this.demLayer,
-            `Show Democratic-leaning units`,
-            false
-        );
-        this.repToggle = new LayerToggle(
-            this.repLayer,
-            `Show Republican-leaning units`,
-            false
-        );
-    }
     createLayers(units) {
         const colorRule = this.layerTypes[this.currentLayerType].rule;
         if (this.elections.length > 0) {
-            this.demLayer = new PartisanOverlay(
-                units,
-                this.elections[0],
-                "Democratic",
-                colorRule
-            );
-            this.repLayer = new PartisanOverlay(
-                units,
-                this.elections[0],
-                "Republican",
-                colorRule
+            this.layers = ["Democratic", "Republican"].map(
+                party =>
+                    new PartisanOverlay(
+                        units,
+                        this.elections[0],
+                        party,
+                        colorRule
+                    )
             );
             this.activeElection = 0;
+        } else {
+            this.layers = [];
         }
     }
     onChangeElection(e) {
         this.activeElection = parseInt(e.target.value);
-        this.demLayer.changeElection(this.elections[this.activeElection]);
-        this.repLayer.changeElection(this.elections[this.activeElection]);
+        this.layers.forEach(layer =>
+            layer.changeElection(this.elections[this.activeElection])
+        );
     }
     onChangeLayerType(e) {
         this.currentLayerType = parseInt(e.target.value);
         const colorRule = this.layerTypes[this.currentLayerType].rule;
-        this.demLayer.setFillColorRule(colorRule);
-        this.repLayer.setFillColorRule(colorRule);
+        this.layers.forEach(layer => layer.setFillColorRule(colorRule));
     }
     render() {
         return html`
@@ -78,7 +75,7 @@ export default class PartisanOverlayContainer {
                     )
                 }
             </select>
-            ${this.repToggle.render()} ${this.demToggle.render()}
+            ${this.toggles.map(toggle => toggle.render())}
         `;
     }
 }

@@ -1,22 +1,17 @@
 import { html } from "lit-html";
 
-export default class LayerToggle {
-    constructor(layer, toggleText, checked) {
-        this.layer = layer;
+export default class Toggle {
+    constructor(toggleText, checked, callback) {
         this.toggleText = toggleText;
         this.checked = checked;
+        this.callback = callback;
 
         this.onChange = this.onChange.bind(this);
         this.render = this.render.bind(this);
     }
     onChange(e) {
-        if (e.target.checked) {
-            this.checked = true;
-            this.layer.setOpacity(0.8);
-        } else {
-            this.checked = false;
-            this.layer.setOpacity(0);
-        }
+        this.checked = e.target.checked;
+        this.callback(this.checked);
     }
     render() {
         return html`
