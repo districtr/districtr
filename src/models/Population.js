@@ -1,4 +1,4 @@
-import { numberWithCommas, roundToDecimal } from "../Charts/utils";
+import { numberWithCommas, roundToDecimal } from "../utils";
 import Tally from "./Tally";
 
 export default class Population {
