@@ -148,7 +148,7 @@ export const MA_precincts_12_16 = {
     sourceLayer: "MA_precincts_12_16",
     centroidsSource: {
         type: "geojson",
-        data: "http://localhost:1234/data/MA_precincts_12_16_centroids.geojson",
+        data: "./data/MA_precincts_12_16_centroids.geojson",
         generateId: true
     },
     properties: {
@@ -220,7 +220,7 @@ export const MA_precincts_02_10 = {
     },
     centroidsSource: {
         type: "geojson",
-        data: "http://localhost:1234/data/MA_precincts_02_10_centroids.geojson",
+        data: "./data/MA_precincts_02_10_centroids.geojson",
         generateId: true
     },
     sourceLayer: "MA_precincts_02_10",
