@@ -295,13 +295,13 @@ export const MA_precincts_02_10 = {
 };
 
 export const alaska = {
-    id: "alaska-precincts",
+    id: "alaska",
     name: "Alaska (Precincts)",
     source: {
         type: "vector",
-        url: "mapbox://districtr.5x4innca"
+        url: "mapbox://districtr.alaska"
     },
-    sourceLayer: "alaska-ce2eim",
+    sourceLayer: "alaska",
     properties: {
         population: {
             key: "POPULATION",
