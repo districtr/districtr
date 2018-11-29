@@ -2,8 +2,7 @@ import { sum, zeros } from "../utils";
 import Tally from "./Tally";
 
 export default class Election {
-    constructor(id, name, partiesToColumns, numberOfParts) {
-        this.id = id;
+    constructor(name, partiesToColumns, numberOfParts) {
         this.partiesToColumns = partiesToColumns;
         this.parties = Object.keys(partiesToColumns);
         this.name = name;

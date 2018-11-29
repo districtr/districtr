@@ -17,9 +17,8 @@ export default class Layer {
         this.map = map;
         this.id = layer.id;
         this.sourceId = layer.source;
+        this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
-
-        this.defaultPaint = layer.paint;
 
         if (adder) {
             adder(map, layer);
@@ -28,6 +27,13 @@ export default class Layer {
         }
 
         this.whenLoaded = this.whenLoaded.bind(this);
+        this.getFeature = this.getFeature.bind(this);
+    }
+    setOpacity(opacity) {
+        this.setPaintProperty(`${this.type}-opacity`, opacity);
+    }
+    setColor(color) {
+        this.setPaintProperty(`${this.type}-color`, color);
     }
     setFeatureState(featureID, state) {
         this.map.setFeatureState(
@@ -42,9 +48,6 @@ export default class Layer {
     setPaintProperty(name, value) {
         this.map.setPaintProperty(this.id, name, value);
     }
-    resetPaintProperty(name) {
-        this.map.setPaintProperty(this.id, name, this.defaultPaint[name]);
-    }
     getPaintProperty(name) {
         return this.map.getPaintProperty(this.id, name);
     }
@@ -54,6 +57,13 @@ export default class Layer {
             sourceLayer: this.sourceLayer,
             id: featureID
         });
+    }
+    getFeature(featureID) {
+        const features = this.map.querySourceFeatures(this.sourceId, {
+            sourceLayer: this.sourceLayer,
+            filter: ["==", ["id"], featureID]
+        });
+        return features[0];
     }
     getAssignment(featureID) {
         return this.getFeatureState(featureID).color;
@@ -72,35 +82,46 @@ export default class Layer {
      * @param {string or function} getter
      */
     query(getter) {
-        // If it's a string key, get that property for each feature
-        let queryFunction = isString(getter)
-            ? feature => feature.properties[getter]
-            : // Otherwise, assume it's a function of each feature
-              getter;
-
+        const queryFunction = getQueryFunction(getter);
         const features = this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer
         });
         let seenIds = new Set();
         let data = [];
 
-        for (let feature of features) {
-            if (!seenIds.has(feature.id)) {
-                seenIds.add(feature.id);
-                data.push(queryFunction(feature));
+        for (let i = 0; i < features.length; i++) {
+            if (!seenIds.has(features[i].id)) {
+                seenIds.add(features[i].id);
+                data.push(queryFunction(features[i]));
             }
         }
         return data;
     }
     whenLoaded(f) {
-        if (this.map.isSourceLoaded(this.sourceId)) {
-            f();
-        } else {
-            this.map.once("data", () => this.whenLoaded(f));
-        }
+        this.map.once("data", () => {
+            if (
+                this.map.isSourceLoaded(this.sourceId) &&
+                this.query().length > 0
+            ) {
+                f();
+            } else {
+                this.whenLoaded(f);
+            }
+        });
     }
 }
 
 function isString(x) {
     return typeof x === "string" || x instanceof String;
 }
+
+const getQueryFunction = getter => {
+    // If it's a string key, get that property for each feature
+    let queryFunction = f => f;
+    if (getter !== undefined) {
+        queryFunction = isString(getter)
+            ? feature => feature.properties[getter]
+            : getter;
+    }
+    return queryFunction;
+};

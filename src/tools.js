@@ -1,9 +1,9 @@
 import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
+import Toggle from "./components/Toggle";
 import { main } from "./index";
 import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
-import LayerToggle from "./Layers/LayerToggle";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Brush from "./Map/Brush";
 import BrushTool from "./Toolbar/BrushTool";
@@ -12,11 +12,13 @@ import PanTool from "./Toolbar/PanTool";
 import Toolbar from "./Toolbar/Toolbar";
 
 function getLayers(state) {
-    const toggleDistricts = new LayerToggle(
-        state.units,
-        "Show districts",
-        true
-    );
+    const toggleDistricts = new Toggle("Show districts", true, checked => {
+        if (checked) {
+            state.units.setOpacity(0.8);
+        } else {
+            state.units.setOpacity(0);
+        }
+    });
 
     const colorRules = [
         {
@@ -26,15 +28,17 @@ function getLayers(state) {
         { name: "Vote share", rule: voteShareRule }
     ];
 
-    const partisanOverlays = new PartisanOverlayContainer(
-        state.units,
+    const overlayUnits =
+        state.centroids === null ? state.units : state.centroids;
+
+    let partisanOverlays = new PartisanOverlayContainer(
+        overlayUnits,
         state.elections,
         colorRules
     );
-
     return () => html`
         <section id="layers">
-            ${partisanOverlays.render()}${toggleDistricts.render()}
+            ${partisanOverlays.render()} ${toggleDistricts.render()}
         </section>
     `;
 }
@@ -92,10 +96,10 @@ export default function toolbarView(state) {
 
     toolbar.render();
 
-    brush.subscribe({
-        afterFeature: state.update,
-        afterColoring: toolbar.render
-    });
+    state.subscribe(toolbar.render);
+
+    brush.on("colorfeature", state.update);
+    brush.on("colorend", state.render);
 }
 
 function getMenuItems(state) {

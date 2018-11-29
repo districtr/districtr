@@ -1,8 +1,8 @@
 import { html, render } from "lit-html";
+import PlacesList from "./components/PlacesList";
 import { initializeMap } from "./Map/map";
 import { fetchApi } from "./mockApi";
 import State from "./models/State";
-import PlacesList from "./PlacesList";
 import toolbarView from "./tools";
 
 // const API = "https://districtr.mggg.org/api";

@@ -54,7 +54,21 @@ export function addLayers(map, layerInfo) {
         addBelowLabels
     );
 
+    let centroids = null;
+    if (layerInfo.centroidsSource) {
+        map.addSource("units-centroids", layerInfo.centroidsSource);
+
+        centroids = new Layer(map, {
+            id: "units-centroids",
+            type: "circle",
+            source: "units-centroids",
+            paint: {
+                "circle-opacity": 0
+            }
+        });
+    }
+
     map.fitBounds(layerInfo.bounds);
 
-    return { units, unitsBorders };
+    return { units, unitsBorders, centroids };
 }

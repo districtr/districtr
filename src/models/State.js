@@ -24,7 +24,6 @@ function getElections(layerInfo, layer) {
     return layerInfo.elections.map(
         election =>
             new Election(
-                election.id,
                 `${election.year} ${election.race} Election`,
                 election.partiesToColumns,
                 layerInfo.numberOfParts,
@@ -45,15 +44,18 @@ export default class State {
 
         this.initializeMapState(map, layerInfo);
         this.getInitialState(layerInfo, assignment);
+        this.subscribers = [];
 
         this.update = this.update.bind(this);
         this.exportAsJSON = this.exportAsJSON.bind(this);
+        this.render = this.render.bind(this);
     }
     initializeMapState(map, layerInfo) {
-        const { units, unitsBorders } = addLayers(map, layerInfo);
+        const { units, unitsBorders, centroids } = addLayers(map, layerInfo);
 
         this.units = units;
         this.unitsBorders = unitsBorders;
+        this.centroids = centroids;
         this.map = map;
     }
     update(feature, part) {
@@ -65,13 +67,22 @@ export default class State {
         this.parts = getParts(layerInfo);
         this.elections = getElections(layerInfo, this.units);
         this.population = getPopulation(layerInfo);
+        this.assignment = {};
         if (assignment) {
-            this.assignment = assignment;
-            for (let unitId in assignment) {
-                this.units.setAssignment(unitId, assignment[unitId]);
-            }
-        } else {
-            this.assignment = {};
+            this.units.whenLoaded(() => {
+                const features = this.units.query().reduce(
+                    (lookup, feature) => ({
+                        ...lookup,
+                        [feature.id]: feature
+                    }),
+                    {}
+                );
+                // Q: Should we just keep this data around all the time?
+                for (let unitId in assignment) {
+                    this.update(features[unitId], assignment[unitId]);
+                    this.units.setAssignment(unitId, assignment[unitId]);
+                }
+            });
         }
     }
     exportAsJSON() {
@@ -82,6 +93,14 @@ export default class State {
         };
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);
+    }
+    subscribe(f) {
+        this.subscribers.push(f);
+    }
+    render() {
+        for (let f of this.subscribers) {
+            f();
+        }
     }
 }
 

@@ -1,14 +1,14 @@
 import { HoverWithRadius } from "./Hover";
 
 export default class Brush extends HoverWithRadius {
-    constructor(layer, radius, color, subscribers) {
+    constructor(layer, radius, color) {
         super(layer, radius);
 
         this.color = color;
         this.coloring = false;
         this.locked = false;
 
-        this.subscribers = subscribers ? this.subscribers : [];
+        this.listeners = { colorend: [], colorfeature: [] };
 
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
@@ -37,20 +37,24 @@ export default class Brush extends HoverWithRadius {
     }
     colorFeatures() {
         if (this.locked && !this.erasing) {
-            this.colorFeaturesLocked();
+            this._colorFeatures(
+                feature =>
+                    feature.state.color === null ||
+                    feature.state.color === undefined
+            );
         } else {
-            this.colorFeaturesUnlocked();
+            this._colorFeatures(feature => feature.state.color !== this.color);
         }
     }
-    colorFeaturesUnlocked() {
+    _colorFeatures(filter) {
         let seenFeatures = new Set();
         for (let feature of this.hoveredFeatures) {
-            if (feature.state.color !== this.color) {
+            if (filter(feature)) {
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
-                    this.subscribers.forEach(s =>
-                        s.afterFeature(feature, this.color)
-                    );
+                    for (let listener of this.listeners.colorfeature) {
+                        listener(feature, this.color);
+                    }
                 }
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
@@ -65,36 +69,9 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        this.subscribers.forEach(s => s.afterColoring());
-    }
-    colorFeaturesLocked() {
-        let seenFeatures = new Set();
-        for (let feature of this.hoveredFeatures) {
-            // This is the only difference between this and the unlocked version:
-            if (
-                feature.state.color === null ||
-                feature.state.color === undefined
-            ) {
-                if (!seenFeatures.has(feature.id)) {
-                    seenFeatures.add(feature.id);
-                    this.subscribers.forEach(s =>
-                        s.afterFeature(feature, this.color)
-                    );
-                }
-                this.layer.setFeatureState(feature.id, {
-                    ...feature.state,
-                    color: this.color,
-                    hover: true
-                });
-                feature.state.color = this.color;
-            } else {
-                this.layer.setFeatureState(feature.id, {
-                    ...feature.state,
-                    hover: true
-                });
-            }
+        for (let listener of this.listeners.colorend) {
+            listener();
         }
-        this.subscribers.forEach(s => s.afterColoring());
     }
     onClick() {
         this.colorFeatures();
@@ -131,7 +108,7 @@ export default class Brush extends HoverWithRadius {
 
         this.layer.map.off("mousedown", this.onMouseDown);
     }
-    subscribe(subscriber) {
-        this.subscribers.push(subscriber);
+    on(event, listener) {
+        this.listeners[event].push(listener);
     }
 }

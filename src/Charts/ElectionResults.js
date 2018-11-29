@@ -1,12 +1,11 @@
 import { interpolateRdBu } from "d3-scale-chromatic";
 import { html } from "lit-html";
-import { roundToDecimal } from "./utils";
+import { roundToDecimal } from "../utils";
 
 function getCellStyle(percent, party) {
     if (party === "Democratic" && percent > 0.5) {
         return `background: ${interpolateRdBu(percent)}`;
-    }
-    if (party === "Republican" && percent > 0.5) {
+    } else if (party === "Republican" && percent > 0.5) {
         return `background: ${interpolateRdBu(1 - percent)}`;
     }
     return `background: #f9f9f9`;
