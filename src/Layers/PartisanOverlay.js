@@ -7,11 +7,7 @@ export default class PartisanOverlay extends Layer {
             source: unitsLayer.sourceId,
             type: unitsLayer.type,
             paint: {
-                [`${unitsLayer.type}-color`]: getFillColorRule(
-                    unitsLayer,
-                    election,
-                    party
-                ),
+                [`${unitsLayer.type}-color`]: getFillColorRule(election, party),
                 [`${unitsLayer.type}-opacity`]: 0
             }
         };
@@ -46,6 +42,6 @@ export default class PartisanOverlay extends Layer {
         this.paint();
     }
     paint() {
-        this.setColor(this.getFillColorRule(this, this.election, this.party));
+        this.setColor(this.getFillColorRule(this.election, this.party));
     }
 }

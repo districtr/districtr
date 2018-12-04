@@ -1,0 +1,564 @@
+[
+    {
+        "id": "alaska",
+        "name": "Alaska (Precincts)",
+        "numberOfParts": 20,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.alaska"
+                },
+                "sourceLayer": "alaska"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.alaska_points"
+                },
+                "sourceLayer": "alaska_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "POPULATION",
+                "name": "Total population",
+                "sum": 710231
+            },
+            "subgroups": []
+        },
+        "bounds": [[-179.228, 51.1753], [179.8642, 71.4411]],
+        "elections": [
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "D-Pres Vot", "name": "Democratic" },
+                    { "key": "R-Pres Vot", "name": "Republican" }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "lowell_blocks",
+        "name": "Lowell",
+        "numberOfParts": 9,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.lowell_blocks"
+                },
+                "sourceLayer": "lowell_blocks"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.lowell_blocks_points"
+                },
+                "sourceLayer": "lowell_blocks_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "P0010001",
+                "name": "Total Population",
+                "sum": 106519
+            },
+            "subgroups": [
+                { "key": "P0030002", "name": "White Population", "sum": 64240 },
+                {
+                    "key": "P0050003",
+                    "name": "White Population, Not Hispanic or Latino",
+                    "sum": 56280
+                },
+                {
+                    "key": "P0040003",
+                    "name": "Hispanic or Latino Population",
+                    "sum": 18396
+                },
+                {
+                    "key": "P0070006",
+                    "name": "Asian Population, Not Hispanic or Latino",
+                    "sum": 22459
+                },
+                { "key": "P0030005", "name": "Asian Population", "sum": 21513 },
+                { "key": "P0030003", "name": "Black Population", "sum": 7238 },
+                {
+                    "key": "H0160002",
+                    "name": "Owner occupied housing units",
+                    "sum": 17385
+                }
+            ]
+        },
+        "bounds": [[-71.3825, 42.6065], [-71.2713, 42.6665]],
+        "elections": []
+    },
+    {
+        "id": "ma_precincts_02_10",
+        "name": "Massachusetts (Precincts, 2002-2010)",
+        "numberOfParts": 9,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_precincts_02_10"
+                },
+                "sourceLayer": "ma_precincts_02_10"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_precincts_02_10_points"
+                },
+                "sourceLayer": "ma_precincts_02_10_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "POP2000",
+                "name": "2000 Census Population",
+                "sum": 6348403
+            },
+            "subgroups": []
+        },
+        "bounds": [[-73.5081, 41.238], [-69.928, 42.8868]],
+        "elections": [
+            {
+                "year": 2002,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN02D", "name": "Democratic" },
+                    { "key": "SEN02R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2004,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES04D", "name": "Democratic" },
+                    { "key": "PRES04R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2006,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN06D", "name": "Democratic" },
+                    { "key": "SEN06R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES08D", "name": "Democratic" },
+                    { "key": "PRES08R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN08D", "name": "Democratic" },
+                    { "key": "SEN08R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2010,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN10D", "name": "Democratic" },
+                    { "key": "SEN10R", "name": "Republican" }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ma_precincts_12_16",
+        "name": "Massachusetts (Precincts, 2012-2016)",
+        "numberOfParts": 9,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_precincts_12_16"
+                },
+                "sourceLayer": "ma_precincts_12_16"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_precincts_12_16_points"
+                },
+                "sourceLayer": "ma_precincts_12_16_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "POP10",
+                "name": "2010 Census Population",
+                "sum": 6547816
+            },
+            "subgroups": [
+                { "key": "White", "name": "White population", "sum": 373844 },
+                {
+                    "key": "Black",
+                    "name": "Black/African American population",
+                    "sum": 151962
+                },
+                {
+                    "key": "AmIndian",
+                    "name": "American Indian and Alaska Native population",
+                    "sum": 2493
+                },
+                { "key": "Asian", "name": "Asian population", "sum": 56589 },
+                {
+                    "key": "Hawaiian",
+                    "name": "Native Hawaiian and other Pacific Islander population",
+                    "sum": 280
+                },
+                {
+                    "key": "Other",
+                    "name": "Population of other race",
+                    "sum": 52899
+                },
+                {
+                    "key": "_1_Race",
+                    "name": "Population of one race",
+                    "sum": 638073
+                },
+                {
+                    "key": "_2__Races",
+                    "name": "Population of two or more races",
+                    "sum": 25381
+                },
+                {
+                    "key": "Hispanic_O",
+                    "name": "Population of Hispanic origin",
+                    "sum": 110942
+                },
+                {
+                    "key": "Not_Hispan",
+                    "name": "Population not of Hispanic origin",
+                    "sum": 42677
+                }
+            ]
+        },
+        "bounds": [[-73.5081, 41.238], [-69.928, 42.8868]],
+        "elections": [
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN12D", "name": "Democratic" },
+                    { "key": "SEN12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES12D", "name": "Democratic" },
+                    { "key": "PRES12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2013,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN13D", "name": "Democratic" },
+                    { "key": "SEN13R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN14D", "name": "Democratic" },
+                    { "key": "SEN14R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES16D", "name": "Democratic" },
+                    { "key": "PRES16R", "name": "Republican" }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "missouri",
+        "name": "Missouri",
+        "numberOfParts": 8,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.missouri"
+                },
+                "sourceLayer": "missouri"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.missouri_points"
+                },
+                "sourceLayer": "missouri_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "POP100",
+                "name": "2010 Census Population",
+                "sum": 5843434
+            },
+            "subgroups": [
+                {
+                    "key": "VAP",
+                    "name": "2010 Voting age population",
+                    "sum": 4451970
+                }
+            ]
+        },
+        "bounds": [[-95.7747, 35.9957], [-89.099, 40.6136]],
+        "elections": [
+            {
+                "year": 2008,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PR_RV08", "name": "Republican" },
+                    { "key": "PR_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "GOV_RV08", "name": "Republican" },
+                    { "key": "GOV_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "US House",
+                "voteTotals": [
+                    { "key": "USH_RV08", "name": "Republican" },
+                    { "key": "USH_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Lt. Governor",
+                "voteTotals": [
+                    { "key": "LG_RV08", "name": "Republican" },
+                    { "key": "LG_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Secretary of State",
+                "voteTotals": [
+                    { "key": "SS_RV08", "name": "Republican" },
+                    { "key": "SS_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Treasurer",
+                "voteTotals": [
+                    { "key": "TR_RV08", "name": "Republican" },
+                    { "key": "TR_DV08", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Attorney General",
+                "voteTotals": [
+                    { "key": "AG_RV08", "name": "Republican" },
+                    { "key": "AG_DV08", "name": "Democratic" }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "wisconsin_12_16",
+        "name": "Wisconsin",
+        "numberOfParts": 8,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.wisconsin_12_16"
+                },
+                "sourceLayer": "wisconsin_12_16"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.wisconsin_12_16_points"
+                },
+                "sourceLayer": "wisconsin_12_16_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "PERSONS",
+                "name": "Population from 2010 Census",
+                "sum": 5686986
+            },
+            "subgroups": [
+                {
+                    "key": "WHITE",
+                    "name": "White population from 2010 Census",
+                    "sum": 4738411
+                },
+                {
+                    "key": "BLACK",
+                    "name": "Black/African American population from 2010 Census",
+                    "sum": 380660
+                },
+                {
+                    "key": "HISPANIC",
+                    "name": "Population of Hispanic origin from 2010 Census",
+                    "sum": 336056
+                },
+                {
+                    "key": "ASIAN",
+                    "name": "Asian population from 2010 Census",
+                    "sum": 143931
+                },
+                {
+                    "key": "AMINDIAN",
+                    "name": "American Indian or Alaska Native population from 2010 Census",
+                    "sum": 68593
+                },
+                {
+                    "key": "PISLAND",
+                    "name": "Native Hawaiian or other Pacific Islander population from 2010 Census",
+                    "sum": 2639
+                },
+                {
+                    "key": "OTHER",
+                    "name": "Population of other race from 2010 Census",
+                    "sum": 5249
+                },
+                {
+                    "key": "OTHERMLT",
+                    "name": "Population of other multiple races from 2010 Census",
+                    "sum": 11447
+                },
+                {
+                    "key": "PERSONS18",
+                    "name": "Population over the age of 18 from the 2010 Census",
+                    "sum": 4347494
+                },
+                {
+                    "key": "WHITE18",
+                    "name": "White population over 18 from the 2010 Census",
+                    "sum": 3753685
+                },
+                {
+                    "key": "BLACK18",
+                    "name": "Black population over 18 from the 2010 Census",
+                    "sum": 242404
+                },
+                {
+                    "key": "HISPANIC18",
+                    "name": "Population of Hispanic origin over 18 from the 2010 Census",
+                    "sum": 199890
+                },
+                {
+                    "key": "ASIAN18",
+                    "name": "Asian population over 18 from the 2010 Census",
+                    "sum": 93254
+                },
+                {
+                    "key": "AMINDIAN18",
+                    "name": "American Indian or Alaska Native population over 18 from the 2010 Census",
+                    "sum": 47510
+                },
+                {
+                    "key": "PISLAND18",
+                    "name": "Native Hawaiian or other Pacific Islander population over 18 from the 2010 Census",
+                    "sum": 1826
+                },
+                {
+                    "key": "OTHER18",
+                    "name": "Population of other race over 18 from the 2010 Census",
+                    "sum": 2897
+                },
+                {
+                    "key": "OTHERMLT18",
+                    "name": "Population of other multiple races over 18 from the 2010 Census",
+                    "sum": 6107
+                }
+            ]
+        },
+        "bounds": [[-92.8894, 42.4919], [-86.764, 47.0808]],
+        "elections": [
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PREDEM16", "name": "Democratic" },
+                    { "key": "PREREP16", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PREDEM12", "name": "Democratic" },
+                    { "key": "PREREP12", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "USSDEM16", "name": "Democratic" },
+                    { "key": "USSREP16", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "USSDEM12", "name": "Democratic" },
+                    { "key": "USSREP12", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "GOVDEM14", "name": "Democratic" },
+                    { "key": "GOVREP14", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "GOVDEM12", "name": "Democratic" },
+                    { "key": "GOVREP12", "name": "Republican" }
+                ]
+            }
+        ]
+    }
+]

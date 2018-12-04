@@ -7,9 +7,7 @@ export default class Population {
         this.getPopulation = this.getPopulation.bind(this);
         this.tally = new Tally(this.getPopulation, initialData);
 
-        this.total = populationSummary.total;
-        this.min = populationSummary.min;
-        this.max = populationSummary.max;
+        this.total = populationSummary.sum;
         this.ideal = this.total / initialData.length;
 
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));

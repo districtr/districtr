@@ -28,11 +28,8 @@ function getLayers(state) {
         { name: "Vote share", rule: voteShareRule }
     ];
 
-    const overlayUnits =
-        state.centroids === null ? state.units : state.centroids;
-
     let partisanOverlays = new PartisanOverlayContainer(
-        overlayUnits,
+        state.layers,
         state.elections,
         colorRules
     );

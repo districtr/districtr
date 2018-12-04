@@ -21,15 +21,13 @@ export function initializeMap(mapContainer) {
     return map;
 }
 
-export function addLayers(map, layerInfo) {
-    map.addSource("units", layerInfo.source);
-
+function addUnits(map, tileset) {
     const units = new Layer(
         map,
         {
-            id: "units",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
+            id: tileset.sourceLayer,
+            source: tileset.sourceLayer,
+            "source-layer": tileset.sourceLayer,
             type: "fill",
             paint: {
                 "fill-color": blockColorProperty,
@@ -43,8 +41,8 @@ export function addLayers(map, layerInfo) {
         {
             id: "units-borders",
             type: "line",
-            source: "units",
-            "source-layer": layerInfo.sourceLayer,
+            source: tileset.sourceLayer,
+            "source-layer": tileset.sourceLayer,
             paint: {
                 "line-color": "#777777",
                 "line-width": 1,
@@ -54,21 +52,34 @@ export function addLayers(map, layerInfo) {
         addBelowLabels
     );
 
-    let centroids = null;
-    if (layerInfo.centroidsSource) {
-        map.addSource("units-centroids", layerInfo.centroidsSource);
+    return { units, unitsBorders };
+}
 
-        centroids = new Layer(map, {
-            id: "units-centroids",
-            type: "circle",
-            source: "units-centroids",
-            paint: {
-                "circle-opacity": 0
-            }
-        });
+function addPoints(map, tileset) {
+    return new Layer(map, {
+        id: "units-points",
+        type: "circle",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "circle-opacity": 0
+        }
+    });
+}
+
+export function addLayers(map, tilesets) {
+    for (let tileset of tilesets) {
+        map.addSource(tileset.sourceLayer, tileset.source);
     }
 
-    map.fitBounds(layerInfo.bounds);
+    const { units, unitsBorders } = addUnits(
+        map,
+        tilesets.find(tileset => tileset.type === "fill")
+    );
+    const points = addPoints(
+        map,
+        tilesets.find(tileset => tileset.type === "circle")
+    );
 
-    return { units, unitsBorders, centroids };
+    return { units, unitsBorders, points };
 }
