@@ -21,11 +21,11 @@ function getLayers(state) {
     });
 
     const colorRules = [
+        { name: "Vote share", rule: voteShareRule },
         {
             name: "Margin per capita",
             rule: createMarginPerCapitaRule(state.population)
-        },
-        { name: "Vote share", rule: voteShareRule }
+        }
     ];
 
     let partisanOverlays = new PartisanOverlayContainer(
@@ -34,7 +34,7 @@ function getLayers(state) {
         colorRules
     );
     return () => html`
-        <section id="layers">
+        <section id="layers" class="layer-list">
             ${partisanOverlays.render()} ${toggleDistricts.render()}
         </section>
     `;

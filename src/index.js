@@ -45,6 +45,14 @@ export function renderInitialView(places) {
     });
     render(
         html`
+            <header class="top-navigation">
+                <a href="/"
+                    ><img
+                        class="nav-logo"
+                        src="./static/logo.svg"
+                        alt="Metric Geometry and Gerrymandering Group"
+                /></a>
+            </header>
             ${listOfPlaces.render()} ${uploadPlan.render()}
         `,
         document.getElementById("root")

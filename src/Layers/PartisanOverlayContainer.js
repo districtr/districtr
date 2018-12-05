@@ -12,6 +12,23 @@ function createLayerToggle(party, showParty, hideParty) {
     });
 }
 
+function select(name, items, handler) {
+    return html`
+        <select
+            name="${name}"
+            @input="${e => handler(parseInt(e.target.value))}"
+        >
+            ${
+                items.map(
+                    (item, i) => html`
+                        <option value="${i}">${item.name}</option>
+                    `
+                )
+            }
+        </select>
+    `;
+}
+
 export default class PartisanOverlayContainer {
     constructor(layerTypes, elections, layerStyles) {
         this.elections = elections;
@@ -28,6 +45,7 @@ export default class PartisanOverlayContainer {
         this.forEachLayer = this.forEachLayer.bind(this);
         this.onChangeElection = this.onChangeElection.bind(this);
         this.onChangeLayerStyle = this.onChangeLayerStyle.bind(this);
+        this.onChangeLayerType = this.onChangeLayerType.bind(this);
         this.render = this.render.bind(this);
 
         this.toggles = ["Democratic", "Republican"].map(party =>
@@ -45,6 +63,7 @@ export default class PartisanOverlayContainer {
     createLayers(layerTypes) {
         const colorRule = this.layerStyles[this.currentLayerStyle].rule;
         if (this.elections.length > 0) {
+            this.layerTypes = [{ name: "Polygons" }, { name: "Points" }];
             this.layers = layerTypes.map(layer =>
                 ["Democratic", "Republican"].map(
                     party =>
@@ -62,19 +81,19 @@ export default class PartisanOverlayContainer {
             this.layers = [];
         }
     }
-    onChangeElection(e) {
-        this.activeElection = parseInt(e.target.value);
+    onChangeElection(i) {
+        this.activeElection = i;
         this.forEachLayer(layer =>
             layer.changeElection(this.elections[this.activeElection])
         );
     }
-    onChangeLayerStyle(e) {
-        this.currentLayerStyle = parseInt(e.target.value);
+    onChangeLayerStyle(i) {
+        this.currentLayerStyle = i;
         const colorRule = this.layerStyles[this.currentLayerStyle].rule;
         this.forEachLayer(layer => layer.setFillColorRule(colorRule));
     }
-    onChangeLayerType(e) {
-        this.currentLayerType = parseInt(e.target.value);
+    onChangeLayerType(i) {
+        this.currentLayerType = i;
         this.forEachLayer(layer => layer.setOpacity(0));
         this.showVisibleParties();
     }
@@ -92,26 +111,43 @@ export default class PartisanOverlayContainer {
     }
     render() {
         return html`
-            <label for="election-overlay"><h4>Overlay Partisan Lean</h4></label>
-            <select name="layer-type" @input="${this.onChangeLayerStyle}">
-                ${
-                    this.layerStyles.map(
-                        (type, i) =>
-                            html`
-                                <option value="${i}">${type.name}</option>
-                            `
-                    )
-                }
-            </select>
-            <select name="election-overlay" @input="${this.onChangeElection}">
-                ${
-                    this.elections.map(
-                        (election, i) => html`
-                            <option value="${i}">${election.name}</option>
+            <h4>Partisanship</h4>
+            ${
+                [
+                    {
+                        label: "Statistic",
+                        element: select(
+                            "layer-style",
+                            this.layerStyles,
+                            this.onChangeLayerStyle
+                        )
+                    },
+                    {
+                        label: "Election",
+                        element: select(
+                            "election-overlay",
+                            this.elections,
+                            this.onChangeElection
+                        )
+                    },
+                    {
+                        label: "Display as",
+                        element: select(
+                            "layer-type",
+                            this.layerTypes,
+                            this.onChangeLayerType
+                        )
+                    }
+                ].map(
+                    ({ label, element }) =>
+                        html`
+                            <div class="layer-list__item">
+                                <label class="layer-list__label">${label}</label
+                                >${element}
+                            </div>
                         `
-                    )
-                }
-            </select>
+                )
+            }
             ${this.toggles.map(toggle => toggle.render())}
         `;
     }
