@@ -1,7 +1,7 @@
 [
     {
         "id": "alaska",
-        "name": "Alaska (Precincts)",
+        "name": "Alaska",
         "numberOfParts": 20,
         "tilesets": [
             {
@@ -394,6 +394,137 @@
         ]
     },
     {
+        "id": "pa-vtds",
+        "name": "Pennsylvania",
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.pa-vtds"
+                },
+                "sourceLayer": "pa-vtds"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.pa-vtds_points"
+                },
+                "sourceLayer": "pa-vtds_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOT_POP",
+                "name": "2010 Census Population",
+                "sum": 12684929
+            },
+            "subgroups": [
+                {
+                    "key": "HISP_POP",
+                    "name": "2010 Hispanic or Latino population",
+                    "sum": 719400
+                },
+                {
+                    "key": "WHITE_POP",
+                    "name": "2010 White alone population",
+                    "sum": 10078106
+                },
+                {
+                    "key": "BLACK_POP",
+                    "name": "2010 Black/African American alone population",
+                    "sum": 1326671
+                },
+                {
+                    "key": "NATIVE_POP",
+                    "name": "2010 American Indian or Alaska Native alone population",
+                    "sum": 16886
+                },
+                {
+                    "key": "ASIAN_POP",
+                    "name": "2010 Asian alone population",
+                    "sum": 346245
+                }
+            ]
+        },
+        "bounds": [[-80.5195, 39.7198], [-74.6895, 42.2693]],
+        "elections": [
+            {
+                "year": 2012,
+                "race": "Attorney General",
+                "voteTotals": [
+                    { "key": "ATG12D", "name": "Democratic" },
+                    { "key": "ATG12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "F2014GOVD", "name": "Democratic" },
+                    { "key": "F2014GOVR", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2010,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "GOV10D", "name": "Democratic" },
+                    { "key": "GOV10R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES12D", "name": "Democratic" },
+                    { "key": "PRES12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "T16PRESD", "name": "Democratic" },
+                    { "key": "T16PRESR", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2010,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN10D", "name": "Democratic" },
+                    { "key": "SEN10R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Attorney General",
+                "voteTotals": [
+                    { "key": "T16ATGD", "name": "Democratic" },
+                    { "key": "T16ATGR", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "USS12D", "name": "Democratic" },
+                    { "key": "USS12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2010,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "T16SEND", "name": "Democratic" },
+                    { "key": "T16SENR", "name": "Republican" }
+                ]
+            }
+        ]
+    },
+    {
         "id": "wisconsin_12_16",
         "name": "Wisconsin",
         "numberOfParts": 8,
@@ -424,87 +555,87 @@
             "subgroups": [
                 {
                     "key": "WHITE",
-                    "name": "White population from 2010 Census",
+                    "name": "White population",
                     "sum": 4738411
                 },
                 {
                     "key": "BLACK",
-                    "name": "Black/African American population from 2010 Census",
+                    "name": "Black/African American population",
                     "sum": 380660
                 },
                 {
                     "key": "HISPANIC",
-                    "name": "Population of Hispanic origin from 2010 Census",
+                    "name": "Population of Hispanic origin",
                     "sum": 336056
                 },
                 {
                     "key": "ASIAN",
-                    "name": "Asian population from 2010 Census",
+                    "name": "Asian population",
                     "sum": 143931
                 },
                 {
                     "key": "AMINDIAN",
-                    "name": "American Indian or Alaska Native population from 2010 Census",
+                    "name": "American Indian or Alaska Native population",
                     "sum": 68593
                 },
                 {
                     "key": "PISLAND",
-                    "name": "Native Hawaiian or other Pacific Islander population from 2010 Census",
+                    "name": "Native Hawaiian or other Pacific Islander population",
                     "sum": 2639
                 },
                 {
                     "key": "OTHER",
-                    "name": "Population of other race from 2010 Census",
+                    "name": "Population of other race",
                     "sum": 5249
                 },
                 {
                     "key": "OTHERMLT",
-                    "name": "Population of other multiple races from 2010 Census",
+                    "name": "Population of other multiple races",
                     "sum": 11447
                 },
                 {
                     "key": "PERSONS18",
-                    "name": "Population over the age of 18 from the 2010 Census",
+                    "name": "Population over the age of 18",
                     "sum": 4347494
                 },
                 {
                     "key": "WHITE18",
-                    "name": "White population over 18 from the 2010 Census",
+                    "name": "White population over 18",
                     "sum": 3753685
                 },
                 {
                     "key": "BLACK18",
-                    "name": "Black population over 18 from the 2010 Census",
+                    "name": "Black population over 18",
                     "sum": 242404
                 },
                 {
                     "key": "HISPANIC18",
-                    "name": "Population of Hispanic origin over 18 from the 2010 Census",
+                    "name": "Population of Hispanic origin over 18",
                     "sum": 199890
                 },
                 {
                     "key": "ASIAN18",
-                    "name": "Asian population over 18 from the 2010 Census",
+                    "name": "Asian population over 18",
                     "sum": 93254
                 },
                 {
                     "key": "AMINDIAN18",
-                    "name": "American Indian or Alaska Native population over 18 from the 2010 Census",
+                    "name": "American Indian or Alaska Native population over 18",
                     "sum": 47510
                 },
                 {
                     "key": "PISLAND18",
-                    "name": "Native Hawaiian or other Pacific Islander population over 18 from the 2010 Census",
+                    "name": "Native Hawaiian or other Pacific Islander population over 18",
                     "sum": 1826
                 },
                 {
                     "key": "OTHER18",
-                    "name": "Population of other race over 18 from the 2010 Census",
+                    "name": "Population of other race over 18",
                     "sum": 2897
                 },
                 {
                     "key": "OTHERMLT18",
-                    "name": "Population of other multiple races over 18 from the 2010 Census",
+                    "name": "Population of other multiple races over 18",
                     "sum": 6107
                 }
             ]
