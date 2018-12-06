@@ -394,24 +394,25 @@
         ]
     },
     {
-        "id": "pa-vtds",
+        "id": "pa_vtds",
         "name": "Pennsylvania",
+        "numberOfParts": 18,
         "tilesets": [
             {
                 "type": "fill",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.pa-vtds"
+                    "url": "mapbox://districtr.pa_vtds"
                 },
-                "sourceLayer": "pa-vtds"
+                "sourceLayer": "pa_vtds"
             },
             {
                 "type": "circle",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.pa-vtds_points"
+                    "url": "mapbox://districtr.pa_vtds_points"
                 },
-                "sourceLayer": "pa-vtds_points"
+                "sourceLayer": "pa_vtds_points"
             }
         ],
         "population": {

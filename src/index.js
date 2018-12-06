@@ -53,6 +53,8 @@ export function renderInitialView(places) {
                         alt="Metric Geometry and Gerrymandering Group"
                 /></a>
             </header>
+            <h1>Districtr</h1>
+            <h2>Where would you like to redistrict?</h2>
             ${listOfPlaces.render()} ${uploadPlan.render()}
         `,
         document.getElementById("root")
@@ -81,7 +83,7 @@ class PlanUploader {
     render() {
         return html`
             <div class="plan-loader">
-                <h2>...or, load an exported plan here:</h2>
+                <h3>...or, load an exported plan here:</h3>
                 <input type="file" @change="${this.handleFiles}" />
                 <p>
                     You can export a plan as a <code>.json</code> file using the

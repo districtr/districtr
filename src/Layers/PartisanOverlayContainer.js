@@ -142,7 +142,7 @@ export default class PartisanOverlayContainer {
                     ({ label, element }) =>
                         html`
                             <div class="layer-list__item">
-                                <label class="layer-list__label">${label}</label
+                                <label class="layer-list__label">${label}:</label
                                 >${element}
                             </div>
                         `
