@@ -19,7 +19,7 @@
     flex-direction: column;
 }
 
-#toolbar section {
+section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -74,7 +74,7 @@ legend {
 }
 
 .toolbar-checkbox-item {
-    margin: 0.5rem 0;
+    margin: 0.2rem 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -84,7 +84,7 @@ legend {
 
 @media only screen and (max-width: 400px) {
     #toolbar,
-    #toolbar section {
+    section {
         top: 0;
         flex-direction: row;
         overflow: auto;

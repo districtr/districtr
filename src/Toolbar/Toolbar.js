@@ -45,7 +45,9 @@ export default class Toolbar {
                     <div class="icon-list">
                         ${this.tools.map(tool => tool.render(this.selectTool))}
                     </div>
-                    ${this.menuItems.map(item => item.render())}
+                    <div class="icon-list">
+                        ${this.menuItems.map(item => item.render())}
+                    </div>
                 </div>
                 ${OptionsContainer(activeTool)} ${this.tabs.render()}
             `,
