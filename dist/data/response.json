@@ -99,6 +99,136 @@
         "elections": []
     },
     {
+        "id": "ma_towns",
+        "name": "Massachusetts (Towns)",
+        "numberOfParts": 9,
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_towns"
+                },
+                "sourceLayer": "ma_towns"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.ma_towns_points"
+                },
+                "sourceLayer": "ma_towns_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "POP2010",
+                "name": "2010 Census population",
+                "sum": 6547629
+            },
+            "subgroups": []
+        },
+        "bounds": [[-73.5082, 41.2388], [-69.9275, 42.8868]],
+        "elections": [
+            {
+                "year": 2000,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "Pres00D", "name": "Democratic" },
+                    { "key": "Pres00R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2000,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen00D", "name": "Democratic" },
+                    { "key": "Sen00R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2002,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen02D", "name": "Democratic" },
+                    { "key": "Sen02R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2004,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "Pres04D", "name": "Democratic" },
+                    { "key": "Pres04R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2006,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen06D", "name": "Democratic" },
+                    { "key": "Sen06R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2008,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "Pres08D", "name": "Democratic" },
+                    { "key": "Pres08R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2010,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen10D", "name": "Democratic" },
+                    { "key": "Sen10R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "Pres12D", "name": "Democratic" },
+                    { "key": "Pres12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen12D", "name": "Democratic" },
+                    { "key": "Sen12R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2013,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen13D", "name": "Democratic" },
+                    { "key": "Sen13R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "Sen14D", "name": "Democratic" },
+                    { "key": "Sen14R", "name": "Republican" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "Pres12D", "name": "Democratic" },
+                    { "key": "Pres12R", "name": "Republican" }
+                ]
+            }
+        ]
+    },
+    {
         "id": "ma_precincts_02_10",
         "name": "Massachusetts (Precincts, 2002-2010)",
         "numberOfParts": 9,
@@ -689,136 +819,6 @@
                 "voteTotals": [
                     { "key": "GOVDEM12", "name": "Democratic" },
                     { "key": "GOVREP12", "name": "Republican" }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "ma_towns",
-        "name": "Massachusetts (Towns)",
-        "numberOfParts": 9,
-        "tilesets": [
-            {
-                "type": "fill",
-                "source": {
-                    "type": "vector",
-                    "url": "mapbox://districtr.ma_towns"
-                },
-                "sourceLayer": "ma_towns"
-            },
-            {
-                "type": "circle",
-                "source": {
-                    "type": "vector",
-                    "url": "mapbox://districtr.ma_towns_points"
-                },
-                "sourceLayer": "ma_towns_points"
-            }
-        ],
-        "population": {
-            "total": {
-                "key": "POP2010",
-                "name": "2010 Census population",
-                "sum": 6547629
-            },
-            "subgroups": []
-        },
-        "bounds": [[-73.5082, 41.2388], [-69.9275, 42.8868]],
-        "elections": [
-            {
-                "year": 2000,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "Pres00D", "name": "Democratic" },
-                    { "key": "Pres00R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2000,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen00D", "name": "Democratic" },
-                    { "key": "Sen00R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2002,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen02D", "name": "Democratic" },
-                    { "key": "Sen02R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2004,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "Pres04D", "name": "Democratic" },
-                    { "key": "Pres04R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2006,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen06D", "name": "Democratic" },
-                    { "key": "Sen06R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2008,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "Pres08D", "name": "Democratic" },
-                    { "key": "Pres08R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2010,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen10D", "name": "Democratic" },
-                    { "key": "Sen10R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2012,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "Pres12D", "name": "Democratic" },
-                    { "key": "Pres12R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2012,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen12D", "name": "Democratic" },
-                    { "key": "Sen12R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2013,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen13D", "name": "Democratic" },
-                    { "key": "Sen13R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2014,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "Sen14D", "name": "Democratic" },
-                    { "key": "Sen14R", "name": "Republican" }
-                ]
-            },
-            {
-                "year": 2016,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "Pres12D", "name": "Democratic" },
-                    { "key": "Pres12R", "name": "Republican" }
                 ]
             }
         ]

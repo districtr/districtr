@@ -14,7 +14,7 @@ h2 {
 
 .places-list-container {
     margin: 0 auto;
-    max-width: 60rem;
+    max-width: 72rem;
     padding: 1rem;
 }
 
@@ -24,6 +24,7 @@ h2 {
     padding: 0;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -49,7 +50,6 @@ h2 {
 
 .plan-loader {
     margin: 0 auto;
-    max-width: 60rem;
     padding: 1rem;
     text-align: center;
     color: #999;
