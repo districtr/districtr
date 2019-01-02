@@ -1,4 +1,5 @@
 import { html } from "lit-html";
+import { until } from "lit-html/directives/until";
 
 export default class PlacesList {
     constructor(places, choosePlace) {
@@ -10,20 +11,24 @@ export default class PlacesList {
             <section class="places-list-container">
                 <ul class="places-list">
                     ${
-                        this.places.then(p =>
-                            p.map(
-                                place =>
-                                    html`
-                                        <li
-                                            class="places-list__item"
-                                            @click="${
-                                                () => this.choosePlace(place)
-                                            }"
-                                        >
-                                            ${place.name}
-                                        </li>
-                                    `
-                            )
+                        until(
+                            this.places.then(p =>
+                                p.map(
+                                    place =>
+                                        html`
+                                            <li
+                                                class="places-list__item"
+                                                @click="${
+                                                    () =>
+                                                        this.choosePlace(place)
+                                                }"
+                                            >
+                                                ${place.name}
+                                            </li>
+                                        `
+                                )
+                            ),
+                            ""
                         )
                     }
                 </ul>
