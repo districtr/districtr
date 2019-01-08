@@ -1,6 +1,6 @@
 import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
-import { withMargins, zeros } from "../utils";
+import { zeros } from "../utils";
 import Election from "./Election";
 import Part from "./Part";
 import Population from "./Population";
@@ -48,7 +48,14 @@ export default class State {
         this.render = this.render.bind(this);
     }
     initializeMapState(map, place) {
-        map.fitBounds(withMargins(place.bounds, [0.1, 0.5, 0.1, 0.1]));
+        map.fitBounds(place.bounds, {
+            padding: {
+                top: 50,
+                right: 350,
+                left: 50,
+                bottom: 50
+            }
+        });
         const { units, unitsBorders, points } = addLayers(map, place.tilesets);
 
         this.units = units;
