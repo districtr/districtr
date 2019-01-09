@@ -8,7 +8,7 @@ export default class PlacesList {
     }
     render() {
         return html`
-            <section class="places-list-container">
+            <section class="toolbar-section places-list-container">
                 <ul class="places-list">
                     ${
                         until(

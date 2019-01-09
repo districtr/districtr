@@ -4,7 +4,7 @@ import populationDeviation from "./PopulationDeviation";
 import unassignedPopulation from "./UnassignedPopulation";
 
 export default state => html`
-    <section id="charts">
+    <section class="toolbar-section" id="charts">
         ${populationBarChart(state.population, state.parts)}
         <dl class="report-data-list">
             ${unassignedPopulation(state.population)}

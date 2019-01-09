@@ -1,0 +1,193 @@
+.landing-page {
+    color: #444;
+    font-size: 1.4rem;
+}
+
+.splash {
+    min-height: 800px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 3fr 1fr;
+}
+
+@media only screen and (max-width: 400px) {
+    .splash {
+        grid-template-columns: 1fr;
+    }
+}
+
+.splash-image {
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+}
+
+.hello {
+    align-items: end;
+    background: url(../static/districtr-splash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right top;
+}
+
+.splash-text {
+    z-index: 1;
+    min-width: 350px;
+    padding: 0.5rem;
+    margin: 4vh 0;
+    grid-column: 3 / 5;
+}
+
+.hello .splash-text {
+    grid-column: 2 / 4;
+}
+
+.splash-title {
+    color: black;
+    line-height: 1.6;
+    font-size: 3rem;
+}
+
+.splash-subtitle,
+.takeaway {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.details {
+    background: rgb(247, 241, 238);
+    justify-content: right;
+}
+
+.splash-code-details {
+    background: #111;
+    color: #f9f9f9;
+    justify-content: center;
+    display: flex;
+}
+
+.splash-code-text {
+    text-align: center;
+    min-width: 350px;
+    width: 60%;
+    width: 60vw;
+    margin: 4vw;
+    padding: 0 0.5rem;
+}
+
+.technologies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 1rem 0;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.technologies__item {
+    background: #222;
+    list-style: none;
+    margin: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.technologies__item a {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+.lit-html-link {
+    color: #f9f9f9;
+    background: #ff2f2f;
+    font-size: 1.8rem;
+}
+
+.mapbox-logo {
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+.sass-logo {
+    width: 120px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+mark {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
+    background: #bdaaa8;
+    color: white;
+}
+
+.features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/3;
+}
+
+.feature {
+    list-style: none;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background: #444;
+    border-radius: 1rem;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature__caption {
+    font-weight: 600;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.feature__location {
+    color: #eee;
+}
+
+.feature__image {
+    display: block;
+    margin: 1rem;
+}
+
+.districtr-name {
+    background: #ff4f49;
+    // background: #ff6f4b;
+    color: white;
+}
+
+p {
+    line-height: 1.7;
+}

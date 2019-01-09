@@ -53,8 +53,10 @@ export function renderInitialView(places) {
                         alt="Metric Geometry and Gerrymandering Group"
                 /></a>
             </header>
-            <h1>Districtr</h1>
-            <h2>Where would you like to redistrict?</h2>
+            <h1 class="districtr-heading">Districtr</h1>
+            <h2 class="districtr-subheading">
+                Where would you like to redistrict?
+            </h2>
             ${listOfPlaces.render()} ${uploadPlan.render()}
         `,
         document.getElementById("root")

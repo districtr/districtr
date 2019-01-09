@@ -1,4 +1,4 @@
-.new-map-button {
+.square-button {
     background: black;
     width: 36px;
     height: 36px;
@@ -19,4 +19,24 @@
     outline: none;
     padding: 0;
     cursor: pointer;
+}
+
+.square-button:active {
+    border-radius: 0.4rem;
+}
+
+.button {
+    background: black;
+    color: #f9f9f9;
+    transition: all ease 60ms;
+    border: none;
+    outline: none;
+    line-height: 1.4;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+}
+
+.button:active {
+    border-radius: 0.4rem;
+    color: #eee;
 }
