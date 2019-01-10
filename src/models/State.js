@@ -5,11 +5,15 @@ import Election from "./Election";
 import Part from "./Part";
 import Population from "./Population";
 
-function getParts(place) {
-    let colors = districtColors.slice(0, place.numberOfParts);
-    const parts = colors.map(
-        color => new Part(color.id, "District", color.hex)
-    );
+function getParts(problem) {
+    let colors = districtColors.slice(0, problem.numberOfParts);
+
+    let name = "District";
+    if (problem.name !== undefined) {
+        name = problem.name;
+    }
+
+    const parts = colors.map(color => new Part(color.id, name, color.hex));
     return parts;
 }
 
@@ -30,7 +34,7 @@ function getElections(place, layer) {
 }
 
 export default class State {
-    constructor(map, place, id, assignment) {
+    constructor(map, place, problem, id, assignment) {
         if (id) {
             this.id = id;
         } else {
@@ -40,7 +44,7 @@ export default class State {
         this.placeId = place.id;
 
         this.initializeMapState(map, place);
-        this.getInitialState(place, assignment);
+        this.getInitialState(place, assignment, problem);
         this.subscribers = [];
 
         this.update = this.update.bind(this);
@@ -68,8 +72,8 @@ export default class State {
         this.elections.forEach(election => election.update(feature, part));
         this.assignment[feature.id] = part;
     }
-    getInitialState(place, assignment) {
-        this.parts = getParts(place);
+    getInitialState(place, assignment, problem) {
+        this.parts = getParts(problem);
         this.elections = getElections(place, this.units);
         this.population = getPopulation(place);
         this.assignment = {};
