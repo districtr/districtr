@@ -17,8 +17,8 @@ function getParts(problem) {
     return parts;
 }
 
-function getPopulation(place) {
-    return new Population(zeros(place.numberOfParts), place.population.total);
+function getPopulation(place, problem) {
+    return new Population(zeros(problem.numberOfParts), place.population.total);
 }
 
 function getElections(place, layer) {
@@ -75,7 +75,7 @@ export default class State {
     getInitialState(place, assignment, problem) {
         this.parts = getParts(problem);
         this.elections = getElections(place, this.units);
-        this.population = getPopulation(place);
+        this.population = getPopulation(place, problem);
         this.assignment = {};
         if (assignment) {
             this.units.whenLoaded(() => {
