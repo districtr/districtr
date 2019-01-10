@@ -1,11 +1,11 @@
 h1 {
-    font-size: 4rem;
+    font-size: 3.6rem;
     line-height: 1.4;
     margin: 1rem 0;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.4;
     margin: 1rem 0 0;
 }
@@ -20,12 +20,15 @@ h2 {
 
 .places-list-container {
     margin: 0 auto;
+    width: 55%;
+    min-width: 350px;
     max-width: 72rem;
     padding: 1rem;
 }
 
 .places-list {
     list-style: none;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -40,14 +43,21 @@ h2 {
     margin: 0.5rem;
     padding: 0.5rem;
     font-weight: bold;
-    background: #eee;
+    // background: #eee;
+
     transition: all ease 100ms;
     width: 10rem;
     height: 10rem;
+
+    border-radius: 0.5rem;
+    background: #ff4f49;
+    color: white;
 }
 
 .places-list__item:hover {
-    background: #f6f6f6;
+    // background: #f6f6f6;
+
+    background: #c02d28;
 }
 
 .places-list__item {

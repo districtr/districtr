@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
 import Toggle from "./components/Toggle";
-import { main } from "./index";
+import { renderNewPlanView } from "./index";
 import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Brush from "./Map/Brush";
@@ -115,7 +115,7 @@ function getMenuItems(state) {
                     @click="${
                         () => {
                             state.map.remove();
-                            main();
+                            renderNewPlanView();
                         }
                     }"
                 >

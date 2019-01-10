@@ -16,7 +16,7 @@
             rel="stylesheet"
         />
         <link
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,600i"
             rel="stylesheet"
         />
         <link
@@ -32,33 +32,33 @@
     </head>
 
     <body>
-        <main id="root">
-            <section class="landing-page splash hello">
+        <main id="root" class="landing-page">
+            <section class="splash hello">
                 <div class="splash-text">
-                    <h1 class="splash-title">Let the people draw the lines.</h1>
+                    <h1 class="splash-title"><em>You</em> draw the lines.</h1>
                     <h2 class="splash-subtitle">
                         <mark class="districtr-name">Districtr</mark> is a
-                        project of the Metric Geometry and Gerrymandering Group
-                        to put the tools of redistricting in the hands of the
-                        public by providing free, open-source software for
+                        project of the
+                        <a href="https://www.mggg.org"
+                            >Metric Geometry and Gerrymandering Group</a
+                        >
+                        to
+                        <strong
+                            >put the tools of redistricting into the hands of
+                            the public</strong
+                        >
+                        by providing free, open-source software for
                         redistricting.
                     </h2>
                 </div>
             </section>
-            <section class="landing-page splash details">
-                <div class="features">
-                    <figure class="feature">
-                        <img
-                            class="feature__image"
-                            src="./static/clemente-park.svg"
-                            alt="A picture of Clemente Park"
-                        />
-                        <figcaption class="feature__caption">
-                            <div class="feature__name">Clemente Park</span>
-                            <div class="feature__location">Lowell, MA</span>
-                        </figcaption>
-                    </figure>
-                </div>
+            <section class="start-districting">
+                <h2 class="start-districting__title">
+                    Where would you like to redistrict?
+                </h2>
+                <div id="places-list"></div>
+            </section>
+            <section class="splash details">
                 <div class="splash-text">
                     <h2 class="takeaway">
                         The goal of Districtr is to
@@ -69,13 +69,16 @@
                         groups.
                     </h2>
                     <p>
-                        Districtr came about from a conversation with Lawyers
-                        for Civil Rights, the Boston arm of the national
-                        Lawyers’ Committee for Civil Rights Under Law. LCR was
-                        describing their work with community members in Lowell,
-                        MA, who were frustrated about not having a voice with
-                        the city council. In those conversations, a few places
-                        kept coming up.
+                        Districtr came about from a conversation with
+                        <a href="http://lawyersforcivilrights.org/"
+                            >Lawyers for Civil Rights</a
+                        >, the Boston arm of the national
+                        <a href="https://lawyerscommittee.org/"
+                            >Lawyers’ Committee for Civil Rights Under Law</a
+                        >. LCR was describing their work with community members
+                        in Lowell, MA, who were frustrated about not having a
+                        voice with the city council. In those conversations, a
+                        few places kept coming up.
                     </p>
 
                     <p>
@@ -105,11 +108,11 @@
                     </p>
                 </div>
             </section>
-            <section class="landing-page splash-code-details">
+            <section class="splash-code-details">
                 <div class="splash-code-text">
                     <h2 class="takeaway code-title">
-                        Districtr is a modern web app built on HTML5, CSS, and
-                        JavaScript.
+                        Districtr is a free and open-source web app built with
+                        HTML5, CSS, and JavaScript, as well as:
                     </h2>
                     <ul class="technologies">
                         <li class="technologies__item lit-html-link">
@@ -135,9 +138,46 @@
                             /></a>
                         </li>
                     </ul>
+                    <div class="github-link takeaway">
+                        <a href="https://github.com/gerrymandr/Districtr">
+                            <img
+                                class="github-logo"
+                                src="./static/GitHub-Mark-Light-120px-plus.png"
+                                alt="GitHub logo"
+                            />
+                            View the source on GitHub.</a
+                        >
+                    </div>
+                    <div class="team">
+                        <h3 class="team__title">Development Team</h3>
+                        <dl class="team-list">
+                            <div class="team-list__item">
+                                <dt>Lead Developer</dt>
+                                <dd>Max Hully</dd>
+                            </div>
+                            <div class="team-list__item">
+                                <dt>Lead Geographer</dt>
+                                <dd>Ruth Buck</dd>
+                            </div>
+                            <div class="team-list__item">
+                                <dt>Contributors</dt>
+                                <dd>
+                                    <ul class="team-members">
+                                        <li class="team-member">
+                                            Anthony Pizzimenti
+                                        </li>
+                                        <li class="team-member">Anna Schall</li>
+                                        <li class="team-member">
+                                            Eion Blanchard
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
                 </div>
             </section>
         </main>
-        <!-- <script src="./src/index.js"></script> -->
+        <script src="./src/index.js"></script>
     </body>
 </html>
