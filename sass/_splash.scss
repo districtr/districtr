@@ -1,0 +1,360 @@
+.landing-page {
+    color: #444;
+    font-size: 1.4rem;
+}
+
+.splash {
+    min-height: 800px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 3fr 5fr 3fr 2fr;
+}
+
+.start-districting {
+    background: #f9f9f9;
+    border-radius: 1rem;
+    margin: 0 auto;
+    // width: 60%;
+    padding: 1rem 2rem;
+}
+
+.start-districting__title {
+    font-size: 2.4rem;
+    margin: 1rem 0 0;
+    text-align: center;
+    color: black;
+}
+
+.splash-image {
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+}
+
+.github-logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 1rem;
+    display: block;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-link a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.hello {
+    align-items: end;
+    background: url(../static/districtr-splash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right top;
+}
+
+.splash-text {
+    z-index: 1;
+    min-width: 350px;
+    padding: 0.5rem;
+    margin: 6vh 0;
+    grid-column: 3 / 5;
+}
+
+.hello .splash-text {
+    grid-column: 2 / 4;
+}
+
+.splash-title {
+    color: black;
+    line-height: 1.6;
+    font-size: 3.6rem;
+}
+
+h2 {
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+.splash-subtitle,
+.takeaway {
+    font-weight: 400;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+.call-to-action a,
+.call-to-action a:visited {
+    border-radius: 1rem;
+    // border: 2px solid #006b9c;
+    background: #ff4f49;
+    padding: 1rem;
+    color: white;
+}
+
+.call-to-action a:hover {
+    color: white;
+    background: #c02d28;
+}
+
+.call-to-action {
+    text-align: center;
+}
+
+.details {
+    background: rgb(247, 241, 238);
+    justify-content: right;
+}
+
+.splash-code-details {
+    background: #111;
+    color: white;
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+}
+
+.splash-code-text {
+    text-align: center;
+    min-width: 350px;
+    padding: 0 0.5rem;
+    grid-column: 2 / -1;
+    margin: 6vh 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-title {
+    width: 55%;
+    min-width: 350px;
+    margin: 1rem auto;
+}
+
+.technologies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #444;
+}
+
+.technologies__item {
+    // background: #222;
+    list-style: none;
+    margin: 0 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    transition: all 100ms ease;
+    box-shadow: 20 0 2px 8px rgba(12, 12, 12, 0.1);
+}
+
+.technologies__item:hover {
+    transform: scale(1.05);
+    box-shadow: 30 0 2px 8px rgba(12, 12, 12, 0.1);
+}
+
+.technologies__item a {
+    padding: 1rem;
+    display: block;
+}
+
+.lit-html-link {
+    color: #f9f9f9;
+    background: #ff2f2f;
+    font-size: 1.8rem;
+    border-radius: 0.5rem;
+}
+
+.mapbox-logo {
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+.sass-logo {
+    width: 120px;
+}
+
+a,
+a:visited {
+    font-weight: 600;
+    color: #006b9c;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #0099cd;
+}
+
+.details a,
+.details a:visited {
+    color: #806463;
+}
+
+.details a:hover,
+.details a:active {
+    color: #ac8682;
+}
+
+.splash-code-details a {
+    color: #0099cd;
+}
+
+.splash-code-details a:active,
+.splash-code-details a:hover {
+    color: #5dcaff;
+    text-decoration: inherit;
+}
+
+.lit-html-link a,
+.lit-html-link a:visited {
+    color: #f9f9f9;
+}
+
+.lit-html-link a:hover {
+    color: white;
+}
+
+mark {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
+    background: #bdaaa8;
+    color: white;
+}
+
+.features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/3;
+}
+
+.feature {
+    list-style: none;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background: #444;
+    border-radius: 1rem;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature__caption {
+    font-weight: 600;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.feature__location {
+    color: #eee;
+}
+
+.feature__image {
+    display: block;
+    margin: 1rem;
+}
+
+.districtr-name {
+    background: #ff4f49;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
+    // background: #ff6f4b;
+    color: white;
+}
+
+p {
+    line-height: 1.7;
+}
+
+.team {
+    background: #222;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.team__title {
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.team-list {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: top;
+}
+
+.team-list__item {
+    margin: 1rem;
+}
+
+.team-members {
+    padding: 0;
+    margin: 0;
+}
+
+.team-member {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.team dt {
+    font-weight: 600;
+    color: white;
+    line-height: 1.6;
+}
+
+.team dt::after {
+    content: ":";
+}
+
+.team dd {
+    margin: 0;
+}
+
+@media only screen and (max-width: 400px) {
+    .splash {
+        grid-template-columns: 1fr;
+    }
+    .splash-title {
+        font-size: 2.4rem;
+    }
+    .splash-subtitle {
+        font-size: 1.6rem;
+    }
+    .hello {
+        background-image: url(../static/districtr-splash-small.png);
+    }
+    .team-list {
+        justify-content: left;
+    }
+}

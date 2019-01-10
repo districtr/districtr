@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
 import Toggle from "./components/Toggle";
-import { main } from "./index";
+import { renderNewPlanView } from "./index";
 import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
 import Brush from "./Map/Brush";
@@ -34,7 +34,7 @@ function getLayers(state) {
         colorRules
     );
     return () => html`
-        <section id="layers" class="layer-list">
+        <section id="layers" class="toolbar-section layer-list">
             ${partisanOverlays.render()} ${toggleDistricts.render()}
         </section>
     `;
@@ -50,7 +50,7 @@ function getTabs(state) {
         id: "elections",
         name: "Votes",
         render: () => html`
-            <section id="elections">
+            <section class="toolbar-section" id="elections">
                 ${
                     state.elections.map(election =>
                         electionResults(election, state.parts)
@@ -103,7 +103,7 @@ function getMenuItems(state) {
     return [
         {
             render: () => html`
-                <button class="new-map-button" @click="${state.exportAsJSON}">
+                <button class="square-button" @click="${state.exportAsJSON}">
                     Export Plan
                 </button>
             `
@@ -111,11 +111,11 @@ function getMenuItems(state) {
         {
             render: () => html`
                 <button
-                    class="new-map-button"
+                    class="square-button"
                     @click="${
                         () => {
                             state.map.remove();
-                            main();
+                            renderNewPlanView();
                         }
                     }"
                 >

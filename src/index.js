@@ -11,12 +11,14 @@ export function main() {
     renderInitialView(fetchApi());
 }
 function renderEditView(createState) {
+    const root = document.getElementById("root");
+    root.setAttribute("class", null);
     render(
         html`
             <div id="map"></div>
             <div id="toolbar"></div>
         `,
-        document.getElementById("root")
+        root
     );
     const map = initializeMap("map");
     map.on("load", () => {
@@ -33,6 +35,19 @@ export function renderInitialView(places) {
     const listOfPlaces = new PlacesList(places, place =>
         renderEditView(map => new State(map, place))
     );
+    render(
+        html`
+            ${listOfPlaces.render()}
+        `,
+        document.getElementById("places-list")
+    );
+}
+
+export function renderNewPlanView() {
+    const places = fetchApi();
+    const listOfPlaces = new PlacesList(places, place =>
+        renderEditView(map => new State(map, place))
+    );
     const uploadPlan = new PlanUploader(json => {
         const serialized = JSON.parse(json);
         fetchApi().then(places => {
@@ -45,16 +60,9 @@ export function renderInitialView(places) {
     });
     render(
         html`
-            <header class="top-navigation">
-                <a href="/"
-                    ><img
-                        class="nav-logo"
-                        src="./static/logo.svg"
-                        alt="Metric Geometry and Gerrymandering Group"
-                /></a>
-            </header>
-            <h1>Districtr</h1>
-            <h2>Where would you like to redistrict?</h2>
+            <h1 class="districtr-subheading">
+                Where would you like to redistrict?
+            </h1>
             ${listOfPlaces.render()} ${uploadPlan.render()}
         `,
         document.getElementById("root")

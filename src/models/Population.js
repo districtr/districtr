@@ -12,6 +12,8 @@ export default class Population {
 
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 
+        this.subgroups = populationSummary.subgroups;
+
         this.bindMethods();
     }
     bindMethods() {
