@@ -8,7 +8,7 @@ import toolbarView from "./tools";
 // const API = "https://districtr.mggg.org/api";
 
 export function main() {
-    renderInitialView(fetchApi());
+    renderInitialView();
 }
 function renderEditView(createState) {
     const root = document.getElementById("root");
@@ -31,10 +31,8 @@ function renderEditView(createState) {
     });
 }
 
-export function renderInitialView(places) {
-    const listOfPlaces = new PlacesList(places, place =>
-        renderEditView(map => new State(map, place))
-    );
+export function renderInitialView() {
+    const listOfPlaces = placesList();
     render(
         html`
             ${listOfPlaces.render()}
@@ -43,11 +41,15 @@ export function renderInitialView(places) {
     );
 }
 
-export function renderNewPlanView() {
+function placesList() {
     const places = fetchApi();
-    const listOfPlaces = new PlacesList(places, place =>
-        renderEditView(map => new State(map, place))
-    );
+    return new PlacesList(places, (place, problem) => {
+        renderEditView(map => new State(map, place, problem));
+    });
+}
+
+export function renderNewPlanView() {
+    const listOfPlaces = placesList();
     const uploadPlan = new PlanUploader(json => {
         const serialized = JSON.parse(json);
         fetchApi().then(places => {

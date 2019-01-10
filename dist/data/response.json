@@ -2,7 +2,13 @@
     {
         "id": "alaska",
         "name": "Alaska",
-        "numberOfParts": 20,
+        "districtingProblems": [
+            {
+                "numberOfParts": 20,
+                "office": "State Senate",
+                "plural": "State Senate Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -44,7 +50,13 @@
     {
         "id": "lowell_blocks",
         "name": "Lowell",
-        "numberOfParts": 9,
+        "districtingProblems": [
+            {
+                "numberOfParts": 9,
+                "office": "City Council",
+                "plural": "City Council Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -101,7 +113,13 @@
     {
         "id": "ma_towns",
         "name": "Massachusetts (Towns)",
-        "numberOfParts": 9,
+        "districtingProblems": [
+            {
+                "numberOfParts": 9,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -231,7 +249,13 @@
     {
         "id": "ma_precincts_02_10",
         "name": "Massachusetts (Precincts, 2002-2010)",
-        "numberOfParts": 9,
+        "districtingProblems": [
+            {
+                "numberOfParts": 9,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -313,7 +337,13 @@
     {
         "id": "ma_precincts_12_16",
         "name": "Massachusetts (Precincts, 2012-2016)",
-        "numberOfParts": 9,
+        "districtingProblems": [
+            {
+                "numberOfParts": 9,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -430,7 +460,13 @@
     {
         "id": "missouri",
         "name": "Missouri",
-        "numberOfParts": 8,
+        "districtingProblems": [
+            {
+                "numberOfParts": 8,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -526,7 +562,13 @@
     {
         "id": "pa_vtds",
         "name": "Pennsylvania",
-        "numberOfParts": 18,
+        "districtingProblems": [
+            {
+                "numberOfParts": 18,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
@@ -658,7 +700,13 @@
     {
         "id": "wisconsin_12_16",
         "name": "Wisconsin",
-        "numberOfParts": 8,
+        "districtingProblems": [
+            {
+                "numberOfParts": 8,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
         "tilesets": [
             {
                 "type": "fill",
