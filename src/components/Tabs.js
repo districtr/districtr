@@ -26,8 +26,6 @@ const template = (tabs, activeTab, onChange) => {
     `;
 };
 
-// TODO: Use just CSS for hide/show
-
 export default class Tabs {
     constructor(tabs, renderCallback) {
         this.tabs = tabs;

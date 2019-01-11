@@ -1,4 +1,15 @@
-const colorScheme = [
+/**
+ * Global partisan color scheme.
+ */
+export const partyColors = {
+    Democratic: "#1976d2",
+    Republican: "#d32f2f"
+};
+
+/**
+ * District color scheme.
+ */
+export const colorScheme = [
     "#0099cd",
     "#ffca5d",
     "#00cd99",
@@ -44,11 +55,23 @@ const colorScheme = [
     "#FFEA00",
     "#6200EA"
 ];
+
+/**
+ * Darker colors for when the user hovers over assigned units.
+ */
 const hoverColorScheme = colorScheme.map(hex =>
     changeColorLuminance(hex, -0.3)
 );
 
-// I got this from stack overflow to adjust the color brewer colors
+/**
+ * Adjusts the color luminance. Use it for shading colors.
+ *
+ * I got this from stack overflow to find shaded versions of the
+ * ColorBrewer colors.
+ *
+ * @param {string} hex
+ * @param {number} lum
+ */
 function changeColorLuminance(hex, lum) {
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, "");
@@ -58,7 +81,7 @@ function changeColorLuminance(hex, lum) {
     lum = lum || 0;
 
     // convert to decimal and change luminosity
-    var rgb = "#",
+    let rgb = "#",
         c,
         i;
     for (i = 0; i < 3; i++) {
@@ -70,6 +93,10 @@ function changeColorLuminance(hex, lum) {
     return rgb;
 }
 
+/**
+ * Global district color scheme, with both the normal hex and the hoverHex
+ * variations included.
+ */
 export const districtColors = colorScheme.map((hex, i) => ({
     id: i,
     name: hex,
@@ -80,7 +107,7 @@ export const districtColors = colorScheme.map((hex, i) => ({
 // Right now I'm assuming colors are numbered, and that -1 or null means
 // a block hasn't been colored. I don't think this is a good system.
 
-const blockColorStyle = [
+const unitColorStyle = [
     "match",
     ["feature-state", "color"],
     ...districtColors
@@ -89,7 +116,7 @@ const blockColorStyle = [
     "rgba(0,0,0,0)"
 ];
 
-const hoveredBlockColorStyle = [
+const hoveredUnitColorStyle = [
     "match",
     ["feature-state", "color"],
     ...districtColors
@@ -98,9 +125,12 @@ const hoveredBlockColorStyle = [
     "#aaaaaa"
 ];
 
-export const blockColorProperty = [
+/**
+ * Mapbox color rule for the units layer.
+ */
+export const unitColorProperty = [
     "case",
     ["boolean", ["feature-state", "hover"], false],
-    hoveredBlockColorStyle,
-    blockColorStyle
+    hoveredUnitColorStyle,
+    unitColorStyle
 ];

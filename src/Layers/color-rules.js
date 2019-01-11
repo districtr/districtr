@@ -1,11 +1,47 @@
-// TODO: Make this work using a generic "election" record
-// TODO: Include legend
-// TODO: Consult with Ruth
+import { partyColors } from "../colors";
+import { divideOrZeroIfNaN } from "../utils";
 
-export const partyColors = {
-    Democratic: "#1976d2",
-    Republican: "#d32f2f"
-};
+// TODO: Include legends
+
+// Demographic color rules:
+
+export function colorByCount(subgroup) {
+    return [
+        "rgba",
+        0,
+        0,
+        0,
+        [
+            "interpolate",
+            ["linear"],
+            subgroup.asMapboxExpression(),
+            0,
+            0,
+            subgroup.population.max,
+            1
+        ]
+    ];
+}
+
+export function colorByProportion(subgroup) {
+    return [
+        "rgba",
+        0,
+        0,
+        0,
+        divideOrZeroIfNaN(
+            subgroup.asMapboxExpression(),
+            subgroup.population.asMapboxExpression()
+        )
+    ];
+}
+
+export const demographicColorRules = [
+    { name: "Total count", rule: colorByCount },
+    { name: "Proportion", rule: colorByProportion }
+];
+
+// Partisan color rules:
 
 function colorbyVoteShare(election, party, colorStops) {
     return [

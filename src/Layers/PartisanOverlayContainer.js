@@ -1,4 +1,6 @@
 import { html } from "lit-html";
+import { LayerListItem } from "../components/LayerListItem";
+import select from "../components/select";
 import Toggle from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 
@@ -10,23 +12,6 @@ function createLayerToggle(party, showParty, hideParty) {
             hideParty(party);
         }
     });
-}
-
-function select(name, items, handler) {
-    return html`
-        <select
-            name="${name}"
-            @input="${e => handler(parseInt(e.target.value))}"
-        >
-            ${
-                items.map(
-                    (item, i) => html`
-                        <option value="${i}">${item.name}</option>
-                    `
-                )
-            }
-        </select>
-    `;
 }
 
 export default class PartisanOverlayContainer {
@@ -138,15 +123,7 @@ export default class PartisanOverlayContainer {
                             this.onChangeLayerType
                         )
                     }
-                ].map(
-                    ({ label, element }) =>
-                        html`
-                            <div class="layer-list__item">
-                                <label class="layer-list__label">${label}:</label
-                                >${element}
-                            </div>
-                        `
-                )
+                ].map(LayerListItem)
             }
             ${this.toggles.map(toggle => toggle.render())}
         `;

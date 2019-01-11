@@ -63,7 +63,7 @@
     z-index: 1;
     min-width: 350px;
     padding: 0.5rem;
-    margin: 6vh 0;
+    margin: 2vh 0;
     grid-column: 3 / 5;
 }
 
@@ -341,7 +341,7 @@ p {
     margin: 0;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .splash {
         grid-template-columns: 1fr;
     }

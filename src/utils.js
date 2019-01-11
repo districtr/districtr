@@ -34,3 +34,7 @@ export function roundToDecimal(n, places) {
 export function sum(values) {
     return values.reduce((total, value) => total + value, 0);
 }
+
+export function divideOrZeroIfNaN(x, y) {
+    return ["case", [">", x, 0], ["/", x, y], 0];
+}
