@@ -5,6 +5,9 @@ import Toggle from "../components/Toggle";
 import { divideOrZeroIfNaN } from "../utils";
 import DemographicOverlay from "./DemographicOverlay";
 
+// TODO: I think we could improve the architecture of whatever's
+// going on with all these "Container" components...
+
 export default class DemographicOverlayContainer {
     constructor(layers, population) {
         this.currentLayerIndex = 0;

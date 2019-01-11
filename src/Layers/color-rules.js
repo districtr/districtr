@@ -1,11 +1,6 @@
-// TODO: Make this work using a generic "election" record
-// TODO: Include legend
-// TODO: Consult with Ruth
+import { partyColors } from "../colors";
 
-export const partyColors = {
-    Democratic: "#1976d2",
-    Republican: "#d32f2f"
-};
+// TODO: Include legend
 
 function colorbyVoteShare(election, party, colorStops) {
     return [
