@@ -1,5 +1,5 @@
 import { html, svg } from "lit-html";
-import { numberWithCommas } from "../utils";
+import { numberWithCommas } from "../../utils";
 
 const width = 240;
 const height = 300;

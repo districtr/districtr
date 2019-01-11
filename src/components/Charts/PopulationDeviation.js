@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { roundToDecimal } from "../utils";
+import { roundToDecimal } from "../../utils";
 
 export default population => {
     const maxPopDev = Math.max(...population.deviations());

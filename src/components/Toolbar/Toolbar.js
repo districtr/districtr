@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import Tabs from "../components/Tabs";
+import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
 
 export default class Toolbar {

@@ -100,3 +100,13 @@ export const createMarginPerCapitaRule = population => (election, party) => {
 
     return colorByMarginPerCapita(election, party, population, stops);
 };
+
+export function createPartisanColorRules(state) {
+    return [
+        { name: "Vote share", rule: voteShareRule },
+        {
+            name: "Margin per capita",
+            rule: createMarginPerCapitaRule(state.population)
+        }
+    ];
+}
