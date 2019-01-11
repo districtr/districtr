@@ -44,12 +44,12 @@ export default (election, parts) => {
                                             );
                                             return html`
                                                 <td
-                                                    style="${
+                                                    style=${
                                                         getCellStyle(
                                                             percent,
                                                             party
                                                         )
-                                                    }"
+                                                    }
                                                 >
                                                     ${
                                                         roundToDecimal(

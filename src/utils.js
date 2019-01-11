@@ -36,5 +36,13 @@ export function sum(values) {
 }
 
 export function divideOrZeroIfNaN(x, y) {
-    return ["case", [">", x, 0], ["/", x, y], 0];
+    return ["case", [">", y, 0], ["/", x, y], 0];
+}
+
+export function extent(values) {
+    return Math.min(...values) - Math.max(...values);
+}
+
+export function asPercent(value, total) {
+    return `${Math.round(100 * (value / total))}%`;
 }
