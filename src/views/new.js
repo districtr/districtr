@@ -1,11 +1,11 @@
 import { html, render } from "lit-html";
+import PlacesList from "../components/PlacesList";
 import PlanUploader from "../components/PlanUploader";
+import { fetchApi } from "../mockApi";
 import State from "../models/State";
-import PlacesList from "./components/PlacesList";
 import { renderEditView } from "./edit";
-import { fetchApi } from "./mockApi";
 
-function placesList() {
+export function placesList() {
     const places = fetchApi();
     return new PlacesList(places, (place, problem) => {
         renderEditView(map => new State(map, place, problem));

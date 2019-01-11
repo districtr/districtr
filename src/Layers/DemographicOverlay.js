@@ -1,4 +1,4 @@
-import Layer from "./Layer";
+import Layer, { addBelowLabels } from "./Layer";
 
 export default class DemographicOverlay extends Layer {
     constructor(unitsLayer, subgroup, defaultColorRule) {
@@ -12,9 +12,7 @@ export default class DemographicOverlay extends Layer {
             layerSpec["source-layer"] = unitsLayer.sourceLayer;
         }
 
-        super(unitsLayer.map, layerSpec, (map, layer) =>
-            map.addLayer(layer, unitsLayer.id)
-        );
+        super(unitsLayer.map, layerSpec, addBelowLabels);
 
         this.colorRule = defaultColorRule;
         this.setSubgroup = this.setSubgroup.bind(this);

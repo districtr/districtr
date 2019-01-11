@@ -1,4 +1,5 @@
 import mapbox from "mapbox-gl";
+import { unitColorProperty } from "../colors";
 import Layer, { addBelowLabels } from "../Layers/Layer";
 
 mapbox.accessToken =

@@ -1,17 +1,17 @@
 import { html, render } from "lit-html";
-import ChartsList from "./Charts/ChartsList";
-import electionResults from "./Charts/ElectionResults";
-import Toggle from "./components/Toggle";
-import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
-import DemographicOverlayContainer from "./Layers/DemographicOverlayContainer";
-import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
-import Brush from "./Map/Brush";
-import { initializeMap } from "./Map/map";
-import BrushTool from "./Toolbar/BrushTool";
-import EraserTool from "./Toolbar/EraserTool";
-import PanTool from "./Toolbar/PanTool";
-import Toolbar from "./Toolbar/Toolbar";
-import { renderNewPlanView } from "./views/new";
+import ChartsList from "../components/Charts/ChartsList";
+import electionResults from "../components/Charts/ElectionResults";
+import Toggle from "../components/Toggle";
+import BrushTool from "../components/Toolbar/BrushTool";
+import EraserTool from "../components/Toolbar/EraserTool";
+import PanTool from "../components/Toolbar/PanTool";
+import Toolbar from "../components/Toolbar/Toolbar";
+import { createPartisanColorRules } from "../Layers/color-rules";
+import DemographicOverlayContainer from "../Layers/DemographicOverlayContainer";
+import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
+import Brush from "../Map/Brush";
+import { initializeMap } from "../Map/map";
+import { renderNewPlanView } from "./new";
 
 export function renderEditView(createState) {
     const root = document.getElementById("root");
@@ -47,20 +47,12 @@ function getLayers(state) {
         }
     );
 
-    const colorRules = [
-        { name: "Vote share", rule: voteShareRule },
-        {
-            name: "Margin per capita",
-            rule: createMarginPerCapitaRule(state.population)
-        }
-    ];
-
     let partisanOverlays =
         state.elections.length > 0
             ? new PartisanOverlayContainer(
                   state.layers,
                   state.elections,
-                  colorRules
+                  createPartisanColorRules(state)
               )
             : null;
 

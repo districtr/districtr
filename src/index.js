@@ -1,9 +1,8 @@
 import { html, render } from "lit-html";
-import PlacesList from "./components/PlacesList";
-import { fetchApi } from "./mockApi";
+import { placesList } from "./views/new";
 
 export function renderInitialView() {
-    const listOfPlaces = new PlacesList(fetchApi());
+    const listOfPlaces = placesList();
     render(
         html`
             ${listOfPlaces.render()}

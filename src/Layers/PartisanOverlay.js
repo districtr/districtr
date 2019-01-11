@@ -1,4 +1,4 @@
-import Layer from "./Layer";
+import Layer, { addBelowLabels } from "./Layer";
 
 export default class PartisanOverlay extends Layer {
     constructor(unitsLayer, election, party, getFillColorRule) {
@@ -15,9 +15,7 @@ export default class PartisanOverlay extends Layer {
             layerSpec["source-layer"] = unitsLayer.sourceLayer;
         }
 
-        super(unitsLayer.map, layerSpec, (map, layer) =>
-            map.addLayer(layer, unitsLayer.id)
-        );
+        super(unitsLayer.map, layerSpec, addBelowLabels);
         this.party = party;
         this.getFillColorRule = getFillColorRule;
         this.election = election;
