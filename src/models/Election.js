@@ -1,4 +1,4 @@
-import { sum, zeros } from "../utils";
+import { divideOrZeroIfNaN, sum, zeros } from "../utils";
 import Tally from "./Tally";
 
 export default class Election {
@@ -82,7 +82,7 @@ export default class Election {
             total.push(this.voteCountAsMapboxExpression(partyKey));
         }
         const votes = this.voteCountAsMapboxExpression(party);
-        return ["case", [">", votes, 0], ["/", votes, total], 0];
+        return divideOrZeroIfNaN(votes, total);
     }
     update(feature, part) {
         for (let party in this.votes) {

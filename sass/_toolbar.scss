@@ -87,7 +87,7 @@ legend {
     section {
         top: 0;
         flex-direction: row;
-        overflow: auto;
+        overflow-y: auto;
         width: 100%;
     }
 }
@@ -202,6 +202,7 @@ input:checked ~ .tabs__tab {
 
 .tab__body h4 {
     margin: 0.5rem 0;
+    font-size: 1.2rem;
 }
 
 .election-results-table {

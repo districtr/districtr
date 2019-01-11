@@ -1,21 +1,12 @@
 import Layer from "./Layer";
 
 export default class DemographicOverlay extends Layer {
-    constructor(unitsLayer, population) {
+    constructor(unitsLayer, subgroup, defaultColorRule) {
         let layerSpec = {
             id: `${unitsLayer.id}-population-overlay`,
             source: unitsLayer.sourceId,
             type: unitsLayer.type,
-            paint: {
-                [`${unitsLayer.type}-color`]: [
-                    "rgba",
-                    0,
-                    0,
-                    0,
-                    population.asMapboxExpression()
-                ],
-                [`${unitsLayer.type}-opacity`]: 0
-            }
+            paint: { [`${unitsLayer.type}-opacity`]: 0 }
         };
         if (unitsLayer.sourceLayer !== undefined) {
             layerSpec["source-layer"] = unitsLayer.sourceLayer;
@@ -24,5 +15,22 @@ export default class DemographicOverlay extends Layer {
         super(unitsLayer.map, layerSpec, (map, layer) =>
             map.addLayer(layer, unitsLayer.id)
         );
+
+        this.colorRule = defaultColorRule;
+        this.setSubgroup = this.setSubgroup.bind(this);
+
+        this.setSubgroup(subgroup);
+        this.repaint();
+    }
+    setSubgroup(subgroup) {
+        this.subgroup = subgroup;
+        this.repaint();
+    }
+    setColorRule(colorRule) {
+        this.colorRule = colorRule;
+        this.repaint();
+    }
+    repaint() {
+        this.setColor(this.colorRule(this.subgroup));
     }
 }

@@ -18,7 +18,7 @@ function getParts(problem) {
 }
 
 function getPopulation(place, problem) {
-    return new Population(zeros(problem.numberOfParts), place.population.total);
+    return new Population(zeros(problem.numberOfParts), place.population);
 }
 
 function getElections(place, problem, layer) {
@@ -73,6 +73,8 @@ export default class State {
         this.assignment[feature.id] = part;
     }
     getInitialState(place, assignment, problem) {
+        this.partPlural =
+            problem.plural !== undefined ? "Districts" : problem.plural;
         this.parts = getParts(problem);
         this.elections = getElections(place, problem, this.units);
         this.population = getPopulation(place, problem);
