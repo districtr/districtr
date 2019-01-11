@@ -24,7 +24,7 @@ export const colorScheme = [
     "#fdb462",
     "#b3de69",
     "#fccde5",
-    "#d9d9d9",
+    // "#d9d9d9", Too gray!
     "#bc80bd",
     "#ccebc5",
     "#ffed6f",
