@@ -2,11 +2,13 @@ import { html } from "lit-html";
 import LayerListItem from "../components/LayerListItem";
 import select from "../components/select";
 import Toggle from "../components/Toggle";
-import { divideOrZeroIfNaN } from "../utils";
+import { demographicColorRules } from "./color-rules";
 import DemographicOverlay from "./DemographicOverlay";
 
 // TODO: I think we could improve the architecture of whatever's
 // going on with all these "Container" components...
+// This should be something I can put in the "components" folder,
+// but right now it does too much other stuff.
 
 export default class DemographicOverlayContainer {
     constructor(layers, population) {
@@ -15,7 +17,7 @@ export default class DemographicOverlayContainer {
         this.currentColorRuleIndex = 0;
 
         this.subgroups = [population, ...population.subgroups];
-        this.colorRules = colorRules;
+        this.colorRules = demographicColorRules;
 
         this.layers = layers.map(
             layer =>
@@ -109,39 +111,3 @@ const layerDisplayNames = { circle: "Points", fill: "Polygons" };
 function getLayerDescription(layer) {
     return { name: layerDisplayNames[layer.type] };
 }
-
-export function colorByCount(subgroup) {
-    return [
-        "rgba",
-        0,
-        0,
-        0,
-        [
-            "interpolate",
-            ["linear"],
-            subgroup.asMapboxExpression(),
-            0,
-            0,
-            subgroup.population.max,
-            1
-        ]
-    ];
-}
-
-export function colorByProportion(subgroup) {
-    return [
-        "rgba",
-        0,
-        0,
-        0,
-        divideOrZeroIfNaN(
-            subgroup.asMapboxExpression(),
-            subgroup.population.asMapboxExpression()
-        )
-    ];
-}
-
-const colorRules = [
-    { name: "Total count", rule: colorByCount },
-    { name: "Proportion", rule: colorByProportion }
-];
