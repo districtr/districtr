@@ -1,0 +1,29 @@
+.color-scale__labels {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.color-scale__label {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.color-scale {
+    max-width: 300px;
+}
+
+.color-scale__bar {
+    width: 100%;
+    height: 1.5rem;
+    border: solid 1px #aaa;
+}
+
+.color-scale-continuous {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
+}

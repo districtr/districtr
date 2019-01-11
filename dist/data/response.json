@@ -404,78 +404,7 @@
                 "min": 75,
                 "max": 10172
             },
-            "subgroups": [
-                {
-                    "key": "White",
-                    "name": "White population",
-                    "sum": 373844,
-                    "min": 0,
-                    "max": 8913
-                },
-                {
-                    "key": "Black",
-                    "name": "Black/African American population",
-                    "sum": 151962,
-                    "min": 0,
-                    "max": 2989
-                },
-                {
-                    "key": "AmIndian",
-                    "name": "American Indian and Alaska Native population",
-                    "sum": 2493,
-                    "min": 0,
-                    "max": 47
-                },
-                {
-                    "key": "Asian",
-                    "name": "Asian population",
-                    "sum": 56589,
-                    "min": 0,
-                    "max": 4056
-                },
-                {
-                    "key": "Hawaiian",
-                    "name": "Native Hawaiian and other Pacific Islander population",
-                    "sum": 280,
-                    "min": 0,
-                    "max": 8
-                },
-                {
-                    "key": "Other",
-                    "name": "Population of other race",
-                    "sum": 52899,
-                    "min": 0,
-                    "max": 1188
-                },
-                {
-                    "key": "_1_Race",
-                    "name": "Population of one race",
-                    "sum": 638073,
-                    "min": 0,
-                    "max": 9986
-                },
-                {
-                    "key": "_2__Races",
-                    "name": "Population of two or more races",
-                    "sum": 25381,
-                    "min": 0,
-                    "max": 340
-                },
-                {
-                    "key": "Hispanic_O",
-                    "name": "Population of Hispanic origin",
-                    "sum": 110942,
-                    "min": 0,
-                    "max": 2500
-                },
-                {
-                    "key": "Not_Hispan",
-                    "name": "Population not of Hispanic origin",
-                    "sum": 42677,
-                    "min": 0,
-                    "max": 9215
-                }
-            ]
+            "subgroups": []
         },
         "bounds": [[-73.5081, 41.238], [-69.928, 42.8868]],
         "elections": [
@@ -986,5 +915,260 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "islip_blocks",
+        "name": "Islip",
+        "districtingProblems": [
+            {
+                "numberOfParts": 4,
+                "office": "Town Council",
+                "plural": "Town Council Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.islip_blocks"
+                },
+                "sourceLayer": "islip_blocks"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.islip_blocks_points"
+                },
+                "sourceLayer": "islip_blocks_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total Population",
+                "sum": 335542,
+                "min": 0,
+                "max": 1526
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 195282,
+                    "min": 0,
+                    "max": 1303
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 27898,
+                    "min": 0,
+                    "max": 346
+                },
+                {
+                    "key": "HPOP",
+                    "name": "Hispanic population",
+                    "sum": 97371,
+                    "min": 0,
+                    "max": 647
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 9358,
+                    "min": 0,
+                    "max": 172
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 520,
+                    "min": 0,
+                    "max": 15
+                },
+                {
+                    "key": "NH_NAHI",
+                    "name": "Hawaiian Native population",
+                    "sum": 52,
+                    "min": 0,
+                    "max": 7
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "bounds": [[-73.3183, 40.5557], [-73.0379, 40.833]]
+    },
+    {
+        "id": "santa_clara_blocks",
+        "name": "Santa Clara",
+        "districtingProblems": [
+            {
+                "numberOfParts": 6,
+                "office": "City Council",
+                "plural": "City Council Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.santa_clara_blocks"
+                },
+                "sourceLayer": "santa_clara_blocks"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.santa_clara_blocks_points"
+                },
+                "sourceLayer": "santa_clara_blocks_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total Population",
+                "sum": 116501,
+                "min": 0,
+                "max": 2055
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 42045,
+                    "min": 0,
+                    "max": 663
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 2929,
+                    "min": 0,
+                    "max": 83
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 43544,
+                    "min": 0,
+                    "max": 1594
+                },
+                {
+                    "key": "HPOP",
+                    "name": "Hispanic population",
+                    "sum": 22590,
+                    "min": 0,
+                    "max": 595
+                },
+                {
+                    "key": "NH_NAHI",
+                    "name": "Hawaiian Native population",
+                    "sum": 604,
+                    "min": 0,
+                    "max": 33
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 240,
+                    "min": 0,
+                    "max": 10
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "bounds": [[-122.0054, 37.3231], [-121.9297, 37.4189]]
+    },
+    {
+        "id": "philadelphia_blocks",
+        "name": "Philadelphia",
+        "districtingProblems": [
+            {
+                "numberOfParts": 10,
+                "office": "City Council",
+                "plural": "City Council Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.philadelphia_blocks"
+                },
+                "sourceLayer": "philadelphia_blocks"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.philadelphia_blocks_points"
+                },
+                "sourceLayer": "philadelphia_blocks_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total Population",
+                "sum": 1526006,
+                "min": 0,
+                "max": 4535
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 562585,
+                    "min": 0,
+                    "max": 1290
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 644287,
+                    "min": 0,
+                    "max": 3169
+                },
+                {
+                    "key": "HPOP",
+                    "name": "Hispanic population",
+                    "sum": 187611,
+                    "min": 0,
+                    "max": 719
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 95521,
+                    "min": 0,
+                    "max": 488
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 3498,
+                    "min": 0,
+                    "max": 11
+                },
+                {
+                    "key": "NH_NAHI",
+                    "name": "Hawaiian Native population",
+                    "sum": 457,
+                    "min": 0,
+                    "max": 9
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "bounds": [[-75.2803, 39.867], [-74.9558, 40.138]]
     }
 ]
