@@ -2,7 +2,6 @@ import { html } from "lit-html";
 import ChartsList from "./Charts/ChartsList";
 import electionResults from "./Charts/ElectionResults";
 import Toggle from "./components/Toggle";
-import { renderNewPlanView } from "./index";
 import { createMarginPerCapitaRule, voteShareRule } from "./Layers/color-rules";
 import DemographicOverlayContainer from "./Layers/DemographicOverlayContainer";
 import PartisanOverlayContainer from "./Layers/PartisanOverlayContainer";
@@ -11,6 +10,7 @@ import BrushTool from "./Toolbar/BrushTool";
 import EraserTool from "./Toolbar/EraserTool";
 import PanTool from "./Toolbar/PanTool";
 import Toolbar from "./Toolbar/Toolbar";
+import { renderNewPlanView } from "./views/new";
 
 function getLayers(state) {
     const toggleDistricts = new Toggle(
