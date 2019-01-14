@@ -77,13 +77,6 @@ function getTabs(state) {
         render: () => ChartsList(state)
     };
 
-    const elections = new VotesTab(
-        "votes",
-        "Votes",
-        state.elections,
-        state.parts
-    );
-
     const layersTab = {
         id: "layers",
         name: "Layers",
@@ -93,7 +86,7 @@ function getTabs(state) {
     let tabs = [charts];
 
     if (state.elections.length > 0) {
-        tabs.push(elections);
+        tabs.push(new VotesTab("votes", "Votes", state.elections, state.parts));
     }
 
     tabs.push(layersTab);
@@ -111,12 +104,14 @@ export default function toolbarView(state) {
     ];
     tools[0].activate();
 
-    const toolbar = new Toolbar(
-        tools,
-        "pan",
-        getTabs(state),
-        getMenuItems(state)
-    );
+    const tabs = getTabs(state);
+
+    const toolbar = new Toolbar(tools, "pan", tabs, getMenuItems(state), {
+        tabs: { activeTab: tabs.length > 0 ? tabs[0].id : null },
+        elections: {
+            activeElectionIndex: 0
+        }
+    });
 
     toolbar.render();
 

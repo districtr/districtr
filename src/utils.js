@@ -71,3 +71,23 @@ export function combineReducers(reducers) {
         return hasChanged ? nextState : state;
     };
 }
+
+export function createActions(handlers) {
+    let actions = {};
+    for (let actionType in handlers) {
+        actions[actionType] = actionInfo => ({
+            ...actionInfo,
+            type: actionType
+        });
+    }
+    return actions;
+}
+
+export function bindDispatchToActions(actions, dispatch) {
+    let boundActions = {};
+    for (let actionType in actions) {
+        boundActions[actionType] = actionInfo =>
+            dispatch(boundActions[actionType](actionInfo));
+    }
+    return boundActions;
+}

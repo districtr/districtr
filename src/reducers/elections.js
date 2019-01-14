@@ -1,7 +1,10 @@
 import { createActions, createReducer } from "../utils";
 
 export const handlers = {
-    changeTab: (state, action) => ({ ...state, activeTab: action.id })
+    changeElection: (state, action) => ({
+        ...state,
+        activeElectionIndex: action.index
+    })
 };
 
 export const actions = createActions(handlers);

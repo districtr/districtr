@@ -1,5 +1,7 @@
 import { html } from "lit-html";
+import { actions } from "../reducers/elections";
 import ElectionResults from "./Charts/ElectionResults";
+import select from "./select";
 
 export default class VotesTab {
     constructor(id, name, elections, parts) {
@@ -10,12 +12,18 @@ export default class VotesTab {
 
         this.render = this.render.bind(this);
     }
-    render() {
+    render(state, dispatch) {
         return html`
             <section class="toolbar-section" id="elections">
                 ${
-                    this.elections.map(election =>
-                        ElectionResults(election, this.parts)
+                    select("elections", this.elections, index =>
+                        dispatch(actions.changeElection({ index }))
+                    )
+                }
+                ${
+                    ElectionResults(
+                        this.elections[state.elections.activeElectionIndex],
+                        this.parts
                     )
                 }
             </section>

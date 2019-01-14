@@ -5,12 +5,8 @@ import reducer from "../../reducers";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
 
-function getInitialUIState(tabs) {
-    return { tabs: { activeTab: tabs.length > 0 ? tabs[0].id : null } };
-}
-
 export default class Toolbar {
-    constructor(tools, activeTool, tabs, menuItems) {
+    constructor(tools, activeTool, tabs, menuItems, initialUIState) {
         this.tools = tools;
         this.activeTool = activeTool;
         this.tabs = tabs;
@@ -34,7 +30,7 @@ export default class Toolbar {
             }
         });
 
-        this.store = new UIStateStore(reducer, getInitialUIState(tabs));
+        this.store = new UIStateStore(reducer, initialUIState);
         this.store.subscribe(this.render);
     }
     selectTool(toolId) {
@@ -66,7 +62,7 @@ export default class Toolbar {
                     </div>
                 </div>
                 ${OptionsContainer(activeTool)}
-                ${Tabs(this.tabs, this.store.state.tabs, this.store.dispatch)}
+                ${Tabs(this.tabs, this.store.state, this.store.dispatch)}
             `,
             target
         );

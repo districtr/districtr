@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map";
 import { repeat } from "lit-html/directives/repeat";
+import { actions } from "../reducers/tabs";
 
 const tabs = (tabs, activeTab, onChange) => {
     if (tabs.length <= 1) {
@@ -17,7 +18,7 @@ const tabs = (tabs, activeTab, onChange) => {
                                 name="tabs"
                                 value="${tab.id}"
                                 ?checked="${tab.id == activeTab}"
-                                @input="${() => onChange(tab.id)}"
+                                @input="${() => onChange({ id: tab.id })}"
                             />
                             <div class="tabs__tab">${tab.name}</div>
                         </li>
@@ -28,13 +29,13 @@ const tabs = (tabs, activeTab, onChange) => {
     `;
 };
 
-const changeTab = dispatch => id => {
-    dispatch({ type: "changeTab", id });
-};
-
-export default function Tabs(tabComponents, { activeTab }, dispatch) {
+export default function Tabs(tabComponents, state, dispatch) {
     return html`
-        ${tabs(tabComponents, activeTab, changeTab(dispatch))}
+        ${
+            tabs(tabComponents, state.tabs.activeTab, info =>
+                dispatch(actions.changeTab(info))
+            )
+        }
         ${
             repeat(
                 tabComponents,
@@ -44,11 +45,11 @@ export default function Tabs(tabComponents, { activeTab }, dispatch) {
                         class=${
                             classMap({
                                 tab__body: true,
-                                active: tab.id === activeTab
+                                active: tab.id === state.tabs.activeTab
                             })
                         }
                     >
-                        ${tab.render(dispatch)}
+                        ${tab.render(state, dispatch)}
                     </div>
                 `
             )
