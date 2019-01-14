@@ -1,11 +1,11 @@
 import { html, render } from "lit-html";
 import ChartsList from "../components/Charts/ChartsList";
-import electionResults from "../components/Charts/ElectionResults";
 import Toggle from "../components/Toggle";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import PanTool from "../components/Toolbar/PanTool";
 import Toolbar from "../components/Toolbar/Toolbar";
+import VotesTab from "../components/VotesTab";
 import { createPartisanColorRules } from "../Layers/color-rules";
 import DemographicOverlayContainer from "../Layers/DemographicOverlayContainer";
 import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
@@ -76,19 +76,14 @@ function getTabs(state) {
         name: "Population",
         render: () => ChartsList(state)
     };
-    const elections = {
-        id: "elections",
-        name: "Votes",
-        render: () => html`
-            <section class="toolbar-section" id="elections">
-                ${
-                    state.elections.map(election =>
-                        electionResults(election, state.parts)
-                    )
-                }
-            </section>
-        `
-    };
+
+    const elections = new VotesTab(
+        "votes",
+        "Votes",
+        state.elections,
+        state.parts
+    );
+
     const layersTab = {
         id: "layers",
         name: "Layers",

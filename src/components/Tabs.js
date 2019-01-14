@@ -1,6 +1,8 @@
 import { html } from "lit-html";
+import { classMap } from "lit-html/directives/class-map";
+import { repeat } from "lit-html/directives/repeat";
 
-const template = (tabs, activeTab, onChange) => {
+const tabs = (tabs, activeTab, onChange) => {
     if (tabs.length <= 1) {
         return html``;
     }
@@ -26,34 +28,30 @@ const template = (tabs, activeTab, onChange) => {
     `;
 };
 
-export default class Tabs {
-    constructor(tabs, renderCallback) {
-        this.tabs = tabs;
-        this.render = this.render.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.activeTab = tabs.length > 0 ? tabs[0].id : null;
-        this.renderCallback = renderCallback;
-    }
-    onChange(id) {
-        this.activeTab = id;
-        this.renderCallback();
-    }
-    render() {
-        return html`
-            ${template(this.tabs, this.activeTab, this.onChange)}
-            ${
-                this.tabs.map(
-                    tab => html`
-                        <div
-                            class="tab__body ${
-                                tab.id == this.activeTab ? "active" : ""
-                            }"
-                        >
-                            ${tab.render()}
-                        </div>
-                    `
-                )
-            }
-        `;
-    }
+const changeTab = dispatch => id => {
+    dispatch({ type: "changeTab", id });
+};
+
+export default function Tabs(tabComponents, { activeTab }, dispatch) {
+    return html`
+        ${tabs(tabComponents, activeTab, changeTab(dispatch))}
+        ${
+            repeat(
+                tabComponents,
+                tab => tab.id,
+                tab => html`
+                    <div
+                        class=${
+                            classMap({
+                                tab__body: true,
+                                active: tab.id === activeTab
+                            })
+                        }
+                    >
+                        ${tab.render(dispatch)}
+                    </div>
+                `
+            )
+        }
+    `;
 }

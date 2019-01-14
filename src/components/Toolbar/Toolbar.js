@@ -1,16 +1,23 @@
 import { html, render } from "lit-html";
+import { repeat } from "lit-html/directives/repeat";
+import UIStateStore from "../../models/UIStateStore";
+import reducer from "../../reducers";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
+
+function getInitialUIState(tabs) {
+    return { tabs: { activeTab: tabs.length > 0 ? tabs[0].id : null } };
+}
 
 export default class Toolbar {
     constructor(tools, activeTool, tabs, menuItems) {
         this.tools = tools;
         this.activeTool = activeTool;
+        this.tabs = tabs;
 
         this.render = this.render.bind(this);
         this.selectTool = this.selectTool.bind(this);
 
-        this.tabs = new Tabs(tabs, this.render);
         this.menuItems = menuItems;
 
         this.toolsById = tools.reduce(
@@ -26,6 +33,9 @@ export default class Toolbar {
                 tool.options.renderToolbar = this.render;
             }
         });
+
+        this.store = new UIStateStore(reducer, getInitialUIState(tabs));
+        this.store.subscribe(this.render);
     }
     selectTool(toolId) {
         this.toolsById[this.activeTool].deactivate();
@@ -43,13 +53,20 @@ export default class Toolbar {
             html`
                 <div class="toolbar-top">
                     <div class="icon-list">
-                        ${this.tools.map(tool => tool.render(this.selectTool))}
+                        ${
+                            repeat(
+                                this.tools,
+                                tool => tool.id,
+                                tool => tool.render(this.selectTool)
+                            )
+                        }
                     </div>
                     <div class="icon-list">
                         ${this.menuItems.map(item => item.render())}
                     </div>
                 </div>
-                ${OptionsContainer(activeTool)} ${this.tabs.render()}
+                ${OptionsContainer(activeTool)}
+                ${Tabs(this.tabs, this.store.state.tabs, this.store.dispatch)}
             `,
             target
         );
