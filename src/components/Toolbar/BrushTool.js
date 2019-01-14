@@ -6,10 +6,14 @@ import Tool from "./Tool";
 const icon = (active, colorId, colors) => {
     if (active && colorId !== undefined) {
         return html`
-        <i class="material-icons"
-        style="color: ${colors[colorId].color};">brush</i>`;
+            <i class="material-icons" style="color: ${colors[colorId].color};"
+                >brush</i
+            >
+        `;
     } else {
-        return html`<i class="material-icons">brush</i>`;
+        return html`
+            <i class="material-icons">brush</i>
+        `;
     }
 };
 
@@ -61,18 +65,22 @@ class BrushToolOptions {
     render() {
         const activeColor = this.colors[this.brush.color].id;
         return html`
-        ${BrushColorPicker(this.colors, this.selectColor, activeColor)}
-        ${BrushSlider(this.brush.radius, this.changeRadius)}
-        ${BrushLock(this.brush.locked, this.toggleBrushLock)}
+            ${BrushColorPicker(this.colors, this.selectColor, activeColor)}
+            ${BrushSlider(this.brush.radius, this.changeRadius)}
+            ${BrushLock(this.brush.locked, this.toggleBrushLock)}
         `;
     }
 }
 
 const BrushLock = (locked, toggle) => html`
-<label class="toolbar-checkbox-item">
-<input type="checkbox" name="brush-lock" value="brush-lock"
-?checked=${locked}
-@input=${toggle}>
-Lock already-painted units
-</label>
+    <label class="toolbar-checkbox">
+        <input
+            type="checkbox"
+            name="brush-lock"
+            value="brush-lock"
+            ?checked=${locked}
+            @input=${toggle}
+        />
+        Lock already-painted units
+    </label>
 `;

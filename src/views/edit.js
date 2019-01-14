@@ -1,14 +1,11 @@
 import { html, render } from "lit-html";
 import ChartsList from "../components/Charts/ChartsList";
-import Toggle from "../components/Toggle";
+import LayersTab from "../components/LayersTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import PanTool from "../components/Toolbar/PanTool";
 import Toolbar from "../components/Toolbar/Toolbar";
 import VotesTab from "../components/VotesTab";
-import { createPartisanColorRules } from "../Layers/color-rules";
-import DemographicOverlayContainer from "../Layers/DemographicOverlayContainer";
-import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
 import { renderNewPlanView } from "./new";
@@ -34,42 +31,6 @@ export function renderEditView(createState) {
     });
 }
 
-function getLayers(state) {
-    const toggleDistricts = new Toggle(
-        `Show ${state.partPlural.toLowerCase()}`,
-        true,
-        checked => {
-            if (checked) {
-                state.units.setOpacity(0.8);
-            } else {
-                state.units.setOpacity(0);
-            }
-        }
-    );
-
-    let partisanOverlays =
-        state.elections.length > 0
-            ? new PartisanOverlayContainer(
-                  state.layers,
-                  state.elections,
-                  createPartisanColorRules(state)
-              )
-            : null;
-
-    let demographicOverlays = new DemographicOverlayContainer(
-        state.layers,
-        state.population
-    );
-
-    return () => html`
-        <section id="layers" class="toolbar-section layer-list">
-            ${partisanOverlays ? partisanOverlays.render() : ""}
-            <h4>${state.partPlural}</h4>
-            ${toggleDistricts.render()} ${demographicOverlays.render()}
-        </section>
-    `;
-}
-
 function getTabs(state) {
     const charts = {
         id: "charts",
@@ -77,11 +38,7 @@ function getTabs(state) {
         render: () => ChartsList(state)
     };
 
-    const layersTab = {
-        id: "layers",
-        name: "Layers",
-        render: getLayers(state)
-    };
+    const layersTab = new LayersTab("layers", "Layers", state);
 
     let tabs = [charts];
 

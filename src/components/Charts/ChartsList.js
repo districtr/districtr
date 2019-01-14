@@ -3,12 +3,12 @@ import populationBarChart from "./PopulationBarChart";
 import populationDeviation from "./PopulationDeviation";
 import unassignedPopulation from "./UnassignedPopulation";
 
-export default state => html`
+export default ({ parts, population }) => html`
     <section class="toolbar-section" id="charts">
-        ${populationBarChart(state.population, state.parts)}
+        ${populationBarChart(population, parts)}
         <dl class="report-data-list">
-            ${unassignedPopulation(state.population)}
-            ${populationDeviation(state.population)}
+            ${unassignedPopulation(population)}
+            ${populationDeviation(population)}
         </dl>
     </section>
 `;

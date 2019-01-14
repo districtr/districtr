@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import LayerListItem from "../components/LayerListItem";
+import Parameter from "../components/Parameter";
 import select from "../components/select";
 import Toggle from "../components/Toggle";
 import { demographicColorRules } from "./color-rules";
@@ -73,7 +73,7 @@ export default class DemographicOverlayContainer {
             <h4>Demographics</h4>
             ${this.visibilityToggle.render()}
             ${
-                LayerListItem({
+                Parameter({
                     label: "Variable",
                     element: select(
                         "subgroup",
@@ -83,7 +83,7 @@ export default class DemographicOverlayContainer {
                 })
             }
             ${
-                LayerListItem({
+                Parameter({
                     label: "Color by",
                     element: select(
                         "demographic-color-rule",
@@ -93,7 +93,7 @@ export default class DemographicOverlayContainer {
                 })
             }
             ${
-                LayerListItem({
+                Parameter({
                     label: "Display as",
                     element: select(
                         "demographic-layer-type",

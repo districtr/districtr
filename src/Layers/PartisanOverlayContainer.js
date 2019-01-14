@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { LayerListItem } from "../components/LayerListItem";
+import { Parameter } from "../components/Parameter";
 import select from "../components/select";
 import Toggle from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
@@ -97,10 +97,11 @@ export default class PartisanOverlayContainer {
     render() {
         return html`
             <h4>Partisanship</h4>
+            ${this.toggles.map(toggle => toggle.render())}
             ${
                 [
                     {
-                        label: "Statistic",
+                        label: "Variable",
                         element: select(
                             "layer-style",
                             this.layerStyles,
@@ -123,9 +124,8 @@ export default class PartisanOverlayContainer {
                             this.onChangeLayerType
                         )
                     }
-                ].map(LayerListItem)
+                ].map(Parameter)
             }
-            ${this.toggles.map(toggle => toggle.render())}
         `;
     }
 }

@@ -15,7 +15,7 @@ export default class Toggle {
     }
     render() {
         return html`
-            <label class="toolbar-checkbox-item">
+            <label class="toolbar-checkbox">
                 <input
                     type="checkbox"
                     ?checked="${this.checked}"

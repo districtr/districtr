@@ -73,8 +73,9 @@ legend {
     max-height: 400px;
 }
 
-.toolbar-checkbox-item {
-    margin: 0.2rem 0;
+.toolbar-checkbox {
+    display: block;
+    margin: 0.2rem 0 0.4rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -201,7 +202,7 @@ input:checked ~ .tabs__tab {
 }
 
 .tab__body h4 {
-    margin: 0.5rem 0;
+    margin: 0.2rem 0;
     font-size: 1.2rem;
 }
 
