@@ -70,7 +70,7 @@ const horizontalBarChart = (population, parts) => {
 
 const populationBarChart = (population, parts) => html`
     <section class="toolbar-section">
-        <h3>Population</h3>
+        <h4>Population</h4>
         ${horizontalBarChart(population, parts)}
     </section>
 `;

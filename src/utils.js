@@ -46,3 +46,48 @@ export function extent(values) {
 export function asPercent(value, total) {
     return `${Math.round(100 * (value / total))}%`;
 }
+
+// Light-weight redux implementation
+
+export function createReducer(handlers) {
+    return (state, action) => {
+        if (handlers.hasOwnProperty(action.type)) {
+            return handlers[action.type](state, action);
+        }
+        return state;
+    };
+}
+
+export function combineReducers(reducers) {
+    return (state, action) => {
+        let hasChanged = false;
+        let nextState = {};
+
+        for (let key in reducers) {
+            nextState[key] = reducers[key](state[key], action);
+            hasChanged = hasChanged || nextState[key] !== state[key];
+        }
+
+        return hasChanged ? nextState : state;
+    };
+}
+
+export function createActions(handlers) {
+    let actions = {};
+    for (let actionType in handlers) {
+        actions[actionType] = actionInfo => ({
+            ...actionInfo,
+            type: actionType
+        });
+    }
+    return actions;
+}
+
+export function bindDispatchToActions(actions, dispatch) {
+    let boundActions = {};
+    for (let actionType in actions) {
+        boundActions[actionType] = actionInfo =>
+            dispatch(boundActions[actionType](actionInfo));
+    }
+    return boundActions;
+}

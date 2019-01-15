@@ -1,5 +1,5 @@
 import mapbox from "mapbox-gl";
-import { unitColorProperty } from "../colors";
+import { unitBordersPaintProperty, unitColorProperty } from "../colors";
 import Layer, { addBelowLabels } from "../Layers/Layer";
 
 mapbox.accessToken =
@@ -40,11 +40,7 @@ function addUnits(map, tileset) {
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
-            paint: {
-                "line-color": "#777777",
-                "line-width": 1,
-                "line-opacity": 0.3
-            }
+            paint: unitBordersPaintProperty
         },
         addBelowLabels
     );

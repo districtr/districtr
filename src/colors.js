@@ -134,3 +134,21 @@ export const unitColorProperty = [
     hoveredUnitColorStyle,
     unitColorStyle
 ];
+
+export const unitBordersPaintProperty = {
+    "line-color": "#777777",
+    "line-width": 1,
+    "line-opacity": 0.3
+};
+
+export const highlightUnassignedUnitBordersPaintProperty = {
+    ...unitBordersPaintProperty,
+    "line-color": [
+        "case",
+        ["==", ["feature-state", "color"], null],
+        "#ff4f49",
+        unitBordersPaintProperty["line-color"]
+    ],
+    "line-width": ["case", ["==", ["feature-state", "color"], null], 4, 1],
+    "line-opacity": ["case", ["==", ["feature-state", "color"], null], 0.8, 0.3]
+};
