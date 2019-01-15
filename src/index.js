@@ -4,12 +4,18 @@ import { initializeMap } from "./Map/map";
 import { fetchApi } from "./mockApi";
 import State from "./models/State";
 import toolbarView from "./tools";
+import { users } from "./api"
+
+users.getAllUsers().then(function(body) {
+    console.log(body);
+});
 
 // const API = "https://districtr.mggg.org/api";
 
 export function main() {
     renderInitialView(fetchApi());
 }
+
 function renderEditView(createState) {
     render(
         html`
