@@ -1,11 +1,24 @@
+import { html } from "lit-html";
 import {
     highlightUnassignedUnitBordersPaintProperty,
     unitBordersPaintProperty
 } from "../colors";
-import Toggle from "./Toggle";
 
-export function HighlightUnassigned(unitsBorders) {
-    return Toggle("Highlight unassigned units", false, highlight => {
+export function toggle(label, checked, onChange) {
+    return html`
+        <label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                ?checked="${checked}"
+                @input="${e => onChange(e.target.checked)}"
+            />
+            ${label}
+        </label>
+    `;
+}
+
+export default function HighlightUnassigned(unitsBorders) {
+    return toggle("Highlight unassigned units", false, highlight => {
         if (highlight) {
             unitsBorders.setPaintProperties(
                 highlightUnassignedUnitBordersPaintProperty

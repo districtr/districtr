@@ -35,7 +35,10 @@ function getTabs(state) {
     const charts = {
         id: "charts",
         name: "Population",
-        render: () => ChartsList(state)
+        render: () =>
+            html`
+                ${ChartsList(state)}
+            `
     };
 
     const layersTab = new LayersTab("layers", "Layers", state);

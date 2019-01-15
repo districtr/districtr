@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 import { Parameter } from "../components/Parameter";
 import select from "../components/select";
-import Toggle from "../components/Toggle";
+import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 
 function createLayerToggle(party, showParty, hideParty) {
-    return new Toggle(`Show ${party}-leaning units`, false, checked => {
+    return toggle(`Show ${party}-leaning units`, false, checked => {
         if (checked) {
             showParty(party);
         } else {
@@ -97,7 +97,7 @@ export default class PartisanOverlayContainer {
     render() {
         return html`
             <h4>Partisanship</h4>
-            ${this.toggles.map(toggle => toggle.render())}
+            ${this.toggles}
             ${
                 [
                     {

@@ -1,28 +1,16 @@
 import { html } from "lit-html";
 
-export default class Toggle {
-    constructor(toggleText, checked, callback) {
-        this.toggleText = toggleText;
-        this.checked = checked;
-        this.callback = callback;
-
-        this.onChange = this.onChange.bind(this);
-        this.render = this.render.bind(this);
-    }
-    onChange(e) {
-        this.checked = e.target.checked;
-        this.callback(this.checked);
-    }
-    render() {
-        return html`
-            <label class="toolbar-checkbox">
-                <input
-                    type="checkbox"
-                    ?checked="${this.checked}"
-                    @input="${this.onChange}"
-                />
-                ${this.toggleText}
-            </label>
-        `;
-    }
+export function toggle(label, checked, onChange) {
+    return html`
+        <label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                ?checked="${checked}"
+                @input="${e => onChange(e.target.checked)}"
+            />
+            ${label}
+        </label>
+    `;
 }
+
+export default toggle;

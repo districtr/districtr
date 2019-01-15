@@ -36,7 +36,7 @@ export default class Layer {
         this.setPaintProperty(`${this.type}-color`, color);
     }
     setPaintProperties(properties) {
-        for (let name of properties) {
+        for (let name in properties) {
             this.setPaintProperty(name, properties[name]);
         }
     }
