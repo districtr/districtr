@@ -87,4 +87,4 @@ export {
     createUser,
     updateUser,
     deleteUser
-}
+};
