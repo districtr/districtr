@@ -8,25 +8,19 @@ export default class PlacesList {
     }
     render() {
         return html`
-            <section class="places-list-container">
+            <section class="toolbar-section places-list-container">
                 <ul class="places-list">
                     ${
                         until(
                             this.places.then(p =>
-                                p.map(
-                                    place =>
-                                        html`
-                                            <li
-                                                class="places-list__item"
-                                                @click="${
-                                                    () =>
-                                                        this.choosePlace(place)
-                                                }"
-                                            >
-                                                ${place.name}
-                                            </li>
-                                        `
-                                )
+                                p
+                                    .map(place =>
+                                        placeItems(place, this.choosePlace)
+                                    )
+                                    .reduce(
+                                        (items, item) => [...items, ...item],
+                                        []
+                                    )
                             ),
                             ""
                         )
@@ -35,4 +29,20 @@ export default class PlacesList {
             </section>
         `;
     }
+}
+
+export function placeItems(place, onClick) {
+    return place.districtingProblems.map(
+        problem => html`
+            <li
+                class="places-list__item"
+                @click="${() => onClick(place, problem)}"
+            >
+                <div class="place-name">${place.name}</div>
+                <div class="place-info">
+                    ${problem.numberOfParts} ${problem.plural}
+                </div>
+            </li>
+        `
+    );
 }

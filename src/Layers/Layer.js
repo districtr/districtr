@@ -35,6 +35,11 @@ export default class Layer {
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);
     }
+    setPaintProperties(properties) {
+        for (let name in properties) {
+            this.setPaintProperty(name, properties[name]);
+        }
+    }
     setFeatureState(featureID, state) {
         this.map.setFeatureState(
             {

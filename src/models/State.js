@@ -1,36 +1,40 @@
 import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
-import { withMargins, zeros } from "../utils";
+import { zeros } from "../utils";
 import Election from "./Election";
 import Part from "./Part";
 import Population from "./Population";
 
-function getParts(place) {
-    let colors = districtColors.slice(0, place.numberOfParts);
-    const parts = colors.map(
-        color => new Part(color.id, "District", color.hex)
-    );
+function getParts(problem) {
+    let colors = districtColors.slice(0, problem.numberOfParts);
+
+    let name = "District";
+    if (problem.name !== undefined) {
+        name = problem.name;
+    }
+
+    const parts = colors.map(color => new Part(color.id, name, color.hex));
     return parts;
 }
 
-function getPopulation(place) {
-    return new Population(zeros(place.numberOfParts), place.population.total);
+function getPopulation(place, problem) {
+    return new Population(zeros(problem.numberOfParts), place.population);
 }
 
-function getElections(place, layer) {
+function getElections(place, problem, layer) {
     return place.elections.map(
         election =>
             new Election(
                 `${election.year} ${election.race} Election`,
                 election.voteTotals,
-                place.numberOfParts,
+                problem.numberOfParts,
                 layer
             )
     );
 }
 
 export default class State {
-    constructor(map, place, id, assignment) {
+    constructor(map, place, problem, id, assignment) {
         if (id) {
             this.id = id;
         } else {
@@ -40,7 +44,7 @@ export default class State {
         this.placeId = place.id;
 
         this.initializeMapState(map, place);
-        this.getInitialState(place, assignment);
+        this.getInitialState(place, assignment, problem);
         this.subscribers = [];
 
         this.update = this.update.bind(this);
@@ -48,7 +52,14 @@ export default class State {
         this.render = this.render.bind(this);
     }
     initializeMapState(map, place) {
-        map.fitBounds(withMargins(place.bounds, [0.1, 0.5, 0.1, 0.1]));
+        map.fitBounds(place.bounds, {
+            padding: {
+                top: 50,
+                right: 350,
+                left: 50,
+                bottom: 50
+            }
+        });
         const { units, unitsBorders, points } = addLayers(map, place.tilesets);
 
         this.units = units;
@@ -61,10 +72,12 @@ export default class State {
         this.elections.forEach(election => election.update(feature, part));
         this.assignment[feature.id] = part;
     }
-    getInitialState(place, assignment) {
-        this.parts = getParts(place);
-        this.elections = getElections(place, this.units);
-        this.population = getPopulation(place);
+    getInitialState(place, assignment, problem) {
+        this.partPlural =
+            problem.plural !== undefined ? "Districts" : problem.plural;
+        this.parts = getParts(problem);
+        this.elections = getElections(place, problem, this.units);
+        this.population = getPopulation(place, problem);
         this.assignment = {};
         if (assignment) {
             this.units.whenLoaded(() => {

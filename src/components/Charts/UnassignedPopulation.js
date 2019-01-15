@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { numberWithCommas, sum } from "../utils";
+import { numberWithCommas, sum } from "../../utils";
 
 export default population => {
     const totalAssignedPop = sum(population.tally.data);

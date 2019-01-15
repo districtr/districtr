@@ -1,12 +1,9 @@
 import mapbox from "mapbox-gl";
-import { blockColorProperty } from "../colors";
+import { unitBordersPaintProperty, unitColorProperty } from "../colors";
 import Layer, { addBelowLabels } from "../Layers/Layer";
 
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
-
-// TODO: Just use map.fitBounds() on the bounding box of the tileset,
-// instead of computing the center and guessing the zoom.
 
 export function initializeMap(mapContainer) {
     const map = new mapbox.Map({
@@ -30,7 +27,7 @@ function addUnits(map, tileset) {
             "source-layer": tileset.sourceLayer,
             type: "fill",
             paint: {
-                "fill-color": blockColorProperty,
+                "fill-color": unitColorProperty,
                 "fill-opacity": 0.8
             }
         },
@@ -43,11 +40,7 @@ function addUnits(map, tileset) {
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
-            paint: {
-                "line-color": "#777777",
-                "line-width": 1,
-                "line-opacity": 0.3
-            }
+            paint: unitBordersPaintProperty
         },
         addBelowLabels
     );

@@ -35,52 +35,59 @@ export function sum(values) {
     return values.reduce((total, value) => total + value, 0);
 }
 
-/**
- * Adds margins to a bounds array.
- * @param {number[][]} bounds - [[minx, miny], [maxx, maxy]]
- * @param {number[]} percents - The margin, measured by percent, to add to
- *  the top, right, bottom, and left of the box.
- * @returns {number[][]} bounds with margin added to each edge
- */
-export function withMargins(bounds, percents) {
-    const width = bounds[1][0] - bounds[0][0];
-    const height = bounds[1][1] - bounds[0][1];
-    return [
-        [
-            getLongitude(bounds[0][0] - percents[3] * width),
-            getLatitude(bounds[0][1] - percents[2] * height)
-        ],
-        [
-            getLongitude(bounds[1][0] + percents[1] * width),
-            getLatitude(bounds[1][1] + percents[0] * height)
-        ]
-    ];
+export function divideOrZeroIfNaN(x, y) {
+    return ["case", [">", y, 0], ["/", x, y], 0];
 }
 
-/**
- * Convert a number x to longitude (x mod 180)
- * @param {number} x
- */
-function getLongitude(x) {
-    if (x < -180) {
-        return x + 360;
-    }
-    if (x >= 180) {
-        return x - 360;
-    }
-    return x;
+export function extent(values) {
+    return Math.min(...values) - Math.max(...values);
 }
 
-/**
- * Convert a number y to latitude (y mod 90)
- * @param {number} y
- */
-function getLatitude(y) {
-    if (y < -90) {
-        return y + 180;
+export function asPercent(value, total) {
+    return `${Math.round(100 * (value / total))}%`;
+}
+
+// Light-weight redux implementation
+
+export function createReducer(handlers) {
+    return (state, action) => {
+        if (handlers.hasOwnProperty(action.type)) {
+            return handlers[action.type](state, action);
+        }
+        return state;
+    };
+}
+
+export function combineReducers(reducers) {
+    return (state, action) => {
+        let hasChanged = false;
+        let nextState = {};
+
+        for (let key in reducers) {
+            nextState[key] = reducers[key](state[key], action);
+            hasChanged = hasChanged || nextState[key] !== state[key];
+        }
+
+        return hasChanged ? nextState : state;
+    };
+}
+
+export function createActions(handlers) {
+    let actions = {};
+    for (let actionType in handlers) {
+        actions[actionType] = actionInfo => ({
+            ...actionInfo,
+            type: actionType
+        });
     }
-    if (y >= 90) {
-        return y - 180;
+    return actions;
+}
+
+export function bindDispatchToActions(actions, dispatch) {
+    let boundActions = {};
+    for (let actionType in actions) {
+        boundActions[actionType] = actionInfo =>
+            dispatch(boundActions[actionType](actionInfo));
     }
-    return y;
+    return boundActions;
 }

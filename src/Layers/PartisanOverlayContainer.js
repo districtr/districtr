@@ -1,32 +1,17 @@
 import { html } from "lit-html";
-import Toggle from "../components/Toggle";
+import { Parameter } from "../components/Parameter";
+import select from "../components/select";
+import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 
 function createLayerToggle(party, showParty, hideParty) {
-    return new Toggle(`Show ${party}-leaning units`, false, checked => {
+    return toggle(`Show ${party}-leaning units`, false, checked => {
         if (checked) {
             showParty(party);
         } else {
             hideParty(party);
         }
     });
-}
-
-function select(name, items, handler) {
-    return html`
-        <select
-            name="${name}"
-            @input="${e => handler(parseInt(e.target.value))}"
-        >
-            ${
-                items.map(
-                    (item, i) => html`
-                        <option value="${i}">${item.name}</option>
-                    `
-                )
-            }
-        </select>
-    `;
 }
 
 export default class PartisanOverlayContainer {
@@ -112,10 +97,11 @@ export default class PartisanOverlayContainer {
     render() {
         return html`
             <h4>Partisanship</h4>
+            ${this.toggles}
             ${
                 [
                     {
-                        label: "Statistic",
+                        label: "Variable",
                         element: select(
                             "layer-style",
                             this.layerStyles,
@@ -138,17 +124,8 @@ export default class PartisanOverlayContainer {
                             this.onChangeLayerType
                         )
                     }
-                ].map(
-                    ({ label, element }) =>
-                        html`
-                            <div class="layer-list__item">
-                                <label class="layer-list__label">${label}:</label
-                                >${element}
-                            </div>
-                        `
-                )
+                ].map(Parameter)
             }
-            ${this.toggles.map(toggle => toggle.render())}
         `;
     }
 }

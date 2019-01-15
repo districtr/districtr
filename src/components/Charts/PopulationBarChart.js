@@ -1,5 +1,5 @@
 import { html, svg } from "lit-html";
-import { numberWithCommas } from "../utils";
+import { numberWithCommas } from "../../utils";
 
 const width = 240;
 const height = 300;
@@ -69,8 +69,8 @@ const horizontalBarChart = (population, parts) => {
 };
 
 const populationBarChart = (population, parts) => html`
-    <section>
-        <h3>Population</h3>
+    <section class="toolbar-section">
+        <h4>Population</h4>
         ${horizontalBarChart(population, parts)}
     </section>
 `;
