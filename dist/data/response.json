@@ -1170,5 +1170,90 @@
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "bounds": [[-75.2803, 39.867], [-74.9558, 40.138]]
+    },
+    {
+        "id": "austin_blocks",
+        "name": "Austin",
+        "districtingProblems": [
+            {
+                "numberOfParts": 10,
+                "office": "City Council",
+                "plural": "City Council Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.austin_blocks"
+                },
+                "sourceLayer": "austin_blocks"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.austin_blocks_points"
+                },
+                "sourceLayer": "austin_blocks_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total Population",
+                "sum": 819569,
+                "min": 0,
+                "max": 3406
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 400469,
+                    "min": 0,
+                    "max": 2066
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 64131,
+                    "min": 0,
+                    "max": 555
+                },
+                {
+                    "key": "HPOP",
+                    "name": "Hispanic population",
+                    "sum": 285769,
+                    "min": 0,
+                    "max": 1635
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 50995,
+                    "min": 0,
+                    "max": 795
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 2074,
+                    "min": 0,
+                    "max": 13
+                },
+                {
+                    "key": "NH_NAHI",
+                    "name": "Hawaiian Native population",
+                    "sum": 432,
+                    "min": 0,
+                    "max": 12
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "bounds": [[-97.9715, 30.0927], [-97.5138, 30.5188]]
     }
 ]
