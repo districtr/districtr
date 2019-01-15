@@ -40,6 +40,11 @@ h2 {
 }
 
 .places-list__item {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     margin: 0.5rem;
     padding: 0.5rem;
     font-weight: bold;

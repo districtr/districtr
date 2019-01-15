@@ -233,6 +233,11 @@ mark {
     border-radius: 0.4rem;
     background: #bdaaa8;
     color: white;
+    transition: background 100ms ease;
+}
+
+mark:hover {
+    background: #ff4f49;
 }
 
 .features {
