@@ -10,7 +10,7 @@ export default class NumericalColumn {
         this.asMapboxExpression = this.asMapboxExpression.bind(this);
     }
     getValue(feature) {
-        return this.parseFloat(feature.properties[this.key]);
+        return parseFloat(feature.properties[this.key]);
     }
     asMapboxExpression() {
         return ["to-number", ["get", this.key]];
