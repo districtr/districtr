@@ -16,14 +16,14 @@ export default class DemographicOverlayContainer {
         this.currentSubgroupIndex = 0;
         this.currentColorRuleIndex = 0;
 
-        this.subgroups = [population, ...population.subgroups];
+        this.subgroups = [population.total, ...population.subgroups];
         this.colorRules = demographicColorRules;
 
         this.layers = layers.map(
             layer =>
                 new DemographicOverlay(
                     layer,
-                    population,
+                    population.total,
                     this.colorRules[this.currentColorRuleIndex].rule
                 )
         );

@@ -3,6 +3,7 @@ import ChartsList from "../components/Charts/ChartsList";
 import LayersTab from "../components/LayersTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
+import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import Toolbar from "../components/Toolbar/Toolbar";
 import VotesTab from "../components/VotesTab";
@@ -12,7 +13,7 @@ import { renderNewPlanView } from "./new";
 
 export function renderEditView(createState) {
     const root = document.getElementById("root");
-    root.setAttribute("class", null);
+    root.className = "";
     render(
         html`
             <div id="map"></div>
@@ -60,7 +61,11 @@ export default function toolbarView(state) {
     let tools = [
         new PanTool(),
         new BrushTool(brush, state.parts),
-        new EraserTool(brush)
+        new EraserTool(brush),
+        new InspectTool(state.units, [
+            state.population.total,
+            ...state.population.subgroups
+        ])
     ];
     tools[0].activate();
 

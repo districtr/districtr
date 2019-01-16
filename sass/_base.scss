@@ -1,9 +1,11 @@
+$font_family: "Source Sans Pro", sans-serif;
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: $font_family;
     color: #111;
 }
 

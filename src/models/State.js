@@ -2,6 +2,7 @@ import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
 import { zeros } from "../utils";
 import Election from "./Election";
+import IdColumn from "./IdColumn";
 import Part from "./Part";
 import Population from "./Population";
 
@@ -33,6 +34,11 @@ function getElections(place, problem, layer) {
     );
 }
 
+/**
+ * Holds all of the state that needs to be updated after
+ * each brush stroke. (Mainly the Plan assignment and the
+ * population tally.)
+ */
 export default class State {
     constructor(map, place, problem, id, assignment) {
         if (id) {
@@ -70,21 +76,31 @@ export default class State {
     update(feature, part) {
         this.population.update(feature, part);
         this.elections.forEach(election => election.update(feature, part));
-        this.assignment[feature.id] = part;
+        this.assignment[this.idColumn.getValue(feature)] = part;
     }
     getInitialState(place, assignment, problem) {
+        this.idColumn =
+            place.idColumn !== undefined
+                ? new IdColumn(place.idColumn)
+                : // This fallback is only here for places without an IdColumn.
+                  // This includes Lowell and Alaska, and possibly more places.
+                  { getValue: feature => feature.id };
+
         this.partPlural =
             problem.plural !== undefined ? "Districts" : problem.plural;
+
         this.parts = getParts(problem);
         this.elections = getElections(place, problem, this.units);
         this.population = getPopulation(place, problem);
+
         this.assignment = {};
+
         if (assignment) {
             this.units.whenLoaded(() => {
                 const features = this.units.query().reduce(
                     (lookup, feature) => ({
                         ...lookup,
-                        [feature.id]: feature
+                        [this.idColumn.getValue(feature)]: feature
                     }),
                     {}
                 );
