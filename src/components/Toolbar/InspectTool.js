@@ -4,9 +4,56 @@ import { styleMap } from "lit-html/directives/style-map";
 import { Hover } from "../../Map/Hover";
 import Tool from "./Tool";
 
+export function TooltipBar(percent) {
+    return html`
+        <div
+            class="tooltip-data__row__bar"
+            style=${`width: ${Math.round(percent * 100)}%`}
+        ></div>
+    `;
+}
+
+function formatColumnName(name) {
+    if (name.length > 27) {
+        return name.slice(0, 24) + "...";
+    } else {
+        return name;
+    }
+}
+
+export function TooltipContent(feature, columns) {
+    if (feature === null || feature === undefined) {
+        return "";
+    }
+    return html`
+        <dl class="tooltip-data">
+            ${
+                columns.map(
+                    column =>
+                        html`
+                            <div class="tooltip-data__row">
+                                <dt>${formatColumnName(column.name)}</dt>
+                                <dd>${column.getValue(feature)}</dd>
+                                ${
+                                    column.getFraction !== undefined
+                                        ? TooltipBar(
+                                              column.getFraction(feature)
+                                          )
+                                        : ""
+                                }
+                            </div>
+                        `
+                )
+            }
+        </dl>
+    `;
+}
+
 class Tooltip extends Hover {
-    constructor(layer) {
+    constructor(layer, columns) {
         super(layer, 2);
+
+        this.columns = columns;
 
         this.container = document.createElement("div");
         layer.map.getContainer().appendChild(this.container);
@@ -37,6 +84,10 @@ class Tooltip extends Hover {
         this.visible = false;
         this.render();
     }
+    setColumns(columns) {
+        this.columns = columns;
+        this.render();
+    }
     render() {
         render(
             html`
@@ -44,12 +95,12 @@ class Tooltip extends Hover {
                     class=${classMap({ tooltip: true, hidden: !this.visible })}
                     style=${
                         styleMap({
-                            left: `${this.x + 5}px`,
-                            top: `${this.y + 5}px`
+                            left: `${this.x + 8}px`,
+                            top: `${this.y + 15}px`
                         })
                     }
                 >
-                    ${this.hoveredFeature}
+                    ${TooltipContent(this.hoveredFeature, this.columns)}
                 </aside>
             `,
             this.container
@@ -58,7 +109,7 @@ class Tooltip extends Hover {
 }
 
 export default class InspectTool extends Tool {
-    constructor(units) {
+    constructor(units, columns) {
         super(
             "inspect",
             "Inspect",
@@ -66,7 +117,7 @@ export default class InspectTool extends Tool {
                 <i class="material-icons">search</i>
             `
         );
-        this.tooltip = new Tooltip(units);
+        this.tooltip = new Tooltip(units, columns);
     }
     activate() {
         super.activate();

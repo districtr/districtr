@@ -62,7 +62,10 @@ export default function toolbarView(state) {
         new PanTool(),
         new BrushTool(brush, state.parts),
         new EraserTool(brush),
-        new InspectTool(state.units)
+        new InspectTool(state.units, [
+            state.population.total,
+            ...state.population.subgroups
+        ])
     ];
     tools[0].activate();
 

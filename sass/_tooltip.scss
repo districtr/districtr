@@ -1,22 +1,91 @@
 .tooltip {
+    box-sizing: border-box;
+
     display: block;
     position: absolute;
-    width: 100px;
-    height: 100px;
     z-index: 10000;
+    font-family: $font_family;
 
-    background: #222;
+    background: #111;
     // border-radius: 0.5rem;
-    padding: 0.5rem;
     margin: 0 auto;
     text-align: left;
-    font-size: 1rem;
-    color: #ccc;
+    font-size: 0.9rem;
+    color: #eee;
 
-    transition: opacity 100ms ease-out;
+    width: auto;
+    height: auto;
+    min-width: 2rem;
+    min-height: 2rem;
+
+    transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
     pointer-events: none;
+}
+
+.tooltip-data {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .hidden {
     opacity: 0;
+    height: 0px;
+    width: 0px;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip-data__row > dt,
+.tooltip-data__row > dd {
+    margin: 0;
+    padding: 0;
+
+    z-index: 10002;
+}
+
+.tooltip-data__row {
+    min-width: 120px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    background: #111;
+}
+
+.tooltip-data__row:first-child {
+    margin-top: 0;
+}
+
+.tooltip-data__row:last-child {
+    margin-bottom: 0;
+}
+
+.tooltip-data__row > dt {
+    padding: 0.2rem;
+    // text-overflow: ellipsis;
+    overflow: hidden;
+    height: 2.4rem;
+}
+
+.tooltip-data__row__bar {
+    background: #666;
+    z-index: 10001;
+    transition: all 100ms ease;
+    position: absolute;
+    height: 1.8rem;
+}
+
+.tooltip-data__row > dd {
+    padding: 0.2rem;
+    text-align: right;
+    min-width: 2rem;
 }
