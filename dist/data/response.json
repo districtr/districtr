@@ -80,7 +80,7 @@
         "population": {
             "total": {
                 "key": "P0010001",
-                "name": "Total Population",
+                "name": "Total population",
                 "sum": 106519,
                 "min": 0,
                 "max": 1469
@@ -88,42 +88,42 @@
             "subgroups": [
                 {
                     "key": "P0030002",
-                    "name": "White Population",
+                    "name": "White population",
                     "sum": 64240,
                     "min": 0,
                     "max": 973
                 },
                 {
                     "key": "P0050003",
-                    "name": "White Population, Not Hispanic or Latino",
+                    "name": "White population, Not Hispanic or Latino",
                     "sum": 56280,
                     "min": 0,
                     "max": 793
                 },
                 {
                     "key": "P0040003",
-                    "name": "Hispanic or Latino Population",
+                    "name": "Hispanic or Latino population",
                     "sum": 18396,
                     "min": 0,
                     "max": 330
                 },
                 {
                     "key": "P0070006",
-                    "name": "Asian Population, Not Hispanic or Latino",
+                    "name": "Asian population, Not Hispanic or Latino",
                     "sum": 22459,
                     "min": 0,
                     "max": 316
                 },
                 {
                     "key": "P0030005",
-                    "name": "Asian Population",
+                    "name": "Asian population",
                     "sum": 21513,
                     "min": 0,
                     "max": 296
                 },
                 {
                     "key": "P0030003",
-                    "name": "Black Population",
+                    "name": "Black population",
                     "sum": 7238,
                     "min": 0,
                     "max": 206
@@ -309,7 +309,7 @@
         "population": {
             "total": {
                 "key": "POP2000",
-                "name": "2000 Census Population",
+                "name": "2000 Census population",
                 "sum": 6348403,
                 "min": 86,
                 "max": 9520
@@ -399,7 +399,7 @@
         "population": {
             "total": {
                 "key": "POP10",
-                "name": "2010 Census Population",
+                "name": "2010 Census population",
                 "sum": 6547816,
                 "min": 75,
                 "max": 10172
@@ -481,7 +481,7 @@
         "population": {
             "total": {
                 "key": "POP100",
-                "name": "2010 Census Population",
+                "name": "2010 Census population",
                 "sum": 5843434,
                 "min": 0,
                 "max": 24794
@@ -587,7 +587,7 @@
         "population": {
             "total": {
                 "key": "TOT_POP",
-                "name": "2010 Census Population",
+                "name": "2010 Census population",
                 "sum": 12684929,
                 "min": 0,
                 "max": 13215
@@ -737,7 +737,7 @@
         "population": {
             "total": {
                 "key": "PERSONS",
-                "name": "Population from 2010 Census",
+                "name": "2010 Census population",
                 "sum": 5686986,
                 "min": 0,
                 "max": 3905
@@ -745,119 +745,119 @@
             "subgroups": [
                 {
                     "key": "WHITE",
-                    "name": "White population from 2010 Census",
+                    "name": "White population",
                     "sum": 4738411,
                     "min": 0,
                     "max": 3245
                 },
                 {
                     "key": "BLACK",
-                    "name": "Black/African American population from 2010 Census",
+                    "name": "Black/African American population",
                     "sum": 380660,
                     "min": 0,
                     "max": 2770
                 },
                 {
                     "key": "HISPANIC",
-                    "name": "Population of Hispanic origin from 2010 Census",
+                    "name": "Population of Hispanic origin",
                     "sum": 336056,
                     "min": 0,
                     "max": 2495
                 },
                 {
                     "key": "ASIAN",
-                    "name": "Asian population from 2010 Census",
+                    "name": "Asian population",
                     "sum": 143931,
                     "min": 0,
                     "max": 1475
                 },
                 {
                     "key": "AMINDIAN",
-                    "name": "American Indian or Alaska Native population from 2010 Census",
+                    "name": "American Indian or Alaska Native population",
                     "sum": 68593,
                     "min": 0,
                     "max": 771
                 },
                 {
                     "key": "PISLAND",
-                    "name": "Native Hawaiian or other Pacific Islander population from 2010 Census",
+                    "name": "Native Hawaiian or other Pacific Islander population",
                     "sum": 2639,
                     "min": 0,
                     "max": 23
                 },
                 {
                     "key": "OTHER",
-                    "name": "Population of other race from 2010 Census",
+                    "name": "Population of other race",
                     "sum": 5249,
                     "min": 0,
                     "max": 27
                 },
                 {
                     "key": "OTHERMLT",
-                    "name": "Population of other multiple races from 2010 Census",
+                    "name": "Population of other multiple races",
                     "sum": 11447,
                     "min": 0,
                     "max": 51
                 },
                 {
                     "key": "PERSONS18",
-                    "name": "Population over the age of 18 from the 2010 Census",
+                    "name": "Population over the age of 18",
                     "sum": 4347494,
                     "min": 0,
                     "max": 3859
                 },
                 {
                     "key": "WHITE18",
-                    "name": "White population over 18 from the 2010 Census",
+                    "name": "White population over 18",
                     "sum": 3753685,
                     "min": 0,
                     "max": 3242
                 },
                 {
                     "key": "BLACK18",
-                    "name": "Black population over 18 from the 2010 Census",
+                    "name": "Black population over 18",
                     "sum": 242404,
                     "min": 0,
                     "max": 1776
                 },
                 {
                     "key": "HISPANIC18",
-                    "name": "Population of Hispanic origin over 18 from the 2010 Census",
+                    "name": "Population of Hispanic origin over 18",
                     "sum": 199890,
                     "min": 0,
                     "max": 1465
                 },
                 {
                     "key": "ASIAN18",
-                    "name": "Asian population over 18 from the 2010 Census",
+                    "name": "Asian population over 18",
                     "sum": 93254,
                     "min": 0,
                     "max": 1097
                 },
                 {
                     "key": "AMINDIAN18",
-                    "name": "American Indian or Alaska Native population over 18 from the 2010 Census",
+                    "name": "American Indian or Alaska Native population over 18",
                     "sum": 47510,
                     "min": 0,
                     "max": 538
                 },
                 {
                     "key": "PISLAND18",
-                    "name": "Native Hawaiian or other Pacific Islander population over 18 from the 2010 Census",
+                    "name": "Native Hawaiian or other Pacific Islander population over 18",
                     "sum": 1826,
                     "min": 0,
                     "max": 11
                 },
                 {
                     "key": "OTHER18",
-                    "name": "Population of other race over 18 from the 2010 Census",
+                    "name": "Population of other race over 18",
                     "sum": 2897,
                     "min": 0,
                     "max": 22
                 },
                 {
                     "key": "OTHERMLT18",
-                    "name": "Population of other multiple races over 18 from the 2010 Census",
+                    "name": "Population of other multiple races over 18",
                     "sum": 6107,
                     "min": 0,
                     "max": 31
@@ -1255,5 +1255,139 @@
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "bounds": [[-97.9715, 30.0927], [-97.5138, 30.5188]]
+    },
+    {
+        "id": "mississippi_block_groups",
+        "name": "Mississippi",
+        "districtingProblems": [
+            {
+                "numberOfParts": 4,
+                "office": "Congress",
+                "plural": "Congressional Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.mississippi_block_groups"
+                },
+                "sourceLayer": "mississippi_block_groups"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.mississippi_block_groups_points"
+                },
+                "sourceLayer": "mississippi_block_groups_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total Population",
+                "sum": 2967297,
+                "min": 0,
+                "max": 7131
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 1722287,
+                    "min": 0,
+                    "max": 5546
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 1093512,
+                    "min": 0,
+                    "max": 3753
+                },
+                {
+                    "key": "HPOP",
+                    "name": "Hispanic population",
+                    "sum": 81481,
+                    "min": 0,
+                    "max": 1839
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 25477,
+                    "min": 0,
+                    "max": 432
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 13845,
+                    "min": 0,
+                    "max": 1756
+                },
+                {
+                    "key": "NH_NAHI",
+                    "name": "Hawaiian Native population",
+                    "sum": 948,
+                    "min": 0,
+                    "max": 29
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 2211742,
+                    "min": 0,
+                    "max": 5086
+                },
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 1370641,
+                    "min": 0,
+                    "max": 4092
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 767499,
+                    "min": 0,
+                    "max": 3119
+                },
+                {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 54977,
+                    "min": 0,
+                    "max": 1829
+                },
+                {
+                    "key": "NAHIVAP",
+                    "name": "Native Hawaiian voting age population",
+                    "sum": 912,
+                    "min": 0,
+                    "max": 18
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 19643,
+                    "min": 0,
+                    "max": 293
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "American Indian voting age population",
+                    "sum": 10216,
+                    "min": 0,
+                    "max": 1125
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "bounds": [[-91.655, 30.1741], [-88.0979, 34.9961]]
     }
 ]
