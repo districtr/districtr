@@ -1,53 +1,36 @@
 import { numberWithCommas, roundToDecimal } from "../utils";
+import NumericalColumn from "./NumericalColumn";
 import Tally from "./Tally";
 
-export class PopulationSubgroup {
-    constructor({ name, key, max, min, population }) {
-        this.name = name;
-        this.key = key;
-        this.max = max;
-        this.min = min;
-        this.population = population;
-        this.asMapboxExpression = this.asMapboxExpression.bind(this);
-    }
-    asMapboxExpression() {
-        return ["to-number", ["get", this.key]];
+export class PopulationSubgroup extends NumericalColumn {
+    constructor({ population, ...args }) {
+        super(args);
+
+        if (population === undefined || population === null) {
+            this.population = this;
+        } else {
+            this.population = population;
+        }
     }
 }
 
 export default class Population {
-    constructor(initialData, populationSummary) {
-        this.name = populationSummary.total.name;
-        this.key = populationSummary.total.key;
-        this.total = populationSummary.total.sum;
-        this.min = populationSummary.total.min;
-        this.max = populationSummary.total.max;
-        this.ideal = this.total / initialData.length;
+    constructor(initialData, populationRecord) {
+        this.total = new PopulationSubgroup(populationRecord.total);
 
-        this.getPopulation = this.getPopulation.bind(this);
-        this.tally = new Tally(this.getPopulation, initialData);
-
-        this.subgroups = populationSummary.subgroups.map(
+        this.subgroups = populationRecord.subgroups.map(
             subgroup =>
-                new PopulationSubgroup({ ...subgroup, population: this })
+                new PopulationSubgroup({ ...subgroup, population: this.total })
         );
-        this.population = this;
 
+        this.tally = new Tally(this.total.getValue, initialData);
+
+        this.ideal = this.total.sum / initialData.length;
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 
-        this.bindMethods();
-    }
-    bindMethods() {
         this.update = this.update.bind(this);
-        this.asMapboxExpression = this.asMapboxExpression.bind(this);
         this.deviations = this.deviations.bind(this);
         this.maxDisplayValue = this.maxDisplayValue.bind(this);
-    }
-    getPopulation(feature) {
-        return parseFloat(feature.properties[this.key]);
-    }
-    asMapboxExpression() {
-        return ["to-number", ["get", this.key]];
     }
     update(feature, color) {
         this.tally.update(feature, color);
