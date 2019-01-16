@@ -2,7 +2,7 @@ export default class NumericalColumn {
     constructor(columnRecord) {
         this.name = columnRecord.name;
         this.key = columnRecord.key;
-        this.total = columnRecord.sum;
+        this.sum = columnRecord.sum;
         this.min = columnRecord.min;
         this.max = columnRecord.max;
 

@@ -23,7 +23,7 @@ export default class DemographicOverlayContainer {
             layer =>
                 new DemographicOverlay(
                     layer,
-                    population,
+                    population.total,
                     this.colorRules[this.currentColorRuleIndex].rule
                 )
         );

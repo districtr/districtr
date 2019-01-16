@@ -42,4 +42,9 @@ describe("PopulationSubgroup", () => {
 
         expect(subgroup.getFraction(feature)).to.be.closeTo(0.5, 0.0000001);
     });
+    it("has a `sum` attribute", () => {
+        const subgroup = fixtures.subgroup();
+
+        expect(subgroup.sum).to.equal(1600);
+    });
 });
