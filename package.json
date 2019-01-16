@@ -4,7 +4,7 @@
     "description": "A tool for drawing districting plans",
     "private": true,
     "scripts": {
-        "test": "mocha --require babel-register",
+        "test": "mocha --require @babel/register",
         "develop": "parcel index.html",
         "build": "parcel build index.html --public-url ."
     },
@@ -24,9 +24,9 @@
     },
     "homepage": "https://github.com/gerrymandr/districtr#readme",
     "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-preset-env": "^1.7.0",
-        "babel-register": "^6.26.0",
+        "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "@babel/register": "^7.0.0",
         "chai": "^4.2.0",
         "eslint": "^5.8.0",
         "mocha": "^5.2.0",
