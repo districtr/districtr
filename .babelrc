@@ -3,9 +3,7 @@
         [
             "@babel/preset-env",
             {
-                "targets": {
-                    "browsers": "defaults, not ie <999, not Android < 999"
-                }
+                "targets": "last 10 Firefox versions, last 10 Chrome versions, last 10 Edge versions, last 10 Safari versions"
             }
         ]
     ]
