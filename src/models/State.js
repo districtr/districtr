@@ -86,9 +86,7 @@ export default class State {
                   // This includes Lowell and Alaska, and possibly more places.
                   { getValue: feature => feature.id };
 
-        this.partPlural =
-            problem.plural !== undefined ? "Districts" : problem.plural;
-
+        this.problem = problem;
         this.parts = getParts(problem);
         this.elections = getElections(place, problem, this.units);
         this.population = getPopulation(place, problem);
@@ -96,7 +94,8 @@ export default class State {
         this.assignment = {};
 
         if (assignment) {
-            this.units.whenLoaded(() => {
+            this.units.onceLoaded(() => {
+                console.log(this.units.query());
                 const features = this.units.query().reduce(
                     (lookup, feature) => ({
                         ...lookup,
@@ -105,7 +104,16 @@ export default class State {
                     {}
                 );
                 // Q: Should we just keep this data around all the time?
-                for (let unitId in assignment) {
+                const ids = Object.keys(assignment);
+                const numberOfIds = ids.length;
+                for (let i = 0; i < numberOfIds; i++) {
+                    const unitId = ids[i];
+                    if (
+                        features[unitId] === undefined ||
+                        features[unitId] === null
+                    ) {
+                        console.log("Undefined feature: " + unitId);
+                    }
                     this.update(features[unitId], assignment[unitId]);
                     this.units.setAssignment(unitId, assignment[unitId]);
                 }
@@ -116,7 +124,8 @@ export default class State {
         const serialized = {
             assignment: this.assignment,
             id: this.id,
-            placeId: this.placeId
+            placeId: this.placeId,
+            problem: this.problem
         };
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);

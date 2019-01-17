@@ -8,16 +8,20 @@ export default class LayersTab {
     constructor(id, name, state) {
         this.id = id;
         this.name = name;
-        this.partPlural = state.partPlural;
+        this.partPlural = state.problem.plural;
 
         this.toggleDistricts = () =>
-            toggle(`Show ${state.partPlural.toLowerCase()}`, true, checked => {
-                if (checked) {
-                    state.units.setOpacity(0.8);
-                } else {
-                    state.units.setOpacity(0);
+            toggle(
+                `Show ${state.problem.plural.toLowerCase()}`,
+                true,
+                checked => {
+                    if (checked) {
+                        state.units.setOpacity(0.8);
+                    } else {
+                        state.units.setOpacity(0);
+                    }
                 }
-            });
+            );
 
         this.partisanOverlays =
             state.elections.length > 0

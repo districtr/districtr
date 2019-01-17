@@ -15,12 +15,20 @@ export function placesList() {
 export function renderNewPlanView() {
     const listOfPlaces = placesList();
     const uploadPlan = new PlanUploader(json => {
-        const serialized = JSON.parse(json);
+        const planRecord = JSON.parse(json);
         fetchApi().then(places => {
-            const place = places.find(p => p.id === serialized.placeId);
+            const place = places.find(p => p.id === planRecord.placeId);
             renderEditView(
                 map =>
-                    new State(map, place, serialized.id, serialized.assignment)
+                    new State(
+                        map,
+                        place,
+                        planRecord.problem !== undefined
+                            ? planRecord.problem
+                            : place.districtingProblems[0],
+                        planRecord.id,
+                        planRecord.assignment
+                    )
             );
         });
     });

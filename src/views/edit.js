@@ -24,7 +24,7 @@ export function renderEditView(createState) {
     const map = initializeMap("map");
     map.on("load", () => {
         let state = createState(map);
-        state.units.whenLoaded(() => {
+        state.units.onceLoaded(() => {
             // TODO: We can and should use lit-html to start rendering before the layers
             // are all loaded
             toolbarView(state);
