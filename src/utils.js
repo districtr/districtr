@@ -91,3 +91,19 @@ export function bindDispatchToActions(actions, dispatch) {
     }
     return boundActions;
 }
+
+
+/**
+ * Applies a preliminary check on all `fetch()` responses, as non-network
+ * errors do *not* call the `.catch()` callback. If we encounter an error with
+ * the request, throw an error and force `.catch()` to be called.
+ * @param {Response} response A fetch `Response` object. If we've encountered
+ * an error with the request (e.g. 3xx, 4xx, 5xx), throw an error, which calls
+ * the `.catch()` callback attached to the original request, if there is one.
+ * @returns {JSON} JSONified response body.
+ */
+export function throwFetchError(response) {
+    console.log(response);
+    if (!response.ok) throw new Error(response.status);
+    else return response.json();
+}

@@ -1,36 +1,31 @@
 
-var rp = require("request-promise"),
+import { throwFetchError } from "../utils";
 
-    root = "http://localhost:5000/";
+const root = "http://localhost:5000/";
 
 
 /**
- * @desc Attempts to get the `User` matching the `id` parameter.
+ * Attempts to get the `User` matching the `id` parameter.
  * @param {Number | String} id Id tag for the requested `User`.
- * @returns {Promise}
+ * @returns {Promise} A Promise.
  */
 function getUser(id) {
-    var path = root + "users/",
-        options = {
-            uri: path + id,
-            method: "GET"
-        };
-
-    return rp(options);
+    var path = root + "users/" + id;
+    return fetch(path).then(throwFetchError);
 }
 
 
 /**
- * @desc Attempts to retrieve all `User` objects in the database.
+ * Attempts to retrieve all `User` objects in the database.
  * @returns {Promise}
  */
 function getAllUsers() {
-    return rp(root + "users/");
+    return fetch(root + "users/").then(throwFetchError);
 }
 
 
 /**
- * @desc Attempts to create a new user in the database.
+ * Attempts to create a new user in the database.
  * @param {Object} user JSON object containing fields for a `User` object.
  * @returns {Promise}
  */
@@ -38,17 +33,15 @@ function createUser(user) {
     var path = root + "users/",
         options = {
             method: "POST",
-            uri: path,
-            json: true,
-            body: user
+            body: JSON.stringify(user)
         }
 
-    return rp(options);
+    return fetch(path, options).then(throwFetchError);
 }
 
 
 /**
- * @desc Attempts to update an existing user in the database.
+ * Attempts to update an existing user in the database.
  * @param {Object} user JSON object containing updated fields for an existing
  * `User` object.
  * @returns {Promise} 
@@ -67,7 +60,7 @@ function updateUser(user) {
 
 
 /**
- * @desc Attempts to delete the specified user.
+ * Attempts to delete the specified user.
  * @param {Number | String} id Id tag for the requested user.
  * @returns {Promise}
  */
