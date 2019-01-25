@@ -1,12 +1,54 @@
-export class HoverWithRadius {
-    constructor(layer, radius) {
+export class Hover {
+    constructor(layer) {
         this.layer = layer;
-        this.radius = radius;
 
-        this.hoveredFeatures = [];
+        this.hoveredFeature = null;
 
         this.onMouseMove = this.onMouseMove.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
         this.hoverOff = this.hoverOff.bind(this);
+    }
+    hoverOff() {
+        if (this.hoveredFeature !== null) {
+            this.layer.setFeatureState(this.hoveredFeature.id, {
+                ...this.hoveredFeature.state,
+                hover: false
+            });
+            this.hoveredFeature = null;
+        }
+    }
+    hoverOn(feature) {
+        this.hoveredFeature = feature;
+        this.layer.setFeatureState(feature.id, {
+            ...feature.state,
+            hover: true
+        });
+    }
+    onMouseMove(e) {
+        if (e.features.length > 0) {
+            this.hoverOff();
+            this.hoverOn(e.features[0]);
+        }
+    }
+    onMouseLeave() {
+        this.hoverOff();
+    }
+    activate() {
+        this.layer.on("mousemove", this.onMouseMove);
+        this.layer.on("mouseleave", this.onMouseLeave);
+    }
+    deactivate() {
+        this.layer.off("mousemove", this.onMouseMove);
+        this.layer.off("mouseleave", this.onMouseLeave);
+    }
+}
+
+export class HoverWithRadius extends Hover {
+    constructor(layer, radius) {
+        super(layer);
+
+        this.radius = radius;
+        this.hoveredFeatures = [];
     }
     hoverOff() {
         this.hoveredFeatures.forEach(feature => {
@@ -35,14 +77,6 @@ export class HoverWithRadius {
             this.hoverOff();
             this.hoverOn(features);
         }
-    }
-    activate() {
-        this.layer.on("mousemove", this.onMouseMove);
-        this.layer.on("mouseleave", this.hoverOff);
-    }
-    deactivate() {
-        this.layer.off("mousemove", this.onMouseMove);
-        this.layer.off("mouseleave", this.hoverOff);
     }
 }
 

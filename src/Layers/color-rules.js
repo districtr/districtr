@@ -17,28 +17,19 @@ export function colorByCount(subgroup) {
             subgroup.asMapboxExpression(),
             0,
             0,
-            subgroup.population.max,
+            subgroup.total.max,
             1
         ]
     ];
 }
 
-export function colorByProportion(subgroup) {
-    return [
-        "rgba",
-        0,
-        0,
-        0,
-        divideOrZeroIfNaN(
-            subgroup.asMapboxExpression(),
-            subgroup.population.asMapboxExpression()
-        )
-    ];
+export function colorByFraction(subgroup) {
+    return ["rgba", 0, 0, 0, subgroup.fractionAsMapboxExpression()];
 }
 
 export const demographicColorRules = [
     { name: "Total count", rule: colorByCount },
-    { name: "Proportion", rule: colorByProportion }
+    { name: "Proportion", rule: colorByFraction }
 ];
 
 // Partisan color rules:

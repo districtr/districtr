@@ -1,10 +1,19 @@
+/**
+ * Add the layer to the map below the first label layer (e.g. street names).
+ * @param {mapboxgl.Map} map
+ * @param {Layer} layer
+ */
 export function addBelowLabels(map, layer) {
     const layers = map.getStyle().layers;
-    const firstSymbolId = getFirstSymbolID(layers);
+    const firstSymbolId = getFirstSymbolId(layers);
     map.addLayer(layer, firstSymbolId);
 }
 
-function getFirstSymbolID(layers) {
+/**
+ * @param {Object[]} layers list of layers from the Mapbox map's style
+ * @returns {string} id of the first id of type "symbol"
+ */
+function getFirstSymbolId(layers) {
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === "symbol") {
             return layers[i].id;
@@ -12,7 +21,14 @@ function getFirstSymbolID(layers) {
     }
 }
 
+/** A layer on a Mapbox map. */
 export default class Layer {
+    /**
+     * @param {mapboxgl.Map} map to add the layer to
+     * @param {Object} layer a Layer object obeying the Mapbox style specification
+     * @param {function} [adder] a function (map, layer) -> void that adds the layer
+     *  to the map.
+     */
     constructor(map, layer, adder) {
         this.map = map;
         this.id = layer.id;
@@ -26,7 +42,7 @@ export default class Layer {
             map.addLayer(layer);
         }
 
-        this.whenLoaded = this.whenLoaded.bind(this);
+        this.onceLoaded = this.onceLoaded.bind(this);
         this.getFeature = this.getFeature.bind(this);
     }
     setOpacity(opacity) {
@@ -40,12 +56,12 @@ export default class Layer {
             this.setPaintProperty(name, properties[name]);
         }
     }
-    setFeatureState(featureID, state) {
+    setFeatureState(featureId, state) {
         this.map.setFeatureState(
             {
                 source: this.sourceId,
                 sourceLayer: this.sourceLayer,
-                id: featureID
+                id: featureId
             },
             state
         );
@@ -56,22 +72,22 @@ export default class Layer {
     getPaintProperty(name) {
         return this.map.getPaintProperty(this.id, name);
     }
-    getFeatureState(featureID) {
+    getFeatureState(featureId) {
         return this.map.getFeatureState({
             source: this.sourceId,
             sourceLayer: this.sourceLayer,
-            id: featureID
+            id: featureId
         });
     }
-    getFeature(featureID) {
+    getFeature(featureId) {
         const features = this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer,
-            filter: ["==", ["id"], featureID]
+            filter: ["==", ["id"], featureId]
         });
         return features[0];
     }
-    getAssignment(featureID) {
-        return this.getFeatureState(featureID).color;
+    getAssignment(featureId) {
+        return this.getFeatureState(featureId).color;
     }
     setAssignment(featureId, part) {
         this.setFeatureState(featureId, { color: part });
@@ -84,7 +100,9 @@ export default class Layer {
     }
     /**
      * Query the properties of the features of the source layer
-     * @param {string or function} getter
+     * @param {string or function} getter feature property key or a function
+     *  (feature) -> any that retrieves desired data from individual features
+     * @returns {Array} the results of the query
      */
     query(getter) {
         const queryFunction = getQueryFunction(getter);
@@ -94,7 +112,8 @@ export default class Layer {
         let seenIds = new Set();
         let data = [];
 
-        for (let i = 0; i < features.length; i++) {
+        const numberOfFeatures = features.length;
+        for (let i = 0; i < numberOfFeatures; i++) {
             if (!seenIds.has(features[i].id)) {
                 seenIds.add(features[i].id);
                 data.push(queryFunction(features[i]));
@@ -102,15 +121,36 @@ export default class Layer {
         }
         return data;
     }
-    whenLoaded(f) {
+    /**
+     * Executes the given function once the layer's source is loaded.
+     * @param {function} f - The function to execute when the Layer is loaded.
+     */
+    onceLoaded(f) {
         this.map.once("data", () => {
             if (
+                this.map.getSource(this.sourceId) &&
                 this.map.isSourceLoaded(this.sourceId) &&
                 this.query().length > 0
             ) {
-                f();
+                const features = this.query();
+                /**
+                 * @todo Re-architect things so we don't use a brittle magic number.
+                 *
+                 * Places could have less than 100 units, and the not-actually-loaded
+                 * bug could still happen with more than 100 features loaded.
+                 */
+                if (features.length < 100) {
+                    // It says it's loaded, but this doesn't seem like enough
+                    // features, so we don't believe it's loaded. We'll try
+                    // again at the next `data` event.
+                    this.onceLoaded(f);
+                } else {
+                    // Now we're convinced that it's loaded!
+                    f();
+                }
             } else {
-                this.whenLoaded(f);
+                // It's not loaded yet, so we wait for the next `data` event.
+                this.onceLoaded(f);
             }
         });
     }

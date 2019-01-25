@@ -2,6 +2,7 @@ import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
 import { zeros } from "../utils";
 import Election from "./Election";
+import IdColumn from "./IdColumn";
 import Part from "./Part";
 import Population from "./Population";
 
@@ -33,6 +34,11 @@ function getElections(place, problem, layer) {
     );
 }
 
+/**
+ * Holds all of the state that needs to be updated after
+ * each brush stroke. (Mainly the Plan assignment and the
+ * population tally.)
+ */
 export default class State {
     constructor(map, place, problem, id, assignment) {
         if (id) {
@@ -70,26 +76,44 @@ export default class State {
     update(feature, part) {
         this.population.update(feature, part);
         this.elections.forEach(election => election.update(feature, part));
-        this.assignment[feature.id] = part;
+        this.assignment[this.idColumn.getValue(feature)] = part;
     }
     getInitialState(place, assignment, problem) {
-        this.partPlural =
-            problem.plural !== undefined ? "Districts" : problem.plural;
+        this.idColumn =
+            place.idColumn !== undefined
+                ? new IdColumn(place.idColumn)
+                : // This fallback is only here for places without an IdColumn.
+                  // This includes Lowell and Alaska, and possibly more places.
+                  { getValue: feature => feature.id };
+
+        this.problem = problem;
         this.parts = getParts(problem);
         this.elections = getElections(place, problem, this.units);
         this.population = getPopulation(place, problem);
+
         this.assignment = {};
+
         if (assignment) {
-            this.units.whenLoaded(() => {
+            this.units.onceLoaded(() => {
+                console.log(this.units.query());
                 const features = this.units.query().reduce(
                     (lookup, feature) => ({
                         ...lookup,
-                        [feature.id]: feature
+                        [this.idColumn.getValue(feature)]: feature
                     }),
                     {}
                 );
                 // Q: Should we just keep this data around all the time?
-                for (let unitId in assignment) {
+                const ids = Object.keys(assignment);
+                const numberOfIds = ids.length;
+                for (let i = 0; i < numberOfIds; i++) {
+                    const unitId = ids[i];
+                    if (
+                        features[unitId] === undefined ||
+                        features[unitId] === null
+                    ) {
+                        console.log("Undefined feature: " + unitId);
+                    }
                     this.update(features[unitId], assignment[unitId]);
                     this.units.setAssignment(unitId, assignment[unitId]);
                 }
@@ -100,7 +124,8 @@ export default class State {
         const serialized = {
             assignment: this.assignment,
             id: this.id,
-            placeId: this.placeId
+            placeId: this.placeId,
+            problem: this.problem
         };
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);
