@@ -8,9 +8,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# python version file (somehow this ended up here)
-.python-version
-
 # Runtime data
 pids
 *.pid
