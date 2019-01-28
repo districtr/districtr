@@ -1,7 +1,9 @@
 @import "base";
+@import "colors";
+@import "form";
 
 .signup-page {
-    background: #f7f1ee;
+    background: #0099cd;
 }
 
 .signup-container {
@@ -59,38 +61,6 @@
     color: #777;
 }
 
-.signup-button {
-    background: #ff4f49;
-    color: white;
-    outline: none;
-    border: none;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    font-weight: 400;
-    font-family: $font_family;
-    font-size: 1.6rem;
-    // background: #eee;
-
-    transition: all ease 40ms;
-
-    border-radius: 0.2rem;
-    background: #ff4f49;
-}
-
-.signup-button:hover {
-    cursor: pointer;
-    background: #c02d28;
-}
-
-.signup-button:active {
-    background: #ff4f49;
-}
-
-.signup-button:disabled {
-    background: #bdaaa8;
-    color: #504746;
-}
-
 .alert {
     width: 100%;
     top: 1rem;
@@ -100,7 +70,7 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     transition: height ease 100ms;
-    background: #c02d28;
+    background: $districtr_red_dark;
     color: white;
 }
 

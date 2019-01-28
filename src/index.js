@@ -11,4 +11,14 @@ export function renderInitialView() {
     );
 }
 
+// const userId = localStorage.getItem("userId");
+// if (userId) {
+//     fetch("https://api.districtr.org/users/" + userId)
+//         .then(response => response.json())
+//         .then(({ first }) => {
+//             const element = document.getElementById("root");
+//             element.innerText = `Hello, ${first}!`;
+//         });
+// }
+
 renderInitialView();

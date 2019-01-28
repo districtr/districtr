@@ -1,0 +1,28 @@
+// Sepia
+
+.sepia {
+    background: rgb(247, 241, 238);
+}
+
+.sepia a,
+.sepia a:visited {
+    color: #806463;
+}
+
+.sepia a:hover,
+.sepia a:active {
+    color: #503f3e;
+    // color: #ac8682;
+}
+
+.sepia mark {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
+    background: #bdaaa8;
+    color: white;
+    transition: background 100ms ease;
+}
+
+.sepia mark:hover {
+    background: $districtr_red;
+}

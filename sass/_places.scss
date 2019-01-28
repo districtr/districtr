@@ -55,14 +55,12 @@ h2 {
     height: 10rem;
 
     border-radius: 0.5rem;
-    background: #ff4f49;
+    background: $districtr_red;
     color: white;
 }
 
 .places-list__item:hover {
-    // background: #f6f6f6;
-
-    background: #c02d28;
+    background: $districtr_red_dark;
 }
 
 .places-list__item {

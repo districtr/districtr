@@ -1,0 +1,15 @@
+a {
+    transition: color 100ms, background 100ms;
+}
+
+a,
+a:visited {
+    font-weight: 600;
+    text-decoration: none;
+    color: #006b9c;
+}
+
+a:hover,
+a:active {
+    color: #004464;
+}

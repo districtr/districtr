@@ -1,0 +1,30 @@
+.form-button {
+    color: white;
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    font-weight: 400;
+    font-family: $font_family;
+    font-size: 1.6rem;
+    // background: #eee;
+
+    transition: all ease 40ms;
+
+    border-radius: 0.2rem;
+    background: $districtr_red;
+}
+
+.form-button:hover {
+    cursor: pointer;
+    background: $districtr_red_dark;
+}
+
+.form-button:active {
+    background: $districtr_red;
+}
+
+.form-button:disabled {
+    background: #bdaaa8;
+    color: #504746;
+}

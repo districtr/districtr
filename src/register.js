@@ -71,7 +71,7 @@ export function main() {
         })
             .then(response => {
                 if (response.status >= 200 && response.status < 300) {
-                    window.location = "./index.html";
+                    window.location.href = "./index.html";
                 } else {
                     errorMessage(
                         "We're sorry. Registration is currently unavailable."
