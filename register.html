@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Sign up | Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./sass/main.scss"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./sass/signup.scss"
+        />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="signup-page">
+        <main class="signup-container">
+            <aside id="alert" class="alert hidden"></aside>
+            <div class="signup-content">
+                <h1>Sign up</h1>
+                <h2 class="takeaway">
+                    We'll send you a confirmation email with a link to sign in.
+                </h2>
+            </div>
+            <form class="signup-form" id="form">
+                <div class="signup-form__double-item-container">
+                    <div class="signup-form__double-item">
+                        <label for="first">First name</label>
+                        <input
+                            type="text"
+                            id="first"
+                            name="first"
+                            class="text-input"
+                        />
+                    </div>
+                    <div class="signup-form__double-item">
+                        <label for="last">Last name</label>
+                        <input
+                            type="text"
+                            id="last"
+                            name="last"
+                            class="text-input"
+                        />
+                    </div>
+                </div>
+                <div class="signup-form__item">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="text-input"
+                    />
+                </div>
+                <div class="signup-form__item">
+                    <input
+                        id="submit"
+                        disabled
+                        type="submit"
+                        name="submit"
+                        class="signup-button"
+                        value="Sign up"
+                    />
+                </div>
+            </form>
+            <script src="./src/register.js"></script>
+        </main>
+    </body>
+</html>

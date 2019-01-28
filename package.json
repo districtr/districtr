@@ -5,8 +5,8 @@
     "private": true,
     "scripts": {
         "test": "mocha --require @babel/register",
-        "develop": "parcel index.html",
-        "build": "parcel build --no-cache index.html --public-url ."
+        "develop": "parcel *.html",
+        "build": "parcel build --no-cache *.html --public-url ."
     },
     "repository": {
         "type": "git",
