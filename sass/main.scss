@@ -1,11 +1,12 @@
 @import "base";
 @import "colors";
+@import "headings";
 @import "map";
-@import "toolbar";
-@import "charts";
-@import "tooltip";
-@import "places";
-@import "button";
+@import "components/toolbar";
+@import "components/charts";
+@import "components/tooltip";
+@import "components/places";
+@import "components/button";
 @import "splash";
 @import "form";
 

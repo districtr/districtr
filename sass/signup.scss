@@ -1,9 +1,10 @@
 @import "base";
 @import "colors";
 @import "form";
+@import "dark";
 
 .signup-page {
-    background: #0099cd;
+    background: $mggg_very_dark_blue;
 }
 
 .signup-container {
@@ -61,7 +62,7 @@
     color: #777;
 }
 
-.alert {
+.popup-message {
     width: 100%;
     top: 1rem;
     display: block;
@@ -70,8 +71,10 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     transition: height ease 100ms;
+}
+
+.alert {
     background: $districtr_red_dark;
-    color: white;
 }
 
 .hidden {

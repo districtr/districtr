@@ -1,22 +1,4 @@
-h1 {
-    font-size: 3.6rem;
-    line-height: 1.4;
-    margin: 1rem 0;
-}
-
-h2 {
-    font-size: 1.8rem;
-    line-height: 1.4;
-    margin: 1rem 0 0;
-}
-
-.districtr-heading {
-    text-align: center;
-}
-
-.districtr-subheading {
-    text-align: center;
-}
+@import "shadows";
 
 .places-list-container {
     margin: 0 auto;
@@ -57,6 +39,10 @@ h2 {
     border-radius: 0.5rem;
     background: $districtr_red;
     color: white;
+}
+
+.places-list__item:focus {
+    box-shadow: $focus_shadow;
 }
 
 .places-list__item:hover {

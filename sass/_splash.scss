@@ -1,7 +1,8 @@
 @import "links";
 @import "sepia";
 @import "dark";
-@import "technologies";
+@import "components/technologies";
+@import "shadows";
 
 .landing-page {
     color: #444;
@@ -62,12 +63,6 @@
     font-size: 3.6rem;
 }
 
-h2 {
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    line-height: 1.6;
-}
-
 .splash-subtitle,
 .takeaway {
     font-weight: 400;
@@ -89,9 +84,14 @@ h2 {
     font-size: 1.2rem;
 }
 
-.call-to-action:hover {
+.call-to-action:hover,
+.call-to-action:active {
     color: white;
     background: $districtr_red_dark;
+}
+
+.call-to-action:focus {
+    box-shadow: $focus_shadow;
 }
 
 .details {

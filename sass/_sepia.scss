@@ -1,17 +1,20 @@
 // Sepia
+$sepia_background: rgb(247, 241, 238);
+$sepia_accent: #806463;
+$sepia_accent_dark: #503f3e;
 
 .sepia {
-    background: rgb(247, 241, 238);
+    background: $sepia_background;
 }
 
 .sepia a,
 .sepia a:visited {
-    color: #806463;
+    color: $sepia_accent;
 }
 
 .sepia a:hover,
 .sepia a:active {
-    color: #503f3e;
+    color: $sepia_accent_dark;
     // color: #ac8682;
 }
 

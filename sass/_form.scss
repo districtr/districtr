@@ -1,3 +1,5 @@
+@import "shadows";
+
 .form-button {
     color: white;
     outline: none;
@@ -21,7 +23,11 @@
 }
 
 .form-button:active {
-    background: $districtr_red;
+    background: $districtr_red_dark;
+}
+
+.form-button:focus {
+    box-shadow: $focus_shadow;
 }
 
 .form-button:disabled {

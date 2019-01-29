@@ -6,10 +6,10 @@ a,
 a:visited {
     font-weight: 600;
     text-decoration: none;
-    color: #006b9c;
+    color: $mggg_dark_blue;
 }
 
 a:hover,
 a:active {
-    color: #004464;
+    color: $mggg_very_dark_blue;
 }
