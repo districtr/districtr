@@ -1,0 +1,17 @@
+// Dark
+
+.dark {
+    background: #111;
+    color: white;
+}
+
+.dark a,
+.dark a:visited {
+    color: #0099cd;
+}
+
+.dark a:active,
+.dark a:hover {
+    text-decoration: inherit;
+    color: #006b9c;
+}

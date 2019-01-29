@@ -91,3 +91,22 @@ export function bindDispatchToActions(actions, dispatch) {
     }
     return boundActions;
 }
+
+/**
+ * Handle HTTP responses by providing handlers for HTTP status codes.
+ *
+ * The `handlers` object should have handlers for each status code you want
+ * to handle (e.g. 200, 500) as well as a "default" handler for all other
+ * cases.
+ *
+ * @param {object} handlers
+ */
+export function handleResponse(handlers) {
+    return response => {
+        if (handlers.hasOwnProperty(response.status)) {
+            return handlers[response.status](response);
+        } else {
+            return handlers.default(response);
+        }
+    };
+}

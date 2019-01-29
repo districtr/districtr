@@ -1,3 +1,9 @@
+@import "links";
+@import "sepia";
+@import "dark";
+@import "components/technologies";
+@import "shadows";
+
 .landing-page {
     color: #444;
     font-size: 1.4rem;
@@ -31,26 +37,6 @@
     justify-self: center;
 }
 
-.github-logo {
-    width: 64px;
-    height: 64px;
-    margin: 0 1rem;
-    display: block;
-}
-
-.github-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.github-link a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0;
-}
-
 .hello {
     align-items: end;
     background: url(../static/districtr-splash.png);
@@ -77,12 +63,6 @@
     font-size: 3.6rem;
 }
 
-h2 {
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    line-height: 1.6;
-}
-
 .splash-subtitle,
 .takeaway {
     font-weight: 400;
@@ -91,32 +71,34 @@ h2 {
     line-height: 1.6;
 }
 
-.call-to-action a,
-.call-to-action a:visited {
-    border-radius: 1rem;
-    // border: 2px solid #006b9c;
-    background: #ff4f49;
-    padding: 1rem;
+.call-to-action,
+.call-to-action:visited {
+    background: $districtr_red;
     color: white;
+
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+
+    font-weight: 400;
+    font-family: $font_family;
+    font-size: 1.2rem;
 }
 
-.call-to-action a:hover {
+.call-to-action:hover,
+.call-to-action:active {
     color: white;
-    background: #c02d28;
+    background: $districtr_red_dark;
 }
 
-.call-to-action {
-    text-align: center;
+.call-to-action:focus {
+    box-shadow: $focus_shadow;
 }
 
 .details {
-    background: rgb(247, 241, 238);
     justify-content: right;
 }
 
 .splash-code-details {
-    background: #111;
-    color: white;
     justify-content: center;
     display: flex;
     min-height: 100vh;
@@ -136,108 +118,6 @@ h2 {
     width: 55%;
     min-width: 350px;
     margin: 1rem auto;
-}
-
-.technologies {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    margin: 0;
-    width: 100%;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #444;
-}
-
-.technologies__item {
-    // background: #222;
-    list-style: none;
-    margin: 0 2rem;
-    border-radius: 0.5rem;
-    font-size: 1.6rem;
-    transition: all 100ms ease;
-    box-shadow: 20 0 2px 8px rgba(12, 12, 12, 0.1);
-}
-
-.technologies__item:hover {
-    transform: scale(1.05);
-    box-shadow: 30 0 2px 8px rgba(12, 12, 12, 0.1);
-}
-
-.technologies__item a {
-    padding: 1rem;
-    display: block;
-}
-
-.lit-html-link {
-    color: #f9f9f9;
-    background: #ff2f2f;
-    font-size: 1.8rem;
-    border-radius: 0.5rem;
-}
-
-.mapbox-logo {
-    display: block;
-    margin: auto;
-    width: 200px;
-}
-
-.sass-logo {
-    width: 120px;
-}
-
-a,
-a:visited {
-    font-weight: 600;
-    color: #006b9c;
-    text-decoration: none;
-}
-
-a:hover,
-a:active {
-    color: #0099cd;
-}
-
-.details a,
-.details a:visited {
-    color: #806463;
-}
-
-.details a:hover,
-.details a:active {
-    color: #ac8682;
-}
-
-.splash-code-details a {
-    color: #0099cd;
-}
-
-.splash-code-details a:active,
-.splash-code-details a:hover {
-    color: #5dcaff;
-    text-decoration: inherit;
-}
-
-.lit-html-link a,
-.lit-html-link a:visited {
-    color: #f9f9f9;
-}
-
-.lit-html-link a:hover {
-    color: white;
-}
-
-mark {
-    padding: 0.1rem 0.4rem;
-    border-radius: 0.4rem;
-    background: #bdaaa8;
-    color: white;
-    transition: background 100ms ease;
-}
-
-mark:hover {
-    background: #ff4f49;
 }
 
 .features {
@@ -280,7 +160,7 @@ mark:hover {
 }
 
 .districtr-name {
-    background: #ff4f49;
+    background: $districtr_red;
     padding: 0.1rem 0.4rem;
     border-radius: 0.4rem;
     // background: #ff6f4b;
@@ -361,5 +241,15 @@ p {
     }
     .team-list {
         justify-content: left;
+    }
+}
+
+// For the 100vh bug in firefox mobile:
+@media only screen and (max-height: 700px) {
+    .splash {
+        min-height: 600px;
+    }
+    .splash-code-details {
+        min-height: 600px;
     }
 }

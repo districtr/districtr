@@ -4,9 +4,10 @@
     "description": "A tool for drawing districting plans",
     "private": true,
     "scripts": {
-        "test": "mocha --require @babel/register",
-        "develop": "parcel index.html",
-        "build": "parcel build --no-cache index.html --public-url ."
+        "test": "mocha test --require @babel/register",
+        "test-ci": "mocha test --require @babel/register --reporter xunit --reporter-options output=test-results.xml",
+        "develop": "parcel *.html",
+        "build": "parcel build --no-cache *.html --public-url ."
     },
     "repository": {
         "type": "git",
