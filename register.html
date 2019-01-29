@@ -28,7 +28,7 @@
     </head>
     <body class="signup-page">
         <main class="signup-container">
-            <aside id="alert" class="alert hidden"></aside>
+            <aside id="popup-message" class="popup-message hidden"></aside>
             <div class="signup-content">
                 <h1>Sign up</h1>
                 <h2 class="takeaway">
@@ -44,6 +44,7 @@
                             id="first"
                             name="first"
                             class="text-input"
+                            required
                         />
                     </div>
                     <div class="signup-form__double-item">
@@ -53,6 +54,7 @@
                             id="last"
                             name="last"
                             class="text-input"
+                            required
                         />
                     </div>
                 </div>
@@ -63,6 +65,9 @@
                         id="email"
                         name="email"
                         class="text-input"
+                        autocomplete="email"
+                        placeholder="name@example.com"
+                        required
                     />
                 </div>
                 <div class="signup-form__item">
