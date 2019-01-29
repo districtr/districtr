@@ -1,5 +1,6 @@
-import { handleResponse, registerUser } from "./api/auth";
-import { createForm, errorMessage, isEmail } from "./components/form";
+import { registerUser } from "../api/auth";
+import { createForm, errorMessage, isEmail } from "../components/form";
+import { handleResponse } from "../utils";
 
 function onSubmit({ first, last, email }) {
     registerUser({

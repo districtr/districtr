@@ -1,10 +1,11 @@
-import { handleResponse, signInUser } from "./api/auth";
+import { signInUser } from "../api/auth";
 import {
     createForm,
     errorMessage,
     isEmail,
     popupMessage
-} from "./components/form";
+} from "../components/form";
+import { handleResponse } from "../utils";
 
 const handlers = {
     201: () => {
