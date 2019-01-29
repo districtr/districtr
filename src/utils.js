@@ -104,9 +104,9 @@ export function bindDispatchToActions(actions, dispatch) {
 export function handleResponse(handlers) {
     return response => {
         if (handlers.hasOwnProperty(response.status)) {
-            handlers[response.status](response);
+            return handlers[response.status](response);
         } else {
-            handlers.default(response);
+            return handlers.default(response);
         }
     };
 }

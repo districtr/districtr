@@ -67,6 +67,7 @@
     top: 1rem;
     display: block;
     padding: 1rem;
+    font-size: 1.2rem;
     margin: 0;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -75,6 +76,7 @@
 
 .alert {
     background: $districtr_red_dark;
+    color: white;
 }
 
 .hidden {

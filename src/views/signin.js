@@ -9,7 +9,10 @@ import { handleResponse } from "../utils";
 
 const handlers = {
     201: () => {
-        window.location.assign("./index.html");
+        document.getElementById("form").remove();
+        document.getElementById("email-message").innerText =
+            "Success! We sent you an email with a link to sign in.";
+        window.setTimeout(() => window.location.assign("./index.html"), 2000);
     },
     404: () => {
         popupMessage({

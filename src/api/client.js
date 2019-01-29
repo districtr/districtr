@@ -1,5 +1,3 @@
-import AuthContext from "./auth";
-
 const API_URL = "https://api.districtr.org";
 
 export default class ApiClient {
@@ -48,4 +46,4 @@ export default class ApiClient {
     }
 }
 
-export const client = ApiClient(API_URL, [new AuthContext().middleware]);
+export const client = new ApiClient(API_URL);
