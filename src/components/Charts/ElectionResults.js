@@ -16,6 +16,7 @@ export default (election, parts) =>
         election.name,
         election.parties,
         parts,
+        party => party,
         getCellStyle,
         election.percent,
         percent => roundToDecimal(percent * 100, 2)
