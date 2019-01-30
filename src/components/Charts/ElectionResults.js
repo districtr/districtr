@@ -1,6 +1,6 @@
 import { interpolateRdBu } from "d3-scale-chromatic";
-import { html } from "lit-html";
 import { roundToDecimal } from "../../utils";
+import DataTable from "./DataTable";
 
 function getCellStyle(percent, party) {
     if (party === "Democratic" && percent > 0.5) {
@@ -11,61 +11,12 @@ function getCellStyle(percent, party) {
     return `background: #f9f9f9`;
 }
 
-export default (election, parts) => {
-    const parties = election.parties;
-    return html`
-        <h4>${election.name}</h4>
-        <table class="election-results-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    ${
-                        parties.map(
-                            party =>
-                                html`
-                                    <th>${party}</th>
-                                `
-                        )
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                ${
-                    parts.map(
-                        (part, i) =>
-                            html`
-                                <tr>
-                                    <th>${part.renderLabel()}</th>
-                                    ${
-                                        parties.map(party => {
-                                            const percent = election.percent(
-                                                party,
-                                                i
-                                            );
-                                            return html`
-                                                <td
-                                                    style=${
-                                                        getCellStyle(
-                                                            percent,
-                                                            party
-                                                        )
-                                                    }
-                                                >
-                                                    ${
-                                                        roundToDecimal(
-                                                            percent * 100,
-                                                            2
-                                                        )
-                                                    }%
-                                                </td>
-                                            `;
-                                        })
-                                    }
-                                </tr>
-                            `
-                    )
-                }
-            </tbody>
-        </table>
-    `;
-};
+export default (election, parts) =>
+    DataTable(
+        election.name,
+        election.parties,
+        parts,
+        getCellStyle,
+        election.percent,
+        percent => roundToDecimal(percent * 100, 2)
+    );
