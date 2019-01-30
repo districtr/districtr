@@ -47,6 +47,10 @@ export function asPercent(value, total) {
     return `${Math.round(100 * (value / total))}%`;
 }
 
+export function replace(list, i, item) {
+    return [...list.slice(0, i), item, ...list.slice(i + 1)];
+}
+
 // Light-weight redux implementation
 
 export function createReducer(handlers) {

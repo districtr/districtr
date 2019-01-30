@@ -19,7 +19,7 @@ function barHeight(d, maxValue) {
 const extra = 20;
 
 const horizontalBarChart = (population, parts) => {
-    const data = population.tally.data;
+    const data = population.total.tally.data;
     const maxValue = population.maxDisplayValue();
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;

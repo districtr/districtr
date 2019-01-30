@@ -56,7 +56,8 @@
             {
                 "numberOfParts": 9,
                 "office": "City Council",
-                "plural": "City Council Districts"
+                "plural": "City Council Districts",
+                "relevantSubgroups": [0, 2, 4]
             }
         ],
         "tilesets": [
@@ -1008,7 +1009,8 @@
             {
                 "numberOfParts": 6,
                 "office": "City Council",
-                "plural": "City Council Districts"
+                "plural": "City Council Districts",
+                "relevantSubgroups": [0, 2]
             }
         ],
         "tilesets": [
@@ -1093,7 +1095,8 @@
             {
                 "numberOfParts": 10,
                 "office": "City Council",
-                "plural": "City Council Districts"
+                "plural": "City Council Districts",
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "tilesets": [
@@ -1178,7 +1181,8 @@
             {
                 "numberOfParts": 10,
                 "office": "City Council",
-                "plural": "City Council Districts"
+                "plural": "City Council Districts",
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "tilesets": [
@@ -1263,7 +1267,8 @@
             {
                 "numberOfParts": 4,
                 "office": "Congress",
-                "plural": "Congressional Districts"
+                "plural": "Congressional Districts",
+                "relevantSubgroups": [0, 1]
             }
         ],
         "tilesets": [

@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-export default function select(name, items, handler) {
+export default function select(name, items, handler, selectedIndex) {
     return html`
         <select
             name="${name}"
@@ -9,7 +9,9 @@ export default function select(name, items, handler) {
             ${
                 items.map(
                     (item, i) => html`
-                        <option value="${i}">${item.name}</option>
+                        <option value="${i}" ?selected=${selectedIndex == i}
+                            >${item.name}</option
+                        >
                     `
                 )
             }

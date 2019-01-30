@@ -13,8 +13,10 @@ const subgroup = () =>
             name: "Total population",
             min: 0,
             max: 500,
-            sum: 3200
-        })
+            sum: 3200,
+            parts: [1, 2, 3, 4]
+        }),
+        parts: [1, 2, 3, 4]
     });
 
 const feature = () => ({ properties: { subpop: 100, pop: 200 } });

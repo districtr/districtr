@@ -3,10 +3,11 @@ import NumericalColumn from "./NumericalColumn";
 import Tally from "./Tally";
 
 export class PopulationSubgroup extends NumericalColumn {
-    constructor({ total, ...args }) {
+    constructor({ total, parts, ...args }) {
         super(args);
 
         this.total = total || this;
+        this.tally = new Tally(this.getValue, parts);
     }
     getFraction(feature) {
         return this.getValue(feature) / this.total.getValue(feature);
@@ -20,17 +21,22 @@ export class PopulationSubgroup extends NumericalColumn {
 }
 
 export default class Population {
-    constructor(initialData, populationRecord) {
-        this.total = new PopulationSubgroup(populationRecord.total);
+    constructor(populationRecord, parts) {
+        this.total = new PopulationSubgroup({
+            ...populationRecord.total,
+            parts
+        });
 
         this.subgroups = populationRecord.subgroups.map(
             subgroup =>
-                new PopulationSubgroup({ ...subgroup, total: this.total })
+                new PopulationSubgroup({
+                    ...subgroup,
+                    parts,
+                    total: this.total
+                })
         );
 
-        this.tally = new Tally(this.total.getValue, initialData);
-
-        this.ideal = this.total.sum / initialData.length;
+        this.ideal = this.total.sum / parts.length;
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 
         this.update = this.update.bind(this);
@@ -38,12 +44,17 @@ export default class Population {
         this.maxDisplayValue = this.maxDisplayValue.bind(this);
     }
     update(feature, color) {
-        this.tally.update(feature, color);
+        this.subgroups.forEach(subgroup =>
+            subgroup.tally.update(feature, color)
+        );
+        this.total.tally.update(feature, color);
     }
     deviations() {
-        return this.tally.data.map(d => Math.abs(d - this.ideal) / this.ideal);
+        return this.total.tally.data.map(
+            d => Math.abs(d - this.ideal) / this.ideal
+        );
     }
     maxDisplayValue() {
-        return Math.max(this.ideal * 2, ...this.tally.data);
+        return Math.max(this.ideal * 2, ...this.total.tally.data);
     }
 }
