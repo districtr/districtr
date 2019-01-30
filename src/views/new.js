@@ -1,12 +1,12 @@
 import { html, render } from "lit-html";
+import { listPlaces } from "../api/mockApi";
 import PlacesList from "../components/PlacesList";
 import PlanUploader from "../components/PlanUploader";
-import { fetchApi } from "../mockApi";
 import State from "../models/State";
 import { renderEditView } from "./edit";
 
 export function placesList() {
-    const places = fetchApi();
+    const places = listPlaces();
     return new PlacesList(places, (place, problem) => {
         renderEditView(map => new State(map, place, problem));
     });
@@ -16,7 +16,7 @@ export function renderNewPlanView() {
     const listOfPlaces = placesList();
     const uploadPlan = new PlanUploader(json => {
         const planRecord = JSON.parse(json);
-        fetchApi().then(places => {
+        listPlaces().then(places => {
             const place = places.find(p => p.id === planRecord.placeId);
             renderEditView(
                 map =>

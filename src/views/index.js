@@ -1,5 +1,7 @@
 import { html, render } from "lit-html";
-import { placesList } from "./views/new";
+import initializeAuthContext from "../api/auth";
+import { client } from "../api/client";
+import { placesList } from "./new";
 
 export function renderInitialView() {
     const listOfPlaces = placesList();
@@ -12,3 +14,4 @@ export function renderInitialView() {
 }
 
 renderInitialView();
+initializeAuthContext(client);

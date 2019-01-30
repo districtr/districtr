@@ -1,6 +1,5 @@
 import { districtColors } from "../colors";
 import { addLayers } from "../Map/map";
-import { zeros } from "../utils";
 import Election from "./Election";
 import IdColumn from "./IdColumn";
 import Part from "./Part";
@@ -18,8 +17,8 @@ function getParts(problem) {
     return parts;
 }
 
-function getPopulation(place, problem) {
-    return new Population(zeros(problem.numberOfParts), place.population);
+function getPopulation(place, parts) {
+    return new Population(place.population, parts);
 }
 
 function getElections(place, problem, layer) {
@@ -89,13 +88,12 @@ export default class State {
         this.problem = problem;
         this.parts = getParts(problem);
         this.elections = getElections(place, problem, this.units);
-        this.population = getPopulation(place, problem);
+        this.population = getPopulation(place, this.parts);
 
         this.assignment = {};
 
         if (assignment) {
             this.units.onceLoaded(() => {
-                console.log(this.units.query());
                 const features = this.units.query().reduce(
                     (lookup, feature) => ({
                         ...lookup,

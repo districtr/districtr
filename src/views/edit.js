@@ -1,6 +1,7 @@
 import { html, render } from "lit-html";
 import ChartsList from "../components/Charts/ChartsList";
 import LayersTab from "../components/LayersTab";
+import RaceTab from "../components/RaceTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
@@ -50,6 +51,12 @@ function getTabs(state) {
         tabs.push(new VotesTab("votes", "Votes", state.elections, state.parts));
     }
 
+    if (state.population.subgroups.length > 0) {
+        tabs.push(
+            new RaceTab("race", "Demographics", state.population, state.parts)
+        );
+    }
+
     tabs.push(layersTab);
 
     return tabs;
@@ -75,6 +82,9 @@ export default function toolbarView(state) {
         tabs: { activeTab: tabs.length > 0 ? tabs[0].id : null },
         elections: {
             activeElectionIndex: 0
+        },
+        subgroups: {
+            activeSubgroupIndices: state.problem.relevantSubgroups || [0, 1]
         }
     });
 

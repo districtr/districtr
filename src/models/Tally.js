@@ -1,6 +1,8 @@
+import { zeros } from "../utils";
+
 export default class Tally {
-    constructor(dataAccessor, initialData) {
-        this.data = initialData;
+    constructor(dataAccessor, parts) {
+        this.data = zeros(parts.length);
         this.accessor = dataAccessor;
         this.update = this.update.bind(this);
     }
