@@ -74,7 +74,7 @@ export default class DemographicOverlayContainer {
             ${this.visibilityToggle}
             ${
                 Parameter({
-                    label: "Variable",
+                    label: "Variable:",
                     element: select(
                         "subgroup",
                         this.subgroups,
