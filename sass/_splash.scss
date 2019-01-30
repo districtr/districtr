@@ -7,13 +7,16 @@
 .landing-page {
     color: #444;
     font-size: 1.4rem;
+    background: url(../static/districtr-splash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right top;
+    display: block;
 }
 
 .splash {
     min-height: 800px;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 2fr 3fr 5fr 3fr 2fr;
 }
 
 .start-districting {
@@ -39,22 +42,23 @@
 
 .hello {
     align-items: end;
-    background: url(../static/districtr-splash.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right top;
 }
 
 .splash-text {
     z-index: 1;
     min-width: 350px;
     padding: 0.5rem;
-    margin: 2vh 0;
-    grid-column: 3 / 5;
+    width: 53.3%;
+    margin-left: 13.3%;
+    // transform: translateY(50vh);
+}
+
+.details .splash-text {
+    margin-left: 33.3%;
 }
 
 .hello .splash-text {
-    grid-column: 2 / 4;
+    padding-top: 55vh;
 }
 
 .splash-title {
@@ -107,9 +111,8 @@
 .splash-code-text {
     text-align: center;
     min-width: 350px;
-    padding: 0 0.5rem;
-    grid-column: 2 / -1;
     margin: 6vh 0;
+    padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
 }
@@ -228,7 +231,7 @@ p {
 
 @media only screen and (max-width: 600px) {
     .splash {
-        grid-template-columns: 1fr;
+        width: 90%;
     }
     .splash-title {
         font-size: 2.4rem;
@@ -236,7 +239,7 @@ p {
     .splash-subtitle {
         font-size: 1.6rem;
     }
-    .hello {
+    .landing-page {
         background-image: url(../static/districtr-splash-small.png);
     }
     .team-list {
@@ -251,5 +254,40 @@ p {
     }
     .splash-code-details {
         min-height: 600px;
+    }
+}
+
+@supports (display: grid) {
+    .splash {
+        display: grid;
+        grid-template-columns: 2fr 3fr 5fr 3fr 2fr;
+        width: auto;
+    }
+
+    .splash-text {
+        width: auto;
+        margin: 2vh 0;
+
+        grid-column: 3 / 5;
+    }
+
+    .hello .splash-text {
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+        margin: 2vh 0;
+        padding: 0.5rem;
+    }
+
+    .details .splash-text {
+        margin: inherit;
+    }
+
+    .splash-code-text {
+        grid-column: 2 / -1;
+    }
+    @media only screen and (max-width: 600px) {
+        .splash {
+            grid-template-columns: 1fr;
+        }
     }
 }

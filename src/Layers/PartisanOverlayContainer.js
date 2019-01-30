@@ -101,7 +101,7 @@ export default class PartisanOverlayContainer {
             ${
                 [
                     {
-                        label: "Variable",
+                        label: "Variable:",
                         element: select(
                             "layer-style",
                             this.layerStyles,
@@ -109,7 +109,7 @@ export default class PartisanOverlayContainer {
                         )
                     },
                     {
-                        label: "Election",
+                        label: "Election:",
                         element: select(
                             "election-overlay",
                             this.elections,
