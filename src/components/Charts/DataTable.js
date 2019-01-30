@@ -24,7 +24,6 @@ function cell(variable, i, getCellStyle, getValue, formatValue) {
 }
 
 export default (
-    tableName,
     variables,
     parts,
     getVariableName,
@@ -32,7 +31,6 @@ export default (
     getValue,
     formatValue
 ) => html`
-    <h4>${tableName}</h4>
     <table class="data-table">
         <thead>
             ${headerRow(variables.map(v => getVariableName(v)))}

@@ -1,17 +1,19 @@
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
-function getCellStyle() {
-    return `background: #f9f9f9`;
+function getPercent(subgroup, i) {
+    const total = subgroup.total.tally.data[i];
+    return total > 0 ? subgroup.tally.data[i] / total : 0;
 }
 
-export default (subgroups, parts) =>
-    DataTable(
-        "Demographic Balance",
+export default (subgroups, parts) => {
+    const width = `${Math.round(90 / subgroups.length)}%`;
+    return DataTable(
         subgroups,
         parts,
-        subgroup => subgroup.name,
-        getCellStyle,
-        (subgroup, i) => subgroup.tally.data[i] / subgroup.total.tally.data[i],
-        percent => roundToDecimal(percent * 100, 2)
+        subgroup => subgroup.name.split(" ")[0],
+        () => `background: #f9f9f9; width: ${width}`,
+        getPercent,
+        percent => roundToDecimal(percent * 100, 1)
     );
+};

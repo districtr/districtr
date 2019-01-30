@@ -50,11 +50,11 @@ export default class Population {
         this.total.tally.update(feature, color);
     }
     deviations() {
-        return this.total
-            .values()
-            .map(d => Math.abs(d - this.ideal) / this.ideal);
+        return this.total.tally.data.map(
+            d => Math.abs(d - this.ideal) / this.ideal
+        );
     }
     maxDisplayValue() {
-        return Math.max(this.ideal * 2, ...this.total.values());
+        return Math.max(this.ideal * 2, ...this.total.tally.data);
     }
 }
