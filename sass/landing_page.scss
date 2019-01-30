@@ -1,0 +1,55 @@
+@import "base";
+@import "colors";
+@import "headings";
+@import "splash";
+@import "components/places";
+
+.request-new-place {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+    align-items: center;
+}
+
+.call-to-request {
+    font-weight: 400;
+    margin: 0 0.5rem;
+    font-size: 1.8rem;
+}
+
+.sign-in-link {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    font-weight: 400;
+    font-family: $font_family;
+    font-size: 1.2rem;
+    // background: #eee;
+}
+
+.sign-up-link {
+    color: white;
+    margin: 0 1rem;
+}
+
+.sign-up-link:visited {
+    color: white;
+}
+
+.sign-up-link:hover {
+    color: white;
+}
+
+.sign-in-header {
+    position: absolute;
+    width: 40%;
+    right: 0;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 400px) {
+    .sign-in-header {
+        display: none;
+    }
+}

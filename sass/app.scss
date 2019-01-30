@@ -1,0 +1,39 @@
+@import "base";
+@import "colors";
+@import "headings";
+@import "map";
+@import "components/toolbar";
+@import "components/charts";
+@import "components/tooltip";
+@import "components/places";
+@import "components/button";
+@import "splash";
+
+.layer-list {
+    padding: 0 1rem;
+    display: grid;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-gap: 1rem;
+}
+
+.layer-list__item {
+    display: flex;
+    flex-direction: column;
+}
+
+.parameter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+
+.parameter__label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+select {
+    margin: 0.2rem 0;
+    max-width: 200px;
+}

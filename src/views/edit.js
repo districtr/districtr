@@ -10,9 +10,23 @@ import Toolbar from "../components/Toolbar/Toolbar";
 import VotesTab from "../components/VotesTab";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
+import State from "../models/State";
 import { renderNewPlanView } from "./new";
 
-export function renderEditView(createState) {
+export function renderEditView() {
+    const placeJson = localStorage.getItem("place");
+    const problemJson = localStorage.getItem("problem");
+
+    if (!placeJson || !problemJson) {
+        window.location.assign("./new.html");
+    }
+
+    const place = JSON.parse(placeJson);
+    const problem = JSON.parse(problemJson);
+
+    const planId = localStorage.getItem("planId");
+    const assignment = localStorage.getItem("assignment");
+
     const root = document.getElementById("root");
     root.className = "";
     render(
@@ -24,7 +38,7 @@ export function renderEditView(createState) {
     );
     const map = initializeMap("map");
     map.on("load", () => {
-        let state = createState(map);
+        let state = new State(map, place, problem, planId, assignment);
         state.units.onceLoaded(() => {
             // TODO: We can and should use lit-html to start rendering before the layers
             // are all loaded
@@ -123,4 +137,8 @@ function getMenuItems(state) {
             `
         }
     ];
+}
+
+export function main() {
+    renderEditView();
 }
