@@ -1,10 +1,10 @@
 import { html, render } from "lit-html";
 import initializeAuthContext from "../api/auth";
 import { client } from "../api/client";
-import { placesList } from "./new";
+import { hydratedPlacesList } from "../components/PlacesList";
 
 export function renderInitialView() {
-    const listOfPlaces = placesList();
+    const listOfPlaces = hydratedPlacesList();
     render(
         html`
             ${listOfPlaces.render()}

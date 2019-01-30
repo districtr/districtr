@@ -11,11 +11,10 @@ import VotesTab from "../components/VotesTab";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
 import State from "../models/State";
-import { renderNewPlanView } from "./new";
 
-export function renderEditView() {
+function getContextFromStorage() {
     const placeJson = localStorage.getItem("place");
-    const problemJson = localStorage.getItem("problem");
+    const problemJson = localStorage.getItem("districtingProblem");
 
     if (!placeJson || !problemJson) {
         window.location.assign("./new.html");
@@ -25,7 +24,14 @@ export function renderEditView() {
     const problem = JSON.parse(problemJson);
 
     const planId = localStorage.getItem("planId");
-    const assignment = localStorage.getItem("assignment");
+    const assignmentJson = localStorage.getItem("assignment");
+    const assignment = assignmentJson ? JSON.parse(assignmentJson) : null;
+
+    return { place, problem, id: planId, assignment };
+}
+
+export function renderEditView() {
+    const context = getContextFromStorage();
 
     const root = document.getElementById("root");
     root.className = "";
@@ -38,7 +44,7 @@ export function renderEditView() {
     );
     const map = initializeMap("map");
     map.on("load", () => {
-        let state = new State(map, place, problem, planId, assignment);
+        let state = new State(map, context);
         state.units.onceLoaded(() => {
             // TODO: We can and should use lit-html to start rendering before the layers
             // are all loaded
@@ -125,12 +131,7 @@ function getMenuItems(state) {
             render: () => html`
                 <button
                     class="square-button"
-                    @click="${
-                        () => {
-                            state.map.remove();
-                            renderNewPlanView();
-                        }
-                    }"
+                    @click="${() => window.location.assign("./new.html")}"
                 >
                     New Plan
                 </button>
@@ -139,6 +140,4 @@ function getMenuItems(state) {
     ];
 }
 
-export function main() {
-    renderEditView();
-}
+renderEditView();

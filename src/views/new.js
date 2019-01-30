@@ -1,33 +1,30 @@
 import { html, render } from "lit-html";
 import { listPlaces } from "../api/mockApi";
-import PlacesList from "../components/PlacesList";
+import { hydratedPlacesList } from "../components/PlacesList";
 import PlanUploader from "../components/PlanUploader";
 
-export function placesList() {
-    const places = listPlaces();
-    return new PlacesList(places, (place, problem) => {
-        localStorage.setItem("place", place);
-        localStorage.setItem("districtingProblem", problem);
-        localStorage.removeItem("assignment");
-        window.location.assign("./edit.html");
-    });
+function saveContextToStorage({ place, problem, id, assignment }) {
+    localStorage.setItem("place", JSON.stringify(place));
+    localStorage.setItem(
+        "districtingProblem",
+        JSON.stringify(problem || place.districtingProblems[0])
+    );
+    localStorage.setItem("planId", id);
+    localStorage.setItem("assignment", JSON.stringify(assignment));
 }
 
 export function renderNewPlanView() {
-    const listOfPlaces = placesList();
+    const listOfPlaces = hydratedPlacesList();
     const uploadPlan = new PlanUploader(json => {
         const planRecord = JSON.parse(json);
         listPlaces().then(places => {
             const place = places.find(p => p.id === planRecord.placeId);
-            localStorage.setItem("place", place);
-            localStorage.setItem(
-                "districtingProblem",
-                planRecord.problem !== undefined
-                    ? planRecord.problem
-                    : place.districtingProblems[0]
-            );
-            localStorage.setItem("planId", planRecord.id);
-            localStorage.setItem("assignment", planRecord.assignment);
+            saveContextToStorage({
+                place,
+                problem: planRecord.problem,
+                id: planRecord.id,
+                assignment: planRecord.assignment
+            });
             window.location.assign("./edit.html");
         });
     });
@@ -42,6 +39,4 @@ export function renderNewPlanView() {
     );
 }
 
-export function main() {
-    renderNewPlanView();
-}
+renderNewPlanView();

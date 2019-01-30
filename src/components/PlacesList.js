@@ -1,5 +1,16 @@
 import { html } from "lit-html";
 import { until } from "lit-html/directives/until";
+import { listPlaces } from "../api/mockApi";
+
+export function hydratedPlacesList() {
+    const places = listPlaces();
+    return new PlacesList(places, (place, problem) => {
+        localStorage.setItem("place", JSON.stringify(place));
+        localStorage.setItem("districtingProblem", JSON.stringify(problem));
+        // localStorage.removeItem("assignment");
+        window.location.assign("./edit.html");
+    });
+}
 
 export default class PlacesList {
     constructor(places, choosePlace) {

@@ -39,7 +39,7 @@ function getElections(place, problem, layer) {
  * population tally.)
  */
 export default class State {
-    constructor(map, place, problem, id, assignment) {
+    constructor(map, { place, problem, id, assignment }) {
         if (id) {
             this.id = id;
         } else {
