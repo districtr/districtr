@@ -4,30 +4,30 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 pool:
-  vmImage: "Ubuntu 16.04"
+    vmImage: "Ubuntu 16.04"
 
 variables:
-  imageName: "districtr-frontend:$(build.buildId)"
+    imageName: "$(dockerId)/districtr-frontend:$(build.buildId)"
 
 steps:
-  - script: npm install
-    displayName: Install dependencies
+    - script: npm install
+      displayName: Install dependencies
 
-  - script: npm run test-ci
-    displayName: Run tests
+    - script: npm run test-ci
+      displayName: Run tests
 
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: XUnit
-      testResultsFiles: "**/test-results.xml"
-      testRunTitle: "Test results for JavaScript"
+    - task: PublishTestResults@2
+      inputs:
+          testResultsFormat: XUnit
+          testResultsFiles: "**/test-results.xml"
+          testRunTitle: "Test results for JavaScript"
 
-  - script: docker build -f Dockerfile -t $(imageName) .
-    displayName: "Build Docker image"
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
+    - script: docker build -f Dockerfile -t $(imageName) .
+      displayName: "Build Docker image"
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
 
-  - script: |
-      echo $(dockerPassword) | docker login -u $(dockerId) --password-stdin
-      docker push $(imageName)
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
-    displayName: "Push Docker image"
+    - script: |
+          echo $(dockerPassword) | docker login -u $(dockerId) --password-stdin
+          docker push $(imageName)
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
+      displayName: "Push Docker image"

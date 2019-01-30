@@ -29,7 +29,7 @@ export function colorByFraction(subgroup) {
 
 export const demographicColorRules = [
     { name: "Total count", rule: colorByCount },
-    { name: "Proportion", rule: colorByFraction }
+    { name: "Per capita", rule: colorByFraction }
 ];
 
 // Partisan color rules:
