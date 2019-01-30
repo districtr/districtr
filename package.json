@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "test": "mocha test --require @babel/register",
-        "test-ci": "mocha test --require @babel/register --reporter xunit --reporter-options output=test-results.xml",
+        "test-ci": "mocha test --require @babel/register --reporter mocha-junit-reporter",
         "develop": "parcel *.html",
         "build": "parcel build --no-cache *.html --public-url ."
     },
@@ -31,6 +31,7 @@
         "chai": "^4.2.0",
         "eslint": "^5.8.0",
         "mocha": "^5.2.0",
+        "mocha-junit-reporter": "^1.18.0",
         "parcel-bundler": "^1.11.0",
         "sass": "^1.14.3"
     },
