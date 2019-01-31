@@ -2,13 +2,26 @@ import { client } from "../api/client";
 import { createForm, errorMessage, isEmail } from "../components/form";
 import { handleResponse } from "../utils";
 
-function submitRequest({ payload }) {
+function submitRequest(payload) {
     return client.post("/requests/", payload);
 }
 
-function onSubmit({ first, last, email, place, districtTypes, info }) {
+function onSubmit({
+    first,
+    last,
+    email,
+    place,
+    organization,
+    districtTypes,
+    info
+}) {
     submitRequest({
-        user: { first: first.value, last: last.value, email: email.value },
+        user: {
+            first: first.value,
+            last: last.value,
+            email: email.value,
+            organization: organization.value
+        },
         name: place.value,
         districtTypes: districtTypes.value,
         information: info.value
