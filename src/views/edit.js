@@ -10,9 +10,29 @@ import Toolbar from "../components/Toolbar/Toolbar";
 import VotesTab from "../components/VotesTab";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
-import { renderNewPlanView } from "./new";
+import State from "../models/State";
 
-export function renderEditView(createState) {
+function getContextFromStorage() {
+    const placeJson = localStorage.getItem("place");
+    const problemJson = localStorage.getItem("districtingProblem");
+
+    if (!placeJson || !problemJson) {
+        window.location.assign("./new.html");
+    }
+
+    const place = JSON.parse(placeJson);
+    const problem = JSON.parse(problemJson);
+
+    const planId = localStorage.getItem("planId");
+    const assignmentJson = localStorage.getItem("assignment");
+    const assignment = assignmentJson ? JSON.parse(assignmentJson) : null;
+
+    return { place, problem, id: planId, assignment };
+}
+
+export function renderEditView() {
+    const context = getContextFromStorage();
+
     const root = document.getElementById("root");
     root.className = "";
     render(
@@ -24,7 +44,7 @@ export function renderEditView(createState) {
     );
     const map = initializeMap("map");
     map.on("load", () => {
-        let state = createState(map);
+        let state = new State(map, context);
         state.units.onceLoaded(() => {
             // TODO: We can and should use lit-html to start rendering before the layers
             // are all loaded
@@ -111,12 +131,7 @@ function getMenuItems(state) {
             render: () => html`
                 <button
                     class="square-button"
-                    @click="${
-                        () => {
-                            state.map.remove();
-                            renderNewPlanView();
-                        }
-                    }"
+                    @click="${() => window.location.assign("./new.html")}"
                 >
                     New Plan
                 </button>
@@ -124,3 +139,5 @@ function getMenuItems(state) {
         }
     ];
 }
+
+renderEditView();

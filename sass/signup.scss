@@ -1,84 +1,8 @@
 @import "base";
 @import "colors";
+@import "headings";
 @import "form";
-@import "dark";
-
-.signup-page {
-    background: $mggg_very_dark_blue;
-}
 
 .signup-container {
-    background: white;
-    border-radius: 1rem;
-    margin: 1rem auto;
-    min-width: 250px;
-    max-width: 450px;
-    width: 60%;
-}
-
-.signup-content {
-    padding: 1rem 2rem;
-}
-
-.signup-form {
-    background: #f9f9f9;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-}
-
-.signup-form__item {
-    display: flex;
-    flex-direction: column;
-}
-
-.signup-form__double-item {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-}
-
-.signup-form__double-item-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.signup-form .text-input {
-    outline: none;
-    border: 1px solid #aaa;
-    margin: 0 0 1rem;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    font-size: 1.6rem;
-    color: #111;
-    font-family: $font_family;
-}
-
-.signup-form label {
-    font-size: 1rem;
-    color: #777;
-}
-
-.popup-message {
-    width: 100%;
-    top: 1rem;
-    display: block;
-    padding: 1rem;
-    font-size: 1.2rem;
-    margin: 0;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    transition: height ease 100ms;
-}
-
-.alert {
-    background: $districtr_red_dark;
-    color: white;
-}
-
-.hidden {
-    display: none;
+    max-width: 600px;
 }

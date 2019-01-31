@@ -1,4 +1,6 @@
 @import "shadows";
+@import "base";
+@import "colors";
 
 .form-button {
     color: white;
@@ -33,4 +35,122 @@
 .form-button:disabled {
     background: #bdaaa8;
     color: #504746;
+}
+
+.form-page {
+    background: $mggg_very_dark_blue;
+}
+
+.form-container {
+    background: white;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    min-width: 250px;
+    width: 60%;
+}
+
+.form-content {
+    // border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+}
+
+.form-content:last-child {
+    border: none;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.form {
+    background: #f9f9f9;
+    color: #444;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__double-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 1rem 0 0;
+}
+
+.form__double-item:last-child {
+    margin: 0;
+}
+
+.form__double-item-container {
+    margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.text-input {
+    outline: none;
+    border: 1px solid #aaa;
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 1.4rem;
+    color: #111;
+    font-family: $font_family;
+}
+
+.text-area {
+    height: 10rem;
+}
+
+.form-title {
+    margin-bottom: 0;
+}
+
+.form-takeaway {
+    font-weight: 400;
+    margin: 1rem 0 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+.form label {
+    font-size: 1rem;
+}
+
+.form-section-heading {
+    font-weight: 400;
+}
+
+.popup-message {
+    width: 100%;
+    top: 1rem;
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: height ease 100ms;
+}
+
+.alert {
+    background: $districtr_red_dark;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .form-container {
+        width: 90%;
+    }
 }

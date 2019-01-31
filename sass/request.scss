@@ -1,0 +1,13 @@
+@import "base";
+@import "colors";
+@import "headings";
+@import "form";
+@import "sepia";
+
+.request-form-container {
+    max-width: 650px;
+}
+
+.contact-section {
+    background: $sepia_background;
+}
