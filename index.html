@@ -1,187 +1,138 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Districtr</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            media="screen"
-            href="./sass/landing_page.scss"
-        />
-        <link
-            href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
-            integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-            crossorigin="anonymous"
-        />
-    </head>
 
-    <body>
-        <main id="root" class="landing-page">
-            <header class="sign-in-header" id="sign-in-header">
-                <a href="./signin.html" class="sign-in-link">Sign in</a>
-                <a href="./register.html" class="call-to-action"
-                    >Create your account</a
-                >
-            </header>
-            <section class="splash hello">
-                <div class="splash-text">
-                    <h1 class="splash-title"><em>You</em> draw the lines.</h1>
-                    <h2 class="splash-subtitle">
-                        <mark class="districtr-name">Districtr</mark> is a
-                        project of the
-                        <a href="https://www.mggg.org"
-                            >Metric Geometry and Gerrymandering Group</a
-                        >
-                        to
-                        <strong
-                            >put the tools of redistricting into the hands of
-                            the public</strong
-                        >
-                        by providing free, open-source software for
-                        redistricting.
-                    </h2>
-                </div>
-            </section>
-            <section
-                class="start-districting hidden"
-                id="start-districting"
-            ></section>
-            <section class="splash details sepia">
-                <div class="splash-text">
-                    <h2 class="takeaway">
-                        The goal of Districtr is to
-                        <strong
-                            >put the tools of redistricting in the hands of the
-                            public</strong
-                        >, particularly civil rights organizations and community
-                        groups.
-                    </h2>
-                    <p>
-                        Districtr came about from a conversation with
-                        <a href="http://lawyersforcivilrights.org/"
-                            >Lawyers for Civil Rights</a
-                        >, the Boston arm of the national
-                        <a href="https://lawyerscommittee.org/"
-                            >Lawyers’ Committee for Civil Rights Under Law</a
-                        >. LCR was describing their work with community members
-                        in Lowell, MA, who were frustrated about not having a
-                        voice with the city council. In those conversations, a
-                        few places kept coming up.
-                    </p>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Districtr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./sass/landing_page.scss" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous" />
+</head>
 
-                    <p>
-                        Like <mark>Clemente Park</mark>, a much-loved meeting
-                        point for the city’s Asian and Latino populations, which
-                        felt unsafe at night because the city had not provided
-                        lighting in the park.
-                    </p>
+<body>
+  <main id="root" class="landing-page">
+    <header class="sign-in-header" id="sign-in-header">
+      <a href="./signin.html" class="sign-in-link">Sign in</a>
+      <a href="./register.html" class="call-to-action">
+        Create your account</a>
+    </header>
+    <section class="splash hello">
+      <div class="splash-text">
+        <h1 class="splash-title"><em>You</em> draw the lines.</h1>
+        <h2 class="splash-subtitle">
+          <mark class="districtr-name">Districtr</mark> is a project of the
+          <a href="https://www.mggg.org">
+            Metric Geometry and Gerrymandering Group</a>
+          to
+          <strong>put the tools of redistricting into the hands of the
+            public</strong>
+          by providing free, open-source software for redistricting.
+          <a href="./new.html" class="call-to-action">Start drawing districts.</a>
+        </h2>
+      </div>
+    </section>
+    <section class="start-districting hidden" id="start-districting"></section>
+    <section class="splash details sepia">
+      <div class="splash-text">
+        <h2 class="takeaway">
+          The goal of Districtr is to
+          <strong>put the tools of redistricting in the hands of the public</strong>, particularly
+          civil rights organizations and community groups.
+        </h2>
+        <p>
+          Districtr came about from a conversation with
+          <a href="http://lawyersforcivilrights.org/">Lawyers for Civil Rights</a>, the Boston arm
+          of the national
+          <a href="https://lawyerscommittee.org/">Lawyers’ Committee for Civil Rights Under Law</a>.
+          LCR was describing their work with community members in Lowell,
+          MA, who were frustrated about not having a voice with the city
+          council. In those conversations, a few places kept coming up.
+        </p>
 
-                    <p>
-                        And <mark>Lowell High School</mark>, the city’s only
-                        public high school, which serves over 3000 students. The
-                        city announced plans to move it from its traditional
-                        downtown location, but did not invest in substantial
-                        outreach to communities of color about possible new
-                        sites.
-                    </p>
-                    <p class="takeaway">
-                        Our idea was to create a mapping tool whose fundamental
-                        principle is to
-                        <strong>ask the community what matters.</strong>
-                    </p>
-                    <p>
-                        With maps that show relevant landmarks and data, users
-                        can try their own hand at drawing meaningful
-                        demonstration plans.
-                    </p>
-                </div>
-            </section>
-            <section class="splash-code-details dark">
-                <div class="splash-code-text">
-                    <h2 class="takeaway code-title">
-                        Districtr is a free and open-source web app built with
-                        HTML5, CSS, and JavaScript, as well as:
-                    </h2>
-                    <ul class="technologies">
-                        <li class="technologies__item lit-html-link">
-                            <a href="https://lit-html.polymer-project.org/"
-                                >lit-html</a
-                            >
-                        </li>
-                        <li class="technologies__item">
-                            <a href="https://www.mapbox.com/">
-                                <img
-                                    src="./static/Mapbox_Logo_08.svg"
-                                    alt="Mapbox"
-                                    class="mapbox-logo"
-                                />
-                            </a>
-                        </li>
-                        <li class="technologies__item">
-                            <a href="http://sass-lang.com/"
-                                ><img
-                                    src="./static/sass-logo.png"
-                                    alt="Sass"
-                                    class="sass-logo"
-                            /></a>
-                        </li>
-                    </ul>
-                    <div class="github-link takeaway">
-                        <a href="https://github.com/gerrymandr/Districtr">
-                            <img
-                                class="github-logo"
-                                src="./static/GitHub-Mark-Light-120px-plus.png"
-                                alt="GitHub logo"
-                            />
-                            View the source on GitHub.</a
-                        >
-                    </div>
-                    <div class="team">
-                        <h3 class="team__title">Development Team</h3>
-                        <dl class="team-list">
-                            <div class="team-list__item">
-                                <dt>Lead Developer</dt>
-                                <dd>Max Hully</dd>
-                            </div>
-                            <div class="team-list__item">
-                                <dt>Lead Geographer</dt>
-                                <dd>Ruth Buck</dd>
-                            </div>
-                            <div class="team-list__item">
-                                <dt>Contributors</dt>
-                                <dd>
-                                    <ul class="team-members">
-                                        <li class="team-member">
-                                            Anthony Pizzimenti
-                                        </li>
-                                        <li class="team-member">Anna Schall</li>
-                                        <li class="team-member">
-                                            Eion Blanchard
-                                        </li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <script src="./src/views/index.js"></script>
-    </body>
+        <p>
+          Like <mark>Clemente Park</mark>, a much-loved meeting point for the
+          city’s Asian and Latino populations, which felt unsafe at night
+          because the city had not provided lighting in the park.
+        </p>
+
+        <p>
+          And <mark>Lowell High School</mark>, the city’s only public high
+          school, which serves over 3000 students. The city announced plans to
+          move it from its traditional downtown location, but did not invest
+          in substantial outreach to communities of color about possible new
+          sites.
+        </p>
+        <p class="takeaway">
+          Our idea was to create a mapping tool whose fundamental principle is
+          to
+          <strong>ask the community what matters.</strong>
+        </p>
+        <p>
+          With maps that show relevant landmarks and data, users can try their
+          own hand at drawing meaningful demonstration plans.
+        </p>
+      </div>
+    </section>
+    <section class="splash-code-details dark">
+      <div class="splash-code-text">
+        <h2 class="takeaway code-title">
+          Districtr is a free and open-source web app built with HTML5, CSS,
+          and JavaScript, as well as:
+        </h2>
+        <ul class="technologies">
+          <li class="technologies__item lit-html-link">
+            <a href="https://lit-html.polymer-project.org/">lit-html</a>
+          </li>
+          <li class="technologies__item">
+            <a href="https://www.mapbox.com/">
+              <img src="./static/Mapbox_Logo_08.svg" alt="Mapbox" class="mapbox-logo" />
+            </a>
+          </li>
+          <li class="technologies__item">
+            <a href="http://sass-lang.com/"><img src="./static/sass-logo.png" alt="Sass" class="sass-logo" /></a>
+          </li>
+        </ul>
+        <div class="github-link takeaway">
+          <a href="https://github.com/gerrymandr/Districtr">
+            <img class="github-logo" src="./static/GitHub-Mark-Light-120px-plus.png" alt="GitHub logo" />
+            View the source on GitHub.</a>
+        </div>
+        <div class="team">
+          <h3 class="team__title">Development Team</h3>
+          <dl class="team-list">
+            <div class="team-list__item">
+              <dt>Lead Developer</dt>
+              <dd>Max Hully</dd>
+            </div>
+            <div class="team-list__item">
+              <dt>Lead Geographer</dt>
+              <dd>Ruth Buck</dd>
+            </div>
+            <div class="team-list__item">
+              <dt>Contributors</dt>
+              <dd>
+                <ul class="team-members">
+                  <li class="team-member">
+                    Anthony Pizzimenti
+                  </li>
+                  <li class="team-member">Anna Schall</li>
+                  <li class="team-member">
+                    Eion Blanchard
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./src/views/index.js"></script>
+</body>
+
 </html>
