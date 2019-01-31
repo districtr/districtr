@@ -17,8 +17,16 @@ export default function initializeAuthContext(client) {
                 request.headers.Authorization = `Bearer ${token}`;
                 return request;
             };
+
             client.middleware.push(authMiddleware);
+            const user = atob(token.split(".")[1]);
+            if (user) {
+                localStorage.setItem("user", user);
+            }
+
+            return JSON.parse(user);
         }
+        return null;
     });
 }
 
@@ -30,8 +38,7 @@ export function getBearerToken() {
     // Check localStorage for the Bearer token
     return new Promise(resolve => {
         let bearerToken = localStorage.getItem("bearerToken");
-        if (!bearerToken) {
-            localStorage.removeItem("bearerToken");
+        if (bearerToken !== null && bearerToken !== undefined) {
             resolve(bearerToken);
         }
         // If that's missing, get signInToken from localStorage or the URL query parameters

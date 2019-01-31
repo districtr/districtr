@@ -27,4 +27,27 @@ export function renderInitialView() {
 }
 
 renderInitialView();
-initializeAuthContext(client);
+initializeAuthContext(client).then(user => {
+    const signInHeader = document.getElementById("sign-in-header");
+    if (user) {
+        render(
+            html`
+                <p class="sign-in-link">Hello, ${user.first}!</p>
+                <a href="./new.html" class="call-to-action sign-in-link"
+                    >Draw a new plan</a
+                >
+            `,
+            signInHeader
+        );
+    } else {
+        render(
+            html`
+                <a href="./signin.html" class="sign-in-link">Sign in</a>
+                <a href="./register.html" class="call-to-action sign-in-link">
+                    Create your account</a
+                >
+            `,
+            signInHeader
+        );
+    }
+});
