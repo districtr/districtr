@@ -14,11 +14,12 @@
 .call-to-request {
     font-weight: 400;
     margin: 0 0.5rem;
+    padding: 0.5rem;
     font-size: 1.8rem;
 }
 
 .sign-in-link {
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     padding: 0.5rem;
     font-weight: 400;
     font-family: $font_family;
@@ -46,10 +47,15 @@
     margin: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 400px) {
     .sign-in-header {
         display: none;
     }
+}
+
+.hidden {
+    display: none !important;
 }
