@@ -74,17 +74,18 @@
     line-height: 1.6;
 }
 
+.districtr-name,
 .call-to-action,
 .call-to-action:visited {
     background: $districtr_red;
     color: white;
 
     border-radius: 0.4rem;
-    padding: 0.5rem;
+    // padding: 0.2rem 0.4rem;
+    padding: 0.1rem 0.4rem;
 
     font-weight: 400;
     font-family: $font_family;
-    font-size: 1.2rem;
 }
 
 .call-to-action:hover,
@@ -159,14 +160,6 @@
 .feature__image {
     display: block;
     margin: 1rem;
-}
-
-.districtr-name {
-    background: $districtr_red;
-    padding: 0.1rem 0.4rem;
-    border-radius: 0.4rem;
-    // background: #ff6f4b;
-    color: white;
 }
 
 p {
