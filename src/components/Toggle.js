@@ -6,7 +6,7 @@ export function toggle(label, checked, onChange) {
             <input
                 type="checkbox"
                 ?checked="${checked}"
-                @input="${e => onChange(e.target.checked)}"
+                @change="${e => onChange(e.target.checked)}"
             />
             ${label}
         </label>

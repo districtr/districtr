@@ -79,7 +79,7 @@ const BrushLock = (locked, toggle) => html`
             name="brush-lock"
             value="brush-lock"
             ?checked=${locked}
-            @input=${toggle}
+            @change=${toggle}
         />
         Lock already-painted units
     </label>

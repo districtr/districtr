@@ -9,50 +9,42 @@ const tabs = (tabs, activeTab, onChange) => {
     }
     return html`
         <ul class="tabs">
-            ${
-                tabs.map(
-                    tab => html`
-                        <li>
-                            <input
-                                type="radio"
-                                name="tabs"
-                                value="${tab.id}"
-                                ?checked="${tab.id == activeTab}"
-                                @input="${() => onChange({ id: tab.id })}"
-                            />
-                            <div class="tabs__tab">${tab.name}</div>
-                        </li>
-                    `
-                )
-            }
+            ${tabs.map(
+                tab => html`
+                    <li>
+                        <input
+                            type="radio"
+                            name="tabs"
+                            value="${tab.id}"
+                            ?checked="${tab.id == activeTab}"
+                            @change="${() => onChange({ id: tab.id })}"
+                        />
+                        <div class="tabs__tab">${tab.name}</div>
+                    </li>
+                `
+            )}
         </ul>
     `;
 };
 
 export default function Tabs(tabComponents, state, dispatch) {
     return html`
-        ${
-            tabs(tabComponents, state.tabs.activeTab, info =>
-                dispatch(actions.changeTab(info))
-            )
-        }
-        ${
-            repeat(
-                tabComponents,
-                tab => tab.id,
-                tab => html`
-                    <div
-                        class=${
-                            classMap({
-                                tab__body: true,
-                                active: tab.id === state.tabs.activeTab
-                            })
-                        }
-                    >
-                        ${tab.render(state, dispatch)}
-                    </div>
-                `
-            )
-        }
+        ${tabs(tabComponents, state.tabs.activeTab, info =>
+            dispatch(actions.changeTab(info))
+        )}
+        ${repeat(
+            tabComponents,
+            tab => tab.id,
+            tab => html`
+                <div
+                    class=${classMap({
+                        tab__body: true,
+                        active: tab.id === state.tabs.activeTab
+                    })}
+                >
+                    ${tab.render(state, dispatch)}
+                </div>
+            `
+        )}
     `;
 }

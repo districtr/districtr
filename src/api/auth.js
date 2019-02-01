@@ -41,7 +41,7 @@ export function getBearerToken() {
         if (bearerToken !== null && bearerToken !== undefined) {
             resolve(bearerToken);
         }
-        // If that's missing, get signInToken from localStorage or the URL query parameters
+        // If that's missing, get signInToken from the URL query parameters
         // and then POST that to /signin/ to get a Bearer token
         const signInToken = getSignInToken();
         if (signInToken !== null && signInToken !== undefined) {
@@ -55,7 +55,6 @@ export function getBearerToken() {
 const handlers = {
     201: resp => resp.json(),
     500: () => {
-        localStorage.removeItem("signInToken");
         localStorage.removeItem("bearerToken");
     }
 };
@@ -74,18 +73,16 @@ export function fetchBearerTokenAndSave(signInToken) {
 }
 
 function getSignInToken() {
-    let signInToken = localStorage.getItem("signInToken");
-    if (signInToken === null) {
-        signInToken = getSignInTokenFromURL(window.location.search);
-        if (
-            signInToken !== null &&
-            isString(signInToken) &&
-            signInToken.length > 0
-        ) {
-            localStorage.setItem("signInToken", signInToken);
-        }
+    let signInToken = getSignInTokenFromURL(window.location.search);
+    if (
+        signInToken !== null &&
+        isString(signInToken) &&
+        signInToken.length > 0
+    ) {
+        return signInToken;
+    } else {
+        return null;
     }
-    return signInToken;
 }
 
 function getSignInTokenFromURL(search) {
