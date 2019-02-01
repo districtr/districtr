@@ -1,5 +1,6 @@
 import { registerUser } from "../api/auth";
 import { createForm, errorMessage, isEmail } from "../components/form";
+import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function onSubmit({ first, last, email }) {
@@ -14,10 +15,7 @@ function onSubmit({ first, last, email }) {
                     document.getElementById("form").remove();
                     document.getElementById("email-message").innerText =
                         "Success! We sent you an email with a link to sign in.";
-                    window.setTimeout(
-                        () => window.location.assign("./index.html"),
-                        2000
-                    );
+                    window.setTimeout(() => navigateTo("/"), 2000);
                 },
                 default: () => {
                     errorMessage(

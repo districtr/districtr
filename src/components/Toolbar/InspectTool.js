@@ -27,24 +27,18 @@ export function TooltipContent(feature, columns) {
     }
     return html`
         <dl class="tooltip-data">
-            ${
-                columns.map(
-                    column =>
-                        html`
-                            <div class="tooltip-data__row">
-                                <dt>${formatColumnName(column.name)}</dt>
-                                <dd>${column.getValue(feature)}</dd>
-                                ${
-                                    column.getFraction !== undefined
-                                        ? TooltipBar(
-                                              column.getFraction(feature)
-                                          )
-                                        : ""
-                                }
-                            </div>
-                        `
-                )
-            }
+            ${columns.map(
+                column =>
+                    html`
+                        <div class="tooltip-data__row">
+                            <dt>${formatColumnName(column.name)}</dt>
+                            <dd>${column.formatValue(feature)}</dd>
+                            ${column.getFraction !== undefined
+                                ? TooltipBar(column.getFraction(feature))
+                                : ""}
+                        </div>
+                    `
+            )}
         </dl>
     `;
 }
@@ -93,12 +87,10 @@ class Tooltip extends Hover {
             html`
                 <aside
                     class=${classMap({ tooltip: true, hidden: !this.visible })}
-                    style=${
-                        styleMap({
-                            left: `${this.x + 8}px`,
-                            top: `${this.y + 15}px`
-                        })
-                    }
+                    style=${styleMap({
+                        left: `${this.x + 8}px`,
+                        top: `${this.y + 15}px`
+                    })}
                 >
                     ${TooltipContent(this.hoveredFeature, this.columns)}
                 </aside>

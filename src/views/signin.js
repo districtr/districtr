@@ -5,6 +5,7 @@ import {
     isEmail,
     popupMessage
 } from "../components/form";
+import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 const handlers = {
@@ -12,7 +13,7 @@ const handlers = {
         document.getElementById("form").remove();
         document.getElementById("email-message").innerText =
             "Success! We sent you an email with a link to sign in.";
-        window.setTimeout(() => window.location.assign("./index.html"), 2000);
+        window.setTimeout(() => navigateTo("/"), 2000);
     },
     404: () => {
         popupMessage({

@@ -2,6 +2,7 @@ import { html, render } from "lit-html";
 import { listPlaces } from "../api/mockApi";
 import { hydratedPlacesList } from "../components/PlacesList";
 import PlanUploader from "../components/PlanUploader";
+import { navigateTo } from "../routes";
 
 function saveContextToStorage({ place, problem, id, assignment }) {
     localStorage.setItem("place", JSON.stringify(place));
@@ -25,7 +26,7 @@ export function renderNewPlanView() {
                 id: planRecord.id,
                 assignment: planRecord.assignment
             });
-            window.location.assign("./edit.html");
+            navigateTo("/edit");
         });
     });
     render(

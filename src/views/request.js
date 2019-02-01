@@ -1,5 +1,6 @@
 import { client } from "../api/client";
 import { createForm, errorMessage, isEmail } from "../components/form";
+import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function submitRequest(payload) {
@@ -34,10 +35,7 @@ function onSubmit({
                     message.innerText =
                         "Success! You request has been submitted.";
                     message.classList.remove("hidden");
-                    window.setTimeout(
-                        () => window.location.assign("./index.html"),
-                        2000
-                    );
+                    window.setTimeout(() => navigateTo("/"), 2000);
                 },
                 default: () => {
                     errorMessage(

@@ -11,13 +11,14 @@ import VotesTab from "../components/VotesTab";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
 import State from "../models/State";
+import { navigateTo } from "../routes";
 
 function getContextFromStorage() {
     const placeJson = localStorage.getItem("place");
     const problemJson = localStorage.getItem("districtingProblem");
 
     if (!placeJson || !problemJson) {
-        window.location.assign("./new.html");
+        navigateTo("./new");
     }
 
     const place = JSON.parse(placeJson);
@@ -45,11 +46,7 @@ export function renderEditView() {
     const map = initializeMap("map");
     map.on("load", () => {
         let state = new State(map, context);
-        state.units.onceLoaded(() => {
-            // TODO: We can and should use lit-html to start rendering before the layers
-            // are all loaded
-            toolbarView(state);
-        });
+        toolbarView(state);
     });
 }
 
@@ -82,8 +79,10 @@ function getTabs(state) {
     return tabs;
 }
 
-export default function toolbarView(state) {
+function getTools(state) {
     const brush = new Brush(state.units, 20, 0);
+    brush.on("colorfeature", state.update);
+    brush.on("colorend", state.render);
 
     let tools = [
         new PanTool(),
@@ -95,7 +94,11 @@ export default function toolbarView(state) {
         ])
     ];
     tools[0].activate();
+    return tools;
+}
 
+export default function toolbarView(state) {
+    const tools = getTools(state);
     const tabs = getTabs(state);
 
     const toolbar = new Toolbar(tools, "pan", tabs, getMenuItems(state), {
@@ -111,9 +114,6 @@ export default function toolbarView(state) {
     toolbar.render();
 
     state.subscribe(toolbar.render);
-
-    brush.on("colorfeature", state.update);
-    brush.on("colorend", state.render);
 }
 
 // It's not a great design to have these non-tool items in the row of tool icons.
@@ -131,7 +131,7 @@ function getMenuItems(state) {
             render: () => html`
                 <button
                     class="square-button"
-                    @click="${() => window.location.assign("./new.html")}"
+                    @click="${() => navigateTo("/new")}"
                 >
                     New Plan
                 </button>
