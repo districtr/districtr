@@ -1,7 +1,9 @@
 import { html, render } from "lit-html";
 import { classMap } from "lit-html/directives/class-map";
 import { styleMap } from "lit-html/directives/style-map";
-import { Hover } from "../../Map/Hover";
+import { HoverWithRadius } from "../../Map/Hover";
+import { numberWithCommas, sum } from "../../utils";
+import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
 
 export function TooltipBar(percent) {
@@ -21,31 +23,56 @@ function formatColumnName(name) {
     }
 }
 
-export function TooltipContent(feature, columns) {
-    if (feature === null || feature === undefined) {
+/**
+ * Search through `columns` until we find one with a `total` attribute (this
+ * is the case when a column is a `PopulationSubgroup`). Then use that
+ * total column to compute the total population of the features, so that
+ * we can compute per-capita values for the population subgroup columns.
+ * @param {GeoJSON.Feature[]} features
+ * @param {NumericalColumn[]} columns
+ */
+function getTotal(features, columns) {
+    for (const column of columns) {
+        if (column.total !== undefined) {
+            return sum(features.map(f => columns[0].total.getValue(f)));
+        }
+    }
+    return null;
+}
+
+/**
+ * Render the content of the tooltip element that follows the mouse around.
+ * @param {GeoJSON.Feature[]} features
+ * @param {NumericalColumn[]} columns
+ */
+export function TooltipContent(features, columns) {
+    if (features === null || features === undefined) {
         return "";
     }
+    const total = getTotal(features, columns);
     return html`
         <dl class="tooltip-data">
-            ${columns.map(
-                column =>
-                    html`
-                        <div class="tooltip-data__row">
-                            <dt>${formatColumnName(column.name)}</dt>
-                            <dd>${column.formatValue(feature)}</dd>
-                            ${column.getFraction !== undefined
-                                ? TooltipBar(column.getFraction(feature))
-                                : ""}
-                        </div>
-                    `
-            )}
+            ${columns.map(column => {
+                const value = sum(features.map(f => column.getValue(f)));
+                return html`
+                    <div class="tooltip-data__row">
+                        <dt>${formatColumnName(column.name)}</dt>
+                        <dd>
+                            ${numberWithCommas(value)}
+                        </dd>
+                        ${column.total !== undefined
+                            ? TooltipBar(value / total)
+                            : ""}
+                    </div>
+                `;
+            })}
         </dl>
     `;
 }
 
-class Tooltip extends Hover {
+class Tooltip extends HoverWithRadius {
     constructor(layer, columns) {
-        super(layer, 2);
+        super(layer, 1);
 
         this.columns = columns;
 
@@ -66,10 +93,16 @@ class Tooltip extends Hover {
         this.x = e.point.x;
         this.y = e.point.y;
 
-        if (this.hoveredFeature === null) {
-            this.visible = false;
+        if (this.hoveredFeatures.length === 0) {
+            setTimeout(() => this.hideIfNoFeatures(), 60);
         } else {
             this.visible = true;
+        }
+        this.render();
+    }
+    hideIfNoFeatures() {
+        if (this.hoveredFeatures.length === 0) {
+            this.visible = false;
         }
         this.render();
     }
@@ -92,7 +125,7 @@ class Tooltip extends Hover {
                         top: `${this.y + 15}px`
                     })}
                 >
-                    ${TooltipContent(this.hoveredFeature, this.columns)}
+                    ${TooltipContent(this.hoveredFeatures, this.columns)}
                 </aside>
             `,
             this.container
@@ -110,6 +143,7 @@ export default class InspectTool extends Tool {
             `
         );
         this.tooltip = new Tooltip(units, columns);
+        this.options = new InspectToolOptions(this.tooltip);
     }
     activate() {
         super.activate();
@@ -118,5 +152,28 @@ export default class InspectTool extends Tool {
     deactivate() {
         super.deactivate();
         this.tooltip.deactivate();
+    }
+}
+
+class InspectToolOptions {
+    constructor(inspectTool, renderToolbar) {
+        this.inspectTool = inspectTool;
+        this.renderToolbar = renderToolbar;
+        this.changeRadius = this.changeRadius.bind(this);
+    }
+    changeRadius(e) {
+        e.stopPropagation();
+        let value = parseInt(e.target.value);
+        if (this.inspectTool.radius != value) {
+            this.inspectTool.radius = value;
+        }
+        this.renderToolbar();
+    }
+    render() {
+        return html`
+            ${BrushSlider(this.inspectTool.radius, this.changeRadius, {
+                title: "Spotlight Size"
+            })}
+        `;
     }
 }

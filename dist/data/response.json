@@ -60,6 +60,45 @@
                 "relevantSubgroups": [0, 2, 4]
             }
         ],
+        "landmarks": {
+            "id": "landmarks",
+            "type": "fill",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [
+                                    [
+                                        [-71.3211798, 42.6387895],
+                                        [-71.321032, 42.63873],
+                                        [-71.3208178, 42.638387],
+                                        [-71.3213012, 42.6383255],
+                                        [-71.3213378, 42.6381281],
+                                        [-71.3229971, 42.6383757],
+                                        [-71.3227895, 42.6391669],
+                                        [-71.3211798, 42.6387895]
+                                    ]
+                                ]
+                            },
+                            "properties": {
+                                "name": "Clemente Park",
+                                "leisure": "park",
+                                "short_description": "",
+                                "representative_point": [-71.321937, 42.6385585]
+                            }
+                        }
+                    ]
+                }
+            },
+            "paint": {
+                "fill-color": "#96e66b"
+            }
+        },
+
         "tilesets": [
             {
                 "type": "fill",
