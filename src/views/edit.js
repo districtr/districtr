@@ -1,13 +1,11 @@
 import { html, render } from "lit-html";
 import ChartsList from "../components/Charts/ChartsList";
 import LayersTab from "../components/LayersTab";
-import RaceTab from "../components/RaceTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import Toolbar from "../components/Toolbar/Toolbar";
-import VotesTab from "../components/VotesTab";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
 import State from "../models/State";
@@ -53,30 +51,16 @@ export function renderEditView() {
 function getTabs(state) {
     const charts = {
         id: "charts",
-        name: "Population",
-        render: () =>
+        name: "District Data",
+        render: (uiState, dispatch) =>
             html`
-                ${ChartsList(state)}
+                ${ChartsList(state, uiState, dispatch)}
             `
     };
 
     const layersTab = new LayersTab("layers", "Layers", state);
 
-    let tabs = [charts];
-
-    if (state.elections.length > 0) {
-        tabs.push(new VotesTab("votes", "Votes", state.elections, state.parts));
-    }
-
-    if (state.population.subgroups.length > 0) {
-        tabs.push(
-            new RaceTab("race", "Demographics", state.population, state.parts)
-        );
-    }
-
-    tabs.push(layersTab);
-
-    return tabs;
+    return [charts, layersTab];
 }
 
 function getTools(state) {
@@ -108,6 +92,11 @@ export default function toolbarView(state) {
         },
         subgroups: {
             activeSubgroupIndices: state.problem.relevantSubgroups || [0, 1]
+        },
+        charts: {
+            population: { isOpen: true },
+            racialBalance: { isOpen: false },
+            electionResults: { isOpen: false }
         }
     });
 

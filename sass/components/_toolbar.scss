@@ -105,7 +105,7 @@ legend {
 .tabs__tab {
     padding: 0.5rem 1rem;
     border: solid #aaa 1px;
-    border-left: none;
+    border-left: solid #ffffff00 1px;
     width: 100%;
     text-align: center;
     cursor: pointer;
@@ -120,7 +120,7 @@ legend {
 }
 
 li:last-child .tabs__tab {
-    border-right: none;
+    border-right: solid #ffffff00 1px;
 }
 
 .tabs li {
@@ -149,7 +149,7 @@ li:last-child .tabs__tab {
 }
 
 input:checked ~ .tabs__tab {
-    border-bottom: 0;
+    border-bottom: solid #ffffff00 1px;
     font-weight: 600;
     background: #fff;
     box-shadow: none;

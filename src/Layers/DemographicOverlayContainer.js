@@ -23,13 +23,13 @@ export default class DemographicOverlayContainer {
             layer =>
                 new DemographicOverlay(
                     layer,
-                    population.total,
+                    this.subgroups[this.currentSubgroupIndex],
                     this.colorRules[this.currentColorRuleIndex].rule
                 )
         );
 
         this.visibilityToggle = toggle(
-            "Show demographics layer",
+            "Visualize demographics",
             false,
             visible => {
                 if (visible) {
@@ -72,36 +72,26 @@ export default class DemographicOverlayContainer {
         return html`
             <h4>Demographics</h4>
             ${this.visibilityToggle}
-            ${
-                Parameter({
-                    label: "Variable:",
-                    element: select(
-                        "subgroup",
-                        this.subgroups,
-                        this.changeSubgroup
-                    )
-                })
-            }
-            ${
-                Parameter({
-                    label: "Color by",
-                    element: select(
-                        "demographic-color-rule",
-                        this.colorRules,
-                        this.changeColorRule
-                    )
-                })
-            }
-            ${
-                Parameter({
-                    label: "Display as",
-                    element: select(
-                        "demographic-layer-type",
-                        this.layers.map(layer => getLayerDescription(layer)),
-                        this.changeLayer
-                    )
-                })
-            }
+            ${Parameter({
+                label: "Variable:",
+                element: select("subgroup", this.subgroups, this.changeSubgroup)
+            })}
+            ${Parameter({
+                label: "Color by",
+                element: select(
+                    "demographic-color-rule",
+                    this.colorRules,
+                    this.changeColorRule
+                )
+            })}
+            ${Parameter({
+                label: "Display as",
+                element: select(
+                    "demographic-layer-type",
+                    this.layers.map(layer => getLayerDescription(layer)),
+                    this.changeLayer
+                )
+            })}
         `;
     }
 }
