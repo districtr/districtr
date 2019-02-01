@@ -13,7 +13,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    // border-bottom: 1px solid #ddd;
 }
 
 .header-with-toggle__icon {
@@ -51,12 +50,10 @@
 .reveal {
     transition: all 100ms ease;
     max-height: 100vh;
-    border: none;
     overflow: hidden;
 }
 
 .reveal-hidden {
     opacity: 0;
     max-height: 0px;
-    border-top: 1px solid #ddd;
 }
