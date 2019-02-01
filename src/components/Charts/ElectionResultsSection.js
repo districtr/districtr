@@ -1,7 +1,7 @@
 import { html } from "lit-html";
-import { actions } from "../reducers/elections";
-import ElectionResults from "./Charts/ElectionResults";
-import select from "./select";
+import { actions } from "../../reducers/elections";
+import select from "../select";
+import ElectionResults from "./ElectionResults";
 
 export default function ElectionResultsSection(
     elections,

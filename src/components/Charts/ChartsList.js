@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 import { actions } from "../../reducers/charts";
-import ElectionResultsSection from "../ElectionResultsSection";
-import HighlightUnassigned from "../HighlightUnassigned";
-import RacialBalanceTable from "../RacialBalanceTable";
 import RevealSection from "../RevealSection";
+import ElectionResultsSection from "./ElectionResultsSection";
+import HighlightUnassigned from "./HighlightUnassigned";
 import populationBarChart from "./PopulationBarChart";
 import populationDeviation from "./PopulationDeviation";
+import RacialBalanceTable from "./RacialBalanceTable";
 import unassignedPopulation from "./UnassignedPopulation";
 
 export default (
