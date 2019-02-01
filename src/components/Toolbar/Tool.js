@@ -15,18 +15,19 @@ export default class Tool {
     }
     render(selectTool) {
         return html`
-    <div class="icon-list__item" title="${this.name}">
-    <label>${this.name}</label>
-    <input
-        type="radio"
-        id="tool-${this.id}"
-        name="tool"
-        value="${this.id}"
-        @input=${() => selectTool(this.id)}
-        ?checked=${this.active}
-    >
-    <div class="icon-list__item__radio"></div>
-    ${this.icon}
-    </div>`;
+            <div class="icon-list__item" title="${this.name}">
+                <label>${this.name}</label>
+                <input
+                    type="radio"
+                    id="tool-${this.id}"
+                    name="tool"
+                    value="${this.id}"
+                    @change=${() => selectTool(this.id)}
+                    ?checked=${this.active}
+                />
+                <div class="icon-list__item__radio"></div>
+                ${this.icon}
+            </div>
+        `;
     }
 }
