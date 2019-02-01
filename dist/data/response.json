@@ -595,13 +595,6 @@
             },
             "subgroups": [
                 {
-                    "key": "HISP_POP",
-                    "name": "2010 Hispanic or Latino population",
-                    "sum": 719400,
-                    "min": 0,
-                    "max": 3605
-                },
-                {
                     "key": "WHITE_POP",
                     "name": "2010 White alone population",
                     "sum": 10078106,
@@ -614,6 +607,13 @@
                     "sum": 1326671,
                     "min": 0,
                     "max": 3222
+                },
+                {
+                    "key": "HISP_POP",
+                    "name": "2010 Hispanic or Latino population",
+                    "sum": 719400,
+                    "min": 0,
+                    "max": 3605
                 },
                 {
                     "key": "NATIVE_POP",
