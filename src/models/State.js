@@ -1,4 +1,5 @@
 import { districtColors } from "../colors";
+import { Landmarks } from "../components/Landmark";
 import { addLayers } from "../Map/map";
 import Election from "./Election";
 import IdColumn from "./IdColumn";
@@ -72,6 +73,10 @@ export default class State {
         this.unitsBorders = unitsBorders;
         this.layers = [units, points];
         this.map = map;
+
+        if (place.landmarks) {
+            this.landmarks = new Landmarks(map, place.landmarks);
+        }
     }
     update(feature, part) {
         this.population.update(feature, part);

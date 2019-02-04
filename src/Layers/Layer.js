@@ -32,7 +32,7 @@ export default class Layer {
     constructor(map, layer, adder) {
         this.map = map;
         this.id = layer.id;
-        this.sourceId = layer.source;
+        this.sourceId = isString(layer.source) ? layer.source : layer.id;
         this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
 

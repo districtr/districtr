@@ -11,8 +11,8 @@ import { HoverWithRadius } from "./Hover";
  * @param {function} content - function that returns the tooltip content
  */
 export default class Tooltip extends HoverWithRadius {
-    constructor(layer, content) {
-        super(layer, 1);
+    constructor(layer, content, radius = 1) {
+        super(layer, radius);
 
         this.content = content;
 
@@ -20,11 +20,9 @@ export default class Tooltip extends HoverWithRadius {
         layer.map.getContainer().appendChild(this.container);
     }
     activate() {
-        this.layer.map.getCanvas().classList.add("inspect-tool");
         super.activate();
     }
     deactivate() {
-        this.layer.map.getCanvas().classList.remove("inspect-tool");
         super.deactivate();
     }
     onMouseMove(e) {
@@ -57,8 +55,8 @@ export default class Tooltip extends HoverWithRadius {
                 <aside
                     class=${classMap({ tooltip: true, hidden: !this.visible })}
                     style=${styleMap({
-                        left: `${this.x + 8}px`,
-                        top: `${this.y + 15}px`
+                        left: `${this.x + 4}px`,
+                        top: `${this.y + 8}px`
                     })}
                 >
                     ${this.content(this.hoveredFeatures)}

@@ -79,15 +79,18 @@ export default class InspectTool extends Tool {
         );
         const renderTooltipContent = features =>
             TooltipContent(features, columns);
+        this.layer = units;
         this.tooltip = new Tooltip(units, renderTooltipContent);
         this.options = new InspectToolOptions(this.tooltip);
     }
     activate() {
         super.activate();
+        this.layer.map.getCanvas().classList.add("inspect-tool");
         this.tooltip.activate();
     }
     deactivate() {
         super.deactivate();
+        this.layer.map.getCanvas().classList.remove("inspect-tool");
         this.tooltip.deactivate();
     }
 }

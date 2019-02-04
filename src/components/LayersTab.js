@@ -10,6 +10,10 @@ export default class LayersTab {
         this.name = name;
         this.partPlural = state.problem.plural;
 
+        this.landmarks = state.landmarks
+            ? () => toggle(`Show landmarks`, true, state.landmarks.handleToggle)
+            : null;
+
         this.toggleDistricts = () =>
             toggle(
                 `Show ${state.problem.plural.toLowerCase()}`,
@@ -48,12 +52,18 @@ export default class LayersTab {
                     ${this.demographicOverlays.render()}
                 </div>
                 <div class="layer-list__item">
-                    ${
-                        this.partisanOverlays
-                            ? this.partisanOverlays.render()
-                            : ""
-                    }
+                    ${this.partisanOverlays
+                        ? this.partisanOverlays.render()
+                        : ""}
                 </div>
+                ${this.landmarks !== null
+                    ? html`
+                          <div class="layer-list__item">
+                              <h4>Landmarks</h4>
+                              ${this.landmarks()}
+                          </div>
+                      `
+                    : ""}
             </section>
         `;
     }

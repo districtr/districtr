@@ -29,7 +29,7 @@ export default class DemographicOverlayContainer {
         );
 
         this.visibilityToggle = toggle(
-            "Visualize demographics",
+            "Show demographics data layer",
             false,
             visible => {
                 if (visible) {
