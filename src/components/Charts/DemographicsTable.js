@@ -26,14 +26,27 @@ function getCellStyle(value) {
     return `background: ${background}; color: ${color}`;
 }
 
+function getCell(subgroup, part, width) {
+    const value =
+        part !== null
+            ? getPercent(subgroup, part.id)
+            : subgroup.sum / subgroup.total.sum;
+    return {
+        content: `${roundToDecimal(value * 100, 1)}%`,
+        style: getCellStyle(value) + `; width: ${width}`
+    };
+}
+
 export default (subgroups, parts) => {
-    const width = `${Math.round(90 / subgroups.length)}%`;
-    return DataTable(
-        subgroups,
-        parts,
-        subgroup => subgroup.name.split(" ")[0],
-        value => getCellStyle(value) + `; width: ${width}`,
-        getPercent,
-        percent => roundToDecimal(percent * 100, 1)
-    );
+    const width = `${Math.round(81 / subgroups.length)}%`;
+    const headers = subgroups.map(subgroup => subgroup.name.split(" ")[0]);
+    let rows = parts.map(part => ({
+        label: part.renderLabel(),
+        entries: subgroups.map(subgroup => getCell(subgroup, part, width))
+    }));
+    rows.push({
+        label: "Overall",
+        entries: subgroups.map(subgroup => getCell(subgroup, null, width))
+    });
+    return DataTable(headers, rows);
 };

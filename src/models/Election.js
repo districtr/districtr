@@ -4,7 +4,7 @@ import Tally from "./Tally";
 export default class Election {
     constructor(name, voteTotals, numberOfParts) {
         this.partiesToColumns = voteTotals.reduce(
-            (table, column) => ({ ...table, [column.name]: column.key }),
+            (table, column) => ({ ...table, [column.name]: column }),
             {}
         );
         this.parties = voteTotals.map(column => column.name);
@@ -40,7 +40,7 @@ export default class Election {
     }
     getVotes(feature, party) {
         // Use float in case the numbers have been interpolated
-        return parseFloat(feature.properties[this.partiesToColumns[party]]);
+        return parseFloat(feature.properties[this.partiesToColumns[party].key]);
     }
     totalVotes(feature) {
         return sum(this.parties.map(party => this.getVotes(feature, party)));
@@ -74,7 +74,7 @@ export default class Election {
         ];
     }
     voteCountAsMapboxExpression(party) {
-        return ["to-number", ["get", this.partiesToColumns[party]]];
+        return ["to-number", ["get", this.partiesToColumns[party].key]];
     }
     voteShareAsMapboxExpression(party) {
         let total = ["+"];
@@ -100,6 +100,26 @@ export default class Election {
         return this.votes[party].data[part] / total;
     }
     getColumnName(party) {
-        return this.partiesToColumns[party];
+        return this.partiesToColumns[party].key;
+    }
+    /**
+     * TODO
+     * @param {string} party
+     */
+    overallVoteShare(party) {
+        return this.overallVotes(party) / this.overallTotalVotes();
+    }
+    /**
+     * TODO
+     * @param {string} party
+     */
+    overallVotes(party) {
+        return this.partiesToColumns[party].sum;
+    }
+    /**
+     * TODO
+     */
+    overallTotalVotes() {
+        return sum(this.parties.map(party => this.overallVotes(party)));
     }
 }
