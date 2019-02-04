@@ -47,7 +47,6 @@ export default class State {
         } else {
             this.id = generateId(8);
         }
-
         this.placeId = place.id;
 
         this.initializeMapState(map, place);

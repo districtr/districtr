@@ -57,7 +57,7 @@
                 "numberOfParts": 9,
                 "office": "City Council",
                 "plural": "City Council Districts",
-                "relevantSubgroups": [0, 2, 4]
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "landmarks": {

@@ -16,8 +16,8 @@ function getContextFromStorage() {
     const placeJson = localStorage.getItem("place");
     const problemJson = localStorage.getItem("districtingProblem");
 
-    if (!placeJson || !problemJson) {
-        navigateTo("./new");
+    if (placeJson === null || problemJson === null) {
+        navigateTo("/new");
     }
 
     const place = JSON.parse(placeJson);
