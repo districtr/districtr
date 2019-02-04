@@ -1,7 +1,5 @@
-import { html, render } from "lit-html";
-import { classMap } from "lit-html/directives/class-map";
-import { styleMap } from "lit-html/directives/style-map";
-import { HoverWithRadius } from "../../Map/Hover";
+import { html } from "lit-html";
+import Tooltip from "../../Map/Tooltip";
 import { numberWithCommas, sum } from "../../utils";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
@@ -70,69 +68,6 @@ export function TooltipContent(features, columns) {
     `;
 }
 
-class Tooltip extends HoverWithRadius {
-    constructor(layer, columns) {
-        super(layer, 1);
-
-        this.columns = columns;
-
-        this.container = document.createElement("div");
-        layer.map.getContainer().appendChild(this.container);
-    }
-    activate() {
-        this.layer.map.getCanvas().classList.add("inspect-tool");
-        super.activate();
-    }
-    deactivate() {
-        this.layer.map.getCanvas().classList.remove("inspect-tool");
-        super.deactivate();
-    }
-    onMouseMove(e) {
-        super.onMouseMove(e);
-
-        this.x = e.point.x;
-        this.y = e.point.y;
-
-        if (this.hoveredFeatures.length === 0) {
-            setTimeout(() => this.hideIfNoFeatures(), 60);
-        } else {
-            this.visible = true;
-        }
-        this.render();
-    }
-    hideIfNoFeatures() {
-        if (this.hoveredFeatures.length === 0) {
-            this.visible = false;
-        }
-        this.render();
-    }
-    onMouseLeave() {
-        super.onMouseLeave();
-        this.visible = false;
-        this.render();
-    }
-    setColumns(columns) {
-        this.columns = columns;
-        this.render();
-    }
-    render() {
-        render(
-            html`
-                <aside
-                    class=${classMap({ tooltip: true, hidden: !this.visible })}
-                    style=${styleMap({
-                        left: `${this.x + 8}px`,
-                        top: `${this.y + 15}px`
-                    })}
-                >
-                    ${TooltipContent(this.hoveredFeatures, this.columns)}
-                </aside>
-            `,
-            this.container
-        );
-    }
-}
-
 export default class InspectTool extends Tool {
     constructor(units, columns) {
         super(
@@ -142,7 +77,9 @@ export default class InspectTool extends Tool {
                 <i class="material-icons">search</i>
             `
         );
-        this.tooltip = new Tooltip(units, columns);
+        const renderTooltipContent = features =>
+            TooltipContent(features, columns);
+        this.tooltip = new Tooltip(units, renderTooltipContent);
         this.options = new InspectToolOptions(this.tooltip);
     }
     activate() {

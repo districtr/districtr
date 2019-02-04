@@ -13,7 +13,9 @@ function getParts(problem) {
         name = problem.name;
     }
 
-    const parts = colors.map(color => new Part(color.id, name, color.hex));
+    const parts = colors.map(
+        color => new Part(color.id, name, color.id + 1, color.hex)
+    );
     return parts;
 }
 
@@ -135,6 +137,11 @@ export default class State {
         for (let f of this.subscribers) {
             f();
         }
+    }
+    supportsEvaluationTab() {
+        return (
+            this.population.subgroups.length > 0 || this.elections.length > 0
+        );
     }
 }
 

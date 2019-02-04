@@ -127,15 +127,8 @@
             },
             "subgroups": [
                 {
-                    "key": "P0030002",
-                    "name": "White population",
-                    "sum": 64240,
-                    "min": 0,
-                    "max": 973
-                },
-                {
                     "key": "P0050003",
-                    "name": "White population, Not Hispanic or Latino",
+                    "name": "White population",
                     "sum": 56280,
                     "min": 0,
                     "max": 793
@@ -146,13 +139,6 @@
                     "sum": 18396,
                     "min": 0,
                     "max": 330
-                },
-                {
-                    "key": "P0070006",
-                    "name": "Asian population, Not Hispanic or Latino",
-                    "sum": 22459,
-                    "min": 0,
-                    "max": 316
                 },
                 {
                     "key": "P0030005",
@@ -167,13 +153,6 @@
                     "sum": 7238,
                     "min": 0,
                     "max": 206
-                },
-                {
-                    "key": "H0160002",
-                    "name": "Owner occupied housing units",
-                    "sum": 17385,
-                    "min": 0,
-                    "max": 291
                 }
             ]
         },
@@ -635,35 +614,35 @@
             "subgroups": [
                 {
                     "key": "WHITE_POP",
-                    "name": "2010 White alone population",
+                    "name": "White population",
                     "sum": 10078106,
                     "min": 0,
                     "max": 12383
                 },
                 {
                     "key": "BLACK_POP",
-                    "name": "2010 Black/African American alone population",
+                    "name": "Black population",
                     "sum": 1326671,
                     "min": 0,
                     "max": 3222
                 },
                 {
                     "key": "HISP_POP",
-                    "name": "2010 Hispanic or Latino population",
+                    "name": "Hispanic or Latino population",
                     "sum": 719400,
                     "min": 0,
                     "max": 3605
                 },
                 {
                     "key": "NATIVE_POP",
-                    "name": "2010 American Indian or Alaska Native alone population",
+                    "name": "American Indian or Alaska Native population",
                     "sum": 16886,
                     "min": 0,
                     "max": 41
                 },
                 {
                     "key": "ASIAN_POP",
-                    "name": "2010 Asian alone population",
+                    "name": "Asian alone population",
                     "sum": 346245,
                     "min": 0,
                     "max": 1757
@@ -792,14 +771,14 @@
                 },
                 {
                     "key": "BLACK",
-                    "name": "Black/African American population",
+                    "name": "Black population",
                     "sum": 380660,
                     "min": 0,
                     "max": 2770
                 },
                 {
                     "key": "HISPANIC",
-                    "name": "Population of Hispanic origin",
+                    "name": "Hispanic or Latino population",
                     "sum": 336056,
                     "min": 0,
                     "max": 2495

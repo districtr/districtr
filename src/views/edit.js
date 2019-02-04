@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
-import ChartsList from "../components/Charts/ChartsList";
+import Criteria from "../components/Charts/Criteria";
+import Evaluation from "../components/Evaluation";
 import LayersTab from "../components/LayersTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
@@ -49,18 +50,32 @@ export function renderEditView() {
 }
 
 function getTabs(state) {
-    const charts = {
-        id: "charts",
-        name: "District Data",
+    const criteria = {
+        id: "criteria",
+        name: "Population",
         render: (uiState, dispatch) =>
             html`
-                ${ChartsList(state, uiState, dispatch)}
+                ${Criteria(state, uiState, dispatch)}
             `
     };
 
-    const layersTab = new LayersTab("layers", "Layers", state);
+    const layersTab = new LayersTab("layers", "Data Layers", state);
 
-    return [charts, layersTab];
+    const evaluationTab = {
+        id: "evaluation",
+        name: "Evaluation",
+        render: (uiState, dispatch) =>
+            html`
+                ${Evaluation(state, uiState, dispatch)}
+            `
+    };
+
+    let tabs = [criteria, layersTab];
+
+    if (state.supportsEvaluationTab()) {
+        tabs.push(evaluationTab);
+    }
+    return tabs;
 }
 
 function getTools(state) {
@@ -95,8 +110,8 @@ export default function toolbarView(state) {
         },
         charts: {
             population: { isOpen: true },
-            racialBalance: { isOpen: false },
-            electionResults: { isOpen: false }
+            racialBalance: { isOpen: true },
+            electionResults: { isOpen: true }
         }
     });
 
