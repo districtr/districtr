@@ -34,12 +34,16 @@ function renderAboutModal() {
                     <a
                         href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml"
                         >American FactFinder</a
-                    >. The cleaned shapefile with demographic information is
+                    >.
+                </p>
+
+                <p>
+                    The cleaned shapefile with demographic information is
                     <a
                         href="https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell"
                         >available for download</a
                     >
-                    from the MGGG GitHub account."
+                    from the MGGG GitHub account.
                 </p>
             </div>
         </div>
