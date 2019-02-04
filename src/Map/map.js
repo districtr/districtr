@@ -11,7 +11,9 @@ export function initializeMap(mapContainer) {
         style: "mapbox://styles/mapbox/light-v9",
         attributionControl: false,
         center: [-86.0, 37.83],
-        zoom: 3
+        zoom: 3,
+        pitchWithRotate: false,
+        dragRotate: false
     });
     const nav = new mapbox.NavigationControl();
     map.addControl(nav, "top-left");

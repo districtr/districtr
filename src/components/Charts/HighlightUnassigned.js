@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import {
     highlightUnassignedUnitBordersPaintProperty,
     unitBordersPaintProperty
-} from "../colors";
+} from "../../colors";
 
 export function toggle(label, checked, onChange) {
     return html`

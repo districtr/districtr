@@ -1,4 +1,5 @@
 import { districtColors } from "../colors";
+import { Landmarks } from "../components/Landmark";
 import { addLayers } from "../Map/map";
 import Election from "./Election";
 import IdColumn from "./IdColumn";
@@ -13,7 +14,9 @@ function getParts(problem) {
         name = problem.name;
     }
 
-    const parts = colors.map(color => new Part(color.id, name, color.hex));
+    const parts = colors.map(
+        color => new Part(color.id, name, color.id + 1, color.hex)
+    );
     return parts;
 }
 
@@ -45,7 +48,6 @@ export default class State {
         } else {
             this.id = generateId(8);
         }
-
         this.placeId = place.id;
 
         this.initializeMapState(map, place);
@@ -71,6 +73,10 @@ export default class State {
         this.unitsBorders = unitsBorders;
         this.layers = [units, points];
         this.map = map;
+
+        if (place.landmarks) {
+            this.landmarks = new Landmarks(map, place.landmarks);
+        }
     }
     update(feature, part) {
         this.population.update(feature, part);
@@ -78,6 +84,7 @@ export default class State {
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
     getInitialState(place, assignment, problem) {
+        this.place = place;
         this.idColumn =
             place.idColumn !== undefined
                 ? new IdColumn(place.idColumn)
@@ -135,6 +142,11 @@ export default class State {
         for (let f of this.subscribers) {
             f();
         }
+    }
+    supportsEvaluationTab() {
+        return (
+            this.population.subgroups.length > 0 || this.elections.length > 0
+        );
     }
 }
 

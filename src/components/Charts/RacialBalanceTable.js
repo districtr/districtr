@@ -1,8 +1,8 @@
 import { html } from "lit-html";
-import { actions } from "../reducers/subgroups";
-import DemographicsTable from "./Charts/DemographicsTable";
-import Parameter from "./Parameter";
-import select from "./select";
+import { actions } from "../../reducers/subgroups";
+import Parameter from "../Parameter";
+import select from "../select";
+import DemographicsTable from "./DemographicsTable";
 
 function selectBoxes(subgroups, activeSubgroupIndices, dispatch) {
     const labels = ["Compare", "with"];

@@ -23,6 +23,18 @@ export function colorByCount(subgroup) {
     ];
 }
 
+export function sizeByCount(subgroup) {
+    return [
+        "interpolate",
+        ["linear"],
+        ["sqrt", subgroup.total.asMapboxExpression()],
+        0,
+        0,
+        Math.sqrt(subgroup.total.max),
+        20
+    ];
+}
+
 export function colorByFraction(subgroup) {
     return ["rgba", 0, 0, 0, subgroup.fractionAsMapboxExpression()];
 }

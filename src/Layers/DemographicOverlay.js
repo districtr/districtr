@@ -1,3 +1,4 @@
+import { sizeByCount } from "./color-rules";
 import Layer, { addBelowLabels } from "./Layer";
 
 export default class DemographicOverlay extends Layer {
@@ -30,5 +31,8 @@ export default class DemographicOverlay extends Layer {
     }
     repaint() {
         this.setColor(this.colorRule(this.subgroup));
+        if (this.type === "circle") {
+            this.setPaintProperty("circle-radius", sizeByCount(this.subgroup));
+        }
     }
 }

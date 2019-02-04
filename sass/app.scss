@@ -2,6 +2,8 @@
 @import "colors";
 @import "headings";
 @import "map";
+@import "links";
+@import "shadows";
 @import "components/toolbar";
 @import "components/charts";
 @import "components/tooltip";
@@ -37,4 +39,25 @@
 select {
     margin: 0.2rem 0;
     max-width: 200px;
+}
+
+.modal-wrapper {
+    position: absolute;
+    z-index: 100000;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 30rem;
+    background: #f9f9f9;
+    line-height: 1.6;
+    z-index: 1000000;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: $focus_shadow;
 }

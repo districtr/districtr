@@ -52,12 +52,16 @@
     {
         "id": "lowell_blocks",
         "name": "Lowell",
+        "about": [
+            "The units you see here are the 1,845 census blocks that make up the municipality of Lowell, MA.",
+            "Data for this module was obtained from the US Census Bureau. The block shapefile for the city of Lowell was downloaded from the <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">Census's TIGER/Line Shapefiles</a>. Demographic information from the decennial Census was downloaded at the block level from American FactFinder (https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). The cleaned shapefile with demographic information is <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">available for download</a> from the MGGG GitHub account."
+        ],
         "districtingProblems": [
             {
                 "numberOfParts": 9,
                 "office": "City Council",
                 "plural": "City Council Districts",
-                "relevantSubgroups": [0, 2, 4]
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "landmarks": {
@@ -69,6 +73,7 @@
                     "type": "FeatureCollection",
                     "features": [
                         {
+                            "id": 1,
                             "geometry": {
                                 "type": "Polygon",
                                 "coordinates": [
@@ -87,15 +92,104 @@
                             "properties": {
                                 "name": "Clemente Park",
                                 "leisure": "park",
-                                "short_description": "",
+                                "short_description": "Clemente Park, renamed for baseball player Roberto Clemente in 1973, has been heavily used by Lowell's communities of color for decades.  Recently, one of the few Cambodian city councilors brought up the issue that the park had no lighting, unlike  parks in the city, making it dangerous for recreational use at night.",
                                 "representative_point": [-71.321937, 42.6385585]
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "geometry": {
+                                "type": "MultiPolygon",
+                                "coordinates": [
+                                    [
+                                        [
+                                            [-71.3112467, 42.646723],
+                                            [-71.3106506, 42.6464432],
+                                            [-71.3104423, 42.6466834],
+                                            [-71.3104877, 42.6467047],
+                                            [-71.3104378, 42.6467598],
+                                            [-71.3105414, 42.6468094],
+                                            [-71.3106085, 42.6467382],
+                                            [-71.3108942, 42.6468723],
+                                            [-71.3108281, 42.6469422],
+                                            [-71.3109524, 42.6470008],
+                                            [-71.3109749, 42.6469756],
+                                            [-71.311, 42.6469466],
+                                            [-71.3110374, 42.6469642],
+                                            [-71.3112467, 42.646723]
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            [-71.3090152, 42.6472373],
+                                            [-71.3093287, 42.6468913],
+                                            [-71.3086462, 42.6465568],
+                                            [-71.3083327, 42.6469028],
+                                            [-71.3090152, 42.6472373]
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            [-71.3097319, 42.6474985],
+                                            [-71.3103962, 42.6467419],
+                                            [-71.3109847, 42.6470214],
+                                            [-71.3105489, 42.6475177],
+                                            [-71.3103207, 42.6477776],
+                                            [-71.310228, 42.6477336],
+                                            [-71.3102058, 42.6477589],
+                                            [-71.3097923, 42.6475625],
+                                            [-71.3098142, 42.6475376],
+                                            [-71.3097319, 42.6474985]
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            [-71.3125536, 42.6479293],
+                                            [-71.3125906, 42.6479445],
+                                            [-71.3125645, 42.6479652],
+                                            [-71.3126209, 42.648011],
+                                            [-71.3128408, 42.6477821],
+                                            [-71.3127496, 42.6477308],
+                                            [-71.3127282, 42.6477584],
+                                            [-71.3127013, 42.6477427],
+                                            [-71.3127228, 42.6477111],
+                                            [-71.3125404, 42.6474467],
+                                            [-71.3121512, 42.6474316],
+                                            [-71.3119342, 42.6476756],
+                                            [-71.3121166, 42.6479399],
+                                            [-71.3125136, 42.6479557],
+                                            [-71.3125536, 42.6479293]
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            [-71.31153, 42.6479882],
+                                            [-71.311819, 42.6476692],
+                                            [-71.3119517, 42.6475226],
+                                            [-71.3120374, 42.6475587],
+                                            [-71.3121506, 42.6474315],
+                                            [-71.312057, 42.6473916],
+                                            [-71.3121125, 42.6473304],
+                                            [-71.3117807, 42.6471679],
+                                            [-71.311911, 42.647024],
+                                            [-71.31178, 42.6469598],
+                                            [-71.3115184, 42.6472487],
+                                            [-71.3110383, 42.6477787],
+                                            [-71.3110218, 42.647797],
+                                            [-71.3113972, 42.6479809],
+                                            [-71.3114334, 42.6479408],
+                                            [-71.31153, 42.6479882]
+                                        ]
+                                    ]
+                                ]
+                            },
+                            "properties": {
+                                "name": "Lowell High School",
+                                "short_description": "Lowell High School—the only public high school in the city, which serves over 3000 students—has been slated in recent years to move from its downtown location. The student population of the high school has an even higher POC% than the city overall, but there was hardly any outreach to Asian or Latino communities about the choice of a new location.  Placing the school in the wealthier part of town, as some parents had lobbied for, would place a heavy burden on families with less disposable income."
                             }
                         }
                     ]
                 }
-            },
-            "paint": {
-                "fill-color": "#96e66b"
             }
         },
 
@@ -127,15 +221,8 @@
             },
             "subgroups": [
                 {
-                    "key": "P0030002",
-                    "name": "White population",
-                    "sum": 64240,
-                    "min": 0,
-                    "max": 973
-                },
-                {
                     "key": "P0050003",
-                    "name": "White population, Not Hispanic or Latino",
+                    "name": "White population",
                     "sum": 56280,
                     "min": 0,
                     "max": 793
@@ -146,13 +233,6 @@
                     "sum": 18396,
                     "min": 0,
                     "max": 330
-                },
-                {
-                    "key": "P0070006",
-                    "name": "Asian population, Not Hispanic or Latino",
-                    "sum": 22459,
-                    "min": 0,
-                    "max": 316
                 },
                 {
                     "key": "P0030005",
@@ -167,13 +247,6 @@
                     "sum": 7238,
                     "min": 0,
                     "max": 206
-                },
-                {
-                    "key": "H0160002",
-                    "name": "Owner occupied housing units",
-                    "sum": 17385,
-                    "min": 0,
-                    "max": 291
                 }
             ]
         },
@@ -635,35 +708,35 @@
             "subgroups": [
                 {
                     "key": "WHITE_POP",
-                    "name": "2010 White alone population",
+                    "name": "White population",
                     "sum": 10078106,
                     "min": 0,
                     "max": 12383
                 },
                 {
                     "key": "BLACK_POP",
-                    "name": "2010 Black/African American alone population",
+                    "name": "Black population",
                     "sum": 1326671,
                     "min": 0,
                     "max": 3222
                 },
                 {
                     "key": "HISP_POP",
-                    "name": "2010 Hispanic or Latino population",
+                    "name": "Hispanic or Latino population",
                     "sum": 719400,
                     "min": 0,
                     "max": 3605
                 },
                 {
                     "key": "NATIVE_POP",
-                    "name": "2010 American Indian or Alaska Native alone population",
+                    "name": "American Indian or Alaska Native population",
                     "sum": 16886,
                     "min": 0,
                     "max": 41
                 },
                 {
                     "key": "ASIAN_POP",
-                    "name": "2010 Asian alone population",
+                    "name": "Asian alone population",
                     "sum": 346245,
                     "min": 0,
                     "max": 1757
@@ -792,14 +865,14 @@
                 },
                 {
                     "key": "BLACK",
-                    "name": "Black/African American population",
+                    "name": "Black population",
                     "sum": 380660,
                     "min": 0,
                     "max": 2770
                 },
                 {
                     "key": "HISPANIC",
-                    "name": "Population of Hispanic origin",
+                    "name": "Hispanic or Latino population",
                     "sum": 336056,
                     "min": 0,
                     "max": 2495

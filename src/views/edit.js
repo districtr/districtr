@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
-import ChartsList from "../components/Charts/ChartsList";
+import Criteria from "../components/Charts/Criteria";
+import Evaluation from "../components/Evaluation";
 import LayersTab from "../components/LayersTab";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
@@ -11,12 +12,47 @@ import { initializeMap } from "../Map/map";
 import State from "../models/State";
 import { navigateTo } from "../routes";
 
+function renderAboutModal() {
+    const target = document.getElementById("modal");
+    const template = html`
+        <div class="modal-wrapper" @click="${() => render("", target)}">
+            <div class="modal-content">
+                <h2>Lowell, MA</h2>
+                <p>
+                    The units you see here are the 1,845 census blocks that make
+                    up the municipality of Lowell, MA.
+                </p>
+                <p>
+                    Data for this module was obtained from the US Census Bureau.
+                    The block shapefile for the city of Lowell was downloaded
+                    from the
+                    <a
+                        href="https://www.census.gov/geo/maps-data/data/tiger-line.html"
+                        >Census's TIGER/Line Shapefiles</a
+                    >. Demographic information from the decennial Census was
+                    downloaded at the block level from
+                    <a
+                        href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml"
+                        >American FactFinder</a
+                    >. The cleaned shapefile with demographic information is
+                    <a
+                        href="https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell"
+                        >available for download</a
+                    >
+                    from the MGGG GitHub account."
+                </p>
+            </div>
+        </div>
+    `;
+    render(template, target);
+}
+
 function getContextFromStorage() {
     const placeJson = localStorage.getItem("place");
     const problemJson = localStorage.getItem("districtingProblem");
 
-    if (!placeJson || !problemJson) {
-        navigateTo("./new");
+    if (placeJson === null || problemJson === null) {
+        navigateTo("/new");
     }
 
     const place = JSON.parse(placeJson);
@@ -49,18 +85,32 @@ export function renderEditView() {
 }
 
 function getTabs(state) {
-    const charts = {
-        id: "charts",
-        name: "District Data",
+    const criteria = {
+        id: "criteria",
+        name: "Population",
         render: (uiState, dispatch) =>
             html`
-                ${ChartsList(state, uiState, dispatch)}
+                ${Criteria(state, uiState, dispatch)}
             `
     };
 
-    const layersTab = new LayersTab("layers", "Layers", state);
+    const layersTab = new LayersTab("layers", "Data Layers", state);
 
-    return [charts, layersTab];
+    const evaluationTab = {
+        id: "evaluation",
+        name: "Evaluation",
+        render: (uiState, dispatch) =>
+            html`
+                ${Evaluation(state, uiState, dispatch)}
+            `
+    };
+
+    let tabs = [criteria, layersTab];
+
+    if (state.supportsEvaluationTab()) {
+        tabs.push(evaluationTab);
+    }
+    return tabs;
 }
 
 function getTools(state) {
@@ -95,8 +145,8 @@ export default function toolbarView(state) {
         },
         charts: {
             population: { isOpen: true },
-            racialBalance: { isOpen: false },
-            electionResults: { isOpen: false }
+            racialBalance: { isOpen: true },
+            electionResults: { isOpen: true }
         }
     });
 
@@ -108,14 +158,7 @@ export default function toolbarView(state) {
 // It's not a great design to have these non-tool items in the row of tool icons.
 // TODO: Find a different UI for New/Save/Export-type actions.
 function getMenuItems(state) {
-    return [
-        {
-            render: () => html`
-                <button class="square-button" @click="${state.exportAsJSON}">
-                    Export Plan
-                </button>
-            `
-        },
+    let items = [
         {
             render: () => html`
                 <button
@@ -125,8 +168,31 @@ function getMenuItems(state) {
                     New Plan
                 </button>
             `
+        },
+        {
+            render: () => html`
+                <button class="square-button" @click="${state.exportAsJSON}">
+                    Export Plan
+                </button>
+            `
         }
     ];
+    if (state.place.id === "lowell_blocks") {
+        items = [
+            {
+                render: () => html`
+                    <button
+                        class="square-button"
+                        @click="${() => renderAboutModal(state.place.about)}"
+                    >
+                        About
+                    </button>
+                `
+            },
+            ...items
+        ];
+    }
+    return items;
 }
 
 renderEditView();

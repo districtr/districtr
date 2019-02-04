@@ -29,7 +29,7 @@ export default class DemographicOverlayContainer {
         );
 
         this.visibilityToggle = toggle(
-            "Visualize demographics",
+            "Show demographics data layer",
             false,
             visible => {
                 if (visible) {
@@ -77,14 +77,6 @@ export default class DemographicOverlayContainer {
                 element: select("subgroup", this.subgroups, this.changeSubgroup)
             })}
             ${Parameter({
-                label: "Color by",
-                element: select(
-                    "demographic-color-rule",
-                    this.colorRules,
-                    this.changeColorRule
-                )
-            })}
-            ${Parameter({
                 label: "Display as",
                 element: select(
                     "demographic-layer-type",
@@ -96,8 +88,17 @@ export default class DemographicOverlayContainer {
     }
 }
 
-const layerDisplayNames = { circle: "Points", fill: "Polygons" };
+const layerDisplayNames = { circle: "sized circles", fill: "shaded regions" };
 
 function getLayerDescription(layer) {
     return { name: layerDisplayNames[layer.type] };
 }
+
+//     Parameter({
+//     label: "Color by",
+//     element: select(
+//         "demographic-color-rule",
+//         this.colorRules,
+//         this.changeColorRule
+//     )
+// })
