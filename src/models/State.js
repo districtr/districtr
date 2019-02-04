@@ -84,6 +84,7 @@ export default class State {
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
     getInitialState(place, assignment, problem) {
+        this.place = place;
         this.idColumn =
             place.idColumn !== undefined
                 ? new IdColumn(place.idColumn)

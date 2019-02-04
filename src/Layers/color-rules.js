@@ -27,11 +27,11 @@ export function sizeByCount(subgroup) {
     return [
         "interpolate",
         ["linear"],
-        subgroup.total.asMapboxExpression(),
+        ["sqrt", subgroup.total.asMapboxExpression()],
         0,
-        1,
-        subgroup.total.max,
-        50
+        0,
+        Math.sqrt(subgroup.total.max),
+        20
     ];
 }
 

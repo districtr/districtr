@@ -20,8 +20,13 @@ const landmarkPaintProperty = {
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
-        "#1f8653",
-        "#2bb972"
+        // "#1f8653",
+        // "#2bb972"
+        // "#70b002",
+        // "#8cdc02"
+        "#54b321",
+        "#64db24"
+        // "#98e86d"
     ]
 };
 

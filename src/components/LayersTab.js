@@ -51,12 +51,15 @@ export default class LayersTab {
                 <div class="layer-list__item">
                     ${this.demographicOverlays.render()}
                 </div>
-                <div class="layer-list__item">
-                    ${this.partisanOverlays
-                        ? this.partisanOverlays.render()
-                        : ""}
-                </div>
-                ${this.landmarks !== null
+
+                ${this.partisanOverlays
+                    ? html`
+                          <div class="layer-list__item">
+                              ${this.partisanOverlays.render()}
+                          </div>
+                      `
+                    : ""}
+                ${this.landmarks
                     ? html`
                           <div class="layer-list__item">
                               <h4>Landmarks</h4>
