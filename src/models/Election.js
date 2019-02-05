@@ -8,6 +8,7 @@ export default class Election {
             {}
         );
         this.parties = voteTotals.map(column => column.name);
+        this.columns = this.parties.map(party => this.partiesToColumns[party]);
         this.name = name;
 
         this.bindMethods();

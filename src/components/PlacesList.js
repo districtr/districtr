@@ -8,7 +8,8 @@ export function hydratedPlacesList() {
     return new PlacesList(places, (place, problem) => {
         localStorage.setItem("place", JSON.stringify(place));
         localStorage.setItem("districtingProblem", JSON.stringify(problem));
-        // localStorage.removeItem("assignment");
+        localStorage.removeItem("assignment");
+        localStorage.removeItem("planId");
         navigateTo("/edit");
     });
 }
