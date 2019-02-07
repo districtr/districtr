@@ -106,6 +106,10 @@ export function bindDispatchToActions(actions, dispatch) {
  * @param {object} handlers
  */
 export function handleResponse(handlers) {
+    handlers = {
+        default: resp => console.error("Request failed", resp),
+        ...handlers
+    };
     return response => {
         if (handlers.hasOwnProperty(response.status)) {
             return handlers[response.status](response);
