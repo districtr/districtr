@@ -10,20 +10,26 @@ export function signInUser({ email }) {
     return client.post("/signin/", { email });
 }
 
+export function signOut() {
+    localStorage.clear();
+}
+
 export default function initializeAuthContext(client) {
     return getBearerToken().then(token => {
-        if (token !== null) {
+        if (token === null || token === undefined) {
+            signOut();
+        } else {
+            localStorage.setItem("bearerToken", token);
             const authMiddleware = request => {
                 request.headers.Authorization = `Bearer ${token}`;
                 return request;
             };
-
             client.middleware.push(authMiddleware);
+
             const user = atob(token.split(".")[1]);
             if (user) {
                 localStorage.setItem("user", user);
             }
-
             return JSON.parse(user);
         }
         return null;
@@ -36,39 +42,38 @@ export default function initializeAuthContext(client) {
  */
 export function getBearerToken() {
     // Check localStorage for the Bearer token
-    return new Promise(resolve => {
-        let bearerToken = localStorage.getItem("bearerToken");
-        if (bearerToken !== null && bearerToken !== undefined) {
-            resolve(bearerToken);
-        }
-        // If that's missing, get signInToken from the URL query parameters
-        // and then POST that to /signin/ to get a Bearer token
-        const signInToken = getSignInToken();
-        if (signInToken !== null && signInToken !== undefined) {
-            fetchBearerTokenAndSave(signInToken).then(token => resolve(token));
-        } else {
-            resolve(null);
-        }
-    });
+    let bearerToken = localStorage.getItem("bearerToken");
+    if (bearerToken !== null && bearerToken !== undefined) {
+        return new Promise(resolve => resolve(bearerToken));
+    }
+    // If that's missing, get signInToken from the URL query parameters
+    // and then POST that to /signin/ to get a Bearer token
+    const signInToken = getSignInToken();
+    if (signInToken !== null && signInToken !== undefined) {
+        return fetchBearerToken(signInToken);
+    } else {
+        return new Promise(resolve => resolve(null));
+    }
 }
 
-const handlers = {
+const fetchBearerTokenHandlers = {
     201: resp => resp.json(),
-    500: () => {
-        localStorage.removeItem("bearerToken");
-    }
+    default: () => null
 };
 
-export function fetchBearerTokenAndSave(signInToken) {
+export function fetchBearerToken(signInToken) {
     return client
         .post("/tokens/", { token: signInToken })
-        .then(handleResponse(handlers))
+        .then(handleResponse(fetchBearerTokenHandlers))
         .then(payload => {
+            if (payload === undefined || payload === null) {
+                return null;
+            }
             const { token } = payload;
             if (token !== undefined && token !== null) {
-                localStorage.setItem("bearerToken", token);
+                return token;
             }
-            return token;
+            return null;
         });
 }
 
