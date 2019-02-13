@@ -19,7 +19,11 @@ export function renderNewPlanView() {
     const uploadPlan = new PlanUploader(json => {
         const planRecord = JSON.parse(json);
         listPlaces().then(places => {
-            const place = places.find(p => p.id === planRecord.placeId);
+            const place = places.find(
+                p =>
+                    p.id === planRecord.placeId ||
+                    p.permalink === planRecord.placeId
+            );
             saveContextToStorage({
                 place,
                 problem: planRecord.problem,

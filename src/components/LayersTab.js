@@ -8,7 +8,7 @@ export default class LayersTab {
     constructor(id, name, state) {
         this.id = id;
         this.name = name;
-        this.partPlural = state.problem.plural;
+        this.partPlural = state.problem.pluralNoun;
 
         this.landmarks = state.landmarks
             ? () => toggle(`Show landmarks`, true, state.landmarks.handleToggle)
@@ -16,7 +16,7 @@ export default class LayersTab {
 
         this.toggleDistricts = () =>
             toggle(
-                `Show ${state.problem.plural.toLowerCase()}`,
+                `Show ${this.partPlural.toLowerCase()}`,
                 true,
                 checked => {
                     if (checked) {
