@@ -56,7 +56,7 @@ export function TooltipContent(features, columns) {
                     <div class="tooltip-data__row">
                         <dt>${formatColumnName(column.name)}</dt>
                         <dd>
-                            ${numberWithCommas(value)}
+                            ${numberWithCommas(Math.round(value))}
                         </dd>
                         ${column.total !== undefined
                             ? TooltipBar(value / total)
