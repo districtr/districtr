@@ -13,8 +13,8 @@ export function listPlaces() {
             {}
         );
         return places.map(place => ({
-            ...place,
-            ...mockedPlacesByName[place.name]
+            ...mockedPlacesByName[place.name],
+            ...place
         }));
     });
 }

@@ -6,7 +6,8 @@
             {
                 "numberOfParts": 20,
                 "name": "State Senate",
-                "pluralNoun": "State Senate Districts"
+                "pluralNoun": "State Senate Districts",
+                "relevantSubgroups": [0, 3]
             }
         ],
         "tilesets": [
@@ -40,100 +41,107 @@
                 {
                     "key": "WHITE",
                     "name": "White population",
+                    "sum": 473576,
+                    "min": 1,
+                    "max": 5953
+                },
+                {
+                    "key": "BLACK",
+                    "name": "Black population",
                     "sum": 23263,
                     "min": 0,
                     "max": 980
                 },
                 {
-                    "key": "BLACK",
-                    "name": "Black population",
-                    "sum": 104871.0,
-                    "min": 4.5405867e-8,
-                    "max": 2427.9999850366726
-                },
-                {
                     "key": "ASIAN",
                     "name": "Asian population",
-                    "sum": 7409.0,
-                    "min": 0.0,
-                    "max": 428.0000065624554
+                    "sum": 38135,
+                    "min": 0,
+                    "max": 1452
                 },
                 {
                     "key": "AMIN",
                     "name": "Native American and Alaskan Native population",
-                    "sum": 38135.0,
-                    "min": 0.0,
-                    "max": 1451.9999993494473
+                    "sum": 104871,
+                    "min": 0,
+                    "max": 2428
                 },
                 {
                     "key": "NHPI",
                     "name": "Native Hawaiian and Pacific Islander population",
-                    "sum": 11102.0,
-                    "min": 0.0,
-                    "max": 363.9999971755278
+                    "sum": 7409,
+                    "min": 0,
+                    "max": 428
                 },
                 {
                     "key": "2MORE",
                     "name": "Two or more races",
-                    "sum": 51875.0,
-                    "min": 0.0,
-                    "max": 498.999999005907
+                    "sum": 51875,
+                    "min": 0,
+                    "max": 499
+                },
+                {
+                    "key": "OTHER",
+                    "name": "Other races",
+                    "sum": 11102,
+                    "min": 0,
+                    "max": 364
                 },
                 {
                     "key": "VAP",
                     "name": "Voting age population",
-                    "sum": 522853.0,
-                    "min": 31.00000000129745,
-                    "max": 5371.999988885227
+                    "sum": 522853,
+                    "min": 31,
+                    "max": 5372
                 },
                 {
                     "key": "WVAP",
                     "name": "White voting age population",
-                    "sum": 368895.0,
-                    "min": 1.0,
-                    "max": 4121.999991470242
+                    "sum": 368895,
+                    "min": 1,
+                    "max": 4122
                 },
                 {
                     "key": "BVAP",
                     "name": "Black voting age population",
-                    "sum": 16904.0,
-                    "min": 0.0,
-                    "max": 644.999997290878
+                    "sum": 16904,
+                    "min": 0,
+                    "max": 645
                 },
                 {
                     "key": "AMINVAP",
                     "name": "Native American and Alaskan Native voting age population",
-                    "sum": 70630.0,
-                    "min": 3.8381554e-8,
-                    "max": 1528.000000001589
+                    "sum": 70630,
+                    "min": 0,
+                    "max": 1528
                 },
                 {
                     "key": "NHPIVAP",
                     "name": "Native Hawaiian and Pacific Islander voting age population",
-                    "sum": 4599.0,
-                    "min": 0.0,
-                    "max": 228.00000465752956
+                    "sum": 4599,
+                    "min": 0,
+                    "max": 228
                 },
                 {
                     "key": "ASIANVAP",
                     "name": "Asian voting age population",
-                    "sum": 28312.000000000004,
-                    "min": 0.0,
-                    "max": 1245.0
+                    "sum": 28312,
+                    "min": 0,
+                    "max": 1245
                 },
                 {
-                    "key": "OTHVAP",
+                    "key": "OTHERVAP",
                     "name": "Other races voting age population",
-                    "sum": 7988.0,
-                    "min": 0.0,
-                    "max": 304.0
+                    "sum": 7988,
+                    "min": 0,
+                    "max": 304
                 },
                 {
-                    "key": "2MVAP",
+                    "key": "2MOREVAP",
                     "name": "Two or more races voting age population",
-                    "sum": 25525.0,
-                    "min": 0.0,
-                    "max": 256.9999983505331
+                    "sum": 25525,
+                    "min": 0,
+                    "max": 257
                 }
             ]
         },
@@ -186,10 +194,6 @@
     {
         "id": 2,
         "name": "Lowell",
-        "about": [
-            "The units you see here are the 1,845 census blocks that make up the municipality of Lowell, MA.",
-            "Data for this module was obtained from the US Census Bureau. The block shapefile for the city of Lowell was downloaded from the <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">Census's TIGER/Line Shapefiles</a>. Demographic information from the decennial Census was downloaded at the block level from American FactFinder (https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). The cleaned shapefile with demographic information is <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">available for download</a> from the MGGG GitHub account."
-        ],
         "districtingProblems": [
             {
                 "numberOfParts": 9,
