@@ -51,7 +51,7 @@ export function placeItems(place, onClick) {
             >
                 <div class="place-name">${place.name}</div>
                 <div class="place-info">
-                    ${problem.numberOfParts} ${problem.plural}
+                    ${problem.numberOfParts} ${problem.pluralNoun}
                 </div>
             </li>
         `
