@@ -129,6 +129,7 @@ export default class State {
         const serialized = {
             assignment: this.assignment,
             id: this.id,
+            idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             placeId: this.placeId,
             problem: this.problem
         };

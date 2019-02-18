@@ -9,6 +9,7 @@
                 "plural": "State Senate Districts"
             }
         ],
+        "idColumn": { "name": "ID", "key": "ID" },
         "tilesets": [
             {
                 "type": "fill",
@@ -251,7 +252,11 @@
             ]
         },
         "bounds": [[-71.3825, 42.6065], [-71.2713, 42.6665]],
-        "elections": []
+        "elections": [],
+        "idColumn": {
+            "name": "2010 Census GEOID",
+            "key": "GEOID10"
+        }
     },
     {
         "id": "ma_towns",
@@ -389,11 +394,16 @@
                     { "key": "Pres12R", "name": "Republican" }
                 ]
             }
-        ]
+        ],
+        "idColumn": {
+            "name": "Town ID",
+            "key": "TOWN_ID"
+        }
     },
     {
         "id": "ma_precincts_02_10",
         "name": "Massachusetts (Precincts, 2002-2010)",
+        "idColumn": { "name": "2000 Census GEOID", "key": "GEOID10" },
         "districtingProblems": [
             {
                 "numberOfParts": 9,
@@ -491,6 +501,7 @@
                 "plural": "Congressional Districts"
             }
         ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "tilesets": [
             {
                 "type": "fill",
@@ -667,7 +678,8 @@
                     { "key": "AG_DV08", "name": "Democratic" }
                 ]
             }
-        ]
+        ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
     },
     {
         "id": "pa_vtds",
@@ -817,7 +829,8 @@
                     { "key": "T16SENR", "name": "Republican" }
                 ]
             }
-        ]
+        ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
     },
     {
         "id": "wisconsin_12_16",
@@ -975,7 +988,8 @@
                     "min": 0,
                     "max": 31
                 }
-            ]
+            ],
+            "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
         },
         "bounds": [[-92.8894, 42.4919], [-86.764, 47.0808]],
         "elections": [
