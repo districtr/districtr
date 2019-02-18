@@ -61,6 +61,13 @@ function getParts(problem) {
     const parts = colors.map(
         color => new Part(color.id, name, color.id + 1, color.hex)
     );
+
+    if (problem.type === "multimember") {
+        parts.slice(1).forEach(part => {
+            part.visible = false;
+        });
+    }
+
     return parts;
 }
 
@@ -163,8 +170,8 @@ export default class State {
         const serialized = {
             assignment: this.assignment,
             id: this.id,
-            placeId: this.placeId,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
+            placeId: this.placeId,
             problem: this.problem
         };
         const text = JSON.stringify(serialized);

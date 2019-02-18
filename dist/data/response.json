@@ -10,6 +10,7 @@
                 "relevantSubgroups": [0, 3]
             }
         ],
+        "idColumn": { "name": "ID", "key": "ID" },
         "tilesets": [
             {
                 "type": "fill",
@@ -187,7 +188,6 @@
                 ]
             }
         ],
-        "idColumn": { "name": "ID", "key": "ID" },
         "permalink": "alaska",
         "description": ""
     },
@@ -389,6 +389,10 @@
         },
         "bounds": [[-71.3825, 42.6065], [-71.2713, 42.6665]],
         "elections": [],
+        "idColumn": {
+            "name": "2010 Census GEOID",
+            "key": "GEOID10"
+        },
         "permalink": "lowell_blocks",
         "description": ""
     },
@@ -529,12 +533,17 @@
                 ]
             }
         ],
+        "idColumn": {
+            "name": "Town ID",
+            "key": "TOWN_ID"
+        },
         "permalink": "ma_towns",
         "description": ""
     },
     {
         "id": 4,
         "name": "Massachusetts (Precincts, 2002-2010)",
+        "idColumn": { "name": "2000 Census GEOID", "key": "GEOID10" },
         "districtingProblems": [
             {
                 "numberOfParts": 9,
@@ -634,6 +643,7 @@
                 "pluralNoun": "Congressional Districts"
             }
         ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "tilesets": [
             {
                 "type": "fill",
@@ -813,6 +823,7 @@
                 ]
             }
         ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "permalink": "missouri",
         "description": ""
     },
@@ -965,6 +976,7 @@
                 ]
             }
         ],
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
         "permalink": "pa_vtds",
         "description": ""
     },
@@ -1124,7 +1136,8 @@
                     "min": 0,
                     "max": 31
                 }
-            ]
+            ],
+            "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
         },
         "bounds": [[-92.8894, 42.4919], [-86.764, 47.0808]],
         "elections": [
@@ -1849,6 +1862,13 @@
                 "name": "City Council",
                 "pluralNoun": "Five-Member Districts",
                 "relevantSubgroups": [0, 1, 2]
+            },
+            {
+                "numberOfParts": 50,
+                "name": "City Council",
+                "pluralNoun": "City Council Seats",
+                "type": "multimember",
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "tilesets": [
@@ -1996,6 +2016,164 @@
         "idColumn": { "name": "ID", "key": "JOINID" },
         "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]]
     },
+
+    {
+        "id": "chicago_communities",
+        "name": "Chicago (Community Areas)",
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.chicago_communities"
+                },
+                "sourceLayer": "chicago_communities"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.chicago_communities_points"
+                },
+                "sourceLayer": "chicago_communities_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 2728753,
+                "min": 2917,
+                "max": 102922
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 875775,
+                    "min": 19,
+                    "max": 75836
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 877006,
+                    "min": 33,
+                    "max": 85943
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 784293,
+                    "min": 20,
+                    "max": 65463
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 146235,
+                    "min": 0,
+                    "max": 16236
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 4099,
+                    "min": 0,
+                    "max": 190
+                },
+                {
+                    "key": "NH_NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 545,
+                    "min": 0,
+                    "max": 43
+                },
+                {
+                    "key": "NH_2MORE",
+                    "name": "Two or more races",
+                    "sum": 36332,
+                    "min": 26,
+                    "max": 1929
+                },
+                {
+                    "key": "NH_OTHER",
+                    "name": "Other races",
+                    "sum": 4251,
+                    "min": 0,
+                    "max": 224
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 2100573,
+                    "min": 2121,
+                    "max": 85746
+                },
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 770348,
+                    "min": 18,
+                    "max": 69746
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 647419,
+                    "min": 24,
+                    "max": 62621
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American voting age population",
+                    "sum": 3221,
+                    "min": 0,
+                    "max": 171
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 459,
+                    "min": 0,
+                    "max": 42
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 123784,
+                    "min": 0,
+                    "max": 12258
+                },
+                {
+                    "key": "OTHVAP",
+                    "name": "Other races voting age population",
+                    "sum": 2948,
+                    "min": 0,
+                    "max": 165
+                },
+                {
+                    "key": "X2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 23932,
+                    "min": 20,
+                    "max": 1235
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "Area Number", "key": "area_num_1" },
+        "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]],
+        "districtingProblems": [
+            {
+                "type": "multimember",
+                "numberOfParts": 50,
+                "name": "City Council",
+                "pluralNoun": "City Council Seats",
+                "relevantSubgroups": [0, 1, 2]
+            }
+        ]
+    },
     {
         "id": "vermont",
         "name": "Vermont",
@@ -2005,6 +2183,12 @@
                 "numberOfParts": 10,
                 "name": "State Senate",
                 "pluralNoun": "Three-Member Senate Districts"
+            },
+            {
+                "numberOfParts": 30,
+                "name": "State Senate",
+                "pluralNoun": "State Senate Seats",
+                "type": "multimember"
             }
         ],
         "tilesets": [

@@ -51,7 +51,10 @@ export function placeItems(place, onClick) {
             >
                 <div class="place-name">${place.name}</div>
                 <div class="place-info">
-                    ${problem.numberOfParts} ${problem.pluralNoun}
+                    ${problem.numberOfParts}
+                    ${problem.pluralNoun}${problem.type === "multimember"
+                        ? ", Multi-member Districts"
+                        : ""}
                 </div>
             </li>
         `
