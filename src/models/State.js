@@ -165,7 +165,6 @@ export default class State {
             id: this.id,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             placeId: this.placeId,
-            idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             problem: this.problem
         };
         const text = JSON.stringify(serialized);
