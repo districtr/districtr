@@ -89,8 +89,11 @@ export default class Layer {
     getAssignment(featureId) {
         return this.getFeatureState(featureId).color;
     }
-    setAssignment(featureId, part) {
-        this.setFeatureState(featureId, { color: part });
+    setAssignment(feature, part) {
+        this.setFeatureState(feature.id, {
+            ...feature.state,
+            color: part
+        });
     }
     on(type, ...args) {
         this.map.on(type, this.id, ...args);
@@ -120,6 +123,9 @@ export default class Layer {
             }
         }
         return data;
+    }
+    queryRenderedFeatures() {
+        return this.map.queryRenderedFeatures(null, { layers: [this.id] });
     }
     /**
      * Executes the given function once the layer's source is loaded.

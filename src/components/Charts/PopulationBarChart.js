@@ -53,15 +53,16 @@ const horizontalBarChart = (population, parts) => {
     }
     ${data.map((d, i) => {
         const barH = barHeight(d, maxValue);
-        return barH > 0
+        return Math.round(d) > 0
             ? svg`
     <text
         style="font-size: ${textHeight}px"
         x="${barH + 2 * gap}"
         y="${i * (w + gap) +
             w -
-            (w + gap - textHeight) / 2}">${numberWithCommas(d)}</text>
-    `
+            (w + gap - textHeight) / 2}">${numberWithCommas(
+                  Math.round(d)
+              )}</text>`
             : "";
     })}
     </svg>

@@ -1,12 +1,13 @@
 [
     {
-        "id": "alaska",
+        "id": 1,
         "name": "Alaska",
         "districtingProblems": [
             {
                 "numberOfParts": 20,
-                "office": "State Senate",
-                "plural": "State Senate Districts"
+                "name": "State Senate",
+                "pluralNoun": "State Senate Districts",
+                "relevantSubgroups": [0, 3]
             }
         ],
         "idColumn": { "name": "ID", "key": "ID" },
@@ -28,40 +29,176 @@
                 "sourceLayer": "alaska_points"
             }
         ],
+        "bounds": [[-179.228, 51.1753], [-129.98, 71.4411]],
         "population": {
             "total": {
-                "key": "POPULATION",
+                "key": "TOTPOP",
                 "name": "Total population",
                 "sum": 710231,
                 "min": 44,
                 "max": 7994
             },
-            "subgroups": []
+            "subgroups": [
+                {
+                    "key": "WHITE",
+                    "name": "White population",
+                    "sum": 473576,
+                    "min": 1,
+                    "max": 5953
+                },
+                {
+                    "key": "BLACK",
+                    "name": "Black population",
+                    "sum": 23263,
+                    "min": 0,
+                    "max": 980
+                },
+                {
+                    "key": "ASIAN",
+                    "name": "Asian population",
+                    "sum": 38135,
+                    "min": 0,
+                    "max": 1452
+                },
+                {
+                    "key": "AMIN",
+                    "name": "Native American and Alaskan Native population",
+                    "sum": 104871,
+                    "min": 0,
+                    "max": 2428
+                },
+                {
+                    "key": "NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 7409,
+                    "min": 0,
+                    "max": 428
+                },
+                {
+                    "key": "2MORE",
+                    "name": "Two or more races",
+                    "sum": 51875,
+                    "min": 0,
+                    "max": 499
+                },
+                {
+                    "key": "OTHER",
+                    "name": "Other races",
+                    "sum": 11102,
+                    "min": 0,
+                    "max": 364
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 522853,
+                    "min": 31,
+                    "max": 5372
+                },
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 368895,
+                    "min": 1,
+                    "max": 4122
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 16904,
+                    "min": 0,
+                    "max": 645
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American and Alaskan Native voting age population",
+                    "sum": 70630,
+                    "min": 0,
+                    "max": 1528
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 4599,
+                    "min": 0,
+                    "max": 228
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 28312,
+                    "min": 0,
+                    "max": 1245
+                },
+                {
+                    "key": "OTHERVAP",
+                    "name": "Other races voting age population",
+                    "sum": 7988,
+                    "min": 0,
+                    "max": 304
+                },
+                {
+                    "key": "2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 25525,
+                    "min": 0,
+                    "max": 257
+                }
+            ]
         },
-        "bounds": [[-179.228, 51.1753], [-129.98, 71.4411]],
         "elections": [
+            {
+                "year": 2014,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH14R", "name": "Republican" },
+                    { "key": "USH14D", "name": "Democratic" }
+                ]
+            },
             {
                 "year": 2016,
                 "race": "Presidential",
                 "voteTotals": [
-                    { "key": "D-Pres Vot", "name": "Democratic" },
-                    { "key": "R-Pres Vot", "name": "Republican" }
+                    { "key": "PRES16R", "name": "Republican" },
+                    { "key": "PRES16D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN16R", "name": "Republican" },
+                    { "key": "SEN16D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2018,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH18R", "name": "Republican" },
+                    { "key": "USH18D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2018,
+                "race": "Governor",
+                "voteTotals": [
+                    { "key": "GOV18R", "name": "Republican" },
+                    { "key": "GOV18D", "name": "Democratic" }
                 ]
             }
-        ]
+        ],
+        "permalink": "alaska",
+        "description": ""
     },
     {
-        "id": "lowell_blocks",
+        "id": 2,
         "name": "Lowell",
-        "about": [
-            "The units you see here are the 1,845 census blocks that make up the municipality of Lowell, MA.",
-            "Data for this module was obtained from the US Census Bureau. The block shapefile for the city of Lowell was downloaded from the <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">Census's TIGER/Line Shapefiles</a>. Demographic information from the decennial Census was downloaded at the block level from American FactFinder (https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml). The cleaned shapefile with demographic information is <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">available for download</a> from the MGGG GitHub account."
-        ],
         "districtingProblems": [
             {
                 "numberOfParts": 9,
-                "office": "City Council",
-                "plural": "City Council Districts",
+                "name": "City Council",
+                "pluralNoun": "City Council Districts",
                 "relevantSubgroups": [0, 1, 2]
             }
         ],
@@ -186,14 +323,13 @@
                             },
                             "properties": {
                                 "name": "Lowell High School",
-                                "short_description": "Lowell High School—the only public high school in the city, which serves over 3000 students—has been slated in recent years to move from its downtown location. The student population of the high school has an even higher POC% than the city overall, but there was hardly any outreach to Asian or Latino communities about the choice of a new location.  Placing the school in the wealthier part of town, as some parents had lobbied for, would place a heavy burden on families with less disposable income."
+                                "short_description": "Lowell High School\u00e2\u20ac\u201dthe only public high school in the city, which serves over 3000 students\u00e2\u20ac\u201dhas been slated in recent years to move from its downtown location. The student population of the high school has an even higher POC% than the city overall, but there was hardly any outreach to Asian or Latino communities about the choice of a new location.  Placing the school in the wealthier part of town, as some parents had lobbied for, would place a heavy burden on families with less disposable income."
                             }
                         }
                     ]
                 }
             }
         },
-
         "tilesets": [
             {
                 "type": "fill",
@@ -256,16 +392,18 @@
         "idColumn": {
             "name": "2010 Census GEOID",
             "key": "GEOID10"
-        }
+        },
+        "permalink": "lowell_blocks",
+        "description": ""
     },
     {
-        "id": "ma_towns",
+        "id": 3,
         "name": "Massachusetts (Towns)",
         "districtingProblems": [
             {
                 "numberOfParts": 9,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -398,17 +536,19 @@
         "idColumn": {
             "name": "Town ID",
             "key": "TOWN_ID"
-        }
+        },
+        "permalink": "ma_towns",
+        "description": ""
     },
     {
-        "id": "ma_precincts_02_10",
+        "id": 4,
         "name": "Massachusetts (Precincts, 2002-2010)",
         "idColumn": { "name": "2000 Census GEOID", "key": "GEOID10" },
         "districtingProblems": [
             {
                 "numberOfParts": 9,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -489,16 +629,18 @@
                     { "key": "SEN10R", "name": "Republican" }
                 ]
             }
-        ]
+        ],
+        "permalink": "ma_precincts_02_10",
+        "description": ""
     },
     {
-        "id": "ma_precincts_12_16",
+        "id": 5,
         "name": "Massachusetts (Precincts, 2012-2016)",
         "districtingProblems": [
             {
                 "numberOfParts": 9,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
@@ -572,16 +714,18 @@
                     { "key": "PRES16R", "name": "Republican" }
                 ]
             }
-        ]
+        ],
+        "permalink": "ma_precincts_12_16",
+        "description": ""
     },
     {
-        "id": "missouri",
+        "id": 6,
         "name": "Missouri",
         "districtingProblems": [
             {
                 "numberOfParts": 8,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -679,16 +823,18 @@
                 ]
             }
         ],
-        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "permalink": "missouri",
+        "description": ""
     },
     {
-        "id": "pa_vtds",
+        "id": 7,
         "name": "Pennsylvania",
         "districtingProblems": [
             {
                 "numberOfParts": 18,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -741,7 +887,7 @@
                 },
                 {
                     "key": "NATIVE_POP",
-                    "name": "American Indian or Alaska Native population",
+                    "name": "Native American or Alaska Native population",
                     "sum": 16886,
                     "min": 0,
                     "max": 41
@@ -830,16 +976,18 @@
                 ]
             }
         ],
-        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" }
+        "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
+        "permalink": "pa_vtds",
+        "description": ""
     },
     {
-        "id": "wisconsin_12_16",
+        "id": 8,
         "name": "Wisconsin",
         "districtingProblems": [
             {
                 "numberOfParts": 8,
-                "office": "Congress",
-                "plural": "Congressional Districts"
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -899,7 +1047,7 @@
                 },
                 {
                     "key": "AMINDIAN",
-                    "name": "American Indian or Alaska Native population",
+                    "name": "Native American or Alaska Native population",
                     "sum": 68593,
                     "min": 0,
                     "max": 771
@@ -962,7 +1110,7 @@
                 },
                 {
                     "key": "AMINDIAN18",
-                    "name": "American Indian or Alaska Native population over 18",
+                    "name": "Native American or Alaska Native population over 18",
                     "sum": 47510,
                     "min": 0,
                     "max": 538
@@ -1041,16 +1189,18 @@
                     { "key": "GOVREP12", "name": "Republican" }
                 ]
             }
-        ]
+        ],
+        "permalink": "wisconsin_12_16",
+        "description": ""
     },
     {
-        "id": "islip_blocks",
+        "id": 9,
         "name": "Islip",
         "districtingProblems": [
             {
                 "numberOfParts": 4,
-                "office": "Town Council",
-                "plural": "Town Council Districts"
+                "name": "Town Council",
+                "pluralNoun": "Town Council Districts"
             }
         ],
         "tilesets": [
@@ -1110,7 +1260,7 @@
                 },
                 {
                     "key": "NH_AMIN",
-                    "name": "American Indian population",
+                    "name": "Native American population",
                     "sum": 520,
                     "min": 0,
                     "max": 15
@@ -1126,16 +1276,18 @@
         },
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
-        "bounds": [[-73.3183, 40.5557], [-73.0379, 40.833]]
+        "bounds": [[-73.3183, 40.5557], [-73.0379, 40.833]],
+        "permalink": "islip_blocks",
+        "description": ""
     },
     {
-        "id": "santa_clara_blocks",
+        "id": 10,
         "name": "Santa Clara",
         "districtingProblems": [
             {
                 "numberOfParts": 6,
-                "office": "City Council",
-                "plural": "City Council Districts",
+                "name": "City Council",
+                "pluralNoun": "City Council Districts",
                 "relevantSubgroups": [0, 2]
             }
         ],
@@ -1203,7 +1355,7 @@
                 },
                 {
                     "key": "NH_AMIN",
-                    "name": "American Indian population",
+                    "name": "Native American population",
                     "sum": 240,
                     "min": 0,
                     "max": 10
@@ -1212,16 +1364,18 @@
         },
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
-        "bounds": [[-122.0054, 37.3231], [-121.9297, 37.4189]]
+        "bounds": [[-122.0054, 37.3231], [-121.9297, 37.4189]],
+        "permalink": "santa_clara_blocks",
+        "description": ""
     },
     {
-        "id": "philadelphia_blocks",
+        "id": 11,
         "name": "Philadelphia",
         "districtingProblems": [
             {
                 "numberOfParts": 10,
-                "office": "City Council",
-                "plural": "City Council Districts",
+                "name": "City Council",
+                "pluralNoun": "City Council Districts",
                 "relevantSubgroups": [0, 1, 2]
             }
         ],
@@ -1282,7 +1436,7 @@
                 },
                 {
                     "key": "NH_AMIN",
-                    "name": "American Indian population",
+                    "name": "Native American population",
                     "sum": 3498,
                     "min": 0,
                     "max": 11
@@ -1298,16 +1452,18 @@
         },
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
-        "bounds": [[-75.2803, 39.867], [-74.9558, 40.138]]
+        "bounds": [[-75.2803, 39.867], [-74.9558, 40.138]],
+        "permalink": "philadelphia_blocks",
+        "description": ""
     },
     {
-        "id": "austin_blocks",
+        "id": 12,
         "name": "Austin",
         "districtingProblems": [
             {
                 "numberOfParts": 10,
-                "office": "City Council",
-                "plural": "City Council Districts",
+                "name": "City Council",
+                "pluralNoun": "City Council Districts",
                 "relevantSubgroups": [0, 1, 2]
             }
         ],
@@ -1368,7 +1524,7 @@
                 },
                 {
                     "key": "NH_AMIN",
-                    "name": "American Indian population",
+                    "name": "Native American population",
                     "sum": 2074,
                     "min": 0,
                     "max": 13
@@ -1384,16 +1540,18 @@
         },
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
-        "bounds": [[-97.9715, 30.0927], [-97.5138, 30.5188]]
+        "bounds": [[-97.9715, 30.0927], [-97.5138, 30.5188]],
+        "permalink": "austin_blocks",
+        "description": ""
     },
     {
-        "id": "mississippi_block_groups",
+        "id": 13,
         "name": "Mississippi",
         "districtingProblems": [
             {
                 "numberOfParts": 4,
-                "office": "Congress",
-                "plural": "Congressional Districts",
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts",
                 "relevantSubgroups": [0, 1]
             }
         ],
@@ -1454,7 +1612,7 @@
                 },
                 {
                     "key": "NH_AMIN",
-                    "name": "American Indian population",
+                    "name": "Native American population",
                     "sum": 13845,
                     "min": 0,
                     "max": 1756
@@ -1510,7 +1668,7 @@
                 },
                 {
                     "key": "AMINVAP",
-                    "name": "American Indian voting age population",
+                    "name": "Native American voting age population",
                     "sum": 10216,
                     "min": 0,
                     "max": 1125
@@ -1519,6 +1677,492 @@
         },
         "elections": [],
         "idColumn": { "name": "2010 Census GEOID", "key": "GEOID10" },
-        "bounds": [[-91.655, 30.1741], [-88.0979, 34.9961]]
+        "bounds": [[-91.655, 30.1741], [-88.0979, 34.9961]],
+        "permalink": "mississippi_block_groups",
+        "description": ""
+    },
+    {
+        "id": "georgia",
+        "name": "Georgia",
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.georgia"
+                },
+                "sourceLayer": "georgia"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.georgia_points"
+                },
+                "sourceLayer": "georgia_points"
+            }
+        ],
+        "districtingProblems": [
+            {
+                "numberOfParts": 14,
+                "name": "Congress",
+                "pluralNoun": "Congressional Districts"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 9687653,
+                "min": 0,
+                "max": 44065
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 5413920,
+                    "min": 0,
+                    "max": 27519
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 2910800,
+                    "min": 0,
+                    "max": 21054
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 853689,
+                    "min": 0,
+                    "max": 9354
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 311692,
+                    "min": 0,
+                    "max": 3514
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 21279,
+                    "min": 0,
+                    "max": 167
+                },
+                {
+                    "key": "NH_NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 5152,
+                    "min": 0,
+                    "max": 74
+                },
+                {
+                    "key": "NH_2MORE",
+                    "name": "Two or more races",
+                    "sum": 151980,
+                    "min": 0,
+                    "max": 677
+                },
+                {
+                    "key": "NH_OTHER",
+                    "name": "Other races",
+                    "sum": 19141,
+                    "min": 0,
+                    "max": 160
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 7196101,
+                    "min": 0,
+                    "max": 34169
+                },
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 4242514,
+                    "min": 0,
+                    "max": 22026
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 2072946,
+                    "min": 0,
+                    "max": 14934
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American voting age population",
+                    "sum": 16324,
+                    "min": 0,
+                    "max": 145
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 3699,
+                    "min": 0,
+                    "max": 49
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 234164,
+                    "min": 0,
+                    "max": 2443
+                },
+                {
+                    "key": "OTHERVAP",
+                    "name": "Other races voting age population",
+                    "sum": 10107,
+                    "min": 0,
+                    "max": 124
+                },
+                {
+                    "key": "2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 77345,
+                    "min": 0,
+                    "max": 383
+                }
+            ]
+        },
+        "elections": [
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES16R", "name": "Republican" },
+                    { "key": "PRES16D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN16R", "name": "Republican" },
+                    { "key": "SEN16D", "name": "Democratic" }
+                ]
+            }
+        ],
+        "idColumn": { "name": "ID", "key": "ID" },
+        "bounds": [[-85.6052, 30.3558], [-80.7514, 35.0007]]
+    },
+    {
+        "id": "chicago",
+        "name": "Chicago",
+        "districtingProblems": [
+            {
+                "numberOfParts": 10,
+                "name": "City Council",
+                "pluralNoun": "Five-Member Districts",
+                "relevantSubgroups": [0, 1, 2]
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.chicago"
+                },
+                "sourceLayer": "chicago"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.chicago_points"
+                },
+                "sourceLayer": "chicago_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 2727771,
+                "min": 14,
+                "max": 12307
+            },
+            "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 874800,
+                    "min": 0,
+                    "max": 3263
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 876046,
+                    "min": 0,
+                    "max": 7723
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 783335,
+                    "min": 0,
+                    "max": 3526
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 145407,
+                    "min": 0,
+                    "max": 2208
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 3378,
+                    "min": 0,
+                    "max": 22
+                },
+                {
+                    "key": "NH_NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 341,
+                    "min": 0,
+                    "max": 17
+                },
+                {
+                    "key": "NH_2MORE",
+                    "name": "Two or more races",
+                    "sum": 35355,
+                    "min": 0,
+                    "max": 121
+                },
+                {
+                    "key": "NH_OTHER",
+                    "name": "Other races",
+                    "sum": 3612,
+                    "min": 0,
+                    "max": 35
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 2099596,
+                    "min": 14,
+                    "max": 11384
+                },
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 769374,
+                    "min": 0,
+                    "max": 2710
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 646463,
+                    "min": 0,
+                    "max": 7441
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American voting age population",
+                    "sum": 2536,
+                    "min": 0,
+                    "max": 18
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 264,
+                    "min": 0,
+                    "max": 9
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 122950,
+                    "min": 0,
+                    "max": 1792
+                },
+                {
+                    "key": "OTHVAP",
+                    "name": "Other races voting age population",
+                    "sum": 2349,
+                    "min": 0,
+                    "max": 34
+                },
+                {
+                    "key": "X2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 22956,
+                    "min": 0,
+                    "max": 84
+                }
+            ]
+        },
+        "elections": [],
+        "idColumn": { "name": "ID", "key": "JOINID" },
+        "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]]
+    },
+    {
+        "id": "vermont",
+        "name": "Vermont",
+
+        "districtingProblems": [
+            {
+                "numberOfParts": 10,
+                "name": "State Senate",
+                "pluralNoun": "Three-Member Senate Districts"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.vermont"
+                },
+                "sourceLayer": "vermont"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.vermont_points"
+                },
+                "sourceLayer": "vermont_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 625640,
+                "min": 62,
+                "max": 42417
+            },
+            "subgroups": [
+                {
+                    "key": "WHITE",
+                    "name": "White population",
+                    "sum": 596195,
+                    "min": 59,
+                    "max": 37727
+                },
+                {
+                    "key": "BLACK",
+                    "name": "Black population",
+                    "sum": 6277,
+                    "min": 0,
+                    "max": 1653
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 9205,
+                    "min": 0,
+                    "max": 1144
+                },
+                {
+                    "key": "ASIAN",
+                    "name": "Asian population",
+                    "sum": 7947,
+                    "min": 0,
+                    "max": 1510
+                },
+                {
+                    "key": "AMIN",
+                    "name": "Native American and Alaskan Native population",
+                    "sum": 2207,
+                    "min": 0,
+                    "max": 158
+                },
+                {
+                    "key": "NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 160,
+                    "min": 0,
+                    "max": 21
+                },
+                {
+                    "key": "2MORE",
+                    "name": "Two or more races",
+                    "sum": 10749,
+                    "min": 0,
+                    "max": 1102
+                },
+                {
+                    "key": "OTHER",
+                    "name": "Other races",
+                    "sum": 2105,
+                    "min": 0,
+                    "max": 273
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 496422,
+                    "min": 51,
+                    "max": 36688
+                }
+            ]
+        },
+        "elections": [
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES12R", "name": "Republican" },
+                    { "key": "PRES12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN12R", "name": "Republican" },
+                    { "key": "SEN12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH12R", "name": "Republican" },
+                    { "key": "USH12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH14R", "name": "Republican" },
+                    { "key": "USH14D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES16R", "name": "Republican" },
+                    { "key": "PRES16D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN16R", "name": "Republican" },
+                    { "key": "SEN16D", "name": "Democratic" }
+                ]
+            }
+        ],
+        "idColumn": { "name": "Census GEOID", "key": "GEOID10" },
+        "bounds": [[-73.4379, 42.7268], [-71.465, 45.0167]]
     }
 ]

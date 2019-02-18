@@ -4,6 +4,9 @@ export default class IdColumn {
         this.name = name;
     }
     getValue(feature) {
+        if (feature.properties === undefined) {
+            return undefined;
+        }
         return feature.properties[this.key];
     }
 }

@@ -3,6 +3,14 @@ import initializeAuthContext from "../api/auth";
 import { client } from "../api/client";
 import { hydratedPlacesList } from "../components/PlacesList";
 
+function clearQueriesFromURL() {
+    history.replaceState(
+        {},
+        document.title,
+        window.location.href.split("?")[0]
+    );
+}
+
 export function renderInitialView() {
     const listOfPlaces = hydratedPlacesList();
     const startDistrictingSection = document.getElementById(
@@ -28,13 +36,17 @@ export function renderInitialView() {
 
 renderInitialView();
 initializeAuthContext(client).then(user => {
+    clearQueriesFromURL();
     const signInHeader = document.getElementById("sign-in-header");
-    if (user) {
+    if (user !== null && user !== undefined) {
         render(
             html`
                 <p class="sign-in-link">Hello, ${user.first}!</p>
                 <a href="./new.html" class="call-to-action sign-in-link"
                     >Draw a new plan</a
+                >
+                <a href="./signout.html" class="call-to-action sign-in-link"
+                    >Sign out</a
                 >
             `,
             signInHeader
