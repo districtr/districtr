@@ -1862,6 +1862,13 @@
                 "name": "City Council",
                 "pluralNoun": "Five-Member Districts",
                 "relevantSubgroups": [0, 1, 2]
+            },
+            {
+                "numberOfParts": 50,
+                "name": "City Council",
+                "pluralNoun": "City Council Seats",
+                "type": "multimember",
+                "relevantSubgroups": [0, 1, 2]
             }
         ],
         "tilesets": [
@@ -2009,162 +2016,7 @@
         "idColumn": { "name": "ID", "key": "JOINID" },
         "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]]
     },
-    {
-        "id": "vermont",
-        "name": "Vermont",
 
-        "districtingProblems": [
-            {
-                "numberOfParts": 10,
-                "name": "State Senate",
-                "pluralNoun": "Three-Member Senate Districts"
-            }
-        ],
-        "tilesets": [
-            {
-                "type": "fill",
-                "source": {
-                    "type": "vector",
-                    "url": "mapbox://districtr.vermont"
-                },
-                "sourceLayer": "vermont"
-            },
-            {
-                "type": "circle",
-                "source": {
-                    "type": "vector",
-                    "url": "mapbox://districtr.vermont_points"
-                },
-                "sourceLayer": "vermont_points"
-            }
-        ],
-        "population": {
-            "total": {
-                "key": "TOTPOP",
-                "name": "Total population",
-                "sum": 625640,
-                "min": 62,
-                "max": 42417
-            },
-            "subgroups": [
-                {
-                    "key": "WHITE",
-                    "name": "White population",
-                    "sum": 596195,
-                    "min": 59,
-                    "max": 37727
-                },
-                {
-                    "key": "BLACK",
-                    "name": "Black population",
-                    "sum": 6277,
-                    "min": 0,
-                    "max": 1653
-                },
-                {
-                    "key": "HISP",
-                    "name": "Hispanic population",
-                    "sum": 9205,
-                    "min": 0,
-                    "max": 1144
-                },
-                {
-                    "key": "ASIAN",
-                    "name": "Asian population",
-                    "sum": 7947,
-                    "min": 0,
-                    "max": 1510
-                },
-                {
-                    "key": "AMIN",
-                    "name": "Native American and Alaskan Native population",
-                    "sum": 2207,
-                    "min": 0,
-                    "max": 158
-                },
-                {
-                    "key": "NHPI",
-                    "name": "Native Hawaiian and Pacific Islander population",
-                    "sum": 160,
-                    "min": 0,
-                    "max": 21
-                },
-                {
-                    "key": "2MORE",
-                    "name": "Two or more races",
-                    "sum": 10749,
-                    "min": 0,
-                    "max": 1102
-                },
-                {
-                    "key": "OTHER",
-                    "name": "Other races",
-                    "sum": 2105,
-                    "min": 0,
-                    "max": 273
-                },
-                {
-                    "key": "VAP",
-                    "name": "Voting age population",
-                    "sum": 496422,
-                    "min": 51,
-                    "max": 36688
-                }
-            ]
-        },
-        "elections": [
-            {
-                "year": 2012,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "PRES12R", "name": "Republican" },
-                    { "key": "PRES12D", "name": "Democratic" }
-                ]
-            },
-            {
-                "year": 2012,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "SEN12R", "name": "Republican" },
-                    { "key": "SEN12D", "name": "Democratic" }
-                ]
-            },
-            {
-                "year": 2012,
-                "race": "U.S. House",
-                "voteTotals": [
-                    { "key": "USH12R", "name": "Republican" },
-                    { "key": "USH12D", "name": "Democratic" }
-                ]
-            },
-            {
-                "year": 2014,
-                "race": "U.S. House",
-                "voteTotals": [
-                    { "key": "USH14R", "name": "Republican" },
-                    { "key": "USH14D", "name": "Democratic" }
-                ]
-            },
-            {
-                "year": 2016,
-                "race": "Presidential",
-                "voteTotals": [
-                    { "key": "PRES16R", "name": "Republican" },
-                    { "key": "PRES16D", "name": "Democratic" }
-                ]
-            },
-            {
-                "year": 2016,
-                "race": "Senate",
-                "voteTotals": [
-                    { "key": "SEN16R", "name": "Republican" },
-                    { "key": "SEN16D", "name": "Democratic" }
-                ]
-            }
-        ],
-        "idColumn": { "name": "Census GEOID", "key": "GEOID10" },
-        "bounds": [[-73.4379, 42.7268], [-71.465, 45.0167]]
-    },
     {
         "id": "chicago_communities",
         "name": "Chicago (Community Areas)",
@@ -2321,5 +2173,167 @@
                 "relevantSubgroups": [0, 1, 2]
             }
         ]
+    },
+    {
+        "id": "vermont",
+        "name": "Vermont",
+
+        "districtingProblems": [
+            {
+                "numberOfParts": 10,
+                "name": "State Senate",
+                "pluralNoun": "Three-Member Senate Districts"
+            },
+            {
+                "numberOfParts": 30,
+                "name": "State Senate",
+                "pluralNoun": "State Senate Seats",
+                "type": "multimember"
+            }
+        ],
+        "tilesets": [
+            {
+                "type": "fill",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.vermont"
+                },
+                "sourceLayer": "vermont"
+            },
+            {
+                "type": "circle",
+                "source": {
+                    "type": "vector",
+                    "url": "mapbox://districtr.vermont_points"
+                },
+                "sourceLayer": "vermont_points"
+            }
+        ],
+        "population": {
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 625640,
+                "min": 62,
+                "max": 42417
+            },
+            "subgroups": [
+                {
+                    "key": "WHITE",
+                    "name": "White population",
+                    "sum": 596195,
+                    "min": 59,
+                    "max": 37727
+                },
+                {
+                    "key": "BLACK",
+                    "name": "Black population",
+                    "sum": 6277,
+                    "min": 0,
+                    "max": 1653
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 9205,
+                    "min": 0,
+                    "max": 1144
+                },
+                {
+                    "key": "ASIAN",
+                    "name": "Asian population",
+                    "sum": 7947,
+                    "min": 0,
+                    "max": 1510
+                },
+                {
+                    "key": "AMIN",
+                    "name": "Native American and Alaskan Native population",
+                    "sum": 2207,
+                    "min": 0,
+                    "max": 158
+                },
+                {
+                    "key": "NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 160,
+                    "min": 0,
+                    "max": 21
+                },
+                {
+                    "key": "2MORE",
+                    "name": "Two or more races",
+                    "sum": 10749,
+                    "min": 0,
+                    "max": 1102
+                },
+                {
+                    "key": "OTHER",
+                    "name": "Other races",
+                    "sum": 2105,
+                    "min": 0,
+                    "max": 273
+                },
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 496422,
+                    "min": 51,
+                    "max": 36688
+                }
+            ]
+        },
+        "elections": [
+            {
+                "year": 2012,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES12R", "name": "Republican" },
+                    { "key": "PRES12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN12R", "name": "Republican" },
+                    { "key": "SEN12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2012,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH12R", "name": "Republican" },
+                    { "key": "USH12D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2014,
+                "race": "U.S. House",
+                "voteTotals": [
+                    { "key": "USH14R", "name": "Republican" },
+                    { "key": "USH14D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Presidential",
+                "voteTotals": [
+                    { "key": "PRES16R", "name": "Republican" },
+                    { "key": "PRES16D", "name": "Democratic" }
+                ]
+            },
+            {
+                "year": 2016,
+                "race": "Senate",
+                "voteTotals": [
+                    { "key": "SEN16R", "name": "Republican" },
+                    { "key": "SEN16D", "name": "Democratic" }
+                ]
+            }
+        ],
+        "idColumn": { "name": "Census GEOID", "key": "GEOID10" },
+        "bounds": [[-73.4379, 42.7268], [-71.465, 45.0167]]
     }
 ]
