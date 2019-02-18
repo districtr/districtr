@@ -2311,6 +2311,15 @@
         },
         "elections": [],
         "idColumn": { "name": "Area Number", "key": "area_num_1" },
-        "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]]
+        "bounds": [[-87.9401, 41.6445], [-87.5241, 42.023]],
+        "districtingProblems": [
+            {
+                "type": "multimember",
+                "numberOfParts": 50,
+                "name": "City Council",
+                "pluralNoun": "City Council Seats",
+                "relevantSubgroups": [0, 1, 2]
+            }
+        ]
     }
 ]

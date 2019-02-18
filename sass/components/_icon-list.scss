@@ -92,3 +92,33 @@ of the whole element */
 i {
     transition: color 160ms ease;
 }
+
+.subtle-button {
+    outline: none;
+    background: none;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0.1rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+    transition: transform 100ms ease;
+}
+
+.subtle-button:hover {
+    background: #eee;
+}
+
+.subtle-button:active {
+    background: #ddd;
+}
+
+.subtle-button i {
+    color: #777;
+}

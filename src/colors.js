@@ -6,10 +6,7 @@ export const partyColors = {
     Republican: "#d32f2f"
 };
 
-/**
- * District color scheme.
- */
-export const colorScheme = [
+let _colorScheme = [
     "#0099cd",
     "#ffca5d",
     "#00cd99",
@@ -55,6 +52,13 @@ export const colorScheme = [
     "#FFEA00",
     "#6200EA"
 ];
+
+_colorScheme.push(..._colorScheme.map(hex => changeColorLuminance(hex, -0.3)));
+
+/**
+ * District color scheme.
+ */
+export const colorScheme = _colorScheme;
 
 /**
  * Darker colors for when the user hovers over assigned units.

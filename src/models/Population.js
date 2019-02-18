@@ -35,7 +35,6 @@ export default class Population {
                     total: this.total
                 })
         );
-
         this.ideal = this.total.sum / parts.length;
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));
 

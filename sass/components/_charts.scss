@@ -1,6 +1,6 @@
 .bar-chart rect {
     fill: #aaa;
-    transition: all ease;
+    transition: all ease 100ms;
 }
 
 .report-data-list {
@@ -37,4 +37,34 @@
 
 .bar-chart text {
     text-shadow: 1px 1px #f9f9f9;
+}
+
+.bar-chart .bar-chart-overlay {
+    fill: #eeeeee;
+    z-index: 100;
+}
+
+.bar-chart .seats-list__item {
+    fill: white;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.pop-balance-chart__header {
+    color: #111;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    width: 300px;
+    // text-align: center;
+    border-bottom: 1px solid #aaa;
+    margin: 0;
+}
+
+.pop-balance-chart__header > * {
+    padding: 0.2rem;
+}
+
+.pop-balance-chart__header > *:first-child {
+    background: #eee;
 }
