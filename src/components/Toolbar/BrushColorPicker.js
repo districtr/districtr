@@ -2,9 +2,9 @@ import { html } from "lit-html";
 
 function addNewColorButton(colors, onInput) {
     const nextColor = colors.find(color => color.visible === false);
-    const onClick = e => {
+    const onClick = () => {
         nextColor.visible = true;
-        onInput(e);
+        onInput({ target: { value: nextColor.id } });
     };
     if (!nextColor) {
         return "";
@@ -12,7 +12,6 @@ function addNewColorButton(colors, onInput) {
     return html`
         <button
             class="icon-list__item subtle-button"
-            value="${nextColor.id}"
             @click=${onClick}
             title="Add another color"
         >
