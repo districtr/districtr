@@ -1289,6 +1289,13 @@
                 "name": "City Council",
                 "pluralNoun": "City Council Districts",
                 "relevantSubgroups": [0, 2]
+            },
+            {
+                "type": "multimember",
+                "numberOfParts": 6,
+                "name": "City Council",
+                "pluralNoun": "City Council Seats",
+                "relevantSubgroups": [0, 2]
             }
         ],
         "tilesets": [
