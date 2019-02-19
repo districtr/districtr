@@ -1,7 +1,7 @@
 import { html, svg } from "lit-html";
 import { roundToDecimal } from "../../utils";
 
-const height = 240;
+const defaultHeight = 240;
 const width = 300;
 
 const maxBarLength = width / 2;
@@ -9,8 +9,8 @@ const gap = 2;
 const r = 12;
 const seatsListWidth = 48;
 
-function barHeight(data) {
-    return (height - (gap * data.length - 1)) / data.length;
+function barHeight(data, chartHeight) {
+    return (chartHeight - (gap * data.length - 1)) / data.length;
 }
 
 function pctDeviationFromIntegerMultiple(d, ideal) {
@@ -50,6 +50,7 @@ const extra = 20;
 
 const OverUnderChart = (population, parts) => {
     const data = population.total.tally.data.filter(x => Math.round(x) > 0);
+    const chartHeight = Math.max(defaultHeight, 24 * data.length);
     const colors = parts
         .filter(
             (part, i) =>
@@ -57,11 +58,12 @@ const OverUnderChart = (population, parts) => {
         )
         .map(part => part.color);
 
-    const w = barHeight(data);
+    const w = barHeight(data, chartHeight);
     const textHeight = Math.min(w + gap, 16);
     const idealY = width / 2;
-    return svg`<svg viewBox="0 0 ${width} ${height +
-        extra}" width="${width}" height="${height + extra}" class="bar-chart">
+    return svg`<svg viewBox="0 0 ${width} ${chartHeight +
+        extra}" width="${width}" height="${chartHeight +
+        extra}" class="bar-chart">
         <g style="transform: translateX(${seatsListWidth / 2}px)">
     ${data.map((d, i) => {
         const deviation = pctDeviationFromIntegerMultiple(d, population.ideal);
@@ -91,17 +93,17 @@ const OverUnderChart = (population, parts) => {
         x1="${width - idealY}"
         y1="${0}"
         x2="${width - idealY}"
-        y2="${height + extra}"
+        y2="${chartHeight + extra}"
         stroke="#aaa" />
     <text
         x="${width / 2 - 6}"
-        y="${height + extra - 4}"
+        y="${chartHeight + extra - 4}"
         text-anchor="end" 
         fill="#111">
         Under
     </text>
     <text x="${width / 2 + 6}"
-        y="${height + extra - 4}"
+        y="${chartHeight + extra - 4}"
         text-anchor="start"
         fill="#111">
         Over
@@ -111,7 +113,7 @@ const OverUnderChart = (population, parts) => {
         x="0"
         y="0"
         width="${seatsListWidth}"
-        height = "${height + extra}" class="bar-chart-overlay"></rect>
+        height = "${chartHeight + extra}" class="bar-chart-overlay"></rect>
         
     ${data.map((d, i) => {
         const seats = numberOfSeats(d, population.ideal);

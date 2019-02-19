@@ -25,6 +25,7 @@ function assignLoadedUnits(state, assignment, remainingUnitIds) {
         const hasExpectedData = state.hasExpectedData(feature);
         if (hasExpectedData) {
             state.update(feature, assignment[unitId]);
+            state.parts[assignment[unitId]].visible = true;
             state.units.setAssignment(feature, assignment[unitId]);
             remainingUnitIds.delete(unitId);
         }
