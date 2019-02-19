@@ -181,7 +181,7 @@ function getMenuItems(state) {
             `
         }
     ];
-    if (state.place.id === "lowell_blocks") {
+    if (state.place.permalink === "lowell_blocks") {
         items = [
             {
                 render: () => html`

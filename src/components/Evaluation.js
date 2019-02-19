@@ -7,7 +7,7 @@ import RevealSection from "./RevealSection";
 export default ({ parts, population, elections }, uiState, dispatch) => {
     const activeParts = parts.filter(part => part.visible);
     return html`
-        ${population.subgroups.length > 0
+        ${population.subgroups.length > 1
             ? RevealSection(
                   "Racial Balance",
                   RacialBalanceTable(

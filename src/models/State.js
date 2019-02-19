@@ -187,7 +187,7 @@ export default class State {
     }
     supportsEvaluationTab() {
         return (
-            this.population.subgroups.length > 0 || this.elections.length > 0
+            this.population.subgroups.length > 1 || this.elections.length > 0
         );
     }
     hasExpectedData(feature) {
