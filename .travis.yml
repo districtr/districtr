@@ -2,7 +2,7 @@ language: node_js
 node_js:
     - "node"
 
-script: npm run test
+script: npm run test-ci
 
 after_success: npm run build
 
