@@ -64,7 +64,7 @@ export default class Population {
                     !this.subgroups[i].name.toLowerCase().includes("voting") &&
                     this.subgroups[i].sum > this.total.sum * 0.05
             )
-            .sort((i, j) => this.subgroups[i].sum - this.subgroups[j].sum)
+            .sort((i, j) => this.subgroups[j].sum - this.subgroups[i].sum)
             .slice(0, 3);
     }
 }
