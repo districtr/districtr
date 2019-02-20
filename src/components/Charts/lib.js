@@ -27,15 +27,19 @@ export function barPosition(deviation, width) {
     if (deviation > 0) {
         return width / 2;
     } else {
-        return width / 2 - barLength(deviation);
+        return width / 2 - barLength(deviation, width / 2);
     }
 }
 
-export function labelPosition(deviation, gap) {
+export function labelPosition(deviation, gap, width) {
     if (deviation > 0) {
-        return barPosition(deviation) + barLength(deviation) + gap;
+        return (
+            barPosition(deviation, width) +
+            barLength(deviation, width / 2) +
+            gap
+        );
     } else {
-        return barPosition(deviation) - gap;
+        return barPosition(deviation, width) - gap;
     }
 }
 
