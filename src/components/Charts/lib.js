@@ -19,7 +19,7 @@ export function pctDeviationFromIntegerMultiple(d, ideal) {
     }
 }
 
-function barLength(deviation, maxBarLength) {
+export function barLength(deviation, maxBarLength) {
     return Math.abs(deviation) * maxBarLength;
 }
 
