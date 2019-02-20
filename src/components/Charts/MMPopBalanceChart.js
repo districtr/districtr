@@ -1,5 +1,14 @@
 import { html, svg } from "lit-html";
 import { roundToDecimal } from "../../utils";
+import {
+    barHeight,
+    barLength,
+    barPosition,
+    getColorsToDisplay,
+    labelPosition,
+    numberOfSeats,
+    pctDeviationFromIntegerMultiple
+} from "./lib";
 
 const defaultHeight = 240;
 const width = 300;
@@ -9,114 +18,63 @@ const gap = 2;
 const r = 12;
 const seatsListWidth = 48;
 
-function barHeight(data, chartHeight) {
-    return (chartHeight - (gap * data.length - 1)) / data.length;
-}
-
-function pctDeviationFromIntegerMultiple(d, ideal) {
-    const over = d % ideal / ideal;
-    if (over > 0.5) {
-        return over - 1;
-    } else {
-        return over;
-    }
-}
-
-function barLength(deviation) {
-    return Math.abs(deviation) * maxBarLength;
-}
-
-function barPosition(deviation) {
-    if (deviation > 0) {
-        return width / 2;
-    } else {
-        return width / 2 - barLength(deviation);
-    }
-}
-
-function labelPosition(deviation) {
-    if (deviation > 0) {
-        return barPosition(deviation) + barLength(deviation) + gap;
-    } else {
-        return barPosition(deviation) - gap;
-    }
-}
-
-function numberOfSeats(d, ideal) {
-    return Math.round(d / ideal);
-}
-
 const extra = 20;
 
-const OverUnderChart = (population, parts) => {
-    const data = population.total.tally.data.filter(x => Math.round(x) > 0);
-    const chartHeight = Math.max(defaultHeight, 24 * data.length);
-    const colors = parts
-        .filter(
-            (part, i) =>
-                part.visible && Math.round(population.total.tally.data[i]) > 0
-        )
-        .map(part => part.color);
+const OverUnderBars = (data, colors, ideal, textHeight, w) =>
+    data.map((d, i) => {
+        const deviation = pctDeviationFromIntegerMultiple(d, ideal);
+        const labelX = labelPosition(deviation, gap);
 
-    const w = barHeight(data, chartHeight);
-    const textHeight = Math.min(w + gap, 16);
-    const idealY = width / 2;
-    return svg`<svg viewBox="0 0 ${width} ${chartHeight +
-        extra}" width="${width}" height="${chartHeight +
-        extra}" class="bar-chart">
-        <g style="transform: translateX(${seatsListWidth / 2}px)">
-    ${data.map((d, i) => {
-        const deviation = pctDeviationFromIntegerMultiple(d, population.ideal);
-        const labelX = labelPosition(deviation);
-
-        const barL = barLength(deviation);
+        const barL = barLength(deviation, maxBarLength);
         const barX = barPosition(deviation);
         return svg`
-        <rect
-            width="${barL}"
-            height="${w}"
-            x="${barX}"
-            y="${i * (w + gap)}"
-            style="fill: ${colors[i]}"
-        ></rect>
-        <text
-            style="font-size: ${textHeight}px"
-            text-anchor=${deviation > 0 ? "start" : "end"}
-            x="${labelX}"
-            y="${i * (w + gap) +
-                w / 2 -
-                gap / 2 +
-                textHeight / 2}">${roundToDecimal(deviation * 100, 1)}%</text>`;
-    })}
-    
-    <line
-        x1="${width - idealY}"
+    <rect
+        width="${barL}"
+        height="${w}"
+        x="${barX}"
+        y="${i * (w + gap)}"
+        style="fill: ${colors[i]}"
+    ></rect>
+    <text
+        style="font-size: ${textHeight}px"
+        text-anchor=${deviation > 0 ? "start" : "end"}
+        x="${labelX}"
+        y="${i * (w + gap) +
+            w / 2 -
+            gap / 2 +
+            textHeight / 2}">${roundToDecimal(deviation * 100, 1)}%</text>`;
+    });
+
+const OverUnderAnnotations = (chartHeight, chartWidth) =>
+    svg`<line
+        x1="${chartWidth / 2}"
         y1="${0}"
-        x2="${width - idealY}"
+        x2="${chartWidth / 2}"
         y2="${chartHeight + extra}"
         stroke="#aaa" />
-    <text
-        x="${width / 2 - 6}"
+        <text
+        x="${chartWidth / 2 - 6}"
         y="${chartHeight + extra - 4}"
         text-anchor="end" 
         fill="#111">
         Under
-    </text>
-    <text x="${width / 2 + 6}"
+        </text>
+        <text x="${chartWidth / 2 + 6}"
         y="${chartHeight + extra - 4}"
         text-anchor="start"
         fill="#111">
         Over
-    </text>
-    </g>
+        </text>`;
+
+const SeatNumberLabels = (data, ideal, w, colors, textHeight, chartHeight) =>
+    svg`
     <rect
         x="0"
         y="0"
         width="${seatsListWidth}"
         height = "${chartHeight + extra}" class="bar-chart-overlay"></rect>
-        
     ${data.map((d, i) => {
-        const seats = numberOfSeats(d, population.ideal);
+        const seats = numberOfSeats(d, ideal);
         return svg`
         <circle
             cx="${seatsListWidth / 2}"
@@ -130,7 +88,31 @@ const OverUnderChart = (population, parts) => {
             x="${seatsListWidth / 2}">
             ${seats}
         </text>`;
-    })}
+    })}`;
+
+const OverUnderChart = (population, parts) => {
+    const data = population.total.tally.data.filter(x => Math.round(x) > 0);
+    const chartHeight = Math.max(defaultHeight, 24 * data.length);
+    const colors = getColorsToDisplay(parts, population.tally.total.data);
+
+    const w = barHeight(data, chartHeight, gap);
+    const textHeight = Math.min(w + gap, 16);
+    return svg`
+    <svg viewBox="0 0 ${width} ${chartHeight +
+        extra}" width="${width}" height="${chartHeight +
+        extra}" class="bar-chart">
+        <g style="transform: translateX(${seatsListWidth / 2}px)">
+            ${OverUnderBars(data, colors, population.ideal, textHeight, w)}
+            ${OverUnderAnnotations(chartHeight, width)}
+        </g>
+        ${SeatNumberLabels(
+            data,
+            population.ideal,
+            w,
+            colors,
+            textHeight,
+            chartHeight
+        )}  
     </svg>
     `;
 };
