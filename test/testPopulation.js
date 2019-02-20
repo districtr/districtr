@@ -102,6 +102,6 @@ describe("Population", () => {
             },
             [0, 1, 2, 3]
         );
-        expect(population.indicesOfMajorSubgroups()).to.deep.equal([0, 1, 2]);
+        expect(population.indicesOfMajorSubgroups()).to.deep.equal([1, 0, 2]);
     });
 });
