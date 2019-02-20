@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.03" tests="10" failures="1">
+  <testsuite name="Root Suite" timestamp="2019-02-20T20:33:18" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="population balance" timestamp="2019-02-20T20:33:18" tests="0" file="C:\dev\mggg\districtr\test\testPopBalanceChart.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="pctDeviationFromIntegerMultiple" timestamp="2019-02-20T20:33:18" tests="2" file="C:\dev\mggg\districtr\test\testPopBalanceChart.js" failures="0" time="0.005">
+    <testcase name="population balance pctDeviationFromIntegerMultiple should be a percentage of the total population of the target nummber of seats" time="0.004" classname="should be a percentage of the total population of the target nummber of seats">
+    </testcase>
+    <testcase name="population balance pctDeviationFromIntegerMultiple should be negative when the district population is less than one seat&apos;s worth" time="0.001" classname="should be negative when the district population is less than one seat&apos;s worth">
+    </testcase>
+  </testsuite>
+  <testsuite name="PopulationSubgroup" timestamp="2019-02-20T20:33:18" tests="4" file="C:\dev\mggg\districtr\test\testPopulation.js" failures="0" time="0.008">
+    <testcase name="PopulationSubgroup can be rendered as a Mapbox expression" time="0.005" classname="can be rendered as a Mapbox expression">
+    </testcase>
+    <testcase name="PopulationSubgroup can get the corresponding value from a feature" time="0.001" classname="can get the corresponding value from a feature">
+    </testcase>
+    <testcase name="PopulationSubgroup can get the subgroup&apos;s share of the total population from a feature" time="0.002" classname="can get the subgroup&apos;s share of the total population from a feature">
+    </testcase>
+    <testcase name="PopulationSubgroup has a `sum` attribute" time="0" classname="has a `sum` attribute">
+    </testcase>
+  </testsuite>
+  <testsuite name="Population" timestamp="2019-02-20T20:33:18" tests="1" file="C:\dev\mggg\districtr\test\testPopulation.js" failures="1" time="0.007">
+    <testcase name="Population can provide the indicesOfMajorSubgroups" time="0.007" classname="can provide the indicesOfMajorSubgroups">
+      <failure message="expected [ 1, 0, 2 ] to deeply equal [ 0, 1, 2 ]" type="AssertionError"><![CDATA[AssertionError: expected [ 1, 0, 2 ] to deeply equal [ 0, 1, 2 ]
+    at Context.equal (test/testPopulation.js:105:62)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Loading an imported plan" timestamp="2019-02-20T20:33:18" tests="2" file="C:\dev\mggg\districtr\test\testState.js" failures="0" time="0.01">
+    <testcase name="Loading an imported plan should make all used colors visible" time="0.005" classname="should make all used colors visible">
+    </testcase>
+    <testcase name="Loading an imported plan should call State.update for each unit" time="0.005" classname="should call State.update for each unit">
+    </testcase>
+  </testsuite>
+  <testsuite name="replace" timestamp="2019-02-20T20:33:18" tests="1" file="C:\dev\mggg\districtr\test\testUtils.js" failures="0" time="0">
+    <testcase name="replace immutably replaces an element of a list" time="0" classname="immutably replaces an element of a list">
+    </testcase>
+  </testsuite>
+</testsuites>

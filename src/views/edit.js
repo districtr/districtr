@@ -145,7 +145,7 @@ export default function toolbarView(state) {
             activeElectionIndex: 0
         },
         subgroups: {
-            activeSubgroupIndices: state.problem.relevantSubgroups || [0, 1]
+            activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
         },
         charts: {
             population: { isOpen: true },
