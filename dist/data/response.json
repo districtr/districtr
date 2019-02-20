@@ -6,8 +6,7 @@
             {
                 "numberOfParts": 20,
                 "name": "State Senate",
-                "pluralNoun": "State Senate Districts",
-                "relevantSubgroups": [0, 3]
+                "pluralNoun": "State Senate Districts"
             }
         ],
         "idColumn": { "name": "ID", "key": "ID" },
@@ -198,8 +197,7 @@
             {
                 "numberOfParts": 9,
                 "name": "City Council",
-                "pluralNoun": "City Council Districts",
-                "relevantSubgroups": [0, 1, 2]
+                "pluralNoun": "City Council Districts"
             }
         ],
         "landmarks": {
@@ -1287,15 +1285,13 @@
             {
                 "numberOfParts": 6,
                 "name": "City Council",
-                "pluralNoun": "City Council Districts",
-                "relevantSubgroups": [0, 2]
+                "pluralNoun": "City Council Districts"
             },
             {
                 "type": "multimember",
                 "numberOfParts": 6,
                 "name": "City Council",
-                "pluralNoun": "City Council Seats",
-                "relevantSubgroups": [0, 2]
+                "pluralNoun": "City Council Seats"
             }
         ],
         "tilesets": [
@@ -1382,8 +1378,7 @@
             {
                 "numberOfParts": 10,
                 "name": "City Council",
-                "pluralNoun": "City Council Districts",
-                "relevantSubgroups": [0, 1, 2]
+                "pluralNoun": "City Council Districts"
             }
         ],
         "tilesets": [
@@ -1470,8 +1465,7 @@
             {
                 "numberOfParts": 10,
                 "name": "City Council",
-                "pluralNoun": "City Council Districts",
-                "relevantSubgroups": [0, 1, 2]
+                "pluralNoun": "City Council Districts"
             }
         ],
         "tilesets": [
@@ -1558,8 +1552,7 @@
             {
                 "numberOfParts": 4,
                 "name": "Congress",
-                "pluralNoun": "Congressional Districts",
-                "relevantSubgroups": [0, 1]
+                "pluralNoun": "Congressional Districts"
             }
         ],
         "tilesets": [
@@ -1867,15 +1860,13 @@
             {
                 "numberOfParts": 10,
                 "name": "City Council",
-                "pluralNoun": "Five-Member Districts",
-                "relevantSubgroups": [0, 1, 2]
+                "pluralNoun": "Five-Member Districts"
             },
             {
                 "numberOfParts": 50,
                 "name": "City Council",
                 "pluralNoun": "City Council Seats",
-                "type": "multimember",
-                "relevantSubgroups": [0, 1, 2]
+                "type": "multimember"
             }
         ],
         "tilesets": [
@@ -2176,8 +2167,7 @@
                 "type": "multimember",
                 "numberOfParts": 50,
                 "name": "City Council",
-                "pluralNoun": "City Council Seats",
-                "relevantSubgroups": [0, 1, 2]
+                "pluralNoun": "City Council Seats"
             }
         ]
     },

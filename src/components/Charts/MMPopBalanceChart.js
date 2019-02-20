@@ -93,7 +93,7 @@ const SeatNumberLabels = (data, ideal, w, colors, textHeight, chartHeight) =>
 const OverUnderChart = (population, parts) => {
     const data = population.total.tally.data.filter(x => Math.round(x) > 0);
     const chartHeight = Math.max(defaultHeight, 24 * data.length);
-    const colors = getColorsToDisplay(parts, population.tally.total.data);
+    const colors = getColorsToDisplay(parts, population.total.tally.data);
 
     const w = barHeight(data, chartHeight, gap);
     const textHeight = Math.min(w + gap, 16);
