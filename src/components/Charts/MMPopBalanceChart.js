@@ -1,14 +1,6 @@
 import { html, svg } from "lit-html";
 import { roundToDecimal } from "../../utils";
-import {
-    barHeight,
-    barLength,
-    barPosition,
-    getColorsToDisplay,
-    labelPosition,
-    numberOfSeats,
-    pctDeviationFromIntegerMultiple
-} from "./lib";
+import { barHeight, barLength, barPosition, getColorsToDisplay, labelPosition, numberOfSeats, pctDeviationFromIntegerMultiple } from "./lib";
 
 const defaultHeight = 240;
 const width = 300;
@@ -26,7 +18,7 @@ const OverUnderBars = (data, colors, ideal, textHeight, w) =>
         const labelX = labelPosition(deviation, gap);
 
         const barL = barLength(deviation, maxBarLength);
-        const barX = barPosition(deviation);
+        const barX = barPosition(deviation, width);
         return svg`
     <rect
         width="${barL}"
