@@ -1796,6 +1796,13 @@
                     "max": 14934
                 },
                 {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 539002,
+                    "min": 0,
+                    "max": 5586
+                },
+                {
                     "key": "AMINVAP",
                     "name": "Native American voting age population",
                     "sum": 16324,
@@ -1974,6 +1981,13 @@
                     "max": 7441
                 },
                 {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 527296,
+                    "min": 0,
+                    "max": 2304
+                },
+                {
                     "key": "AMINVAP",
                     "name": "Native American voting age population",
                     "sum": 2536,
@@ -2121,6 +2135,13 @@
                     "sum": 647419,
                     "min": 24,
                     "max": 62621
+                },
+                {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 528250,
+                    "min": 11,
+                    "max": 43195
                 },
                 {
                     "key": "AMINVAP",
