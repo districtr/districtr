@@ -16,7 +16,7 @@ const tabs = (tabs, activeTab, onChange) => {
                             type="radio"
                             name="tabs"
                             value="${tab.id}"
-                            ?checked="${tab.id == activeTab}"
+                            ?checked="${tab.id === activeTab}"
                             @change="${() => onChange({ id: tab.id })}"
                         />
                         <div class="tabs__tab">${tab.name}</div>

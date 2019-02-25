@@ -7,7 +7,9 @@
         "test": "mocha test --require @babel/register",
         "test-ci": "mocha test --require @babel/register --reporter mocha-junit-reporter",
         "develop": "parcel *.html",
-        "build": "parcel build --no-cache *.html --public-url ."
+        "build": "parcel build --no-cache *.html --public-url .",
+        "gulp-build": "gulp build",
+        "gulp-develop": "gulp develop"
     },
     "repository": {
         "type": "git",
@@ -30,20 +32,22 @@
         "@babel/register": "^7.0.0",
         "chai": "^4.2.0",
         "eslint": "^5.14.1",
+        "gulp": "^4.0.0",
+        "gulp-sass": "^4.0.2",
         "mocha": "^6.0.0",
         "mocha-junit-reporter": "^1.18.0",
         "parcel-bundler": "^1.11.0",
+        "rollup": "^1.2.2",
+        "rollup-plugin-babel": "^4.3.2",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-node-resolve": "^4.0.1",
         "sass": "^1.17.0",
         "sinon": "^7.2.4"
     },
     "dependencies": {
         "d3-scale-chromatic": "^1.3.3",
         "lit-html": "^1.0.0",
-        "mapbox-gl": "^0.52.0"
-    },
-    "babel": {
-        "presets": [
-            "@babel/preset-env"
-        ]
+        "mapbox-gl": "^0.52.0",
+        "rollup-plugin-terser": "^4.0.4"
     }
 }

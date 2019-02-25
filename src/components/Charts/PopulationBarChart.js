@@ -10,7 +10,7 @@ function barWidth(data) {
 }
 
 function barHeight(d, maxValue) {
-    if (d === 0 || maxValue == 0) {
+    if (d === 0 || maxValue === 0) {
         return 0;
     }
     return height * (d / maxValue);

@@ -6,15 +6,13 @@ export default function select(name, items, handler, selectedIndex) {
             name="${name}"
             @change="${e => handler(parseInt(e.target.value))}"
         >
-            ${
-                items.map(
-                    (item, i) => html`
-                        <option value="${i}" ?selected=${selectedIndex == i}
-                            >${item.name}</option
-                        >
-                    `
-                )
-            }
+            ${items.map(
+                (item, i) => html`
+                    <option value="${i}" ?selected=${selectedIndex === i}
+                        >${item.name}</option
+                    >
+                `
+            )}
         </select>
     `;
 }

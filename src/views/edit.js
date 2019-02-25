@@ -135,7 +135,7 @@ function getTools(state) {
     return tools;
 }
 
-export default function toolbarView(state) {
+export function toolbarView(state) {
     const tools = getTools(state);
     const tabs = getTabs(state);
 
