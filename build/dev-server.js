@@ -11,7 +11,10 @@ export function reload(done) {
 export function serve(done) {
     server.init({
         server: {
-            baseDir: "./dist/"
+            baseDir: "./dist/",
+            serveStaticOptions: {
+                extensions: ["html"] // pretty urls
+            }
         }
     });
     done();
