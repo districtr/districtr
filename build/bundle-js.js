@@ -45,7 +45,9 @@ export default function bundleViews(production = true, caches) {
         })
     ).then(views =>
         Promise.all(
-            views.map(view => bundleView(view, production, caches[view]))
+            views.map(view =>
+                bundleView(view, production, caches ? caches[view] : null)
+            )
         )
     );
 }
