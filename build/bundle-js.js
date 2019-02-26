@@ -3,7 +3,7 @@ import { rollup } from "rollup";
 import plugins from "./rollup-plugins";
 
 const IE_TARGETS = "> 0.25%, not dead";
-const MODERN_TARGETS = "> 0.25%, not ie < 999";
+const MODERN_TARGETS = "> 0.5%, not ie < 999";
 
 export function bundleView(view, production = true, cache) {
     return (
@@ -13,7 +13,7 @@ export function bundleView(view, production = true, cache) {
             cache: !production ? cache : false
         }).then(bundle =>
             bundle.write({
-                file: `./dist/${view}.ie.js`,
+                file: `./dist/es5/${view}.js`,
                 format: "umd",
                 name: "ieBundle",
                 sourcemap: production
@@ -25,7 +25,7 @@ export function bundleView(view, production = true, cache) {
             cache: !production ? cache : false
         }).then(bundle =>
             bundle.write({
-                file: `./dist/${view}.js`,
+                file: `./dist/es6/${view}.js`,
                 format: "umd",
                 name: "bundle",
                 sourcemap: production
@@ -34,7 +34,7 @@ export function bundleView(view, production = true, cache) {
     );
 }
 
-export default function bundleViews(production = true) {
+export default function bundleViews(production = true, caches) {
     return new Promise((resolve, reject) =>
         fs.readdir("./src/views/", (err, files) => {
             if (err) {
@@ -43,6 +43,8 @@ export default function bundleViews(production = true) {
             return resolve(files.map(filename => filename.split(".")[0]));
         })
     ).then(views =>
-        Promise.all(views.map(view => bundleView(view, production)))
+        Promise.all(
+            views.map(view => bundleView(view, production, caches[view]))
+        )
     );
 }

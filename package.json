@@ -6,10 +6,8 @@
     "scripts": {
         "test": "mocha test --require @babel/register",
         "test-ci": "mocha test --require @babel/register --reporter mocha-junit-reporter",
-        "develop": "parcel *.html",
-        "build": "parcel build --no-cache *.html --public-url .",
-        "gulp-build": "gulp build",
-        "gulp-develop": "gulp develop"
+        "build": "gulp build",
+        "develop": "gulp develop"
     },
     "repository": {
         "type": "git",
@@ -30,6 +28,7 @@
         "@babel/core": "^7.3.3",
         "@babel/preset-env": "^7.3.1",
         "@babel/register": "^7.0.0",
+        "browser-sync": "^2.26.3",
         "chai": "^4.2.0",
         "eslint": "^5.14.1",
         "gulp": "^4.0.0",
