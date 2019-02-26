@@ -1,10 +1,11 @@
 const routes = {
-    "/": "./index.html",
-    "/new": "./new.html",
-    "/edit": "./edit.html",
-    "/register": "./register.html",
-    "/request": "./request.html",
-    "/signin": "./signin.html"
+    "/": "./",
+    "/new": "./new",
+    "/edit": "./edit",
+    "/register": "./register",
+    "/request": "./request",
+    "/signin": "./signin",
+    "/signout": "./signout"
 };
 
 export function navigateTo(route) {

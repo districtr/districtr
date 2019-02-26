@@ -42,7 +42,7 @@ function validate({ first, last, email, submit }) {
     return valid;
 }
 
-export function main() {
+export default function main() {
     createForm(
         ["first", "last", "email", "submit"],
         "form",
@@ -50,5 +50,3 @@ export function main() {
         onSubmit
     );
 }
-
-main();

@@ -1,5 +1,4 @@
-import { isString } from "util";
-import { handleResponse } from "../utils";
+import { handleResponse, isString } from "../utils";
 import { client } from "./client";
 
 export function registerUser({ first, last, email }) {

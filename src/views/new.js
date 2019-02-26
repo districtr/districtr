@@ -14,7 +14,7 @@ function saveContextToStorage({ place, problem, id, assignment }) {
     localStorage.setItem("assignment", JSON.stringify(assignment));
 }
 
-export function renderNewPlanView() {
+export default function renderNewPlanView() {
     const listOfPlaces = hydratedPlacesList();
     const uploadPlan = new PlanUploader(json => {
         const planRecord = JSON.parse(json);
@@ -43,5 +43,3 @@ export function renderNewPlanView() {
         document.getElementById("root")
     );
 }
-
-renderNewPlanView();

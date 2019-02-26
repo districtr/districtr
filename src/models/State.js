@@ -182,7 +182,8 @@ function dec2hex(dec) {
 }
 
 function generateId(len) {
-    var arr = new Uint8Array((len || 40) / 2);
-    window.crypto.getRandomValues(arr);
+    const arr = new Uint8Array((len || 40) / 2);
+    const crypto = window.crypto ? window.crypto : window.msCrypto;
+    crypto.getRandomValues(arr);
     return Array.from(arr, dec2hex).join("");
 }

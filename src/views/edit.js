@@ -69,7 +69,7 @@ function getContextFromStorage() {
     return { place, problem, id: planId, assignment };
 }
 
-export function renderEditView() {
+export default function renderEditView() {
     const context = getContextFromStorage();
 
     const root = document.getElementById("root");
@@ -135,7 +135,7 @@ function getTools(state) {
     return tools;
 }
 
-export default function toolbarView(state) {
+function toolbarView(state) {
     const tools = getTools(state);
     const tabs = getTabs(state);
 
@@ -198,5 +198,3 @@ function getMenuItems(state) {
     }
     return items;
 }
-
-renderEditView();

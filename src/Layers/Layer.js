@@ -1,3 +1,5 @@
+import { isString } from "../utils";
+
 /**
  * Add the layer to the map below the first label layer (e.g. street names).
  * @param {mapboxgl.Map} map
@@ -160,10 +162,6 @@ export default class Layer {
             }
         });
     }
-}
-
-function isString(x) {
-    return typeof x === "string" || x instanceof String;
 }
 
 const getQueryFunction = getter => {

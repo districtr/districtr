@@ -13,3 +13,8 @@ body {
     margin: 0;
     padding: 0;
 }
+
+// Fix for IE:
+main {
+    display: block;
+}

@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Request a new place | Districtr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./sass/request.scss" />
-  <link href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/request.css" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+    rel="stylesheet" />
 </head>
 
 <body class="form-page">
@@ -29,8 +29,8 @@
         </div>
         <div class="form__item">
           <label for="districtType">What types of districts?</label>
-          <input id="districtTypes" name="districtTypes" class="text-input" placeholder="e.g. City Council, State Legislature, Congressional..."
-            required />
+          <input id="districtTypes" name="districtTypes" class="text-input"
+            placeholder="e.g. City Council, State Legislature, Congressional..." required />
         </div>
         <div class="form__item">
           <label for="info">What are the relevant data you need to draw the
@@ -62,12 +62,23 @@
           <input type="text" id="organization" name="organization" class="text-input" />
         </div>
         <div class="form__item">
-          <input id="submit" disabled type="submit" name="submit" class="form-button" value="Submit" />
+          <input id="submit" disabled type="submit" name="submit" class="form-button"
+            value="Submit" />
         </div>
       </div>
     </form>
   </main>
-  <script src="./src/views/request.js"></script>
+  <script src="./es6/request.js"></script>
+  <script>
+    if (Object.assign === undefined || fetch === undefined) {
+      document.write("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch\"><\/script>");
+      document.write("<script src=\"./es5/request.js\"><\/script>");
+      document.write("<script>ieBundle();<\/script>");
+    } else {
+      bundle();
+    }
+  </script>
+
 </body>
 
 </html>

@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Sign in | Districtr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./sass/signup.scss" />
-  <link href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/signup.css" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+    rel="stylesheet" />
 </head>
 
 <body class="form-page">
@@ -27,10 +27,20 @@
           placeholder="name@example.com" required />
       </div>
       <div class="form__item">
-        <input id="submit" disabled type="submit" name="submit" class="form-button" value="Sign in" />
+        <input id="submit" disabled type="submit" name="submit" class="form-button"
+          value="Sign in" />
       </div>
     </form>
-    <script src="./src/views/signin.js"></script>
+    <script src="./es6/signin.js"></script>
+    <script>
+      if (Object.assign === undefined || fetch === undefined) {
+        document.write("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch\"><\/script>");
+        document.write("<script src=\"./es5/signin.js\"><\/script>");
+        document.write("<script>ieBundle();<\/script>");
+      } else {
+        bundle();
+      }
+    </script>
   </main>
 </body>
 

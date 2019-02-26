@@ -11,7 +11,7 @@ function clearQueriesFromURL() {
     );
 }
 
-export function renderInitialView() {
+function renderInitialView() {
     const listOfPlaces = hydratedPlacesList();
     const startDistrictingSection = document.getElementById(
         "start-districting"
@@ -34,32 +34,37 @@ export function renderInitialView() {
     startDistrictingSection.classList.remove("hidden");
 }
 
-renderInitialView();
-initializeAuthContext(client).then(user => {
-    clearQueriesFromURL();
-    const signInHeader = document.getElementById("sign-in-header");
-    if (user !== null && user !== undefined) {
-        render(
-            html`
-                <p class="sign-in-link">Hello, ${user.first}!</p>
-                <a href="./new.html" class="call-to-action sign-in-link"
-                    >Draw a new plan</a
-                >
-                <a href="./signout.html" class="call-to-action sign-in-link"
-                    >Sign out</a
-                >
-            `,
-            signInHeader
-        );
-    } else {
-        render(
-            html`
-                <a href="./signin.html" class="sign-in-link">Sign in</a>
-                <a href="./register.html" class="call-to-action sign-in-link">
-                    Create your account</a
-                >
-            `,
-            signInHeader
-        );
-    }
-});
+export default () => {
+    renderInitialView();
+    initializeAuthContext(client).then(user => {
+        clearQueriesFromURL();
+        const signInHeader = document.getElementById("sign-in-header");
+        if (user !== null && user !== undefined) {
+            render(
+                html`
+                    <p class="sign-in-link">Hello, ${user.first}!</p>
+                    <a href="./new.html" class="call-to-action sign-in-link"
+                        >Draw a new plan</a
+                    >
+                    <a href="./signout.html" class="call-to-action sign-in-link"
+                        >Sign out</a
+                    >
+                `,
+                signInHeader
+            );
+        } else {
+            render(
+                html`
+                    <a href="./signin.html" class="sign-in-link">Sign in</a>
+                    <a
+                        href="./register.html"
+                        class="call-to-action sign-in-link"
+                    >
+                        Create your account</a
+                    >
+                `,
+                signInHeader
+            );
+        }
+    });
+};
