@@ -2,8 +2,9 @@ import fs from "fs";
 import { rollup } from "rollup";
 import plugins from "./rollup-plugins";
 
-const IE_TARGETS = "> 0.25%, not dead";
-const MODERN_TARGETS = "> 0.5%, not ie < 999";
+const IE_TARGETS = "> 0.25%, last 2 versions, Firefox ESR, not dead";
+const MODERN_TARGETS =
+    "> 0.25%, last 2 versions, Firefox ESR, not dead, not ie < 999";
 
 export function bundleView(view, production = true, cache) {
     return (
