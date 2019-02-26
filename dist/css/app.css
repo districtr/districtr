@@ -9,6 +9,9 @@ body {
   margin: 0;
   padding: 0; }
 
+main {
+  display: block; }
+
 h1 {
   font-size: 3.6rem;
   line-height: 1.4;
@@ -472,6 +475,7 @@ dl {
   z-index: 10001;
   transition: all 100ms ease;
   position: absolute;
+  left: 0;
   height: 1.8rem; }
 
 .tooltip-data__row > dd {

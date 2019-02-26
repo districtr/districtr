@@ -47,8 +47,6 @@ function validate({ email, submit }) {
     return valid;
 }
 
-export function main() {
+export default function main() {
     createForm(["email", "submit"], "form", validate, onSubmit);
 }
-
-main();

@@ -9,6 +9,9 @@ body {
   margin: 0;
   padding: 0; }
 
+main {
+  display: block; }
+
 h1 {
   font-size: 3.6rem;
   line-height: 1.4;
@@ -140,7 +143,7 @@ a:active {
 .landing-page {
   color: #444;
   font-size: 1.4rem;
-  background: url(../static/districtr-splash.png);
+  background: url(../assets/districtr-splash.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -324,7 +327,7 @@ p {
   .splash-subtitle {
     font-size: 1.6rem; }
   .landing-page {
-    background-image: url(../static/districtr-splash-small.png); }
+    background-image: url(../assets/districtr-splash-small.png); }
   .team-list {
     justify-content: left; } }
 

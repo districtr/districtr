@@ -9,6 +9,9 @@ body {
   margin: 0;
   padding: 0; }
 
+main {
+  display: block; }
+
 h1 {
   font-size: 3.6rem;
   line-height: 1.4;
@@ -35,6 +38,9 @@ html {
 body {
   margin: 0;
   padding: 0; }
+
+main {
+  display: block; }
 
 .form-button {
   color: white;
@@ -67,7 +73,7 @@ body {
   background: #004464; }
 
 .form-container {
-  background: white;
+  background: #ffffff;
   border-radius: 1rem;
   margin: 1rem auto;
   min-width: 250px;

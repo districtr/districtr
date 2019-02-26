@@ -32,7 +32,16 @@
           value="Sign in" />
       </div>
     </form>
-    <script src="./js/signin.js"></script>
+    <script src="./es6/signin.js"></script>
+    <script>
+      if (Object.assign === undefined || fetch === undefined) {
+        document.write("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch\"><\/script>");
+        document.write("<script src=\"./es5/signin.js\"><\/script>");
+        document.write("<script>ieBundle();<\/script>");
+      } else {
+        bundle();
+      }
+    </script>
   </main>
 </body>
 

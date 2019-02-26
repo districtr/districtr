@@ -69,7 +69,17 @@
       </div>
     </form>
   </main>
-  <script src="./js/request.js"></script>
+  <script src="./es6/request.js"></script>
+  <script>
+    if (Object.assign === undefined || fetch === undefined) {
+      document.write("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch\"><\/script>");
+      document.write("<script src=\"./es5/request.js\"><\/script>");
+      document.write("<script>ieBundle();<\/script>");
+    } else {
+      bundle();
+    }
+  </script>
+
 </body>
 
 </html>

@@ -64,7 +64,7 @@ function validate({ place, districtTypes, first, last, email, submit }) {
     return valid;
 }
 
-export function main() {
+export default function main() {
     createForm(
         [
             "place",
@@ -81,5 +81,3 @@ export function main() {
         onSubmit
     );
 }
-
-main();

@@ -1,5 +1,7 @@
 import { signOut } from "../api/auth";
 import { navigateTo } from "../routes";
 
-signOut();
-navigateTo("/");
+export default () => {
+    signOut();
+    navigateTo("/");
+};
