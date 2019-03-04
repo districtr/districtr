@@ -2,6 +2,7 @@
 $sepia_background: rgb(247, 241, 238);
 $sepia_accent: #806463;
 $sepia_accent_dark: #503f3e;
+$sepia_accent_light: #bdaaa8;
 
 .sepia {
     background: $sepia_background;
@@ -19,11 +20,8 @@ $sepia_accent_dark: #503f3e;
 }
 
 .sepia mark {
-    padding: 0.1rem 0.4rem;
-    border-radius: 0.4rem;
-    background: #bdaaa8;
+    background: $sepia_accent_light;
     color: white;
-    transition: background 100ms ease;
 }
 
 .sepia mark:hover {

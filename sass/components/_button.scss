@@ -12,7 +12,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: #f9f9f9;
+    color: $districtr_light_grey;
     font-weight: normal;
     transition: all ease 200ms;
     border: none;
@@ -27,12 +27,12 @@
 
 .button {
     background: black;
-    color: #f9f9f9;
+    color: $districtr_light_grey;
     transition: all ease 60ms;
     border: none;
     outline: none;
-    line-height: 1.4;
-    padding: 0.2rem 0.6rem;
+    line-height: 1.5;
+    padding: 0.25rem 0.5rem;
     cursor: pointer;
 }
 

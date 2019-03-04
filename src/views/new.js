@@ -38,7 +38,10 @@ export default function renderNewPlanView() {
             <h1 class="districtr-subheading">
                 Where would you like to redistrict?
             </h1>
-            ${listOfPlaces.render()} ${uploadPlan.render()}
+            <section class="places-list-container>
+            ${listOfPlaces.render()}
+            </section>
+            ${uploadPlan.render()}
         `,
         document.getElementById("root")
     );

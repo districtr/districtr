@@ -6,7 +6,7 @@
 
 .landing-page {
     color: #444;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     background: url(../assets/districtr-splash.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -18,21 +18,6 @@
     min-height: 800px;
     min-height: 100vh;
 }
-
-.start-districting {
-    background: #f9f9f9;
-    margin: 0 auto;
-    // width: 60%;
-    padding: 1rem 2rem;
-}
-
-.start-districting__title {
-    font-size: 2.4rem;
-    margin: 1rem 0 0;
-    text-align: center;
-    color: black;
-}
-
 .splash-image {
     width: 80%;
     align-self: center;
@@ -46,8 +31,8 @@
 .splash-text {
     z-index: 1;
     min-width: 350px;
-    padding: 0.5rem;
     width: 53.3%;
+    margin: 0;
     margin-left: 13.3%;
     // transform: translateY(50vh);
 }
@@ -60,18 +45,10 @@
     padding-top: 55vh;
 }
 
-.splash-title {
-    color: black;
-    line-height: 1.6;
-    font-size: 3.6rem;
-}
-
-.splash-subtitle,
 .takeaway {
     font-weight: 400;
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    line-height: 1.6;
+    margin: 0 0 1rem;
+    line-height: 1.75;
 }
 
 .districtr-name,
@@ -99,7 +76,9 @@
 }
 
 .details {
+    padding: 2rem 0;
     justify-content: right;
+    min-height: 0;
 }
 
 .splash-code-details {
@@ -111,15 +90,14 @@
 .splash-code-text {
     text-align: center;
     min-width: 350px;
-    margin: 6vh 0;
+    margin: 2rem 0;
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
 }
 
 .code-title {
-    width: 55%;
-    min-width: 350px;
+    width: 60%;
     margin: 1rem auto;
 }
 
@@ -150,7 +128,7 @@
 .feature__caption {
     font-weight: 600;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .feature__location {
@@ -163,7 +141,11 @@
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.75;
+}
+
+.splash-text p:last-child {
+    margin-bottom: 0;
 }
 
 .team {
@@ -172,15 +154,12 @@ p {
     padding: 1rem 2rem;
     margin: 0 auto;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #ccc;
 }
 
 .team__title {
-    margin: 0.5rem 0;
     text-align: center;
-    font-size: 1.6rem;
-    color: white;
 }
 
 .team-list {
@@ -204,13 +183,13 @@ p {
     list-style: none;
     padding: 0;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .team dt {
     font-weight: 600;
     color: white;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .team dt::after {
@@ -221,21 +200,20 @@ p {
     margin: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .splash {
-        width: 90%;
-    }
-    .splash-title {
-        font-size: 2.4rem;
-    }
-    .splash-subtitle {
-        font-size: 1.6rem;
+        padding: 1rem;
     }
     .landing-page {
         background-image: url(../assets/districtr-splash-small.png);
     }
     .team-list {
         justify-content: left;
+    }
+    .code-title {
+        width: auto;
+        margin: 0.5rem;
+        text-align: left;
     }
 }
 
@@ -249,6 +227,15 @@ p {
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .hello .splash-text {
+        padding-top: 10rem;
+    }
+    .landing-page {
+        font-size: 1rem;
+    }
+}
+
 @supports (display: grid) {
     .splash {
         display: grid;
@@ -256,28 +243,28 @@ p {
         width: auto;
     }
 
+    .splash-text,
+    .details .splash-text {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .splash-text {
         width: auto;
-        margin: 2vh 0;
-
         grid-column: 3 / 5;
     }
 
     .hello .splash-text {
         grid-row: 1 / 2;
         grid-column: 2 / 4;
-        margin: 2vh 0;
-        padding: 0.5rem;
-    }
-
-    .details .splash-text {
-        margin: inherit;
+        margin: 1rem 0;
+        padding: 0;
     }
 
     .splash-code-text {
         grid-column: 2 / -1;
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
         .splash {
             grid-template-columns: 1fr;
         }

@@ -1,0 +1,27 @@
+.place {
+    width: 100%;
+    color: #444;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: flex-start;
+}
+
+.place__content {
+    padding: 1rem;
+}
+
+.place__map {
+    min-width: 350px;
+    width: 50%;
+    height: 100vh;
+    min-height: 600px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .place__map {
+        width: 100%;
+    }
+}

@@ -28,7 +28,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
 }
 
 .parameter__label {
@@ -37,7 +37,7 @@
 }
 
 select {
-    margin: 0.2rem 0;
+    margin: 0.25rem 0;
     max-width: 200px;
 }
 
@@ -54,8 +54,8 @@ select {
 
 .modal-content {
     max-width: 30rem;
-    background: #f9f9f9;
-    line-height: 1.6;
+    background: $districtr_light_grey;
+    line-height: 1.5;
     z-index: 1000000;
     border-radius: 1rem;
     padding: 1rem;

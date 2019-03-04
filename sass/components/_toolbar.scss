@@ -57,7 +57,7 @@ legend {
 }
 
 .tool-options {
-    background: #f9f9f9;
+    background: $districtr_light_grey;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
     max-height: 0px;
@@ -115,7 +115,7 @@ legend {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background: #f9f9f9;
+    background: $districtr_light_grey;
     transition: all ease 160ms;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
@@ -216,7 +216,7 @@ input:checked ~ .tabs__tab {
 
 .data-table td {
     text-align: right;
-    background: #f9f9f9;
+    background: $districtr_light_grey;
 }
 
 .part-number {

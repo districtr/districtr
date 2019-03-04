@@ -3,15 +3,27 @@
 .dark {
     background: #111;
     color: white;
-}
 
-.dark a,
-.dark a:visited {
-    color: #0099cd;
-}
+    h1,
+    h2,
+    h3 {
+        color: white;
+    }
+    a,
+    a:visited {
+        color: $mggg_blue;
+    }
+    a:active,
+    a:hover {
+        text-decoration: inherit;
+        color: $mggg_dark_blue;
+    }
+    mark {
+        background: $districtr_red;
+        color: white;
+    }
 
-.dark a:active,
-.dark a:hover {
-    text-decoration: inherit;
-    color: #006b9c;
+    mark:hover {
+        background: $districtr_red_dark;
+    }
 }

@@ -3,9 +3,8 @@
 .places-list-container {
     margin: 0 auto;
     width: 65%;
-    min-width: 350px;
     max-width: 72rem;
-    padding: 1rem;
+    padding: 0;
 }
 
 .places-list {
@@ -64,8 +63,58 @@
 }
 
 .plan-loader {
-    margin: 0 auto;
-    padding: 1rem;
+    margin: 1rem auto;
     text-align: center;
-    color: #999;
+    color: #444;
+}
+
+@media only screen and (max-width: 600px) {
+    .places-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .places-list-container {
+        width: 100%;
+    }
+    .places-list__item {
+        height: auto;
+        width: auto;
+    }
+}
+
+.start-districting {
+    background: $districtr_light_grey;
+    margin: 0 auto;
+    // width: 60%;
+    padding: 1rem 0;
+}
+
+.start-districting__title {
+    text-align: center;
+    line-height: 1.25;
+    margin: 1rem 0;
+    color: black;
+}
+
+.request-new-place {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1.5rem auto;
+    line-height: 2;
+    align-items: center;
+}
+
+.call-to-request {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0 0.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .call-to-request {
+        font-size: 1.5rem;
+    }
 }

@@ -21,7 +21,9 @@ function renderInitialView() {
             <h2 class="start-districting__title">
                 Where would you like to redistrict?
             </h2>
-            <div id="places-list">${listOfPlaces.render()}</div>
+            <div id="places-list" class="places-list-container">
+                ${listOfPlaces.render()}
+            </div>
             <div class="request-new-place">
                 <h2 class="call-to-request">Looking for somewhere else?</h2>
                 <a href="./request.html" class="call-to-action call-to-request"

@@ -13,9 +13,9 @@
 .technologies__item {
     // background: #222;
     list-style: none;
-    margin: 0 2rem;
+    margin: 0.5rem 2rem;
     border-radius: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     transition: all 100ms ease;
     box-shadow: 20 0 2px 8px rgba(12, 12, 12, 0.1);
 }
@@ -51,15 +51,15 @@
 }
 
 .lit-html-link {
-    color: #f9f9f9;
+    color: $districtr_light_grey;
     background: #ff2f2f;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     border-radius: 0.5rem;
 }
 
 .lit-html-link a,
 .lit-html-link a:visited {
-    color: #f9f9f9;
+    color: $districtr_light_grey;
 }
 
 .lit-html-link a:hover {

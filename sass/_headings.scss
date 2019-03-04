@@ -1,13 +1,41 @@
 h1 {
-    font-size: 3.6rem;
-    line-height: 1.4;
-    margin: 1rem 0;
+    font-size: 3rem;
+    line-height: 2;
+    // margin: 1rem 0;
+    margin: 0;
+    color: black;
+}
+
+.headline {
+    font-size: 4rem;
 }
 
 h2 {
-    margin: 0 0 1rem;
-    font-size: 1.8rem;
-    line-height: 1.6;
+    margin: 0;
+    // margin: 0 0 1rem;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+h3 {
+    line-height: 1.75;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    .headline {
+        font-size: 3rem;
+    }
 }
 
 .districtr-heading {

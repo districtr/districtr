@@ -1,6 +1,7 @@
 @import "shadows";
 @import "base";
 @import "colors";
+@import "sepia";
 
 .form-button {
     color: white;
@@ -10,12 +11,12 @@
     padding: 0.5rem;
     font-weight: 400;
     font-family: $font_family;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     // background: #eee;
 
     transition: all ease 40ms;
 
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     background: $districtr_red;
 }
 
@@ -33,7 +34,7 @@
 }
 
 .form-button:disabled {
-    background: #bdaaa8;
+    background: $sepia_accent_light;
     color: #504746;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .form {
-    background: #f9f9f9;
+    background: $districtr_light_grey;
     color: #444;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -99,8 +100,8 @@
     border: 1px solid #aaa;
     margin: 0 0 1rem;
     padding: 0.5rem;
-    border-radius: 0.2rem;
-    font-size: 1.4rem;
+    border-radius: 0.25rem;
+    font-size: 1.5rem;
     color: #111;
     font-family: $font_family;
 }
@@ -115,9 +116,7 @@
 
 .form-takeaway {
     font-weight: 400;
-    margin: 1rem 0 0;
-    font-size: 1.8rem;
-    line-height: 1.6;
+    margin: 0;
 }
 
 .form label {
@@ -133,7 +132,7 @@
     top: 1rem;
     display: block;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin: 0;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;

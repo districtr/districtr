@@ -18,3 +18,9 @@ body {
 main {
     display: block;
 }
+
+mark {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
+    transition: background 100ms ease;
+}
