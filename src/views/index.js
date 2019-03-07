@@ -26,7 +26,7 @@ function renderInitialView() {
             </div>
             <div class="request-new-place">
                 <h2 class="call-to-request">Looking for somewhere else?</h2>
-                <a href="./request.html" class="call-to-action call-to-request"
+                <a href="./request" class="call-to-action call-to-request"
                     >Request a new place to redistrict.</a
                 >
             </div>
@@ -45,10 +45,10 @@ export default () => {
             render(
                 html`
                     <p class="sign-in-link">Hello, ${user.first}!</p>
-                    <a href="./new.html" class="call-to-action sign-in-link"
+                    <a href="./new" class="call-to-action sign-in-link"
                         >Draw a new plan</a
                     >
-                    <a href="./signout.html" class="call-to-action sign-in-link"
+                    <a href="./signout" class="call-to-action sign-in-link"
                         >Sign out</a
                     >
                 `,
@@ -57,11 +57,8 @@ export default () => {
         } else {
             render(
                 html`
-                    <a href="./signin.html" class="sign-in-link">Sign in</a>
-                    <a
-                        href="./register.html"
-                        class="call-to-action sign-in-link"
-                    >
+                    <a href="./signin" class="sign-in-link">Sign in</a>
+                    <a href="./register" class="call-to-action sign-in-link">
                         Create your account</a
                     >
                 `,
