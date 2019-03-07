@@ -19,7 +19,7 @@ const handlers = {
         popupMessage({
             message:
                 "It looks like you haven't created your Districtr account yet. " +
-                '<a href="./register.html">Click here to create an account.</a>',
+                '<a href="./register">Click here to create an account.</a>',
             raw: true
         });
     },
