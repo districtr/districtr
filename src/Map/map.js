@@ -5,7 +5,7 @@ import Layer, { addBelowLabels } from "../Layers/Layer";
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
-export function initializeMap(mapContainer, options) {
+export function initializeMap(mapContainer, options, addNav = true) {
     const map = new mapbox.Map({
         container: mapContainer,
         style: "mapbox://styles/mapbox/light-v9",
@@ -16,8 +16,10 @@ export function initializeMap(mapContainer, options) {
         dragRotate: false,
         ...options
     });
-    const nav = new mapbox.NavigationControl();
-    map.addControl(nav, "top-left");
+    if (addNav) {
+        const nav = new mapbox.NavigationControl();
+        map.addControl(nav, "top-left");
+    }
     return map;
 }
 

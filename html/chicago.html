@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Districtr</title>
+        <title>Chicago | Districtr</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
             rel="stylesheet"
@@ -12,7 +12,11 @@
             href="./css/chicago.css"
         />
         <link
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+            href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
             rel="stylesheet"
         />
     </head>
@@ -20,9 +24,24 @@
     <body>
         <main id="root" class="place">
             <section class="place__content">
-                <h1 class="headline">Chicago</h1>
+                <h1 class="headline place__name">Chicago</h1>
+                <p>
+                    We are exploring how multi-member districts might affect
+                    representation on Chicago's city council. Chicago currently
+                    has fifty wards that each elect a single alderman to serve
+                    on the city council.
+                </p>
+                <p>
+                    We invite you to use Districtr to draw your own wards for
+                    Chicago. You can build
+                    <strong>ten five-member districts</strong>, or
+                    <strong>multi-member districts of any size</strong>, using
+                    either <strong>precincts</strong> or
+                    <strong>community areas</strong> as the basic building
+                    blocks.
+                </p>
+                <h2>What type of districts would you like to draw?</h2>
                 <div class="place__districting-options">
-                    <h2>What type of units?</h2>
                     <div id="districting-options"></div>
                 </div>
             </section>

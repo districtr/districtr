@@ -43,6 +43,7 @@ export const watch = () => {
     gulp.watch(sources.css, gulp.series(css, reload));
     gulp.watch(sources.html, gulp.series(html, reload));
     gulp.watch(sources.js, gulp.series(bundleWithCacheForDevelopment, reload));
+    gulp.watch(sources.assets, gulp.series(assets));
 };
 
 export const develop = gulp.series(devBuild, serve, watch);

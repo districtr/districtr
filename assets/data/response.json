@@ -396,7 +396,8 @@
     },
     {
         "id": 3,
-        "name": "Massachusetts (Towns)",
+        "name": "Massachusetts",
+        "unitType": "Towns",
         "districtingProblems": [
             {
                 "numberOfParts": 9,
@@ -540,7 +541,8 @@
     },
     {
         "id": 4,
-        "name": "Massachusetts (Precincts, 2002-2010)",
+        "name": "Massachusetts",
+        "unitType": "Precincts, 2002-2010",
         "idColumn": { "name": "2000 Census GEOID", "key": "GEOID10" },
         "districtingProblems": [
             {
@@ -633,7 +635,8 @@
     },
     {
         "id": 5,
-        "name": "Massachusetts (Precincts, 2012-2016)",
+        "name": "Massachusetts",
+        "unitType": "Precincts, 2012-2016",
         "districtingProblems": [
             {
                 "numberOfParts": 9,
@@ -1863,11 +1866,12 @@
     {
         "id": "chicago",
         "name": "Chicago",
+        "unitType": "Precincts",
         "districtingProblems": [
             {
                 "numberOfParts": 10,
                 "name": "City Council",
-                "pluralNoun": "Five-Member Districts"
+                "pluralNoun": "Five-Member Wards"
             },
             {
                 "numberOfParts": 50,
@@ -2031,7 +2035,8 @@
 
     {
         "id": "chicago_communities",
-        "name": "Chicago (Community Areas)",
+        "name": "Chicago",
+        "unitType": "Community Areas",
         "tilesets": [
             {
                 "type": "fill",

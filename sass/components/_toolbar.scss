@@ -2,6 +2,7 @@
 @import "slider";
 
 #toolbar {
+    z-index: 10000;
     position: fixed;
     right: 0;
     // background: rgba(255, 255, 255, 0.8);
@@ -86,10 +87,8 @@ legend {
 }
 
 @media only screen and (max-width: 400px) {
-    #toolbar,
-    section {
+    #toolbar {
         top: 0;
-        flex-direction: row;
         overflow-y: auto;
         width: 100%;
     }

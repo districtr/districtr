@@ -33,16 +33,17 @@ export default function renderNewPlanView() {
             navigateTo("/edit");
         });
     });
+    const target = document.getElementById("root");
     render(
         html`
             <h1 class="districtr-subheading">
                 Where would you like to redistrict?
             </h1>
-            <section class="places-list-container>
-            ${listOfPlaces.render()}
+            <section class="places-list-container">
+                ${listOfPlaces.render()}
             </section>
             ${uploadPlan.render()}
         `,
-        document.getElementById("root")
+        target
     );
 }
