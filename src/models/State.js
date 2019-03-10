@@ -70,14 +70,6 @@ export default class State {
         this.render = this.render.bind(this);
     }
     initializeMapState(map, place) {
-        map.fitBounds(place.bounds, {
-            padding: {
-                top: 50,
-                right: 350,
-                left: 50,
-                bottom: 50
-            }
-        });
         const { units, unitsBorders, points } = addLayers(map, place.tilesets);
 
         this.units = units;
