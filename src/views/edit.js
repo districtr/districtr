@@ -81,7 +81,17 @@ export default function renderEditView() {
         `,
         root
     );
-    const map = initializeMap("map");
+    const map = initializeMap("map", {
+        bounds: context.place.bounds,
+        fitBoundsOptions: {
+            padding: {
+                top: 50,
+                right: 350,
+                left: 50,
+                bottom: 50
+            }
+        }
+    });
     map.on("load", () => {
         let state = new State(map, context);
         toolbarView(state);
