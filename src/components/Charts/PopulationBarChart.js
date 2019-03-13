@@ -1,19 +1,16 @@
 import { html, svg } from "lit-html";
 import { numberWithCommas } from "../../utils";
+import { barHeight } from "./lib";
 
-const width = 240;
-const height = 300;
+const defaultHeight = 240;
+const width = 300;
 const gap = 2;
 
-function barWidth(data) {
-    return (width - (gap * data.length - 1)) / data.length;
-}
-
-function barHeight(d, maxValue) {
+function barLength(d, maxValue) {
     if (d === 0 || maxValue === 0) {
         return 0;
     }
-    return height * (d / maxValue);
+    return width * (d / maxValue);
 }
 
 const extra = 20;
@@ -24,15 +21,18 @@ const horizontalBarChart = (population, parts) => {
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;
 
-    const w = barWidth(data);
+    const chartHeight = Math.max(defaultHeight, 12 * data.length);
+
+    const w = barHeight(data, chartHeight, gap);
     const textHeight = Math.min(w + gap, 16);
-    const idealY = height - barHeight(population.ideal, maxValue);
-    return svg`<svg viewBox="0 0 ${height} ${width +
-        extra}" width="${height}" height="${width + extra}" class="bar-chart">
+    const idealX = width - barLength(population.ideal, maxValue);
+    return svg`<svg viewBox="0 0 ${width} ${chartHeight +
+        extra}" width="${width}" height="${chartHeight +
+        extra}" class="bar-chart">
     ${data.map((d, i) => {
-        const barH = barHeight(d, maxValue);
+        const barW = barLength(d, maxValue);
         return svg`<rect
-                    width="${barH}"
+                    width="${barW}"
                     height="${w}"
                     x="0"
                     y="${i * (w + gap)}"
@@ -41,9 +41,9 @@ const horizontalBarChart = (population, parts) => {
     })}
     ${
         population.ideal > 0
-            ? svg`<line x1="${height - idealY}" y1="${0}" x2="${height -
-                  idealY}" y2="${width + extra}" stroke="#aaa" />
-                  <text x="${height - idealY + 3}" y="${width +
+            ? svg`<line x1="${width - idealX}" y1="${0}" x2="${width -
+                  idealX}" y2="${chartHeight + extra}" stroke="#aaa" />
+                  <text x="${width - idealX + 3}" y="${chartHeight +
                   extra -
                   4}" fill="#111">
                   Ideal:
@@ -52,12 +52,12 @@ const horizontalBarChart = (population, parts) => {
             : ""
     }
     ${data.map((d, i) => {
-        const barH = barHeight(d, maxValue);
+        const barW = barLength(d, maxValue);
         return Math.round(d) > 0
             ? svg`
     <text
         style="font-size: ${textHeight}px"
-        x="${barH + 2 * gap}"
+        x="${barW + 2 * gap}"
         y="${i * (w + gap) +
             w -
             (w + gap - textHeight) / 2}">${numberWithCommas(

@@ -18,7 +18,7 @@
 }
 
 .place__content {
-    width: 50%;
+    width: 55%;
     padding: 0 2rem;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .place__map {
-    width: 50%;
+    width: 45%;
     min-width: 350px;
     min-height: 100vh;
 }
@@ -37,11 +37,14 @@
     margin: 0 0 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .place {
         flex-direction: column;
     }
     .place__content {
+        width: 100%;
+    }
+    .place__map {
         width: 100%;
     }
 }
