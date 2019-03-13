@@ -7,6 +7,7 @@
 .landing-page {
     color: #444;
     font-size: 1.5rem;
+    overflow: hidden;
     background: url(../assets/districtr-splash.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -15,7 +16,6 @@
 }
 
 .splash {
-    min-height: 800px;
     min-height: 100vh;
 }
 .splash-image {
@@ -30,7 +30,7 @@
 
 .splash-text {
     z-index: 1;
-    min-width: 350px;
+    min-width: 250px;
     width: 53.3%;
     margin: 0;
     margin-left: 13.3%;
@@ -89,7 +89,7 @@
 
 .splash-code-text {
     text-align: center;
-    min-width: 350px;
+    min-width: 250px;
     margin: 2rem 0;
     padding: 0 0.5rem;
     display: flex;
@@ -214,16 +214,6 @@ p {
         width: auto;
         margin: 0.5rem;
         text-align: left;
-    }
-}
-
-// For the 100vh bug in firefox mobile:
-@media only screen and (max-height: 700px) {
-    .splash {
-        min-height: 600px;
-    }
-    .splash-code-details {
-        min-height: 600px;
     }
 }
 
