@@ -1878,6 +1878,11 @@
                 "name": "City Council",
                 "pluralNoun": "City Council Seats",
                 "type": "multimember"
+            },
+            {
+                "numberOfParts": 50,
+                "name": "City Council",
+                "pluralNoun": "Wards"
             }
         ],
         "tilesets": [
