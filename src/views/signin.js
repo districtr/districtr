@@ -35,7 +35,7 @@ function onSubmit({ email }) {
         .then(handleResponse(handlers))
         .catch(() => {
             errorMessage(
-                "We're having trouble accessing our sign-in service." +
+                "We're having trouble accessing our sign-in service. " +
                     "Are you connected to the internet?"
             );
         });
