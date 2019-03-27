@@ -1,35 +1,16 @@
-import { divideOrZeroIfNaN, numberWithCommas, roundToDecimal } from "../utils";
-import NumericalColumn from "./NumericalColumn";
-import Tally from "./Tally";
-
-export class PopulationSubgroup extends NumericalColumn {
-    constructor({ total, parts, ...args }) {
-        super(args);
-
-        this.total = total || this;
-        this.tally = new Tally(this.getValue, parts);
-    }
-    getFraction(feature) {
-        return this.getValue(feature) / this.total.getValue(feature);
-    }
-    fractionAsMapboxExpression() {
-        return divideOrZeroIfNaN(
-            this.asMapboxExpression(),
-            this.total.asMapboxExpression()
-        );
-    }
-}
+import { numberWithCommas, roundToDecimal } from "../utils";
+import { Subgroup } from "./ColumnSet";
 
 export default class Population {
     constructor(populationRecord, parts) {
-        this.total = new PopulationSubgroup({
+        this.total = new Subgroup({
             ...populationRecord.total,
             parts
         });
 
         this.subgroups = populationRecord.subgroups.map(
             subgroup =>
-                new PopulationSubgroup({
+                new Subgroup({
                     ...subgroup,
                     parts,
                     total: this.total

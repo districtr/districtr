@@ -1,14 +1,14 @@
 import { expect } from "chai";
-import Population, { PopulationSubgroup } from "../src/models/Population";
+import Population, { Subgroup } from "../src/models/Population";
 
 const subgroup = () =>
-    new PopulationSubgroup({
+    new Subgroup({
         key: "subpop",
         name: "Subgroup population",
         min: 0,
         max: 400,
         sum: 1600,
-        total: new PopulationSubgroup({
+        total: new Subgroup({
             key: "pop",
             name: "Total population",
             min: 0,
@@ -23,7 +23,7 @@ const feature = () => ({ properties: { subpop: 100, pop: 200 } });
 
 const fixtures = { subgroup, feature };
 
-describe("PopulationSubgroup", () => {
+describe("Subgroup", () => {
     it("can be rendered as a Mapbox expression", () => {
         const subgroup = fixtures.subgroup();
 
