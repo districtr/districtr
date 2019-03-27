@@ -26,7 +26,7 @@ function onSubmit({ first, last, email }) {
         )
         .catch(() => {
             errorMessage(
-                "We're having trouble accessing our registration service." +
+                "We're having trouble accessing our registration service. " +
                     "Are you connected to the internet?"
             );
         });
