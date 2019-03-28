@@ -1,5 +1,7 @@
 # Districtr
 
+[![Build Status](https://travis-ci.org/gerrymandr/Districtr.svg?branch=master)](https://travis-ci.org/gerrymandr/Districtr)
+
 Districtr is the open-source web app that empowers all people to draw districting plans.
 
 ## Project values
