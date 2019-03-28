@@ -107,6 +107,7 @@ export function bindDispatchToActions(actions, dispatch) {
  */
 export function handleResponse(handlers) {
     handlers = {
+        // eslint-disable-next-line no-console
         default: resp => console.error("Request failed", resp),
         ...handlers
     };
@@ -121,4 +122,16 @@ export function handleResponse(handlers) {
 
 export function isString(x) {
     return typeof x === "string" || x instanceof String;
+}
+
+// Copied from stackoverflow https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+export function dec2hex(dec) {
+    return ("0" + dec.toString(16)).substr(-2);
+}
+
+export function generateId(len) {
+    const arr = new Uint8Array((len || 40) / 2);
+    const crypto = window.crypto ? window.crypto : window.msCrypto;
+    crypto.getRandomValues(arr);
+    return Array.from(arr, dec2hex).join("");
 }

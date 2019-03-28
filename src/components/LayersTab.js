@@ -1,7 +1,6 @@
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
-import { createPartisanColorRules } from "../Layers/color-rules";
-import DemographicOverlayContainer from "../Layers/DemographicOverlayContainer";
+import OverlayContainer from "../Layers/OverlayContainer";
 import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
 
 export default class LayersTab {
@@ -15,30 +14,23 @@ export default class LayersTab {
             : null;
 
         this.toggleDistricts = () =>
-            toggle(
-                `Show ${this.partPlural.toLowerCase()}`,
-                true,
-                checked => {
-                    if (checked) {
-                        state.units.setOpacity(0.8);
-                    } else {
-                        state.units.setOpacity(0);
-                    }
+            toggle(`Show ${this.partPlural.toLowerCase()}`, true, checked => {
+                if (checked) {
+                    state.units.setOpacity(0.8);
+                } else {
+                    state.units.setOpacity(0);
                 }
-            );
+            });
 
         this.partisanOverlays =
             state.elections.length > 0
-                ? new PartisanOverlayContainer(
-                      state.layers,
-                      state.elections,
-                      createPartisanColorRules(state)
-                  )
+                ? new PartisanOverlayContainer(state.layers, state.elections)
                 : null;
 
-        this.demographicOverlays = new DemographicOverlayContainer(
+        this.demographicOverlays = new OverlayContainer(
             state.layers,
-            state.population
+            state.population,
+            "Show demographics"
         );
     }
     render() {
@@ -49,6 +41,7 @@ export default class LayersTab {
                     ${this.toggleDistricts()}
                 </div>
                 <div class="layer-list__item">
+                    <h4>Demographics</h4>
                     ${this.demographicOverlays.render()}
                 </div>
 

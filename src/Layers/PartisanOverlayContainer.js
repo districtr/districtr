@@ -3,129 +3,67 @@ import { Parameter } from "../components/Parameter";
 import select from "../components/select";
 import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
-
-function createLayerToggle(party, showParty, hideParty) {
-    return toggle(`Show ${party}-leaning units`, false, checked => {
-        if (checked) {
-            showParty(party);
-        } else {
-            hideParty(party);
-        }
-    });
-}
+import { getLayerDescription } from "./OverlayContainer";
 
 export default class PartisanOverlayContainer {
-    constructor(layerTypes, elections, layerStyles) {
+    constructor(layers, elections) {
         this.elections = elections;
-        this.layerStyles = layerStyles;
-        this.currentLayerStyle = 0;
-
-        this.createLayers(layerTypes);
-
-        this.partyVisiblity = { Democratic: false, Republican: false };
-
-        this.showParty = this.showParty.bind(this);
-        this.hideParty = this.hideParty.bind(this);
-        this.showVisibleParties = this.showVisibleParties.bind(this);
-        this.forEachLayer = this.forEachLayer.bind(this);
-        this.onChangeElection = this.onChangeElection.bind(this);
-        this.onChangeLayerStyle = this.onChangeLayerStyle.bind(this);
-        this.onChangeLayerType = this.onChangeLayerType.bind(this);
-        this.render = this.render.bind(this);
-
-        this.toggles = ["Democratic", "Republican"].map(party =>
-            createLayerToggle(party, this.showParty, this.hideParty)
+        this.layers = layers;
+        this.electionOverlays = elections.map(
+            election => new PartisanOverlay(layers, election)
         );
+        this._currentElectionIndex = 0;
+
+        this.setElection = this.setElection.bind(this);
+        this.render = this.render.bind(this);
+        this.toggleVisibility = this.toggleVisibility.bind(this);
     }
-    showParty(party) {
-        this.partyVisiblity[party] = true;
-        this.showVisibleParties();
+    get currentElectionOverlay() {
+        return this.electionOverlays[this._currentElectionIndex];
     }
-    hideParty(party) {
-        this.partyVisiblity[party] = false;
-        this.showVisibleParties();
-    }
-    createLayers(layerTypes) {
-        const colorRule = this.layerStyles[this.currentLayerStyle].rule;
-        if (this.elections.length > 0) {
-            this.layerTypes = [{ name: "Polygons" }, { name: "Points" }];
-            this.layers = layerTypes.map(layer =>
-                ["Democratic", "Republican"].map(
-                    party =>
-                        new PartisanOverlay(
-                            layer,
-                            this.elections[0],
-                            party,
-                            colorRule
-                        )
-                )
-            );
-            this.activeElection = 0;
-            this.currentLayerType = 0;
+    toggleVisibility(visible) {
+        this.isVisible = visible;
+        if (this.isVisible) {
+            this.currentElectionOverlay.show();
         } else {
-            this.layers = [];
+            this.currentElectionOverlay.hide();
         }
     }
-    onChangeElection(i) {
-        this.activeElection = i;
-        this.forEachLayer(layer =>
-            layer.changeElection(this.elections[this.activeElection])
-        );
-    }
-    onChangeLayerStyle(i) {
-        this.currentLayerStyle = i;
-        const colorRule = this.layerStyles[this.currentLayerStyle].rule;
-        this.forEachLayer(layer => layer.setFillColorRule(colorRule));
-    }
-    onChangeLayerType(i) {
-        this.currentLayerType = i;
-        this.forEachLayer(layer => layer.setOpacity(0));
-        this.showVisibleParties();
-    }
-    showVisibleParties() {
-        this.layers[this.currentLayerType].forEach(layer => {
-            if (this.partyVisiblity[layer.party]) {
-                layer.setOpacity(0.8);
-            } else {
-                layer.setOpacity(0);
-            }
-        });
-    }
-    forEachLayer(f) {
-        this.layers.forEach(layers => layers.forEach(f));
+    setElection(i) {
+        this._currentElectionIndex = i;
+        this.electionOverlays.forEach(overlay => overlay.hide());
+        if (this.isVisible) {
+            this.currentElectionOverlay.show();
+        } else {
+            this.currentElectionOverlay.repaint();
+        }
     }
     render() {
+        const overlay = this.currentElectionOverlay;
         return html`
             <h4>Partisanship</h4>
-            ${this.toggles}
-            ${
-                [
-                    {
-                        label: "Variable:",
-                        element: select(
-                            "layer-style",
-                            this.layerStyles,
-                            this.onChangeLayerStyle
-                        )
-                    },
-                    {
-                        label: "Election:",
-                        element: select(
-                            "election-overlay",
-                            this.elections,
-                            this.onChangeElection
-                        )
-                    },
-                    {
-                        label: "Display as",
-                        element: select(
-                            "layer-type",
-                            this.layerTypes,
-                            this.onChangeLayerType
-                        )
-                    }
-                ].map(Parameter)
-            }
+            ${toggle(`Show partisan lean`, overlay.isVisible, checked =>
+                this.toggleVisibility(checked)
+            )}
+            ${[
+                {
+                    label: "Election:",
+                    element: select("election-overlay", this.elections, i =>
+                        this.setElection(i)
+                    )
+                },
+                {
+                    label: "Display as",
+                    element: select(
+                        "layer-type",
+                        this.layers.map(layer => getLayerDescription(layer)),
+                        i =>
+                            this.electionOverlays.forEach(overlay =>
+                                overlay.setLayer(i)
+                            )
+                    )
+                }
+            ].map(Parameter)}
         `;
     }
 }

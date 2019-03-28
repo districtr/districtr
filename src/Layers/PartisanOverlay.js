@@ -1,45 +1,48 @@
-import Layer, { addBelowLabels } from "./Layer";
+import Overlay from "./Overlay";
+import { voteShareRule } from "./color-rules";
 
-export default class PartisanOverlay extends Layer {
-    constructor(unitsLayer, election, party, getFillColorRule) {
-        let layerSpec = {
-            id: `${unitsLayer.id}-${party}-overlay`,
-            source: unitsLayer.sourceId,
-            type: unitsLayer.type,
-            paint: {
-                [`${unitsLayer.type}-color`]: getFillColorRule(election, party),
-                [`${unitsLayer.type}-opacity`]: 0
-            }
-        };
-        if (unitsLayer.sourceLayer !== undefined) {
-            layerSpec["source-layer"] = unitsLayer.sourceLayer;
-        }
+export default class PartisanOverlay {
+    constructor(layers, election) {
+        // Overlays are identified by party.key
+        this._overlays = election.parties.reduce(
+            (overlays, party) => ({
+                ...overlays,
+                [party.key]: new Overlay(layers, party, voteShareRule)
+            }),
+            {}
+        );
+        this._overlaysList = election.parties.map(
+            party => this._overlays[party.key]
+        );
 
-        super(unitsLayer.map, layerSpec, addBelowLabels);
-        this.party = party;
-        this.getFillColorRule = getFillColorRule;
         this.election = election;
+        this.isVisible = false;
 
-        this.changeElection = this.changeElection.bind(this);
-        this.setFillColorRule = this.setFillColorRule.bind(this);
-        this.paint = this.paint.bind(this);
-
-        // Awful hack to wait a few seconds and refresh the fill color rule:
-        // The real problem is that we can't rely on querying the mapbox
-        // vector tile source to get aggregate feature data, because there
-        // is no guarantee that they'll load every feature. We'll need to
-        // draw from CSV or json sent by the backend.
-        window.setTimeout(() => this.changeElection(election), 5000);
+        this.setLayer = this.setLayer.bind(this);
+        this.getOverlay = this.getOverlay.bind(this);
+        this.hide = this.hide.bind(this);
+        this.show = this.show.bind(this);
+        this.allOverlays = this.allOverlays.bind(this);
+        this.setColorRule = this.setColorRule.bind(this);
     }
-    changeElection(election) {
-        this.election = election;
-        this.paint();
+    setLayer(i) {
+        this.allOverlays().forEach(overlay => overlay.setLayer(i));
     }
-    setFillColorRule(rule) {
-        this.getFillColorRule = rule;
-        this.paint();
+    show() {
+        this.allOverlays().forEach(overlay => overlay.show());
+        this.isVisible = true;
     }
-    paint() {
-        this.setColor(this.getFillColorRule(this.election, this.party));
+    hide() {
+        this.allOverlays().forEach(overlay => overlay.hide());
+        this.isVisible = false;
+    }
+    allOverlays() {
+        return this._overlaysList;
+    }
+    getOverlay(party) {
+        return this._overlays[party.key];
+    }
+    setColorRule(rule) {
+        this.allOverlays().forEach(overlay => overlay.setColorRule(rule));
     }
 }

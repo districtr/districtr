@@ -2,7 +2,7 @@ import { html, render } from "lit-html";
 import { initializeMap } from "../Map/map";
 import { hydratedPlacesList } from "../components/PlacesList";
 export default () => {
-    const map = initializeMap(
+    initializeMap(
         "map",
         {
             maxBounds: [[-87.9401, 41.6445], [-87.3241, 42.023]],

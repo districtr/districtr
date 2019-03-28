@@ -15,9 +15,16 @@ function barLength(d, maxValue) {
 
 const extra = 20;
 
+/**
+ * Returns a value to use as a maximum scale for the bar chart.
+ */
+function maxDisplayValue(population) {
+    return Math.max(population.ideal * 2, ...population.total.data);
+}
+
 const horizontalBarChart = (population, parts) => {
-    const data = population.total.tally.data;
-    const maxValue = population.maxDisplayValue();
+    const data = population.total.data;
+    const maxValue = maxDisplayValue(population);
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;
 

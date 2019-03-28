@@ -1,23 +1,37 @@
-import { divideOrZeroIfNaN } from "../utils";
-import NumericalColumn from "./NumericalColumn";
-import Tally from "./Tally";
+import { SumOfColumns } from "./NumericalColumn";
+import { Subgroup } from "./Subgroup";
 
-export default class ColumnSet {}
+export default class ColumnSet {
+    constructor({ subgroups, total, parts }) {
+        this.subgroups = subgroups
+            ? subgroups.map(
+                  subgroup =>
+                      new Subgroup({
+                          ...subgroup,
+                          parts,
+                          columnSet: this
+                      })
+              )
+            : [];
 
-export class Subgroup extends NumericalColumn {
-    constructor({ total, parts, ...args }) {
-        super(args);
+        if (total !== undefined && total !== null) {
+            this.total = new Subgroup({
+                ...total,
+                parts,
+                columnSet: this
+            });
+        } else {
+            this.total = new SumOfColumns({
+                columns: this.subgroups,
+                columnSet: this,
+                parts
+            });
+        }
 
-        this.total = total || this;
-        this.tally = new Tally(this.getValue, parts);
+        this.update = this.update.bind(this);
     }
-    getFraction(feature) {
-        return this.getValue(feature) / this.total.getValue(feature);
-    }
-    fractionAsMapboxExpression() {
-        return divideOrZeroIfNaN(
-            this.asMapboxExpression(),
-            this.total.asMapboxExpression()
-        );
+    update(feature, part) {
+        this.subgroups.forEach(subgroup => subgroup.update(feature, part));
+        this.total.update(feature, part);
     }
 }
