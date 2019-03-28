@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import { numberWithCommas, sum } from "../../utils";
 
 export default population => {
-    const totalAssignedPop = sum(population.total.tally.data);
+    const totalAssignedPop = sum(population.total.data);
     const unassignedPop = Math.round(population.total.sum - totalAssignedPop);
     return html`
         <dt>Unassigned population</dt>

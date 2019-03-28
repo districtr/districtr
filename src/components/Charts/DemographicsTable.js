@@ -1,11 +1,6 @@
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
-function getPercent(subgroup, i) {
-    const total = subgroup.total.tally.data[i];
-    return total > 0 ? subgroup.tally.data[i] / total : 0;
-}
-
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
  * the value = 1. #f9f9f9 is the same as rgba(0, 0, 0, 0.02), so we map the 0-to-1
@@ -29,7 +24,7 @@ function getCellStyle(value) {
 function getCell(subgroup, part, width) {
     const value =
         part !== null
-            ? getPercent(subgroup, part.id)
+            ? subgroup.getFractionInPart(part.id)
             : subgroup.sum / subgroup.total.sum;
     return {
         content: `${roundToDecimal(value * 100, 1)}%`,

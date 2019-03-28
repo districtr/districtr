@@ -1,16 +1,20 @@
-import { partyColors } from "../colors";
 import { divideOrZeroIfNaN } from "../utils";
 
 // TODO: Include legends
+// TODO: Define a color rule interface, for extensibility and modularity.
 
 // Demographic color rules:
 
+const partyRGBColors = {
+    Democratic: [0, 0, 255],
+    Republican: [255, 0, 0]
+};
+
 export function colorByCount(subgroup) {
+    const rgb = partyRGBColors[subgroup.name] || [0, 0, 0];
     return [
         "rgba",
-        0,
-        0,
-        0,
+        ...rgb,
         [
             "interpolate",
             ["linear"],
@@ -36,7 +40,8 @@ export function sizeByCount(subgroup) {
 }
 
 export function colorByFraction(subgroup) {
-    return ["rgba", 0, 0, 0, subgroup.fractionAsMapboxExpression()];
+    const rgb = partyRGBColors[subgroup.name] || [0, 0, 0];
+    return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 
 export const demographicColorRules = [
@@ -46,16 +51,17 @@ export const demographicColorRules = [
 
 // Partisan color rules:
 
-function colorbyVoteShare(election, party, colorStops) {
+function colorbyVoteShare(party, colorStops) {
     return [
         "interpolate",
         ["linear"],
-        election.voteShareAsMapboxExpression(party),
+        party.fractionAsMapboxExpression(),
         ...colorStops
     ];
 }
 
 function getPartisanColorStops(party) {
+    const rgb = partyRGBColors[party.name];
     return [
         0,
         "rgba(0,0,0,0)",
@@ -64,13 +70,13 @@ function getPartisanColorStops(party) {
         0.5,
         "rgba(249,249,249,0)",
         1,
-        partyColors[party]
+        `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
     ];
 }
 
-export function voteShareRule(election, party) {
+export function voteShareRule(party) {
     const colorStops = getPartisanColorStops(party);
-    return colorbyVoteShare(election, party, colorStops);
+    return colorbyVoteShare(party, colorStops);
 }
 
 function marginPerCapitaExpression(election, party, population) {
@@ -90,7 +96,13 @@ function colorByMarginPerCapita(election, party, population, colorStops) {
 }
 
 export const createMarginPerCapitaRule = population => (election, party) => {
-    let stops = [0, "rgba(249, 249, 249, 0)", 1, partyColors[party]];
+    const rgb = partyRGBColors[party.name];
+    let stops = [
+        0,
+        "rgba(249, 249, 249, 0)",
+        1,
+        `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
+    ];
 
     return colorByMarginPerCapita(election, party, population, stops);
 };

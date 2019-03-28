@@ -1,21 +1,24 @@
 import { expect } from "chai";
-import Population, { PopulationSubgroup } from "../src/models/Population";
+import Population from "../src/models/Population";
+import { Subgroup } from "../src/models/Subgroup";
 
 const subgroup = () =>
-    new PopulationSubgroup({
+    new Subgroup({
         key: "subpop",
         name: "Subgroup population",
         min: 0,
         max: 400,
         sum: 1600,
-        total: new PopulationSubgroup({
-            key: "pop",
-            name: "Total population",
-            min: 0,
-            max: 500,
-            sum: 3200,
-            parts: [1, 2, 3, 4]
-        }),
+        columnSet: {
+            total: new Subgroup({
+                key: "pop",
+                name: "Total population",
+                min: 0,
+                max: 500,
+                sum: 3200,
+                parts: [1, 2, 3, 4]
+            })
+        },
         parts: [1, 2, 3, 4]
     });
 
@@ -23,7 +26,7 @@ const feature = () => ({ properties: { subpop: 100, pop: 200 } });
 
 const fixtures = { subgroup, feature };
 
-describe("PopulationSubgroup", () => {
+describe("Subgroup", () => {
     it("can be rendered as a Mapbox expression", () => {
         const subgroup = fixtures.subgroup();
 
@@ -42,7 +45,10 @@ describe("PopulationSubgroup", () => {
         const subgroup = fixtures.subgroup();
         const feature = fixtures.feature();
 
-        expect(subgroup.getFraction(feature)).to.be.closeTo(0.5, 0.0000001);
+        expect(subgroup.getFractionFromFeature(feature)).to.be.closeTo(
+            0.5,
+            0.0000001
+        );
     });
     it("has a `sum` attribute", () => {
         const subgroup = fixtures.subgroup();
@@ -53,55 +59,53 @@ describe("PopulationSubgroup", () => {
 
 describe("Population", () => {
     it("can provide the indicesOfMajorSubgroups", () => {
-        const population = new Population(
-            {
-                total: {
-                    key: "TOTPOP",
-                    name: "Total population",
-                    sum: 2727771,
-                    min: 14,
-                    max: 12307
-                },
-                subgroups: [
-                    {
-                        key: "NH_WHITE",
-                        name: "White population",
-                        sum: 874800,
-                        min: 0,
-                        max: 3263
-                    },
-                    {
-                        key: "NH_BLACK",
-                        name: "Black population",
-                        sum: 876046,
-                        min: 0,
-                        max: 7723
-                    },
-                    {
-                        key: "HISP",
-                        name: "Hispanic population",
-                        sum: 783335,
-                        min: 0,
-                        max: 3526
-                    },
-                    {
-                        key: "NH_ASIAN",
-                        name: "Asian population",
-                        sum: 145407,
-                        min: 0,
-                        max: 2208
-                    },
-                    {
-                        key: "NH_AMIN",
-                        name: "American Indian population",
-                        sum: 3378,
-                        min: 0,
-                        max: 22
-                    }
-                ]
+        const population = new Population({
+            total: {
+                key: "TOTPOP",
+                name: "Total population",
+                sum: 2727771,
+                min: 14,
+                max: 12307
             },
-            [0, 1, 2, 3]
-        );
+            subgroups: [
+                {
+                    key: "NH_WHITE",
+                    name: "White population",
+                    sum: 874800,
+                    min: 0,
+                    max: 3263
+                },
+                {
+                    key: "NH_BLACK",
+                    name: "Black population",
+                    sum: 876046,
+                    min: 0,
+                    max: 7723
+                },
+                {
+                    key: "HISP",
+                    name: "Hispanic population",
+                    sum: 783335,
+                    min: 0,
+                    max: 3526
+                },
+                {
+                    key: "NH_ASIAN",
+                    name: "Asian population",
+                    sum: 145407,
+                    min: 0,
+                    max: 2208
+                },
+                {
+                    key: "NH_AMIN",
+                    name: "American Indian population",
+                    sum: 3378,
+                    min: 0,
+                    max: 22
+                }
+            ],
+            parts: [0, 1, 2, 3]
+        });
         expect(population.indicesOfMajorSubgroups()).to.deep.equal([1, 0, 2]);
     });
 });

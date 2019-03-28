@@ -6,6 +6,7 @@ import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
 import Part from "./Part";
 import Population from "./Population";
+import { generateId } from "../utils";
 
 function getParts(problem) {
     let colors = districtColors.slice(0, problem.numberOfParts);
@@ -29,10 +30,10 @@ function getParts(problem) {
 }
 
 function getPopulation(place, parts) {
-    return new Population(place.population, parts);
+    return new Population({ ...place.population, parts });
 }
 
-function getElections(place, problem, layer) {
+function getElections(place, parts) {
     if (place.elections.length === 0) {
         return [];
     }
@@ -41,8 +42,7 @@ function getElections(place, problem, layer) {
             new Election(
                 `${election.year} ${election.race} Election`,
                 election.voteTotals,
-                problem.numberOfParts,
-                layer
+                parts
             )
     );
 }
@@ -97,14 +97,14 @@ export default class State {
 
         this.problem = problem;
         this.parts = getParts(problem);
-        this.elections = getElections(place, problem, this.units);
+        this.elections = getElections(place, this.parts);
         this.population = getPopulation(place, this.parts);
 
         this.columns = [
             this.population.total,
             ...this.population.subgroups,
             ...this.elections.reduce(
-                (cols, election) => [...cols, ...election.columns],
+                (cols, election) => [...cols, ...election.subgroups],
                 []
             )
         ];
@@ -166,16 +166,4 @@ function download(filename, text) {
     element.click();
 
     document.body.removeChild(element);
-}
-
-// Copied from stackoverflow https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-function dec2hex(dec) {
-    return ("0" + dec.toString(16)).substr(-2);
-}
-
-function generateId(len) {
-    const arr = new Uint8Array((len || 40) / 2);
-    const crypto = window.crypto ? window.crypto : window.msCrypto;
-    crypto.getRandomValues(arr);
-    return Array.from(arr, dec2hex).join("");
 }
