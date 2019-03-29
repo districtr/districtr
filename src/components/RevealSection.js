@@ -4,7 +4,7 @@ import { classMap } from "lit-html/directives/class-map";
 function Reveal(content, isOpen) {
     return html`
         <div class=${classMap({ reveal: true, "reveal-hidden": !isOpen })}>
-            ${content}
+            ${isOpen ? content : ""}
         </div>
     `;
 }
