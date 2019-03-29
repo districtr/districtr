@@ -76,17 +76,34 @@ legend {
     max-height: 100vh;
 }
 
+.tool-option-container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
 .toolbar-checkbox {
     display: block;
-    margin: 0.2rem 0 0.4rem;
+    margin: 0 0 0.25rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+    line-height: 1.5;
+    padding: 0 0.25rem;
+    align-self: flex-start;
 }
 
-@media only screen and (max-width: 400px) {
+.toolbar-checkbox:hover {
+    background: $districtr_grey_hover;
+}
+
+.toolbar-checkbox:active {
+    background: $districtr_grey_active;
+}
+
+@media only screen and (max-width: 450px) {
     #toolbar {
         top: 0;
         overflow-y: auto;
@@ -115,9 +132,17 @@ legend {
     -ms-user-select: none;
     user-select: none;
     background: $districtr_light_grey;
-    transition: all ease 160ms;
+    transition: all ease 100ms;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
+}
+
+input:hover ~ .tabs__tab {
+    background: $districtr_grey_hover;
+}
+
+input:active ~ .tabs__tab {
+    background: $districtr_grey_active;
 }
 
 li:last-child .tabs__tab {

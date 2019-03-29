@@ -13,9 +13,9 @@
 
 .layer-list {
     padding: 0 1rem;
-    display: grid;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     grid-gap: 1rem;
 }
 

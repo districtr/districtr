@@ -1,8 +1,8 @@
 import ColumnSet from "./ColumnSet";
 
 export default class Election extends ColumnSet {
-    constructor(name, voteTotals, parts) {
-        super({ subgroups: voteTotals, parts });
+    constructor(name, subgroups, parts) {
+        super({ subgroups: subgroups, parts });
         this.name = name;
 
         this.getOtherParty = this.getOtherParty.bind(this);

@@ -4,7 +4,7 @@ import ElectionResultsSection from "./Charts/ElectionResultsSection";
 import RacialBalanceTable from "./Charts/RacialBalanceTable";
 import RevealSection from "./RevealSection";
 
-export default ({ parts, population, elections }, uiState, dispatch) => {
+export default ({ parts, population, vap, elections }, uiState, dispatch) => {
     const activeParts = parts.filter(part => part.visible);
     return html`
         ${population.subgroups.length > 1
@@ -18,6 +18,14 @@ export default ({ parts, population, elections }, uiState, dispatch) => {
                   ),
                   uiState.charts.racialBalance.isOpen,
                   () => dispatch(actions.toggleOpen({ chart: "racialBalance" }))
+              )
+            : ""}
+        ${vap
+            ? RevealSection(
+                  "VAP Balance",
+                  RacialBalanceTable(vap, activeParts, uiState, dispatch),
+                  uiState.charts.vapBalance.isOpen,
+                  () => dispatch(actions.toggleOpen({ chart: "vapBalance" }))
               )
             : ""}
         ${elections.length > 0

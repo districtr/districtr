@@ -22,6 +22,8 @@ export default class LayersTab {
                 }
             });
 
+        this.overlays = [];
+
         this.partisanOverlays =
             state.elections.length > 0
                 ? new PartisanOverlayContainer(state.layers, state.elections)
@@ -32,6 +34,14 @@ export default class LayersTab {
             state.population,
             "Show demographics"
         );
+
+        this.vapOverlays = state.vap
+            ? new OverlayContainer(
+                  state.layers,
+                  state.vap,
+                  "Show VAP demographics"
+              )
+            : null;
     }
     render() {
         return html`
@@ -44,7 +54,14 @@ export default class LayersTab {
                     <h4>Demographics</h4>
                     ${this.demographicOverlays.render()}
                 </div>
-
+                ${this.vapOverlays
+                    ? html`
+                          <div class="layer-list__item">
+                              <h4>Voting Age Population</h4>
+                              ${this.vapOverlays.render()}
+                          </div>
+                      `
+                    : ""}
                 ${this.partisanOverlays
                     ? html`
                           <div class="layer-list__item">

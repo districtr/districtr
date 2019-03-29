@@ -73,14 +73,16 @@ class BrushToolOptions {
 }
 
 const BrushLock = (locked, toggle) => html`
-    <label class="toolbar-checkbox">
-        <input
-            type="checkbox"
-            name="brush-lock"
-            value="brush-lock"
-            ?checked=${locked}
-            @change=${toggle}
-        />
-        Lock already-painted units
-    </label>
+    <div class="tool-option-container">
+        <label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                name="brush-lock"
+                value="brush-lock"
+                ?checked=${locked}
+                @change=${toggle}
+            />
+            Lock already-painted units
+        </label>
+    </div>
 `;

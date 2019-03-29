@@ -6,7 +6,7 @@ import { colorByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(layers, columnSet, toggleText = "Show data layer") {
+    constructor(layers, columnSet, toggleText) {
         this._currentSubgroupIndex = 0;
         this.subgroups = [...columnSet.subgroups, columnSet.total];
 
@@ -18,6 +18,12 @@ export default class OverlayContainer {
             this.subgroups[this._currentSubgroupIndex],
             colorRule
         );
+
+        if (!toggleText) {
+            toggleText = columnSet.name
+                ? `Show ${columnSet.name.toLowerCase()}`
+                : "Show data layer";
+        }
 
         this.visibilityToggle = toggle(toggleText, false, visible => {
             if (visible) {

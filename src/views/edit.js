@@ -160,7 +160,8 @@ function toolbarView(state) {
         charts: {
             population: { isOpen: true },
             racialBalance: { isOpen: true },
-            electionResults: { isOpen: true }
+            electionResults: { isOpen: false },
+            vapBalance: { isOpen: false }
         }
     });
 
@@ -191,7 +192,10 @@ function getMenuItems(state) {
             `
         }
     ];
-    if (state.place.permalink === "lowell_blocks") {
+    if (
+        state.place.id === "lowell_blocks" ||
+        state.place.permalink === "lowell_blocks"
+    ) {
         items = [
             {
                 render: () => html`
