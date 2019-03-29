@@ -36,11 +36,11 @@
 }
 
 .header-with-toggle:hover {
-    background: $districtr_light_grey;
+    background: $districtr_grey_hover;
 }
 
 .header-with-toggle:active {
-    background: #ddd;
+    background: $districtr_grey_active;
 }
 
 .header-with-toggle__icon.open {

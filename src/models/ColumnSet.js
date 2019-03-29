@@ -14,6 +14,10 @@ export default class ColumnSet {
               )
             : [];
 
+        if (sortable(this.subgroups)) {
+            this.subgroups = sortSubgroups(this.subgroups);
+        }
+
         if (total !== undefined && total !== null) {
             this.total = new Subgroup({
                 ...total,
@@ -34,4 +38,17 @@ export default class ColumnSet {
         this.subgroups.forEach(subgroup => subgroup.update(feature, part));
         this.total.update(feature, part);
     }
+}
+
+function sortable(subgroups) {
+    for (let subgroup of subgroups) {
+        if (typeof subgroup.sum !== "number") {
+            return false;
+        }
+    }
+    return true;
+}
+
+function sortSubgroups(subgroups) {
+    return subgroups.sort((s, t) => t.sum - s.sum);
 }

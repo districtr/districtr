@@ -34,7 +34,7 @@ function getCell(subgroup, part, width) {
 
 export default (subgroups, parts) => {
     const width = `${Math.round(81 / subgroups.length)}%`;
-    const headers = subgroups.map(subgroup => subgroup.name.split(" ")[0]);
+    const headers = subgroups.map(subgroup => subgroup.getAbbreviation());
     let rows = parts.map(part => ({
         label: part.renderLabel(),
         entries: subgroups.map(subgroup => getCell(subgroup, part, width))

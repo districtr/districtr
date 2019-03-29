@@ -106,6 +106,13 @@ describe("Population", () => {
             ],
             parts: [0, 1, 2, 3]
         });
-        expect(population.indicesOfMajorSubgroups()).to.deep.equal([1, 0, 2]);
+        const majorSubgroupKeys = population
+            .indicesOfMajorSubgroups()
+            .map(index => population.subgroups[index].key);
+        expect(majorSubgroupKeys).to.deep.equal([
+            "NH_BLACK",
+            "NH_WHITE",
+            "HISP"
+        ]);
     });
 });

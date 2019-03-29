@@ -112,11 +112,11 @@ i {
 }
 
 .subtle-button:hover {
-    background: #eee;
+    background: $districtr_grey_hover;
 }
 
 .subtle-button:active {
-    background: #ddd;
+    background: $districtr_grey_active;
 }
 
 .subtle-button i {

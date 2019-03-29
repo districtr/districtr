@@ -30,21 +30,59 @@ function getParts(problem) {
 }
 
 function getPopulation(place, parts) {
-    return new Population({ ...place.population, parts });
+    const population = place.columnSets.find(
+        columnSet => columnSet.name === "Population"
+    );
+    return new Population({ ...population, parts });
+}
+
+function getVAP(place, parts) {
+    const vap = place.columnSets.find(
+        columnSet => columnSet.name === "Voting Age Population"
+    );
+    if (vap) {
+        return new Population({ ...vap, parts });
+    } else {
+        return null;
+    }
 }
 
 function getElections(place, parts) {
-    if (place.elections.length === 0) {
-        return [];
-    }
-    return place.elections.map(
+    const elections = place.columnSets.filter(
+        columnSet => columnSet.type === "election"
+    );
+    return elections.map(
         election =>
             new Election(
-                `${election.year} ${election.race} Election`,
-                election.voteTotals,
+                `${election.metadata.year} ${election.metadata.race} Election`,
+                election.subgroups,
                 parts
             )
     );
+}
+
+function getColumnSets(state, place) {
+    state.elections = getElections(place, state.parts);
+    state.population = getPopulation(place, state.parts);
+    state.vap = getVAP(place, state.parts);
+
+    state.columns = [
+        state.population.total,
+        ...state.population.subgroups,
+        ...state.elections.reduce(
+            (cols, election) => [...cols, ...election.subgroups],
+            []
+        )
+    ];
+    if (state.vap) {
+        state.columns += [...state.vap.subgroups, state.vap.total];
+    }
+
+    let columnSets = [...state.elections, state.population];
+    if (state.vap) {
+        columnSets.push(state.vap);
+    }
+    return columnSets;
 }
 
 /**
@@ -82,8 +120,7 @@ export default class State {
         }
     }
     update(feature, part) {
-        this.population.update(feature, part);
-        this.elections.forEach(election => election.update(feature, part));
+        this.columnSets.forEach(columnSet => columnSet.update(feature, part));
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
     getInitialState(place, assignment, problem) {
@@ -97,18 +134,7 @@ export default class State {
 
         this.problem = problem;
         this.parts = getParts(problem);
-        this.elections = getElections(place, this.parts);
-        this.population = getPopulation(place, this.parts);
-
-        this.columns = [
-            this.population.total,
-            ...this.population.subgroups,
-            ...this.elections.reduce(
-                (cols, election) => [...cols, ...election.subgroups],
-                []
-            )
-        ];
-
+        this.columnSets = getColumnSets(this, place);
         this.assignment = {};
 
         if (assignment) {
