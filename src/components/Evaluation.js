@@ -11,9 +11,10 @@ export default ({ parts, population, vap, elections }, uiState, dispatch) => {
             ? RevealSection(
                   "Racial Balance",
                   RacialBalanceTable(
+                      "racialBalance",
                       population,
                       activeParts,
-                      uiState,
+                      uiState.charts.racialBalance,
                       dispatch
                   ),
                   uiState.charts.racialBalance.isOpen,
@@ -23,7 +24,13 @@ export default ({ parts, population, vap, elections }, uiState, dispatch) => {
         ${vap
             ? RevealSection(
                   "VAP Balance",
-                  RacialBalanceTable(vap, activeParts, uiState, dispatch),
+                  RacialBalanceTable(
+                      "vapBalance",
+                      vap,
+                      activeParts,
+                      uiState.charts.vapBalance,
+                      dispatch
+                  ),
                   uiState.charts.vapBalance.isOpen,
                   () => dispatch(actions.toggleOpen({ chart: "vapBalance" }))
               )

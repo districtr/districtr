@@ -1,4 +1,4 @@
-import { createActions, createReducer } from "../utils";
+import { createActions, createReducer, replace } from "../utils";
 
 export const handlers = {
     toggleOpen: (state, action) => ({
@@ -6,6 +6,17 @@ export const handlers = {
         [action.chart]: {
             ...state[action.chart],
             isOpen: !state[action.chart].isOpen
+        }
+    }),
+    selectSubgroup: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            ...state[action.chart],
+            activeSubgroupIndices: replace(
+                state[action.chart].activeSubgroupIndices,
+                action.subgroupPosition,
+                action.subgroupIndex
+            )
         }
     })
 };
