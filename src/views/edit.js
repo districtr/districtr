@@ -154,14 +154,19 @@ function toolbarView(state) {
         elections: {
             activeElectionIndex: 0
         },
-        subgroups: {
-            activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
-        },
         charts: {
             population: { isOpen: true },
-            racialBalance: { isOpen: true },
+            racialBalance: {
+                isOpen: true,
+                activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
+            },
             electionResults: { isOpen: false },
-            vapBalance: { isOpen: false }
+            vapBalance: {
+                isOpen: false,
+                activeSubgroupIndices: state.vap
+                    ? state.vap.indicesOfMajorSubgroups()
+                    : null
+            }
         }
     });
 
