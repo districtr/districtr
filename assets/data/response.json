@@ -3687,7 +3687,7 @@
     {
         "id": "wisconsin_12_16",
         "name": "Wisconsin",
-        "unitType": "Blocks",
+        "unitType": "Wards",
         "tilesets": [
             {
                 "type": "fill",

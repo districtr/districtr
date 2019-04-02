@@ -12,7 +12,7 @@ export function LandmarkInfo(features) {
                 <h4 class="tooltip-title">${feature.properties.name}</h4>
                 ${feature.properties.short_description
                     ? html`
-                          <p>${feature.properties.short_description}</p>
+                          <p>${html([feature.properties.short_description])}</p>
                       `
                     : ""}
             </div>
