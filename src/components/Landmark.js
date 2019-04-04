@@ -8,8 +8,8 @@ export function LandmarkInfo(features) {
     }
     return features.map(
         feature => html`
-            <div class="tooltip-text">
-                <h4 class="tooltip-title">${feature.properties.name}</h4>
+            <div class="tooltip__text">
+                <h4 class="tooltip__title">${feature.properties.name}</h4>
                 ${feature.properties.short_description
                     ? html`
                           <p>${html([feature.properties.short_description])}</p>
@@ -21,6 +21,7 @@ export function LandmarkInfo(features) {
 }
 
 const landmarkPaintProperty = {
+    "fill-opacity": 0.5,
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
@@ -51,7 +52,7 @@ export class Landmarks {
     }
     handleToggle(checked) {
         if (checked) {
-            this.layer.setOpacity(0.8);
+            this.layer.setOpacity(0.5);
             this.landmarksTooltip.activate();
         } else {
             this.layer.setOpacity(0);

@@ -4,28 +4,27 @@
 @import "components/technologies";
 @import "shadows";
 
+p {
+    line-height: 1.75;
+}
+
 .landing-page {
     color: #444;
     font-size: 1.5rem;
     overflow: hidden;
-    background: url(../assets/districtr-splash.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right top;
     display: block;
 }
 
 .splash {
     min-height: 100vh;
-}
-.splash-image {
-    width: 80%;
-    align-self: center;
-    justify-self: center;
+    padding-top: 2rem;
 }
 
 .hello {
-    align-items: end;
+    background: url(../assets/districtr-splash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
 }
 
 .splash-text {
@@ -39,10 +38,6 @@
 
 .details .splash-text {
     margin-left: 33.3%;
-}
-
-.hello .splash-text {
-    padding-top: 55vh;
 }
 
 .takeaway {
@@ -112,38 +107,6 @@
     grid-column: 2/3;
 }
 
-.feature {
-    list-style: none;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    background: #444;
-    border-radius: 1rem;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.feature__caption {
-    font-weight: 600;
-    color: white;
-    font-size: 1.25rem;
-}
-
-.feature__location {
-    color: #eee;
-}
-
-.feature__image {
-    display: block;
-    margin: 1rem;
-}
-
-p {
-    line-height: 1.75;
-}
-
 .splash-text p:last-child {
     margin-bottom: 0;
 }
@@ -202,10 +165,13 @@ p {
 
 @media only screen and (max-width: 800px) {
     .splash {
-        padding: 1rem;
+        padding: 4rem 1rem;
     }
     .landing-page {
         background-image: url(../assets/districtr-splash-small.png);
+    }
+    .hello {
+        background: rgba(255, 255, 255, 0.5);
     }
     .team-list {
         justify-content: left;
@@ -218,11 +184,8 @@ p {
 }
 
 @media only screen and (max-width: 800px) {
-    .hello .splash-text {
-        padding-top: 10rem;
-    }
     .landing-page {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -245,9 +208,7 @@ p {
     }
 
     .hello .splash-text {
-        grid-row: 1 / 2;
         grid-column: 2 / 4;
-        margin: 1rem 0;
         padding: 0;
     }
 

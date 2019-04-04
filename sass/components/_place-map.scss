@@ -1,0 +1,19 @@
+.state {
+    fill: #dddddd;
+}
+.state--available {
+    fill: #0099cd;
+}
+.state--available:hover {
+    fill: #006b9c;
+    cursor: pointer;
+}
+.state--available:active {
+    fill: #004464;
+}
+
+.place-map {
+    margin: -1rem auto 0;
+    max-width: 65%;
+    min-width: 400px;
+}

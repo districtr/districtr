@@ -4,8 +4,7 @@ import { styleMap } from "lit-html/directives/style-map";
 import { HoverWithRadius } from "./Hover";
 
 /**
- * A floating tooltip
- *
+ * A floating tooltip.
  * @param {Layer} layer - show the tooltip when features from this layer are
  *  hovered over.
  * @param {function} content - function that returns the tooltip content
@@ -53,7 +52,10 @@ export default class Tooltip extends HoverWithRadius {
         render(
             html`
                 <aside
-                    class=${classMap({ tooltip: true, hidden: !this.visible })}
+                    class=${classMap({
+                        tooltip: true,
+                        "tooltip--hidden": !this.visible
+                    })}
                     style=${styleMap({
                         left: `${this.x + 4}px`,
                         top: `${this.y + 8}px`
