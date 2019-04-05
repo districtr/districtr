@@ -1,5 +1,9 @@
 .state {
+    transition: all 100ms ease;
     fill: #dddddd;
+}
+.state:hover {
+    fill: #aaaaaa;
 }
 .state--available {
     fill: #0099cd;
@@ -12,9 +16,16 @@
     fill: #004464;
 }
 
+.state--zoomed {
+    opacity: 0;
+}
+
+.state--selected {
+    opacity: 1;
+}
+
 .place-map {
     margin: 0 auto;
-    max-width: 65%;
     min-width: 400px;
     display: flex;
     justify-content: center;
@@ -23,7 +34,30 @@
 }
 
 .place-map__search {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: $mggg-blue;
     font-family: $font-family;
+    border: none;
+    border-bottom: 0.125rem solid $mggg-blue;
+    transition: all 100ms ease;
+    background: none;
+    outline: none;
+    caret-color: $mggg-blue;
+    text-align: center;
+}
+
+.place-map__search::selection {
+    background-color: $mggg-blue;
+    color: white;
+}
+
+.place-map__search--unavailable {
+    color: #aaa;
+    border-bottom-color: #aaa;
+    caret-color: #aaa;
+}
+
+.place-map__back {
+    position: relative;
+    font-size: 2rem;
 }

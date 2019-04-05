@@ -47,8 +47,8 @@ p {
 }
 
 .districtr-name,
-.call-to-action,
-.call-to-action:visited {
+.button,
+.button:visited {
     background: $districtr-red;
     color: white;
 
@@ -58,16 +58,31 @@ p {
 
     font-weight: 400;
     font-family: $font-family;
+
+    font-size: inherit;
+    margin: 0;
+    outline: none;
+    border: none;
 }
 
-.call-to-action:hover,
-.call-to-action:active {
+.button:hover,
+.button:active {
+    cursor: pointer;
     color: white;
     background: $districtr-red-dark;
 }
 
-.call-to-action:focus {
+.button:focus {
     box-shadow: $focus-shadow;
+}
+
+.button--alternate {
+    background-color: $mggg-blue;
+}
+
+.button--alternate:hover,
+.button--alternate:active {
+    background: $mggg-dark-blue;
 }
 
 .details {

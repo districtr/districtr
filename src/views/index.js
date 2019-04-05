@@ -24,7 +24,7 @@ function renderInitialView() {
             ${until(PlaceMapWithData(), "")}
             <div class="request-new-place">
                 <h2 class="call-to-request">Looking for somewhere else?</h2>
-                <a href="./request" class="call-to-action call-to-request"
+                <a href="./request" class="button call-to-request"
                     >Request a new place to redistrict.</a
                 >
             </div>
@@ -43,10 +43,10 @@ export default () => {
             render(
                 html`
                     <p class="sign-in__link">Hello, ${user.first}!</p>
-                    <a href="./new" class="call-to-action sign-in__link"
+                    <a href="./new" class="button sign-in__link"
                         >Draw a new plan</a
                     >
-                    <a href="./signout" class="call-to-action sign-in__link"
+                    <a href="./signout" class="button sign-in__link"
                         >Sign out</a
                     >
                 `,
@@ -56,7 +56,7 @@ export default () => {
             render(
                 html`
                     <a href="./signin" class="sign-in__link">Sign in</a>
-                    <a href="./register" class="call-to-action sign-in__link">
+                    <a href="./register" class="button sign-in__link">
                         Create your account</a
                     >
                 `,
