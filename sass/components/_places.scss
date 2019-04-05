@@ -36,16 +36,16 @@
     height: 10rem;
 
     border-radius: 0.5rem;
-    background: $districtr_red;
+    background: $districtr-red;
     color: white;
 }
 
 .places-list__item:focus {
-    box-shadow: $focus_shadow;
+    box-shadow: $focus-shadow;
 }
 
 .places-list__item:hover {
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
 .places-list__item {
@@ -84,7 +84,7 @@
 }
 
 .start-districting {
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     margin: 0 auto;
     // width: 60%;
     padding: 1rem 0;

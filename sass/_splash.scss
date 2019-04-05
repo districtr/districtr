@@ -49,7 +49,7 @@ p {
 .districtr-name,
 .call-to-action,
 .call-to-action:visited {
-    background: $districtr_red;
+    background: $districtr-red;
     color: white;
 
     border-radius: 0.4rem;
@@ -57,17 +57,17 @@ p {
     padding: 0.1rem 0.4rem;
 
     font-weight: 400;
-    font-family: $font_family;
+    font-family: $font-family;
 }
 
 .call-to-action:hover,
 .call-to-action:active {
     color: white;
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
 .call-to-action:focus {
-    box-shadow: $focus_shadow;
+    box-shadow: $focus-shadow;
 }
 
 .details {

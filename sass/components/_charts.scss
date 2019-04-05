@@ -30,13 +30,13 @@
 }
 
 .bar-chart {
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
 .bar-chart text {
-    text-shadow: 1px 1px $districtr_light_grey;
+    text-shadow: 1px 1px $districtr-light-grey;
 }
 
 .bar-chart .bar-chart-overlay {

@@ -13,7 +13,17 @@
 }
 
 .place-map {
-    margin: -1rem auto 0;
+    margin: 0 auto;
     max-width: 65%;
     min-width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.place-map__search {
+    font-size: 1.5rem;
+    color: $mggg-blue;
+    font-family: $font-family;
 }
