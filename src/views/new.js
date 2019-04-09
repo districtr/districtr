@@ -27,8 +27,8 @@ export default function renderNewPlanView() {
     const target = document.getElementById("root");
     render(
         html`
-            <div class="start-districting">
-                <h1 class="start-districting__title">
+            <div class="start-districting start-districting--alone">
+                <h1 class="start-districting__title section__heading">
                     Where would you like to redistrict?
                 </h1>
                 ${until(PlaceMapWithData(), "")}

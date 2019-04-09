@@ -9,3 +9,14 @@
 .hidden {
     display: none !important;
 }
+
+.section__heading {
+    font-size: 2.5rem;
+    line-height: 2;
+}
+
+.decorated-section {
+    background: white;
+    border-top: 1px solid $mggg-blue;
+    border-bottom: 1px solid $mggg-blue;
+}

@@ -18,7 +18,7 @@ function renderInitialView() {
     );
     render(
         html`
-            <h2 class="start-districting__title">
+            <h2 class="start-districting__title section__heading">
                 Where would you like to redistrict?
             </h2>
             ${until(PlaceMapWithData(), "")}
