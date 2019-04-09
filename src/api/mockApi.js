@@ -4,7 +4,7 @@ function getBaseURL() {
     } else if (window.location.hostname.includes("mggg.org")) {
         return "https://mggg.org/Districtr";
     } else if (window.location.hostname.includes("districtr.org")) {
-        return "https://staging.districtr.org";
+        return "https://districtr.org";
     }
 }
 
