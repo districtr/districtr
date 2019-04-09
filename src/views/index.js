@@ -22,12 +22,6 @@ function renderInitialView() {
                 Where would you like to redistrict?
             </h2>
             ${until(PlaceMapWithData(), "")}
-            <div class="request-new-place">
-                <h2 class="call-to-request">Looking for somewhere else?</h2>
-                <a href="./request" class="button call-to-request"
-                    >Request a new place to redistrict.</a
-                >
-            </div>
         `,
         startDistrictingSection
     );

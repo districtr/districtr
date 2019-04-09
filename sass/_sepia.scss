@@ -27,3 +27,12 @@ $sepia-accent-light: #bdaaa8;
 .sepia mark:hover {
     background: $districtr-red;
 }
+
+.sepia {
+    .button,
+    .button:visited,
+    .button:hover,
+    .button:active {
+        color: white;
+    }
+}

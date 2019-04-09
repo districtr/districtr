@@ -4,6 +4,7 @@ import { PlacesListForState } from "../components/PlacesList";
 import { select, selectAll } from "d3-selection";
 import "d3-transition";
 
+// ============
 // Global state
 // ============
 
@@ -19,6 +20,7 @@ const available = [
     "Illinois",
     "Texas",
     "New York",
+    "North Carolina",
     "California"
 ];
 
@@ -27,6 +29,7 @@ const noHover = {};
 
 let stateSelected = false;
 
+// =============
 // State updates
 // =============
 
@@ -38,6 +41,10 @@ function selectState(path, feature, e) {
             zoomToFeature(path, feature);
             selectAll(".state").classed("state--zoomed", true);
             select("#place-search").classed("hidden", true);
+            select("#places-list").classed(
+                "place-map__state-modules--hidden",
+                false
+            );
             render(
                 modulesAvailable(feature),
                 document.getElementById("places-list")
@@ -56,6 +63,7 @@ function resetMap() {
         .classed("state--zoomed", false)
         .classed("state--selected", false);
     select("#place-search").classed("hidden", false);
+    select("#places-list").classed("place-map__state-modules--hidden", true);
     render("", document.getElementById("places-list"));
 }
 
@@ -80,6 +88,7 @@ function setSearchText(feature) {
     }
 }
 
+// ===========
 // Transitions
 // ===========
 
@@ -97,17 +106,18 @@ function zoomToFeature(path, feature) {
         .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 }
 
+// ==========
 // Components
 // ==========
 
 export function Features(features, onHover) {
-    const scale = 1280,
-        translate = [640, 300],
-        path = geoPath(
-            geoAlbersUsa()
-                .scale(scale)
-                .translate(translate)
-        );
+    const scale = 1280;
+    const translate = [640, 300];
+    const path = geoPath(
+        geoAlbersUsa()
+            .scale(scale)
+            .translate(translate)
+    );
     return svg`<svg viewBox="0 0 1280 600" style="width:100%; height:auto;">
     <g id="states-group" @mouseleave=${() => onHover(noHover)}>
     ${features.features.map(
@@ -165,17 +175,20 @@ function modulesAvailable(feature) {
 }
 export function PlaceMap(features) {
     return html`
+        <div class="place-map__form">
+            <input
+                id="place-search"
+                class="place-map__search"
+                name="place"
+                type="text"
+                disabled
+            />
+        </div>
+        <div
+            class="place-map__state-modules place-map__state-modules--hidden"
+            id="places-list"
+        ></div>
         <figure class="place-map">
-            <div class="place-map__form">
-                <input
-                    id="place-search"
-                    class="place-map__search"
-                    name="place"
-                    type="text"
-                    disabled
-                />
-            </div>
-            <div class="place-map__state-modules" id="places-list"></div>
             ${Features(features, setSearchText)}
         </figure>
     `;
@@ -185,6 +198,7 @@ export function PlaceMapWithData() {
     return fetchFeatures().then(features => PlaceMap(features));
 }
 
+// =============
 // Data fetching
 // =============
 

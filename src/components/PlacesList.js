@@ -1,28 +1,7 @@
 import { html } from "lit-html";
 import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
-import { navigateTo } from "../routes";
-
-export function hydratedPlacesList(filter, placeItemsTemplate) {
-    if (!filter) {
-        filter = () => true;
-    }
-    const places = listPlaces().then(items =>
-        items.filter(item => filter(item))
-    );
-    return new PlacesList(
-        places,
-        (place, problem, units) => {
-            localStorage.setItem("place", JSON.stringify(place));
-            localStorage.setItem("units", JSON.stringify(units));
-            localStorage.setItem("districtingProblem", JSON.stringify(problem));
-            localStorage.removeItem("assignment");
-            localStorage.removeItem("planId");
-            navigateTo("/edit");
-        },
-        placeItemsTemplate
-    );
-}
+import { startNewPlan } from "../routes";
 
 let _placesCache = {};
 let _placesList = null;
@@ -45,18 +24,15 @@ export function listPlacesForState(state) {
     return Promise.resolve(_placesCache[state]);
 }
 
-export function PlacesListForState(state, fallbackComponent) {
+export function PlacesListForState(
+    state,
+    fallbackComponent,
+    placeItemsTemplate = placeItems
+) {
     return new PlacesList(
         listPlacesForState(state),
-        (place, problem, units) => {
-            localStorage.setItem("place", JSON.stringify(place));
-            localStorage.setItem("units", JSON.stringify(units));
-            localStorage.setItem("districtingProblem", JSON.stringify(problem));
-            localStorage.removeItem("assignment");
-            localStorage.removeItem("planId");
-            navigateTo("/edit");
-        },
-        placeItems,
+        startNewPlan,
+        placeItemsTemplate,
         fallbackComponent
     );
 }

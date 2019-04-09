@@ -10,7 +10,7 @@
 .places-list {
     list-style: none;
     font-size: 1rem;
-    margin: 1rem 0;
+    margin: 0;
     padding: 0;
     width: 100%;
     display: flex;
@@ -26,6 +26,7 @@
     -ms-user-select: none;
     user-select: none;
 
+    margin: 0.5rem 0;
     padding: 0.5rem;
     font-weight: bold;
     // background: #eee;
@@ -83,10 +84,20 @@
 // }
 
 .start-districting {
-    background: $districtr-light-grey;
-    margin: 0 auto;
-    // width: 60%;
     padding: 1rem 0;
+    background: $districtr-light-grey;
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+        "title title title title"
+        "form form form form"
+        "map map map map";
+    grid-template-rows: 2fr 1fr 15fr;
+    grid-template-columns: auto 1fr 1fr auto;
+    height: 600px;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
 }
 
 .start-districting__title {
@@ -94,7 +105,14 @@
     line-height: 1.25;
     margin: 1rem 0;
     font-size: 2.5rem;
+    grid-area: title;
     color: black;
+}
+
+@supports (display: grid) {
+    .start-districting {
+        padding: 0;
+    }
 }
 
 .request-new-place {
@@ -102,9 +120,9 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 1.5rem auto;
-    line-height: 2;
+    margin: 0 auto;
     align-items: center;
+    padding: 3rem 0;
 }
 
 .call-to-request {

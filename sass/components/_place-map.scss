@@ -34,14 +34,26 @@
 }
 
 .place-map {
-    margin: 0 auto;
-    min-width: 375px;
-    max-height: 75vh;
-    min-height: 500px;
     display: flex;
+    min-width: 375px;
+    max-height: 80vh;
+    min-height: 400px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    grid-area: map;
+    width: 960px;
+    height: 450px;
+    margin: 4rem auto 0;
+    overflow: hidden;
+}
+
+@supports (display: grid) {
+    .place-map {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
 }
 
 .place-map__search {
@@ -73,15 +85,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    max-width: 60rem;
-    min-width: 350px;
+    width: 100%;
+    position: absolute;
+    grid-area: form;
 }
 
 .place-map__state-modules {
     width: 50%;
     position: absolute;
+    height: auto;
     right: 0;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    z-index: 1000;
+}
+
+.place-map__state-modules--hidden {
+    display: none;
+}
+
+@supports (display: grid) {
+    .place-map__form {
+        position: static;
+    }
+    .place-map__state-modules {
+        width: auto;
+        position: static;
+        right: unset;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .place-map__state-modules {
+        grid-column: 2 / 4;
+    }
 }
 
 .media {
@@ -106,4 +143,9 @@
     height: 32px;
     width: 32px;
     float: right;
+}
+
+.media__body {
+    overflow: auto;
+    max-height: 400px;
 }

@@ -1,6 +1,8 @@
 import { html, render } from "lit-html";
 import { initializeMap } from "../Map/map";
-import { hydratedPlacesList } from "../components/PlacesList";
+import { listPlacesForState } from "../components/PlacesList";
+import { startNewPlan } from "../routes";
+
 export default () => {
     initializeMap(
         "map",
@@ -12,30 +14,34 @@ export default () => {
         },
         false
     );
-    const places = hydratedPlacesList(
-        place => place.name.toLowerCase().includes("chicago"),
-        placeItemsTemplate
+    const places = listPlacesForState("Illinois").then(places =>
+        placeItemsTemplate(places[0], startNewPlan)
     );
-
     const target = document.getElementById("districting-options");
     render(places.render(), target);
 };
 
 const placeItemsTemplate = (place, onClick) =>
-    place.districtingProblems.map(
-        problem => html`
-            <li
-                class="places-list__item"
-                @click="${() => onClick(place, problem)}"
-            >
-                <div class="place-name">
-                    ${problem.type === "multimember"
-                        ? "Multi-member Wards"
-                        : `${problem.numberOfParts} ${problem.pluralNoun}`}
-                </div>
-                <div class="place-info">
-                    ${place.unitType}
-                </div>
-            </li>
-        `
-    );
+    place.districtingProblems
+        .map(problem =>
+            place.units.map(
+                units => html`
+                    <li
+                        class="places-list__item"
+                        @click="${() => onClick(place, problem, units)}"
+                    >
+                        <div class="place-name">
+                            ${problem.type === "multimember"
+                                ? "Multi-member Wards"
+                                : `${problem.numberOfParts} ${
+                                      problem.pluralNoun
+                                  }`}
+                        </div>
+                        <div class="place-info">
+                            ${units.unitType}
+                        </div>
+                    </li>
+                `
+            )
+        )
+        .reduce((items, item) => [...items, ...item], []);
