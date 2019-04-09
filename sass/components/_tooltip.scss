@@ -4,7 +4,7 @@
     display: block;
     position: absolute;
     z-index: 10000;
-    font-family: $font_family;
+    font-family: $font-family;
 
     background: #111;
     // border-radius: 0.5rem;
@@ -29,7 +29,7 @@
     flex-direction: column;
 }
 
-.hidden {
+.tooltip--hidden {
     opacity: 0;
     height: 0px;
     width: 0px;
@@ -91,14 +91,14 @@ dl {
     min-width: 2rem;
 }
 
-.tooltip-text {
+.tooltip__text {
     font-size: 0.8rem;
     margin: 0;
     padding: 0.5rem;
     max-width: 250px;
 }
 
-.tooltip-title {
+.tooltip__title {
     margin: 0;
     padding: 0;
     line-height: 1;

@@ -22,6 +22,7 @@
 .layer-list__item {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 .parameter {
@@ -54,10 +55,10 @@ select {
 
 .modal-content {
     max-width: 30rem;
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     line-height: 1.5;
     z-index: 1000000;
     border-radius: 1rem;
     padding: 1rem;
-    box-shadow: $focus_shadow;
+    box-shadow: $focus-shadow;
 }

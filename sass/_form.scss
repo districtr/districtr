@@ -10,36 +10,36 @@
     margin: 1rem 0;
     padding: 0.5rem;
     font-weight: 400;
-    font-family: $font_family;
+    font-family: $font-family;
     font-size: 1.5rem;
     // background: #eee;
 
     transition: all ease 40ms;
 
     border-radius: 0.25rem;
-    background: $districtr_red;
+    background: $districtr-red;
 }
 
 .form-button:hover {
     cursor: pointer;
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
 .form-button:active {
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
 .form-button:focus {
-    box-shadow: $focus_shadow;
+    box-shadow: $focus-shadow;
 }
 
 .form-button:disabled {
-    background: $sepia_accent_light;
+    background: $sepia-accent-light;
     color: #504746;
 }
 
 .form-page {
-    background: $mggg_very_dark_blue;
+    background: $mggg-very-dark-blue;
 }
 
 .form-container {
@@ -62,7 +62,7 @@
 }
 
 .form {
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     color: #444;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -103,7 +103,7 @@
     border-radius: 0.25rem;
     font-size: 1.5rem;
     color: #111;
-    font-family: $font_family;
+    font-family: $font-family;
 }
 
 .text-area {
@@ -140,7 +140,7 @@
 }
 
 .alert {
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
     color: white;
 }
 

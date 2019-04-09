@@ -26,26 +26,26 @@
     -ms-user-select: none;
     user-select: none;
 
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     padding: 0.5rem;
     font-weight: bold;
     // background: #eee;
 
     transition: all ease 100ms;
-    width: 10rem;
-    height: 10rem;
+    // width: 10rem;
+    // height: 10rem;
 
     border-radius: 0.5rem;
-    background: $districtr_red;
+    background: $districtr-red;
     color: white;
 }
 
 .places-list__item:focus {
-    box-shadow: $focus_shadow;
+    box-shadow: $focus-shadow;
 }
 
 .places-list__item:hover {
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
 .places-list__item {
@@ -69,31 +69,45 @@
     color: #444;
 }
 
-@media only screen and (max-width: 600px) {
-    .places-list {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .places-list-container {
-        width: 100%;
-    }
-    .places-list__item {
-        height: auto;
-        width: auto;
-    }
+// @media only screen and (max-width: 600px) {
+.places-list {
+    flex-direction: column;
+    align-items: stretch;
 }
+.places-list-container {
+    width: 100%;
+}
+.places-list__item {
+    height: auto;
+    width: auto;
+}
+// }
 
 .start-districting {
-    background: $districtr_light_grey;
-    margin: 0 auto;
-    // width: 60%;
+    padding: 4rem 0;
+    background: $districtr-light-grey;
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+        "title title title title"
+        "form form form form"
+        "map map map map";
+    grid-template-rows: 2fr 1fr 15fr;
+    grid-template-columns: auto 1fr 1fr auto;
+    height: 700px;
+    height: 110vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.start-districting--alone {
     padding: 1rem 0;
 }
 
 .start-districting__title {
     text-align: center;
-    line-height: 1.25;
-    margin: 1rem 0;
+    margin: 0;
+    grid-area: title;
     color: black;
 }
 
@@ -102,9 +116,9 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 1.5rem auto;
-    line-height: 2;
+    margin: 0 auto;
     align-items: center;
+    padding: 3rem 0;
 }
 
 .call-to-request {

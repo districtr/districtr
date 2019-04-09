@@ -1,26 +1,13 @@
-.sign-in-link {
+.sign-in__link {
     line-height: 1.75;
     margin: 0 0.5rem;
     font-weight: 400;
-    font-family: $font_family;
+    font-family: $font-family;
     font-size: 1.25rem;
     // background: #eee;
 }
 
-.sign-up-link {
-    color: white;
-    margin: 0 1rem;
-}
-
-.sign-up-link:visited {
-    color: white;
-}
-
-.sign-up-link:hover {
-    color: white;
-}
-
-.sign-in-header {
+.sign-in {
     position: absolute;
     min-width: 40%;
     right: 0;
@@ -31,7 +18,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .sign-in-header {
+    .sign-in {
         display: none;
     }
 }

@@ -1,29 +1,38 @@
 // Sepia
-$sepia_background: rgb(247, 241, 238);
-$sepia_accent: #806463;
-$sepia_accent_dark: #503f3e;
-$sepia_accent_light: #bdaaa8;
+$sepia-background: rgb(247, 241, 238);
+$sepia-accent: #806463;
+$sepia-accent-dark: #503f3e;
+$sepia-accent-light: #bdaaa8;
 
 .sepia {
-    background: $sepia_background;
+    background-color: $sepia-background;
 }
 
 .sepia a,
 .sepia a:visited {
-    color: $sepia_accent;
+    color: $sepia-accent;
 }
 
 .sepia a:hover,
 .sepia a:active {
-    color: $sepia_accent_dark;
+    color: $sepia-accent-dark;
     // color: #ac8682;
 }
 
 .sepia mark {
-    background: $sepia_accent_light;
+    background: $sepia-accent-light;
     color: white;
 }
 
 .sepia mark:hover {
-    background: $districtr_red;
+    background: $districtr-red;
+}
+
+.sepia {
+    .button,
+    .button:visited,
+    .button:hover,
+    .button:active {
+        color: white;
+    }
 }

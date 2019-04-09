@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Austin" }, "geometry": { "type": "Point", "coordinates": [ -97.7431, 30.2672 ] } },
+{ "type": "Feature", "properties": { "name": "Chicago" }, "geometry": { "type": "Point", "coordinates": [ -87.6298, 41.8781 ] } },
+{ "type": "Feature", "properties": { "name": "Lowell" }, "geometry": { "type": "Point", "coordinates": [ -71.3162, 42.6334 ] } },
+{ "type": "Feature", "properties": { "name": "Islip" }, "geometry": { "type": "Point", "coordinates": [ -73.2104, 40.7298 ] } },
+{ "type": "Feature", "properties": { "name": "Santa Clara" }, "geometry": { "type": "Point", "coordinates": [ -121.9552, 37.3541 ] } },
+{ "type": "Feature", "properties": { "name": "Philadelphia" }, "geometry": { "type": "Point", "coordinates": [ -75.1652, 39.9526 ] } }
+]
+}

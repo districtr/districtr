@@ -11,19 +11,19 @@
     }
     a,
     a:visited {
-        color: $mggg_blue;
+        color: $mggg-blue;
     }
     a:active,
     a:hover {
         text-decoration: inherit;
-        color: $mggg_dark_blue;
+        color: $mggg-dark-blue;
     }
     mark {
-        background: $districtr_red;
+        background: $districtr-red;
         color: white;
     }
 
     mark:hover {
-        background: $districtr_red_dark;
+        background: $districtr-red-dark;
     }
 }

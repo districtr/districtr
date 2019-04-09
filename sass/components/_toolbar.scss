@@ -58,7 +58,7 @@ legend {
 }
 
 .tool-options {
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
     max-height: 0px;
@@ -96,11 +96,11 @@ legend {
 }
 
 .toolbar-checkbox:hover {
-    background: $districtr_grey_hover;
+    background: $districtr-grey-hover;
 }
 
 .toolbar-checkbox:active {
-    background: $districtr_grey_active;
+    background: $districtr-grey-active;
 }
 
 @media only screen and (max-width: 450px) {
@@ -131,18 +131,18 @@ legend {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
     transition: all ease 100ms;
     box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
         0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
 input:hover ~ .tabs__tab {
-    background: $districtr_grey_hover;
+    background: $districtr-grey-hover;
 }
 
 input:active ~ .tabs__tab {
-    background: $districtr_grey_active;
+    background: $districtr-grey-active;
 }
 
 li:last-child .tabs__tab {
@@ -240,7 +240,7 @@ input:checked ~ .tabs__tab {
 
 .data-table td {
     text-align: right;
-    background: $districtr_light_grey;
+    background: $districtr-light-grey;
 }
 
 .part-number {

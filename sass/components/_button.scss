@@ -12,7 +12,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: $districtr_light_grey;
+    color: $districtr-light-grey;
     font-weight: normal;
     transition: all ease 200ms;
     border: none;
@@ -27,7 +27,7 @@
 
 .button {
     background: black;
-    color: $districtr_light_grey;
+    color: $districtr-light-grey;
     transition: all ease 60ms;
     border: none;
     outline: none;

@@ -1,0 +1,151 @@
+.state {
+    transition: all 100ms ease;
+    fill: #dddddd;
+}
+
+.state:hover {
+    fill: #aaaaaa;
+    cursor: pointer;
+}
+
+.state--available {
+    fill: $mggg-blue;
+}
+
+.state--available:hover {
+    fill: $mggg-dark-blue;
+}
+
+.state--available:active {
+    fill: $mggg-very-dark-blue;
+}
+
+.state--zoomed,
+.state--zoomed:hover,
+.state--zoomed:active {
+    opacity: 0;
+    cursor: auto;
+}
+
+.state--selected,
+.state--selected:hover,
+.state--selected:active {
+    opacity: 1;
+}
+
+.place-map {
+    display: flex;
+    min-width: 375px;
+    max-height: 80vh;
+    min-height: 400px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    grid-area: map;
+    width: 960px;
+    height: 450px;
+    margin: 4rem auto 0;
+    overflow: hidden;
+}
+
+@supports (display: grid) {
+    .place-map {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+.place-map__search {
+    font-size: 2rem;
+    color: $mggg-blue;
+    font-family: $font-family;
+    border: none;
+    border-bottom: 0.125rem solid $mggg-blue;
+    transition: all 100ms ease;
+    background: none;
+    outline: none;
+    caret-color: $mggg-blue;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.place-map__search::selection {
+    background-color: $mggg-blue;
+    color: white;
+}
+
+.place-map__search--unavailable {
+    color: #aaa;
+    border-bottom-color: #aaa;
+    caret-color: #aaa;
+}
+
+.place-map__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    grid-area: form;
+}
+
+.place-map__state-modules {
+    width: 50%;
+    position: absolute;
+    height: auto;
+    right: 0;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    z-index: 1000;
+}
+
+.place-map__state-modules--hidden {
+    display: none;
+}
+
+@supports (display: grid) {
+    .place-map__form {
+        position: static;
+    }
+    .place-map__state-modules {
+        width: auto;
+        position: static;
+        right: unset;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .place-map__state-modules {
+        grid-column: 2 / 4;
+    }
+}
+
+.media {
+    background-color: white;
+    border-radius: 0.5rem;
+    outline: #004464;
+    box-shadow: 0 4px 16px rgba(12, 12, 13, 0.1);
+    padding: 1rem;
+    color: #666;
+    border: 1px solid #00446444;
+    max-width: 30rem;
+}
+
+.media__title {
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: normal;
+    color: $mggg-blue;
+}
+
+.media__close {
+    height: 32px;
+    width: 32px;
+    float: right;
+}
+
+.media__body {
+    overflow: auto;
+    max-height: 400px;
+}

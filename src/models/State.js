@@ -1,89 +1,9 @@
-import { districtColors } from "../colors";
 import { Landmarks } from "../components/Landmark";
 import { addLayers } from "../Map/map";
-import Election from "./Election";
 import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
-import Part from "./Part";
-import Population from "./Population";
 import { generateId } from "../utils";
-
-function getParts(problem) {
-    let colors = districtColors.slice(0, problem.numberOfParts);
-
-    let name = "District";
-    if (problem.name !== undefined) {
-        name = problem.name;
-    }
-
-    const parts = colors.map(
-        color => new Part(color.id, name, color.id + 1, color.hex)
-    );
-
-    if (problem.type === "multimember") {
-        parts.slice(1).forEach(part => {
-            part.visible = false;
-        });
-    }
-
-    return parts;
-}
-
-function getPopulation(place, parts) {
-    const population = place.columnSets.find(
-        columnSet => columnSet.name === "Population"
-    );
-    return new Population({ ...population, parts });
-}
-
-function getVAP(place, parts) {
-    const vap = place.columnSets.find(
-        columnSet => columnSet.name === "Voting Age Population"
-    );
-    if (vap) {
-        return new Population({ ...vap, parts });
-    } else {
-        return null;
-    }
-}
-
-function getElections(place, parts) {
-    const elections = place.columnSets.filter(
-        columnSet => columnSet.type === "election"
-    );
-    return elections.map(
-        election =>
-            new Election(
-                `${election.metadata.year} ${election.metadata.race} Election`,
-                election.subgroups,
-                parts
-            )
-    );
-}
-
-function getColumnSets(state, place) {
-    state.elections = getElections(place, state.parts);
-    state.population = getPopulation(place, state.parts);
-    state.vap = getVAP(place, state.parts);
-
-    state.columns = [
-        state.population.total,
-        ...state.population.subgroups,
-        ...state.elections.reduce(
-            (cols, election) => [...cols, ...election.subgroups],
-            []
-        )
-    ];
-    if (state.vap) {
-        state.columns += [...state.vap.subgroups, state.vap.total];
-    }
-
-    let columnSets = [...state.elections, state.population];
-    if (state.vap) {
-        columnSets.push(state.vap);
-    }
-    return columnSets;
-}
+import { getColumnSets, getParts } from "./column-sets";
 
 /**
  * Holds all of the state that needs to be updated after
@@ -91,7 +11,7 @@ function getColumnSets(state, place) {
  * population tally.)
  */
 export default class State {
-    constructor(map, { place, problem, id, assignment }) {
+    constructor(map, { place, problem, id, assignment, units }) {
         if (id) {
             this.id = id;
         } else {
@@ -99,16 +19,19 @@ export default class State {
         }
         this.placeId = place.id;
 
-        this.initializeMapState(map, place);
-        this.getInitialState(place, assignment, problem);
+        this.initializeMapState(map, place, units);
+        this.getInitialState(place, assignment, problem, units);
         this.subscribers = [];
 
         this.update = this.update.bind(this);
         this.exportAsJSON = this.exportAsJSON.bind(this);
         this.render = this.render.bind(this);
     }
-    initializeMapState(map, place) {
-        const { units, unitsBorders, points } = addLayers(map, place.tilesets);
+    initializeMapState(map, place, unitsRecord) {
+        const { units, unitsBorders, points } = addLayers(
+            map,
+            unitsRecord.tilesets
+        );
 
         this.units = units;
         this.unitsBorders = unitsBorders;
@@ -123,8 +46,9 @@ export default class State {
         this.columnSets.forEach(columnSet => columnSet.update(feature, part));
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
-    getInitialState(place, assignment, problem) {
+    getInitialState(place, assignment, problem, unitsRecord) {
         this.place = place;
+        this.unitsRecord = unitsRecord;
         this.idColumn =
             place.idColumn !== undefined
                 ? new IdColumn(place.idColumn)
@@ -134,7 +58,7 @@ export default class State {
 
         this.problem = problem;
         this.parts = getParts(problem);
-        this.columnSets = getColumnSets(this, place);
+        this.columnSets = getColumnSets(this, unitsRecord);
         this.assignment = {};
 
         if (assignment) {
@@ -147,7 +71,8 @@ export default class State {
             id: this.id,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             placeId: this.placeId,
-            problem: this.problem
+            problem: this.problem,
+            units: this.unitsRecord
         };
         const text = JSON.stringify(serialized);
         download(`districtr-plan-${this.id}.json`, text);

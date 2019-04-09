@@ -15,11 +15,15 @@
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
             rel="stylesheet"
         />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
     </head>
 
     <body>
         <main id="root" class="landing-page">
-            <header class="sign-in-header" id="sign-in-header"></header>
+            <header class="sign-in" id="sign-in"></header>
             <section class="splash hello">
                 <header class="splash-text">
                     <h1 class="headline"><em>You</em> draw the lines.</h1>
@@ -36,22 +40,35 @@
                         >
                         by providing free, open-source software for
                         redistricting.
-                        <a href="./new" class="call-to-action"
+                        <a href="./new" class="button"
                             >Start&nbsp;drawing&nbsp;districts.</a
                         >
                     </h2>
                 </header>
             </section>
+            <section
+                class="start-districting hidden"
+                id="start-districting"
+            ></section>
+            <section class="u-centered">
+                <div class="request-new-place">
+                    <h2 class="call-to-request">Looking for somewhere else?</h2>
+                    <a href="./request" class="button call-to-request"
+                        >Request a new place to redistrict.</a
+                    >
+                </div>
+            </section>
             <section class="splash details sepia">
                 <div class="splash-text">
-                    <h2 class="takeaway">
+                    <h2 class="section__heading">About Districtr</h2>
+                    <h3 class="takeaway">
                         The goal of Districtr is to
                         <strong
                             >put the tools of redistricting in the hands of the
                             public</strong
-                        >, particularly civil rights organizations and community
-                        groups.
-                    </h2>
+                        >, with an emphasis on meeting the needs of civil rights
+                        organizations, community groups, and researchers.
+                    </h3>
                     <p>
                         Districtr came about from a conversation with
                         <a href="http://lawyersforcivilrights.org/"
@@ -92,10 +109,6 @@
                     </p>
                 </div>
             </section>
-            <section
-                class="start-districting hidden"
-                id="start-districting"
-            ></section>
             <section class="splash-code-details dark">
                 <div class="splash-code-text">
                     <h2 class="takeaway code-title">

@@ -54,6 +54,7 @@ function renderAboutModal() {
 function getContextFromStorage() {
     const placeJson = localStorage.getItem("place");
     const problemJson = localStorage.getItem("districtingProblem");
+    const unitsJson = localStorage.getItem("units");
 
     if (placeJson === null || problemJson === null) {
         navigateTo("/new");
@@ -61,12 +62,13 @@ function getContextFromStorage() {
 
     const place = JSON.parse(placeJson);
     const problem = JSON.parse(problemJson);
+    const units = JSON.parse(unitsJson);
 
     const planId = localStorage.getItem("planId");
     const assignmentJson = localStorage.getItem("assignment");
     const assignment = assignmentJson ? JSON.parse(assignmentJson) : null;
 
-    return { place, problem, id: planId, assignment };
+    return { place, problem, id: planId, assignment, units };
 }
 
 export default function renderEditView() {

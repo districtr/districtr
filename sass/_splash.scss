@@ -4,28 +4,27 @@
 @import "components/technologies";
 @import "shadows";
 
+p {
+    line-height: 1.75;
+}
+
 .landing-page {
     color: #444;
     font-size: 1.5rem;
     overflow: hidden;
-    background: url(../assets/districtr-splash.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right top;
     display: block;
 }
 
 .splash {
     min-height: 100vh;
-}
-.splash-image {
-    width: 80%;
-    align-self: center;
-    justify-self: center;
+    padding-top: 2rem;
 }
 
 .hello {
-    align-items: end;
+    background: url(../assets/districtr-splash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
 }
 
 .splash-text {
@@ -41,10 +40,6 @@
     margin-left: 33.3%;
 }
 
-.hello .splash-text {
-    padding-top: 55vh;
-}
-
 .takeaway {
     font-weight: 400;
     margin: 0 0 1rem;
@@ -52,9 +47,9 @@
 }
 
 .districtr-name,
-.call-to-action,
-.call-to-action:visited {
-    background: $districtr_red;
+.button,
+.button:visited {
+    background: $districtr-red;
     color: white;
 
     border-radius: 0.4rem;
@@ -62,17 +57,60 @@
     padding: 0.1rem 0.4rem;
 
     font-weight: 400;
-    font-family: $font_family;
+    font-family: $font-family;
+
+    margin: 0;
+    outline: 0;
+    border: none;
 }
 
-.call-to-action:hover,
-.call-to-action:active {
+.button:hover,
+.button:active {
+    cursor: pointer;
     color: white;
-    background: $districtr_red_dark;
+    background: $districtr-red-dark;
 }
 
-.call-to-action:focus {
-    box-shadow: $focus_shadow;
+.button:active {
+    outline: 0;
+}
+
+.button:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+}
+
+.button--alternate {
+    background-color: $mggg-blue;
+}
+
+.button--alternate:hover,
+.button--alternate:active {
+    background: $mggg-dark-blue;
+}
+
+.button--transparent {
+    background: none;
+    color: $mggg-blue;
+}
+
+.button--transparent:hover {
+    background: $districtr-grey-hover;
+    color: $mggg-blue;
+}
+
+.button--transparent:active {
+    background: $districtr-grey-active;
+    color: $mggg-blue;
+    box-shadow: none;
+}
+
+.button--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    line-height: 1;
 }
 
 .details {
@@ -98,6 +136,9 @@
 
 .code-title {
     width: 60%;
+    font-weight: 300;
+    line-height: 1.25;
+    font-size: 2rem;
     margin: 1rem auto;
 }
 
@@ -110,38 +151,6 @@
     justify-content: center;
     align-items: center;
     grid-column: 2/3;
-}
-
-.feature {
-    list-style: none;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    background: #444;
-    border-radius: 1rem;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.feature__caption {
-    font-weight: 600;
-    color: white;
-    font-size: 1.25rem;
-}
-
-.feature__location {
-    color: #eee;
-}
-
-.feature__image {
-    display: block;
-    margin: 1rem;
-}
-
-p {
-    line-height: 1.75;
 }
 
 .splash-text p:last-child {
@@ -160,6 +169,8 @@ p {
 
 .team__title {
     text-align: center;
+    font-weight: 300;
+    font-size: 2rem;
 }
 
 .team-list {
@@ -202,10 +213,13 @@ p {
 
 @media only screen and (max-width: 800px) {
     .splash {
-        padding: 1rem;
+        padding: 4rem 1rem;
     }
     .landing-page {
         background-image: url(../assets/districtr-splash-small.png);
+    }
+    .hello {
+        background: rgba(255, 255, 255, 0.5);
     }
     .team-list {
         justify-content: left;
@@ -218,11 +232,8 @@ p {
 }
 
 @media only screen and (max-width: 800px) {
-    .hello .splash-text {
-        padding-top: 10rem;
-    }
     .landing-page {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -245,9 +256,7 @@ p {
     }
 
     .hello .splash-text {
-        grid-row: 1 / 2;
         grid-column: 2 / 4;
-        margin: 1rem 0;
         padding: 0;
     }
 
@@ -259,4 +268,10 @@ p {
             grid-template-columns: 1fr;
         }
     }
+}
+
+.u-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

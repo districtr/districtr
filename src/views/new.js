@@ -1,21 +1,11 @@
 import { html, render } from "lit-html";
 import { listPlaces } from "../api/mockApi";
-import { hydratedPlacesList } from "../components/PlacesList";
+import { PlaceMapWithData } from "../components/PlaceMap";
+import { until } from "lit-html/directives/until";
 import PlanUploader from "../components/PlanUploader";
-import { navigateTo } from "../routes";
-
-function saveContextToStorage({ place, problem, id, assignment }) {
-    localStorage.setItem("place", JSON.stringify(place));
-    localStorage.setItem(
-        "districtingProblem",
-        JSON.stringify(problem || place.districtingProblems[0])
-    );
-    localStorage.setItem("planId", id);
-    localStorage.setItem("assignment", JSON.stringify(assignment));
-}
+import { navigateTo, loadPlan } from "../routes";
 
 export default function renderNewPlanView() {
-    const listOfPlaces = hydratedPlacesList();
     const uploadPlan = new PlanUploader(json => {
         const planRecord = JSON.parse(json);
         listPlaces().then(places => {
@@ -24,10 +14,11 @@ export default function renderNewPlanView() {
                     p.id === planRecord.placeId ||
                     p.permalink === planRecord.placeId
             );
-            saveContextToStorage({
+            loadPlan({
                 place,
                 problem: planRecord.problem,
-                id: planRecord.id,
+                planId: planRecord.id,
+                units: planRecord.units,
                 assignment: planRecord.assignment
             });
             navigateTo("/edit");
@@ -36,12 +27,12 @@ export default function renderNewPlanView() {
     const target = document.getElementById("root");
     render(
         html`
-            <h1 class="districtr-subheading">
-                Where would you like to redistrict?
-            </h1>
-            <section class="places-list-container">
-                ${listOfPlaces.render()}
-            </section>
+            <div class="start-districting start-districting--alone">
+                <h1 class="start-districting__title section__heading">
+                    Where would you like to redistrict?
+                </h1>
+                ${until(PlaceMapWithData(), "")}
+            </div>
             ${uploadPlan.render()}
         `,
         target
