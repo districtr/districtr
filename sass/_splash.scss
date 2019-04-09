@@ -59,9 +59,8 @@ p {
     font-weight: 400;
     font-family: $font-family;
 
-    font-size: inherit;
     margin: 0;
-    outline: none;
+    outline: 0;
     border: none;
 }
 
@@ -72,8 +71,13 @@ p {
     background: $districtr-red-dark;
 }
 
+.button:active {
+    outline: 0;
+}
+
 .button:focus {
     box-shadow: $focus-shadow;
+    outline: 0;
 }
 
 .button--alternate {
@@ -83,6 +87,30 @@ p {
 .button--alternate:hover,
 .button--alternate:active {
     background: $mggg-dark-blue;
+}
+
+.button--transparent {
+    background: none;
+    color: $mggg-blue;
+}
+
+.button--transparent:hover {
+    background: $districtr-grey-hover;
+    color: $mggg-blue;
+}
+
+.button--transparent:active {
+    background: $districtr-grey-active;
+    color: $mggg-blue;
+    box-shadow: none;
+}
+
+.button--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    line-height: 1;
 }
 
 .details {

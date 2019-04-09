@@ -2,31 +2,42 @@
     transition: all 100ms ease;
     fill: #dddddd;
 }
+
 .state:hover {
     fill: #aaaaaa;
-}
-.state--available {
-    fill: #0099cd;
-}
-.state--available:hover {
-    fill: #006b9c;
     cursor: pointer;
 }
+
+.state--available {
+    fill: $mggg-blue;
+}
+
+.state--available:hover {
+    fill: $mggg-dark-blue;
+}
+
 .state--available:active {
-    fill: #004464;
+    fill: $mggg-very-dark-blue;
 }
 
-.state--zoomed {
+.state--zoomed,
+.state--zoomed:hover,
+.state--zoomed:active {
     opacity: 0;
+    cursor: auto;
 }
 
-.state--selected {
+.state--selected,
+.state--selected:hover,
+.state--selected:active {
     opacity: 1;
 }
 
 .place-map {
     margin: 0 auto;
-    min-width: 400px;
+    min-width: 375px;
+    max-height: 75vh;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -44,6 +55,7 @@
     outline: none;
     caret-color: $mggg-blue;
     text-align: center;
+    margin: 0 0.5rem;
 }
 
 .place-map__search::selection {
@@ -57,7 +69,41 @@
     caret-color: #aaa;
 }
 
-.place-map__back {
-    position: relative;
+.place-map__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    max-width: 60rem;
+    min-width: 350px;
+}
+
+.place-map__state-modules {
+    width: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.media {
+    background-color: white;
+    border-radius: 0.5rem;
+    outline: #004464;
+    box-shadow: 0 4px 16px rgba(12, 12, 13, 0.1);
+    padding: 1rem;
+    color: #666;
+    border: 1px solid #00446444;
+    max-width: 30rem;
+}
+
+.media__title {
     font-size: 2rem;
+    line-height: 1.5;
+    font-weight: normal;
+    color: $mggg-blue;
+}
+
+.media__close {
+    height: 32px;
+    width: 32px;
+    float: right;
 }

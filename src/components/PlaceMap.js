@@ -1,7 +1,11 @@
 import { geoPath, geoAlbersUsa } from "d3-geo";
-import { svg, html } from "lit-html";
+import { svg, html, render } from "lit-html";
+import { PlacesListForState } from "../components/PlacesList";
 import { select, selectAll } from "d3-selection";
 import "d3-transition";
+
+// Global state
+// ============
 
 const available = [
     "Alaska",
@@ -21,42 +25,80 @@ const available = [
 // Sentinel for when the mouse is not over a state
 const noHover = {};
 
+let stateSelected = false;
+
+// State updates
+// =============
+
+function selectState(path, feature, e) {
+    if (stateSelected === false) {
+        stateSelected = true;
+        if (feature.properties.isAvailable) {
+            e.target.classList.add("state--selected");
+            zoomToFeature(path, feature);
+            selectAll(".state").classed("state--zoomed", true);
+            select("#place-search").classed("hidden", true);
+            render(
+                modulesAvailable(feature),
+                document.getElementById("places-list")
+            );
+        }
+    }
+}
+
+function resetMap() {
+    stateSelected = false;
+    select("g")
+        .transition()
+        .duration(500)
+        .attr("transform", "");
+    selectAll(".state")
+        .classed("state--zoomed", false)
+        .classed("state--selected", false);
+    select("#place-search").classed("hidden", false);
+    render("", document.getElementById("places-list"));
+}
+
+function setSearchText(feature) {
+    if (stateSelected === true) {
+        return;
+    }
+    const searchBox = document.getElementById("place-search");
+    if (feature === noHover) {
+        searchBox.classList.remove("place-map__search--unavailable");
+        searchBox.classList.remove("place-map__search--available");
+        searchBox.value = "";
+        return;
+    }
+    searchBox.value = feature.properties.NAME;
+    if (feature.properties.isAvailable) {
+        searchBox.classList.remove("place-map__search--unavailable");
+        searchBox.classList.add("place-map__search--available");
+    } else {
+        searchBox.classList.remove("place-map__search--available");
+        searchBox.classList.add("place-map__search--unavailable");
+    }
+}
+
+// Transitions
+// ===========
+
 function zoomToFeature(path, feature) {
     const bounds = path.bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
         x = (bounds[0][0] + bounds[1][0]) / 2,
         y = (bounds[0][1] + bounds[1][1]) / 2,
-        scale = 0.5 / Math.max(dx / 1280, dy / 600),
-        translate = [1280 / 2 - scale * x, 600 / 2 - scale * y];
+        scale = 0.75 / Math.max(dx / 1280, dy / 600),
+        translate = [1280 * (1 / 4) - scale * x, 600 / 2 - scale * y];
     select("g")
         .transition()
         .duration(500)
         .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 }
 
-function selectState(path, feature, e) {
-    e.stopPropagation();
-    e.target.classList.add("state--selected");
-    if (feature.properties.isAvailable) {
-        zoomToFeature(path, feature);
-        selectAll("path").classed("state--zoomed", true);
-        select("#back-to-map").classed("hidden", false);
-        select("#place-search").classed("hidden", true);
-    }
-}
-
-function resetMap() {
-    select("g")
-        .transition()
-        .duration(500)
-        .attr("transform", "");
-    selectAll("path")
-        .classed("state--zoomed", false)
-        .classed("state--selected", false);
-    select("#back-to-map").classed("hidden", true);
-    select("#place-search").classed("hidden", false);
-}
+// Components
+// ==========
 
 export function Features(features, onHover) {
     const scale = 1280,
@@ -75,9 +117,11 @@ export function Features(features, onHover) {
                     ? "state state--available"
                     : "state"
             }"
-            d="${path(feature)}" @mouseover=${() =>
-                onHover(feature)} @click=${e =>
-                selectState(path, feature, e)}></path>`
+            d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
+                feature.properties.isAvailable
+                    ? e => selectState(path, feature, e)
+                    : undefined
+            }></path>`
     )}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
@@ -86,44 +130,63 @@ export function Features(features, onHover) {
   </svg>`;
 }
 
-function setSearchText(feature) {
-    const searchBox = document.getElementById("place-search");
-    if (feature === noHover) {
-        searchBox.classList.remove("place-map__search--unavailable");
-        searchBox.classList.remove("place-map__search--available");
-        searchBox.value = "";
-        return;
-    }
-    searchBox.value = feature.properties.NAME;
-    if (feature.properties.isAvailable) {
-        searchBox.classList.remove("place-map__search--unavailable");
-        searchBox.classList.add("place-map__search--available");
-    } else {
-        searchBox.classList.remove("place-map__search--available");
-        searchBox.classList.add("place-map__search--unavailable");
-    }
+function emptyModuleFallback(feature) {
+    return html`
+        <p>
+            This state is not available yet.
+            <a class="button" href="/request?place=${feature.properties.NAME}"
+                >Request&nbsp;it&nbsp;here.
+            </a>
+        </p>
+    `;
 }
 
-export function PlaceMap(features) {
+function modulesAvailable(feature) {
+    const list = PlacesListForState(feature.properties.NAME, () =>
+        emptyModuleFallback(feature)
+    );
     return html`
-        <figure class="place-map">
-            <input
-                type="text"
-                id="place-search"
-                name="place-search"
-                class="place-map__search"
-            />
+        <div class="media">
             <button
-                class="button button--alternate hidden place-map__back"
+                class="button button--transparent button--icon media__close"
                 id="back-to-map"
                 @click=${resetMap}
             >
-                Back
+                <i class="material-icons">
+                    close
+                </i>
             </button>
+            <h3 class="media__title">${feature.properties.NAME}</h3>
+            <div class="media__body">
+                ${list.render()}
+            </div>
+        </div>
+    `;
+}
+export function PlaceMap(features) {
+    return html`
+        <figure class="place-map">
+            <div class="place-map__form">
+                <input
+                    id="place-search"
+                    class="place-map__search"
+                    name="place"
+                    type="text"
+                    disabled
+                />
+            </div>
+            <div class="place-map__state-modules" id="places-list"></div>
             ${Features(features, setSearchText)}
         </figure>
     `;
 }
+
+export function PlaceMapWithData() {
+    return fetchFeatures().then(features => PlaceMap(features));
+}
+
+// Data fetching
+// =============
 
 function fetchFeatures(availablePlaces = available) {
     return fetch("./assets/simple_states.json")
@@ -138,8 +201,4 @@ function fetchFeatures(availablePlaces = available) {
 
             return states;
         });
-}
-
-export function PlaceMapWithData() {
-    return fetchFeatures().then(features => PlaceMap(features));
 }

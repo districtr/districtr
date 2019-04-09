@@ -10,7 +10,7 @@
 .places-list {
     list-style: none;
     font-size: 1rem;
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
     width: 100%;
     display: flex;
@@ -26,14 +26,13 @@
     -ms-user-select: none;
     user-select: none;
 
-    margin: 0.5rem;
     padding: 0.5rem;
     font-weight: bold;
     // background: #eee;
 
     transition: all ease 100ms;
-    width: 10rem;
-    height: 10rem;
+    // width: 10rem;
+    // height: 10rem;
 
     border-radius: 0.5rem;
     background: $districtr-red;
@@ -69,19 +68,19 @@
     color: #444;
 }
 
-@media only screen and (max-width: 600px) {
-    .places-list {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .places-list-container {
-        width: 100%;
-    }
-    .places-list__item {
-        height: auto;
-        width: auto;
-    }
+// @media only screen and (max-width: 600px) {
+.places-list {
+    flex-direction: column;
+    align-items: stretch;
 }
+.places-list-container {
+    width: 100%;
+}
+.places-list__item {
+    height: auto;
+    width: auto;
+}
+// }
 
 .start-districting {
     background: $districtr-light-grey;
