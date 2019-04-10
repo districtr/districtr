@@ -52,13 +52,15 @@
 
 .form-content {
     // border-bottom: 1px solid #ddd;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
+    border-bottom: #ddd 1px solid;
 }
 
 .form-content:last-child {
     border: none;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    border-bottom-style: none;
 }
 
 .form {
@@ -110,8 +112,9 @@
     height: 10rem;
 }
 
-.form-title {
+.form__title {
     margin-bottom: 0;
+    line-height: 1.25;
 }
 
 .form-takeaway {
@@ -123,8 +126,9 @@
     font-size: 1rem;
 }
 
-.form-section-heading {
+.form__section-heading {
     font-weight: 400;
+    margin-bottom: 0.5rem;
 }
 
 .popup-message {

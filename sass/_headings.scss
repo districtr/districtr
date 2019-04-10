@@ -13,7 +13,6 @@ h1 {
 
 h2 {
     margin: 0;
-    // margin: 0 0 1rem;
     font-size: 2rem;
     line-height: 1.5;
 }
@@ -22,6 +21,12 @@ h3 {
     line-height: 1.75;
     margin: 0;
     font-size: 1.5rem;
+}
+
+.section__heading {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 1.25rem 0;
 }
 
 @media only screen and (max-width: 700px) {
@@ -39,12 +44,9 @@ h3 {
         line-height: 1.25;
         margin-bottom: 1rem;
     }
-}
-
-.districtr-heading {
-    text-align: center;
-}
-
-.districtr-subheading {
-    text-align: center;
+    .section__heading {
+        font-size: 1.6;
+        line-height: 1.25;
+        margin: 1rem 0;
+    }
 }

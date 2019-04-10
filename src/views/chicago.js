@@ -14,12 +14,18 @@ export default () => {
         },
         false
     );
-    const places = listPlacesForState("Illinois").then(places =>
-        placeItemsTemplate(places[0], startNewPlan)
-    );
-    const target = document.getElementById("districting-options");
-    render(places.render(), target);
+    listPlacesForState("Illinois").then(places => {
+        const target = document.getElementById("districting-options");
+        render(districtingOptions(places), target);
+    });
 };
+
+const districtingOptions = places =>
+    html`
+        <ul class="places-list">
+            ${placeItemsTemplate(places[0], startNewPlan)}
+        </ul>
+    `;
 
 const placeItemsTemplate = (place, onClick) =>
     place.districtingProblems
