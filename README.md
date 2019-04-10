@@ -1,6 +1,6 @@
 # Districtr
 
-[![Build Status](https://travis-ci.org/gerrymandr/Districtr.svg?branch=master)](https://travis-ci.org/gerrymandr/Districtr)
+[![Build Status](https://travis-ci.com/districtr/districtr.svg?branch=master)](https://travis-ci.com/districtr/districtr) [![Netlify Status](https://api.netlify.com/api/v1/badges/4e80556f-ee5a-459d-b9da-f366e3210df7/deploy-status)](https://app.netlify.com/sites/districtr/deploys)
 
 Districtr is the open-source web app that empowers all people to draw districting plans.
 
