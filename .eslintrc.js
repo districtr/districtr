@@ -71,7 +71,7 @@ module.exports = {
         "id-match": "error",
         "implicit-arrow-linebreak": "off",
         indent: "off",
-        "indent-legacy": "error",
+        "indent-legacy": "off",
         "init-declarations": "off",
         "jsx-quotes": "error",
         "key-spacing": "error",

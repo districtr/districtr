@@ -23,36 +23,38 @@
 
     <body>
         <main id="root" class="place">
-            <section class="place__content">
+            <!-- <div id="map" class="place__map"></div> -->
+            <article class="place__content">
                 <h1 class="headline place__name">Chicago</h1>
                 <p>
-                    We are exploring how multi-member districts might affect
+                    As part of our
+                    <a href="https://mggg.org/Chicago.pdf"
+                        >Study of Reform Proposals for Chicago City Council</a
+                    >, we are exploring how multi-member districts might affect
                     representation on Chicago's city council. Chicago currently
                     has fifty wards that each elect a single alderman to serve
                     on the city council.
+                    <a href="https://mggg.org/posts/chicago"
+                        >You can read more about the report here.</a
+                    >
                 </p>
                 <p>
                     We invite you to use Districtr to draw your own wards for
                     Chicago. You can build
-                    <strong>ten five-member districts</strong>, or
+                    <strong>fifty single-member wards</strong>,
+                    <strong>ten multi-member districts</strong>, or
                     <strong>multi-member districts of any size</strong>, using
                     either <strong>precincts</strong> or
                     <strong>community areas</strong> as the basic building
                     blocks.
                 </p>
-                <p>
-                    To view and edit the districting plans featured in MGGG's
-                    report, you can download the Districtr plans
-                    <a href="./assets/ChicagoReportDistrictrPlans.zip">here</a>
-                    and import them back into Districtr using the
-                    <a href="./new">New Plan menu</a>.
-                </p>
-                <h2>What type of districts would you like to draw?</h2>
-                <div class="place__districting-options">
-                    <div id="districting-options"></div>
-                </div>
-            </section>
-            <div id="map" class="place__map"></div>
+                <h2 class="place__subheading">Start drawing districts</h2>
+                <div id="districting-options"></div>
+                <h2 class="place__subheading">
+                    See the plans featured in the report
+                </h2>
+                <div id="plans"></div>
+            </article>
         </main>
         <script src="./es6/chicago.js"></script>
         <script>

@@ -7,14 +7,13 @@ export default class LayersTab {
     constructor(id, name, state) {
         this.id = id;
         this.name = name;
-        this.partPlural = state.problem.pluralNoun;
 
         this.landmarks = state.landmarks
             ? () => toggle(`Show landmarks`, true, state.landmarks.handleToggle)
             : null;
 
         this.toggleDistricts = () =>
-            toggle(`Show ${this.partPlural.toLowerCase()}`, true, checked => {
+            toggle(`Show districts`, true, checked => {
                 if (checked) {
                     state.units.setOpacity(0.8);
                 } else {
@@ -47,7 +46,7 @@ export default class LayersTab {
         return html`
             <section id="layers" class="toolbar-section layer-list">
                 <div class="layer-list__item">
-                    <h4>${this.partPlural}</h4>
+                    <h4>Districts</h4>
                     ${this.toggleDistricts()}
                 </div>
                 <div class="layer-list__item">

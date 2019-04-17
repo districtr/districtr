@@ -24,3 +24,11 @@ mark {
     border-radius: 0.4rem;
     transition: background 100ms ease;
 }
+
+.l-content {
+    padding: 2rem 0;
+}
+
+.splash-grid__left {
+    grid-column: 2 / 4;
+}

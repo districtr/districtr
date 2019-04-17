@@ -13,10 +13,14 @@ const sources = {
     js: "./src/**/*.js",
     css: "./sass/**/*.scss",
     html: "./html/*.html",
-    assets: "./assets/**"
+    assets: "./assets/**",
+    deployFiles: "./deploy/**"
 };
 
 export const clean = () => new Promise(resolve => fs.rmdir("./dist", resolve));
+
+export const deployFiles = () =>
+    gulp.src(sources.deployFiles).pipe(gulp.dest("./dist"));
 
 export const js = () => bundleViews();
 
@@ -32,7 +36,10 @@ export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
 export const assets = () =>
     gulp.src(sources.assets).pipe(gulp.dest("./dist/assets"));
 
-export const build = gulp.series(clean, gulp.parallel(js, css, html, assets));
+export const build = gulp.series(
+    clean,
+    gulp.parallel(js, css, html, assets, deployFiles)
+);
 
 export const devBuild = gulp.series(
     clean,

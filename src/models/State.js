@@ -49,13 +49,7 @@ export default class State {
     getInitialState(place, assignment, problem, unitsRecord) {
         this.place = place;
         this.unitsRecord = unitsRecord;
-        this.idColumn =
-            place.idColumn !== undefined
-                ? new IdColumn(place.idColumn)
-                : // This fallback is only here for places without an IdColumn.
-                  // This includes Lowell and Alaska, and possibly more places.
-                  { getValue: feature => feature.id };
-
+        this.idColumn = new IdColumn(unitsRecord.idColumn);
         this.problem = problem;
         this.parts = getParts(problem);
         this.columnSets = getColumnSets(this, unitsRecord);
@@ -79,6 +73,7 @@ export default class State {
     }
     subscribe(f) {
         this.subscribers.push(f);
+        this.render();
     }
     render() {
         for (let f of this.subscribers) {

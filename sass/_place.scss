@@ -12,29 +12,37 @@
     z-index: 1000;
 }
 
-.place__districting-options {
-    width: 100%;
-    margin: 1rem 0;
-}
-
 .place__content {
     width: 55%;
     padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 48rem;
 }
 
 .place__name {
     font-family: "Playfair Display";
     font-weight: 700;
+    line-height: 2;
 }
 
 .place__map {
-    width: 45%;
-    min-width: 350px;
-    min-height: 100vh;
+    width: 100%;
+    height: 300px;
+    height: 40vh;
+    max-height: 600px;
 }
 
 .place__content p {
     margin: 0 0 1rem;
+}
+
+.place__section {
+    margin: 2rem 0;
+}
+
+.place__subheading {
+    border-bottom: $districtr-red-dark 2px solid;
+    margin: 2rem 0;
 }
 
 @media only screen and (max-width: 800px) {
@@ -47,4 +55,31 @@
     .place__map {
         width: 100%;
     }
+}
+
+.plan-thumbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.plan-thumbs__thumb {
+    box-shadow: $raised;
+    max-width: 12rem;
+    max-height: 12rem;
+    margin: 0.5rem;
+    transition: 100ms all ease;
+}
+
+.plan-thumbs__thumb:hover,
+.plan-thumbs__thumb:active {
+    box-shadow: $focus-shadow;
+}
+
+.thumb__img {
+    max-width: 100%;
+    max-height: 100%;
 }

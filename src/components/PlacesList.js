@@ -37,10 +37,17 @@ export function PlacesListForState(
     );
 }
 
+export function getUnits(place, problem) {
+    if (problem.units) {
+        return place.units.filter(units => problem.units.includes(units.id));
+    }
+    return place.units;
+}
+
 export function placeItems(place, onClick) {
     return place.districtingProblems
         .map(problem =>
-            place.units.map(
+            getUnits(place, problem).map(
                 units => html`
                     <li
                         class="places-list__item"
@@ -50,7 +57,7 @@ export function placeItems(place, onClick) {
                         ${problem.type === "multimember"
                             ? html`
                                   <div class="place-info">
-                                      Multi-member Districts
+                                      Multi-member districts of varying sizes
                                   </div>
                               `
                             : ""}
@@ -60,7 +67,8 @@ export function placeItems(place, onClick) {
                         ${units.unitType
                             ? html`
                                   <div class="place-info">
-                                      ${units.unitType}
+                                      Built out of
+                                      ${units.unitType.toLowerCase()}
                                   </div>
                               `
                             : ""}
