@@ -14,7 +14,7 @@ import { renderAboutModal } from "../components/Modal";
 import { navigateTo, loadPlanFromURL, getContextFromStorage } from "../routes";
 
 function getPlanFromRoute() {
-    let planId = window.location.pathname.slice("/edit".length).trim();
+    let planId = window.location.pathname.slice("/edit/".length).trim();
     if (planId.length == 0) {
         planId = window.location.hash.slice(1).trim();
     }
