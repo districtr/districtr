@@ -9,7 +9,7 @@
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="./css/app.css"
+            href="/css/app.css"
         />
         <link
             href="https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"
@@ -34,7 +34,7 @@
     <body>
         <main id="root"></main>
         <div id="modal"></div>
-        <script src="./es6/edit.js"></script>
+        <script src="/es6/edit.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.writeln(
@@ -44,7 +44,7 @@
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
                 // document.write("<script src=\"https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/custom-elements-es5-adapter.js\"><\/script>");
-                document.writeln('<script src="./es5/edit.js"><\/script>');
+                document.writeln('<script src="/es5/edit.js"><\/script>');
                 document.writeln("<script>ieBundle();<\/script>");
             } else {
                 bundle();

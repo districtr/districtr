@@ -70,7 +70,11 @@ export function getColumnSets(state, unitsRecord) {
         )
     ];
     if (state.vap) {
-        state.columns += [...state.vap.subgroups, state.vap.total];
+        state.columns = [
+            ...state.columns,
+            ...state.vap.subgroups,
+            state.vap.total
+        ];
     }
 
     let columnSets = [...state.elections, state.population];

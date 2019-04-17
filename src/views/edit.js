@@ -10,93 +10,59 @@ import Toolbar from "../components/Toolbar/Toolbar";
 import Brush from "../Map/Brush";
 import { initializeMap } from "../Map/map";
 import State from "../models/State";
-import { navigateTo } from "../routes";
+import { renderAboutModal } from "../components/Modal";
+import { navigateTo, loadPlanFromURL, getContextFromStorage } from "../routes";
 
-function renderAboutModal() {
-    const target = document.getElementById("modal");
-    const template = html`
-        <div class="modal-wrapper" @click="${() => render("", target)}">
-            <div class="modal-content">
-                <h2>Lowell, MA</h2>
-                <p>
-                    The units you see here are the 1,845 census blocks that make
-                    up the municipality of Lowell, MA.
-                </p>
-                <p>
-                    Data for this module was obtained from the US Census Bureau.
-                    The block shapefile for the city of Lowell was downloaded
-                    from the
-                    <a
-                        href="https://www.census.gov/geo/maps-data/data/tiger-line.html"
-                        >Census's TIGER/Line Shapefiles</a
-                    >. Demographic information from the decennial Census was
-                    downloaded at the block level from
-                    <a
-                        href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml"
-                        >American FactFinder</a
-                    >.
-                </p>
-
-                <p>
-                    The cleaned shapefile with demographic information is
-                    <a
-                        href="https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell"
-                        >available for download</a
-                    >
-                    from the MGGG GitHub account.
-                </p>
-            </div>
-        </div>
-    `;
-    render(template, target);
+function getPlanFromRoute() {
+    let planId = window.location.pathname.slice("/edit/".length).trim();
+    if (planId.length == 0) {
+        planId = window.location.hash.slice(1).trim();
+    }
+    return planId.slice("chi-".length);
 }
 
-function getContextFromStorage() {
-    const placeJson = localStorage.getItem("place");
-    const problemJson = localStorage.getItem("districtingProblem");
-    const unitsJson = localStorage.getItem("units");
-
-    if (placeJson === null || problemJson === null) {
-        navigateTo("/new");
+function getPlanContext() {
+    const planId = getPlanFromRoute();
+    if (planId.length > 0) {
+        const planFile = `${planId}.json`;
+        return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
+            // eslint-disable-next-line no-console
+            console.error(`Could not load plan ${planId}`);
+            // eslint-disable-next-line no-console
+            console.error(e);
+        });
+    } else {
+        return Promise.resolve(getContextFromStorage());
     }
-
-    const place = JSON.parse(placeJson);
-    const problem = JSON.parse(problemJson);
-    const units = JSON.parse(unitsJson);
-
-    const planId = localStorage.getItem("planId");
-    const assignmentJson = localStorage.getItem("assignment");
-    const assignment = assignmentJson ? JSON.parse(assignmentJson) : null;
-
-    return { place, problem, id: planId, assignment, units };
 }
 
 export default function renderEditView() {
-    const context = getContextFromStorage();
-
-    const root = document.getElementById("root");
-    root.className = "";
-    render(
-        html`
-            <div id="map"></div>
-            <div id="toolbar"></div>
-        `,
-        root
-    );
-    const map = initializeMap("map", {
-        bounds: context.place.bounds,
-        fitBoundsOptions: {
-            padding: {
-                top: 50,
-                right: 350,
-                left: 50,
-                bottom: 50
+    getPlanContext().then(context => {
+        const root = document.getElementById("root");
+        root.className = "";
+        render(
+            html`
+                <div id="map"></div>
+                <div id="toolbar"></div>
+            `,
+            root
+        );
+        const map = initializeMap("map", {
+            bounds: context.units.bounds,
+            fitBoundsOptions: {
+                padding: {
+                    top: 50,
+                    right: 350,
+                    left: 50,
+                    bottom: 50
+                }
             }
-        }
-    });
-    map.on("load", () => {
-        let state = new State(map, context);
-        toolbarView(state);
+        });
+        map.on("load", () => {
+            map.setMaxBounds(map.getBounds());
+            let state = new State(map, context);
+            toolbarView(state);
+        });
     });
 }
 
@@ -199,10 +165,7 @@ function getMenuItems(state) {
             `
         }
     ];
-    if (
-        state.place.id === "lowell_blocks" ||
-        state.place.permalink === "lowell_blocks"
-    ) {
+    if (state.place.about) {
         items = [
             {
                 render: () => html`

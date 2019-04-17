@@ -168,6 +168,17 @@ function modulesAvailable(feature) {
             </button>
             <h3 class="media__title">${feature.properties.NAME}</h3>
             <div class="media__body">
+                ${feature.properties.NAME == "Illinois"
+                    ? html`
+                          <p>
+                              <a href="/chicago"
+                                  >Read about MGGG's report on alternative
+                                  districting systems for Chicago's City Council
+                                  here.</a
+                              >
+                          </p>
+                      `
+                    : ""}
                 ${list.render()}
             </div>
         </div>

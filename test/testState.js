@@ -15,7 +15,8 @@ function mockState() {
             getValue: ({ id }) => id
         },
         hasExpectedData: () => true,
-        update: sinon.spy()
+        update: sinon.spy(),
+        render: sinon.spy()
     };
 }
 
@@ -23,7 +24,7 @@ describe("Loading an imported plan", () => {
     it("should make all used colors visible", () => {
         const state = mockState();
         const assignment = { 1: 0, 2: 0, 3: 1 };
-        let remainingUnitIds = new Set([1, 2, 3]);
+        let remainingUnitIds = [1, 2, 3];
 
         assignLoadedUnits(state, assignment, remainingUnitIds);
 
@@ -32,7 +33,7 @@ describe("Loading an imported plan", () => {
     it("should call State.update for each unit", () => {
         const state = mockState();
         const assignment = { 1: 0, 2: 0, 3: 1 };
-        let remainingUnitIds = new Set([1, 2, 3]);
+        let remainingUnitIds = [1, 2, 3];
 
         assignLoadedUnits(state, assignment, remainingUnitIds);
 
