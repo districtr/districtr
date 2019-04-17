@@ -30,7 +30,7 @@ const plans = [
         plans: ["prec50-4287", "prec50-12816", "prec50-55139"]
     },
     {
-        title: "10 multi-member Wards built out of precincts",
+        title: "10 multi-member wards built out of precincts",
         plans: [
             "prec10-205",
             "prec10-8178",
