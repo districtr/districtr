@@ -72,7 +72,7 @@ export function getBearerToken() {
     if (signInToken !== null && signInToken !== undefined) {
         return fetchBearerToken(signInToken);
     } else {
-        return new Promise.resolve(null);
+        return Promise.resolve(null);
     }
 }
 
