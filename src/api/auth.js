@@ -14,6 +14,9 @@ export function signOut() {
 }
 
 function verifyUserFromToken(token) {
+    if (!token) {
+        return Promise.resolve(unauthenticatedUser);
+    }
     const user = atob(token.split(".")[1]);
 
     if (!user) {
