@@ -47,3 +47,15 @@ export default class ApiClient {
 }
 
 export const client = new ApiClient(API_URL);
+
+/**
+ * Given a bearer token, returns a middleware function to add to the API
+ * client.
+ * @param {string} token
+ */
+export function createAuthMiddleware(token) {
+    return request => {
+        request.headers.Authorization = `Bearer ${token}`;
+        return request;
+    };
+}
