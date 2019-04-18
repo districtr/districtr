@@ -1,13 +1,13 @@
-import { listPlaces } from "./api/mockApi";
+import { listPlaces } from "/api/mockApi";
 
 const routes = {
-    "/": "./",
-    "/new": "./new",
-    "/edit": "./edit",
-    "/register": "./register",
-    "/request": "./request",
-    "/signin": "./signin",
-    "/signout": "./signout"
+    "/": "/",
+    "/new": "/new",
+    "/edit": "/edit",
+    "/register": "/register",
+    "/request": "/request",
+    "/signin": "/signin",
+    "/signout": "/signout"
 };
 
 export function navigateTo(route) {
