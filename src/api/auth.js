@@ -24,20 +24,15 @@ export const unauthenticatedUser = {};
  * @returns {Object|unauthenticatedUser} the current user
  */
 export default function initializeAuthContext(client) {
-    return getBearerToken()
-        .then(token =>
-            getCurrentUser(token).then(user => {
-                if (user !== unauthenticatedUser) {
-                    localStorage.setItem("bearerToken", token);
-                    client.middleware.push(createAuthMiddleware(token));
-                }
-                return user;
-            })
-        )
-        .catch(() => {
-            signOut();
-            return unauthenticatedUser;
-        });
+    return getBearerToken().then(token =>
+        getCurrentUser(token).then(user => {
+            if (user !== unauthenticatedUser) {
+                localStorage.setItem("bearerToken", token);
+                client.middleware.push(createAuthMiddleware(token));
+            }
+            return user;
+        })
+    );
 }
 
 /**
