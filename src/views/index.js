@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import initializeAuthContext from "../api/auth";
+import initializeAuthContext, { unauthenticatedUser } from "../api/auth";
 import { client } from "../api/client";
 import { until } from "lit-html/directives/until";
 import { PlaceMapWithData } from "../components/PlaceMap";
@@ -33,7 +33,7 @@ export default () => {
     initializeAuthContext(client).then(user => {
         clearQueriesFromURL();
         const signInHeader = document.getElementById("sign-in");
-        if (user !== null && user !== undefined) {
+        if (user !== unauthenticatedUser) {
             render(
                 html`
                     <p class="sign-in__link">Hello, ${user.first}!</p>
