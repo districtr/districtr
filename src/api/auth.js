@@ -13,26 +13,47 @@ export function signOut() {
     localStorage.clear();
 }
 
-export default function initializeAuthContext(client) {
-    return getBearerToken().then(token => {
-        if (token === null || token === undefined) {
-            signOut();
-        } else {
-            localStorage.setItem("bearerToken", token);
-            const authMiddleware = request => {
-                request.headers.Authorization = `Bearer ${token}`;
-                return request;
-            };
-            client.middleware.push(authMiddleware);
+function verifyUserFromToken(token) {
+    const user = atob(token.split(".")[1]);
 
-            const user = atob(token.split(".")[1]);
-            if (user) {
-                localStorage.setItem("user", user);
-            }
-            return JSON.parse(user);
+    if (!user) {
+        return Promise.resolve(unauthenticatedUser);
+    }
+    return fetch(`https://api.districtr.org/users/${user.id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+    }).then(r => {
+        if (r.ok) {
+            return { token, user: r.json() };
+        } else {
+            return { token, user: unauthenticatedUser };
         }
-        return null;
     });
+}
+
+// Sentinel for when user cannot be authenticated (either has
+// no token or the token is not validated by the backend)
+export const unauthenticatedUser = {};
+
+function createAuthMiddleware(token) {
+    return request => {
+        request.headers.Authorization = `Bearer ${token}`;
+        return request;
+    };
+}
+
+export default function initializeAuthContext(client) {
+    return getBearerToken()
+        .then(verifyUserFromToken)
+        .then(({ user, token }) => {
+            if (user === unauthenticatedUser) {
+                signOut();
+                return unauthenticatedUser;
+            } else {
+                client.middleware.push(createAuthMiddleware(token));
+                localStorage.setItem("bearerToken", token);
+                return user;
+            }
+        });
 }
 
 /**
@@ -43,7 +64,7 @@ export function getBearerToken() {
     // Check localStorage for the Bearer token
     let bearerToken = localStorage.getItem("bearerToken");
     if (bearerToken !== null && bearerToken !== undefined) {
-        return new Promise(resolve => resolve(bearerToken));
+        return Promise.resolve(bearerToken);
     }
     // If that's missing, get signInToken from the URL query parameters
     // and then POST that to /signin/ to get a Bearer token
@@ -51,7 +72,7 @@ export function getBearerToken() {
     if (signInToken !== null && signInToken !== undefined) {
         return fetchBearerToken(signInToken);
     } else {
-        return new Promise(resolve => resolve(null));
+        return new Promise.resolve(null);
     }
 }
 
