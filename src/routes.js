@@ -1,4 +1,4 @@
-import { listPlaces } from "/api/mockApi";
+import { listPlaces } from "./api/mockApi";
 
 const routes = {
     "/": "/",
