@@ -33,10 +33,6 @@ export default function initializeAuthContext(client) {
             return user;
         })
     );
-    // .catch(() => {
-    //     signOut();
-    //     return unauthenticatedUser;
-    // });
 }
 
 /**
