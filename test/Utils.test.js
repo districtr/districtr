@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from "@open-wc/testing";
 import { replace } from "../src/utils";
 
 describe("replace", () => {

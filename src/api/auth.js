@@ -62,11 +62,17 @@ function getCurrentUser(token) {
  * @param {string|noBearerToken} token
  * @returns {Object|unauthenticatedUser}
  */
-function getUserFromToken(token) {
+export function getUserFromToken(token) {
     if (token === noBearerToken) {
         return unauthenticatedUser;
     }
-    const user = atob(token.split(".")[1]);
+    let user;
+    try {
+        user = atob(token.split(".")[1]);
+    } catch (error) {
+        // Catch encoding errors
+        user = null;
+    }
     if (user === undefined || user === null) {
         return unauthenticatedUser;
     } else {
@@ -75,7 +81,7 @@ function getUserFromToken(token) {
 }
 
 // Sentinel for when the user has no bearer token
-const noBearerToken = {};
+export const noBearerToken = {};
 
 /**
  * Retrieves Bearer token for authentication and authorization
