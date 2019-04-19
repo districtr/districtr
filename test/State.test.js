@@ -1,4 +1,4 @@
-import { assert, expect } from "chai";
+import { assert, expect } from "@open-wc/testing";
 import sinon from "sinon";
 import { assignLoadedUnits } from "../src/models/lib";
 

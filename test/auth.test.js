@@ -1,12 +1,15 @@
-import { getUserFromToken, unauthenticatedUser } from "../src/api/auth";
-import { assert } from "chai";
+import {
+    getUserFromToken,
+    unauthenticatedUser,
+    noBearerToken
+} from "../src/api/auth";
+import { assert } from "@open-wc/testing";
 
 describe("auth", () => {
     describe("getUserFromToken", () => {
         it("returns unauthenticatedUser for malformed tokens", () => {
-            assert.strictEqual(getUserFromToken(null), unauthenticatedUser);
             assert.strictEqual(
-                getUserFromToken(undefined),
+                getUserFromToken(noBearerToken),
                 unauthenticatedUser
             );
             assert.strictEqual(

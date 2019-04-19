@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from "@open-wc/testing";
 import Population from "../src/models/Population";
 import { Subgroup } from "../src/models/Subgroup";
 

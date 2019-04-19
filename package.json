@@ -4,15 +4,16 @@
     "description": "A tool for drawing districting plans",
     "private": true,
     "scripts": {
-        "test": "mocha test --require @babel/register",
-        "test-ci": "mocha test --require @babel/register --reporter mocha-junit-reporter",
+        "test": "karma start --coverage",
         "build": "gulp build",
         "develop": "gulp develop",
-        "lint": "eslint src"
+        "lint": "eslint src",
+        "test:watch": "karma start --auto-watch=true --single-run=false",
+        "test-ci": "karma start --single-run --browsers Firefox"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gerrymandr/districtr.git"
+        "url": "git+https://github.com/districtr/districtr.git"
     },
     "keywords": [
         "gis",
@@ -22,18 +23,22 @@
     "author": "Metric Geometry and Gerrymandering Group",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/gerrymandr/districtr/issues"
+        "url": "https://github.com/districtr/districtr/issues"
     },
-    "homepage": "https://github.com/gerrymandr/districtr#readme",
+    "homepage": "https://github.com/districtr/districtr#readme",
     "devDependencies": {
         "@babel/core": "^7.3.4",
         "@babel/preset-env": "^7.3.4",
         "@babel/register": "^7.0.0",
+        "@open-wc/testing": "^0.11.1",
+        "@open-wc/testing-karma": "^1.0.0",
+        "@open-wc/testing-karma-bs": "^1.0.0",
         "browser-sync": "^2.26.3",
         "chai": "^4.2.0",
         "eslint": "^5.15.3",
         "gulp": "^4.0.0",
         "gulp-sass": "^4.0.2",
+        "karma-firefox-launcher": "^1.1.0",
         "mocha": "^6.1.4",
         "mocha-junit-reporter": "^1.18.0",
         "rollup": "^1.4.0",
@@ -42,7 +47,8 @@
         "rollup-plugin-node-resolve": "^4.0.1",
         "rollup-plugin-terser": "^4.0.4",
         "sass": "^1.17.2",
-        "sinon": "^7.2.5"
+        "sinon": "^7.2.5",
+        "webpack-merge": "^4.1.5"
     },
     "dependencies": {
         "d3-geo": "^1.11.3",
