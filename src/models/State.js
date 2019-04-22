@@ -5,6 +5,13 @@ import { assignUnitsAsTheyLoad } from "./lib";
 import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./column-sets";
 
+// We should break this up. Maybe like this:
+// MapState (map, layers)
+// DistrictData (column sets) ?
+// DistrictingPlan (assignment, problem, export()) ?
+// Units (unitsRecord, reference to layer?) ?
+// "place" is mostly split up into these categories now.
+
 /**
  * Holds all of the state that needs to be updated after
  * each brush stroke. (Mainly the Plan assignment and the
@@ -49,7 +56,12 @@ export default class State {
     getInitialState(place, assignment, problem, unitsRecord) {
         this.place = place;
         this.unitsRecord = unitsRecord;
+
         this.idColumn = new IdColumn(unitsRecord.idColumn);
+        if (unitsRecord.hasOwnProperty("nameColumn")) {
+            this.nameColumn = new IdColumn(unitsRecord.nameColumn);
+        }
+
         this.problem = problem;
         this.parts = getParts(problem);
         this.columnSets = getColumnSets(this, unitsRecord);
@@ -57,6 +69,8 @@ export default class State {
 
         if (assignment) {
             assignUnitsAsTheyLoad(this, assignment);
+            // Hide landmarks if we are loading an existing plan
+            this.landmarks.handleToggle(false);
         }
     }
     exportAsJSON() {

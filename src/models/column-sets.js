@@ -77,7 +77,7 @@ export function getColumnSets(state, unitsRecord) {
         ];
     }
 
-    let columnSets = [...state.elections, state.population];
+    let columnSets = [state.population, ...state.elections];
     if (state.vap) {
         columnSets.push(state.vap);
     }

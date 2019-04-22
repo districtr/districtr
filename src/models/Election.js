@@ -13,6 +13,9 @@ export default class Election extends ColumnSet {
     get parties() {
         return this.subgroups;
     }
+    get columns() {
+        return this.subgroups;
+    }
     /**
      * Return the other party in the election.
      * @todo Figure out what to do when
