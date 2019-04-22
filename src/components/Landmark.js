@@ -8,7 +8,7 @@ export function LandmarkInfo(features) {
     }
     return features.map(
         feature => html`
-            <div class="tooltip__text">
+            <div class="tooltip__text tooltip__text--column">
                 <h4 class="tooltip__title">${feature.properties.name}</h4>
                 ${feature.properties.short_description
                     ? html`
@@ -47,10 +47,12 @@ export class Landmarks {
         );
         this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
         this.landmarksTooltip.activate();
+        this.visible = true;
 
         this.handleToggle = this.handleToggle.bind(this);
     }
     handleToggle(checked) {
+        this.visible = checked;
         if (checked) {
             this.layer.setOpacity(0.5);
             this.landmarksTooltip.activate();

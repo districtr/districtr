@@ -15,11 +15,25 @@
 
     width: auto;
     height: auto;
-    min-width: 2rem;
+    min-width: 8rem;
     min-height: 2rem;
 
     transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
     pointer-events: none;
+}
+
+.tooltip__dots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip__dot {
+    margin-left: -0.5rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .tooltip-data {
@@ -94,8 +108,17 @@ dl {
 .tooltip__text {
     font-size: 0.8rem;
     margin: 0;
-    padding: 0.5rem;
+    padding: 0.5rem 0.25rem;
     max-width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tooltip__text--column {
+    display: block;
+    padding: 0.5rem;
 }
 
 .tooltip__title {

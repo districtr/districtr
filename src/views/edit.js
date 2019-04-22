@@ -104,10 +104,13 @@ function getTools(state) {
         new PanTool(),
         new BrushTool(brush, state.parts),
         new EraserTool(brush),
-        new InspectTool(state.units, [
-            state.population.total,
-            ...state.population.subgroups
-        ])
+        new InspectTool(
+            state.units,
+            state.columnSets,
+            state.nameColumn,
+            state.unitsRecord,
+            state.parts
+        )
     ];
     tools[0].activate();
     return tools;

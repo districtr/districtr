@@ -38,6 +38,9 @@ export default class ColumnSet {
         this.subgroups.forEach(subgroup => subgroup.update(feature, part));
         this.total.update(feature, part);
     }
+    get columns() {
+        return [this.total, ...this.subgroups];
+    }
 }
 
 function sortable(subgroups) {

@@ -9,7 +9,12 @@ export default class LayersTab {
         this.name = name;
 
         this.landmarks = state.landmarks
-            ? () => toggle(`Show landmarks`, true, state.landmarks.handleToggle)
+            ? () =>
+                  toggle(
+                      `Show landmarks`,
+                      state.landmarks.visible,
+                      state.landmarks.handleToggle
+                  )
             : null;
 
         this.toggleDistricts = () =>

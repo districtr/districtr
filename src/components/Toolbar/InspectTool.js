@@ -1,8 +1,9 @@
 import { html } from "lit-html";
 import Tooltip from "../../Map/Tooltip";
-import { numberWithCommas, sum } from "../../utils";
+import { numberWithCommas, sum, zeros } from "../../utils";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
+import select from "../select";
 
 export function TooltipBar(percent) {
     return html`
@@ -21,21 +22,51 @@ function formatColumnName(name) {
     }
 }
 
-/**
- * Search through `columns` until we find one with a `total` attribute (this
- * is the case when a column is a `PopulationSubgroup`). Then use that
- * total column to compute the total population of the features, so that
- * we can compute per-capita values for the population subgroup columns.
- * @param {GeoJSON.Feature[]} features
- * @param {NumericalColumn[]} columns
- */
-function getTotal(features, columns) {
-    for (const column of columns) {
-        if (column.total !== undefined) {
-            return sum(features.map(f => columns[0].total.getValue(f)));
+function tooltipDots(features, parts) {
+    let partCounts = zeros(parts.length);
+    for (let feature of features) {
+        if (feature.state.color !== null && feature.state.color !== undefined) {
+            partCounts[feature.state.color] += 1;
         }
     }
-    return null;
+    if (sum(partCounts) === 0) {
+        return "";
+    }
+    return html`
+        <div class="tooltip__dots">
+            ${parts.map((part, i) =>
+                partCounts[i] > 0
+                    ? html`
+                          <span
+                              class="part-number tooltip__dot"
+                              style="background-color: ${part.color}"
+                          ></span>
+                      `
+                    : ""
+            )}
+        </div>
+    `;
+}
+
+function tooltipHeading(features, nameColumn, pluralNoun, parts) {
+    let title = `${features.length} ${
+        features.length == 1 ? pluralNoun.slice(0, -1) : pluralNoun
+    }`;
+    if (
+        nameColumn !== undefined &&
+        nameColumn !== null &&
+        features.length === 1
+    ) {
+        title = nameColumn.getValue(features[0]);
+    }
+    return html`
+        <div class="tooltip__text">
+            <h4 class="tooltip__title">
+                ${title}
+            </h4>
+            ${tooltipDots(features, parts)}
+        </div>
+    `;
 }
 
 /**
@@ -43,14 +74,21 @@ function getTotal(features, columns) {
  * @param {GeoJSON.Feature[]} features
  * @param {NumericalColumn[]} columns
  */
-export function TooltipContent(features, columns) {
+export function TooltipContent(
+    features,
+    columnSet,
+    nameColumn,
+    pluralNoun,
+    parts
+) {
     if (features === null || features === undefined) {
         return "";
     }
-    const total = getTotal(features, columns);
+    const total = sum(features.map(f => columnSet.total.getValue(f)));
     return html`
+        ${tooltipHeading(features, nameColumn, pluralNoun, parts)}
         <dl class="tooltip-data">
-            ${columns.map(column => {
+            ${columnSet.columns.map(column => {
                 const value = sum(features.map(f => column.getValue(f)));
                 return html`
                     <div class="tooltip-data__row">
@@ -69,7 +107,7 @@ export function TooltipContent(features, columns) {
 }
 
 export default class InspectTool extends Tool {
-    constructor(units, columns) {
+    constructor(units, columnSets, nameColumn, unitsRecord, parts) {
         super(
             "inspect",
             "Inspect",
@@ -77,11 +115,29 @@ export default class InspectTool extends Tool {
                 <i class="material-icons">search</i>
             `
         );
+
+        this.columnSets = columnSets;
+        this.activeColumnSetIndex = 0;
+
         const renderTooltipContent = features =>
-            TooltipContent(features, columns);
+            TooltipContent(
+                features,
+                this.activeColumnSet,
+                nameColumn,
+                unitsRecord.unitType,
+                parts
+            );
         this.layer = units;
         this.tooltip = new Tooltip(units, renderTooltipContent);
-        this.options = new InspectToolOptions(this.tooltip);
+        this.options = new InspectToolOptions(this);
+
+        this.changeColumnSetByIndex = this.changeColumnSetByIndex.bind(this);
+    }
+    changeColumnSetByIndex(i) {
+        this.activeColumnSetIndex = i;
+    }
+    get activeColumnSet() {
+        return this.columnSets[this.activeColumnSetIndex];
     }
     activate() {
         super.activate();
@@ -96,22 +152,27 @@ export default class InspectTool extends Tool {
 }
 
 class InspectToolOptions {
-    constructor(inspectTool, renderToolbar) {
+    constructor(inspectTool) {
         this.inspectTool = inspectTool;
-        this.renderToolbar = renderToolbar;
         this.changeRadius = this.changeRadius.bind(this);
     }
     changeRadius(e) {
         e.stopPropagation();
         let value = parseInt(e.target.value);
-        if (this.inspectTool.radius != value) {
-            this.inspectTool.radius = value;
+        if (this.inspectTool.tooltip.radius != value) {
+            this.inspectTool.tooltip.radius = value;
         }
         this.renderToolbar();
     }
     render() {
         return html`
-            ${BrushSlider(this.inspectTool.radius, this.changeRadius, {
+            <legend>Data</legend>
+            ${select(
+                "inspect-tool-columns",
+                this.inspectTool.columnSets,
+                this.inspectTool.changeColumnSetByIndex
+            )}
+            ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {
                 title: "Spotlight Size"
             })}
         `;

@@ -102,6 +102,13 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 800px) {
+    .start-districting {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
 .start-districting--alone {
     padding: 1rem 0;
 }
