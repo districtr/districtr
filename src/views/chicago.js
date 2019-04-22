@@ -45,7 +45,7 @@ const plans = [
                 numbers: [
                     {
                         number: 17,
-                        caption: "majority-Black wards (fewest)"
+                        caption: "majority-Black wards (most)"
                     }
                 ]
             },
