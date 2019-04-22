@@ -1,3 +1,7 @@
+@import "components/thumbs";
+@import "components/dfn-list";
+@import "components/number-list";
+
 .place {
     width: 100%;
     min-height: 100vh;
@@ -15,7 +19,7 @@
 .place__content {
     width: 55%;
     padding: 0 2rem;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     max-width: 48rem;
 }
 
@@ -55,32 +59,4 @@
     .place__map {
         width: 100%;
     }
-}
-
-.plan-thumbs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 1rem;
-    padding: 0;
-    justify-content: center;
-}
-
-.plan-thumbs__thumb {
-    box-shadow: $raised;
-    max-width: 12rem;
-    max-height: 12rem;
-    margin: 0.5rem;
-    transition: 100ms all ease;
-}
-
-.plan-thumbs__thumb:hover,
-.plan-thumbs__thumb:active {
-    box-shadow: $focus-shadow;
-}
-
-.thumb__img {
-    max-width: 100%;
-    max-height: 100%;
 }

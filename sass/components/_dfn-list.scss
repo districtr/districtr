@@ -1,0 +1,31 @@
+.dfn-list,
+.dfn-list__term,
+.dfn-list__caption {
+    margin: 0;
+    padding: 0;
+}
+
+.dfn-list {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+.dfn-list__term,
+.dfn-list__caption {
+    display: inline;
+}
+
+.dfn-list__row {
+    display: flex;
+}
+
+.dfn-list__term {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.dfn-list__term::after {
+    content: ":";
+}

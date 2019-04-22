@@ -22,33 +22,140 @@ export default () => {
 
 const plans = [
     {
-        title: "The current wards",
-        plans: ["current-wards"]
+        title: "Current enacted plan",
+        plans: [
+            {
+                id: "current-wards",
+                name: "Current Enacted Plan",
+                numbers: [
+                    { number: 46, caption: "segregated wards" },
+                    { number: 18, caption: "majority-Black wards" },
+                    { number: 19, caption: "wards with concentrated poverty" },
+                    { number: 13, caption: "wards with concentrated wealth" }
+                ]
+            }
+        ]
     },
     {
         title: "50 single-member wards built out of precincts",
-        plans: ["prec50-4287", "prec50-12816", "prec50-55139"]
+        plans: [
+            {
+                id: "prec50-4287",
+                name: "Plan #4287",
+                numbers: [
+                    {
+                        number: 17,
+                        caption: "majority-Black wards (fewest)"
+                    }
+                ]
+            },
+            {
+                id: "prec50-12816",
+                name: "Plan #12816",
+                numbers: [
+                    {
+                        number: 13,
+                        caption: "wards with concentrated poverty (fewest)"
+                    }
+                ]
+            },
+            {
+                id: "prec50-55139",
+                name: "Plan #55139",
+                numbers: [{ number: 34, caption: "segregated wards (fewest)" }]
+            }
+        ]
     },
     {
         title: "10 multi-member wards built out of precincts",
         plans: [
-            "prec10-205",
-            "prec10-8178",
-            "prec10-8698",
-            "prec10-41323",
-            "prec10-55213",
-            "prec10-86660"
+            {
+                id: "prec10-205",
+                name: "Plan #205",
+                description: "Most economic parity",
+                numbers: [
+                    { number: 1, caption: "ward with concentrated poverty" },
+                    { number: 0, caption: "wards with concentrated wealth" }
+                ]
+            },
+            {
+                id: "prec10-8178",
+                name: "Plan #8178",
+                numbers: [
+                    {
+                        number: 0,
+                        caption: "hypersegregated wards"
+                    }
+                ]
+            },
+            {
+                id: "prec10-8698",
+                name: "Plan #8698",
+                numbers: [
+                    {
+                        number: 3,
+                        caption: "wards with a majority race (fewest)"
+                    }
+                ]
+            },
+            // { id: "prec10-41323" },
+            {
+                id: "prec10-55213",
+                name: "Plan #55213",
+                numbers: [
+                    {
+                        number: 6,
+                        caption: "highly diverse wards (most)"
+                    }
+                ]
+            }
+            // { id: "prec10-86660" }
         ]
     },
     {
         title: "10 multi-member wards built out of community areas",
         plans: [
-            "ca10-937",
-            "ca10-1042",
-            "ca10-5304",
-            "ca10-5848",
-            "ca10-25218",
-            "ca10-87557"
+            {
+                id: "ca10-937",
+                name: "Plan #937",
+                numbers: [
+                    {
+                        number: 0,
+                        caption: "hypersegregated wards"
+                    }
+                ]
+            },
+            {
+                id: "ca10-1042",
+                name: "Plan #1042",
+                numbers: [
+                    {
+                        number: 3,
+                        caption: "wards with a majority race (fewest)"
+                    }
+                ]
+            },
+            // { id: "ca10-5304" },
+            {
+                id: "ca10-5848",
+                name: "Plan #5848",
+                description: "Most economic parity",
+                numbers: [
+                    { number: 1, caption: "ward with concentrated poverty" },
+                    { number: 0, caption: "wards with concentrated wealth" }
+                ]
+            },
+            {
+                id: "ca10-25218",
+                name: "Plan #25218",
+                numbers: [
+                    {
+                        number: 6,
+                        caption: "highly diverse wards (most)"
+                    }
+                ]
+            }
+            // { id: "ca10-87557" }
         ]
     }
 ];
@@ -70,16 +177,34 @@ const loadablePlans = plans =>
         </ul>
     `;
 
+const numberList = numbers => html`
+    <dl class="number-list">
+        ${numbers.map(
+            ({ number, caption }) => html`
+                <div class="number-list__row">
+                    <dt class="number-list__number">${number}</dt>
+                    <dd class="number-list__caption">${caption}</dd>
+                </div>
+            `
+        )}
+    </dl>
+`;
+
 const loadablePlan = plan => html`
-    <li class="plan-thumbs__thumb">
-        <a href="/edit/chi-${plan}">
+    <a href="/edit/chi-${plan.id}">
+        <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="./assets/chicago-plans/${plan}.png"
-                alt="Districting Plan ${plan}"
+                src="./assets/chicago-plans/${plan.id}.png"
+                alt="Districting Plan ${plan.id}"
             />
-        </a>
-    </li>
+            <figcaption class="thumb__caption">
+                <h6 class="thumb__heading">${plan.name || plan.id}</h6>
+                ${plan.description ? plan.description : ""}
+                ${plan.numbers ? numberList(plan.numbers) : ""}
+            </figcaption>
+        </li>
+    </a>
 `;
 
 const districtingOptions = places =>
