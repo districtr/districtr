@@ -212,13 +212,12 @@ p {
 }
 
 @media only screen and (max-width: 800px) {
-    .splash {
-        padding: 4rem 1rem;
-    }
     .landing-page {
         background-image: url(../assets/districtr-splash-small.png);
+        background-repeat: no-repeat;
     }
     .hello {
+        padding-top: 4rem;
         background: rgba(255, 255, 255, 0.5);
     }
     .team-list {
@@ -242,6 +241,8 @@ p {
         display: grid;
         grid-template-columns: 2fr 3fr 5fr 3fr 2fr;
         width: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .splash-text,
@@ -264,7 +265,7 @@ p {
         grid-column: 2 / -1;
     }
     @media only screen and (max-width: 800px) {
-        .splash {
+        .splash-grid {
             grid-template-columns: 1fr;
         }
     }
