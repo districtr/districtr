@@ -28,8 +28,9 @@ const plans = [
                 id: "current-wards",
                 name: "Current Enacted Plan",
                 numbers: [
-                    { number: 46, caption: "segregated wards" },
-                    { number: 18, caption: "majority-Black wards" },
+                    { number: 46, caption: "wards with a majority race" },
+                    { number: 38, caption: "segregated wards" },
+                    { number: 19, caption: "hypersegregated wards" },
                     { number: 19, caption: "wards with concentrated poverty" },
                     { number: 13, caption: "wards with concentrated wealth" }
                 ]
@@ -40,29 +41,39 @@ const plans = [
         title: "50 single-member wards built out of precincts",
         plans: [
             {
-                id: "prec50-4287",
-                name: "Plan #4287",
+                id: "prec50-6084",
+                name: "Plan #6084",
                 numbers: [
                     {
-                        number: 17,
-                        caption: "majority-Black wards (most)"
+                        number: 26,
+                        caption: "segregated wards (fewest)"
                     }
                 ]
             },
             {
                 id: "prec50-12816",
                 name: "Plan #12816",
+                description: "Most economic parity",
                 numbers: [
                     {
                         number: 13,
                         caption: "wards with concentrated poverty (fewest)"
+                    },
+                    {
+                        number: 5,
+                        caption: "wards with concentrated wealth"
                     }
                 ]
             },
             {
                 id: "prec50-55139",
                 name: "Plan #55139",
-                numbers: [{ number: 34, caption: "segregated wards (fewest)" }]
+                numbers: [
+                    {
+                        number: 34,
+                        caption: "wards with a majority race (fewest)"
+                    }
+                ]
             }
         ]
     },
