@@ -1,7 +1,8 @@
 import { createActions, createReducer } from "../utils";
 
 export const handlers = {
-    changeTab: (state, action) => ({ ...state, activeTab: action.id })
+    changeTab: (state, action) => ({ ...state, activeTab: action.id }),
+    selectTool: (state, action) => ({ ...state, activeTool: action.id })
 };
 
 export const actions = createActions(handlers);

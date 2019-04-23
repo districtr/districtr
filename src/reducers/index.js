@@ -1,10 +1,10 @@
 import { combineReducers } from "../utils";
 import chartsReducer from "./charts";
 import electionsReducer from "./elections";
-import tabsReducer from "./tabs";
+import toolbarReducer from "./toolbar";
 
 export const reducer = combineReducers({
-    tabs: tabsReducer,
+    toolbar: toolbarReducer,
     elections: electionsReducer,
     charts: chartsReducer
 });
