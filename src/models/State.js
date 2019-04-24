@@ -1,4 +1,3 @@
-import { Landmarks } from "../components/Landmark";
 import { addLayers } from "../Map/map";
 import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
@@ -12,6 +11,36 @@ import { getColumnSets, getParts } from "./column-sets";
 // Units (unitsRecord, reference to layer?) ?
 // "place" is mostly split up into these categories now.
 
+class DistrictingPlan {
+    constructor(id, assignment, problem, idColumn) {
+        if (id) {
+            this.id = id;
+        } else {
+            this.id = generateId(8);
+        }
+
+        this.problem = problem;
+        this.assignment = {};
+        this.parts = getParts(problem);
+        this.idColumn = idColumn;
+
+        if (assignment) {
+            assignUnitsAsTheyLoad(this, assignment);
+        }
+    }
+    update(feature, part) {
+        this.assignment[this.idColumn.getValue(feature)] = part;
+    }
+    serialize() {
+        return {
+            assignment: this.assignment,
+            id: this.id,
+            idColumn: { key: this.idColumn.key, name: this.idColumn.name },
+            problem: this.problem
+        };
+    }
+}
+
 /**
  * Holds all of the state that needs to be updated after
  * each brush stroke. (Mainly the Plan assignment and the
@@ -19,22 +48,23 @@ import { getColumnSets, getParts } from "./column-sets";
  */
 export default class State {
     constructor(map, { place, problem, id, assignment, units }) {
-        if (id) {
-            this.id = id;
-        } else {
-            this.id = generateId(8);
-        }
-        this.placeId = place.id;
+        this.unitsRecord = units;
+        this.initializeMapState(map, units);
 
-        this.initializeMapState(map, place, units);
-        this.getInitialState(place, assignment, problem, units);
+        this.place = place;
+        this.idColumn = new IdColumn(units.idColumn);
+        if (units.hasOwnProperty("nameColumn")) {
+            this.nameColumn = new IdColumn(units.nameColumn);
+        }
+        this.plan = new DistrictingPlan(id, assignment, problem, this.idColumn);
+        this.columnSets = getColumnSets(this, units);
+
         this.subscribers = [];
 
         this.update = this.update.bind(this);
-        this.exportAsJSON = this.exportAsJSON.bind(this);
         this.render = this.render.bind(this);
     }
-    initializeMapState(map, place, unitsRecord) {
+    initializeMapState(map, unitsRecord) {
         const { units, unitsBorders, points } = addLayers(
             map,
             unitsRecord.tilesets
@@ -44,46 +74,23 @@ export default class State {
         this.unitsBorders = unitsBorders;
         this.layers = [units, points];
         this.map = map;
-
-        if (place.landmarks) {
-            this.landmarks = new Landmarks(map, place.landmarks);
-        }
     }
     update(feature, part) {
         this.columnSets.forEach(columnSet => columnSet.update(feature, part));
-        this.assignment[this.idColumn.getValue(feature)] = part;
+        this.plan.update(feature, part);
     }
-    getInitialState(place, assignment, problem, unitsRecord) {
-        this.place = place;
-        this.unitsRecord = unitsRecord;
-
-        this.idColumn = new IdColumn(unitsRecord.idColumn);
-        if (unitsRecord.hasOwnProperty("nameColumn")) {
-            this.nameColumn = new IdColumn(unitsRecord.nameColumn);
-        }
-
-        this.problem = problem;
-        this.parts = getParts(problem);
-        this.columnSets = getColumnSets(this, unitsRecord);
-        this.assignment = {};
-
-        if (assignment) {
-            assignUnitsAsTheyLoad(this, assignment);
-            // Hide landmarks if we are loading an existing plan
-            this.landmarks.handleToggle(false);
-        }
+    get parts() {
+        return this.plan.parts;
     }
-    exportAsJSON() {
-        const serialized = {
-            assignment: this.assignment,
-            id: this.id,
-            idColumn: { key: this.idColumn.key, name: this.idColumn.name },
-            placeId: this.placeId,
-            problem: this.problem,
+    get problem() {
+        return this.plan.problem;
+    }
+    serialize() {
+        return {
+            ...this.plan.serialize(),
+            placeId: this.place.id,
             units: this.unitsRecord
         };
-        const text = JSON.stringify(serialized);
-        download(`districtr-plan-${this.id}.json`, text);
     }
     subscribe(f) {
         this.subscribers.push(f);
@@ -105,20 +112,4 @@ export default class State {
         }
         return true;
     }
-}
-
-function download(filename, text) {
-    let element = document.createElement("a");
-    element.setAttribute(
-        "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-    );
-    element.setAttribute("download", filename);
-
-    element.style.display = "none";
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
 }

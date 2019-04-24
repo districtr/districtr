@@ -5,7 +5,7 @@ import { actions } from "../reducers/toolbar";
 
 const tabs = (tabs, activeTab, onChange) => {
     if (tabs.length <= 1) {
-        return html``;
+        return "";
     }
     return html`
         <ul class="tabs">
@@ -39,7 +39,9 @@ export default function Tabs(tabComponents, state, dispatch) {
                 <div
                     class=${classMap({
                         tab__body: true,
-                        active: tab.id === state.toolbar.activeTab
+                        active:
+                            tab.id === state.toolbar.activeTab ||
+                            tabComponents.length === 1
                     })}
                 >
                     ${tab.render(state, dispatch)}

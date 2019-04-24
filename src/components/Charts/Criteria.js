@@ -12,7 +12,7 @@ export default (
     uiState,
     dispatch
 ) => html`
-    <section class="toolbar-section" id="charts">
+    <section class="toolbar-section">
         ${RevealSection(
             "Population Balance",
             html`
