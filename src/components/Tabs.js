@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map";
 import { repeat } from "lit-html/directives/repeat";
-import { actions } from "../reducers/tabs";
+import { actions } from "../reducers/toolbar";
 
 const tabs = (tabs, activeTab, onChange) => {
     if (tabs.length <= 1) {
@@ -29,7 +29,7 @@ const tabs = (tabs, activeTab, onChange) => {
 
 export default function Tabs(tabComponents, state, dispatch) {
     return html`
-        ${tabs(tabComponents, state.tabs.activeTab, info =>
+        ${tabs(tabComponents, state.toolbar.activeTab, info =>
             dispatch(actions.changeTab(info))
         )}
         ${repeat(
@@ -39,7 +39,7 @@ export default function Tabs(tabComponents, state, dispatch) {
                 <div
                     class=${classMap({
                         tab__body: true,
-                        active: tab.id === state.tabs.activeTab
+                        active: tab.id === state.toolbar.activeTab
                     })}
                 >
                     ${tab.render(state, dispatch)}

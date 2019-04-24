@@ -94,11 +94,6 @@ export default class State {
             f();
         }
     }
-    supportsEvaluationTab() {
-        return (
-            this.population.subgroups.length > 1 || this.elections.length > 0
-        );
-    }
     hasExpectedData(feature) {
         if (feature === undefined || feature.properties === undefined) {
             return false;
