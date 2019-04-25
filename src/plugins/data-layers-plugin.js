@@ -1,9 +1,9 @@
-import LayersList from "../components/LayerList";
 import { Landmarks } from "../components/Landmark";
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
 import OverlayContainer from "../Layers/OverlayContainer";
 import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
+import LayerTab from "../components/LayerTab";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
@@ -15,9 +15,9 @@ export default function DataLayersPlugin(editor) {
         landmarks.handleToggle(false);
     }
 
-    let items = [];
+    const tab = new LayerTab("layers", "Data Layers", editor.store);
 
-    items.push(
+    tab.addSection(
         () => html`
             <h4>Districts</h4>
             ${toggle(`Show districts`, true, checked => {
@@ -31,7 +31,7 @@ export default function DataLayersPlugin(editor) {
     );
 
     if (landmarks) {
-        items.push(
+        tab.addSection(
             () => html`
                 <h4>Landmarks</h4>
                 ${toggle(
@@ -43,13 +43,18 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    // Right now we're doing all of these if statements,
+    // but in the future we should just be able to register
+    // layer types for different columnSet types and have
+    // that determine what is rendered.
+
     const demographicsOverlay = new OverlayContainer(
         state.layers,
         state.population,
         "Show demographics"
     );
 
-    items.push(
+    tab.addSection(
         () => html`
             <h4>Demographics</h4>
             ${demographicsOverlay.render()}
@@ -62,7 +67,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show VAP demographics"
         );
-        items.push(
+        tab.addSection(
             () =>
                 html`
                     <h4>Voting Age Population</h4>
@@ -76,7 +81,7 @@ export default function DataLayersPlugin(editor) {
             state.layers,
             state.elections
         );
-        items.push(
+        tab.addSection(
             () => html`
                 <div class="layer-list__item">
                     ${partisanOverlays.render()}
@@ -85,6 +90,5 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    const layersTab = new LayersList("layers", "Data Layers", items);
-    toolbar.addTab(layersTab);
+    toolbar.addTab(tab);
 }

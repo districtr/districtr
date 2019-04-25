@@ -5,33 +5,22 @@ import { render } from "lit-html";
 
 export default class Editor {
     constructor(state, plugins) {
+        this.render = this.render.bind(this);
+
         this.state = state;
         this.store = new UIStateStore(reducer, {
             toolbar: { activeTab: "criteria" },
             elections: {
                 activeElectionIndex: 0
             },
-            charts: {
-                population: { isOpen: true },
-                racialBalance: {
-                    isOpen: true,
-                    activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
-                },
-                electionResults: { isOpen: false },
-                vapBalance: {
-                    isOpen: false,
-                    activeSubgroupIndices: state.vap
-                        ? state.vap.indicesOfMajorSubgroups()
-                        : null
-                }
-            }
+            charts: {}
         });
-        this.toolbar = new Toolbar(this.store);
+
+        this.toolbar = new Toolbar(this.store, this);
+
         for (let plugin of plugins) {
             plugin(this);
         }
-
-        this.render = this.render.bind(this);
 
         this.store.subscribe(this.render);
         this.state.subscribe(this.render);

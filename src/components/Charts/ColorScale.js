@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { asPercent, extent } from "../utils";
+import { asPercent, extent } from "../../utils";
 
 export const colorBar = (stops, length) => html`
     <div
@@ -18,20 +18,19 @@ export function linearGradient(stops, length) {
 
 export const labels = (stops, length) => html`
     <ol class="color-scale__labels">
-        ${
-            stops.map(
-                stop => html`
-                    <li
-                        class="color-scale__label"
-                        style="position: absolute; left: ${
-                            asPercent(stop.value, length)
-                        }"
-                    >
-                        ${stop.value}
-                    </li>
-                `
-            )
-        }
+        ${stops.map(
+            stop => html`
+                <li
+                    class="color-scale__label"
+                    style="position: absolute; left: ${asPercent(
+                        stop.value,
+                        length
+                    )}"
+                >
+                    ${stop.value}
+                </li>
+            `
+        )}
     </ol>
 `;
 

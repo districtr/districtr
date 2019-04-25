@@ -64,6 +64,9 @@ export default class State {
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
     }
+    get activeParts() {
+        return this.plan.parts.filter(part => part.visible);
+    }
     initializeMapState(map, unitsRecord) {
         const { units, unitsBorders, points } = addLayers(
             map,

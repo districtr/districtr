@@ -44,9 +44,8 @@ export default function initializeAuthContext(client) {
 function getCurrentUser(token) {
     const user = getUserFromToken(token);
     if (user !== unauthenticatedUser) {
-        return fetch(`https://api.districtr.org/users/${user.id}`, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
+        return client
+            .get(`/users/${user.id}`, { Authorization: `Bearer ${token}` })
             .then(r => {
                 const user = r.ok ? r.json() : unauthenticatedUser;
                 return user;
