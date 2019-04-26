@@ -166,12 +166,14 @@ class InspectToolOptions {
     }
     render() {
         return html`
-            <legend>Data</legend>
-            ${select(
-                "inspect-tool-columns",
-                this.inspectTool.columnSets,
-                this.inspectTool.changeColumnSetByIndex
-            )}
+            <div class="ui-option">
+                <legend class="ui-label">Tooltip Data</legend>
+                ${select(
+                    "inspect-tool-columns",
+                    this.inspectTool.columnSets,
+                    this.inspectTool.changeColumnSetByIndex
+                )}
+            </div>
             ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {
                 title: "Spotlight Size"
             })}

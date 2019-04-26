@@ -34,7 +34,6 @@ const horizontalBarChart = (population, parts) => {
     const textHeight = Math.min(w + gap, 16);
     const idealX = width - barLength(population.ideal, maxValue);
     return svg`<svg viewBox="0 0 ${width} ${chartHeight +
-        extra}" width="${width}" height="${chartHeight +
         extra}" class="bar-chart">
     ${data.map((d, i) => {
         const barW = barLength(d, maxValue);

@@ -1,0 +1,27 @@
+.media {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: $raised;
+    padding: 1rem;
+    color: #666;
+    border: 1px solid #00446444;
+    max-width: 30rem;
+}
+
+.media__title {
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: normal;
+    color: $mggg-blue;
+}
+
+.media__close {
+    height: 32px;
+    width: 32px;
+    float: right;
+}
+
+.media__body {
+    overflow: auto;
+    max-height: 400px;
+}
