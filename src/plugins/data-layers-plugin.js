@@ -17,10 +17,16 @@ export default function DataLayersPlugin(editor) {
 
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
+    const districtsHeading =
+        state.plan.problem.type === "community" ? "Community" : "Districts";
+    const districtMessage =
+        state.plan.problem.type === "community"
+            ? "Show community"
+            : "Show districts";
     tab.addSection(
         () => html`
-            <h4>Districts</h4>
-            ${toggle(`Show districts`, true, checked => {
+            <h4>${districtsHeading}</h4>
+            ${toggle(districtMessage, true, checked => {
                 if (checked) {
                     state.units.setOpacity(0.8);
                 } else {

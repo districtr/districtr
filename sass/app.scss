@@ -61,3 +61,14 @@ select {
     padding: 1rem;
     box-shadow: $focus-shadow;
 }
+
+.text-input {
+    font-size: 1rem;
+    font-family: $font-family;
+    border: 1px solid $districtr-grey-active;
+    padding: 0.25rem;
+    transition: all 100ms ease;
+    outline: none;
+    background: none;
+    margin: 1rem;
+}
