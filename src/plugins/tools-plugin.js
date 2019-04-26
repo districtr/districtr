@@ -48,6 +48,16 @@ function getMenuItems(state) {
             render: () => html`
                 <button
                     class="square-button"
+                    @click="${() => renderAboutModal(state)}"
+                >
+                    About
+                </button>
+            `
+        },
+        {
+            render: () => html`
+                <button
+                    class="square-button"
                     @click="${() => navigateTo("/new")}"
                 >
                     New Plan
@@ -65,20 +75,5 @@ function getMenuItems(state) {
             `
         }
     ];
-    if (state.place.about) {
-        items = [
-            {
-                render: () => html`
-                    <button
-                        class="square-button"
-                        @click="${() => renderAboutModal(state.place.about)}"
-                    >
-                        About
-                    </button>
-                `
-            },
-            ...items
-        ];
-    }
     return items;
 }
