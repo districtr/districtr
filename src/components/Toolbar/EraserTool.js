@@ -4,7 +4,9 @@ import Tool from "./Tool";
 
 export default class EraserTool extends Tool {
     constructor(brush) {
-        const icon = html`<i style="font-size: 1.4em" class="fas fa-eraser"></i>`;
+        const icon = html`
+            <i class="fas fa-eraser"></i>
+        `;
         super("eraser", "Erase", icon);
         this.brush = brush;
         this.options = new EraserToolOptions(brush);
@@ -37,9 +39,9 @@ class EraserToolOptions {
     }
     render() {
         return html`
-        ${BrushSlider(this.brush.radius, this.changeRadius, {
-            title: "Eraser Size"
-        })}
+            ${BrushSlider(this.brush.radius, this.changeRadius, {
+                title: "Eraser Size"
+            })}
         `;
     }
 }

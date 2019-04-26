@@ -33,27 +33,17 @@ fieldset {
     border: 0;
 }
 
-legend {
-    font-weight: 600;
-    margin: 0 auto;
-    line-height: 1.8;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .color-list {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto 0.2rem;
-    width: 80%;
+    margin: 0 auto;
     justify-content: center;
+    flex: 1;
 }
 
 .color-list__item {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     margin: 0.1rem;
 }
 
@@ -64,16 +54,14 @@ legend {
     max-height: 0px;
     overflow: hidden;
     transition: all 200ms ease;
-    display: flex;
     opacity: 0;
-    justify-content: stretch;
-    flex-direction: column;
+    padding: 0 0.5rem;
 }
 
 .tool-options.active {
     opacity: 1;
-    border-top: solid 1px #aaa;
     max-height: 20rem;
+    border-bottom: solid 1px #aaa;
 }
 
 .tool-option-container {
@@ -84,15 +72,16 @@ legend {
 
 .toolbar-checkbox {
     display: block;
-    margin: 0 0 0.25rem;
+    margin: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
     line-height: 1.5;
-    padding: 0 0.25rem;
+    padding: 0;
     align-self: flex-start;
+    padding-right: 0.25rem;
 }
 
 .toolbar-checkbox:hover {
@@ -121,9 +110,12 @@ legend {
 }
 
 .tabs__tab {
+    color: #444;
     padding: 0.5rem 1rem;
-    border: solid #aaa 1px;
-    border-left: solid #ffffff00 1px;
+    border-bottom: solid #aaa 1px;
+    border-left: solid rgba(255, 255, 255, 0) 1px;
+    border-right: solid rgba(255, 255, 255, 0) 1px;
+
     width: 100%;
     text-align: center;
     cursor: pointer;
@@ -133,8 +125,8 @@ legend {
     user-select: none;
     background: $districtr-light-grey;
     transition: all ease 100ms;
-    box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
-        0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
+    // box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
+    //     0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
 input:hover ~ .tabs__tab {
@@ -145,8 +137,8 @@ input:active ~ .tabs__tab {
     background: $districtr-grey-active;
 }
 
-li:last-child .tabs__tab {
-    border-right: solid #ffffff00 1px;
+li:last-child > .tabs__tab {
+    border-right: solid rgba(255, 255, 255, 0) 1px;
 }
 
 .tabs li {
@@ -175,10 +167,21 @@ li:last-child .tabs__tab {
 }
 
 input:checked ~ .tabs__tab {
-    border-bottom: solid #ffffff00 1px;
+    border-bottom: solid rgba(255, 255, 255, 0) 1px;
+    border-left: solid #aaa 1px;
+    border-right: solid #aaa 1px;
     font-weight: 600;
     background: #fff;
     box-shadow: none;
+    color: black;
+}
+
+li:last-child > input:checked ~ .tabs__tab {
+    border-right: solid rgba(255, 255, 255, 0) 1px;
+}
+
+li:first-child > input:checked ~ .tabs__tab {
+    border-left: solid rgba(255, 255, 255, 0) 1px;
 }
 
 .tab__body.active {
@@ -186,6 +189,10 @@ input:checked ~ .tabs__tab {
 }
 
 .tab__body {
+    overflow-y: auto;
+    margin: 0;
+    padding: 0.5rem 0;
+    flex-shrink: 10;
     display: none;
 }
 
@@ -217,12 +224,6 @@ input:checked ~ .tabs__tab {
     flex-shrink: 0;
 }
 
-.tab__body {
-    overflow-y: auto;
-    margin: 1rem 0;
-    flex-shrink: 10;
-}
-
 .tab__body h3 {
     margin: 0 0 1rem;
 }
@@ -234,8 +235,10 @@ input:checked ~ .tabs__tab {
 
 .data-table {
     border: none;
-    width: 90%;
-    margin-bottom: 1rem;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+    border-spacing: 0.2rem;
 }
 
 .data-table td {
@@ -251,5 +254,44 @@ input:checked ~ .tabs__tab {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0.5rem;
+    padding: 0.25rem;
+    margin: 0;
+    border-bottom: 1px solid #aaa;
+}
+
+.ui-label {
+    font-weight: 600;
+    line-height: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+    color: #444;
+    margin-right: 0.5rem;
+}
+
+.ui-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.ui-option--slim {
+    margin: 0.25rem 0;
+}
+
+.ui-data {
+    // background-color: #111;
+    // color: white;
+
+    letter-spacing: 0.025rem;
+    font-weight: normal;
+
+    // padding: 0.25rem 0.5rem;
+    // border-radius: 0.25rem;
 }

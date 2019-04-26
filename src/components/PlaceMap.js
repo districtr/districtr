@@ -168,7 +168,9 @@ function modulesAvailable(feature) {
                     close
                 </i>
             </button>
-            <h3 class="media__title">${feature.properties.NAME}</h3>
+            <h3 class="media__title media__title--blue">
+                ${feature.properties.NAME}
+            </h3>
             <div class="media__body">
                 ${feature.properties.NAME == "Illinois"
                     ? html`

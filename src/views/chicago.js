@@ -3,16 +3,6 @@ import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
 export default () => {
-    // initializeMap(
-    //     "map",
-    //     {
-    //         maxBounds: [[-87.9401, 41.6445], [-87.3241, 42.023]],
-    //         bounds: [[-87.9401, 41.6445], [-87.3241, 42.023]],
-    //         fitBoundsOptions: { padding: 50 },
-    //         style: "mapbox://styles/mapbox/dark-v9"
-    //     },
-    //     false
-    // );
     listPlacesForState("Illinois").then(places => {
         const target = document.getElementById("districting-options");
         render(districtingOptions(places), target);

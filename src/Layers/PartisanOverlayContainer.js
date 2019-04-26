@@ -42,9 +42,11 @@ export default class PartisanOverlayContainer {
         const overlay = this.currentElectionOverlay;
         return html`
             <h4>Partisanship</h4>
-            ${toggle(`Show partisan lean`, overlay.isVisible, checked =>
-                this.toggleVisibility(checked)
-            )}
+            <div class="ui-option ui-option--slim">
+                ${toggle(`Show partisan lean`, overlay.isVisible, checked =>
+                    this.toggleVisibility(checked)
+                )}
+            </div>
             ${[
                 {
                     label: "Election:",

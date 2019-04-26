@@ -73,7 +73,7 @@ class BrushToolOptions {
 }
 
 const BrushLock = (locked, toggle) => html`
-    <div class="tool-option-container">
+    <div class="ui-option">
         <label class="toolbar-checkbox">
             <input
                 type="checkbox"

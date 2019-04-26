@@ -6,6 +6,7 @@ import Brush from "../Map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
 import { html } from "lit-html";
+import { download } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -33,10 +34,26 @@ export default function ToolsPlugin(editor) {
     toolbar.setMenuItems(getMenuItems(editor.state));
 }
 
+function exportPlanAsJSON(state) {
+    const serialized = state.serialize();
+    const text = JSON.stringify(serialized);
+    download(`districtr-plan-${serialized.id}.json`, text);
+}
+
 // It's not a great design to have these non-tool items in the row of tool icons.
 // TODO: Find a different UI for New/Save/Export-type actions.
 function getMenuItems(state) {
     let items = [
+        {
+            render: () => html`
+                <button
+                    class="square-button"
+                    @click="${() => renderAboutModal(state)}"
+                >
+                    About
+                </button>
+            `
+        },
         {
             render: () => html`
                 <button
@@ -49,26 +66,14 @@ function getMenuItems(state) {
         },
         {
             render: () => html`
-                <button class="square-button" @click="${state.exportAsJSON}">
+                <button
+                    class="square-button"
+                    @click="${() => exportPlanAsJSON(state)}"
+                >
                     Export Plan
                 </button>
             `
         }
     ];
-    if (state.place.about) {
-        items = [
-            {
-                render: () => html`
-                    <button
-                        class="square-button"
-                        @click="${() => renderAboutModal(state.place.about)}"
-                    >
-                        About
-                    </button>
-                `
-            },
-            ...items
-        ];
-    }
     return items;
 }

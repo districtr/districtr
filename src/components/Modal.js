@@ -1,38 +1,35 @@
-export function renderAboutModal() {
-    const target = document.getElementById("modal");
-    const template = html`
-        <div class="modal-wrapper" @click="${() => render("", target)}">
-            <div class="modal-content">
-                <h2>Lowell, MA</h2>
-                <p>
-                    The units you see here are the 1,845 census blocks that make
-                    up the municipality of Lowell, MA.
-                </p>
-                <p>
-                    Data for this module was obtained from the US Census Bureau.
-                    The block shapefile for the city of Lowell was downloaded
-                    from the
-                    <a
-                        href="https://www.census.gov/geo/maps-data/data/tiger-line.html"
-                        >Census's TIGER/Line Shapefiles</a
-                    >. Demographic information from the decennial Census was
-                    downloaded at the block level from
-                    <a
-                        href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml"
-                        >American FactFinder</a
-                    >.
-                </p>
+import { html, render } from "lit-html";
+import { until } from "lit-html/directives/until";
 
-                <p>
-                    The cleaned shapefile with demographic information is
-                    <a
-                        href="https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell"
-                        >available for download</a
+export function renderAboutModal({ place, unitsRecord }) {
+    const target = document.getElementById("modal");
+    const template = until(
+        fetch(`/assets/about/${place.id}/${unitsRecord.id}.html`)
+            .then(r => r.text())
+            .then(
+                content => html`
+                    <div
+                        class="modal-wrapper"
+                        @click="${() => render("", target)}"
                     >
-                    from the MGGG GitHub account.
-                </p>
-            </div>
-        </div>
-    `;
+                        <div class="modal-content">
+                            <button
+                                class="button button--transparent button--icon media__close"
+                                @click=${() => render("", target)}
+                            >
+                                <i class="material-icons">
+                                    close
+                                </i>
+                            </button>
+
+                            <h2 class="media__title">${place.name}</h2>
+                            <h3 class="media__subtitle">${unitsRecord.name}</h3>
+                            ${html([content])}
+                        </div>
+                    </div>
+                `
+            ),
+        ""
+    );
     render(template, target);
 }

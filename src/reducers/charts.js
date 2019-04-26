@@ -8,6 +8,20 @@ export const handlers = {
             isOpen: !state[action.chart].isOpen
         }
     }),
+    openChart: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            ...state[action.chart],
+            isOpen: true
+        }
+    }),
+    addChart: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            isOpen: action.isOpen === undefined ? true : action.isOpen,
+            activeSubgroupIndices: action.activeSubgroupIndices
+        }
+    }),
     selectSubgroup: (state, action) => ({
         ...state,
         [action.chart]: {

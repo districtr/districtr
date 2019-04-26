@@ -5,16 +5,17 @@ import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
 
 export default class Toolbar {
-    constructor(store) {
+    constructor(store, editor) {
         this.tools = [];
         this.toolsById = {};
-
         this.menuItems = [];
-
         this.tabs = [];
+
+        this.renderCallback = editor.render;
 
         this.render = this.render.bind(this);
         this.selectTool = this.selectTool.bind(this);
+        this.addTool = this.addTool.bind(this);
 
         this.store = store;
     }
@@ -33,7 +34,7 @@ export default class Toolbar {
     }
     addTool(tool) {
         if (tool.options !== undefined) {
-            tool.options.renderToolbar = this.render;
+            tool.options.renderToolbar = this.renderCallback;
         }
         this.toolsById[tool.id] = tool;
         this.tools.push(tool);

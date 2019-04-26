@@ -1,77 +1,66 @@
-import { actions } from "../reducers/charts";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
-import RevealSection from "../components/RevealSection";
+import { Tab } from "../components/Tab";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
-    let sections = [];
+
+    const tab = new Tab("evaluation", "Evaluation", editor.store);
+
     if (state.population.subgroups.length > 1) {
-        sections.push(({ population }, activeParts, uiState, dispatch) =>
-            RevealSection(
-                "Racial Balance",
+        tab.addRevealSection(
+            "Racial Balance",
+            (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "racialBalance",
-                    population,
-                    activeParts,
-                    uiState.charts.racialBalance,
+                    "Racial Balance",
+                    state.population,
+                    state.activeParts,
+                    uiState.charts["Racial Balance"],
                     dispatch
                 ),
-                uiState.charts.racialBalance.isOpen,
-                () => dispatch(actions.toggleOpen({ chart: "racialBalance" }))
-            )
+            {
+                isOpen: true,
+                activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
+            }
         );
     }
     if (state.vap) {
-        sections.push(({ vap }, activeParts, uiState, dispatch) =>
-            RevealSection(
-                "VAP Balance",
+        tab.addRevealSection(
+            "VAP Balance",
+            (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "vapBalance",
-                    vap,
-                    activeParts,
-                    uiState.charts.vapBalance,
+                    "VAP Balance",
+                    state.vap,
+                    state.activeParts,
+                    uiState.charts["Racial Balance"],
                     dispatch
                 ),
-                uiState.charts.vapBalance.isOpen,
-                () => dispatch(actions.toggleOpen({ chart: "vapBalance" }))
-            )
+            {
+                isOpen: state.population.subgroups.length > 1 ? false : true,
+                activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
+            }
         );
     }
     if (state.elections.length > 0) {
-        sections.push(({ elections }, activeParts, uiState, dispatch) =>
-            RevealSection(
-                "Partisan Balance",
+        tab.addRevealSection(
+            "Partisan Balance",
+            (uiState, dispatch) =>
                 ElectionResultsSection(
-                    elections,
-                    activeParts,
+                    state.elections,
+                    state.activeParts,
                     uiState,
                     dispatch
                 ),
-                uiState.charts.electionResults.isOpen,
-                () => dispatch(actions.toggleOpen({ chart: "electionResults" }))
-            )
+            {
+                isOpen:
+                    state.population.subgroups.length <= 1 &&
+                    state.vap === undefined
+                        ? true
+                        : false
+            }
         );
     }
-    if (sections.length > 0) {
-        const evaluationTab = new EvaluationTab(sections, state);
-        toolbar.addTab(evaluationTab);
-    }
-}
-
-export class EvaluationTab {
-    constructor(sections, state) {
-        this.id = "evaluation";
-        this.name = "Evaluation";
-        this.sections = sections;
-        this.state = state;
-
-        this.render = this.render.bind(this);
-    }
-    render(uiState, dispatch) {
-        const activeParts = this.state.parts.filter(part => part.visible);
-        return this.sections.map(section =>
-            section(this.state, activeParts, uiState, dispatch)
-        );
+    if (tab.sections.length > 0) {
+        toolbar.addTab(tab);
     }
 }

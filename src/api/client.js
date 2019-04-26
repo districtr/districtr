@@ -1,4 +1,6 @@
-const API_URL = "https://api.districtr.org";
+const API_URL = location.hostname.includes("localhost")
+    ? "http://localhost:5000"
+    : "https://api.districtr.org";
 
 export default class ApiClient {
     constructor(base_url, middleware) {
@@ -29,8 +31,8 @@ export default class ApiClient {
             )
         );
     }
-    get(uri) {
-        return this.request(uri, "GET");
+    get(uri, headers) {
+        return this.request(uri, "GET", null, headers);
     }
     post(uri, body) {
         return this.request(uri, "POST", body);
