@@ -38,6 +38,7 @@ fieldset {
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
+    flex: 1;
 }
 
 .color-list__item {
@@ -109,6 +110,7 @@ fieldset {
 }
 
 .tabs__tab {
+    color: #444;
     padding: 0.5rem 1rem;
     border-bottom: solid #aaa 1px;
     border-left: solid rgba(255, 255, 255, 0) 1px;
@@ -171,6 +173,7 @@ input:checked ~ .tabs__tab {
     font-weight: 600;
     background: #fff;
     box-shadow: none;
+    color: black;
 }
 
 li:last-child > input:checked ~ .tabs__tab {
@@ -286,8 +289,8 @@ li:first-child > input:checked ~ .tabs__tab {
     // background-color: #111;
     // color: white;
 
-    letter-spacing: 0.05rem;
-    font-weight: bold;
+    letter-spacing: 0.025rem;
+    font-weight: normal;
 
     // padding: 0.25rem 0.5rem;
     // border-radius: 0.25rem;

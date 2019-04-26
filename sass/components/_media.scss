@@ -12,7 +12,18 @@
     font-size: 2rem;
     line-height: 1.5;
     font-weight: normal;
+    margin: 0 0 0.5rem;
+}
+
+.media__title--blue {
     color: $mggg-blue;
+}
+
+.media__subtitle {
+    font-weight: normal;
+    font-size: 1.41rem;
+    color: #666666;
+    margin: 0 0 0.5rem;
 }
 
 .media__close {

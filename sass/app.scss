@@ -58,6 +58,7 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem;
 }
 
 .modal-content {
@@ -70,4 +71,6 @@ option {
     color: #444;
     border: 1px solid #004464;
     max-width: 36rem;
+    max-height: 100%;
+    overflow: auto;
 }

@@ -6,8 +6,8 @@ import { divideOrZeroIfNaN } from "../utils";
 // Demographic color rules:
 
 const partyRGBColors = {
-    Democratic: [0, 0, 255],
-    Republican: [255, 0, 0]
+    Democratic: [25, 118, 210],
+    Republican: [211, 47, 47]
 };
 
 export function colorByCount(subgroup) {

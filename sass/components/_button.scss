@@ -66,8 +66,8 @@
 
 .square-button {
     background: black;
-    width: 42px;
-    height: 36px;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +87,11 @@
     cursor: pointer;
 }
 
+.square-button:hover,
+.square-button:focus {
+    border-radius: 20%;
+}
+
 .square-button:active {
-    border-radius: 0.4rem;
+    border-radius: 50%;
 }

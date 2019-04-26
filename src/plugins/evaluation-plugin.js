@@ -36,7 +36,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: state.population ? false : true,
+                isOpen: state.population.subgroups.length > 1 ? false : true,
                 activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
             }
         );
@@ -51,7 +51,13 @@ export default function EvaluationPlugin(editor) {
                     uiState,
                     dispatch
                 ),
-            { isOpen: state.population || state.vap ? false : true }
+            {
+                isOpen:
+                    state.population.subgroups.length <= 1 &&
+                    state.vap === undefined
+                        ? true
+                        : false
+            }
         );
     }
     if (tab.sections.length > 0) {
