@@ -1,5 +1,8 @@
 import { isString } from "../utils";
 
+// The addBelowLabels method gives the right look on the Mapbox "streets" basemap,
+// while addBelowSymbols gives the right look on the "light" basemap.
+
 /**
  * Add the layer to the map below the first label layer (e.g. street names).
  * @param {mapboxgl.Map} map
@@ -11,13 +14,27 @@ export function addBelowLabels(map, layer) {
     map.addLayer(layer, firstSymbolId);
 }
 
+export function addBelowSymbols(map, layer) {
+    const layers = map.getStyle().layers;
+    const firstSymbolId = getFirstSymbolId(layers);
+    map.addLayer(layer, firstSymbolId);
+}
+
 /**
  * @param {Object[]} layers list of layers from the Mapbox map's style
  * @returns {string} id of the first id with "label" in the name
  */
 function getFirstLabelId(layers) {
-    for (var i = 0; i < layers.length; i++) {
+    for (let i = 0; i < layers.length; i++) {
         if (layers[i].id.includes("label")) {
+            return layers[i].id;
+        }
+    }
+}
+
+function getFirstSymbolId(layers) {
+    for (let i = 0; i < layers.length; i++) {
+        if (layers[i].type === "symbol") {
             return layers[i].id;
         }
     }

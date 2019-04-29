@@ -3,6 +3,7 @@ import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
 import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./column-sets";
+import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 
 // We should break this up. Maybe like this:
 // [ ] MapState (map, layers)
@@ -59,7 +60,11 @@ class DistrictingPlan {
 export default class State {
     constructor(map, { place, problem, id, assignment, units, ...args }) {
         this.unitsRecord = units;
-        this.initializeMapState(map, units);
+        this.initializeMapState(
+            map,
+            units,
+            problem.type === "community" ? addBelowLabels : addBelowSymbols
+        );
 
         this.place = place;
         this.idColumn = new IdColumn(units.idColumn);
@@ -87,10 +92,11 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, unitsRecord) {
+    initializeMapState(map, unitsRecord, layerAdder) {
         const { units, unitsBorders, points } = addLayers(
             map,
-            unitsRecord.tilesets
+            unitsRecord.tilesets,
+            layerAdder
         );
 
         this.units = units;
