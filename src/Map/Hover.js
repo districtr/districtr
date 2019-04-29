@@ -36,10 +36,14 @@ export class Hover {
     activate() {
         this.layer.on("mousemove", this.onMouseMove);
         this.layer.on("mouseleave", this.onMouseLeave);
+        this.layer.on("touchmove", this.onMouseMove);
+        this.layer.on("touchend", this.onMouseLeave);
     }
     deactivate() {
         this.layer.off("mousemove", this.onMouseMove);
         this.layer.off("mouseleave", this.onMouseLeave);
+        this.layer.off("touchmove", this.onMouseMove);
+        this.layer.off("touchend", this.onMouseLeave);
     }
 }
 
