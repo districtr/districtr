@@ -61,7 +61,6 @@ export default function renderEditView() {
             }
         });
         map.on("load", () => {
-            map.setMaxBounds(map.getBounds());
             let state = new State(map, context);
             let editor = new Editor(state, plugins);
             editor.render();
