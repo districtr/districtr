@@ -22,6 +22,11 @@ class DistrictingPlan {
         this.problem = problem;
         this.assignment = {};
         this.parts = getParts(problem);
+        if (problem.type === "multimember") {
+            this.parts.slice(1).forEach(part => {
+                part.visible = false;
+            });
+        }
         this.idColumn = idColumn;
 
         if (assignment) {
