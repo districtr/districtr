@@ -13,7 +13,9 @@ export function initializeMap(mapContainer, options, addNav = true) {
         center: [-86.0, 37.83],
         zoom: 3,
         pitchWithRotate: false,
-        dragRotate: false,
+        // dragRotate: false,
+        dragPan: true,
+        touchZoomRotate: true,
         ...options
     });
     if (addNav) {

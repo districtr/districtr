@@ -13,6 +13,8 @@
 .bar-chart {
     margin: 0 1rem;
     background: $districtr-light-grey;
+    // this is needed for Chrome and probably other browsers
+    align-self: stretch;
     // box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
     // 0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }

@@ -1,7 +1,7 @@
 import { html, render } from "lit-html";
 import { initializeMap } from "../Map/map";
 import State from "../models/State";
-import { loadPlanFromURL, getContextFromStorage } from "../routes";
+import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
@@ -30,6 +30,7 @@ function getPlanContext() {
         return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
             // eslint-disable-next-line no-console
             console.error(`Could not load plan ${planId}`);
+            navigateTo("/");
             // eslint-disable-next-line no-console
             console.error(e);
         });
@@ -61,7 +62,6 @@ export default function renderEditView() {
             }
         });
         map.on("load", () => {
-            map.setMaxBounds(map.getBounds());
             let state = new State(map, context);
             let editor = new Editor(state, plugins);
             editor.render();
