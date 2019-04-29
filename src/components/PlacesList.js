@@ -86,8 +86,7 @@ export function placeItems(place, onClick) {
                         ${units.unitType
                             ? html`
                                   <div class="place-info">
-                                      Built out of
-                                      ${units.unitType.toLowerCase()}
+                                      Built out of ${units.name.toLowerCase()}
                                   </div>
                               `
                             : ""}

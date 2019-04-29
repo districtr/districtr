@@ -17,7 +17,9 @@ export function initializeMap(
         center: [-86.0, 37.83],
         zoom: 3,
         pitchWithRotate: false,
-        dragRotate: false,
+        // dragRotate: false,
+        dragPan: true,
+        touchZoomRotate: true,
         ...options
     });
     const nav = new mapbox.NavigationControl();

@@ -46,9 +46,7 @@ p {
     line-height: 1.75;
 }
 
-.districtr-name,
-.button,
-.button:visited {
+.districtr-name {
     background: $districtr-red;
     color: white;
 
@@ -62,55 +60,6 @@ p {
     margin: 0;
     outline: 0;
     border: none;
-}
-
-.button:hover,
-.button:active {
-    cursor: pointer;
-    color: white;
-    background: $districtr-red-dark;
-}
-
-.button:active {
-    outline: 0;
-}
-
-.button:focus {
-    box-shadow: $focus-shadow;
-    outline: 0;
-}
-
-.button--alternate {
-    background-color: $mggg-blue;
-}
-
-.button--alternate:hover,
-.button--alternate:active {
-    background: $mggg-dark-blue;
-}
-
-.button--transparent {
-    background: none;
-    color: $mggg-blue;
-}
-
-.button--transparent:hover {
-    background: $districtr-grey-hover;
-    color: $mggg-blue;
-}
-
-.button--transparent:active {
-    background: $districtr-grey-active;
-    color: $mggg-blue;
-    box-shadow: none;
-}
-
-.button--icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    line-height: 1;
 }
 
 .details {

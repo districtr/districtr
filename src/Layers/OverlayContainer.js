@@ -48,7 +48,9 @@ export default class OverlayContainer {
     }
     render() {
         return html`
-            ${this.visibilityToggle}
+            <div class="ui-option ui-option--slim">
+                ${this.visibilityToggle}
+            </div>
             ${Parameter({
                 label: "Variable:",
                 element: select("subgroup", this.subgroups, this.changeSubgroup)

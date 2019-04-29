@@ -8,6 +8,13 @@ export const handlers = {
             isOpen: !state[action.chart].isOpen
         }
     }),
+    openChart: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            ...state[action.chart],
+            isOpen: true
+        }
+    }),
     addChart: (state, action) => ({
         ...state,
         [action.chart]: {
