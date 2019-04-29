@@ -42,20 +42,23 @@
     // height: 10rem;
 
     border-radius: 0.5rem;
-    background: $districtr-red;
+    background-color: $districtr-red;
     color: white;
-}
-
-.places-list__item:focus {
-    box-shadow: $focus-shadow;
-}
-
-.places-list__item:hover {
-    background: $districtr-red-dark;
-}
-
-.places-list__item {
     cursor: pointer;
+
+    &:focus {
+        box-shadow: $focus-shadow;
+    }
+    &:hover {
+        background-color: $districtr-red-dark;
+    }
+}
+
+.places-list__item--blue {
+    background-color: $mggg-blue;
+    &:hover {
+        background-color: $mggg-dark-blue;
+    }
 }
 
 .places-list__item--small {
@@ -64,9 +67,8 @@
 }
 
 .place-info {
-    font-size: 0.875rem;
-    color: #f7f1ee;
     margin: 0.25rem 0;
+    font-weight: normal;
 }
 
 .plan-loader {

@@ -5,10 +5,10 @@ import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./column-sets";
 
 // We should break this up. Maybe like this:
-// MapState (map, layers)
-// DistrictData (column sets) ?
-// DistrictingPlan (assignment, problem, export()) ?
-// Units (unitsRecord, reference to layer?) ?
+// [ ] MapState (map, layers)
+// [ ] DistrictData (column sets) ?
+// [x] DistrictingPlan (assignment, problem, export()) ?
+// [ ] Units (unitsRecord, reference to layer?) ?
 // "place" is mostly split up into these categories now.
 
 class DistrictingPlan {

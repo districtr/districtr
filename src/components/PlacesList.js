@@ -78,7 +78,9 @@ export function placeItems(place, onClick) {
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item"
+                        class="places-list__item${problem.type === "community"
+                            ? " places-list__item--blue"
+                            : ""}"
                         @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">${place.name}</div>
