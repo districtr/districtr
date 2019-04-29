@@ -1,4 +1,5 @@
 @import "shadows";
+@import "../mixins";
 
 .places-list-container {
     margin: 0 auto;
@@ -27,11 +28,7 @@
 }
 
 .places-list__item {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
+    @include user-select(none);
     margin: 0.5rem 0;
     padding: 0.5rem;
     font-weight: bold;

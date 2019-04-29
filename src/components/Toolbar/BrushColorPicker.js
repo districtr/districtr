@@ -24,7 +24,7 @@ function addNewColorButton(colors, onInput) {
 
 export default (colors, onInput, activeColor) => html`
     <div class="ui-option">
-        <legend class="ui-label">Color</legend>
+        <legend class="ui-label ui-label--row">Color</legend>
         <div class="icon-list color-list">
             ${colors
                 .filter(color => color.visible)

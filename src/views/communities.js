@@ -5,7 +5,7 @@ import { getContextFromStorage } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
-import { CommunityPlugin } from "../plugins/community-plugin";
+import CommunityPlugin from "../plugins/community-plugin";
 
 const plugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 

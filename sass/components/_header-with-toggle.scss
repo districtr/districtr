@@ -1,3 +1,5 @@
+@import "../mixins";
+
 .header-with-toggle {
     display: flex;
     flex-direction: row;
@@ -9,10 +11,7 @@
     overflow: hidden;
 
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include user-select(none);
 }
 
 .header-with-toggle__icon {
