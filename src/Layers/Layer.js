@@ -7,17 +7,17 @@ import { isString } from "../utils";
  */
 export function addBelowLabels(map, layer) {
     const layers = map.getStyle().layers;
-    const firstSymbolId = getFirstSymbolId(layers);
+    const firstSymbolId = getFirstLabelId(layers);
     map.addLayer(layer, firstSymbolId);
 }
 
 /**
  * @param {Object[]} layers list of layers from the Mapbox map's style
- * @returns {string} id of the first id of type "symbol"
+ * @returns {string} id of the first id with "label" in the name
  */
-function getFirstSymbolId(layers) {
+function getFirstLabelId(layers) {
     for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === "symbol") {
+        if (layers[i].id.includes("label")) {
             return layers[i].id;
         }
     }

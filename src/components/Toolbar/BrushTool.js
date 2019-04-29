@@ -86,7 +86,7 @@ const BrushLock = (locked, toggle) => html`
                 ?checked=${locked}
                 @change=${toggle}
             />
-            Lock already-painted units
+            Lock already-drawn districts
         </label>
     </div>
 `;
