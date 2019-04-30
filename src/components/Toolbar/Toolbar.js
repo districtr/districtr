@@ -32,6 +32,9 @@ export default class Toolbar {
     addTab(tab) {
         this.tabs.push(tab);
     }
+    addTabFirst(tab) {
+        this.tabs.splice(0, 0, tab);
+    }
     addTool(tool) {
         if (tool.options !== undefined) {
             tool.options.renderToolbar = this.renderCallback;

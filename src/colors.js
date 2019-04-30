@@ -117,7 +117,7 @@ const unitColorStyle = [
     ...districtColors
         .map((color, i) => [i, color.hex])
         .reduce((list, pair) => [...list, ...pair]),
-    "rgba(0,0,0,0)"
+    "rgba(0, 0, 0, 0)"
 ];
 
 const hoveredUnitColorStyle = [

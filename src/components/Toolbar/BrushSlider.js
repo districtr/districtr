@@ -2,7 +2,7 @@ import { html } from "lit-html";
 
 export default (radius, onChange, options) => html`
     <div class="ui-option">
-        <legend class="ui-label">
+        <legend class="ui-label ui-label--row">
             ${options ? options.title : "Brush Size"}
         </legend>
         <div class="slider-container">

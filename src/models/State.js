@@ -3,16 +3,17 @@ import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
 import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./column-sets";
+import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 
 // We should break this up. Maybe like this:
-// MapState (map, layers)
-// DistrictData (column sets) ?
-// DistrictingPlan (assignment, problem, export()) ?
-// Units (unitsRecord, reference to layer?) ?
+// [ ] MapState (map, layers)
+// [ ] DistrictData (column sets) ?
+// [x] DistrictingPlan (assignment, problem, export()) ?
+// [ ] Units (unitsRecord, reference to layer?) ?
 // "place" is mostly split up into these categories now.
 
 class DistrictingPlan {
-    constructor(id, assignment, problem, idColumn) {
+    constructor({ id, problem, idColumn, name, description }) {
         if (id) {
             this.id = id;
         } else {
@@ -22,17 +23,27 @@ class DistrictingPlan {
         this.problem = problem;
         this.assignment = {};
         this.parts = getParts(problem);
+        if (problem.type === "multimember") {
+            this.parts.slice(1).forEach(part => {
+                part.visible = false;
+            });
+        }
         this.idColumn = idColumn;
 
-        if (assignment) {
-            assignUnitsAsTheyLoad(this, assignment);
-        }
+        this.name = name || "";
+        this.description = description || "";
     }
     update(feature, part) {
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
+    updateDescription({ name, description }) {
+        this.name = name;
+        this.description = description;
+    }
     serialize() {
         return {
+            name: this.name,
+            description: this.description,
             assignment: this.assignment,
             id: this.id,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
@@ -47,30 +58,45 @@ class DistrictingPlan {
  * population tally.)
  */
 export default class State {
-    constructor(map, { place, problem, id, assignment, units }) {
+    constructor(map, { place, problem, id, assignment, units, ...args }) {
         this.unitsRecord = units;
-        this.initializeMapState(map, units);
+        this.initializeMapState(
+            map,
+            units,
+            problem.type === "community" ? addBelowLabels : addBelowSymbols
+        );
 
         this.place = place;
         this.idColumn = new IdColumn(units.idColumn);
         if (units.hasOwnProperty("nameColumn")) {
             this.nameColumn = new IdColumn(units.nameColumn);
         }
-        this.plan = new DistrictingPlan(id, assignment, problem, this.idColumn);
+        this.plan = new DistrictingPlan({
+            id,
+            assignment,
+            problem,
+            idColumn: this.idColumn,
+            ...args
+        });
         this.columnSets = getColumnSets(this, units);
 
         this.subscribers = [];
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
+
+        if (assignment) {
+            assignUnitsAsTheyLoad(this, assignment);
+        }
     }
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, unitsRecord) {
+    initializeMapState(map, unitsRecord, layerAdder) {
         const { units, unitsBorders, points } = addLayers(
             map,
-            unitsRecord.tilesets
+            unitsRecord.tilesets,
+            layerAdder
         );
 
         this.units = units;

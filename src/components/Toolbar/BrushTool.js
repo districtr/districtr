@@ -65,9 +65,13 @@ class BrushToolOptions {
     render() {
         const activeColor = this.colors[this.brush.color].id;
         return html`
-            ${BrushColorPicker(this.colors, this.selectColor, activeColor)}
+            ${this.colors.length > 1
+                ? BrushColorPicker(this.colors, this.selectColor, activeColor)
+                : ""}
             ${BrushSlider(this.brush.radius, this.changeRadius)}
-            ${BrushLock(this.brush.locked, this.toggleBrushLock)}
+            ${this.colors.length > 1
+                ? BrushLock(this.brush.locked, this.toggleBrushLock)
+                : ""}
         `;
     }
 }
@@ -82,7 +86,7 @@ const BrushLock = (locked, toggle) => html`
                 ?checked=${locked}
                 @change=${toggle}
             />
-            Lock already-painted units
+            Lock already-drawn districts
         </label>
     </div>
 `;

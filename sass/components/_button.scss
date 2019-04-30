@@ -1,9 +1,11 @@
+@import "../mixins";
+
 .button,
 .button:visited {
     background: $districtr-red;
     color: white;
 
-    border-radius: 0.4rem;
+    border-radius: 0.25rem;
     // padding: 0.2rem 0.4rem;
     padding: 0.1rem 0.4rem;
 
@@ -43,17 +45,43 @@
 .button--transparent {
     background: none;
     color: $mggg-blue;
+    &:hover {
+        background-color: $districtr-grey-hover;
+        color: $mggg-blue;
+    }
+    &:active {
+        background-color: $districtr-grey-active;
+        color: $mggg-blue;
+        box-shadow: none;
+    }
 }
 
-.button--transparent:hover {
-    background: $districtr-grey-hover;
-    color: $mggg-blue;
+.button--subtle {
+    background: $districtr-light-grey;
+    color: #444;
+    &:hover {
+        background-color: $districtr-grey-hover;
+        color: #444;
+    }
+    &:active {
+        background-color: $districtr-grey-active;
+        color: #444;
+    }
 }
 
-.button--transparent:active {
-    background: $districtr-grey-active;
-    color: $mggg-blue;
-    box-shadow: none;
+.button[disabled] {
+    background: $districtr-light-grey;
+    color: #444;
+    cursor: auto;
+    &:hover {
+        background: $districtr-light-grey;
+        color: #444;
+    }
+    &:active {
+        background: $districtr-light-grey;
+        color: #444;
+        box-shadow: none;
+    }
 }
 
 .button--icon {
@@ -64,8 +92,17 @@
     line-height: 1;
 }
 
+.button--submit {
+    line-height: 2;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+}
+
 .square-button {
-    background: black;
+    @include user-select(none);
+    background-color: black;
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
@@ -73,14 +110,10 @@
     align-items: center;
     position: relative;
     margin: 0.1rem;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
     color: $districtr-light-grey;
     font-weight: normal;
-    transition: all ease 200ms;
+    transition: all ease 100ms;
     border: none;
     outline: none;
     padding: 0;

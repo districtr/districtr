@@ -6,7 +6,7 @@ export default population => {
     const unassignedPop = Math.round(population.total.sum - totalAssignedPop);
     return html`
         <div class="ui-option ui-option--slim">
-            <dt class="ui-label">Unassigned population:</dt>
+            <dt class="ui-label ui-label--row">Unassigned population:</dt>
             <dd class="ui-data">${numberWithCommas(unassignedPop)}</dd>
         </div>
     `;

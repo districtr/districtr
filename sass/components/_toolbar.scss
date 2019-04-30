@@ -1,5 +1,6 @@
 @import "icon-list";
 @import "slider";
+@import "../mixins";
 
 #toolbar {
     z-index: 10000;
@@ -37,7 +38,7 @@ fieldset {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: center;
+    justify-content: flex-end;
     flex: 1;
 }
 
@@ -73,10 +74,7 @@ fieldset {
 .toolbar-checkbox {
     display: block;
     margin: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include user-select(none);
     cursor: pointer;
     line-height: 1.5;
     padding: 0;
@@ -119,10 +117,7 @@ fieldset {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include user-select(none);
     background: $districtr-light-grey;
     transition: all ease 100ms;
     // box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
@@ -214,6 +209,7 @@ li:first-child > input:checked ~ .tabs__tab {
     // Should adjust depending on color to make sure
     // contrast ratio is OK
     color: white;
+    margin: 0 auto;
 }
 
 .tool-options {
@@ -236,18 +232,27 @@ li:first-child > input:checked ~ .tabs__tab {
 .data-table {
     border: none;
     width: 100%;
-    margin: 0.5rem 0;
+    margin: 0 0 1rem;
     padding: 0 1rem;
     border-spacing: 0.2rem;
+    text-align: left;
 }
 
-.data-table td {
+.data-table__cell {
     text-align: right;
     background: $districtr-light-grey;
 }
 
-.part-number {
-    margin: 0 auto;
+.data-table__column-heading,
+.data-table__row-heading,
+.data-table__cell {
+    padding: 0.25rem;
+}
+.data-table__column-heading {
+    text-align: center;
+}
+.data-table__row-heading {
+    text-align: left;
 }
 
 .toolbar-top {
@@ -260,16 +265,16 @@ li:first-child > input:checked ~ .tabs__tab {
 }
 
 .ui-label {
+    @include user-select(none);
     font-weight: 600;
     line-height: 1;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.1rem;
     color: #444;
+}
+
+.ui-label--row {
     margin-right: 0.5rem;
 }
 
