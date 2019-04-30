@@ -15,12 +15,6 @@ export function getParts(problem) {
         color => new Part(color.id, name, color.id + 1, color.hex)
     );
 
-    if (problem.type === "multimember") {
-        parts.slice(1).forEach(part => {
-            part.visible = false;
-        });
-    }
-
     return parts;
 }
 

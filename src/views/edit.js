@@ -7,13 +7,31 @@ import ToolsPlugin from "../plugins/tools-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
+import CommunityPlugin from "../plugins/community-plugin";
 
-const plugins = [
+function getPlugins(context) {
+    if (context.problem.type === "community") {
+        return communityIdPlugins;
+    } else {
+        return defaultPlugins;
+    }
+}
+
+function getMapStyle(context) {
+    if (context.problem.type === "community") {
+        return "mapbox://styles/mapbox/streets-v9";
+    } else {
+        return "mapbox://styles/mapbox/light-v9";
+    }
+}
+
+const defaultPlugins = [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
     EvaluationPlugin
 ];
+const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
 function getPlanFromRoute() {
     let planId = window.location.pathname.slice("/edit/".length).trim();
@@ -50,20 +68,24 @@ export default function renderEditView() {
             `,
             root
         );
-        const map = initializeMap("map", {
-            bounds: context.units.bounds,
-            fitBoundsOptions: {
-                padding: {
-                    top: 50,
-                    right: 350,
-                    left: 50,
-                    bottom: 50
+        const map = initializeMap(
+            "map",
+            {
+                bounds: context.units.bounds,
+                fitBoundsOptions: {
+                    padding: {
+                        top: 50,
+                        right: 350,
+                        left: 50,
+                        bottom: 50
+                    }
                 }
-            }
-        });
+            },
+            getMapStyle(context)
+        );
         map.on("load", () => {
             let state = new State(map, context);
-            let editor = new Editor(state, plugins);
+            let editor = new Editor(state, getPlugins(context));
             editor.render();
         });
     });

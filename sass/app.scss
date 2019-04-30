@@ -12,14 +12,16 @@
 @import "components/header-with-toggle";
 @import "components/media";
 
-.layer-list {
+.option-list {
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    list-style: none;
+    margin: 0;
 }
 
-.layer-list__item {
+.option-list__item {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -43,10 +45,6 @@ select {
     font-size: 1rem;
     max-width: 200px;
     line-height: 1.5;
-}
-
-option {
-    font-family: $font-family;
 }
 
 .modal-wrapper {
@@ -73,4 +71,22 @@ option {
     max-width: 36rem;
     max-height: 100%;
     overflow: auto;
+}
+
+.text-input {
+    font-size: 1rem;
+    font-family: $font-family;
+    border: 1px solid #aaa;
+    padding: 0.25rem;
+    transition: all 100ms ease;
+    outline: none;
+    background: none;
+    margin: 0.5rem 0;
+}
+
+.text-area {
+    height: 10rem;
+    resize: none;
+    width: 100%;
+    margin: 0.5rem 0;
 }

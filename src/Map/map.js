@@ -1,14 +1,18 @@
 import mapbox from "mapbox-gl";
 import { unitBordersPaintProperty, unitColorProperty } from "../colors";
-import Layer, { addBelowLabels } from "../Layers/Layer";
+import Layer from "../Layers/Layer";
 
 mapbox.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
-export function initializeMap(mapContainer, options, addNav = true) {
+export function initializeMap(
+    mapContainer,
+    options,
+    mapStyle = "mapbox://styles/mapbox/light-v9"
+) {
     const map = new mapbox.Map({
         container: mapContainer,
-        style: "mapbox://styles/mapbox/light-v9",
+        style: mapStyle,
         attributionControl: false,
         center: [-86.0, 37.83],
         zoom: 3,
@@ -18,14 +22,12 @@ export function initializeMap(mapContainer, options, addNav = true) {
         touchZoomRotate: true,
         ...options
     });
-    if (addNav) {
-        const nav = new mapbox.NavigationControl();
-        map.addControl(nav, "top-left");
-    }
+    const nav = new mapbox.NavigationControl();
+    map.addControl(nav, "top-left");
     return map;
 }
 
-function addUnits(map, tileset) {
+function addUnits(map, tileset, layerAdder) {
     const units = new Layer(
         map,
         {
@@ -38,7 +40,7 @@ function addUnits(map, tileset) {
                 "fill-opacity": 0.8
             }
         },
-        addBelowLabels
+        layerAdder
     );
     const unitsBorders = new Layer(
         map,
@@ -49,7 +51,7 @@ function addUnits(map, tileset) {
             "source-layer": tileset.sourceLayer,
             paint: unitBordersPaintProperty
         },
-        addBelowLabels
+        layerAdder
     );
 
     return { units, unitsBorders };
@@ -67,18 +69,20 @@ function addPoints(map, tileset) {
     });
 }
 
-export function addLayers(map, tilesets) {
+export function addLayers(map, tilesets, layerAdder) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
     }
 
     const { units, unitsBorders } = addUnits(
         map,
-        tilesets.find(tileset => tileset.type === "fill")
+        tilesets.find(tileset => tileset.type === "fill"),
+        layerAdder
     );
     const points = addPoints(
         map,
-        tilesets.find(tileset => tileset.type === "circle")
+        tilesets.find(tileset => tileset.type === "circle"),
+        layerAdder
     );
 
     return { units, unitsBorders, points };

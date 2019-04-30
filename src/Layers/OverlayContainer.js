@@ -8,10 +8,18 @@ import Overlay from "./Overlay";
 export default class OverlayContainer {
     constructor(layers, columnSet, toggleText) {
         this._currentSubgroupIndex = 0;
-        this.subgroups = [...columnSet.subgroups, columnSet.total];
-
+        this.subgroups = columnSet.columns;
+        // These color rules should be explicitly attached to each subgroup,
+        // instead of doing these brittle checks to try and figure out what's
+        // appropriate.
+        // Attaching them to the actual Subgroup instances would also make
+        // it easier to unify OverlayContainer and PartisanOverlayContainer,
+        // and to register new overlay types. Plugins could just register
+        // their layer styles against columnSet/subgroup types.
         const colorRule =
-            this.subgroups.length > 1 ? colorByFraction : colorByCount;
+            this.subgroups[0].total === this.subgroups[0]
+                ? colorByCount
+                : colorByFraction;
 
         this.overlay = new Overlay(
             layers,
@@ -37,13 +45,12 @@ export default class OverlayContainer {
         this.render = this.render.bind(this);
     }
     changeSubgroup(i) {
-        if (this._currentSubgroupIndex === this.subgroups.length - 1) {
-            this.overlay.setColorRule(colorByFraction);
-        }
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
-        if (i === this.subgroups.length - 1) {
+        if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
+        } else {
+            this.overlay.setColorRule(colorByFraction);
         }
     }
     render() {

@@ -60,7 +60,7 @@ function getMenuItems(state) {
                     class="square-button"
                     @click="${() => navigateTo("/new")}"
                 >
-                    New Plan
+                    New
                 </button>
             `
         },
@@ -70,7 +70,7 @@ function getMenuItems(state) {
                     class="square-button"
                     @click="${() => exportPlanAsJSON(state)}"
                 >
-                    Export Plan
+                    Export
                 </button>
             `
         }

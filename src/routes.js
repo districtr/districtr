@@ -18,15 +18,8 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, planId) {
-    localStorage.setItem("place", JSON.stringify(place));
-    localStorage.setItem("units", JSON.stringify(units));
-    localStorage.setItem("districtingProblem", JSON.stringify(problem));
-    localStorage.removeItem("assignment");
-    localStorage.removeItem("planId");
-    if (planId !== null && planId !== undefined) {
-        localStorage.setItem("planId", planId);
-    }
+export function startNewPlan(place, problem, units, id) {
+    savePlanToStorage({ place, problem, units, id });
     navigateTo("/edit");
 }
 
@@ -34,49 +27,46 @@ export function savePlanToStorage({
     place,
     problem,
     units,
-    planId,
-    assignment
+    id,
+    assignment,
+    name,
+    description
 }) {
-    localStorage.setItem("place", JSON.stringify(place));
-    localStorage.setItem("units", JSON.stringify(units));
-    localStorage.setItem("districtingProblem", JSON.stringify(problem));
-    localStorage.setItem("assignment", JSON.stringify(assignment));
-    localStorage.setItem("planId", planId);
+    const state = {
+        place,
+        problem,
+        units,
+        id,
+        assignment,
+        name,
+        description
+    };
+    localStorage.setItem("savedState", JSON.stringify(state));
 }
 
 export function getContextFromStorage() {
-    const placeJson = localStorage.getItem("place");
-    const problemJson = localStorage.getItem("districtingProblem");
-    const unitsJson = localStorage.getItem("units");
-
-    if (placeJson === null || problemJson === null) {
+    const savedState = localStorage.getItem("savedState");
+    let state;
+    try {
+        state = JSON.parse(savedState);
+    } catch (e) {
+        localStorage.removeItem("savedState");
         navigateTo("/new");
     }
 
-    const place = JSON.parse(placeJson);
-    const problem = JSON.parse(problemJson);
-    const units = JSON.parse(unitsJson);
+    if (state === null || state === undefined) {
+        navigateTo("/new");
+    }
 
-    const planId = localStorage.getItem("planId");
-    const assignmentJson = localStorage.getItem("assignment");
-    const assignment = assignmentJson ? JSON.parse(assignmentJson) : null;
-
-    return { place, problem, id: planId, assignment, units };
+    return state;
 }
 
 export function loadPlanFromJSON(planRecord) {
     return listPlaces().then(places => {
-        const place = places.find(
-            p =>
-                p.id === planRecord.placeId ||
-                p.permalink === planRecord.placeId
-        );
+        const place = places.find(p => p.id === planRecord.placeId);
         return {
-            place,
-            problem: planRecord.problem,
-            planId: planRecord.id,
-            units: planRecord.units,
-            assignment: planRecord.assignment
+            ...planRecord,
+            place
         };
     });
 }

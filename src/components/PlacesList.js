@@ -44,26 +44,49 @@ export function getUnits(place, problem) {
     return place.units;
 }
 
+const problemTypeInfo = {
+    multimember: html`
+        <div class="place-info">
+            Multi-member districts of varying sizes
+        </div>
+    `,
+    community: html`
+        <div class="place-info">Identify a community</div>
+    `
+};
+
+function getProblemInfo(problem) {
+    return html`
+        ${problemTypeInfo[problem.type] || ""}
+        ${problem.type !== "community"
+            ? html`
+                  <div class="place-info">
+                      ${problem.numberOfParts} ${problem.pluralNoun}
+                  </div>
+              `
+            : ""}
+    `;
+}
+
 export function placeItems(place, onClick) {
-    return place.districtingProblems
+    const districtingProblems = localStorage.getItem("COMMUNITIES_FEATURE")
+        ? [
+              ...place.districtingProblems,
+              { type: "community", numberOfParts: 1, pluralNoun: "Community" }
+          ]
+        : place.districtingProblems;
+    return districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item"
+                        class="places-list__item${problem.type === "community"
+                            ? " places-list__item--blue"
+                            : ""}"
                         @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">${place.name}</div>
-                        ${problem.type === "multimember"
-                            ? html`
-                                  <div class="place-info">
-                                      Multi-member districts of varying sizes
-                                  </div>
-                              `
-                            : ""}
-                        <div class="place-info">
-                            ${problem.numberOfParts} ${problem.pluralNoun}
-                        </div>
+                        ${getProblemInfo(problem)}
                         ${units.unitType
                             ? html`
                                   <div class="place-info">
