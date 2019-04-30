@@ -151,3 +151,9 @@ export function download(filename, text) {
 
     document.body.removeChild(element);
 }
+
+export function bindAll(keys, obj) {
+    keys.forEach(key => {
+        obj[key] = obj[key].bind(obj);
+    });
+}
