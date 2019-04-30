@@ -19,9 +19,9 @@ function getPlugins(context) {
 
 function getMapStyle(context) {
     if (context.problem.type === "community") {
-        return "mapbox://styles/mapbox/streets-v9";
+        return "mapbox://styles/mapbox/streets-v11";
     } else {
-        return "mapbox://styles/mapbox/light-v9";
+        return "mapbox://styles/mapbox/light-v10";
     }
 }
 

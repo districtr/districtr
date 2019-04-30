@@ -1,6 +1,6 @@
 import { assert, expect } from "@open-wc/testing";
 import sinon from "sinon";
-import { assignLoadedUnits } from "../src/models/lib";
+import { assignLoadedUnits, getAssignedUnitIds } from "../src/models/lib";
 
 const mockFeatures = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
@@ -29,6 +29,10 @@ describe("Loading an imported plan", () => {
         assignLoadedUnits(state, assignment, remainingUnitIds);
 
         expect(state.parts.map(part => part.visible)).to.not.include(false);
+    });
+    it("should not break when some assignments are null", () => {
+        const assignment = { 1: null, 2: null, 3: 1 };
+        expect(getAssignedUnitIds(assignment)).to.deep.equal(["3"]);
     });
     it("should call State.update for each unit", () => {
         const state = mockState();

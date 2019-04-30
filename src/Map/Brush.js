@@ -1,4 +1,5 @@
 import { HoverWithRadius } from "./Hover";
+import { bindAll } from "../utils";
 
 export default class Brush extends HoverWithRadius {
     constructor(layer, radius, color) {
@@ -10,9 +11,7 @@ export default class Brush extends HoverWithRadius {
 
         this.listeners = { colorend: [], colorfeature: [] };
 
-        this.onMouseDown = this.onMouseDown.bind(this);
-        this.onMouseUp = this.onMouseUp.bind(this);
-        this.onClick = this.onClick.bind(this);
+        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart"], this);
     }
     setColor(color) {
         this.color = parseInt(color);
@@ -76,7 +75,9 @@ export default class Brush extends HoverWithRadius {
     onClick() {
         this.colorFeatures();
     }
-    onMouseDown() {
+    onMouseDown(e) {
+        e.preventDefault();
+        e.originalEvent.preventDefault();
         this.coloring = true;
         window.addEventListener("mouseup", this.onMouseUp);
         window.addEventListener("touchend", this.onMouseUp);
@@ -88,6 +89,13 @@ export default class Brush extends HoverWithRadius {
         window.removeEventListener("touchend", this.onMouseUp);
         window.removeEventListener("touchcancel", this.onMouseUp);
     }
+    onTouchStart(e) {
+        if (e.points && e.points.length <= 1) {
+            e.preventDefault();
+            e.originalEvent.preventDefault();
+            this.onMouseUp();
+        }
+    }
     activate() {
         this.layer.map.getCanvas().classList.add("brush-tool");
 
@@ -98,7 +106,7 @@ export default class Brush extends HoverWithRadius {
         this.layer.map.doubleClickZoom.disable();
 
         this.layer.on("click", this.onClick);
-        this.layer.map.on("touchstart", this.onMouseDown);
+        this.layer.map.on("touchstart", this.onTouchStart);
         this.layer.map.on("mousedown", this.onMouseDown);
     }
     deactivate() {
