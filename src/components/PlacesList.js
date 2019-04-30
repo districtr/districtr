@@ -69,10 +69,12 @@ function getProblemInfo(problem) {
 }
 
 export function placeItems(place, onClick) {
-    const districtingProblems = [
-        ...place.districtingProblems,
-        { type: "community", numberOfParts: 1, pluralNoun: "Community" }
-    ];
+    const districtingProblems = localStorage.getItem("COMMUNITIES_FEATURE")
+        ? [
+              ...place.districtingProblems,
+              { type: "community", numberOfParts: 1, pluralNoun: "Community" }
+          ]
+        : place.districtingProblems;
     return districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
