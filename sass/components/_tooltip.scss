@@ -61,6 +61,9 @@ dl {
 .tooltip-data__row > dd {
     margin: 0;
     padding: 0;
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
     z-index: 10002;
 }
@@ -98,6 +101,8 @@ dl {
     position: absolute;
     left: 0;
     height: 1.8rem;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .tooltip-data__row > dd {
