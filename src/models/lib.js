@@ -39,7 +39,11 @@ export function assignLoadedUnits(
 
 export function assignUnitsAsTheyLoad(state, assignment) {
     let remainingUnitIds = Object.keys(assignment).filter(
-        x => x !== undefined && x !== null
+        x =>
+            x !== undefined &&
+            x !== null &&
+            assignment[x] !== null &&
+            assignment[x] !== undefined
     );
     let intervalId;
     const stop = () => window.clearInterval(intervalId);
