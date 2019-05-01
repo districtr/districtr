@@ -9,7 +9,8 @@
 }
 
 .icon-list__item i {
-    color: $districtr-light-grey;
+    // color: $districtr-light-grey;
+    color: black;
     z-index: 100;
     font-size: 1.75rem;
 }
@@ -70,23 +71,28 @@ of the whole element */
     height: 100%;
     width: 100%;
 
-    background: #111;
+    // background: #111;
+    background-color: white;
 }
 
 .icon-list__item:hover input ~ .icon-list__item__radio {
     border-radius: 20%;
+    background-color: $districtr-grey-hover;
 }
 
 .icon-list__item input:active ~ .icon-list__item__radio {
     border-radius: 20%;
+    background-color: $districtr-grey-active;
 }
 
 .icon-list__item input:focus ~ .icon-list__item__radio {
     border-radius: 20%;
+    background-color: $districtr-grey-active;
 }
 
 .icon-list__item input:checked ~ .icon-list__item__radio {
     border-radius: 50%;
+    background-color: $districtr-grey-active;
 }
 
 i {
