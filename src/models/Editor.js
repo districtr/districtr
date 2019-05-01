@@ -9,7 +9,7 @@ export default class Editor {
 
         this.state = state;
         this.store = new UIStateStore(reducer, {
-            toolbar: { activeTab: "criteria" },
+            toolbar: { activeTab: "criteria", dropdownMenuOpen: false },
             elections: {
                 activeElectionIndex: 0
             },

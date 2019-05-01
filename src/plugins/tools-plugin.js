@@ -40,8 +40,6 @@ function exportPlanAsJSON(state) {
     download(`districtr-plan-${serialized.id}.json`, text);
 }
 
-// It's not a great design to have these non-tool items in the row of tool icons.
-// TODO: Find a different UI for New/Save/Export-type actions.
 function getMenuItems(state) {
     let items = [
         {

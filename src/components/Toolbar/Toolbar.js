@@ -46,6 +46,10 @@ export default class Toolbar {
         this.menuItems = menuItems;
     }
     render() {
+        const { dropdownMenuOpen } = this.store.state.toolbar;
+        const toggleDropdownMenu = dropdownMenuOpen
+            ? actions.openDropdownMenu
+            : actions.closeDropdownMenu;
         return html`
             <div class="toolbar-top">
                 <div class="icon-list">
@@ -55,12 +59,22 @@ export default class Toolbar {
                         tool => tool.render(this.selectTool)
                     )}
                 </div>
-                <div class="icon-list">
-                    ${this.menuItems.map(item => item.render())}
-                </div>
+                <button
+                class="button button--subtle button--icon button--no-shadow"
+                @click="${() => this.store.dispatch(toggleDropdownMenu)}">
+                <i class="material-icons">menu</i>
+            </button>
             </div>
+            ${dropdownMenuOpen ? DropdownMenu(this.menuItems) : ""}
             ${OptionsContainer(this.activeTool)}
             ${Tabs(this.tabs, this.store.state, this.store.dispatch)}
+            </div>
         `;
     }
+}
+
+function DropdownMenu(items) {
+    return html`
+        <nav class="dropdown-list">${items.length}</nav>
+    `;
 }
