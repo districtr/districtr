@@ -6,6 +6,8 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+    flex-shrink: 0;
+    list-style: none;
 }
 
 .icon-list__item i {
@@ -31,6 +33,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 0;
     margin: 0.1rem;
     cursor: pointer;
     @include user-select(none);
@@ -100,6 +103,7 @@ i {
 }
 
 .subtle-button {
+    @include grey-hovers;
     outline: none;
     background: none;
     border: none;
@@ -115,14 +119,6 @@ i {
 
     cursor: pointer;
     transition: transform 100ms ease;
-}
-
-.subtle-button:hover {
-    background: $districtr-grey-hover;
-}
-
-.subtle-button:active {
-    background: $districtr-grey-active;
 }
 
 .subtle-button i {

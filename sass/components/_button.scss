@@ -58,14 +58,11 @@
 
 .button--subtle {
     background: white;
+    @include grey-hovers;
     color: #444;
-    &:hover {
-        background-color: $districtr-grey-hover;
-        color: #444;
-    }
+    &:hover,
     &:active,
-    &:focus {
-        background-color: $districtr-grey-active;
+    &focus {
         color: #444;
     }
 }
@@ -110,31 +107,25 @@
     // background-color: black;
     background-color: $districtr-light-grey;
     color: #444;
+    font-weight: normal;
+
+    outline: none;
+    border: none;
     border-radius: 0.25rem;
+
     width: 2.5rem;
     height: 2.5rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    padding: 0;
     margin: 0.1rem;
 
-    // color: $districtr-light-grey;
-    font-weight: normal;
     transition: all ease 100ms;
-    border: none;
-    outline: none;
-    padding: 0;
     cursor: pointer;
-}
 
-.square-button:hover,
-.square-button:focus {
-    // border-radius: 20%;
-    background-color: $districtr-grey-hover;
-}
-
-.square-button:active {
-    // border-radius: 50%;
-    background-color: $districtr-grey-active;
+    @include grey-hovers;
 }

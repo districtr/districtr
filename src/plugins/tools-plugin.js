@@ -5,7 +5,6 @@ import PanTool from "../components/Toolbar/PanTool";
 import Brush from "../Map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
-import { html } from "lit-html";
 import { download } from "../utils";
 
 export default function ToolsPlugin(editor) {
@@ -43,34 +42,16 @@ function exportPlanAsJSON(state) {
 function getMenuItems(state) {
     let items = [
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => renderAboutModal(state)}"
-                >
-                    About
-                </button>
-            `
+            name: "About this module",
+            onClick: () => renderAboutModal(state)
         },
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => navigateTo("/new")}"
-                >
-                    New
-                </button>
-            `
+            name: "New plan",
+            onClick: () => navigateTo("/new")
         },
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => exportPlanAsJSON(state)}"
-                >
-                    Export
-                </button>
-            `
+            name: "Export this plan",
+            onClick: () => exportPlanAsJSON(state)
         }
     ];
     return items;
