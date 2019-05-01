@@ -57,16 +57,21 @@
 }
 
 .button--subtle {
-    background: $districtr-light-grey;
+    background: white;
     color: #444;
     &:hover {
         background-color: $districtr-grey-hover;
         color: #444;
     }
-    &:active {
+    &:active,
+    &:focus {
         background-color: $districtr-grey-active;
         color: #444;
     }
+}
+
+.button--no-shadow:focus {
+    box-shadow: none;
 }
 
 .button[disabled] {
