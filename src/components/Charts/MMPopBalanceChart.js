@@ -100,7 +100,7 @@ const OverUnderChart = (population, parts) => {
     return svg`
     <svg viewBox="0 0 ${width} ${chartHeight +
         extra}" width="${width}" height="${chartHeight +
-        extra}" class="bar-chart">
+        extra}" class="bar-chart" style="align-self: center">
         <g style="transform: translateX(${seatsListWidth / 2}px)">
             ${OverUnderBars(data, colors, population.ideal, textHeight, w)}
             ${OverUnderAnnotations(chartHeight, width)}
@@ -119,7 +119,7 @@ const OverUnderChart = (population, parts) => {
 
 const MultiMemberPopBalanceChart = (population, parts) => html`
     <section class="toolbar-section">
-        <div class="pop-balance-chart__header">
+        <div class="pop-balance-chart__header" style="align-self: center">
             <span style="width: ${seatsListWidth}px">Seats</span>
             <span style="flex: 1">Deviation</span>
         </div>

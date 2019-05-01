@@ -37,14 +37,18 @@ export function assignLoadedUnits(
     return remainingUnitIds;
 }
 
-export function assignUnitsAsTheyLoad(state, assignment) {
-    let remainingUnitIds = Object.keys(assignment).filter(
+export function getAssignedUnitIds(assignment) {
+    return Object.keys(assignment).filter(
         x =>
             x !== undefined &&
             x !== null &&
             assignment[x] !== null &&
             assignment[x] !== undefined
     );
+}
+
+export function assignUnitsAsTheyLoad(state, assignment) {
+    let remainingUnitIds = getAssignedUnitIds(assignment);
     let intervalId;
     const stop = () => window.clearInterval(intervalId);
     const callback = () => {

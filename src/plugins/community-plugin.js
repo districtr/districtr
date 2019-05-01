@@ -2,6 +2,7 @@ import { html } from "lit-html";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import SingleDistrictTable from "../components/Charts/SingleDistrictTable";
+import { bindAll } from "../utils";
 
 export default function CommunityPlugin(editor) {
     const { state } = editor;
@@ -37,12 +38,6 @@ export default function CommunityPlugin(editor) {
     editor.toolbar.addTabFirst(tab);
     editor.toolbar.addTab(evaluationTab);
     editor.store.dispatch(actions.changeTab({ id: "community" }));
-}
-
-function bindAll(keys, obj) {
-    keys.forEach(key => {
-        obj[key] = obj[key].bind(obj);
-    });
 }
 
 class AboutSection {
