@@ -8,6 +8,13 @@
     max-width: 30rem;
 }
 
+.media--interactive {
+    transition: 100ms all ease;
+    &:hover {
+        box-shadow: $raised--dark;
+    }
+}
+
 .media__title {
     font-size: 2rem;
     line-height: 1.5;
@@ -22,12 +29,19 @@
     // letter-spacing: 0.025rem;
 }
 
-.media__title--blue {
+.media__title--primary {
     color: $mggg-blue;
 }
 
 .media__title--bold {
     font-weight: bold;
+}
+
+.media__img {
+    float: right;
+    max-width: 12rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .media__subtitle {

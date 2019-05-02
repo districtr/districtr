@@ -39,7 +39,7 @@
     // height: 10rem;
 
     border-radius: 0.5rem;
-    background-color: $districtr-red;
+    background-color: $mggg-blue;
     color: white;
     cursor: pointer;
 
@@ -47,14 +47,34 @@
         box-shadow: $focus-shadow;
     }
     &:hover {
-        background-color: $districtr-red-dark;
+        background-color: $mggg-dark-blue;
     }
 }
 
-.places-list__item--blue {
-    background-color: $mggg-blue;
-    &:hover {
-        background-color: $mggg-dark-blue;
+.communities {
+    .state--available {
+        fill: $districtr-red;
+        &:hover {
+            fill: $districtr-red-dark;
+        }
+        &:active {
+            fill: $districtr-red-very-dark;
+        }
+    }
+    .places-list__item {
+        background-color: $districtr-red;
+        &:hover {
+            background-color: $districtr-red-dark;
+        }
+    }
+    .place-map__search {
+        color: #444;
+        border-bottom-color: #444;
+        caret-color: #444;
+    }
+    .media__title--primary,
+    .button--transparent {
+        color: #444;
     }
 }
 

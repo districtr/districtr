@@ -170,7 +170,7 @@ function modulesAvailable(feature) {
                     close
                 </i>
             </button>
-            <h3 class="media__title media__title--blue">
+            <h3 class="media__title media__title--primary">
                 ${feature.properties.NAME}
             </h3>
             <div class="media__body">
