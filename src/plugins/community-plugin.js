@@ -1,7 +1,9 @@
 import { html } from "lit-html";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
-import SingleDistrictTable from "../components/Charts/SingleDistrictTable";
+import { PivotTable } from "../components/Charts/PivotTable";
+import select from "../components/select";
+import Parameter from "../components/Parameter";
 import { bindAll } from "../utils";
 
 export default function CommunityPlugin(editor) {
@@ -12,27 +14,27 @@ export default function CommunityPlugin(editor) {
     tab.addRevealSection("About Your Community", about.render);
 
     const evaluationTab = new Tab("population", "Population", editor.store);
-    evaluationTab.addRevealSection(
+    const populationPivot = PivotTable(
         "Population",
-        () =>
-            SingleDistrictTable(
-                state.population,
-                state.place.name,
-                state.plan.name
-            ),
-        { isOpen: true }
+        state.population,
+        state.place.name,
+        state.parts
     );
+    evaluationTab.addRevealSection("Population", populationPivot, {
+        isOpen: true,
+        activePartIndex: 0
+    });
     if (state.vap) {
-        evaluationTab.addRevealSection(
+        const vapPivot = PivotTable(
             "Voting Age Population",
-            () =>
-                SingleDistrictTable(
-                    state.population,
-                    state.place.name,
-                    state.plan.name
-                ),
-            { isOpen: false }
+            state.vap,
+            state.place.name,
+            state.parts
         );
+        evaluationTab.addRevealSection("Voting Age Population", vapPivot, {
+            isOpen: false,
+            activePartIndex: 0
+        });
     }
 
     editor.toolbar.addTabFirst(tab);
@@ -41,13 +43,27 @@ export default function CommunityPlugin(editor) {
 }
 
 class AboutSection {
-    constructor(editor) {
-        this.name = editor.state.plan.name;
-        this.description = editor.state.plan.description;
-        this.state = editor.state;
-        this.renderCallback = editor.render;
+    constructor({ state, render }) {
+        this.part = state.parts[0];
+        this.name = this.part.name || "";
+        this.description = this.part.description || "";
+        this.state = state;
+        this.renderCallback = render;
         this.saved = false;
-        bindAll(["onSave", "setName", "setDescription", "render"], this);
+        bindAll(
+            ["onSave", "setName", "setDescription", "render", "setPart"],
+            this
+        );
+    }
+    setPart(index) {
+        if (this.state.parts[index].visible !== true) {
+            return;
+        }
+        this.part = this.state.parts[index];
+        this.name = this.part.name || "";
+        console.log(this.name);
+        this.description = this.part.description || "";
+        this.renderCallback();
     }
     setName(name) {
         this.name = name;
@@ -64,13 +80,30 @@ class AboutSection {
         }
     }
     onSave() {
-        this.state.plan.name = this.name;
-        this.state.plan.description = this.description;
+        this.part.updateDescription({
+            name: this.name,
+            description: this.description
+        });
         this.saved = true;
         this.renderCallback();
     }
     render() {
-        return AboutSectionTemplate(this);
+        const parts = this.state.activeParts;
+        return html`
+            <ul class="option-list">
+                <li class="option-list__item">
+                    ${parts.length > 1
+                        ? Parameter({
+                              label: "Community:",
+                              element: select("which-community", parts, i =>
+                                  this.setPart(i)
+                              )
+                          })
+                        : ""}
+                </li>
+            </ul>
+            ${AboutSectionTemplate(this)}
+        `;
     }
 }
 
@@ -89,8 +122,7 @@ function AboutSectionTemplate({
                 <input
                     type="text"
                     class="text-input"
-                    value="${name}"
-                    @input=${e => setName(e.target.value)}
+                    .value="${name}"
                     @blur=${e => setName(e.target.value)}
                     @focus=${e => setName(e.target.value)}
                 />
@@ -99,7 +131,6 @@ function AboutSectionTemplate({
                 <label class="ui-label">Describe Your Community</label>
                 <textarea
                     class="text-input text-area"
-                    @input=${e => setDescription(e.target.value)}
                     @blur=${e => setDescription(e.target.value)}
                     @focus=${e => setDescription(e.target.value)}
                 >

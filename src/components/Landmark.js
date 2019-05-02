@@ -21,16 +21,18 @@ export function LandmarkInfo(features) {
 }
 
 const landmarkPaintProperty = {
-    "fill-opacity": 0.5,
+    "fill-opacity": 0.75,
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
         // "#1f8653",
         // "#2bb972"
+        "#ff4f49",
+        "#e44944"
         // "#70b002",
         // "#8cdc02"
-        "#54b321",
-        "#64db24"
+        // "#54b321",
+        // "#64db24"
         // "#98e86d"
     ]
 };

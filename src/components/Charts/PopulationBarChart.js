@@ -23,7 +23,8 @@ function maxDisplayValue(population) {
 }
 
 const horizontalBarChart = (population, parts) => {
-    const data = population.total.data;
+    // Slice so that we only use active parts
+    const data = population.total.data.slice(0, parts.length);
     const maxValue = maxDisplayValue(population);
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;

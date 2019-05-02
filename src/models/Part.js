@@ -8,6 +8,18 @@ export default class Part {
         this.color = color;
         this.visible = visible;
     }
+    updateDescription({ name, description }) {
+        this.name = name;
+        this.description = description;
+    }
+    serialize() {
+        return {
+            id: this.id,
+            displayNumber: this.displayNumber,
+            name: this.name,
+            description: this.description
+        };
+    }
     renderLabel() {
         return html`
             <span class="part-number" style="background: ${this.color}">
