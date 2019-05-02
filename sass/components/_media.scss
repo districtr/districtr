@@ -63,7 +63,7 @@
 }
 
 .media-list {
-    padding: 1rem;
+    margin: 1rem 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -73,5 +73,20 @@
 
 .media-list__item {
     margin: 1rem 2rem;
-    width: 36rem;
+    max-width: 36rem;
+}
+
+@media only screen and (max-width: 400px) {
+    .media__img {
+        float: none;
+        margin: 1rem auto;
+        display: block;
+    }
+    .media-list__item {
+        margin: 1rem 0rem;
+    }
+    .media-list {
+        margin: 0;
+        padding: 0;
+    }
 }
