@@ -1,5 +1,9 @@
 import { roundToDecimal, numberWithCommas } from "../../utils";
 import DataTable from "./DataTable";
+import { html } from "lit-html";
+import select from "../select";
+import Parameter from "../Parameter";
+import { actions } from "../../reducers/charts";
 
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
@@ -34,12 +38,12 @@ function getEntries(subgroup, part) {
     return [getCell(districtFraction), getCell(overallFraction)];
 }
 
-export default (columnSet, placeName, communityName, part) => {
+export function DistrictEvaluationTable(columnSet, placeName, part) {
     if (!part) {
-        part = { id: 0 };
+        part = [{ id: 0 }];
     }
     const subgroups = columnSet.subgroups;
-    const headers = [communityName || "Your Community", placeName];
+    const headers = [part.name || part.renderLabel(), placeName];
     let rows = [
         {
             label: "Total",
@@ -63,4 +67,35 @@ export default (columnSet, placeName, communityName, part) => {
     );
 
     return DataTable(headers, rows);
+}
+
+export default DistrictEvaluationTable;
+
+export const PivotTable = (chartId, columnSet, placeName, parts) => (
+    uiState,
+    dispatch
+) => {
+    const visibleParts = parts.filter(part => part.visible);
+    return html`
+        <section class="toolbar-section">
+            ${visibleParts.length > 1
+                ? Parameter({
+                      label: "Community:",
+                      element: select("pivot-community", visibleParts, i =>
+                          dispatch(
+                              actions.selectPart({
+                                  chart: chartId,
+                                  partIndex: i
+                              })
+                          )
+                      )
+                  })
+                : ""}
+            ${DistrictEvaluationTable(
+                columnSet,
+                placeName,
+                parts[uiState.charts[chartId].activePartIndex]
+            )}
+        </section>
+    `;
 };

@@ -19,7 +19,8 @@ export const handlers = {
         ...state,
         [action.chart]: {
             isOpen: action.isOpen === undefined ? true : action.isOpen,
-            activeSubgroupIndices: action.activeSubgroupIndices
+            activeSubgroupIndices: action.activeSubgroupIndices,
+            activePartIndex: action.activePartIndex
         }
     }),
     selectSubgroup: (state, action) => ({
@@ -31,6 +32,13 @@ export const handlers = {
                 action.subgroupPosition,
                 action.subgroupIndex
             )
+        }
+    }),
+    selectPart: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            ...state[action.chart],
+            activePartIndex: action.partIndex
         }
     })
 };

@@ -72,7 +72,7 @@ export function placeItems(place, onClick) {
     const districtingProblems = localStorage.getItem("COMMUNITIES_FEATURE")
         ? [
               ...place.districtingProblems,
-              { type: "community", numberOfParts: 1, pluralNoun: "Community" }
+              { type: "community", numberOfParts: 50, pluralNoun: "Community" }
           ]
         : place.districtingProblems;
     return districtingProblems

@@ -85,7 +85,6 @@
 // }
 
 .start-districting {
-    padding: 4rem 0;
     background: $districtr-light-grey;
     display: grid;
     width: 100%;
@@ -99,13 +98,6 @@
     height: 110vh;
     min-height: 600px;
     overflow: hidden;
-}
-
-@media only screen and (max-width: 800px) {
-    .start-districting {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
 }
 
 .start-districting--alone {

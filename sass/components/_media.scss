@@ -15,8 +15,19 @@
     margin: 0 0 0.5rem;
 }
 
+.media--bold {
+    // font-size: 2rem;
+    color: black;
+    // line-height: 1.2;
+    // letter-spacing: 0.025rem;
+}
+
 .media__title--blue {
     color: $mggg-blue;
+}
+
+.media__title--bold {
+    font-weight: bold;
 }
 
 .media__subtitle {
@@ -35,4 +46,18 @@
 .media__body {
     overflow: auto;
     max-height: 400px;
+}
+
+.media-list {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.media-list__item {
+    margin: 1rem 2rem;
+    width: 36rem;
 }

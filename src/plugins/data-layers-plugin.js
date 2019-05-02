@@ -11,17 +11,17 @@ export default function DataLayersPlugin(editor) {
         ? new Landmarks(state.map, state.place.landmarks)
         : null;
 
-    if (landmarks && Object.keys(state.plan.assignment).length === 0) {
+    if (landmarks && Object.keys(state.plan.assignment).length > 0) {
         landmarks.handleToggle(false);
     }
 
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
     const districtsHeading =
-        state.plan.problem.type === "community" ? "Community" : "Districts";
+        state.plan.problem.type === "community" ? "Communities" : "Districts";
     const districtMessage =
         state.plan.problem.type === "community"
-            ? "Show community"
+            ? "Show communities"
             : "Show districts";
     tab.addSection(
         () => html`
