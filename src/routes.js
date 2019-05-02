@@ -30,7 +30,8 @@ export function savePlanToStorage({
     id,
     assignment,
     name,
-    description
+    description,
+    parts
 }) {
     const state = {
         place,
@@ -39,7 +40,8 @@ export function savePlanToStorage({
         id,
         assignment,
         name,
-        description
+        description,
+        parts
     };
     localStorage.setItem("savedState", JSON.stringify(state));
 }
