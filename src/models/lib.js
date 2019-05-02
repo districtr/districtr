@@ -17,9 +17,8 @@ export function assignLoadedUnits(
             return lookup;
         }, {});
 
-    let noFailures = true;
-
-    while (noFailures && remainingUnitIds.length > 0) {
+    let failures = 0;
+    while (failures < 10 && remainingUnitIds.length > 0) {
         for (let i = 0; i < bufferSize && remainingUnitIds.length > 0; i++) {
             const unitId = remainingUnitIds.pop();
             const feature = featuresByUnitId[unitId];
@@ -28,7 +27,7 @@ export function assignLoadedUnits(
                 state.parts[assignment[unitId]].visible = true;
                 state.units.setAssignment(feature, assignment[unitId]);
             } else {
-                noFailures = false;
+                failures += 1;
                 remainingUnitIds.push(unitId);
             }
         }
