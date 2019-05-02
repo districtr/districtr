@@ -62,5 +62,5 @@ export function assignUnitsAsTheyLoad(state, assignment) {
             remainingUnitIds
         );
     };
-    intervalId = window.setInterval(callback, 200);
+    intervalId = window.setInterval(callback, 17);
 }

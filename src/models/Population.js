@@ -20,10 +20,12 @@ export default class Population extends ColumnSet {
      * population, sorted largest-to-smallest.
      */
     indicesOfMajorSubgroups() {
-        return this.subgroups
-            .map((subgroup, i) => i)
-            .filter(i => this.subgroups[i].sum > this.total.sum * 0.05)
-            .sort((i, j) => this.subgroups[j].sum - this.subgroups[i].sum)
-            .slice(0, 3);
+        return (
+            this.subgroups
+                .map((subgroup, i) => i)
+                // .filter(i => this.subgroups[i].sum > this.total.sum * 0.05)
+                .sort((i, j) => this.subgroups[j].sum - this.subgroups[i].sum)
+                .slice(0, 3)
+        );
     }
 }
