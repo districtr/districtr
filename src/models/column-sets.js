@@ -10,6 +10,11 @@ export function getParts(problem) {
         let j = i % districtColors.length;
         parts[i] = new Part(i, name, i + 1, districtColors[j].hex);
     }
+    if (parts.length > districtColors.length) {
+        parts.slice(1).forEach(p => {
+            p.visible = false;
+        });
+    }
     return parts;
 }
 
