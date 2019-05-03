@@ -7,8 +7,13 @@ export function getParts(problem) {
     let name = problem.name || "District";
     let parts = [];
     for (let i = 0; i < problem.numberOfParts; i++) {
-        let j = i % problem.numberOfParts;
+        let j = i % districtColors.length;
         parts[i] = new Part(i, name, i + 1, districtColors[j].hex);
+    }
+    if (parts.length > districtColors.length) {
+        parts.slice(1).forEach(p => {
+            p.visible = false;
+        });
     }
     return parts;
 }
