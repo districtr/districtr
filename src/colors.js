@@ -111,33 +111,38 @@ export const districtColors = colorScheme.map((hex, i) => ({
 // Right now I'm assuming colors are numbered, and that -1 or null means
 // a block hasn't been colored. I don't think this is a good system.
 
-const unitColorStyle = [
-    "match",
-    ["feature-state", "color"],
-    ...districtColors
-        .map((color, i) => [i, color.hex])
-        .reduce((list, pair) => [...list, ...pair]),
-    "rgba(0, 0, 0, 0)"
-];
+export function getUnitColorProperty(parts) {
+    const unitColorStyle = [
+        "match",
+        ["feature-state", "color"],
+        ...parts
+            .map(part => [part.id, part.color])
+            .reduce((list, pair) => [...list, ...pair]),
+        "rgba(0, 0, 0, 0)"
+    ];
 
-const hoveredUnitColorStyle = [
-    "match",
-    ["feature-state", "color"],
-    ...districtColors
-        .map((color, i) => [i, color.hoverHex])
-        .reduce((list, pair) => [...list, ...pair]),
-    "#aaaaaa"
-];
+    const hoveredUnitColorStyle = [
+        "match",
+        ["feature-state", "color"],
+        ...parts
+            .map(part => [part.id, part.hoverColor])
+            .reduce((list, pair) => [...list, ...pair]),
+        "#aaaaaa"
+    ];
+
+    const unitColorProperty = [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        hoveredUnitColorStyle,
+        unitColorStyle
+    ];
+
+    return unitColorProperty;
+}
 
 /**
  * Mapbox color rule for the units layer.
  */
-export const unitColorProperty = [
-    "case",
-    ["boolean", ["feature-state", "hover"], false],
-    hoveredUnitColorStyle,
-    unitColorStyle
-];
 
 export const unitBordersPaintProperty = {
     "line-color": "#777777",

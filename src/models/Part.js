@@ -5,7 +5,8 @@ export default class Part {
         this.id = id;
         this.noun = noun;
         this.displayNumber = displayNumber;
-        this.color = color;
+        this.color = color.hex;
+        this.hoverColor = color.hoverHex;
         this.visible = visible;
     }
     updateDescription({ name, description }) {
