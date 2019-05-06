@@ -1,5 +1,5 @@
 import { html, svg } from "lit-html";
-import { numberWithCommas } from "../../utils";
+import { numberWithCommas, roundToDecimal } from "../../utils";
 import { barHeight } from "./lib";
 
 const defaultHeight = 240;
@@ -24,10 +24,12 @@ function maxDisplayValue(population) {
 
 const horizontalBarChart = (population, parts) => {
     // Slice so that we only use active parts
+    // Should we only use districts with population > 0?
     const data = population.total.data.slice(0, parts.length);
     const maxValue = maxDisplayValue(population);
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;
+    const deviations = population.deviations();
 
     const chartHeight = Math.max(defaultHeight, 12 * data.length);
 
@@ -44,20 +46,23 @@ const horizontalBarChart = (population, parts) => {
                     x="0"
                     y="${i * (w + gap)}"
                     style="fill: ${colors[i]}"
-                ></rect>`;
+                ><title>District ${
+                    parts[i].displayNumber
+                } Deviation: ${roundToDecimal(deviations[i] * 100, 2)}%</title>
+            </rect>`;
     })}
-    ${
-        population.ideal > 0
-            ? svg`<line x1="${width - idealX}" y1="${0}" x2="${width -
-                  idealX}" y2="${chartHeight + extra}" stroke="#aaa" />
+        ${
+            population.ideal > 0
+                ? svg`<line x1="${width - idealX}" y1="${0}" x2="${width -
+                      idealX}" y2="${chartHeight + extra}" stroke="#aaa" />
                   <text x="${width - idealX + 3}" y="${chartHeight +
-                  extra -
-                  4}" fill="#111">
+                      extra -
+                      4}" fill="#111">
                   Ideal:
                   ${formattedIdeal}
                   </text>`
-            : ""
-    }
+                : ""
+        }
     ${data.map((d, i) => {
         const barW = barLength(d, maxValue);
         return Math.round(d) > 0

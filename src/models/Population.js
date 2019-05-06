@@ -13,7 +13,7 @@ export default class Population extends ColumnSet {
         this.deviations = this.deviations.bind(this);
     }
     deviations() {
-        return this.total.data.map(d => Math.abs(d - this.ideal) / this.ideal);
+        return this.total.data.map(d => (d - this.ideal) / this.ideal);
     }
     /**
      * Returns the indices of all subgroups with more than 5% of the total
