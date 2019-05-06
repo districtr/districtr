@@ -8,7 +8,7 @@ export function getParts(problem) {
     let parts = [];
     for (let i = 0; i < problem.numberOfParts; i++) {
         let j = i % districtColors.length;
-        parts[i] = new Part(i, name, i + 1, districtColors[j].hex);
+        parts[i] = new Part(i, name, i + 1, districtColors[j]);
     }
     if (parts.length > districtColors.length) {
         parts.slice(1).forEach(p => {

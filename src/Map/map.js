@@ -1,5 +1,5 @@
 import mapbox from "mapbox-gl";
-import { unitBordersPaintProperty, unitColorProperty } from "../colors";
+import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "../Layers/Layer";
 
 mapbox.accessToken =
@@ -8,7 +8,7 @@ mapbox.accessToken =
 export function initializeMap(
     mapContainer,
     options,
-    mapStyle = "mapbox://styles/mapbox/light-v9"
+    mapStyle = "mapbox://styles/mapbox/light-v10"
 ) {
     const map = new mapbox.Map({
         container: mapContainer,
@@ -27,7 +27,7 @@ export function initializeMap(
     return map;
 }
 
-function addUnits(map, tileset, layerAdder) {
+function addUnits(map, parts, tileset, layerAdder) {
     const units = new Layer(
         map,
         {
@@ -36,7 +36,7 @@ function addUnits(map, tileset, layerAdder) {
             "source-layer": tileset.sourceLayer,
             type: "fill",
             paint: {
-                "fill-color": unitColorProperty,
+                "fill-color": getUnitColorProperty(parts),
                 "fill-opacity": 0.8
             }
         },
@@ -69,13 +69,14 @@ function addPoints(map, tileset) {
     });
 }
 
-export function addLayers(map, tilesets, layerAdder) {
+export function addLayers(map, parts, tilesets, layerAdder) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
     }
 
     const { units, unitsBorders } = addUnits(
         map,
+        parts,
         tilesets.find(tileset => tileset.type === "fill"),
         layerAdder
     );
