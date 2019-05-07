@@ -1,7 +1,7 @@
 import browserSync from "browser-sync";
 import fs from "fs";
 import gulp from "gulp";
-import sass from "gulp-sass";
+import sass from "gulp-dart-sass";
 import bundleViews from "./build/bundle-js";
 import {
     bundleWithCacheForDevelopment,
