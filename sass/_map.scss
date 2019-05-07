@@ -14,3 +14,14 @@
 .inspect-tool {
     cursor: pointer;
 }
+
+.geocoder {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 50px;
+}
+.mapboxgl-ctrl-geocoder {
+    max-width: 24rem;
+    min-width: 16rem;
+}

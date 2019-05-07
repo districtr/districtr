@@ -1,30 +1,28 @@
-import mapbox from "mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "../Layers/Layer";
 
-mapbox.accessToken =
+mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
-export function initializeMap(
-    mapContainer,
-    options,
-    mapStyle = "mapbox://styles/mapbox/light-v10"
-) {
-    const map = new mapbox.Map({
-        container: mapContainer,
-        style: mapStyle,
-        attributionControl: false,
-        center: [-86.0, 37.83],
-        zoom: 3,
-        pitchWithRotate: false,
-        // dragRotate: false,
-        dragPan: true,
-        touchZoomRotate: true,
-        ...options
-    });
-    const nav = new mapbox.NavigationControl();
-    map.addControl(nav, "top-left");
-    return map;
+export class MapState {
+    constructor(mapContainer, options, mapStyle) {
+        this.map = new mapboxgl.Map({
+            container: mapContainer,
+            style: mapStyle,
+            attributionControl: false,
+            center: [-86.0, 37.83],
+            zoom: 3,
+            pitchWithRotate: false,
+            // dragRotate: false,
+            dragPan: true,
+            touchZoomRotate: true,
+            ...options
+        });
+        this.nav = new mapboxgl.NavigationControl();
+        this.map.addControl(this.nav, "top-left");
+        this.mapboxgl = mapboxgl;
+    }
 }
 
 function addUnits(map, parts, tileset, layerAdder) {

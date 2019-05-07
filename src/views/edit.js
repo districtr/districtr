@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import { initializeMap } from "../Map/map";
+import { MapState } from "../Map/map";
 import State from "../models/State";
 import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
 import Editor from "../models/Editor";
@@ -68,7 +68,7 @@ export default function renderEditView() {
             `,
             root
         );
-        const map = initializeMap(
+        const mapState = new MapState(
             "map",
             {
                 bounds: context.units.bounds,
@@ -83,9 +83,9 @@ export default function renderEditView() {
             },
             getMapStyle(context)
         );
-        map.on("load", () => {
-            let state = new State(map, context);
-            let editor = new Editor(state, getPlugins(context));
+        mapState.map.on("load", () => {
+            let state = new State(mapState.map, context);
+            let editor = new Editor(state, mapState, getPlugins(context));
             editor.render();
         });
     });
