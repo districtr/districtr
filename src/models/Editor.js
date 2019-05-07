@@ -4,8 +4,9 @@ import Toolbar from "../components/Toolbar/Toolbar";
 import { render } from "lit-html";
 
 export default class Editor {
-    constructor(state, plugins) {
+    constructor(state, mapState, plugins) {
         this.render = this.render.bind(this);
+        this.mapState = mapState;
 
         this.state = state;
         this.store = new UIStateStore(reducer, {
