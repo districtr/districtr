@@ -61,7 +61,6 @@ class AboutSection {
         }
         this.part = this.state.parts[index];
         this.name = this.part.name || "";
-        console.log(this.name);
         this.description = this.part.description || "";
         this.renderCallback();
     }

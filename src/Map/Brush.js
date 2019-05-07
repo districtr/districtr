@@ -91,9 +91,7 @@ export default class Brush extends HoverWithRadius {
     }
     onTouchStart(e) {
         if (e.points && e.points.length <= 1) {
-            e.preventDefault();
-            e.originalEvent.preventDefault();
-            this.onMouseUp();
+            this.onMouseDown(e);
         }
     }
     activate() {
