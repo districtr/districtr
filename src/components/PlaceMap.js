@@ -25,7 +25,8 @@ const available = [
     "North Carolina",
     "California",
     "Utah",
-    "Virginia"
+    "Virginia",
+    "Rhode Island"
 ];
 
 // Sentinel for when the mouse is not over a state
