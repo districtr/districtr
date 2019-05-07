@@ -348,3 +348,16 @@ In June 2018, the Eastern District Court of Virginia ruled 11 of the House of
 Delegates districts unconstitutional racial gerrymanders.
 [MGGG published a report](https://mggg.org/VA-report.pdf) evaluating the 2011
 Enacted House of Delegates plan as well as several of the proposed alternatives.
+
+## Rhode Island
+
+This shapefile was obtained from the Rhode Island GIS Data Distribution System
+and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).
+The precinct shapefile came from the Rhode Island Department of State through
+the [Rhode Island GIS Data Distribution System](http://www.rigis.org). 2010
+Decennial Census demographic data were downloaded from the
+[Census API](https://api.census.gov/data/2010/dec/sf1). The 2010 census block
+shapefile for Rhode Island was downloaded from the US Census Bureau’s
+[TIGER/Line Shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html).
+Election data were downloaded from the
+[Rhode Island Board of Elections](http://www.elections.ri.gov/elections/preresults/).

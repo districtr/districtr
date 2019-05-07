@@ -61,7 +61,6 @@ export default class Layer {
             map.addLayer(layer);
         }
 
-        this.onceLoaded = this.onceLoaded.bind(this);
         this.getFeature = this.getFeature.bind(this);
     }
     setOpacity(opacity) {
@@ -69,6 +68,9 @@ export default class Layer {
     }
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);
+    }
+    getColor() {
+        return this.getPaintProperty(`${this.type}-color`);
     }
     setPaintProperties(properties) {
         for (let name in properties) {
@@ -120,74 +122,4 @@ export default class Layer {
     off(type, ...args) {
         this.map.off(type, this.id, ...args);
     }
-    /**
-     * Query the properties of the features of the source layer
-     * @param {string or function} getter feature property key or a function
-     *  (feature) -> any that retrieves desired data from individual features
-     * @returns {Array} the results of the query
-     */
-    query(getter) {
-        const queryFunction = getQueryFunction(getter);
-        const features = this.map.querySourceFeatures(this.sourceId, {
-            sourceLayer: this.sourceLayer
-        });
-        let seenIds = new Set();
-        let data = [];
-
-        const numberOfFeatures = features.length;
-        for (let i = 0; i < numberOfFeatures; i++) {
-            if (!seenIds.has(features[i].id)) {
-                seenIds.add(features[i].id);
-                data.push(queryFunction(features[i]));
-            }
-        }
-        return data;
-    }
-    queryRenderedFeatures() {
-        return this.map.queryRenderedFeatures(null, { layers: [this.id] });
-    }
-    /**
-     * Executes the given function once the layer's source is loaded.
-     * @param {function} f - The function to execute when the Layer is loaded.
-     */
-    onceLoaded(f) {
-        this.map.once("data", () => {
-            if (
-                this.map.getSource(this.sourceId) &&
-                this.map.isSourceLoaded(this.sourceId) &&
-                this.query().length > 0
-            ) {
-                const features = this.query();
-                /**
-                 * @todo Re-architect things so we don't use a brittle magic number.
-                 *
-                 * Places could have less than 100 units, and the not-actually-loaded
-                 * bug could still happen with more than 100 features loaded.
-                 */
-                if (features.length < 100) {
-                    // It says it's loaded, but this doesn't seem like enough
-                    // features, so we don't believe it's loaded. We'll try
-                    // again at the next `data` event.
-                    this.onceLoaded(f);
-                } else {
-                    // Now we're convinced that it's loaded!
-                    f();
-                }
-            } else {
-                // It's not loaded yet, so we wait for the next `data` event.
-                this.onceLoaded(f);
-            }
-        });
-    }
 }
-
-const getQueryFunction = getter => {
-    // If it's a string key, get that property for each feature
-    let queryFunction = f => f;
-    if (getter !== undefined) {
-        queryFunction = isString(getter)
-            ? feature => feature.properties[getter]
-            : getter;
-    }
-    return queryFunction;
-};
