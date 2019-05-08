@@ -16,6 +16,7 @@ const available = [
     "Wisconsin",
     "Massachusetts",
     "Michigan",
+    "Iowa",
     "Missouri",
     "Mississippi",
     "Illinois",
@@ -24,7 +25,8 @@ const available = [
     "North Carolina",
     "California",
     "Utah",
-    "Virginia"
+    "Virginia",
+    "Rhode Island"
 ];
 
 // Sentinel for when the mouse is not over a state
@@ -169,7 +171,7 @@ function modulesAvailable(feature) {
                     close
                 </i>
             </button>
-            <h3 class="media__title media__title--blue">
+            <h3 class="media__title media__title--primary">
                 ${feature.properties.NAME}
             </h3>
             <div class="media__body">

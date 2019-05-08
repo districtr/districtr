@@ -6,6 +6,21 @@
 
 p {
     line-height: 1.75;
+    margin: 0 0 1rem;
+}
+
+.l-major-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .l-major-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 .landing-page {
@@ -222,6 +237,7 @@ p {
 
 .u-centered {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

@@ -27,7 +27,7 @@ export default function PopulationBalancePlugin(editor) {
             "Population Balance",
             () =>
                 html`
-                    ${populationBarChart(state.population, state.parts)}
+                    ${populationBarChart(state.population, state.activeParts)}
                     <dl class="report-data-list">
                         ${unassignedPopulation(state.population)}
                         ${populationDeviation(state.population)}

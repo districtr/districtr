@@ -4,17 +4,17 @@ import Population from "./Population";
 import { districtColors } from "../colors";
 
 export function getParts(problem) {
-    let colors = districtColors.slice(0, problem.numberOfParts);
-
-    let name = "District";
-    if (problem.name !== undefined) {
-        name = problem.name;
+    let name = problem.name || "District";
+    let parts = [];
+    for (let i = 0; i < problem.numberOfParts; i++) {
+        let j = i % districtColors.length;
+        parts[i] = new Part(i, name, i + 1, districtColors[j]);
     }
-
-    const parts = colors.map(
-        color => new Part(color.id, name, color.id + 1, color.hex)
-    );
-
+    if (parts.length > districtColors.length) {
+        parts.slice(1).forEach(p => {
+            p.visible = false;
+        });
+    }
     return parts;
 }
 

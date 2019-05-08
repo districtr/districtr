@@ -1,3 +1,4 @@
+/* eslint-disable array-bracket-newline */
 import { html } from "lit-html";
 import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
@@ -5,11 +6,25 @@ import { startNewPlan } from "../routes";
 
 let _placesCache = {};
 let _placesList = null;
+let justCommunities = false;
+
+export function onlyCommunities() {
+    justCommunities = true;
+}
+
+function communitiesFilter(place) {
+    if (justCommunities) {
+        place.districtingProblems = [
+            { type: "community", numberOfParts: 50, pluralNoun: "Community" }
+        ];
+    }
+    return place;
+}
 
 export function listPlacesForState(state) {
     if (_placesList === null) {
         return listPlaces().then(items => {
-            _placesList = items;
+            _placesList = items.map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
                 item => item.state === state || item.name === state
             );
@@ -69,20 +84,13 @@ function getProblemInfo(problem) {
 }
 
 export function placeItems(place, onClick) {
-    const districtingProblems = localStorage.getItem("COMMUNITIES_FEATURE")
-        ? [
-              ...place.districtingProblems,
-              { type: "community", numberOfParts: 1, pluralNoun: "Community" }
-          ]
-        : place.districtingProblems;
+    const districtingProblems = place.districtingProblems;
     return districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item${problem.type === "community"
-                            ? " places-list__item--blue"
-                            : ""}"
+                        class="places-list__item"
                         @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">${place.name}</div>

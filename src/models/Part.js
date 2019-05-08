@@ -5,8 +5,21 @@ export default class Part {
         this.id = id;
         this.noun = noun;
         this.displayNumber = displayNumber;
-        this.color = color;
+        this.color = color.hex;
+        this.hoverColor = color.hoverHex;
         this.visible = visible;
+    }
+    updateDescription({ name, description }) {
+        this.name = name;
+        this.description = description;
+    }
+    serialize() {
+        return {
+            id: this.id,
+            displayNumber: this.displayNumber,
+            name: this.name,
+            description: this.description
+        };
     }
     renderLabel() {
         return html`

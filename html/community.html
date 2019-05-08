@@ -9,16 +9,7 @@
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="/css/app.css"
-        />
-        <link
-            href="https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
-            type="text/css"
+            href="./css/landing_page.css"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
@@ -37,23 +28,29 @@
     </head>
 
     <body>
-        <main id="root"></main>
-        <div id="modal"></div>
-        <script src="/es6/edit.js"></script>
+        <main class="landing-page communities" id="root"></main>
+        <script src="./es6/community.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
-                document.writeln(
+                document.write(
                     '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
                 );
-                document.writeln(
+                document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                // document.write("<script src=\"https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/custom-elements-es5-adapter.js\"><\/script>");
-                document.writeln('<script src="/es5/edit.js"><\/script>');
-                document.writeln("<script>ieBundle();<\/script>");
+                document.write('<script src="./es5/community.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();
             }
         </script>
+        <section class="sepia u-centered">
+            <div class="request-new-place">
+                <h2 class="call-to-request">Looking for somewhere else?</h2>
+                <a href="./request" class="button call-to-request"
+                    >Request a new place to redistrict.</a
+                >
+            </div>
+        </section>
     </body>
 </html>

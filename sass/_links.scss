@@ -13,3 +13,14 @@ a:hover,
 a:active {
     color: $mggg-very-dark-blue;
 }
+
+.link--no-style {
+    font-weight: unset;
+    color: unset;
+    &:hover,
+    &:active,
+    &:visited {
+        color: unset;
+    }
+    display: flex;
+}

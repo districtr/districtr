@@ -4,7 +4,15 @@ import Parameter from "../Parameter";
 import select from "../select";
 import DemographicsTable from "./DemographicsTable";
 
-function selectBoxes(subgroups, activeSubgroupIndices, onChange) {
+function selectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
+    const onChange = j => i =>
+        dispatch(
+            actions.selectSubgroup({
+                chart: chartId,
+                subgroupIndex: i,
+                subgroupPosition: j
+            })
+        );
     const labels = ["Compare", "with"];
     return activeSubgroupIndices.map((index, j) =>
         Parameter({
@@ -27,17 +35,9 @@ export default function RacialBalanceTable(
     return html`
         <section class="toolbar-section">
             ${selectBoxes(
+                chartId,
                 population.subgroups,
                 chartState.activeSubgroupIndices,
-                j => i =>
-                    dispatch(
-                        actions.selectSubgroup({
-                            chart: chartId,
-                            subgroupIndex: i,
-                            subgroupPosition: j
-                        })
-                    ),
-
                 dispatch
             )}
             ${DemographicsTable(subgroups, parts)}

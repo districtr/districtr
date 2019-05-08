@@ -9,11 +9,11 @@ import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 // [ ] MapState (map, layers)
 // [ ] DistrictData (column sets) ?
 // [x] DistrictingPlan (assignment, problem, export()) ?
-// [ ] Units (unitsRecord, reference to layer?) ?
+// [ ] Units (unitsRecord, reference to layer?) ? <--- really need this one
 // "place" is mostly split up into these categories now.
 
 class DistrictingPlan {
-    constructor({ id, problem, idColumn, name, description }) {
+    constructor({ id, problem, idColumn, parts }) {
         if (id) {
             this.id = id;
         } else {
@@ -23,22 +23,27 @@ class DistrictingPlan {
         this.problem = problem;
         this.assignment = {};
         this.parts = getParts(problem);
-        if (problem.type === "multimember") {
+        if (parts) {
+            for (let i = 0; i < parts.length; i++) {
+                this.parts[i].updateDescription(parts[i]);
+            }
+        }
+        if (problem.type === "multimember" || problem.type === "community") {
             this.parts.slice(1).forEach(part => {
                 part.visible = false;
             });
         }
+        if (problem.type === "community") {
+            this.parts.forEach(part => {
+                if (!part.name) {
+                    part.name = `Community ${part.displayNumber}`;
+                }
+            });
+        }
         this.idColumn = idColumn;
-
-        this.name = name || "";
-        this.description = description || "";
     }
     update(feature, part) {
         this.assignment[this.idColumn.getValue(feature)] = part;
-    }
-    updateDescription({ name, description }) {
-        this.name = name;
-        this.description = description;
     }
     serialize() {
         return {
@@ -47,7 +52,8 @@ class DistrictingPlan {
             assignment: this.assignment,
             id: this.id,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
-            problem: this.problem
+            problem: this.problem,
+            parts: this.parts.filter(p => p.visible).map(p => p.serialize())
         };
     }
 }
@@ -60,12 +66,6 @@ class DistrictingPlan {
 export default class State {
     constructor(map, { place, problem, id, assignment, units, ...args }) {
         this.unitsRecord = units;
-        this.initializeMapState(
-            map,
-            units,
-            problem.type === "community" ? addBelowLabels : addBelowSymbols
-        );
-
         this.place = place;
         this.idColumn = new IdColumn(units.idColumn);
         if (units.hasOwnProperty("nameColumn")) {
@@ -78,6 +78,12 @@ export default class State {
             idColumn: this.idColumn,
             ...args
         });
+
+        this.initializeMapState(
+            map,
+            units,
+            problem.type === "community" ? addBelowLabels : addBelowSymbols
+        );
         this.columnSets = getColumnSets(this, units);
 
         this.subscribers = [];
@@ -95,6 +101,7 @@ export default class State {
     initializeMapState(map, unitsRecord, layerAdder) {
         const { units, unitsBorders, points } = addLayers(
             map,
+            this.parts,
             unitsRecord.tilesets,
             layerAdder
         );
