@@ -46,21 +46,67 @@ export default class Toolbar {
         this.menuItems = menuItems;
     }
     render() {
+        const { dropdownMenuOpen } = this.store.state.toolbar;
         return html`
-            <div class="toolbar-top">
-                <div class="icon-list">
-                    ${repeat(
-                        this.tools,
-                        tool => tool.id,
-                        tool => tool.render(this.selectTool)
-                    )}
+        <div class="toolbar">
+            <nav>
+                <div class="toolbar-top">
+                    <div class="icon-list">
+                        ${repeat(
+                            this.tools,
+                            tool => tool.id,
+                            tool => tool.render(this.selectTool)
+                        )}
+                    </div>
+                    ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}
                 </div>
-                <div class="icon-list">
-                    ${this.menuItems.map(item => item.render())}
-                </div>
-            </div>
+                ${DropdownMenu(this.menuItems, dropdownMenuOpen)}
+            </nav>
             ${OptionsContainer(this.activeTool)}
             ${Tabs(this.tabs, this.store.state, this.store.dispatch)}
+            </div>
+        </div>
         `;
     }
+}
+
+function DropdownMenuButton(isOpen, dispatch) {
+    const toggleDropdownMenu = isOpen
+        ? () => dispatch(actions.closeDropdownMenu())
+        : () => {
+              requestAnimationFrame(() =>
+                  window.addEventListener(
+                      "click",
+                      () => {
+                          dispatch(actions.closeDropdownMenu());
+                      },
+                      { once: true }
+                  )
+              );
+              dispatch(actions.openDropdownMenu());
+          };
+    return html`
+        <button
+            tabindex="1"
+            class="button button--subtle button--icon button--no-shadow"
+            @click="${toggleDropdownMenu}"
+        >
+            <i class="material-icons">menu</i>
+        </button>
+    `;
+}
+
+function DropdownMenu(options, open) {
+    return html`
+        <ul class="dropdown reveal ${open ? "" : "reveal--hidden "}ui-list">
+            ${options.map(
+                option =>
+                    html`
+                        <li class="ui-list__item" @click=${option.onClick}>
+                            ${option.name}
+                        </li>
+                    `
+            )}
+        </ul>
+    `;
 }

@@ -4,3 +4,13 @@
     -ms-user-select: $property;
     user-select: $property;
 }
+
+@mixin grey-hovers {
+    &:hover,
+    &:focus {
+        background-color: $districtr-grey-hover;
+    }
+    &:active {
+        background-color: $districtr-grey-active;
+    }
+}

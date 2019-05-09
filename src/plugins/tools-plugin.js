@@ -5,7 +5,6 @@ import PanTool from "../components/Toolbar/PanTool";
 import Brush from "../Map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
-import { html } from "lit-html";
 import { download } from "../utils";
 
 export default function ToolsPlugin(editor) {
@@ -40,39 +39,30 @@ function exportPlanAsJSON(state) {
     download(`districtr-plan-${serialized.id}.json`, text);
 }
 
-// It's not a great design to have these non-tool items in the row of tool icons.
-// TODO: Find a different UI for New/Save/Export-type actions.
+function exportPlanAsAssignmentFile(plan, delimiter = ",", extension = "csv") {
+    const text = Object.keys(plan.assignment)
+        .map(unitId => `${unitId}${delimiter}${plan.assignment[unitId]}`)
+        .join("\n");
+    download(`assignment-${plan.id}.${extension}`, text);
+}
+
 function getMenuItems(state) {
     let items = [
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => renderAboutModal(state)}"
-                >
-                    About
-                </button>
-            `
+            name: "About this module",
+            onClick: () => renderAboutModal(state)
         },
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => navigateTo("/new")}"
-                >
-                    New
-                </button>
-            `
+            name: "New plan",
+            onClick: () => navigateTo("/new")
         },
         {
-            render: () => html`
-                <button
-                    class="square-button"
-                    @click="${() => exportPlanAsJSON(state)}"
-                >
-                    Export
-                </button>
-            `
+            name: "Export this plan",
+            onClick: () => exportPlanAsJSON(state)
+        },
+        {
+            name: "Export as assignment CSV",
+            onClick: () => exportPlanAsAssignmentFile(state.plan)
         }
     ];
     return items;

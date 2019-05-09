@@ -107,6 +107,9 @@ export default class Layer {
         });
         return features[0];
     }
+    queryRenderedFeatures() {
+        return this.map.queryRenderedFeatures(null, { layers: [this.id] });
+    }
     getAssignment(featureId) {
         return this.getFeatureState(featureId).color;
     }
