@@ -39,6 +39,13 @@ function exportPlanAsJSON(state) {
     download(`districtr-plan-${serialized.id}.json`, text);
 }
 
+function exportPlanAsAssignmentFile(plan, delimiter = ",", extension = "csv") {
+    const text = Object.keys(plan.assignment)
+        .map(unitId => `${unitId}${delimiter}${plan.assignment[unitId]}`)
+        .join("\n");
+    download(`assignment-${plan.id}.${extension}`, text);
+}
+
 function getMenuItems(state) {
     let items = [
         {
@@ -52,6 +59,10 @@ function getMenuItems(state) {
         {
             name: "Export this plan",
             onClick: () => exportPlanAsJSON(state)
+        },
+        {
+            name: "Export as assignment CSV",
+            onClick: () => exportPlanAsAssignmentFile(state.plan)
         }
     ];
     return items;
