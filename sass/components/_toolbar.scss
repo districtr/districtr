@@ -114,8 +114,8 @@ fieldset {
     color: #444;
     padding: 0.5rem 0;
     border-bottom: solid $outline-grey 1px;
-    border-left: solid rgba(255, 255, 255, 0) 1px;
-    border-right: solid rgba(255, 255, 255, 0) 1px;
+    border-left: none;
+    border-right: none;
 
     width: 100%;
     text-align: center;
@@ -123,8 +123,6 @@ fieldset {
     @include user-select(none);
     background-color: $districtr-light-grey;
     transition: all ease 100ms;
-    // box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
-    //     0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
 }
 
 input:hover ~ .tabs__tab {
@@ -135,9 +133,9 @@ input:active ~ .tabs__tab {
     background: $districtr-grey-active;
 }
 
-li:last-child > .tabs__tab {
-    border-right: solid rgba(255, 255, 255, 0) 1px;
-}
+// li:last-child > .tabs__tab {
+//     border-right: solid rgba(255, 255, 255, 0) 1px;
+// }
 
 .tabs li {
     position: relative;
@@ -175,11 +173,11 @@ input:checked ~ .tabs__tab {
 }
 
 li:last-child > input:checked ~ .tabs__tab {
-    border-right: solid rgba(255, 255, 255, 0) 1px;
+    border-right: none;
 }
 
 li:first-child > input:checked ~ .tabs__tab {
-    border-left: solid rgba(255, 255, 255, 0) 1px;
+    border-left: none;
 }
 
 .tab__body.active {
