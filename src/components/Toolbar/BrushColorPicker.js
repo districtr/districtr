@@ -25,12 +25,15 @@ function addNewColorButton(colors, onInput) {
 export default (colors, onInput, activeColor) => html`
     <div class="ui-option">
         <legend class="ui-label ui-label--row">Color</legend>
-        <div class="icon-list color-list">
+        <ol class="icon-list color-list">
             ${colors
                 .filter(color => color.visible)
                 .map(
                     color => html`
-                        <div class="icon-list__item color-list__item">
+                        <li
+                            class="icon-list__item color-list__item"
+                            title="District ${color.id}"
+                        >
                             <input
                                 type="radio"
                                 id="brush-color__${color.id}"
@@ -43,10 +46,10 @@ export default (colors, onInput, activeColor) => html`
                                 class="icon-list__item__radio"
                                 style="background: ${color.color}"
                             ></div>
-                        </div>
+                        </li>
                     `
                 )}
             ${addNewColorButton(colors, onInput)}
-        </div>
+        </ol>
     </div>
 `;

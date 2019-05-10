@@ -34,8 +34,8 @@
 
 .tooltip__dot {
     margin-left: -0.5rem;
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .tooltip-data {
@@ -91,7 +91,7 @@ dl {
     padding: 0.2rem;
     // text-overflow: ellipsis;
     overflow: hidden;
-    height: 2.4rem;
+    height: 2rem;
 }
 
 .tooltip-data__row__bar {
@@ -100,7 +100,7 @@ dl {
     transition: all 100ms ease;
     position: absolute;
     left: 0;
-    height: 1.8rem;
+    height: 1.5rem;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }

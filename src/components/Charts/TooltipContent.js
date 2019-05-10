@@ -14,16 +14,18 @@ function tooltipDots(features, parts) {
     }
     return html`
         <div class="tooltip__dots">
-            ${parts.map((part, i) =>
-                partCounts[i] > 0
-                    ? html`
-                          <span
-                              class="part-number tooltip__dot"
-                              style="background-color: ${part.color}"
-                          ></span>
-                      `
-                    : ""
-            )}
+            ${parts
+                .filter((part, i) => partCounts[i] > 0)
+                .map(
+                    part =>
+                        html`
+                            <span
+                                class="part-number tooltip__dot"
+                                style="background-color: ${part.color}"
+                                >${parts.length > 10 ? part.id : ""}</span
+                            >
+                        `
+                )}
         </div>
     `;
 }
