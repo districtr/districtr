@@ -64,7 +64,11 @@ class DistrictingPlan {
  * population tally.)
  */
 export default class State {
-    constructor(map, { place, problem, id, assignment, units, ...args }) {
+    constructor(
+        map,
+        { place, problem, id, assignment, units, ...args },
+        readyCallback
+    ) {
         this.unitsRecord = units;
         this.place = place;
         this.idColumn = new IdColumn(units.idColumn);
@@ -92,7 +96,9 @@ export default class State {
         this.render = this.render.bind(this);
 
         if (assignment) {
-            assignUnitsAsTheyLoad(this, assignment);
+            assignUnitsAsTheyLoad(this, assignment, readyCallback);
+        } else {
+            readyCallback();
         }
     }
     get activeParts() {

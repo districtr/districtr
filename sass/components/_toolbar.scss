@@ -17,7 +17,8 @@
     // 0 2px 4px rgba(0, 0, 0, 0.24);
     // box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
     box-shadow: $raised;
-    width: 350px;
+    width: 25%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -36,6 +37,7 @@ fieldset {
 }
 
 .color-list {
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
