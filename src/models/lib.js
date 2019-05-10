@@ -29,8 +29,10 @@ function assignFeatures(state, assignment, assigned) {
     return { failures, successes };
 }
 
-export function assignUnitsAsTheyLoad(state, assignment) {
-    let assignmentLength = Object.keys(assignment).length;
+export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
+    let assignmentLength = Object.keys(assignment).filter(
+        key => assignment[key] !== undefined && assignment[key] !== null
+    ).length;
     let numberAssigned = 0;
     let assigned = {};
     state.units.untilSourceLoaded(done => {
@@ -42,6 +44,7 @@ export function assignUnitsAsTheyLoad(state, assignment) {
         numberAssigned += successes;
         if (numberAssigned === assignmentLength && failures === 0) {
             done();
+            readyCallback();
         }
         state.render();
     });

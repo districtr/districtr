@@ -83,8 +83,11 @@ export default function renderEditView() {
             },
             getMapStyle(context)
         );
+        window.document.title = "Loading... | Districtr";
         mapState.map.on("load", () => {
-            let state = new State(mapState.map, context);
+            let state = new State(mapState.map, context, () => {
+                window.document.title = "Districtr";
+            });
             let editor = new Editor(state, mapState, getPlugins(context));
             editor.render();
         });
