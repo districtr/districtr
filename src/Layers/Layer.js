@@ -110,6 +110,11 @@ export default class Layer {
     queryRenderedFeatures() {
         return this.map.queryRenderedFeatures(null, { layers: [this.id] });
     }
+    querySourceFeatures() {
+        return this.map.querySourceFeatures(this.sourceId, {
+            sourceLayer: this.sourceLayer
+        });
+    }
     getAssignment(featureId) {
         return this.getFeatureState(featureId).color;
     }
@@ -124,5 +129,13 @@ export default class Layer {
     }
     off(type, ...args) {
         this.map.off(type, this.id, ...args);
+    }
+    untilSourceLoaded(callback) {
+        if (this.map.isSourceLoaded(this.sourceId)) {
+            return callback();
+        }
+        const handler = () =>
+            callback(() => this.map.off("sourcedata", handler));
+        this.map.on("sourcedata", handler);
     }
 }

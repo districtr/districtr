@@ -1,39 +1,50 @@
-export function assignLoadedUnits(
-    state,
-    assignment,
-    remainingUnitIds,
-    bufferSize = 100
-) {
-    const featuresByUnitId = state.units
-        .queryRenderedFeatures()
-        .reduce((lookup, feature) => {
-            const featureId = state.idColumn.getValue(feature);
-            if (featureId !== undefined && featureId !== null) {
-                return {
-                    ...lookup,
-                    [featureId]: feature
-                };
-            }
-            return lookup;
-        }, {});
+function assign(state, feature, partId) {
+    state.update(feature, partId);
+    state.parts[partId].visible = true;
+    state.units.setAssignment(feature, partId);
+}
 
+function assignFeatures(state, assignment, assigned) {
+    const features = state.units.querySourceFeatures();
     let failures = 0;
-    while (failures < 10 && remainingUnitIds.length > 0) {
-        for (let i = 0; i < bufferSize && remainingUnitIds.length > 0; i++) {
-            const unitId = remainingUnitIds.pop();
-            const feature = featuresByUnitId[unitId];
-            if (state.hasExpectedData(feature)) {
-                state.update(feature, assignment[unitId]);
-                state.parts[assignment[unitId]].visible = true;
-                state.units.setAssignment(feature, assignment[unitId]);
-            } else {
-                failures += 1;
-                remainingUnitIds.push(unitId);
+    let successes = 0;
+    while (features.length > 0) {
+        let feature = features.pop();
+        if (state.hasExpectedData(feature)) {
+            let unitId = state.idColumn.getValue(feature);
+            if (
+                assigned[unitId] !== true &&
+                assignment.hasOwnProperty(unitId) &&
+                assignment[unitId] !== null &&
+                assignment[unitId] !== undefined
+            ) {
+                assign(state, feature, assignment[unitId]);
+                assigned[unitId] = true;
+                successes += 1;
             }
+        } else {
+            failures += 1;
+        }
+    }
+    return { failures, successes };
+}
+
+export function assignUnitsAsTheyLoad(state, assignment) {
+    let assignmentLength = Object.keys(assignment).length;
+    let numberAssigned = 0;
+    let assigned = {};
+    state.units.untilSourceLoaded(done => {
+        const { successes, failures } = assignFeatures(
+            state,
+            assignment,
+            assigned
+        );
+        numberAssigned += successes;
+        if (numberAssigned === assignmentLength && failures === 0) {
+            done();
         }
         state.render();
-    }
-    return remainingUnitIds;
+    });
 }
 
 export function getAssignedUnitIds(assignment) {
@@ -44,22 +55,4 @@ export function getAssignedUnitIds(assignment) {
             assignment[x] !== null &&
             assignment[x] !== undefined
     );
-}
-
-export function assignUnitsAsTheyLoad(state, assignment) {
-    let remainingUnitIds = getAssignedUnitIds(assignment);
-    let intervalId;
-    const stop = () => window.clearInterval(intervalId);
-    const callback = () => {
-        if (remainingUnitIds.length === 0) {
-            stop();
-            state.render();
-        }
-        remainingUnitIds = assignLoadedUnits(
-            state,
-            assignment,
-            remainingUnitIds
-        );
-    };
-    intervalId = window.setInterval(callback, 17);
 }
