@@ -22,7 +22,9 @@ function tooltipDots(features, parts) {
                             <span
                                 class="part-number tooltip__dot"
                                 style="background-color: ${part.color}"
-                                >${parts.length > 10 ? part.id : ""}</span
+                                >${parts.length > 10
+                                    ? part.displayNumber
+                                    : ""}</span
                             >
                         `
                 )}

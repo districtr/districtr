@@ -32,7 +32,7 @@ export default (colors, onInput, activeColor) => html`
                     color => html`
                         <li
                             class="icon-list__item color-list__item"
-                            title="District ${color.id}"
+                            title="District ${color.displayNumber}"
                         >
                             <input
                                 type="radio"
