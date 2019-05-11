@@ -12,22 +12,26 @@ function tooltipDots(features, parts) {
     if (sum(partCounts) === 0) {
         return "";
     }
+    const nonzeroParts = parts.filter((part, i) => partCounts[i] > 0);
     return html`
         <div class="tooltip__dots">
-            ${parts
-                .filter((part, i) => partCounts[i] > 0)
-                .map(
-                    part =>
-                        html`
-                            <span
-                                class="part-number tooltip__dot"
-                                style="background-color: ${part.color}"
-                                >${parts.length > 10
-                                    ? part.displayNumber
-                                    : ""}</span
-                            >
-                        `
-                )}
+            ${nonzeroParts.slice(0, 6).map(
+                part =>
+                    html`
+                        <span
+                            class="part-number tooltip__dot"
+                            style="background-color: ${part.color}"
+                            >${parts.length > 10
+                                ? part.displayNumber
+                                : ""}</span
+                        >
+                    `
+            )}
+            ${nonzeroParts.length > 6
+                ? html`
+                      &hellip;
+                  `
+                : ""}
         </div>
     `;
 }

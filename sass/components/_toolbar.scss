@@ -64,7 +64,7 @@ fieldset {
 
 .tool-options.active {
     opacity: 1;
-    max-height: 20rem;
+    max-height: 100%;
     border-bottom: solid 1px $outline-grey;
 }
 
@@ -211,6 +211,8 @@ li:first-child > input:checked ~ .tabs__tab {
     // contrast ratio is OK
     color: white;
     margin: 0 auto;
+
+    text-shadow: $text-shadow;
 }
 
 .tool-options {
@@ -263,10 +265,10 @@ li:first-child > input:checked ~ .tabs__tab {
 
 .ui-label {
     @include user-select(none);
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1;
     text-transform: uppercase;
-    font-size: 0.75rem;
     letter-spacing: 0.1rem;
     color: #444;
 }
