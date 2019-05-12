@@ -1,5 +1,5 @@
 const API_URL = location.hostname.includes("localhost")
-    ? "http://localhost:5000"
+    ? "http://localhost:8000"
     : "https://api.districtr.org";
 
 export default class ApiClient {

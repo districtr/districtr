@@ -6,6 +6,7 @@ import Brush from "../Map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
 import { download } from "../utils";
+import { client } from "../api/client";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -39,6 +40,17 @@ function exportPlanAsJSON(state) {
     download(`districtr-plan-${serialized.id}.json`, text);
 }
 
+function savePlan(state) {
+    const serialized = state.serialize();
+    return client
+        .post("/plans/", serialized)
+        .then(resp =>
+            resp.ok
+                ? console.log("OK!")
+                : console.error("Not ok....", resp.body())
+        );
+}
+
 function exportPlanAsAssignmentFile(plan, delimiter = ",", extension = "csv") {
     const text = Object.keys(plan.assignment)
         .map(unitId => `${unitId}${delimiter}${plan.assignment[unitId]}`)
@@ -55,6 +67,10 @@ function getMenuItems(state) {
         {
             name: "New plan",
             onClick: () => navigateTo("/new")
+        },
+        {
+            name: "Save plan",
+            onClick: () => savePlan(state)
         },
         {
             name: "Export this plan",

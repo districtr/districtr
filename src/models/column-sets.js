@@ -5,8 +5,10 @@ import { districtColors } from "../colors";
 
 export function getParts(problem) {
     let name = problem.name || "District";
+    let number =
+        problem.number === undefined ? problem.numberOfParts : problem.number;
     let parts = [];
-    for (let i = 0; i < problem.numberOfParts; i++) {
+    for (let i = 0; i < number; i++) {
         let j = i % districtColors.length;
         parts[i] = new Part(i, name, i + 1, districtColors[j]);
     }

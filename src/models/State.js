@@ -12,6 +12,8 @@ import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 // [ ] Units (unitsRecord, reference to layer?) ? <--- really need this one
 // "place" is mostly split up into these categories now.
 
+const SCHEMA_VERSION = 1;
+
 class DistrictingPlan {
     constructor({ id, problem, idColumn, parts }) {
         if (id) {
@@ -20,7 +22,12 @@ class DistrictingPlan {
             this.id = generateId(8);
         }
 
-        this.problem = problem;
+        this.problem = {
+            number: problem.number || problem.numberOfParts,
+            name: problem.name,
+            plural_noun: problem.plural_noun || problem.pluralNoun,
+            type: problem.type
+        };
         this.assignment = {};
         this.parts = getParts(problem);
         if (parts) {
@@ -51,7 +58,6 @@ class DistrictingPlan {
             description: this.description,
             assignment: this.assignment,
             id: this.id,
-            idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             problem: this.problem,
             parts: this.parts.filter(p => p.visible).map(p => p.serialize())
         };
@@ -130,8 +136,9 @@ export default class State {
     serialize() {
         return {
             ...this.plan.serialize(),
-            placeId: this.place.id,
-            units: this.unitsRecord
+            place: this.place.id,
+            units: this.unitsRecord.id,
+            version: SCHEMA_VERSION
         };
     }
     subscribe(f) {

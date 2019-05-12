@@ -65,10 +65,17 @@ export function getContextFromStorage() {
 
 export function loadPlanFromJSON(planRecord) {
     return listPlaces().then(places => {
-        const place = places.find(p => p.id === planRecord.placeId);
+        const place = places.find(
+            p => p.id === planRecord.placeId || p.id === planRecord.place
+        );
+        const units =
+            planRecord.version >= 1
+                ? place.units.find(u => u.id === planRecord.units)
+                : planRecord.units;
         return {
             ...planRecord,
-            place
+            place,
+            units
         };
     });
 }
