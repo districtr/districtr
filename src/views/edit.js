@@ -38,20 +38,24 @@ function getPlanFromRoute() {
     if (planId.length == 0) {
         planId = window.location.hash.slice(1).trim();
     }
-    return planId.slice("chi-".length);
+    // return planId.slice("chi-".length);
+    return planId;
 }
 
 function getPlanContext() {
     const planId = getPlanFromRoute();
     if (planId.length > 0) {
-        const planFile = `${planId}.json`;
-        return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
-            // eslint-disable-next-line no-console
-            console.error(`Could not load plan ${planId}`);
-            navigateTo("/");
-            // eslint-disable-next-line no-console
-            console.error(e);
-        });
+        // const planFile = `${planId}.json`;
+        return loadPlanFromURL(`http://localhost:8000/plans/${planId}`).catch(
+            e => {
+                // return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
+                // eslint-disable-next-line no-console
+                console.error(`Could not load plan ${planId}`);
+                navigateTo("/");
+                // eslint-disable-next-line no-console
+                console.error(e);
+            }
+        );
     } else {
         return Promise.resolve(getContextFromStorage());
     }

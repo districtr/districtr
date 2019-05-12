@@ -69,9 +69,10 @@ export function loadPlanFromJSON(planRecord) {
             p => p.id === planRecord.placeId || p.id === planRecord.place
         );
         const units =
-            planRecord.version >= 1
-                ? place.units.find(u => u.id === planRecord.units)
-                : planRecord.units;
+            place.units.find(u => u.id === planRecord.units) ||
+            planRecord.units;
+        console.log(units);
+        console.log(planRecord);
         return {
             ...planRecord,
             place,

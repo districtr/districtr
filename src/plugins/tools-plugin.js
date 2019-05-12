@@ -47,7 +47,7 @@ function savePlan(state) {
         .then(resp =>
             resp.ok
                 ? console.log("OK!")
-                : console.error("Not ok....", resp.body())
+                : console.error("Not ok....", resp.json())
         );
 }
 
