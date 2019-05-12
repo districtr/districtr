@@ -42,14 +42,18 @@ function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
     );
-    return elections.map(
-        election =>
-            new Election(
-                `${election.metadata.year} ${election.metadata.race} Election`,
-                election.subgroups,
-                parts
-            )
-    );
+    return elections
+        .sort((a, b) => b.metadata.year - a.metadata.year)
+        .map(
+            election =>
+                new Election(
+                    `${election.metadata.year} ${
+                        election.metadata.race
+                    } Election`,
+                    election.subgroups,
+                    parts
+                )
+        );
 }
 
 export function getColumnSets(state, unitsRecord) {

@@ -2,7 +2,10 @@ import ColumnSet from "./ColumnSet";
 
 export default class Election extends ColumnSet {
     constructor(name, subgroups, parts) {
-        super({ subgroups: subgroups, parts });
+        const sortedSubgroups = subgroups.sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+        super({ subgroups: sortedSubgroups, parts }, false);
         this.name = name;
 
         this.getOtherParty = this.getOtherParty.bind(this);
