@@ -32,7 +32,7 @@ export default function EvaluationPlugin(editor) {
                     "VAP Balance",
                     state.vap,
                     state.activeParts,
-                    uiState.charts["Racial Balance"],
+                    uiState.charts["VAP Balance"],
                     dispatch
                 ),
             {
