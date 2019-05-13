@@ -172,9 +172,8 @@ function AboutSectionTemplate({
                     class="text-input text-area"
                     @blur=${e => setDescription(e.target.value)}
                     @focus=${e => setDescription(e.target.value)}
-                >
-${description}</textarea
-                >
+                    .value="${description}"
+                ></textarea>
             </li>
             <li class="option-list__item">
                 <button
