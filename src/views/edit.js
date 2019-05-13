@@ -1,7 +1,11 @@
 import { html, render } from "lit-html";
 import { MapState } from "../Map/map";
 import State from "../models/State";
-import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
+import {
+    getContextFromStorage,
+    navigateTo,
+    loadPlanFromBackend
+} from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
@@ -34,7 +38,11 @@ const defaultPlugins = [
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
 function getPlanFromRoute() {
-    let planId = window.location.pathname.slice("/edit/".length).trim();
+    // We expect the url to look like /plans/{planId}/edit or /edit/{planId}
+    // So, splitting on "/" gives ["", "plans", planId, "edit"] or ["", "edit", planId].
+    // In both cases, we want the second component.
+    let urlComponents = window.location.pathname.split("/");
+    let planId = urlComponents[2] || "";
     if (planId.length == 0) {
         planId = window.location.hash.slice(1).trim();
     }
@@ -46,16 +54,14 @@ function getPlanContext() {
     const planId = getPlanFromRoute();
     if (planId.length > 0) {
         // const planFile = `${planId}.json`;
-        return loadPlanFromURL(`http://localhost:8000/plans/${planId}`).catch(
-            e => {
-                // return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
-                // eslint-disable-next-line no-console
-                console.error(`Could not load plan ${planId}`);
-                navigateTo("/");
-                // eslint-disable-next-line no-console
-                console.error(e);
-            }
-        );
+        return loadPlanFromBackend(planId).catch(e => {
+            // return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
+            // eslint-disable-next-line no-console
+            console.error(`Could not load plan ${planId}`);
+            // eslint-disable-next-line no-console
+            console.error(e);
+            navigateTo("/new");
+        });
     } else {
         return Promise.resolve(getContextFromStorage());
     }

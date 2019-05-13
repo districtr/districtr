@@ -1,4 +1,5 @@
 import { listPlaces } from "./api/mockApi";
+import { client } from "./api/client";
 
 const routes = {
     "/": "/",
@@ -71,14 +72,19 @@ export function loadPlanFromJSON(planRecord) {
         const units =
             place.units.find(u => u.id === planRecord.units) ||
             planRecord.units;
-        console.log(units);
-        console.log(planRecord);
         return {
             ...planRecord,
             place,
             units
         };
     });
+}
+
+export function loadPlanFromBackend(planId) {
+    return client
+        .get(`/plans/${planId}`)
+        .then(r => r.json())
+        .then(loadPlanFromJSON);
 }
 
 export function loadPlanFromURL(url) {
