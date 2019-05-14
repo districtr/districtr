@@ -48,8 +48,7 @@
         "rollup-plugin-terser": "^4.0.4",
         "sass": "^1.19.0",
         "sinon": "^7.3.2",
-        "webpack-merge": "^4.1.5",
-        "gulp-dart-sass": "^0.9.1"
+        "webpack-merge": "^4.1.5"
     },
     "dependencies": {
         "d3-geo": "^1.11.3",
