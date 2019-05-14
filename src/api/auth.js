@@ -26,7 +26,9 @@ export const unauthenticatedUser = {};
 export default function initializeAuthContext(client) {
     return getBearerToken().then(token =>
         getCurrentUser(token).then(user => {
-            if (user !== unauthenticatedUser) {
+            if (user === unauthenticatedUser) {
+                localStorage.removeItem("bearerToken");
+            } else {
                 localStorage.setItem("bearerToken", token);
                 client.middleware.push(createAuthMiddleware(token));
             }
@@ -47,8 +49,11 @@ function getCurrentUser(token) {
         return client
             .get(`/users/${user.id}`, { Authorization: `Bearer ${token}` })
             .then(r => {
-                const user = r.ok ? r.json() : unauthenticatedUser;
-                return user;
+                if (r.ok) {
+                    return r.json();
+                } else {
+                    return unauthenticatedUser;
+                }
             })
             .catch(() => unauthenticatedUser);
     } else {
