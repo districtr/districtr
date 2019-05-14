@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./css/chicago.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <meta property="og:title" content="Districtr" />
+        <meta
+            name="author"
+            content="Metric Geometry and Gerrymandering Group"
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta
+            name="description"
+            content="The open web app for drawing districtring plans."
+        />
+        <meta
+            property="og:description"
+            content="The open web app for drawing districtring plans."
+        />
+        <link rel="canonical" href="https://districtr.org/dashboard" />
+        <meta property="og:url" content="https://districtr.org/dashboard" />
+        <meta property="og:site_name" content="Districtr" />
+    </head>
+
+    <body>
+        <main id="root" class="landing-page">
+            <header class="sign-in" id="sign-in"></header>
+            <section
+                id="my-plans"
+                class="l-content u-centered l-major-section place__content"
+            ></section>
+        </main>
+        <script src="./es6/dashboard.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.write(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.write(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                document.write('<script src="./es5/dashboard.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>
