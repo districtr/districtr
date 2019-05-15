@@ -2,19 +2,20 @@ import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 
 export function renderAboutModal({ place, unitsRecord }) {
+    renderModal({
+        title: place.name,
+        subtitle: unitsRecord.name,
+        content: until(
+            fetch(`/assets/about/${place.slug}/${unitsRecord.slug}.html`)
+                .then(r => r.text())
+                .then(content => html([content]))
+        )
+    });
+}
+
+export function renderModal(args) {
     const target = document.getElementById("modal");
-    const template = until(
-        fetch(`/assets/about/${place.id}/${unitsRecord.id}.html`)
-            .then(r => r.text())
-            .then(content =>
-                Modal(() => render("", target), {
-                    title: place.name,
-                    sutitle: unitsRecord.name,
-                    content: html([content])
-                })
-            )
-    );
-    render(template, target);
+    render(Modal(() => render("", target), args), target);
 }
 
 export function Modal(onClose, { title, subtitle, content }) {
