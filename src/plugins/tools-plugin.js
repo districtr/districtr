@@ -7,6 +7,7 @@ import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
 import { download } from "../utils";
 import { client } from "../api/client";
+import initializeAuthContext from "../api/auth";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -42,13 +43,15 @@ function exportPlanAsJSON(state) {
 
 function savePlan(state) {
     const serialized = state.serialize();
-    return client
-        .post("/plans/", serialized)
-        .then(resp =>
-            resp.ok
-                ? console.log("OK!")
-                : console.error("Not ok....", resp.json())
-        );
+    initializeAuthContext(client).then(() =>
+        client
+            .post("/plans/", serialized)
+            .then(resp =>
+                resp.ok
+                    ? console.log("OK!")
+                    : console.error("Not ok....", resp.json())
+            )
+    );
 }
 
 function exportPlanAsAssignmentFile(plan, delimiter = ",", extension = "csv") {

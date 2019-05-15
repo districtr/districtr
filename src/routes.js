@@ -44,6 +44,15 @@ export function savePlanToStorage({
         description,
         parts
     };
+    // Convert snake case to camel case
+    state.units = {
+        ...units,
+        nameColumn: units.name_column,
+        idColumn: units.id_column,
+        columnSets: units.column_sets,
+        unitType: units.unit_type
+    };
+    state.problem = { ...state.problem, number: problem.number_of_parts };
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
@@ -84,7 +93,23 @@ export function loadPlanFromBackend(planId) {
     return client
         .get(`/plans/${planId}`)
         .then(r => r.json())
-        .then(loadPlanFromJSON);
+        .then(context => {
+            // This is probably where we should do any
+            // camelCase translation.
+            let units = context.units;
+            let newUnits = {
+                id: units.id,
+                slug: units.slug,
+                idColumn: units.id_column,
+                nameColumn: units.name_column,
+                columnSets: units.column_sets,
+                unitType: units.unit_type,
+                bounds: units.bounds,
+                tilesets: units.tilesets
+            };
+            return { ...context, units: newUnits };
+        });
+    // .then(loadPlanFromJSON);
 }
 
 export function loadPlanFromURL(url) {

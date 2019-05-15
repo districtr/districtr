@@ -60,7 +60,7 @@ function getPlanContext() {
             console.error(`Could not load plan ${planId}`);
             // eslint-disable-next-line no-console
             console.error(e);
-            navigateTo("/new");
+            // navigateTo("/new");
         });
     } else {
         return Promise.resolve(getContextFromStorage());

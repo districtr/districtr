@@ -2,12 +2,13 @@
 @import "colors";
 @import "headings";
 @import "splash";
+@import "place";
 @import "components/places";
-@import "components/place-map";
-@import "components/button";
-@import "components/signin";
+@import "components/media";
 @import "components/breadcrumbs";
 
-.hidden {
-    display: none !important;
+.dashboard__list {
+    margin: 2rem auto;
+    max-width: 80rem;
+    padding: 0 1rem;
 }

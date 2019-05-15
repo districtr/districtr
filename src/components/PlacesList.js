@@ -14,7 +14,7 @@ export function onlyCommunities() {
 
 function communitiesFilter(place) {
     if (justCommunities) {
-        place.districtingProblems = [
+        place.districting_problems = [
             { type: "community", numberOfParts: 50, pluralNoun: "Community" }
         ];
     }
@@ -76,7 +76,7 @@ function getProblemInfo(problem) {
         ${problem.type !== "community"
             ? html`
                   <div class="place-info">
-                      ${problem.numberOfParts} ${problem.pluralNoun}
+                      ${problem.number_of_parts} ${problem.plural_noun}
                   </div>
               `
             : ""}
@@ -84,7 +84,7 @@ function getProblemInfo(problem) {
 }
 
 export function placeItems(place, onClick) {
-    const districtingProblems = place.districtingProblems;
+    const districtingProblems = place.districting_problems;
     return districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
@@ -95,7 +95,7 @@ export function placeItems(place, onClick) {
                     >
                         <div class="place-name">${place.name}</div>
                         ${getProblemInfo(problem)}
-                        ${units.unitType
+                        ${units.unit_type
                             ? html`
                                   <div class="place-info">
                                       Built out of ${units.name.toLowerCase()}

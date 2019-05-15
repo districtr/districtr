@@ -24,17 +24,10 @@ export const unauthenticatedUser = {};
  * @returns {Object|unauthenticatedUser} the current user
  */
 export default function initializeAuthContext(client) {
-    return getBearerToken().then(token =>
-        getCurrentUser(token).then(user => {
-            if (user === unauthenticatedUser) {
-                localStorage.removeItem("bearerToken");
-            } else {
-                localStorage.setItem("bearerToken", token);
-                client.middleware.push(createAuthMiddleware(token));
-            }
-            return user;
-        })
-    );
+    return getBearerToken().then(token => {
+        client.middleware.push(createAuthMiddleware(token));
+        return token;
+    });
 }
 
 /**
@@ -43,7 +36,7 @@ export default function initializeAuthContext(client) {
  * @param {string|noBearerToken} token
  * @returns {Promise<Object|unauthenticatedUser>} the current user
  */
-function getCurrentUser(token) {
+export function getCurrentUser(token) {
     const user = getUserFromToken(token);
     if (user !== unauthenticatedUser) {
         return client

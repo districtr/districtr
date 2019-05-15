@@ -3,12 +3,13 @@
 
 .plan-thumbs {
     display: flex;
+    // flex-direction: column;
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
-    margin: 1rem;
+    margin: 1rem 0;
     padding: 0;
-    justify-content: center;
+    justify-content: start;
 }
 
 .plan-thumbs__thumb {
@@ -27,7 +28,7 @@
 
 .plan-thumbs__thumb:hover,
 .plan-thumbs__thumb:active {
-    box-shadow: $focus-shadow;
+    box-shadow: $raised--dark;
 }
 
 .thumb__img {
@@ -36,6 +37,10 @@
     object-fit: contain;
     align-self: center;
     border-right: 1px solid $districtr-grey-active;
+}
+
+.thumb__datum {
+    margin: 0;
 }
 
 @media only screen and (max-width: 36rem) {

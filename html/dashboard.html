@@ -9,7 +9,7 @@
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="./css/chicago.css"
+            href="./css/dashboard.css"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
@@ -39,12 +39,65 @@
     </head>
 
     <body>
-        <main id="root" class="landing-page">
+        <main id="root">
+            <nav class="breadcrumbs">
+                <a class="breadcrumb__link" href="/">
+                    <i class="material-icons">
+                        keyboard_arrow_left
+                    </i>
+                    Back to Districtr</a
+                >
+            </nav>
             <header class="sign-in" id="sign-in"></header>
-            <section
-                id="my-plans"
-                class="l-content u-centered l-major-section place__content"
-            ></section>
+            <section class="l-content dashboard__list">
+                <h2>Draw something new</h2>
+                <div class="media-list">
+                    <a href="/new" class="link--no-style">
+                        <article
+                            class="media media--bold media-list__item media--interactive"
+                        >
+                            <h3 class="media__title media__title--bold">
+                                Draw a districting plan
+                            </h3>
+                            <img
+                                class="media__img"
+                                src="/assets/districting-plan.svg"
+                                alt="an abstract districting plan"
+                            />
+                            <p class="media__body">
+                                Learn first-hand about the redistricting
+                                process, the trade-offs involved, and what
+                                districts can look like for your state or city.
+                            </p>
+                        </article>
+                    </a>
+                    <a href="/community" class="link--no-style">
+                        <article
+                            class="media media--bold media-list__item media--interactive"
+                        >
+                            <h3 class="media__title media__title--bold">
+                                Identify your community
+                            </h3>
+                            <img
+                                class="media__img"
+                                src="/assets/community.svg"
+                                alt="an abstract community identification"
+                            />
+                            <p class="media__body">
+                                Draw the boundaries of a
+                                <strong>community of interest</strong> that map
+                                drawers should take into account.
+                            </p>
+                        </article>
+                    </a>
+                </div>
+            </section>
+
+            <section class="l-content decorated-section">
+                <div class="dashboard__list">
+                    <div id="my-plans"></div>
+                </div>
+            </section>
         </main>
         <script src="./es6/dashboard.js"></script>
         <script>

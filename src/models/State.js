@@ -6,11 +6,13 @@ import { getColumnSets, getParts } from "./column-sets";
 import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 
 // We should break this up. Maybe like this:
-// [ ] MapState (map, layers)
+// [x] MapState (map, layers)
 // [ ] DistrictData (column sets) ?
 // [x] DistrictingPlan (assignment, problem, export()) ?
-// [ ] Units (unitsRecord, reference to layer?) ? <--- really need this one
+// [ ] Units (unitsRecord, reference to layer?,
+//     name and id columns) ? <--- really need this one
 // "place" is mostly split up into these categories now.
+// Only remaining thing is place.name
 
 class DistrictingPlan {
     constructor({ id, problem, idColumn, parts }) {
@@ -21,30 +23,14 @@ class DistrictingPlan {
         }
 
         this.problem = {
+            id: problem.id,
             number: problem.number || problem.numberOfParts,
             name: problem.name,
-            plural_noun: problem.plural_noun || problem.pluralNoun,
+            pluralNoun: problem.plural_noun || problem.pluralNoun,
             type: problem.type || "districts"
         };
         this.assignment = {};
-        this.parts = getParts(problem);
-        if (parts) {
-            for (let i = 0; i < parts.length; i++) {
-                this.parts[i].updateDescription(parts[i]);
-            }
-        }
-        if (problem.type === "multimember" || problem.type === "community") {
-            this.parts.slice(1).forEach(part => {
-                part.visible = false;
-            });
-        }
-        if (problem.type === "community") {
-            this.parts.forEach(part => {
-                if (!part.name) {
-                    part.name = `Community ${part.displayNumber}`;
-                }
-            });
-        }
+        this.parts = getParts(problem, parts);
         this.idColumn = idColumn;
     }
     update(feature, part) {
@@ -52,11 +38,10 @@ class DistrictingPlan {
     }
     serialize() {
         return {
-            name: this.name,
-            description: this.description,
+            name: this.id,
             assignment: this.assignment,
-            id: this.id,
-            problem: this.problem,
+            // id: this.id,
+            problem_id: this.problem.id,
             parts: this.parts.filter(p => p.visible).map(p => p.serialize())
         };
     }
@@ -76,7 +61,7 @@ export default class State {
         this.unitsRecord = units;
         this.place = place;
         this.idColumn = new IdColumn(units.idColumn);
-        if (units.hasOwnProperty("nameColumn")) {
+        if (units.nameColumn) {
             this.nameColumn = new IdColumn(units.nameColumn);
         }
         this.plan = new DistrictingPlan({
@@ -134,8 +119,8 @@ export default class State {
     serialize() {
         return {
             ...this.plan.serialize(),
-            place: this.place.id,
-            units: this.unitsRecord.id
+            place_id: this.place.id,
+            units_id: this.unitsRecord.id
         };
     }
     subscribe(f) {

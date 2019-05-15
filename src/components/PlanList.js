@@ -2,7 +2,7 @@ import { html } from "lit-html";
 
 export const loadablePlans = plans =>
     html`
-        <ul class="plan-thumbs">
+        <ul class="plan-thumbs u-centered">
             ${plans.map(loadablePlan)}
         </ul>
     `;
@@ -30,6 +30,23 @@ export const loadablePlan = plan => html`
             />
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.name || plan.id}</h6>
+                ${plan.place
+                    ? html`
+                          <p class="thumb__datum">${plan.place.name}</p>
+                      `
+                    : ""}
+                ${plan.problem
+                    ? html`
+                          <p class="thumb__datum">${plan.problem.name}</p>
+                      `
+                    : ""}
+                ${plan.modified_at
+                    ? html`
+                          <p class="thumb__datum">
+                              Last modified ${plan.modified_at}
+                          </p>
+                      `
+                    : ""}
                 ${plan.description ? plan.description : ""}
                 ${plan.numbers ? numberList(plan.numbers) : ""}
             </figcaption>
