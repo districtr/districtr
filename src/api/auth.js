@@ -14,7 +14,9 @@ export function signOut() {
 
 // Sentinel for when user cannot be authenticated (either has
 // no token or the token is not validated by the backend)
-export const unauthenticatedUser = {};
+export const unauthenticatedUser = {
+    roles: []
+};
 
 /**
  * Get user's identity and Bearer token. Equip the API client
@@ -26,6 +28,7 @@ export const unauthenticatedUser = {};
 export default function initializeAuthContext(client) {
     return getBearerToken().then(token => {
         client.middleware.push(createAuthMiddleware(token));
+        client.token = token;
         return token;
     });
 }
@@ -36,11 +39,17 @@ export default function initializeAuthContext(client) {
  * @param {string|noBearerToken} token
  * @returns {Promise<Object|unauthenticatedUser>} the current user
  */
-export function getCurrentUser(token) {
-    const user = getUserFromToken(token);
+export function getCurrentUser(client) {
+    if (client.user !== null) {
+        return Promise.resolve(client.user);
+    }
+    const user = getUserFromToken(client.token);
+    client.user = user;
     if (user !== unauthenticatedUser) {
         return client
-            .get(`/users/${user.id}`, { Authorization: `Bearer ${token}` })
+            .get(`/users/${user.id}`, {
+                Authorization: `Bearer ${client.token}`
+            })
             .then(r => {
                 if (r.ok) {
                     return r.json();

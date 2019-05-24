@@ -71,9 +71,17 @@
     justify-content: center;
 }
 
+.media-list--left-justified {
+    justify-content: left;
+}
+
 .media-list__item {
     margin: 1rem 2rem;
     max-width: 30rem;
+}
+
+.media-list__item--left-justified {
+    margin: 1rem 2rem 1rem 0;
 }
 
 @media only screen and (max-width: 400px) {

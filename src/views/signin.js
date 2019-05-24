@@ -8,6 +8,8 @@ import {
 import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
+let hasAttemptedSignIn = false;
+
 const handlers = {
     201: () => {
         document.getElementById("form").remove();
@@ -29,16 +31,19 @@ const handlers = {
 };
 
 function onSubmit({ email }) {
-    signInUser({
-        email: email.value
-    })
-        .then(handleResponse(handlers))
-        .catch(() => {
-            errorMessage(
-                "We're having trouble accessing our sign-in service. " +
-                    "Are you connected to the internet?"
-            );
-        });
+    if (!hasAttemptedSignIn) {
+        hasAttemptedSignIn = true;
+        return signInUser({
+            email: email.value
+        })
+            .then(handleResponse(handlers))
+            .catch(() => {
+                errorMessage(
+                    "We're having trouble accessing our sign-in service. " +
+                        "Are you connected to the internet?"
+                );
+            });
+    }
 }
 
 function validate({ email, submit }) {

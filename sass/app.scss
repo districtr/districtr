@@ -60,6 +60,8 @@ select {
 }
 
 .modal-content {
+    min-width: 24rem;
+    max-width: 95vw;
     line-height: 1.5;
     z-index: 1000000;
     background-color: white;

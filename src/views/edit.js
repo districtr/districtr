@@ -3,8 +3,8 @@ import { MapState } from "../Map/map";
 import State from "../models/State";
 import {
     getContextFromStorage,
-    navigateTo,
-    loadPlanFromBackend
+    loadPlanFromBackend,
+    loadPlanFromURL
 } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
@@ -12,6 +12,8 @@ import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
+import initializeAuthContext from "../api/auth";
+import { client } from "../api/client";
 
 function getPlugins(context) {
     if (context.problem.type === "community") {
@@ -45,23 +47,29 @@ function getPlanFromRoute() {
     let planId = urlComponents[2] || "";
     if (planId.length == 0) {
         planId = window.location.hash.slice(1).trim();
+        if (planId.length > 0) {
+            history.replaceState({}, window.title, `/edit/${planId}`);
+        }
     }
-    // return planId.slice("chi-".length);
     return planId;
 }
 
 function getPlanContext() {
     const planId = getPlanFromRoute();
     if (planId.length > 0) {
-        // const planFile = `${planId}.json`;
-        return loadPlanFromBackend(planId).catch(e => {
-            // return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
-            // eslint-disable-next-line no-console
-            console.error(`Could not load plan ${planId}`);
-            // eslint-disable-next-line no-console
-            console.error(e);
-            // navigateTo("/new");
-        });
+        if (planId.slice(0, 4) == "chi-") {
+            const planFile = `${planId.slice("chi-".length)}.json`;
+            return loadPlanFromURL(`/assets/chicago-plans/${planFile}`);
+        }
+        return initializeAuthContext(client)
+            .then(() => loadPlanFromBackend(planId))
+            .catch(e => {
+                // eslint-disable-next-line no-console
+                console.error(`Could not load plan ${planId}`);
+                // eslint-disable-next-line no-console
+                console.error(e);
+                // navigateTo("/new");
+            });
     } else {
         return Promise.resolve(getContextFromStorage());
     }

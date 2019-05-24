@@ -3,6 +3,7 @@ import { client } from "./api/client";
 
 const routes = {
     "/": "/",
+    "/dashboard": "/dashboard",
     "/new": "/new",
     "/edit": "/edit",
     "/register": "/register",
@@ -18,6 +19,10 @@ export function navigateTo(route) {
         throw Error("The requested route does not exist: " + route);
     }
 }
+
+export const linkToPlan = window.location.hostname.includes("localhost")
+    ? planId => `/edit#${planId}`
+    : planId => `/edit/${planId}`;
 
 export function startNewPlan(place, problem, units, id) {
     savePlanToStorage({ place, problem, units, id });
@@ -109,7 +114,6 @@ export function loadPlanFromBackend(planId) {
             };
             return { ...context, units: newUnits };
         });
-    // .then(loadPlanFromJSON);
 }
 
 export function loadPlanFromURL(url) {

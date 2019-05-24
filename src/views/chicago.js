@@ -186,7 +186,7 @@ const districtingOptions = places =>
     `;
 
 const placeItemsTemplate = (place, onClick) =>
-    place.districtingProblems
+    place.districting_problems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
@@ -197,12 +197,12 @@ const placeItemsTemplate = (place, onClick) =>
                         <div class="place-name">
                             ${problem.type === "multimember"
                                 ? "Multi-member wards of varying sizes"
-                                : `${problem.numberOfParts} ${
-                                      problem.pluralNoun
+                                : `${problem.number_of_parts} ${
+                                      problem.plural_noun
                                   }`}
                         </div>
                         <div class="place-info">
-                            Built out of ${units.unitType}
+                            Built out of ${units.unit_type}
                         </div>
                     </li>
                 `

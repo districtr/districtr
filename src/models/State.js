@@ -1,7 +1,6 @@
 import { addLayers } from "../Map/map";
 import IdColumn from "./IdColumn";
 import { assignUnitsAsTheyLoad } from "./lib";
-import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./column-sets";
 import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 
@@ -15,12 +14,13 @@ import { addBelowLabels, addBelowSymbols } from "../Layers/Layer";
 // Only remaining thing is place.name
 
 class DistrictingPlan {
-    constructor({ id, problem, idColumn, parts }) {
-        if (id) {
+    constructor({ id, name, problem, idColumn, parts, assignment }) {
+        if (id !== null && id !== undefined) {
             this.id = id;
         } else {
-            this.id = generateId(12);
+            this.id = undefined;
         }
+        this.name = name || "Untitled";
 
         this.problem = {
             id: problem.id,
@@ -29,21 +29,36 @@ class DistrictingPlan {
             pluralNoun: problem.plural_noun || problem.pluralNoun,
             type: problem.type || "districts"
         };
-        this.assignment = {};
+        this.assignment = assignment || {};
         this.parts = getParts(problem, parts);
         this.idColumn = idColumn;
+    }
+    get neverSaved() {
+        return this.id === undefined;
     }
     update(feature, part) {
         this.assignment[this.idColumn.getValue(feature)] = part;
     }
     serialize() {
         return {
-            name: this.id,
+            id: this.id,
+            name: this.name,
             assignment: this.assignment,
-            // id: this.id,
             problem_id: this.problem.id,
             parts: this.parts.filter(p => p.visible).map(p => p.serialize())
         };
+    }
+    copy() {
+        const clone = new DistrictingPlan({
+            id: undefined,
+            name: `${this.name} Copy`,
+            problem: this.problem,
+            assignment: this.assignment,
+            idColumn: this.idColumn,
+            parts: null
+        });
+        clone.parts = this.parts;
+        return clone;
     }
 }
 

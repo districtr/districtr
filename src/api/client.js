@@ -12,6 +12,8 @@ export default class ApiClient {
             middleware = [];
         }
         this.middleware = middleware;
+        this.token = null;
+        this.user = null;
     }
     request(uri, method, body, headers) {
         let requestBody;

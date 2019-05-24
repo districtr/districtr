@@ -54,7 +54,7 @@ export function PlacesListForState(
 
 export function getUnits(place, problem) {
     if (problem.units) {
-        return place.units.filter(units => problem.units.includes(units.id));
+        return place.units.filter(units => problem.units.includes(units.slug));
     }
     return place.units;
 }

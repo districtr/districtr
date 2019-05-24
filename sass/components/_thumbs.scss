@@ -14,7 +14,7 @@
 
 .plan-thumbs__thumb {
     box-shadow: $raised;
-    margin: 0.5rem;
+    margin: 0 2rem 2rem 0;
     transition: 100ms all ease;
     display: flex;
     flex-direction: row;
@@ -22,7 +22,7 @@
     justify-content: stretch;
     flex-wrap: wrap;
     min-width: 250px;
-    width: 36rem;
+    width: 32rem;
     border: 1px solid $districtr-grey-active;
 }
 

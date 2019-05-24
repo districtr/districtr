@@ -54,14 +54,6 @@
 .form-content {
     // border-bottom: 1px solid #ddd;
     padding: 1rem 1.5rem;
-    border-bottom: #ddd 1px solid;
-}
-
-.form-content:last-child {
-    border: none;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    border-bottom-style: none;
 }
 
 .form {
@@ -69,6 +61,7 @@
     color: #444;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    border-top: 1px solid #ddd;
     display: flex;
     flex-direction: column;
 }
