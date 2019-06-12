@@ -33,7 +33,7 @@
         "@open-wc/testing": "^0.11.1",
         "@open-wc/testing-karma": "^1.0.0",
         "@open-wc/testing-karma-bs": "^1.0.0",
-        "browser-sync": "^2.26.5",
+        "browser-sync": "^2.26.7",
         "chai": "^4.2.0",
         "eslint": "^5.16.0",
         "gulp": "^4.0.1",
