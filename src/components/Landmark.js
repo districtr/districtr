@@ -21,7 +21,7 @@ export function LandmarkInfo(features) {
 }
 
 const landmarkPaintProperty = {
-    "fill-opacity": 0.75,
+    "fill-opacity": 0, // turn off the highlights by default
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
@@ -48,8 +48,7 @@ export class Landmarks {
             addBelowLabels
         );
         this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
-        this.landmarksTooltip.activate();
-        this.visible = true;
+        this.visible = false;
 
         this.handleToggle = this.handleToggle.bind(this);
     }
