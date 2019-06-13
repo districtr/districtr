@@ -49,7 +49,10 @@ export class Landmarks {
         );
         this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
         this.landmarksTooltip.activate();
+        
+        // turn off the highlights by default
         this.visible = true;
+        this.layer.setOpacity(0);
 
         this.handleToggle = this.handleToggle.bind(this);
     }
