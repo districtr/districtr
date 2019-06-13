@@ -51,7 +51,7 @@ export class Landmarks {
         this.landmarksTooltip.activate();
         
         // turn off the highlights by default
-        this.visible = true;
+        this.visible = false;
         this.layer.setOpacity(0);
 
         this.handleToggle = this.handleToggle.bind(this);
