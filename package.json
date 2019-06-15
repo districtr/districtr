@@ -56,6 +56,6 @@
         "d3-selection": "^1.4.0",
         "d3-transition": "^1.2.0",
         "lit-html": "^1.0.0",
-        "mapbox-gl": "^0.54.0"
+        "mapbox-gl": "^1.0.0"
     }
 }
