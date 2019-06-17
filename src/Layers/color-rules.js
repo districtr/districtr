@@ -10,8 +10,30 @@ const partyRGBColors = {
     Republican: [211, 47, 47]
 };
 
+let vizColors = [
+    [102, 194, 165],
+    [252, 141, 98],
+    [141, 160, 203],
+    [231, 138, 195],
+    [166, 216, 84]
+];
+
+let cachedColors = {};
+
+function getPartyRGBColors(name) {
+    if (partyRGBColors.hasOwnProperty(name)) {
+        return partyRGBColors[name];
+    }
+    if (cachedColors.hasOwnProperty(name)) {
+        return vizColors[name];
+    }
+    let color = vizColors.pop();
+    cachedColors[name] = color;
+    return color;
+}
+
 export function colorByCount(subgroup) {
-    const rgb = partyRGBColors[subgroup.name] || [0, 0, 0];
+    const rgb = getPartyRGBColors(subgroup.name) || [0, 0, 0];
     return [
         "rgba",
         ...rgb,
