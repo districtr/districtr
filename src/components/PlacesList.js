@@ -56,7 +56,17 @@ export function getUnits(place, problem) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    return place.units;
+    return place.units.sort((a, b) => {
+        const x = a.name.toLowerCase();
+        const y = b.name.toLowerCase();
+        if (x < y) {
+            return -1;
+        }
+        if (x > y) {
+            return 1;
+        }
+        return 0;
+    });
 }
 
 const problemTypeInfo = {
