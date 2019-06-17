@@ -40,14 +40,21 @@ function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
     );
+    elections.forEach(election => {
+        election.year = election.metadata
+            ? election.metadata.year
+            : election.name.split(" ")[0];
+    });
     return elections
-        .sort((a, b) => b.metadata.year - a.metadata.year)
+        .sort((a, b) => b.year - a.year)
         .map(
             election =>
                 new Election(
-                    `${election.metadata.year} ${
-                        election.metadata.race
-                    } Election`,
+                    election.metadata
+                        ? `${election.metadata.year} ${
+                              election.metadata.race
+                          } Election`
+                        : `${election.name} Election`,
                     election.subgroups,
                     parts
                 )
