@@ -25,7 +25,7 @@ function getPartyRGBColors(name) {
         return partyRGBColors[name];
     }
     if (cachedColors.hasOwnProperty(name)) {
-        return vizColors[name];
+        return cachedColors[name];
     }
     let color = vizColors.pop();
     cachedColors[name] = color;
@@ -33,7 +33,7 @@ function getPartyRGBColors(name) {
 }
 
 export function colorByCount(subgroup) {
-    const rgb = getPartyRGBColors(subgroup.name) || [0, 0, 0];
+    const rgb = [0, 0, 0];
     return [
         "rgba",
         ...rgb,
@@ -62,7 +62,10 @@ export function sizeByCount(subgroup) {
 }
 
 export function colorByFraction(subgroup) {
-    const rgb = partyRGBColors[subgroup.name] || [0, 0, 0];
+    const rgb =
+        subgroup.columnSet.type === "election"
+            ? getPartyRGBColors(subgroup.name)
+            : [0, 0, 0];
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 
@@ -83,7 +86,7 @@ function colorbyVoteShare(party, colorStops) {
 }
 
 function getPartisanColorStops(party) {
-    const rgb = partyRGBColors[party.name];
+    const rgb = getPartyRGBColors(party.name);
     return [
         0,
         "rgba(0,0,0,0)",
@@ -118,7 +121,7 @@ function colorByMarginPerCapita(election, party, population, colorStops) {
 }
 
 export const createMarginPerCapitaRule = population => (election, party) => {
-    const rgb = partyRGBColors[party.name];
+    const rgb = getPartyRGBColors(party.name);
     let stops = [
         0,
         "rgba(249, 249, 249, 0)",
