@@ -27,7 +27,7 @@ Here's how to get started.
   [Node.js](https://nodejs.org/en/), and a helpful text editor. We recommend
   [VS Code](https://code.visualstudio.com/).
 2. Clone the repository using GitHub for Desktop, or by running
-  `git clone https://github.com/gerrymandr/Districtr` from the command line.
+  `git clone https://github.com/districtr/districtr` from the command line.
 3. Install the dependencies by running `npm install`.
 4. To start the development server and make sure everything's set up, first run `npm run develop`.
   If you go to `http://localhost:3000`, you should see Districtr running. The development
