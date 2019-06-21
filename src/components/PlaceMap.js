@@ -141,7 +141,7 @@ export function Features(features, onHover) {
     <g id="states-group" @mouseleave=${() => onHover(noHover)}>
     ${features.features.map(
         feature =>
-            svg`<path id="${feature.properties.STUSPS}" class="${
+            svg`<path id="${feature.properties.STUSPS.toLowerCase()}" class="${
                 feature.properties.isAvailable
                     ? "state state--available"
                     : "state"
