@@ -91,7 +91,7 @@
                 </dl>
             </article>
         </main>
-        <script src="./es6/chicago.js"></script>
+        <script src="/es6/chicago.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -100,7 +100,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="./es5/chicago.js"><\/script>');
+                document.write('<script src="/es5/chicago.js"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();

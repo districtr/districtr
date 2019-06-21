@@ -196,7 +196,7 @@ const loadablePlan = plan => html`
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="./assets/chicago-plans/${plan.id}.png"
+                src="/assets/chicago-plans/${plan.id}.png"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">

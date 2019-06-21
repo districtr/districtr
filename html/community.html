@@ -29,7 +29,7 @@
 
     <body>
         <main class="landing-page communities" id="root"></main>
-        <script src="./es6/community.js"></script>
+        <script src="/es6/community.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -38,7 +38,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="./es5/community.js"><\/script>');
+                document.write('<script src="/es5/community.js"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();
