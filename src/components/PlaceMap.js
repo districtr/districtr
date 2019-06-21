@@ -34,27 +34,48 @@ const noHover = {};
 
 let stateSelected = false;
 
+let FEATURES = [];
+
+const scale = 1280;
+const translate = [640, 300];
+const path = geoPath(
+    geoAlbersUsa()
+        .scale(scale)
+        .translate(translate)
+);
+
+export function getFeatureBySTUPS(code, features = FEATURES) {
+    code = code.toLowerCase();
+    return features.find(
+        feature =>
+            feature.properties.STUSPS.toLowerCase() === code &&
+            feature.properties.isAvailable
+    );
+}
+
 // =============
 // State updates
 // =============
 
-function selectState(path, feature, e) {
-    if (stateSelected === false) {
-        stateSelected = true;
-        if (feature.properties.isAvailable) {
-            e.target.classList.add("state--selected");
-            zoomToFeature(path, feature);
-            selectAll(".state").classed("state--zoomed", true);
-            select("#place-search").classed("hidden", true);
-            select("#places-list").classed(
-                "place-map__state-modules--hidden",
-                false
-            );
-            render(
-                modulesAvailable(feature),
-                document.getElementById("places-list")
-            );
-        }
+export function selectState(feature, target) {
+    if (stateSelected === false && feature.properties.isAvailable) {
+        history.pushState(
+            {},
+            feature.properties.NAME,
+            `/new/${feature.properties.STUSPS.toLowerCase()}`
+        );
+        target.classList.add("state--selected");
+        zoomToFeature(feature);
+        selectAll(".state").classed("state--zoomed", true);
+        select("#place-search").classed("hidden", true);
+        select("#places-list").classed(
+            "place-map__state-modules--hidden",
+            false
+        );
+        render(
+            modulesAvailable(feature),
+            document.getElementById("places-list")
+        );
     }
 }
 
@@ -97,7 +118,7 @@ function setSearchText(feature) {
 // Transitions
 // ===========
 
-function zoomToFeature(path, feature) {
+function zoomToFeature(feature) {
     const bounds = path.bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
@@ -116,25 +137,18 @@ function zoomToFeature(path, feature) {
 // ==========
 
 export function Features(features, onHover) {
-    const scale = 1280;
-    const translate = [640, 300];
-    const path = geoPath(
-        geoAlbersUsa()
-            .scale(scale)
-            .translate(translate)
-    );
     return svg`<svg viewBox="0 0 1280 600" style="width:100%; height:auto;">
     <g id="states-group" @mouseleave=${() => onHover(noHover)}>
     ${features.features.map(
         feature =>
-            svg`<path class="${
+            svg`<path id="${feature.properties.STUSPS}" class="${
                 feature.properties.isAvailable
                     ? "state state--available"
                     : "state"
             }"
             d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
                 feature.properties.isAvailable
-                    ? e => selectState(path, feature, e)
+                    ? e => selectState(feature, e.target)
                     : undefined
             }></path>`
     )}
@@ -156,6 +170,10 @@ function emptyModuleFallback(feature) {
     `;
 }
 
+window.onpopstate = () => {
+    resetMap();
+};
+
 function modulesAvailable(feature) {
     const list = PlacesListForState(feature.properties.NAME, () =>
         emptyModuleFallback(feature)
@@ -165,7 +183,7 @@ function modulesAvailable(feature) {
             <button
                 class="button button--transparent button--icon media__close"
                 id="back-to-map"
-                @click=${resetMap}
+                @click=${() => history.back()}
             >
                 <i class="material-icons">
                     close
@@ -230,6 +248,7 @@ function fetchFeatures(availablePlaces = available) {
                     feature.properties.NAME
                 );
             }
+            FEATURES = states;
 
             return states;
         });
