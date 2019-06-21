@@ -239,7 +239,7 @@ export function PlaceMapWithData() {
 // =============
 
 function fetchFeatures(availablePlaces = available) {
-    return fetch("./assets/simple_states.json")
+    return fetch("/assets/simple_states.json")
         .then(r => r.json())
         .then(states => {
             for (let i = 0; i < states.features.length; i++) {
