@@ -1,9 +1,5 @@
 import { html, render } from "lit-html";
-import {
-    PlaceMapWithData,
-    getFeatureBySTUPS,
-    selectState
-} from "../components/PlaceMap";
+import { PlaceMapWithData } from "../components/PlaceMap";
 import { until } from "lit-html/directives/until";
 import PlanUploader from "../components/PlanUploader";
 import { loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
@@ -28,19 +24,4 @@ export default function renderNewPlanView() {
         `,
         target
     );
-    window.setTimeout(() => {
-        const pathComponents = location.pathname.split("/");
-        if (pathComponents && pathComponents[-1] !== "new") {
-            const stateCode = pathComponents[-1];
-            const state = getFeatureBySTUPS(stateCode);
-            if (!state) {
-                history.replaceState("/new");
-            } else {
-                selectState(
-                    state,
-                    document.getElementById(stateCode.toLowerCase())
-                );
-            }
-        }
-    }, 1000);
 }

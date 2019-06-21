@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { geoPath, geoAlbersUsa } from "d3-geo";
 import { svg, html, render } from "lit-html";
 import { PlacesListForState } from "../components/PlacesList";
@@ -44,9 +45,9 @@ const path = geoPath(
         .translate(translate)
 );
 
-export function getFeatureBySTUPS(code, features = FEATURES) {
+export function getFeatureBySTUPS(code) {
     code = code.toLowerCase();
-    return features.find(
+    return FEATURES.find(
         feature =>
             feature.properties.STUSPS.toLowerCase() === code &&
             feature.properties.isAvailable
@@ -118,7 +119,7 @@ function setSearchText(feature) {
 // Transitions
 // ===========
 
-function zoomToFeature(feature) {
+function transformAndTranslate(feature) {
     const bounds = path.bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
@@ -126,32 +127,57 @@ function zoomToFeature(feature) {
         y = (bounds[0][1] + bounds[1][1]) / 2,
         scale = 0.75 / Math.max(dx / 1280, dy / 600),
         translate = [1280 * (1 / 4) - scale * x, 600 / 2 - scale * y];
+    return `translate(${translate}) scale(${scale})`;
+}
+
+function zoomToFeature(feature) {
     select("g")
         .transition()
         .duration(500)
-        .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+        .attr("transform", transformAndTranslate(feature));
 }
 
 // ==========
 // Components
 // ==========
 
-export function Features(features, onHover) {
+function featureClasses(feature, featureId, selectedId) {
+    const classes = {
+        state: true,
+        "state--available": feature.properties.isAvailable,
+        "state--zoomed": selectedId,
+        "state--selected": selectedId === featureId
+    };
+    return Object.keys(classes)
+        .filter(key => classes[key])
+        .join(" ");
+}
+
+export function Features(features, onHover, selectedId) {
     return svg`<svg viewBox="0 0 1280 600" style="width:100%; height:auto;">
-    <g id="states-group" @mouseleave=${() => onHover(noHover)}>
-    ${features.features.map(
-        feature =>
-            svg`<path id="${feature.properties.STUSPS.toLowerCase()}" class="${
-                feature.properties.isAvailable
-                    ? "state state--available"
-                    : "state"
-            }"
+    <g id="states-group" transform="${
+        selectedId
+            ? transformAndTranslate(
+                  features.features.find(
+                      feature =>
+                          feature.properties.STUSPS.toLowerCase() === selectedId
+                  )
+              )
+            : ""
+    }" @mouseleave=${() => onHover(noHover)}>
+    ${features.features.map(feature => {
+        const featureId = feature.properties.STUSPS.toLowerCase();
+        return svg`<path id="${featureId}" class="${featureClasses(
+            feature,
+            featureId,
+            selectedId
+        )}"
             d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
-                feature.properties.isAvailable
-                    ? e => selectState(feature, e.target)
-                    : undefined
-            }></path>`
-    )}
+            feature.properties.isAvailable
+                ? e => selectState(feature, e.target)
+                : undefined
+        }></path>`;
+    })}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
     )}"></path>
@@ -174,7 +200,10 @@ window.onpopstate = () => {
     resetMap();
 };
 
-function modulesAvailable(feature) {
+function modulesAvailable(feature, onClose) {
+    if (!onClose) {
+        onClose = () => history.back();
+    }
     const list = PlacesListForState(feature.properties.NAME, () =>
         emptyModuleFallback(feature)
     );
@@ -183,7 +212,7 @@ function modulesAvailable(feature) {
             <button
                 class="button button--transparent button--icon media__close"
                 id="back-to-map"
-                @click=${() => history.back()}
+                @click=${onClose}
             >
                 <i class="material-icons">
                     close
@@ -209,29 +238,56 @@ function modulesAvailable(feature) {
         </div>
     `;
 }
-export function PlaceMap(features) {
+export function PlaceMap(features, selectedId) {
+    const selectedFeature = selectedId
+        ? features.features.find(
+              feature => feature.properties.STUSPS.toLowerCase() === selectedId
+          )
+        : null;
+    if (!selectedFeature) {
+        selectedId = null;
+        history.replaceState({}, "Districtr", "/new");
+    }
     return html`
         <div class="place-map__form">
             <input
                 id="place-search"
-                class="place-map__search"
+                class="place-map__search${selectedId ? " hidden" : ""}"
                 name="place"
                 type="text"
                 disabled
             />
         </div>
         <div
-            class="place-map__state-modules place-map__state-modules--hidden"
+            class="place-map__state-modules${selectedId
+                ? ""
+                : " place-map__state-modules--hidden"}"
             id="places-list"
-        ></div>
+        >
+            ${selectedId
+                ? modulesAvailable(selectedFeature, () => {
+                      history.replaceState({}, "Districtr", "/new");
+                      resetMap();
+                  })
+                : ""}
+        </div>
         <figure class="place-map">
-            ${Features(features, setSearchText)}
+            ${Features(features, setSearchText, selectedId)}
         </figure>
     `;
 }
 
 export function PlaceMapWithData() {
-    return fetchFeatures().then(features => PlaceMap(features));
+    const selectedId = location.pathname
+        .split("/")
+        .slice(-1)[0]
+        .toLowerCase();
+    return fetchFeatures().then(features =>
+        PlaceMap(
+            features,
+            selectedId && selectedId !== "new" ? selectedId : null
+        )
+    );
 }
 
 // =============
