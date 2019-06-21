@@ -28,17 +28,19 @@ export default function renderNewPlanView() {
         `,
         target
     );
-    const pathComponents = location.pathname.split("/");
-    if (pathComponents && pathComponents[-1] !== "new") {
-        const stateCode = pathComponents[-1];
-        const state = getFeatureBySTUPS(stateCode);
-        if (!state) {
-            history.replaceState("/new");
-        } else {
-            selectState(
-                state,
-                document.getElementById(stateCode.toLowerCase())
-            );
+    window.setTimeout(() => {
+        const pathComponents = location.pathname.split("/");
+        if (pathComponents && pathComponents[-1] !== "new") {
+            const stateCode = pathComponents[-1];
+            const state = getFeatureBySTUPS(stateCode);
+            if (!state) {
+                history.replaceState("/new");
+            } else {
+                selectState(
+                    state,
+                    document.getElementById(stateCode.toLowerCase())
+                );
+            }
         }
-    }
+    }, 1000);
 }
