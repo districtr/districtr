@@ -246,7 +246,6 @@ export function PlaceMap(features, selectedId) {
         : null;
     if (!selectedFeature) {
         selectedId = null;
-        history.replaceState({}, "Districtr", "/new");
     }
     return html`
         <div class="place-map__form">
