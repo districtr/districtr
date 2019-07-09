@@ -60,11 +60,8 @@ export function getFeatureBySTUPS(code) {
 
 export function selectState(feature, target) {
     if (stateSelected === false && feature.properties.isAvailable) {
-        history.pushState(
-            {},
-            feature.properties.NAME,
-            `/new/${feature.properties.STUSPS.toLowerCase()}`
-        );
+        currentHistoryState = `/new/${feature.properties.STUSPS.toLowerCase()}`;
+        history.pushState({}, feature.properties.NAME, currentHistoryState);
         target.classList.add("state--selected");
         zoomToFeature(feature);
         selectAll(".state").classed("state--zoomed", true);
@@ -197,6 +194,8 @@ function emptyModuleFallback(feature) {
 }
 
 window.onpopstate = () => {
+    currentHistoryState = "/new";
+    history.replaceState({}, "Districtr", "/new");
     resetMap();
 };
 
@@ -238,7 +237,23 @@ function modulesAvailable(feature, onClose) {
         </div>
     `;
 }
+
+let defaultHistoryState = location.pathname;
+let currentHistoryState = "/new";
+
 export function PlaceMap(features, selectedId) {
+    document.addEventListener("scroll", () => {
+        let el = document.getElementById("place-search");
+        let { top, bottom } = el.getBoundingClientRect();
+        let isVisible = top < window.innerHeight && bottom >= 0;
+        if (isVisible) {
+            if (location.pathname !== currentHistoryState) {
+                history.replaceState({}, "Districtr", currentHistoryState);
+            }
+        } else {
+            history.replaceState({}, "Districtr", defaultHistoryState);
+        }
+    });
     const selectedFeature = selectedId
         ? features.features.find(
               feature => feature.properties.STUSPS.toLowerCase() === selectedId
@@ -265,6 +280,7 @@ export function PlaceMap(features, selectedId) {
         >
             ${selectedId
                 ? modulesAvailable(selectedFeature, () => {
+                      currentHistoryState = "/new";
                       history.replaceState({}, "Districtr", "/new");
                       resetMap();
                   })
