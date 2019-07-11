@@ -17,9 +17,9 @@ function getContext({ place, url, units, number, ...districtrModule }) {
     } else {
         const problem = {
             name: "Districts",
-            plural_noun: "Districts",
+            pluralNoun: "Districts",
             type: "districts",
-            number,
+            numberOfParts: number,
             ...districtrModule
         };
         return client
@@ -29,13 +29,6 @@ function getContext({ place, url, units, number, ...districtrModule }) {
                 let unitsRecord = placeRecord.units.find(
                     item => item.slug === units
                 );
-                unitsRecord = {
-                    ...unitsRecord,
-                    nameColumn: unitsRecord.name_column,
-                    idColumn: unitsRecord.id_column,
-                    columnSets: unitsRecord.column_sets,
-                    unitType: unitsRecord.unit_type
-                };
                 return { place: placeRecord, problem, units: unitsRecord };
             });
     }
@@ -65,16 +58,19 @@ export class EmbeddedDistrictr {
                         bounds: context.units.bounds,
                         fitBoundsOptions: {
                             padding: {
-                                top: 25,
-                                right: 25,
-                                left: 25,
-                                bottom: 25
+                                top: 50,
+                                right: 50,
+                                left: 50,
+                                bottom: 50
                             }
                         }
                     },
                     options.style
                 );
                 this.mapState.map.on("load", () => {
+                    this.mapState.map.setMaxBounds(
+                        this.mapState.map.getBounds()
+                    );
                     this.state = new State(
                         this.mapState.map,
                         context,

@@ -1,6 +1,4 @@
-const API_URL = location.hostname.includes("localhost")
-    ? "http://localhost:5000"
-    : "https://api.districtr.org";
+const API_URL = "https://api.districtr.org";
 
 export default class ApiClient {
     constructor(base_url, middleware) {
