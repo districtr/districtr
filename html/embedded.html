@@ -35,17 +35,6 @@
         <script src="/es6/embedded.js"></script>
         <main id="root" style="padding: 1rem; max-width: 48rem; margin: 0 auto">
             <h1>Hello this is embedded Districtr</h1>
-            <p>Look, it's a map:</p>
-            <div
-                style="width: 100%; height: 400px; margin: 2rem 0"
-                id="districtr-map"
-            ></div>
-            <h2>And another!</h2>
-            <p>Look, it's another map:</p>
-            <div
-                style="width: 100%; height: 600px; margin: 2rem 0"
-                id="districtr-map-2"
-            ></div>
             <h2>Little Rock</h2>
             <div
                 style="width: 100%; height: 600px; margin: 2rem 0"
@@ -53,16 +42,6 @@
             ></div>
         </main>
         <script>
-            window.Districtr("districtr-map", {
-                place: "alaska",
-                units: "precincts",
-                number: 20
-            });
-            window.Districtr("districtr-map-2", {
-                place: "lowell",
-                units: "blocks",
-                number: 9
-            });
             window.Districtr("little-rock", {
                 url: "/assets/little-rock.json"
             });
