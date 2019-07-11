@@ -10,6 +10,7 @@ import "d3-transition";
 
 const available = [
     "Alaska",
+    "Arkansas",
     "Georgia",
     "Pennsylvania",
     "Vermont",
