@@ -192,7 +192,7 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/edit/chi-${plan.id}">
+    <a href="/edit?url=/assets/chicago-plans/${plan.id}.json">
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
