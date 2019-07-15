@@ -4,3 +4,73 @@
 @import "splash";
 @import "place";
 @import "components/places";
+
+li {
+    margin: 2rem 0;
+    line-height: 1.5;
+}
+
+ol {
+    padding: 0;
+}
+
+.screenshot {
+    box-shadow: $raised;
+    width: 150%;
+    margin: 2rem -25%;
+    overflow: auto;
+    border: 1px solid $outline-grey;
+}
+
+p {
+    line-height: 2;
+
+}
+
+h3 {
+    margin: 2rem 0;
+    font-size: 1.75rem;
+}
+
+dt{
+    font-style: italic;
+    line-height: 2;
+    margin: 1rem 0 .5rem;
+}
+
+dl{
+    margin: 0 0 3rem ;
+}
+
+.place__subheading{
+    margin: 3rem 0;
+    font-size: 2.5rem;
+}
+
+h4{
+    font-size: 1.25rem;
+    margin: 4rem 0 0;
+}
+
+figure{
+    margin: 0;
+    width: 150%;
+    margin: 2rem -25%;
+    overflow: auto;
+}
+
+.figure_screenshot{
+    width: 100%;
+    border: 1px solid $outline-grey;
+    box-shadow: $raised;
+
+
+}
+
+figcaption{
+    margin: 0 0 1rem;
+    font-weight: lighter;
+    font-size: 1.5rem;
+
+}
+
