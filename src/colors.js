@@ -146,7 +146,7 @@ export function getUnitColorProperty(parts) {
 
 export const unitBordersPaintProperty = {
     "line-color": "#777777",
-    "line-width": 1,
+    "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0, 7, 1],
     "line-opacity": 0.3
 };
 
