@@ -4,16 +4,69 @@ import { toggle } from "../components/Toggle";
 import OverlayContainer from "../Layers/OverlayContainer";
 import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
 import LayerTab from "../components/LayerTab";
+import Layer, { addBelowLabels } from "../Layers/Layer";
+
+const COUNTIES_TILESET = {
+    sourceLayer: "cb_2018_us_county_500k-6p4p3f",
+    source: { type: "vector", url: "mapbox://districtr.6fcd9f0h" }
+};
+
+const COUNTIES_LAYER = {
+    id: "counties",
+    source: COUNTIES_TILESET.sourceLayer,
+    "source-layer": COUNTIES_TILESET.sourceLayer,
+    type: "line",
+    paint: {
+        "line-color": "#444444",
+        "line-width": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0,
+            0,
+            4,
+            1,
+            6,
+            2,
+            9,
+            3
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 9, 0.5]
+    }
+};
+
+export function addCountyLayer(tab, state) {
+    state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
+    const counties = new Layer(
+        state.map,
+        {
+            ...COUNTIES_LAYER,
+            paint: { ...COUNTIES_LAYER.paint, "line-opacity": 0 },
+            filter: [
+                "==",
+                ["get", "STATEFP"],
+                stateNameToFips[state.place.state]
+            ]
+        },
+        addBelowLabels
+    );
+    tab.addSection(
+        () => html`
+            <h4>Counties</h4>
+            ${toggle(`Show county boundaries`, false, checked =>
+                counties.setOpacity(
+                    checked ? COUNTIES_LAYER.paint["line-opacity"] : 0
+                )
+            )}
+        `
+    );
+}
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const landmarks = state.place.landmarks
         ? new Landmarks(state.map, state.place.landmarks)
         : null;
-
-    if (landmarks && Object.keys(state.plan.assignment).length > 0) {
-        landmarks.handleToggle(false);
-    }
 
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
@@ -47,6 +100,10 @@ export default function DataLayersPlugin(editor) {
                 )}
             `
         );
+    }
+
+    if (state.place.state === state.place.name) {
+        addCountyLayer(tab, state);
     }
 
     // Right now we're doing all of these if statements,
@@ -98,3 +155,58 @@ export default function DataLayersPlugin(editor) {
 
     toolbar.addTab(tab);
 }
+
+const stateNameToFips = {
+    Alaska: "02",
+    California: "06",
+    Colorado: "08",
+    "District of Columbia": "11",
+    Idaho: "16",
+    Illinois: "17",
+    Iowa: "19",
+    Kentucky: "21",
+    Louisiana: "22",
+    Maryland: "24",
+    Minnesota: "27",
+    Missouri: "29",
+    "New York": "36",
+    Oregon: "41",
+    Tennessee: "47",
+    Texas: "48",
+    Virginia: "51",
+    Wisconsin: "55",
+    Alabama: "01",
+    Arizona: "04",
+    Arkansas: "05",
+    Indiana: "18",
+    Kansas: "20",
+    Maine: "23",
+    Connecticut: "09",
+    Delaware: "10",
+    Georgia: "13",
+    Hawaii: "15",
+    "South Carolina": "45",
+    "South Dakota": "46",
+    Massachusetts: "25",
+    Michigan: "26",
+    Mississippi: "28",
+    Nebraska: "31",
+    Nevada: "32",
+    "New Hampshire": "33",
+    "New Jersey": "34",
+    "New Mexico": "35",
+    "North Carolina": "37",
+    "North Dakota": "38",
+    "Rhode Island": "44",
+    Ohio: "39",
+    Oklahoma: "40",
+    Pennsylvania: "42",
+    Florida: "12",
+    Montana: "30",
+    Utah: "49",
+    Vermont: "50",
+    Washington: "53",
+    "West Virginia": "54",
+    Wyoming: "56",
+    "Puerto Rico": "72"
+};
