@@ -1,4 +1,6 @@
 ## Plans:
+/assets/data/*
+  Access-Control-Allow-Origin: *
 /assets/plans/*
   Access-Control-Allow-Origin: *
 /es6/embedded.js
