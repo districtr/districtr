@@ -1,3 +1,5 @@
 export function listPlaces() {
-    return fetch("/assets/data/response.json").then(resp => resp.json());
+    return fetch("https://districtr.org/assets/data/response.json").then(resp =>
+        resp.json()
+    );
 }
