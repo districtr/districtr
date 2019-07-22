@@ -79,8 +79,8 @@ export default class State {
             id,
             assignment,
             problem,
-            idColumn: this.idColumn,
-            ...args
+            ...args,
+            idColumn: this.idColumn
         });
 
         this.initializeMapState(
