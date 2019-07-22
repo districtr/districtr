@@ -1,0 +1,9 @@
+## Plans:
+/assets/plans/*
+  Access-Control-Allow-Origin: *
+/es6/embedded.js
+  Access-Control-Allow-Origin: *
+/es5/embedded.js
+  Access-Control-Allow-Origin: *
+/css/*
+  Access-Control-Allow-Origin: *
