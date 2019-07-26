@@ -75,3 +75,5 @@ typings/
 
 # Serverless directories
 .serverless
+
+assets/raw
