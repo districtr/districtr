@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
-import Layer from "../Layers/Layer";
+import Layer from "./Layer";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";

@@ -1,6 +1,6 @@
 import { html } from "lit-html";
-import Layer, { addBelowLabels } from "../Layers/Layer";
-import Tooltip from "../Map/Tooltip";
+import Layer, { addBelowLabels } from "../map/Layer";
+import Tooltip from "../map/Tooltip";
 
 export function LandmarkInfo(features) {
     if (features.length === 0) {

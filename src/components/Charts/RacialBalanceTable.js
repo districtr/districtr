@@ -1,10 +1,10 @@
 import { html } from "lit-html";
 import { actions } from "../../reducers/charts";
 import Parameter from "../Parameter";
-import select from "../select";
+import Select from "../Select";
 import DemographicsTable from "./DemographicsTable";
 
-function selectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
+function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
     const onChange = j => i =>
         dispatch(
             actions.selectSubgroup({
@@ -17,7 +17,7 @@ function selectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
     return activeSubgroupIndices.map((index, j) =>
         Parameter({
             label: labels[j] || "and",
-            element: select(`subgroups-${j}`, subgroups, onChange(j), index)
+            element: Select(subgroups, onChange(j), index)
         })
     );
 }
@@ -34,7 +34,7 @@ export default function RacialBalanceTable(
     );
     return html`
         <section class="toolbar-section">
-            ${selectBoxes(
+            ${SelectBoxes(
                 chartId,
                 population.subgroups,
                 chartState.activeSubgroupIndices,

@@ -3,13 +3,17 @@ import { divideOrZeroIfNaN } from "../utils";
 // TODO: Include legends
 // TODO: Define a color rule interface, for extensibility and modularity.
 
-// Demographic color rules:
-
+/**
+ * Default color scheme for the two major parties.
+ */
 const partyRGBColors = {
     Democratic: [25, 118, 210],
     Republican: [211, 47, 47]
 };
 
+/**
+ * ColorBrewer colors for all non-major parties.
+ */
 let vizColors = [
     [102, 194, 165],
     [252, 141, 98],
@@ -20,6 +24,10 @@ let vizColors = [
 
 let cachedColors = {};
 
+/**
+ * Returns a color for the given party.
+ * @param {String} name the party's name (e.g. Democratic)
+ */
 function getPartyRGBColors(name) {
     if (partyRGBColors.hasOwnProperty(name)) {
         return partyRGBColors[name];
@@ -32,6 +40,13 @@ function getPartyRGBColors(name) {
     return color;
 }
 
+/**
+ * Colors from transparent to black, according to the total count in each
+ * unit (black == the maximum value). Currently only used for the total
+ * population columns---should consider using population density instead.
+ * @param {Subgroup} subgroup
+ * @returns {Array} Mapbox style for a *-color property
+ */
 export function colorByCount(subgroup) {
     const rgb = [0, 0, 0];
     return [
@@ -49,6 +64,11 @@ export function colorByCount(subgroup) {
     ];
 }
 
+/**
+ * Sizes circles according to the total population count.
+ * @param {Subgroup} subgroup
+ * @returns {Array} Mapbox style for a circle-radius property
+ */
 export function sizeByCount(subgroup) {
     return [
         "interpolate",
@@ -61,6 +81,12 @@ export function sizeByCount(subgroup) {
     ];
 }
 
+/**
+ * Colors from transparent to black, based on the subgroup's proportion
+ * of the total count for the ColumnSet in each unit.
+ * @param {Subgroup} subgroup
+ * @returns {Array} Mapbox style for a *-color property
+ */
 export function colorByFraction(subgroup) {
     const rgb =
         subgroup.columnSet.type === "election"
@@ -68,6 +94,8 @@ export function colorByFraction(subgroup) {
             : [0, 0, 0];
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
+
+// Demographic color rules:
 
 export const demographicColorRules = [
     { name: "Per capita", rule: colorByFraction },

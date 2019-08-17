@@ -2,7 +2,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-import Brush from "../Map/Brush";
+import Brush from "../map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
 import { download } from "../utils";

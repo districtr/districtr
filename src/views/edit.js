@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import { MapState } from "../Map/map";
+import { MapState } from "../map";
 import State from "../models/State";
 import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
 import Editor from "../models/Editor";
@@ -33,21 +33,20 @@ const defaultPlugins = [
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
-function getPlanFromRoute() {
-    let planId = window.location.pathname.slice("/edit/".length).trim();
-    if (planId.length == 0) {
-        planId = window.location.hash.slice(1).trim();
+function getPlanURLFromQueryParam() {
+    if (window.location.search.includes("?url=")) {
+        return window.location.search.slice("?url=".length);
+    } else {
+        return "";
     }
-    return planId.slice("chi-".length);
 }
 
 function getPlanContext() {
-    const planId = getPlanFromRoute();
-    if (planId.length > 0) {
-        const planFile = `${planId}.json`;
-        return loadPlanFromURL(`/assets/chicago-plans/${planFile}`).catch(e => {
+    const planURL = getPlanURLFromQueryParam();
+    if (planURL.length > 0) {
+        return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
-            console.error(`Could not load plan ${planId}`);
+            console.error(`Could not load plan from ${planURL}`);
             navigateTo("/");
             // eslint-disable-next-line no-console
             console.error(e);

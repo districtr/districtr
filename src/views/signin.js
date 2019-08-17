@@ -1,10 +1,5 @@
 import { signInUser } from "../api/auth";
-import {
-    createForm,
-    errorMessage,
-    isEmail,
-    popupMessage
-} from "../components/form";
+import { createForm, errorMessage, isEmail, popupMessage } from "../form";
 import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
