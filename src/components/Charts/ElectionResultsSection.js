@@ -11,7 +11,7 @@ export default function ElectionResultsSection(
 ) {
     return html`
         <section class="toolbar-section">
-            ${Select("elections", elections, index =>
+            ${Select(elections, index =>
                 dispatch(actions.changeElection({ index }))
             )}
             ${ElectionResults(
