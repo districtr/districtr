@@ -1,6 +1,6 @@
 import { html } from "lit-html";
-import Parameter from "../components/Parameter";
-import Select from "../components/Select";
+import Parameter from "./Parameter";
+import Select from "./Select";
 import { bindAll } from "../utils";
 
 export default class AboutSection {
