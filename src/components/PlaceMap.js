@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { geoPath, geoAlbersUsa } from "d3-geo";
 import { svg, html, render } from "lit-html";
 import { PlacesListForState } from "../components/PlacesList";
@@ -35,27 +36,45 @@ const noHover = {};
 
 let stateSelected = false;
 
+let FEATURES = [];
+
+const scale = 1280;
+const translate = [640, 300];
+const path = geoPath(
+    geoAlbersUsa()
+        .scale(scale)
+        .translate(translate)
+);
+
+export function getFeatureBySTUPS(code) {
+    code = code.toLowerCase();
+    return FEATURES.find(
+        feature =>
+            feature.properties.STUSPS.toLowerCase() === code &&
+            feature.properties.isAvailable
+    );
+}
+
 // =============
 // State updates
 // =============
 
-function selectState(path, feature, e) {
-    if (stateSelected === false) {
-        stateSelected = true;
-        if (feature.properties.isAvailable) {
-            e.target.classList.add("state--selected");
-            zoomToFeature(path, feature);
-            selectAll(".state").classed("state--zoomed", true);
-            select("#place-search").classed("hidden", true);
-            select("#places-list").classed(
-                "place-map__state-modules--hidden",
-                false
-            );
-            render(
-                modulesAvailable(feature),
-                document.getElementById("places-list")
-            );
-        }
+export function selectState(feature, target) {
+    if (stateSelected === false && feature.properties.isAvailable) {
+        currentHistoryState = `/new/${feature.properties.STUSPS.toLowerCase()}`;
+        history.pushState({}, feature.properties.NAME, currentHistoryState);
+        target.classList.add("state--selected");
+        zoomToFeature(feature);
+        selectAll(".state").classed("state--zoomed", true);
+        select("#place-search").classed("hidden", true);
+        select("#places-list").classed(
+            "place-map__state-modules--hidden",
+            false
+        );
+        render(
+            modulesAvailable(feature),
+            document.getElementById("places-list")
+        );
     }
 }
 
@@ -98,7 +117,7 @@ function setSearchText(feature) {
 // Transitions
 // ===========
 
-function zoomToFeature(path, feature) {
+function transformAndTranslate(feature) {
     const bounds = path.bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
@@ -106,39 +125,57 @@ function zoomToFeature(path, feature) {
         y = (bounds[0][1] + bounds[1][1]) / 2,
         scale = 0.75 / Math.max(dx / 1280, dy / 600),
         translate = [1280 * (1 / 4) - scale * x, 600 / 2 - scale * y];
+    return `translate(${translate}) scale(${scale})`;
+}
+
+function zoomToFeature(feature) {
     select("g")
         .transition()
         .duration(500)
-        .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+        .attr("transform", transformAndTranslate(feature));
 }
 
 // ==========
 // Components
 // ==========
 
-export function Features(features, onHover) {
-    const scale = 1280;
-    const translate = [640, 300];
-    const path = geoPath(
-        geoAlbersUsa()
-            .scale(scale)
-            .translate(translate)
-    );
+function featureClasses(feature, featureId, selectedId) {
+    const classes = {
+        state: true,
+        "state--available": feature.properties.isAvailable,
+        "state--zoomed": selectedId,
+        "state--selected": selectedId === featureId
+    };
+    return Object.keys(classes)
+        .filter(key => classes[key])
+        .join(" ");
+}
+
+export function Features(features, onHover, selectedId) {
     return svg`<svg viewBox="0 0 1280 600" style="width:100%; height:auto;">
-    <g id="states-group" @mouseleave=${() => onHover(noHover)}>
-    ${features.features.map(
-        feature =>
-            svg`<path class="${
-                feature.properties.isAvailable
-                    ? "state state--available"
-                    : "state"
-            }"
+    <g id="states-group" transform="${
+        selectedId
+            ? transformAndTranslate(
+                  features.features.find(
+                      feature =>
+                          feature.properties.STUSPS.toLowerCase() === selectedId
+                  )
+              )
+            : ""
+    }" @mouseleave=${() => onHover(noHover)}>
+    ${features.features.map(feature => {
+        const featureId = feature.properties.STUSPS.toLowerCase();
+        return svg`<path id="${featureId}" class="${featureClasses(
+            feature,
+            featureId,
+            selectedId
+        )}"
             d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
-                feature.properties.isAvailable
-                    ? e => selectState(path, feature, e)
-                    : undefined
-            }></path>`
-    )}
+            feature.properties.isAvailable
+                ? e => selectState(feature, e.target)
+                : undefined
+        }></path>`;
+    })}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
     )}"></path>
@@ -157,7 +194,16 @@ function emptyModuleFallback(feature) {
     `;
 }
 
-function modulesAvailable(feature) {
+window.onpopstate = () => {
+    currentHistoryState = "/new";
+    history.replaceState({}, "Districtr", "/new");
+    resetMap();
+};
+
+function modulesAvailable(feature, onClose) {
+    if (!onClose) {
+        onClose = () => history.back();
+    }
     const list = PlacesListForState(feature.properties.NAME, () =>
         emptyModuleFallback(feature)
     );
@@ -166,7 +212,7 @@ function modulesAvailable(feature) {
             <button
                 class="button button--transparent button--icon media__close"
                 id="back-to-map"
-                @click=${resetMap}
+                @click=${onClose}
             >
                 <i class="material-icons">
                     close
@@ -192,29 +238,72 @@ function modulesAvailable(feature) {
         </div>
     `;
 }
-export function PlaceMap(features) {
+
+let defaultHistoryState = location.pathname;
+let currentHistoryState = "/new";
+
+export function PlaceMap(features, selectedId) {
+    document.addEventListener("scroll", () => {
+        let el = document.getElementById("place-search");
+        let { top, bottom } = el.getBoundingClientRect();
+        let isVisible = top < window.innerHeight && bottom >= 0;
+        if (isVisible) {
+            if (location.pathname !== currentHistoryState) {
+                history.replaceState({}, "Districtr", currentHistoryState);
+            }
+        } else {
+            history.replaceState({}, "Districtr", defaultHistoryState);
+        }
+    });
+    const selectedFeature = selectedId
+        ? features.features.find(
+              feature => feature.properties.STUSPS.toLowerCase() === selectedId
+          )
+        : null;
+    if (!selectedFeature) {
+        selectedId = null;
+    }
     return html`
         <div class="place-map__form">
             <input
                 id="place-search"
-                class="place-map__search"
+                class="place-map__search${selectedId ? " hidden" : ""}"
                 name="place"
                 type="text"
                 disabled
             />
         </div>
         <div
-            class="place-map__state-modules place-map__state-modules--hidden"
+            class="place-map__state-modules${selectedId
+                ? ""
+                : " place-map__state-modules--hidden"}"
             id="places-list"
-        ></div>
+        >
+            ${selectedId
+                ? modulesAvailable(selectedFeature, () => {
+                      currentHistoryState = "/new";
+                      history.replaceState({}, "Districtr", "/new");
+                      resetMap();
+                  })
+                : ""}
+        </div>
         <figure class="place-map">
-            ${Features(features, setSearchText)}
+            ${Features(features, setSearchText, selectedId)}
         </figure>
     `;
 }
 
 export function PlaceMapWithData() {
-    return fetchFeatures().then(features => PlaceMap(features));
+    const selectedId = location.pathname
+        .split("/")
+        .slice(-1)[0]
+        .toLowerCase();
+    return fetchFeatures().then(features =>
+        PlaceMap(
+            features,
+            selectedId && selectedId !== "new" ? selectedId : null
+        )
+    );
 }
 
 // =============
@@ -222,7 +311,7 @@ export function PlaceMapWithData() {
 // =============
 
 function fetchFeatures(availablePlaces = available) {
-    return fetch("./assets/simple_states.json")
+    return fetch("/assets/simple_states.json")
         .then(r => r.json())
         .then(states => {
             for (let i = 0; i < states.features.length; i++) {
@@ -231,6 +320,7 @@ function fetchFeatures(availablePlaces = available) {
                     feature.properties.NAME
                 );
             }
+            FEATURES = states;
 
             return states;
         });
