@@ -37,20 +37,18 @@ export default () => {
             render(
                 html`
                     <p class="sign-in__link">Hello, ${user.first}!</p>
-                    <a href="./new" class="button sign-in__link"
+                    <a href="/new" class="button sign-in__link"
                         >Draw a new plan</a
                     >
-                    <a href="./signout" class="button sign-in__link"
-                        >Sign out</a
-                    >
+                    <a href="/signout" class="button sign-in__link">Sign out</a>
                 `,
                 signInHeader
             );
         } else {
             render(
                 html`
-                    <a href="./signin" class="sign-in__link">Sign in</a>
-                    <a href="./register" class="button sign-in__link">
+                    <a href="/signin" class="sign-in__link">Sign in</a>
+                    <a href="/register" class="button sign-in__link">
                         Create your account</a
                     >
                 `,

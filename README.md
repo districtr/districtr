@@ -54,7 +54,7 @@ coding style).
 
 #### Naming conventions
 
-##### Javascript
+##### JavaScript
 
 We use `PascalCase` for classes and components (e.g. `UIStateStore` or
 `DataTable`). By "component", we mean any function that returns a `lit-html`
