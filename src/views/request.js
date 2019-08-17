@@ -1,5 +1,5 @@
 import { client } from "../api/client";
-import { createForm, errorMessage, isEmail } from "../components/form";
+import { createForm, errorMessage, isEmail } from "../form";
 import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 

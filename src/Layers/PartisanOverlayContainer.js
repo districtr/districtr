@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Parameter } from "../components/Parameter";
-import select from "../components/select";
+import Select from "../components/Select";
 import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
@@ -50,14 +50,11 @@ export default class PartisanOverlayContainer {
             ${[
                 {
                     label: "Election:",
-                    element: select("election-overlay", this.elections, i =>
-                        this.setElection(i)
-                    )
+                    element: Select(this.elections, i => this.setElection(i))
                 },
                 {
                     label: "Display as",
-                    element: select(
-                        "layer-type",
+                    element: Select(
                         this.layers.map(layer => getLayerDescription(layer)),
                         i =>
                             this.electionOverlays.forEach(overlay =>

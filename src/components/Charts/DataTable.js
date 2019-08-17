@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-function headerRow(variableNames) {
+function HeaderRow(variableNames) {
     return html`
         <tr>
             <th></th>
@@ -14,18 +14,18 @@ function headerRow(variableNames) {
     `;
 }
 
-function cell({ content, style }) {
+function Cell({ content, style }) {
     return html`
         <td class="ui-data data-table__cell" style=${style}>${content}</td>
     `;
 }
 
-export default (header, rows) => html`
+export const DataTable = (header, rows) => html`
     <table class="data-table">
         ${header
             ? html`
                   <thead>
-                      ${headerRow(header)}
+                      ${HeaderRow(header)}
                   </thead>
               `
             : ""}
@@ -37,10 +37,12 @@ export default (header, rows) => html`
                             <th class="data-table__row-heading">
                                 ${row.label}
                             </th>
-                            ${row.entries.map(entry => cell(entry))}
+                            ${row.entries.map(entry => Cell(entry))}
                         </tr>
                     `
             )}
         </tbody>
     </table>
 `;
+
+export default DataTable;

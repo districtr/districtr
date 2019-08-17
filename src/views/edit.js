@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import { MapState } from "../Map/map";
+import { MapState } from "../map";
 import State from "../models/State";
 import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
 import Editor from "../models/Editor";

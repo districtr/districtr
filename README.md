@@ -19,6 +19,10 @@ districting plans.
     and priorities when it comes to drawing districts. We aim to highlight the
     specific concerns of the community in each place that we include in the app.
 
+See also the
+[Districtr Guiding Principles](https://github.com/vrdi/districtr-principles)
+prepared by participants in MGGG's 2019 Voting Rights Data Institute.
+
 ## Contributing
 
 If you're interested in contributing, thank you! Send an email to
@@ -43,6 +47,28 @@ Here's how to get started.
 Districtr is built on [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/)
 and [lit-html](https://lit-html.polymer-project.org/guide). We also use
 [Sass](https://sass-lang.com/) for authoring CSS.
+
+We use [Prettier](https://prettier.io) for formatting JS source code and
+[ESLint](https://eslint.org) for linting (encouraging good habits and consistent
+coding style).
+
+#### Naming conventions
+
+##### Javascript
+
+We use `PascalCase` for classes and components (e.g. `UIStateStore` or
+`DataTable`). By "component", we mean any function that returns a `lit-html`
+`TemplateResult`, or a class with a `.render()` method that does the same. We
+use `camelCase` for everything else (e.g. variables and functions).
+
+For file naming, we use `PascalCase` for files that export one main class or
+component (e.g. `Layer.js` or `LayerTab.js`). We use `kebab-case` for other
+JavaScript modules (e.g. `color-rules.js` or `routes.js`).
+
+##### CSS
+
+We try to use [BEM (block-element-modifier)](http://getbem.com/introduction/)
+naming conventions for CSS classes.
 
 ### Testing
 

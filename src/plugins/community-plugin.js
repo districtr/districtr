@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import { PivotTable } from "../components/Charts/PivotTable";
-import select from "../components/select";
+import Select from "../components/Select";
 import Parameter from "../components/Parameter";
 import { bindAll } from "../utils";
 
@@ -134,9 +134,7 @@ class AboutSection {
                     ${parts.length > 1
                         ? Parameter({
                               label: "Community:",
-                              element: select("which-community", parts, i =>
-                                  this.setPart(i)
-                              )
+                              element: Select(parts, i => this.setPart(i))
                           })
                         : ""}
                 </li>

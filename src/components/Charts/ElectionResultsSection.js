@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { actions } from "../../reducers/elections";
-import select from "../select";
+import Select from "../Select";
 import ElectionResults from "./ElectionResults";
 
 export default function ElectionResultsSection(
@@ -11,7 +11,7 @@ export default function ElectionResultsSection(
 ) {
     return html`
         <section class="toolbar-section">
-            ${select("elections", elections, index =>
+            ${Select("elections", elections, index =>
                 dispatch(actions.changeElection({ index }))
             )}
             ${ElectionResults(
