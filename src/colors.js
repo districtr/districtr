@@ -1,11 +1,10 @@
 /**
- * Global partisan color scheme.
+ * Global Districtr color map for districts.
+ *
+ * We might consider using fewer colors and just allowing repetitions,
+ * since a human being can only hold so many colors in their head at
+ * one time.
  */
-export const partyColors = {
-    Democratic: "#1976d2",
-    Republican: "#d32f2f"
-};
-
 let _colorScheme = [
     "#0099cd",
     "#ffca5d",

@@ -1,8 +1,8 @@
 import { html } from "lit-html";
-import Tooltip from "../../Map/Tooltip";
+import Tooltip from "../../map/Tooltip";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
-import select from "../select";
+import Select from "../Select";
 import { TooltipContent } from "../Charts/TooltipContent";
 
 export default class InspectTool extends Tool {
@@ -67,8 +67,7 @@ class InspectToolOptions {
         return html`
             <div class="ui-option">
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>
-                ${select(
-                    "inspect-tool-columns",
+                ${Select(
                     this.inspectTool.columnSets,
                     this.inspectTool.changeColumnSetByIndex
                 )}

@@ -1,6 +1,6 @@
 import { expect } from "@open-wc/testing";
 // import sinon from "sinon";
-import { getAssignedUnitIds } from "../src/models/lib";
+import { getAssignedUnitIds } from "../src/models/lib/assign";
 
 // const mockFeatures = [{ id: 1 }, { id: 2 }, { id: 3 }];
 

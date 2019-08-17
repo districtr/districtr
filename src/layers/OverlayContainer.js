@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import Parameter from "../components/Parameter";
-import select from "../components/select";
+import Select from "../components/Select";
 import { toggle } from "../components/Toggle";
 import { colorByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
@@ -60,12 +60,11 @@ export default class OverlayContainer {
             </div>
             ${Parameter({
                 label: "Variable:",
-                element: select("subgroup", this.subgroups, this.changeSubgroup)
+                element: Select(this.subgroups, this.changeSubgroup)
             })}
             ${Parameter({
                 label: "Display as",
-                element: select(
-                    "layer-type",
+                element: Select(
                     this.overlay.layers.map(layer =>
                         getLayerDescription(layer)
                     ),

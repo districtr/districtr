@@ -1,10 +1,10 @@
 import { Landmarks } from "../components/Landmark";
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
-import OverlayContainer from "../Layers/OverlayContainer";
-import PartisanOverlayContainer from "../Layers/PartisanOverlayContainer";
+import OverlayContainer from "../layers/OverlayContainer";
+import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
 import LayerTab from "../components/LayerTab";
-import Layer, { addBelowLabels } from "../Layers/Layer";
+import Layer, { addBelowLabels } from "../map/Layer";
 
 const COUNTIES_TILESET = {
     sourceLayer: "cb_2018_us_county_500k-6p4p3f",

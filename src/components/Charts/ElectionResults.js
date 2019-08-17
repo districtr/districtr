@@ -36,7 +36,7 @@ function getCell(party, part) {
     };
 }
 
-export default (election, parts) => {
+export default function ElectionResults(election, parts) {
     const headers = election.parties.map(party => party.name);
     let rows = parts.map(part => ({
         label: part.renderLabel(),
@@ -50,4 +50,4 @@ export default (election, parts) => {
         <h4>${election.name}</h4>
         ${DataTable(headers, rows)}
     `;
-};
+}

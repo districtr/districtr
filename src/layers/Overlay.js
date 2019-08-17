@@ -1,5 +1,5 @@
 import { sizeByCount } from "./color-rules";
-import Layer, { addBelowLabels } from "./Layer";
+import Layer, { addBelowLabels } from "../map/Layer";
 import { generateId } from "../utils";
 
 export default class Overlay {
