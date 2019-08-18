@@ -9,7 +9,7 @@
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="./css/landing_page.css"
+            href="/css/landing_page.css"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
@@ -29,7 +29,7 @@
 
     <body>
         <main class="landing-page" id="root"></main>
-        <script src="./es6/new.js"></script>
+        <script src="/es6/new.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -38,7 +38,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="./es5/new.js"><\/script>');
+                document.write('<script src="/es5/new.js"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();
@@ -47,7 +47,7 @@
         <section class="sepia u-centered">
             <div class="request-new-place">
                 <h2 class="call-to-request">Looking for somewhere else?</h2>
-                <a href="./request" class="button call-to-request"
+                <a href="/request" class="button call-to-request"
                     >Request a new place to redistrict.</a
                 >
             </div>

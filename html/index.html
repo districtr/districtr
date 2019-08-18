@@ -9,7 +9,7 @@
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="./css/landing_page.css"
+            href="/css/landing_page.css"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
@@ -57,7 +57,7 @@
                         >
                         by providing free, open-source software for
                         redistricting.
-                        <a href="./new" class="button"
+                        <a href="/new" class="button"
                             >Start&nbsp;drawing&nbsp;districts.</a
                         >
                     </h2>
@@ -71,15 +71,15 @@
                         New in Districtr
                     </h2>
                     <h3>
-                        <a href="https://mggg.org/alaska">
-                            Read MGGG's paper "Mathematics of Nested Districts: The Case of Alaska."</a>
+                        <a href="/guide">
+                            Learn how to start districting with the Districtr
+                            User Guide.
                         </a>
                     </h3>
                     <h3>
-                        <a href="/chicago">
-                            Read about MGGG's new Study of Reform Proposals for
-                            Chicago's City Council and try your hand at drawing
-                            new wards for Chicago.
+                        <a href="https://mggg.org/alaska">
+                            Read MGGG's paper "Mathematics of Nested Districts:
+                            The Case of Alaska."
                         </a>
                     </h3>
                 </div>
@@ -137,7 +137,7 @@
             <section class="u-centered">
                 <div class="request-new-place">
                     <h2 class="call-to-request">Looking for somewhere else?</h2>
-                    <a href="./request" class="button call-to-request"
+                    <a href="/request" class="button call-to-request"
                         >Request a new place to redistrict.</a
                     >
                 </div>
@@ -208,7 +208,7 @@
                         <li class="technologies__item">
                             <a href="https://www.mapbox.com/">
                                 <img
-                                    src="./assets/Mapbox_Logo_08.svg"
+                                    src="/assets/Mapbox_Logo_08.svg"
                                     alt="Mapbox"
                                     class="mapbox-logo"
                                 />
@@ -217,17 +217,17 @@
                         <li class="technologies__item">
                             <a href="http://sass-lang.com/"
                                 ><img
-                                    src="./assets/sass-logo.png"
+                                    src="/assets/sass-logo.png"
                                     alt="Sass"
                                     class="sass-logo"
                             /></a>
                         </li>
                     </ul>
                     <div class="github-link takeaway">
-                        <a href="https://github.com/gerrymandr/Districtr">
+                        <a href="https://github.com/districtr/districtr">
                             <img
                                 class="github-logo"
-                                src="./assets/GitHub-Mark-Light-120px-plus.png"
+                                src="/assets/GitHub-Mark-Light-120px-plus.png"
                                 alt="GitHub logo"
                             />
                             View the source on GitHub.</a
@@ -251,6 +251,10 @@
                                         <li class="team-member">
                                             Anthony Pizzimenti
                                         </li>
+                                        <li class="team-member">
+                                            Chris Gernon
+                                        </li>
+                                        <li class="team-member">Muniba Khan</li>
                                         <li class="team-member">Anna Schall</li>
                                         <li class="team-member">
                                             Eion Blanchard
@@ -263,7 +267,7 @@
                 </div>
             </section>
         </main>
-        <script src="./es6/index.js"></script>
+        <script src="/es6/index.js"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -272,7 +276,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="./es5/index.js"><\/script>');
+                document.write('<script src="/es5/index.js"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();

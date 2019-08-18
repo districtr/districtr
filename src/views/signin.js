@@ -1,10 +1,5 @@
 import { signInUser } from "../api/auth";
-import {
-    createForm,
-    errorMessage,
-    isEmail,
-    popupMessage
-} from "../components/form";
+import { createForm, errorMessage, isEmail, popupMessage } from "../form";
 import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
@@ -19,7 +14,7 @@ const handlers = {
         popupMessage({
             message:
                 "It looks like you haven't created your Districtr account yet. " +
-                '<a href="./register">Click here to create an account.</a>',
+                '<a href="/register">Click here to create an account.</a>',
             raw: true
         });
     },

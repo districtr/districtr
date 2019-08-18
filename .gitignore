@@ -1,5 +1,6 @@
 .vscode/
 dist/**
+.DS_Store
 
 # Logs
 logs
@@ -74,3 +75,5 @@ typings/
 
 # Serverless directories
 .serverless
+
+assets/raw

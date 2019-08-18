@@ -1,7 +1,7 @@
 import { roundToDecimal, numberWithCommas } from "../../utils";
 import DataTable from "./DataTable";
 import { html } from "lit-html";
-import select from "../select";
+import Select from "../Select";
 import Parameter from "../Parameter";
 import { actions } from "../../reducers/charts";
 
@@ -81,7 +81,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts) => (
             ${visibleParts.length > 1
                 ? Parameter({
                       label: "Community:",
-                      element: select("pivot-community", visibleParts, i =>
+                      element: Select(visibleParts, i =>
                           dispatch(
                               actions.selectPart({
                                   chart: chartId,
