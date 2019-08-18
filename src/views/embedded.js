@@ -1,6 +1,6 @@
 import reducer from "../reducers";
 import { render, html } from "lit-html";
-import { MapState } from "../Map/map";
+import { MapState } from "../map";
 import State from "../models/State";
 import ToolsPlugin from "../plugins/tools-plugin";
 import { loadPlanFromURL } from "../routes";
