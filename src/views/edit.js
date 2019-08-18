@@ -1,13 +1,14 @@
 import { html, render } from "lit-html";
 import { MapState } from "../map";
-import State from "../models/State";
-import { loadPlanFromURL, getContextFromStorage, navigateTo } from "../routes";
 import Editor from "../models/Editor";
-import ToolsPlugin from "../plugins/tools-plugin";
+import { assignUnitsAsTheyLoad } from "../models/lib/assign";
+import State from "../models/State";
+import CommunityPlugin from "../plugins/community-plugin";
+import DataLayersPlugin from "../plugins/data-layers-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
-import DataLayersPlugin from "../plugins/data-layers-plugin";
-import CommunityPlugin from "../plugins/community-plugin";
+import ToolsPlugin from "../plugins/tools-plugin";
+import { getContextFromStorage, loadPlanFromURL, navigateTo } from "../routes";
 
 function getPlugins(context) {
     if (context.problem.type === "community") {
@@ -84,9 +85,14 @@ export default function renderEditView() {
         );
         window.document.title = "Loading... | Districtr";
         mapState.map.on("load", () => {
-            let state = new State(mapState.map, context, () => {
+            let state = new State(mapState.map, context);
+            if (context.assignment) {
+                assignUnitsAsTheyLoad(state, context.assignment, () => {
+                    window.document.title = "Districtr";
+                });
+            } else {
                 window.document.title = "Districtr";
-            });
+            }
             let editor = new Editor(state, mapState, getPlugins(context));
             editor.render();
         });
