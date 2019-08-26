@@ -1,4 +1,4 @@
-/edit/:place/:plan /edit?url=/assets/:place-plans/:plan.json 200
+/edit/:place/:plan /edit?url=/assets/:place-plans/:plan.json
 /edit/* /edit.html 200
 /new/* /new.html 200
 /user_guide /guide
