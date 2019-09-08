@@ -56,13 +56,29 @@ function getPlanContext() {
     }
 }
 
+function promptQuit() {
+    let response = window.confirm("Would you like to return to the Districtr homepage?");
+    if (response) {
+        window.location.href = "/";
+    } else {
+        // do nothing
+    }
+}
+
 export default function renderEditView() {
     getPlanContext().then(context => {
+        // TODO: context should hold information about paintings
         const root = document.getElementById("root");
         root.className = "";
         render(
             html`
                 <div id="map"></div>
+                <a
+                    class="overmapLogo"
+                    @click=${promptQuit}
+                    title="Districtr Home">
+                    <img src="/assets/districtr-splash-tiny.png"/>
+                </a>
                 <div id="toolbar"></div>
             `,
             root
@@ -74,7 +90,7 @@ export default function renderEditView() {
                 fitBoundsOptions: {
                     padding: {
                         top: 50,
-                        right: 350,
+                        right: 50,
                         left: 50,
                         bottom: 50
                     }
