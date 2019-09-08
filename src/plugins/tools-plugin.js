@@ -2,6 +2,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
+import OptionsLogo from "../components/Toolbar/OptionsLogo";
 import Brush from "../map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo } from "../routes";
@@ -23,7 +24,8 @@ export default function ToolsPlugin(editor) {
             state.nameColumn,
             state.unitsRecord,
             state.parts
-        )
+        ),
+        new OptionsLogo()
     ];
 
     for (let tool of tools) {
