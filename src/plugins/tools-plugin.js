@@ -33,6 +33,12 @@ export default function ToolsPlugin(editor) {
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
+
+    // show about modal on startup by default
+    // exceptions if you are on localhost or set 'dev' in URL
+    if (window.location.href.indexOf('dev') === -1) {
+      renderAboutModal(editor.state);
+    }
 }
 
 function exportPlanAsJSON(state) {
