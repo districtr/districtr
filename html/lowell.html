@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Lowell | Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="/css/chicago.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <main id="root" class="place">
+            <article class="place__content">
+                <h1 class="headline place__name">Lowell</h1>
+                <p>
+                    These modules were created in response to the current lawsuit (Huot et al. v. City of Lowell et al.) challenging the City of Lowell's at-large electoral system for City Council and School Committee. Plaintiffs in the case argue that the current system dilutes the votes of Lowell's communities of color. For more information about the lawsuit, read the LCCR's explainer <a href="https://www.lawyerscom.org/wp-content/uploads/2010/08/Lowell-Voting-Rights-Lawsuit-FAQ-Final.pdf">[here]</a>.
+                </p>
+                <p>
+                    We invite you to use Districtr to draw your own city council
+                    districts for Lowell. You can build
+                    <strong>3 City Council Districts</strong>,
+                    <strong>7 City Council Districts</strong>, 
+                    <strong>8 City Council Districts</strong>, or
+                    <strong>9 City Council Districts</strong> using
+                    <strong>census blocks</strong> as the basic building
+                    blocks.
+                </p>
+                <h2 class="place__subheading">Start drawing districts</h2>
+                <div id="districting-options"></div>
+                <!-- <h2 class="place__subheading">
+                    See the plans featured in the report
+                </h2>
+                <p>
+                    Click on any of the districting plans below to open it in
+                    Districtr.
+                </p> -->
+                
+                <!-- Plans to be highlighted here -->
+                </dl>
+            </article>
+        </main>
+        <script src="/es6/lowell.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.write(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.write(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                document.write('<script src="/es5/chicago.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>
