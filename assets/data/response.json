@@ -2319,6 +2319,47 @@
                 "max": 200
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 81259,
+              "min": 0,
+              "max": 1120
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 47187,
+                "min": 0,
+                "max": 751
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4515,
+                "min": 0,
+                "max": 106
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 11600,
+                "min": 0,
+                "max": 192
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 15270,
+                "min": 0,
+                "max": 207
+              }
+            ]
           }
         ],
         "idColumn": {
