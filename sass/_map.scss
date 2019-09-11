@@ -48,3 +48,13 @@
         right: 305px;
     }
 }
+
+@media (min-width: 1400px) {
+    #map {
+        width: calc(100% - 350px);
+    }
+
+    .overmapLogo {
+        right: 355px;
+    }
+}
