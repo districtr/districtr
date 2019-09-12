@@ -36,16 +36,51 @@
                 </p>
                 <h2 class="place__subheading">Start drawing districts</h2>
                 <div id="districting-options"></div>
-                <!-- <h2 class="place__subheading">
-                    See the plans featured in the report
+                <h2 class="place__subheading">
+                    See selected plans
                 </h2>
                 <p>
                     Click on any of the districting plans below to open it in
                     Districtr.
-                </p> -->
-                
+                </p>
+
                 <!-- Plans to be highlighted here -->
-                </dl>
+
+                <div id="plans"></div>
+                <!-- <dl class="dfn-list">
+                    <div class="dfn-list__row">
+                        <dt class="dfn-list__term">
+                            Concentrated poverty
+                        </dt>
+                        <dd class="dfn-list__caption">
+                            &ge; 25% of households under $20K annual income
+                        </dd>
+                    </div>
+                    <div class="dfn-list__row">
+                        <dt class="dfn-list__term">Concentrated wealth</dt>
+                        <dd class="dfn-list__caption">
+                            &ge; 25% of households over $150K annual income
+                        </dd>
+                    </div>
+                    <div class="dfn-list__row">
+                        <dt class="dfn-list__term">Segregated</dt>
+                        <dd class="dfn-list__caption">
+                            only one racial group exceeds 1/4 of population
+                        </dd>
+                    </div>
+                    <div class="dfn-list__row">
+                        <dt class="dfn-list__term">Hypersegregated</dt>
+                        <dd class="dfn-list__caption">
+                            only one racial group exceeds 1/6 of population
+                        </dd>
+                    </div>
+                    <div class="dfn-list__row">
+                        <dt class="dfn-list__term">Highly diverse</dt>
+                        <dd class="dfn-list__caption">
+                            three racial groups exceed 1/4 of population
+                        </dd>
+                    </div>
+                </dl> -->
             </article>
         </main>
         <script src="/es6/lowell.js"></script>
@@ -57,7 +92,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="/es5/chicago.js"><\/script>');
+                document.write('<script src="/es5/lowell.js"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();
