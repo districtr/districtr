@@ -1,5 +1,6 @@
 #map {
     width: 100%;
+    width: calc(75%);
     top: 0;
     left: 0;
     bottom: 0;
@@ -24,4 +25,36 @@
 .mapboxgl-ctrl-geocoder {
     max-width: 24rem;
     min-width: 16rem;
+}
+
+.overmapLogo {
+    position: absolute;
+    right: 25%;
+    bottom: 5px;
+    cursor: pointer;
+
+    img {
+        height: 3rem;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #map {
+        width: calc(100% - 300px);
+    }
+
+    .overmapLogo {
+        right: 305px;
+    }
+}
+
+@media (min-width: 1400px) {
+    #map {
+        width: calc(100% - 350px);
+    }
+
+    .overmapLogo {
+        right: 355px;
+    }
 }
