@@ -1,11 +1,19 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 
-export function renderAboutModal({ place, unitsRecord }) {
+export function renderAboutModal({ place, unitsRecord }, userRequested) {
     const target = document.getElementById("modal");
     const template = until(
         fetch(`/assets/about/${place.id}/${unitsRecord.id}.html`)
-            .then(r => r.text())
+            .then((r) => {
+                if (r.status === 200) {
+                    return r.text();
+                } else if (userRequested) {
+                    return "No About Page exists for this project";
+                } else {
+                    throw new Error(response.statusText);
+                }
+            })
             .then(
                 content => html`
                     <div
