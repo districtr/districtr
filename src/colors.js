@@ -6,12 +6,18 @@
  * one time.
  */
 let _colorScheme = [
-    "#0099cd",
-    "#ffca5d",
-    "#00cd99",
-    "#99cd00",
-    "#cd0099",
-    "#9900cd",
+    // http://mkweb.bcgsc.ca/colorblind/img/colorblindness.palettes.trivial.png
+    "#118CF8",
+    "#FCE027",
+    "#19A948",
+    "#0642BC",
+    "#F658F9",
+    "#98002E",
+    "#F66140",
+    "#6D008F",
+    "#1FCAD4",
+    "#92FE6F",
+    "#F8E1B1",
     // Color brewer:
     "#8dd3c7",
     "#bebada",
