@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import Parameter from "./Parameter";
 import Select from "./Select";
+import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
 
 export default class AboutSection {
@@ -44,6 +45,7 @@ export default class AboutSection {
             name: this.name,
             description: this.description
         });
+        savePlanToStorage(this.state.serialize());
         this.saved = true;
         this.renderCallback();
     }
