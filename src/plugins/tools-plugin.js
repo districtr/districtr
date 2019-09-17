@@ -34,8 +34,13 @@ export default function ToolsPlugin(editor) {
 
     // show about modal on startup by default
     // exceptions if you are on localhost or set 'dev' in URL
-    if (window.location.href.indexOf('dev') === -1) {
-        renderAboutModal(editor.state);
+    try {
+        if (window.location.href.indexOf('dev') === -1) {
+            renderAboutModal(editor.state);
+        }
+    } catch(e) {
+        // likely no About page exists - silently fail to console
+        console.error(e);
     }
 }
 
@@ -56,7 +61,7 @@ function getMenuItems(state) {
     let items = [
         {
             name: "About this module",
-            onClick: () => renderAboutModal(state)
+            onClick: () => renderAboutModal(state, true)
         },
         {
             name: "New plan",
