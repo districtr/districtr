@@ -4,7 +4,7 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import Brush from "../map/Brush";
 import { renderAboutModal } from "../components/Modal";
-import { navigateTo } from "../routes";
+import { navigateTo, savePlanToStorage } from "../routes";
 import { download } from "../utils";
 
 export default function ToolsPlugin(editor) {
@@ -12,6 +12,9 @@ export default function ToolsPlugin(editor) {
     const brush = new Brush(state.units, 20, 0);
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
+    brush.on("colorend", () => {
+        savePlanToStorage(state.serialize());
+    });
 
     let tools = [
         new PanTool(),

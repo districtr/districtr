@@ -13,7 +13,7 @@ import { addBelowLabels, addBelowSymbols } from "../map/Layer";
 // "place" is mostly split up into these categories now.
 
 class DistrictingPlan {
-    constructor({ id, problem, idColumn, parts }) {
+    constructor({ id, problem, place, idColumn, parts }) {
         if (id) {
             this.id = id;
         } else {
@@ -22,6 +22,7 @@ class DistrictingPlan {
 
         this.problem = problem;
         this.assignment = {};
+        this.place = { id: place.id };
         this.parts = getParts(problem);
         if (parts) {
             for (let i = 0; i < parts.length; i++) {
@@ -53,7 +54,8 @@ class DistrictingPlan {
             id: this.id,
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             problem: this.problem,
-            parts: this.parts.filter(p => p.visible).map(p => p.serialize())
+            parts: this.parts.filter(p => p.visible).map(p => p.serialize()),
+            place: { id: this.place.id }
         };
     }
 }
@@ -79,6 +81,7 @@ export default class State {
             id,
             assignment,
             problem,
+            place,
             ...args,
             idColumn: this.idColumn
         });
