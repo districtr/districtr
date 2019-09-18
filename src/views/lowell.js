@@ -11,44 +11,11 @@ export default () => {
 };
 
 const plans = [
-   // {
-   //      title: "Selected plans",
-   //      plans: [
-   //          {
-   //              id: "lowell_plan_3_dist_cvap",
-   //              name: "3 District Plan",
-   //              numbers: [
-   //                  // { number: 0, caption: "collation districts" }
-   //              ]
-   //          },
-   //          {
-   //              id: "lowell_plan_7_dist_cvap",
-   //              name: "7 District Plan",
-   //              numbers: [
-   //                  // { number: 2, caption: "collation districts" }
-   //              ]
-   //          },
-   //          {
-   //              id: "lowell_plan_8_dist_cvap",
-   //              name: "8 District Plan",
-   //              numbers: [
-   //                  // { number: 2, caption: "collation districts" }
-   //              ]
-   //          },
-   //          {
-   //              id: "lowell_plan_9_dist_cvap",
-   //              name: "9 District Plan",
-   //              numbers: [
-   //                  // { number: 2, caption: "collation districts" }
-   //              ]
-   //          }
-   //      ]
-   //  },
     {
         title: "Plans with roughly equal Latinx + Asian-American CVAP in each district",
         plans: [
             {
-                id: "lowell_plan_3_dist_cvap",
+                id: "3districts",
                 name: "3 District Plan",
                 numbers: [
                     // { number: 0, caption: "coalition districts" }
@@ -60,21 +27,21 @@ const plans = [
         title: "Plans with 2 majority-coalition CVAP districts with highest possible 3rd coalition district found in ensemble",
         plans: [
             {
-                id: "lowell_plan_7_dist_cvap",
+                id: "7districts",
                 name: "7 District Plan",
                 numbers: [
                     // { number: 2, caption: "coalition districts" }
                 ]
             },
             {
-                id: "lowell_plan_8_dist_cvap",
+                id: "8districts",
                 name: "8 District Plan",
                 numbers: [
                     // { number: 2, caption: "coalition districts" }
                 ]
             },
             {
-                id: "lowell_plan_9_dist_cvap",
+                id: "9districts",
                 name: "9 District Plan",
                 numbers: [
                     // { number: 3, caption: "coalition districts" }
@@ -82,26 +49,6 @@ const plans = [
             }
         ]
     },
-    // {
-    //     title: "8 Districts",
-    //     plans: [
-    //         {
-    //             id: "lowell_plan_8_dist_cvap",
-    //             name: "8 District Plan",
-    //             numbers: []
-    //         }
-    //     ]
-    // },
-    // {
-    //     title: "9 Districts",
-    //     plans: [
-    //         {
-    //             id: "lowell_plan_9_dist_cvap",
-    //             name: "9 District Plan",
-    //             numbers: []
-    //         }
-    //     ]
-    // }
 ];
 
 const plansSection = () =>
@@ -135,7 +82,7 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/edit?url=/assets/lowell-plans/${plan.id}.json">
+    <a href="/lowell/${plan.id}">
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"

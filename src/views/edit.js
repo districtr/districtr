@@ -35,7 +35,7 @@ const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
 function getPlanURLFromQueryParam() {
     if (window.location.search.includes("?url=")) {
-        return window.location.search.slice("?url=".length);
+        return window.location.search.slice("?url=".length).split('&')[0];
     } else {
         return "";
     }
@@ -67,7 +67,6 @@ function promptQuit() {
 
 export default function renderEditView() {
     getPlanContext().then(context => {
-        // TODO: context should hold information about paintings
         const root = document.getElementById("root");
         root.className = "";
         render(
@@ -99,6 +98,19 @@ export default function renderEditView() {
             getMapStyle(context)
         );
         window.document.title = "Loading... | Districtr";
+
+        // display shorter URL
+        if (window.history && window.history.replaceState
+            && getPlanURLFromQueryParam()
+            && window.location.hostname !== 'localhost'
+            && window.location.hash && window.location.hash === "#plan") {
+
+            let shortPlanName = getPlanURLFromQueryParam().split("/");
+            shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
+                + shortPlanName[3].split(".")[0];
+            window.history.replaceState({}, "Districtr", shortPlanName);
+        }
+
         mapState.map.on("load", () => {
             let state = new State(mapState.map, context, () => {
                 window.document.title = "Districtr";
