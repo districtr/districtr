@@ -2919,16 +2919,6 @@
     ]
   },
   {
-    "id": "ma",
-    "districtingProblems": [
-      {
-        "numberOfParts": 9,
-        "pluralNoun": "Congressional Districts",
-        "name": "Congress"
-      }
-    ],
-    "name": "Massachusetts",
-    "state": "Massachusetts",
     "units": [
       {
         "id": "towns",
@@ -3068,6 +3058,7 @@
           },
           {
             "type": "election",
+            "name": "2000 Presidential",
             "subgroups": [
               {
                 "key": "Pres00D",
@@ -3083,14 +3074,11 @@
                 "min": 11,
                 "max": 36389
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2000
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2000 Senate",
             "subgroups": [
               {
                 "key": "Sen00D",
@@ -3106,14 +3094,11 @@
                 "min": 6,
                 "max": 15942
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2000
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2002 Senate",
             "subgroups": [
               {
                 "key": "Sen02D",
@@ -3129,14 +3114,11 @@
                 "min": 7,
                 "max": 16887
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2002
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2004 Presidential",
             "subgroups": [
               {
                 "key": "Pres04D",
@@ -3152,14 +3134,11 @@
                 "min": 21,
                 "max": 44518
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2004
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2006 Senate",
             "subgroups": [
               {
                 "key": "Sen06D",
@@ -3175,14 +3154,11 @@
                 "min": 13,
                 "max": 23152
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2006
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2008 Presidential",
             "subgroups": [
               {
                 "key": "Pres08D",
@@ -3198,14 +3174,11 @@
                 "min": 19,
                 "max": 45548
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2008
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2010 Senate",
             "subgroups": [
               {
                 "key": "Sen10D",
@@ -3221,14 +3194,11 @@
                 "min": 19,
                 "max": 46575
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2010
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Presidential",
             "subgroups": [
               {
                 "key": "Pres12D",
@@ -3244,14 +3214,11 @@
                 "min": 19,
                 "max": 48985
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Senate",
             "subgroups": [
               {
                 "key": "Sen12D",
@@ -3267,14 +3234,11 @@
                 "min": 25,
                 "max": 64827
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2013 Senate",
             "subgroups": [
               {
                 "key": "Sen13D",
@@ -3290,14 +3254,11 @@
                 "min": 11,
                 "max": 21457
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2013
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2014 Senate",
             "subgroups": [
               {
                 "key": "Sen14D",
@@ -3313,14 +3274,11 @@
                 "min": 16,
                 "max": 28138
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2014
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "Pres16D",
@@ -3336,11 +3294,7 @@
                 "min": 19,
                 "max": 38087
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
+            ]
           }
         ],
         "idColumn": {
@@ -3391,59 +3345,59 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 6547629,
-              "min": 75,
-              "max": 10172
+              "sum": 6349032,
+              "min": 86,
+              "max": 9520
             },
             "subgroups": [
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 4984800,
-                "min": 6,
-                "max": 8192
+                "sum": 5198297,
+                "min": 5,
+                "max": 8275
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 391693,
+                "sum": 318329,
                 "min": 0,
-                "max": 2801
+                "max": 3067
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 627654,
+                "sum": 428729,
                 "min": 0,
-                "max": 3372
+                "max": 2767
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 347495,
+                "sum": 236785,
                 "min": 0,
-                "max": 4051
+                "max": 3518
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 10778,
+                "sum": 11264,
                 "min": 0,
-                "max": 174
+                "max": 162
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 1467,
+                "sum": 1706,
                 "min": 0,
-                "max": 15
+                "max": 19
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 61547,
+                "sum": 43584,
                 "min": 0,
-                "max": 830
+                "max": 1181
               }
             ]
           },
@@ -3453,71 +3407,65 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 5128706,
-              "min": 64,
-              "max": 8064
+              "sum": 4779467,
+              "min": 67,
+              "max": 7601
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 4029458,
-                "min": 3,
-                "max": 6633
+                "sum": 4069517,
+                "min": 5,
+                "max": 6597
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 288523,
+                "sum": 220658,
                 "min": 0,
-                "max": 2031
+                "max": 2033
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 416775,
+                "sum": 271003,
                 "min": 0,
-                "max": 2319
+                "max": 1735
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 8219,
+                "sum": 8150,
                 "min": 0,
-                "max": 127
+                "max": 102
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 1189,
+                "sum": 1317,
                 "min": 0,
-                "max": 10
+                "max": 14
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 269089,
+                "sum": 177829,
                 "min": 0,
-                "max": 3594
+                "max": 3069
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 45871,
+                "sum": 30993,
                 "min": 0,
-                "max": 572
-              },
-              {
-                "key": "2MOREVAP",
-                "name": "Two or more races voting age population",
-                "sum": 69582,
-                "min": 0,
-                "max": 288
+                "max": 1177
               }
             ]
           },
           {
             "type": "election",
+            "name": "2002 Senate",
             "subgroups": [
               {
                 "key": "SEN02D",
@@ -3533,14 +3481,31 @@
                 "min": 0,
                 "max": 750
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2002
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2002 Governor",
+            "subgroups": [
+              {
+                "key": "GOV02R",
+                "name": "Republican",
+                "sum": 1091988,
+                "min": 1,
+                "max": 2147
+              },
+              {
+                "key": "GOV02D",
+                "name": "Democratic",
+                "sum": 985981,
+                "min": 2,
+                "max": 1746
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2004 Presidential",
             "subgroups": [
               {
                 "key": "PRES04D",
@@ -3556,14 +3521,11 @@
                 "min": 0,
                 "max": 2040
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2004
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2006 Senate",
             "subgroups": [
               {
                 "key": "SEN06D",
@@ -3579,14 +3541,31 @@
                 "min": 0,
                 "max": 1372
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2006
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2006 Governor",
+            "subgroups": [
+              {
+                "key": "GOV06R",
+                "name": "Republican",
+                "sum": 784342,
+                "min": 0,
+                "max": 1586
+              },
+              {
+                "key": "GOV06D",
+                "name": "Democratic",
+                "sum": 1234984,
+                "min": 0,
+                "max": 2244
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 Presidential",
             "subgroups": [
               {
                 "key": "PRES08D",
@@ -3602,14 +3581,11 @@
                 "min": 0,
                 "max": 1927
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2008
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2008 Senate",
             "subgroups": [
               {
                 "key": "SEN08D",
@@ -3625,14 +3601,11 @@
                 "min": 0,
                 "max": 1717
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2008
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2010 Senate",
             "subgroups": [
               {
                 "key": "SEN10D",
@@ -3648,11 +3621,27 @@
                 "min": 0,
                 "max": 2127
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2010
-            }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 Governor",
+            "subgroups": [
+              {
+                "key": "GOV10R",
+                "name": "Republican",
+                "sum": 964866,
+                "min": 0,
+                "max": 1891
+              },
+              {
+                "key": "GOV10D",
+                "name": "Democratic",
+                "sum": 1112283,
+                "min": 0,
+                "max": 2454
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -3699,59 +3688,59 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 6547629,
-              "min": 75,
-              "max": 10172
+              "sum": 6727041,
+              "min": 76,
+              "max": 10369
             },
             "subgroups": [
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 4984800,
-                "min": 6,
-                "max": 8192
+                "sum": 5077097,
+                "min": 11,
+                "max": 8331
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 391693,
+                "sum": 445770,
                 "min": 0,
-                "max": 2801
+                "max": 2906
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 627654,
+                "sum": 680464,
                 "min": 0,
-                "max": 3038
+                "max": 3345
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 347495,
+                "sum": 386992,
                 "min": 0,
-                "max": 4051
+                "max": 4166
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 10778,
+                "sum": 34492,
                 "min": 0,
-                "max": 171
+                "max": 205
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 1467,
+                "sum": 6184,
                 "min": 0,
-                "max": 15
+                "max": 40
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 61547,
+                "sum": 89748,
                 "min": 0,
-                "max": 815
+                "max": 1077
               }
             ]
           },
@@ -3761,64 +3750,64 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 5128706,
-              "min": 64,
-              "max": 8064
+              "sum": 5123060,
+              "min": 62,
+              "max": 8063
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 4029458,
+                "sum": 4024314,
                 "min": 3,
-                "max": 6633
+                "max": 6632
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 288523,
+                "sum": 287367,
                 "min": 0,
-                "max": 2031
+                "max": 2030
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 416775,
+                "sum": 415465,
                 "min": 0,
                 "max": 2098
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 8219,
+                "sum": 7229,
                 "min": 0,
-                "max": 127
+                "max": 126
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 1189,
+                "sum": 810,
                 "min": 0,
-                "max": 10
+                "max": 9
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 269089,
+                "sum": 267838,
                 "min": 0,
                 "max": 3594
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 45871,
+                "sum": 44891,
                 "min": 0,
-                "max": 563
+                "max": 562
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 69582,
+                "sum": 68414,
                 "min": 0,
                 "max": 311
               }
@@ -3826,6 +3815,7 @@
           },
           {
             "type": "election",
+            "name": "2012 Senate",
             "subgroups": [
               {
                 "key": "SEN12D",
@@ -3841,14 +3831,11 @@
                 "min": 2,
                 "max": 2653
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Presidential",
             "subgroups": [
               {
                 "key": "PRES12D",
@@ -3864,14 +3851,11 @@
                 "min": 1,
                 "max": 2280
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2013 Senate",
             "subgroups": [
               {
                 "key": "SEN13D",
@@ -3887,14 +3871,11 @@
                 "min": 0,
                 "max": 1403
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2013
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2014 Senate",
             "subgroups": [
               {
                 "key": "SEN14D",
@@ -3910,14 +3891,31 @@
                 "min": 0,
                 "max": 1760
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2014
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 1044573,
+                "min": 0,
+                "max": 2063
+              },
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1004408,
+                "min": 3,
+                "max": 1817
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "PRES16D",
@@ -3933,16 +3931,52 @@
                 "min": 0,
                 "max": 1892
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1781341,
+                "min": 1,
+                "max": 3045
+              },
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 885770,
+                "min": 1,
+                "max": 1750
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 1633371,
+                "min": 2,
+                "max": 2662
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 979210,
+                "min": 0,
+                "max": 1862
+              }
+            ]
           }
         ],
         "idColumn": {
           "name": "Precinct name",
-          "key": "Name"
+          "key": "NAME"
         },
         "bounds": [
           [
@@ -3973,7 +4007,17 @@
           }
         ]
       }
-    ]
+    ],
+    "districtingProblems": [
+      {
+        "numberOfParts": 9,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      }
+    ],
+    "id": "ma",
+    "name": "Massachusetts",
+    "state": "Massachusetts"
   },
   {
     "units": [
