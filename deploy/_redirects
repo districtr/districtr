@@ -1,5 +1,4 @@
-/chicago/current-enacted-plan /edit?url=/assets/chicago-plans/current-wards.json
+/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /edit/* /edit.html 200
 /new/* /new.html 200
 /user_guide /guide
-/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
