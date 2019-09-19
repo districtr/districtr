@@ -1,4 +1,3 @@
-import { Landmarks } from "../components/Landmark";
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
 import OverlayContainer from "../layers/OverlayContainer";
@@ -64,10 +63,6 @@ export function addCountyLayer(tab, state) {
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const landmarks = state.place.landmarks
-        ? new Landmarks(state.map, state.place.landmarks)
-        : null;
-
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
     const districtsHeading =
@@ -88,19 +83,6 @@ export default function DataLayersPlugin(editor) {
             })}
         `
     );
-
-    if (landmarks) {
-        tab.addSection(
-            () => html`
-                <h4>Landmarks</h4>
-                ${toggle(
-                    `Show landmarks`,
-                    landmarks.visible,
-                    landmarks.handleToggle
-                )}
-            `
-        );
-    }
 
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
