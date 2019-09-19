@@ -12,40 +12,27 @@ export default () => {
 
 const plans = [
     {
-        title: "Plans with roughly equal Latinx + Asian-American CVAP in each district",
+        title: "Sample valid plans of 3, 7, 8, and 9 districts",
         plans: [
             {
-                id: "3districts",
+                id: "lowell3",
                 name: "3 District Plan",
-                numbers: [
-                    // { number: 0, caption: "coalition districts" }
-                ]
-            }
-        ]
-    },
-    {
-        title: "Plans with 2 majority-coalition CVAP districts with highest possible 3rd coalition district found in ensemble",
-        plans: [
+                numbers: []
+            },
             {
-                id: "7districts",
+                id: "lowell7",
                 name: "7 District Plan",
-                numbers: [
-                    // { number: 2, caption: "coalition districts" }
-                ]
+                numbers: []
             },
             {
-                id: "8districts",
+                id: "lowell8",
                 name: "8 District Plan",
-                numbers: [
-                    // { number: 2, caption: "coalition districts" }
-                ]
+                numbers: []
             },
             {
-                id: "9districts",
+                id: "lowell9",
                 name: "9 District Plan",
-                numbers: [
-                    // { number: 3, caption: "coalition districts" }
-                ]
+                numbers: []
             }
         ]
     },
