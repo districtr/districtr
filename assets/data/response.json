@@ -2274,8 +2274,11 @@
         }
       }
     },
+    "name": "Lowell",
+    "id": "lowell",
     "units": [
       {
+        "id": "brgx22E5",
         "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
@@ -2324,40 +2327,33 @@
             "type": "population",
             "name": "Voting Age Population",
             "total": {
-              "key": "VAP",
-              "name": "Voting age population",
-              "sum": 81259,
+              "key": "CVAP",
+              "name": "Citizen voting age population",
+              "sum": 72142,
               "min": 0,
-              "max": 1120
+              "max": 1262
             },
             "subgroups": [
               {
-                "key": "WVAP",
-                "name": "White voting age population",
-                "sum": 47187,
+                "key": "CVAPWHITE",
+                "name": "White citizen voting age population",
+                "sum": 42037,
                 "min": 0,
-                "max": 751
+                "max": 637
               },
               {
-                "key": "BVAP",
-                "name": "Black voting age population",
-                "sum": 4515,
+                "key": "CVAPHISP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 12071,
                 "min": 0,
-                "max": 106
+                "max": 295
               },
               {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 11600,
+                "key": "CVAPASIAN",
+                "name": "Asian citizen voting age population",
+                "sum": 12127,
                 "min": 0,
-                "max": 192
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian voting age population",
-                "sum": 15270,
-                "min": 0,
-                "max": 207
+                "max": 335
               }
             ]
           }
@@ -2381,46 +2377,43 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.lowell_blocks"
+              "url": "mapbox://districtr.lowell_brgx22E5"
             },
-            "sourceLayer": "lowell_blocks"
+            "sourceLayer": "lowell_brgx22E5"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.lowell_blocks_points"
+              "url": "mapbox://districtr.lowell_brgx22E5_points"
             },
-            "sourceLayer": "lowell_blocks_points"
+            "sourceLayer": "lowell_brgx22E5_points"
           }
-        ],
-        "id": "blocks"
+        ]
       }
     ],
     "districtingProblems": [
       {
+        "name": "City Council",
         "numberOfParts": 3,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
+        "pluralNoun": "City Council Districts"
       },
       {
+        "name": "City Council",
         "numberOfParts": 7,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
+        "pluralNoun": "City Council Districts"
       },
       {
+        "name": "City Council",
         "numberOfParts": 8,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
+        "pluralNoun": "City Council Districts"
       },
       {
+        "name": "City Council",
         "numberOfParts": 9,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
+        "pluralNoun": "City Council Districts"
       }
-    ],
-    "name": "Lowell",
-    "id": "lowell"
+    ]
   },
   {
     "state": "Maryland",

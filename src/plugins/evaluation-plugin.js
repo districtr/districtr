@@ -26,13 +26,13 @@ export default function EvaluationPlugin(editor) {
     }
     if (state.vap) {
         tab.addRevealSection(
-            "VAP Balance",
+            "CVAP Balance",
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "VAP Balance",
+                    "CVAP Balance",
                     state.vap,
                     state.activeParts,
-                    uiState.charts["VAP Balance"],
+                    uiState.charts["CVAP Balance"],
                     dispatch
                 ),
             {

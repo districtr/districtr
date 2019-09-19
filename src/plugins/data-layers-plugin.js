@@ -128,12 +128,12 @@ export default function DataLayersPlugin(editor) {
         const vapOverlays = new OverlayContainer(
             state.layers,
             state.vap,
-            "Show VAP demographics"
+            "Show CVAP demographics"
         );
         tab.addSection(
             () =>
                 html`
-                    <h4>Voting Age Population</h4>
+                    <h4>Citizen Voting Age Population</h4>
                     ${vapOverlays.render()}
                 `
         );
