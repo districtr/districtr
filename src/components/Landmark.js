@@ -25,15 +25,8 @@ const landmarkPaintProperty = {
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
-        // "#1f8653",
-        // "#2bb972"
         "#ff4f49",
         "#e44944"
-        // "#70b002",
-        // "#8cdc02"
-        // "#54b321",
-        // "#64db24"
-        // "#98e86d"
     ]
 };
 
@@ -49,8 +42,12 @@ const landmarkCircleProperty = {
 };
 
 export class Landmarks {
-    constructor(map, landmarksRecord) {
-        this.landmarksRecord = landmarksRecord.source || landmarksRecord;
+    constructor(map, landmarksRecord, updateLandmarkList) {
+        this.visible = false;
+        this.landmarksRecord = landmarksRecord;
+        this.updateLandmarkList = updateLandmarkList;
+
+        // polygon landmarks and tooltip
         map.addSource("landmarklist", this.landmarksRecord);
         this.layer = new Layer(
             map,
@@ -62,7 +59,9 @@ export class Landmarks {
             },
             addBelowLabels
         );
+        this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
 
+        // point landmarks and tooltip
         this.points = {
             type: 'geojson',
             data: {
@@ -72,8 +71,6 @@ export class Landmarks {
             }
         };
         map.addSource("landmarkpoints", this.points);
-        this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
-
         this.markerlayer = new Layer(
             map,
             {
@@ -86,8 +83,7 @@ export class Landmarks {
         );
         this.ptsTooltip = new Tooltip(this.markerlayer, LandmarkInfo, 5);
 
-        this.visible = false;
-
+        // MapBox GL Draw tool
         this.drawTool = new MapboxDraw({
             displayControlsDefault: false,
             controls: {
@@ -100,9 +96,12 @@ export class Landmarks {
         this.layer.map.on('draw.create', (e) => {
             let name = window.prompt('What is the name of this landmark?')
             if (name) {
+                // when the user names a landmark, we save it in the landmarks layer
+                // this means we can delete the feature created by drawTool
                 e.features.forEach((feature) => {
                     feature.properties.name = name;
                     this.drawTool.trash(feature.id);
+                    // the drawTool creates an alphanumeric ID; we need a numeric ID
                     feature.id = Math.round(Math.random() * 1000000000);
 
                     if (feature.geometry.type === "Point") {
@@ -113,45 +112,47 @@ export class Landmarks {
                     this.landmarksRecord.data.features.push(feature);
                 });
 
-                this.layer.map.getSource("landmarklist")
-                    .setData(this.landmarksRecord.data);
-                this.layer.map.getSource("landmarkpoints")
-                    .setData(this.points.data);
+                this.updateFeatures();
+                this.updateLandmarkList();
             } else {
-                // cancel / remove landmark
+                // cancel naming = remove landmark
                 e.features.forEach((feature) => {
                     this.drawTool.trash(feature.id);
                 });
             }
         });
-        this.layer.map.on('draw.update', (e) => {
-            console.log(e.features);
-            console.log(e.action);
-            return false;
-        });
+        // the editable layer is now deleted and recreated in the landmarks layers
+        // this.layer.map.on('draw.update', (e) => {
+        //     return false;
+        // });
 
         this.handleToggle = this.handleToggle.bind(this);
         this.handleDrawToggle = this.handleDrawToggle.bind(this);
     }
+    updateFeatures() {
+        this.layer.map.getSource("landmarklist")
+            .setData(this.landmarksRecord.data);
+        this.layer.map.getSource("landmarkpoints")
+            .setData(this.points.data);
+    }
     handleToggle(checked) {
-        this.visible = checked;
-        if (checked) {
+        if (checked && !this.visible) {
             this.layer.setOpacity(0.5);
             this.landmarksTooltip.activate();
             this.markerlayer.setOpacity(0.5);
             this.ptsTooltip.activate();
-        } else {
+        } else if (!checked && this.visible) {
             this.layer.setOpacity(0);
             this.landmarksTooltip.deactivate();
             this.markerlayer.setOpacity(0);
             this.ptsTooltip.deactivate();
         }
+        this.visible = checked;
     }
     handleDrawToggle(checked) {
         if (checked) {
-            // makes no sense to draw without visible landmarks
+            // when opening draw, make landmarks visible
             this.layer.map.addControl(this.drawTool, "top-right");
-
             this.handleToggle(true);
         } else {
             this.layer.map.removeControl(this.drawTool);

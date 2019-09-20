@@ -21,14 +21,14 @@ export default function ToolsPlugin(editor) {
         new PanTool(),
         new BrushTool(brush, state.parts),
         new EraserTool(brush),
+        new LandmarkTool(state),
         new InspectTool(
             state.units,
             state.columnSets,
             state.nameColumn,
             state.unitsRecord,
             state.parts
-        ),
-        new LandmarkTool(state)
+        )
     ];
 
     for (let tool of tools) {
