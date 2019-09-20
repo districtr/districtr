@@ -86,6 +86,9 @@ class LandmarkOptions {
     }
     render() {
         let properties = this.features.map(feature => feature.properties);
+        if (this.features.length && !this.selectFeature) {
+            this.selectFeature = 0;
+        }
 
         return html`
     <div class="ui-option">
@@ -100,7 +103,7 @@ class LandmarkOptions {
         <li class="option-list__item">
             ${properties.length > 1
                 ? Parameter({
-                      label: "Community:",
+                      label: "Edit:",
                       element: Select(
                           properties,
                           this.handleSelectFeature
@@ -110,12 +113,12 @@ class LandmarkOptions {
         </li>
     </ul>
 
-    ${this.features.length && LandmarkFormTemplate({
+    ${this.features.length ? LandmarkFormTemplate({
         name: properties[this.selectFeature].name,
         saved: false,
         onSave: this.onSave,
         setName: this.setName
-    })}
+    }) : "Add landmarks using the polygon and marker buttons on the top right of the map."}
         `;
     }
 }
