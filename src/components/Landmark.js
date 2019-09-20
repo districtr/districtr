@@ -93,43 +93,50 @@ export class Landmarks {
             }
         });
 
+        // create a draft layer (polygon or marker)
         this.layer.map.on('draw.create', (e) => {
-            let name = window.prompt('What is the name of this landmark?')
-            if (name) {
-                // when the user names a landmark, we save it in the landmarks layer
-                // this means we can delete the feature created by drawTool
-                e.features.forEach((feature) => {
-                    feature.properties.name = name;
-                    this.drawTool.trash(feature.id);
-                    // the drawTool creates an alphanumeric ID; we need a numeric ID
-                    feature.id = Math.round(Math.random() * 1000000000);
+            let editFeature = e.features[0];
 
-                    if (feature.geometry.type === "Point") {
-                        this.points.data.features.push(feature);
-                    }
-                    // a point is not rendered by the polygon layer
-                    // but we need to have it available for localStorage / export
-                    this.landmarksRecord.data.features.push(feature);
-                });
+            // the drawTool creates an alphanumeric ID; we need a numeric ID
+            editFeature.number_id = Math.round(Math.random() * 1000000000);
+            editFeature.properties.name = 'New ' + editFeature.geometry.type;
 
-                this.updateFeatures();
-                this.updateLandmarkList();
-            } else {
-                // cancel naming = remove landmark
-                e.features.forEach((feature) => {
-                    this.drawTool.trash(feature.id);
-                });
-            }
+            // a point is not rendered by the polygon layer
+            // but we need it in the polygons layer for localStorage / export
+            this.landmarksRecord.data.features.push(editFeature);
+
+            this.updateLandmarkList(true);
         });
-        // the editable layer is now deleted and recreated in the landmarks layers
-        // this.layer.map.on('draw.update', (e) => {
-        //     return false;
-        // });
+
+        // update position of draft layer
+        this.layer.map.on('draw.update', (e) => {
+            // does dragged location get saved automatically?
+            let editFeature = e.features[0];
+            this.landmarksRecord.data.features.forEach((feature) => {
+                if (editFeature.id === feature.id) {
+                    feature.geometry = editFeature.geometry;
+                }
+            });
+        });
 
         this.handleToggle = this.handleToggle.bind(this);
         this.handleDrawToggle = this.handleDrawToggle.bind(this);
     }
-    updateFeatures() {
+    saveFeature(feature_id) {
+        // if this feature ID is currently move-able, we can lock it
+        this.landmarksRecord.data.features.forEach((feature) => {
+            if (feature.id === feature_id && feature.number_id) {
+                this.drawTool.trash(feature.id);
+                feature.id = feature.number_id + "";
+                delete feature.number_id;
+
+                if (feature.geometry.type === "Point") {
+                    this.points.data.features.push(feature);
+                }
+            }
+        });
+
+        // save names and locations in landmarks layer
         this.layer.map.getSource("landmarklist")
             .setData(this.landmarksRecord.data);
         this.layer.map.getSource("landmarkpoints")

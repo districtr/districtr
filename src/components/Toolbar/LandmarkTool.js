@@ -16,7 +16,7 @@ export default class LandmarkTool extends Tool {
         this.state = state;
         this.renderCallback = state.render;
 
-        bindAll(["updateLandmarkList", "updateFeatureName"], this);
+        bindAll(["updateLandmarkList", "saveFeature"], this);
 
         let lm = state.place.landmarks;
         if (!lm.source && !lm.type) {
@@ -28,20 +28,32 @@ export default class LandmarkTool extends Tool {
         // compatibility with old landmarks
         lm = lm.source || lm;
 
+        // remove landmarks which were being drawn and not saved
+        for (let prune = lm.data.features.length - 1; prune >= 0; prune--) {
+            if (lm.data.features[prune].number_id) {
+                lm.data.features.splice(prune, 1);
+            }
+        }
+
         this.landmarks = new Landmarks(state.map, lm, this.updateLandmarkList);
         this.options = new LandmarkOptions(
             this.landmarks,
             lm.data.features,
-            this.updateFeatureName,
+            this.saveFeature,
             this.renderCallback
         );
     }
-    updateLandmarkList() {
+    updateLandmarkList(selectLastFeature) {
         savePlanToStorage(this.state.serialize());
-        this.renderCallback();
+        if (selectLastFeature) {
+            this.options.handleSelectFeature(-1);
+            // handleSelectFeature already calls renderCallback
+        } else {
+            this.renderCallback();
+        }
     }
-    updateFeatureName() {
-        this.landmarks.updateFeatures();
+    saveFeature(id) {
+        this.landmarks.saveFeature(id);
         savePlanToStorage(this.state.serialize());
         this.renderCallback();
     }
@@ -57,10 +69,10 @@ export default class LandmarkTool extends Tool {
 }
 
 class LandmarkOptions {
-    constructor(drawTool, features, updateFeatureName, renderCallback) {
+    constructor(drawTool, features, saveFeature, renderCallback) {
         this.drawTool = drawTool;
         this.features = features;
-        this.updateFeatureName = updateFeatureName;
+        this.saveFeature = saveFeature;
         this.renderCallback = renderCallback;
 
         bindAll(["handleSelectFeature", "onSave", "setName"], this);
@@ -69,7 +81,9 @@ class LandmarkOptions {
         this.updateName = this.features.length ? this.features[0].properties.name : null;
     }
     handleSelectFeature(e) {
-        this.selectFeature = e;
+        // e can be set to -1 (most recent layer)
+        this.selectFeature = (e > -1) ? e : (this.features.length - 1);
+        this.updateName = this.features[this.selectFeature].properties.name;
         this.renderCallback();
     }
     setName(name) {
@@ -80,13 +94,14 @@ class LandmarkOptions {
         // commit updateName to map and localStorage
         if (this.updateName !== null) {
             this.features[this.selectFeature].properties.name = this.updateName;
-            this.updateFeatureName();
+            this.saveFeature(this.features[this.selectFeature].id);
             this.render();
         }
     }
     render() {
         let properties = this.features.map(feature => feature.properties);
         if (this.features.length && !this.selectFeature) {
+            // when we add our first feature, this selects it
             this.selectFeature = 0;
         }
 
@@ -106,7 +121,8 @@ class LandmarkOptions {
                       label: "Edit:",
                       element: Select(
                           properties,
-                          this.handleSelectFeature
+                          this.handleSelectFeature,
+                          this.selectFeature
                       )
                   })
                 : ""}
