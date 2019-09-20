@@ -11,7 +11,7 @@ export function renderAboutModal({ place, unitsRecord }, userRequested) {
                 } else if (userRequested) {
                     return "No About Page exists for this project";
                 } else {
-                    throw new Error(response.statusText);
+                    throw new Error(r.statusText);
                 }
             })
             .then(
