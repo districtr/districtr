@@ -67,6 +67,14 @@ function getMenuItems(state) {
             onClick: () => renderAboutModal(state, true)
         },
         {
+            name: "MGGG homepage",
+            onClick: () => {
+                if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                    window.location.href = "/";
+                }
+            }
+        },
+        {
             name: "New plan",
             onClick: () => navigateTo("/new")
         },
