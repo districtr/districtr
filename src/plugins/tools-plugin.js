@@ -21,7 +21,7 @@ export default function ToolsPlugin(editor) {
         new PanTool(),
         new BrushTool(brush, state.parts),
         new EraserTool(brush),
-        new LandmarkTool(state),
+        (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
             state.units,
             state.columnSets,
@@ -32,7 +32,9 @@ export default function ToolsPlugin(editor) {
     ];
 
     for (let tool of tools) {
-        toolbar.addTool(tool);
+        if (tool) {
+            toolbar.addTool(tool);
+        }
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
