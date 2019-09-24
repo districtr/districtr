@@ -56,15 +56,6 @@ function getPlanContext() {
     }
 }
 
-function promptQuit() {
-    let response = window.confirm("Would you like to return to the Districtr homepage?");
-    if (response) {
-        window.location.href = "/";
-    } else {
-        // do nothing
-    }
-}
-
 export default function renderEditView() {
     getPlanContext().then(context => {
         const root = document.getElementById("root");
@@ -72,12 +63,6 @@ export default function renderEditView() {
         render(
             html`
                 <div id="map"></div>
-                <a
-                    class="overmapLogo"
-                    @click=${promptQuit}
-                    title="Districtr Home">
-                    <img src="/assets/districtr-splash-tiny.png"/>
-                </a>
                 <div id="toolbar"></div>
             `,
             root
