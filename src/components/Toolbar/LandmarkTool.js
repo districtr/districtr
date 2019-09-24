@@ -16,7 +16,8 @@ export default class LandmarkTool extends Tool {
         this.state = state;
         this.renderCallback = state.render;
 
-        bindAll(["updateLandmarkList", "updateFeatureName"], this);
+        bindAll(["updateLandmarkList", "saveFeature", "deleteFeature"],
+            this);
 
         let lm = state.place.landmarks;
         if (!lm.source && !lm.type) {
@@ -28,20 +29,34 @@ export default class LandmarkTool extends Tool {
         // compatibility with old landmarks
         lm = lm.source || lm;
 
+        // remove landmarks which were being drawn and not saved
+        lm.data.features = lm.data.features.filter(f => !f.number_id);
+
         this.landmarks = new Landmarks(state.map, lm, this.updateLandmarkList);
         this.options = new LandmarkOptions(
             this.landmarks,
             lm.data.features,
-            this.updateFeatureName,
+            this.saveFeature,
+            this.deleteFeature,
             this.renderCallback
         );
     }
-    updateLandmarkList() {
+    updateLandmarkList(selectLastFeature) {
+        savePlanToStorage(this.state.serialize());
+        if (selectLastFeature) {
+            this.options.handleSelectFeature(-1);
+            // handleSelectFeature already calls render
+        } else {
+            this.renderCallback();
+        }
+    }
+    saveFeature(id) {
+        this.landmarks.saveFeature(id);
         savePlanToStorage(this.state.serialize());
         this.renderCallback();
     }
-    updateFeatureName() {
-        this.landmarks.updateFeatures();
+    deleteFeature(id) {
+        this.landmarks.deleteFeature(id);
         savePlanToStorage(this.state.serialize());
         this.renderCallback();
     }
@@ -57,37 +72,63 @@ export default class LandmarkTool extends Tool {
 }
 
 class LandmarkOptions {
-    constructor(drawTool, features, updateFeatureName, renderCallback) {
+    constructor(drawTool, features, saveFeature, deleteFeature, renderCallback) {
         this.drawTool = drawTool;
         this.features = features;
-        this.updateFeatureName = updateFeatureName;
+        this.saveFeature = saveFeature;
+        this.deleteFeature = deleteFeature;
         this.renderCallback = renderCallback;
 
-        bindAll(["handleSelectFeature", "onSave", "setName"], this);
+        bindAll(["handleSelectFeature", "onSave", "onDelete", "setName", "setDescription"],
+            this);
 
         this.selectFeature = this.features.length ? 0 : null;
-        this.updateName = this.features.length ? this.features[0].properties.name : null;
+        if (this.features.length) {
+            this.updateName = this.features[0].properties.name;
+            this.updateDescription = this.features[0].properties.short_description || '';
+        } else {
+            this.updateName = null;
+            this.updateDescription = null;
+        }
     }
     handleSelectFeature(e) {
-        this.selectFeature = e;
+        // e can be set to -1 (most recent layer)
+        this.selectFeature = (e > -1) ? e : (this.features.length - 1);
         this.renderCallback();
     }
+    // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
-        // remember but don't save to map and localStorage
         this.updateName = name;
     }
+    setDescription(description) {
+        this.updateDescription = description;
+    }
     onSave() {
-        // commit updateName to map and localStorage
-        if (this.updateName !== null) {
-            this.features[this.selectFeature].properties.name = this.updateName;
-            this.updateFeatureName();
-            this.render();
+        // save name, description, and location on map and localStorage
+        let updateFeature = this.features[this.selectFeature];
+        updateFeature.properties.name = this.updateName;
+        updateFeature.properties.short_description = this.updateDescription;
+        this.saveFeature(updateFeature.id);
+    }
+    onDelete() {
+        // delete currently viewed shape
+        let deleteID = this.features[this.selectFeature].id;
+        if (this.selectFeature === this.features.length - 1) {
+            // adjust index if viewing most recent feature
+            this.handleSelectFeature(this.features.length - 2);
         }
+        this.deleteFeature(deleteID);
     }
     render() {
         let properties = this.features.map(feature => feature.properties);
-        if (this.features.length && !this.selectFeature) {
-            this.selectFeature = 0;
+        if (this.features.length) {
+            if (!this.selectFeature) {
+                // when we add our first feature, this selects it
+                this.selectFeature = 0;
+            }
+
+            this.updateName = this.features[this.selectFeature].properties.name;
+            this.updateDescription = this.features[this.selectFeature].properties.short_description || '';
         }
 
         return html`
@@ -106,7 +147,8 @@ class LandmarkOptions {
                       label: "Edit:",
                       element: Select(
                           properties,
-                          this.handleSelectFeature
+                          this.handleSelectFeature,
+                          this.selectFeature
                       )
                   })
                 : ""}
@@ -114,10 +156,12 @@ class LandmarkOptions {
     </ul>
 
     ${this.features.length ? LandmarkFormTemplate({
-        name: properties[this.selectFeature].name,
-        saved: false,
+        name: this.updateName,
+        description: this.updateDescription,
         onSave: this.onSave,
-        setName: this.setName
+        setName: this.setName,
+        setDescription: this.setDescription,
+        onDelete: this.onDelete
     }) : "Add landmarks using the polygon and marker buttons on the top right of the map."}
         `;
     }
@@ -126,33 +170,49 @@ class LandmarkOptions {
 
 function LandmarkFormTemplate({
     name,
-    //description,
-    saved,
+    description,
     onSave,
     setName,
-    //setDescription
+    setDescription,
+    onDelete
 }) {
     return html`
         <ul class="option-list">
-            <li class="option-list__item">
+            <li>
                 <label class="ui-label">Name</label>
                 <input
                     type="text"
-                    class="text-input"
+                    class="text-input vertical-align"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}
                     @blur=${e => setName(e.target.value)}
                 />
+                <button
+                    class="button vertical-align"
+                    @click=${onDelete}
+                >
+                    <div
+                        class="icon"
+                        title="delete"
+                    >
+                        <i class="material-icons">delete</i>
+                    </div>
+                </button>
+            </li>
+            <li class="option-list__item">
+                <textarea
+                    class="text-input text-area short-text-area"
+                    @input=${e => setDescription(e.target.value)}
+                    @blur=${e => setDescription(e.target.value)}
+                    .value="${description}"
+                ></textarea>
             </li>
             <li class="option-list__item">
                 <button
-                    ?disabled=${saved}
-                    class="button button--submit button--${saved
-                        ? "disabled"
-                        : "alternate"} ui-label"
+                    class="button button--submit button--alternate ui-label"
                     @click=${onSave}
                 >
-                    ${saved ? "Saved" : "Save"}
+                    Save
                 </button>
             </li>
         </ul>
