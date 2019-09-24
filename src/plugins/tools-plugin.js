@@ -2,6 +2,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
+import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import { renderAboutModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage } from "../routes";
@@ -20,6 +21,7 @@ export default function ToolsPlugin(editor) {
         new PanTool(),
         new BrushTool(brush, state.parts),
         new EraserTool(brush),
+        (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
             state.units,
             state.columnSets,
@@ -30,7 +32,9 @@ export default function ToolsPlugin(editor) {
     ];
 
     for (let tool of tools) {
-        toolbar.addTool(tool);
+        if (tool) {
+            toolbar.addTool(tool);
+        }
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
