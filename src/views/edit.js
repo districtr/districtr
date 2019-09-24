@@ -96,6 +96,20 @@ export default function renderEditView() {
             window.history.replaceState({}, "Districtr", shortPlanName);
         }
 
+        function dropHandler(ev) {
+            ev.preventDefault();
+            if (ev.dataTransfer.items) {
+                ev.dataTransfer.items.forEach((f) => {
+                    console.log(f);
+                });
+            } else {
+                (ev.dataTransfer.files || []).forEach((f) => {
+                    console.log(f);
+                });
+            }
+        }
+        document.body.ondrop = dropHandler;
+
         mapState.map.on("load", () => {
             let state = new State(mapState.map, context, () => {
                 window.document.title = "Districtr";
