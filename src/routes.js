@@ -75,15 +75,18 @@ export function loadPlanFromJSON(planRecord) {
 
 export function loadPlanFromCSV(assignmentList, state) {
     let rows = assignmentList.split("\n");
-    let headers = rows[0].split(",");
+    let headers = rows[0].replace(/"/g, "").trim().split(",");
     if (
-        headers[0].indexOf("\"id-") === 0
+        headers[0].indexOf("id-") === 0
         && headers[0].split("-").length === 3
     ) {
         // new format, verify units match
         //id-state.place.id-state.units.id
         let placeId = headers[0].split("-")[1],
             unitId = headers[0].split("-")[2];
+        if (unitId.includes("_")) {
+            unitId = unitId.split("_")[1];
+        }
 
         if (placeId !== state.place.id) {
             throw new Error("CSV is for a different module (another state or region).");
