@@ -1,5 +1,7 @@
 // check
-const fs = require("fs");
+const fs = require("fs"),
+      fetch = require("node-fetch");
+const mbPublicKey = "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 let seenPlanIds = [];
 
 function validateFile() {
@@ -14,8 +16,15 @@ function validateFile() {
                 throw new Error("Could not parse JSON data from response.json");
             }
             if (Array.isArray(data) && data.length > 0) {
-                data.forEach(validatePlan);
-                console.log("Success! response.json is valid");
+                async function checkPlan(p) {
+                    if (p >= data.length) {
+                        return console.log("Success! response.json is valid");
+                    }
+                    await validatePlan(data[p]);
+                    checkPlan(p + 1);
+                }
+                checkPlan(0);
+
             } else {
                 throw new Error("response.json was not an Array with content");
             }
@@ -24,7 +33,7 @@ function validateFile() {
         }
     });
 }
-function validatePlan(plan, index) {
+async function validatePlan(plan, index) {
     if (!plan.id) {
         throw new Error((index + 1) + "-th plan had no id");
     }
@@ -52,9 +61,15 @@ function validatePlan(plan, index) {
     if (!plan.units || !Array.isArray(plan.units)) {
         throw new Error(plan.id + " has no array of units");
     }
-    plan.units.forEach((unit, index) => {
-        validateUnits(unit, index, plan.id);
-    });
+    async function checkUnit(index) {
+        if (index >= plan.units.length) {
+            return;
+        }
+        let unit = plan.units[index];
+        await validateUnits(unit, index, plan);
+        await checkUnit(index + 1);
+    }
+    await checkUnit(0);
 }
 
 function validateProblem(problem, index, id) {
@@ -72,47 +87,44 @@ function validateProblem(problem, index, id) {
     }
 }
 
-function validateUnits(unit, index, id) {
+async function validateUnits(unit, index, plan) {
     ["id", "name", "unitType"].forEach((check) => {
         if (!unit[check]) {
-            throw new Error(id + " is missing " + check + " on its "
+            throw new Error(plan.id + " is missing " + check + " on its "
                 + (index + 1) + "-th unit entry");
         }
     });
     if (!unit.columnSets || !Array.isArray(unit.columnSets)) {
-        throw new Error(id + " is missing columnSets array on its "
+        throw new Error(plan.id + " is missing columnSets array on its "
             + (index + 1) + "-th unit entry");
     }
     unit.columnSets.forEach((columnSet, csi) => {
-        validateColumnSet(columnSet, csi, index, id);
+        validateColumnSet(columnSet, csi, index, plan.id);
     });
 
     if (!unit.idColumn || !unit.idColumn.name || !unit.idColumn.key) {
-        throw new Error(id + " is missing a complete idColumn on its "
+        throw new Error(plan.id + " is missing a complete idColumn on its "
             + (index + 1) + "-th unit entry");
+    }
+    if (unit.nameColumn) {
+        if (!unit.nameColumn.name || !unit.nameColumn.key) {
+            throw new Error(plan.id + " has a broken nameColumn on its "
+            + (index + 1) + "-th unit entry");
+        }
     }
     if (!unit.bounds || unit.bounds.length !== 2
         || unit.bounds[0].length !== 2 || unit.bounds[1].length !== 2
     ) {
-        throw new Error(id + " is missing a complete bounds array on its "
+        throw new Error(plan.id + " is missing a complete bounds array on its "
             + (index + 1) + "-th unit entry");
     }
 
     if (!unit.tilesets || !Array.isArray(unit.tilesets)
         || unit.tilesets.length !== 2
     ) {
-        throw new Error(id + " is missing a 2-length tilesets array on its "
+        throw new Error(plan.id + " is missing a 2-length tilesets array on its "
             + (index + 1) + "-th unit entry");
     }
-
-    unit.tilesets.forEach((tileset) => {
-        ["source", "sourceLayer"].forEach((check) => {
-            if (!tileset[check]) {
-                throw new Error(id + " is missing a tileset's " + check + " on its "
-                    + (index + 1) + "-th unit entry");
-            }
-        });
-    });
 
     if (
         (unit.tilesets[0].type === "fill" && unit.tilesets[1].type === "circle")
@@ -120,19 +132,91 @@ function validateUnits(unit, index, id) {
     ) {
         unit.tilesets.forEach((tileset) => {
             if (tileset.source.type !== "vector") {
-                throw new Error(id + " is missing a vector type on a tileset, in "
+                throw new Error(plan.id + " is missing a vector type on a tileset, in "
                     + (index + 1) + "-th unit entry");
             }
             if (!tileset.source.url) {
-                throw new Error(id + " is missing a source url on a tileset, in "
+                throw new Error(plan.id + " is missing a source url on a tileset, in "
                     + (index + 1) + "-th unit entry");
             }
         });
 
     } else {
-        throw new Error(id + " is missing one of fill + circle tilesets on its "
+        throw new Error(plan.id + " is missing one of fill + circle tilesets on its "
             + (index + 1) + "-th unit entry");
     }
+
+    async function checkTileset(p) {
+        if (p >= unit.tilesets.length) {
+            return;
+        }
+        let tileset = unit.tilesets[p];
+        ["source", "sourceLayer"].forEach((check) => {
+            if (!tileset[check]) {
+                throw new Error(plan.id + " is missing a tileset's " + check + " on its "
+                    + (index + 1) + "-th unit entry");
+            }
+        });
+
+        let tset = tileset.source.url.split("mapbox://")[1] + ".json";
+
+        let res;
+        try {
+            res = await fetch(`https://api.mapbox.com/v4/${tset}?secure&access_token=${mbPublicKey}`);
+        } catch(e) {
+            throw new Error("No internet to validate MapBox");
+        }
+        let content = await res.json();
+        if (content.message) {
+            throw new Error("Error from MapBox Layer " + tset + ":\n" + content.message);
+        } else {
+            console.log(tset + " modified " + new Date(content.modified));
+            // bounds are frequently different
+            if (content.filesize < 1000) {
+                throw new Error("MapBox layer " + tset + " was surprisingly small file");
+            }
+            if (content.private) {
+                throw new Error("MapBox layer " + tset + " was private");
+            }
+            let fields = Object.keys(content.vector_layers[0].fields);
+
+            // check ID and name column present
+            if (!fields.includes(unit.idColumn.key)) {
+                throw new Error("MapBox layer " + tset + " is missing ID column (" + unit.idColumn.key + ")");
+            }
+            fields.splice(fields.indexOf(unit.idColumn.key), 1);
+            if (unit.nameColumn) {
+                fields.splice(fields.indexOf(unit.nameColumn.key), 1);
+            }
+
+            unit.columnSets.forEach(cs => {
+                if (cs.total) {
+                    if (!fields.includes(cs.total.key)) {
+                        throw new Error("MapBox layer " + tset + " missing total field from response.json (" + subgroup.key + ")");
+                    }
+                    fields.splice(fields.indexOf(cs.total.key), 1);
+                }
+
+                cs.subgroups.forEach(subgroup => {
+                    if (!fields.includes(subgroup.key)) {
+                        throw new Error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
+                    }
+                    if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
+                        throw new Error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
+                    }
+                    fields.splice(fields.indexOf(subgroup.key), 1);
+                });
+            });
+
+            // any response.json columns missing on MapBox side?
+            if (fields.length) {
+                console.log("response.json not reading fields from MapBox layer " + tset + ": "
+                    + JSON.stringify(fields));
+            }
+        }
+        await checkTileset(p + 1);
+    }
+    await checkTileset(0);
 }
 
 function validateColumnSet(columnSet, columnSetIndex, unitIndex, planId) {
