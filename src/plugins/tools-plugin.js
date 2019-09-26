@@ -58,7 +58,9 @@ function exportPlanAsJSON(state) {
 }
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
-    let text = `"id-${state.place.id}-${state.units.id}"${delimiter}assignment\n`;
+    let text = `"id-${state.place.id}-${state.units.id}-${state.problem.numberOfParts}`;
+    text += `-${state.problem.pluralNoun.replace(/\s+/g, "")}"`;
+    text += `${delimiter}assignment\n`;
     text += Object.keys(state.plan.assignment)
         .map(unitId => `${unitId}${delimiter}${state.plan.assignment[unitId]}`)
         .join("\n");

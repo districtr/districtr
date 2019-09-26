@@ -78,12 +78,15 @@ export function loadPlanFromCSV(assignmentList, state) {
     let headers = rows[0].replace(/"/g, "").trim().split(",");
     if (
         headers[0].indexOf("id-") === 0
-        && headers[0].split("-").length === 3
+        && headers[0].split("-").length === 5
     ) {
         // new format, verify units match
         //id-state.place.id-state.units.id
-        let placeId = headers[0].split("-")[1],
-            unitId = headers[0].split("-")[2];
+        let cols = headers[0].split("-");
+        let placeId = cols[1],
+            unitId = cols[2],
+            partCount = cols[3],
+            pluralType = cols[4];
         if (unitId.includes("_")) {
             unitId = unitId.split("_")[1];
         }
@@ -91,8 +94,11 @@ export function loadPlanFromCSV(assignmentList, state) {
         if (placeId !== state.place.id) {
             throw new Error("CSV is for a different module (another state or region).");
         } else if (unitId !== state.units.id) {
-            throw new Error("CSV is for this module but a different divison (e.g. blocks, precincts).");
+            throw new Error("CSV is for this module but a different unit map (e.g. blocks, precincts).");
+        } else if (pluralType !== state.problem.pluralNoun.replace(/\s+/g, "")) {
+            throw new Error("CSV is for this module but a different division map (e.g. districts)");
         }
+        state.problem.numberOfParts = partCount * 1;
     } else {
         // old format, no column headers
         headers = null;
@@ -108,6 +114,12 @@ export function loadPlanFromCSV(assignmentList, state) {
 
                 if (key && !isNaN(val)) {
                     planRecord.assignment[key] = val;
+
+                    // if we didn't set numberOfParts in CSV, find max here
+                    state.problem.numberOfParts = Math.max(
+                        state.problem.numberOfParts,
+                        val
+                    );
                 }
             }
         });
