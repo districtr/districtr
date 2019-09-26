@@ -109,8 +109,10 @@ export function loadPlanFromCSV(assignmentList, state) {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(","),
-                    key = cols[0] * 1,
-                    val = cols[1] * 1;
+                    val = cols[1] * 1,
+                    key = (isNaN(cols[0] * 1) || cols[0][0] === "0")
+                        ? cols[0]
+                        : cols[0] * 1;
 
                 if (key && !isNaN(val)) {
                     planRecord.assignment[key] = val;
