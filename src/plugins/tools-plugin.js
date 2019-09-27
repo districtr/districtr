@@ -1,3 +1,4 @@
+import netlifyIdentity from "netlify-identity-widget";
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
@@ -37,7 +38,14 @@ export default function ToolsPlugin(editor) {
         }
     }
     toolbar.selectTool("pan");
-    toolbar.setMenuItems(getMenuItems(editor.state));
+    try {
+        netlifyIdentity.on("init", () => {
+            getMenuItems(editor.state, toolbar);
+        });
+        netlifyIdentity.init();
+    } catch (e) {
+        getMenuItems(editor.state, toolbar);
+    }
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
@@ -73,7 +81,7 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
 
-function getMenuItems(state) {
+function getMenuItems(state, toolbar) {
     let items = [
         {
             name: "About this module",
@@ -100,5 +108,34 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsAssignmentFile(state)
         }
     ];
-    return items;
+
+    const user = netlifyIdentity.currentUser();
+    netlifyIdentity.on("login", () => {
+        getMenuItems(state, toolbar);
+    });
+    netlifyIdentity.on("logout", () => {
+        getMenuItems(state, toolbar);
+    });
+    if (user) {
+        items = items.concat([
+            {
+                name: "Upload to event page",
+                onClick: () => {
+
+                }
+            },
+            {
+                name: "Sign out",
+                onClick: () => {
+                    netlifyIdentity.logout();
+                }
+            }
+        ]);
+    } else {
+        items.push({
+            name: "Sign in to upload plans",
+            onClick: () => { netlifyIdentity.open() }
+        });
+    }
+    toolbar.setMenuItems(items);
 }
