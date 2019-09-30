@@ -29,7 +29,7 @@ function EventList() {
     // use Netlify serverless functions to look up event by shortcode
     return fetch("/.netlify/functions/eventRead", {
         method: "POST",
-        data: JSON.stringify({ shortcode: selectedId })
+        body: JSON.stringify({ shortcode: selectedId })
     })
     .then(res => res.json())
     .then(eventlist => {
