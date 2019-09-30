@@ -109,6 +109,9 @@ function getMenuItems(state, toolbar) {
         }
     ];
 
+    const eventr = window.location.href.includes("event=")
+        ? window.location.href.split("event=")[1].split("&")[0]
+        : null;
     const user = netlifyIdentity.currentUser();
     netlifyIdentity.on("login", () => {
         getMenuItems(state, toolbar);
@@ -116,12 +119,24 @@ function getMenuItems(state, toolbar) {
     netlifyIdentity.on("logout", () => {
         getMenuItems(state, toolbar);
     });
-    if (user) {
+    if (user || eventr) {
         items = items.concat([
             {
-                name: "Upload to event page",
+                name: "Share with event",
                 onClick: () => {
-
+                    const serialized = state.serialize();
+                    fetch("/.netlify/functions/eventInclude", {
+                        method: "POST",
+                        data: JSON.stringify({
+                            plan: serialized,
+                            user: (user || {}).email,
+                            event: eventr
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(info => {
+                        console.log(info);
+                    });
                 }
             },
             {
