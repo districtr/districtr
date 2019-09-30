@@ -2,9 +2,25 @@
 import mongoose from 'mongoose'
 // Load the server
 import db from './server'
-// Load the Product Model
+// Load the Event Model
 import Event from './eventModel'
 exports.handler = async (event, context) => {
+
+  // we allowed user to create groups
+  const {identity, user} = context.clientContext;
+  if (!user || !user.email) {
+    return {
+        statusCode: 403,
+        body: JSON.stringify({ message: "Log in required" })
+    };
+  }
+  if (!user.role.includes("group_create")) {
+    return {
+        statusCode: 403,
+        body: JSON.stringify({ message: "Not permitted for this user" })
+    };
+  }
+
   context.callbackWaitsForEmptyEventLoop = false
 
   try {

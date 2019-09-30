@@ -8,12 +8,7 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    let findParams = {};
-    if (event.queryStringParameters.id) {
-        findParams._id = event.queryStringParameters.id;
-    } else if (event.queryStringParameters.shortcode) {
-        findParams.shortcode = event.queryStringParameters.shortcode;
-    }
+    let findParams = JSON.parse(event.body);
     const events = await Event.find(findParams),
           response = {
             msg: "Event(s) successfully found",
