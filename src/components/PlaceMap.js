@@ -9,7 +9,7 @@ import "d3-transition";
 // Global state
 // ============
 
-const available = [
+export const available = [
     "Alaska",
     "Arkansas",
     "Georgia",
