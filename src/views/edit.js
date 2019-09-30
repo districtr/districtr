@@ -49,12 +49,20 @@ function getPlanURLFromQueryParam() {
 
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
+    const finalURLpage = window.location.pathname.split("/").slice(-1)[0];
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
             console.error(`Could not load plan from ${planURL}`);
             navigateTo("/");
             // eslint-disable-next-line no-console
+            console.error(e);
+        });
+    } else if (finalURLpage !== "edit") {
+        // load JSON plan from DB
+        return loadPlanFromURL(`/.netlify/functions/planRead?_id=${finalURLpage}`).catch(e => {
+            console.error(`Could not load plan ${finalURLpage} from database`);
+            navigateTo("/");
             console.error(e);
         });
     } else {

@@ -105,7 +105,7 @@ function getMenuItems(state) {
                 const serialized = state.serialize();
                 fetch("/.netlify/functions/planCreate", {
                     method: "POST",
-                    data: JSON.stringify(serialized)
+                    body: JSON.stringify(serialized)
                 })
                 .then(res => res.json())
                 .then(info => {

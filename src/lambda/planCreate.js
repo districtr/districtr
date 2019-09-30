@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
       const data = JSON.parse(event.body),
           plan = {
               _id: mongoose.Types.ObjectId(),
-              p: data
+              plan: data
           };
 
       await Plan.create(plan)
@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
           statusCode: 201,
           body: JSON.stringify({
               msg: "Plan successfully created",
-              data: plan._id
+              _id: plan._id
           })
       };
   } catch (err) {
