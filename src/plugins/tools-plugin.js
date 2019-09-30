@@ -98,6 +98,23 @@ function getMenuItems(state) {
         {
             name: "Export as assignment CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
+        },
+        {
+            name: "Upload shareable plan",
+            onClick: () => {
+                const serialized = state.serialize();
+                fetch("/.netlify/functions/planCreate", {
+                    method: "POST",
+                    data: JSON.stringify(serialized)
+                })
+                .then(res => res.json())
+                .then(info => {
+                    console.log(info);
+                    if (info._id) {
+                        history.pushState({}, "Districtr", `/edit/${info._id}`);
+                    }
+                });
+            }
         }
     ];
     return items;
