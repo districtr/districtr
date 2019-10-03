@@ -4,7 +4,7 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
-import { renderAboutModal } from "../components/Modal";
+import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage } from "../routes";
 import { download } from "../utils";
 
@@ -73,6 +73,27 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
 
+function exportPlanToDB(state, eventCode, callback) {
+    const serialized = state.serialize();
+    fetch("/.netlify/functions/planCreate", {
+        method: "POST",
+        body: JSON.stringify({
+            plan: serialized,
+            eventCode: eventCode
+        })
+    })
+    .then(res => res.json())
+    .then(info => {
+        if (info._id) {
+            history.pushState({}, "Districtr", `/edit/${info._id}`);
+            callback(info._id);
+        } else {
+            callback(null);
+        }
+    })
+    .catch(e => callback(null));
+}
+
 function getMenuItems(state) {
     let items = [
         {
@@ -98,6 +119,10 @@ function getMenuItems(state) {
         {
             name: "Export as assignment CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
+        },
+        {
+            name: "Upload shareable plan",
+            onClick: () => renderSaveModal(state, exportPlanToDB)
         }
     ];
     return items;

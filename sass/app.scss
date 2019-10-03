@@ -71,6 +71,19 @@ select {
     max-width: 36rem;
     max-height: 100%;
     overflow: auto;
+
+    code, label {
+        display: block;
+    }
+
+    button {
+        cursor: pointer;
+        font-size: 10pt;
+
+        &[disabled] {
+            cursor: default;
+        }
+    }
 }
 
 .text-input {

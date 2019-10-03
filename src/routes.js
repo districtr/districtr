@@ -64,6 +64,11 @@ export function getContextFromStorage() {
 }
 
 export function loadPlanFromJSON(planRecord) {
+    if (planRecord.msg && planRecord.plan) {
+        // retrieved from database
+        console.log(planRecord.msg);
+        planRecord = planRecord.plan;
+    }
     return listPlaces().then(places => {
         const place = places.find(p => p.id === planRecord.placeId);
         return {
