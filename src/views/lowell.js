@@ -11,27 +11,62 @@ export default () => {
 };
 
 const plans = [
-    {
-        title: "Sample valid plans of 3, 7, 8, and 9 districts",
+        {
+        title: "Sample valid 3-district plans",
         plans: [
             {
                 id: "lowell3",
-                name: "3 District Plan",
+                name: "3-district plan",
                 numbers: []
             },
+            {
+                id: "lowell3a",
+                name: "3-district plan",
+                numbers: []
+            }
+        ]
+    },
+    {
+        title: "Sample valid 7-district plans",
+        plans: [
             {
                 id: "lowell7",
-                name: "7 District Plan",
+                name: "7-district plan",
                 numbers: []
             },
+            {
+                id: "lowell7a",
+                name: "7-district plan",
+                numbers: []
+            }
+        ]
+    },
+    {
+        title: "Sample valid 8-district plans",
+        plans: [
             {
                 id: "lowell8",
-                name: "8 District Plan",
+                name: "8-district plan",
                 numbers: []
             },
             {
+                id: "lowell8a",
+                name: "8-district plan",
+                numbers: []
+            }
+        ]
+    },
+    {
+        title: "Sample valid 9-district plans",
+        plans: [
+            {
                 id: "lowell9",
-                name: "9 District Plan",
+                name: "9-district plan",
+                numbers: []
+            },
+            {
+                id: "lowell9a",
+                name: "9-district plan",
                 numbers: []
             }
         ]
