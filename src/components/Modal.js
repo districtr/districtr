@@ -28,30 +28,42 @@ function renderModal(innerContent) {
 
 export function renderSaveModal(state, exportPlanToDB) {
     const target = document.getElementById("modal");
-    const eventCoder = html`
-        <input
-            type="text"
-            class="text-field"
-            value=""
-        />`;
 
     exportPlanToDB(state, undefined, (_id) => {
         let withUrl = (_id) => {
             render(renderModal(
                 html`
-                    <h2>Share Plan</h2>
-                    Plan saved to<br/>
-                    <code>${window.location.host}/edit/${_id}</code>
-                    ${eventCoder}
+                    <h2>Uploaded Plan</h2>
+                    You can share your current plan with the URL in your address bar:
+                    <code>https://${window.location.host}/edit/${_id}</code>
+                    <br/>
+                    <label>Have an event code?</label>
+                    <input
+                        id="event-coder"
+                        type="text"
+                        class="text-input"
+                        value=""
+                        @input="${() => document.getElementById("re-save").disabled = false}"
+                    />
+                    <br/>
                     <button
-                        @click=${() => exportPlanToDB(state, eventCoder.value, withUrl)}
+                        id="re-save"
+                        disabled
+                        @click="${() => {
+                            exportPlanToDB(
+                                state,
+                                document.getElementById("event-coder").value,
+                                () => { console.log("added event code"); }
+                            );
+                            render("", target);
+                        }}"
                     >
-                        Save
+                        Add to Event
                     </button>
                 `
             ), target);
         };
-        if (_id) {
+        if (_id || window.location.hostname === "localhost") {
             withUrl(_id);
         }
     });

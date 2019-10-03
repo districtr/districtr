@@ -8,8 +8,16 @@ exports.handler = async (event, context) => {
 
   try {
     const eventCode = event.queryStringParameters.event;
-    const plans = await Plan.find({ eventCode: eventCode });
+    if (!eventCode.trim().length) {
+        return {
+            statusCode: 301,
+            body: JSON.stringify({
+                msg: "Set event= parameter"
+            })
+        };
+    }
 
+    const plans = await Plan.find({ eventCode: eventCode });
     return {
         statusCode: 200,
         body: JSON.stringify({
