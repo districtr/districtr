@@ -15,13 +15,13 @@ const plans = [
         title: "Sample valid 3-district plans",
         plans: [
             {
-                id: "lowell3",
-                name: "3-district plan",
+                id: "plan3a",
+                name: "Random Plan 3A (3-districts)",
                 numbers: []
             },
             {
-                id: "lowell3a",
-                name: "3-district plan",
+                id: "plan3b",
+                name: "Random Plan 3B (3-districts)",
                 numbers: []
             }
         ]
@@ -30,13 +30,13 @@ const plans = [
         title: "Sample valid 7-district plans",
         plans: [
             {
-                id: "lowell7",
-                name: "7-district plan",
+                id: "plan7a",
+                name: "Random Plan 7A (7-districts)",
                 numbers: []
             },
             {
-                id: "lowell7a",
-                name: "7-district plan",
+                id: "plan7b",
+                name: "Random Plan 7B (7-districts)",
                 numbers: []
             }
         ]
@@ -45,13 +45,13 @@ const plans = [
         title: "Sample valid 8-district plans",
         plans: [
             {
-                id: "lowell8",
-                name: "8-district plan",
+                id: "plan8a",
+                name: "Random Plan 8A (8-districts)",
                 numbers: []
             },
             {
-                id: "lowell8a",
-                name: "8-district plan",
+                id: "plan8b",
+                name: "Random Plan 8B (8-districts)",
                 numbers: []
             }
         ]
@@ -60,13 +60,13 @@ const plans = [
         title: "Sample valid 9-district plans",
         plans: [
             {
-                id: "lowell9",
-                name: "9-district plan",
+                id: "plan9a",
+                name: "Random Plan 9A (9-districts)",
                 numbers: []
             },
             {
-                id: "lowell9a",
-                name: "9-district plan",
+                id: "plan9b",
+                name: "Random Plan 9B (9-districts)",
                 numbers: []
             }
         ]
