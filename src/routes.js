@@ -64,8 +64,74 @@ export function getContextFromStorage() {
 }
 
 export function loadPlanFromJSON(planRecord) {
+    if (planRecord.msg && planRecord.plan) {
+        // retrieved from database
+        console.log(planRecord.msg);
+        planRecord = planRecord.plan;
+    }
     return listPlaces().then(places => {
         const place = places.find(p => p.id === planRecord.placeId);
+        return {
+            ...planRecord,
+            place
+        };
+    });
+}
+
+export function loadPlanFromCSV(assignmentList, state) {
+    let rows = assignmentList.split("\n");
+    let headers = rows[0].replace(/"/g, "").trim().split(",");
+    if (
+        headers[0].indexOf("id-") === 0
+        && headers[0].split("-").length === 5
+    ) {
+        // new format, verify units match
+        //id-state.place.id-state.units.id
+        let cols = headers[0].split("-");
+        let placeId = cols[1],
+            unitId = cols[2],
+            partCount = cols[3],
+            pluralType = cols[4];
+        if (unitId.includes("_")) {
+            unitId = unitId.split("_")[1];
+        }
+
+        if (placeId !== state.place.id) {
+            throw new Error("CSV is for a different module (another state or region).");
+        } else if (unitId !== state.units.id) {
+            throw new Error("CSV is for this module but a different unit map (e.g. blocks, precincts).");
+        } else if (pluralType !== state.problem.pluralNoun.replace(/\s+/g, "")) {
+            throw new Error("CSV is for this module but a different division map (e.g. districts)");
+        }
+        state.problem.numberOfParts = partCount * 1;
+    } else {
+        // old format, no column headers
+        headers = null;
+    }
+    let planRecord = state;
+    planRecord.assignment = {};
+    return listPlaces().then(places => {
+        rows.forEach((row, index) => {
+            if (index > 0 || !headers) {
+                let cols = row.split(","),
+                    val = cols[1] * 1,
+                    key = (isNaN(cols[0] * 1) || cols[0][0] === "0")
+                        ? cols[0]
+                        : cols[0] * 1;
+
+                if (key && !isNaN(val)) {
+                    planRecord.assignment[key] = val;
+
+                    // if we didn't set numberOfParts in CSV, find max here
+                    state.problem.numberOfParts = Math.max(
+                        state.problem.numberOfParts,
+                        val
+                    );
+                }
+            }
+        });
+
+        const place = places.find(p => p.id === planRecord.place.id);
         return {
             ...planRecord,
             place

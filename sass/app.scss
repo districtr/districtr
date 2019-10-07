@@ -71,6 +71,19 @@ select {
     max-width: 36rem;
     max-height: 100%;
     overflow: auto;
+
+    code, label {
+        display: block;
+    }
+
+    button {
+        cursor: pointer;
+        font-size: 10pt;
+
+        &[disabled] {
+            cursor: default;
+        }
+    }
 }
 
 .text-input {
@@ -89,6 +102,14 @@ select {
     resize: none;
     width: 100%;
     margin: 0.5rem 0;
+}
+
+.short-text-area {
+    height: 5rem;
+}
+
+.vertical-align {
+    vertical-align: middle;
 }
 
 .dropdown {

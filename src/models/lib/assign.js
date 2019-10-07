@@ -40,7 +40,9 @@ export function getAssignedUnitIds(assignment) {
 
 function assign(state, feature, partId) {
     state.update(feature, partId);
-    state.parts[partId].visible = true;
+    for (let i = 0; i <= partId; i++) {
+        state.parts[i].visible = true;
+    }
     state.units.setAssignment(feature, partId);
 }
 
