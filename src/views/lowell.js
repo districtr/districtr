@@ -42,7 +42,7 @@ const plans = [
         ]
     },
     {
-        title: "Sample valid 8-district plans",
+        title: "Sample valid 8-district plans (Option on the Ballot)",
         plans: [
             {
                 id: "plan8a",
