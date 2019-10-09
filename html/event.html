@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Event | Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="/css/chicago.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <main id="root" class="place">
+            <article class="place__content">
+                <h1 class="headline place__name">
+                    <span id="eventHeadline"></span>:
+                    <small>Open Event</small>
+                </h1>
+                <p>
+                </p>
+                <h2 class="place__subheading">Start drawing districts</h2>
+                <div id="districting-options"></div>
+                <h2 class="place__subheading">
+                    See selected plans
+                </h2>
+                <p>
+                    Click on any of the districting plans below to open it in
+                    Districtr.
+                </p>
+
+                <div id="plans"></div>
+            </article>
+        </main>
+        <script src="/es6/event.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.write(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.write(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                document.write('<script src="/es5/event.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>

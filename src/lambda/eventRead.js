@@ -2,18 +2,27 @@
 import mongoose from 'mongoose';
 import db from './server';
 import Plan from './planModel';
+import validEventCodes from '../validEventCodes';
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const eventCode = event.queryStringParameters.event;
+    const eventCode = (event.queryStringParameters.event || "").toLowerCase();
     const myHost = event.queryStringParameters.hostname;
     if (!eventCode.trim().length) {
         return {
             statusCode: 301,
             body: JSON.stringify({
                 msg: "Set event= parameter"
+            })
+        };
+    }
+    if (!validEventCodes.includes(eventCode)) {
+        return {
+            statusCode: 301,
+            body: JSON.stringify({
+                msg: "Set known event= parameter from validEventCodes"
             })
         };
     }

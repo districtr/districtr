@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
+import validEventCodes from "../validEventCodes";
 
 function renderModal(innerContent) {
     const target = document.getElementById("modal");
@@ -38,13 +39,17 @@ export function renderSaveModal(state, exportPlanToDB) {
                     <code>https://${window.location.host}/edit/${_id}</code>
                     <br/>
                     <label>Have an event code?</label>
-                    <input
+                    <select
                         id="event-coder"
                         type="text"
                         class="text-input"
-                        value=""
-                        @input="${() => document.getElementById("re-save").disabled = false}"
-                    />
+                        @change="${() => document.getElementById("re-save").disabled = false}"
+                    >
+                        <option selected>none</option>
+                        ${Object.keys(validEventCodes).map(code =>
+                            html`<option>${code}</option>`
+                        )}
+                    </select>
                     <br/>
                     <button
                         id="re-save"

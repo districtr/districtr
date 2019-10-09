@@ -4,6 +4,7 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
+    "/event": "/event",
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
