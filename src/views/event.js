@@ -11,7 +11,7 @@ export default () => {
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = eventCode;
-      
+
         listPlacesForState(validEventCodes[eventCode]).then(places => {
             const target = document.getElementById("districting-options");
             render(districtingOptions(places), target);
@@ -22,7 +22,7 @@ export default () => {
             .then(data => {
                 const plans = [{
                     title: "Submitted plans",
-                    plans: data
+                    plans: data.plans
                 }];
                 render(plansSection(plans), document.getElementById("plans"));
             });
