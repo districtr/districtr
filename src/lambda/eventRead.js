@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
             })
         };
     }
-    if (!validEventCodes.includes(eventCode)) {
+    if (!Object.keys(validEventCodes).includes(eventCode)) {
         return {
             statusCode: 301,
             body: JSON.stringify({
