@@ -4397,6 +4397,46 @@
           },
           {
             "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 1332744,
+                "min": 0,
+                "max": 3764
+              },
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 1430808,
+                "min": 0,
+                "max": 2264
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1321017,
+                "min": 0,
+                "max": 3534
+              },
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 1363745,
+                "min": 0,
+                "max": 2552
+              }
+            ]
+          },
+          {
+            "type": "election",
             "name": "2014 Senate",
             "subgroups": [
               {
