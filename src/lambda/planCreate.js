@@ -1,4 +1,6 @@
 // planCreate.js
+import launchChrome from '@serverless-chrome/lambda';
+import CDP from 'chrome-remote-interface';
 import mongoose from 'mongoose';
 
 import db from './server';
@@ -28,7 +30,26 @@ exports.handler = async (event, context) => {
       const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
       plan.simple_id = nextPlanID.value;
 
-      await Plan.create(plan)
+      await Plan.create(plan);
+
+      const url = "https://districtr.org/edit/" + plan._id;
+      launchChrome({
+        flags: ['--window-size=1000x500', '--hide-scrollbars']
+      })
+      .then(() => CDP.List())
+      .then(tabs => CDP({ host: '127.0.0.1:9222', target: tabs[0] }))
+      .then(client => {
+        const Network = client.Network
+        Page = client.Page
+        return Promise.all([Network.enable(), Page.enable()])
+      })
+      .then(() => Page.navigate({ url }))
+      .then(() => Page.loadEventFired())
+      .then(() => Page.captureScreenshot({ format: 'png' }))
+      .then(screenshotImage => {
+        console.log(screenshotImage.data);
+      });
+
       return {
           statusCode: 201,
           body: JSON.stringify({

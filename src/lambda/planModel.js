@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 const schema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   plan: Object,
+  screenshot: String,
   eventCode: {
     type: String,
     max: 50
