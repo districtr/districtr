@@ -99,9 +99,15 @@ class LandmarkOptions {
     // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
         this.updateName = name;
+        let saveButton = document.getElementById("landmark-save-button")
+        saveButton.disabled = false;
+        saveButton.innerText = "Save";
     }
     setDescription(description) {
         this.updateDescription = description;
+        let saveButton = document.getElementById("landmark-save-button")
+        saveButton.disabled = false;
+        saveButton.innerText = "Save";
     }
     onSave() {
         // save name, description, and location on map and localStorage
@@ -109,6 +115,9 @@ class LandmarkOptions {
         updateFeature.properties.name = this.updateName;
         updateFeature.properties.short_description = this.updateDescription;
         this.saveFeature(updateFeature.id);
+        let saveButton = document.getElementById("landmark-save-button")
+        saveButton.disabled = true;
+        saveButton.innerText = "Saved";
     }
     onDelete() {
         // delete currently viewed shape
@@ -162,7 +171,7 @@ class LandmarkOptions {
         setName: this.setName,
         setDescription: this.setDescription,
         onDelete: this.onDelete
-    }) : "Add landmarks using the polygon and marker buttons on the top right of the map."}
+    }) : "Add landmarks using the tool(s) on the top right of the map."}
         `;
     }
 }
@@ -209,6 +218,7 @@ function LandmarkFormTemplate({
             </li>
             <li class="option-list__item">
                 <button
+                    id="landmark-save-button"
                     class="button button--submit button--alternate ui-label"
                     @click=${onSave}
                 >
