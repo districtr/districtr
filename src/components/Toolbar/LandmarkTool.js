@@ -191,6 +191,8 @@ function LandmarkFormTemplate({
                 <label class="ui-label">Name</label>
                 <input
                     type="text"
+                    name="landmark-name"
+                    autocomplete="off" 
                     class="text-input vertical-align"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}
@@ -211,6 +213,8 @@ function LandmarkFormTemplate({
             <li class="option-list__item">
                 <textarea
                     class="text-input text-area short-text-area"
+                    name="landmark-desc"
+                    autocomplete="off"
                     @input=${e => setDescription(e.target.value)}
                     @blur=${e => setDescription(e.target.value)}
                     .value="${description}"
