@@ -33,8 +33,8 @@ export function renderSaveModal(state, exportPlanToDB) {
         let withUrl = (_id) => {
             render(renderModal(
                 html`
-                    <h2>Uploaded Plan</h2>
-                    You can share your current plan with the URL in your address bar:
+                    <h2>Share Plan</h2>
+                    You can share your current plan by copying this URL:
                     <code>https://${window.location.host}/edit/${_id}</code>
                     <br/>
                     <label>Have an event code?</label>

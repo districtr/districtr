@@ -121,7 +121,7 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {
-            name: "Upload shareable plan",
+            name: "Share plan",
             onClick: () => renderSaveModal(state, exportPlanToDB)
         }
     ];
