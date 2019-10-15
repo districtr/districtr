@@ -115,3 +115,36 @@ select {
 .dropdown {
     transition-duration: 60ms;
 }
+
+#mobile-upload {
+    display: none;
+}
+
+#desktop-upload {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.unsaved {
+        background-color: #fff;
+    }
+    &.saved {
+        background-color: #efe;
+        cursor: default;
+    }
+    &.updated {
+        background-color: #eef;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #mobile-upload {
+        display: block;
+    }
+
+    #desktop-upload {
+        display: none;
+    }
+}
