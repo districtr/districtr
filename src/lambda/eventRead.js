@@ -8,6 +8,7 @@ exports.handler = async (event, context) => {
 
   try {
     const eventCode = event.queryStringParameters.event;
+    const myHost = event.queryStringParameters.hostname;
     if (!eventCode.trim().length) {
         return {
             statusCode: 301,
@@ -17,7 +18,10 @@ exports.handler = async (event, context) => {
         };
     }
 
-    const plans = await Plan.find({ eventCode: eventCode });
+    const plans = await Plan.find({
+        eventCode: eventCode,
+        hostname: myHost
+    });
     return {
         statusCode: 200,
         body: JSON.stringify({

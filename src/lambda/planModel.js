@@ -7,7 +7,11 @@ const schema = new mongoose.Schema({
   eventCode: {
     type: String,
     max: 50
-  }
+  },
+  hostname: {
+    type: String,
+    max: 100
+  },
   // name: {
   //   type: String,
   //   required: [true, 'Name field is required'],
