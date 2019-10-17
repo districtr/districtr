@@ -41,7 +41,7 @@ const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
 function getPlanURLFromQueryParam() {
     if (window.location.search.includes("url=")) {
-        return window.location.search.slice("url=".length).split('&')[0];
+        return window.location.search.split("url=")[1].split('&')[0].split("#")[0];
     } else {
         return "";
     }
@@ -100,12 +100,16 @@ function loadContext(context) {
     // display shorter URL
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
-        && window.location.hostname !== 'localhost'
+        // && window.location.hostname !== 'localhost'
         && window.location.hash && window.location.hash === "#plan") {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
         shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
-            + shortPlanName[3].split(".")[0];
+            + shortPlanName[3].split(".")[0]
+            + window.location.search.replace("url=" + shortPlanName.join("/"), "");
+        if (shortPlanName[shortPlanName.length - 1] === "?") {
+            shortPlanName = shortPlanName.substring(0, shortPlanName.length - 1);
+        }
         window.history.replaceState({}, "Districtr", shortPlanName);
     }
 
