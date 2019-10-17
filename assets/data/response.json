@@ -1937,8 +1937,31 @@
       }
     ]
   },
-  {
-    "state": "Massachusetts",
+    {
+    "name": "Lowell",
+    "id": "lowell",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 8,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 9,
+        "pluralNoun": "City Council Districts"
+      }
+    ],
     "landmarks": {
       "id": "landmarks",
       "type": "fill",
@@ -2274,8 +2297,10 @@
         }
       }
     },
+    "state": "Massachusetts",
     "units": [
       {
+        "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
@@ -2317,6 +2342,13 @@
                 "sum": 6367,
                 "min": 0,
                 "max": 200
+              },
+              {
+                "key": "COALTNPOP",
+                "name": "Coalition population",
+                "sum": 40855,
+                "min": 0,
+                "max": 607
               }
             ]
           },
@@ -2358,6 +2390,13 @@
                 "sum": 15270,
                 "min": 0,
                 "max": 207
+              },
+              {
+                "key": "COALTNVAP",
+                "name": "Coalition voting age population",
+                "sum": 26870,
+                "min": 0,
+                "max": 379
               }
             ]
           }
@@ -2393,34 +2432,9 @@
             },
             "sourceLayer": "lowell_blocks_points"
           }
-        ],
-        "id": "blocks"
+        ]
       }
-    ],
-    "districtingProblems": [
-      {
-        "numberOfParts": 3,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
-      },
-      {
-        "numberOfParts": 7,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
-      },
-      {
-        "numberOfParts": 8,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
-      },
-      {
-        "numberOfParts": 9,
-        "pluralNoun": "City Council Districts",
-        "name": "City Council"
-      }
-    ],
-    "name": "Lowell",
-    "id": "lowell"
+    ]
   },
   {
     "state": "Maryland",
