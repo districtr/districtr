@@ -100,7 +100,7 @@ function loadContext(context) {
     // display shorter URL
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
-        // && window.location.hostname !== 'localhost'
+        && window.location.hostname !== 'localhost'
         && window.location.hash && window.location.hash === "#plan") {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
