@@ -84,7 +84,7 @@ export class Landmarks {
             displayControlsDefault: false,
             controls: {
                 point: true,
-                polygon: true,
+                //polygon: true,
                 //trash: true
             }
         });

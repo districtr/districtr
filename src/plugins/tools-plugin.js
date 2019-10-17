@@ -101,7 +101,7 @@ function getMenuItems(state) {
             onClick: () => renderAboutModal(state, true)
         },
         {
-            name: "MGGG homepage",
+            name: "Districtr homepage",
             onClick: () => {
                 if (window.confirm("Would you like to return to the Districtr homepage?")) {
                     window.location.href = "/";
@@ -121,7 +121,7 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {
-            name: "Upload shareable plan",
+            name: "Share plan",
             onClick: () => renderSaveModal(state, exportPlanToDB)
         }
     ];
