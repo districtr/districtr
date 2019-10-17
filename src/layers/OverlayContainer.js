@@ -33,16 +33,30 @@ export default class OverlayContainer {
                 : "Show data layer";
         }
 
-        this.visibilityToggle = toggle(toggleText, false, visible => {
+        this.changeSubgroup = this.changeSubgroup.bind(this);
+        this.render = this.render.bind(this);
+
+        if (window.location.search.includes("layer=")) {
+            let layerSelect = window.location.search.split("layer=")[1].split("&")[0].toUpperCase();
+            this.subgroups.forEach((sg, index) => {
+                if (sg.key.toUpperCase() === layerSelect) {
+                    this.changeSubgroup(index);
+                    this.overlay.show();
+
+                    if (window.location.search.includes("ltype=circle")) {
+                        this.overlay.setLayer(1);
+                    }
+                }
+            });
+        }
+
+        this.visibilityToggle = toggle(toggleText, (this._currentSubgroupIndex !== 0), visible => {
             if (visible) {
                 this.overlay.show();
             } else {
                 this.overlay.hide();
             }
         });
-
-        this.changeSubgroup = this.changeSubgroup.bind(this);
-        this.render = this.render.bind(this);
     }
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
@@ -60,7 +74,11 @@ export default class OverlayContainer {
             </div>
             ${Parameter({
                 label: "Variable:",
-                element: Select(this.subgroups, this.changeSubgroup)
+                element: Select(
+                    this.subgroups,
+                    this.changeSubgroup,
+                    this._currentSubgroupIndex
+                )
             })}
             ${Parameter({
                 label: "Display as",
