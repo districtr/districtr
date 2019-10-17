@@ -40,8 +40,8 @@ const defaultPlugins = [
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
 function getPlanURLFromQueryParam() {
-    if (window.location.search.includes("?url=")) {
-        return window.location.search.slice("?url=".length).split('&')[0];
+    if (window.location.search.includes("url=")) {
+        return window.location.search.slice("url=".length).split('&')[0];
     } else {
         return "";
     }
