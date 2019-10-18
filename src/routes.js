@@ -46,6 +46,28 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
+export function savePlanToDB(state, eventCode, callback) {
+    const serialized = state.serialize();
+    fetch("/.netlify/functions/planCreate", {
+        method: "POST",
+        body: JSON.stringify({
+            plan: serialized,
+            eventCode: eventCode,
+            hostname: window.location.hostname
+        })
+    })
+    .then(res => res.json())
+    .then(info => {
+        if (info._id) {
+            history.pushState({}, "Districtr", `/edit/${info._id}`);
+            callback(info._id);
+        } else {
+            callback(null);
+        }
+    })
+    .catch(e => callback(null));
+}
+
 export function getContextFromStorage() {
     const savedState = localStorage.getItem("savedState");
     let state;

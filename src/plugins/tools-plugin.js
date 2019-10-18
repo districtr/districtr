@@ -5,7 +5,7 @@ import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
-import { navigateTo, savePlanToStorage } from "../routes";
+import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download } from "../utils";
 
 export default function ToolsPlugin(editor) {
@@ -13,6 +13,7 @@ export default function ToolsPlugin(editor) {
     const brush = new Brush(state.units, 20, 0);
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
+    brush.on("colorend", toolbar.unsave);
     brush.on("colorend", () => {
         savePlanToStorage(state.serialize());
     });
@@ -38,6 +39,7 @@ export default function ToolsPlugin(editor) {
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
+    toolbar.setState(state);
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
@@ -73,27 +75,6 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
 
-function exportPlanToDB(state, eventCode, callback) {
-    const serialized = state.serialize();
-    fetch("/.netlify/functions/planCreate", {
-        method: "POST",
-        body: JSON.stringify({
-            plan: serialized,
-            eventCode: eventCode
-        })
-    })
-    .then(res => res.json())
-    .then(info => {
-        if (info._id) {
-            history.pushState({}, "Districtr", `/edit/${info._id}`);
-            callback(info._id);
-        } else {
-            callback(null);
-        }
-    })
-    .catch(e => callback(null));
-}
-
 function getMenuItems(state) {
     let items = [
         {
@@ -121,8 +102,9 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {
+            id: "mobile-upload",
             name: "Share plan",
-            onClick: () => renderSaveModal(state, exportPlanToDB)
+            onClick: () => renderSaveModal(state, savePlanToDB)
         }
     ];
     return items;

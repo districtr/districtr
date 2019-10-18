@@ -7,8 +7,14 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const findID = event.queryStringParameters._id;
-    const plan = await Plan.findOne({ _id: findID });
+    let search = { _id: event.queryStringParameters._id },
+        myHost = event.queryStringParameters.hostname;
+    if (myHost) {
+        // optional: limit search to prod or test plans
+        // by default search all plans
+        search.hostname = myHost;
+    }
+    const plan = await Plan.findOne(search);
 
     return {
         statusCode: 200,

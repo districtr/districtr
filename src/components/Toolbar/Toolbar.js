@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { repeat } from "lit-html/directives/repeat";
 import { actions } from "../../reducers/toolbar";
+import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
 
@@ -42,8 +43,34 @@ export default class Toolbar {
         this.toolsById[tool.id] = tool;
         this.tools.push(tool);
     }
+    savePlan(e) {
+        savePlanToDB(this.state, undefined, (_id) => {
+            if (_id || (window.location.hostname === 'localhost')) {
+                document.getElementById("save-popup").className = "show";
+                document.getElementById("code-popup").innerText = `https://${window.location.host}/edit/${_id}`;
+
+                let btn = e.target;
+                btn.innerText = "Saved";
+                btn.className = "saved";
+            } else {
+                console.error("Failed to save map");
+            }
+        });
+    }
+    unsave() {
+        let btn = document.getElementById("desktop-upload");
+        // only need to update the button if user previously saved state
+        // and we now need to allow an update
+        if (btn.innerText === "Saved") {
+            btn.innerText = "Update";
+            btn.className = "updated";
+        }
+    }
     setMenuItems(menuItems) {
         this.menuItems = menuItems;
+    }
+    setState(state) {
+        this.state = state;
     }
     render() {
         const { dropdownMenuOpen } = this.store.state.toolbar;
@@ -57,6 +84,50 @@ export default class Toolbar {
                             tool => tool.id,
                             tool => tool.render(this.selectTool)
                         )}
+                    </div>
+                    <div
+                        id="desktop-upload"
+                        class="unsaved"
+                        @click="${this.savePlan.bind(this)}"
+                    >
+                        Share
+                    </div>
+                    <div id="save-popup">
+                        <button
+                            class="close-button"
+                            @click="${() => {
+                                document.getElementById("save-popup").className = "hide";
+                            }}"
+                        >
+                            X
+                        </button>
+                        <strong>Uploaded Plan</strong>
+                        You can share your current plan by copying this URL:
+                        <code id="code-popup"></code>
+                        <br/>
+                        <label>Have an event code?</label>
+                        <input
+                            id="event-coder-popup"
+                            type="text"
+                            class="text-input"
+                            value=""
+                            @input="${() => document.getElementById("re-save-popup").disabled = false}"
+                        />
+                        <br/>
+                        <button
+                            id="re-save-popup"
+                            disabled
+                            @click="${() => {
+                                document.getElementById("save-popup").className = "hide";
+                                savePlanToDB(
+                                    this.state,
+                                    document.getElementById("event-coder-popup").value,
+                                    () => { console.log("added event code"); }
+                                );
+                            }}"
+                        >
+                            Add to Event
+                        </button>
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}
                 </div>
@@ -102,7 +173,11 @@ function DropdownMenu(options, open) {
             ${options.map(
                 option =>
                     html`
-                        <li class="ui-list__item" @click=${option.onClick}>
+                        <li
+                            id="${option.id || ""}"
+                            class="ui-list__item"
+                            @click=${option.onClick}
+                        >
                             ${option.name}
                         </li>
                     `
