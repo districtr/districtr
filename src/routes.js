@@ -49,7 +49,7 @@ export function savePlanToStorage({
 export function savePlanToDB(state, eventCode, callback) {
     const serialized = state.serialize(),
         token = localStorage.getItem("districtr_token"),
-        saveURL = (token === "null")
+        saveURL = (!token || (token === "null"))
             ? "/.netlify/functions/planCreate"
             : "/.netlify/functions/planUpdate",
         requestBody = {

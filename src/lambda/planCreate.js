@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
           plan = {
               _id: mongoose.Types.ObjectId(),
               plan: data.plan,
-              token: data.token || "",
+              token: uuidv4('districtr.org'),
               eventCode: data.eventCode || "",
               hostname: data.hostname
           };
@@ -27,7 +27,7 @@ exports.handler = async (event, context) => {
           body: JSON.stringify({
               msg: "Plan successfully created",
               simple_id: plan.simple_id,
-              token: uuidv4('districtr.org')
+              token: plan.token
           })
       };
   } catch (err) {
