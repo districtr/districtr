@@ -58,9 +58,9 @@ export function savePlanToDB(state, eventCode, callback) {
     })
     .then(res => res.json())
     .then(info => {
-        if (info._id) {
-            history.pushState({}, "Districtr", `/edit/${info._id}`);
-            callback(info._id);
+        if (info.simple_id) {
+            history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
+            callback(info.simple_id);
         } else {
             callback(null);
         }

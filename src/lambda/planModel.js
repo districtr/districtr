@@ -12,6 +12,7 @@ const schema = new mongoose.Schema({
     type: String,
     max: 100
   },
+  simple_id: Number,
   // name: {
   //   type: String,
   //   required: [true, 'Name field is required'],

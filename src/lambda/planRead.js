@@ -7,7 +7,10 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    let search = { _id: event.queryStringParameters._id },
+    let search = event.queryStringParameters._id ?
+          { _id: event.queryStringParameters._id }
+          : { simple_id: event.queryStringParameters.id }
+        ,
         myHost = event.queryStringParameters.hostname;
     if (myHost) {
         // optional: limit search to prod or test plans

@@ -60,7 +60,11 @@ function getPlanContext() {
         });
     } else if (finalURLpage !== "edit") {
         // load JSON plan from DB
-        return loadPlanFromURL(`/.netlify/functions/planRead?_id=${finalURLpage}`).catch(e => {
+        if (isNaN(finalURLpage * 1)) {
+            // original _id plans
+            finalURLpage = '&_id=' + finalURLpage;
+        }
+        return loadPlanFromURL(`/.netlify/functions/planRead?id=${finalURLpage}`).catch(e => {
             console.error(`Could not load plan ${finalURLpage} from database`);
             navigateTo("/");
             console.error(e);
