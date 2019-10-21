@@ -1,10 +1,16 @@
 // planCreate.js
 import mongoose from 'mongoose';
-import uuidv4 from 'uuid/v4';
 
 import db from './server';
 import Plan from './planModel';
 import Sequence from './sequenceModel';
+
+let rnd = () => {
+    return Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2);
+};
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
@@ -14,7 +20,7 @@ exports.handler = async (event, context) => {
           plan = {
               _id: mongoose.Types.ObjectId(),
               plan: data.plan,
-              token: uuidv4('districtr.org'),
+              token: rnd(),
               eventCode: data.eventCode || "",
               hostname: data.hostname
           };
