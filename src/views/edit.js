@@ -49,7 +49,6 @@ function getPlanURLFromQueryParam() {
 
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
-    // localStorage.removeItem("districtr_token");
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
@@ -60,6 +59,8 @@ function getPlanContext() {
             console.error(e);
         });
     } else if (finalURLpage !== "edit") {
+        // remove token; save a new plan
+        localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
         if (isNaN(finalURLpage * 1)) {
             // original _id plans
