@@ -8,7 +8,8 @@ const dbUrl = process.env.DB_URL,
       dbOptions = {
         useNewUrlParser: true,
         useMongoClient:true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useUnifiedTopology: true
       };
 
 console.log("start connect");

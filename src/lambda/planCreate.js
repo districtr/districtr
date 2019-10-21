@@ -15,9 +15,8 @@ exports.handler = async (event, context) => {
               eventCode: data.eventCode,
               hostname: data.hostname
           };
-      const rep = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}})
-      console.log(rep.simple_id);
-      plan.simple_id = rep.simple_id;
+      const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
+      plan.simple_id = nextPlanID.value;
 
       await Plan.create(plan)
       return {
