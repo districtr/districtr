@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
       }
 
       plan.plan = data.plan;
-      await Plan.update(plan)
+      let rep = await plan.save();
       return {
           statusCode: 201,
           body: JSON.stringify({
