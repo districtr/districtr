@@ -1,5 +1,7 @@
 // planCreate.js
 import mongoose from 'mongoose';
+import uuidv4 from 'uuid/v4';
+
 import db from './server';
 import Plan from './planModel';
 import Sequence from './sequenceModel';
@@ -12,7 +14,8 @@ exports.handler = async (event, context) => {
           plan = {
               _id: mongoose.Types.ObjectId(),
               plan: data.plan,
-              eventCode: data.eventCode,
+              token: data.token || "",
+              eventCode: data.eventCode || "",
               hostname: data.hostname
           };
       const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
@@ -23,7 +26,8 @@ exports.handler = async (event, context) => {
           statusCode: 201,
           body: JSON.stringify({
               msg: "Plan successfully created",
-              simple_id: plan.simple_id
+              simple_id: plan.simple_id,
+              token: uuidv4('districtr.org')
           })
       };
   } catch (err) {

@@ -48,6 +48,9 @@ function getPlanURLFromQueryParam() {
 }
 
 function getPlanContext() {
+    try {
+        localStorage.setItem("districtr_token", null);
+    } catch(e) { }
     const planURL = getPlanURLFromQueryParam();
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
     if (planURL.length > 0) {

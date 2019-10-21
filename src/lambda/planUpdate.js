@@ -1,0 +1,42 @@
+// planCreate.js
+import mongoose from 'mongoose';
+import db from './server';
+import Plan from './planModel';
+
+exports.handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
+
+  try {
+      const data = JSON.parse(event.body),
+          token = data.token.replace(/\s+/g, '');
+
+      if (!data.token.length) {
+          throw new Error('No token for update');
+      }
+
+      const plan = await Plan.findOne({
+          simple_id: event.queryStringParameters.id,
+          token: token
+      });
+
+      if (!plan) {
+          throw new Error('Token did not match plan ID');
+      }
+
+      plan.plan = data.plan;
+      await Plan.update(plan)
+      return {
+          statusCode: 201,
+          body: JSON.stringify({
+              msg: "Plan successfully updated",
+              simple_id: plan.simple_id
+          })
+      };
+  } catch (err) {
+      console.log('plan.create', err) // output to netlify function log
+      return {
+          statusCode: 500,
+          body: JSON.stringify({msg: err.message})
+      }
+  }
+}
