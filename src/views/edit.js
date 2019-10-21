@@ -49,7 +49,7 @@ function getPlanURLFromQueryParam() {
 
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
-    localStorage.removeItem("districtr_token");
+    // localStorage.removeItem("districtr_token");
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
