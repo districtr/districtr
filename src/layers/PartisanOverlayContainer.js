@@ -17,6 +17,20 @@ export default class PartisanOverlayContainer {
         this.setElection = this.setElection.bind(this);
         this.render = this.render.bind(this);
         this.toggleVisibility = this.toggleVisibility.bind(this);
+
+        if (window.location.search.includes("layer=")) {
+            let layerSelect = window.location.search.split("layer=")[1].split("&")[0].toUpperCase();
+            elections.forEach((el, index) => {
+                el.subgroups.forEach(sg => {
+                    if (sg.key.toUpperCase() === layerSelect) {
+                        this.setElection(index);
+                        if (window.location.search.includes("ltype=circle")) {
+                            this.currentElectionOverlay.setLayer(1);
+                        }
+                    }
+                });
+            });
+        }
     }
     get currentElectionOverlay() {
         return this.electionOverlays[this._currentElectionIndex];
@@ -32,7 +46,7 @@ export default class PartisanOverlayContainer {
     setElection(i) {
         this._currentElectionIndex = i;
         this.electionOverlays.forEach(overlay => overlay.hide());
-        if (this.isVisible) {
+        if (this.isVisible || !this.currentElectionOverlay.repaint) {
             this.currentElectionOverlay.show();
         } else {
             this.currentElectionOverlay.repaint();
@@ -50,7 +64,11 @@ export default class PartisanOverlayContainer {
             ${[
                 {
                     label: "Election:",
-                    element: Select(this.elections, i => this.setElection(i))
+                    element: Select(
+                        this.elections,
+                        i => this.setElection(i),
+                        this._currentElectionIndex
+                    )
                 },
                 {
                     label: "Display as",
