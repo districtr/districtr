@@ -23,6 +23,11 @@ exports.handler = async (event, context) => {
           throw new Error('Token did not match plan ID');
       }
 
+      if (plan.startDate < (new Date() * 1) - 24 * 60 * 60 * 1000) {
+          // 24 hour limit
+          throw new Error('Plan is over 24 hours old');
+      }
+
       plan.plan = data.plan;
       let rep = await plan.save();
       return {

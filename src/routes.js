@@ -49,13 +49,16 @@ export function savePlanToStorage({
 export function savePlanToDB(state, eventCode, callback) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
-        token = localStorage.getItem("districtr_token_" + mapID),
-        saveURL = (!token || (token === "null"))
-            ? "/.netlify/functions/planCreate"
-            : "/.netlify/functions/planUpdate?id=" + mapID,
+        token = localStorage.getItem("districtr_token_" + mapID) || "",
+        createdAfter = (new Date() * 1) - 24 * 60 * 60 * 1000,
+        tokenValid = (token && (token !== "null")
+            && (token.split("_")[1] * 1 > createdAfter)),
+        saveURL = tokenValid
+            ? ("/.netlify/functions/planUpdate?id=" + mapID)
+            : "/.netlify/functions/planCreate",
         requestBody = {
             plan: serialized,
-            token: token,
+            token: token.split("_")[0],
             eventCode: eventCode,
             hostname: window.location.hostname
         };
@@ -69,7 +72,7 @@ export function savePlanToDB(state, eventCode, callback) {
             history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
             callback(info.simple_id);
             if (info.token) {
-                localStorage.setItem("districtr_token_" + info.simple_id, info.token);
+                localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
         } else {
             callback(null);

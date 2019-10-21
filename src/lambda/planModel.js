@@ -14,6 +14,7 @@ const schema = new mongoose.Schema({
   },
   simple_id: Number,
   token: String,
+  startDate: Date,
   // name: {
   //   type: String,
   //   required: [true, 'Name field is required'],
