@@ -8,9 +8,8 @@ const dotenv = require('dotenv').config();
 const dbUrl = process.env.DB_URL,
       dbOptions = {
         useNewUrlParser: true,
-        useMongoClient:true,
-        useFindAndModify: false,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false
       };
 
 console.log("start connect");
