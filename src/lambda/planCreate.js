@@ -1,6 +1,4 @@
 // planCreate.js
-import launchChrome from '@serverless-chrome/lambda';
-import CDP from 'chrome-remote-interface';
 import mongoose from 'mongoose';
 
 import db from './server';
