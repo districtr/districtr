@@ -62,10 +62,10 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/edit/${plan._id}">
+    <a href="/edit/${plan.simple_id || plan._id}">
         <li class="plan-thumbs__thumb">
             <figcaption class="thumb__caption">
-                <h6 class="thumb__heading">${plan._id}</h6>
+                <h6 class="thumb__heading">${plan.simple_id || plan._id}</h6>
             </figcaption>
             <span>${(plan.filledBlocks || 0).toLocaleString()} units</span>
         </li>
