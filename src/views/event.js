@@ -67,6 +67,7 @@ const loadablePlan = plan => html`
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan._id}</h6>
             </figcaption>
+            <span>${(plan.filledBlocks || 0).toLocaleString()} units</span>
         </li>
     </a>
 `;

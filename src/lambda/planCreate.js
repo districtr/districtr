@@ -25,10 +25,21 @@ exports.handler = async (event, context) => {
               token: rnd(),
               eventCode: data.eventCode || "",
               hostname: data.hostname,
-              startDate: new Date()
+              startDate: new Date(),
+              filledBlocks: 0
           };
       const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
       plan.simple_id = nextPlanID.value;
+
+      // count assigned districts including 0 (false-y value)
+      // don't count eraser / null values
+      if (data.plan && data.plan.assignment) {
+          Object.keys(data.plan.assignment).forEach(key => {
+              if (typeof data.plan.assignment[key] !== null) {
+                  plan.filledBlocks++;
+              }
+          });
+      }
 
       await Plan.create(plan);
 

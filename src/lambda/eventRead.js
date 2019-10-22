@@ -30,8 +30,7 @@ exports.handler = async (event, context) => {
     const plans = await Plan.find({
         eventCode: eventCode,
         hostname: myHost
-    }).select('_id simple_id');
-    // be careful not to share token here
+    }).select("_id simple_id filledBlocks");
     return {
         statusCode: 200,
         body: JSON.stringify({
