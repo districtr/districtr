@@ -17,12 +17,13 @@ exports.handler = async (event, context) => {
         // by default search all plans
         search.hostname = myHost;
     }
-    const plan = await Plan.findOne(search);
+    const plan = await Plan.findOne(search).select('plan');
+    // be careful not to share secret token
 
     return {
         statusCode: 200,
         body: JSON.stringify({
-            msg: "Plan(s) successfully found",
+            msg: "Plan successfully found",
             plan: plan.plan
         })
     };
