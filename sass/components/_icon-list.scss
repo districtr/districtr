@@ -94,10 +94,10 @@ of the whole element */
     background-color: $districtr-grey-active;
 }
 
-.icon-list__item input:focus ~ .icon-list__item__radio {
-    border-radius: 20%;
-    background-color: $districtr-grey-active;
-}
+// .icon-list__item input:focus ~ .icon-list__item__radio {
+//     border-radius: 20%;
+//     background-color: $districtr-grey-active;
+// }
 
 .icon-list__item input:checked ~ .icon-list__item__radio {
     border-radius: 50%;

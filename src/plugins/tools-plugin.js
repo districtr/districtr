@@ -1,3 +1,5 @@
+import hotkeys from 'hotkeys-js';
+
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
@@ -57,6 +59,19 @@ export default function ToolsPlugin(editor) {
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
     toolbar.setState(state);
+
+    hotkeys.filter = ({ target }) => {
+        return true;
+    };
+    for (let ki = 1; ki <= tools.length; ki++) {
+        hotkeys(`ctrl+${ki},control+${ki},option+${ki}`, (evt, handler) => {
+            let tabNumber = (handler.key.match(/\d/)[0] * 1) - 1;
+            if (tools[tabNumber]) {
+                toolbar.selectTool(tools[tabNumber].id);
+            }
+            evt.preventDefault();
+        });
+    }
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
