@@ -1,7 +1,16 @@
 // planCreate.js
 import mongoose from 'mongoose';
+
 import db from './server';
 import Plan from './planModel';
+import Sequence from './sequenceModel';
+
+let rnd = () => {
+    return Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2)
+        + Math.random().toString(36).substr(2);
+};
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
@@ -11,16 +20,21 @@ exports.handler = async (event, context) => {
           plan = {
               _id: mongoose.Types.ObjectId(),
               plan: data.plan,
-              eventCode: data.eventCode,
-              hostname: data.hostname
+              token: rnd(),
+              eventCode: data.eventCode || "",
+              hostname: data.hostname,
+              startDate: new Date()
           };
+      const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
+      plan.simple_id = nextPlanID.value;
 
       await Plan.create(plan)
       return {
           statusCode: 201,
           body: JSON.stringify({
               msg: "Plan successfully created",
-              _id: plan._id
+              simple_id: plan.simple_id,
+              token: plan.token
           })
       };
   } catch (err) {

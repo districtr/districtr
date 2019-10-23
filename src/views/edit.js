@@ -49,7 +49,7 @@ function getPlanURLFromQueryParam() {
 
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
-    const finalURLpage = window.location.pathname.split("/").slice(-1)[0];
+    let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
@@ -59,8 +59,14 @@ function getPlanContext() {
             console.error(e);
         });
     } else if (finalURLpage !== "edit") {
+        // remove token; save a new plan
+        localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
-        return loadPlanFromURL(`/.netlify/functions/planRead?_id=${finalURLpage}`).catch(e => {
+        if (isNaN(finalURLpage * 1)) {
+            // original _id plans
+            finalURLpage = '&_id=' + finalURLpage;
+        }
+        return loadPlanFromURL(`/.netlify/functions/planRead?id=${finalURLpage}`).catch(e => {
             console.error(`Could not load plan ${finalURLpage} from database`);
             navigateTo("/");
             console.error(e);
