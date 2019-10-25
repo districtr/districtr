@@ -1290,6 +1290,307 @@
     ]
   },
   {
+    "state": "Colorado",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 5027604,
+              "min": 0,
+              "max": 13812
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 3519213,
+                "min": 0,
+                "max": 9078
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 187370,
+                "min": 0,
+                "max": 1512
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1037160,
+                "min": 0,
+                "max": 3735
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 134096,
+                "min": 0,
+                "max": 990
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 29840,
+                "min": 0,
+                "max": 1367
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4900,
+                "min": 0,
+                "max": 129
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 99318,
+                "min": 0,
+                "max": 551
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 6621,
+                "min": 0,
+                "max": 26
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3802040,
+              "min": 0,
+              "max": 9838
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2808959,
+                "min": 0,
+                "max": 6759
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 137437,
+                "min": 0,
+                "max": 1108
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 662933,
+                "min": 0,
+                "max": 2294
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 22560,
+                "min": 0,
+                "max": 907
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3376,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 101885,
+                "min": 0,
+                "max": 619
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 3924,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 52039,
+                "min": 0,
+                "max": 306
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 1079772,
+                "min": 0,
+                "max": 1680
+              },
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 1343345,
+                "min": 0,
+                "max": 2118
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 1124757,
+                "min": 0,
+                "max": 1907
+              },
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 1285464,
+                "min": 0,
+                "max": 1892
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 1113927,
+                "min": 0,
+                "max": 1897
+              },
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 1313716,
+                "min": 0,
+                "max": 1908
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 1111641,
+                "min": 0,
+                "max": 1937
+              },
+              {
+                "key": "TRE18D",
+                "name": "Democratic",
+                "sum": 1292281,
+                "min": 0,
+                "max": 1861
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1080801,
+                "min": 0,
+                "max": 1836
+              },
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 1348888,
+                "min": 0,
+                "max": 2009
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "NAME"
+        },
+        "bounds": [
+          [
+            -109.0602,
+            36.9924
+          ],
+          [
+            -102.0415,
+            41.0034
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.colorado_precincts"
+            },
+            "sourceLayer": "colorado_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.colorado_precincts_points"
+            },
+            "sourceLayer": "colorado_precincts_points"
+          }
+        ]
+      }
+    ],
+    "id": "colorado",
+    "districtingProblems": [
+      {
+        "numberOfParts": 7,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      },
+      {
+        "numberOfParts": 35,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 65,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      }
+    ],
+    "name": "Colorado"
+  },
+  {
     "state": "Iowa",
     "id": "iowa",
     "units": [
