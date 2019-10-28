@@ -60,7 +60,8 @@ export function savePlanToDB(state, eventCode, callback) {
             plan: serialized,
             token: token.split("_")[0],
             eventCode: eventCode,
-            hostname: window.location.hostname
+            hostname: window.location.hostname,
+            screenshot: tokenValid || document.getElementsByClassName("mapboxgl-canvas")[0].toDataURL("image/jpeg")
         };
     fetch(saveURL, {
         method: "POST",
