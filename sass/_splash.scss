@@ -16,7 +16,7 @@ p {
     padding-right: 1rem;
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
     .l-major-section {
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -187,7 +187,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
     .landing-page {
     }
     .hello {
@@ -204,7 +204,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
     .landing-page {
         font-size: 1.25rem;
     }
@@ -238,7 +238,7 @@ p {
     .splash-code-text {
         grid-column: 2 / -1;
     }
-    @media only screen and (max-width: 800px) {
+    @media (max-width: 800px) {
         .splash-grid {
             grid-template-columns: 1fr;
         }

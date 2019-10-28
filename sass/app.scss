@@ -193,7 +193,7 @@ select {
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media (max-width: 900px) {
     #mobile-upload {
         display: block;
     }

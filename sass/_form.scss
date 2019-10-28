@@ -153,7 +153,7 @@
     display: none !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
     .form-container {
         width: 90%;
     }
