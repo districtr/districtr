@@ -64,7 +64,7 @@ const numberList = numbers => html`
 const loadablePlan = plan => html`
     <a href="/edit/${plan.simple_id || plan._id}">
         <li class="plan-thumbs__thumb">
-            ${plan.screenshot.length
+            ${(typeof plan.screenshot !== 'undefined')
                 ? html`<img
                     class="thumb__img"
                     src="${plan.screenshot}"
