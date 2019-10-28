@@ -208,3 +208,15 @@ select {
         display: none;
     }
 }
+
+@media print {
+    .mapboxgl-canvas {
+        zoom: 0.65;
+    }
+
+    .toolbar > nav,
+    .report-data-list .toolbar-checkbox,
+    .mapboxgl-control-container {
+        display: none;
+    }
+}
