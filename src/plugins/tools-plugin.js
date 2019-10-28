@@ -61,10 +61,11 @@ export default function ToolsPlugin(editor) {
     toolbar.setState(state);
 
     hotkeys.filter = ({ target }) => {
-        return true;
+        return (!["INPUT", "TEXTAREA"].includes(target.tagName)
+          || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
     };
     for (let ki = 1; ki <= tools.length; ki++) {
-        hotkeys(`ctrl+${ki},control+${ki},option+${ki}`, (evt, handler) => {
+        hotkeys(`${ki},shift+${ki}`, (evt, handler) => {
             let tabNumber = (handler.key.match(/\d/)[0] * 1) - 1;
             if (tools[tabNumber]) {
                 toolbar.selectTool(tools[tabNumber].id);
