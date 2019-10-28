@@ -64,6 +64,14 @@ const numberList = numbers => html`
 const loadablePlan = plan => html`
     <a href="/edit/${plan.simple_id || plan._id}">
         <li class="plan-thumbs__thumb">
+            ${plan.screenshot.length
+                ? html`<img
+                    class="thumb__img"
+                    src="${plan.screenshot}"
+                    alt="Districting Plan ${plan.simple_id}"
+                />`
+                : null
+            }
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.simple_id || plan._id}</h6>
             </figcaption>
