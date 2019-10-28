@@ -31,15 +31,12 @@ p {
 }
 
 .splash {
-    min-height: 100vh;
+    min-height: 80vh;
     padding-top: 2rem;
 }
 
 .hello {
-    background: url(../assets/districtr-splash.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right bottom;
+
 }
 
 .splash-text {
@@ -62,14 +59,15 @@ p {
 }
 
 .districtr-name {
-    background: $districtr-red;
-    color: white;
+    color: #000;
+    background-color: transparent;
 
-    border-radius: 0.4rem;
+    // border-radius: 0.4rem;
     // padding: 0.2rem 0.4rem;
-    padding: 0.1rem 0.4rem;
+    // padding: 0.1rem 0.4rem;
+    padding: 0;
 
-    font-weight: 400;
+    font-weight: bold;
     font-family: $font-family;
 
     margin: 0;
@@ -86,7 +84,7 @@ p {
 .splash-code-details {
     justify-content: center;
     display: flex;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .splash-code-text {
@@ -175,10 +173,22 @@ p {
     margin: 0;
 }
 
+.landing-page .splash-text img {
+  max-width: 600px;
+}
+
+.landing-page .quick-links {
+  article {
+    margin: 1rem;
+  }
+
+  h3, li, a {
+    font-size: 80%;
+  }
+}
+
 @media only screen and (max-width: 800px) {
     .landing-page {
-        background-image: url(../assets/districtr-splash-small.png);
-        background-repeat: no-repeat;
     }
     .hello {
         padding-top: 4rem;
