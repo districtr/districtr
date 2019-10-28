@@ -76,7 +76,7 @@
     max-width: 30rem;
 }
 
-@media only screen and (max-width: 400px) {
+@media (max-width: 400px) {
     .media__img {
         float: none;
         margin: 1rem auto;

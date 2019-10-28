@@ -117,7 +117,7 @@
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media (max-width: 400px) {
     .place-map__state-modules {
         grid-column: 2 / 4;
     }
