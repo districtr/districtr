@@ -4,7 +4,6 @@ import { actions } from "../../reducers/toolbar";
 import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
-import validEventCodes from "../../validEventCodes";
 
 export default class Toolbar {
     constructor(store, editor) {
@@ -107,17 +106,12 @@ export default class Toolbar {
                         <code id="code-popup"></code>
                         <br/>
                         <label>Have an event code?</label>
-                        <select
+                        <input
                             id="event-coder-popup"
                             type="text"
                             class="text-input"
-                            @change="${() => document.getElementById("re-save-popup").disabled = false}"
-                        >
-                            <option selected>none</option>
-                            ${Object.keys(validEventCodes).map(code =>
-                                html`<option>${code}</option>`
-                            )}
-                        </select>
+                            @input="${() => document.getElementById("re-save-popup").disabled = false}"
+                        />
                         <br/>
                         <button
                             id="re-save-popup"
