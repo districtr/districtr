@@ -57,14 +57,22 @@ export function savePlanToDB(state, eventCode, callback) {
             ? ("/.netlify/functions/planUpdate?id=" + mapID)
             : "/.netlify/functions/planCreate",
         requestBody = {
-            plan: serialized,
+            plan: JSON.parse(JSON.stringify(serialized)),
             token: token.split("_")[0],
             eventCode: eventCode,
             hostname: window.location.hostname
         };
+    // VA fix - if precinct IDs are strings, escape any "."
+    Object.keys(requestBody.plan.assignment).forEach(key => {
+        if (typeof key === "string" && key.indexOf(".") > -1) {
+            requestBody.plan.assignment[key.replace(/\./g, "÷")] =
+                requestBody.plan.assignment[key];
+            delete requestBody.plan.assignment[key];
+        }
+    });
     fetch(saveURL, {
         method: "POST",
-        body: JSON.stringify(requestBody).replace(/\./g, "÷")
+        body: JSON.stringify(requestBody)
     })
     .then(res => res.json())
     .then(info => {
@@ -105,7 +113,7 @@ export function loadPlanFromJSON(planRecord) {
         planRecord = planRecord.plan;
     }
     return listPlaces().then(places => {
-        const place = places.find(p => p.id.replace(/÷/g, ".") === planRecord.placeId);
+        const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         return {
             ...planRecord,
             place
