@@ -38,7 +38,7 @@
     border-right: 1px solid $districtr-grey-active;
 }
 
-@media only screen and (max-width: 36rem) {
+@media (max-width: 36rem) {
     .thumb__img {
         border-right: none;
         border-bottom: 1px solid $districtr-grey-active;

@@ -199,12 +199,24 @@ select {
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media (max-width: 900px) {
     #mobile-upload {
         display: block;
     }
 
     #desktop-upload {
+        display: none;
+    }
+}
+
+@media print {
+    .mapboxgl-canvas {
+        transform:scale(.65);
+        transform-origin:0 0;
+    }
+
+    .report-data-list .toolbar-checkbox,
+    .mapboxgl-control-container {
         display: none;
     }
 }
