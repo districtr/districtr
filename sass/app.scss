@@ -211,10 +211,10 @@ select {
 
 @media print {
     .mapboxgl-canvas {
-        zoom: 0.65;
+        transform:scale(.65);
+        transform-origin:0 0;
     }
 
-    .toolbar > nav,
     .report-data-list .toolbar-checkbox,
     .mapboxgl-control-container {
         display: none;
