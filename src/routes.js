@@ -64,7 +64,7 @@ export function savePlanToDB(state, eventCode, callback) {
         };
     fetch(saveURL, {
         method: "POST",
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify(requestBody).replace(/\./g, "÷")
     })
     .then(res => res.json())
     .then(info => {
@@ -105,7 +105,7 @@ export function loadPlanFromJSON(planRecord) {
         planRecord = planRecord.plan;
     }
     return listPlaces().then(places => {
-        const place = places.find(p => p.id === planRecord.placeId);
+        const place = places.find(p => p.id.replace(/÷/g, ".") === planRecord.placeId);
         return {
             ...planRecord,
             place
