@@ -110,7 +110,9 @@ async function validateUnits(unit, index, plan) {
     });
     if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
         console.error(plan.id + " has no about section for its units (" + unit.id + ")");
-        process.exit(1);
+        if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock"].includes(plan.id)) {
+            process.exit(1);
+        }
     }
     if (!unit.columnSets || !Array.isArray(unit.columnSets)) {
         console.error(plan.id + " is missing columnSets array on its "
