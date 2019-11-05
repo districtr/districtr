@@ -7316,6 +7316,10 @@
           "name": "Census GEOID",
           "key": "GEOID10"
         },
+        "nameColumn": {
+          "name": "Town",
+          "key": "NAME10"
+        },
         "bounds": [
           [
             -73.4379,
