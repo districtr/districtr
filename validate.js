@@ -70,6 +70,7 @@ async function validatePlan(plan, index) {
         console.error(plan.id + " has no array of units");
         process.exit(1);
     }
+
     async function checkUnit(index) {
         if (index >= plan.units.length) {
             return;
@@ -107,6 +108,10 @@ async function validateUnits(unit, index, plan) {
             process.exit(1);
         }
     });
+    if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
+        console.error(plan.id + " has no about section for its units (" + unit.id + ")");
+        process.exit(1);
+    }
     if (!unit.columnSets || !Array.isArray(unit.columnSets)) {
         console.error(plan.id + " is missing columnSets array on its "
             + (index + 1) + "-th unit entry");
@@ -192,7 +197,9 @@ async function validateUnits(unit, index, plan) {
         let content = await res.json();
         if (content.message) {
             console.error("Error from MapBox Layer " + tset + ":\n" + content.message);
-            process.exit(1);
+            if (tset !== 'districtr.pennsylvania_precincts_points.json') {
+                process.exit(1);
+            }
         } else {
             console.log(tset + " modified " + new Date(content.modified));
             // bounds are frequently different
