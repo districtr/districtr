@@ -10735,5 +10735,228 @@
     ],
     "state": "Oklahoma",
     "id": "oklahoma"
+  },
+  {
+    "name": "Everett",
+    "state": "Massachusetts",
+    "id": "everett",
+    "units": [
+      {
+        "bounds": [
+          [
+            -71.0764,
+            42.3866
+          ],
+          [
+            -71.0281,
+            42.4242
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.everett_blocks_2"
+            },
+            "sourceLayer": "everett_blocks_2"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.everett_blocks_2_points"
+            },
+            "sourceLayer": "everett_blocks_2_points"
+          }
+        ],
+        "id": "blocks_2",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 41655,
+              "min": 0,
+              "max": 402
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 22309,
+                "min": 0,
+                "max": 220
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 5652,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 8790,
+                "min": 0,
+                "max": 138
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1979,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 84,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 13,
+                "min": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 32160,
+              "min": 0,
+              "max": 313
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 18518,
+                "min": 0,
+                "max": 181
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4015,
+                "min": 0,
+                "max": 79
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 6013,
+                "min": 0,
+                "max": 103
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1466,
+                "min": 0,
+                "max": 32
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 58,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 13,
+                "min": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen voting age population",
+              "sum": 24619,
+              "min": 0,
+              "max": 231
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 14598,
+                "min": 0,
+                "max": 139
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 4498,
+                "min": 0,
+                "max": 75
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 3147,
+                "min": 0,
+                "max": 51
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 1716,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "AMINCVAP",
+                "name": "American Indian citizen voting age population",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "NHPICVAP",
+                "name": "Native Hawaiian and Pacific Islander citizen voting age population",
+                "sum": 20,
+                "min": 0,
+                "max": 3
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2010 Census GEOID",
+          "key": "GEOID"
+        }
+      }
+    ],
+    "districtingProblems": [
+      {
+        "pluralNoun": "City Council Districts",
+        "numberOfParts": 6,
+        "name": "City Council"
+      },
+      {
+        "pluralNoun": "City Council Districts",
+        "numberOfParts": 11,
+        "name": "City Council"
+      }
+    ]
   }
 ]
