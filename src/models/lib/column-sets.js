@@ -56,6 +56,17 @@ function getVAP(place, parts) {
     }
 }
 
+function getCVAP(place, parts) {
+    const cvap = place.columnSets.find(
+        columnSet => columnSet.name === "Citizen Voting Age Population"
+    );
+    if (cvap) {
+        return new Population({ ...cvap, parts });
+    } else {
+        return null;
+    }
+}
+
 function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
@@ -85,6 +96,7 @@ export function getColumnSets(state, unitsRecord) {
     state.elections = getElections(unitsRecord, state.parts);
     state.population = getPopulation(unitsRecord, state.parts);
     state.vap = getVAP(unitsRecord, state.parts);
+    state.cvap = getCVAP(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -102,9 +114,20 @@ export function getColumnSets(state, unitsRecord) {
         ];
     }
 
+    if (state.cvap) {
+        state.columns = [
+            ...state.columns,
+            ...state.cvap.subgroups,
+            state.cvap.total
+        ];
+    }
+
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
         columnSets.push(state.vap);
+    }
+    if (state.cvap) {
+        columnSets.push(state.cvap);
     }
     return columnSets;
 }

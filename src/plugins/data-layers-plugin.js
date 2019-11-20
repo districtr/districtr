@@ -121,6 +121,21 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    if (state.cvap) {
+        const cvapOverlays = new OverlayContainer(
+            state.layers,
+            state.cvap,
+            "Show CVAP demographics"
+        );
+        tab.addSection(
+            () =>
+                html`
+                    <h4>Citizen Voting Age Population</h4>
+                    ${cvapOverlays.render()}
+                `
+        );
+    }
+
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(
             state.layers,
