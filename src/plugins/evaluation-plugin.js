@@ -42,6 +42,25 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+
+    if (state.cvap) {
+        tab.addRevealSection(
+            "CVAP Balance",
+            (uiState, dispatch) =>
+                RacialBalanceTable(
+                    "CVAP Balance",
+                    state.cvap,
+                    state.activeParts,
+                    uiState.charts["CVAP Balance"],
+                    dispatch
+                ),
+            {
+                isOpen: state.population.subgroups.length > 1 ? false : true,
+                activeSubgroupIndices: state.cvap.indicesOfMajorSubgroups()
+            }
+        );
+    }
+
     if (state.elections.length > 0) {
         tab.addRevealSection(
             "Partisan Balance",
