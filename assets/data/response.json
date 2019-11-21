@@ -10861,6 +10861,14 @@
                 "min": 0,
                 "max": 103
               },
+
+              {
+                "key": "BHVAP",
+                "name": "Black-Hispanic voting age population",
+                "sum": 10028,
+                "min": 0,
+                "max": 138
+              },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
@@ -10915,6 +10923,13 @@
                 "sum": 3147,
                 "min": 0,
                 "max": 51
+              },
+              {
+                "key": "BHCVAP",
+                "name": "Black-Hispanic citizen voting age population",
+                "sum": 7652,
+                "min": 0,
+                "max": 84
               },
               {
                 "key": "ASIANCVAP",
