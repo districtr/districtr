@@ -38,6 +38,10 @@
     .labels {
         display: none;
 
+        &.show-default {
+            display: block;
+        }
+
         .square {
             font-size: 10pt;
         }
@@ -74,5 +78,29 @@
         &:nth-child(6) {
           background: rgba(0, 0, 0, 0.99);
         }
+    }
+
+    &.partisan-legend > .square {
+      // 249, 249, 249 to 25, 118, 210
+      &:nth-child(1) {
+        background: rgba(137, 184, 230, 0.99);
+      }
+      &:nth-child(2) {
+        background: rgba(182, 210, 237, 0.8);
+      }
+      &:nth-child(3) {
+        background: rgba(227, 236, 245, 0.4);
+      }
+      &:nth-child(4) {
+        background: rgba(245, 229, 229, 0.4);
+      }
+      &:nth-child(5) {
+        background: rgba(238, 188, 188, 0.8);
+      }
+      &:nth-child(6) {
+        background: rgba(230, 148, 148, 0.99);
+      }
+      // 249, 249, 249 to 211, 47, 47
+
     }
 }
