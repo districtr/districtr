@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import db from './server';
 import Plan from './planModel';
 
+exports.close = db.close;
+
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
