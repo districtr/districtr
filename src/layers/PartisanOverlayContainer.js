@@ -6,7 +6,8 @@ import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
 export default class PartisanOverlayContainer {
-    constructor(layers, elections) {
+    constructor(id, layers, elections) {
+        this._id = id;
         this.elections = elections;
         this.layers = layers;
         this.electionOverlays = elections.map(
