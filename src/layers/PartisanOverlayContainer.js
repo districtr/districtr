@@ -38,8 +38,8 @@ export default class PartisanOverlayContainer {
     }
     toggleVisibility(visible) {
         this.isVisible = visible;
-        document.getElementById("color-" + this._id).style.display
-            = (visible ? "block" : "none");
+        // document.getElementById("color-" + this._id).style.display
+        //     = (visible ? "block" : "none");
         if (this.isVisible) {
             this.currentElectionOverlay.show();
             this.setElection(this._currentElectionIndex);
@@ -85,8 +85,8 @@ export default class PartisanOverlayContainer {
                     )
                 }
             ].map(Parameter)}
+            <!--
             <div id="color-${this._id}" class="color-legend partisan-legend">
-                <span class="square"></span>
                 <span class="square"></span>
                 <span class="square"></span>
                 <span class="square"></span>
@@ -94,14 +94,14 @@ export default class PartisanOverlayContainer {
                 <span class="square"></span>
                 <br/>
                 <div class="labels show-default">
-                    <span class="square">75% D</span>
-                    <span class="square">65% D</span>
-                    <span class="square">55% D</span>
-                    <span class="square">55% R</span>
-                    <span class="square">65% R</span>
-                    <span class="square">75% R</span>
+                    <span class="square">70+ D</span>
+                    <span class="square">60 D</span>
+                    <span class="square">50-50</span>
+                    <span class="square">60 R</span>
+                    <span class="square">70+ R</span>
                 </div>
             </div>
+            -->
         `;
     }
 }

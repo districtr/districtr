@@ -18,8 +18,12 @@ export default class NumericalColumn {
     formatValue(feature) {
         return numberWithCommas(this.getValue(feature));
     }
-    asMapboxExpression() {
-        return ["to-number", ["get", this.key]];
+    asMapboxExpression(smallpop) {
+        if (smallpop) {
+            return ["*", this.asMapboxExpression(), (1 / smallpop)];
+        } else {
+            return ["to-number", ["get", this.key]];
+        }
     }
 }
 

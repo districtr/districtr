@@ -48,57 +48,52 @@
     }
 
     .square {
-        width: 40px;
+        width: 48px;
         height: 24px;
         display: inline-block;
+        vertical-align: top;
     }
 
     & > .square {
         width: 24px;
-        margin-left: 8px;
-        margin-right: 8px;
+        margin-left: 12px;
+        margin-right: 12px;
 
         border: 1px solid #444;
 
         &:nth-child(1) {
-          background: rgba(0, 0, 0, 0);
+          background: #fff
         }
         &:nth-child(2) {
-          background: rgba(0, 0, 0, 0.2);
+          background: #f0f0f0;
         }
         &:nth-child(3) {
-          background: rgba(0, 0, 0, 0.4);
+          background: #bdbdbd;
         }
         &:nth-child(4) {
-          background: rgba(0, 0, 0, 0.6);
+          background: #636363;
         }
         &:nth-child(5) {
-          background: rgba(0, 0, 0, 0.8);
-        }
-        &:nth-child(6) {
-          background: rgba(0, 0, 0, 0.99);
+          background: #000
         }
     }
 
     &.partisan-legend > .square {
       // 249, 249, 249 to 25, 118, 210
       &:nth-child(1) {
-        background: rgba(137, 184, 230, 0.99);
+        background: rgba(25, 118, 210, 0.8);
       }
       &:nth-child(2) {
-        background: rgba(182, 210, 237, 0.8);
+        background: rgba(25, 118, 210, 0.4);
       }
       &:nth-child(3) {
-        background: rgba(227, 236, 245, 0.4);
+        background: rgba(249, 249, 249, 0.5);
       }
       &:nth-child(4) {
-        background: rgba(245, 229, 229, 0.4);
+        background: rgba(211, 47, 47, 0.4);
       }
       &:nth-child(5) {
-        background: rgba(238, 188, 188, 0.8);
-      }
-      &:nth-child(6) {
-        background: rgba(230, 148, 148, 0.99);
+        background: rgba(211, 47, 47, 0.8);
       }
       // 249, 249, 249 to 211, 47, 47
 

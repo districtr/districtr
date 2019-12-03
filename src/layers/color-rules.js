@@ -1,4 +1,5 @@
 import { divideOrZeroIfNaN } from "../utils";
+import { labelPopCount, labelPopPercent, labelZeroToHundredPercent } from "./LegendLabels";
 
 // TODO: Include legends
 // TODO: Define a color rule interface, for extensibility and modularity.
@@ -48,19 +49,17 @@ function getPartyRGBColors(name) {
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByCount(subgroup) {
-    const rgb = [0, 0, 0];
+    let mostPop = subgroup.total.max;
+    labelPopCount(mostPop);
     return [
-        "rgba",
-        ...rgb,
-        [
-            "interpolate",
-            ["linear"],
-            subgroup.asMapboxExpression(),
-            0,
-            0,
-            subgroup.total.max,
-            1
-        ]
+        "step",
+        subgroup.asMapboxExpression(),
+        "#f00",
+        0, "#fff",
+        mostPop * 0.2, "#f0f0f0",
+        mostPop * 0.4, "#bdbdbd",
+        mostPop * 0.6, "#636363",
+        mostPop * 0.8, "#000", // up to 100% of mostPop
     ];
 }
 
@@ -82,25 +81,32 @@ export function sizeByCount(subgroup) {
 }
 
 /**
- * Colors from transparent to black, based on the subgroup's proportion
+ * Colors from white to black, based on the subgroup's proportion
  * of the total count for the ColumnSet in each unit.
  * @param {Subgroup} subgroup
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByFraction(subgroup) {
-    const rgb =
-        subgroup.columnSet.type === "election"
-            ? getPartyRGBColors(subgroup.name)
-            : [0, 0, 0];
-    return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
+    let exp = null;
+    let smallpop = Math.ceil(subgroup.max / subgroup.total.max * 100) / 100;
+    if (smallpop > 0.25) {
+        labelZeroToHundredPercent();
+        exp = subgroup.fractionAsMapboxExpression();
+    } else {
+        labelPopPercent(smallpop);
+        exp = subgroup.fractionAsMapboxExpression(smallpop);
+    }
+    return [
+        "step",
+        exp,
+        "#ff0", // null area
+        0, "#fff",
+        0.2, "#f0f0f0",
+        0.4, "#bdbdbd",
+        0.6, "#636363",
+        0.8, "#000", // up to 100% or (for small groups) estimated max %
+    ];
 }
-
-// Demographic color rules:
-
-export const demographicColorRules = [
-    { name: "Per capita", rule: colorByFraction },
-    { name: "Total count", rule: colorByCount }
-];
 
 // Partisan color rules:
 

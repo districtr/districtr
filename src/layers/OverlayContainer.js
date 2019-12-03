@@ -69,10 +69,6 @@ export default class OverlayContainer {
             this.overlay.setColorRule(colorByCount);
 
             let total = this.subgroups[i].max;
-            document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
-                sq.innerText = Math.floor(total * index / 5).toLocaleString();
-            });
-
             document.getElementById("counts-" + this._id).style.display = "block";
             document.getElementById("percents-" + this._id).style.display = "none";
         } else {
@@ -113,15 +109,13 @@ export default class OverlayContainer {
                 <span class="square"></span>
                 <span class="square"></span>
                 <span class="square"></span>
-                <span class="square"></span>
                 <br/>
                 <div id="percents-${this._id}" class="labels">
-                    <span class="square">0%</span>
-                    <span class="square">20%</span>
-                    <span class="square">40%</span>
-                    <span class="square">60%</span>
-                    <span class="square">80%</span>
-                    <span class="square">100%</span>
+                    <span class="square">≤ 20%</span>
+                    <span class="square">21-40</span>
+                    <span class="square">41-60</span>
+                    <span class="square">61-80</span>
+                    <span class="square">≥ 81%</span>
                 </div>
                 <div id="counts-${this._id}" class="labels">
                     <span class="square">0</span>
@@ -129,7 +123,6 @@ export default class OverlayContainer {
                     <span class="square">2</span>
                     <span class="square">3</span>
                     <span class="square">4</span>
-                    <span class="square">5</span>
                 </div>
             </div>
         `;

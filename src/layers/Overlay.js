@@ -66,6 +66,9 @@ function createLayer(layer) {
         type: layer.type,
         paint: { [`${layer.type}-opacity`]: 0 }
     };
+    if (layer.type === 'fill') {
+        layerSpec.paint["fill-outline-color"] = "rgba(120, 120, 120, 0.7)";
+    }
     if (layer.sourceLayer !== undefined) {
         layerSpec["source-layer"] = layer.sourceLayer;
     }
