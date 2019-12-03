@@ -50,7 +50,8 @@ function getPartyRGBColors(name) {
  */
 export function colorByCount(subgroup) {
     let mostPop = subgroup.total.max;
-    labelPopCount(mostPop);
+    let isVAP = subgroup.key.includes("VAP");
+    labelPopCount(mostPop, isVAP);
     return [
         "step",
         subgroup.asMapboxExpression(),
@@ -87,13 +88,14 @@ export function sizeByCount(subgroup) {
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByFraction(subgroup) {
+    let isVAP = subgroup.key.includes("VAP");
     let exp = null;
     let smallpop = Math.ceil(subgroup.max / subgroup.total.max * 100) / 100;
     if (smallpop > 0.25) {
-        labelZeroToHundredPercent();
+        labelZeroToHundredPercent(isVAP);
         exp = subgroup.fractionAsMapboxExpression();
     } else {
-        labelPopPercent(smallpop);
+        labelPopPercent(smallpop, isVAP);
         exp = subgroup.fractionAsMapboxExpression(smallpop);
     }
     return [

@@ -1,7 +1,7 @@
 let intervalCount = 5;
 
-export function labelZeroToHundredPercent() {
-    document.querySelectorAll("#percents-demographics .square, #percents-vap .square")
+export function labelZeroToHundredPercent(isVAP) {
+    document.querySelectorAll(`#percents-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((square, ind) => {
             let index = ind % intervalCount;
             let percent = (100 / intervalCount * index);
@@ -14,8 +14,8 @@ export function labelZeroToHundredPercent() {
         });
 }
 
-export function labelPopCount(total) {
-    document.querySelectorAll("#counts-demographics .square, #counts-vap .square")
+export function labelPopCount(total, isVAP) {
+    document.querySelectorAll(`#counts-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((sq, ind) => {
             let index = ind % intervalCount;
             // if (index === 0) {
@@ -30,10 +30,10 @@ export function labelPopCount(total) {
     });
 }
 
-export function labelPopPercent(smallpop) {
+export function labelPopPercent(smallpop, isVAP) {
     // populations to tenths or hundredths of a percent
     let decimals = (smallpop > 100) ? 2 : 1;
-    document.querySelectorAll("#percents-demographics .square, #percents-vap .square")
+    document.querySelectorAll(`#percents-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((square, ind) => {
             let index = ind % intervalCount;
             let startPercent = (index * 20 * smallpop).toFixed(index ? decimals : 0);
