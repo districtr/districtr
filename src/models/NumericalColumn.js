@@ -7,6 +7,7 @@ export default class NumericalColumn {
         this.sum = columnRecord.sum;
         this.min = columnRecord.min;
         this.max = columnRecord.max;
+        this.breaks = columnRecord.breaks;
 
         this.getValue = this.getValue.bind(this);
         this.formatValue = this.formatValue.bind(this);

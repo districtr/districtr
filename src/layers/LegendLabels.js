@@ -1,50 +1,26 @@
 let intervalCount = 5;
 
-export function labelZeroToHundredPercent(isVAP) {
-    document.querySelectorAll(`#percents-${isVAP ? "vap" : "demographics"} .square`)
-        .forEach((square, ind) => {
-            let index = ind % intervalCount;
-            let percent = (100 / intervalCount * index);
-            if (index === intervalCount - 1) {
-                percent = "≥ " + percent;
-            } else {
-                percent += "-" + (20 * ((index % 5) + 1) - 1);
-            }
-            square.innerText = percent + "%";
-        });
-}
-
-export function labelPopCount(total, isVAP) {
+export function labelPopCount(subgroup) {
+    let isVAP = subgroup.key.includes("VAP");
     document.querySelectorAll(`#counts-${isVAP ? "vap" : "demographics"} .square`)
-        .forEach((sq, ind) => {
-            let index = ind % intervalCount;
-            // if (index === 0) {
-            //     return "≤ " + Math.floor(total * 0.2).toLocaleString();
-            // }
-            // if (index === 4) {
-            //     return "≥ " + Math.floor(total * 0.8).toLocaleString();
-            // }
-            sq.innerText = Math.floor(total * index / intervalCount).toLocaleString()
+        .forEach((sq, index) => {
+            sq.innerText = subgroup.breaks[index].toLocaleString()
                 + "-"
-                + Math.floor(total * (index + 1) / intervalCount - 1).toLocaleString();
+                + (subgroup.breaks[index + 1] - 1).toLocaleString();
     });
 }
 
-export function labelPopPercent(smallpop, isVAP) {
+export function labelPopPercent(subgroup) {
+    let isVAP = subgroup.key.includes("VAP");
     // populations to tenths or hundredths of a percent
-    let decimals = (smallpop > 100) ? 2 : 1;
+    let decimals = (subgroup.breaks[1] <= 0.01) ? 2 : 1;
     document.querySelectorAll(`#percents-${isVAP ? "vap" : "demographics"} .square`)
-        .forEach((square, ind) => {
-            let index = ind % intervalCount;
-            let startPercent = (index * 20 * smallpop).toFixed(index ? decimals : 0);
-            let endPercent = ((index + 1) * 20 * smallpop - Math.pow(10, -1 * decimals)).toFixed(decimals);
+        .forEach((square, index) => {
+            let startPercent = (subgroup.breaks[index] * 100).toFixed(decimals);
+            let endPercent = (subgroup.breaks[index + 1] * 100 - Math.pow(10, -1 * decimals)).toFixed(decimals);
 
-            if (index === intervalCount - 1) {
-                square.innerText = "≥ " + startPercent + "%";
-            } else {
-                square.innerText = startPercent
-                    + "-"
-                    + endPercent + "%";
-            }
+            square.innerText = startPercent
+                + "-"
+                + endPercent + "%";
         });
 }

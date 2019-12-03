@@ -49,18 +49,16 @@ function getPartyRGBColors(name) {
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByCount(subgroup) {
-    let mostPop = subgroup.total.max;
-    let isVAP = subgroup.key.includes("VAP");
-    labelPopCount(mostPop, isVAP);
+    labelPopCount(subgroup);
     return [
         "step",
         subgroup.asMapboxExpression(),
         "#f00",
         0, "#fff",
-        mostPop * 0.2, "#f0f0f0",
-        mostPop * 0.4, "#bdbdbd",
-        mostPop * 0.6, "#636363",
-        mostPop * 0.8, "#000", // up to 100% of mostPop
+        subgroup.breaks[1], "#f0f0f0",
+        subgroup.breaks[2], "#bdbdbd",
+        subgroup.breaks[3], "#636363",
+        subgroup.breaks[4], "#000", // up to 100% of mostPop
     ];
 }
 
@@ -88,25 +86,17 @@ export function sizeByCount(subgroup) {
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByFraction(subgroup) {
-    let isVAP = subgroup.key.includes("VAP");
-    let exp = null;
     let smallpop = Math.ceil(subgroup.max / subgroup.total.max * 100) / 100;
-    if (smallpop > 0.25) {
-        labelZeroToHundredPercent(isVAP);
-        exp = subgroup.fractionAsMapboxExpression();
-    } else {
-        labelPopPercent(smallpop, isVAP);
-        exp = subgroup.fractionAsMapboxExpression(smallpop);
-    }
+    labelPopPercent(subgroup);
     return [
         "step",
-        exp,
-        "#ff0", // null area
-        0, "#fff",
-        0.2, "#f0f0f0",
-        0.4, "#bdbdbd",
-        0.6, "#636363",
-        0.8, "#000", // up to 100% or (for small groups) estimated max %
+        subgroup.fractionAsMapboxExpression(),
+        "rgba(255, 255, 0, 0.5)", // null area
+        0, "rgba(255, 255, 255, 0.8)",
+        subgroup.breaks[1], "rgba(240, 240, 240, 0.8)",
+        subgroup.breaks[2], "rgba(189, 189, 189, 0.8)",
+        subgroup.breaks[3], "rgba(99, 99, 99, 0.8)",
+        subgroup.breaks[4], "rgba(0, 0, 0, 0.8)", // up to 100% or (for small groups) estimated max %
     ];
 }
 
