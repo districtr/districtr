@@ -315,6 +315,20 @@ function validateCSentry(columnSet, field, columnSetIndex, unitIndex, planId) {
             process.exit(1);
         }
     });
+    if (columnSet.type !== "election") {
+        if (!columnData.breaks || columnData.breaks.length !== 6) {
+            console.error(planId + " is missing breaks array of 6 values");
+            process.exit(1);
+        }
+        let last = 0;
+        columnData.breaks.forEach(brk => {
+            if (brk < last) {
+                console.error(planId + " has a value out of order in its breaks array");
+                process.exit(1);
+            }
+            last = brk;
+        });
+    }
 }
 
 validateFile();
