@@ -14,7 +14,7 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
-    brush.on("colorend", () => {
+    brush.on("colorop", () => {
         savePlanToStorage(state.serialize());
     });
 

@@ -38,10 +38,18 @@ class EraserToolOptions {
         this.renderToolbar();
     }
     render() {
+        let undo = this.brush.undo;
         return html`
             ${BrushSlider(this.brush.radius, this.changeRadius, {
                 title: "Eraser Size"
             })}
+            <button
+                class="button button--alternate"
+                @click="${undo}"
+                style="float:right;margin-bottom:8px;"
+            >
+                Undo
+            </button>
         `;
     }
 }

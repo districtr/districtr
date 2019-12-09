@@ -9,21 +9,31 @@ export default class Brush extends HoverWithRadius {
         this.coloring = false;
         this.locked = false;
 
-        this.listeners = { colorend: [], colorfeature: [] };
-
-        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart"], this);
+        this.listeners = {
+            colorend: [],
+            colorfeature: [],
+            colorop: []
+        };
+        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "undo", "clearUndo"], this);
+        this.clearUndo();
+    }
+    clearUndo() {
+        this.trackUndo = {};
     }
     setColor(color) {
         this.color = parseInt(color);
+        this.clearUndo();
     }
     startErasing() {
         this._previousColor = this.color;
         this.color = null;
         this.erasing = true;
+        this.clearUndo();
     }
     stopErasing() {
         this.color = this._previousColor;
         this.erasing = false;
+        this.clearUndo();
     }
     hoverOn(features) {
         this.hoveredFeatures = features;
@@ -55,6 +65,16 @@ export default class Brush extends HoverWithRadius {
                         listener(feature, this.color);
                     }
                 }
+
+                // remember feature's initial color once per paint event
+                // remember population data so it can be un-counted
+                if (!this.trackUndo[feature.id]) {
+                    this.trackUndo[feature.id] = {
+                        properties: feature.properties,
+                        color: String(feature.state.color)
+                    };
+                }
+
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
                     color: this.color,
@@ -82,16 +102,50 @@ export default class Brush extends HoverWithRadius {
         window.addEventListener("mouseup", this.onMouseUp);
         window.addEventListener("touchend", this.onMouseUp);
         window.addEventListener("touchcancel", this.onMouseUp);
+        this.trackUndo = [];
     }
     onMouseUp() {
         this.coloring = false;
         window.removeEventListener("mouseup", this.onMouseUp);
         window.removeEventListener("touchend", this.onMouseUp);
         window.removeEventListener("touchcancel", this.onMouseUp);
+        for (let listener of this.listeners.colorop) {
+            listener();
+        }
     }
     onTouchStart(e) {
         if (e.points && e.points.length <= 1) {
             this.onMouseDown(e);
+        }
+    }
+    undo() {
+        let listeners = this.listeners.colorfeature;
+        Object.keys(this.trackUndo).forEach((fid) => {
+            // eraser color "undefined" should act like a brush set to null
+            let amendColor = Number(this.trackUndo[fid].color);
+            if (isNaN(amendColor)) {
+                amendColor = null;
+            }
+
+            // change map colors
+            this.layer.setFeatureState(fid, {
+                color: amendColor
+            });
+
+            // update subgroup totals (restoring old brush color)
+            for (let listener of listeners) {
+                listener({
+                    id: fid,
+                    state: { color: this.color },
+                    properties: this.trackUndo[fid].properties
+                }, amendColor);
+            }
+        });
+        this.clearUndo();
+
+        // locally store plan state
+        for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
+            listener();
         }
     }
     activate() {

@@ -64,6 +64,7 @@ class BrushToolOptions {
     }
     render() {
         const activeColor = this.colors[this.brush.color].id;
+        let undo = this.brush.undo;
         return html`
             ${this.colors.length > 1
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
@@ -72,6 +73,13 @@ class BrushToolOptions {
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
+            <button
+                class="button button--alternate"
+                @click="${undo}"
+                style="float:right;margin-bottom:8px;"
+            >
+                Undo
+            </button>
         `;
     }
 }
