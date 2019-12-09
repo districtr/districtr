@@ -4,7 +4,7 @@ import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function submitRequest(payload) {
-    return client.post("/requests/", payload);
+    return client.post("/.netlify/functions/planRequest", payload);
 }
 
 function onSubmit({
