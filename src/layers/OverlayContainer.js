@@ -65,16 +65,13 @@ export default class OverlayContainer {
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
+        document.getElementById("counts-" + this._id).style.display = "block";
         if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
 
             let total = this.subgroups[i].max;
-            document.getElementById("counts-" + this._id).style.display = "block";
-            document.getElementById("percents-" + this._id).style.display = "none";
         } else {
             this.overlay.setColorRule(colorByFraction);
-            document.getElementById("counts-" + this._id).style.display = "none";
-            document.getElementById("percents-" + this._id).style.display = "block";
         }
     }
     render() {
@@ -98,8 +95,9 @@ export default class OverlayContainer {
                     ),
                     (i) => {
                         this.overlay.setLayer(i);
-                        document.getElementById("color-" + this._id).style.display
-                            = ((i || !this.overlay.visible) ? "none" : "block");
+                        document.querySelectorAll(`#color-${this._id} > .square`).forEach((sq) => {
+                            sq.className = `square ${i ? 'circle' : 'block'}`;
+                        });
                     }
                 )
             })}
@@ -110,13 +108,6 @@ export default class OverlayContainer {
                 <span class="square"></span>
                 <span class="square"></span>
                 <br/>
-                <div id="percents-${this._id}" class="labels">
-                    <span class="square">≤ 20%</span>
-                    <span class="square">21-40</span>
-                    <span class="square">41-60</span>
-                    <span class="square">61-80</span>
-                    <span class="square">≥ 81%</span>
-                </div>
                 <div id="counts-${this._id}" class="labels">
                     <span class="square">0</span>
                     <span class="square">1</span>

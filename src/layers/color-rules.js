@@ -92,11 +92,11 @@ export function colorByFraction(subgroup) {
         "step",
         subgroup.fractionAsMapboxExpression(),
         "rgba(255, 255, 0, 0.5)", // null area
-        0, "rgba(255, 255, 255, 0.8)",
-        subgroup.breaks[1], "rgba(240, 240, 240, 0.8)",
-        subgroup.breaks[2], "rgba(189, 189, 189, 0.8)",
-        subgroup.breaks[3], "rgba(99, 99, 99, 0.8)",
-        subgroup.breaks[4], "rgba(0, 0, 0, 0.8)", // up to 100% or (for small groups) estimated max %
+        0, "rgb(255, 255, 255)",
+        subgroup.breaks[1], "rgb(240, 240, 240)",
+        subgroup.breaks[2], "rgb(189, 189, 189)",
+        subgroup.breaks[3], "rgb(99, 99, 99)",
+        subgroup.breaks[4], "rgb(0, 0, 0)", // up to 100% or (for small groups) estimated max %
     ];
 }
 

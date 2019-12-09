@@ -12,12 +12,23 @@ export function labelPopCount(subgroup) {
 
 export function labelPopPercent(subgroup) {
     let isVAP = subgroup.key.includes("VAP");
+    let cropToDecimal = (num, ending) => {
+        let decimals = 0;
+        if (num > 0) {
+            if (num < 10) {
+                decimals++;
+            }
+            if (num < 1) {
+                decimals++;
+            }
+        }
+        return (ending ? (num - Math.pow(10, -1 * decimals)) : num).toFixed(decimals);
+    };
     // populations to tenths or hundredths of a percent
-    let decimals = (subgroup.breaks[1] <= 0.01) ? 2 : 1;
-    document.querySelectorAll(`#percents-${isVAP ? "vap" : "demographics"} .square`)
+    document.querySelectorAll(`#counts-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((square, index) => {
-            let startPercent = (subgroup.breaks[index] * 100).toFixed(decimals);
-            let endPercent = (subgroup.breaks[index + 1] * 100 - Math.pow(10, -1 * decimals)).toFixed(decimals);
+            let startPercent = cropToDecimal(subgroup.breaks[index] * 100, false);
+            let endPercent = cropToDecimal(subgroup.breaks[index + 1] * 100, index < 4);
 
             square.innerText = startPercent
                 + "-"
