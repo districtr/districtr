@@ -6,7 +6,8 @@ import { colorByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(layers, columnSet, toggleText) {
+    constructor(id, layers, columnSet, toggleText) {
+        this._id = id;
         this._currentSubgroupIndex = 0;
         this.subgroups = columnSet.columns;
         // These color rules should be explicitly attached to each subgroup,
@@ -51,8 +52,11 @@ export default class OverlayContainer {
         }
 
         this.visibilityToggle = toggle(toggleText, (this._currentSubgroupIndex !== 0), visible => {
+            document.getElementById("color-" + this._id).style.display
+                = (visible ? "block" : "none");
             if (visible) {
                 this.overlay.show();
+                this.changeSubgroup(this._currentSubgroupIndex);
             } else {
                 this.overlay.hide();
             }
@@ -61,8 +65,11 @@ export default class OverlayContainer {
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
+        document.getElementById("counts-" + this._id).style.display = "block";
         if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
+
+            let total = this.subgroups[i].max;
         } else {
             this.overlay.setColorRule(colorByFraction);
         }
@@ -86,9 +93,29 @@ export default class OverlayContainer {
                     this.overlay.layers.map(layer =>
                         getLayerDescription(layer)
                     ),
-                    i => this.overlay.setLayer(i)
+                    (i) => {
+                        this.overlay.setLayer(i);
+                        document.querySelectorAll(`#color-${this._id} > .square`).forEach((sq) => {
+                            sq.className = `square ${i ? 'circle' : 'block'}`;
+                        });
+                    }
                 )
             })}
+            <div id="color-${this._id}" class="color-legend">
+                <span class="square"></span>
+                <span class="square"></span>
+                <span class="square"></span>
+                <span class="square"></span>
+                <span class="square"></span>
+                <br/>
+                <div id="counts-${this._id}" class="labels">
+                    <span class="square">0</span>
+                    <span class="square">1</span>
+                    <span class="square">2</span>
+                    <span class="square">3</span>
+                    <span class="square">4</span>
+                </div>
+            </div>
         `;
     }
 }

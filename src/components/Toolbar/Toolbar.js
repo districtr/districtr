@@ -94,13 +94,16 @@ export default class Toolbar {
                     </div>
                     <div id="save-popup">
                         <button
-                            class="close-button"
+                            class="button button--transparent button--icon media__close close-button"
                             @click="${() => {
                                 document.getElementById("save-popup").className = "hide";
                             }}"
                         >
-                            X
+                            <i class="material-icons">
+                                close
+                            </i>
                         </button>
+
                         <strong>Uploaded Plan</strong>
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>

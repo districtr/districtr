@@ -7,6 +7,7 @@ export default class NumericalColumn {
         this.sum = columnRecord.sum;
         this.min = columnRecord.min;
         this.max = columnRecord.max;
+        this.breaks = columnRecord.breaks;
 
         this.getValue = this.getValue.bind(this);
         this.formatValue = this.formatValue.bind(this);
@@ -18,8 +19,12 @@ export default class NumericalColumn {
     formatValue(feature) {
         return numberWithCommas(this.getValue(feature));
     }
-    asMapboxExpression() {
-        return ["to-number", ["get", this.key]];
+    asMapboxExpression(smallpop) {
+        if (smallpop) {
+            return ["*", this.asMapboxExpression(), (1 / smallpop)];
+        } else {
+            return ["to-number", ["get", this.key]];
+        }
     }
 }
 

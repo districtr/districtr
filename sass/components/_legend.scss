@@ -27,3 +27,79 @@
 .color-scale-continuous {
     background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
 }
+
+.color-legend {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: none;
+
+    .labels {
+        display: none;
+
+        &.show-default {
+            display: block;
+        }
+
+        .square {
+            font-size: 10pt;
+        }
+    }
+
+    .square {
+        width: 48px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .circle {
+        border-radius: 12px;
+    }
+
+    & > .square {
+        width: 24px;
+        margin-left: 12px;
+        margin-right: 12px;
+
+        border: 1px solid #444;
+
+        &:nth-child(1) {
+          background: #fff
+        }
+        &:nth-child(2) {
+          background: #f0f0f0;
+        }
+        &:nth-child(3) {
+          background: #bdbdbd;
+        }
+        &:nth-child(4) {
+          background: #636363;
+        }
+        &:nth-child(5) {
+          background: #000
+        }
+    }
+
+    &.partisan-legend > .square {
+      // 249, 249, 249 to 25, 118, 210
+      &:nth-child(1) {
+        background: rgba(25, 118, 210, 0.8);
+      }
+      &:nth-child(2) {
+        background: rgba(25, 118, 210, 0.4);
+      }
+      &:nth-child(3) {
+        background: rgba(249, 249, 249, 0.5);
+      }
+      &:nth-child(4) {
+        background: rgba(211, 47, 47, 0.4);
+      }
+      &:nth-child(5) {
+        background: rgba(211, 47, 47, 0.8);
+      }
+      // 249, 249, 249 to 211, 47, 47
+
+    }
+}
