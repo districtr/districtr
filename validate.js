@@ -110,7 +110,7 @@ async function validateUnits(unit, index, plan) {
     });
     if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
         console.error(plan.id + " has no about section for its units (" + unit.id + ")");
-        if (!["adams_wa", "yakima_wa"].includes(plan.id)) {
+        if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock"].includes(plan.id)) {
             process.exit(1);
         }
     }
@@ -315,20 +315,6 @@ function validateCSentry(columnSet, field, columnSetIndex, unitIndex, planId) {
             process.exit(1);
         }
     });
-    if (columnSet.type !== "election") {
-        if (!columnData.breaks || columnData.breaks.length !== 6) {
-            console.error(planId + " is missing breaks array of 6 values");
-            process.exit(1);
-        }
-        let last = 0;
-        columnData.breaks.forEach(brk => {
-            if (brk < last) {
-                console.error(planId + " has a value out of order in its breaks array");
-                process.exit(1);
-            }
-            last = brk;
-        });
-    }
 }
 
 validateFile();

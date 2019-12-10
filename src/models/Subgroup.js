@@ -29,9 +29,9 @@ export class Subgroup extends NumericalColumn {
         const total = this.total.sum;
         return total > 0 ? this.sum / total : 0;
     }
-    fractionAsMapboxExpression(smallpop) {
+    fractionAsMapboxExpression() {
         return divideOrZeroIfNaN(
-            this.asMapboxExpression(smallpop),
+            this.asMapboxExpression(),
             this.total.asMapboxExpression()
         );
     }

@@ -1,5 +1,4 @@
 import { divideOrZeroIfNaN } from "../utils";
-import { labelPopCount, labelPopPercent, labelZeroToHundredPercent } from "./LegendLabels";
 
 // TODO: Include legends
 // TODO: Define a color rule interface, for extensibility and modularity.
@@ -49,16 +48,19 @@ function getPartyRGBColors(name) {
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByCount(subgroup) {
-    labelPopCount(subgroup);
+    const rgb = [0, 0, 0];
     return [
-        "step",
-        subgroup.asMapboxExpression(),
-        "#f00",
-        0, "#fff",
-        subgroup.breaks[1], "#f0f0f0",
-        subgroup.breaks[2], "#bdbdbd",
-        subgroup.breaks[3], "#636363",
-        subgroup.breaks[4], "#000", // up to 100% of mostPop
+        "rgba",
+        ...rgb,
+        [
+            "interpolate",
+            ["linear"],
+            subgroup.asMapboxExpression(),
+            0,
+            0,
+            subgroup.total.max,
+            1
+        ]
     ];
 }
 
@@ -80,25 +82,25 @@ export function sizeByCount(subgroup) {
 }
 
 /**
- * Colors from white to black, based on the subgroup's proportion
+ * Colors from transparent to black, based on the subgroup's proportion
  * of the total count for the ColumnSet in each unit.
  * @param {Subgroup} subgroup
  * @returns {Array} Mapbox style for a *-color property
  */
 export function colorByFraction(subgroup) {
-    let smallpop = Math.ceil(subgroup.max / subgroup.total.max * 100) / 100;
-    labelPopPercent(subgroup);
-    return [
-        "step",
-        subgroup.fractionAsMapboxExpression(),
-        "rgba(255, 255, 0, 0.5)", // null area
-        0, "rgb(255, 255, 255)",
-        subgroup.breaks[1], "rgb(240, 240, 240)",
-        subgroup.breaks[2], "rgb(189, 189, 189)",
-        subgroup.breaks[3], "rgb(99, 99, 99)",
-        subgroup.breaks[4], "rgb(0, 0, 0)", // up to 100% or (for small groups) estimated max %
-    ];
+    const rgb =
+        subgroup.columnSet.type === "election"
+            ? getPartyRGBColors(subgroup.name)
+            : [0, 0, 0];
+    return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
+
+// Demographic color rules:
+
+export const demographicColorRules = [
+    { name: "Per capita", rule: colorByFraction },
+    { name: "Total count", rule: colorByCount }
+];
 
 // Partisan color rules:
 

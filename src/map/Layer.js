@@ -65,12 +65,6 @@ export default class Layer {
     }
     setOpacity(opacity) {
         this.setPaintProperty(`${this.type}-opacity`, opacity);
-        if (this.type === "fill") {
-            this.setPaintProperty("fill-outline-color", `rgba(120, 120, 120, ${opacity})`);
-        } else {
-            this.setPaintProperty("circle-stroke-color", `rgba(120, 120, 120, ${opacity})`);
-            this.setPaintProperty("circle-stroke-width", opacity ? 1 : 0);
-        }
     }
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);

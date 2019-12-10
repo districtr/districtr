@@ -14,8 +14,7 @@
               "name": "Total population",
               "sum": 710231,
               "min": 44,
-              "max": 7994,
-              "breaks": [44, 877, 1888, 2941, 4453, 7994]
+              "max": 7994
             },
             "subgroups": [
               {
@@ -23,56 +22,49 @@
                 "name": "White population",
                 "sum": 473576,
                 "min": 1,
-                "max": 5953,
-                "breaks": [0.0096, 0.1693, 0.3769, 0.5762, 0.7534, 0.9644]
+                "max": 5953
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
                 "sum": 23263,
                 "min": 0,
-                "max": 980,
-                "breaks": [0.0, 0.016, 0.0437, 0.0759, 0.1096, 0.1792]
+                "max": 980
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
                 "sum": 38135,
                 "min": 0,
-                "max": 1452,
-                "breaks": [0.0, 0.0195, 0.0573, 0.1189, 0.217, 0.4516]
+                "max": 1452
               },
               {
                 "key": "AMIN",
                 "name": "Native American and Alaskan Native population",
                 "sum": 104871,
                 "min": 0,
-                "max": 2428,
-                "breaks": [0.0, 0.0959, 0.249, 0.5106, 0.8, 0.9854]
+                "max": 2428
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 7409,
                 "min": 0,
-                "max": 428,
-                "breaks": [0.0, 0.005, 0.0162, 0.0337, 0.0589, 0.1046]
+                "max": 428
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
                 "sum": 51875,
                 "min": 0,
-                "max": 499,
-                "breaks": [0.0, 0.0316, 0.0632, 0.0956, 0.1679, 0.2593]
+                "max": 499
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
                 "sum": 11102,
                 "min": 0,
-                "max": 364,
-                "breaks": [0.0, 0.005, 0.0136, 0.0262, 0.0477, 0.093]
+                "max": 364
               }
             ]
           },
@@ -84,8 +76,7 @@
               "name": "Voting age population",
               "sum": 522853,
               "min": 31,
-              "max": 5372,
-              "breaks": [31, 611, 1316, 2019, 3072, 5372]
+              "max": 5372
             },
             "subgroups": [
               {
@@ -93,56 +84,49 @@
                 "name": "White voting age population",
                 "sum": 368895,
                 "min": 1,
-                "max": 4122,
-                "breaks": [0.0137, 0.1753, 0.3984, 0.6193, 0.7896, 0.957]
+                "max": 4122
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 16904,
                 "min": 0,
-                "max": 645,
-                "breaks": [0.0, 0.0161, 0.0434, 0.0768, 0.1145, 0.1822]
+                "max": 645
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 70630,
                 "min": 0,
-                "max": 1528,
-                "breaks": [0.0, 0.0954, 0.2589, 0.5415, 0.7879, 0.9859]
+                "max": 1528
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 4599,
                 "min": 0,
-                "max": 228,
-                "breaks": [0.0, 0.0038, 0.0129, 0.0278, 0.0511, 0.088]
+                "max": 228
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 28312,
                 "min": 0,
-                "max": 1245,
-                "breaks": [0.0, 0.0206, 0.0587, 0.1159, 0.2022, 0.4405]
+                "max": 1245
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 7988,
                 "min": 0,
-                "max": 304,
-                "breaks": [0.0, 0.0041, 0.0119, 0.0245, 0.0426, 0.0826]
+                "max": 304
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 25525,
                 "min": 0,
-                "max": 257,
-                "breaks": [0.0, 0.0238, 0.0462, 0.0687, 0.107, 0.1909]
+                "max": 257
               }
             ]
           },
@@ -327,8 +311,7 @@
               "name": "Total Population",
               "sum": 819569,
               "min": 0,
-              "max": 3406,
-              "breaks": [0, 96, 360, 823, 1536, 3406]
+              "max": 3406
             },
             "subgroups": [
               {
@@ -336,48 +319,42 @@
                 "name": "White population",
                 "sum": 400469,
                 "min": 0,
-                "max": 2066,
-                "breaks": [0.0, 0.1222, 0.3571, 0.5902, 0.8, 1.0]
+                "max": 2066
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 64131,
                 "min": 0,
-                "max": 555,
-                "breaks": [0.0, 0.0448, 0.1553, 0.3465, 0.6531, 1.0]
+                "max": 555
               },
               {
                 "key": "HPOP",
                 "name": "Hispanic population",
                 "sum": 285769,
                 "min": 0,
-                "max": 1635,
-                "breaks": [0.0, 0.0795, 0.2414, 0.4552, 0.7014, 1.0]
+                "max": 1635
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 50995,
                 "min": 0,
-                "max": 795,
-                "breaks": [0.0, 0.0411, 0.1389, 0.3, 0.5375, 1.0]
+                "max": 795
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 2074,
                 "min": 0,
-                "max": 13,
-                "breaks": [0.0, 0.013, 0.0602, 0.125, 0.2727, 0.5]
+                "max": 13
               },
               {
                 "key": "NH_NAHI",
                 "name": "Hawaiian Native population",
                 "sum": 432,
                 "min": 0,
-                "max": 12,
-                "breaks": [0.0, 0.0081, 0.0312, 0.069, 0.125, 0.25]
+                "max": 12
               }
             ]
           }
@@ -941,8 +918,7 @@
               "name": "Total population",
               "sum": 2694007,
               "min": 14,
-              "max": 12307,
-              "breaks": [14, 1071, 1546, 2283, 3960, 12307]
+              "max": 12307
             },
             "subgroups": [
               {
@@ -950,64 +926,56 @@
                 "name": "White population",
                 "sum": 853587,
                 "min": 0,
-                "max": 2753,
-                "breaks": [0.0, 0.124, 0.335, 0.546, 0.736, 0.944]
+                "max": 2753
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 871069,
                 "min": 0,
-                "max": 7723,
-                "breaks": [0.0, 0.138, 0.392, 0.656, 0.873, 0.996]
+                "max": 7723
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 777839,
                 "min": 0,
-                "max": 3526,
-                "breaks": [0.0, 0.118, 0.287, 0.492, 0.735, 0.985]
+                "max": 3526
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 144167,
                 "min": 0,
-                "max": 2208,
-                "breaks": [0.0, 0.041, 0.131, 0.258, 0.535, 0.951]
+                "max": 2208
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 3738,
                 "min": 0,
-                "max": 22,
-                "breaks": [0.0, 0.001, 0.002, 0.004, 0.008, 0.015]
+                "max": 22
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 488,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0001, 0.001, 0.003, 0.006, 0.012]
+                "max": 18
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 35108,
                 "min": 0,
-                "max": 121,
-                "breaks": [0.0, 0.007, 0.014, 0.022, 0.036, 0.096]
+                "max": 121
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 3885,
                 "min": 0,
-                "max": 34,
-                "breaks": [0.0, 0.001, 0.002, 0.005, 0.011, 0.026]
+                "max": 34
               }
             ]
           },
@@ -1019,8 +987,7 @@
               "name": "Voting age population",
               "sum": 2072450,
               "min": 14,
-              "max": 11384,
-              "breaks": [14, 796, 1121, 1623, 3450, 11384]
+              "max": 11384
             },
             "subgroups": [
               {
@@ -1028,64 +995,56 @@
                 "name": "White voting age population",
                 "sum": 751530,
                 "min": 0,
-                "max": 2660,
-                "breaks": [0.0, 0.129, 0.343, 0.559, 0.75, 0.968]
+                "max": 2660
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 642614,
                 "min": 0,
-                "max": 7441,
-                "breaks": [0.0, 0.135, 0.391, 0.663, 0.873, 0.996]
+                "max": 7441
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 523480,
                 "min": 0,
-                "max": 2304,
-                "breaks": [0.0, 0.122, 0.301, 0.505, 0.73, 0.98]
+                "max": 2304
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 2883,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.001, 0.002, 0.004, 0.008, 0.015]
+                "max": 18
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 405,
                 "min": 0,
-                "max": 9,
-                "breaks": [0.0, 0.001, 0.002, 0.003, 0.005, 0.009]
+                "max": 9
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 121987,
                 "min": 0,
-                "max": 1793,
-                "breaks": [0.0, 0.039, 0.124, 0.252, 0.53, 0.949]
+                "max": 1793
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 2636,
                 "min": 0,
-                "max": 33,
-                "breaks": [0.0, 0.001, 0.003, 0.006, 0.014, 0.027]
+                "max": 33
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 22923,
                 "min": 0,
-                "max": 84,
-                "breaks": [0.0, 0.007, 0.014, 0.022, 0.047, 0.105]
+                "max": 84
               }
             ]
           }
@@ -1136,8 +1095,7 @@
               "name": "Total population",
               "sum": 2695015,
               "min": 2917,
-              "max": 98503,
-              "breaks": [2917, 15639, 26471, 45392, 64133, 98503]
+              "max": 98503
             },
             "subgroups": [
               {
@@ -1145,64 +1103,56 @@
                 "name": "White population",
                 "sum": 854489,
                 "min": 19,
-                "max": 75836,
-                "breaks": [0.0027, 0.0812, 0.215, 0.449, 0.6308, 0.8836]
+                "max": 75836
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 871967,
                 "min": 28,
-                "max": 83836,
-                "breaks": [0.0025, 0.1434, 0.3425, 0.4926, 0.7467, 0.9778]
+                "max": 83836
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 778787,
                 "min": 20,
-                "max": 65461,
-                "breaks": [0.0069, 0.12, 0.2907, 0.456, 0.6468, 0.8921]
+                "max": 65461
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 144844,
                 "min": 0,
-                "max": 16182,
-                "breaks": [0.0, 0.0304, 0.0886, 0.1592, 0.345, 0.7253]
+                "max": 16182
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 4060,
                 "min": 0,
-                "max": 190,
-                "breaks": [0.0, 0.0007, 0.0013, 0.0019, 0.0026, 0.0034]
+                "max": 190
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 543,
                 "min": 0,
-                "max": 43,
-                "breaks": [0.0, 0.0001, 0.0002, 0.0003, 0.0005, 0.0009]
+                "max": 43
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 35899,
                 "min": 26,
-                "max": 1918,
-                "breaks": [0.0016, 0.0059, 0.0123, 0.0186, 0.027, 0.0363]
+                "max": 1918
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 4195,
                 "min": 0,
-                "max": 224,
-                "breaks": [0.0, 0.0007, 0.0012, 0.002, 0.0028, 0.0038]
+                "max": 224
               }
             ]
           },
@@ -1214,8 +1164,7 @@
               "name": "Voting age population",
               "sum": 2073463,
               "min": 2121,
-              "max": 85746,
-              "breaks": [2121, 17463, 29936, 44494, 57549, 85746]
+              "max": 85746
             },
             "subgroups": [
               {
@@ -1223,64 +1172,56 @@
                 "name": "White voting age population",
                 "sum": 752425,
                 "min": 18,
-                "max": 69746,
-                "breaks": [0.0033, 0.113, 0.2982, 0.4993, 0.662, 0.9003]
+                "max": 69746
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 643519,
                 "min": 20,
-                "max": 60990,
-                "breaks": [0.0023, 0.1409, 0.3474, 0.5083, 0.7432, 0.9785]
+                "max": 60990
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 524414,
                 "min": 11,
-                "max": 43193,
-                "breaks": [0.0052, 0.1021, 0.2553, 0.4584, 0.5989, 0.8664]
+                "max": 43193
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 3184,
                 "min": 0,
-                "max": 171,
-                "breaks": [0.0, 0.0005, 0.0012, 0.0019, 0.0025, 0.0035]
+                "max": 171
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 457,
                 "min": 0,
-                "max": 42,
-                "breaks": [0.0, 0.0001, 0.0002, 0.0003, 0.0006, 0.0011]
+                "max": 42
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 122664,
                 "min": 0,
-                "max": 12215,
-                "breaks": [0.0, 0.0292, 0.0872, 0.1679, 0.3482, 0.7252]
+                "max": 12215
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 2906,
                 "min": 0,
-                "max": 165,
-                "breaks": [0.0, 0.0004, 0.0011, 0.0018, 0.0025, 0.0033]
+                "max": 165
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 23666,
                 "min": 20,
-                "max": 1235,
-                "breaks": [0.0017, 0.0054, 0.0101, 0.0155, 0.0226, 0.0283]
+                "max": 1235
               }
             ]
           }
@@ -1364,8 +1305,7 @@
               "name": "Total population",
               "sum": 5027604,
               "min": 0,
-              "max": 13812,
-              "breaks": [0, 1031, 1859, 2908, 6691, 13812]
+              "max": 13812
             },
             "subgroups": [
               {
@@ -1373,64 +1313,56 @@
                 "name": "White population",
                 "sum": 3519213,
                 "min": 0,
-                "max": 9078,
-                "breaks": [0.0, 0.332, 0.553, 0.7236, 0.8487, 1.0]
+                "max": 9078
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 187370,
                 "min": 0,
-                "max": 1512,
-                "breaks": [0.0, 0.0384, 0.1105, 0.2182, 0.3731, 0.5661]
+                "max": 1512
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 1037160,
                 "min": 0,
-                "max": 3735,
-                "breaks": [0.0, 0.1082, 0.2264, 0.3885, 0.5785, 0.9073]
+                "max": 3735
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 134096,
                 "min": 0,
-                "max": 990,
-                "breaks": [0.0, 0.0168, 0.0394, 0.0718, 0.1262, 0.2867]
+                "max": 990
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 29840,
                 "min": 0,
-                "max": 1367,
-                "breaks": [0.0, 0.0063, 0.0273, 0.0939, 0.2534, 0.9126]
+                "max": 1367
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 4900,
                 "min": 0,
-                "max": 129,
-                "breaks": [0.0, 0.0007, 0.0025, 0.0056, 0.0101, 0.0207]
+                "max": 129
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 99318,
                 "min": 0,
-                "max": 551,
-                "breaks": [0.0, 0.0126, 0.0228, 0.0365, 0.0847, 0.3333]
+                "max": 551
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 6621,
                 "min": 0,
-                "max": 26,
-                "breaks": [0.0, 0.0013, 0.0042, 0.0111, 0.0291, 0.0615]
+                "max": 26
               }
             ]
           },
@@ -1442,8 +1374,7 @@
               "name": "Voting age population",
               "sum": 3802040,
               "min": 0,
-              "max": 9838,
-              "breaks": [0, 766, 1369, 2131, 4796, 9838]
+              "max": 9838
             },
             "subgroups": [
               {
@@ -1451,64 +1382,56 @@
                 "name": "White voting age population",
                 "sum": 2808959,
                 "min": 0,
-                "max": 6759,
-                "breaks": [0.0, 0.3445, 0.5711, 0.7401, 0.8595, 1.0]
+                "max": 6759
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 137437,
                 "min": 0,
-                "max": 1108,
-                "breaks": [0.0, 0.0425, 0.126, 0.248, 0.4097, 0.6106]
+                "max": 1108
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 662933,
                 "min": 0,
-                "max": 2294,
-                "breaks": [0.0, 0.0936, 0.1975, 0.3471, 0.5368, 0.9038]
+                "max": 2294
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 22560,
                 "min": 0,
-                "max": 907,
-                "breaks": [0.0, 0.0055, 0.0191, 0.0759, 0.2507, 0.9217]
+                "max": 907
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 3376,
                 "min": 0,
-                "max": 82,
-                "breaks": [0.0, 0.0007, 0.0023, 0.0055, 0.0114, 0.0252]
+                "max": 82
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 101885,
                 "min": 0,
-                "max": 619,
-                "breaks": [0.0, 0.0167, 0.0391, 0.0705, 0.121, 0.2703]
+                "max": 619
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 3924,
                 "min": 0,
-                "max": 16,
-                "breaks": [0.0, 0.0006, 0.0021, 0.0044, 0.0101, 0.0222]
+                "max": 16
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 52039,
                 "min": 0,
-                "max": 306,
-                "breaks": [0.0, 0.0086, 0.0159, 0.0255, 0.0698, 0.3333]
+                "max": 306
               }
             ]
           },
@@ -1799,8 +1722,7 @@
               "name": "Total population",
               "sum": 3046355,
               "min": 4029,
-              "max": 430640,
-              "breaks": [4029, 26306, 66135, 131090, 211226, 430640]
+              "max": 430640
             },
             "subgroups": [
               {
@@ -1808,56 +1730,49 @@
                 "name": "White population",
                 "sum": 2701123,
                 "min": 3922,
-                "max": 347710,
-                "breaks": [0.679, 0.7336, 0.8389, 0.9046, 0.9506, 0.9817]
+                "max": 347710
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 86906,
                 "min": 7,
-                "max": 25344,
-                "breaks": [0.0008, 0.0077, 0.0176, 0.0305, 0.0589, 0.0877]
+                "max": 25344
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 151544,
                 "min": 37,
-                "max": 32647,
-                "breaks": [0.006, 0.0286, 0.0614, 0.1132, 0.1726, 0.2416]
+                "max": 32647
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 52597,
                 "min": 12,
-                "max": 15118,
-                "breaks": [0.0014, 0.0063, 0.0135, 0.0351, 0.06, 0.0843]
+                "max": 15118
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 8581,
                 "min": 4,
-                "max": 1789,
-                "breaks": [0.0003, 0.0018, 0.0045, 0.0097, 0.0175, 0.0666]
+                "max": 1789
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1797,
                 "min": 0,
-                "max": 282,
-                "breaks": [0.0, 0.0003, 0.0008, 0.0019, 0.0032, 0.0047]
+                "max": 282
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 2132,
                 "min": 0,
-                "max": 605,
-                "breaks": [0.0, 0.0002, 0.0005, 0.0007, 0.0011, 0.0018]
+                "max": 605
               }
             ]
           },
@@ -1869,8 +1784,7 @@
               "name": "Voting age population",
               "sum": 2318362,
               "min": 3180,
-              "max": 320715,
-              "breaks": [3180, 20027, 46914, 104964, 159379, 320715]
+              "max": 320715
             },
             "subgroups": [
               {
@@ -1878,64 +1792,56 @@
                 "name": "White voting age population",
                 "sum": 2107975,
                 "min": 3109,
-                "max": 269979,
-                "breaks": [0.7349, 0.7924, 0.8781, 0.9282, 0.9601, 0.9888]
+                "max": 269979
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 57064,
                 "min": 3,
-                "max": 16507,
-                "breaks": [0.0005, 0.0063, 0.0144, 0.0233, 0.0396, 0.0748]
+                "max": 16507
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 88337,
                 "min": 22,
-                "max": 19054,
-                "breaks": [0.0052, 0.0246, 0.0518, 0.0862, 0.1256, 0.1866]
+                "max": 19054
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 6038,
                 "min": 2,
-                "max": 1167,
-                "breaks": [0.0002, 0.0016, 0.0036, 0.0067, 0.0156, 0.0602]
+                "max": 1167
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1181,
                 "min": 0,
-                "max": 169,
-                "breaks": [0.0, 0.0003, 0.0006, 0.0014, 0.0024, 0.0042]
+                "max": 169
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 39569,
                 "min": 9,
-                "max": 10912,
-                "breaks": [0.0014, 0.0063, 0.0146, 0.034, 0.0631, 0.0979]
+                "max": 10912
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 1057,
                 "min": 0,
-                "max": 273,
-                "breaks": [0.0, 0.0001, 0.0003, 0.0005, 0.0009, 0.0014]
+                "max": 273
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 17141,
                 "min": 11,
-                "max": 3167,
-                "breaks": [0.0018, 0.0032, 0.0046, 0.0067, 0.0091, 0.012]
+                "max": 3167
               }
             ]
           }
@@ -2002,8 +1908,7 @@
               "name": "Total population",
               "sum": 9687653,
               "min": 0,
-              "max": 44065,
-              "breaks": [0, 2546, 5010, 8855, 17984, 44065]
+              "max": 44065
             },
             "subgroups": [
               {
@@ -2011,64 +1916,56 @@
                 "name": "White population",
                 "sum": 5413920,
                 "min": 0,
-                "max": 27519,
-                "breaks": [0.0, 0.1953, 0.4291, 0.6361, 0.8122, 1.0]
+                "max": 27519
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 2910800,
                 "min": 0,
-                "max": 21054,
-                "breaks": [0.0, 0.129, 0.2905, 0.4931, 0.7362, 1.0]
+                "max": 21054
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 853689,
                 "min": 0,
-                "max": 9354,
-                "breaks": [0.0, 0.0525, 0.1272, 0.2612, 0.46, 0.7392]
+                "max": 9354
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 311692,
                 "min": 0,
-                "max": 3514,
-                "breaks": [0.0, 0.0248, 0.0719, 0.1464, 0.2625, 0.4399]
+                "max": 3514
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 21279,
                 "min": 0,
-                "max": 167,
-                "breaks": [0.0, 0.0014, 0.0031, 0.006, 0.0141, 0.0323]
+                "max": 167
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 5152,
                 "min": 0,
-                "max": 74,
-                "breaks": [0.0, 0.0004, 0.0013, 0.003, 0.006, 0.0127]
+                "max": 74
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 151980,
                 "min": 0,
-                "max": 677,
-                "breaks": [0.0, 0.0082, 0.0138, 0.0197, 0.0282, 0.0769]
+                "max": 677
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 19141,
                 "min": 0,
-                "max": 160,
-                "breaks": [0.0, 0.0009, 0.0025, 0.0048, 0.0115, 0.0239]
+                "max": 160
               }
             ]
           },
@@ -2080,8 +1977,7 @@
               "name": "Voting age population",
               "sum": 7196101,
               "min": 0,
-              "max": 34169,
-              "breaks": [0, 1910, 3727, 6583, 14427, 34169]
+              "max": 34169
             },
             "subgroups": [
               {
@@ -2089,64 +1985,56 @@
                 "name": "White voting age population",
                 "sum": 4242514,
                 "min": 0,
-                "max": 22026,
-                "breaks": [0.0, 0.2053, 0.4446, 0.6505, 0.8224, 1.0]
+                "max": 22026
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 2072946,
                 "min": 0,
-                "max": 14934,
-                "breaks": [0.0, 0.1236, 0.2799, 0.4778, 0.7343, 1.0]
+                "max": 14934
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 539002,
                 "min": 0,
-                "max": 5586,
-                "breaks": [0.0, 0.0463, 0.1121, 0.2295, 0.4119, 0.6938]
+                "max": 5586
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 16324,
                 "min": 0,
-                "max": 145,
-                "breaks": [0.0, 0.0015, 0.0031, 0.0057, 0.0117, 0.0312]
+                "max": 145
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 3699,
                 "min": 0,
-                "max": 49,
-                "breaks": [0.0, 0.0003, 0.001, 0.0022, 0.0046, 0.0094]
+                "max": 49
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 234164,
                 "min": 0,
-                "max": 2443,
-                "breaks": [0.0, 0.0241, 0.0677, 0.1354, 0.2375, 0.4276]
+                "max": 2443
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 10107,
                 "min": 0,
-                "max": 124,
-                "breaks": [0.0, 0.0009, 0.0024, 0.005, 0.0118, 0.023]
+                "max": 124
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 77345,
                 "min": 0,
-                "max": 383,
-                "breaks": [0.0, 0.0067, 0.0119, 0.0188, 0.0451, 0.0909]
+                "max": 383
               }
             ]
           },
@@ -2257,8 +2145,7 @@
               "name": "Total Population",
               "sum": 335542,
               "min": 0,
-              "max": 1526,
-              "breaks": [0, 44, 123, 273, 613, 1526]
+              "max": 1526
             },
             "subgroups": [
               {
@@ -2266,48 +2153,42 @@
                 "name": "White population",
                 "sum": 195282,
                 "min": 0,
-                "max": 1303,
-                "breaks": [0.0, 0.1212, 0.3937, 0.6892, 0.8894, 1.0]
+                "max": 1303
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 27898,
                 "min": 0,
-                "max": 346,
-                "breaks": [0.0, 0.0526, 0.157, 0.2909, 0.5333, 1.0]
+                "max": 346
               },
               {
                 "key": "HPOP",
                 "name": "Hispanic population",
                 "sum": 97371,
                 "min": 0,
-                "max": 647,
-                "breaks": [0.0, 0.0824, 0.2812, 0.5263, 0.7414, 1.0]
+                "max": 647
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 9358,
                 "min": 0,
-                "max": 172,
-                "breaks": [0.0, 0.0351, 0.127, 0.32, 0.5714, 1.0]
+                "max": 172
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 520,
                 "min": 0,
-                "max": 15,
-                "breaks": [0.0, 0.0105, 0.0455, 0.1, 0.1765, 0.2381]
+                "max": 15
               },
               {
                 "key": "NH_NAHI",
                 "name": "Hawaiian Native population",
                 "sum": 52,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0051, 0.02, 0.0411, 0.0565, 0.12]
+                "max": 7
               }
             ]
           }
@@ -2732,8 +2613,7 @@
               "name": "Total Population",
               "sum": 106519,
               "min": 0,
-              "max": 1469,
-              "breaks": [0, 49, 146, 324, 623, 1469]
+              "max": 1469
             },
             "subgroups": [
               {
@@ -2741,40 +2621,35 @@
                 "name": "White population",
                 "sum": 56280,
                 "min": 0,
-                "max": 793,
-                "breaks": [0.0, 0.1565, 0.4259, 0.6452, 0.8519, 1.0]
+                "max": 793
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 18396,
                 "min": 0,
-                "max": 330,
-                "breaks": [0.0, 0.0588, 0.1787, 0.3462, 0.6087, 1.0]
+                "max": 330
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 22459,
                 "min": 0,
-                "max": 316,
-                "breaks": [0.0, 0.0673, 0.2109, 0.3895, 0.625, 1.0]
+                "max": 316
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black Population",
                 "sum": 6367,
                 "min": 0,
-                "max": 200,
-                "breaks": [0.0, 0.0339, 0.1091, 0.2308, 0.4545, 1.0]
+                "max": 200
               },
               {
                 "key": "COALTNPOP",
                 "name": "Coalition population",
                 "sum": 40855,
                 "min": 0,
-                "max": 607,
-                "breaks": [0.0, 0.0976, 0.2812, 0.4762, 0.6977, 1.0]
+                "max": 607
               }
             ]
           },
@@ -2786,8 +2661,7 @@
               "name": "Voting age population",
               "sum": 81259,
               "min": 0,
-              "max": 1120,
-              "breaks": [0, 35, 107, 246, 551, 1120]
+              "max": 1120
             },
             "subgroups": [
               {
@@ -2795,40 +2669,35 @@
                 "name": "White voting age population",
                 "sum": 47187,
                 "min": 0,
-                "max": 751,
-                "breaks": [0.0, 0.15, 0.403, 0.6154, 0.8261, 1.0]
+                "max": 751
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 4515,
                 "min": 0,
-                "max": 106,
-                "breaks": [0.0, 0.0333, 0.1095, 0.2353, 0.5455, 1.0]
+                "max": 106
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 11600,
                 "min": 0,
-                "max": 192,
-                "breaks": [0.0, 0.0617, 0.1835, 0.3413, 0.5882, 1.0]
+                "max": 192
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 15270,
                 "min": 0,
-                "max": 207,
-                "breaks": [0.0, 0.0682, 0.2072, 0.3846, 0.6037, 1.0]
+                "max": 207
               },
               {
                 "key": "COALTNVAP",
                 "name": "Coalition voting age population",
                 "sum": 26870,
                 "min": 0,
-                "max": 379,
-                "breaks": [0.0, 0.08, 0.2448, 0.4286, 0.6591, 1.0]
+                "max": 379
               }
             ]
           }
@@ -2885,8 +2754,7 @@
               "name": "Total population",
               "sum": 5773552,
               "min": 0,
-              "max": 14983,
-              "breaks": [0, 1685, 2975, 4340, 6400, 14983]
+              "max": 14983
             },
             "subgroups": [
               {
@@ -2894,64 +2762,56 @@
                 "name": "White population",
                 "sum": 3157958,
                 "min": 0,
-                "max": 8981,
-                "breaks": [0.0, 0.1946, 0.4332, 0.6426, 0.8207, 0.993]
+                "max": 8981
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1674229,
                 "min": 0,
-                "max": 7159,
-                "breaks": [0.0, 0.1081, 0.2631, 0.4837, 0.751, 0.983]
+                "max": 7159
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 470632,
                 "min": 0,
-                "max": 12364,
-                "breaks": [0.0, 0.0576, 0.1575, 0.3066, 0.4979, 0.8252]
+                "max": 12364
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 316694,
                 "min": 0,
-                "max": 3224,
-                "breaks": [0.0, 0.0309, 0.0757, 0.1386, 0.2341, 0.485]
+                "max": 3224
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 13815,
                 "min": 0,
-                "max": 78,
-                "breaks": [0.0, 0.0023, 0.0058, 0.0137, 0.037, 0.0685]
+                "max": 78
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 2412,
                 "min": 0,
-                "max": 35,
-                "breaks": [0.0, 0.0002, 0.0008, 0.0017, 0.004, 0.0078]
+                "max": 35
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 125840,
                 "min": 0,
-                "max": 511,
-                "breaks": [0.0, 0.0115, 0.0189, 0.0272, 0.0376, 0.0718]
+                "max": 511
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 11972,
                 "min": 0,
-                "max": 119,
-                "breaks": [0.0, 0.0009, 0.0023, 0.004, 0.0064, 0.0122]
+                "max": 119
               }
             ]
           },
@@ -2963,8 +2823,7 @@
               "name": "Voting age population",
               "sum": 4420588,
               "min": 0,
-              "max": 11788,
-              "breaks": [0, 1267, 2219, 3219, 4824, 11788]
+              "max": 11788
             },
             "subgroups": [
               {
@@ -2972,64 +2831,56 @@
                 "name": "White voting age population",
                 "sum": 2529506,
                 "min": 0,
-                "max": 6779,
-                "breaks": [0.0, 0.2081, 0.456, 0.6631, 0.8368, 0.9952]
+                "max": 6779
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 1239796,
                 "min": 0,
-                "max": 5345,
-                "breaks": [0.0, 0.1048, 0.2555, 0.4718, 0.7429, 0.9815]
+                "max": 5345
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 322308,
                 "min": 0,
-                "max": 9698,
-                "breaks": [0.0, 0.0499, 0.1372, 0.2754, 0.4563, 0.8227]
+                "max": 9698
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 10722,
                 "min": 0,
-                "max": 70,
-                "breaks": [0.0, 0.002, 0.0049, 0.0105, 0.0236, 0.0714]
+                "max": 70
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1937,
                 "min": 0,
-                "max": 25,
-                "breaks": [0.0, 0.0002, 0.0008, 0.0016, 0.0034, 0.0069]
+                "max": 25
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 245537,
                 "min": 0,
-                "max": 2214,
-                "breaks": [0.0, 0.0321, 0.0796, 0.1452, 0.2495, 0.4841]
+                "max": 2214
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 6928,
                 "min": 0,
-                "max": 119,
-                "breaks": [0.0, 0.0007, 0.0019, 0.0033, 0.0055, 0.0117]
+                "max": 119
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 63854,
                 "min": 0,
-                "max": 316,
-                "breaks": [0.0, 0.0077, 0.0125, 0.0173, 0.0236, 0.0432]
+                "max": 316
               }
             ]
           },
@@ -3397,8 +3248,7 @@
               "name": "Total population",
               "sum": 6547629,
               "min": 75,
-              "max": 617594,
-              "breaks": [75, 18272, 51251, 106519, 181045, 617594]
+              "max": 617594
             },
             "subgroups": [
               {
@@ -3406,56 +3256,49 @@
                 "name": "White population",
                 "sum": 4984800,
                 "min": 72,
-                "max": 290312,
-                "breaks": [0.2047, 0.5595, 0.7617, 0.8606, 0.9284, 0.982]
+                "max": 290312
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 391693,
                 "min": 0,
-                "max": 138073,
-                "breaks": [0.0, 0.0259, 0.071, 0.1427, 0.2236, 0.3711]
+                "max": 138073
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 627654,
                 "min": 0,
-                "max": 107917,
-                "breaks": [0.0, 0.0413, 0.1084, 0.2663, 0.4843, 0.738]
+                "max": 107917
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 347495,
                 "min": 0,
-                "max": 54846,
-                "breaks": [0.0, 0.0191, 0.0439, 0.0783, 0.1333, 0.2398]
+                "max": 54846
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 10778,
                 "min": 0,
-                "max": 1227,
-                "breaks": [0.0, 0.0013, 0.0035, 0.0103, 0.0289, 0.2637]
+                "max": 1227
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1467,
                 "min": 0,
-                "max": 182,
-                "breaks": [0.0, 0.0001, 0.0003, 0.0005, 0.0011, 0.0022]
+                "max": 182
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 61547,
                 "min": 0,
-                "max": 10078,
-                "breaks": [0.0, 0.004, 0.0118, 0.0256, 0.0595, 0.0888]
+                "max": 10078
               }
             ]
           },
@@ -3467,8 +3310,7 @@
               "name": "Voting age population",
               "sum": 5128706,
               "min": 64,
-              "max": 513884,
-              "breaks": [64, 14020, 36909, 81259, 141103, 513884]
+              "max": 513884
             },
             "subgroups": [
               {
@@ -3476,64 +3318,56 @@
                 "name": "White voting age population",
                 "sum": 4029458,
                 "min": 61,
-                "max": 266389,
-                "breaks": [0.2471, 0.4847, 0.6792, 0.8288, 0.9161, 0.9887]
+                "max": 266389
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 288523,
                 "min": 0,
-                "max": 103642,
-                "breaks": [0.0, 0.0208, 0.0618, 0.1323, 0.2017, 0.3419]
+                "max": 103642
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 416775,
                 "min": 0,
-                "max": 76708,
-                "breaks": [0.0, 0.0337, 0.0922, 0.2197, 0.4072, 0.6951]
+                "max": 76708
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 8219,
                 "min": 0,
-                "max": 952,
-                "breaks": [0.0, 0.0015, 0.0036, 0.0085, 0.0262, 0.256]
+                "max": 952
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1189,
                 "min": 0,
-                "max": 157,
-                "breaks": [0.0, 0.0001, 0.0004, 0.0007, 0.0013, 0.0026]
+                "max": 157
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 269089,
                 "min": 0,
-                "max": 47733,
-                "breaks": [0.0, 0.0183, 0.0456, 0.0812, 0.1271, 0.2286]
+                "max": 47733
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 45871,
                 "min": 0,
-                "max": 7563,
-                "breaks": [0.0, 0.0038, 0.0111, 0.025, 0.0466, 0.0819]
+                "max": 7563
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 69582,
                 "min": 0,
-                "max": 10740,
-                "breaks": [0.0, 0.008, 0.0139, 0.0237, 0.0343, 0.056]
+                "max": 10740
               }
             ]
           },
@@ -3828,8 +3662,7 @@
               "name": "Total population",
               "sum": 6349032,
               "min": 86,
-              "max": 9520,
-              "breaks": [76, 1619, 2537, 3284, 4609, 10369]
+              "max": 9520
             },
             "subgroups": [
               {
@@ -3837,56 +3670,49 @@
                 "name": "White population",
                 "sum": 5198297,
                 "min": 5,
-                "max": 8275,
-                "breaks": [0.0075, 0.2781, 0.5173, 0.7021, 0.8577, 0.9808]
+                "max": 8275
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 318329,
                 "min": 0,
-                "max": 3067,
-                "breaks": [0.0, 0.0546, 0.1459, 0.3068, 0.5439, 0.8564]
+                "max": 3067
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 428729,
                 "min": 0,
-                "max": 2767,
-                "breaks": [0.0, 0.0696, 0.1788, 0.345, 0.5884, 0.9253]
+                "max": 2767
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 236785,
                 "min": 0,
-                "max": 3518,
-                "breaks": [0.0, 0.0377, 0.0876, 0.1618, 0.2965, 0.546]
+                "max": 3518
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 11264,
                 "min": 0,
-                "max": 162,
-                "breaks": [0.0, 0.0052, 0.0109, 0.0349, 0.0695, 0.3009]
+                "max": 162
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1706,
                 "min": 0,
-                "max": 19,
-                "breaks": [0.0, 0.0007, 0.0017, 0.0032, 0.0061, 0.0128]
+                "max": 19
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 43584,
                 "min": 0,
-                "max": 1181,
-                "breaks": [0.0, 0.0162, 0.049, 0.117, 0.2279, 0.344]
+                "max": 1181
               }
             ]
           },
@@ -3898,8 +3724,7 @@
               "name": "Voting age population",
               "sum": 4779467,
               "min": 67,
-              "max": 7601,
-              "breaks": [62, 1394, 2098, 2647, 3778, 8063]
+              "max": 7601
             },
             "subgroups": [
               {
@@ -3907,56 +3732,49 @@
                 "name": "White voting age population",
                 "sum": 4069517,
                 "min": 5,
-                "max": 6597,
-                "breaks": [0.0037, 0.2337, 0.4909, 0.7077, 0.8671, 0.9887]
+                "max": 6597
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 220658,
                 "min": 0,
-                "max": 2033,
-                "breaks": [0.0, 0.0576, 0.1867, 0.3875, 0.6154, 0.8713]
+                "max": 2033
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 271003,
                 "min": 0,
-                "max": 1735,
-                "breaks": [0.0, 0.0581, 0.1551, 0.3105, 0.5382, 0.911]
+                "max": 1735
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 8150,
                 "min": 0,
-                "max": 102,
-                "breaks": [0.0, 0.0019, 0.0054, 0.0235, 0.0547, 0.2564]
+                "max": 102
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1317,
                 "min": 0,
-                "max": 14,
-                "breaks": [0.0, 0.0002, 0.0006, 0.0013, 0.0022, 0.004]
+                "max": 14
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 177829,
                 "min": 0,
-                "max": 3069,
-                "breaks": [0.0, 0.037, 0.0898, 0.1642, 0.2995, 0.5335]
+                "max": 3069
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 30993,
                 "min": 0,
-                "max": 1177,
-                "breaks": [0.0, 0.0114, 0.0367, 0.0892, 0.1961, 0.3157]
+                "max": 1177
               }
             ]
           },
@@ -4187,8 +4005,7 @@
               "name": "Total population",
               "sum": 6727041,
               "min": 76,
-              "max": 10369,
-              "breaks": [76, 1619, 2537, 3284, 4609, 10369]
+              "max": 10369
             },
             "subgroups": [
               {
@@ -4196,56 +4013,49 @@
                 "name": "White population",
                 "sum": 5077097,
                 "min": 11,
-                "max": 8331,
-                "breaks": [0.0075, 0.2781, 0.5173, 0.7021, 0.8577, 0.9808]
+                "max": 8331
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 445770,
                 "min": 0,
-                "max": 2906,
-                "breaks": [0.0, 0.0546, 0.1459, 0.3068, 0.5439, 0.8564]
+                "max": 2906
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 680464,
                 "min": 0,
-                "max": 3345,
-                "breaks": [0.0, 0.0696, 0.1788, 0.345, 0.5884, 0.9253]
+                "max": 3345
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 386992,
                 "min": 0,
-                "max": 4166,
-                "breaks": [0.0, 0.0377, 0.0876, 0.1618, 0.2965, 0.546]
+                "max": 4166
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 34492,
                 "min": 0,
-                "max": 205,
-                "breaks": [0.0, 0.0052, 0.0109, 0.0349, 0.0695, 0.3009]
+                "max": 205
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 6184,
                 "min": 0,
-                "max": 40,
-                "breaks": [0.0, 0.0007, 0.0017, 0.0032, 0.0061, 0.0128]
+                "max": 40
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 89748,
                 "min": 0,
-                "max": 1077,
-                "breaks": [0.0, 0.0162, 0.049, 0.117, 0.2279, 0.344]
+                "max": 1077
               }
             ]
           },
@@ -4257,8 +4067,7 @@
               "name": "Voting age population",
               "sum": 5123060,
               "min": 62,
-              "max": 8063,
-              "breaks": [62, 1394, 2098, 2647, 3778, 8063]
+              "max": 8063
             },
             "subgroups": [
               {
@@ -4266,64 +4075,56 @@
                 "name": "White voting age population",
                 "sum": 4024314,
                 "min": 3,
-                "max": 6632,
-                "breaks": [0.0037, 0.2337, 0.4909, 0.7077, 0.8671, 0.9887]
+                "max": 6632
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 287367,
                 "min": 0,
-                "max": 2030,
-                "breaks": [0.0, 0.0576, 0.1867, 0.3875, 0.6154, 0.8713]
+                "max": 2030
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 415465,
                 "min": 0,
-                "max": 2098,
-                "breaks": [0.0, 0.0581, 0.1551, 0.3105, 0.5382, 0.911]
+                "max": 2098
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 7229,
                 "min": 0,
-                "max": 126,
-                "breaks": [0.0, 0.0019, 0.0054, 0.0235, 0.0547, 0.2564]
+                "max": 126
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 810,
                 "min": 0,
-                "max": 9,
-                "breaks": [0.0, 0.0002, 0.0006, 0.0013, 0.0022, 0.004]
+                "max": 9
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 267838,
                 "min": 0,
-                "max": 3594,
-                "breaks": [0.0, 0.037, 0.0898, 0.1642, 0.2995, 0.5335]
+                "max": 3594
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 44891,
                 "min": 0,
-                "max": 562,
-                "breaks": [0.0, 0.0114, 0.0367, 0.0892, 0.1961, 0.3157]
+                "max": 562
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 68414,
                 "min": 0,
-                "max": 311,
-                "breaks": [0.0, 0.0108, 0.0202, 0.0364, 0.0621, 0.1014]
+                "max": 311
               }
             ]
           },
@@ -4571,8 +4372,7 @@
               "name": "Total population",
               "sum": 10129672,
               "min": 0,
-              "max": 11242,
-              "breaks": [0, 1319, 2171, 3021, 4708, 11242]
+              "max": 11242
             },
             "subgroups": [
               {
@@ -4580,56 +4380,49 @@
                 "name": "White population",
                 "sum": 7737567,
                 "min": 0,
-                "max": 9854,
-                "breaks": [0.0, 0.2272, 0.5186, 0.7315, 0.877, 1.0]
+                "max": 9854
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1474759,
                 "min": 0,
-                "max": 3327,
-                "breaks": [0.0, 0.0838, 0.2479, 0.5065, 0.7962, 0.9911]
+                "max": 3327
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 477874,
                 "min": 0,
-                "max": 4427,
-                "breaks": [0.0, 0.0369, 0.0962, 0.2249, 0.4777, 0.7788]
+                "max": 4427
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 282415,
                 "min": 0,
-                "max": 2142,
-                "breaks": [0.0, 0.0296, 0.0875, 0.1884, 0.3532, 0.6757]
+                "max": 2142
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 120852,
                 "min": 0,
-                "max": 1258,
-                "breaks": [0.0, 0.0134, 0.0449, 0.113, 0.2278, 0.5276]
+                "max": 1258
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 6681,
                 "min": 0,
-                "max": 84,
-                "breaks": [0.0, 0.0006, 0.0017, 0.0037, 0.0097, 0.0215]
+                "max": 84
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 17160,
                 "min": 0,
-                "max": 49,
-                "breaks": [0.0, 0.001, 0.0027, 0.0052, 0.0104, 0.0385]
+                "max": 49
               }
             ]
           },
@@ -4641,8 +4434,7 @@
               "name": "Voting age population",
               "sum": 7537009,
               "min": 0,
-              "max": 10165,
-              "breaks": [0, 981, 1611, 2265, 4083, 10165]
+              "max": 10165
             },
             "subgroups": [
               {
@@ -4650,64 +4442,56 @@
                 "name": "White voting age population",
                 "sum": 5958114,
                 "min": 0,
-                "max": 8928,
-                "breaks": [0.0, 0.1893, 0.4813, 0.7248, 0.8829, 1.0]
+                "max": 8928
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 996127,
                 "min": 0,
-                "max": 3217,
-                "breaks": [0.0, 0.0765, 0.2417, 0.5044, 0.7927, 0.988]
+                "max": 3217
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 262116,
                 "min": 0,
-                "max": 2440,
-                "breaks": [0.0, 0.0298, 0.0818, 0.2021, 0.4439, 0.7487]
+                "max": 2440
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 37858,
                 "min": 0,
-                "max": 681,
-                "breaks": [0.0, 0.0165, 0.0629, 0.1379, 0.2768, 0.437]
+                "max": 681
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1213,
                 "min": 0,
-                "max": 47,
-                "breaks": [0.0, 0.0003, 0.0011, 0.0026, 0.0054, 0.0119]
+                "max": 47
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 173152,
                 "min": 0,
-                "max": 1536,
-                "breaks": [0.0, 0.0252, 0.0766, 0.1651, 0.3269, 0.6485]
+                "max": 1536
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 4212,
                 "min": 0,
-                "max": 22,
-                "breaks": [0.0, 0.0005, 0.0015, 0.0032, 0.0062, 0.0131]
+                "max": 22
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 91341,
                 "min": 0,
-                "max": 236,
-                "breaks": [0.0, 0.0075, 0.013, 0.0203, 0.0344, 0.0904]
+                "max": 236
               }
             ]
           }
@@ -4796,8 +4580,7 @@
               "name": "Total population",
               "sum": 5299241,
               "min": 0,
-              "max": 12448,
-              "breaks": [0, 795, 1861, 2975, 4406, 12448]
+              "max": 12448
             },
             "subgroups": [
               {
@@ -4805,64 +4588,56 @@
                 "name": "White population",
                 "sum": 4400672,
                 "min": 0,
-                "max": 11180,
-                "breaks": [0.0, 0.3699, 0.6296, 0.8052, 0.9201, 1.0]
+                "max": 11180
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 267943,
                 "min": 0,
-                "max": 3351,
-                "breaks": [0.0, 0.0286, 0.0922, 0.1916, 0.3582, 0.6592]
+                "max": 3351
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 248532,
                 "min": 0,
-                "max": 2195,
-                "breaks": [0.0, 0.0268, 0.0778, 0.1724, 0.3153, 0.513]
+                "max": 2195
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 211608,
                 "min": 0,
-                "max": 2696,
-                "breaks": [0.0, 0.0202, 0.0616, 0.1299, 0.2392, 0.4618]
+                "max": 2696
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 54129,
                 "min": 0,
-                "max": 2364,
-                "breaks": [0.0, 0.0337, 0.1542, 0.4071, 0.7381, 0.9773]
+                "max": 2364
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1541,
                 "min": 0,
-                "max": 50,
-                "breaks": [0.0, 0.0007, 0.0032, 0.0093, 0.0301, 0.1716]
+                "max": 50
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 101484,
                 "min": 0,
-                "max": 329,
-                "breaks": [0.0, 0.0127, 0.032, 0.085, 0.1905, 0.8277]
+                "max": 329
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 5370,
                 "min": 0,
-                "max": 33,
-                "breaks": [0.0, 0.001, 0.0037, 0.0108, 0.0253, 0.0922]
+                "max": 33
               }
             ]
           },
@@ -4874,8 +4649,7 @@
               "name": "Voting age population",
               "sum": 4015900,
               "min": 0,
-              "max": 8630,
-              "breaks": [0, 543, 1313, 2179, 3239, 8630]
+              "max": 8630
             },
             "subgroups": [
               {
@@ -4883,64 +4657,56 @@
                 "name": "White voting age population",
                 "sum": 3458806,
                 "min": 0,
-                "max": 7937,
-                "breaks": [0.0, 0.3826, 0.649, 0.8235, 0.9319, 1.0]
+                "max": 7937
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 173599,
                 "min": 0,
-                "max": 2261,
-                "breaks": [0.0, 0.0244, 0.0807, 0.176, 0.342, 0.6307]
+                "max": 2261
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 147220,
                 "min": 0,
-                "max": 1299,
-                "breaks": [0.0, 0.0216, 0.0641, 0.1386, 0.2582, 0.4602]
+                "max": 1299
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 36760,
                 "min": 0,
-                "max": 1448,
-                "breaks": [0.0, 0.0419, 0.1731, 0.3994, 0.6955, 0.9791]
+                "max": 1448
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1053,
                 "min": 0,
-                "max": 29,
-                "breaks": [0.0, 0.0007, 0.003, 0.0079, 0.0177, 0.1265]
+                "max": 29
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 144702,
                 "min": 0,
-                "max": 1568,
-                "breaks": [0.0, 0.0167, 0.0497, 0.103, 0.1942, 0.4128]
+                "max": 1568
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 2774,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0008, 0.0025, 0.0057, 0.0142, 0.0368]
+                "max": 18
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 43582,
                 "min": 0,
-                "max": 135,
-                "breaks": [0.0, 0.0079, 0.0223, 0.0653, 0.1902, 0.7425]
+                "max": 135
               }
             ]
           },
@@ -5375,8 +5141,7 @@
               "name": "Total Population",
               "sum": 2967297,
               "min": 0,
-              "max": 7131,
-              "breaks": [0, 980, 1482, 2108, 3169, 7131]
+              "max": 7131
             },
             "subgroups": [
               {
@@ -5384,48 +5149,42 @@
                 "name": "White population",
                 "sum": 1722287,
                 "min": 0,
-                "max": 5546,
-                "breaks": [0.0, 0.1866, 0.4017, 0.6091, 0.8024, 1.0]
+                "max": 5546
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1093512,
                 "min": 0,
-                "max": 3753,
-                "breaks": [0.0, 0.1696, 0.3721, 0.5849, 0.7964, 1.0]
+                "max": 3753
               },
               {
                 "key": "HPOP",
                 "name": "Hispanic population",
                 "sum": 81481,
                 "min": 0,
-                "max": 1839,
-                "breaks": [0.0, 0.0237, 0.065, 0.1537, 0.2989, 0.5235]
+                "max": 1839
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 25477,
                 "min": 0,
-                "max": 432,
-                "breaks": [0.0, 0.009, 0.0294, 0.0678, 0.147, 0.303]
+                "max": 432
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 13845,
                 "min": 0,
-                "max": 1756,
-                "breaks": [0.0, 0.0417, 0.2457, 0.4822, 0.675, 0.8549]
+                "max": 1756
               },
               {
                 "key": "NH_NAHI",
                 "name": "Hawaiian Native population",
                 "sum": 948,
                 "min": 0,
-                "max": 29,
-                "breaks": [0.0, 0.0006, 0.0024, 0.0078, 0.0148, 0.0253]
+                "max": 29
               }
             ]
           },
@@ -5437,8 +5196,7 @@
               "name": "Voting age population",
               "sum": 2211742,
               "min": 0,
-              "max": 5086,
-              "breaks": [0, 752, 1168, 1724, 2643, 5086]
+              "max": 5086
             },
             "subgroups": [
               {
@@ -5446,48 +5204,42 @@
                 "name": "White voting age population",
                 "sum": 1370641,
                 "min": 0,
-                "max": 4092,
-                "breaks": [0.0, 0.1908, 0.4064, 0.6108, 0.808, 1.0]
+                "max": 4092
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 767499,
                 "min": 0,
-                "max": 3119,
-                "breaks": [0.0, 0.1609, 0.3544, 0.5685, 0.792, 1.0]
+                "max": 3119
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 54977,
                 "min": 0,
-                "max": 1829,
-                "breaks": [0.0, 0.0252, 0.0757, 0.1753, 0.3379, 0.5806]
+                "max": 1829
               },
               {
                 "key": "NAHIVAP",
                 "name": "Native Hawaiian voting age population",
                 "sum": 912,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0008, 0.0028, 0.008, 0.0196, 0.0523]
+                "max": 18
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 19643,
                 "min": 0,
-                "max": 293,
-                "breaks": [0.0, 0.0091, 0.0288, 0.0667, 0.168, 0.3276]
+                "max": 293
               },
               {
                 "key": "AMINVAP",
                 "name": "American Indian voting age population",
                 "sum": 10216,
                 "min": 0,
-                "max": 1125,
-                "breaks": [0.0, 0.0425, 0.2153, 0.462, 0.6576, 0.8377]
+                "max": 1125
               }
             ]
           }
@@ -5552,8 +5304,7 @@
               "name": "2010 Census Population",
               "sum": 5843434,
               "min": 0,
-              "max": 24794,
-              "breaks": [0, 865, 1996, 3806, 9435, 24794]
+              "max": 24794
             },
             "subgroups": [
               {
@@ -5561,8 +5312,7 @@
                 "name": "2010 Voting age population",
                 "sum": 4451970,
                 "min": 0,
-                "max": 19790,
-                "breaks": [0.0, 0.0, 0.7095, 0.7813, 0.8733, 1.0]
+                "max": 19790
               }
             ]
           },
@@ -5788,8 +5538,7 @@
               "name": "Total population",
               "sum": 2059179,
               "min": 0,
-              "max": 8135,
-              "breaks": [0, 868, 1584, 2512, 4009, 8135]
+              "max": 8135
             },
             "subgroups": [
               {
@@ -5797,64 +5546,56 @@
                 "name": "White population",
                 "sum": 833810,
                 "min": 0,
-                "max": 3165,
-                "breaks": [0.0, 0.1707, 0.3461, 0.5171, 0.6865, 1.0]
+                "max": 3165
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 35462,
                 "min": 0,
-                "max": 460,
-                "breaks": [0.0, 0.0095, 0.0233, 0.044, 0.0872, 0.1533]
+                "max": 460
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 953403,
                 "min": 0,
-                "max": 8026,
-                "breaks": [0.0, 0.2053, 0.3759, 0.5494, 0.732, 1.0]
+                "max": 8026
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 26305,
                 "min": 0,
-                "max": 371,
-                "breaks": [0.0, 0.0081, 0.0223, 0.0458, 0.0892, 0.1762]
+                "max": 371
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 175368,
                 "min": 0,
-                "max": 3205,
-                "breaks": [0.0, 0.0616, 0.2074, 0.4588, 0.7653, 0.9966]
+                "max": 3205
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1246,
                 "min": 0,
-                "max": 36,
-                "breaks": [0.0, 0.0005, 0.0015, 0.0031, 0.0067, 0.0162]
+                "max": 36
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 29835,
                 "min": 0,
-                "max": 220,
-                "breaks": [0.0, 0.0076, 0.0147, 0.0228, 0.0352, 0.0787]
+                "max": 220
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 3750,
                 "min": 0,
-                "max": 66,
-                "breaks": [0.0, 0.0018, 0.0056, 0.0143, 0.0311, 0.0741]
+                "max": 66
               }
             ]
           },
@@ -5866,8 +5607,7 @@
               "name": "Voting age population",
               "sum": 1540507,
               "min": 0,
-              "max": 5265,
-              "breaks": [0, 657, 1163, 1781, 2710, 5265]
+              "max": 5265
             },
             "subgroups": [
               {
@@ -5875,64 +5615,56 @@
                 "name": "White voting age population",
                 "sum": 697848,
                 "min": 0,
-                "max": 2517,
-                "breaks": [0.0, 0.1944, 0.3822, 0.5556, 0.7172, 1.0]
+                "max": 2517
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 27453,
                 "min": 0,
-                "max": 314,
-                "breaks": [0.0, 0.0095, 0.0228, 0.0418, 0.0811, 0.1681]
+                "max": 314
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 651326,
                 "min": 0,
-                "max": 5196,
-                "breaks": [0.0, 0.1891, 0.3516, 0.5233, 0.7113, 1.0]
+                "max": 5196
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 121962,
                 "min": 0,
-                "max": 2125,
-                "breaks": [0.0, 0.0613, 0.2119, 0.4464, 0.7291, 0.9957]
+                "max": 2125
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 987,
                 "min": 0,
-                "max": 23,
-                "breaks": [0.0, 0.0005, 0.0016, 0.0033, 0.0069, 0.0145]
+                "max": 23
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 20956,
                 "min": 0,
-                "max": 250,
-                "breaks": [0.0, 0.009, 0.0238, 0.048, 0.0855, 0.2]
+                "max": 250
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 2633,
                 "min": 0,
-                "max": 47,
-                "breaks": [0.0, 0.0016, 0.005, 0.0117, 0.0305, 0.087]
+                "max": 47
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 17342,
                 "min": 0,
-                "max": 83,
-                "breaks": [0.0, 0.0055, 0.0106, 0.0163, 0.0242, 0.0502]
+                "max": 83
               }
             ]
           },
@@ -6329,8 +6061,7 @@
               "name": "Total population",
               "sum": 9535483,
               "min": 37,
-              "max": 34282,
-              "breaks": [37, 2431, 4352, 7238, 14643, 34282]
+              "max": 34282
             },
             "subgroups": [
               {
@@ -6338,64 +6069,56 @@
                 "name": "White population",
                 "sum": 6223995,
                 "min": 5,
-                "max": 22466,
-                "breaks": [0.005, 0.2637, 0.4993, 0.6803, 0.8362, 1.0]
+                "max": 22466
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 2019854,
                 "min": 0,
-                "max": 14255,
-                "breaks": [0.0, 0.1053, 0.256, 0.4347, 0.6596, 0.9756]
+                "max": 14255
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 800120,
                 "min": 0,
-                "max": 5362,
-                "breaks": [0.0, 0.0476, 0.0974, 0.1668, 0.2795, 0.57]
+                "max": 5362
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 206579,
                 "min": 0,
-                "max": 5161,
-                "breaks": [0.0, 0.0136, 0.037, 0.0791, 0.1552, 0.3525]
+                "max": 5161
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 108829,
                 "min": 0,
-                "max": 5535,
-                "breaks": [0.0, 0.0538, 0.181, 0.3075, 0.62, 0.9266]
+                "max": 5535
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 5259,
                 "min": 0,
-                "max": 194,
-                "breaks": [0.0, 0.0005, 0.0019, 0.0054, 0.0133, 0.0243]
+                "max": 194
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 155759,
                 "min": 0,
-                "max": 1508,
-                "breaks": [0.0, 0.0094, 0.0148, 0.021, 0.0304, 0.0677]
+                "max": 1508
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 15088,
                 "min": 0,
-                "max": 113,
-                "breaks": [0.0, 0.0009, 0.0022, 0.0041, 0.0103, 0.0232]
+                "max": 113
               }
             ]
           },
@@ -6407,8 +6130,7 @@
               "name": "Voting age population",
               "sum": 7253848,
               "min": 29,
-              "max": 26979,
-              "breaks": [29, 2023, 3737, 6855, 14830, 26979]
+              "max": 26979
             },
             "subgroups": [
               {
@@ -6416,64 +6138,56 @@
                 "name": "White voting age population",
                 "sum": 4964325,
                 "min": 4,
-                "max": 18646,
-                "breaks": [0.0052, 0.2679, 0.5018, 0.6855, 0.8438, 1.0]
+                "max": 18646
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 1480769,
                 "min": 0,
-                "max": 10419,
-                "breaks": [0.0, 0.0966, 0.2374, 0.4107, 0.6459, 0.9812]
+                "max": 10419
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 492330,
                 "min": 0,
-                "max": 3624,
-                "breaks": [0.0, 0.0402, 0.0848, 0.1484, 0.2485, 0.541]
+                "max": 3624
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 79295,
                 "min": 0,
-                "max": 3978,
-                "breaks": [0.0, 0.053, 0.1703, 0.2974, 0.6176, 0.928]
+                "max": 3978
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 3791,
                 "min": 0,
-                "max": 133,
-                "breaks": [0.0, 0.0003, 0.0012, 0.0027, 0.0074, 0.0163]
+                "max": 133
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 152537,
                 "min": 0,
-                "max": 3480,
-                "breaks": [0.0, 0.0141, 0.0381, 0.0796, 0.1572, 0.3395]
+                "max": 3480
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 7167,
                 "min": 0,
-                "max": 89,
-                "breaks": [0.0, 0.0007, 0.0021, 0.0048, 0.0092, 0.0241]
+                "max": 89
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 73634,
                 "min": 0,
-                "max": 671,
-                "breaks": [0.0, 0.0056, 0.0093, 0.0137, 0.0201, 0.0576]
+                "max": 671
               }
             ]
           }
@@ -6556,8 +6270,7 @@
               "name": "Total population",
               "sum": 12702379,
               "min": 0,
-              "max": 8650,
-              "breaks": [0, 949, 1641, 2580, 4143, 8650]
+              "max": 8650
             },
             "subgroups": [
               {
@@ -6565,64 +6278,56 @@
                 "name": "White population",
                 "sum": 10094652,
                 "min": 0,
-                "max": 7437,
-                "breaks": [0.0, 0.1868, 0.4605, 0.7145, 0.8903, 1.0]
+                "max": 7437
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1327091,
                 "min": 0,
-                "max": 3222,
-                "breaks": [0.0, 0.0747, 0.2349, 0.4729, 0.7546, 1.0]
+                "max": 3222
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 719660,
                 "min": 0,
-                "max": 2719,
-                "breaks": [0.0, 0.048, 0.1494, 0.3417, 0.5863, 0.9387]
+                "max": 2719
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 346288,
                 "min": 0,
-                "max": 1757,
-                "breaks": [0.0, 0.0262, 0.0805, 0.1773, 0.3361, 0.6888]
+                "max": 1757
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 16909,
                 "min": 0,
-                "max": 41,
-                "breaks": [0.0, 0.001, 0.003, 0.0066, 0.0147, 0.0392]
+                "max": 41
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 2715,
                 "min": 0,
-                "max": 19,
-                "breaks": [0.0, 0.0004, 0.0015, 0.0032, 0.0065, 0.0146]
+                "max": 19
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 178595,
                 "min": 0,
-                "max": 247,
-                "breaks": [0.0, 0.0091, 0.0181, 0.0301, 0.0488, 0.25]
+                "max": 247
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 16469,
                 "min": 0,
-                "max": 190,
-                "breaks": [0.0, 0.0012, 0.0039, 0.009, 0.0196, 0.0402]
+                "max": 190
               }
             ]
           },
@@ -6634,8 +6339,7 @@
               "name": "Voting age population",
               "sum": 9910224,
               "min": 0,
-              "max": 7363,
-              "breaks": [0, 714, 1227, 1930, 3111, 7363]
+              "max": 7363
             },
             "subgroups": [
               {
@@ -6643,64 +6347,56 @@
                 "name": "White voting age population",
                 "sum": 8111276,
                 "min": 0,
-                "max": 5610,
-                "breaks": [0.0, 0.1907, 0.4753, 0.7317, 0.9009, 1.0]
+                "max": 5610
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 963866,
                 "min": 0,
-                "max": 3126,
-                "breaks": [0.0, 0.0807, 0.2507, 0.4969, 0.772, 1.0]
+                "max": 3126
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 459421,
                 "min": 0,
-                "max": 1606,
-                "breaks": [0.0, 0.0451, 0.144, 0.3306, 0.5834, 0.9382]
+                "max": 1606
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 13163,
                 "min": 0,
-                "max": 41,
-                "breaks": [0.0, 0.0009, 0.0027, 0.0054, 0.0111, 0.0465]
+                "max": 41
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 2109,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0004, 0.0014, 0.003, 0.0064, 0.0166]
+                "max": 18
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 264676,
                 "min": 0,
-                "max": 1484,
-                "breaks": [0.0, 0.024, 0.0739, 0.1636, 0.3052, 0.6693]
+                "max": 1484
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 9383,
                 "min": 0,
-                "max": 180,
-                "breaks": [0.0, 0.001, 0.0033, 0.0079, 0.0193, 0.0464]
+                "max": 180
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 86330,
                 "min": 0,
-                "max": 127,
-                "breaks": [0.0, 0.0053, 0.0111, 0.0189, 0.03, 0.069]
+                "max": 127
               }
             ]
           },
@@ -6937,8 +6633,7 @@
               "name": "Total Population",
               "sum": 1526006,
               "min": 0,
-              "max": 4535,
-              "breaks": [0, 67, 205, 503, 1288, 4535]
+              "max": 4535
             },
             "subgroups": [
               {
@@ -6946,48 +6641,42 @@
                 "name": "White population",
                 "sum": 562585,
                 "min": 0,
-                "max": 1290,
-                "breaks": [0.0, 0.1026, 0.3273, 0.5945, 0.8261, 1.0]
+                "max": 1290
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 644287,
                 "min": 0,
-                "max": 3169,
-                "breaks": [0.0, 0.1026, 0.3263, 0.5969, 0.8378, 1.0]
+                "max": 3169
               },
               {
                 "key": "HPOP",
                 "name": "Hispanic population",
                 "sum": 187611,
                 "min": 0,
-                "max": 719,
-                "breaks": [0.0, 0.0439, 0.1558, 0.3619, 0.6667, 1.0]
+                "max": 719
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 95521,
                 "min": 0,
-                "max": 488,
-                "breaks": [0.0, 0.0418, 0.1471, 0.3067, 0.6, 1.0]
+                "max": 488
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 3498,
                 "min": 0,
-                "max": 11,
-                "breaks": [0.0, 0.0064, 0.0256, 0.0612, 0.1356, 0.25]
+                "max": 11
               },
               {
                 "key": "NH_NAHI",
                 "name": "Hawaiian Native population",
                 "sum": 457,
                 "min": 0,
-                "max": 9,
-                "breaks": [0.0, 0.0095, 0.0392, 0.087, 0.1429, 0.25]
+                "max": 9
               }
             ]
           }
@@ -7052,8 +6741,7 @@
               "name": "Total Population",
               "sum": 116501,
               "min": 0,
-              "max": 2055,
-              "breaks": [0, 62, 239, 622, 1387, 2055]
+              "max": 2055
             },
             "subgroups": [
               {
@@ -7061,48 +6749,42 @@
                 "name": "White population",
                 "sum": 42045,
                 "min": 0,
-                "max": 663,
-                "breaks": [0.0, 0.1184, 0.3238, 0.507, 0.7021, 1.0]
+                "max": 663
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 2929,
                 "min": 0,
-                "max": 83,
-                "breaks": [0.0, 0.0159, 0.0531, 0.1176, 0.2391, 1.0]
+                "max": 83
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 43544,
                 "min": 0,
-                "max": 1594,
-                "breaks": [0.0, 0.0857, 0.2462, 0.4175, 0.6541, 1.0]
+                "max": 1594
               },
               {
                 "key": "HPOP",
                 "name": "Hispanic population",
                 "sum": 22590,
                 "min": 0,
-                "max": 595,
-                "breaks": [0.0, 0.0588, 0.1727, 0.3129, 0.5556, 1.0]
+                "max": 595
               },
               {
                 "key": "NH_NAHI",
                 "name": "Hawaiian Native population",
                 "sum": 604,
                 "min": 0,
-                "max": 33,
-                "breaks": [0.0, 0.0096, 0.0361, 0.1062, 0.2276, 0.5]
+                "max": 33
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 240,
                 "min": 0,
-                "max": 10,
-                "breaks": [0.0, 0.005, 0.0172, 0.0435, 0.069, 0.5]
+                "max": 10
               }
             ]
           }
@@ -7173,8 +6855,7 @@
               "name": "Total population",
               "sum": 25145561,
               "min": 0,
-              "max": 22091,
-              "breaks": [0, 1454, 3282, 5355, 8265, 22091]
+              "max": 22091
             },
             "subgroups": [
               {
@@ -7182,32 +6863,28 @@
                 "name": "White population",
                 "sum": 11397345,
                 "min": 0,
-                "max": 8787,
-                "breaks": [0.0, 0.1569, 0.366, 0.5732, 0.7654, 1.0]
+                "max": 8787
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
                 "sum": 3168469,
                 "min": 0,
-                "max": 7630,
-                "breaks": [0.0, 0.0687, 0.1882, 0.3684, 0.6374, 1.0]
+                "max": 7630
               },
               {
                 "key": "HISPANIC",
                 "name": "Hispanic population",
                 "sum": 9460921,
                 "min": 0,
-                "max": 17265,
-                "breaks": [0.0, 0.1563, 0.3297, 0.5405, 0.779, 1.0]
+                "max": 17265
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
                 "sum": 1267977,
                 "min": 0,
-                "max": 5095,
-                "breaks": [0.0, 0.0396, 0.1127, 0.2537, 0.5717, 1.0]
+                "max": 5095
               }
             ]
           },
@@ -7219,8 +6896,7 @@
               "name": "Voting age population",
               "sum": 18279737,
               "min": 0,
-              "max": 15368,
-              "breaks": [0, 1067, 2391, 3863, 6009, 15368]
+              "max": 15368
             },
             "subgroups": [
               {
@@ -7228,32 +6904,28 @@
                 "name": "White voting age population",
                 "sum": 9074684,
                 "min": 0,
-                "max": 8234,
-                "breaks": [0.0, 0.1672, 0.3853, 0.595, 0.7833, 1.0]
+                "max": 8234
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 2196259,
                 "min": 0,
-                "max": 4847,
-                "breaks": [0.0, 0.0647, 0.1825, 0.3673, 0.6379, 1.0]
+                "max": 4847
               },
               {
                 "key": "HISPVAP",
                 "name": "Hispanic voting age population",
                 "sum": 6143144,
                 "min": 0,
-                "max": 11566,
-                "breaks": [0.0, 0.1402, 0.3048, 0.5154, 0.7645, 1.0]
+                "max": 11566
               },
               {
                 "key": "OTHVAP",
                 "name": "Other races voting age population",
                 "sum": 933861,
                 "min": 0,
-                "max": 3464,
-                "breaks": [0.0, 0.0383, 0.1081, 0.2466, 0.5655, 1.0]
+                "max": 3464
               }
             ]
           },
@@ -7433,8 +7105,7 @@
               "name": "Total population",
               "sum": 625640,
               "min": 62,
-              "max": 42417,
-              "breaks": [62, 2216, 5282, 12046, 19587, 42417]
+              "max": 42417
             },
             "subgroups": [
               {
@@ -7442,72 +7113,63 @@
                 "name": "White population",
                 "sum": 596195,
                 "min": 59,
-                "max": 37727,
-                "breaks": [0.8265, 0.8894, 0.9372, 0.9601, 0.9741, 0.9923]
+                "max": 37727
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
                 "sum": 6277,
                 "min": 0,
-                "max": 1653,
-                "breaks": [0.0, 0.0038, 0.009, 0.0194, 0.039, 0.0685]
+                "max": 1653
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 9205,
                 "min": 0,
-                "max": 1144,
-                "breaks": [0.0, 0.007, 0.0125, 0.0191, 0.032, 0.0577]
+                "max": 1144
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
                 "sum": 7947,
                 "min": 0,
-                "max": 1510,
-                "breaks": [0.0, 0.0036, 0.0075, 0.0145, 0.0356, 0.0615]
+                "max": 1510
               },
               {
                 "key": "AMIN",
                 "name": "Native American and Alaskan Native population",
                 "sum": 2207,
                 "min": 0,
-                "max": 158,
-                "breaks": [0.0, 0.0022, 0.0048, 0.0082, 0.017, 0.0274]
+                "max": 158
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 160,
                 "min": 0,
-                "max": 21,
-                "breaks": [0.0, 0.0002, 0.0006, 0.0015, 0.0028, 0.0046]
+                "max": 21
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
                 "sum": 10749,
                 "min": 0,
-                "max": 1102,
-                "breaks": [0.0, 0.009, 0.0158, 0.0241, 0.0341, 0.0521]
+                "max": 1102
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
                 "sum": 2105,
                 "min": 0,
-                "max": 273,
-                "breaks": [0.0, 0.0018, 0.0047, 0.0095, 0.0148, 0.0481]
+                "max": 273
               },
               {
                 "key": "VAP",
                 "name": "Voting age population",
                 "sum": 496422,
                 "min": 51,
-                "max": 36688,
-                "breaks": [0.7255, 0.7646, 0.7878, 0.8089, 0.8401, 0.8876]
+                "max": 36688
               }
             ]
           },
@@ -7720,8 +7382,7 @@
               "name": "Population",
               "sum": 5686986,
               "min": 0,
-              "max": 3905,
-              "breaks": [0, 414, 781, 1338, 2205, 3905]
+              "max": 3905
             },
             "subgroups": [
               {
@@ -7729,64 +7390,56 @@
                 "name": "White population",
                 "sum": 4738411,
                 "min": 0,
-                "max": 3245,
-                "breaks": [0.0, 0.256, 0.57, 0.7886, 0.9148, 1.0]
+                "max": 3245
               },
               {
                 "key": "BLACK",
                 "name": "Black/African American population",
                 "sum": 380660,
                 "min": 0,
-                "max": 2770,
-                "breaks": [0.0, 0.0586, 0.2181, 0.4905, 0.775, 0.968]
+                "max": 2770
               },
               {
                 "key": "HISPANIC",
                 "name": "Population of Hispanic origin",
                 "sum": 336056,
                 "min": 0,
-                "max": 2495,
-                "breaks": [0.0, 0.0371, 0.1079, 0.2459, 0.5192, 1.0]
+                "max": 2495
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
                 "sum": 143931,
                 "min": 0,
-                "max": 1475,
-                "breaks": [0.0, 0.0212, 0.0627, 0.1377, 0.345, 1.0]
+                "max": 1475
               },
               {
                 "key": "AMINDIAN",
                 "name": "American Indian or Alaska Native population",
                 "sum": 68593,
                 "min": 0,
-                "max": 771,
-                "breaks": [0.0, 0.0231, 0.1028, 0.3, 0.6385, 0.9391]
+                "max": 771
               },
               {
                 "key": "PISLAND",
                 "name": "Native Hawaiian or other Pacific Islander population",
                 "sum": 2639,
                 "min": 0,
-                "max": 23,
-                "breaks": [0.0, 0.0008, 0.0029, 0.0069, 0.0189, 0.0447]
+                "max": 23
               },
               {
                 "key": "OTHER",
                 "name": "Population of other race",
                 "sum": 5249,
                 "min": 0,
-                "max": 27,
-                "breaks": [0.0, 0.0011, 0.004, 0.0122, 0.0323, 1.0]
+                "max": 27
               },
               {
                 "key": "OTHERMLT",
                 "name": "Population of other multiple races",
                 "sum": 11447,
                 "min": 0,
-                "max": 51,
-                "breaks": [0.0, 0.0017, 0.0053, 0.0114, 0.0328, 0.086]
+                "max": 51
               }
             ]
           },
@@ -8008,8 +7661,7 @@
               "name": "Total population",
               "sum": 7999808,
               "min": 57,
-              "max": 23501,
-              "breaks": [57, 2181, 3821, 5743, 9970, 23501]
+              "max": 23501
             },
             "subgroups": [
               {
@@ -8017,64 +7669,56 @@
                 "name": "White population",
                 "sum": 5185250,
                 "min": 16,
-                "max": 13957,
-                "breaks": [0.0093, 0.2815, 0.5205, 0.7038, 0.8554, 1.0]
+                "max": 13957
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1522564,
                 "min": 0,
-                "max": 5617,
-                "breaks": [0.0, 0.0959, 0.2283, 0.4138, 0.6733, 0.9644]
+                "max": 5617
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 630652,
                 "min": 0,
-                "max": 5054,
-                "breaks": [0.0, 0.043, 0.1021, 0.1956, 0.3387, 0.8431]
+                "max": 5054
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 435196,
                 "min": 0,
-                "max": 4605,
-                "breaks": [0.0, 0.0305, 0.0879, 0.1727, 0.2952, 0.5776]
+                "max": 4605
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 19565,
                 "min": 0,
-                "max": 369,
-                "breaks": [0.0, 0.0023, 0.0054, 0.0151, 0.0478, 0.1569]
+                "max": 369
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 4493,
                 "min": 0,
-                "max": 63,
-                "breaks": [0.0, 0.0005, 0.0015, 0.0032, 0.0069, 0.0146]
+                "max": 63
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 180470,
                 "min": 0,
-                "max": 657,
-                "breaks": [0.0, 0.0099, 0.0176, 0.0259, 0.036, 0.1139]
+                "max": 657
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 14406,
                 "min": 0,
-                "max": 99,
-                "breaks": [0.0, 0.0011, 0.0026, 0.0049, 0.0128, 0.0341]
+                "max": 99
               }
             ]
           },
@@ -8086,8 +7730,7 @@
               "name": "Voting age population",
               "sum": 6146142,
               "min": 44,
-              "max": 22925,
-              "breaks": [44, 1703, 2963, 4468, 9247, 22925]
+              "max": 22925
             },
             "subgroups": [
               {
@@ -8095,64 +7738,56 @@
                 "name": "White voting age population",
                 "sum": 4132189,
                 "min": 16,
-                "max": 13463,
-                "breaks": [0.0125, 0.2866, 0.5323, 0.7142, 0.8638, 1.0]
+                "max": 13463
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 1133875,
                 "min": 0,
-                "max": 5098,
-                "breaks": [0.0, 0.0968, 0.228, 0.4126, 0.6712, 0.9645]
+                "max": 5098
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 425694,
                 "min": 0,
-                "max": 3827,
-                "breaks": [0.0, 0.0397, 0.096, 0.183, 0.3188, 0.8456]
+                "max": 3827
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 15064,
                 "min": 0,
-                "max": 304,
-                "breaks": [0.0, 0.0025, 0.0065, 0.0218, 0.0506, 0.1584]
+                "max": 304
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 3404,
                 "min": 0,
-                "max": 63,
-                "breaks": [0.0, 0.0003, 0.001, 0.002, 0.0038, 0.0116]
+                "max": 63
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 333048,
                 "min": 0,
-                "max": 3315,
-                "breaks": [0.0, 0.031, 0.0893, 0.1729, 0.3016, 0.6023]
+                "max": 3315
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 7034,
                 "min": 0,
-                "max": 98,
-                "breaks": [0.0, 0.0007, 0.0018, 0.0036, 0.0099, 0.0399]
+                "max": 98
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 88794,
                 "min": 0,
-                "max": 628,
-                "breaks": [0.0, 0.0081, 0.0148, 0.023, 0.0453, 0.0984]
+                "max": 628
               }
             ]
           },
@@ -8415,8 +8050,7 @@
               "name": "Total population",
               "sum": 1051746,
               "min": 3,
-              "max": 7597,
-              "breaks": [3, 1245, 2256, 3178, 4314, 7597]
+              "max": 7597
             },
             "subgroups": [
               {
@@ -8424,56 +8058,49 @@
                 "name": "White population",
                 "sum": 802951,
                 "min": 0,
-                "max": 6348,
-                "breaks": [0.0255, 0.3315, 0.6007, 0.7792, 0.8978, 0.9808]
+                "max": 6348
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 51325,
                 "min": 0,
-                "max": 1128,
-                "breaks": [0.0, 0.0357, 0.0882, 0.1643, 0.2465, 0.377]
+                "max": 1128
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 130420,
                 "min": 0,
-                "max": 3574,
-                "breaks": [0.0028, 0.0916, 0.2283, 0.4098, 0.5906, 0.7518]
+                "max": 3574
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 29768,
                 "min": 0,
-                "max": 848,
-                "breaks": [0.0, 0.0294, 0.0851, 0.168, 0.2628, 0.8943]
+                "max": 848
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 3828,
                 "min": 0,
-                "max": 112,
-                "breaks": [0.0, 0.0023, 0.0053, 0.01, 0.0189, 0.0387]
+                "max": 112
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 252,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0002, 0.0008, 0.0018, 0.0036, 0.0071]
+                "max": 18
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 8703,
                 "min": 0,
-                "max": 509,
-                "breaks": [0.0, 0.0065, 0.0197, 0.0441, 0.0849, 0.1591]
+                "max": 509
               }
             ]
           },
@@ -8485,8 +8112,7 @@
               "name": "Voting age population",
               "sum": 827884,
               "min": 3,
-              "max": 7118,
-              "breaks": [3, 1131, 1973, 2794, 3882, 7118]
+              "max": 7118
             },
             "subgroups": [
               {
@@ -8494,64 +8120,56 @@
                 "name": "White voting age population",
                 "sum": 660166,
                 "min": 0,
-                "max": 5943,
-                "breaks": [0.0249, 0.2031, 0.4061, 0.6627, 0.8578, 0.9856]
+                "max": 5943
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 36984,
                 "min": 0,
-                "max": 813,
-                "breaks": [0.0, 0.0253, 0.0608, 0.1119, 0.1943, 0.377]
+                "max": 813
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 84488,
                 "min": 0,
-                "max": 2488,
-                "breaks": [0.0028, 0.0718, 0.1843, 0.3723, 0.5555, 0.7123]
+                "max": 2488
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 2737,
                 "min": 0,
-                "max": 85,
-                "breaks": [0.0, 0.002, 0.0048, 0.0093, 0.0164, 0.0384]
+                "max": 85
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 190,
                 "min": 0,
-                "max": 12,
-                "breaks": [0.0, 0.0003, 0.001, 0.002, 0.0035, 0.0065]
+                "max": 12
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 23029,
                 "min": 0,
-                "max": 628,
-                "breaks": [0.0, 0.0307, 0.087, 0.1709, 0.2719, 0.8954]
+                "max": 628
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 6233,
                 "min": 0,
-                "max": 373,
-                "breaks": [0.0, 0.0058, 0.0184, 0.0429, 0.0807, 0.1641]
+                "max": 373
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 12793,
                 "min": 0,
-                "max": 263,
-                "breaks": [0.0, 0.0104, 0.02, 0.0326, 0.0484, 0.0867]
+                "max": 263
               }
             ]
           }
@@ -8644,8 +8262,7 @@
               "name": "Total population",
               "sum": 2762995,
               "min": 0,
-              "max": 6083,
-              "breaks": [0, 733, 1443, 2243, 3809, 6083]
+              "max": 6083
             },
             "subgroups": [
               {
@@ -8653,64 +8270,56 @@
                 "name": "White population",
                 "sum": 2220808,
                 "min": 0,
-                "max": 5250,
-                "breaks": [0.0, 0.4133, 0.643, 0.7802, 0.8815, 1.0]
+                "max": 5250
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 25112,
                 "min": 0,
-                "max": 275,
-                "breaks": [0.0, 0.0062, 0.0164, 0.0342, 0.0696, 0.1397]
+                "max": 275
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 357322,
                 "min": 0,
-                "max": 2569,
-                "breaks": [0.0, 0.0689, 0.1433, 0.2517, 0.4091, 0.7698]
+                "max": 2569
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 53246,
                 "min": 0,
-                "max": 1054,
-                "breaks": [0.0, 0.014, 0.0346, 0.0745, 0.1547, 0.2659]
+                "max": 1054
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 26233,
                 "min": 0,
-                "max": 1201,
-                "breaks": [0.0, 0.0436, 0.1786, 0.4135, 0.6544, 0.9717]
+                "max": 1201
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 23162,
                 "min": 0,
-                "max": 454,
-                "breaks": [0.0, 0.0059, 0.018, 0.0383, 0.0752, 0.1339]
+                "max": 454
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 47998,
                 "min": 0,
-                "max": 153,
-                "breaks": [0.0, 0.0099, 0.0186, 0.029, 0.0743, 0.1696]
+                "max": 153
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 3177,
                 "min": 0,
-                "max": 88,
-                "breaks": [0.0, 0.0014, 0.0048, 0.019, 0.0444, 0.0785]
+                "max": 88
               }
             ]
           },
@@ -8722,8 +8331,7 @@
               "name": "Voting age population",
               "sum": 1891928,
               "min": 0,
-              "max": 5797,
-              "breaks": [0, 498, 989, 1561, 3241, 5797]
+              "max": 5797
             },
             "subgroups": [
               {
@@ -8731,64 +8339,56 @@
                 "name": "White voting age population",
                 "sum": 1562620,
                 "min": 0,
-                "max": 5056,
-                "breaks": [0.0, 0.1941, 0.5457, 0.748, 0.8785, 1.0]
+                "max": 5056
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 15633,
                 "min": 0,
-                "max": 271,
-                "breaks": [0.0, 0.0056, 0.016, 0.0361, 0.0801, 0.1425]
+                "max": 271
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 213490,
                 "min": 0,
-                "max": 1510,
-                "breaks": [0.0, 0.0605, 0.1272, 0.2191, 0.3631, 0.7073]
+                "max": 1510
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 17598,
                 "min": 0,
-                "max": 757,
-                "breaks": [0.0, 0.0456, 0.1786, 0.4634, 0.7833, 0.9801]
+                "max": 757
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 13996,
                 "min": 0,
-                "max": 253,
-                "breaks": [0.0, 0.0052, 0.0157, 0.0343, 0.0637, 0.0997]
+                "max": 253
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 40847,
                 "min": 0,
-                "max": 920,
-                "breaks": [0.0, 0.0146, 0.0358, 0.0758, 0.1599, 0.2919]
+                "max": 920
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 1805,
                 "min": 0,
-                "max": 84,
-                "breaks": [0.0, 0.001, 0.0037, 0.0112, 0.0381, 0.0739]
+                "max": 84
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 20257,
                 "min": 0,
-                "max": 145,
-                "breaks": [0.0, 0.0064, 0.0126, 0.0211, 0.0751, 0.1748]
+                "max": 145
               }
             ]
           },
@@ -8913,8 +8513,7 @@
               "name": "Total population",
               "sum": 178040,
               "min": 0,
-              "max": 1873,
-              "breaks": [0, 42, 125, 307, 710, 1873]
+              "max": 1873
             },
             "subgroups": [
               {
@@ -8922,56 +8521,49 @@
                 "name": "White population",
                 "sum": 66909,
                 "min": 0,
-                "max": 1691,
-                "breaks": [0.0, 0.1053, 0.3091, 0.5461, 0.7879, 1.0]
+                "max": 1691
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 23398,
                 "min": 0,
-                "max": 165,
-                "breaks": [0.0, 0.0566, 0.163, 0.2991, 0.5231, 1.0]
+                "max": 165
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 67835,
                 "min": 0,
-                "max": 471,
-                "breaks": [0.0, 0.1074, 0.31, 0.5152, 0.7196, 1.0]
+                "max": 471
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 11153,
                 "min": 0,
-                "max": 259,
-                "breaks": [0.0, 0.0402, 0.1268, 0.2574, 0.5341, 1.0]
+                "max": 259
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 1220,
                 "min": 0,
-                "max": 17,
-                "breaks": [0.0, 0.0106, 0.0385, 0.087, 0.1818, 0.3333]
+                "max": 17
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 88,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0075, 0.0222, 0.0417, 0.08, 1.0]
+                "max": 7
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 1727,
                 "min": 0,
-                "max": 46,
-                "breaks": [0.0, 0.0222, 0.0833, 0.2105, 0.4, 0.625]
+                "max": 46
               }
             ]
           },
@@ -8983,8 +8575,7 @@
               "name": "Voting age population",
               "sum": 136406,
               "min": 0,
-              "max": 1872,
-              "breaks": [0, 33, 100, 257, 710, 1872]
+              "max": 1872
             },
             "subgroups": [
               {
@@ -8992,64 +8583,56 @@
                 "name": "White voting age population",
                 "sum": 60172,
                 "min": 0,
-                "max": 1691,
-                "breaks": [0.0, 0.1222, 0.3385, 0.5625, 0.7917, 1.0]
+                "max": 1691
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 16716,
                 "min": 0,
-                "max": 120,
-                "breaks": [0.0, 0.0508, 0.1489, 0.2708, 0.4706, 1.0]
+                "max": 120
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 44669,
                 "min": 0,
-                "max": 296,
-                "breaks": [0.0, 0.0968, 0.2833, 0.4885, 0.7037, 1.0]
+                "max": 296
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 845,
                 "min": 0,
-                "max": 14,
-                "breaks": [0.0, 0.0104, 0.0375, 0.08, 0.1429, 0.3333]
+                "max": 14
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 73,
                 "min": 0,
-                "max": 5,
-                "breaks": [0.0, 0.0076, 0.0238, 0.0455, 0.0833, 1.0]
+                "max": 5
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 9058,
                 "min": 0,
-                "max": 259,
-                "breaks": [0.0, 0.0357, 0.1136, 0.2391, 0.5278, 1.0]
+                "max": 259
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 1233,
                 "min": 0,
-                "max": 21,
-                "breaks": [0.0, 0.0138, 0.0494, 0.1127, 0.2381, 0.5]
+                "max": 21
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 3640,
                 "min": 0,
-                "max": 61,
-                "breaks": [0.0, 0.0244, 0.0833, 0.2143, 0.5, 1.0]
+                "max": 61
               }
             ]
           }
@@ -9246,8 +8829,7 @@
               "name": "Total population",
               "sum": 18714,
               "min": 55,
-              "max": 1940,
-              "breaks": [55, 208, 563, 1014, 1285, 1940]
+              "max": 1940
             },
             "subgroups": [
               {
@@ -9255,64 +8837,56 @@
                 "name": "White population",
                 "sum": 7249,
                 "min": 37,
-                "max": 473,
-                "breaks": [0.0648, 0.237, 0.3971, 0.5714, 0.8881, 0.9692]
+                "max": 473
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 41,
                 "min": 0,
-                "max": 15,
-                "breaks": [0.0, 0.0018, 0.0048, 0.012, 0.016, 0.0897]
+                "max": 15
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 11085,
                 "min": 1,
-                "max": 1622,
-                "breaks": [0.0061, 0.0727, 0.1325, 0.49, 0.7384, 0.9311]
+                "max": 1622
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 88,
                 "min": 0,
-                "max": 19,
-                "breaks": [0.0, 0.0, 0.0037, 0.0061, 0.0124, 0.0171]
+                "max": 19
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 65,
                 "min": 0,
-                "max": 13,
-                "breaks": [0.0, 0.0027, 0.0067, 0.0112, 0.0182, 0.05]
+                "max": 13
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 2,
                 "min": 0,
-                "max": 1,
-                "breaks": [0.0, 0.0, 0.0, 0.0, 0.0006, 0.0048]
+                "max": 1
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 110,
                 "min": 0,
-                "max": 12,
-                "breaks": [0.0, 0.0068, 0.0137, 0.0245, 0.0361, 0.08]
+                "max": 12
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 18,
                 "min": 0,
-                "max": 6,
-                "breaks": [0.0, 0.0, 0.0025, 0.0031, 0.0034, 0.0057]
+                "max": 6
               }
             ]
           },
@@ -9324,8 +8898,7 @@
               "name": "Voting age population",
               "sum": 12200,
               "min": 45,
-              "max": 1158,
-              "breaks": [45, 115, 299, 572, 829, 1158]
+              "max": 1158
             },
             "subgroups": [
               {
@@ -9333,64 +8906,56 @@
                 "name": "White voting age population",
                 "sum": 5661,
                 "min": 29,
-                "max": 377,
-                "breaks": [0.0758, 0.2544, 0.5072, 0.6802, 0.912, 0.9823]
+                "max": 377
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 13,
                 "min": 0,
-                "max": 5,
-                "breaks": [0.0, 0.0009, 0.0049, 0.0066, 0.0175, 0.0222]
+                "max": 5
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 6303,
                 "min": 0,
-                "max": 911,
-                "breaks": [0.0, 0.1094, 0.3333, 0.666, 0.7867, 0.9216]
+                "max": 911
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 42,
                 "min": 0,
-                "max": 6,
-                "breaks": [0.0, 0.002, 0.0075, 0.0145, 0.0222, 0.0725]
+                "max": 6
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 1,
                 "min": 0,
-                "max": 1,
-                "breaks": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0066]
+                "max": 1
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 62,
                 "min": 0,
-                "max": 15,
-                "breaks": [0.0, 0.0, 0.0055, 0.0087, 0.0152, 0.0226]
+                "max": 15
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 10,
                 "min": 0,
-                "max": 4,
-                "breaks": [0.0, 0.0, 0.001, 0.0025, 0.0048, 0.0062]
+                "max": 4
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 57,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0021, 0.0071, 0.0164, 0.0222, 0.0725]
+                "max": 7
               }
             ]
           }
@@ -9445,8 +9010,7 @@
               "name": "Total population",
               "sum": 18728,
               "min": 0,
-              "max": 677,
-              "breaks": [0, 20, 84, 216, 446, 677]
+              "max": 677
             },
             "subgroups": [
               {
@@ -9454,64 +9018,56 @@
                 "name": "White population",
                 "sum": 7262,
                 "min": 0,
-                "max": 142,
-                "breaks": [0.0, 0.125, 0.375, 0.625, 0.8788, 1.0]
+                "max": 142
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 47,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0278, 0.0909, 0.2, 0.5, 1.0]
+                "max": 7
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 11099,
                 "min": 0,
-                "max": 600,
-                "breaks": [0.0, 0.125, 0.377, 0.619, 0.8519, 1.0]
+                "max": 600
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 99,
                 "min": 0,
-                "max": 14,
-                "breaks": [0.0, 0.04, 0.1667, 0.3333, 0.5, 1.0]
+                "max": 14
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 76,
                 "min": 0,
-                "max": 11,
-                "breaks": [0.0, 0.0455, 0.1429, 0.2857, 0.3636, 1.0]
+                "max": 11
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 3,
                 "min": 0,
-                "max": 1,
-                "breaks": [0.0, 0.0, 0.0, 0.0049, 0.2, 1.0]
+                "max": 1
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 124,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0435, 0.2, 0.4, 0.6, 1.0]
+                "max": 7
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 18,
                 "min": 0,
-                "max": 5,
-                "breaks": [0.0, 0.0, 0.0, 0.0, 0.0049, 0.119]
+                "max": 5
               }
             ]
           },
@@ -9523,8 +9079,7 @@
               "name": "Voting age population",
               "sum": 12216,
               "min": 0,
-              "max": 394,
-              "breaks": [0, 12, 54, 148, 261, 394]
+              "max": 394
             },
             "subgroups": [
               {
@@ -9532,64 +9087,56 @@
                 "name": "White voting age population",
                 "sum": 5676,
                 "min": 0,
-                "max": 119,
-                "breaks": [0.0, 0.125, 0.3784, 0.6364, 0.875, 1.0]
+                "max": 119
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 16,
                 "min": 0,
-                "max": 2,
-                "breaks": [0.0, 0.0308, 0.2, 0.3333, 0.5, 1.0]
+                "max": 2
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 6319,
                 "min": 0,
-                "max": 333,
-                "breaks": [0.0, 0.1111, 0.3333, 0.5789, 0.8333, 1.0]
+                "max": 333
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 52,
                 "min": 0,
-                "max": 4,
-                "breaks": [0.0, 0.0417, 0.125, 0.25, 0.4, 1.0]
+                "max": 4
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 2,
                 "min": 0,
-                "max": 1,
-                "breaks": [0.0, 0.0, 0.0, 0.0, 0.3333, 1.0]
+                "max": 1
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 72,
                 "min": 0,
-                "max": 11,
-                "breaks": [0.0, 0.0417, 0.1667, 0.3333, 0.5, 1.0]
+                "max": 11
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 10,
                 "min": 0,
-                "max": 4,
-                "breaks": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0417]
+                "max": 4
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 69,
                 "min": 0,
-                "max": 4,
-                "breaks": [0.0, 0.0435, 0.2, 0.3333, 0.5, 1.0]
+                "max": 4
               }
             ]
           }
@@ -9738,8 +9285,7 @@
               "name": "Total population",
               "sum": 243156,
               "min": 0,
-              "max": 5039,
-              "breaks": [0, 741, 1535, 2382, 3518, 5039]
+              "max": 5039
             },
             "subgroups": [
               {
@@ -9747,64 +9293,56 @@
                 "name": "White population",
                 "sum": 115952,
                 "min": 0,
-                "max": 1834,
-                "breaks": [0.0, 0.2586, 0.4559, 0.6281, 0.7898, 0.9778]
+                "max": 1834
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1677,
                 "min": 0,
-                "max": 118,
-                "breaks": [0.0, 0.0022, 0.0074, 0.0145, 0.0266, 0.0434]
+                "max": 118
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 109400,
                 "min": 0,
-                "max": 4235,
-                "breaks": [0.0, 0.1685, 0.3228, 0.49, 0.6882, 1.0]
+                "max": 4235
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 2286,
                 "min": 0,
-                "max": 158,
-                "breaks": [0.0, 0.0042, 0.0122, 0.0227, 0.042, 0.063]
+                "max": 158
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 9000,
                 "min": 0,
-                "max": 1621,
-                "breaks": [0.0, 0.0579, 0.1906, 0.3341, 0.4549, 0.6266]
+                "max": 1621
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 104,
                 "min": 0,
-                "max": 8,
-                "breaks": [0.0, 0.0003, 0.0011, 0.0022, 0.0042, 0.037]
+                "max": 8
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 4022,
                 "min": 0,
-                "max": 87,
-                "breaks": [0.0, 0.0101, 0.0202, 0.0316, 0.05, 0.08]
+                "max": 87
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 286,
                 "min": 0,
-                "max": 18,
-                "breaks": [0.0, 0.0007, 0.0025, 0.0052, 0.0093, 0.0149]
+                "max": 18
               }
             ]
           },
@@ -9816,8 +9354,7 @@
               "name": "Voting age population",
               "sum": 169120,
               "min": 0,
-              "max": 3172,
-              "breaks": [0, 488, 1092, 1701, 2386, 3172]
+              "max": 3172
             },
             "subgroups": [
               {
@@ -9825,64 +9362,56 @@
                 "name": "White voting age population",
                 "sum": 93721,
                 "min": 0,
-                "max": 1434,
-                "breaks": [0.0, 0.2153, 0.3995, 0.6189, 0.7993, 0.98]
+                "max": 1434
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 1276,
                 "min": 0,
-                "max": 105,
-                "breaks": [0.0, 0.0036, 0.0094, 0.02, 0.0351, 0.0523]
+                "max": 105
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 63449,
                 "min": 0,
-                "max": 2515,
-                "breaks": [0.0, 0.1478, 0.2892, 0.44, 0.6419, 0.8947]
+                "max": 2515
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 5961,
                 "min": 0,
-                "max": 1006,
-                "breaks": [0.0, 0.0731, 0.2144, 0.3218, 0.434, 0.6104]
+                "max": 1006
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 83,
                 "min": 0,
-                "max": 5,
-                "breaks": [0.0, 0.0005, 0.0018, 0.0041, 0.0299, 0.0476]
+                "max": 5
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 1757,
                 "min": 0,
-                "max": 114,
-                "breaks": [0.0, 0.0055, 0.015, 0.0302, 0.0524, 0.0769]
+                "max": 114
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 169,
                 "min": 0,
-                "max": 13,
-                "breaks": [0.0, 0.001, 0.003, 0.0062, 0.0093, 0.0182]
+                "max": 13
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 2262,
                 "min": 0,
-                "max": 48,
-                "breaks": [0.0, 0.0052, 0.014, 0.0242, 0.0476, 0.0952]
+                "max": 48
               }
             ]
           }
@@ -9937,8 +9466,7 @@
               "name": "Total population",
               "sum": 243231,
               "min": 0,
-              "max": 1134,
-              "breaks": [0, 22, 74, 170, 320, 1134]
+              "max": 1134
             },
             "subgroups": [
               {
@@ -9946,64 +9474,56 @@
                 "name": "White population",
                 "sum": 116024,
                 "min": 0,
-                "max": 646,
-                "breaks": [0.0, 0.1304, 0.3871, 0.6381, 0.8676, 1.0]
+                "max": 646
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1743,
                 "min": 0,
-                "max": 77,
-                "breaks": [0.0, 0.0328, 0.1364, 0.3077, 0.625, 1.0]
+                "max": 77
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 109470,
                 "min": 0,
-                "max": 1034,
-                "breaks": [0.0, 0.1136, 0.338, 0.5789, 0.8283, 1.0]
+                "max": 1034
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 2359,
                 "min": 0,
-                "max": 40,
-                "breaks": [0.0, 0.0194, 0.0784, 0.1667, 0.3913, 1.0]
+                "max": 40
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 9072,
                 "min": 0,
-                "max": 277,
-                "breaks": [0.0, 0.087, 0.2895, 0.55, 0.8276, 1.0]
+                "max": 277
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 142,
                 "min": 0,
-                "max": 9,
-                "breaks": [0.0, 0.0051, 0.0169, 0.0455, 0.0833, 1.0]
+                "max": 9
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 4090,
                 "min": 0,
-                "max": 27,
-                "breaks": [0.0, 0.0299, 0.1176, 0.2857, 0.6667, 1.0]
+                "max": 27
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 331,
                 "min": 0,
-                "max": 11,
-                "breaks": [0.0, 0.013, 0.0645, 0.1429, 0.5, 1.0]
+                "max": 11
               }
             ]
           },
@@ -10015,8 +9535,7 @@
               "name": "Voting age population",
               "sum": 169193,
               "min": 0,
-              "max": 715,
-              "breaks": [0, 13, 44, 109, 235, 715]
+              "max": 715
             },
             "subgroups": [
               {
@@ -10024,64 +9543,56 @@
                 "name": "White voting age population",
                 "sum": 93795,
                 "min": 0,
-                "max": 489,
-                "breaks": [0.0, 0.1277, 0.3846, 0.6377, 0.8696, 1.0]
+                "max": 489
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 1337,
                 "min": 0,
-                "max": 77,
-                "breaks": [0.0, 0.0259, 0.125, 0.3333, 0.625, 1.0]
+                "max": 77
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 63528,
                 "min": 0,
-                "max": 549,
-                "breaks": [0.0, 0.0968, 0.3077, 0.5581, 0.8261, 1.0]
+                "max": 549
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 6038,
                 "min": 0,
-                "max": 153,
-                "breaks": [0.0, 0.0909, 0.3, 0.5385, 0.8, 1.0]
+                "max": 153
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 119,
                 "min": 0,
-                "max": 6,
-                "breaks": [0.0, 0.0065, 0.0238, 0.0625, 0.1071, 1.0]
+                "max": 6
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 1829,
                 "min": 0,
-                "max": 34,
-                "breaks": [0.0, 0.0175, 0.0714, 0.1818, 0.5, 1.0]
+                "max": 34
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 214,
                 "min": 0,
-                "max": 9,
-                "breaks": [0.0, 0.037, 0.1111, 0.2, 0.5, 1.0]
+                "max": 9
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 2333,
                 "min": 0,
-                "max": 14,
-                "breaks": [0.0, 0.0392, 0.1579, 0.3333, 0.6667, 1.0]
+                "max": 14
               }
             ]
           }
@@ -10148,8 +9659,7 @@
               "name": "Total population",
               "sum": 178883,
               "min": 0,
-              "max": 2047,
-              "breaks": [0, 51, 194, 492, 1064, 2047]
+              "max": 2047
             },
             "subgroups": [
               {
@@ -10157,64 +9667,56 @@
                 "name": "White population",
                 "sum": 80740,
                 "min": 0,
-                "max": 1752,
-                "breaks": [0.0, 0.098, 0.315, 0.5833, 0.8429, 1.0]
+                "max": 1752
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 78458,
                 "min": 0,
-                "max": 898,
-                "breaks": [0.0, 0.1081, 0.3462, 0.6071, 0.8462, 1.0]
+                "max": 898
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 12598,
                 "min": 0,
-                "max": 407,
-                "breaks": [0.0, 0.0548, 0.1951, 0.4194, 0.7358, 1.0]
+                "max": 407
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 3865,
                 "min": 0,
-                "max": 288,
-                "breaks": [0.0, 0.0351, 0.1261, 0.3125, 0.6, 1.0]
+                "max": 288
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 468,
                 "min": 0,
-                "max": 11,
-                "breaks": [0.0, 0.0068, 0.0278, 0.0769, 0.1667, 0.3333]
+                "max": 11
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 53,
                 "min": 0,
-                "max": 6,
-                "breaks": [0.0, 0.0063, 0.0308, 0.0625, 0.2609, 0.2941]
+                "max": 6
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 2443,
                 "min": 0,
-                "max": 43,
-                "breaks": [0.0, 0.0267, 0.102, 0.3, 0.625, 1.0]
+                "max": 43
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 258,
                 "min": 0,
-                "max": 12,
-                "breaks": [0.0, 0.0111, 0.044, 0.1111, 0.2, 0.3333]
+                "max": 12
               }
             ]
           },
@@ -10226,8 +9728,7 @@
               "name": "Voting age population",
               "sum": 136533,
               "min": 0,
-              "max": 1581,
-              "breaks": [0, 39, 151, 388, 823, 1581]
+              "max": 1581
             },
             "subgroups": [
               {
@@ -10235,64 +9736,56 @@
                 "name": "White voting age population",
                 "sum": 67993,
                 "min": 0,
-                "max": 1381,
-                "breaks": [0.0, 0.0968, 0.3095, 0.5833, 0.8462, 1.0]
+                "max": 1381
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 55286,
                 "min": 0,
-                "max": 675,
-                "breaks": [0.0, 0.1124, 0.3537, 0.6133, 0.8529, 1.0]
+                "max": 675
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 8379,
                 "min": 0,
-                "max": 243,
-                "breaks": [0.0, 0.0439, 0.1579, 0.375, 0.7209, 1.0]
+                "max": 243
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 350,
                 "min": 0,
-                "max": 7,
-                "breaks": [0.0, 0.0084, 0.0294, 0.0625, 0.125, 0.3333]
+                "max": 7
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 38,
                 "min": 0,
-                "max": 3,
-                "breaks": [0.0, 0.0104, 0.0488, 0.0909, 0.1667, 0.2143]
+                "max": 3
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 2998,
                 "min": 0,
-                "max": 216,
-                "breaks": [0.0, 0.0316, 0.1176, 0.2857, 0.6, 1.0]
+                "max": 216
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 143,
                 "min": 0,
-                "max": 5,
-                "breaks": [0.0, 0.013, 0.0417, 0.0909, 0.2, 0.3333]
+                "max": 5
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 1346,
                 "min": 0,
-                "max": 28,
-                "breaks": [0.0, 0.0303, 0.1176, 0.2857, 0.5, 1.0]
+                "max": 28
               }
             ]
           }
@@ -10356,8 +9849,7 @@
               "name": "Total population",
               "sum": 3830404,
               "min": 0,
-              "max": 17974,
-              "breaks": [0, 1614, 3674, 6359, 10185, 17974]
+              "max": 17974
             },
             "subgroups": [
               {
@@ -10365,64 +9857,56 @@
                 "name": "White population",
                 "sum": 3005164,
                 "min": 0,
-                "max": 12175,
-                "breaks": [0.0, 0.2958, 0.5818, 0.7395, 0.861, 1.0]
+                "max": 12175
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 64442,
                 "min": 0,
-                "max": 2932,
-                "breaks": [0.0, 0.0087, 0.0277, 0.0605, 0.1182, 0.2246]
+                "max": 2932
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 449417,
                 "min": 0,
-                "max": 6050,
-                "breaks": [0.0, 0.0674, 0.1382, 0.2525, 0.4446, 0.7912]
+                "max": 6050
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 138838,
                 "min": 0,
-                "max": 3337,
-                "breaks": [0.0, 0.0228, 0.061, 0.1137, 0.2064, 0.4367]
+                "max": 3337
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 42093,
                 "min": 0,
-                "max": 2692,
-                "breaks": [0.0, 0.0265, 0.0959, 0.2278, 0.4686, 0.8598]
+                "max": 2692
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 12278,
                 "min": 0,
-                "max": 217,
-                "breaks": [0.0, 0.0023, 0.0077, 0.0159, 0.0345, 0.0598]
+                "max": 217
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 109205,
                 "min": 0,
-                "max": 934,
-                "breaks": [0.0, 0.0127, 0.0237, 0.0348, 0.0566, 0.1143]
+                "max": 934
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 5117,
                 "min": 0,
-                "max": 55,
-                "breaks": [0.0, 0.0008, 0.0024, 0.0052, 0.0109, 0.0247]
+                "max": 55
               }
             ]
           },
@@ -10434,8 +9918,7 @@
               "name": "Voting age population",
               "sum": 2963948,
               "min": 0,
-              "max": 13802,
-              "breaks": [0, 1295, 2893, 4985, 7970, 13802]
+              "max": 13802
             },
             "subgroups": [
               {
@@ -10443,64 +9926,56 @@
                 "name": "White voting age population",
                 "sum": 2432193,
                 "min": 0,
-                "max": 10507,
-                "breaks": [0.0, 0.0374, 0.5418, 0.75, 0.8731, 1.0]
+                "max": 10507
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 46424,
                 "min": 0,
-                "max": 2306,
-                "breaks": [0.0, 0.0076, 0.0253, 0.0536, 0.0984, 0.2161]
+                "max": 2306
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 269102,
                 "min": 0,
-                "max": 3521,
-                "breaks": [0.0, 0.0564, 0.1208, 0.22, 0.3798, 0.7288]
+                "max": 3521
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 31264,
                 "min": 0,
-                "max": 1778,
-                "breaks": [0.0, 0.0252, 0.0937, 0.2122, 0.437, 0.8741]
+                "max": 1778
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 8398,
                 "min": 0,
-                "max": 151,
-                "breaks": [0.0, 0.002, 0.0064, 0.0132, 0.0248, 0.0506]
+                "max": 151
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 107626,
                 "min": 0,
-                "max": 2068,
-                "breaks": [0.0, 0.0224, 0.0611, 0.1135, 0.2071, 0.4326]
+                "max": 2068
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 3414,
                 "min": 0,
-                "max": 43,
-                "breaks": [0.0, 0.0007, 0.002, 0.0048, 0.0127, 0.0229]
+                "max": 43
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 61774,
                 "min": 0,
-                "max": 562,
-                "breaks": [0.0, 0.0088, 0.0176, 0.0269, 0.0482, 0.1154]
+                "max": 562
               }
             ]
           },
@@ -10766,8 +10241,7 @@
               "name": "Total population",
               "sum": 11540095,
               "min": 0,
-              "max": 7124,
-              "breaks": [0, 949, 1363, 1840, 3138, 7124]
+              "max": 7124
             },
             "subgroups": [
               {
@@ -10775,64 +10249,56 @@
                 "name": "White population",
                 "sum": 9362223,
                 "min": 0,
-                "max": 6199,
-                "breaks": [0.0, 0.2377, 0.5125, 0.7358, 0.8906, 1.0]
+                "max": 6199
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 1389406,
                 "min": 0,
-                "max": 3189,
-                "breaks": [0.0, 0.077, 0.2342, 0.4601, 0.7362, 0.9906]
+                "max": 3189
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 354802,
                 "min": 0,
-                "max": 1370,
-                "breaks": [0.0, 0.0235, 0.0611, 0.1346, 0.2697, 0.5856]
+                "max": 1370
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 190840,
                 "min": 0,
-                "max": 1456,
-                "breaks": [0.0, 0.0162, 0.0479, 0.1056, 0.2235, 0.508]
+                "max": 1456
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 20907,
                 "min": 0,
-                "max": 30,
-                "breaks": [0.0, 0.0009, 0.0023, 0.0044, 0.0081, 0.0227]
+                "max": 30
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 3398,
                 "min": 0,
-                "max": 84,
-                "breaks": [0.0, 0.0012, 0.0056, 0.0185, 0.0392, 0.087]
+                "max": 84
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 203341,
                 "min": 0,
-                "max": 180,
-                "breaks": [0.0, 0.0098, 0.018, 0.0285, 0.0449, 0.1667]
+                "max": 180
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 15152,
                 "min": 0,
-                "max": 32,
-                "breaks": [0.0, 0.0007, 0.0021, 0.0042, 0.0075, 0.0156]
+                "max": 32
               }
             ]
           },
@@ -10844,8 +10310,7 @@
               "name": "Voting age population",
               "sum": 8808206,
               "min": 0,
-              "max": 6775,
-              "breaks": [0, 747, 1071, 1471, 2893, 6775]
+              "max": 6775
             },
             "subgroups": [
               {
@@ -10853,64 +10318,56 @@
                 "name": "White voting age population",
                 "sum": 7332546,
                 "min": 0,
-                "max": 6134,
-                "breaks": [0.0, 0.2533, 0.5377, 0.751, 0.8992, 1.0]
+                "max": 6134
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 993203,
                 "min": 0,
-                "max": 3134,
-                "breaks": [0.0, 0.0793, 0.2471, 0.482, 0.7549, 0.9901]
+                "max": 3134
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 218989,
                 "min": 0,
-                "max": 1301,
-                "breaks": [0.0, 0.024, 0.0711, 0.1579, 0.2952, 0.5641]
+                "max": 1301
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 16690,
                 "min": 0,
-                "max": 30,
-                "breaks": [0.0, 0.0007, 0.0024, 0.0046, 0.0085, 0.0242]
+                "max": 30
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 2386,
                 "min": 0,
-                "max": 42,
-                "breaks": [0.0, 0.0007, 0.0031, 0.0126, 0.0337, 0.0705]
+                "max": 42
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 145554,
                 "min": 0,
-                "max": 1318,
-                "breaks": [0.0, 0.0153, 0.045, 0.0992, 0.2079, 0.499]
+                "max": 1318
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 6681,
                 "min": 0,
-                "max": 32,
-                "breaks": [0.0, 0.0006, 0.0018, 0.0035, 0.0071, 0.0151]
+                "max": 32
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 92140,
                 "min": 0,
-                "max": 139,
-                "breaks": [0.0, 0.0068, 0.0134, 0.0226, 0.0815, 0.1667]
+                "max": 139
               }
             ]
           },
@@ -11045,8 +10502,7 @@
               "name": "Total population",
               "sum": 3751351,
               "min": 0,
-              "max": 9451,
-              "breaks": [0, 1013, 1996, 3082, 4537, 9451]
+              "max": 9451
             },
             "subgroups": [
               {
@@ -11054,64 +10510,56 @@
                 "name": "White population",
                 "sum": 2575381,
                 "min": 0,
-                "max": 5944,
-                "breaks": [0.0, 0.2977, 0.5422, 0.6964, 0.8149, 1.0]
+                "max": 5944
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 272071,
                 "min": 0,
-                "max": 3041,
-                "breaks": [0.0, 0.0432, 0.1316, 0.3191, 0.6027, 0.9168]
+                "max": 3041
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 332007,
                 "min": 0,
-                "max": 6523,
-                "breaks": [0.0, 0.0565, 0.1385, 0.2744, 0.4768, 0.725]
+                "max": 6523
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 64154,
                 "min": 0,
-                "max": 718,
-                "breaks": [0.0, 0.0117, 0.0349, 0.0797, 0.1701, 0.3535]
+                "max": 718
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 308733,
                 "min": 0,
-                "max": 1539,
-                "breaks": [0.0, 0.0598, 0.1213, 0.202, 0.3408, 0.7299]
+                "max": 1539
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 3977,
                 "min": 0,
-                "max": 230,
-                "breaks": [0.0, 0.0016, 0.0065, 0.0235, 0.0543, 0.0969]
+                "max": 230
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 192074,
                 "min": 0,
-                "max": 628,
-                "breaks": [0.0, 0.0266, 0.0469, 0.0686, 0.0985, 0.2041]
+                "max": 628
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 2954,
                 "min": 0,
-                "max": 29,
-                "breaks": [0.0, 0.0006, 0.002, 0.0047, 0.0102, 0.0316]
+                "max": 29
               }
             ]
           },
@@ -11123,8 +10571,7 @@
               "name": "Voting age population",
               "sum": 2821685,
               "min": 0,
-              "max": 6764,
-              "breaks": [0, 742, 1452, 2245, 3314, 6764]
+              "max": 6764
             },
             "subgroups": [
               {
@@ -11132,64 +10579,56 @@
                 "name": "White voting age population",
                 "sum": 2055504,
                 "min": 0,
-                "max": 4970,
-                "breaks": [0.0, 0.3262, 0.5881, 0.7334, 0.8403, 1.0]
+                "max": 4970
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 195546,
                 "min": 0,
-                "max": 2207,
-                "breaks": [0.0, 0.049, 0.1482, 0.3414, 0.6013, 0.9349]
+                "max": 2207
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 199457,
                 "min": 0,
-                "max": 3931,
-                "breaks": [0.0, 0.0427, 0.1094, 0.2345, 0.4196, 0.76]
+                "max": 3931
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 207883,
                 "min": 0,
-                "max": 1073,
-                "breaks": [0.0, 0.0657, 0.136, 0.242, 0.4019, 0.7036]
+                "max": 1073
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 2701,
                 "min": 0,
-                "max": 133,
-                "breaks": [0.0, 0.0011, 0.0049, 0.0156, 0.0455, 0.0713]
+                "max": 133
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 48930,
                 "min": 0,
-                "max": 646,
-                "breaks": [0.0, 0.0123, 0.0361, 0.0778, 0.1643, 0.3749]
+                "max": 646
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 1792,
                 "min": 0,
-                "max": 16,
-                "breaks": [0.0, 0.0004, 0.0013, 0.0025, 0.0049, 0.0106]
+                "max": 16
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 109872,
                 "min": 0,
-                "max": 391,
-                "breaks": [0.0, 0.0198, 0.036, 0.0538, 0.0802, 0.1951]
+                "max": 391
               }
             ]
           },

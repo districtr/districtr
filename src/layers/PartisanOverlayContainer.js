@@ -6,8 +6,7 @@ import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections) {
-        this._id = id;
+    constructor(layers, elections) {
         this.elections = elections;
         this.layers = layers;
         this.electionOverlays = elections.map(
@@ -38,11 +37,8 @@ export default class PartisanOverlayContainer {
     }
     toggleVisibility(visible) {
         this.isVisible = visible;
-        // document.getElementById("color-" + this._id).style.display
-        //     = (visible ? "block" : "none");
         if (this.isVisible) {
             this.currentElectionOverlay.show();
-            this.setElection(this._currentElectionIndex);
         } else {
             this.currentElectionOverlay.hide();
         }
@@ -85,23 +81,6 @@ export default class PartisanOverlayContainer {
                     )
                 }
             ].map(Parameter)}
-            <!--
-            <div id="color-${this._id}" class="color-legend partisan-legend">
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <br/>
-                <div class="labels show-default">
-                    <span class="square">70+ D</span>
-                    <span class="square">60 D</span>
-                    <span class="square">50-50</span>
-                    <span class="square">60 R</span>
-                    <span class="square">70+ R</span>
-                </div>
-            </div>
-            -->
         `;
     }
 }

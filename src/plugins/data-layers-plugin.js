@@ -94,7 +94,6 @@ export default function DataLayersPlugin(editor) {
     // that determine what is rendered.
 
     const demographicsOverlay = new OverlayContainer(
-        "demographics",
         state.layers,
         state.population,
         "Show demographics"
@@ -109,7 +108,6 @@ export default function DataLayersPlugin(editor) {
 
     if (state.vap) {
         const vapOverlays = new OverlayContainer(
-            "vap",
             state.layers,
             state.vap,
             "Show VAP demographics"
@@ -125,7 +123,6 @@ export default function DataLayersPlugin(editor) {
 
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(
-            "partisan",
             state.layers,
             state.elections
         );

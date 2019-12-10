@@ -11,7 +11,6 @@
 @import "components/button";
 @import "components/header-with-toggle";
 @import "components/media";
-@import "components/_legend";
 
 .option-list {
     padding: 0 1rem;
@@ -173,6 +172,12 @@ select {
 
         button {
             cursor: pointer;
+
+            &.close-button {
+                float: right;
+                border: 2px solid #000;
+                font-weight: bold;
+            }
         }
     }
 
