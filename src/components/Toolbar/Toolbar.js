@@ -176,7 +176,7 @@ function DropdownMenu(options, open) {
                         <li
                             id="${option.id || ""}"
                             class="ui-list__item"
-                            @click=${option.onClick}
+                            @click=${open ? option.onClick : null}
                         >
                             ${option.name}
                         </li>
