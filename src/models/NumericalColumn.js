@@ -7,7 +7,27 @@ export default class NumericalColumn {
         this.sum = columnRecord.sum;
         this.min = columnRecord.min;
         this.max = columnRecord.max;
-        this.breaks = columnRecord.breaks;
+        if (!columnRecord.breaks) {
+            // compatibility for plans before preset breaks
+            if (["TOTPOP", "VAP", "PERSONS", "POP100"].includes(columnRecord.key)) {
+                // absolute population numbers
+                let min = columnRecord.min,
+                    diff = columnRecord.max - min;
+                this.breaks = [
+                    min,
+                    Math.floor(min + 0.2 * diff),
+                    Math.floor(min + 0.4 * diff),
+                    Math.floor(min + 0.6 * diff),
+                    Math.floor(min + 0.8 * diff),
+                    columnRecord.max
+                ];
+            } else {
+                // percentages
+                this.breaks = [0, 0.2, 0.4, 0.6, 0.8, 1];
+            }
+        } else {
+            this.breaks = columnRecord.breaks;
+        }
 
         this.getValue = this.getValue.bind(this);
         this.formatValue = this.formatValue.bind(this);

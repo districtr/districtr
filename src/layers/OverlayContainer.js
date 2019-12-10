@@ -68,8 +68,6 @@ export default class OverlayContainer {
         document.getElementById("counts-" + this._id).style.display = "block";
         if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
-
-            let total = this.subgroups[i].max;
         } else {
             this.overlay.setColorRule(colorByFraction);
         }
