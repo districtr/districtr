@@ -24,12 +24,14 @@ export default class ColumnSet {
             this.total = new Subgroup({
                 ...total,
                 parts,
-                columnSet: this
+                columnSet: this,
+                place: place
             });
         } else {
             this.total = new SumOfColumns({
                 columns: this.subgroups,
                 columnSet: this,
+                place: place,
                 parts
             });
         }
