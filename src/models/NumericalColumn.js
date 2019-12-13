@@ -1,4 +1,5 @@
 import { numberWithCommas, sum, zeros } from "../utils";
+import { presetBreaks } from "./lib/preset-breaks";
 
 export default class NumericalColumn {
     constructor(columnRecord) {
@@ -7,8 +8,16 @@ export default class NumericalColumn {
         this.sum = columnRecord.sum;
         this.min = columnRecord.min;
         this.max = columnRecord.max;
-        if (!columnRecord.breaks) {
+
+        if (columnRecord.breaks) {
+            // presets for breaks on this column
+            this.breaks = columnRecord.breaks;
+        } else if (columnRecord.place && columnRecord.place.id) {
             // compatibility for plans before preset breaks
+            this.breaks = (presetBreaks[columnRecord.place.id] || {})[columnRecord.key];
+        }
+        if (!this.breaks) {
+            // last line of compatibility - no known presets
             if (["TOTPOP", "VAP", "PERSONS", "POP100"].includes(columnRecord.key)) {
                 // absolute population numbers
                 let min = columnRecord.min,
@@ -25,8 +34,6 @@ export default class NumericalColumn {
                 // percentages
                 this.breaks = [0, 0.2, 0.4, 0.6, 0.8, 1];
             }
-        } else {
-            this.breaks = columnRecord.breaks;
         }
 
         this.getValue = this.getValue.bind(this);

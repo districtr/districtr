@@ -38,26 +38,26 @@ export function getParts(problem) {
     return parts;
 }
 
-function getPopulation(place, parts) {
-    const population = place.columnSets.find(
+function getPopulation(unitsRecord, parts, place) {
+    const population = unitsRecord.columnSets.find(
         columnSet => columnSet.name === "Population"
     );
-    return new Population({ ...population, parts });
+    return new Population({ ...population, parts, place });
 }
 
-function getVAP(place, parts) {
-    const vap = place.columnSets.find(
+function getVAP(unitsRecord, parts, place) {
+    const vap = unitsRecord.columnSets.find(
         columnSet => columnSet.name === "Voting Age Population"
     );
     if (vap) {
-        return new Population({ ...vap, parts });
+        return new Population({ ...vap, parts, place });
     } else {
         return null;
     }
 }
 
-function getElections(place, parts) {
-    const elections = place.columnSets.filter(
+function getElections(unitsRecord, parts) {
+    const elections = unitsRecord.columnSets.filter(
         columnSet => columnSet.type === "election"
     );
     elections.forEach(election => {
@@ -81,10 +81,10 @@ function getElections(place, parts) {
         );
 }
 
-export function getColumnSets(state, unitsRecord) {
+export function getColumnSets(state, unitsRecord, place) {
     state.elections = getElections(unitsRecord, state.parts);
-    state.population = getPopulation(unitsRecord, state.parts);
-    state.vap = getVAP(unitsRecord, state.parts);
+    state.population = getPopulation(unitsRecord, state.parts, place);
+    state.vap = getVAP(unitsRecord, state.parts, place);
 
     state.columns = [
         state.population.total,

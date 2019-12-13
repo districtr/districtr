@@ -1,5 +1,5 @@
 import { divideOrZeroIfNaN } from "../utils";
-import { labelPopCount, labelPopPercent, labelZeroToHundredPercent } from "./LegendLabels";
+import { labelPopCount, labelPopPercent } from "./LegendLabels";
 
 // TODO: Include legends
 // TODO: Define a color rule interface, for extensibility and modularity.

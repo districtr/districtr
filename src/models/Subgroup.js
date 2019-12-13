@@ -6,6 +6,7 @@ export class Subgroup extends NumericalColumn {
         super(args);
         this.columnSet = columnSet;
         this.data = zeros(parts.length);
+        this.place = args.place || {};
 
         this.update = this.update.bind(this);
         this.fractionAsMapboxExpression = this.fractionAsMapboxExpression.bind(

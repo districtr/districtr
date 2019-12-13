@@ -94,7 +94,7 @@ export default class State {
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols
         );
-        this.columnSets = getColumnSets(this, units);
+        this.columnSets = getColumnSets(this, units, this.place);
 
         this.subscribers = [];
 

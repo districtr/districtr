@@ -2,7 +2,7 @@ import { SumOfColumns } from "./NumericalColumn";
 import { Subgroup } from "./Subgroup";
 
 export default class ColumnSet {
-    constructor({ subgroups, total, parts, type }, sort = true) {
+    constructor({ subgroups, total, parts, type, place }, sort = true) {
         this.type = type;
         this.subgroups = subgroups
             ? subgroups.map(
@@ -10,7 +10,8 @@ export default class ColumnSet {
                       new Subgroup({
                           ...subgroup,
                           parts,
-                          columnSet: this
+                          columnSet: this,
+                          place: place
                       })
               )
             : [];
