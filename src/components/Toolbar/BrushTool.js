@@ -1,4 +1,6 @@
 import { html } from "lit-html";
+import hotkeys from 'hotkeys-js';
+
 import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
@@ -23,6 +25,21 @@ export default class BrushTool extends Tool {
         this.brush = brush;
         this.colors = colors;
         this.options = new BrushToolOptions(brush, colors);
+
+        hotkeys.filter = ({ target }) => {
+            return (!["INPUT", "TEXTAREA"].includes(target.tagName)
+              || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
+        };
+        hotkeys(`ctrl+z,command+z,control+z`, (evt, handler) => {
+            // undo
+            this.brush.undo();
+            evt.preventDefault();
+        });
+        hotkeys(`ctrl+y,command+y,control+y`, (evt, handler) => {
+            // redo
+            this.brush.redo();
+            evt.preventDefault();
+        });
     }
     activate() {
         super.activate();
