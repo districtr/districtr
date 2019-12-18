@@ -3,6 +3,7 @@ import hotkeys from 'hotkeys-js';
 
 import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
+import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
@@ -81,30 +82,15 @@ class BrushToolOptions {
     }
     render() {
         const activeColor = this.colors[this.brush.color].id;
-        let undo = this.brush.undo,
-            redo = this.brush.redo;
         return html`
             ${this.colors.length > 1
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
                 : ""}
             ${BrushSlider(this.brush.radius, this.changeRadius)}
+            ${UndoRedo(this.brush.undo, this.brush.redo)}
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
-            <button
-                class="button button--alternate"
-                @click="${redo}"
-                style="float:right;margin-bottom:8px;"
-            >
-                Redo
-            </button>
-            <button
-                class="button button--alternate"
-                @click="${undo}"
-                style="float:right;margin-bottom:8px;"
-            >
-                Undo
-            </button>
         `;
     }
 }

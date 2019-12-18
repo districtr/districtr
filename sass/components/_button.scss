@@ -42,6 +42,15 @@
     background: $mggg-dark-blue;
 }
 
+.button--green {
+    background-color: #00cd99;
+}
+
+.button--green:hover,
+.button--green:active {
+    background: #009c6b;
+}
+
 .button--transparent {
     background: none;
     color: $mggg-blue;

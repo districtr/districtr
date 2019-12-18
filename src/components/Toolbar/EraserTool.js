@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import BrushSlider from "./BrushSlider";
+import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 export default class EraserTool extends Tool {
@@ -38,26 +39,11 @@ class EraserToolOptions {
         this.renderToolbar();
     }
     render() {
-        let undo = this.brush.undo,
-            redo = this.brush.redo;
         return html`
             ${BrushSlider(this.brush.radius, this.changeRadius, {
                 title: "Eraser Size"
             })}
-            <button
-                class="button button--alternate"
-                @click="${redo}"
-                style="float:right;margin-bottom:8px;"
-            >
-                Redo
-            </button>
-            <button
-                class="button button--alternate"
-                @click="${undo}"
-                style="float:right;margin-bottom:8px;"
-            >
-                Undo
-            </button>
+            ${UndoRedo(this.brush.undo, this.brush.redo)}
         `;
     }
 }
