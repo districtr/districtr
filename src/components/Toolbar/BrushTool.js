@@ -35,7 +35,7 @@ export default class BrushTool extends Tool {
             this.brush.undo();
             evt.preventDefault();
         });
-        hotkeys(`ctrl+y,command+y,control+y`, (evt, handler) => {
+        hotkeys(`ctrl+shift+z,command+shift+z,control+shift+z`, (evt, handler) => {
             // redo
             this.brush.redo();
             evt.preventDefault();
@@ -81,7 +81,8 @@ class BrushToolOptions {
     }
     render() {
         const activeColor = this.colors[this.brush.color].id;
-        let undo = this.brush.undo;
+        let undo = this.brush.undo,
+            redo = this.brush.redo;
         return html`
             ${this.colors.length > 1
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
@@ -90,6 +91,13 @@ class BrushToolOptions {
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
+            <button
+                class="button button--alternate"
+                @click="${redo}"
+                style="float:right;margin-bottom:8px;"
+            >
+                Redo
+            </button>
             <button
                 class="button button--alternate"
                 @click="${undo}"
