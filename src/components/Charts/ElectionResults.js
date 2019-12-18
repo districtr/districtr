@@ -52,6 +52,7 @@ export default function ElectionResults(election, parts) {
     // });
     return html`
         <h4>${election.name}</h4>
+        <strong>two-party vote share</strong>
         ${DataTable(headers, rows)}
     `;
 }
