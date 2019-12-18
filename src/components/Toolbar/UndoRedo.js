@@ -7,14 +7,14 @@ export default (undo, redo) => html`
         </legend>
         <div style="text-align: center;width:100%;">
             <button
-                class="button undo-redo"
+                class="button button--blank"
                 @click="${undo}"
                 style="margin-right:8px"
             >
                 <i class="material-icons" style="color: #000;font-size:18px;">undo</i>
             </button>
             <button
-                class="button button--green"
+                class="button button--blank"
                 @click="${redo}"
             >
                 <i class="material-icons" style="color: #000;font-size:18px;">redo</i>

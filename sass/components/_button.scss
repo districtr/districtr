@@ -42,13 +42,13 @@
     background: $mggg-dark-blue;
 }
 
-.button--green {
-    background-color: #00cd99;
+.button--blank {
+    background: #f9f9f9;
+    border: 1px solid #666;
 }
-
-.button--green:hover,
-.button--green:active {
-    background: #009c6b;
+.button--blank:hover,
+.button--blank:active {
+    background: #aaa;
 }
 
 .button--transparent {
