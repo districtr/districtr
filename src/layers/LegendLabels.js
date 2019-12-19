@@ -4,8 +4,8 @@ export function labelPopCount(subgroup) {
     let isVAP = subgroup.key.includes("VAP");
     document.querySelectorAll(`#counts-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((sq, index) => {
-            sq.innerText = subgroup.breaks[index].toLocaleString()
-                + "-"
+            sq.innerHTML = subgroup.breaks[index].toLocaleString()
+                + "<br/>-"
                 + (subgroup.breaks[index + 1] - 1).toLocaleString();
     });
 }
