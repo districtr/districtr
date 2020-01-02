@@ -34,6 +34,29 @@ const COUNTIES_LAYER = {
     }
 };
 
+const AMERINDIAN_LAYER = {
+    id: "nativeamerican",
+    source: "nativeamerican",
+    type: "line",
+    paint: {
+        "line-color": "#444444",
+        "line-width": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0,
+            0,
+            4,
+            1,
+            6,
+            2,
+            9,
+            3
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 9, 0.5]
+    }
+};
+
 export function addCountyLayer(tab, state) {
     state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
     const counties = new Layer(
@@ -55,6 +78,40 @@ export function addCountyLayer(tab, state) {
             ${toggle(`Show county boundaries`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["line-opacity"] : 0
+                )
+            )}
+        `
+    );
+}
+
+export function addAmerIndianLayer(tab, state) {
+    let nativeamerican = null;
+
+    fetch(`/assets/native_official/${state.place.state}.geojson`)
+        .then(res => res.json())
+        .then((geojson) => {
+
+        state.map.addSource('nativeamerican', {
+            type: 'geojson',
+            data: geojson
+        });
+
+        nativeamerican = new Layer(
+            state.map,
+            {
+                ...AMERINDIAN_LAYER,
+                paint: { ...AMERINDIAN_LAYER.paint, "line-opacity": 0 }
+            }
+            // , addBelowLabels
+        );
+    });
+
+    tab.addSection(
+        () => html`
+            <h4>Native American Communities</h4>
+            ${toggle(`Show Pueblos, Tribes, and Nations`, false, checked =>
+                nativeamerican.setOpacity(
+                    checked ? AMERINDIAN_LAYER.paint["line-opacity"] : 0
                 )
             )}
         `
@@ -92,6 +149,10 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
+    }
+
+    if (["New Mexico"].includes(state.place.state)) {
+        addAmerIndianLayer(tab, state);
     }
 
     // Right now we're doing all of these if statements,
