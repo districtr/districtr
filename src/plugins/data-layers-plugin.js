@@ -75,7 +75,7 @@ export function addCountyLayer(tab, state) {
 export function addAmerIndianLayer(tab, state) {
     let nativeamerican = null;
 
-    fetch(`/assets/native_official/${state.place.state}.geojson`)
+    fetch(`/assets/native_official/${state.place.id}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -89,7 +89,8 @@ export function addAmerIndianLayer(tab, state) {
             {
                 ...AMERINDIAN_LAYER,
                 paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": 0 }
-            }
+            },
+            addBelowLabels
         );
     });
 
@@ -138,7 +139,7 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (["New Mexico"].includes(state.place.state)) {
+    if (["new_mexico"].includes(state.place.id)) {
         addAmerIndianLayer(tab, state);
     }
 
