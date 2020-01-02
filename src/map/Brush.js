@@ -5,6 +5,7 @@ export default class Brush extends HoverWithRadius {
     constructor(layer, radius, color) {
         super(layer, radius);
 
+        this.id = Math.random();
         this.color = color;
         this.coloring = false;
         this.locked = false;
@@ -12,7 +13,9 @@ export default class Brush extends HoverWithRadius {
         this.listeners = {
             colorend: [],
             colorfeature: [],
-            colorop: []
+            colorop: [],
+            undo: [],
+            redo: []
         };
         bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "undo", "redo", "clearUndo"],
             this);
@@ -167,7 +170,10 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener();
+            listener(true);
+        }
+        for (let listener of this.listeners.undo) {
+            listener(this.cursorUndo <= 0);
         }
     }
     redo() {
@@ -210,7 +216,10 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener();
+            listener(true);
+        }
+        for (let listener of this.listeners.redo) {
+            listener(this.cursorUndo >= this.trackUndo.length - 1);
         }
     }
     activate() {

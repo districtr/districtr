@@ -43,7 +43,7 @@ class EraserToolOptions {
             ${BrushSlider(this.brush.radius, this.changeRadius, {
                 title: "Eraser Size"
             })}
-            ${UndoRedo(this.brush.undo, this.brush.redo)}
+            ${UndoRedo(this.brush)}
         `;
     }
 }

@@ -46,6 +46,9 @@
     background: #f9f9f9;
     border: 1px solid #666;
 }
+.button--blank[disabled] i {
+    color: #ccc !important;
+}
 .button--blank:hover,
 .button--blank:active {
     background: #aaa;
