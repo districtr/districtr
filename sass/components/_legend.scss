@@ -35,6 +35,11 @@
     margin-top: 10px;
     display: none;
 
+    small {
+        margin-bottom: 5px;
+        display: block;
+    }
+
     .labels {
         display: none;
 
@@ -54,11 +59,7 @@
         vertical-align: top;
     }
 
-    .circle {
-        border-radius: 12px;
-    }
-
-    & > .square {
+    .square-container .square {
         width: 24px;
         margin-left: 12px;
         margin-right: 12px;
@@ -69,16 +70,75 @@
           background: #fff
         }
         &:nth-child(2) {
-          background: #f0f0f0;
+          background: rgba(240, 240, 240, 0.8);
         }
         &:nth-child(3) {
-          background: #bdbdbd;
+          background: rgba(189, 189, 189, 0.8);
         }
         &:nth-child(4) {
-          background: #636363;
+          background: rgba(99, 99, 99, 0.8);
         }
         &:nth-child(5) {
-          background: #000
+          background: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    .circle-diagram {
+        display: none;
+        height: 84px;
+    }
+
+    .circle-container {
+        width: 48px;
+        height: 40px;
+        display: inline-block;
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+        .circle-2 {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            border-radius: 13px;
+            margin-left: 11px;
+            margin-right: 11px;
+            top: -31px;
+        }
+        .circle-3 {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            margin-left: 20px;
+            margin-right: 20px;
+            top: -51px;
+        }
+
+        span {
+          border: 1px solid #444;
+          display: inline-block;
+          vertical-align: baseline;
+        }
+
+        &:nth-child(2) span {
+          background: #fff;
+        }
+        &:nth-child(3) span {
+          background: #f0f0f0;
+        }
+        &:nth-child(4) span {
+          background: #bebebe;
+        }
+        &:nth-child(5) span {
+          background: #6f6f6f;
+        }
+        &:nth-child(6) span {
+          background: #262626;
         }
     }
 

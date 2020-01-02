@@ -65,12 +65,18 @@ export default class OverlayContainer {
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
-        document.getElementById("counts-" + this._id).style.display = "block";
         if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
         } else {
             this.overlay.setColorRule(colorByFraction);
         }
+        setTimeout(() => {
+            document.getElementById("counts-" + this._id).style.display = "block";
+            document.querySelector(`#circles-${this._id} .one-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.04).toLocaleString();
+            document.querySelector(`#circles-${this._id} .two-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.42).toLocaleString();
+            document.querySelector(`#circles-${this._id} .three-pop`).innerText = (this.subgroups[i].total.max - 1).toLocaleString();
+            document.querySelector(`#circles-${this._id} small`).style.visibility = i ? "visible" : "hidden";
+        }, 250);
     }
     render() {
         return html`
@@ -93,19 +99,53 @@ export default class OverlayContainer {
                     ),
                     (i) => {
                         this.overlay.setLayer(i);
-                        document.querySelectorAll(`#color-${this._id} > .square`).forEach((sq) => {
-                            sq.className = `square ${i ? 'circle' : 'block'}`;
-                        });
+                        document.querySelector(`#blocks-${this._id}`).style.display = i ? "none" : "block";
+                        document.querySelector(`#circles-${this._id}`).style.display = i ? "block" : "none";
                     }
                 )
             })}
             <div id="color-${this._id}" class="color-legend">
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <span class="square"></span>
-                <br/>
+                <div id="blocks-${this._id}" class="square-container">
+                    <span class="square"></span>
+                    <span class="square"></span>
+                    <span class="square"></span>
+                    <span class="square"></span>
+                    <span class="square"></span>
+                </div>
+                <div id="circles-${this._id}" class="circle-diagram">
+                    <small>
+                        size proportional to total population
+                        <br/>
+                        <span class="one-pop">4/20</span> -
+                        <span class="two-pop">13/20</span> -
+                        <span class="three-pop">20/20</span>
+                    </small>
+                    <div class="circle-container">
+                      <span class="circle"></span>
+                      <span class="circle-2"></span>
+                      <span class="circle-3"></span>
+                    </div>
+                    <div class="circle-container">
+                      <span class="circle"></span>
+                      <span class="circle-2"></span>
+                      <span class="circle-3"></span>
+                    </div>
+                    <div class="circle-container">
+                      <span class="circle"></span>
+                      <span class="circle-2"></span>
+                      <span class="circle-3"></span>
+                    </div>
+                    <div class="circle-container">
+                      <span class="circle"></span>
+                      <span class="circle-2"></span>
+                      <span class="circle-3"></span>
+                    </div>
+                    <div class="circle-container">
+                      <span class="circle"></span>
+                      <span class="circle-2"></span>
+                      <span class="circle-3"></span>
+                    </div>
+                </div>
                 <div id="counts-${this._id}" class="labels">
                     <span class="square">0</span>
                     <span class="square">1</span>

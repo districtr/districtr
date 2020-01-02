@@ -5,7 +5,7 @@ export function labelPopCount(subgroup) {
     document.querySelectorAll(`#counts-${isVAP ? "vap" : "demographics"} .square`)
         .forEach((sq, index) => {
             sq.innerHTML = subgroup.breaks[index].toLocaleString()
-                + "<br/>-"
+                + "-<br/>"
                 + (subgroup.breaks[index + 1] - 1).toLocaleString();
     });
 }
@@ -30,8 +30,8 @@ export function labelPopPercent(subgroup) {
             let startPercent = cropToDecimal(subgroup.breaks[index] * 100, false);
             let endPercent = cropToDecimal(subgroup.breaks[index + 1] * 100, index < 4);
 
-            square.innerText = startPercent
-                + "-"
+            square.innerHTML = startPercent
+                + "-<br/>"
                 + endPercent + "%";
         });
 }
