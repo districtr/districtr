@@ -37,23 +37,11 @@ const COUNTIES_LAYER = {
 const AMERINDIAN_LAYER = {
     id: "nativeamerican",
     source: "nativeamerican",
-    type: "line",
+    type: "fill",
     paint: {
-        "line-color": "#444444",
-        "line-width": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            0,
-            0,
-            4,
-            1,
-            6,
-            2,
-            9,
-            3
-        ],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 9, 0.5]
+        "fill-outline-color": "#444444",
+        "fill-color": "#444444",
+        "fill-opacity": 0.3
     }
 };
 
@@ -77,7 +65,7 @@ export function addCountyLayer(tab, state) {
             <h4>Counties</h4>
             ${toggle(`Show county boundaries`, false, checked =>
                 counties.setOpacity(
-                    checked ? COUNTIES_LAYER.paint["line-opacity"] : 0
+                    checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 )
             )}
         `
@@ -100,9 +88,8 @@ export function addAmerIndianLayer(tab, state) {
             state.map,
             {
                 ...AMERINDIAN_LAYER,
-                paint: { ...AMERINDIAN_LAYER.paint, "line-opacity": 0 }
+                paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": 0 }
             }
-            // , addBelowLabels
         );
     });
 
@@ -111,7 +98,7 @@ export function addAmerIndianLayer(tab, state) {
             <h4>Native American Communities</h4>
             ${toggle(`Show Pueblos, Tribes, and Nations`, false, checked =>
                 nativeamerican.setOpacity(
-                    checked ? AMERINDIAN_LAYER.paint["line-opacity"] : 0
+                    checked ? AMERINDIAN_LAYER.paint["fill-opacity"] : 0
                 )
             )}
         `
