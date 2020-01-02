@@ -46,12 +46,13 @@ const AMERINDIAN_LAYER = {
 };
 
 export function addCountyLayer(tab, state) {
+    let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
     state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
     const counties = new Layer(
         state.map,
         {
             ...COUNTIES_LAYER,
-            paint: { ...COUNTIES_LAYER.paint, "line-opacity": 0 },
+            paint: { ...COUNTIES_LAYER.paint, "line-opacity": startFill },
             filter: [
                 "==",
                 ["get", "STATEFP"],
@@ -73,7 +74,8 @@ export function addCountyLayer(tab, state) {
 }
 
 export function addAmerIndianLayer(tab, state) {
-    let nativeamerican = null;
+    let nativeamerican = null,
+        startFill = window.location.search.includes("native=true") ? 0.3 : 0;
 
     fetch(`/assets/native_official/${state.place.id}.geojson`)
         .then(res => res.json())
@@ -88,7 +90,7 @@ export function addAmerIndianLayer(tab, state) {
             state.map,
             {
                 ...AMERINDIAN_LAYER,
-                paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": 0 }
+                paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
             },
             addBelowLabels
         );
