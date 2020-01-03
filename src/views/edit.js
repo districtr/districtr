@@ -119,7 +119,7 @@ function loadContext(context) {
         window.history.replaceState({}, "Districtr", shortPlanName);
     }
 
-    // block of event handlers; drop a plan JSON file onto the map
+    // block of event handlers; drop a file onto the map
     function planHandler(f) {
         let plan = f.getAsFile();
         if (plan.name.includes(".json") || plan.name.includes(".csv")) {

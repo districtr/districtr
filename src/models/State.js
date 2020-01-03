@@ -92,7 +92,8 @@ export default class State {
         this.initializeMapState(
             map,
             units,
-            problem.type === "community" ? addBelowLabels : addBelowSymbols
+            problem.type === "community" ? addBelowLabels : addBelowSymbols,
+            problem.type === "community" ? place.id : null
         );
         this.columnSets = getColumnSets(this, units);
 
@@ -110,12 +111,13 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, unitsRecord, layerAdder) {
+    initializeMapState(map, unitsRecord, layerAdder, borderId) {
         const { units, unitsBorders, points } = addLayers(
             map,
             this.parts,
             unitsRecord.tilesets,
-            layerAdder
+            layerAdder,
+            borderId
         );
 
         this.units = units;

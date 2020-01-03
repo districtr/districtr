@@ -68,7 +68,7 @@ function addPoints(map, tileset) {
     });
 }
 
-export function addLayers(map, parts, tilesets, layerAdder) {
+export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
     }
@@ -84,6 +84,35 @@ export function addLayers(map, parts, tilesets, layerAdder) {
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
+
+    // cities in Communities of Interest will have a thick border
+    if (borderId) {
+        fetch(`/assets/city_border/${borderId}.geojson`).then(res => res.json())
+            .catch(err => {})
+            .then((geojson) => {
+
+            console.log(JSON.stringify(geojson, null, 0));
+
+            map.addSource('city_border', {
+                type: 'geojson',
+                data: geojson
+            });
+
+            new Layer(
+                map,
+                {
+                    id: "city_border",
+                    source: "city_border",
+                    type: "line",
+                    paint: {
+                        "line-color": "#000",
+                        "line-opacity": 0.7,
+                        "line-width": 3
+                    }
+                }
+            );
+        });
+    }
 
     return { units, unitsBorders, points };
 }
