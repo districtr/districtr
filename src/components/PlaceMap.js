@@ -262,6 +262,12 @@ export function PlaceMap(features, selectedId) {
             history.replaceState({}, "Districtr", defaultHistoryState);
         }
     });
+    document.addEventListener("keyup", (e) => {
+        let selectedState = window.location.pathname.split("/").slice(-1)[0];
+        if (selectedState.length === 2 && e.keyCode === 27) {
+            history.back();
+        }
+    });
     const selectedFeature = selectedId
         ? features.features.find(
               feature => feature.properties.STUSPS.toLowerCase() === selectedId
