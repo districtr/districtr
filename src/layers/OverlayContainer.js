@@ -70,13 +70,11 @@ export default class OverlayContainer {
         } else {
             this.overlay.setColorRule(colorByFraction);
         }
-        setTimeout(() => {
-            document.getElementById("counts-" + this._id).style.display = "block";
-            document.querySelector(`#circles-${this._id} .one-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.04).toLocaleString();
-            document.querySelector(`#circles-${this._id} .two-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.42).toLocaleString();
-            document.querySelector(`#circles-${this._id} .three-pop`).innerText = (this.subgroups[i].total.max - 1).toLocaleString();
-            document.querySelector(`#circles-${this._id} small`).style.visibility = i ? "visible" : "hidden";
-        }, 250);
+
+        // 8-20-32
+        document.querySelector(`#circles-${this._id} .one-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.04).toLocaleString();
+        document.querySelector(`#circles-${this._id} .two-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.25).toLocaleString();
+        document.querySelector(`#circles-${this._id} .three-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.64).toLocaleString();
     }
     render() {
         return html`
@@ -111,47 +109,48 @@ export default class OverlayContainer {
                     <span class="square"></span>
                     <span class="square"></span>
                     <span class="square"></span>
+
+                    <div class="labels counts-${this._id}">
+                        <span class="square">0</span>
+                        <span class="square">1</span>
+                        <span class="square">2</span>
+                        <span class="square">3</span>
+                        <span class="square">4</span>
+                    </div>
                 </div>
                 <div id="circles-${this._id}" class="circle-diagram">
-                    <small>
-                        size proportional to total population
-                        <br/>
-                        <span class="one-pop">4/20</span> -
-                        <span class="two-pop">13/20</span> -
-                        <span class="three-pop">20/20</span>
-                    </small>
-                    <div class="circle-container">
-                      <span class="circle"></span>
-                      <span class="circle-2"></span>
-                      <span class="circle-3"></span>
+                    <div class="labels counts-${this._id}">
+                        <span class="pop-label">Total Pop</span>
+                        <span class="square">0</span>
+                        <span class="square">1</span>
+                        <span class="square">2</span>
+                        <span class="square">3</span>
+                        <span class="square">4</span>
                     </div>
                     <div class="circle-container">
-                      <span class="circle"></span>
-                      <span class="circle-2"></span>
-                      <span class="circle-3"></span>
+                        <span class="pop-label three-pop">100x</span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
                     </div>
                     <div class="circle-container">
-                      <span class="circle"></span>
-                      <span class="circle-2"></span>
-                      <span class="circle-3"></span>
+                        <span class="pop-label two-pop">100x</span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
                     </div>
                     <div class="circle-container">
-                      <span class="circle"></span>
-                      <span class="circle-2"></span>
-                      <span class="circle-3"></span>
+                        <span class="pop-label one-pop">100x</span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
+                        <span class="circle square"></span>
                     </div>
-                    <div class="circle-container">
-                      <span class="circle"></span>
-                      <span class="circle-2"></span>
-                      <span class="circle-3"></span>
-                    </div>
-                </div>
-                <div id="counts-${this._id}" class="labels">
-                    <span class="square">0</span>
-                    <span class="square">1</span>
-                    <span class="square">2</span>
-                    <span class="square">3</span>
-                    <span class="square">4</span>
                 </div>
             </div>
         `;

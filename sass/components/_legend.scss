@@ -35,36 +35,30 @@
     margin-top: 10px;
     display: none;
 
-    small {
-        margin-bottom: 5px;
-        display: block;
-    }
-
     .labels {
-        display: none;
-
-        &.show-default {
-            display: block;
-        }
-
         .square {
             font-size: 10pt;
         }
+    }
+
+    .pop-label {
+        font-size: 10pt;
+        width: 30px;
+        display: inline-block;
     }
 
     .square {
         width: 48px;
         height: 24px;
         display: inline-block;
-        vertical-align: top;
     }
 
-    .square-container .square {
+    .square-container > .square, .circle-container .circle {
         width: 24px;
         margin-left: 12px;
         margin-right: 12px;
-
         border: 1px solid #444;
+        vertical-align: middle;
 
         &:nth-child(1) {
           background: #fff
@@ -85,60 +79,49 @@
 
     .circle-diagram {
         display: none;
-        height: 84px;
     }
 
     .circle-container {
-        width: 48px;
         height: 40px;
-        display: inline-block;
 
         .circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            margin-left: 4px;
-            margin-right: 4px;
-        }
-        .circle-2 {
-            position: relative;
-            width: 26px;
-            height: 26px;
-            border-radius: 13px;
-            margin-left: 11px;
-            margin-right: 11px;
-            top: -31px;
-        }
-        .circle-3 {
-            position: relative;
-            width: 8px;
-            height: 8px;
-            border-radius: 4px;
-            margin-left: 20px;
-            margin-right: 20px;
-            top: -51px;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            margin-left: 8px;
+            margin-right: 8px;
+            border: 1px solid #444;
+            display: inline-block;
+            vertical-align: center;
         }
 
-        span {
-          border: 1px solid #444;
-          display: inline-block;
-          vertical-align: baseline;
+        &:nth-child(2) {
+            margin-top: 14px;
         }
 
-        &:nth-child(2) span {
-          background: #fff;
+        &:nth-child(3) {
+            height: 33px;
+            padding-top: 6px;
+
+            .circle {
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                margin-left: 14px;
+                margin-right: 14px;
+            }
         }
-        &:nth-child(3) span {
-          background: #f0f0f0;
-        }
-        &:nth-child(4) span {
-          background: #bebebe;
-        }
-        &:nth-child(5) span {
-          background: #6f6f6f;
-        }
-        &:nth-child(6) span {
-          background: #262626;
+
+        &:nth-child(4) {
+            height: 14px;
+
+            .circle {
+                width: 8px;
+                height: 8px;
+                border-radius: 4px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
         }
     }
 
