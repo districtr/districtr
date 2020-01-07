@@ -1289,6 +1289,249 @@
       }
     ]
   },
+    {
+    "name": "Chicago2",
+    "state": "Illinois",
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 4340164,
+              "min": 0,
+              "max": 11309
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 1792902,
+                "min": 0,
+                "max": 5260
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1229798,
+                "min": 0,
+                "max": 7555
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1099362,
+                "min": 0,
+                "max": 2805
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 152830,
+                "min": 0,
+                "max": 2181
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 5645,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 850,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 52962,
+                "min": 0,
+                "max": 120
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 5815,
+                "min": 0,
+                "max": 35
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3278906,
+              "min": 0,
+              "max": 10787
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1492102,
+                "min": 0,
+                "max": 3935
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 893898,
+                "min": 0,
+                "max": 7368
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 725041,
+                "min": 0,
+                "max": 1880
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 4350,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 698,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 127707,
+                "min": 0,
+                "max": 1728
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 3774,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 31336,
+                "min": 0,
+                "max": 94
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 2846130,
+              "min": 0,
+              "max": 10690
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 1423842,
+                "min": 0,
+                "max": 3810
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 889725,
+                "min": 0,
+                "max": 8110
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 424399,
+                "min": 0,
+                "max": 1385
+              },
+              {
+                "key": "ACVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 85357,
+                "min": 0,
+                "max": 860
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "ID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -88.2515,
+            40.9946
+          ],
+          [
+            -87.5237,
+            42.0252
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.chicago2_block_groups"
+            },
+            "sourceLayer": "chicago2_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.chicago2_block_groups_points"
+            },
+            "sourceLayer": "chicago2_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "id": "chicago2",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "units": [
+          "blocks"
+        ],
+        "numberOfParts": 5,
+        "pluralNoun": "Wards"
+      },
+      {
+        "name": "City Council",
+        "units": [
+          "block_groups"
+        ],
+        "numberOfParts": 6,
+        "pluralNoun": "Wards"
+      }
+    ]
+  },
   {
     "state": "Colorado",
     "units": [
@@ -4550,7 +4793,7 @@
     "state": "Michigan",
     "name": "Michigan"
   },
-    {
+  {
     "name": "Minnesota",
     "state": "Minnesota",
     "id": "minnesota",
