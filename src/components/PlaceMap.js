@@ -21,7 +21,7 @@ const available = [
     "Michigan",
     "Minnesota",
     "Iowa",
-    "Missouri",
+    // "Missouri",
     "Mississippi",
     "Illinois",
     "Texas",
