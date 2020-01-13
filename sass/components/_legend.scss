@@ -53,6 +53,57 @@
         display: inline-block;
     }
 
+    .raw-count {
+        /* 2D legend (Percent x Total Population) except when Total Population */
+        .pop-label {
+            display: none;
+        }
+
+        .circle-container {
+            display: none;
+
+            &:nth-child(2) {
+                display: block;
+
+                .circle:nth-child(2) {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 4px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+                .circle:nth-child(3) {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                    margin-left: 16px;
+                    margin-right: 16px;
+                }
+                .circle:nth-child(4) {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 12px;
+                    margin-left: 12px;
+                    margin-right: 12px;
+                }
+                .circle:nth-child(5) {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 16px;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                }
+                .circle:nth-child(6) {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+
     .square-container > .square, .circle-container .circle {
         width: 24px;
         margin-left: 12px;
@@ -60,19 +111,19 @@
         border: 1px solid #444;
         vertical-align: middle;
 
-        &:nth-child(1) {
+        &:nth-child(2) {
           background: #fff
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
           background: rgba(240, 240, 240, 0.8);
         }
-        &:nth-child(3) {
+        &:nth-child(4) {
           background: rgba(189, 189, 189, 0.8);
         }
-        &:nth-child(4) {
+        &:nth-child(5) {
           background: rgba(99, 99, 99, 0.8);
         }
-        &:nth-child(5) {
+        &:nth-child(6) {
           background: rgba(0, 0, 0, 0.8);
         }
     }

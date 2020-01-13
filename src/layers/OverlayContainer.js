@@ -71,7 +71,10 @@ export default class OverlayContainer {
             this.overlay.setColorRule(colorByFraction);
         }
 
-        // 8-20-32
+        // circle legend is 2D (percent x population total) except for population total itself
+        document.querySelector(`#circles-${this._id}`).className = "circle-diagram " + (i ? "" : "raw-count");
+
+        // widths 8-20-32, out of max width 40
         document.querySelector(`#circles-${this._id} .one-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.04).toLocaleString();
         document.querySelector(`#circles-${this._id} .two-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.25).toLocaleString();
         document.querySelector(`#circles-${this._id} .three-pop`).innerText = Math.round(this.subgroups[i].total.max * 0.64).toLocaleString();
@@ -104,6 +107,7 @@ export default class OverlayContainer {
             })}
             <div id="color-${this._id}" class="color-legend">
                 <div id="blocks-${this._id}" class="square-container">
+                    <span></span> <!-- empty firstchild for circle legend consistency -->
                     <span class="square"></span>
                     <span class="square"></span>
                     <span class="square"></span>
