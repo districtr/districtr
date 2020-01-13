@@ -136,7 +136,7 @@ export function loadPlanFromCSV(assignmentList, state) {
             partCount = cols[3],
             pluralType = cols[4];
         if (unitId.includes("_")) {
-            unitId = unitId.split("_")[1];
+            unitId = unitId.split("_").slice(1).join("_");
         }
 
         if (placeId !== state.place.id) {
