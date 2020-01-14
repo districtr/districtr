@@ -4,6 +4,7 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
+import NumberMarkers from "../map/NumberMarkers";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download } from "../utils";
@@ -14,8 +15,11 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
-    brush.on("colorop", () => {
+
+    let planNumbers = NumberMarkers(state, brush);
+    brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
+        planNumbers.update(state, colorsAffected);
     });
 
     let tools = [

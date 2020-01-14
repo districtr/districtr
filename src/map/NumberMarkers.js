@@ -1,0 +1,128 @@
+import Layer from "./Layer";
+
+export default function NumberMarkers(state, brush) {
+    if (!state.problem || !state.problem.numberOfParts) {
+        console.log("no numberOfParts for NumberMarkers");
+        return;
+    }
+
+    let numberMarkers = {},
+        canv = document.createElement("canvas"),
+        ctx = canv.getContext("2d"),
+        i = 0,
+        districts = [],
+        map = state.units.map;
+    canv.height = 30;
+    while (i < state.problem.numberOfParts) {
+        districts.push(i);
+        i++;
+    }
+    districts.forEach((dnum) => {
+        canv.width = 30;
+        ctx.strokeStyle = "#000";
+        ctx.fillStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.arc(15, 15, 12, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#000";
+        ctx.font = "16px sans-serif";
+        ctx.fillText(
+            dnum + 1,
+            15 - ctx.measureText(dnum + 1).width / 2,
+            21
+        );
+        // if (!dnum) {
+        //     console.log(canv.toDataURL());
+        // }
+
+        map.addSource("number_source_" + dnum, {
+            type: "geojson",
+            data: { type: "FeatureCollection", features: [] }
+        });
+        map.loadImage(canv.toDataURL(), (err, numberimg) => {
+            if (err) {
+                throw err;
+            }
+            map.addImage("number_icon_" + dnum, numberimg);
+            new Layer(
+                map,
+                {
+                    id: "number_layer_" + dnum,
+                    source: "number_source_" + dnum,
+                    type: "symbol", // circle
+                    // paint: {
+                    //     'circle-opacity': 1,
+                    //     'circle-radius': 8,
+                    //     'circle-color': '#f00'
+                    // }
+                    layout: {
+                        "icon-image": "number_icon_" + dnum,
+                        "icon-size": 1
+                    }
+                }
+            );
+        });
+    });
+
+    const updater = (state, colorsAffected) => {
+        let plan = state.plan,
+            place = state.place.id;
+        if (plan && plan.assignment) {
+            let markers = {},
+                seenDistricts = new Set();
+
+            // figure out which units belong to colors affected by the edit
+            Object.keys(plan.assignment).forEach((unit_id) => {
+                if (plan.assignment[unit_id] === null) {
+                    return;
+                }
+                let district_num = Number(plan.assignment[unit_id]);
+                seenDistricts.add(district_num);
+                if (
+                    (district_num || (district_num === 0))
+                    && (!colorsAffected || colorsAffected.has(district_num))
+                ) {
+                    if (markers[district_num]) {
+                        markers[district_num].push(unit_id);
+                    } else {
+                        markers[district_num] = [unit_id];
+                    }
+                }
+            });
+
+            Object.keys(markers).forEach((district_num) => {
+                // up to 100 random GEOIDs in GET url
+                // have requested help to POST
+                let filterOdds = 100 / markers[district_num].length;
+                if (filterOdds < 1) {
+                    markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
+                }
+
+                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${place}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
+                    let latlng = centroid[0][`merged_${place}`].split(" "),
+                        lat = latlng[1].split(")")[0] * 1,
+                        lng = latlng[0].split("(")[1] * 1;
+                    if (numberMarkers[district_num]) {
+                        numberMarkers[district_num].geometry.coordinates = [lng, lat];
+                    } else {
+                        numberMarkers[district_num] = {
+                            type: "Feature",
+                            geometry: { type: "Point", coordinates: [lng, lat] }
+                        };
+                    }
+                    map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
+                });
+            });
+
+            // remove a number marker if the district has no units left on the map
+            Object.keys(numberMarkers).forEach((previous_dnum) => {
+                if (!seenDistricts.has(1 * previous_dnum)) {
+                    map.getSource("number_source_" + previous_dnum).setData({ type: "FeatureCollection", features: [] });
+                }
+            });
+        }
+    };
+    updater(state);
+    return { update: updater };
+}
