@@ -91,8 +91,6 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
             .catch(err => {})
             .then((geojson) => {
 
-            console.log(JSON.stringify(geojson, null, 0));
-
             map.addSource('city_border', {
                 type: 'geojson',
                 data: geojson
