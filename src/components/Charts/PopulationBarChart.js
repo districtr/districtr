@@ -64,12 +64,14 @@ const horizontalBarChart = (population, parts) => {
                 : ""
         }
     ${data.map((d, i) => {
-        const barW = barLength(d, maxValue);
+        let barW = barLength(d, maxValue),
+              textX = barW + 2 * gap;
         return Math.round(d) > 0
             ? svg`
     <text
-        style="font-size: ${textHeight}px"
-        x="${barW + 2 * gap}"
+        style="font-size: ${textHeight}px;${(textX <= 240) || ('font-weight:bold;fill:#f00;')}"
+        x="${(textX > 240) ? 300 : textX}"
+        text-anchor="${(textX > 240) ? 'end' : 'start'}"
         y="${i * (w + gap) +
             w -
             (w + gap - textHeight) / 2}">${numberWithCommas(
