@@ -112,6 +112,13 @@ export function loadPlanFromJSON(planRecord) {
         console.log(planRecord.msg);
         planRecord = planRecord.plan;
     }
+    Object.keys(planRecord.assignment).forEach((key) => {
+        if (String(key).includes('÷')) {
+            let newKey = key.replace(/÷/g, ".");
+            planRecord.assignment[newKey] = planRecord.assignment[key];
+            delete planRecord.assignment[key];
+        }
+    });
     return listPlaces().then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         return {
