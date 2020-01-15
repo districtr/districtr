@@ -1591,6 +1591,327 @@
     "name": "Colorado"
   },
   {
+    "name": "Hawaii",
+    "id": "hawaii",
+    "state": "Hawaii",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1360299,
+              "min": 0,
+              "max": 21059
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 309343,
+                "min": 0,
+                "max": 10263
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 19904,
+                "min": 0,
+                "max": 2306
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 120842,
+                "min": 0,
+                "max": 3191
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 513294,
+                "min": 0,
+                "max": 8273
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2823,
+                "min": 0,
+                "max": 216
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 128222,
+                "min": 0,
+                "max": 4970
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 263983,
+                "min": 0,
+                "max": 5597
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 1888,
+                "min": 0,
+                "max": 59
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1056481,
+              "min": 0,
+              "max": 14447
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 269530,
+                "min": 0,
+                "max": 7569
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 15662,
+                "min": 0,
+                "max": 1538
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 75574,
+                "min": 0,
+                "max": 1755
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2323,
+                "min": 0,
+                "max": 151
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 90694,
+                "min": 0,
+                "max": 3429
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 434573,
+                "min": 0,
+                "max": 6494
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1363,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 166762,
+                "min": 0,
+                "max": 3513
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 112035,
+                "min": 0,
+                "max": 2280
+              },
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 276316,
+                "min": 0,
+                "max": 3118
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 131719,
+                "min": 0,
+                "max": 2545
+              },
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 244934,
+                "min": 0,
+                "max": 2729
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 87348,
+                "min": 0,
+                "max": 1924
+              },
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 287921,
+                "min": 0,
+                "max": 3202
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 85626,
+                "min": 0,
+                "max": 1663
+              },
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 445348,
+                "min": 0,
+                "max": 6164
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 92653,
+                "min": 0,
+                "max": 1609
+              },
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 306604,
+                "min": 0,
+                "max": 3330
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 128847,
+                "min": 0,
+                "max": 2178
+              },
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 266891,
+                "min": 0,
+                "max": 2924
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "NAME"
+        },
+        "bounds": [
+          [
+            -160.2459,
+            18.9107
+          ],
+          [
+            -154.8067,
+            22.2327
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.hawaii_precincts"
+            },
+            "sourceLayer": "hawaii_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.hawaii_precincts_points"
+            },
+            "sourceLayer": "hawaii_precincts_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 2,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 25,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 51,
+        "pluralNoun": "State House Districts"
+      }
+    ]
+  },
+  {
     "state": "Iowa",
     "id": "iowa",
     "units": [
