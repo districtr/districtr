@@ -209,10 +209,10 @@ async function validateUnits(unit, index, plan) {
                 console.error("MapBox layer " + tset + " was surprisingly small file");
                 process.exit(1);
             }
-            if (content.private) {
-                console.error("MapBox layer " + tset + " was private");
-                process.exit(1);
-            }
+            // if (content.private) {
+            //    console.error("MapBox layer " + tset + " was private");
+            //    process.exit(1);
+            //}
             let fields = Object.keys(content.vector_layers[0].fields);
 
             // check ID and name column present
