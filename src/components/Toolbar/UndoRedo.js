@@ -24,7 +24,7 @@ export default (brush) => {
         }
     });
     return html`
-        <div class="ui-option" style="padding-top:8px">
+        <div class="ui-option undoredo-option">
             <legend class="ui-label ui-label--row">
                 Undo / Redo
             </legend>

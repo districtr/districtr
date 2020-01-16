@@ -87,10 +87,10 @@ class BrushToolOptions {
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
                 : ""}
             ${BrushSlider(this.brush.radius, this.changeRadius)}
-            ${UndoRedo(this.brush)}
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
+            ${UndoRedo(this.brush)}
         `;
     }
 }

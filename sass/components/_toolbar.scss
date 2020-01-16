@@ -283,6 +283,11 @@ li:first-child > input:checked ~ .tabs__tab {
     justify-content: space-between;
     align-items: center;
     margin: 0.5rem 0;
+
+    &.undoredo-option {
+        padding-top: 8px;
+        border-top:1px solid silver;
+    }
 }
 
 .ui-option--slim {
