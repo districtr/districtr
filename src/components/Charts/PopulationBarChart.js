@@ -69,7 +69,7 @@ const horizontalBarChart = (population, parts) => {
         return Math.round(d) > 0
             ? svg`
     <text
-        style="font-size: ${textHeight}px;${(textX <= 240) || ('font-weight:bold;fill:#f00;')}"
+        style="font-size: ${textHeight}px;${(textX <= 240) || ('font-weight:bold;')}"
         x="${(textX > 240) ? 300 : textX}"
         text-anchor="${(textX > 240) ? 'end' : 'start'}"
         y="${i * (w + gap) +
