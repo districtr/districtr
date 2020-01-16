@@ -1,6 +1,9 @@
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
  * the value = 1. #f9f9f9 is the same as rgba(0, 0, 0, 0.02), so we map the 0-to-1
@@ -40,7 +43,7 @@ export default (subgroups, parts) => {
         entries: subgroups.map(subgroup => getCell(subgroup, part, width))
     }));
     rows.push({
-        label: "Overall",
+        label: i18n.editor.evaluation.overall,
         entries: subgroups.map(subgroup => getCell(subgroup, null, width))
     });
     return DataTable(headers, rows);

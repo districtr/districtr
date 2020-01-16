@@ -3,6 +3,9 @@ import { html } from "lit-html";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 /**
  * Get the style property for a cell in the ElectionResults table,
  * based on which party's vote percentage is written in it and
@@ -43,7 +46,7 @@ export default function ElectionResults(election, parts) {
         entries: election.parties.map(party => getCell(party, part))
     }));
     rows.push({
-        label: "Overall",
+        label: i18n.editor.evaluation.overall,
         entries: election.parties.map(party => getCell(party, null))
     });
     // rows.push({

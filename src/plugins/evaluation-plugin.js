@@ -2,20 +2,24 @@ import ElectionResultsSection from "../components/Charts/ElectionResultsSection"
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import { Tab } from "../components/Tab";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
 
-    const tab = new Tab("evaluation", "Evaluation", editor.store);
+    const tab = new Tab("evaluation", i18n.editor.evaluation.evaluation, editor.store);
 
     if (state.population.subgroups.length > 1) {
+        let label = i18n.editor.evaluation.balance.replace("VARIABLE", i18n.editor.evaluation.racial);
         tab.addRevealSection(
-            "Racial Balance",
+            label,
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "Racial Balance",
+                    label,
                     state.population,
                     state.activeParts,
-                    uiState.charts["Racial Balance"],
+                    uiState.charts[label],
                     dispatch
                 ),
             {
@@ -25,14 +29,15 @@ export default function EvaluationPlugin(editor) {
         );
     }
     if (state.vap) {
+        let label = i18n.editor.evaluation.balance.replace("VARIABLE", i18n.editor.evaluation.vap);
         tab.addRevealSection(
-            "VAP Balance",
+            label,
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "VAP Balance",
+                    label,
                     state.vap,
                     state.activeParts,
-                    uiState.charts["VAP Balance"],
+                    uiState.charts[label],
                     dispatch
                 ),
             {
@@ -43,7 +48,7 @@ export default function EvaluationPlugin(editor) {
     }
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance",
+            i18n.editor.evaluation.balance.replace("VARIABLE", i18n.editor.evaluation.partisan),
             (uiState, dispatch) =>
                 ElectionResultsSection(
                     state.elections,

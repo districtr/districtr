@@ -5,6 +5,9 @@ import Tool from "./Tool";
 import Select from "../Select";
 import { TooltipContent } from "../Charts/TooltipContent";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 export default class InspectTool extends Tool {
     constructor(units, columnSets, nameColumn, unitsRecord, parts) {
         super(
@@ -66,14 +69,14 @@ class InspectToolOptions {
     render() {
         return html`
             <div class="ui-option">
-                <legend class="ui-label ui-label--row">Tooltip Data</legend>
+                <legend class="ui-label ui-label--row">${i18n.editor.tools.tooltip}</legend>
                 ${Select(
                     this.inspectTool.columnSets,
                     this.inspectTool.changeColumnSetByIndex
                 )}
             </div>
             ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {
-                title: "Spotlight Size"
+                title: "spotlight_size"
             })}
         `;
     }

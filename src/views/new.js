@@ -4,6 +4,9 @@ import { until } from "lit-html/directives/until";
 import PlanUploader from "../components/PlanUploader";
 import { loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default function renderNewPlanView() {
     const uploadPlan = new PlanUploader(fileContent => {
         loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
@@ -16,7 +19,7 @@ export default function renderNewPlanView() {
         html`
             <div class="start-districting start-districting--alone">
                 <h1 class="start-districting__title section__heading">
-                    Where would you like to redistrict?
+                    ${i18n.new_map.title}
                 </h1>
                 ${until(PlaceMapWithData(), "")}
             </div>

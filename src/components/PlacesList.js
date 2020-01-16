@@ -4,6 +4,9 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 import { startNewPlan } from "../routes";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 let _placesCache = {};
 let _placesList = null;
 let justCommunities = false;
@@ -105,10 +108,10 @@ export function placeItems(place, onClick) {
                     >
                         <div class="place-name">${place.name}</div>
                         ${getProblemInfo(problem)}
-                        ${units.unitType
+                        ${i18n.new_map[units.unitType]
                             ? html`
                                   <div class="place-info">
-                                      Built out of ${units.name.toLowerCase()}
+                                      ${i18n.new_map.built_with} ${i18n.new_map[units.name.toLowerCase()]}
                                   </div>
                               `
                             : ""}

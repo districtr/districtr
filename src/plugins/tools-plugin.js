@@ -8,6 +8,9 @@ import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download } from "../utils";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
     const brush = new Brush(state.units, 20, 0);
@@ -78,11 +81,11 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 function getMenuItems(state) {
     let items = [
         {
-            name: "About this module",
+            name: i18n.editor.menu.about,
             onClick: () => renderAboutModal(state, true)
         },
         {
-            name: "Districtr homepage",
+            name: i18n.editor.menu.homepage,
             onClick: () => {
                 if (window.confirm("Would you like to return to the Districtr homepage?")) {
                     window.location.href = "/";
@@ -90,20 +93,20 @@ function getMenuItems(state) {
             }
         },
         {
-            name: "New plan",
+            name: i18n.editor.menu.new,
             onClick: () => navigateTo("/new")
         },
         {
-            name: "Export this plan",
+            name: i18n.editor.menu.export,
             onClick: () => exportPlanAsJSON(state)
         },
         {
-            name: "Export as assignment CSV",
+            name: i18n.editor.menu.export_csv,
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {
             id: "mobile-upload",
-            name: "Share plan",
+            name: i18n.editor.menu.share,
             onClick: () => renderSaveModal(state, savePlanToDB)
         }
     ];

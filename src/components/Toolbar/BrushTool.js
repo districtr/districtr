@@ -3,6 +3,9 @@ import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
 import Tool from "./Tool";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 const icon = (active, colorId, colors) => {
     if (active && colorId !== undefined) {
         return html`
@@ -86,7 +89,7 @@ const BrushLock = (locked, toggle) => html`
                 ?checked=${locked}
                 @change=${toggle}
             />
-            Lock already-drawn districts
+            ${i18n.editor.tools.lock_districts}
         </label>
     </div>
 `;

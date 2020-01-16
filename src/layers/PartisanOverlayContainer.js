@@ -5,9 +5,17 @@ import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default class PartisanOverlayContainer {
     constructor(layers, elections) {
-        this.elections = elections;
+        this.elections = elections.map(e => {
+            let year = e.name.match(/\d+/)[0],
+                office = e.name.replace(year, "").replace("Election", "").trim();
+            e.name = i18n.elections.election_type.replace("OFFICE", i18n.elections[office] || office).replace("YEAR", year);
+            return e;
+        });
         this.layers = layers;
         this.electionOverlays = elections.map(
             election => new PartisanOverlay(layers, election)
@@ -57,13 +65,13 @@ export default class PartisanOverlayContainer {
         return html`
             <h4>Partisanship</h4>
             <div class="ui-option ui-option--slim">
-                ${toggle(`Show partisan lean`, overlay.isVisible, checked =>
+                ${toggle(i18n.editor.layers.show_partisan, overlay.isVisible, checked =>
                     this.toggleVisibility(checked)
                 )}
             </div>
             ${[
                 {
-                    label: "Election:",
+                    label: `${i18n.elections.election}:`,
                     element: Select(
                         this.elections,
                         i => this.setElection(i),
@@ -71,7 +79,7 @@ export default class PartisanOverlayContainer {
                     )
                 },
                 {
-                    label: "Display as",
+                    label: i18n.editor.layers.display,
                     element: Select(
                         this.layers.map(layer => getLayerDescription(layer)),
                         i =>

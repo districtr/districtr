@@ -1,0 +1,102 @@
+export default { spanish: {
+  "ltr": "ltr",
+  "new_map": {
+    "title": "¿Dónde te gustaría redistribuir?",
+    "precincts": "recintos electorales",
+    "wards": "distritos electorales",
+    "Congressional Districts": "distritos congresionales",
+    "built_with": "compuestos de"
+  },
+  "editor": {
+    "tools": {
+      "Pan": "Desplazar",
+      "Paint": "Pintar",
+      "Erase": "Borrar",
+      "Inspect": "Examinar",
+      "color": "Color",
+      "brush_size": "Tamaño del Pincel",
+      "eraser_size": "Tamaño del Borrador",
+      "spotlight_size": "Tamaño del Foco",
+      "tooltip": "Información",
+      "lock_districts": "Proteger distritos ya dibujados",
+      "undo": "Deshacer",
+      "redo": "Rehacer"
+    },
+    "menu": {
+      "share": "Compartir",
+      "about": "Sobre este módulo",
+      "homepage": "Página principal de Districtr",
+      "new": "Plan nuevo",
+      "export": "Exportar el plan",
+      "export_csv": "Exportart el plan (CSV)",
+    },
+    "population": {
+      "population": "Población",
+      "balance": "Distribución de Población",
+      "ideal": "Ideal",
+      "unassigned": "Población no asignada",
+      "max_deviation": "Desviación máxima de la población",
+      "highlight_unassigned": "Resaltar unidades no asignadas"
+    },
+    "layers": {
+      "layers": "Capas de datos",
+      "layer": "capa de datos",
+      "show": "Mostrar",
+      "communities": "Comunidades",
+      "districts": "Distritos",
+      "counties": "Condados",
+      "county": "límites del condado",
+      "demographics": "Demografía",
+      "variable": "variable",
+      "vap": "Población en edad de votar (VAP)",
+      "race_pop": "población RACE",
+      "race_vap": "VAP de RACE",
+      "display": "Mostrar como",
+      "regions": "regiones sombreadas",
+      "circles": "círculos de tamaño",
+      "partisanship": "partidismo",
+      "show_partisan": "Mostrar magra partidista"
+    },
+    "evaluation": {
+      "evaluation": "Evaluación",
+      "compare": "Comparar",
+      "with": "con",
+      "and": "y",
+      "racial": "racial",
+      "vap": "VAP",
+      "partisan": "partidista",
+      "balance": "Equilibrio VARIABLE",
+      "overall": "De conjunto"
+    }
+  },
+  "race": {
+    "TOTPOP": "Población total",
+    "NH_WHITE": "Población blanca",
+    "NH_AMIN": "Población indígena",
+    "HISP": "Población hispana",
+    "NH_BLACK": "Población negra",
+    "NH_2MORE": "Población de dos o más razas",
+    "NH_ASIAN": "Población asiática",
+    "NH_OTHER": "Población otra",
+    "NH_NHPI": "Población hawaianos nativos o isleños",
+    "VAP": "Población en edad de votar (VAP)",
+    "WVAP": "Población blanca en edad de votar",
+    "HVAP": "Población hispana en edad de votar",
+    "AMINVAP": "Población indígena en edad de votar",
+    "BVAP": "Población negra en edad de votar",
+    "ASIANVAP": "Población asiática en edad de votar",
+    "2MOREVAP": "Población de dos o más razas en edad de votar",
+    "OTHERVAP": "Población otra en edad de votar",
+    "NHPIVAP": "Población hawaianos nativos o isleños en edad de votar",
+  },
+  "elections": {
+    "election_type": "Elecciones OFFICE de YEAR",
+    "election": "Elecciones",
+    "Governor": "gobernador",
+    "Senate": "senado",
+    "State Senate": "senado del estado",
+    "Secretary of State": "secretario de Estado",
+    "Attorney General": "fiscal general",
+    "Presidential": "presidenciales"
+  }
+}}

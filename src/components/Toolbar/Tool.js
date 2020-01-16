@@ -1,5 +1,8 @@
 import { html } from "lit-html";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 export default class Tool {
     constructor(id, name, icon) {
         this.id = id;
@@ -15,7 +18,7 @@ export default class Tool {
     }
     render(selectTool) {
         return html`
-            <div class="icon-list__item" title="${this.name}">
+            <div class="icon-list__item" title="${i18n.editor.tools[this.name]}">
                 <label>${this.name}</label>
                 <input
                     type="radio"

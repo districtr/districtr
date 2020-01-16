@@ -5,6 +5,9 @@ import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 export default class Toolbar {
     constructor(store, editor) {
         this.tools = [];
@@ -90,7 +93,7 @@ export default class Toolbar {
                         class="unsaved"
                         @click="${this.savePlan.bind(this)}"
                     >
-                        Share
+                        ${i18n.editor.menu.share}
                     </div>
                     <div id="save-popup">
                         <button

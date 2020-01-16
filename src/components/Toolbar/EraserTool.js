@@ -40,7 +40,7 @@ class EraserToolOptions {
     render() {
         return html`
             ${BrushSlider(this.brush.radius, this.changeRadius, {
-                title: "Eraser Size"
+                title: "eraser_size"
             })}
         `;
     }

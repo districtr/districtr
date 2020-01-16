@@ -5,6 +5,9 @@ import { toggle } from "../components/Toggle";
 import { colorByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default class OverlayContainer {
     constructor(layers, columnSet, toggleText) {
         this._currentSubgroupIndex = 0;
@@ -29,8 +32,8 @@ export default class OverlayContainer {
 
         if (!toggleText) {
             toggleText = columnSet.name
-                ? `Show ${columnSet.name.toLowerCase()}`
-                : "Show data layer";
+                ? `${i18n.editor.layers.show} ${columnSet.name.toLowerCase()}`
+                : `${i18n.editor.layers.show} ${i18n.editor.layers.layer}`;
         }
 
         this.changeSubgroup = this.changeSubgroup.bind(this);
@@ -73,7 +76,7 @@ export default class OverlayContainer {
                 ${this.visibilityToggle}
             </div>
             ${Parameter({
-                label: "Variable:",
+                label: `${i18n.editor.layers.variable}:`,
                 element: Select(
                     this.subgroups,
                     this.changeSubgroup,
@@ -81,7 +84,7 @@ export default class OverlayContainer {
                 )
             })}
             ${Parameter({
-                label: "Display as",
+                label: i18n.editor.layers.display,
                 element: Select(
                     this.overlay.layers.map(layer =>
                         getLayerDescription(layer)
@@ -93,7 +96,10 @@ export default class OverlayContainer {
     }
 }
 
-const layerDisplayNames = { circle: "sized circles", fill: "shaded regions" };
+const layerDisplayNames = {
+    circle: i18n.editor.layers.circles,
+    fill: i18n.editor.layers.regions
+};
 
 export function getLayerDescription(layer) {
     return { name: layerDisplayNames[layer.type] };

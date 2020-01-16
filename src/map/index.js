@@ -23,6 +23,12 @@ export class MapState {
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
         this.mapboxgl = mapboxgl;
+
+        this.map.on("load", () => {
+            this.map.setLayoutProperty('country-label', 'text-field', ['get', 'name_es']);
+            this.map.setLayoutProperty('state-label', 'text-field', ['get', 'name_es']);
+            // this.map.setLayoutProperty('place-label', 'text-field', ['get', 'name_es']);
+        });
     }
 }
 

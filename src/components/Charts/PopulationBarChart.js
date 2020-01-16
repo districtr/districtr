@@ -2,6 +2,9 @@ import { html, svg } from "lit-html";
 import { numberWithCommas, roundToDecimal } from "../../utils";
 import { barHeight } from "./lib";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 const defaultHeight = 240;
 const width = 300;
 const gap = 2;
@@ -58,7 +61,7 @@ const horizontalBarChart = (population, parts) => {
                   <text x="${width - idealX + 3}" y="${chartHeight +
                       extra -
                       4}" fill="#111">
-                  Ideal:
+                  ${i18n.editor.population.ideal}:
                   ${formattedIdeal}
                   </text>`
                 : ""

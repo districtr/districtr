@@ -5,6 +5,9 @@ import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 const COUNTIES_TILESET = {
     sourceLayer: "cb_2018_us_county_500k-6p4p3f",
     source: { type: "vector", url: "mapbox://districtr.6fcd9f0h" }
@@ -51,8 +54,8 @@ export function addCountyLayer(tab, state) {
     );
     tab.addSection(
         () => html`
-            <h4>Counties</h4>
-            ${toggle(`Show county boundaries`, false, checked =>
+            <h4>${i18n.editor.layers.counties}</h4>
+            ${toggle(`${i18n.editor.layers.show} ${i18n.editor.layers.county}`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["line-opacity"] : 0
                 )
@@ -63,14 +66,14 @@ export function addCountyLayer(tab, state) {
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const tab = new LayerTab("layers", "Data Layers", editor.store);
+    const tab = new LayerTab("layers", i18n.editor.layers.layers, editor.store);
 
     const districtsHeading =
-        state.plan.problem.type === "community" ? "Communities" : "Districts";
+        state.plan.problem.type === "community" ? i18n.editor.layers.communities : i18n.editor.layers.districts;
     const districtMessage =
         state.plan.problem.type === "community"
-            ? "Show communities"
-            : "Show districts";
+            ? `${i18n.editor.layers.show} ${i18n.editor.layers.communities.toLowerCase()}`
+            : `${i18n.editor.layers.show} ${i18n.editor.layers.districts.toLowerCase()}`;
     tab.addSection(
         () => html`
             <h4>${districtsHeading}</h4>
@@ -96,12 +99,12 @@ export default function DataLayersPlugin(editor) {
     const demographicsOverlay = new OverlayContainer(
         state.layers,
         state.population,
-        "Show demographics"
+        `${i18n.editor.layers.show} ${i18n.editor.layers.demographics.toLowerCase()}`
     );
 
     tab.addSection(
         () => html`
-            <h4>Demographics</h4>
+            <h4>${i18n.editor.layers.demographics}</h4>
             ${demographicsOverlay.render()}
         `
     );
@@ -110,12 +113,12 @@ export default function DataLayersPlugin(editor) {
         const vapOverlays = new OverlayContainer(
             state.layers,
             state.vap,
-            "Show VAP demographics"
+            `${i18n.editor.layers.show} ${i18n.editor.layers.vap.toLowerCase()}`
         );
         tab.addSection(
             () =>
                 html`
-                    <h4>Voting Age Population</h4>
+                    <h4>${i18n.editor.layers.vap}</h4>
                     ${vapOverlays.render()}
                 `
         );
