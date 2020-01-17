@@ -16,12 +16,12 @@ const plans = [
         plans: [
             {
                 id: "plan_a",
-                name: "Random Plan A",
+                name: "Plan A",
                 numbers: []
             },
             {
                 id: "plan_b",
-                name: "Random Plan B",
+                name: "Plan B",
                 numbers: []
             }
         ]
