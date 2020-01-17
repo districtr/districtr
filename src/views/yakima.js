@@ -23,6 +23,11 @@ const plans = [
                 id: "plan_b",
                 name: "Plan B",
                 numbers: []
+            },
+            {
+                id: "plan_c",
+                name: "Plan C",
+                numbers: []
             }
         ]
     },
