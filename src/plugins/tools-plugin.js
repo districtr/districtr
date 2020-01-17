@@ -19,7 +19,9 @@ export default function ToolsPlugin(editor) {
     let planNumbers = NumberMarkers(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
-        planNumbers.update(state, colorsAffected);
+        if (planNumbers) {
+            planNumbers.update(state, colorsAffected);
+        }
     });
 
     let tools = [

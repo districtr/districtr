@@ -75,12 +75,17 @@ export default function DataLayersPlugin(editor) {
         () => html`
             <h4>${districtsHeading}</h4>
             ${toggle(districtMessage, true, checked => {
-                if (checked) {
-                    state.units.setOpacity(0.8);
-                } else {
-                    state.units.setOpacity(0);
-                }
+                let opacity = checked ? 0.8 : 0;
+                state.units.setOpacity(opacity);
             })}
+            ${(state.plan.problem.type === "community" ||
+              (["mississippi", "santa_clara", "chicago", "lowell", "little_rock", "austin", "islip", "ma"].includes(state.place.id))) ? null
+                : toggle("Show district numbers", true, checked => {
+                    let opacity = checked ? 1 : 0;
+                    state.numbers.forEach((number) => {
+                        number.setOpacity(Math.round(opacity))
+                    });
+                }, "toggle-district-numbers")}
         `
     );
 

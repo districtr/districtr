@@ -64,7 +64,7 @@ export default class Layer {
         this.getFeature = this.getFeature.bind(this);
     }
     setOpacity(opacity) {
-        this.setPaintProperty(`${this.type}-opacity`, opacity);
+        this.setPaintProperty(`${this.type.replace("symbol", "icon")}-opacity`, opacity);
     }
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);

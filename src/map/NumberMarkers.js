@@ -1,8 +1,13 @@
 import Layer from "./Layer";
 
 export default function NumberMarkers(state, brush) {
+    state.numbers = [];
     if (!state.problem || !state.problem.numberOfParts) {
         console.log("no numberOfParts for NumberMarkers");
+        return;
+    }
+    if (state.plan.problem.type === "community") {
+        console.log("not numbering on community of interest");
         return;
     }
 
@@ -45,23 +50,21 @@ export default function NumberMarkers(state, brush) {
                 throw err;
             }
             map.addImage("number_icon_" + dnum, numberimg);
-            new Layer(
+            state.numbers.push(new Layer(
                 map,
                 {
                     id: "number_layer_" + dnum,
                     source: "number_source_" + dnum,
-                    type: "symbol", // circle
-                    // paint: {
-                    //     'circle-opacity': 1,
-                    //     'circle-radius': 8,
-                    //     'circle-color': '#f00'
-                    // }
+                    type: "symbol",
+                    paint: {
+                        "icon-opacity": 1
+                    },
                     layout: {
                         "icon-image": "number_icon_" + dnum,
                         "icon-size": 1
                     }
                 }
-            );
+            ));
         });
     });
 
