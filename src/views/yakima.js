@@ -16,61 +16,16 @@ const plans = [
         plans: [
             {
                 id: "plan_a",
-                name: "Random Plan A (3-districts)",
+                name: "Random Plan A",
                 numbers: []
             },
             {
                 id: "plan_b",
-                name: "Random Plan B (3-districts)",
+                name: "Random Plan B",
                 numbers: []
             }
         ]
     },
-    // {
-    //     title: "Sample valid 7-district plans",
-    //     plans: [
-    //         {
-    //             id: "plan7a",
-    //             name: "Random Plan 7A (7-districts)",
-    //             numbers: []
-    //         },
-    //         {
-    //             id: "plan7b",
-    //             name: "Random Plan 7B (7-districts)",
-    //             numbers: []
-    //         }
-    //     ]
-    // },
-    // {
-    //     title: "Sample valid 8-district plans (Option on the Ballot)",
-    //     plans: [
-    //         {
-    //             id: "plan8a",
-    //             name: "Random Plan 8A (8-districts)",
-    //             numbers: []
-    //         },
-    //         {
-    //             id: "plan8b",
-    //             name: "Random Plan 8B (8-districts)",
-    //             numbers: []
-    //         }
-    //     ]
-    // },
-    // {
-    //     title: "Sample valid 9-district plans",
-    //     plans: [
-    //         {
-    //             id: "plan9a",
-    //             name: "Random Plan 9A (9-districts)",
-    //             numbers: []
-    //         },
-    //         {
-    //             id: "plan9b",
-    //             name: "Random Plan 9B (9-districts)",
-    //             numbers: []
-    //         }
-    //     ]
-    // },
 ];
 
 const plansSection = () =>
