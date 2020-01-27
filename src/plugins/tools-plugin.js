@@ -19,9 +19,36 @@ export default function ToolsPlugin(editor) {
     let planNumbers = NumberMarkers(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
+
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);
         }
+
+        let districts = [],
+            i = 0;
+        while (i < state.problem.numberOfParts) {
+            districts.push(i);
+            i++;
+        }
+        let testIDs = [];
+        Object.keys(state.plan.assignment).forEach((unit_id) => {
+            if (state.plan.assignment[unit_id] === 1) {
+                testIDs.push(unit_id);
+            }
+        });
+        fetch("/.netlify/functions/planContiguity", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ids: testIDs.join(",")
+            })
+        })
+        .then(res => res.json())
+        .then((data) => {
+            console.log(data[0].contiguity_pennsylvania);
+        });
     });
 
     let tools = [
