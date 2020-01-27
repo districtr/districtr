@@ -25,9 +25,17 @@ export class MapState {
         this.mapboxgl = mapboxgl;
 
         this.map.on("load", () => {
-            this.map.setLayoutProperty('country-label', 'text-field', ['get', 'name_es']);
-            this.map.setLayoutProperty('state-label', 'text-field', ['get', 'name_es']);
-            // this.map.setLayoutProperty('place-label', 'text-field', ['get', 'name_es']);
+            let es = [
+                "case",
+                ["has", "name_es"],
+                    ["get", "name_es"],
+                ["get", "name"]
+            ];
+            this.map.setLayoutProperty('country-label', 'text-field', es);
+            this.map.setLayoutProperty('state-label', 'text-field', es);
+            this.map.setLayoutProperty('place-label', 'text-field', es);
+            this.map.setLayoutProperty('poi-label', 'text-field', es);
+            this.map.setLayoutProperty('airport-label', 'text-field', es);
         });
     }
 }
