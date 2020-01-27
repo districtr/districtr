@@ -103,7 +103,10 @@ export default function NumberMarkers(state, brush) {
                 }
 
                 fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${place}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
-                    let latlng = centroid[0][`merged_${place}`].split(" "),
+                    if (typeof centroid === "object") {
+                        centroid = centroid[0][`merged_${place}`];
+                    }
+                    let latlng = centroid.split(" "),
                         lat = latlng[1].split(")")[0] * 1,
                         lng = latlng[0].split("(")[1] * 1;
                     if (numberMarkers[district_num]) {
