@@ -1,6 +1,11 @@
 import { divideOrZeroIfNaN, zeros } from "../utils";
 import NumericalColumn from "./NumericalColumn";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
+const ABBREVIATIONS = i18n.race.abbreviations;
+
 export class Subgroup extends NumericalColumn {
     constructor({ columnSet, parts, ...args }) {
         super(args);
@@ -55,23 +60,3 @@ export class Subgroup extends NumericalColumn {
         }
     }
 }
-
-const ABBREVIATIONS = {
-    NH_WHITE: "White",
-    NH_BLACK: "Black",
-    HISP: "Hispanic",
-    NH_ASIAN: "Asian",
-    NH_AMIN: "Native",
-    NH_NHPI: "NHPI",
-    NH_2MORE: "2+",
-    NH_OTHER: "Other",
-    WVAP: "WVAP",
-    BVAP: "BVAP",
-    HVAP: "HVAP",
-    AMINVAP: "Native VAP",
-    NHPIVAP: "NHPI VAP",
-    ASIANVAP: "AVAP",
-    OTHERVAP: "Other VAP",
-    OTHVAP: "Other VAP",
-    "2MOREVAP": "2+ VAP"
-};

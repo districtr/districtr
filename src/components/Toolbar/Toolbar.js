@@ -53,7 +53,7 @@ export default class Toolbar {
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/edit/${_id}`;
 
                 let btn = e.target;
-                btn.innerText = "Saved";
+                btn.innerText = i18n.editor.menu.saved;
                 btn.className = "saved";
             } else {
                 console.error("Failed to save map");
@@ -64,8 +64,8 @@ export default class Toolbar {
         let btn = document.getElementById("desktop-upload");
         // only need to update the button if user previously saved state
         // and we now need to allow an update
-        if (btn.innerText === "Saved") {
-            btn.innerText = "Update";
+        if (btn.className === "saved") {
+            btn.innerText = i18n.editor.menu.update;
             btn.className = "updated";
         }
     }
@@ -104,11 +104,11 @@ export default class Toolbar {
                         >
                             X
                         </button>
-                        <strong>Uploaded Plan</strong>
-                        You can share your current plan by copying this URL:
+                        <strong>${i18n.editor.menu.plan_was_saved}</strong>
+                        ${i18n.editor.menu.copy_plan_url}
                         <code id="code-popup"></code>
                         <br/>
-                        <label>Have an event code?</label>
+                        <label>${i18n.editor.menu.event_code}</label>
                         <input
                             id="event-coder-popup"
                             type="text"
@@ -129,7 +129,7 @@ export default class Toolbar {
                                 );
                             }}"
                         >
-                            Add to Event
+                            ${i18n.editor.menu.add_event_code}
                         </button>
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}

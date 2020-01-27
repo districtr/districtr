@@ -5,7 +5,15 @@ export default { spanish: {
     "precincts": "recintos electorales",
     "wards": "distritos electorales",
     "Congressional Districts": "distritos congresionales",
-    "built_with": "compuestos de"
+    "built_with": "compuestos de",
+    "not_available": "Este estado aún no está disponible",
+    "request": "Solicitarlo",
+  },
+  "community": {
+    "community": "Comunidad",
+    "about": "Sobre su Comunidad",
+    "name": "Nombre de la comunidad",
+    "description": "Describe su comunidad"
   },
   "editor": {
     "tools": {
@@ -13,7 +21,9 @@ export default { spanish: {
       "Paint": "Pintar",
       "Erase": "Borrar",
       "Inspect": "Examinar",
+      "Landmark": "Marcador",
       "color": "Color",
+      "add_color": "Añadir más color",
       "brush_size": "Tamaño del Pincel",
       "eraser_size": "Tamaño del Borrador",
       "spotlight_size": "Tamaño del Foco",
@@ -24,11 +34,20 @@ export default { spanish: {
     },
     "menu": {
       "share": "Compartir",
+      "save": "Guardar",
+      "saved": "Guardado",
+      "update": "Actualizar",
+      "copy_plan_url": "Puede compartir su plan actual copiando esta URL:",
+      "plan_was_saved": "El plan fue subido",
+      "event_code": "¿Tiene un código de evento?",
+      "add_event_code": "Añadir al evento",
       "about": "Sobre este módulo",
       "homepage": "Página principal de Districtr",
+      "confirm_homepage": "¿Volver a la página principal de Districtr?",
       "new": "Plan nuevo",
+      "edit": "Editar",
       "export": "Exportar el plan",
-      "export_csv": "Exportart el plan (CSV)",
+      "export_csv": "Exportart el plan (CSV)"
     },
     "population": {
       "population": "Población",
@@ -37,6 +56,16 @@ export default { spanish: {
       "unassigned": "Población no asignada",
       "max_deviation": "Desviación máxima de la población",
       "highlight_unassigned": "Resaltar unidades no asignadas"
+    },
+    "landmarks": {
+      "add": "Añade maracadores con el botón en la parte superior derecha del mapa",
+      "landmarks": "Marcadores",
+      "name": "Nombre",
+      "show": "Mostrar marcadores",
+      "new": "GEOMETRY nuevo",
+      "Point": "Marcador",
+      "LineString": "Línea",
+      "Polygon": "Polígono"
     },
     "layers": {
       "layers": "Capas de datos",
@@ -88,15 +117,44 @@ export default { spanish: {
     "2MOREVAP": "Población de dos o más razas en edad de votar",
     "OTHERVAP": "Población otra en edad de votar",
     "NHPIVAP": "Población hawaianos nativos o isleños en edad de votar",
+    "abbreviations": {
+      total: "Total",
+      NH_WHITE: "Blanca",
+      WHITE: "Blanca",
+      NH_BLACK: "Negra",
+      BLACK: "Negra",
+      HISP: "Hispana",
+      NH_ASIAN: "Asiática",
+      ASIAN: "Asiática",
+      NH_AMIN: "Nativa",
+      AMIN: "Nativa",
+      NH_NHPI: "NHPI",
+      NHPI: "NHPI",
+      NH_2MORE: "2+",
+      "2MORE": "2+",
+      NH_OTHER: "Otra",
+      OTHER: "Otra",
+      WVAP: "WVAP",
+      BVAP: "BVAP",
+      HVAP: "HVAP",
+      AMINVAP: "VAP Nativa",
+      NHPIVAP: "NHPI VAP",
+      ASIANVAP: "AVAP",
+      OTHERVAP: "VAP Otra",
+      OTHVAP: "VAP Otra",
+      "2MOREVAP": "VAP 2+"
+    }
   },
   "elections": {
     "election_type": "Elecciones OFFICE de YEAR",
     "election": "Elecciones",
     "Governor": "gobernador",
+    "U.S. House": "Cámara de EEUU",
     "Senate": "senado",
     "State Senate": "senado del estado",
     "Secretary of State": "secretario de Estado",
     "Attorney General": "fiscal general",
-    "Presidential": "presidenciales"
+    "Presidential": "presidenciales",
+    "vote_share": "porciones de votación de dos partidos"
   }
 }}

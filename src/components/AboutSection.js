@@ -4,10 +4,13 @@ import Select from "./Select";
 import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default class AboutSection {
     constructor({ state, render }) {
         this.part = state.parts[0];
-        this.name = this.part.name || "";
+        this.name = i18n.community[this.part.name.toLowerCase()] || "";
         this.description = this.part.description || "";
         this.state = state;
         this.renderCallback = render;
@@ -56,7 +59,7 @@ export default class AboutSection {
                 <li class="option-list__item">
                     ${parts.length > 1
                         ? Parameter({
-                              label: "Community:",
+                              label: `${i18n.community.community}:`,
                               element: Select(parts, i => this.setPart(i))
                           })
                         : ""}
@@ -78,7 +81,7 @@ function AboutSectionTemplate({
     return html`
         <ul class="option-list">
             <li class="option-list__item">
-                <label class="ui-label">Community Name</label>
+                <label class="ui-label">${i18n.community.name}</label>
                 <input
                     type="text"
                     class="text-input"
@@ -88,7 +91,7 @@ function AboutSectionTemplate({
                 />
             </li>
             <li class="option-list__item">
-                <label class="ui-label">Describe Your Community</label>
+                <label class="ui-label">${i18n.community.description}</label>
                 <textarea
                     class="text-input text-area"
                     @blur=${e => setDescription(e.target.value)}
@@ -104,7 +107,7 @@ function AboutSectionTemplate({
                         : "alternate"} ui-label"
                     @click=${onSave}
                 >
-                    ${saved ? "Saved" : "Save"}
+                    ${saved ? i18n.editor.menu.saved : i18n.editor.menu.save}
                 </button>
             </li>
         </ul>

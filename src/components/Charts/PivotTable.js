@@ -5,6 +5,9 @@ import Select from "../Select";
 import Parameter from "../Parameter";
 import { actions } from "../../reducers/charts";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
  * the value = 1. #f9f9f9 is the same as rgba(0, 0, 0, 0.02), so we map the 0-to-1
@@ -46,7 +49,7 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
     const headers = [part.name || part.renderLabel(), placeName];
     let rows = [
         {
-            label: "Total",
+            label: i18n.race.abbreviations.total,
             entries: [
                 {
                     content: numberWithCommas(columnSet.total.data[part.id]),
@@ -80,7 +83,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts) => (
         <section class="toolbar-section">
             ${visibleParts.length > 1
                 ? Parameter({
-                      label: "Community:",
+                      label: `${i18n.community.community}:`,
                       element: Select(visibleParts, i =>
                           dispatch(
                               actions.selectPart({

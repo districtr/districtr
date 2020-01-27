@@ -2,6 +2,9 @@ import { html } from "lit-html";
 import Layer, { addBelowLabels } from "../map/Layer";
 import Tooltip from "../map/Tooltip";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export function LandmarkInfo(features) {
     if (features.length === 0) {
         return "";
@@ -96,7 +99,7 @@ export class Landmarks {
 
             // the drawTool creates an alphanumeric ID; we need a numeric ID for tooltip
             editFeature.number_id = Math.round(Math.random() * 1000000000);
-            editFeature.properties.name = 'New ' + editFeature.geometry.type;
+            editFeature.properties.name = i18n.editor.landmarks.new.replace("GEOMETRY", i18n.editor.landmarks[editFeature.geometry.type]);
 
             // a point is not rendered by the final polygon/tooltip layer
             // but we need it in this array for localStorage / export

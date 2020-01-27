@@ -1,5 +1,8 @@
 import { html } from "lit-html";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 function addNewColorButton(colors, onInput) {
     const nextColor = colors.find(color => color.visible === false);
     const onClick = () => {
@@ -13,7 +16,7 @@ function addNewColorButton(colors, onInput) {
         <button
             class="icon-list__item subtle-button"
             @click=${onClick}
-            title="Add another color"
+            title=${i18n.editor.tools.add_color}
         >
             <i class="material-icons">
                 add

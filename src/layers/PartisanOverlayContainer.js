@@ -63,7 +63,7 @@ export default class PartisanOverlayContainer {
     render() {
         const overlay = this.currentElectionOverlay;
         return html`
-            <h4>Partisanship</h4>
+            <h4>${i18n.editor.layers.partisanship}</h4>
             <div class="ui-option ui-option--slim">
                 ${toggle(i18n.editor.layers.show_partisan, overlay.isVisible, checked =>
                     this.toggleVisibility(checked)

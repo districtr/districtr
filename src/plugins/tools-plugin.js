@@ -87,7 +87,7 @@ function getMenuItems(state) {
         {
             name: i18n.editor.menu.homepage,
             onClick: () => {
-                if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                if (window.confirm(i18n.editor.menu.confirm_homepage)) {
                     window.location.href = "/";
                 }
             }

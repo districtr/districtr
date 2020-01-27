@@ -3,34 +3,37 @@ import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
 
     addLocationSearch(mapState);
 
-    const tab = new Tab("community", "Community", editor.store);
+    const tab = new Tab("community", i18n.community.community, editor.store);
     const about = new AboutSection(editor);
-    tab.addRevealSection("About Your Community", about.render);
+    tab.addRevealSection(i18n.community.about, about.render);
 
-    const evaluationTab = new Tab("population", "Population", editor.store);
+    const evaluationTab = new Tab("population", i18n.editor.population.population, editor.store);
     const populationPivot = PivotTable(
-        "Population",
+        i18n.editor.population.population,
         state.population,
         state.place.name,
         state.parts
     );
-    evaluationTab.addRevealSection("Population", populationPivot, {
+    evaluationTab.addRevealSection(i18n.editor.population.population, populationPivot, {
         isOpen: true,
         activePartIndex: 0
     });
     if (state.vap) {
         const vapPivot = PivotTable(
-            "Voting Age Population",
+            i18n.editor.layers.vap,
             state.vap,
             state.place.name,
             state.parts
         );
-        evaluationTab.addRevealSection("Voting Age Population", vapPivot, {
+        evaluationTab.addRevealSection(i18n.editor.layers.vap, vapPivot, {
             isOpen: false,
             activePartIndex: 0
         });

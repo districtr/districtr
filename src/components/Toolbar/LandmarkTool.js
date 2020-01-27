@@ -8,6 +8,9 @@ import Tool from "./Tool";
 import Parameter from "../Parameter";
 import Select from "../Select";
 
+import spanish from "../../l10n/es";
+const i18n = spanish.spanish;
+
 export default class LandmarkTool extends Tool {
     constructor(state) {
         const icon = html`<i class="material-icons">label</i>`;
@@ -101,13 +104,13 @@ class LandmarkOptions {
         this.updateName = name;
         let saveButton = document.getElementById("landmark-save-button")
         saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        saveButton.innerText = i18n.editor.menu.save;
     }
     setDescription(description) {
         this.updateDescription = description;
         let saveButton = document.getElementById("landmark-save-button")
         saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        saveButton.innerText = i18n.editor.menu.save;
     }
     onSave() {
         // save name, description, and location on map and localStorage
@@ -117,7 +120,7 @@ class LandmarkOptions {
         this.saveFeature(updateFeature.id);
         let saveButton = document.getElementById("landmark-save-button")
         saveButton.disabled = true;
-        saveButton.innerText = "Saved";
+        saveButton.innerText = i18n.editor.menu.saved;
     }
     onDelete() {
         // delete currently viewed shape
@@ -142,9 +145,9 @@ class LandmarkOptions {
 
         return html`
     <div class="ui-option">
-        <legend class="ui-label ui-label--row">Landmarks</legend>
+        <legend class="ui-label ui-label--row">${i18n.editor.landmarks.landmarks}</legend>
         ${toggle(
-            "Show landmarks",
+            i18n.editor.landmarks.show,
             this.drawTool.visible,
             this.drawTool.handleToggle
         )}
@@ -153,7 +156,7 @@ class LandmarkOptions {
         <li class="option-list__item">
             ${properties.length > 1
                 ? Parameter({
-                      label: "Edit:",
+                      label: `${i18n.editor.menu.edit}:`,
                       element: Select(
                           properties,
                           this.handleSelectFeature,
@@ -171,7 +174,7 @@ class LandmarkOptions {
         setName: this.setName,
         setDescription: this.setDescription,
         onDelete: this.onDelete
-    }) : "Add landmarks using the tool(s) on the top right of the map."}
+    }) : i18n.editor.landmarks.add}
         `;
     }
 }
@@ -188,11 +191,11 @@ function LandmarkFormTemplate({
     return html`
         <ul class="option-list">
             <li>
-                <label class="ui-label">Name</label>
+                <label class="ui-label">${i18n.editor.landmarks.name}</label>
                 <input
                     type="text"
                     name="landmark-name"
-                    autocomplete="off" 
+                    autocomplete="off"
                     class="text-input vertical-align"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}
@@ -226,7 +229,7 @@ function LandmarkFormTemplate({
                     class="button button--submit button--alternate ui-label"
                     @click=${onSave}
                 >
-                    Save
+                    ${i18n.editor.menu.save}
                 </button>
             </li>
         </ul>

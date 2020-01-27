@@ -5,6 +5,9 @@ import { generateId } from "../utils";
 import { getColumnSets, getParts } from "./lib/column-sets";
 import { addBelowLabels, addBelowSymbols } from "../map/Layer";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 // We should break this up. Maybe like this:
 // [ ] MapState (map, layers)
 // [ ] DistrictData (column sets) ?
@@ -40,7 +43,7 @@ class DistrictingPlan {
         if (problem.type === "community") {
             this.parts.forEach(part => {
                 if (!part.name) {
-                    part.name = `Community ${part.displayNumber}`;
+                    part.name = `${i18n.community.community} ${part.displayNumber}`;
                 }
             });
         }

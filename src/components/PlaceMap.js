@@ -5,6 +5,9 @@ import { PlacesListForState } from "../components/PlacesList";
 import { select, selectAll } from "d3-selection";
 import "d3-transition";
 
+import spanish from "../l10n/es";
+const i18n = spanish.spanish;
+
 // ============
 // Global state
 // ============
@@ -194,9 +197,9 @@ export function Features(features, onHover, selectedId) {
 function emptyModuleFallback(feature) {
     return html`
         <p>
-            This state is not available yet.
+            ${i18n.new_map.not_available}
             <a class="button" href="/request?place=${feature.properties.NAME}"
-                >Request&nbsp;it&nbsp;here.
+                >${i18n.new_map.request}
             </a>
         </p>
     `;
