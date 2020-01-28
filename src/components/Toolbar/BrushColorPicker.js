@@ -43,7 +43,7 @@ export default (colors, onInput, activeColor) => html`
                                 @change="${onInput}"
                             />
                             <div
-                                class="icon-list__item__radio"
+                                class="icon-list__item__radio ${window.d_contiguity[color.displayNumber - 1] ? '' : 'contiguity'}"
                                 style="background: ${color.color}"
                             ></div>
                         </li>

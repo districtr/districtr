@@ -77,6 +77,11 @@ of the whole element */
 
     // background: #111;
     background-color: white;
+
+    border: 1px solid transparent;
+    &.contiguity {
+        border-color: #f00;
+    }
 }
 
 .icon-list__item:hover input ~ .icon-list__item__radio {
@@ -97,6 +102,7 @@ of the whole element */
 .icon-list__item input:checked ~ .icon-list__item__radio {
     border-radius: 50%;
     background-color: $districtr-grey-active;
+    box-shadow: 1px 1px 2px #444;
 }
 
 i {
