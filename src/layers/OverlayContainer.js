@@ -70,7 +70,20 @@ export default class OverlayContainer {
 
             let total = this.subgroups[i].max;
             document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
-                sq.innerText = Math.floor(total * index / 5).toLocaleString();
+                let num = Math.floor(total * index / 5);
+                if (num === 0 || total < 100000) {
+                    if (num < 1000 || total < 15000) {
+                        if (total < 2000) {
+                            sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
+                        } else {
+                            sq.innerText = Math.floor(Math.round(num / 100) * 100).toLocaleString();
+                        }
+                    } else {
+                        sq.innerText = Math.round(num / 1000) + "k";
+                    }
+                } else {
+                    sq.innerText = Math.round(num / 1000) + "k";
+                }
             });
 
             document.getElementById("counts-" + this._id).style.display = "block";
