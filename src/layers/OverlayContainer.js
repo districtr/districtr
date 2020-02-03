@@ -6,7 +6,8 @@ import { colorByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(layers, columnSet, toggleText) {
+    constructor(id, layers, columnSet, toggleText) {
+        this._id = id;
         this._currentSubgroupIndex = 0;
         this.subgroups = columnSet.columns;
         // These color rules should be explicitly attached to each subgroup,
@@ -51,8 +52,11 @@ export default class OverlayContainer {
         }
 
         this.visibilityToggle = toggle(toggleText, (this._currentSubgroupIndex !== 0), visible => {
+            document.getElementById("color-" + this._id).style.display
+                = (visible ? "block" : "none");
             if (visible) {
                 this.overlay.show();
+                this.changeSubgroup(this._currentSubgroupIndex);
             } else {
                 this.overlay.hide();
             }
@@ -63,8 +67,31 @@ export default class OverlayContainer {
         this.overlay.setSubgroup(this.subgroups[i]);
         if (this.subgroups[i].total === this.subgroups[i]) {
             this.overlay.setColorRule(colorByCount);
+
+            let total = this.subgroups[i].max;
+            document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
+                let num = Math.floor(total * index / 5);
+                if (num === 0 || total < 100000) {
+                    if (num < 1000 || total < 10000) {
+                        if (total < 2000) {
+                            sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
+                        } else {
+                            sq.innerText = Math.floor(Math.round(num / 100) * 100).toLocaleString();
+                        }
+                    } else {
+                        sq.innerText = Math.round(num / 1000) + "k";
+                    }
+                } else {
+                    sq.innerText = Math.round(num / 1000) + "k";
+                }
+            });
+
+            document.getElementById("counts-" + this._id).style.display = "block";
+            document.getElementById("percents-" + this._id).style.display = "none";
         } else {
             this.overlay.setColorRule(colorByFraction);
+            document.getElementById("counts-" + this._id).style.display = "none";
+            document.getElementById("percents-" + this._id).style.display = "block";
         }
     }
     render() {
@@ -86,9 +113,39 @@ export default class OverlayContainer {
                     this.overlay.layers.map(layer =>
                         getLayerDescription(layer)
                     ),
-                    i => this.overlay.setLayer(i)
+                    (i) => {
+                        this.overlay.setLayer(i);
+                    }
                 )
             })}
+            <div id="color-${this._id}" class="color-legend">
+                <span class="gradientbar"></span>
+                <br/>
+                <div id="notches-${this._id}" class="notches">
+                    <span class="notch">|</span>
+                    <span class="notch">|</span>
+                    <span class="notch">|</span>
+                    <span class="notch">|</span>
+                    <span class="notch">|</span>
+                    <span class="notch">|</span>
+                </div>
+                <div id="percents-${this._id}" class="labels">
+                    <span class="square">0%</span>
+                    <span class="square">20%</span>
+                    <span class="square">40%</span>
+                    <span class="square">60%</span>
+                    <span class="square">80%</span>
+                    <span class="square">100%</span>
+                </div>
+                <div id="counts-${this._id}" class="labels">
+                    <span class="square">0</span>
+                    <span class="square">1</span>
+                    <span class="square">2</span>
+                    <span class="square">3</span>
+                    <span class="square">4</span>
+                    <span class="square">5</span>
+                </div>
+            </div>
         `;
     }
 }
