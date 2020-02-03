@@ -72,7 +72,7 @@ export default class OverlayContainer {
             document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
                 let num = Math.floor(total * index / 5);
                 if (num === 0 || total < 100000) {
-                    if (num < 1000 || total < 15000) {
+                    if (num < 1000 || total < 10000) {
                         if (total < 2000) {
                             sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
                         } else {
