@@ -23,18 +23,18 @@ export default function NumberMarkers(state, brush) {
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 30;
+        canv.width = 40;
         ctx.strokeStyle = "#000";
         ctx.fillStyle = "#fff";
         ctx.lineWidth = 2;
-        ctx.arc(15, 15, 12, 0, 2 * Math.PI);
+        ctx.ellipse(20, 15, 16, 12, 0, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
         ctx.fillStyle = "#000";
         ctx.font = "16px sans-serif";
         ctx.fillText(
             dnum + 1,
-            15 - ctx.measureText(dnum + 1).width / 2,
+            20 - ctx.measureText(dnum + 1).width / 2,
             21
         );
         // if (!dnum) {
