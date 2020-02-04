@@ -70,7 +70,9 @@ export default function NumberMarkers(state, brush) {
 
     const updater = (state, colorsAffected) => {
         let plan = state.plan,
-            place = state.place.id;
+            place = state.place.id,
+            extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
+            placeID = extra_source || place;
         if (plan && plan.assignment) {
             let markers = {},
                 seenDistricts = new Set();
@@ -102,9 +104,9 @@ export default function NumberMarkers(state, brush) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
 
-                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${place}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
+                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
                     if (typeof centroid === "object") {
-                        centroid = centroid[0][`merged_${place}`];
+                        centroid = centroid[0][`merged_${placeID}`];
                     }
                     let latlng = centroid.split(" "),
                         lat = latlng[1].split(")")[0] * 1,

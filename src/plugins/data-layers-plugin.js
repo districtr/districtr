@@ -80,7 +80,7 @@ export default function DataLayersPlugin(editor) {
             })}
             ${(state.plan.problem.type === "community"
                 || ["santa_clara", "lowell", "little_rock", "austin", "islip"].includes(state.place.id)
-                || ["ma_precincts_02_10", "chicago_community_areas"].includes(state.units.sourceId)) ? null
+                || ["chicago_community_areas"].includes(state.units.sourceId)) ? null
                 : toggle("Show district numbers", true, checked => {
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
