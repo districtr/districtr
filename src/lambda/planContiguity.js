@@ -9,9 +9,10 @@ exports.handler = async (event, context) => {
 
   try {
       if (!['alaska', 'chicago', 'colorado', 'georgia', 'hawaii', 'iowa', 'ma',
-        'maryland', 'michigan', 'minnesota', 'nc', 'new_mexico', 'ohio', 'oklahoma',
-        'oregon', 'pennsylvania', 'providence_ri', 'rhode_island', 'texas', 'utah',
-        'virginia', 'vermont', 'wisconsin'].includes(eventBody.state)) {
+        'ma_02', 'maryland', 'michigan', 'minnesota', 'mississippi', 'nc',
+        'new_mexico', 'ohio', 'oklahoma', 'oregon', 'pennsylvania',
+        'providence_ri', 'rhode_island', 'texas', 'utah', 'virginia',
+        'vermont', 'wisconsin'].includes(eventBody.state)) {
           throw new Error('State not included in PostGIS, according to planContiguity.js');
       }
 

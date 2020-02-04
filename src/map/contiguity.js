@@ -5,7 +5,8 @@ export default function ContiguityChecker(state, brush) {
 
     const updater = (state, colorsAffected) => {
         let assignment = state.plan.assignment,
-            place = state.place.id,
+            source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
+            place = source || state.place.id,
             testIDs = {};
 
         Object.keys(assignment).forEach((unit_id) => {
