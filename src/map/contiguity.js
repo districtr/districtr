@@ -27,10 +27,10 @@ export default function ContiguityChecker(state, brush) {
             if (!testIDs[dnum] || testIDs[dnum].length <= 1) {
                 // 0-1 precincts automatically OK
                 window.d_contiguity[dnum] = true;
-                try {
-                    document.querySelector(`.color-list li[title='${dnum + 1}'] div`).className = "icon-list__item__radio";
-                } catch(e) {
-                }
+                // try {
+                //     document.querySelector(`.color-list li[title='${dnum + 1}'] div`).className = "icon-list__item__radio";
+                // } catch(e) {
+                // }
                 return;
             }
 
@@ -53,12 +53,11 @@ export default function ContiguityChecker(state, brush) {
                 let keys = Object.keys(data),
                     geomType = data[keys[0]];
                 window.d_contiguity[dnum] = (geomType !== "ST_MultiPolygon");
-                try {
-                    document.querySelector(".color-list li[title='" + (dnum + 1) + "'] div").className =
-                        "icon-list__item__radio " + (window.d_contiguity[dnum] ? "" : "contiguity");
-                } catch(e) {
-                }
-                // console.log(dnum + ": " + geomType);
+                // try {
+                //     document.querySelector(".color-list li[title='" + (dnum + 1) + "'] div").className =
+                //         "icon-list__item__radio " + (window.d_contiguity[dnum] ? "" : "contiguity");
+                // } catch(e) {
+                // }
             });
         });
     };
