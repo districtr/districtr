@@ -78,8 +78,9 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
             })}
-            ${(state.plan.problem.type === "community" ||
-              (["mississippi", "santa_clara", "chicago", "lowell", "little_rock", "austin", "islip", "ma"].includes(state.place.id))) ? null
+            ${(state.plan.problem.type === "community"
+                || ["santa_clara", "lowell", "little_rock", "austin", "islip"].includes(state.place.id)
+                || ["ma_precincts_02_10", "chicago_community_areas"].includes(state.units.sourceId)) ? null
                 : toggle("Show district numbers", true, checked => {
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
