@@ -67,6 +67,7 @@ export default function EvaluationPlugin(editor) {
             "Contiguity",
             (uiState, dispatch) =>
                 ContiguitySection(
+                    state.contiguity,
                     uiState,
                     dispatch
                 ),

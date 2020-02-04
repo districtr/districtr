@@ -1,7 +1,9 @@
 
 export default function ContiguityChecker(state, brush) {
     const host = (window.location.hostname === "localhost") ? "https://deploy-preview-157--districtr-web.netlify.com" : "";
-    window.d_contiguity = {};
+    if (!state.contiguity) {
+        state.contiguity = {};
+    }
 
     const updater = (state, colorsAffected) => {
         let assignment = state.plan.assignment,
@@ -26,7 +28,7 @@ export default function ContiguityChecker(state, brush) {
             }
             if (!testIDs[dnum] || testIDs[dnum].length <= 1) {
                 // 0-1 precincts automatically OK
-                window.d_contiguity[dnum] = true;
+                state.contiguity[dnum] = true;
                 // try {
                 //     document.querySelector(`.color-list li[title='${dnum + 1}'] div`).className = "icon-list__item__radio";
                 // } catch(e) {
@@ -52,7 +54,7 @@ export default function ContiguityChecker(state, brush) {
                 }
                 let keys = Object.keys(data),
                     geomType = data[keys[0]];
-                window.d_contiguity[dnum] = (geomType !== "ST_MultiPolygon");
+                state.contiguity[dnum] = (geomType !== "ST_MultiPolygon");
                 // try {
                 //     document.querySelector(".color-list li[title='" + (dnum + 1) + "'] div").className =
                 //         "icon-list__item__radio " + (window.d_contiguity[dnum] ? "" : "contiguity");
