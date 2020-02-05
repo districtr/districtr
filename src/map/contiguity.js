@@ -1,4 +1,10 @@
 
+function setContiguityStatus(dnum, contiguous) {
+    try {
+        document.querySelector(`#contiguity-${dnum}`).style.display = contiguous ? "none" : "flex";
+    } catch(e) { }
+}
+
 export default function ContiguityChecker(state, brush) {
     const host = (window.location.hostname === "localhost") ? "https://deploy-preview-157--districtr-web.netlify.com" : "";
     if (!state.contiguity) {
@@ -29,10 +35,7 @@ export default function ContiguityChecker(state, brush) {
             if (!testIDs[dnum] || testIDs[dnum].length <= 1) {
                 // 0-1 precincts automatically OK
                 state.contiguity[dnum] = true;
-                // try {
-                //     document.querySelector(`.color-list li[title='${dnum + 1}'] div`).className = "icon-list__item__radio";
-                // } catch(e) {
-                // }
+                setContiguityStatus(dnum, true);
                 return;
             }
 
@@ -55,11 +58,16 @@ export default function ContiguityChecker(state, brush) {
                 let keys = Object.keys(data),
                     geomType = data[keys[0]];
                 state.contiguity[dnum] = (geomType !== "ST_MultiPolygon");
-                // try {
-                //     document.querySelector(".color-list li[title='" + (dnum + 1) + "'] div").className =
-                //         "icon-list__item__radio " + (window.d_contiguity[dnum] ? "" : "contiguity");
-                // } catch(e) {
-                // }
+                setContiguityStatus(dnum, state.contiguity[dnum]);
+            })
+            .catch((err) => {
+                // on localhost, no connection = random result, for UI testing
+                if (window.location.hostname === "localhost") {
+                    state.contiguity[dnum] = (Math.random() > 0.5);
+                    setContiguityStatus(dnum, state.contiguity[dnum]);
+                } else {
+                    console.error(err);
+                }
             });
         });
     };
