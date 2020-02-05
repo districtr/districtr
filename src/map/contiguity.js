@@ -1,12 +1,23 @@
 
-function setContiguityStatus(dnum, contiguous) {
+function setContiguityStatus(contiguities, dnum) {
     try {
-        document.querySelector(`#contiguity-${dnum}`).style.display = contiguous ? "none" : "flex";
+        document.querySelector(`#contiguity-${dnum}`).style.display =
+            contiguities[dnum] ? "none" : "flex";
+
+        let foundDiscontiguity = false;
+        Object.keys(contiguities).forEach((d) => {
+            if (!contiguities[d]) {
+                foundDiscontiguity = true;
+            }
+        });
+        document.querySelector("#contiguity-status").innerText =
+            foundDiscontiguity
+                ? "Districts with contiguity gaps"
+                : "Any districts are contiguous"
     } catch(e) { }
 }
 
 export default function ContiguityChecker(state, brush) {
-    const host = (window.location.hostname === "localhost") ? "https://deploy-preview-157--districtr-web.netlify.com" : "";
     if (!state.contiguity) {
         state.contiguity = {};
     }
@@ -35,11 +46,11 @@ export default function ContiguityChecker(state, brush) {
             if (!testIDs[dnum] || testIDs[dnum].length <= 1) {
                 // 0-1 precincts automatically OK
                 state.contiguity[dnum] = true;
-                setContiguityStatus(dnum, true);
+                setContiguityStatus(state.contiguity, dnum);
                 return;
             }
 
-            fetch(host + "/.netlify/functions/planContiguity", {
+            fetch("/.netlify/functions/planContiguity", {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
@@ -58,13 +69,13 @@ export default function ContiguityChecker(state, brush) {
                 let keys = Object.keys(data),
                     geomType = data[keys[0]];
                 state.contiguity[dnum] = (geomType !== "ST_MultiPolygon");
-                setContiguityStatus(dnum, state.contiguity[dnum]);
+                setContiguityStatus(state.contiguity, dnum);
             })
             .catch((err) => {
                 // on localhost, no connection = random result, for UI testing
                 if (window.location.hostname === "localhost") {
                     state.contiguity[dnum] = (Math.random() > 0.5);
-                    setContiguityStatus(dnum, state.contiguity[dnum]);
+                    setContiguityStatus(state.contiguity, dnum);
                 } else {
                     console.error(err);
                 }
