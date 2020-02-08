@@ -17,25 +17,25 @@ export default function NumberMarkers(state, brush) {
         i = 0,
         districts = [],
         map = state.units.map;
-    canv.height = 30;
+    canv.height = 22;
     while (i < state.problem.numberOfParts) {
         districts.push(i);
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 40;
+        canv.width = 32;
         ctx.strokeStyle = "#000";
         ctx.fillStyle = "#fff";
         ctx.lineWidth = 2;
-        ctx.ellipse(20, 15, 16, 12, 0, 0, 2 * Math.PI);
+        ctx.ellipse(16, 11, 14, 10, 0, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
         ctx.fillStyle = "#000";
-        ctx.font = "16px sans-serif";
+        ctx.font = "14px sans-serif";
         ctx.fillText(
             dnum + 1,
-            20 - ctx.measureText(dnum + 1).width / 2,
-            21
+            16 - ctx.measureText(dnum + 1).width / 2,
+            16
         );
         // if (!dnum) {
         //     console.log(canv.toDataURL());
