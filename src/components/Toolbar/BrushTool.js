@@ -1,6 +1,9 @@
 import { html } from "lit-html";
+import hotkeys from 'hotkeys-js';
+
 import BrushColorPicker from "./BrushColorPicker";
 import BrushSlider from "./BrushSlider";
+import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
@@ -23,6 +26,21 @@ export default class BrushTool extends Tool {
         this.brush = brush;
         this.colors = colors;
         this.options = new BrushToolOptions(brush, colors);
+
+        hotkeys.filter = ({ target }) => {
+            return (!["INPUT", "TEXTAREA"].includes(target.tagName)
+              || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
+        };
+        hotkeys(`ctrl+z,command+z,control+z`, (evt, handler) => {
+            // undo
+            this.brush.undo();
+            evt.preventDefault();
+        });
+        hotkeys(`ctrl+shift+z,command+shift+z,control+shift+z`, (evt, handler) => {
+            // redo
+            this.brush.redo();
+            evt.preventDefault();
+        });
     }
     activate() {
         super.activate();
@@ -72,6 +90,7 @@ class BrushToolOptions {
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
+            ${UndoRedo(this.brush)}
         `;
     }
 }

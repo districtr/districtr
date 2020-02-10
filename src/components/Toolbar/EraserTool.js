@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import BrushSlider from "./BrushSlider";
+import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 export default class EraserTool extends Tool {
@@ -42,6 +43,7 @@ class EraserToolOptions {
             ${BrushSlider(this.brush.radius, this.changeRadius, {
                 title: "Eraser Size"
             })}
+            ${UndoRedo(this.brush)}
         `;
     }
 }

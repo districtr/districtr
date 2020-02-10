@@ -5,13 +5,27 @@ export default class Brush extends HoverWithRadius {
     constructor(layer, radius, color) {
         super(layer, radius);
 
+        this.id = Math.random();
         this.color = color;
         this.coloring = false;
         this.locked = false;
 
-        this.listeners = { colorend: [], colorfeature: [] };
-
-        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart"], this);
+        this.listeners = {
+            colorend: [],
+            colorfeature: [],
+            colorop: [],
+            undo: [],
+            redo: []
+        };
+        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "undo", "redo", "clearUndo"],
+            this);
+        this.clearUndo();
+    }
+    clearUndo() {
+        this.cursorUndo = 0;
+        this.trackUndo = [{
+            color: this.color
+        }];
     }
     setColor(color) {
         this.color = parseInt(color);
@@ -55,6 +69,16 @@ export default class Brush extends HoverWithRadius {
                         listener(feature, this.color);
                     }
                 }
+
+                // remember feature's initial color once per paint event
+                // remember population data so it can be un-counted
+                if (!this.trackUndo[this.cursorUndo][feature.id]) {
+                    this.trackUndo[this.cursorUndo][feature.id] = {
+                        properties: feature.properties,
+                        color: String(feature.state.color)
+                    };
+                }
+
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
                     color: this.color,
@@ -82,16 +106,120 @@ export default class Brush extends HoverWithRadius {
         window.addEventListener("mouseup", this.onMouseUp);
         window.addEventListener("touchend", this.onMouseUp);
         window.addEventListener("touchcancel", this.onMouseUp);
+
+        // after you undo, the cursor is in the middle of the undo stack (possible to redo an action)
+        // when you draw new material, it is no longer possible to redo
+        if (this.cursorUndo < this.trackUndo.length - 1) {
+            this.trackUndo = this.trackUndo.slice(0, this.cursorUndo + 1);
+        }
+
+        // limit number of changes in the stack
+        if (this.trackUndo.length > 19) {
+            this.trackUndo = this.trackUndo.slice(1);
+        }
+
+        this.trackUndo.push({
+            color: this.color
+        });
+        this.cursorUndo = this.trackUndo.length - 1;
     }
     onMouseUp() {
         this.coloring = false;
         window.removeEventListener("mouseup", this.onMouseUp);
         window.removeEventListener("touchend", this.onMouseUp);
         window.removeEventListener("touchcancel", this.onMouseUp);
+        for (let listener of this.listeners.colorop) {
+            listener();
+        }
     }
     onTouchStart(e) {
         if (e.points && e.points.length <= 1) {
             this.onMouseDown(e);
+        }
+    }
+    undo() {
+        let listeners = this.listeners.colorfeature;
+        let atomicAction = this.trackUndo[this.cursorUndo];
+        let brushedColor = atomicAction.color;
+        Object.keys(atomicAction).forEach((fid) => {
+            if (fid === "color") {
+                return;
+            }
+            // eraser color "undefined" should act like a brush set to null
+            let amendColor = Number(atomicAction[fid].color);
+            if (isNaN(amendColor)) {
+                amendColor = null;
+            }
+
+            // change map colors
+            this.layer.setFeatureState(fid, {
+                color: amendColor
+            });
+
+            // update subgroup totals (restoring old brush color)
+            for (let listener of listeners) {
+                listener({
+                    id: fid,
+                    state: { color: brushedColor },
+                    properties: atomicAction[fid].properties
+                }, amendColor);
+            }
+        });
+
+        this.cursorUndo = Math.max(0, this.cursorUndo - 1);
+
+        // locally store plan state
+        for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
+            listener(true);
+        }
+        for (let listener of this.listeners.undo) {
+            listener(this.cursorUndo <= 0);
+        }
+    }
+    redo() {
+        // no undo stack to move into
+        if (this.trackUndo.length < this.cursorUndo + 2) {
+            return;
+        }
+
+        // move up in undo/redo stack
+        this.cursorUndo++;
+        let atomicAction = this.trackUndo[this.cursorUndo];
+        let brushedColor = atomicAction.color;
+
+        let listeners = this.listeners.colorfeature;
+        Object.keys(atomicAction).forEach((fid) => {
+            if (fid === "color") {
+                return;
+            }
+
+            // eraser color "undefined" should act like a brush set to null
+            let amendColor = Number(atomicAction[fid].color);
+            if (isNaN(amendColor)) {
+                amendColor = null;
+            }
+
+            // change map colors
+            this.layer.setFeatureState(fid, {
+                color: brushedColor
+            });
+
+            // update subgroup totals (restoring old brush color)
+            for (let listener of listeners) {
+                listener({
+                    id: fid,
+                    state: { color: amendColor },
+                    properties: atomicAction[fid].properties
+                }, brushedColor);
+            }
+        });
+
+        // locally store plan state
+        for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
+            listener(true);
+        }
+        for (let listener of this.listeners.redo) {
+            listener(this.cursorUndo >= this.trackUndo.length - 1);
         }
     }
     activate() {
