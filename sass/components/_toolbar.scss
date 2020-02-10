@@ -331,3 +331,17 @@ li:first-child > input:checked ~ .tabs__tab {
     @include grey-hovers;
     @include user-select(none);
 }
+
+.mapbox-gl-draw_point {
+    background-color: rgb(250, 250, 120) !important;
+
+    &::after {
+        content: '+';
+        right: 0;
+        position: absolute;
+        top: -2px;
+        font-size: 13px;
+        color: darkgreen;
+        font-weight: bold;
+    }
+}

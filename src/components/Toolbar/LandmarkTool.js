@@ -64,6 +64,7 @@ export default class LandmarkTool extends Tool {
         super.activate();
         // enable / disable drawing toolbar
         this.landmarks.handleDrawToggle(true);
+        document.querySelector(".mapbox-gl-draw_point").click();
     }
     deactivate() {
         super.deactivate();
@@ -118,6 +119,7 @@ class LandmarkOptions {
         let saveButton = document.getElementById("landmark-save-button")
         saveButton.disabled = true;
         saveButton.innerText = "Saved";
+        document.querySelector(".mapbox-gl-draw_point").click();
     }
     onDelete() {
         // delete currently viewed shape
@@ -171,7 +173,7 @@ class LandmarkOptions {
         setName: this.setName,
         setDescription: this.setDescription,
         onDelete: this.onDelete
-    }) : "Add landmarks using the tool(s) on the top right of the map."}
+    }) : "Click on the map with the crosshairs (+) to add a point"}
         `;
     }
 }
