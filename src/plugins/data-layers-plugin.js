@@ -34,17 +34,6 @@ const COUNTIES_LAYER = {
     }
 };
 
-const AMERINDIAN_LAYER = {
-    id: "nativeamerican",
-    source: "nativeamerican",
-    type: "fill",
-    paint: {
-        "fill-outline-color": "#444444",
-        "fill-color": "#444444",
-        "fill-opacity": 0.3
-    }
-};
-
 export function addCountyLayer(tab, state) {
     let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
     state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
@@ -73,33 +62,179 @@ export function addCountyLayer(tab, state) {
     );
 }
 
+const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "grey";
+let shadeNames = ["case"];
+const amin_paint = ({
+  grey: {
+    "fill-outline-color": "#444444",
+    "fill-color": "#444444",
+    "fill-opacity": 0.3
+  },
+  gray: {
+    "fill-outline-color": "#444444",
+    "fill-color": "#444444",
+    "fill-opacity": 0.3
+  },
+  brown: {
+    "fill-outline-color": "#654321",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  brown2: {
+    "fill-outline-color": "rgb(178,172,112)",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  brown3: {
+    "fill-outline-color": "#654321",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  shades: {
+    "fill-outline-color": "#000",
+    "fill-color": shadeNames,
+    "fill-opacity": 0.25
+  },
+  lines: {
+    "fill-pattern": "hatching",
+    "fill-color": "#000",
+    "fill-opacity": 0.7
+  }
+})[amin_type];
+const amin_mode = ({
+    grey: "fill",
+    gray: "fill",
+    lines: "fill",
+    brown: "fill",
+    brown2: "fill",
+    brown3: "fill",
+    shades: "fill"
+})[amin_type]
+
+const AMERINDIAN_LAYER = {
+    id: "nativeamerican",
+    source: "nativeamerican",
+    type: amin_mode,
+    paint: amin_paint
+};
+
 export function addAmerIndianLayer(tab, state) {
     let nativeamerican = null,
-        startFill = window.location.search.includes("native=true") ? 0.3 : 0;
+        startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.3 : 0;
+
+    let native_am_type = "Pueblos, Tribes, and Nations"; // NM
+    if (state.place.id === "oklahoma") {
+        native_am_type = "Indian Country";
+    }
 
     fetch(`/assets/native_official/${state.place.id}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
+
+        let knownNames = new Set(),
+            r = 50,
+            g = 70,
+            b = 150;
+        geojson.features.forEach((space) => {
+            let name = space.properties.NAME;
+            if (!knownNames.has(name)) {
+                shadeNames.push(["==", ["get", "NAME"], name]);
+                knownNames.add(name);
+                knownNames.add(`rgb(${r},${g},${b})`);
+                r += 6;
+                g += 22;
+                b -= 26;
+                if (g > 170) {
+                    g = 70;
+                }
+                if (b < 80) {
+                    b = 150;
+                }
+                shadeNames.push(`rgb(${r},${g},${b})`);
+            }
+        });
+        shadeNames.push("#ddd");
 
         state.map.addSource('nativeamerican', {
             type: 'geojson',
             data: geojson
         });
 
-        nativeamerican = new Layer(
-            state.map,
-            {
-                ...AMERINDIAN_LAYER,
-                paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
-            },
-            addBelowLabels
-        );
+        if (amin_type === "brown3" || amin_type === "shades") {
+            fetch(`/assets/native_official/${state.place.id}_centroids.geojson`)
+                .then(res => res.json())
+                .then((centroids) => {
+
+                state.map.addSource('nat_centers', {
+                    type: 'geojson',
+                    data: centroids
+                });
+
+                new Layer(
+                    state.map,
+                    {
+                      'id': 'nat-labels',
+                      'type': 'symbol',
+                      'source': 'nat_centers',
+                      'layout': {
+                        'text-field': [
+                            'format',
+                            '\n',
+                            {},
+                            ['get', 'NAME'],
+                            {'font-scale': 0.75},
+                            '\n\n',
+                            {}
+                        ],
+                        'text-anchor': 'center',
+                        // 'text-ignore-placement': true,
+                        'text-radial-offset': 0,
+                        'text-justify': 'center'
+                      }
+                    }
+                    // ,
+                    // addBelowLabels
+                );
+            });
+        }
+
+        state.map.loadImage("/assets/crosshatch.png", (err, hatching) => {
+            if (!err) {
+                state.map.addImage("hatching", hatching);
+            }
+
+            nativeamerican = new Layer(
+                state.map,
+                {
+                    ...AMERINDIAN_LAYER,
+                    paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
+                },
+                addBelowLabels
+            );
+
+            if (amin_type === "brown2" || amin_type === "brown3") {
+                new Layer(
+                    state.map,
+                    {
+                        type: "line",
+                        source: "nativeamerican",
+                        id: "nativeborder",
+                        paint: {
+                          'line-color': '#654321',
+                          'line-opacity': 0.5,
+                          'line-width': 4
+                        }
+                    },
+                    addBelowLabels
+                );
+            }
+        });
     });
 
     tab.addSection(
         () => html`
             <h4>Native American Communities</h4>
-            ${toggle(`Show Pueblos, Tribes, and Nations`, false, checked =>
+            ${toggle("Show " + native_am_type, false, checked =>
                 nativeamerican.setOpacity(
                     checked ? AMERINDIAN_LAYER.paint["fill-opacity"] : 0
                 )
@@ -141,7 +276,7 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (["new_mexico"].includes(state.place.id)) {
+    if (["new_mexico", "oklahoma"].includes(state.place.id)) {
         addAmerIndianLayer(tab, state);
     }
 
