@@ -346,7 +346,7 @@ export function PlaceMap(features, selectedId) {
                 @change=${(e) => {
                   let stateName = e.target.value;
                   let postalCode = uspost[stateName];
-                  window.location.href = "/new/" + postalCode;
+                  document.getElementById(postalCode).dispatchEvent(new MouseEvent("click"));
                 }}
             >
               ${Object.keys(uspost).map(st => {
