@@ -70,7 +70,12 @@
     caret-color: $mggg-blue;
     text-align: center;
     margin: 0 0.5rem;
-    border-radius: 0;
+    border-radius: 8px;
+    padding: 4px 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
 
 .place-map__search::selection {
