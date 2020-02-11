@@ -41,6 +41,12 @@
         <main id="root" class="landing-page">
             <ul id="nav">
                 <img src="/assets/mggg.svg" alt="MGGG"/>
+                <button
+                    class="button button--subtle button--icon button--no-shadow"
+                    onclick="document.querySelectorAll('#nav li').forEach(s => s.style.display = 'block');event.target.style.display='none';"
+                >
+                    <i class="material-icons">menu</i>
+                </button>
                 <li>
                   <a href="/new">
                     Quick Start

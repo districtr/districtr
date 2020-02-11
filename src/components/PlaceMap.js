@@ -344,9 +344,9 @@ export function PlaceMap(features, selectedId) {
                 class="place-map__search${selectedId ? " hidden" : ""}"
                 name="place"
                 @change=${(e) => {
-                  let stateName = e.target.value;
-                  let postalCode = uspost[stateName];
-                  document.getElementById(postalCode).dispatchEvent(new MouseEvent("click"));
+                    let stateName = e.target.value;
+                    let postalCode = uspost[stateName];
+                    document.getElementById(postalCode).dispatchEvent(new MouseEvent("click"));
                 }}
             >
               ${Object.keys(uspost).map(st => {
