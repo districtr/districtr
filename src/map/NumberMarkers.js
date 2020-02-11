@@ -96,9 +96,14 @@ export default function NumberMarkers(state, brush) {
                 }
             });
 
-            Object.keys(markers).forEach((district_num) => {
+            let moveMarkers = Object.keys(markers);
+            function check_district(d_index) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
+                if (d_index >= moveMarkers.length) {
+                    return;
+                }
+                let district_num = moveMarkers[d_index];
                 let filterOdds = 100 / markers[district_num].length;
                 if (filterOdds < 1) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
@@ -120,8 +125,12 @@ export default function NumberMarkers(state, brush) {
                         };
                     }
                     map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
+                    check_district(d_index + 1);
+                }).catch(() => {
+                    check_district(d_index + 1);
                 });
-            });
+            }
+            check_district(0);
 
             // remove a number marker if the district has no units left on the map
             Object.keys(numberMarkers).forEach((previous_dnum) => {
