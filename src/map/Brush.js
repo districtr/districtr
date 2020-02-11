@@ -9,6 +9,7 @@ export default class Brush extends HoverWithRadius {
         this.color = color;
         this.coloring = false;
         this.locked = false;
+        this.changedColors = new Set();
 
         this.listeners = {
             colorend: [],
@@ -61,6 +62,9 @@ export default class Brush extends HoverWithRadius {
     }
     _colorFeatures(filter) {
         let seenFeatures = new Set();
+        if (this.color || this.color === 0 || this.color === '0') {
+            this.changedColors.add(Number(this.color));
+        }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
                 if (!seenFeatures.has(feature.id)) {
@@ -77,6 +81,9 @@ export default class Brush extends HoverWithRadius {
                         properties: feature.properties,
                         color: String(feature.state.color)
                     };
+                }
+                if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
+                    this.changedColors.add(Number(feature.state.color));
                 }
 
                 this.layer.setFeatureState(feature.id, {
@@ -97,12 +104,17 @@ export default class Brush extends HoverWithRadius {
         }
     }
     onClick() {
+        this.changedColors = new Set();
         this.colorFeatures();
+        for (let listener of this.listeners.colorop) {
+            listener(false, this.changedColors);
+        }
     }
     onMouseDown(e) {
         e.preventDefault();
         e.originalEvent.preventDefault();
         this.coloring = true;
+        this.changedColors = new Set();
         window.addEventListener("mouseup", this.onMouseUp);
         window.addEventListener("touchend", this.onMouseUp);
         window.addEventListener("touchcancel", this.onMouseUp);
@@ -129,7 +141,7 @@ export default class Brush extends HoverWithRadius {
         window.removeEventListener("touchend", this.onMouseUp);
         window.removeEventListener("touchcancel", this.onMouseUp);
         for (let listener of this.listeners.colorop) {
-            listener();
+            listener(false, this.changedColors);
         }
     }
     onTouchStart(e) {
@@ -141,15 +153,21 @@ export default class Brush extends HoverWithRadius {
         let listeners = this.listeners.colorfeature;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
+        if (brushedColor || brushedColor === 0 || brushedColor === '0') {
+            this.changedColors.add(brushedColor * 1);
+        }
         Object.keys(atomicAction).forEach((fid) => {
             if (fid === "color") {
                 return;
             }
             // eraser color "undefined" should act like a brush set to null
-            let amendColor = Number(atomicAction[fid].color);
-            if (isNaN(amendColor)) {
+            let amendColor = atomicAction[fid].color;
+            if ((amendColor === 0 || amendColor === '0') || amendColor) {
+                amendColor = Number(atomicAction[fid].color);
+            } else {
                 amendColor = null;
             }
+            this.changedColors.add(amendColor);
 
             // change map colors
             this.layer.setFeatureState(fid, {
@@ -170,8 +188,9 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true);
+            listener(true, this.changedColors);
         }
+        this.changedColors = new Set();
         for (let listener of this.listeners.undo) {
             listener(this.cursorUndo <= 0);
         }
@@ -186,7 +205,9 @@ export default class Brush extends HoverWithRadius {
         this.cursorUndo++;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
-
+        if (brushedColor || brushedColor === 0 || brushedColor === '0') {
+            this.changedColors.add(brushedColor * 1);
+        }
         let listeners = this.listeners.colorfeature;
         Object.keys(atomicAction).forEach((fid) => {
             if (fid === "color") {
@@ -194,10 +215,13 @@ export default class Brush extends HoverWithRadius {
             }
 
             // eraser color "undefined" should act like a brush set to null
-            let amendColor = Number(atomicAction[fid].color);
-            if (isNaN(amendColor)) {
+            let amendColor = atomicAction[fid].color;
+            if ((amendColor === 0 || amendColor === '0') || amendColor) {
+                amendColor = Number(atomicAction[fid].color);
+            } else {
                 amendColor = null;
             }
+            this.changedColors.add(amendColor);
 
             // change map colors
             this.layer.setFeatureState(fid, {
@@ -216,8 +240,9 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true);
+            listener(true, this.changedColors);
         }
+        this.changedColors = new Set();
         for (let listener of this.listeners.redo) {
             listener(this.cursorUndo >= this.trackUndo.length - 1);
         }

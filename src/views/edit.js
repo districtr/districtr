@@ -162,6 +162,9 @@ function loadContext(context) {
         let state = new State(mapState.map, context, () => {
             window.document.title = "Districtr";
         });
+        if (context.assignment) {
+            state.plan.assignment = context.assignment; // know loaded district assignments
+        }
         let editor = new Editor(state, mapState, getPlugins(context));
         editor.render();
     });
