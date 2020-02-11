@@ -39,55 +39,39 @@
 
     <body>
         <main id="root" class="landing-page">
-            <header class="sign-in" id="sign-in"></header>
+            <ul id="nav">
+                <img src="/assets/mggg.svg" alt="MGGG"/>
+                <li>
+                  <a href="/new">
+                    Quick Start
+                  </a>
+                </li>
+                <li>
+                  <a href="/guide">
+                    Tutorial
+                  </a>
+                </li>
+                <!-- <li>
+                  <header class="sign-in" id="sign-in"></header>
+                </li> -->
+                <hr/>
+            </ul>
             <section class="splash splash-grid hello">
                 <header class="splash-text">
                     <h1 class="headline"><em>You</em> draw the lines.</h1>
                     <h2 class="takeaway">
-                        <mark class="districtr-name">Districtr</mark> is a
-                        project of the
-                        <a href="https://www.mggg.org">
-                            Metric Geometry and Gerrymandering Group</a
-                        >
+                        <mark class="districtr-name">Districtr</mark>
+                        is a project of the
+                        <a href="https://www.mggg.org">Metric Geometry and Gerrymandering Group</a>
                         to
-                        <strong
-                            >put the tools of redistricting into the hands of
-                            the public</strong
-                        >
-                        by providing free, open-source software for
-                        redistricting.
-                        <a href="/new" class="button"
-                            >Start&nbsp;drawing&nbsp;districts.</a
-                        >
+                        <strong>put the tools of redistricting into the hands of the public</strong>
+                        with free software.
+                        <a href="/new" class="homelink">Start&nbsp;drawing&nbsp;districts.</a>
+                        <img src="/assets/districtr-splash.png" style="max-width: 80%"/>
                     </h2>
                 </header>
             </section>
-            <aside
-                class="splash-grid decorated-section l-content l-major-section"
-            >
-                <div class="splash-grid__left">
-                    <h2 class="section__heading section__heading--bold">
-                        New in Districtr
-                    </h2>
-                    <h3>
-                        <a href="/guide">
-                            Learn how to start districting with the Districtr
-                            User Guide.
-                        </a>
-                    </h3>
-                    <h3>
-                        <a href="https://mggg.org/alaska">
-                            Read MGGG's paper "Mathematics of Nested Districts:
-                            The Case of Alaska."
-                        </a>
-                    </h3>
-                </div>
-            </aside>
-            <section class="l-content u-centered l-major-section">
-                <h2 class="section__heading">
-                    Make your voice heard with
-                    <mark class="districtr-name">Districtr.</mark>
-                </h2>
+            <section class="l-content u-centered l-major-section decorated-section">
                 <div class="media-list">
                     <a href="/new" class="link--no-style">
                         <article
@@ -128,6 +112,10 @@
                         </article>
                     </a>
                 </div>
+                <h2 class="section__heading">
+                    Make your voice heard with
+                    <mark class="districtr-name">Districtr.</mark>
+                </h2>
             </section>
             <section
                 class="start-districting hidden l-major-section"
@@ -136,7 +124,7 @@
             <section class="u-centered">
                 <div class="request-new-place">
                     <h2 class="call-to-request">Looking for somewhere else?</h2>
-                    <a href="/request" class="button call-to-request"
+                    <a href="/request" class="call-to-request homelink"
                         >Request a new place to redistrict.</a
                     >
                 </div>
@@ -199,11 +187,6 @@
                         HTML5, CSS, and JavaScript, as well as:
                     </h2>
                     <ul class="technologies">
-                        <li class="technologies__item lit-html-link">
-                            <a href="https://lit-html.polymer-project.org/"
-                                >lit-html</a
-                            >
-                        </li>
                         <li class="technologies__item">
                             <a href="https://www.mapbox.com/">
                                 <img
@@ -212,14 +195,6 @@
                                     class="mapbox-logo"
                                 />
                             </a>
-                        </li>
-                        <li class="technologies__item">
-                            <a href="http://sass-lang.com/"
-                                ><img
-                                    src="/assets/sass-logo.png"
-                                    alt="Sass"
-                                    class="sass-logo"
-                            /></a>
                         </li>
                     </ul>
                     <div class="github-link takeaway">

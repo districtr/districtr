@@ -7,6 +7,11 @@ a:visited {
     font-weight: 600;
     text-decoration: none;
     color: $mggg-dark-blue;
+
+    &.homelink {
+        text-decoration: underline;
+        font-weight: 800;
+    }
 }
 
 a:hover,

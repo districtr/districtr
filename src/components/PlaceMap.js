@@ -21,7 +21,6 @@ const available = [
     "Michigan",
     "Minnesota",
     "Iowa",
-    // "Missouri",
     "Mississippi",
     "Illinois",
     "Texas",
@@ -40,6 +39,60 @@ const available = [
     "Hawaii",
     "Washington"
 ];
+
+const uspost = {
+  "Alabama": "al",
+  "Alaska": "ak",
+  "Arizona": "az",
+  "Arkansas": "ar",
+  "California": "ca",
+  "Colorado": "co",
+  "Connecticut": "ct",
+  "Delaware": "de",
+  "Florida": "fl",
+  "Georgia": "ga",
+  "Hawaii": "hi",
+  "Idaho": "id",
+  "Illinois": "il",
+  "Indiana": "in",
+  "Iowa": "ia",
+  "Kansas": "ks",
+  "Kentucky": "ky",
+  "Louisiana": "la",
+  "Maine": "me",
+  "Maryland": "md",
+  "Massachusetts": "ma",
+  "Michigan": "mi",
+  "Minnesota": "mn",
+  "Mississippi": "ms",
+  "Missouri": "mo",
+  "Montana": "mt",
+  "Nebraska": "ne",
+  "Nevada": "nv",
+  "New Hampshire": "nh",
+  "New Jersey": "nj",
+  "New Mexico": "nm",
+  "New York": "ny",
+  "North Carolina": "nc",
+  "North Dakota": "nd",
+  "Ohio": "oh",
+  "Oklahoma": "ok",
+  "Oregon": "or",
+  "Pennsylvania": "pa",
+  "Rhode Island": "ri",
+  "South Carolina": "sc",
+  "South Dakota": "sd",
+  "Tennessee": "tn",
+  "Texas": "tx",
+  "Utah": "ut",
+  "Vermont": "vt",
+  "Virginia": "va",
+  "Washington": "wa",
+  "Washington, DC": "dc",
+  "West Virginia": "wv",
+  "Wisconsin": "wi",
+  "Wyoming": "wy"
+};
 
 // Sentinel for when the mouse is not over a state
 const noHover = {};
@@ -258,18 +311,18 @@ let defaultHistoryState = location.pathname;
 let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
 
 export function PlaceMap(features, selectedId) {
-    document.addEventListener("scroll", () => {
-        let el = document.getElementById("place-search");
-        let { top, bottom } = el.getBoundingClientRect();
-        let isVisible = top < window.innerHeight && bottom >= 0;
-        if (isVisible) {
-            if (location.pathname !== currentHistoryState) {
-                history.replaceState({}, "Districtr", currentHistoryState);
-            }
-        } else {
-            history.replaceState({}, "Districtr", defaultHistoryState);
-        }
-    });
+    // document.addEventListener("scroll", () => {
+    //     let el = document.getElementById("place-search");
+    //     let { top, bottom } = el.getBoundingClientRect();
+    //     let isVisible = top < window.innerHeight && bottom >= 0;
+    //     if (isVisible) {
+    //         if (location.pathname !== currentHistoryState) {
+    //             history.replaceState({}, "Districtr", currentHistoryState);
+    //         }
+    //     } else {
+    //         history.replaceState({}, "Districtr", defaultHistoryState);
+    //     }
+    // });
     document.addEventListener("keyup", (e) => {
         let selectedState = window.location.pathname.split("/").slice(-1)[0];
         if (selectedState.length === 2 && e.keyCode === 27) {
@@ -286,13 +339,22 @@ export function PlaceMap(features, selectedId) {
     }
     return html`
         <div class="place-map__form">
-            <input
+            <select
                 id="place-search"
                 class="place-map__search${selectedId ? " hidden" : ""}"
                 name="place"
-                type="text"
-                disabled
-            />
+                @change=${(e) => {
+                  let stateName = e.target.value;
+                  let postalCode = uspost[stateName];
+                  window.location.href = "/new/" + postalCode;
+                }}
+            >
+              ${Object.keys(uspost).map(st => {
+                  return html`<option value="${st}" ?disabled=${!available.includes(st)}>
+                      ${st}
+                  </option>`;
+              })}
+            </select>
         </div>
         <div
             class="place-map__state-modules${selectedId
