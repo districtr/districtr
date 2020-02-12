@@ -35,6 +35,10 @@ ul#nav {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 
+    hr {
+        border-top: 1px solid #ddd;
+    }
+
     img {
         display: inline-block;
         max-width: 180px;
