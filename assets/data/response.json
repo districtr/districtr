@@ -7239,6 +7239,207 @@
     ]
   },
   {
+  "name": "California",
+  "id": "california",
+  "units": [
+    {
+      "id": "blockgroups",
+      "name": "Block Groups",
+      "unitType": "Block Groups",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "TOTPOP",
+            "name": "Total population",
+            "sum": 37253956,
+            "min": 0,
+            "max": 37452
+          },
+          "subgroups": [
+            {
+              "key": "NH_WHITE",
+              "name": "White population",
+              "sum": 14956253,
+              "min": 0,
+              "max": 23326
+            },
+            {
+              "key": "NH_BLACK",
+              "name": "Black population",
+              "sum": 2163804,
+              "min": 0,
+              "max": 3372
+            },
+            {
+              "key": "HISP",
+              "name": "Hispanic population",
+              "sum": 14013719,
+              "min": 0,
+              "max": 8761
+            },
+            {
+              "key": "NH_ASIAN",
+              "name": "Asian population",
+              "sum": 4775070,
+              "min": 0,
+              "max": 7190
+            },
+            {
+              "key": "NH_AMIN",
+              "name": "American Indian population",
+              "sum": 162250,
+              "min": 0,
+              "max": 1299
+            },
+            {
+              "key": "NH_NHPI",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 128577,
+              "min": 0,
+              "max": 318
+            },
+            {
+              "key": "NH_2MORE",
+              "name": "Two or more races",
+              "sum": 968696,
+              "min": 0,
+              "max": 1417
+            },
+            {
+              "key": "NH_OTHER",
+              "name": "Other races",
+              "sum": 85587,
+              "min": 0,
+              "max": 609
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "VAP",
+            "name": "Voting age population",
+            "sum": 27958916,
+            "min": 0,
+            "max": 28368
+          },
+          "subgroups": [
+            {
+              "key": "WVAP",
+              "name": "White voting age population",
+              "sum": 12409858,
+              "min": 0,
+              "max": 18751
+            },
+            {
+              "key": "BVAP",
+              "name": "Black voting age population",
+              "sum": 1640279,
+              "min": 0,
+              "max": 3371
+            },
+            {
+              "key": "HVAP",
+              "name": "Hispanic voting age population",
+              "sum": 9257499,
+              "min": 0,
+              "max": 6145
+            },
+            {
+              "key": "AMINVAP",
+              "name": "Native American voting age population",
+              "sum": 125020,
+              "min": 0,
+              "max": 824
+            },
+            {
+              "key": "NHPIVAP",
+              "name": "Native Hawaiian and Pacific Islander voting age population",
+              "sum": 96399,
+              "min": 0,
+              "max": 236
+            },
+            {
+              "key": "ASIANVAP",
+              "name": "Asian voting age population",
+              "sum": 3809082,
+              "min": 0,
+              "max": 5028
+            },
+            {
+              "key": "OTHERVAP",
+              "name": "Other races voting age population",
+              "sum": 59024,
+              "min": 0,
+              "max": 609
+            },
+            {
+              "key": "2MOREVAP",
+              "name": "Two or more races voting age population",
+              "sum": 561755,
+              "min": 0,
+              "max": 608
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block group FIPS code",
+        "key": "GEOID10"
+      },
+      "bounds": [
+        [
+          -124.482,
+          32.5288
+        ],
+        [
+          -114.1312,
+          42.0095
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.california_blockgroups"
+          },
+          "sourceLayer": "california_blockgroups"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.california_blockgroups_points"
+          },
+          "sourceLayer": "california_blockgroups_points"
+        }
+      ]
+    }
+  ],
+  "state": "California",
+  "districtingProblems": [
+    {
+      "name": "Congress",
+      "numberOfParts": 53,
+      "pluralNoun": "Congressional Districts"
+    },
+    {
+      "name": "State Senate",
+      "numberOfParts": 40,
+      "pluralNoun": "State Senate Districts"
+    },
+    {
+      "name": "State Assembly",
+      "numberOfParts": 80,
+      "pluralNoun": "State Assembly Districts"
+    }
+  ]
+},
+  {
     "units": [
       {
         "id": "blocks",
@@ -9654,6 +9855,7 @@
     ],
     "id": "yakima_wa"
   },
+
   {
     "districtingProblems": [
       {
@@ -9859,6 +10061,207 @@
     "state": "Arkansas",
     "id": "little_rock"
   },
+  {
+  "name": "Arkansas",
+  "units": [
+    {
+      "id": "blockgroups",
+      "name": "Block Groups",
+      "unitType": "Block Groups",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "TOTPOP",
+            "name": "Total population",
+            "sum": 2915918,
+            "min": 2,
+            "max": 7259
+          },
+          "subgroups": [
+            {
+              "key": "NH_WHITE",
+              "name": "White population",
+              "sum": 2173469,
+              "min": 1,
+              "max": 5146
+            },
+            {
+              "key": "NH_BLACK",
+              "name": "Black population",
+              "sum": 447102,
+              "min": 0,
+              "max": 2602
+            },
+            {
+              "key": "HISP",
+              "name": "Hispanic population",
+              "sum": 186050,
+              "min": 0,
+              "max": 2391
+            },
+            {
+              "key": "NH_ASIAN",
+              "name": "Asian population",
+              "sum": 35647,
+              "min": 0,
+              "max": 461
+            },
+            {
+              "key": "NH_AMIN",
+              "name": "American Indian population",
+              "sum": 20183,
+              "min": 0,
+              "max": 117
+            },
+            {
+              "key": "NH_NHPI",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 5509,
+              "min": 0,
+              "max": 667
+            },
+            {
+              "key": "NH_2MORE",
+              "name": "Two or more races",
+              "sum": 45837,
+              "min": 0,
+              "max": 145
+            },
+            {
+              "key": "NH_OTHER",
+              "name": "Other races",
+              "sum": 2121,
+              "min": 0,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "VAP",
+            "name": "Voting age population",
+            "sum": 2204443,
+            "min": 2,
+            "max": 5646
+          },
+          "subgroups": [
+            {
+              "key": "WVAP",
+              "name": "White voting age population",
+              "sum": 1708907,
+              "min": 1,
+              "max": 4167
+            },
+            {
+              "key": "BVAP",
+              "name": "Black voting age population",
+              "sum": 313887,
+              "min": 0,
+              "max": 2399
+            },
+            {
+              "key": "HVAP",
+              "name": "Hispanic voting age population",
+              "sum": 111094,
+              "min": 0,
+              "max": 1402
+            },
+            {
+              "key": "AMINVAP",
+              "name": "Native American voting age population",
+              "sum": 14876,
+              "min": 0,
+              "max": 84
+            },
+            {
+              "key": "NHPIVAP",
+              "name": "Native Hawaiian and Pacific Islander voting age population",
+              "sum": 3171,
+              "min": 0,
+              "max": 354
+            },
+            {
+              "key": "ASIANVAP",
+              "name": "Asian voting age population",
+              "sum": 26790,
+              "min": 0,
+              "max": 366
+            },
+            {
+              "key": "OTHERVAP",
+              "name": "Other races voting age population",
+              "sum": 1032,
+              "min": 0,
+              "max": 10
+            },
+            {
+              "key": "2MOREVAP",
+              "name": "Two or more races voting age population",
+              "sum": 24686,
+              "min": 0,
+              "max": 97
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block group FIPS code",
+        "key": "GEOID10"
+      },
+      "bounds": [
+        [
+          -94.6179,
+          33.0041
+        ],
+        [
+          -89.6444,
+          36.4997
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.arkansas_blockgroups"
+          },
+          "sourceLayer": "arkansas_blockgroups"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.arkansas_blockgroups_points"
+          },
+          "sourceLayer": "arkansas_blockgroups_points"
+        }
+      ]
+    }
+  ],
+  "state": "Arkansas",
+  "id": "arkansas",
+  "districtingProblems": [
+    {
+      "name": "Congress",
+      "numberOfParts": 4,
+      "pluralNoun": "Congressional Districts"
+    },
+    {
+      "name": "State House",
+      "numberOfParts": 100,
+      "pluralNoun": "State House"
+    },
+    {
+      "name": "State Senate",
+      "numberOfParts": 35,
+      "pluralNoun": "State Senate"
+    }
+  ]
+},
     {
     "name": "Oregon",
     "units": [
