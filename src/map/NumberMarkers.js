@@ -18,6 +18,11 @@ export default function NumberMarkers(state, brush) {
         districts = [],
         map = state.units.map;
     canv.height = 22;
+    if (typeof ctx.ellipse === "undefined") {
+        // IE helper
+        return { update: () => {} };
+    }
+
     while (i < state.problem.numberOfParts) {
         districts.push(i);
         i++;
@@ -57,7 +62,7 @@ export default function NumberMarkers(state, brush) {
                     source: "number_source_" + dnum,
                     type: "symbol",
                     paint: {
-                        "icon-opacity": 1
+                        "icon-opacity": 0
                     },
                     layout: {
                         "icon-image": "number_icon_" + dnum,

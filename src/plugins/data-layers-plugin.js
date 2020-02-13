@@ -81,7 +81,7 @@ export default function DataLayersPlugin(editor) {
             ${(state.plan.problem.type === "community"
                 || ["santa_clara", "lowell", "little_rock", "austin", "islip"].includes(state.place.id)
                 || ["chicago_community_areas"].includes(state.units.sourceId)) ? null
-                : toggle("Show district numbers", true, checked => {
+                : toggle("Show district numbers", false, checked => {
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
                         number.setOpacity(Math.round(opacity))
