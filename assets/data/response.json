@@ -9467,8 +9467,18 @@
     "districtingProblems": [
       {
         "numberOfParts": 4,
-        "name": "School Attendance Zones",
-        "pluralNoun": "School Attendance Zones"
+        "name": "High School Attendance Zones",
+        "pluralNoun": "High School Attendance Zones"
+      },
+      {
+        "numberOfParts": 6,
+        "name": "Middle School Attendance Zones",
+        "pluralNoun": "Middle School Attendance Zones"
+      },
+      {
+        "numberOfParts": 22,
+        "name": "Elementary School Attendance Zones",
+        "pluralNoun": "Elementary School Attendance Zones"
       }
     ],
     "units": [
