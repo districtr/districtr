@@ -62,7 +62,7 @@
     font-size: 2rem;
     color: $mggg-blue;
     font-family: $font-family;
-    border: 1px solid $mggg-blue;
+    border: none;
     border-bottom: 0.125rem solid $mggg-blue;
     transition: all 100ms ease;
     background: none;
@@ -70,7 +70,7 @@
     caret-color: $mggg-blue;
     text-align: center;
     margin: 0 0.5rem;
-    border-radius: 8px;
+    border-radius: 0;
     padding: 4px 8px;
     -webkit-appearance: none;
     -moz-appearance: none;

@@ -55,8 +55,9 @@ ul#nav {
         display: inline-block;
         list-style-type: none;
         float: right;
-        background: #000;
-        margin-left: 4px;
+        background: $mggg-dark-blue;
+        margin-left: 7px;
+        border-radius: 10px;
 
         a {
             display: block;
