@@ -86,7 +86,7 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     );
 
     // cities in Communities of Interest will have a thick border
-    if (["chicago", "lowell", "philadelphia", "providence_ri", "santa_clara"].includes(borderId)) {
+    if (["chicago", "lowell", "philadelphia", "providence_ri", "santa_clara", "napa"].includes(borderId)) {
         fetch(`/assets/city_border/${borderId}.geojson`)
             .then(res => res.json())
             .then((geojson) => {
