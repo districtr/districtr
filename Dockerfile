@@ -1,7 +1,6 @@
 FROM node:alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN apt-get install libpq-dev g++ make
 RUN npm install
 COPY . .
 RUN npm run build
