@@ -69,6 +69,10 @@ export function getFeatureBySTUPS(code) {
 // =============
 
 export function selectState(feature, target) {
+    if (window.location.pathname.split("/").length >= 3) {
+        // already zoomed in on one state
+        return;
+    }
     if (stateSelected === false && feature.properties.isAvailable) {
         currentHistoryState = `/new/${feature.properties.STUSPS.toLowerCase()}`;
         history.pushState({}, feature.properties.NAME, currentHistoryState);
@@ -179,6 +183,7 @@ export function Features(features, onHover, selectedId) {
             featureId,
             selectedId
         )}"
+            style="${feature.properties.isAvailable ? "" : "cursor:default"}"
             d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
             feature.properties.isAvailable
                 ? e => selectState(feature, e.target)
