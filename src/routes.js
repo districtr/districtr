@@ -143,12 +143,12 @@ export function loadPlanFromCSV(assignmentList, state) {
             partCount = cols[3],
             pluralType = cols[4];
         if (unitId.includes("_")) {
-            unitId = unitId.split("_").slice(1).join("_");
+            unitId = unitId.split("_").slice(-1)[0];
         }
 
         if (placeId !== state.place.id) {
             throw new Error("CSV is for a different module (another state or region).");
-        } else if (unitId !== state.units.id) {
+        } else if (unitId !== state.units.id.split("_").slice(-1)[0]) {
             throw new Error("CSV is for this module but a different unit map (e.g. blocks, precincts).");
         } else if (pluralType !== state.problem.pluralNoun.replace(/\s+/g, "")) {
             throw new Error("CSV is for this module but a different division map (e.g. districts)");
