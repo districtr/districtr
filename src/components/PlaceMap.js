@@ -74,7 +74,7 @@ export function selectState(feature, target) {
         return;
     }
     if (stateSelected === false && feature.properties.isAvailable) {
-        currentHistoryState = `/new/${feature.properties.STUSPS.toLowerCase()}`;
+        currentHistoryState = `${window.location.pathname.split("/")[1] || "/new"}/${feature.properties.STUSPS.toLowerCase()}`;
         history.pushState({}, feature.properties.NAME, currentHistoryState);
         target.classList.add("state--selected");
         zoomToFeature(feature);
@@ -209,8 +209,8 @@ function emptyModuleFallback(feature) {
 }
 
 window.onpopstate = () => {
-    currentHistoryState = "/new";
-    history.replaceState({}, "Districtr", "/new");
+    currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
+    history.replaceState({}, "Districtr", currentHistoryState);
     resetMap();
 };
 
@@ -254,7 +254,7 @@ function modulesAvailable(feature, onClose) {
 }
 
 let defaultHistoryState = location.pathname;
-let currentHistoryState = "/new";
+let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
 
 export function PlaceMap(features, selectedId) {
     document.addEventListener("scroll", () => {
@@ -301,8 +301,8 @@ export function PlaceMap(features, selectedId) {
         >
             ${selectedId
                 ? modulesAvailable(selectedFeature, () => {
-                      currentHistoryState = "/new";
-                      history.replaceState({}, "Districtr", "/new");
+                      currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
+                      history.replaceState({}, "Districtr", currentHistoryState);
                       resetMap();
                   })
                 : ""}
@@ -321,7 +321,9 @@ export function PlaceMapWithData() {
     return fetchFeatures().then(features =>
         PlaceMap(
             features,
-            selectedId && selectedId !== "new" ? selectedId : null
+            (selectedId && !["new", "community"].includes(selectedId))
+                ? selectedId
+                : null
         )
     );
 }
