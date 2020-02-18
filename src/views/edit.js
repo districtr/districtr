@@ -125,6 +125,10 @@ function loadContext(context) {
         if (plan.name.includes(".json") || plan.name.includes(".csv")) {
             let reader = new FileReader();
             reader.onload = (e) => {
+                localStorage.setItem(
+                    "jsonload_viewstate",
+                    document.querySelector("input[name=tabs]:checked").value
+                );
                 if (plan.name.includes(".json")) {
                     let planData = JSON.parse(reader.result);
                     if (planData.place.id !== context.place.id) {

@@ -9,8 +9,15 @@ export default class Editor {
         this.mapState = mapState;
 
         this.state = state;
+
+        let activeTab = "criteria";
+        if (localStorage) {
+            activeTab = localStorage.getItem("jsonload_viewstate") || activeTab;
+            localStorage.removeItem("jsonload_viewstate");
+        }
+
         this.store = new UIStateStore(reducer, {
-            toolbar: { activeTab: "criteria", dropdownMenuOpen: false },
+            toolbar: { activeTab: activeTab, dropdownMenuOpen: false },
             elections: {
                 activeElectionIndex: 0
             },
