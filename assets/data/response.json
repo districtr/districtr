@@ -6929,9 +6929,9 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pennsylvania_precincts_points"
+              "url": "mapbox://districtr.pn_circles"
             },
-            "sourceLayer": "pennsylvania_precincts_points"
+            "sourceLayer": "pn_circles"
           }
         ],
         "id": "precincts"

@@ -199,9 +199,7 @@ async function validateUnits(unit, index, plan) {
         let content = await res.json();
         if (content.message) {
             console.error("Error from MapBox Layer " + tset + ":\n" + content.message);
-            if (tset !== 'districtr.pennsylvania_precincts_points.json') {
-                process.exit(1);
-            }
+            process.exit(1);
         } else {
             console.log(tset + " modified " + new Date(content.modified));
             // bounds are frequently different
