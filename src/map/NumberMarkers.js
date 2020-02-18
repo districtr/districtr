@@ -114,7 +114,17 @@ export default function NumberMarkers(state, brush) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
 
-                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
+                fetch("/.netlify/functions/districtCenter", {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        ids: markers[district_num].join(","),
+                        state: placeID
+                    })
+                }).then(res => res.json()).then((centroid) => {
                     if (typeof centroid === "object") {
                         centroid = centroid[0][`merged_${placeID}`];
                     }
