@@ -105,7 +105,7 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
                     paint: {
                         "line-color": "#000",
                         "line-opacity": 0.7,
-                        "line-width": 3
+                        "line-width": 2
                     }
                 }
             );

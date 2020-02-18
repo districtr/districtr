@@ -93,7 +93,7 @@ export default class State {
             map,
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols,
-            problem.type === "community" ? place.id : null
+            place.id
         );
         this.columnSets = getColumnSets(this, units);
 
