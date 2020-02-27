@@ -1,5 +1,5 @@
 // districtCenter.js
-const { Client } = require('pg');
+const { Pool } = require('pg');
 const states = [
     "alaska",
     "arkansas",
@@ -37,11 +37,8 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   try {
-      const client = new Client({
-          connectionString: process.env.POSTGRES_CONNECT,
-          ssl: {
-            rejectUnauthorized: false
-          }
+      const client = new Pool({
+          connectionString: process.env.POSTGRES_CONNECT
       });
 
       const request = JSON.parse(event.body),
