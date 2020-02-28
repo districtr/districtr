@@ -21,16 +21,16 @@
         <meta property="og:title" content="Districtr" />
         <meta
             name="author"
-            content="Metric Geometry and Gerrymandering Group"
+            content="MGGG Redistricting Lab"
         />
         <meta property="og:locale" content="en_US" />
         <meta
             name="description"
-            content="The open web app for drawing districtring plans."
+            content="The open web app for drawing districting plans."
         />
         <meta
             property="og:description"
-            content="The open web app for drawing districtring plans."
+            content="The open web app for drawing districting plans."
         />
         <link rel="canonical" href="https://districtr.org" />
         <meta property="og:url" content="https://districtr.org" />
@@ -40,7 +40,9 @@
     <body>
         <main id="root" class="landing-page">
             <ul id="nav">
-                <img src="/assets/mggg.svg" alt="MGGG"/>
+                <a href="https://mggg.org">
+                    <img src="/assets/mggg.svg" alt="MGGG"/>
+                </a>
                 <button
                     class="button button--subtle button--icon button--no-shadow"
                     onclick="document.querySelectorAll('#nav li').forEach(s => s.style.display = 'block');event.target.style.display='none';"
@@ -67,7 +69,7 @@
                     <h2 class="takeaway">
                         <strong>Districtr</strong>
                         is a project of the
-                        <a href="https://www.mggg.org">Metric Geometry and Gerrymandering Group</a>
+                        <a href="https://www.mggg.org">MGGG Redistricting Lab</a>
                         to
                         <strong>put the tools of redistricting into the hands of the public</strong>
                         with free software.
@@ -234,8 +236,13 @@
                                 </dd>
                             </div>
                             <div class="team-list__item">
-                                <dt>Lead Geographer</dt>
-                                <dd>Ruth Buck</dd>
+                                <dt>Geographers</dt>
+                                <dd>
+                                  <ul class="team-members">
+                                    <li class="team-member">Ruth Buck</li>
+                                    <li class="team-member">Heather Rosenfeld</li>
+                                  </ul>
+                                </dd>
                             </div>
                             <div class="team-list__item">
                                 <dt>Originating Developer</dt>
@@ -252,6 +259,7 @@
                                             Chris Gernon
                                         </li>
                                         <li class="team-member">Muniba Khan</li>
+                                        <li class="team-member">Liz Kopecky</li>
                                         <li class="team-member">
                                             Anthony Pizzimenti
                                         </li>
