@@ -24,6 +24,31 @@ export default function ToolsPlugin(editor) {
         }
     });
 
+    if (["ma"].includes(state.place.id)) {
+        let lastEditedPart = null;
+        brush.on("colorfeature", (feature, color, countyBrush) => {
+            if (feature && feature.id && !countyBrush) {
+                lastEditedPart = feature.properties.NAME;
+            }
+        });
+        brush.on("colorop", () => {
+            if (!lastEditedPart) {
+                return;
+            }
+            let myEditedPart = "" + lastEditedPart,
+                myBrush = (brush.color === null) ? null : (1 * brush.color),
+                place = state.place.id,
+                extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
+                placeID = extra_source || place,
+                part = encodeURIComponent(myEditedPart);
+            fetch(`https://mggg-states.subzero.cloud/rest/rpc/county_${placeID}?id=${part}`).then(res => res.json()).then(units => {
+                let names = units.map(feature => feature.name);
+                state.units.setCountyState(names, myBrush, brush.listeners, state.plan.assignment);
+                savePlanToStorage(state.serialize());
+            });
+        });
+    }
+
     let tools = [
         new PanTool(),
         new BrushTool(brush, state.parts),

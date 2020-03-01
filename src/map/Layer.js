@@ -87,6 +87,23 @@ export default class Layer {
             state
         );
     }
+    setCountyState(allIDs, setColor, listeners, assignment) {
+        this.map.querySourceFeatures(this.sourceId, {
+            sourceLayer: this.sourceLayer,
+            filter: ["in", ["get", "NAME"], ["literal", allIDs]]
+        }).forEach(feature => {
+            feature.state = { color: assignment[feature.properties.NAME] === null ? null : assignment[feature.properties.NAME] * 1 };
+            listeners.colorfeature.forEach((listener) => {
+                listener(feature, setColor, true);
+            });
+            this.setFeatureState(feature.id, {
+                color: setColor
+            });
+        });
+        listeners.colorend.forEach((listener) => {
+            listener(null);
+        });
+    }
     setPaintProperty(name, value) {
         this.map.setPaintProperty(this.id, name, value);
     }
