@@ -44,8 +44,8 @@ exports.handler = async (event, context) => {
   });
 
   const request = JSON.parse(event.body),
-        ids = event.queryStringParameters.ids,
-        state = event.queryStringParameters.state;
+        ids = request.ids,
+        state = request.state;
 
   if (!states.includes(state)) {
       throw new Error("did not recognize state in districtCenter.js");
