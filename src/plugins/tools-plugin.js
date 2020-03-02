@@ -24,7 +24,7 @@ export default function ToolsPlugin(editor) {
         }
     });
 
-    if (["alaska", "colorado", "ma"].includes(state.place.id)) {
+    if (["alaska", "colorado", "ma", "georgia", "pennsylvania", "minnesota", "nc"].includes(state.place.id)) {
         let lastEditedPart = null;
         brush.on("colorfeature", (feature, color, countyBrush) => {
             if (feature && feature.id && !countyBrush) {
@@ -40,8 +40,12 @@ export default function ToolsPlugin(editor) {
                 place = state.place.id,
                 extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
                 placeID = extra_source || place,
-                part = encodeURIComponent(myEditedPart);
-            fetch(`https://mggg-states.subzero.cloud/rest/rpc/county_${placeID}?id=${part}`).then(res => res.json()).then(units => {
+                part = encodeURIComponent(myEditedPart),
+                q = ["ma", "colorado"].includes(placeID) ? "id" : "ids";
+
+            lastEditedPart = null;
+
+            fetch(`https://mggg-states.subzero.cloud/rest/rpc/county_${placeID}?${q}=${part}`).then(res => res.json()).then(units => {
                 let names = units.map(feature => (feature[`county_${placeID}`] || feature[state.idColumn.key.toLowerCase()]));
                 state.units.setCountyState(names, myBrush, brush.listeners, state.plan.assignment, state.idColumn.key);
                 savePlanToStorage(state.serialize());
