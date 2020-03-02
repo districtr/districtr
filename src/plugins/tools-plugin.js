@@ -24,11 +24,11 @@ export default function ToolsPlugin(editor) {
         }
     });
 
-    if (["ma"].includes(state.place.id)) {
+    if (["alaska", "colorado", "ma"].includes(state.place.id)) {
         let lastEditedPart = null;
         brush.on("colorfeature", (feature, color, countyBrush) => {
             if (feature && feature.id && !countyBrush) {
-                lastEditedPart = feature.properties.NAME;
+                lastEditedPart = feature.properties[state.idColumn.key];
             }
         });
         brush.on("colorop", () => {
@@ -42,8 +42,8 @@ export default function ToolsPlugin(editor) {
                 placeID = extra_source || place,
                 part = encodeURIComponent(myEditedPart);
             fetch(`https://mggg-states.subzero.cloud/rest/rpc/county_${placeID}?id=${part}`).then(res => res.json()).then(units => {
-                let names = units.map(feature => feature.name);
-                state.units.setCountyState(names, myBrush, brush.listeners, state.plan.assignment);
+                let names = units.map(feature => (feature[`county_${placeID}`] || feature[state.idColumn.key.toLowerCase()]));
+                state.units.setCountyState(names, myBrush, brush.listeners, state.plan.assignment, state.idColumn.key);
                 savePlanToStorage(state.serialize());
             });
         });
