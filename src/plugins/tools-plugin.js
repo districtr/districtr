@@ -24,7 +24,7 @@ export default function ToolsPlugin(editor) {
         }
     });
 
-    if (["alaska", "colorado", "ma", "georgia", "pennsylvania", "minnesota", "nc"].includes(state.place.id)) {
+    if (["alaska", "colorado", "ma", "georgia", "hawaii", "maryland", "michigan", "minnesota", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "virginia", "vermont", "wisconsin"].includes(state.place.id)) {
         let lastEditedPart = null;
         brush.on("colorfeature", (feature, color, countyBrush) => {
             if (feature && feature.id && !countyBrush) {
@@ -41,7 +41,7 @@ export default function ToolsPlugin(editor) {
                 extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
                 placeID = extra_source || place,
                 part = encodeURIComponent(myEditedPart),
-                q = ["ma", "colorado"].includes(placeID) ? "id" : "ids";
+                q = (placeID === "ma") ? "id" : "ids";
 
             lastEditedPart = null;
 
