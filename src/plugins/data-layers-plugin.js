@@ -118,6 +118,9 @@ export function addAmerIndianLayer(tab, state) {
     if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
     }
+    if (state.place.id === "washington") {
+        native_am_type = "Nations and Tribes";
+    }
 
     fetch(`/assets/native_official/${state.place.id}.geojson`)
         .then(res => res.json())
@@ -273,7 +276,7 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (["new_mexico", "oklahoma"].includes(state.place.id)) {
+    if (["new_mexico", "oklahoma", "washington"].includes(state.place.id)) {
         addAmerIndianLayer(tab, state);
     }
 
