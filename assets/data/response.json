@@ -9655,6 +9655,202 @@
     "id": "yakima_wa"
   },
   {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6724540,
+              "min": 0,
+              "max": 5937
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 4876804,
+                "min": 0,
+                "max": 5189
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 229603,
+                "min": 0,
+                "max": 1713
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 755790,
+                "min": 0,
+                "max": 5481
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 475634,
+                "min": 0,
+                "max": 1691
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 88735,
+                "min": 0,
+                "max": 2051
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 38783,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 247353,
+                "min": 0,
+                "max": 404
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 11838,
+                "min": 0,
+                "max": 43
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 5143186,
+              "min": 0,
+              "max": 4604
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3916304,
+                "min": 0,
+                "max": 3569
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 168177,
+                "min": 0,
+                "max": 982
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 456355,
+                "min": 0,
+                "max": 3145
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 373973,
+                "min": 0,
+                "max": 1344
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 64574,
+                "min": 0,
+                "max": 1392
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 26642,
+                "min": 0,
+                "max": 103
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 7607,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 129554,
+                "min": 0,
+                "max": 203
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -124.849,
+            45.5435
+          ],
+          [
+            -116.9156,
+            49.0025
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.washington_blockgroups"
+            },
+            "sourceLayer": "washington_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.washington_blockgroups_points"
+            },
+            "sourceLayer": "washington_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "id": "washington",
+    "name": "Washington",
+    "state": "Washington",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 10,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Legislature",
+        "numberOfParts": 49,
+        "pluralNoun": "State Legislature Districts"
+      }
+    ]
+  },
+  {
     "districtingProblems": [
       {
         "numberOfParts": 4,
