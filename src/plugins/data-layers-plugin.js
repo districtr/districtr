@@ -62,7 +62,7 @@ export function addCountyLayer(tab, state) {
     );
 }
 
-const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "grey";
+const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "shades";
 let shadeNames = ["case"];
 const amin_paint = ({
   grey: {
@@ -93,7 +93,7 @@ const amin_paint = ({
   shades: {
     "fill-outline-color": "#000",
     "fill-color": shadeNames,
-    "fill-opacity": 0.25
+    "fill-opacity": 0.15
   },
   lines: {
     "fill-pattern": "hatching",
@@ -101,26 +101,18 @@ const amin_paint = ({
     "fill-opacity": 0.7
   }
 })[amin_type];
-const amin_mode = ({
-    grey: "fill",
-    gray: "fill",
-    lines: "fill",
-    brown: "fill",
-    brown2: "fill",
-    brown3: "fill",
-    shades: "fill"
-})[amin_type]
 
 const AMERINDIAN_LAYER = {
     id: "nativeamerican",
     source: "nativeamerican",
-    type: amin_mode,
+    type: "fill",
     paint: amin_paint
 };
 
 export function addAmerIndianLayer(tab, state) {
     let nativeamerican = null,
-        startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.3 : 0;
+        nativeamerican_labels = null,
+        startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
 
     let native_am_type = "Pueblos, Tribes, and Nations"; // NM
     if (state.place.id === "oklahoma") {
@@ -170,13 +162,13 @@ export function addAmerIndianLayer(tab, state) {
                     data: centroids
                 });
 
-                new Layer(
+                nativeamerican_labels = new Layer(
                     state.map,
                     {
-                      'id': 'nat-labels',
-                      'type': 'symbol',
-                      'source': 'nat_centers',
-                      'layout': {
+                      id: 'nat-labels',
+                      type: 'symbol',
+                      source: 'nat_centers',
+                      layout: {
                         'text-field': [
                             'format',
                             '\n',
@@ -190,10 +182,12 @@ export function addAmerIndianLayer(tab, state) {
                         // 'text-ignore-placement': true,
                         'text-radial-offset': 0,
                         'text-justify': 'center'
+                      },
+                      paint: {
+                        'text-opacity': (startFill ? 1 : 0)
                       }
-                    }
-                    // ,
-                    // addBelowLabels
+                    },
+                    addBelowLabels
                 );
             });
         }
@@ -234,11 +228,14 @@ export function addAmerIndianLayer(tab, state) {
     tab.addSection(
         () => html`
             <h4>Native American Communities</h4>
-            ${toggle("Show " + native_am_type, false, checked =>
+            ${toggle("Show " + native_am_type, false, (checked) => {
                 nativeamerican.setOpacity(
                     checked ? AMERINDIAN_LAYER.paint["fill-opacity"] : 0
-                )
-            )}
+                );
+                if (nativeamerican_labels) {
+                    nativeamerican_labels.setOpacity(checked ? 1 : 0, true);
+                }
+            })}
         `
     );
 }
