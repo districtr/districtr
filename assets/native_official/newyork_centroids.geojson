@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "newyork_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Shinnecock" }, "geometry": { "type": "Point", "coordinates": [ -72.430969935288672, 40.873761574445467 ] } },
+{ "type": "Feature", "properties": { "NAME": "Onondaga Nation" }, "geometry": { "type": "Point", "coordinates": [ -76.157651574990297, 42.940204497618325 ] } },
+{ "type": "Feature", "properties": { "NAME": "St. Regis Mohawk" }, "geometry": { "type": "Point", "coordinates": [ -74.647392773243368, 44.978916545085696 ] } },
+{ "type": "Feature", "properties": { "NAME": "Oneida Nation" }, "geometry": { "type": "Point", "coordinates": [ -75.619016766837134, 43.040720981064759 ] } },
+{ "type": "Feature", "properties": { "NAME": "Allegany" }, "geometry": { "type": "Point", "coordinates": [ -78.78056557531859, 42.101440435117574 ] } },
+{ "type": "Feature", "properties": { "NAME": "Oil Springs" }, "geometry": { "type": "Point", "coordinates": [ -78.306974574410503, 42.231697374919776 ] } },
+{ "type": "Feature", "properties": { "NAME": "Poospatuck" }, "geometry": { "type": "Point", "coordinates": [ -72.831977609506055, 40.789184651995434 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tuscarora Nation" }, "geometry": { "type": "Point", "coordinates": [ -78.950866286054932, 43.162882427916102 ] } },
+{ "type": "Feature", "properties": { "NAME": "Cattaraugus" }, "geometry": { "type": "Point", "coordinates": [ -79.019469485394268, 42.538131037429558 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tonawanda" }, "geometry": { "type": "Point", "coordinates": [ -78.445048479419469, 43.068098281445756 ] } },
+{ "type": "Feature", "properties": { "NAME": "Cayuga Nation" }, "geometry": { "type": "Point", "coordinates": [ -76.73641675606774, 42.791265637725395 ] } }
+]
+}

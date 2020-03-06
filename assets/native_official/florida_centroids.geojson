@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "florida_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.481835400358079, 25.760303296811728 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.767869136483512, 25.762302626509946 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.770557163604053, 25.762223278102226 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.811993745435643, 25.759627092113202 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.822959783243988, 26.128821513038123 ] } },
+{ "type": "Feature", "properties": { "NAME": "Hollywood" }, "geometry": { "type": "Point", "coordinates": [ -80.212467127349512, 26.041996401913245 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fort Pierce" }, "geometry": { "type": "Point", "coordinates": [ -80.434890894957235, 27.402102761620313 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tampa" }, "geometry": { "type": "Point", "coordinates": [ -82.371264443788618, 27.993938408457439 ] } },
+{ "type": "Feature", "properties": { "NAME": "Brighton" }, "geometry": { "type": "Point", "coordinates": [ -81.069643485198128, 27.079443703416402 ] } },
+{ "type": "Feature", "properties": { "NAME": "Immokalee" }, "geometry": { "type": "Point", "coordinates": [ -81.409478153025503, 26.403920746236022 ] } },
+{ "type": "Feature", "properties": { "NAME": "Big Cypress" }, "geometry": { "type": "Point", "coordinates": [ -80.969025611318372, 26.294250795922103 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -80.486734788112514, 25.765963733961588 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -81.086223608532066, 26.319459575982695 ] } },
+{ "type": "Feature", "properties": { "NAME": "Miccosukee" }, "geometry": { "type": "Point", "coordinates": [ -81.250153789687246, 27.132970111367953 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coconut Creek" }, "geometry": { "type": "Point", "coordinates": [ -80.199833954997345, 26.277528748487853 ] } },
+{ "type": "Feature", "properties": { "NAME": "Seminole (FL)" }, "geometry": { "type": "Point", "coordinates": [ -80.201888222087092, 26.103962187246356 ] } },
+{ "type": "Feature", "properties": { "NAME": "Poarch Creek" }, "geometry": { "type": "Point", "coordinates": [ -87.565902873118404, 30.983586732576359 ] } }
+]
+}

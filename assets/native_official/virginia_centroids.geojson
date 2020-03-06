@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "virginia_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Mattaponi" }, "geometry": { "type": "Point", "coordinates": [ -76.914744789964772, 37.662455764488023 ] } },
+{ "type": "Feature", "properties": { "NAME": "Pamunkey" }, "geometry": { "type": "Point", "coordinates": [ -77.004005455825705, 37.572326948589868 ] } },
+{ "type": "Feature", "properties": { "NAME": "Eastern Chickahominy" }, "geometry": { "type": "Point", "coordinates": [ -76.973239517775653, 37.436322396582547 ] } },
+{ "type": "Feature", "properties": { "NAME": "Chickahominy" }, "geometry": { "type": "Point", "coordinates": [ -77.126839503423781, 37.398951804179703 ] } }
+]
+}

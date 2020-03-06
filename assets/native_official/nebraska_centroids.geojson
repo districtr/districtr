@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "nebraska_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.513077504641913, 40.00948323739356 ] } },
+{ "type": "Feature", "properties": { "NAME": "Omaha" }, "geometry": { "type": "Point", "coordinates": [ -96.535750196163207, 42.092274193693811 ] } },
+{ "type": "Feature", "properties": { "NAME": "Santee" }, "geometry": { "type": "Point", "coordinates": [ -97.830338358253897, 42.726351982891543 ] } },
+{ "type": "Feature", "properties": { "NAME": "Winnebago" }, "geometry": { "type": "Point", "coordinates": [ -96.597044178869297, 42.224936302694381 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.659292968454565, 40.108221705130859 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -96.696298398247094, 40.803262412400485 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -97.496939951585276, 42.728510984587224 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -98.032964592921672, 42.750222069008259 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -98.084699907630139, 42.714076694428329 ] } },
+{ "type": "Feature", "properties": { "NAME": "Winnebago" }, "geometry": { "type": "Point", "coordinates": [ -96.37105931716971, 41.687493360770375 ] } }
+]
+}

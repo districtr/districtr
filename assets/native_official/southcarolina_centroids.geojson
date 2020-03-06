@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "southcarolina_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Catawba" }, "geometry": { "type": "Point", "coordinates": [ -80.883735509706781, 34.904680190841276 ] } },
+{ "type": "Feature", "properties": { "NAME": "Catawba" }, "geometry": { "type": "Point", "coordinates": [ -80.912650957160793, 34.939512006643021 ] } },
+{ "type": "Feature", "properties": { "NAME": "Upper South Carolina Pee Dee" }, "geometry": { "type": "Point", "coordinates": [ -79.415969337643517, 34.527584649850063 ] } },
+{ "type": "Feature", "properties": { "NAME": "Beaver Creek" }, "geometry": { "type": "Point", "coordinates": [ -81.297553992071798, 33.529516916696188 ] } },
+{ "type": "Feature", "properties": { "NAME": "Waccamaw" }, "geometry": { "type": "Point", "coordinates": [ -79.199310104208266, 33.973727717410334 ] } },
+{ "type": "Feature", "properties": { "NAME": "Pee Dee" }, "geometry": { "type": "Point", "coordinates": [ -79.655643049498437, 34.710521486310249 ] } },
+{ "type": "Feature", "properties": { "NAME": "Wassamasaw" }, "geometry": { "type": "Point", "coordinates": [ -80.100652068245722, 33.070023069112473 ] } },
+{ "type": "Feature", "properties": { "NAME": "Santee" }, "geometry": { "type": "Point", "coordinates": [ -80.386828550736396, 33.352218801663668 ] } }
+]
+}

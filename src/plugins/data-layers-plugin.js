@@ -115,22 +115,43 @@ export function addAmerIndianLayer(tab, state) {
         startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
 
     let native_am_type = "Pueblos, Tribes, and Nations"; // NM
-    if (state.place.id === "oklahoma") {
+    if (state.place.id === "alaska") {
+        native_am_type = "Alaskan Native Communities";
+    } else if (state.place.id === "california") {
+        native_am_type = "Indian Communities";
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "virginia", "wisconsin", "wyoming"].includes(state.place.id)) {
+        native_am_type = "Tribes";
+    } else if (["arizona", "montana", "oregon"].includes(state.place.id)) {
+        native_am_type = "Tribal Nations";
+    } else if (state.place.id === "hawaii") {
+        native_am_type = "Hawaiian Home Lands";
+    } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    }
-    if (state.place.id === "washington") {
+    } else if (["connecticut", "delaware", "maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+        native_am_type = "Indian Tribes";
+    } else if (state.place.id === "texas") {
+        native_am_type = "Indian Nations";
+    } else if (["michigan", "minnesota"].includes(state.place.id)) {
+        native_am_type = "Tribal Governments";
+    } else if (["ma", "rhode_island", "washington"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
+    } else if (["nc", "newjersey"].includes(state.place.id)) {
+        native_am_type = "Tribal Communities";
+    } else if (state.place.id === "northdakota") {
+        native_am_type = "Tribes and Communities";
     }
 
     fetch(`/assets/native_official/${state.place.id}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
-        let knownNames = new Set(),
-            r = 50,
-            g = 70,
-            b = 150;
-        geojson.features.forEach((space) => {
+        let knownNames = new Set(), r, g, b;
+        geojson.features.forEach((space, index) => {
+            if (index % 20 === 0) {
+                r = 50,
+                g = 70,
+                b = 150
+            }
             let name = space.properties.NAME;
             if (!knownNames.has(name)) {
                 shadeNames.push(["==", ["get", "NAME"], name]);
@@ -276,7 +297,14 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (["new_mexico", "oklahoma", "washington"].includes(state.place.id)) {
+    if (["alaska", "california", "hawaii", "ma", "new_mexico", "oklahoma", "washington", "oregon",
+        // "arizona", "colorado", "connecticut",
+        // "delaware", "florida", "idaho", "iowa", "kansas", "louisiana",
+        // "maine", "michigan", "minnesota", "mississippi", "montana", "nc",
+        // "nebraska", "nevada", "newjersey",  "newyork", "northdakota",
+        // "rhode_island", "southcarolina", "southdakota",
+        // "texas", "utah", "virginia", "wisconsin", "wyoming"
+    ].includes(state.place.id)) {
         addAmerIndianLayer(tab, state);
     }
 

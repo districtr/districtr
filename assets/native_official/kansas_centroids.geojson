@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "kansas_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Iowa (KS-NE)" }, "geometry": { "type": "Point", "coordinates": [ -95.386573902214138, 39.994896708713107 ] } },
+{ "type": "Feature", "properties": { "NAME": "Prairie Band of Potawatomi Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.840156912699925, 39.340711803509848 ] } },
+{ "type": "Feature", "properties": { "NAME": "Kickapoo (KS)" }, "geometry": { "type": "Point", "coordinates": [ -95.611479377620725, 39.680801176020374 ] } },
+{ "type": "Feature", "properties": { "NAME": "Iowa (KS-NE)" }, "geometry": { "type": "Point", "coordinates": [ -95.382152778723594, 39.968935616508801 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.563623311534585, 39.978957124263893 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.563675942698637, 39.977125534431259 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.563788240267485, 39.976200141476184 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.56420876212502, 39.978013439931921 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.564555340175929, 39.973724857469698 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.565193882354464, 39.977477137795859 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.566925288145626, 39.978959677605296 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.728537164559484, 39.700931540154677 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.738717700322724, 39.715788584328259 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.737512347230407, 39.70565195964484 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox Nation" }, "geometry": { "type": "Point", "coordinates": [ -95.513077504641913, 40.00948323739356 ] } },
+{ "type": "Feature", "properties": { "NAME": "Kickapoo (KS) Reservation\/Sac and Fox Nation Trust Land" }, "geometry": { "type": "Point", "coordinates": [ -95.720902743223263, 39.701014084635844 ] } }
+]
+}
