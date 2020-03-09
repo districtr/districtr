@@ -297,7 +297,8 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (["alaska", "california", "hawaii", "ma", "new_mexico", "oklahoma", "washington", "oregon",
+    if (["alaska", "hawaii", "new_mexico", "oklahoma",
+        // "california", "ma", "washington", "oregon",
         // "arizona", "colorado", "connecticut",
         // "delaware", "florida", "idaho", "iowa", "kansas", "louisiana",
         // "maine", "michigan", "minnesota", "mississippi", "montana", "nc",
