@@ -110,7 +110,7 @@ async function validateUnits(unit, index, plan) {
     });
     if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
         console.error(plan.id + " has no about section for its units (" + unit.id + ")");
-        if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock"].includes(plan.id)) {
+        if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock", "kingcountywa"].includes(plan.id)) {
             process.exit(1);
         }
     }
