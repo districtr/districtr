@@ -4,11 +4,8 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
-<<<<<<< HEAD
 import NumberMarkers from "../map/NumberMarkers";
-=======
 import ContiguityChecker from "../map/contiguity";
->>>>>>> indicate contiguity issues on control panel
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download } from "../utils";
@@ -24,7 +21,7 @@ export default function ToolsPlugin(editor) {
     const c_checker = ContiguityChecker(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
-        
+
         c_checker(state, colorsAffected);
 
         if (planNumbers) {
