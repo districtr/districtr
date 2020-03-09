@@ -7,6 +7,10 @@ a:visited {
     font-weight: 600;
     text-decoration: none;
     color: $mggg-dark-blue;
+
+    &.districtr-name {
+      color: #fff !important;
+    }
 }
 
 a:hover,

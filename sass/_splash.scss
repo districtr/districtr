@@ -10,7 +10,7 @@ p {
 }
 
 .l-major-section {
-    padding-top: 4rem;
+    padding-top: 1rem;
     padding-bottom: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -31,15 +31,10 @@ p {
 }
 
 .splash {
-    min-height: 100vh;
-    padding-top: 2rem;
 }
 
 .hello {
-    background: url(../assets/districtr-splash.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right bottom;
+
 }
 
 .splash-text {
@@ -86,7 +81,6 @@ p {
 .splash-code-details {
     justify-content: center;
     display: flex;
-    min-height: 100vh;
 }
 
 .splash-code-text {
@@ -177,8 +171,6 @@ p {
 
 @media (max-width: 800px) {
     .landing-page {
-        background-image: url(../assets/districtr-splash-small.png);
-        background-repeat: no-repeat;
     }
     .hello {
         padding-top: 4rem;
@@ -221,7 +213,7 @@ p {
     }
 
     .hello .splash-text {
-        grid-column: 2 / 4;
+        grid-column: 2 / 5;
         padding: 0;
     }
 
