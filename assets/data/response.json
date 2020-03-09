@@ -10651,13 +10651,11 @@
   },
 
   {
-    "id": "kingcountywa",
-    "name": "King County",
     "units": [
       {
-        "id": "blockgroups",
-        "name": "Block Groups",
-        "unitType": "Block Groups",
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
         "columnSets": [
           {
             "type": "population",
@@ -10667,7 +10665,7 @@
               "name": "Total population",
               "sum": 1931249,
               "min": 0,
-              "max": 5357
+              "max": 3426
             },
             "subgroups": [
               {
@@ -10675,56 +10673,56 @@
                 "name": "White population",
                 "sum": 1251300,
                 "min": 0,
-                "max": 3497
+                "max": 1618
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
                 "sum": 116326,
                 "min": 0,
-                "max": 1713
+                "max": 1138
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
                 "sum": 172378,
                 "min": 0,
-                "max": 1198
+                "max": 1302
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
                 "sum": 280029,
                 "min": 0,
-                "max": 1691
+                "max": 1553
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
                 "sum": 12931,
                 "min": 0,
-                "max": 660
+                "max": 764
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 14068,
                 "min": 0,
-                "max": 154
+                "max": 180
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
                 "sum": 79529,
                 "min": 0,
-                "max": 243
+                "max": 211
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
                 "sum": 4688,
                 "min": 0,
-                "max": 28
+                "max": 22
               }
             ]
           },
@@ -10736,7 +10734,7 @@
               "name": "Voting age population",
               "sum": 1517747,
               "min": 0,
-              "max": 3540
+              "max": 2759
             },
             "subgroups": [
               {
@@ -10744,72 +10742,72 @@
                 "name": "White voting age population",
                 "sum": 1033516,
                 "min": 0,
-                "max": 2452
+                "max": 1611
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
                 "sum": 84750,
                 "min": 0,
-                "max": 982
+                "max": 703
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
                 "sum": 113079,
                 "min": 0,
-                "max": 776
+                "max": 773
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 10126,
                 "min": 0,
-                "max": 381
+                "max": 458
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 9656,
                 "min": 0,
-                "max": 103
+                "max": 107
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 220884,
                 "min": 0,
-                "max": 1344
+                "max": 1269
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 2990,
                 "min": 0,
-                "max": 18
+                "max": 14
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 42746,
                 "min": 0,
-                "max": 203
+                "max": 210
               }
             ]
           }
         ],
         "idColumn": {
-          "name": "Block Group FIPS code",
-          "key": "GEOID10"
+          "name": "Precinct code",
+          "key": "FullPrc"
         },
         "bounds": [
           [
-            -122.5318,
-            47.0845
+            -122.5285,
+            47.0849
           ],
           [
-            -121.0657,
-            47.7803
+            -121.0643,
+            47.7806
           ]
         ],
         "tilesets": [
@@ -10817,22 +10815,24 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.kingcountywa_blockgroups"
+              "url": "mapbox://districtr.kingcountywa_precincts"
             },
-            "sourceLayer": "kingcountywa_blockgroups"
+            "sourceLayer": "kingcountywa_precincts"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.kingcountywa_blockgroups_points"
+              "url": "mapbox://districtr.kingcountywa_precincts_points"
             },
-            "sourceLayer": "kingcountywa_blockgroups_points"
+            "sourceLayer": "kingcountywa_precincts_points"
           }
         ]
       }
     ],
     "state": "Washington",
+    "name": "King County",
+    "id": "kingcountywa",
     "districtingProblems": [
       {
         "name": "King County Council",
@@ -11428,7 +11428,17 @@
     "districtingProblems": [
       {
         "name": "Portland City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "Council Districts"
+      },
+      {
+        "name": "Portland City Council",
         "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      },
+      {
+        "name": "Portland City Council",
+        "numberOfParts": 6,
         "pluralNoun": "Council Districts"
       }
     ]
