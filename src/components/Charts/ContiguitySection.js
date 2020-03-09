@@ -17,7 +17,7 @@ export default function ContiguitySection(
         <section class="toolbar-section">
             <h4 id="contiguity-status">
                 ${foundDiscontiguity
-                    ? "Districts with contiguity gaps"
+                    ? "Districts may have contiguity gaps"
                     : "Any districts are contiguous"
                 }
             </h4>

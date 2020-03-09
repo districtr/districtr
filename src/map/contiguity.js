@@ -12,7 +12,7 @@ function setContiguityStatus(contiguities, dnum) {
         });
         document.querySelector("#contiguity-status").innerText =
             foundDiscontiguity
-                ? "Districts with contiguity gaps"
+                ? "Districts may have contiguity gaps"
                 : "Any districts are contiguous"
     } catch(e) { }
 }
