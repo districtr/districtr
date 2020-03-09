@@ -27,44 +27,6 @@ export default function ToolsPlugin(editor) {
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);
         }
-
-        let districts = [],
-            i = 0;
-        while (i < state.problem.numberOfParts) {
-            districts.push(i);
-            i++;
-        }
-        let testIDs = [];
-        Object.keys(state.plan.assignment).forEach((unit_id) => {
-            let districtNum = state.plan.assignment[unit_id];
-            if (testIDs[districtNum]) {
-                testIDs[districtNum].push(unit_id);
-            } else {
-                testIDs[districtNum] = [unit_id];
-            }
-        });
-
-        // let my_tstamp = new Date();
-        colorsAffected.forEach((dnum) => {
-            fetch("/.netlify/functions/planContiguity", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    ids: testIDs[dnum].join(","),
-                    state: state.place.id
-                })
-            })
-            .then(res => res.json())
-            .then((data) => {
-                if (data.length) {
-                    data = data[0];
-                }
-                let keys = Object.keys(data);
-                console.log(dnum + ": " + data[keys[0]]);
-            });
-        });
     });
 
     let tools = [
