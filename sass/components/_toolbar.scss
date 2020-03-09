@@ -30,6 +30,12 @@
     align-items: center;
 }
 
+.district-row {
+    flex-direction: row;
+    justify-content: flex-start;
+    display: flex;
+}
+
 fieldset {
     margin: 0.5rem 0;
     padding: 0;

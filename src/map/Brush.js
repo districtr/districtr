@@ -126,7 +126,7 @@ export default class Brush extends HoverWithRadius {
         }
 
         // limit number of changes in the stack
-        if (this.trackUndo.length > 19) {
+        if (this.trackUndo.length > 9) {
             this.trackUndo = this.trackUndo.slice(1);
         }
 

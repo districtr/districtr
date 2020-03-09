@@ -1,5 +1,6 @@
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
+import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
 
 export default function EvaluationPlugin(editor) {
@@ -60,6 +61,22 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+
+    if (state.plan.problem.type !== "community") {
+        tab.addRevealSection(
+            "Contiguity",
+            (uiState, dispatch) =>
+                ContiguitySection(
+                    state.contiguity,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: true
+            }
+        );
+    }
+
     if (tab.sections.length > 0) {
         toolbar.addTab(tab);
     }
