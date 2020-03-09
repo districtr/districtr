@@ -63,7 +63,9 @@ export default function ContiguityChecker(state, brush) {
             })
             .then(res => res.json())
             .then((data) => {
-                if (data.length) {
+                if (typeof data === "string") {
+                    data = { "response": data };
+                } else if (data.length) {
                     data = data[0];
                 }
                 let keys = Object.keys(data),
