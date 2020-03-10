@@ -80,31 +80,56 @@ const problemTypeInfo = {
     `
 };
 
-function getProblemInfo(problem) {
+function getProblemInfo(place, problem, units, onClick) {
     return html`
         ${problemTypeInfo[problem.type] || ""}
         ${problem.type !== "community"
             ? html`
-                  <div class="place-info">
-                      ${problem.numberOfParts} ${problem.pluralNoun}
-                  </div>
+                  ${problem.partCounts.length > 1
+                      ? html`<div class="place-info">
+                            ${problem.pluralNoun}:
+                            ${problem.partCounts.map(num =>
+                                html`<button
+                                    @click=${() => onClick(place, problem, units, null, num)}
+                                >
+                                    ${num}
+                                </button>`
+                            )}
+                        </div>`
+                      : html`<div class="place-info">
+                          ${problem.numberOfParts} ${problem.pluralNoun}
+                        </div>`
+                  }
               `
             : ""}
     `;
 }
 
 export function placeItems(place, onClick) {
-    const districtingProblems = place.districtingProblems;
+    let districtingProblems = [],
+        seenIds = new Set();
+    place.districtingProblems.forEach((problem) => {
+        let problemID = problem.name + problem.pluralNoun;
+        if (seenIds.has(problemID)) {
+            districtingProblems[districtingProblems.length - 1].partCounts.push(
+                problem.numberOfParts
+            );
+        } else {
+            seenIds.add(problemID);
+            problem.partCounts = [problem.numberOfParts];
+            districtingProblems.push(problem);
+        }
+    });
     return districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item"
-                        @click="${() => onClick(place, problem, units)}"
+                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
+                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
                         <div class="place-name">${place.name}</div>
-                        ${getProblemInfo(problem)}
+                        ${getProblemInfo(place, problem, units, onClick)}
                         ${units.unitType
                             ? html`
                                   <div class="place-info">

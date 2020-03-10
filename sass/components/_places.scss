@@ -49,6 +49,28 @@
     &:hover {
         background-color: $mggg-dark-blue;
     }
+
+    &.choice {
+        cursor: default;
+        background-color: $mggg-blue;
+
+        button {
+            cursor: pointer;
+            background-color: #fff;
+            color: $mggg-blue;
+            padding: 0.2rem 0.6rem;
+            margin: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            font-size: 100%;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        &:hover {
+            background-color: $mggg-blue;
+        }
+    }
 }
 
 .communities {

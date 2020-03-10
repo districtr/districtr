@@ -18,7 +18,10 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, id) {
+export function startNewPlan(place, problem, units, id, setParts) {
+    if (setParts) {
+        problem.numberOfParts = setParts;
+    }
     savePlanToStorage({ place, problem, units, id });
     navigateTo("/edit");
 }
