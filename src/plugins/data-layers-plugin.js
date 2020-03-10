@@ -35,12 +35,13 @@ const COUNTIES_LAYER = {
 };
 
 export function addCountyLayer(tab, state) {
+    let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
     state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
     const counties = new Layer(
         state.map,
         {
             ...COUNTIES_LAYER,
-            paint: { ...COUNTIES_LAYER.paint, "line-opacity": 0 },
+            paint: { ...COUNTIES_LAYER.paint, "line-opacity": startFill },
             filter: [
                 "==",
                 ["get", "STATEFP"],
@@ -54,9 +55,211 @@ export function addCountyLayer(tab, state) {
             <h4>Counties</h4>
             ${toggle(`Show county boundaries`, false, checked =>
                 counties.setOpacity(
-                    checked ? COUNTIES_LAYER.paint["line-opacity"] : 0
+                    checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 )
             )}
+        `
+    );
+}
+
+const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "shades";
+let shadeNames = ["case"];
+const amin_paint = ({
+  grey: {
+    "fill-outline-color": "#444444",
+    "fill-color": "#444444",
+    "fill-opacity": 0.3
+  },
+  gray: {
+    "fill-outline-color": "#444444",
+    "fill-color": "#444444",
+    "fill-opacity": 0.3
+  },
+  brown: {
+    "fill-outline-color": "#654321",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  brown2: {
+    "fill-outline-color": "rgb(178,172,112)",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  brown3: {
+    "fill-outline-color": "#654321",
+    "fill-color": "rgb(178,172,112)",
+    "fill-opacity": 0.3
+  },
+  shades: {
+    "fill-outline-color": "#000",
+    "fill-color": shadeNames,
+    "fill-opacity": 0.15
+  },
+  lines: {
+    "fill-pattern": "hatching",
+    "fill-color": "#000",
+    "fill-opacity": 0.7
+  }
+})[amin_type];
+
+const AMERINDIAN_LAYER = {
+    id: "nativeamerican",
+    source: "nativeamerican",
+    type: "fill",
+    paint: amin_paint
+};
+
+export function addAmerIndianLayer(tab, state) {
+    let nativeamerican = null,
+        nativeamerican_labels = null,
+        startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
+
+    let native_am_type = "Pueblos, Tribes, and Nations"; // NM
+    if (state.place.id === "alaska") {
+        native_am_type = "Alaskan Native Communities";
+    } else if (state.place.id === "california") {
+        native_am_type = "Indian Communities";
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "virginia", "wisconsin", "wyoming"].includes(state.place.id)) {
+        native_am_type = "Tribes";
+    } else if (["arizona", "montana", "oregon"].includes(state.place.id)) {
+        native_am_type = "Tribal Nations";
+    } else if (state.place.id === "hawaii") {
+        native_am_type = "Hawaiian Home Lands";
+    } else if (state.place.id === "oklahoma") {
+        native_am_type = "Indian Country";
+    } else if (["connecticut", "delaware", "maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+        native_am_type = "Indian Tribes";
+    } else if (state.place.id === "texas") {
+        native_am_type = "Indian Nations";
+    } else if (["michigan", "minnesota"].includes(state.place.id)) {
+        native_am_type = "Tribal Governments";
+    } else if (["ma", "rhode_island", "washington"].includes(state.place.id)) {
+        native_am_type = "Nations and Tribes";
+    } else if (["nc", "newjersey"].includes(state.place.id)) {
+        native_am_type = "Tribal Communities";
+    } else if (state.place.id === "northdakota") {
+        native_am_type = "Tribes and Communities";
+    }
+
+    fetch(`/assets/native_official/${state.place.id}.geojson`)
+        .then(res => res.json())
+        .then((geojson) => {
+
+        let knownNames = new Set(), r, g, b;
+        geojson.features.forEach((space, index) => {
+            if (index % 20 === 0) {
+                r = 50,
+                g = 70,
+                b = 150
+            }
+            let name = space.properties.NAME;
+            if (!knownNames.has(name)) {
+                shadeNames.push(["==", ["get", "NAME"], name]);
+                knownNames.add(name);
+                knownNames.add(`rgb(${r},${g},${b})`);
+                r += 6;
+                g += 22;
+                b -= 26;
+                if (g > 170) {
+                    g = 70;
+                }
+                if (b < 80) {
+                    b = 150;
+                }
+                shadeNames.push(`rgb(${r},${g},${b})`);
+            }
+        });
+        shadeNames.push("#ddd");
+
+        state.map.addSource('nativeamerican', {
+            type: 'geojson',
+            data: geojson
+        });
+
+        if (amin_type === "brown3" || amin_type === "shades") {
+            fetch(`/assets/native_official/${state.place.id}_centroids.geojson`)
+                .then(res => res.json())
+                .then((centroids) => {
+
+                state.map.addSource('nat_centers', {
+                    type: 'geojson',
+                    data: centroids
+                });
+
+                nativeamerican_labels = new Layer(
+                    state.map,
+                    {
+                      id: 'nat-labels',
+                      type: 'symbol',
+                      source: 'nat_centers',
+                      layout: {
+                        'text-field': [
+                            'format',
+                            '\n',
+                            {},
+                            ['get', 'NAME'],
+                            {'font-scale': 0.75},
+                            '\n\n',
+                            {}
+                        ],
+                        'text-anchor': 'center',
+                        // 'text-ignore-placement': true,
+                        'text-radial-offset': 0,
+                        'text-justify': 'center'
+                      },
+                      paint: {
+                        'text-opacity': (startFill ? 1 : 0)
+                      }
+                    },
+                    addBelowLabels
+                );
+            });
+        }
+
+        state.map.loadImage("/assets/crosshatch.png", (err, hatching) => {
+            if (!err) {
+                state.map.addImage("hatching", hatching);
+            }
+
+            nativeamerican = new Layer(
+                state.map,
+                {
+                    ...AMERINDIAN_LAYER,
+                    paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
+                },
+                addBelowLabels
+            );
+
+            if (amin_type === "brown2" || amin_type === "brown3") {
+                new Layer(
+                    state.map,
+                    {
+                        type: "line",
+                        source: "nativeamerican",
+                        id: "nativeborder",
+                        paint: {
+                          'line-color': '#654321',
+                          'line-opacity': 0.5,
+                          'line-width': 4
+                        }
+                    },
+                    addBelowLabels
+                );
+            }
+        });
+    });
+
+    tab.addSection(
+        () => html`
+            <h4>Native American Communities</h4>
+            ${toggle("Show " + native_am_type, false, (checked) => {
+                nativeamerican.setOpacity(
+                    checked ? AMERINDIAN_LAYER.paint["fill-opacity"] : 0
+                );
+                if (nativeamerican_labels) {
+                    nativeamerican_labels.setOpacity(checked ? 1 : 0, true);
+                }
+            })}
         `
     );
 }
@@ -92,6 +295,18 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
+    }
+
+    if (["alaska", "hawaii", "new_mexico", "oklahoma",
+        // "california", "ma", "washington", "oregon",
+        // "arizona", "colorado", "connecticut",
+        // "delaware", "florida", "idaho", "iowa", "kansas", "louisiana",
+        // "maine", "michigan", "minnesota", "mississippi", "montana", "nc",
+        // "nebraska", "nevada", "newjersey",  "newyork", "northdakota",
+        // "rhode_island", "southcarolina", "southdakota",
+        // "texas", "utah", "virginia", "wisconsin", "wyoming"
+    ].includes(state.place.id)) {
+        addAmerIndianLayer(tab, state);
     }
 
     // Right now we're doing all of these if statements,
