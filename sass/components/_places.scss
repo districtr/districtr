@@ -56,16 +56,15 @@
 
         button {
             cursor: pointer;
-            background-color: #0f1548;
-            color: white;
-            padding: 0.4rem 0.8rem;
+            background-color: #fff;
+            color: $mggg-blue;
+            padding: 0.2rem 0.6rem;
             margin: 0.2rem 0.5rem;
             border-radius: 0.2rem;
-            font-weight: bold;
-            font-size: 80%;
+            font-size: 100%;
 
             &:hover {
-                background-color: #4f1548;
+                background-color: #eee;
             }
         }
         &:hover {
