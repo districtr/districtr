@@ -62,7 +62,10 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    if (state.plan.problem.type !== "community") {
+    if (state.plan.problem.type !== "community"
+        && (["alaska", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "michigan", "minnesota", "mississippi", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id))
+        && (state.units.sourceId !== "ma_towns")
+    ) {
         tab.addRevealSection(
             "Contiguity",
             (uiState, dispatch) =>
