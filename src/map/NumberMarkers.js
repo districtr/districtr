@@ -10,6 +10,10 @@ export default function NumberMarkers(state, brush) {
         console.log("not numbering on community of interest");
         return;
     }
+    if (!["alaska", "chicago", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "minnesota", "mississippi", "nc", "new_mexico", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id)) {
+        console.log("not on NumberMarkers whitelist");
+        return;
+    }
 
     let numberMarkers = {},
         canv = document.createElement("canvas"),

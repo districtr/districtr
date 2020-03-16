@@ -7450,6 +7450,71 @@
     ]
   },
   {
+    "state": "California",
+    "id": "napaschools",
+    "name": "Napa Valley Unified School District",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 115541,
+              "min": 0,
+              "max": 1410
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Shapefile unique id",
+          "key": "ID"
+        },
+        "bounds": [
+          [
+            -122.4595,
+            38.1549
+          ],
+          [
+            -122.1034,
+            38.5479
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napaschools_blocks"
+            },
+            "sourceLayer": "napaschools_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napaschools_blocks_points"
+            },
+            "sourceLayer": "napaschools_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Board of Education Trustees",
+        "numberOfParts": 7,
+        "pluralNoun": "Trustee Districts"
+      }
+    ]
+  },
+  {
     "units": [
       {
         "id": "blocks",
