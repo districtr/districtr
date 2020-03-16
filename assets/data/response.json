@@ -7473,8 +7473,8 @@
           }
         ],
         "idColumn": {
-          "name": "Shapefile unique id",
-          "key": "ID"
+          "name": "Census block FIPS code",
+          "key": "BLOCK"
         },
         "bounds": [
           [
@@ -7491,17 +7491,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.napaschools_blocks"
+              "url": "mapbox://districtr.napaschools2_blocks"
             },
-            "sourceLayer": "napaschools_blocks"
+            "sourceLayer": "napaschools2_blocks"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.napaschools_blocks_points"
+              "url": "mapbox://districtr.napaschools2_blocks_points"
             },
-            "sourceLayer": "napaschools_blocks_points"
+            "sourceLayer": "napaschools2_blocks_points"
           }
         ]
       }
