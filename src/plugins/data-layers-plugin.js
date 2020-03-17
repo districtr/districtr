@@ -282,8 +282,9 @@ export default function DataLayersPlugin(editor) {
                 state.units.setOpacity(opacity);
             })}
             ${(state.plan.problem.type === "community"
-                || ["santa_clara", "lowell", "little_rock", "austin", "islip"].includes(state.place.id)
-                || ["chicago_community_areas"].includes(state.units.sourceId)) ? null
+              || ["chicago_community_areas"].includes(state.units.sourceId)
+              || !["alaska", "chicago", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "minnesota", "mississippi", "nc", "new_mexico", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id)
+            ) ? null
                 : toggle("Show district numbers", false, checked => {
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
