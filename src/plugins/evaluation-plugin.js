@@ -42,6 +42,23 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+    if (state.ages) {
+        tab.addRevealSection(
+            "Age Histograms",
+            (uiState, dispatch) =>
+                RacialBalanceTable(
+                    "Age Histograms",
+                    state.ages,
+                    state.activeParts,
+                    uiState.charts["Age Histograms"],
+                    dispatch
+                ),
+            {
+                isOpen: false,
+                activeSubgroupIndices: state.ages.indicesOfMajorSubgroups()
+            }
+        );
+    }
     if (state.elections.length > 0) {
         tab.addRevealSection(
             "Partisan Balance",
