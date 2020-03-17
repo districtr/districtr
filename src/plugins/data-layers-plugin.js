@@ -333,6 +333,22 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    // if (state.ages) {
+    //     const ageOverlays = new OverlayContainer(
+    //         "ages",
+    //         state.layers,
+    //         state.ages,
+    //         "Show age demographics"
+    //     );
+    //     tab.addSection(
+    //         () =>
+    //             html`
+    //                 <h4>Age Groups</h4>
+    //                 ${ageOverlays.render()}
+    //             `
+    //     );
+    // }
+
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
