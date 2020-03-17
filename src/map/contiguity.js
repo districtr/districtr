@@ -23,6 +23,9 @@ export default function ContiguityChecker(state, brush) {
     }
 
     const updater = (state, colorsAffected) => {
+        // deactivate
+        return;
+
         let assignment = state.plan.assignment,
             source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
             place = source || state.place.id,

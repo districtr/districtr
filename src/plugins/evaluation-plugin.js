@@ -62,23 +62,23 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    if (state.plan.problem.type !== "community"
-        && (["alaska", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "michigan", "minnesota", "mississippi", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id))
-        && (state.units.sourceId !== "ma_towns")
-    ) {
-        tab.addRevealSection(
-            "Contiguity",
-            (uiState, dispatch) =>
-                ContiguitySection(
-                    state.contiguity,
-                    uiState,
-                    dispatch
-                ),
-            {
-                isOpen: true
-            }
-        );
-    }
+    // if (state.plan.problem.type !== "community"
+    //     && (["alaska", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "michigan", "minnesota", "mississippi", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id))
+    //     && (state.units.sourceId !== "ma_towns")
+    // ) {
+    //     tab.addRevealSection(
+    //         "Contiguity",
+    //         (uiState, dispatch) =>
+    //             ContiguitySection(
+    //                 state.contiguity,
+    //                 uiState,
+    //                 dispatch
+    //             ),
+    //         {
+    //             isOpen: true
+    //         }
+    //     );
+    // }
 
     if (tab.sections.length > 0) {
         toolbar.addTab(tab);
