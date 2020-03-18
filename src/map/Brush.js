@@ -61,12 +61,54 @@ export default class Brush extends HoverWithRadius {
         }
     }
     _colorFeatures(filter) {
-        let seenFeatures = new Set();
+        let seenFeatures = new Set(),
+            seenCounties = new Set(),
+            countyProp = "GEOID10";
         if (this.color || this.color === 0 || this.color === '0') {
             this.changedColors.add(Number(this.color));
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
+                let countyFIPS = null;
+                if (feature.properties.GEOID10) {
+                    // color this whole county
+                    countyFIPS = feature.properties.GEOID10.substring(0, 5);
+                } else if (feature.properties.vtd) {
+                    countyFIPS = feature.properties.vtd.substring(0, 5);
+                    countyProp = "vtd";
+                } else if (feature.properties.VTD) {
+                    countyFIPS = feature.properties.VTD.substring(0, 5);
+                    countyProp = "VTD";
+                } else if (feature.properties.CNTYVTD) {
+                    countyFIPS = feature.properties.CNTYVTD.substring(0, 3);
+                    countyProp = "CNTYVTD";
+                } else if (feature.properties.NAME) {
+                    countyFIPS = feature.properties.NAME.split("-")[0].split(" ");
+                    countyFIPS.splice(-1);
+                    countyFIPS = countyFIPS.join(" ");
+                    countyProp = "NAME";
+                } else if (feature.properties.NAME10) {
+                    countyFIPS = feature.properties.NAME10.split("-")[0].split(" ");
+                    countyFIPS.splice(-1);
+                    countyFIPS = countyFIPS.join(" ");
+                    countyProp = "NAME10";
+                } else if (feature.properties.loc_prec) {
+                    countyFIPS = feature.properties.loc_prec.split(" ")[0];
+                    if (feature.properties.loc_prec.includes("City")) {
+                        countyFIPS += " City";
+                    } else if (feature.properties.loc_prec.includes("County")) {
+                        countyFIPS += " County";
+                    }
+                    countyProp = "loc_prec";
+                } else if (feature.properties.Precinct) {
+                    countyFIPS = feature.properties.Precinct.split("_");
+                    countyFIPS.splice(-1);
+                    countyFIPS = countyFIPS.join("_");
+                    countyProp = "Precinct";
+                }
+                if (countyFIPS) {
+                    seenCounties.add(countyFIPS);
+                }
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     for (let listener of this.listeners.colorfeature) {
@@ -99,6 +141,12 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
+        seenCounties.forEach(fips => {
+            this.layer.setCountyState(fips, countyProp, {
+                color: this.color
+            },
+            this.listeners.colorfeature);
+        });
         for (let listener of this.listeners.colorend) {
             listener();
         }

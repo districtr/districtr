@@ -4,6 +4,7 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
+import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
@@ -16,6 +17,9 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
+    
+    const countyHover = new HoverWithRadius(state.counties, 20);
+    countyHover.activate();
 
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = ContiguityChecker(state, brush);

@@ -5,7 +5,7 @@ import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
 
-const COUNTIES_TILESET = {
+export const COUNTIES_TILESET = {
     sourceLayer: "cb_2018_us_county_500k-6p4p3f",
     source: { type: "vector", url: "mapbox://districtr.6fcd9f0h" }
 };
@@ -35,31 +35,31 @@ const COUNTIES_LAYER = {
 };
 
 export function addCountyLayer(tab, state) {
-    let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
-    state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
-    const counties = new Layer(
-        state.map,
-        {
-            ...COUNTIES_LAYER,
-            paint: { ...COUNTIES_LAYER.paint, "line-opacity": startFill },
-            filter: [
-                "==",
-                ["get", "STATEFP"],
-                String(stateNameToFips[(state.place.state || state.place.id).toLowerCase()])
-            ]
-        },
-        addBelowLabels
-    );
-    tab.addSection(
-        () => html`
-            <h4>Counties</h4>
-            ${toggle(`Show county boundaries`, false, checked =>
-                counties.setOpacity(
-                    checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
-                )
-            )}
-        `
-    );
+    // let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
+    // state.map.addSource(COUNTIES_TILESET.sourceLayer, COUNTIES_TILESET.source);
+    // const counties = new Layer(
+    //     state.map,
+    //     {
+    //         ...COUNTIES_LAYER,
+    //         paint: { ...COUNTIES_LAYER.paint, "line-opacity": startFill },
+    //         filter: [
+    //             "==",
+    //             ["get", "STATEFP"],
+    //             String(stateNameToFips[(state.place.state || state.place.id).toLowerCase()])
+    //         ]
+    //     },
+    //     addBelowLabels
+    // );
+    // tab.addSection(
+    //     () => html`
+    //         <h4>Counties</h4>
+    //         ${toggle(`Show county boundaries`, false, checked =>
+    //             counties.setOpacity(
+    //                 checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
+    //             )
+    //         )}
+    //     `
+    // );
 }
 
 const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "shades";
@@ -363,7 +363,7 @@ export default function DataLayersPlugin(editor) {
     toolbar.addTab(tab);
 }
 
-const stateNameToFips = {
+export const stateNameToFips = {
     alabama: "01",
     alaska: "02",
     arizona: "04",
