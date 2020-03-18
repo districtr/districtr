@@ -87,7 +87,7 @@ export default class Layer {
             state
         );
     }
-    setCountyState(fips, countyProp, setState, tallyListeners) {
+    setCountyState(fips, countyProp, setState, filter, tallyListeners) {
         let seenFeatures = new Set();
         this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer,
@@ -99,16 +99,17 @@ export default class Layer {
         }).forEach(feature => {
             if (!seenFeatures.has(feature.id)) {
                 seenFeatures.add(feature.id);
-
                 feature.state = this.getFeatureState(feature.id);
-                tallyListeners.forEach((listener) => {
-                    listener(feature, setState.color);
-                });
-                this.setFeatureState(feature.id, {
-                    ...feature.state,
-                    color: setState.color
-                });
-                feature.state.color = setState.color;
+                if (filter(feature)) {
+                    tallyListeners.forEach((listener) => {
+                        listener(feature, setState.color);
+                    });
+                    this.setFeatureState(feature.id, {
+                        ...feature.state,
+                        color: setState.color
+                    });
+                    feature.state.color = setState.color;
+                }
             }
         });
     }

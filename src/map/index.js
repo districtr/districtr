@@ -1,7 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
-import { stateNameToFips, COUNTIES_TILESET } from "../plugins/data-layers-plugin";
+import { stateNameToFips, COUNTIES_TILESET } from "../utils";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";

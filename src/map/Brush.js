@@ -8,6 +8,7 @@ export default class Brush extends HoverWithRadius {
         this.id = Math.random();
         this.color = color;
         this.coloring = false;
+        this.county_brush = false;
         this.locked = false;
         this.changedColors = new Set();
 
@@ -69,46 +70,53 @@ export default class Brush extends HoverWithRadius {
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
-                let countyFIPS = null;
-                if (feature.properties.GEOID10) {
-                    // color this whole county
-                    countyFIPS = feature.properties.GEOID10.substring(0, 5);
-                } else if (feature.properties.vtd) {
-                    countyFIPS = feature.properties.vtd.substring(0, 5);
-                    countyProp = "vtd";
-                } else if (feature.properties.VTD) {
-                    countyFIPS = feature.properties.VTD.substring(0, 5);
-                    countyProp = "VTD";
-                } else if (feature.properties.CNTYVTD) {
-                    countyFIPS = feature.properties.CNTYVTD.substring(0, 3);
-                    countyProp = "CNTYVTD";
-                } else if (feature.properties.NAME) {
-                    countyFIPS = feature.properties.NAME.split("-")[0].split(" ");
-                    countyFIPS.splice(-1);
-                    countyFIPS = countyFIPS.join(" ");
-                    countyProp = "NAME";
-                } else if (feature.properties.NAME10) {
-                    countyFIPS = feature.properties.NAME10.split("-")[0].split(" ");
-                    countyFIPS.splice(-1);
-                    countyFIPS = countyFIPS.join(" ");
-                    countyProp = "NAME10";
-                } else if (feature.properties.loc_prec) {
-                    countyFIPS = feature.properties.loc_prec.split(" ")[0];
-                    if (feature.properties.loc_prec.includes("City")) {
-                        countyFIPS += " City";
-                    } else if (feature.properties.loc_prec.includes("County")) {
-                        countyFIPS += " County";
+                if (this.county_brush) {
+                    let ps = feature.properties,
+                        countyFIPS = null,
+                        idSearch = (key, substr, fn) => {
+                            if (!ps[key]) {
+                                if (ps[key.toLowerCase()]) {
+                                    key = key.toLowerCase();
+                                } else {
+                                    return;
+                                }
+                            }
+                            if (substr) {
+                                return [key, ps[key].substring(0, substr)];
+                            } else {
+                                return [key, fn(ps[key])];
+                            }
+                        },
+                        nameSplice = (val) => {
+                            let name = val.split("-")[0].split(" ");
+                            name.splice(-1);
+                            return name.join(" ");
+                        };
+                    [countyProp, countyFIPS] = idSearch("GEOID10", 5)
+                        || idSearch("VTD", 5)
+                        || idSearch("CNTYVTD", 3)
+                        || idSearch("NAME", null, nameSplice)
+                        || idSearch("NAME10", null, nameSplice)
+                        || idSearch("loc_prec", null, (val) => {
+                            // Virginia
+                            let name = val.split(" ")[0];
+                            if (name.includes("City")) {
+                                name += " City";
+                            } else if (name.includes("County")) {
+                                name += " County";
+                            }
+                            return name; })
+                        || idSearch("Precinct", null, (val) => {
+                            // Oregon
+                            let name = val.split("_");
+                            name.splice(-1);
+                            return name.join("_");
+                        });
+                    if (countyFIPS) {
+                        seenCounties.add(countyFIPS);
                     }
-                    countyProp = "loc_prec";
-                } else if (feature.properties.Precinct) {
-                    countyFIPS = feature.properties.Precinct.split("_");
-                    countyFIPS.splice(-1);
-                    countyFIPS = countyFIPS.join("_");
-                    countyProp = "Precinct";
                 }
-                if (countyFIPS) {
-                    seenCounties.add(countyFIPS);
-                }
+
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     for (let listener of this.listeners.colorfeature) {
@@ -141,12 +149,15 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        seenCounties.forEach(fips => {
-            this.layer.setCountyState(fips, countyProp, {
-                color: this.color
-            },
-            this.listeners.colorfeature);
-        });
+        if (this.county_brush) {
+            seenCounties.forEach(fips => {
+                this.layer.setCountyState(fips, countyProp, {
+                    color: this.color
+                },
+                filter,
+                this.listeners.colorfeature);
+            });
+        }
         for (let listener of this.listeners.colorend) {
             listener();
         }
@@ -295,11 +306,13 @@ export default class Brush extends HoverWithRadius {
             listener(this.cursorUndo >= this.trackUndo.length - 1);
         }
     }
-    activate() {
+    activate(mouseover) {
+        super.activate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
         this.layer.map.getCanvas().classList.add("brush-tool");
-
-        super.activate();
-
         this.layer.map.dragPan.disable();
         this.layer.map.touchZoomRotate.disable();
         this.layer.map.doubleClickZoom.disable();
@@ -308,11 +321,13 @@ export default class Brush extends HoverWithRadius {
         this.layer.map.on("touchstart", this.onTouchStart);
         this.layer.map.on("mousedown", this.onMouseDown);
     }
-    deactivate() {
+    deactivate(mouseover) {
+        super.deactivate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
         this.layer.map.getCanvas().classList.remove("brush-tool");
-
-        super.deactivate();
-
         this.layer.map.dragPan.enable();
         this.layer.map.doubleClickZoom.enable();
         this.layer.map.touchZoomRotate.enable();
