@@ -100,9 +100,9 @@ export default class Brush extends HoverWithRadius {
                         || idSearch("loc_prec", null, (val) => {
                             // Virginia
                             let name = val.split(" ")[0];
-                            if (name.includes("City")) {
+                            if (val.includes("City")) {
                                 name += " City";
-                            } else if (name.includes("County")) {
+                            } else if (val.includes("County")) {
                                 name += " County";
                             }
                             return name; })
