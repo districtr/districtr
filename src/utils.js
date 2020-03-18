@@ -305,7 +305,6 @@ export function spatial_abilities (id) {
       },
       texas: {
         number_markers: true,
-        county_brush: true,
       },
       utah: {
         number_markers: true,

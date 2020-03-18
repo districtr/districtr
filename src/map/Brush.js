@@ -94,7 +94,9 @@ export default class Brush extends HoverWithRadius {
                         };
                     [countyProp, countyFIPS] = idSearch("GEOID10", 5)
                         || idSearch("VTD", 5)
-                        || idSearch("CNTYVTD", 3)
+                        // || idSearch("CNTYVTD", 3)
+                        // || idSearch("DsslvID", 2) // Utah
+                        // || idSearch("PRECODE", 2) // Oklahoma
                         || idSearch("NAME", null, nameSplice)
                         || idSearch("NAME10", null, nameSplice)
                         || idSearch("loc_prec", null, (val) => {
