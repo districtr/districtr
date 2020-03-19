@@ -347,6 +347,7 @@ export default function DataLayersPlugin(editor) {
 
     if (state.cvap) {
         const cvapOverlays = new OverlayContainer(
+            "cvap",
             state.layers,
             state.cvap,
             "Show CVAP demographics"
