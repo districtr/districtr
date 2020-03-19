@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Oregon | Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/state_landing.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/landing_page.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <main id="root" class="place">
+            <ul id="nav">
+                <a href="/">
+                    <img src="/assets/districtr-splash.png" alt="Home"/>
+                </a>
+                <button
+                    class="button button--subtle button--icon button--no-shadow"
+                    onclick="document.querySelectorAll('#nav li').forEach(s => s.style.display = 'block');event.target.style.display='none';"
+                >
+                    <i class="material-icons">menu</i>
+                </button>
+                <li>
+                  <a href="/new">
+                    Quick Start
+                  </a>
+                </li>
+                <li>
+                  <a href="/assets/brochure.pdf">
+                    Brochure
+                  </a>
+                </li>
+                <li>
+                  <a href="/guide">
+                    Tutorial
+                  </a>
+                </li>
+            </ul>
+            <article class="place__content">
+                <h1 class="headline place__name">Oregon</h1>
+
+                <p><a href="https://www.peoplenotpoliticiansoregon.com/">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>
+
+                <h2>Redistricting Rules and Practice</h2>
+
+                <p>Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor.</p>
+                <p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts.  In addition, Oregon Law, asks that districts should <i>"as nearly as practicable"</i> meet the following criteria:</p>
+                <ul>
+                    <li>Districts must be contiguous.</li>
+                    <li>Districts should utilize existing geographic or political boundaries.</li>
+                    <li>Districts should not divide communities of common interest.</li>
+                    <li>Districts should be connected by transportation links.</li>
+                    <li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li>
+                </ul>
+
+
+
+
+
+
+
+
+<!--                 <p>
+                    Welcome to <a href="/">Districtr</a>!  This is a free
+                    community webtool for redistricting and community mapping
+                    provided by the <a href="https://www.mggg.org">MGGG
+                    Redistricting Lab</a> at Tufts University.  We welcome
+                    questions and inquiries about the tool and about our work in
+                    Lowell: <a href="mailto:contact@mggg.org">contact@mggg.org</a>
+                </p>
+                <h2>Try Drawing Districts</h2>
+                <p>
+                    We invite you to use Districtr to draw your own
+                    districts and think about some of the tradeoffs for yourself.
+                    You can build <strong>3 City Council Districts</strong>,
+                    <strong>7 City Council Districts</strong>,
+                    <strong>8 City Council Districts</strong>, or
+                    <strong>9 City Council Districts</strong> using
+                    <strong>census blocks</strong> as the basic building blocks.
+                </p> -->
+
+                <h2 class="place__subheading">Build a plan from scratch</h2>
+                <div id="districting-options-state"></div>
+                <h2 class="place__subheading">
+                    See the enacted plans
+                </h2>
+                <p>
+                    Click on any of the districting plans below to open it in
+                    Districtr. Then feel free to start modifying it yourself!
+
+                <div id="plans"></div>
+
+                <h1 class="place__name__local">Portland, OR</h1>
+
+                <h2 class="place__subheading">Build a plan from scratch</h2>
+                <div id="districting-options-local"></div>
+                <br>
+                <h1 class="place__name__local">About the Data</h1>
+                <p>The units in these Oregon modules are <strong>precincts</strong>.</p>
+                <p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  For the Portland modules it was then reduced to the city limits of Portland.</p>
+                <p>The Oregon precinct shapefile was obtained from <a href="http://www.kevinrancik.com/elections/Oregon/eOregon.html">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href="http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf">here</a>. Election results for 2016 and 2018 were obtained from the <a href="https://electionlab.mit.edu">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href="https://api.census.gov/data/2010/dec/sf1">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">TIGER/Line Shapefiles</a>.</p>
+                <p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href="https://github.com/mggg/maup">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>
+
+            </article>
+        </main>
+        <script src="/es6/oregon.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.write(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.write(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                document.write('<script src="/es5/oregon.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>
