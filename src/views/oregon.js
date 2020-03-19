@@ -6,8 +6,8 @@ export default () => {
     listPlacesForState("Oregon").then(places => {
         const target_or = document.getElementById("districting-options-state");
         render(districtingOptions(places.filter(p => p.id === "oregon")), target_or);
-        const target_po = document.getElementById("districting-options-local");
-        render(districtingOptions(places.filter(p => p.id === "portlandor")), target_po);
+        const target_port = document.getElementById("districting-options-port");
+        render(districtingOptions(places.filter(p => p.id === "portlandor")), target_port);
     });
     render(plansSection(), document.getElementById("plans"));
 };

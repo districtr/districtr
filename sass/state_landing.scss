@@ -75,3 +75,20 @@ figcaption {
     font-weight: 500;
     line-height: 1.5;
 }
+
+.place__content {
+    width: 80%;
+    max-width: 75rem;
+}
+
+li {
+    a, a:visited {
+        //display: block;
+        color: #fff;
+        //font-size: 16px;
+        //padding: 10px 10px;
+        }
+        &:hover {
+                color: #fff;
+            }
+    }

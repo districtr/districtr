@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Oregon | Districtr</title>
+        <title>Portland, OR | Districtr</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
             rel="stylesheet"
@@ -50,71 +50,43 @@
                 </li>
             </ul>
             <article class="place__content">
-                <h1 class="headline place__name">Oregon</h1>
+                <h1 class="headline place__name">Portland, OR</h1>
 
-                <h2>Local Modules in Oregon:</h2>
+                <h2>Other Modules in Oregon:</h2>
 
                 <ul class="places-list places-list--columns">
                         <li
                         class="places-list__item places-list__item--small">
-                        <a href="/portland-or">
+                        <a href="/oregon">
                             <div class="place-name">
-                                Portland City Council
+                                State of Oregon
                             </div>
                         </a>
                         
                         
                     </li>
                 </ul>
-
-                <h2>Districts in Oregon</h2>
-
-                <p>Oregon currently has 5 Congressional seats.  The Oregon Legislative Assembly has 30 members in the State Senate, and 60 members in the State House, where each representative is elected from a single member districts.  Additionaly in Oregon, Legislative Assembly districts are nested, where each Senate districts is comprised of two adjacent House districts.</p>
-
-                <!-- <ul class="places-list places-list--columns">
-                    <li class="places-list__item places-list__item--small">
-                        <div class="place__name">Portland</div>
-                    </li>
-                </ul> -->
-
-                
                 <!-- rules, data/about, current plans, and narrative -->
 
+                <h2>Portland City Council</h2>
+
+                The City Council in Portland consists of 5 members (including the major).  City council members (commissioners) are elected at-large in nonpartisan elections.
+
                 <h2 class="place__subheading">Build a plan from scratch</h2>
-                <div id="districting-options-state"></div>
+                <div id="districting-options-state" hidden></div>
+                <div id="districting-options-port"></div>
 
-                <h2>Redistricting Rules in Oregon</h2>
-
-                <p>Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor.</p>
-                <p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  <!-- Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts. -->  In addition, Oregon Law, asks that districts should <i>"as nearly as practicable"</i> meet the following criteria:</p>
-                <ul>
-                    <li>Districts must be contiguous.</li>
-                    <li>Districts should utilize existing geographic or political boundaries.</li>
-                    <li>Districts should not divide communities of common interest.</li>
-                    <li>Districts should be connected by transportation links.</li>
-                    <li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li>
-                </ul>
+                <!-- <h2>Redistricting Rules if any</h2>
+                 -->
 
                 <h2>About the Data</h2>
 
                 <p>The units in these modules are <strong>precincts</strong>.</p>
-                <p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p>
+                <p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group, the reduced to the city limits of Portland.</p>
                 <p>The Oregon precinct shapefile was obtained from <a href="http://www.kevinrancik.com/elections/Oregon/eOregon.html">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href="http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf">here</a>. Election results for 2016 and 2018 were obtained from the <a href="https://electionlab.mit.edu">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href="https://api.census.gov/data/2010/dec/sf1">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">TIGER/Line Shapefiles</a>.</p>
                 <p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href="https://github.com/mggg/maup">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>
 
-                <h2 class="place__subheading">
-                    Explore the currently enacted plans
-                </h2>
-                <p>
-                    Click on any of the districting plans below to open it in
-                    Districtr. Then feel free to start modifying it yourself!
-
-                <div id="plans"></div>
-
-                <h2>Election Reform in Oregon (Narrative)</h2>
-
-                <p><a href="https://www.peoplenotpoliticiansoregon.com/">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>
-                
+                <h2>Narrative</h2>
 
             </article>
         </main>
