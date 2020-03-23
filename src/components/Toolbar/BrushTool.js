@@ -75,6 +75,9 @@ class BrushToolOptions {
         if (this.brush.radius != value) {
             this.brush.radius = value;
         }
+        if (this.options.county_brush && this.options.county_brush.radius != value) {
+            this.options.county_brush.radius = value;
+        }
     }
     toggleCountyBrush() {
         this.brush.county_brush = !this.brush.county_brush;
@@ -101,7 +104,7 @@ class BrushToolOptions {
             ${this.colors.length > 1
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
                 : ""}
-            ${BrushSlider(this.brush.radius, this.changeRadius, this.options)}
+            ${BrushSlider(this.brush.radius, this.changeRadius)}
             ${this.options && this.options.county_brush
                 ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush)
                 : ""}

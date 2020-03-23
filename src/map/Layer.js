@@ -87,7 +87,7 @@ export default class Layer {
             state
         );
     }
-    setCountyState(fips, countyProp, setState, filter, tallyListeners) {
+    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners) {
         let seenFeatures = new Set();
         this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer,
@@ -101,6 +101,10 @@ export default class Layer {
                 seenFeatures.add(feature.id);
                 feature.state = this.getFeatureState(feature.id);
                 if (filter(feature)) {
+                    undoInfo[feature.id] = {
+                        properties: feature.properties,
+                        color: String(feature.state.color)
+                    };
                     tallyListeners.forEach((listener) => {
                         listener(feature, setState.color);
                     });

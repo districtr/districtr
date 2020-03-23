@@ -157,6 +157,7 @@ export default class Brush extends HoverWithRadius {
                     color: this.color
                 },
                 filter,
+                this.trackUndo[this.cursorUndo],
                 this.listeners.colorfeature);
             });
         }
@@ -167,8 +168,10 @@ export default class Brush extends HoverWithRadius {
     onClick() {
         this.changedColors = new Set();
         this.colorFeatures();
-        for (let listener of this.listeners.colorop) {
-            listener(false, this.changedColors);
+        if (!this.county_brush) {
+            for (let listener of this.listeners.colorop) {
+                listener(false, this.changedColors);
+            }
         }
     }
     onMouseDown(e) {
