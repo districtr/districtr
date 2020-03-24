@@ -94,6 +94,10 @@ const uspost = {
   "Wyoming": "wy"
 };
 
+const cityFeatures = [
+    {type:"Feature",geometry:{type:"Point",coordinates:[-71.3121125,42.6473304]},properties:{name:"Lowell",type:"city",STUSPS:"MA"}},
+];
+
 // Sentinel for when the mouse is not over a state
 const noHover = {};
 
@@ -107,11 +111,11 @@ const path = geoPath(
     geoAlbersUsa()
         .scale(scale)
         .translate(translate)
-);
+).pointRadius(2);
 
 export function getFeatureBySTUPS(code) {
     code = code.toLowerCase();
-    return FEATURES.find(
+    return FEATURES.filter(
         feature =>
             feature.properties.STUSPS.toLowerCase() === code &&
             feature.properties.isAvailable
@@ -123,11 +127,14 @@ export function getFeatureBySTUPS(code) {
 // =============
 
 export function selectState(feature, target) {
-    if (window.location.pathname.split("/").length >= 3) {
-        // already zoomed in on one state
-        return;
-    }
+    selectAll("path").attr("stroke-width", 0.5);
+    selectAll(".city").style("display", "block");
     if (stateSelected === false && feature.properties.isAvailable) {
+        if (window.location.pathname.split("/").length >= 3) {
+            // already zoomed in on one state
+            selectAll(".places-list__item").style("display", "block");
+            return;
+        }
         currentHistoryState = `${window.location.pathname.split("/")[1] || "/new"}/${feature.properties.STUSPS.toLowerCase()}`;
         history.pushState({}, feature.properties.NAME, currentHistoryState);
         target.classList.add("state--selected");
@@ -142,11 +149,16 @@ export function selectState(feature, target) {
             modulesAvailable(feature),
             document.getElementById("places-list")
         );
+    } else if (feature.properties.type === "city") {
+        selectAll(".places-list__item").style("display", "none");
+        selectAll(".places-list__item." + feature.properties.name).style("display", "block");
     }
 }
 
 function resetMap() {
     stateSelected = false;
+    selectAll("path").attr("stroke-width", 2);
+    selectAll(".city").style("display", "none");
     select("g")
         .transition()
         .duration(500)
@@ -211,7 +223,8 @@ function featureClasses(feature, featureId, selectedId) {
         state: true,
         "state--available": feature.properties.isAvailable,
         "state--zoomed": selectedId,
-        "state--selected": selectedId === featureId
+        "state--selected": selectedId === featureId,
+        "city": feature.properties.type === "city"
     };
     return Object.keys(classes)
         .filter(key => classes[key])
@@ -226,20 +239,23 @@ export function Features(features, onHover, selectedId) {
                   features.features.find(
                       feature =>
                           feature.properties.STUSPS.toLowerCase() === selectedId
+                          && feature.type !== "city"
                   )
               )
             : ""
     }" @mouseleave=${() => onHover(noHover)}>
-    ${features.features.map(feature => {
-        const featureId = feature.properties.STUSPS.toLowerCase();
+    ${features.features.concat(cityFeatures).map(feature => {
+        const featureId = (feature.properties.type === "city")
+            ? feature.properties.name + "_city"
+            : feature.properties.STUSPS.toLowerCase();
         return svg`<path id="${featureId}" class="${featureClasses(
             feature,
             featureId,
             selectedId
         )}"
-            style="${feature.properties.isAvailable ? "" : "cursor:default"}"
+            style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
             d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
-            feature.properties.isAvailable
+            feature.properties.isAvailable || feature.properties.type === "city"
                 ? e => selectState(feature, e.target)
                 : undefined
         }></path>`;
@@ -311,18 +327,6 @@ let defaultHistoryState = location.pathname;
 let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
 
 export function PlaceMap(features, selectedId) {
-    // document.addEventListener("scroll", () => {
-    //     let el = document.getElementById("place-search");
-    //     let { top, bottom } = el.getBoundingClientRect();
-    //     let isVisible = top < window.innerHeight && bottom >= 0;
-    //     if (isVisible) {
-    //         if (location.pathname !== currentHistoryState) {
-    //             history.replaceState({}, "Districtr", currentHistoryState);
-    //         }
-    //     } else {
-    //         history.replaceState({}, "Districtr", defaultHistoryState);
-    //     }
-    // });
     document.addEventListener("keyup", (e) => {
         let selectedState = window.location.pathname.split("/").slice(-1)[0];
         if (selectedState.length === 2 && e.keyCode === 27) {
@@ -399,14 +403,12 @@ function fetchFeatures(availablePlaces = available) {
     return fetch("/assets/simple_states.json")
         .then(r => r.json())
         .then(states => {
-            for (let i = 0; i < states.features.length; i++) {
-                let feature = states.features[i];
+            states.features.forEach((feature) => {
                 feature.properties.isAvailable = availablePlaces.includes(
                     feature.properties.NAME
                 );
-            }
+            });
             FEATURES = states;
-
             return states;
         });
 }
