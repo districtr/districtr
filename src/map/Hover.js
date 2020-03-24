@@ -3,6 +3,7 @@ export class Hover {
         this.layer = layer;
 
         this.hoveredFeature = null;
+        this.deactivatedHover = false;
 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
@@ -19,10 +20,12 @@ export class Hover {
     }
     hoverOn(feature) {
         this.hoveredFeature = feature;
-        this.layer.setFeatureState(feature.id, {
-            ...feature.state,
-            hover: true
-        });
+        if (!this.deactivatedHover) {
+            this.layer.setFeatureState(feature.id, {
+                ...feature.state,
+                hover: true
+            });
+        }
     }
     onMouseMove(e) {
         if (e.features.length > 0) {
@@ -33,13 +36,21 @@ export class Hover {
     onMouseLeave() {
         this.hoverOff();
     }
-    activate() {
+    activate(mouseover) {
+        if (mouseover) {
+            this.deactivatedHover = false;
+            return;
+        }
         this.layer.on("mousemove", this.onMouseMove);
         this.layer.on("mouseleave", this.onMouseLeave);
         this.layer.on("touchmove", this.onMouseMove);
         this.layer.on("touchend", this.onMouseLeave);
     }
-    deactivate() {
+    deactivate(mouseover) {
+        if (mouseover) {
+            this.deactivatedHover = true;
+            return;
+        }
         this.layer.off("mousemove", this.onMouseMove);
         this.layer.off("mouseleave", this.onMouseLeave);
         this.layer.off("touchmove", this.onMouseMove);
@@ -65,12 +76,14 @@ export class HoverWithRadius extends Hover {
     }
     hoverOn(features) {
         this.hoveredFeatures = features;
-        this.hoveredFeatures.forEach(feature => {
-            this.layer.setFeatureState(feature.id, {
-                ...feature.state,
-                hover: true
+        if (!this.deactivatedHover) {
+            this.hoveredFeatures.forEach(feature => {
+                this.layer.setFeatureState(feature.id, {
+                    ...feature.state,
+                    hover: true
+                });
             });
-        });
+        }
     }
     onMouseMove(e) {
         const box = boxAround(e.point, this.radius);

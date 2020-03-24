@@ -21,11 +21,11 @@ const icon = (active, colorId, colors) => {
 };
 
 export default class BrushTool extends Tool {
-    constructor(brush, colors) {
+    constructor(brush, colors, options) {
         super("brush", "Paint", icon);
         this.brush = brush;
         this.colors = colors;
-        this.options = new BrushToolOptions(brush, colors);
+        this.options = new BrushToolOptions(brush, colors, options);
 
         hotkeys.filter = ({ target }) => {
             return (!["INPUT", "TEXTAREA"].includes(target.tagName)
@@ -57,17 +57,17 @@ export default class BrushTool extends Tool {
 }
 
 class BrushToolOptions {
-    constructor(brush, colors, renderToolbar) {
+    constructor(brush, colors, options) {
         this.brush = brush;
         this.colors = colors;
-        this.renderToolbar = renderToolbar;
+        this.options = options;
         this.selectColor = this.selectColor.bind(this);
         this.changeRadius = this.changeRadius.bind(this);
+        this.toggleCountyBrush = this.toggleCountyBrush.bind(this);
         this.toggleBrushLock = this.toggleBrushLock.bind(this);
     }
     selectColor(e) {
         this.brush.setColor(e.target.value);
-        this.renderToolbar();
     }
     changeRadius(e) {
         e.stopPropagation();
@@ -75,10 +75,28 @@ class BrushToolOptions {
         if (this.brush.radius != value) {
             this.brush.radius = value;
         }
-        this.renderToolbar();
+        if (this.options.county_brush && this.options.county_brush.radius != value) {
+            this.options.county_brush.radius = value;
+        }
+    }
+    toggleCountyBrush() {
+        this.brush.county_brush = !this.brush.county_brush;
+        // toggle county-unit hover
+        if (this.brush.county_brush) {
+            this.options.county_brush.activate();
+            this.brush.deactivate("mouseover");
+        } else {
+            this.options.county_brush.deactivate();
+            this.brush.activate("mouseover");
+        }
+        // switches county borders visibility to match checkbox
+        let countyLayer = document.getElementById("countyVisible");
+        if (this.brush.county_brush !== countyLayer.checked) {
+            countyLayer.click();
+        }
     }
     toggleBrushLock() {
-        this.brush.locked = this.brush.locked ? false : true;
+        this.brush.locked = !this.brush.locked;
     }
     render() {
         const activeColor = this.colors[this.brush.color].id;
@@ -87,6 +105,9 @@ class BrushToolOptions {
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
                 : ""}
             ${BrushSlider(this.brush.radius, this.changeRadius)}
+            ${this.options && this.options.county_brush
+                ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush)
+                : ""}
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock)
                 : ""}
@@ -94,6 +115,21 @@ class BrushToolOptions {
         `;
     }
 }
+
+const CountyBrush = (county_brush, toggle) => html`
+    <div class="ui-option">
+        <label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                name="county-brush"
+                value="county-brush"
+                ?checked=${county_brush}
+                @change=${toggle}
+            />
+            Paint counties
+        </label>
+    </div>
+`;
 
 const BrushLock = (locked, toggle) => html`
     <div class="ui-option">

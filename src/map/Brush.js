@@ -8,6 +8,7 @@ export default class Brush extends HoverWithRadius {
         this.id = Math.random();
         this.color = color;
         this.coloring = false;
+        this.county_brush = false;
         this.locked = false;
         this.changedColors = new Set();
 
@@ -61,12 +62,63 @@ export default class Brush extends HoverWithRadius {
         }
     }
     _colorFeatures(filter) {
-        let seenFeatures = new Set();
+        let seenFeatures = new Set(),
+            seenCounties = new Set(),
+            countyProp = "GEOID10";
         if (this.color || this.color === 0 || this.color === '0') {
             this.changedColors.add(Number(this.color));
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
+                if (this.county_brush) {
+                    let ps = feature.properties,
+                        countyFIPS = null,
+                        idSearch = (key, substr, fn) => {
+                            if (!ps[key]) {
+                                if (ps[key.toLowerCase()]) {
+                                    key = key.toLowerCase();
+                                } else {
+                                    return;
+                                }
+                            }
+                            if (substr) {
+                                return [key, ps[key].substring(0, substr)];
+                            } else {
+                                return [key, fn(ps[key])];
+                            }
+                        },
+                        nameSplice = (val) => {
+                            let name = val.split("-")[0].split(" ");
+                            name.splice(-1);
+                            return name.join(" ");
+                        };
+                    [countyProp, countyFIPS] = idSearch("GEOID10", 5)
+                        || idSearch("VTD", 5)
+                        // || idSearch("CNTYVTD", 3)
+                        // || idSearch("DsslvID", 2) // Utah
+                        // || idSearch("PRECODE", 2) // Oklahoma
+                        || idSearch("NAME", null, nameSplice)
+                        || idSearch("NAME10", null, nameSplice)
+                        || idSearch("loc_prec", null, (val) => {
+                            // Virginia
+                            let name = val.split(" ")[0];
+                            if (val.includes("City")) {
+                                name += " City";
+                            } else if (val.includes("County")) {
+                                name += " County";
+                            }
+                            return name; })
+                        || idSearch("Precinct", null, (val) => {
+                            // Oregon
+                            let name = val.split("_");
+                            name.splice(-1);
+                            return name.join("_");
+                        });
+                    if (countyFIPS) {
+                        seenCounties.add(countyFIPS);
+                    }
+                }
+
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     for (let listener of this.listeners.colorfeature) {
@@ -99,6 +151,16 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
+        if (this.county_brush) {
+            seenCounties.forEach(fips => {
+                this.layer.setCountyState(fips, countyProp, {
+                    color: this.color
+                },
+                filter,
+                this.trackUndo[this.cursorUndo],
+                this.listeners.colorfeature);
+            });
+        }
         for (let listener of this.listeners.colorend) {
             listener();
         }
@@ -106,8 +168,10 @@ export default class Brush extends HoverWithRadius {
     onClick() {
         this.changedColors = new Set();
         this.colorFeatures();
-        for (let listener of this.listeners.colorop) {
-            listener(false, this.changedColors);
+        if (!this.county_brush) {
+            for (let listener of this.listeners.colorop) {
+                listener(false, this.changedColors);
+            }
         }
     }
     onMouseDown(e) {
@@ -247,11 +311,13 @@ export default class Brush extends HoverWithRadius {
             listener(this.cursorUndo >= this.trackUndo.length - 1);
         }
     }
-    activate() {
+    activate(mouseover) {
+        super.activate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
         this.layer.map.getCanvas().classList.add("brush-tool");
-
-        super.activate();
-
         this.layer.map.dragPan.disable();
         this.layer.map.touchZoomRotate.disable();
         this.layer.map.doubleClickZoom.disable();
@@ -260,11 +326,13 @@ export default class Brush extends HoverWithRadius {
         this.layer.map.on("touchstart", this.onTouchStart);
         this.layer.map.on("mousedown", this.onMouseDown);
     }
-    deactivate() {
+    deactivate(mouseover) {
+        super.deactivate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
         this.layer.map.getCanvas().classList.remove("brush-tool");
-
-        super.deactivate();
-
         this.layer.map.dragPan.enable();
         this.layer.map.doubleClickZoom.enable();
         this.layer.map.touchZoomRotate.enable();

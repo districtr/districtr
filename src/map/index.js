@@ -1,6 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
+import { stateNameToFips, COUNTIES_TILESET } from "../utils";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
@@ -68,6 +69,31 @@ function addPoints(map, tileset) {
     });
 }
 
+function addCounties(map, tileset, layerAdder, placeID) {
+    map.addSource(tileset.sourceLayer, tileset.source);
+    return new Layer(map, {
+        id: "county-hover",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": [
+                "case",
+                ["boolean", ["feature-state", "hover"], false],
+                0.6,
+                0
+            ],
+            "fill-color": "#aaa"
+        },
+        filter: [
+            "==",
+            ["get", "STATEFP"],
+            String(stateNameToFips[placeID.toLowerCase()])
+        ]
+    },
+    layerAdder);
+}
+
 export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
@@ -83,6 +109,12 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         map,
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
+    );
+    const counties = addCounties(
+        map,
+        COUNTIES_TILESET,
+        layerAdder,
+        borderId
     );
 
     // cities in Communities of Interest will have a thick border
@@ -112,5 +144,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points };
+    return { units, unitsBorders, points, counties };
 }
