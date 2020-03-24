@@ -129,7 +129,7 @@ export function placeItems(place, onClick) {
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
+                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""} ${place.name.replace(/\s+/g, '')}"
                         @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
                         ${getProblemInfo(place, problem, units, onClick)}

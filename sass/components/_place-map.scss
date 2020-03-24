@@ -112,6 +112,17 @@
     display: none;
 }
 
+.city {
+    fill: mediumpurple;
+    display: none;
+    opacity: 1;
+
+    &:hover {
+        fill: darkmagenta;
+        opacity: 1;
+    }
+}
+
 @supports (display: grid) {
     .place-map__form {
         position: static;
