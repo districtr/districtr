@@ -47,10 +47,8 @@ export default class PartisanOverlayContainer {
     setElection(i) {
         this._currentElectionIndex = i;
         this.electionOverlays.forEach(overlay => overlay.hide());
-        if (this.isVisible || !this.currentElectionOverlay.repaint) {
+        if (this.isVisible) {
             this.currentElectionOverlay.show();
-        } else {
-            this.currentElectionOverlay.repaint();
         }
     }
     render() {
