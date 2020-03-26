@@ -128,7 +128,7 @@ export function placeItems(place, onClick) {
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
                         @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
-                        <div class="place-name">${place.name}</div>
+                        
                         ${getProblemInfo(place, problem, units, onClick)}
                         ${units.unitType
                             ? html`
@@ -143,6 +143,7 @@ export function placeItems(place, onClick) {
         )
         .reduce((items, item) => [...items, ...item], []);
 }
+//From line 132: <div class="place-name">${place.name}</div>
 
 export default class PlacesList {
     constructor(

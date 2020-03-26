@@ -33,26 +33,38 @@
                 >
                     <i class="material-icons">menu</i>
                 </button>
+                <div id="buttons">
                 <li>
-                  <a href="/new">
-                    Quick Start
+                  <a href="#other">
+                    Other Modules
                   </a>
                 </li>
                 <li>
-                  <a href="/assets/brochure.pdf">
-                    Brochure
+                  <a href="#build">
+                    Build a Plan
                   </a>
                 </li>
                 <li>
-                  <a href="/guide">
-                    Tutorial
+                  <a href="#basics">
+                    City Council
                   </a>
                 </li>
+                <li>
+                  <a href="#data">
+                    About the Data
+                  </a>
+                </li>
+                <li>
+                  <a href="#context">
+                    Context
+                  </a>
+                </li>
+            </div>
             </ul>
             <article class="place__content">
                 <h1 class="headline place__name">Portland, OR</h1>
 
-                <h2>Other Modules in Oregon:</h2>
+                <h2 id="other">Other Modules:</h2>
 
                 <ul class="places-list places-list--columns">
                         <li
@@ -66,27 +78,28 @@
                         
                     </li>
                 </ul>
-                <!-- rules, data/about, current plans, and narrative -->
 
-                <h2>Portland City Council</h2>
-
-                The City Council in Portland consists of 5 members (including the major).  City council members (commissioners) are elected at-large in nonpartisan elections.
-
-                <h2 class="place__subheading">Build a plan from scratch</h2>
+                <h2 id="build" class="place__subheading">Build a plan from scratch</h2>
                 <div id="districting-options-state" hidden></div>
                 <div id="districting-options-port"></div>
+                <!-- rules, data/about, current plans, and narrative -->
+
+                <h2 id="basics">Portland City Council</h2>
+                <p>The City Council in Portland consists of 5 members (including the major).  City council members (commissioners) are elected at-large in nonpartisan elections.</p>
+                
+               
 
                 <!-- <h2>Redistricting Rules if any</h2>
                  -->
 
-                <h2>About the Data</h2>
+                <h2 id="data">About the Data</h2>
 
                 <p>The units in these modules are <strong>precincts</strong>.</p>
                 <p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group, the reduced to the city limits of Portland.</p>
                 <p>The Oregon precinct shapefile was obtained from <a href="http://www.kevinrancik.com/elections/Oregon/eOregon.html">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href="http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf">here</a>. Election results for 2016 and 2018 were obtained from the <a href="https://electionlab.mit.edu">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href="https://api.census.gov/data/2010/dec/sf1">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">TIGER/Line Shapefiles</a>.</p>
                 <p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href="https://github.com/mggg/maup">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>
 
-                <h2>Narrative</h2>
+                <h2 id="context">Narrative</h2>
 
             </article>
         </main>
