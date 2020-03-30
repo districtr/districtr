@@ -64,15 +64,22 @@ export default function ToolsPlugin(editor) {
         return (!["INPUT", "TEXTAREA"].includes(target.tagName)
           || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
     };
-    for (let ki = 1; ki <= tools.length; ki++) {
-        hotkeys(`${ki},shift+${ki}`, (evt, handler) => {
-            let tabNumber = (handler.key.match(/\d/)[0] * 1) - 1;
-            if (tools[tabNumber]) {
-                toolbar.selectTool(tools[tabNumber].id);
-            }
-            evt.preventDefault();
-        });
-    }
+    hotkeys("h", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("pan");
+    });
+    hotkeys("p", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("brush");
+    });
+    hotkeys("e", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("eraser");
+    });
+    hotkeys("i", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("inspect");
+    });
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
