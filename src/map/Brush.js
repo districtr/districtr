@@ -326,12 +326,14 @@ export default class Brush extends HoverWithRadius {
         this.layer.map.on("touchstart", this.onTouchStart);
         this.layer.map.on("mousedown", this.onMouseDown);
     }
+
     deactivate(mouseover) {
         super.deactivate(mouseover);
         if (mouseover) {
             return;
         }
 
+        this.hoverOff();
         this.layer.map.getCanvas().classList.remove("brush-tool");
         this.layer.map.dragPan.enable();
         this.layer.map.doubleClickZoom.enable();

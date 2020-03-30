@@ -9,6 +9,9 @@ export default class Tool {
     }
     activate() {
         this.active = true;
+        try {
+            document.getElementById(`tool-${this.id}`).checked = true;
+        } catch(e) { }
     }
     deactivate() {
         this.active = false;

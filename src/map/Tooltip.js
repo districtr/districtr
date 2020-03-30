@@ -23,6 +23,9 @@ export default class Tooltip extends HoverWithRadius {
     }
     deactivate() {
         super.deactivate();
+        this.hoverOff();
+        this.visible = false;
+        this.render();
     }
     onMouseMove(e) {
         super.onMouseMove(e);

@@ -1,3 +1,5 @@
+import hotkeys from 'hotkeys-js';
+
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
@@ -57,6 +59,27 @@ export default function ToolsPlugin(editor) {
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
     toolbar.setState(state);
+
+    hotkeys.filter = ({ target }) => {
+        return (!["INPUT", "TEXTAREA"].includes(target.tagName)
+          || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
+    };
+    hotkeys("h", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("pan");
+    });
+    hotkeys("p", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("brush");
+    });
+    hotkeys("e", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("eraser");
+    });
+    hotkeys("i", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("inspect");
+    });
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL

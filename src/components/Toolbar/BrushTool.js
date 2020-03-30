@@ -36,7 +36,7 @@ export default class BrushTool extends Tool {
             this.brush.undo();
             evt.preventDefault();
         });
-        hotkeys(`ctrl+shift+z,command+shift+z,control+shift+z`, (evt, handler) => {
+        hotkeys(`ctrl+shift+z,command+shift+z,control+shift+z,ctrl+y,command+y,control+y`, (evt, handler) => {
             // redo
             this.brush.redo();
             evt.preventDefault();
