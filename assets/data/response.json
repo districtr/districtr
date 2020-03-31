@@ -2551,6 +2551,11 @@
             ]
           },
           {
+            "type": "text",
+            "name": "CTYNAME",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "subgroups": [
               {

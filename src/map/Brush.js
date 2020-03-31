@@ -99,6 +99,7 @@ export default class Brush extends HoverWithRadius {
                         // || idSearch("PRECODE", 2) // Oklahoma
                         || idSearch("NAME", null, nameSplice)
                         || idSearch("NAME10", null, nameSplice)
+                        || idSearch("CTYNAME", null, x => x)
                         || idSearch("loc_prec", null, (val) => {
                             // Virginia
                             let name = val.split(" ")[0];
@@ -151,7 +152,7 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        if (this.county_brush) {
+        if (this.county_brush && seenCounties.size > 0) {
             seenCounties.forEach(fips => {
                 this.layer.setCountyState(fips, countyProp, {
                     color: this.color

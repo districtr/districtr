@@ -248,6 +248,7 @@ export function spatial_abilities (id) {
       },
       georgia: {
         number_markers: true,
+        county_brush: true,
       },
       hawaii: {
         number_markers: true,
