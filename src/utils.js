@@ -253,6 +253,7 @@ export function spatial_abilities (id) {
       hawaii: {
         number_markers: true,
         native_american: true,
+        county_brush: true,
       },
       iowa: {
         number_markers: true,
@@ -288,10 +289,12 @@ export function spatial_abilities (id) {
       },
       ohio: {
         number_markers: true,
+        county_brush: true,
       },
       oklahoma: {
         number_markers: true,
         native_american: true,
+        county_brush: true,
       },
       oregon: {
         number_markers: true,
@@ -306,9 +309,11 @@ export function spatial_abilities (id) {
       },
       texas: {
         number_markers: true,
+        county_brush: true,
       },
       utah: {
         number_markers: true,
+        county_brush: true,
       },
       vermont: {
         number_markers: true,
@@ -316,6 +321,7 @@ export function spatial_abilities (id) {
       },
       virginia: {
         number_markers: true,
+        county_brush: true,
       },
       wisconsin: {
         number_markers: true,
