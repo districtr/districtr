@@ -21,8 +21,10 @@ export default function NumberMarkers(state, brush) {
         ctx = canv.getContext("2d"),
         i = 0,
         districts = [],
+        dpr = window.devicePixelRatio || 1,
         map = state.units.map;
     canv.height = 22;
+    ctx.scale(dpr, dpr);
     if (typeof ctx.ellipse === "undefined") {
         // IE helper
         return { update: () => {} };

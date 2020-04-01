@@ -1930,6 +1930,12 @@
             ]
           },
           {
+            "type": "text",
+            "key": "COUNTY",
+            "name": "County",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "name": "2018 Senate",
             "subgroups": [
@@ -2549,6 +2555,12 @@
                 "max": 383
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "CTYNAME",
+            "name": "County",
+            "subgroups": []
           },
           {
             "type": "election",
@@ -7718,6 +7730,12 @@
             ]
           },
           {
+            "type": "text",
+            "key": "COUNTY",
+            "name": "County",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "subgroups": [
               {
@@ -8580,6 +8598,12 @@
             ]
           },
           {
+            "type": "text",
+            "key": "locality",
+            "name": "City or county",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "subgroups": [
               {
@@ -9179,6 +9203,12 @@
                 "max": 145
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "cnty_nm",
+            "name": "County",
+            "subgroups": []
           },
           {
             "type": "election",
@@ -11067,6 +11097,12 @@
             ]
           },
           {
+            "type": "text",
+            "key": "COUNTY",
+            "name": "County",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "name": "2016 Presidential",
             "subgroups": [
@@ -11326,6 +11362,12 @@
                 "max": 391
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "CNTYNAME",
+            "name": "County",
+            "subgroups": []
           },
           {
             "type": "election",

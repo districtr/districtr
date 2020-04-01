@@ -88,14 +88,20 @@ export default class Layer {
         );
     }
     setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners) {
-        let seenFeatures = new Set();
+        let seenFeatures = new Set(),
+            filterStrings = [
+                "all",
+                ["has", countyProp]
+            ];
+        if (["COUNTY", "CTYNAME", "CNTYNAME", "cnty_nm", "locality"].includes(countyProp)) {
+            filterStrings.push(["==", ["get", countyProp], fips]);
+        } else {
+            filterStrings.push([">=", ["get", countyProp], fips]);
+            filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);
+        }
         this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer,
-            filter: ["all",
-                ["has", countyProp],
-                [">=", ["get", countyProp], fips],
-                ["<", ["get", countyProp], ((isNaN(fips * 1) || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]
-            ]
+            filter: filterStrings
         }).forEach(feature => {
             if (!seenFeatures.has(feature.id)) {
                 seenFeatures.add(feature.id);

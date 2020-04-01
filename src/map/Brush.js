@@ -84,6 +84,9 @@ export default class Brush extends HoverWithRadius {
                             if (substr) {
                                 return [key, ps[key].substring(0, substr)];
                             } else {
+                                if (!fn) {
+                                    fn = x => x;
+                                }
                                 return [key, fn(ps[key])];
                             }
                         },
@@ -97,17 +100,13 @@ export default class Brush extends HoverWithRadius {
                         // || idSearch("CNTYVTD", 3)
                         // || idSearch("DsslvID", 2) // Utah
                         // || idSearch("PRECODE", 2) // Oklahoma
+                        || idSearch("COUNTY")
+                        || idSearch("CTYNAME")
+                        || idSearch("CNTYNAME")
+                        || idSearch("cnty_nm")
+                        || idSearch("locality")
                         || idSearch("NAME", null, nameSplice)
                         || idSearch("NAME10", null, nameSplice)
-                        || idSearch("loc_prec", null, (val) => {
-                            // Virginia
-                            let name = val.split(" ")[0];
-                            if (val.includes("City")) {
-                                name += " City";
-                            } else if (val.includes("County")) {
-                                name += " County";
-                            }
-                            return name; })
                         || idSearch("Precinct", null, (val) => {
                             // Oregon
                             let name = val.split("_");
@@ -151,7 +150,7 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
-        if (this.county_brush) {
+        if (this.county_brush && seenCounties.size > 0) {
             seenCounties.forEach(fips => {
                 this.layer.setCountyState(fips, countyProp, {
                     color: this.color
