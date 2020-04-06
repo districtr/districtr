@@ -21,23 +21,23 @@ function getCellStyle(value) {
     return `background: ${background}; color: ${color}`;
 }
 
-function getCell(subgroup, part, width) {
+function getCell(subgroup, part, width, decimals) {
     const value =
         part !== null
             ? subgroup.getFractionInPart(part.id)
             : subgroup.sum / subgroup.total.sum;
     return {
-        content: `${roundToDecimal(value * 100, 1)}%`,
+        content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
         style: getCellStyle(value) + `; width: ${width}`
     };
 }
 
-export default (subgroups, parts) => {
+export default (subgroups, parts, decimals=true) => {
     const width = `${Math.round(81 / subgroups.length)}%`;
     const headers = subgroups.map(subgroup => subgroup.getAbbreviation());
     let rows = parts.map(part => ({
         label: part.renderLabel(),
-        entries: subgroups.map(subgroup => getCell(subgroup, part, width))
+        entries: subgroups.map(subgroup => getCell(subgroup, part, width, decimals))
     }));
     rows.push({
         label: "Overall",
