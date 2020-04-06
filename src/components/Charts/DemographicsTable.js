@@ -27,7 +27,9 @@ function getCell(subgroup, part, width, decimals) {
             ? subgroup.getFractionInPart(part.id)
             : subgroup.sum / subgroup.total.sum;
     return {
-        content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
+        content: decimals === "population"
+            ? subgroup.getSum(part.id).toLocaleString()
+            : `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
         style: getCellStyle(value) + `; width: ${width}`
     };
 }
