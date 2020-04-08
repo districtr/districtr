@@ -3,6 +3,7 @@ import { actions } from "../../reducers/charts";
 import Parameter from "../Parameter";
 import Select from "../Select";
 import DemographicsTable from "./DemographicsTable";
+import Histogram from "./Histogram";
 
 export default function AgeHistogramTable(
     chartId,
@@ -14,7 +15,7 @@ export default function AgeHistogramTable(
     const subgroups = population.subgroups.map((p) => {
         p.name = p.name.replace("Ages ", "").replace("Age ", "").replace("Under ", "<");
         return p;
-    }).sort((a, b) => a.name.replace("<", "").split("-")[0] * 1 - b.name.replace("<", "").split("-")[0] * 1);
+    });
 
     let combinedAges = [
       {name: "<15", keys: ["P012003_mf", "P012004_mf", "P012005_mf"]},
@@ -69,10 +70,9 @@ export default function AgeHistogramTable(
                 label: "View as:",
                 element: Select([{name:"Percentage"}, {name:"Population"}, {name:"Histogram"}], onChange)
             })}
-            <br/>
             ${chartState.ageView ? null : DemographicsTable(combinedAges, parts, false)}
             ${chartState.ageView == 1 ? DemographicsTable(combinedAges, parts, "population") : null}
-            ${chartState.ageView == 2 ? "Histogram" : null}
+            ${chartState.ageView == 2 ? Histogram(population.subgroups, parts) : null}
         </section>
     `;
 }

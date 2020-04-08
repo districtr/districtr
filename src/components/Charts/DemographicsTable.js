@@ -15,6 +15,14 @@ function getBackgroundColor(value) {
     )})`;
 }
 
+function popNumber(value) {
+  if (value >= 10000) {
+    return Math.round(value / 100) / 10 + "k";
+  } else {
+    return value.toLocaleString();
+  }
+}
+
 function getCellStyle(value) {
     const background = getBackgroundColor(value);
     const color = value > 0.4 ? "white" : "black";
@@ -28,7 +36,7 @@ function getCell(subgroup, part, width, decimals) {
             : subgroup.sum / subgroup.total.sum;
     return {
         content: decimals === "population"
-            ? subgroup.getSum(part.id).toLocaleString()
+            ? popNumber(part === null ? subgroup.sum : subgroup.getSum(part.id))
             : `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
         style: getCellStyle(value) + `; width: ${width}`
     };
@@ -43,7 +51,7 @@ export default (subgroups, parts, decimals=true) => {
     }));
     rows.push({
         label: "Overall",
-        entries: subgroups.map(subgroup => getCell(subgroup, null, width))
+        entries: subgroups.map(subgroup => getCell(subgroup, null, width, decimals))
     });
     return DataTable(headers, rows);
 };

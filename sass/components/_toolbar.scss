@@ -241,6 +241,27 @@ li:first-child > input:checked ~ .tabs__tab {
     padding: 0 1rem;
     border-spacing: 0.2rem;
     text-align: left;
+
+    .age-histogram & {
+        text-align: center;
+        border-spacing: 0;
+
+        .data-table__row-heading {
+          vertical-align: bottom;
+          padding-top: 0;
+          padding-bottom: 1rem;
+          padding-right: 0.5rem;
+        }
+
+        tbody tr {
+          height: 60px;
+        }
+
+        tbody td {
+            vertical-align: bottom;
+            padding: 0;
+        }
+    }
 }
 
 .data-table__cell {
