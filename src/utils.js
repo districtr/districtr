@@ -323,6 +323,10 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
       },
+      washington: {
+        number_markers: true,
+        county_brush: true,
+      },
       wisconsin: {
         number_markers: true,
         county_brush: true,
