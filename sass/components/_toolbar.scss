@@ -254,12 +254,18 @@ li:first-child > input:checked ~ .tabs__tab {
         }
 
         tbody tr {
-          height: 60px;
+          height: 50px;
         }
 
         tbody td {
             vertical-align: bottom;
             padding: 0;
+
+            &:last-child {
+                font-size: 80%;
+                vertical-align: middle;
+                border-bottom: 1px solid #444;
+            }
         }
     }
 }
