@@ -1,41 +1,11 @@
 import { html } from "lit-html";
-import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
-
-/**
- * We want the background color to be #f9f9f9 when value = 0, and black when
- * the value = 1. #f9f9f9 is the same as rgba(0, 0, 0, 0.02), so we map the 0-to-1
- * value scale to the 0.02-to-1 alpha scale.
- * @param {number} value - the subgroup's share of the district's population
- *  (between 0 and 1)
- */
-function getBackgroundColor(value) {
-    return `rgba(0, 0, 0, ${Math.min(
-        roundToDecimal(Math.max(value, 0) * 0.98 + 0.02, 2),
-        1
-    )})`;
-}
-
-function popNumber(value) {
-  if (value >= 10000) {
-    return Math.round(value / 100) / 10 + "k";
-  } else {
-    return value.toLocaleString();
-  }
-}
-
-function getCellStyle(value) {
-    const background = getBackgroundColor(value);
-    const color = value > 0.4 ? "white" : "black";
-    return `background: ${background}; color: ${color}`;
-}
 
 function getColumn(subgroup, part, max, median_name) {
     let years = (subgroup.age_range.length === 1 ? 1 : (subgroup.age_range[1] - subgroup.age_range[0] + 1)),
         width = Math.round(years * 2.5),
         height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * 125),
         is_median = (subgroup.name === median_name);
-    console.log(median_name);
     return {
       content: html`<div style="background:${is_median ? "#888" : "#444"};width:${width}px; height:${height}px"></div>`,
       style: ""

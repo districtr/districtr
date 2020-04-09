@@ -68,11 +68,11 @@ export default function AgeHistogramTable(
         <section class="toolbar-section">
             ${Parameter({
                 label: "View as:",
-                element: Select([{name:"Percentage"}, {name:"Population"}, {name:"Histogram"}], onChange)
+                element: Select([{name:"Histogram"}, {name:"Percentage"}, {name:"Population"}], onChange)
             })}
-            ${chartState.ageView ? null : DemographicsTable(combinedAges, parts, false)}
-            ${chartState.ageView == 1 ? DemographicsTable(combinedAges, parts, "population") : null}
-            ${chartState.ageView == 2 ? Histogram(population.subgroups, parts) : null}
+            ${chartState.ageView == 1 ? DemographicsTable(combinedAges, parts, false) : null}
+            ${chartState.ageView == 2 ? DemographicsTable(combinedAges, parts, "population") : null}
+            ${chartState.ageView ? null : Histogram(population.subgroups, parts)}
         </section>
     `;
 }

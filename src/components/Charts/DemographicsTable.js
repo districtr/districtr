@@ -16,7 +16,11 @@ function getBackgroundColor(value) {
 }
 
 function popNumber(value) {
-  if (value >= 10000) {
+  if (value >= 1000000) {
+    return Math.round(value / 100000) / 10 + "M";
+  } else if (value >= 100000) {
+    return Math.round(value / 1000) + "k";
+  } else if (value >= 10000) {
     return Math.round(value / 100) / 10 + "k";
   } else {
     return value.toLocaleString();
