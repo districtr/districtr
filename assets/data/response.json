@@ -2665,6 +2665,374 @@
     ]
   },
   {
+    "id": "newyork",
+    "state": "New York",
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 19378102,
+              "min": 0,
+              "max": 11091
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 11304247,
+                "min": 0,
+                "max": 5468
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2783857,
+                "min": 0,
+                "max": 6206
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 3416922,
+                "min": 0,
+                "max": 3779
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1406194,
+                "min": 0,
+                "max": 3509
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 53908,
+                "min": 0,
+                "max": 1671
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 5320,
+                "min": 0,
+                "max": 48
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 326034,
+                "min": 0,
+                "max": 388
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 81620,
+                "min": 0,
+                "max": 357
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Age of Population",
+            "subgroups": [
+              {
+                "key": "P012003_mf",
+                "name": "Under 5",
+                "sum": 1155822,
+                "min": 0,
+                "max": 1102
+              },
+              {
+                "key": "P012004_mf",
+                "name": "Ages 5-9",
+                "sum": 1163955,
+                "min": 0,
+                "max": 956
+              },
+              {
+                "key": "P012005_mf",
+                "name": "Ages 10-14",
+                "sum": 1211456,
+                "min": 0,
+                "max": 609
+              },
+              {
+                "key": "P012006_mf",
+                "name": "Ages 15-17",
+                "sum": 793696,
+                "min": 0,
+                "max": 367
+              },
+              {
+                "key": "P012007_mf",
+                "name": "Ages 18-19",
+                "sum": 572582,
+                "min": 0,
+                "max": 3344
+              },
+              {
+                "key": "P012008_mf",
+                "name": "Age 20",
+                "sum": 293083,
+                "min": 0,
+                "max": 1576
+              },
+              {
+                "key": "P012009_mf",
+                "name": "Age 21",
+                "sum": 281596,
+                "min": 0,
+                "max": 1083
+              },
+              {
+                "key": "P012010_mf",
+                "name": "Ages 22-24",
+                "sum": 836256,
+                "min": 0,
+                "max": 1261
+              },
+              {
+                "key": "P012011_mf",
+                "name": "Ages 25-29",
+                "sum": 1380177,
+                "min": 0,
+                "max": 2357
+              },
+              {
+                "key": "P012012_mf",
+                "name": "Ages 30-34",
+                "sum": 1279160,
+                "min": 0,
+                "max": 1501
+              },
+              {
+                "key": "P012013_mf",
+                "name": "Ages 35-39",
+                "sum": 1254124,
+                "min": 0,
+                "max": 1071
+              },
+              {
+                "key": "P012014_mf",
+                "name": "Ages 40-44",
+                "sum": 1355893,
+                "min": 0,
+                "max": 1325
+              },
+              {
+                "key": "P012015_mf",
+                "name": "Ages 45-49",
+                "sum": 1458763,
+                "min": 0,
+                "max": 1153
+              },
+              {
+                "key": "P012016_mf",
+                "name": "Ages 50-54",
+                "sum": 1419928,
+                "min": 0,
+                "max": 731
+              },
+              {
+                "key": "P012017_mf",
+                "name": "Ages 55-59",
+                "sum": 1237408,
+                "min": 0,
+                "max": 737
+              },
+              {
+                "key": "P012018_mf",
+                "name": "Ages 60-61",
+                "sum": 453993,
+                "min": 0,
+                "max": 286
+              },
+              {
+                "key": "P012019_mf",
+                "name": "Ages 62-64",
+                "sum": 612267,
+                "min": 0,
+                "max": 457
+              },
+              {
+                "key": "P012020_mf",
+                "name": "Ages 65-66",
+                "sum": 330160,
+                "min": 0,
+                "max": 232
+              },
+              {
+                "key": "P012021_mf",
+                "name": "Ages 67-69",
+                "sum": 443051,
+                "min": 0,
+                "max": 367
+              },
+              {
+                "key": "P012022_mf",
+                "name": "Ages 70-74",
+                "sum": 587391,
+                "min": 0,
+                "max": 452
+              },
+              {
+                "key": "P012023_mf",
+                "name": "Ages 75-79",
+                "sum": 474807,
+                "min": 0,
+                "max": 480
+              },
+              {
+                "key": "P012024_mf",
+                "name": "Ages 80-84",
+                "sum": 391660,
+                "min": 0,
+                "max": 465
+              },
+              {
+                "key": "P012025_mf",
+                "name": "Ages 85+",
+                "sum": 390874,
+                "min": 0,
+                "max": 852
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 15053173,
+              "min": 0,
+              "max": 10724
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 9098296,
+                "min": 0,
+                "max": 5255
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2095446,
+                "min": 0,
+                "max": 5959
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 2444400,
+                "min": 0,
+                "max": 3679
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 39142,
+                "min": 0,
+                "max": 1129
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 4202,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1120061,
+                "min": 0,
+                "max": 2723
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 56680,
+                "min": 0,
+                "max": 250
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 194946,
+                "min": 0,
+                "max": 308
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -79.7621,
+            40.4959
+          ],
+          [
+            -71.8477,
+            45.0159
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.newyork_blockgroups"
+            },
+            "sourceLayer": "newyork_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.newyork_blockgroups_points"
+            },
+            "sourceLayer": "newyork_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "name": "New York",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 27,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Assembly",
+        "numberOfParts": 150,
+        "pluralNoun": "State Assembly Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 63,
+        "pluralNoun": "State Senate Districts"
+      }
+    ]
+  },
+  {
     "units": [
       {
         "id": "blocks",

@@ -13,7 +13,9 @@ function getColumn(subgroup, part, max, median_name) {
 }
 
 export default (subgroups, parts) => {
-    subgroups = subgroups.sort((a, b) => a.name.replace("<", "").replace("+", "").split("-")[0] * 1 - b.name.replace("<", "").replace("+", "").split("-")[0] * 1);
+    subgroups = subgroups.sort((a, b) => {
+      return a.name.replace("<5", "4").replace("+", "").split("-")[0] * 1 - b.name.replace("<5", "4").replace("+", "").split("-")[0] * 1
+    });
 
     // scale for chart
     let max = {}, median = {};

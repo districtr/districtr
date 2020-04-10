@@ -21,7 +21,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: false,
+                isOpen: true,
                 activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
             }
         );
@@ -55,7 +55,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
