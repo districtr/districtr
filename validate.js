@@ -271,7 +271,7 @@ function validateColumnSet(columnSet, columnSetIndex, unitIndex, planId) {
     } else {
         checks.push("name");
         if (columnSet.type !== "text") {
-            checks.push("total");
+            // checks.push("total");
             validateCSentry(columnSet, 'total', columnSetIndex, unitIndex, planId);
         }
     }
