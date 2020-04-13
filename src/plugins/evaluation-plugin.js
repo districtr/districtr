@@ -1,5 +1,6 @@
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
+import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
 
@@ -39,6 +40,22 @@ export default function EvaluationPlugin(editor) {
             {
                 isOpen: state.population.subgroups.length > 1 ? false : true,
                 activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
+            }
+        );
+    }
+    if (state.ages) {
+        tab.addRevealSection(
+            "Age Histograms",
+            (uiState, dispatch) =>
+                AgeHistogramTable(
+                    "Age Histograms",
+                    state.ages,
+                    state.activeParts,
+                    uiState.charts["Age Histograms"],
+                    dispatch
+                ),
+            {
+                isOpen: false
             }
         );
     }
