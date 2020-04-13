@@ -10231,17 +10231,10 @@
     ]
   },
   {
-    "districtingProblems": [
-      {
-        "name": "County Commissioners",
-        "numberOfParts": 3,
-        "pluralNoun": "Districts"
-      }
-    ],
     "name": "Yakima County",
-    "state": "Washington",
     "units": [
       {
+        "id": "precincts12",
         "name": "Precincts",
         "unitType": "Precincts",
         "columnSets": [
@@ -10252,14 +10245,14 @@
               {
                 "key": "DANIELSON",
                 "name": "Danielson",
-                "sum": 16376,
+                "sum": 16380,
                 "min": 0,
                 "max": 318
               },
               {
                 "key": "GONZALEZ",
                 "name": "Gonzalez",
-                "sum": 9081,
+                "sum": 9086,
                 "min": 0,
                 "max": 185
               }
@@ -10292,14 +10285,14 @@
               {
                 "key": "GOV12D",
                 "name": "Democratic",
-                "sum": 31790,
+                "sum": 31791,
                 "min": 0,
                 "max": 646
               },
               {
                 "key": "GOV12R",
                 "name": "Republican",
-                "sum": 44505,
+                "sum": 44508,
                 "min": 0,
                 "max": 822
               }
@@ -10312,14 +10305,14 @@
               {
                 "key": "PRES12D",
                 "name": "Democratic",
-                "sum": 33216,
+                "sum": 33217,
                 "min": 0,
                 "max": 673
               },
               {
                 "key": "PRES12R",
                 "name": "Republican",
-                "sum": 42238,
+                "sum": 42239,
                 "min": 0,
                 "max": 788
               }
@@ -10331,66 +10324,73 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 243156,
+              "sum": 243228,
               "min": 0,
-              "max": 5039
+              "max": 5040
             },
             "subgroups": [
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 115952,
+                "sum": 116023,
                 "min": 0,
                 "max": 1834
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 1677,
+                "sum": 1744,
                 "min": 0,
-                "max": 118
+                "max": 119
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 109400,
+                "sum": 109470,
                 "min": 0,
                 "max": 4235
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 2286,
+                "sum": 2360,
                 "min": 0,
-                "max": 158
+                "max": 159
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 9000,
+                "sum": 9069,
                 "min": 0,
-                "max": 1621
+                "max": 1622
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 104,
+                "sum": 142,
                 "min": 0,
-                "max": 8
+                "max": 9
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
-                "sum": 4022,
+                "sum": 4090,
                 "min": 0,
-                "max": 87
+                "max": 88
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 286,
+                "sum": 331,
                 "min": 0,
-                "max": 18
+                "max": 19
+              },
+              {
+                "key": "COALPOP",
+                "name": "Coalition (Hispanic + Native American) population",
+                "sum": 118543,
+                "min": 0,
+                "max": 4527
               }
             ]
           },
@@ -10400,66 +10400,73 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 169120,
+              "sum": 169192,
               "min": 0,
-              "max": 3172
+              "max": 3173
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 93721,
+                "sum": 93790,
                 "min": 0,
-                "max": 1434
+                "max": 1435
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 1276,
+                "sum": 1336,
                 "min": 0,
                 "max": 105
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 63449,
+                "sum": 63535,
                 "min": 0,
                 "max": 2515
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 5961,
+                "sum": 6039,
                 "min": 0,
-                "max": 1006
+                "max": 1007
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 83,
+                "sum": 119,
                 "min": 0,
-                "max": 5
+                "max": 6
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 1757,
+                "sum": 1831,
                 "min": 0,
-                "max": 114
+                "max": 115
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 169,
+                "sum": 214,
                 "min": 0,
-                "max": 13
+                "max": 14
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 2262,
+                "sum": 2333,
                 "min": 0,
-                "max": 48
+                "max": 49
+              },
+              {
+                "key": "COALVAP",
+                "name": "Coalition (Hispanic + Native American) voting age population",
+                "sum": 69568,
+                "min": 0,
+                "max": 2726
               }
             ]
           }
@@ -10499,10 +10506,10 @@
             },
             "sourceLayer": "yakima_wa_precincts12_points"
           }
-        ],
-        "id": "precincts12"
+        ]
       },
       {
+        "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
@@ -10572,6 +10579,13 @@
                 "sum": 331,
                 "min": 0,
                 "max": 11
+              },
+              {
+                "key": "COALPOP",
+                "name": "Coalition (Hispanic + Native American) population",
+                "sum": 118542,
+                "min": 0,
+                "max": 1036
               }
             ]
           },
@@ -10641,6 +10655,13 @@
                 "sum": 2333,
                 "min": 0,
                 "max": 14
+              },
+              {
+                "key": "COALVAP",
+                "name": "Coalition (Hispanic + Native American) voting age population",
+                "sum": 69566,
+                "min": 0,
+                "max": 549
               }
             ]
           }
@@ -10680,11 +10701,18 @@
             },
             "sourceLayer": "yakima_wa_blocks_points"
           }
-        ],
-        "id": "blocks"
+        ]
       }
     ],
-    "id": "yakima_wa"
+    "id": "yakima_wa",
+    "state": "Washington",
+    "districtingProblems": [
+      {
+        "name": "County Commissioners",
+        "numberOfParts": 3,
+        "pluralNoun": "Districts"
+      }
+    ]
   },
 
   {
