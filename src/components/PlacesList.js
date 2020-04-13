@@ -120,7 +120,9 @@ export function placeItems(place, onClick) {
             districtingProblems.push(problem);
         }
     });
-    return districtingProblems
+    
+    return [html`<h3>${place.name === place.state ? "Statewide" 
+                                                  : place.name}</h3>`].concat(districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
@@ -128,7 +130,6 @@ export function placeItems(place, onClick) {
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
                         @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
-                        
                         ${getProblemInfo(place, problem, units, onClick)}
                         ${units.unitType
                             ? html`
@@ -141,7 +142,7 @@ export function placeItems(place, onClick) {
                 `
             )
         )
-        .reduce((items, item) => [...items, ...item], []);
+        .reduce((items, item) => [...items, ...item], []));
 }
 //From line 132: <div class="place-name">${place.name}</div>
 

@@ -11,10 +11,6 @@ a {
     cursor: pointer;
 }
 
-a#learn__more {
-        color: districtr-red;
-}
-
 .hidden {
     display: none !important;
 }
@@ -46,7 +42,6 @@ ul#nav {
     img {
         display: inline-block;
         max-width: 180px;
-        float: left;
     }
 
     button {
@@ -56,13 +51,10 @@ ul#nav {
         }
     }
 
-    div#buttons {
-        float:right;
-    }
-
     li {
         display: inline-block;
         list-style-type: none;
+        float: right;
         background: $mggg-dark-blue;
         margin-left: 7px;
         border-radius: 10px;

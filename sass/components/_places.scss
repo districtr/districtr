@@ -35,7 +35,7 @@
     // background: #eee;
 
     transition: all ease 100ms;
-    // width: 10rem;
+    width: 50%;
     // height: 10rem;
 
     border-radius: 0.5rem;
@@ -73,6 +73,23 @@
     }
 }
 
+.learn__more {
+    color: $districtr-red;
+    display: block;
+    margin-top: 0.5rem;
+
+    &:hover {
+            text-color: $districtr-red-dark;
+            color: $districtr-red-dark;
+        }
+
+    &:visited {
+            text-color: $districtr-red-dark;
+            color: $districtr-red-dark;
+        }
+}
+
+
 .communities {
     .state--available {
         fill: $districtr-red;
@@ -98,6 +115,20 @@
     .button--transparent {
         color: #444;
     }
+
+    .learn__more {
+    color: $mggg-blue;
+    text-color: $mggg-blue;
+    &:hover {
+            text-color: $mggg-dark-blue;
+            color: $mggg-dark-blue;
+        }
+
+    &:visited {
+            text-color: $mggg-dark-blue;
+            color: $mggg-dark-blue;
+        }
+}
 }
 
 .places-list__item--small {
