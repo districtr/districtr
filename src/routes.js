@@ -66,7 +66,7 @@ export function savePlanToDB(state, eventCode, callback) {
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
-    Object.keys(requestBody.plan.assignment).forEach(key => {
+    Object.keys(requestBody.plan.assignment || {}).forEach(key => {
         if (typeof key === "string" && key.indexOf(".") > -1) {
             requestBody.plan.assignment[key.replace(/\./g, "÷")] =
                 requestBody.plan.assignment[key];
@@ -115,7 +115,7 @@ export function loadPlanFromJSON(planRecord) {
         console.log(planRecord.msg);
         planRecord = planRecord.plan;
     }
-    Object.keys(planRecord.assignment).forEach((key) => {
+    Object.keys(planRecord.assignment || {}).forEach((key) => {
         if (String(key).includes('÷')) {
             let newKey = key.replace(/÷/g, ".");
             planRecord.assignment[newKey] = planRecord.assignment[key];
