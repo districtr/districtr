@@ -283,6 +283,10 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
       },
+      newyork: {
+        number_markers: true,
+        county_brush: true,
+      },
       nc: {
         number_markers: true,
         county_brush: true,

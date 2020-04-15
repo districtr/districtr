@@ -4,7 +4,7 @@ export default (radius, onChange, options) => {
   let r = radius,
       makeChange = (e) => {
           r = e.target.value * 1;
-          document.querySelectorAll('.slider-value.brush-size')
+          document.querySelectorAll('.slider-value.brush-size, .slider.brush-size')
               .forEach((slider_label) => {
                   slider_label.value = r;
               });
@@ -18,7 +18,7 @@ export default (radius, onChange, options) => {
         </legend>
         <div class="slider-container">
             <input
-                class="slider"
+                class="slider brush-size"
                 type="range"
                 value="${radius}"
                 min="1"
@@ -31,7 +31,10 @@ export default (radius, onChange, options) => {
                 value="${radius}"
                 min="1"
                 max="100"
-                disabled
+                @input=${makeChange}
+                @change=${makeChange}
+                @keyup=${makeChange}
+                @click=${makeChange}
             />
         </div>
     </div>
