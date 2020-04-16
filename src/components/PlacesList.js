@@ -87,7 +87,8 @@ function getProblemInfo(place, problem, units, onClick) {
             ? html`
                   ${problem.partCounts.length > 1
                       ? html`<div class="place-info">
-                            ${problem.pluralNoun}:
+                            ${problem.pluralNoun}: </div>
+                            <div class="place-info">
                             ${problem.partCounts.map(num =>
                                 html`<button
                                     @click=${() => onClick(place, problem, units, null, num)}
@@ -120,9 +121,10 @@ export function placeItems(place, onClick) {
             districtingProblems.push(problem);
         }
     });
-    
-    return [html`<h3>${place.name === place.state ? "Statewide" 
-                                                  : place.name}</h3>`].concat(districtingProblems
+    console.log(html`<h3>${place.name === place.state ? "Statewide" 
+                                                  : place.name}</h3>
+                 <ul class="places-list">
+                 ${districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
@@ -142,7 +144,33 @@ export function placeItems(place, onClick) {
                 `
             )
         )
-        .reduce((items, item) => [...items, ...item], []));
+        .reduce((items, item) => [...items, ...item], [])}
+                 </ul>`);
+    return [html`<h3>${place.name === place.state ? "Statewide" 
+                                                  : place.name}</h3>
+                 <ul class="places-list">
+                 ${districtingProblems
+        .map(problem =>
+            getUnits(place, problem).map(
+                units => html`
+                    <li
+                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
+                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
+                    >
+                        ${getProblemInfo(place, problem, units, onClick)}
+                        ${units.unitType
+                            ? html`
+                                  <div class="place-info">
+                                      Built out of ${units.name.toLowerCase()}
+                                  </div>
+                              `
+                            : ""}
+                    </li>
+                `
+            )
+        )
+        .reduce((items, item) => [...items, ...item], [])}
+                 </ul>`];
 }
 //From line 132: <div class="place-name">${place.name}</div>
 
@@ -166,9 +194,10 @@ export default class PlacesList {
             ${until(
                 this.places.then(p =>
                     p.length > 0
-                        ? html`
-                              <ul class="places-list">
-                                  ${p
+                        ? //html`
+                            //  <ul class="places-list">
+                                  // ${
+                                    p
                                       .map(place =>
                                           this.placeItemsTemplate(
                                               place,
@@ -178,9 +207,9 @@ export default class PlacesList {
                                       .reduce(
                                           (items, item) => [...items, ...item],
                                           []
-                                      )}
-                              </ul>
-                          `
+                                      )//}
+                             // </ul>
+                         // `
                         : this.fallbackComponent()
                 ),
                 ""
