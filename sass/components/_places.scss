@@ -38,7 +38,7 @@
     // background: #eee;
 
     transition: all ease 100ms;
-    width: 50%;
+    // width: 50%;
     // height: 10rem;
 
     border-radius: 0.5rem;
@@ -103,7 +103,8 @@
         color: #444;
     }
 
-    .learn__more {
+    .learn__more
+    .learn__more:visited {
         background: $mggg-blue;
     }
 
