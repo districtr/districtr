@@ -121,34 +121,9 @@ export function placeItems(place, onClick) {
             districtingProblems.push(problem);
         }
     });
-    console.log(html`<h3>${place.name === place.state ? "Statewide" 
-                                                  : place.name}</h3>
-                 <ul class="places-list">
-                 ${districtingProblems
-        .map(problem =>
-            getUnits(place, problem).map(
-                units => html`
-                    <li
-                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
-                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
-                    >
-                        ${getProblemInfo(place, problem, units, onClick)}
-                        ${units.unitType
-                            ? html`
-                                  <div class="place-info">
-                                      Built out of ${units.name.toLowerCase()}
-                                  </div>
-                              `
-                            : ""}
-                    </li>
-                `
-            )
-        )
-        .reduce((items, item) => [...items, ...item], [])}
-                 </ul>`);
     return [html`<h3>${place.name === place.state ? "Statewide" 
                                                   : place.name}</h3>
-                 <ul class="places-list">
+                 <ul class="places-list places-list--columns">
                  ${districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
