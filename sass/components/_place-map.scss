@@ -112,14 +112,19 @@
     display: none;
 }
 
-.city {
-    fill: mediumpurple;
+.local {
+    fill: #fff;
     display: none;
     opacity: 1;
 
     &:hover {
-        fill: darkmagenta;
+        fill: #aaa;
         opacity: 1;
+    }
+
+    &:target {
+        fill: #aaa;
+        opacity:1;
     }
 }
 

@@ -121,15 +121,15 @@ export function placeItems(place, onClick) {
             districtingProblems.push(problem);
         }
     });
-    return [html`<h3>${place.name === place.state ? "Statewide" 
-                                                  : place.name}</h3>
-                 <ul class="places-list places-list--columns">
+    return [html`<h3 class="place-name ${place.name.replace(/\s+/g, '')}">
+                 ${place.name === place.state ? "Statewide" : place.name}</h3>
+                 <ul class="places-list places-list--columns ${place.name.replace(/\s+/g, '')}">
                  ${districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""} ${place.name.replace(/\s+/g, '')}"
+                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
                         @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
                         ${getProblemInfo(place, problem, units, onClick)}
