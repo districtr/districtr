@@ -15,7 +15,7 @@ export function onlyCommunities() {
 function communitiesFilter(place) {
     if (justCommunities) {
         place.districtingProblems = [
-            { type: "community", numberOfParts: 50, pluralNoun: "Community" }
+            { type: "community", numberOfParts: 100, pluralNoun: "Community" }
         ];
     }
     return place;
