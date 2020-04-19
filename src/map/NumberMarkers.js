@@ -7,10 +7,6 @@ export default function NumberMarkers(state, brush) {
         console.log("no numberOfParts for NumberMarkers");
         return;
     }
-    if (state.plan.problem.type === "community") {
-        console.log("not numbering on community of interest");
-        return;
-    }
     if (!spatial_abilities(state.place.id).number_markers) {
         console.log("not on NumberMarkers whitelist");
         return;

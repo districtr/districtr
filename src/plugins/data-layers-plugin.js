@@ -277,8 +277,7 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
             })}
-            ${(state.plan.problem.type === "community"
-              || ["chicago_community_areas"].includes(state.units.sourceId)
+            ${(["chicago_community_areas"].includes(state.units.sourceId)
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle("Show district numbers", false, checked => {

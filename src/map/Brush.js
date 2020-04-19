@@ -55,7 +55,8 @@ export default class Brush extends HoverWithRadius {
             this._colorFeatures(
                 feature =>
                     feature.state.color === null ||
-                    feature.state.color === undefined
+                    feature.state.color === undefined ||
+                    isNaN(feature.state.color)
             );
         } else {
             this._colorFeatures(feature => feature.state.color !== this.color);
@@ -233,7 +234,9 @@ export default class Brush extends HoverWithRadius {
             this.changedColors.add(amendColor);
 
             // change map colors
+            let featureState = this.layer.getFeatureState(fid);
             this.layer.setFeatureState(fid, {
+                ...featureState,
                 color: amendColor
             });
 
@@ -241,10 +244,12 @@ export default class Brush extends HoverWithRadius {
             for (let listener of listeners) {
                 listener({
                     id: fid,
-                    state: { color: brushedColor },
+                    state: featureState,
                     properties: atomicAction[fid].properties
                 }, amendColor);
             }
+            featureState.color = amendColor;
+
         });
 
         this.cursorUndo = Math.max(0, this.cursorUndo - 1);
