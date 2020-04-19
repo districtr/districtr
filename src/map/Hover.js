@@ -67,8 +67,9 @@ export class HoverWithRadius extends Hover {
     }
     hoverOff() {
         this.hoveredFeatures.forEach(feature => {
+            let featureState = this.layer.getFeatureState(feature.id);
             this.layer.setFeatureState(feature.id, {
-                ...feature.state,
+                ...featureState,
                 hover: false
             });
         });
