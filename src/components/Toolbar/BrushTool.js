@@ -25,7 +25,7 @@ export default class BrushTool extends Tool {
         super("brush", "Paint", icon);
         this.brush = brush;
         this.colors = colors;
-        this.options = new BrushToolOptions(brush, colors, options);
+        this.options = new BrushToolOptions(brush, colors, undefined, options);
 
         hotkeys.filter = ({ target }) => {
             return (!["INPUT", "TEXTAREA"].includes(target.tagName)
@@ -57,9 +57,10 @@ export default class BrushTool extends Tool {
 }
 
 class BrushToolOptions {
-    constructor(brush, colors, options) {
+    constructor(brush, colors, renderToolbar, options) {
         this.brush = brush;
         this.colors = colors;
+        this.renderToolbar = renderToolbar;
         this.options = options;
         this.selectColor = this.selectColor.bind(this);
         this.changeRadius = this.changeRadius.bind(this);
@@ -68,6 +69,7 @@ class BrushToolOptions {
     }
     selectColor(e) {
         this.brush.setColor(e.target.value);
+        this.renderToolbar();
     }
     changeRadius(e) {
         e.stopPropagation();
@@ -78,6 +80,7 @@ class BrushToolOptions {
         if (this.options.county_brush && this.options.county_brush.radius != value) {
             this.options.county_brush.radius = value;
         }
+        this.renderToolbar();
     }
     toggleCountyBrush() {
         this.brush.county_brush = !this.brush.county_brush;
