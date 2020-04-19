@@ -2998,17 +2998,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.newyork_blockgroups"
+              "url": "mapbox://districtr.ny_blockgroups"
             },
-            "sourceLayer": "newyork_blockgroups"
+            "sourceLayer": "ny_blockgroups"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.newyork_blockgroups_points"
+              "url": "mapbox://districtr.ny_blockgroups_points"
             },
-            "sourceLayer": "newyork_blockgroups_points"
+            "sourceLayer": "ny_blockgroups_points"
           }
         ]
       }
