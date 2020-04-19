@@ -117,33 +117,34 @@ export default class Brush extends HoverWithRadius {
                     if (countyFIPS) {
                         seenCounties.add(countyFIPS);
                     }
-                }
+                } else {
 
-                if (!seenFeatures.has(feature.id)) {
-                    seenFeatures.add(feature.id);
-                    for (let listener of this.listeners.colorfeature) {
-                        listener(feature, this.color);
+                    if (!seenFeatures.has(feature.id)) {
+                        seenFeatures.add(feature.id);
+                        for (let listener of this.listeners.colorfeature) {
+                            listener(feature, this.color);
+                        }
                     }
-                }
 
-                // remember feature's initial color once per paint event
-                // remember population data so it can be un-counted
-                if (!this.trackUndo[this.cursorUndo][feature.id]) {
-                    this.trackUndo[this.cursorUndo][feature.id] = {
-                        properties: feature.properties,
-                        color: String(feature.state.color)
-                    };
-                }
-                if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
-                    this.changedColors.add(Number(feature.state.color));
-                }
+                    // remember feature's initial color once per paint event
+                    // remember population data so it can be un-counted
+                    if (!this.trackUndo[this.cursorUndo][feature.id]) {
+                        this.trackUndo[this.cursorUndo][feature.id] = {
+                            properties: feature.properties,
+                            color: String(feature.state.color)
+                        };
+                    }
+                    if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
+                        this.changedColors.add(Number(feature.state.color));
+                    }
 
-                this.layer.setFeatureState(feature.id, {
-                    ...feature.state,
-                    color: this.color,
-                    hover: true
-                });
-                feature.state.color = this.color;
+                    this.layer.setFeatureState(feature.id, {
+                        ...feature.state,
+                        color: this.color,
+                        hover: true
+                    });
+                    feature.state.color = this.color;
+                }
             } else {
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
@@ -160,6 +161,9 @@ export default class Brush extends HoverWithRadius {
                 this.trackUndo[this.cursorUndo],
                 this.listeners.colorfeature);
             });
+            for (let listener of this.listeners.colorop) {
+                listener();
+            }
         }
         for (let listener of this.listeners.colorend) {
             listener();
@@ -234,9 +238,7 @@ export default class Brush extends HoverWithRadius {
             this.changedColors.add(amendColor);
 
             // change map colors
-            let featureState = this.layer.getFeatureState(fid);
             this.layer.setFeatureState(fid, {
-                ...featureState,
                 color: amendColor
             });
 
@@ -244,7 +246,7 @@ export default class Brush extends HoverWithRadius {
             for (let listener of listeners) {
                 listener({
                     id: fid,
-                    state: featureState,
+                    state: { color: brushedColor },
                     properties: atomicAction[fid].properties
                 }, amendColor);
             }
