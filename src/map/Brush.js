@@ -232,6 +232,9 @@ export default class Brush extends HoverWithRadius {
             let amendColor = atomicAction[fid].color;
             if ((amendColor === 0 || amendColor === '0') || amendColor) {
                 amendColor = Number(atomicAction[fid].color);
+                if (isNaN(amendColor)) {
+                    amendColor = null;
+                }
             } else {
                 amendColor = null;
             }
@@ -253,7 +256,6 @@ export default class Brush extends HoverWithRadius {
                 }, amendColor);
             }
             featureState.color = amendColor;
-
         });
 
         this.cursorUndo = Math.max(0, this.cursorUndo - 1);
