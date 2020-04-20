@@ -246,6 +246,10 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
       },
+      connecticut: {
+        county_brush: true,
+        native_american: true,
+      },
       georgia: {
         number_markers: true,
         county_brush: true,

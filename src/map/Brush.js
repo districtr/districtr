@@ -101,6 +101,7 @@ export default class Brush extends HoverWithRadius {
                         // || idSearch("CNTYVTD", 3)
                         // || idSearch("DsslvID", 2) // Utah
                         // || idSearch("PRECODE", 2) // Oklahoma
+                        || idSearch("COUNTYFP10")
                         || idSearch("COUNTY")
                         || idSearch("CTYNAME")
                         || idSearch("CNTYNAME")
