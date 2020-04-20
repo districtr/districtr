@@ -18,15 +18,19 @@ export default function AgeHistogramTable(
     });
 
     let combinedAges = [
-      {name: "<15", keys: ["P012003_mf", "P012004_mf", "P012005_mf"]},
-      {name: "15–20", keys: ["P012006_mf", "P012007_mf", "P012008_mf"]},
-      {name: "21–34", keys: ["P012009_mf", "P012010_mf", "P012011_mf", "P012012_mf"]},
-      {name: "35–49", keys: ["P012013_mf", "P012014_mf", "P012015_mf"]},
-      {name: "50–64", keys: ["P012016_mf", "P012017_mf", "P012018_mf", "P012019_mf"]},
-      {name: "65+", keys: ["P012020_mf", "P012021_mf", "P012022_mf", "P012023_mf", "P012024_mf", "P012025_mf"]}
+      {name: "<15", keys: ["P012003", "P012004", "P012005"]},
+      {name: "15–20", keys: ["P012006", "P012007", "P012008"]},
+      {name: "21–34", keys: ["P012009", "P012010", "P012011", "P012012"]},
+      {name: "35–49", keys: ["P012013", "P012014", "P012015"]},
+      {name: "50–64", keys: ["P012016", "P012017", "P012018", "P012019"]},
+      {name: "65+", keys: ["P012020", "P012021", "P012022", "P012023", "P012024", "P012025"]}
     ];
     combinedAges.forEach(age => {
       // mimic subgroup model
+      age.keys.forEach((key) => {
+          age.keys.push(key + "_mf");
+          age.keys.push(key.replace(/0120+/, ""));
+      });
       age.getAbbreviation = () => age.name;
       age.getSum = (partIndex) => {
         let sum = 0;
