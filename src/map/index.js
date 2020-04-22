@@ -126,16 +126,16 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
             map.addSource('city_border', {
                 type: 'geojson',
                 data: {
-                  ...geojson,
+                  type: "FeatureCollection",
                   features: geojson.features.map(f => f.geometry.type === "Polygon"
-                      ? { ...f, geometry: { type: "LineString", coordinates: f.geometry.coordinates[0] } }
+                      ? { type: "Feature", geometry: { type: "LineString", coordinates: f.geometry.coordinates[0] } }
                       : f)
                 }
             });
             map.addSource('city_border_poly', {
                 type: 'geojson',
                 data: {
-                  ...geojson,
+                  type: "FeatureCollection",
                   features: geojson.features.filter(f => f.geometry.type === "Polygon")
                 }
             });
