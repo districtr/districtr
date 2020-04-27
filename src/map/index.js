@@ -118,14 +118,26 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     );
 
     // cities in Communities of Interest will have a thick border
-    if (["chicago", "lowell", "ontarioca", "philadelphia", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa"].includes(borderId)) {
+    if (["austin", "chicago", "lowell", "ontarioca", "philadelphia", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa"].includes(borderId)) {
         fetch(`/assets/city_border/${borderId}.geojson`)
             .then(res => res.json())
             .then((geojson) => {
 
             map.addSource('city_border', {
                 type: 'geojson',
-                data: geojson
+                data: {
+                  type: "FeatureCollection",
+                  features: geojson.features.map(f => f.geometry.type === "Polygon"
+                      ? { type: "Feature", geometry: { type: "LineString", coordinates: f.geometry.coordinates[0] } }
+                      : f)
+                }
+            });
+            map.addSource('city_border_poly', {
+                type: 'geojson',
+                data: {
+                  type: "FeatureCollection",
+                  features: geojson.features.filter(f => f.geometry.type === "Polygon")
+                }
             });
 
             new Layer(
@@ -137,7 +149,19 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
                     paint: {
                         "line-color": "#000",
                         "line-opacity": 0.7,
-                        "line-width": 2
+                        "line-width": 1.5
+                    }
+                }
+            );
+            new Layer(
+                map,
+                {
+                    id: "city_border_poly",
+                    source: "city_border_poly",
+                    type: "fill",
+                    paint: {
+                        "fill-color": "#444",
+                        "fill-opacity": 0.3
                     }
                 }
             );
