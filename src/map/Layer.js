@@ -1,4 +1,5 @@
 import { isString } from "../utils";
+import { blendColors } from "../colors";
 
 // The addBelowLabels method gives the right look on the Mapbox "streets" basemap,
 // while addBelowSymbols gives the right look on the "light" basemap.
@@ -91,7 +92,7 @@ export default class Layer {
             state
         );
     }
-    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners) {
+    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners, arrayLike) {
         let seenFeatures = new Set(),
             filterStrings = [
                 "all",
@@ -118,11 +119,36 @@ export default class Layer {
                     tallyListeners.forEach((listener) => {
                         listener(feature, setState.color);
                     });
+
+                    let setColor = setState.color,
+                        currentColor = feature.state.color;
+                    if (arrayLike) {
+                        if (typeof currentColor === 'number') {
+                            currentColor = [currentColor];
+                        } else if (currentColor && currentColor.includes(setState.color)) {
+                            return;
+                        }
+
+                        if (setState.color === null) {
+                            // erasing all colors
+                            setColor = null;
+                        } else if (currentColor || currentColor === '0' || currentColor === 0) {
+                            // adding to colors
+                            setColor = [setState.color].concat(currentColor);
+                        }
+                    }
+
+                    feature.state.COI = true;
+                    let useBlendColor = Array.isArray(setColor) && (setColor.length > 1),
+                        blendColor = Array.isArray(setColor) ? blendColors(setColor) : setColor;
                     this.setFeatureState(feature.id, {
                         ...feature.state,
-                        color: setState.color
+                        color: setColor,
+                        blendColor: blendColor,
+                        useBlendColor: useBlendColor,
+                        COI: true
                     });
-                    feature.state.color = setState.color;
+                    feature.state.color = setColor;
                 }
             }
         });
@@ -159,9 +185,21 @@ export default class Layer {
         return this.getFeatureState(featureId).color;
     }
     setAssignment(feature, part) {
+        // used when loading
+        let useBlendColor = false,
+            blendColor = null;
+        if (Array.isArray(part)) {
+            if (part.length === 1) {
+                part = part[0];
+            } else {
+                useBlendColor = true;
+            }
+        }
         this.setFeatureState(feature.id, {
             ...feature.state,
-            color: part
+            color: part,
+            useBlendColor: useBlendColor,
+            blendColor: useBlendColor ? blendColors(part) : null
         });
     }
     on(type, ...args) {
