@@ -90,17 +90,23 @@ export default function NumberMarkers(state, brush) {
                 if (plan.assignment[unit_id] === null) {
                     return;
                 }
-                let district_num = Number(plan.assignment[unit_id]);
-                seenDistricts.add(district_num);
-                if (
-                    (district_num || (district_num === 0))
-                    && (!colorsAffected || colorsAffected.has(district_num))
-                ) {
-                    if (markers[district_num]) {
-                        markers[district_num].push(unit_id);
-                    } else {
-                        markers[district_num] = [unit_id];
+                let markDistrict = (district_num) => {
+                    seenDistricts.add(district_num);
+                    if (
+                        (district_num || (district_num === 0))
+                        && (!colorsAffected || colorsAffected.has(district_num))
+                    ) {
+                        if (markers[district_num]) {
+                            markers[district_num].push(unit_id);
+                        } else {
+                            markers[district_num] = [unit_id];
+                        }
                     }
+                }
+                if (Array.isArray(plan.assignment[unit_id])) {
+                    plan.assignment[unit_id].forEach(markDistrict);
+                } else {
+                    markDistrict(Number(plan.assignment[unit_id]));
                 }
             });
 

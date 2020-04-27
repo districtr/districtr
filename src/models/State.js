@@ -47,7 +47,30 @@ class DistrictingPlan {
         this.idColumn = idColumn;
     }
     update(feature, part) {
-        this.assignment[this.idColumn.getValue(feature)] = part;
+        let featureId = this.idColumn.getValue(feature);
+        if (this.problem.type === "community" && part !== null) {
+            let current = this.assignment[featureId];
+            if (current === null || current === undefined) {
+                this.assignment[featureId] = part;
+            } else {
+                if (!Array.isArray(current)) {
+                    this.assignment[featureId] = [current];
+                }
+                if (Array.isArray(part)) {
+                    part.forEach((p) => {
+                        if (!this.assignment[featureId].includes(p)) {
+                            this.assignment[featureId].push(p);
+                        }
+                    });
+                } else {
+                    if (!this.assignment[featureId].includes(part)) {
+                        this.assignment[featureId].push(part);
+                    }
+                }
+            }
+        } else {
+            this.assignment[featureId] = part;
+        }
     }
     serialize() {
         return {

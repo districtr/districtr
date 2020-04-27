@@ -6,6 +6,7 @@ import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
+import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
@@ -15,7 +16,9 @@ import { download, spatial_abilities /* , stateNameToFips */ } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
-    const brush = new Brush(state.units, 20, 0);
+    const brush = (state.problem.type === 'community')
+        ? new CommunityBrush(state.units, 20, 0)
+        : new Brush(state.units, 20, 0);
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);

@@ -36,15 +36,41 @@ export class Subgroup extends NumericalColumn {
         );
     }
     update(feature, color) {
+        let oldColors = String(feature.state ?
+            (feature.state.color === undefined ? "" : feature.state.color)
+            : "").split(",");
+        let newColors = String(color).split(",");
+
         if (color !== undefined && color !== null) {
-            this.data[color] += this.getValue(feature);
+            if (!oldColors.includes(String(color))) {
+                // newColors usually receives one color at a time
+                // except when loading multiple colors from a community plan
+                newColors.forEach((c) => {
+                    this.data[Number(c)] += this.getValue(feature);
+                });
+            }
         }
         if (
             feature.state !== undefined &&
             feature.state.color !== undefined &&
             feature.state.color !== null
         ) {
-            this.data[feature.state.color] -= this.getValue(feature);
+            if (color === null || !feature.state.COI) {
+                // this happens on districting whenever a color is replaced
+                // this happens on community only when erasing (overlap allowed)
+                oldColors.forEach((oldColor) => {
+                    this.data[Number(oldColor)] -= this.getValue(feature);
+                });
+            }
+            // else if (feature.state.COI && oldColors.length > 1 && newColors.length) {
+            //     console.log(oldColors);
+            //     console.log('to');
+            //     console.log(newColors);
+            //     oldColors.filter(c => !newColors.includes(String(c))).forEach((oldColor) => {
+            //         console.log('remove ' + oldColor);
+            //         this.data[Number(oldColor)] -= this.getValue(feature);
+            //     });
+            // }
         }
     }
     getAbbreviation() {

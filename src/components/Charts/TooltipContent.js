@@ -6,7 +6,13 @@ function tooltipDots(features, parts) {
     let partCounts = zeros(parts.length);
     for (let feature of features) {
         if (feature.state.color !== null && feature.state.color !== undefined) {
-            partCounts[feature.state.color] += 1;
+            if (Array.isArray(feature.state.color)) {
+                feature.state.color.forEach(color => {
+                    partCounts[color] += 1;
+                });
+            } else {
+                partCounts[feature.state.color] += 1;
+            }
         }
     }
     if (sum(partCounts) === 0) {
