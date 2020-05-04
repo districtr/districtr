@@ -172,10 +172,11 @@
 
         <script type="text/javascript">
             function statewideDefault() {
-                        $(".places-list__item").not(".oregon").hide();
-                        $(".text-toggle").not(".oregon").hide();
-                        $(".nav").not(targetBox).hide();
-                        $(".oregon").show();
+                var statewide = ".oregon";
+                    $(".places-list__item").not(statewide).hide();
+                    $(".text-toggle").not(statewide).hide();
+                    $(".nav").not(statewide).hide();
+                    $(statewide).show();
                     }
             window.onload = statewideDefault;
 
