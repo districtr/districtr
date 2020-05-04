@@ -5792,6 +5792,11 @@
         "numberOfParts": 38,
         "pluralNoun": "State Senate Districts",
         "name": "State Senate"
+      },
+      {
+        "numberOfParts": 110,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
       }
     ],
     "state": "Michigan",
