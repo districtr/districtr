@@ -167,6 +167,12 @@ input:checked {
 
 /* Header */
 
+.jump {
+    margin-top: -3rem;
+    padding-top: 3rem;
+    //background-color: #red;
+}
+
 .banner__title {
   font-weight: 300;
   text-transform: uppercase;
@@ -284,4 +290,61 @@ input:checked {
   margin-right: auto;
   flex: 1;
   //width: 100%;
+}
+
+.plan-thumbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1rem;
+    padding: 0;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.plan-thumbs__thumb {
+    box-shadow: $raised;
+    margin: 0.5rem;
+    transition: 100ms all ease;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    //min-width: 250px;
+    width: auto;
+    border: 1px solid $districtr-grey-active;
+}
+
+.plan-thumbs__thumb:hover,
+.plan-thumbs__thumb:active {
+    box-shadow: $focus-shadow;
+}
+
+.thumb__img {
+    min-height: 12rem;
+    width: 12rem;
+    object-fit: contain;
+    align-self: center;
+    border-right: none;
+    border-bottom: 1px solid $districtr-grey-active;
+}
+
+
+.thumb__caption {
+    color: #666;
+    padding: 1rem;
+    flex: 1;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.thumb__heading {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    line-height: 1;
+    color: #444;
 }

@@ -15,17 +15,17 @@ const plans = [
         title: "Enacted Plans",
         plans: [
             {
-                id: "plan_a",
+                id: "enacted-congressional",
                 name: "Congressional Plan",
                 numbers: []
             },
             {
-                id: "plan_b",
+                id: "enacted-senate",
                 name: "State Senate Plan",
                 numbers: []
             },
             {
-                id: "plan_c",
+                id: "enacted-house",
                 name: "State House Plan",
                 numbers: []
             }
@@ -64,11 +64,11 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/yakima/${plan.id}">
+    <a href="/oregon/${plan.id}">
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/yakima-plans/${plan.id}.png"
+                src="/assets/oregon-plans/${plan.id}.png"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">
