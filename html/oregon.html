@@ -22,59 +22,62 @@
     </head>
 
     <body>
+        <header class="site-header">
+            <nav class="site-nav">
+                <div class="site-nav__logo">
+                    <a href="/">
+                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home"/>
+                    </a>
+                </div>
+                <ul id="nav-links" class="nav-links site-nav__contents">
+                   <!--  <li>
+                        <a href="#local" class="nav-links__link nav-links__link--major ">
+                        Local
+                        </a>
+                    </li> -->
+                    <li class="oregon portlandor nav">
+                        <a href="#build" class="nav-links__link nav-links__link--major ">
+                        Build a Plan
+                        </a>
+                    </li>
+                    <li class="oregon nav">
+                        <a href="#basics" class="nav-links__link nav-links__link--major ">
+                        Districts
+                        </a>
+                    </li>
+                    <li class="portlandor nav">
+                        <a href="#basics" class="nav-links__link nav-links__link--major ">
+                        City Council
+                        </a>
+                    </li>
+                    <li class="oregon portlandor nav">
+                        <a href="#rules" class="nav-links__link nav-links__link--major ">
+                        Rules
+                        </a>
+                    </li>
+                    <li class="oregon portlandor nav">
+                        <a href="#data" class="nav-links__link nav-links__link--major ">
+                        Data
+                        </a>
+                    </li>
+                    <li class="oregon nav">
+                        <a href="#enacted-plans" class="nav-links__link nav-links__link--major ">
+                        Enacted Plans
+                        </a>
+                    </li>
+                    <li class="oregon portlandor nav">
+                        <a href="#context" class="nav-links__link nav-links__link--major ">
+                        Why?
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <main id="root" class="place">
-            <ul id="nav">
-                <a href="/">
-                    <img src="/assets/districtr-splash.png" alt="Home"/>
-                </a>
-                <button
-                    class="button button--subtle button--icon button--no-shadow"
-                    onclick="document.querySelectorAll('#nav li').forEach(s => s.style.display = 'block');event.target.style.display='none';"
-                >
-                    <i class="material-icons">menu</i>
-                </button>
-                <div id="buttons">
-                <li>
-                  <a href="#local">
-                    Local
-                  </a>
-                </li>
-                <li>
-                  <a href="#build">
-                    Build a Plan
-                  </a>
-                </li>
-                <li>
-                  <a href="#basics">
-                    Basics
-                  </a>
-                </li>
-                <li>
-                  <a href="#rules">
-                    Rules
-                  </a>
-                </li>
-                <li>
-                  <a href="#data">
-                    About the Data
-                  </a>
-                </li>
-                <li>
-                  <a href="#enacted">
-                    Enacted Plans
-                  </a>
-                </li>
-                <li>
-                  <a href="#context">
-                    Context
-                  </a>
-                </li>
-            </div>
-            </ul>
             <article class="place__content">
                 <h1 class="headline place__name">Oregon</h1>
 
-                <h2 id="local">Local Modules:</h2>
+                <!-- <h2 id="local">Local Modules:</h2>
 
                 <ul class="places-list places-list--columns">
                         <li
@@ -87,14 +90,32 @@
                         
                         
                     </li>
-                </ul>
+                </ul> -->
 
-                <h2 id="build" class="place__subheading">Build a plan from scratch</h2>
-                <div id="districting-options-state"></div>
+                <h2 id="build">Build a plan from scratch</h2>
+                <!-- <ul class="place-options places-list">
+                    <li class="oregon places-list__item places-list__item--small">Statewide</li>
+                    <li class="portland places-list__item places-list__item--small">Portland</li>
+                </ul> -->
+                <div class="place-options places-list">
+                    <input type="radio" value="oregon" id="oregon" name="place-selection" checked>
+                    <label for="oregon">Statewide</label>
+                    <input type="radio" value="portlandor" id="portland" name="place-selection">
+                    <label for="portland">Portland</label>
+                </div>
+                <div id="districting-options"></div>
 
-                <h2 id="basics">Districts in Oregon</h2>
+                <div class="oregon text-toggle">
+                    <h2 id="basics">Districts in Oregon</h2>
 
-                <p>Oregon currently has 5 Congressional seats.  The Oregon Legislative Assembly has 30 members in the State Senate, and 60 members in the State House, where each representative is elected from a single member districts.  Additionaly in Oregon, Legislative Assembly districts are nested, where each Senate districts is comprised of two adjacent House districts.</p>
+                    <p>Oregon currently has 5 Congressional seats.  The Oregon Legislative Assembly has 30 members in the State Senate, and 60 members in the State House, where each representative is elected from a single member districts.  Additionaly in Oregon, Legislative Assembly districts are nested, where each Senate districts is comprised of two adjacent House districts.</p>
+                </div>
+                
+                <div class="portlandor text-toggle">
+                    <h2 id="basics">Portland City Council</h2>
+                    <p>The City Council in Portland currently consists of 5 members (including the major).  City council members (commissioners) are elected at-large in nonpartisan elections.</p>
+                </div>
+                
 
                 <!-- <ul class="places-list places-list--columns">
                     <li class="places-list__item places-list__item--small">
@@ -107,7 +128,7 @@
 
                 
 
-                <h2 id="rules">Redistricting Rules in Oregon</h2>
+                <h2 id="rules">Redistricting Rules</h2>
 
                 <p>Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor.</p>
                 <p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  <!-- Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts. -->  In addition, Oregon Law, asks that districts should <i>"as nearly as practicable"</i> meet the following criteria:</p>
@@ -126,14 +147,14 @@
                 <p>The Oregon precinct shapefile was obtained from <a href="http://www.kevinrancik.com/elections/Oregon/eOregon.html">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href="http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf">here</a>. Election results for 2016 and 2018 were obtained from the <a href="https://electionlab.mit.edu">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href="https://api.census.gov/data/2010/dec/sf1">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">TIGER/Line Shapefiles</a>.</p>
                 <p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href="https://github.com/mggg/maup">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>
 
-                <h2 id="enacted" class="place__subheading">
+                <div class="oregon text-toggle">
+                    <h2 id="enacted">
                     Explore the currently enacted plans
-                </h2>
-                <p>
-                    Click on any of the districting plans below to open it in
-                    Districtr. Then feel free to start modifying it yourself!
-
-                <div id="plans"></div>
+                    </h2>
+                    <p>Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself! </p>
+                    <div id="plans"></div>
+                </div>
+                
 
                 <h2 id="context">Election Reform in Oregon</h2>
 
@@ -143,6 +164,25 @@
             </article>
         </main>
         <script src="/es6/oregon.js"></script>
+        <script src="//code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            function statewideDefault() {
+                        $(".places-list__item").not(".oregon").hide();
+                        $(".text-toggle").not(".oregon").hide();
+                        $(".oregon").show();
+                    }
+            window.onload = statewideDefault;
+
+            $('input[type="radio"]').click(function(){
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                $(".places-list__item").not(targetBox).hide();
+                $(".text-toggle").not(targetBox).hide();
+                $(".nav").not(targetBox).hide();
+                $(targetBox).show();
+            });
+        </script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(

@@ -4,10 +4,8 @@ import { startNewPlan } from "../routes";
 
 export default () => {
     listPlacesForState("Oregon").then(places => {
-        const target_or = document.getElementById("districting-options-state");
-        render(districtingOptions(places.filter(p => p.id === "oregon")), target_or);
-        const target_port = document.getElementById("districting-options-port");
-        render(districtingOptions(places.filter(p => p.id === "portlandor")), target_port);
+        const target = document.getElementById("districting-options");
+        render(districtingOptions(places), target);
     });
     render(plansSection(), document.getElementById("plans"));
 };
@@ -85,17 +83,18 @@ const loadablePlan = plan => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${placeItemsTemplate(places[0], startNewPlan)}
+            ${placeItemsTemplate(places, startNewPlan)}
         </ul>
     `;
 
-const placeItemsTemplate = (place, onClick) =>
-    place.districtingProblems
+const placeItemsTemplate = (places, onClick) =>
+    places.map(place =>
+        place.districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="places-list__item places-list__item--small"
+                        class="${place.id} places-list__item places-list__item--small"
                         @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">
@@ -107,5 +106,9 @@ const placeItemsTemplate = (place, onClick) =>
                     </li>
                 `
             )
-        )
+        ))
         .reduce((items, item) => [...items, ...item], []);
+
+// var $or = 
+
+// var $port = 

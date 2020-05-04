@@ -148,7 +148,6 @@ const path = geoPath(
         .translate(translate)
 ).pointRadius(2);
 
-console.log(path)
 
 export function getFeatureBySTUPS(code) {
     code = code.toLowerCase();
