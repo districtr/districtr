@@ -28,6 +28,20 @@
                     <a href="/">
                         <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home"/>
                     </a>
+                    <script>
+                        function openNav() {
+                          var links = document.getElementById("nav-links");
+                          var openClass = "site-nav__contents--show";
+                          if (links.classList.contains(openClass)) {
+                            links.classList.remove(openClass);
+                          } else {
+                            links.classList.add(openClass);
+                          }
+                        }
+                    </script>
+                    <button class="site-nav__open-btn" onclick="openNav();">
+                        <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                    </button>
                 </div>
                 <ul id="nav-links" class="nav-links site-nav__contents">
                    <!--  <li>
@@ -36,8 +50,8 @@
                         </a>
                     </li> -->
                     <li class="oregon portlandor nav">
-                        <a href="#build" class="nav-links__link nav-links__link--major ">
-                        Build a Plan
+                        <a href="#draw-a-plan" class="nav-links__link nav-links__link--major ">
+                        Draw a Plan
                         </a>
                     </li>
                     <li class="oregon nav">
@@ -75,7 +89,8 @@
         </header>
         <main id="root" class="place">
             <article class="place__content">
-                <h1 class="headline place__name">Oregon</h1>
+                <h1 class="oregon headline place__name">Oregon</h1>
+                <h1 class="portlandor headline place__name">Portland, OR</h1>
 
                 <!-- <h2 id="local">Local Modules:</h2>
 
@@ -92,8 +107,8 @@
                     </li>
                 </ul> -->
 
-                <div id="build" class="jump"></div>
-                <h2>Build a plan from scratch</h2>
+                <div id="draw-a-plan" class="jump"></div>
+                <h2>Draw a plan from scratch</h2>
                 <!-- <ul class="place-options places-list">
                     <li class="oregon places-list__item places-list__item--small">Statewide</li>
                     <li class="portland places-list__item places-list__item--small">Portland</li>
@@ -169,26 +184,6 @@
         </main>
         <script src="/es6/oregon.js"></script>
         <script src="//code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-
-        <script type="text/javascript">
-            function statewideDefault() {
-                var statewide = ".oregon";
-                    $(".places-list__item").not(statewide).hide();
-                    $(".text-toggle").not(statewide).hide();
-                    $(".nav").not(statewide).hide();
-                    $(statewide).show();
-                    }
-            window.onload = statewideDefault;
-
-            $('input[type="radio"]').click(function(){
-                var inputValue = $(this).attr("value");
-                var targetBox = $("." + inputValue);
-                $(".places-list__item").not(targetBox).hide();
-                $(".text-toggle").not(targetBox).hide();
-                $(".nav").not(targetBox).hide();
-                $(targetBox).show();
-            });
-        </script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -202,6 +197,43 @@
             } else {
                 bundle();
             }
+        </script>
+        <script type="text/javascript">
+            function statewideDefault() {
+                if (window.location.pathname.split("/")[2] === "portland") {
+            // already zoomed in on one state
+                    var statewide = ".portlandor";
+                }
+                else {
+                    var statewide = ".oregon";
+                }
+                $(".text-toggle").not(statewide).hide();
+                $(".nav").not(statewide).hide();
+                $(".place__name").not(statewide).hide();
+                $(".places-list__item").not(statewide).hide();
+                $(statewide).show();
+            };
+            window.onload = statewideDefault;
+
+            $('input[type="radio"]').click(function(){
+                var inputValue = $(this).attr("value");
+                var inputName = $(this).attr("id");
+                var targetBox = $("." + inputValue);
+                
+                $(".places-list__item").not(targetBox).hide();
+                $(".text-toggle").not(targetBox).hide();
+                $(".nav").not(targetBox).hide();
+                $(".place__name").not(targetBox).hide();
+                $(targetBox).show();
+
+                if (inputValue === "oregon") {
+                    currentHistoryState = `${""}/${inputName.toLowerCase()}`;
+                }
+                else {
+                    currentHistoryState = `${"oregon"}/${inputName.toLowerCase()}`;
+                }
+                history.pushState({},"Oregon", currentHistoryState);
+            });
         </script>
     </body>
 </html>

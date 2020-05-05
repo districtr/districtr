@@ -120,6 +120,12 @@ label
     //border-radius: 0.25rem;
     //border: 0;
     font-size: 1.125rem;
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: #888;
+    //color: #92e3ff;
 }
 
 input[type=radio]
@@ -129,6 +135,11 @@ input[type=radio]
 input[type=radio]:checked + label
 {
     background-color:$mggg-dark-blue;
+}
+
+input[type=radio]:checked + label:hover
+{
+    background-color:$mggg-very-dark-blue;
 }
 
 /*label {
@@ -283,6 +294,67 @@ input:checked {
   // font-weight: bold;
 }
 
+.site-nav__open-btn {
+  border-radius: 0.25rem;
+  margin: 0;
+  outline: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  line-height: 1;
+  color: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+
+  &:hover {
+    background-color: $districtr-grey-active;
+  }
+
+  &:active {
+    background-color: $districtr-grey-active;
+  }
+}
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+@media only screen and (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    padding: 0rem;
+  }
+  .site-nav {
+    padding: 0;
+  }
+  .site-nav__open-btn {
+    display: flex;
+  }
+  .site-nav__contents {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .site-nav__contents {
+    display: none;
+  }
+  .site-nav__contents--show {
+    display: flex;
+  }
+  .site-nav__logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+  }
+}
 
 .l-center {
   max-width: 55rem;
