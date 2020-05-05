@@ -7,4 +7,4 @@
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
 
 ## Landing Pages
-/:state/* /:state.html 200
+##/:state/* /:state.html 200

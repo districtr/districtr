@@ -200,9 +200,10 @@
         </script>
         <script type="text/javascript">
             function statewideDefault() {
-                if (window.location.pathname.split("/")[2] === "portland") {
+                if (window.location.pathname.split("#")[1] === "portland") {
             // already zoomed in on one state
                     var statewide = ".portlandor";
+                    document.getElementById("oregon").checked = true;
                 }
                 else {
                     var statewide = ".oregon";
@@ -226,13 +227,7 @@
                 $(".place__name").not(targetBox).hide();
                 $(targetBox).show();
 
-                if (inputValue === "oregon") {
-                    currentHistoryState = `${""}/${inputName.toLowerCase()}`;
-                }
-                else {
-                    currentHistoryState = `${"oregon"}/${inputName.toLowerCase()}`;
-                }
-                history.pushState({},"Oregon", currentHistoryState);
+                history.pushState({},"Oregon", `${"oregon"}`);
             });
         </script>
     </body>
