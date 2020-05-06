@@ -7488,7 +7488,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Population density",
               "sum": 10155624,
               "min": 0,
               "max": 10624
@@ -7708,13 +7708,6 @@
             "name": "Age of Population",
             "subgroups": [
               {
-                "key": "B01002_001",
-                "name": "Median Age",
-                "sum": 247560,
-                "min": 0,
-                "max": 82
-              },
-              {
                 "key": "age_lt_5",
                 "name": "Under 5",
                 "sum": 603193,
@@ -7867,6 +7860,10 @@
                 "sum": 183685,
                 "min": 0,
                 "max": 334
+              },
+              {
+                "key": "age_85_plu",
+                "name": "Ages 85+"
               }
             ]
           }

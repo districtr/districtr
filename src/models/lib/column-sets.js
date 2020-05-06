@@ -67,6 +67,17 @@ function getAges(place, parts) {
     }
 }
 
+function getIncomes(place, parts) {
+    const incomes = place.columnSets.find(
+        columnSet => columnSet.name === "Households by Income"
+    );
+    if (incomes) {
+        return new Population({ ...incomes, parts });
+    } else {
+        return null;
+    }
+}
+
 function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
@@ -97,6 +108,7 @@ export function getColumnSets(state, unitsRecord) {
     state.population = getPopulation(unitsRecord, state.parts);
     state.vap = getVAP(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
+    state.incomes = getIncomes(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -120,6 +132,13 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.incomes) {
+        state.columns = [
+            ...state.columns,
+            ...state.incomes.subgroups
+            // no total
+        ];
+    }
 
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
@@ -127,6 +146,9 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.ages) {
         columnSets.push(state.ages);
+    }
+    if (state.incomes) {
+        columnSets.push(state.incomes);
     }
     return columnSets;
 }

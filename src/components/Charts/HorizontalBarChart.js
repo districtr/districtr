@@ -11,6 +11,9 @@ export function TooltipBar(percent) {
 }
 
 function formatColumnName(name, maxVariableLength) {
+    if (!name) {
+      return "Total";
+    }
     if (name.length > maxVariableLength) {
         return name.slice(0, maxVariableLength - 3) + "...";
     } else {

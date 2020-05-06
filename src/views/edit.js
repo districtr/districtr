@@ -13,15 +13,14 @@ import ToolsPlugin from "../plugins/tools-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
+import MultiLayersPlugin from "../plugins/multi-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 
 function getPlugins(context) {
-    if (context.problem.type === "community") {
-        if (context.units.coi2) {
-            return [communityIdPlugins[0], communityIdPlugins[2]];
-        } else {
-            return communityIdPlugins;
-        }
+    if (context.units.coi2) {
+        return [ToolsPlugin, MultiLayersPlugin, CommunityPlugin];
+    } else if (context.problem.type === "community") {
+        return communityIdPlugins;
     } else {
         return defaultPlugins;
     }

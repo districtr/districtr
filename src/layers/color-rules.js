@@ -91,7 +91,7 @@ export function colorByFraction(subgroup) {
     const rgb =
         subgroup.columnSet.type === "election"
             ? getPartyRGBColors(subgroup.name)
-            : [0, 0, 0];
+            : [0, 0, 139];
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 
