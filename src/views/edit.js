@@ -17,16 +17,23 @@ import CommunityPlugin from "../plugins/community-plugin";
 
 function getPlugins(context) {
     if (context.problem.type === "community") {
-        return communityIdPlugins;
+        if (context.units.coi2) {
+            return [communityIdPlugins[0], communityIdPlugins[2]];
+        } else {
+            return communityIdPlugins;
+        }
     } else {
         return defaultPlugins;
     }
 }
 
 function getMapStyle(context) {
-    if (context.problem.type === "community") {
+    if (context.problem.type === "community" && !context.units.coi2) {
         return "mapbox://styles/mapbox/streets-v11";
     } else {
+        if (context.units.coi2) {
+            document.body.className = "coi2";
+        }
         return "mapbox://styles/mapbox/light-v10";
     }
 }
@@ -93,7 +100,7 @@ function loadContext(context) {
             fitBoundsOptions: {
                 padding: {
                     top: 50,
-                    right: 50,
+                    right: context.units.coi2 ? 250 : 50,
                     left: 50,
                     bottom: 50
                 }

@@ -56,7 +56,7 @@ export function getUnits(place, problem) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    return place.units.sort((a, b) => {
+    return place.units.filter(c => (problem.type === "community" || !c.coi2)).sort((a, b) => {
         const x = a.name.toLowerCase();
         const y = b.name.toLowerCase();
         if (x < y) {

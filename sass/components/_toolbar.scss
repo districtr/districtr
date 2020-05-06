@@ -23,6 +23,17 @@
     flex-direction: column;
 }
 
+.coi2 {
+    .toolbar {
+        width: 40%;
+        max-width: 560px;
+    }
+    .map {
+        width: 60%;
+        width: calc(100% - 560px)
+    }
+}
+
 .toolbar-section {
     display: flex;
     flex-direction: column;

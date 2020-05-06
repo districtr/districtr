@@ -65,6 +65,9 @@
         "sinon": "^7.5.0",
         "webpack-merge": "^4.2.2"
     },
+    "resolutions": {
+        "@babel/preset-env": "7.5.5"
+    },
     "dependencies": {
         "@babel/plugin-transform-runtime": "^7.8.3",
         "@babel/runtime": "^7.8.3",
@@ -75,6 +78,6 @@
         "encoding": "^0.1.12",
         "hotkeys-js": "^3.7.6",
         "lit-html": "^1.1.2",
-        "mapbox-gl": "^1.9.1"
+        "mapbox-gl": "^1.10.0"
     }
 }
