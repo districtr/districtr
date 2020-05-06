@@ -358,7 +358,7 @@ function modulesAvailable(feature, onClose) {
                     : ""}
                 ${list.render()}
             </div>
-            <a class="learn__more" href="/${feature.properties.NAME.toLowerCase()}">
+            <a class="learn__more" href="/${feature.properties.NAME.replace(/\s+/g, '_').toLowerCase()}">
                 More about Redistricting in ${feature.properties.NAME}</a>
         </div>
     `;
