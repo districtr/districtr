@@ -7,7 +7,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -20,7 +20,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -36,7 +36,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -49,7 +49,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -62,7 +62,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -75,7 +75,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -88,7 +88,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -101,7 +101,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -114,7 +114,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -128,11 +128,11 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       },
       {
-        "name": "Election Reform in Lowell",
+        "name": "Election reform in Lowell",
         "nav": "Lowell Election Reform",
         "pages": ["lowell"],
         "type": "text",
@@ -226,7 +226,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -239,7 +239,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -252,7 +252,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -265,7 +265,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -278,7 +278,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -291,7 +291,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -304,7 +304,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -317,7 +317,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -330,7 +330,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -345,7 +345,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       },
       {
@@ -363,13 +363,13 @@
         "content": "<p>The City Council in Portland currently consists of 5 members (including the mayor).  City council members (commissioners) are elected at-large in nonpartisan elections.</p>"
       },
       {
-        "name": "Redistricting Rules",
+        "name": "Redistricting rules in Oregon",
         "nav": "Rules",
         "type": "text",
         "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts.  In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
       },
       {
-        "name": "About the Data",
+        "name": "About the data",
         "nav": "Data",
         "type": "text",
         "content": "<p>The units in these modules are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p><p>The Oregon precinct shapefile was obtained from <a href=\"http://www.kevinrancik.com/elections/Oregon/eOregon.html\">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href=\"http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf\">here</a>. Election results for 2016 and 2018 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Certain precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "name": "Election Reform in Oregon",
+        "name": "Election reform in Oregon",
         "nav": "Why?",
         "type": "text",
         "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"
@@ -418,7 +418,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -433,7 +433,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -448,7 +448,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -461,7 +461,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -474,7 +474,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -487,7 +487,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -502,7 +502,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]
@@ -515,7 +515,7 @@
     "sections": [
       {
         "name": "Draw a plan from scratch",
-        "nav": "Draw a Plan",
+        "nav": "Draw",
         "type": "draw"
       }
     ]

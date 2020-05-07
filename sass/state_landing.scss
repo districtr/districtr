@@ -89,8 +89,9 @@ figcaption {
 .place__name {
     font-family: "Playfair Display";
     font-weight: 700;
-    line-height: 2;
+    line-height: 1.5;
     text-align: center;
+    margin-top: 1rem;
 }
 
 .place__content {
@@ -102,10 +103,12 @@ figcaption {
 .place-options {
     flex-wrap: wrap;
     flex-direction: row;
-    margin-left: -5%;
-    margin-top: -1rem;
-    //justify-content: center;
-    //align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.places-list__item--small {
+  max-width: none;
 }
 
 /* Statewide vs Local Selection */
@@ -274,14 +277,16 @@ input:checked {
 }
 
 .nav-links__link--major {
-  line-height: 3;
+  line-height: 1.5;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .nav-links__link--img {
-  height: 1.5rem;
+  height: 2.5rem;
   filter: none;
   line-height: 3;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .nav-links__link:hover,
@@ -352,7 +357,6 @@ input:checked {
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    padding: 1rem;
   }
 }
 

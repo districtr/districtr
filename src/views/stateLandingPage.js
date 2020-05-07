@@ -29,6 +29,12 @@ export default () => {
                 $(".places-list__item").not($("." + def)).hide();
             });
 
+            listPlacesForState(stateData.state).then(places => {
+                const target = document.getElementById("community-options");
+                render(communityOptions(places), target);
+                $(".places-list__item").not($("." + def)).hide();
+            });
+
             // console.log(btn);
             btn.checked = true;
             $(".text-toggle").not(statewide).hide();
@@ -62,13 +68,27 @@ const navLinks = (sections, placeIds) =>
             </a>
         </li>
         `
-    );
+    ).concat([html`<li class="nav ${placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
+            <a href="/new">
+                <img 
+                    class="nav-links__link--img"
+                    src="/assets/usa.png"
+                    alt="Back to Map"
+                  />
+            </a>
+        </li>
+    `]);
 
 const drawPage = stateData => {
     console.log(stateData);
     console.log(stateData.sections.map(s => drawSection(s, stateData)));
     return html`
         ${drawTitles(stateData.modules, stateData.state)}
+        <div class="place-options places-list">
+        ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
+                                            id="${m.id}" name="place-selection">
+                                          <label for="${m.id}">${m.name}</label>`)}
+        </div>
         ${stateData.sections.map(s => drawSection(s, stateData))}
     `
 };
@@ -84,13 +104,10 @@ const drawSection = (section, stateData) => {
     if (section.type === "draw") {
        section_body = html`
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
-            <h2>${section.name}</h2>
-            <div class="place-options places-list">
-                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
-                                                         id="${m.id}" name="place-selection">
-                                        <label for="${m.id}">${m.name}</label>`)}
-            </div>
+            <h2>Draw a plan from scratch</h2>
             <div id="districting-options"></div>
+            <h2>Draw your community</h2>
+            <div id="community-options" class="communities"></div>
         `;
     } else if (section.type === "plans") {
         section_body = html`
@@ -167,6 +184,28 @@ const districtingOptions = places =>
             ${placeItemsTemplate(places, startNewPlan)}
         </ul>
     `;
+
+const communityOptions = places =>
+    html`
+        <ul class="places-list places-list--columns">
+            ${placeItemsTemplateCommunities(places, startNewPlan)}
+        </ul>
+    `;
+
+const placeItemsTemplateCommunities = (places, onClick) =>
+    places.map(place => {
+        var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
+        return getUnits(place, problem).map( 
+            units => html`
+            <li class="${place.id} places-list__item places-list__item--small"
+                @click="${() => onClick(place, problem, units)}">
+                <div class="place-name"> Identify a community </div>
+                <div class="place-info">
+                    Built out of ${units.name.toLowerCase()}
+                </div>
+            </li>
+            `)
+    }).reduce((items, item) => [...items, ...item], []);
 
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
