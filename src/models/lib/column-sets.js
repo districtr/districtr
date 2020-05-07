@@ -100,6 +100,28 @@ function getBroadband(place, parts) {
     }
 }
 
+function getSNAP(place, parts) {
+    const snap = place.columnSets.find(
+        columnSet => columnSet.name === "Households and Food"
+    );
+    if (snap) {
+        return new Population({ ...snap, parts });
+    } else {
+        return null;
+    }
+}
+
+function getAsthma(place, parts) {
+    const asthma = place.columnSets.find(
+        columnSet => columnSet.name === "Health issues"
+    );
+    if (asthma) {
+        return new Population({ ...asthma, parts });
+    } else {
+        return null;
+    }
+}
+
 function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
@@ -133,6 +155,8 @@ export function getColumnSets(state, unitsRecord) {
     state.incomes = getIncomes(unitsRecord, state.parts);
     state.rent = getRent(unitsRecord, state.parts);
     state.broadband = getBroadband(unitsRecord, state.parts);
+    state.snap = getSNAP(unitsRecord, state.parts);
+    state.asthma = getAsthma(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -177,6 +201,20 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.snap) {
+        state.columns = [
+            ...state.columns,
+            ...state.snap.subgroups
+            // no total
+        ];
+    }
+    if (state.asthma) {
+        state.columns = [
+            ...state.columns,
+            ...state.asthma.subgroups
+            // no total
+        ];
+    }
 
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
@@ -193,6 +231,12 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.broadband) {
         columnSets.push(state.broadband);
+    }
+    if (state.snap) {
+        columnSets.push(state.snap);
+    }
+    if (state.asthma) {
+        columnSets.push(state.asthma);
     }
     return columnSets;
 }

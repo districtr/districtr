@@ -81,6 +81,18 @@ function addPrecincts(map, tileset, layerAdder) {
     });
 }
 
+function addTracts(map, tileset, layerAdder) {
+    return new Layer(map, {
+        id: "extra-tracts",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
+}
+
 function addCounties(map, tileset, layerAdder, placeID) {
     map.addSource(tileset.sourceLayer, tileset.source);
     return new Layer(map, {
@@ -125,6 +137,11 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     const precincts = addPrecincts(
         map,
         tilesets.find(tileset => tileset.source.url.includes("precincts")),
+        layerAdder
+    );
+    const tracts = addTracts(
+        map,
+        tilesets.find(tileset => tileset.source.url.includes("tracts")),
         layerAdder
     );
     const counties = addCounties(
@@ -185,5 +202,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points, counties, precincts };
+    return { units, unitsBorders, points, counties, precincts, tracts };
 }

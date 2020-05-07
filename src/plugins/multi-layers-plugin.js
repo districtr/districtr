@@ -278,6 +278,148 @@ export default function MultiLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
+    let emitters, coal, colleges, hospitals = null;
+
+    fetch("/assets/nc/nc-ccr.csv").then(res => res.text()).then(txt => {
+      let gjf = []
+      txt.split("\n").forEach((row) => {
+        // console.log(row.split(","))
+        row = row.split(",")
+        if (row.length > 1) {
+          let lat = row[row.length - 2] * 1,
+              lng = row[row.length - 1] * 1
+          gjf.push({
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [lng, lat]
+            }
+          })
+        }
+      })
+      state.map.addSource('coal', {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: gjf
+        }
+      })
+      coal = new Layer(
+        state.map,
+        {
+           id: "coal",
+           source: "coal",
+           type: "circle",
+           paint: {
+             'circle-opacity': 0,
+             'circle-radius': 4,
+             'circle-color': 'black'
+           }
+        }
+      )
+    });
+    fetch("/assets/nc/nc_industry.geojson").then(res => res.json()).then(gj => {
+      state.map.addSource('emitters', {
+        type: "geojson",
+        data: gj
+      });
+      emitters = new Layer(
+        state.map,
+        {
+          id: "emitters",
+           source: "emitters",
+           type: "circle",
+           paint: {
+            'circle-radius': 4,
+            'circle-opacity': 0,
+            'circle-color': [
+              'match',
+              ['get', 'CLASS_STATUS'],
+              'Title V', 'purple',
+              'Synthetic Minor', 'green',
+              'Small', 'red',
+              'Permit Exempt', 'blue',
+              'Registered', 'orange',
+              'Permit/Registration Pending', 'yellow',
+              '#ccc' // other
+            ]
+          }
+        },
+        addBelowLabels
+      )
+    });
+    fetch("/assets/nc/nc_colleges.geojson").then(res => res.json()).then(gj => {
+      state.map.addSource('colleges', {
+        type: "geojson",
+        data: gj
+      });
+      colleges = new Layer(
+        state.map,
+        {
+           id: "colleges",
+           source: "colleges",
+           type: "circle",
+           paint: {
+             'circle-radius': 4,
+             'circle-opacity': 0,
+             'circle-color': 'blue'
+           }
+        }
+      );
+    });
+    fetch("/assets/nc/nc_hospitals.geojson").then(res => res.json()).then(gj => {
+      state.map.addSource('hospitals', {
+        type: "geojson",
+        data: gj
+      });
+      hospitals = new Layer(
+        state.map,
+        {
+           id: "hospitals",
+           source: "hospitals",
+           type: "circle",
+           paint: {
+             'circle-radius': 4,
+             'circle-opacity': 0,
+             'circle-color': 'red'
+           }
+        }
+      );
+    });
+
+    tab.addSection(
+        () => html`<div class="sectionThing">
+            <h3 style="margin-bottom:0">
+              Environment
+              <br/>
+              <small>NC Dept of Environmental Quality</small>
+            </h3>
+            ${toggle(`Show emitters`, false, checked =>
+                emitters.setOpacity(checked ? 1 : 0),
+                "emittersVisible"
+            )}
+            ${toggle(`Show coal facilities`, false, checked =>
+                coal.setOpacity(checked ? 1 : 0),
+                "coalVisible"
+            )}
+        </div>`
+    );
+    tab.addSection(
+        () => html`<div class="sectionThing">
+            <h3 style="margin-bottom:0">
+              Infrastructure
+            </h3>
+            ${toggle(`Show colleges`, false, checked =>
+                colleges.setOpacity(checked ? 1 : 0),
+                "collegesVisible"
+            )}
+            ${toggle(`Show hospitals`, false, checked =>
+                hospitals.setOpacity(checked ? 1 : 0),
+                "hospitalsVisible"
+            )}
+        </div>`
+    );
+
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
@@ -288,8 +430,7 @@ export default function MultiLayersPlugin(editor) {
             () => html`
                 <h3 style="margin-bottom:0">
                   Election Results
-                  <br/>
-                  <small>by VTD</small>
+                  <small>- by VTD</small>
                 </h3>
                 <div class="sectionThing">
                     <div class="option-list__item">
@@ -310,7 +451,6 @@ export default function MultiLayersPlugin(editor) {
         () => html`
         <h3 style="margin-bottom:0">
           Demographics (2018 ACS)
-          <br/>
           <small>by blockgroup</small>
         </h3>
         <div class="sectionThing">
@@ -343,9 +483,17 @@ export default function MultiLayersPlugin(editor) {
             "Map median income",
             true // first layer only
         );
+
+        const snapOverlay = new OverlayContainer(
+            "snap",
+            state.layers.filter(lyr => lyr.id.includes("tract")),
+            state.snap,
+            "SNAP Households (2015)"
+        );
+
         tab.addSection(
             (uiState, dispatch) =>  html`<div class="sectionThing">
-                <h4>Household Income</h4>
+                <h4>Household Income and SNAP</h4>
                 ${incomeOverlay.render()}
                 <div class="centered">
                   <strong>Histogram</strong>
@@ -357,6 +505,7 @@ export default function MultiLayersPlugin(editor) {
                     uiState.charts["Income Histograms"],
                     dispatch
                 )}
+                ${snapOverlay.render()}
             </div>`
         );
     }
@@ -371,6 +520,19 @@ export default function MultiLayersPlugin(editor) {
                 )}
             </div>`
         );
+    }
+
+    if (state.asthma) {
+        const asthmaOverlay = new OverlayContainer(
+            "asthma",
+            state.layers.filter(lyr => lyr.id.includes("tract")),
+            state.asthma,
+            "Asthma (cities)"
+        );
+        tab.addSection(() => html`
+            <h4>Health <small>by tract</small></h4>
+            ${asthmaOverlay.render()}
+        `)
     }
 
     if (state.broadband) {

@@ -66,6 +66,13 @@ export default class OverlayContainer {
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
+
+        if (i) {
+            document.getElementById("gradientbar-" + this._id).className = "gradientbar";
+        } else {
+            document.getElementById("gradientbar-" + this._id).className = "gradientbar bwscale";
+        }
+
         if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i])) {
             this.overlay.setColorRule(colorByCount);
 
@@ -122,7 +129,7 @@ export default class OverlayContainer {
                 })}
             </div>`)}
             <div id="color-${this._id}" class="color-legend">
-                <span class="gradientbar ${(this.firstOnly || this._currentSubgroupIndex === 0) ? "bwscale" : ""}"></span>
+                <span id="gradientbar-${this._id}" class="gradientbar ${(this.firstOnly || this._currentSubgroupIndex === 0) ? "bwscale" : ""}"></span>
                 <br/>
                 <div id="notches-${this._id}" class="notches">
                     <span class="notch">|</span>

@@ -112,7 +112,7 @@ export default class State {
         return this.plan.parts.filter(part => part.visible);
     }
     initializeMapState(map, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, points, counties, precincts } = addLayers(
+        const { units, unitsBorders, points, counties, precincts, tracts } = addLayers(
             map,
             this.parts,
             unitsRecord.tilesets,
@@ -123,7 +123,7 @@ export default class State {
         this.units = units;
         this.unitsBorders = unitsBorders;
         this.counties = counties;
-        this.layers = [units, points, precincts];
+        this.layers = [units, points, precincts, tracts];
         this.map = map;
     }
     update(feature, part) {

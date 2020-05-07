@@ -8073,6 +8073,74 @@
               "race": "Governor",
               "year": 2016
             }
+          },
+          {
+            "type": "population",
+            "name": "Households and Food",
+            "total": {
+              "key": "OHU2010",
+              "name": "Total housing",
+              "sum": 3745155,
+              "min": 0,
+              "max": 5117
+            },
+            "subgroups": [
+              {
+                "key": "TractHUNV",
+                "name": "No vehicle",
+                "sum": 244937,
+                "min": 0,
+                "max": 688
+              },
+              {
+                "key": "TractSNAP",
+                "name": "Receiving SNAP",
+                "sum": 539264,
+                "min": 0,
+                "max": 1361
+              },
+              {
+                "key": "lasnap1",
+                "name": "Low access 1 mile SNAP",
+                "sum": 292417,
+                "min": 0,
+                "max": 863
+              },
+              {
+                "key": "lasnap10",
+                "name": "Low access 10 miles SNAP",
+                "sum": 6052,
+                "min": 0,
+                "max": 663
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Health issues",
+            "total": {
+              "key": "hundred",
+              "name": "Total fixed to 100",
+              "sum": 219200,
+              "min": 100,
+              "max": 100
+            },
+            "subgroups": [
+              {
+                "key": "asthma_2016",
+                "name": "Percent adult with asthma",
+                "sum": 6714,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "PovertyRate",
+                "name": "Percent poverty rate",
+                "sum": 39980,
+                "min": 0,
+                "max": 100
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -8105,6 +8173,14 @@
               "url": "mapbox://districtr.nc_precincts"
             },
             "sourceLayer": "nc_precincts"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nc_tract_tracts"
+            },
+            "sourceLayer": "nc_tract_tracts"
           },
           {
             "type": "circle",
