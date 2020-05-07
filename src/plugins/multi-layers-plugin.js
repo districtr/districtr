@@ -305,8 +305,6 @@ export default function MultiLayersPlugin(editor) {
         );
     }
 
-    tab.addSection(() => html`<hr/>`);
-
     if (state.incomes) {
         const incomeOverlay = new OverlayContainer(
             "income",

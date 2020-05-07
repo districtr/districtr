@@ -13,16 +13,20 @@ function getColumn(subgroup, part, max, median_name, isAge) {
 }
 
 export default (subgroups, parts, isAge) => {
-    subgroups = [].concat(subgroups.sort((a, b) => {
-      return a.name.replace("<5", "4").replace("+", "").split("-")[0] * 1 - b.name.replace("<5", "4").replace("+", "").split("-")[0] * 1
-    }).filter(c => c.name.indexOf("Median")));
     if (isAge) {
+        subgroups = [].concat(subgroups.sort((a, b) => {
+          return a.name.replace("<5", "4").replace("+", "").split("-")[0] * 1 - b.name.replace("<5", "4").replace("+", "").split("-")[0] * 1
+        }).filter(c => c.name.indexOf("Median")));
         if (subgroups[subgroups.length - 1].name !== '85+') {
             subgroups.push({
               name: '85+',
               data: []
             })
         }
+    } else {
+        subgroups = [].concat(subgroups.sort((a, b) => {
+          return a.key < b.key ? -1 : 1
+        }).filter(c => c.name.indexOf("Median")));
     }
 
     // scale for chart
