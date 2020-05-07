@@ -4,6 +4,7 @@ import OverlayContainer from "../layers/OverlayContainer";
 import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
+import DemographicsTable from "../components/Charts/DemographicsTable";
 
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
@@ -267,6 +268,8 @@ export default function MultiLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const tab = new LayerTab("layers", "All Layers", editor.store);
 
+    tab.addSection(() => html`<h3 style="margin-bottom:0">Boundaries</h3>`);
+
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
     }
@@ -275,18 +278,45 @@ export default function MultiLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
+    if (state.elections.length > 0) {
+        const partisanOverlays = new PartisanOverlayContainer(
+            "partisan",
+            state.layers,
+            state.elections
+        );
+        tab.addSection(
+            () => html`
+                <h3 style="margin-bottom:0">
+                  Election Results
+                  <br/>
+                  <small>by VTD</small>
+                </h3>
+                <div class="sectionThing">
+                    <div class="option-list__item">
+                        ${partisanOverlays.render()}
+                    </div>
+                </div>
+            `
+        );
+    }
+
     const demographicsOverlay = new OverlayContainer(
         "demographics",
         state.layers,
         state.population,
         "Map population by race"
     );
-
     tab.addSection(
         () => html`
-            <h4>Demographics (2018 ACS)</h4>
+        <h3 style="margin-bottom:0">
+          Demographics (2018 ACS)
+          <br/>
+          <small>by blockgroup</small>
+        </h3>
+        <div class="sectionThing">
+            <h4>Race</h4>
             ${demographicsOverlay.render()}
-        `
+        </div>`
     );
 
     if (state.vap) {
@@ -310,55 +340,81 @@ export default function MultiLayersPlugin(editor) {
             "income",
             state.layers,
             state.incomes,
-            "Show median income",
+            "Map median income",
             true // first layer only
         );
-        tab.addSection(() => incomeOverlay.render());
-        tab.addRevealSection(
-            "Income Histograms",
-            (uiState, dispatch) =>
-                IncomeHistogramTable(
+        tab.addSection(
+            (uiState, dispatch) =>  html`<div class="sectionThing">
+                <h4>Household Income</h4>
+                ${incomeOverlay.render()}
+                <div class="centered">
+                  <strong>Histogram</strong>
+                </div>
+                ${IncomeHistogramTable(
                     "Income Histograms",
                     state.incomes,
                     state.activeParts,
                     uiState.charts["Income Histograms"],
                     dispatch
-                ),
-            {
-                isOpen: true
-            }
+                )}
+            </div>`
+        );
+    }
+
+    if (state.rent) {
+        tab.addSection(
+            (uiState, dispatch) => html`<div class="sectionThing">
+                <h4>Homeowner or Renter</h4>
+                ${DemographicsTable(
+                    state.rent.subgroups,
+                    state.activeParts
+                )}
+            </div>`
+        );
+    }
+
+    if (state.broadband) {
+        tab.addSection(
+            (uiState, dispatch) => html`<div class="sectionThing">
+                <h4>Broadband</h4>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>With Broadband</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${state.activeParts.map(part => html`<tr>
+                        <td>
+                          ${part.renderLabel()}
+                        </td>
+                        <td class="ui-data">
+                          ${((Math.round(1000 * state.broadband.subgroups[0].data[part.id] / state.population.subgroups[0].total.data[part.id]) / 10) || 0).toFixed(1)}%
+                        </td>
+                      </tr>`
+                    )}
+                  </tbody>
+                </table>
+            </div>`
         );
     }
 
     if (state.ages) {
-        tab.addRevealSection(
-            "Age Histograms",
-            (uiState, dispatch) =>
-                AgeHistogramTable(
+        tab.addSection(
+            (uiState, dispatch) => html`<div class="sectionThing">
+                <h4>Age</h4>
+                <div class="centered">
+                  <strong>Youngest to Oldest</strong>
+                </div>
+                ${AgeHistogramTable(
                     "Age Histograms",
                     state.ages,
                     state.activeParts,
                     uiState.charts["Age Histograms"],
                     dispatch
-                ),
-            {
-                isOpen: true
-            }
-        );
-    }
-
-    if (state.elections.length > 0) {
-        const partisanOverlays = new PartisanOverlayContainer(
-            "partisan",
-            state.layers,
-            state.elections
-        );
-        tab.addSection(
-            () => html`
-                <div class="option-list__item">
-                    ${partisanOverlays.render()}
-                </div>
-            `
+                )}
+            </div>`
         );
     }
 

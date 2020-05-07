@@ -7866,6 +7866,213 @@
                 "name": "Ages 85+"
               }
             ]
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL08G_GV_D",
+                "name": "Democratic",
+                "sum": 2138044,
+                "min": 10,
+                "max": 9439
+              },
+              {
+                "key": "EL08G_GV_R",
+                "name": "Republican",
+                "sum": 1997141,
+                "min": 6,
+                "max": 6430
+              }
+            ],
+            "metadata": {
+              "race": "Governor",
+              "year": 2008
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL08G_USS_",
+                "name": "Democratic",
+                "sum": 2240832,
+                "min": 8,
+                "max": 9332
+              },
+              {
+                "key": "EL08G_US_1",
+                "name": "Republican",
+                "sum": 1883925,
+                "min": 5,
+                "max": 5236
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2008
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL10G_USS_",
+                "name": "Democratic",
+                "sum": 1141700,
+                "min": 4,
+                "max": 4882
+              },
+              {
+                "key": "EL10G_US_1",
+                "name": "Republican",
+                "sum": 1454082,
+                "min": 4,
+                "max": 3848
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2010
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL12G_GV_D",
+                "name": "Democratic",
+                "sum": 1925270,
+                "min": 7,
+                "max": 9068
+              },
+              {
+                "key": "EL12G_GV_R",
+                "name": "Republican",
+                "sum": 2437224,
+                "min": 7,
+                "max": 8101
+              }
+            ],
+            "metadata": {
+              "race": "Governor",
+              "year": 2012
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL14G_US_1",
+                "name": "Democratic",
+                "sum": 1416834,
+                "min": 0,
+                "max": 4539
+              },
+              {
+                "key": "EL14G_USS_",
+                "name": "Republican",
+                "sum": 1370303,
+                "min": 1,
+                "max": 5821
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2014
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL12G_PR_D",
+                "name": "Democratic",
+                "sum": 2171293,
+                "min": 4,
+                "max": 9734
+              },
+              {
+                "key": "EL12G_PR_R",
+                "name": "Republican",
+                "sum": 2267353,
+                "min": 2,
+                "max": 7192
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2012
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL16G_PR_D",
+                "name": "Democratic",
+                "sum": 2180316,
+                "min": 3,
+                "max": 9556
+              },
+              {
+                "key": "EL16G_PR_R",
+                "name": "Republican",
+                "sum": 2359749,
+                "min": 3,
+                "max": 7202
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2016
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL16G_US_1",
+                "name": "Democratic",
+                "sum": 2119696,
+                "min": 3,
+                "max": 9296
+              },
+              {
+                "key": "EL16G_USS_",
+                "name": "Republican",
+                "sum": 2392439,
+                "min": 9,
+                "max": 7907
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2016
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "EL16G_GV_D",
+                "name": "Democratic",
+                "sum": 2300381,
+                "min": 5,
+                "max": 9363
+              },
+              {
+                "key": "EL16G_GV_R",
+                "name": "Republican",
+                "sum": 2296039,
+                "min": 10,
+                "max": 7376
+              }
+            ],
+            "metadata": {
+              "race": "Governor",
+              "year": 2016
+            }
           }
         ],
         "idColumn": {
@@ -7890,6 +8097,14 @@
               "url": "mapbox://districtr.nc_bg_blockgroups"
             },
             "sourceLayer": "nc_bg_blockgroups"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nc_precincts"
+            },
+            "sourceLayer": "nc_precincts"
           },
           {
             "type": "circle",

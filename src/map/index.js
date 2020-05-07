@@ -69,6 +69,18 @@ function addPoints(map, tileset) {
     });
 }
 
+function addPrecincts(map, tileset, layerAdder) {
+    return new Layer(map, {
+        id: "extra-precincts",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
+}
+
 function addCounties(map, tileset, layerAdder, placeID) {
     map.addSource(tileset.sourceLayer, tileset.source);
     return new Layer(map, {
@@ -108,6 +120,11 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     const points = addPoints(
         map,
         tilesets.find(tileset => tileset.type === "circle"),
+        layerAdder
+    );
+    const precincts = addPrecincts(
+        map,
+        tilesets.find(tileset => tileset.source.url.includes("precincts")),
         layerAdder
     );
     const counties = addCounties(
@@ -168,5 +185,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points, counties };
+    return { units, unitsBorders, points, counties, precincts };
 }

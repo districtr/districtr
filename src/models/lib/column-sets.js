@@ -78,6 +78,28 @@ function getIncomes(place, parts) {
     }
 }
 
+function getRent(place, parts) {
+    const rent = place.columnSets.find(
+        columnSet => columnSet.name === "Households by Rental"
+    );
+    if (rent) {
+        return new Population({ ...rent, parts });
+    } else {
+        return null;
+    }
+}
+
+function getBroadband(place, parts) {
+    const broadband = place.columnSets.find(
+        columnSet => columnSet.name === "Technology"
+    );
+    if (broadband) {
+        return new Population({ ...broadband, parts });
+    } else {
+        return null;
+    }
+}
+
 function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
@@ -109,6 +131,8 @@ export function getColumnSets(state, unitsRecord) {
     state.vap = getVAP(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
     state.incomes = getIncomes(unitsRecord, state.parts);
+    state.rent = getRent(unitsRecord, state.parts);
+    state.broadband = getBroadband(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -139,6 +163,20 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.rent) {
+        state.columns = [
+            ...state.columns,
+            ...state.rent.subgroups
+            // no total
+        ];
+    }
+    if (state.broadband) {
+        state.columns = [
+            ...state.columns,
+            ...state.broadband.subgroups
+            // no total
+        ];
+    }
 
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
@@ -149,6 +187,12 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.incomes) {
         columnSets.push(state.incomes);
+    }
+    if (state.rent) {
+        columnSets.push(state.rent);
+    }
+    if (state.broadband) {
+        columnSets.push(state.broadband);
     }
     return columnSets;
 }

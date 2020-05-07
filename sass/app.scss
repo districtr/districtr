@@ -200,6 +200,16 @@ select {
     }
 }
 
+.sectionThing {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid silver;
+
+    .centered {
+        text-align: center;
+    }
+}
+
 @media (max-width: 900px) {
     #mobile-upload {
         display: block;

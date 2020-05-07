@@ -4,10 +4,11 @@ import { voteShareRule } from "./color-rules";
 export default class PartisanOverlay {
     constructor(layers, election) {
         // Overlays are identified by party.key
+        let lyr = layers.filter(l => l.id.includes("precincts"));
         this._overlays = election.parties.reduce(
             (overlays, party) => ({
                 ...overlays,
-                [party.key]: new Overlay(layers, party, voteShareRule)
+                [party.key]: new Overlay(lyr, party, voteShareRule)
             }),
             {}
         );
