@@ -35,6 +35,14 @@ export default (subgroups, parts, isAge) => {
       let tot_pop = (subgroups[0].total.data[part.id] || 0),
           median_point = tot_pop / 2;
 
+      // todo : fix weird issue where total is set to NaN or 0; removing median
+      if (isAge && !tot_pop) {
+          subgroups.forEach((subgroup) => {
+              tot_pop += (subgroup.data[part.id] || 0);
+          });
+          median_point = tot_pop / 2;
+      }
+
       subgroups.forEach((subgroup, index) => {
         tot_pop -= (subgroup.data[part.id] || 0);
 
@@ -64,7 +72,8 @@ export default (subgroups, parts, isAge) => {
       });
 
       if (isAge) {
-        // need to fix this for income per household
+        // adds final age level (85+)
+        // need to also fix this for income per household
         subgroups[subgroups.length - 1].data[part.id] = (tot_pop || 0); // remaining population
         max[part.id] = Math.max(max[part.id], (tot_pop || 0));
       }

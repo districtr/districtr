@@ -529,10 +529,10 @@ export default function MultiLayersPlugin(editor) {
             state.asthma,
             "Asthma (cities)"
         );
-        tab.addSection(() => html`
+        tab.addSection(() => html`<div class="sectionThing">
             <h4>Health <small>by tract</small></h4>
             ${asthmaOverlay.render()}
-        `)
+        </div>`)
     }
 
     if (state.broadband) {
