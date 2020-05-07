@@ -5,7 +5,7 @@ import { startNewPlan } from "../routes";
 
 export default () => {
     var curState = document.head.id;
-    document.title = curState.concat(" | Districtr");
+    // document.title = curState.concat(" | Districtr");
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
@@ -18,40 +18,42 @@ export default () => {
             render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
 
             // set statewide to default
-            var def = stateData.modules.filter(m => m.default)[0].id;
-            var statewide = $("." + def);
-            var btn = document.getElementById(def);
+            var def = stateData.modules.filter(m => m.default)[0];
+            document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
+                                : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
+            var statewide = $("." + def.id);
+            var btn = document.getElementById(def.id);
 
             // build a plan options
             listPlacesForState(stateData.state).then(places => {
                 const target = document.getElementById("districting-options");
                 render(districtingOptions(places), target);
-                $(".places-list__item").not($("." + def)).hide();
+                const commtarget = document.getElementById("community-options");
+                render(communityOptions(places), commtarget);
+                $(".places-list__item").not($("." + def.id)).hide();
             });
 
-            listPlacesForState(stateData.state).then(places => {
-                const target = document.getElementById("community-options");
-                render(communityOptions(places), target);
-                $(".places-list__item").not($("." + def)).hide();
-            });
-
-            // console.log(btn);
             btn.checked = true;
             $(".text-toggle").not(statewide).hide();
             $(".nav").not(statewide).hide();
             $(".place__name").not(statewide).hide();
+            $(".districtr-about").not(statewide).hide();
             $(statewide).show();
 
             // config toggle buttons
             $('input[type="radio"]').click(function(){
+
                 var inputValue = $(this).attr("value");
                 var targetBox = $("." + inputValue);
-                console.log(inputValue);
+                def = stateData.modules.filter(m => m.id === inputValue)[0];
+                document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
+                                    : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
                 
                 $(".places-list__item").not(targetBox).hide();
                 $(".text-toggle").not(targetBox).hide();
                 $(".nav").not(targetBox).hide();
                 $(".place__name").not(targetBox).hide();
+                $(".districtr-about").not(targetBox).hide();
                 $(targetBox).show();
             });
         });
@@ -63,13 +65,14 @@ const navLinks = (sections, placeIds) =>
     sections.map(section => html`
         <li class="nav ${section.pages ? section.pages.reduce((l, ac) => l.concat(" ").concat(ac))
                                        : placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
-            <a href="#${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="nav-links__link nav-links__link--major ">
+            <a href="#${section.nav.replace(/\s+/g, '-').toLowerCase()}" 
+              class="nav-links__link nav-links__link--major">
                 ${section.nav}
             </a>
         </li>
         `
     ).concat([html`<li class="nav ${placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
-            <a href="/new">
+            <a href="/new" class="nav-links__link">
                 <img 
                     class="nav-links__link--img"
                     src="/assets/usa.png"
@@ -80,8 +83,6 @@ const navLinks = (sections, placeIds) =>
     `]);
 
 const drawPage = stateData => {
-    console.log(stateData);
-    console.log(stateData.sections.map(s => drawSection(s, stateData)));
     return html`
         ${drawTitles(stateData.modules, stateData.state)}
         <div class="place-options places-list">
@@ -90,6 +91,17 @@ const drawPage = stateData => {
                                           <label for="${m.id}">${m.name}</label>`)}
         </div>
         ${stateData.sections.map(s => drawSection(s, stateData))}
+        <h2>About Districtr</h2>
+        <p><a href="/">Districtr</a>  is a free community webtool for redistricting 
+        and community mapping provided by the <a href="http://www.mggg.org">
+        MGGG Redistricting Lab</a> at Tufts University. 
+        We welcome questions and inquiries about the tool and about our work in
+        ${stateData.modules.map(m => m.name === "Statewide" ? html`<div class="districtr-about ${m.id}">
+                                                                    ${stateData.state}</div>` 
+                                                            : html`<div class="districtr-about ${m.id}">
+                                                                    ${m.name}</div>`)}:
+        <a href="mailto:contact@mggg.org">contact@mggg.org</a>
+        </p>
     `
 };
 
@@ -114,7 +126,8 @@ const drawSection = (section, stateData) => {
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
             <h2>${section.name}</h2>
             <p>${section.disc}</p>
-            <div id="plans">${plansSection(section.plans, section.pages[0])}</div>
+            <div id="plans">${plansSection(section.plans, section.ref)}</div>
+            ${$.parseHTML(section.postscript)}
         `;
     } else if (section.type === "text") {
         section_body = html`
@@ -173,6 +186,8 @@ const loadablePlan = (plan, place) => html`
             />
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.name || plan.id}</h6>
+                ${plan.description ? plan.description : ""}
+                ${plan.numbers ? numberList(plan.numbers) : ""}
             </figcaption>
         </li>
     </a>

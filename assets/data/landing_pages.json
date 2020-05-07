@@ -9,6 +9,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "pages": ["alaska"],
+        "type": "text",
+        "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["alaska"],
+        "content": "<p>The units used here are <strong>voting precincts</strong>. Data for this module were obtained from the Alaska Division of Elections and from National Historic GIS (NHGIS). The precinct shapefile and election results were downloaded <a href=\"http://www.elections.alaska.gov/Core/electionresources.php\">from the Alaska Division of Elections</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/AK-shapefiles\">@mggg-states</a>.</p>"
       }
     ]
   },
@@ -22,6 +36,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["little_rock"],
+        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Little Rock was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
       }
     ]
   },
@@ -31,13 +52,56 @@
     "modules": [
       {"name": "City of Napa", "id": "napa", "default": "true"},
       {"name": "Napa Valley Unified School District", "id": "napaschools"},
-      {"name": "Santa Clara", "id": "santa_clara"}
+      {"name": "Santa Clara", "id": "santa_clara"},
+      {"name": "Ontario", "id": "ontarioca"}
     ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Election reform in Napa",
+        "nav": "Election Reform",
+        "pages": ["napa"],
+        "type":"text",
+        "content": "<p>The City of Napa is switching from electing city council seats at-large,to individual districts each with one or more members.</p><p>This districting process should be open and transparent for everyone, and the chosen district should represent neighborhoods and communities.</p>"
+      },
+      {
+        "name": "Election reform in Napa",
+        "nav": "Election Reform",
+        "pages": ["napaschools"],
+        "type":"text",
+        "content": "<p>The Napa Valley Unified School District is considering switching from electing the Board of Education trustees at-large, to seven districts each with one member.</p><p>This districting process should be open and transparent for everyone, and the chosen district should represent neighborhoods and communities.</p>"
+      },
+      {
+        "name": "Election reform in Santa Clara",
+        "nav": "Election Reform",
+        "type": "text",
+        "pages": ["santa_clara"],
+        "content": "<p>This module was created because of a lawsuit against Santa Clara's at-large electoral system for City Council, which plaintiffs claim posed a structural impediment to the election of Asian Americans. A district court in May 2018 ruled that the voting system violated the California Voting Rights Act (for more information see <a href=\"https://www.nbcbayarea.com/news/local/Court-Rules-Santa-Clara-Violated-the-California-Voting-Rights-Act-482815201.html\">here</a>. In February 2018, MGGG <a href=\"https://mggg.org/SantaClara.pdf\">released a report</a> with recommendations for alternative voting systems in Santa Clara.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["napa", "napaschools"],
+        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for Napa was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["santa_clara"],
+        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Santa Clara was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Santa_Clara\">@gerrymandr</a>.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["ontarioca"],
+        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for California was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
       }
     ]
   },
@@ -51,6 +115,33 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["colorado"],
+        "content": "<p>The units used here are <strong>precincts</strong>. </p><p>This shapefile comes from Todd Bleess of the Colorado State Demographer's Office and was cleaned and processed by members of Beth Malmskog's team at Colorado College. This effort was led by Haley Colgate and included Austin Eide, Matt Cooney, Edgar Santos Vega, Kadin Mangalik, and Jose Monge Castro. Some additional processing was done by MGGG staff.</p><p>The 2018 Colorado precinct shapefile was made available to us by Todd Bleess of the Colorado State Demographer's Office. Election data come from the <a href=\"https://www.sos.state.co.us/pubs/elections/Results/Archives.html\">Colorado Secretary of State's Office</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts for certain counties were not included in the shapefile provided by the Demographer's Office and were digitized from maps provided by the county. Those counties are: Boulder, Denver, Douglas, and El Paso. For Las Animas county, the voter file was geocoded and used to identify precinct boundaries. Demographic data were aggregated from the census block level and precincts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+      }
+    ]
+  },
+  {
+    "state": "Connecticut",
+    "code": "CT",
+    "modules": [
+      {"name": "Statewide", "id": "connecticut", "default": "true"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["connecticut"],
+        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
       }
     ]
   },
@@ -64,6 +155,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["georgia"],
+        "content": "<p>The units you see here are <strong>precincts</strong>. Data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"
       }
     ]
   },
@@ -77,6 +175,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -90,6 +195,175 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Chicago City Council",
+        "nav": "City Council",
+        "type": "text",
+        "pages": ["chicago"],
+        "content": "<p>Chicago currently has fifty wards (i.e., districts) that each elect a single alderman to serve on the city council. As part of <a href=\"https://mggg.org\">MGGG's</a><a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>, we set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government. <a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"
+      },
+      {
+        "name": "See the plans featured in the report",
+        "nav": "Featured Plans",
+        "pages": ["chicago"],
+        "type": "plans",
+        "ref": "chicago",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "postscript": "<dl class=\"dfn-list\"><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated poverty</dt><dd class=\"dfn-list__caption\">&ge; 25% of households under $20K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated wealth</dt><dd class=\"dfn-list__caption\">&ge; 25% of households over $150K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Segregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/4 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Hypersegregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/6 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Highly diverse</dt><dd class=\"dfn-list__caption\">three racial groups exceed 1/4 of population</dd></div></dl>",
+        "plans": [
+          {
+            "title": "Current enacted plan",
+            "plans": [
+              {
+                "id": "current-wards",
+                "name": "Current Enacted Plan",
+                "numbers": [
+                    { "number": 46, "caption": "wards with a majority race" },
+                    { "number": 38, "caption": "segregated wards" },
+                    { "number": 19, "caption": "hypersegregated wards" },
+                    { "number": 19, "caption": "wards with concentrated poverty" },
+                    { "number": 13, "caption": "wards with concentrated wealth" }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "50 single-member wards built out of precincts",
+            "plans": [
+              {
+                "id": "prec50-6084",
+                "name": "Plan #6084",
+                "numbers": [
+                  {
+                    "number": 26,
+                    "caption": "segregated wards (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "prec50-12816",
+                "name": "Plan #12816",
+                "description": "Most economic parity",
+                "numbers": [
+                  {
+                    "number": 13,
+                    "caption": "wards with concentrated poverty (fewest)"
+                  },
+                  {
+                    "number": 5,
+                    "caption": "wards with concentrated wealth"
+                  }
+                ]
+              },
+              {
+                "id": "prec50-55139",
+                "name": "Plan #55139",
+                "numbers": [
+                  {
+                    "number": 34,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "10 multi-member wards built out of precincts",
+            "plans": [
+              {
+                "id": "prec10-205",
+                "name": "Plan #205",
+                "description": "Most economic parity",
+                "numbers": [
+                  { "number": 1, "caption": "ward with concentrated poverty" },
+                  { "number": 0, "caption": "wards with concentrated wealth" }
+                ]
+              },
+              {
+                "id": "prec10-8178",
+                "name": "Plan #8178",
+                "numbers": [
+                  {
+                    "number": 0,
+                    "caption": "hypersegregated wards"
+                  }
+                ]
+              },
+              {
+                "id": "prec10-8698",
+                "name": "Plan #8698",
+                "numbers": [
+                  {
+                    "number": 3,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "prec10-55213",
+                "name": "Plan #55213",
+                "numbers": [
+                  {
+                    "number": 6,
+                    "caption": "highly diverse wards (most)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "10 multi-member wards built out of community areas",
+            "plans": [
+              {
+                "id": "ca10-937",
+                "name": "Plan #937",
+                "numbers": [
+                  {
+                    "number": 0,
+                    "caption": "hypersegregated wards"
+                  }
+                ]
+              },
+              {
+                "id": "ca10-1042",
+                "name": "Plan #1042",
+                "numbers": [
+                  {
+                    "number": 3,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "ca10-5848",
+                "name": "Plan #5848",
+                "description": "Most economic parity",
+                "numbers": [
+                  { "number": 1, "caption": "ward with concentrated poverty" },
+                  { "number": 0, "caption": "wards with concentrated wealth" }
+                ]
+              },
+              {
+                "id": "ca10-25218",
+                "name": "Plan #25218",
+                "numbers": [
+                  {
+                    "number": 6,
+                    "caption": "highly diverse wards (most)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["chicago"],
+        "content": "<p>The units used in these modules are <strong>precincts</strong> and Chicago's <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a>, which were drawn by social scientists at UChicago in the 1920s and serve as proxies for neighborhoods. Data for this module were obtained the City of Chicago Data Portal and from the US Census Bureau. The precinct and community area shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"
       }
     ]
   },
@@ -103,6 +377,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -116,6 +397,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -133,7 +421,7 @@
       },
       {
         "name": "Election reform in Lowell",
-        "nav": "Lowell Election Reform",
+        "nav": "Election Reform",
         "pages": ["lowell"],
         "type": "text",
         "content": "<p>In 2019, all eyes are on Lowell, Massachusetts. The City of Lowell’s at-large electoral system has been challenged in a recent lawsuit (Huot et al. v. City of Lowell et al). Plaintiffs in the case argued that the current system dilutes the votes of Lowell's communities of color for the City Council and School Board. For more information about the lawsuit, read LCR's explainer <a href=\"https://www.lawyerscom.org/wp-content/uploads/2010/08/Lowell-Voting-Rights-Lawsuit-FAQ-Final.pdf\">[here]</a>.</p><p>  This November, Lowell residents will have a chance to vote on a new system! The choices for City Council are (a) a city-wide system electing 9 council members by ranked choice, or (b) 8 districts plus 3 at-large seats, raising the size of the council to 11 members.</p><p> Read our <a href=\"https://mggg.org/Lowell-Report\">public report</a> on the choice facing Lowell voters this November!  We explain the options on the ballot and some general differences between systems of election.  For more technical explanations of our modeling, refer to our <a href=\"https://mggg.org/Lowell-Detailed-Report\">detailed report</a>.</p> <p> Versions of the public report are also available in <a href=\"https://mggg.org/Lowell-Report/sp\">Spanish</a>,  <a href=\"https://mggg.org/Lowell-Report/pt\">Portuguese</a>, and  <a href=\"https://mggg.org/Lowell-Report/kh\">Cambodian Khmer</a>.</p>"
@@ -143,6 +431,7 @@
         "nav": "Sample Plans",
         "pages": ["lowell"],
         "type": "plans",
+        "ref": "lowell",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself! Each of these plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
         "plans": [
           {
@@ -228,6 +517,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -241,6 +537,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -254,6 +557,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -267,6 +577,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -280,6 +597,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -287,12 +611,20 @@
     "state": "New York",
     "code": "NY",
     "modules": [
-      {"name": "Islip", "id": "islip", "default": "true"}],
+      {"name": "Statewide", "id": "newyork", "default": "true"},
+      {"name": "Islip", "id": "islip"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -306,6 +638,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -319,6 +658,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -332,6 +678,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -369,16 +722,11 @@
         "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts.  In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
       },
       {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content": "<p>The units in these modules are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p><p>The Oregon precinct shapefile was obtained from <a href=\"http://www.kevinrancik.com/elections/Oregon/eOregon.html\">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href=\"http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf\">here</a>. Election results for 2016 and 2018 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Certain precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
-      },
-      {
         "name": "Explore the currently enacted plans",
         "nav": "Enacted Plans",
         "pages": ["oregon"],
         "type": "plans",
+        "ref": "oregon",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
@@ -403,8 +751,15 @@
       {
         "name": "Election reform in Oregon",
         "nav": "Why?",
+        "pages": ["oregon"],
         "type": "text",
         "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content": "<p>The units in these modules are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p><p>The Oregon precinct shapefile was obtained from <a href=\"http://www.kevinrancik.com/elections/Oregon/eOregon.html\">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href=\"http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf\">here</a>. Election results for 2016 and 2018 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Certain precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
       }
     ]
   },
@@ -420,6 +775,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -435,6 +797,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -450,6 +819,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -463,6 +839,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -476,6 +859,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -489,6 +879,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   },
@@ -496,7 +893,8 @@
     "state": "Washington",
     "code": "WA",
     "modules": [
-      {"name": "Yakima County", "id": "yakima_wa", "default": "true"},
+      {"name": "Statewide", "id": "washington", "default": "true"},
+      {"name": "Yakima County", "id": "yakima_wa"},
       {"name": "King County", "id": "kingcountywa"}
     ],
     "sections": [
@@ -504,6 +902,48 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "The electoral system in Yakima County",
+        "nav": "Electoral System",
+        "pages": ["yakima_wa"],
+        "type": "text",
+        "content": "<p>On January 15, 2020, <a href=\"https://weareoneamerica.org\">OneAmerica</a> and <a href=\"https://campaignlegal.org\">Campaign Legal Center (CLC)</a> filed a challenge letter over the current system employed by Yakima County. In it, they argue that the system dilutes the votes of Latinos in Yakima County and is in violation of the Washington Voting Rights Act (WVRA) and the Washington State Constitution.  Read the full letter <a href=\"http://weareoneamerica.org/wp-content/uploads/Yakima-County-notice-letter-1.15.20.pdf\">[here]</a>.</p><p>At first glance, Yakima county seems to already be districted to facilitate minority opportunity to elect candidates of choice. There are three districts; District 1 is mostly White, but District 2 has a slight POC majority, including about 40% Hispanic VAP and an additional 8% Native VAP, while District 3 is 55% Hispanic by VAP.</p><p>This is undercut by an unusual—and very problematic—system of electing County Commissioners. Each district is represented by a Commissioner. The primary election is conducted by a district-wide \"jungle primary,\" in which any number of candidates may run and the top two vote-getters advance to the general election without regard to party affiliation. (In fact, candidates with the \"prefers Republican\" label predominate over all others in Yakima, and this is even true for Hispanic candidates.) But the entire county, and not just the district, then votes to choose a winner between the two finalists. This indicates that the system itself negates any advantage of districting, nullifying the minorities' opportunity to elect.</p><p>Read more about our study of Voting Rights in Yakima and possible remedies in our <a href=\"https://mggg.org/uploads/Yakima.pdf\">report</a>.  Our data is available on our <a href=\"https://github.com/mggg/yakima-data\">github</a>.</p>"
+      },
+      {
+        "name": "See sample plans",
+        "nav": "Sample Plans",
+        "pages": ["yakima_wa"],
+        "type": "plans",
+        "ref": "yakima",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans":
+        [
+          {
+            "title": "Sample valid 3-district plans",
+            "plans": [
+              {
+                "id": "plan_a",
+                "name": "Plan A"
+              },
+              {
+                "id": "plan_b",
+                "name": "Plan B"
+              },
+              {
+                "id": "plan_c",
+                "name": "Plan C"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the Data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["washington"],
+        "content": "<p> The units used here are <strong>census block groups</strong>. Data for this  module were obtained from the US Census Bureau. The block group shapefile  for Washington was downloaded from the Census's  <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"http://api.census.gov/\">Census API</a>.</p>"
       }
     ]
   },
@@ -517,6 +957,13 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": [""],
+        "content": ""
       }
     ]
   }
