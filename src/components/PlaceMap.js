@@ -284,6 +284,7 @@ export function Features(features, onHover, selectedId) {
             : ""
     }" @mouseleave=${() => onHover(noHover)}>
     ${features.features.concat(localFeatures).map(feature => {
+        console.log(feature);
         const featureId = (feature.properties.type === "local")
             ? feature.properties.name + "_local"
             : feature.properties.STUSPS.toLowerCase();
@@ -293,11 +294,10 @@ export function Features(features, onHover, selectedId) {
             selectedId
         )}"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
-            d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
-            feature.properties.isAvailable || feature.properties.type === "local"
-                ? e => selectState(feature, e.target)
-                : undefined
-        }></path>`;
+            d="${path(feature)}" @mouseover=${() => onHover(feature)} 
+            onclick="window.location.href='/${feature.properties.type === "local"
+                                             ? feature.properties.name.replace(/\s+/g, '_').toLowerCase()
+                                             : feature.properties.NAME.replace(/\s+/g, '_').toLowerCase()}'"></path>`;
     })}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
