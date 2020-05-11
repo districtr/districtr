@@ -122,6 +122,17 @@ function getAsthma(place, parts) {
     }
 }
 
+function getVoters(place, parts) {
+    const voters = place.columnSets.find(
+        columnSet => columnSet.name === "Registered Voters"
+    );
+    if (voters) {
+        return new Population({ ...voters, parts });
+    } else {
+        return null;
+    }
+}
+
 function getElections(place, parts) {
     const elections = place.columnSets.filter(
         columnSet => columnSet.type === "election"
@@ -157,6 +168,7 @@ export function getColumnSets(state, unitsRecord) {
     state.broadband = getBroadband(unitsRecord, state.parts);
     state.snap = getSNAP(unitsRecord, state.parts);
     state.asthma = getAsthma(unitsRecord, state.parts);
+    state.voters = getVoters(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -215,6 +227,13 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.voters) {
+        state.columns = [
+            ...state.columns,
+            ...state.voters.subgroups,
+            state.voters.total
+        ];
+    }
 
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
@@ -237,6 +256,9 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.asthma) {
         columnSets.push(state.asthma);
+    }
+    if (state.voters) {
+        columnSets.push(state.voters);
     }
     return columnSets;
 }

@@ -426,15 +426,27 @@ export default function MultiLayersPlugin(editor) {
             state.layers,
             state.elections
         );
+        let registerOverlays = null;
+        if (state.voters) {
+            registerOverlays = new OverlayContainer(
+                "registered_voters",
+                state.layers.filter(lyr => lyr.id.includes("precincts")),
+                state.voters
+            );
+        }
         tab.addSection(
             () => html`
                 <h3 style="margin-bottom:0">
-                  Election Results
+                  Voting Records
                   <small>- by VTD</small>
                 </h3>
                 <div class="sectionThing">
                     <div class="option-list__item">
                         ${partisanOverlays.render()}
+                    </div>
+                    <hr/>
+                    <div class="option-list__item">
+                        ${registerOverlays ? registerOverlays.render() : null}
                     </div>
                 </div>
             `

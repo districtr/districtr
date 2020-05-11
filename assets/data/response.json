@@ -8141,6 +8141,68 @@
                 "max": 100
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Registered Voters",
+            "total": {
+              "key": "voters",
+              "name": "Roll Call",
+              "sum": 5633293,
+              "min": 0,
+              "max": 13091
+            },
+            "subgroups": [
+              {
+                "key": "v_inactive",
+                "name": "Inactive Voters",
+                "sum": 782036,
+                "min": 0,
+                "max": 3342
+              },
+              {
+                "key": "v_active",
+                "name": "Active Voters",
+                "sum": 4848947,
+                "min": 0,
+                "max": 10482
+              },
+              {
+                "key": "v_white",
+                "name": "Voter IDd as White",
+                "sum": 3750486,
+                "min": 0,
+                "max": 8980
+              },
+              {
+                "key": "v_black",
+                "name": "Voter IDd as Black",
+                "sum": 1206774,
+                "min": 0,
+                "max": 6252
+              },
+              {
+                "key": "v_hisp",
+                "name": "Voter IDd as Hispanic ethnicity (any race)",
+                "sum": 176303,
+                "min": 0,
+                "max": 1059
+              },
+              {
+                "key": "v_in_perso",
+                "name": "Voter ever voted in person",
+                "sum": 3707226,
+                "min": 0,
+                "max": 7272
+              },
+              {
+                "key": "v_provisio",
+                "name": "Voter only voted provisional",
+                "sum": 17871,
+                "min": 0,
+                "max": 92
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -8170,9 +8232,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.nc_precincts"
+              "url": "mapbox://districtr.norcar_precincts"
             },
-            "sourceLayer": "nc_precincts"
+            "sourceLayer": "norcar_precincts"
           },
           {
             "type": "fill",
