@@ -53,13 +53,46 @@ export function addCountyLayer(tab, state) {
     );
     tab.addSection(
         () => html`
-            ${toggle(`Show county boundaries`, false, checked =>
+            ${toggle(`Show County Boundaries`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 ),
                 "countyVisible"
             )}
         `
+    );
+}
+
+
+function addCurrentDistricts(tab, state) {
+    let district_borders = null;
+    fetch(`/assets/current_districts/${state.place.id}.geojson`)
+        .then(res => res.json())
+        .then((geojson) => {
+
+        state.map.addSource('current_districts', {
+            type: 'geojson',
+            data: geojson
+        });
+        district_borders = new Layer(
+            state.map,
+            {
+                id: 'current_districts',
+                type: 'line',
+                source: 'current_districts',
+                paint: {
+                    'line-color': '#000',
+                    'line-opacity': 0,
+                    'line-width': 1
+                }
+            },
+            addBelowLabels
+        );
+    });
+    tab.addSection(() => html`
+        ${toggle("Show Current Districts", false, (checked) => {
+            district_borders.setOpacity(checked ? 0.8 : 0);
+        })}`
     );
 }
 
@@ -276,6 +309,10 @@ export default function MultiLayersPlugin(editor) {
 
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
+    }
+
+    if (spatial_abilities(state.place.id).current_districts) {
+        addCurrentDistricts(tab, state);
     }
 
     let emitters, coal, colleges, hospitals = null;

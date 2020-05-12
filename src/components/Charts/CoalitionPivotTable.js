@@ -5,6 +5,8 @@ import Select from "../Select";
 import Parameter from "../Parameter";
 import { toggle } from "../Toggle";
 import { actions } from "../../reducers/charts";
+import { generateId } from "../../utils";
+import Layer, { addBelowLabels } from "../../map/Layer";
 
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
@@ -72,7 +74,7 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
 
 export default DistrictEvaluationTable;
 
-export const CoalitionPivotTable = (chartId, columnSet, placeName, parts) => (
+export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units) => (
     uiState,
     dispatch
 ) => {
@@ -80,9 +82,9 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts) => (
     let fullsum = 0,
         mockData = [],
         selectSGs = columnSet.subgroups.filter(sg => uiState.charts[chartId][sg.key]);
-    selectSGs.forEach(s => {
-        fullsum += s.sum;
-        s.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
+    selectSGs.forEach(sg => {
+        fullsum += sg.sum;
+        sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
     });
     let coalitionSubgroup = {
         data: mockData,
@@ -96,6 +98,11 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts) => (
             });
             return portion;
         },
+        fractionAsMapboxExpression: () => [
+          "/",
+          ["+"].concat(selectSGs.map(sg => ["get", sg.key])),
+          columnSet.subgroups[0].total.asMapboxExpression()
+        ],
         sum: fullsum,
         total: columnSet.subgroups[0].total
     };
@@ -104,21 +111,46 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts) => (
       ...columnSet,
       subgroups: [coalitionSubgroup]
     };
+
+    function createLayer(layer) {
+        let layerSpec = {
+            id: `${layer.id}-overlay-${generateId(8)}`,
+            source: layer.sourceId,
+            type: layer.type,
+            paint: {
+                'fill-opacity': 0,
+                'fill-color': '#444'
+            }
+        };
+        if (layer.sourceLayer !== undefined) {
+            layerSpec["source-layer"] = layer.sourceLayer;
+        }
+        return new Layer(layer.map, layerSpec, addBelowLabels);
+    }
+    if (!window.unitLayer) {
+        window.unitLayer = createLayer(units);
+    } else {
+        if (selectSGs.length > 0) {
+            window.unitLayer.setPaintProperty('fill-color', [
+                "interpolate",
+                ["linear"],
+                coalitionSubgroup.fractionAsMapboxExpression(),
+                0,
+                "rgba(0,0,0,0)",
+                0.499,
+                "rgba(0,0,0,0)",
+                0.5,
+                "rgba(249,249,249,0)",
+                1,
+                "orange"
+            ]);
+        } else {
+            window.unitLayer.setPaintProperty('fill-color', 'rgba(0, 0, 0, 0)');
+        }
+    }
+
     return html`
         <section class="toolbar-section">
-            ${visibleParts.length > 1
-                ? Parameter({
-                      label: "Community:",
-                      element: Select(visibleParts, i =>
-                          dispatch(
-                              actions.selectPart({
-                                  chart: chartId,
-                                  partIndex: i
-                              })
-                          )
-                      )
-                  })
-                : ""}
             ${Parameter({
                 label: "Components:",
                 element: html`<div>
@@ -133,6 +165,22 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts) => (
                     </div>`)}
                 </div>`
             })}
+            ${toggle("Map coalition majorities", false, (checked) => {
+                window.unitLayer.setOpacity(checked ? 0.4 : 0);
+            })}
+            ${visibleParts.length > 1
+                ? Parameter({
+                      label: "Community:",
+                      element: Select(visibleParts, i =>
+                          dispatch(
+                              actions.selectPart({
+                                  chart: chartId,
+                                  partIndex: i
+                              })
+                          )
+                      )
+                  })
+                : ""}
             ${DistrictEvaluationTable(
                 mockColumnSet,
                 placeName,

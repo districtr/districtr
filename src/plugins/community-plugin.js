@@ -41,7 +41,8 @@ export default function CommunityPlugin(editor) {
         "Forming Coalitions",
         state.population,
         state.place.name,
-        state.parts
+        state.parts,
+        state.units
     );
     evaluationTab.addRevealSection("Forming Coalitions", coalitionPivot, {
         isOpen: true,

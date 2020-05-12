@@ -294,6 +294,7 @@ export function spatial_abilities (id) {
       nc: {
         // number_markers: true,
         // county_brush: true,
+        current_districts: true,
         native_american: true,
       },
       ohio: {
