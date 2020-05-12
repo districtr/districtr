@@ -388,12 +388,12 @@ export default function MultiLayersPlugin(editor) {
     });
 
     tab.addSection(
-        () => html`<div class="sectionThing">
-            <h3 style="margin-bottom:0">
-              Environment
-              <br/>
-              <small>NC Dept of Environmental Quality</small>
-            </h3>
+        () => html`<h3 style="margin-bottom:0">
+          Environment
+          <br/>
+          <small>NC Dept of Environmental Quality</small>
+        </h3>
+        <div class="sectionThing">
             ${toggle(`Show emitters`, false, checked =>
                 emitters.setOpacity(checked ? 1 : 0),
                 "emittersVisible"
@@ -405,10 +405,10 @@ export default function MultiLayersPlugin(editor) {
         </div>`
     );
     tab.addSection(
-        () => html`<div class="sectionThing">
-            <h3 style="margin-bottom:0">
-              Infrastructure
-            </h3>
+        () => html`<h3 style="margin-bottom:0">
+          Infrastructure
+        </h3>
+        <div class="sectionThing">
             ${toggle(`Show colleges`, false, checked =>
                 colleges.setOpacity(checked ? 1 : 0),
                 "collegesVisible"
@@ -504,8 +504,8 @@ export default function MultiLayersPlugin(editor) {
         );
 
         tab.addSection(
-            (uiState, dispatch) =>  html`<div class="sectionThing">
-                <h4>Household Income and SNAP</h4>
+            (uiState, dispatch) =>  html`<h4>Household Income and SNAP</h4>
+            <div class="sectionThing">
                 ${incomeOverlay.render()}
                 <div class="centered">
                   <strong>Histogram</strong>
@@ -524,8 +524,8 @@ export default function MultiLayersPlugin(editor) {
 
     if (state.rent) {
         tab.addSection(
-            (uiState, dispatch) => html`<div class="sectionThing">
-                <h4>Homeowner or Renter</h4>
+            (uiState, dispatch) => html`<h4>Homeowner or Renter</h4>
+            <div class="sectionThing">
                 ${DemographicsTable(
                     state.rent.subgroups,
                     state.activeParts
@@ -541,16 +541,19 @@ export default function MultiLayersPlugin(editor) {
             state.asthma,
             "Asthma (cities)"
         );
-        tab.addSection(() => html`<div class="sectionThing">
-            <h4>Health <small>by tract</small></h4>
+        tab.addSection(() => html`<h4>
+          Health
+          <small>by tract</small>
+        </h4>
+        <div class="sectionThing">
             ${asthmaOverlay.render()}
         </div>`)
     }
 
     if (state.broadband) {
         tab.addSection(
-            (uiState, dispatch) => html`<div class="sectionThing">
-                <h4>Broadband</h4>
+            (uiState, dispatch) => html`<h4>Broadband</h4>
+            <div class="sectionThing">
                 <table class="data-table">
                   <thead>
                     <tr>
@@ -576,11 +579,11 @@ export default function MultiLayersPlugin(editor) {
 
     if (state.ages) {
         tab.addSection(
-            (uiState, dispatch) => html`<div class="sectionThing">
-                <h4>Age</h4>
-                <div class="centered">
-                  <strong>Youngest to Oldest</strong>
-                </div>
+            (uiState, dispatch) => html`<h4>Age</h4>
+            <div class="centered">
+              <strong>Youngest to Oldest</strong>
+            </div>
+            <div class="sectionThing">
                 ${AgeHistogramTable(
                     "Age Histograms",
                     state.ages,

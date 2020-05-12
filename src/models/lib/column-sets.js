@@ -223,8 +223,8 @@ export function getColumnSets(state, unitsRecord) {
     if (state.asthma) {
         state.columns = [
             ...state.columns,
-            ...state.asthma.subgroups
-            // no total
+            ...state.asthma.subgroups,
+            state.asthma.total
         ];
     }
     if (state.voters) {
