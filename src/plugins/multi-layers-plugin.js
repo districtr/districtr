@@ -455,7 +455,7 @@ export default function MultiLayersPlugin(editor) {
 
     const demographicsOverlay = new OverlayContainer(
         "demographics",
-        state.layers,
+        state.layers.filter(lyr => lyr.id.includes("blockgroups") || lyr.type === "circle"),
         state.population,
         "Map population by race"
     );
