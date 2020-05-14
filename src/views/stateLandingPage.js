@@ -18,7 +18,12 @@ export default () => {
             render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
 
             // set statewide to default
-            var def = stateData.modules.filter(m => m.default)[0];
+            var hash = window.location.hash;
+            var def = hash ? stateData.modules.filter(m => hash.substr(1) === m.name.replace(/\s+/g, '-').toLowerCase() 
+                                                        || hash.substr(1) === m.id) : [];
+
+            def = def.length ? def[0] : stateData.modules.filter(m => m.default)[0];
+
             document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
                                 : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
             var statewide = $("." + def.id);
@@ -42,7 +47,7 @@ export default () => {
 
             // config toggle buttons
             $('input[type="radio"]').click(function(){
-
+                history.replaceState({}, document.title, window.location.pathname)
                 var inputValue = $(this).attr("value");
                 var targetBox = $("." + inputValue);
                 def = stateData.modules.filter(m => m.id === inputValue)[0];
@@ -72,10 +77,10 @@ const navLinks = (sections, placeIds) =>
         </li>
         `
     ).concat([html`<li class="nav ${placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
-            <a href="/new" class="nav-links__link">
+            <a href="/new">
                 <img 
-                    class="nav-links__link--img"
-                    src="/assets/usa.png"
+                    class="nav-links__link nav-links__link--major nav-links__link--img"
+                    src="/assets/usa_light_blue.png"
                     alt="Back to Map"
                   />
             </a>
@@ -85,11 +90,14 @@ const navLinks = (sections, placeIds) =>
 const drawPage = stateData => {
     return html`
         ${drawTitles(stateData.modules, stateData.state)}
-        <div class="place-options places-list">
-        ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
-                                            id="${m.id}" name="place-selection">
+        
+        ${stateData.modules.length > 1 ? html`<div class="place-options places-list">
+                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
+                                                 id="${m.id}" name="place-selection">
                                           <label for="${m.id}">${m.name}</label>`)}
-        </div>
+                </div>` : ""}
+
+        
         ${stateData.sections.map(s => drawSection(s, stateData))}
         <h2>About Districtr</h2>
         <p><a href="/">Districtr</a>  is a free community webtool for redistricting 
