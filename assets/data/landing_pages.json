@@ -50,8 +50,8 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "City of Napa", "id": "napa", "default": "true"},
-      {"name": "Napa Valley Unified School District", "id": "napaschools"},
+      {"name": "Napa", "id": "napa", "default": "true"},
+      {"name": "Napa Valley Schools", "id": "napaschools"},
       {"name": "Santa Clara", "id": "santa_clara"},
       {"name": "Ontario", "id": "ontarioca"}
     ],
@@ -740,7 +740,7 @@
         "name": "Redistricting rules in Oregon",
         "nav": "Rules",
         "type": "text",
-        "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act.  Oregon State Assembly districts are required to nest, meaning that each State Senate district is comprised to two adjacent State House districts.  In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
+        "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
       },
       {
         "name": "Explore the currently enacted plans",

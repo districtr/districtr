@@ -85,13 +85,13 @@ figcaption {
 }
 
 .place__name__local {
-    font-family: "Playfair Display";
+    //font-family: "Playfair Display";
     font-weight: 500;
     line-height: 1.5;
 }
 
 .place__name {
-    font-family: "Playfair Display";
+    //font-family: "Source Sans Pro";
     font-weight: 700;
     line-height: 1.5;
     text-align: center;
@@ -124,8 +124,9 @@ label
     margin-bottom: 1rem;
     line-height: 1.5rem;
     color: white;
-    //border-radius: 0.25rem;
-    //border: 0;
+    border-width: 1px;
+    border-style: hidden solid;
+    border-color: white;
     font-size: 1.125rem;
     cursor: pointer;
 }
