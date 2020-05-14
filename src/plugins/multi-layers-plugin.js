@@ -66,7 +66,7 @@ export function addCountyLayer(tab, state) {
 
 function addCurrentDistricts(tab, state) {
     let district_borders = null;
-    fetch(`/assets/current_districts/${state.place.id}.geojson`)
+    fetch(`/assets/current_districts/${state.place.id}.geojson?v=2`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -90,7 +90,7 @@ function addCurrentDistricts(tab, state) {
         );
     });
     tab.addSection(() => html`
-        ${toggle("Show Current Districts", false, (checked) => {
+        ${toggle("Show US Congress Districts", false, (checked) => {
             district_borders.setOpacity(checked ? 0.8 : 0);
         })}`
     );
@@ -431,11 +431,11 @@ export default function MultiLayersPlugin(editor) {
           <small>NC Dept of Environmental Quality</small>
         </h3>
         <div class="sectionThing">
-            ${toggle(`Show emitters`, false, checked =>
+            ${toggle(`Show air permits`, false, checked =>
                 emitters.setOpacity(checked ? 1 : 0),
                 "emittersVisible"
             )}
-            ${toggle(`Show coal facilities`, false, checked =>
+            ${toggle(`Show coal ash ponds`, false, checked =>
                 coal.setOpacity(checked ? 1 : 0),
                 "coalVisible"
             )}
@@ -571,6 +571,37 @@ export default function MultiLayersPlugin(editor) {
         );
     }
 
+    if (state.broadband) {
+        tab.addSection(
+            (uiState, dispatch) => html`<h4>Broadband</h4>
+            <div class="sectionThing">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>With Computers</th>
+                      <th>With Broadband</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${state.activeParts.map(part => html`<tr>
+                        <td>
+                          ${part.renderLabel()}
+                        </td>
+                        <td class="ui-data">
+                          ${((Math.round(1000 * state.broadband.subgroups[0].data[part.id] / state.population.subgroups[0].total.data[part.id]) / 10) || 0).toFixed(1)}%
+                        </td>
+                        <td class="ui-data">
+                          ${((Math.round(1000 * state.broadband.subgroups[1].data[part.id] / state.population.subgroups[0].total.data[part.id]) / 10) || 0).toFixed(1)}%
+                        </td>
+                      </tr>`
+                    )}
+                  </tbody>
+                </table>
+            </div>`
+        );
+    }
+
     if (state.asthma) {
         const asthmaOverlay = new OverlayContainer(
             "asthma",
@@ -587,50 +618,23 @@ export default function MultiLayersPlugin(editor) {
         </div>`)
     }
 
-    if (state.broadband) {
-        tab.addSection(
-            (uiState, dispatch) => html`<h4>Broadband</h4>
-            <div class="sectionThing">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>With Broadband</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${state.activeParts.map(part => html`<tr>
-                        <td>
-                          ${part.renderLabel()}
-                        </td>
-                        <td class="ui-data">
-                          ${((Math.round(1000 * state.broadband.subgroups[0].data[part.id] / state.population.subgroups[0].total.data[part.id]) / 10) || 0).toFixed(1)}%
-                        </td>
-                      </tr>`
-                    )}
-                  </tbody>
-                </table>
-            </div>`
-        );
-    }
-
-    if (state.ages) {
-        tab.addSection(
-            (uiState, dispatch) => html`<h4>Age</h4>
-            <div class="centered">
-              <strong>Youngest to Oldest</strong>
-            </div>
-            <div class="sectionThing">
-                ${AgeHistogramTable(
-                    "Age Histograms",
-                    state.ages,
-                    state.activeParts,
-                    uiState.charts["Age Histograms"],
-                    dispatch
-                )}
-            </div>`
-        );
-    }
+    // if (state.ages) {
+    //     tab.addSection(
+    //         (uiState, dispatch) => html`<h4>Age</h4>
+    //         <div class="centered">
+    //           <strong>Youngest to Oldest</strong>
+    //         </div>
+    //         <div class="sectionThing">
+    //             ${AgeHistogramTable(
+    //                 "Age Histograms",
+    //                 state.ages,
+    //                 state.activeParts,
+    //                 uiState.charts["Age Histograms"],
+    //                 dispatch
+    //             )}
+    //         </div>`
+    //     );
+    // }
 
     toolbar.addTab(tab);
 }

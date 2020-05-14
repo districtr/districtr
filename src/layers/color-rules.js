@@ -92,6 +92,17 @@ export function colorByFraction(subgroup) {
         subgroup.columnSet.type === "election"
             ? getPartyRGBColors(subgroup.name)
             : [0, 0, 139];
+    if (subgroup.max === 100) {
+        return ["rgba", ...rgb, [
+            "interpolate",
+            ["linear"],
+            subgroup.asMapboxExpression(),
+            0,
+            0,
+            100,
+            1
+        ]];
+    }
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 

@@ -99,9 +99,14 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
             return portion;
         },
         fractionAsMapboxExpression: () => [
-          "/",
-          ["+"].concat(selectSGs.map(sg => ["get", sg.key])),
-          columnSet.subgroups[0].total.asMapboxExpression()
+            "case",
+            ["==", ["get", "TOTPOP"], 0],
+                0,
+            [
+                "/",
+                ["+"].concat(selectSGs.map(sg => ["get", sg.key])),
+                columnSet.subgroups[0].total.asMapboxExpression()
+            ]
         ],
         sum: fullsum,
         total: columnSet.subgroups[0].total
@@ -165,9 +170,9 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
                     </div>`)}
                 </div>`
             })}
-            ${toggle("Map coalition majorities", false, (checked) => {
+            ${toggle("Map coalition majorities", uiState.charts[chartId].coalitionActive, (checked) => {
                 window.unitLayer.setOpacity(checked ? 0.4 : 0);
-            })}
+            }, "toggle_coalition_map")}
             ${visibleParts.length > 1
                 ? Parameter({
                       label: "Community:",
