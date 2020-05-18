@@ -7190,6 +7190,47 @@
           },
           {
             "type": "population",
+            "name": "Education",
+            "subgroups": [
+              {
+                "key": "B15003_017",
+                "name": "High school or equivalent",
+                "sum": 1780253,
+                "min": 0,
+                "max": 1990
+              },
+              {
+                "key": "B15003_019",
+                "name": "Some college, no degree",
+                "sum": 1479791,
+                "min": 0,
+                "max": 1357
+              },
+              {
+                "key": "B15003_021",
+                "name": "Associates degree",
+                "sum": 652658,
+                "min": 0,
+                "max": 858
+              },
+              {
+                "key": "B15003_022",
+                "name": "Bachelors degree",
+                "sum": 1345846,
+                "min": 0,
+                "max": 2466
+              },
+              {
+                "key": "B15003_023",
+                "name": "Postgrad or professional degree",
+                "sum": 753360,
+                "min": 0,
+                "max": 1920
+              }
+            ]
+          },
+          {
+            "type": "population",
             "name": "Households by Rental",
             "subgroups": [
               {

@@ -567,6 +567,25 @@ export default function MultiLayersPlugin(editor) {
         );
     }
 
+    if (state.education) {
+        const eduOverlay = new OverlayContainer(
+            "education",
+            state.layers.filter(lyr => lyr.id.includes("blockgroups") || lyr.type === "circle"),
+            state.education,
+            "Map Education Level"
+        );
+        tab.addSection(
+            (uiState, dispatch) => html`<h4>Education</h4>
+            <div class="sectionThing">
+                ${eduOverlay.render()}
+                ${DemographicsTable(
+                    state.education.subgroups,
+                    state.activeParts
+                )}
+            </div>`
+        );
+    }
+
     if (state.rent) {
         tab.addSection(
             (uiState, dispatch) => html`<h4>Homeowner or Renter</h4>

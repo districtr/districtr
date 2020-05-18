@@ -122,6 +122,17 @@ function getAsthma(place, parts) {
     }
 }
 
+function getEducation(place, parts) {
+    const edu = place.columnSets.find(
+        columnSet => columnSet.name === "Education"
+    );
+    if (edu) {
+        return new Population({ ...edu, parts });
+    } else {
+        return null;
+    }
+}
+
 function getVoters(place, parts) {
     const voters = place.columnSets.find(
         columnSet => columnSet.name === "Registered Voters"
@@ -168,6 +179,7 @@ export function getColumnSets(state, unitsRecord) {
     state.broadband = getBroadband(unitsRecord, state.parts);
     state.snap = getSNAP(unitsRecord, state.parts);
     state.asthma = getAsthma(unitsRecord, state.parts);
+    state.education = getEducation(unitsRecord, state.parts);
     state.voters = getVoters(unitsRecord, state.parts);
 
     state.columns = [
@@ -227,6 +239,13 @@ export function getColumnSets(state, unitsRecord) {
             state.asthma.total
         ];
     }
+    if (state.education) {
+        state.columns = [
+            ...state.columns,
+            ...state.education.subgroups.sort((a, b) => (a.key < b.key ? -1 : 1)),
+            // state.population.total
+        ];
+    }
     if (state.voters) {
         state.columns = [
             ...state.columns,
@@ -256,6 +275,9 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.asthma) {
         columnSets.push(state.asthma);
+    }
+    if (state.education) {
+        columnSets.push(state.education);
     }
     if (state.voters) {
         columnSets.push(state.voters);
