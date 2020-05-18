@@ -303,6 +303,14 @@ export default function MultiLayersPlugin(editor) {
 
     tab.addSection(() => html`<h3 style="margin-bottom:0">Boundaries</h3>`);
 
+    tab.addSection(
+        () => html`
+            ${toggle("Show Communities", true, checked => {
+                let opacity = checked ? 0.8 : 0;
+                state.units.setOpacity(opacity);
+            })}`
+    );
+
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
     }

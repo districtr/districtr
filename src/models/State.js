@@ -156,10 +156,8 @@ export default class State {
         if (feature === undefined || feature.properties === undefined) {
             return false;
         }
-        for (let column of this.columns) {
-            if (feature.properties[column.key] === undefined) {
-                return false;
-            }
+        if (feature.properties[this.idColumn.key] === undefined) {
+            return false;
         }
         return true;
     }
