@@ -12026,6 +12026,197 @@
     ]
   },
   {
+    "id": "salem_keizer",
+    "name": "Salem-Keizer Schools",
+    "state": "Oregon",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 242521,
+              "min": 0,
+              "max": 2120
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 169407,
+                "min": 0,
+                "max": 1483
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2750,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 52801,
+                "min": 0,
+                "max": 929
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 5829,
+                "min": 0,
+                "max": 84
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2698,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2232,
+                "min": 0,
+                "max": 69
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 6465,
+                "min": 0,
+                "max": 54
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 339,
+                "min": 0,
+                "max": 8
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 179611,
+              "min": 0,
+              "max": 2104
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 135955,
+                "min": 0,
+                "max": 1478
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2096,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 30043,
+                "min": 0,
+                "max": 506
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2012,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1372,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 4494,
+                "min": 0,
+                "max": 63
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 227,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 3412,
+                "min": 0,
+                "max": 25
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -123.1638,
+            44.8021
+          ],
+          [
+            -122.8448,
+            45.0751
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.salem_keizer_blocks"
+            },
+            "sourceLayer": "salem_keizer_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.salem_keizer_blocks_points"
+            },
+            "sourceLayer": "salem_keizer_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "School Board",
+        "numberOfParts": 7,
+        "pluralNoun": "School Board Districts"
+      }
+    ]
+  },
+  {
     "name": "Oregon",
     "units": [
       {
