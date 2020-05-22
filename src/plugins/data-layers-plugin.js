@@ -113,11 +113,11 @@ export function addAmerIndianLayer(tab, state) {
     let native_am_type = "Pueblos, Tribes, and Nations"; // NM
     if (state.place.id === "alaska") {
         native_am_type = "Alaskan Native Communities";
-    } else if (state.place.id === "california") {
+    } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
     } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "virginia", "wisconsin", "wyoming"].includes(state.place.id)) {
         native_am_type = "Tribes";
-    } else if (["arizona", "montana", "oregon"].includes(state.place.id)) {
+    } else if (["montana", "oregon"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
@@ -129,7 +129,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Nations";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington"].includes(state.place.id)) {
+    } else if (["ma", "rhode_island", "washington", "arizona"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
     } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
