@@ -239,6 +239,11 @@ export function spatial_abilities (id) {
         // precincts cross county lines
         native_american: true,
       },
+      arizona: {
+        // number_markers: true,
+        county_brush: true,
+        native_american: true,
+      },
       chicago: {
         number_markers: true,
       },
