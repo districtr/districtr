@@ -65,21 +65,32 @@ export function addCountyLayer(tab, state) {
 
 
 function addCurrentDistricts(tab, state) {
-    let district_borders = null;
-    fetch(`/assets/current_districts/${state.place.id}.geojson?v=2`)
-        .then(res => res.json())
-        .then((geojson) => {
+    let fed_borders = null,
+        senate_borders = null,
+        house_borders = null;
+    fetch(`/assets/${state.place.id}/fed_districts.geojson?v=2`).then(res => res.json()).then((fed) => {
+    fetch(`/assets/${state.place.id}/state_house_districts.geojson`).then(res => res.json()).then((state_house) => {
+    fetch(`/assets/${state.place.id}/state_senate_districts.geojson`).then(res => res.json()).then((state_senate) => {
 
-        state.map.addSource('current_districts', {
+        state.map.addSource('fed_districts', {
             type: 'geojson',
-            data: geojson
+            data: fed
         });
-        district_borders = new Layer(
+        state.map.addSource('state_house', {
+            type: 'geojson',
+            data: state_house
+        });
+        state.map.addSource('state_senate', {
+            type: 'geojson',
+            data: state_senate
+        });
+
+        fed_borders = new Layer(
             state.map,
             {
-                id: 'current_districts',
+                id: 'fed_districts',
                 type: 'line',
-                source: 'current_districts',
+                source: 'fed_districts',
                 paint: {
                     'line-color': '#000',
                     'line-opacity': 0,
@@ -88,12 +99,46 @@ function addCurrentDistricts(tab, state) {
             },
             addBelowLabels
         );
-    });
+        senate_borders = new Layer(
+            state.map,
+            {
+                id: 'state_senate',
+                type: 'line',
+                source: 'state_senate',
+                paint: {
+                    'line-color': '#000',
+                    'line-opacity': 0,
+                    'line-width': 1
+                }
+            },
+            addBelowLabels
+        );
+        house_borders = new Layer(
+            state.map,
+            {
+                id: 'state_house',
+                type: 'line',
+                source: 'state_house',
+                paint: {
+                    'line-color': '#000',
+                    'line-opacity': 0,
+                    'line-width': 1
+                }
+            },
+            addBelowLabels
+        );
+    })})});
     tab.addSection(() => html`
         ${toggle("Show US Congress Districts", false, (checked) => {
-            district_borders.setOpacity(checked ? 0.8 : 0);
-        })}`
-    );
+            fed_borders.setOpacity(checked ? 0.8 : 0);
+        })}
+        ${toggle("Show State Senate Districts", false, (checked) => {
+            senate_borders.setOpacity(checked ? 0.8 : 0);
+        })}
+        ${toggle("Show State House Districts", false, (checked) => {
+            house_borders.setOpacity(checked ? 0.8 : 0);
+        })}
+    `);
 }
 
 const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "shades";
