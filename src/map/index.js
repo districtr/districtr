@@ -1,4 +1,5 @@
 import mapboxgl from "mapbox-gl";
+import MapboxCompare from 'mapbox-gl-compare';
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
 import { stateNameToFips, COUNTIES_TILESET } from "../utils";
@@ -15,7 +16,7 @@ export class MapState {
             center: [-86.0, 37.83],
             zoom: 3,
             pitchWithRotate: false,
-            // dragRotate: false,
+            dragRotate: false,
             preserveDrawingBuffer: true,
             dragPan: true,
             touchZoomRotate: true,
@@ -23,11 +24,29 @@ export class MapState {
         });
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
+
+        this.swipemap = new mapboxgl.Map({
+            container: "swipemap",
+            style: mapStyle,
+            attributionControl: false,
+            center: [-86.0, 37.83],
+            zoom: 3,
+            pitchWithRotate: false,
+            dragRotate: false,
+            preserveDrawingBuffer: true,
+            dragPan: true,
+            touchZoomRotate: true,
+            ...options
+        });
+
+        this.comparer = new MapboxCompare(this.map, this.swipemap, "#comparison-container", {});
+        this.comparer.setSlider(10000);
+
         this.mapboxgl = mapboxgl;
     }
 }
 
-function addUnits(map, parts, tileset, layerAdder) {
+function addUnits(map, comparer, parts, tileset, layerAdder) {
     const units = new Layer(
         map,
         {
@@ -40,7 +59,8 @@ function addUnits(map, parts, tileset, layerAdder) {
                 "fill-opacity": 0.8
             }
         },
-        layerAdder
+        layerAdder,
+        comparer
     );
     const unitsBorders = new Layer(
         map,
@@ -57,16 +77,21 @@ function addUnits(map, parts, tileset, layerAdder) {
     return { units, unitsBorders };
 }
 
-function addPoints(map, tileset) {
-    return new Layer(map, {
-        id: "units-points",
-        type: "circle",
-        source: tileset.sourceLayer,
-        "source-layer": tileset.sourceLayer,
-        paint: {
-            "circle-opacity": 0
-        }
-    });
+function addPoints(map, comparer, tileset, layerAdder) {
+    return new Layer(
+        map,
+        {
+            id: "units-points",
+            type: "circle",
+            source: tileset.sourceLayer,
+            "source-layer": tileset.sourceLayer,
+            paint: {
+                "circle-opacity": 0
+            }
+        },
+        layerAdder,
+        comparer
+    );
 }
 
 function addCounties(map, tileset, layerAdder, placeID) {
@@ -94,19 +119,30 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
-export function addLayers(map, parts, tilesets, layerAdder, borderId) {
+export function addLayers(map, swipemap, comparer, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
+        swipemap.addSource(tileset.sourceLayer, tileset.source);
     }
-
     const { units, unitsBorders } = addUnits(
         map,
+        comparer,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
         layerAdder
     );
+    let swipe_details = addUnits(
+        swipemap,
+        comparer,
+        parts,
+        tilesets.find(tileset => tileset.type === "fill"),
+        layerAdder
+    );
+    const swipeUnits = swipe_details.units;
+    const swipeUnitsBorders = swipe_details.unitsBorders;
     const points = addPoints(
-        map,
+        swipemap,
+        comparer,
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
@@ -168,5 +204,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points, counties };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, counties };
 }

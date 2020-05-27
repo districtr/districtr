@@ -48,12 +48,16 @@ export default class Layer {
      * @param {function} [adder] a function (map, layer) -> void that adds the layer
      *  to the map.
      */
-    constructor(map, layer, adder) {
+    constructor(map, layer, adder, comparer) {
         this.map = map;
         this.id = layer.id;
         this.sourceId = isString(layer.source) ? layer.source : layer.id;
         this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
+        this.comparer = comparer;
+        if (this.comparer) {
+            window.mapslide = this.comparer;
+        }
 
         if (adder) {
             adder(map, layer);
@@ -65,6 +69,9 @@ export default class Layer {
     }
     setOpacity(opacity, isText) {
         this.setPaintProperty(`${isText ? "text" : this.type.replace("symbol", "icon")}-opacity`, opacity);
+        if (window.mapslide) {
+            window.mapslide.setSlider(opacity > 0 ? Math.round(window.innerWidth * 0.4) : 10000);
+        }
     }
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);
