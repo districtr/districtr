@@ -45,17 +45,19 @@ export function addCountyLayer(tab, state) {
         },
         addBelowLabels
     );
-    tab.addSection(
-        () => html`
-            <h4>Counties</h4>
-            ${toggle(`Show county boundaries`, false, checked =>
-                counties.setOpacity(
-                    checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
-                ),
-                "countyVisible"
-            )}
-        `
-    );
+    if (stateNameToFips[(state.place.state || state.place.id).toLowerCase()]) {
+        tab.addSection(
+            () => html`
+                <h4>Counties</h4>
+                ${toggle(`Show county boundaries`, false, checked =>
+                    counties.setOpacity(
+                        checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
+                    ),
+                    "countyVisible"
+                )}
+            `
+        );
+    }
 }
 
 const amin_type = (window.location.search.split("amin=")[1] || "").split("&")[0] || "shades";
@@ -264,6 +266,8 @@ export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
+    const demoLayers = window.location.href.includes("slider") ? state.swipeLayers : state.layers;
+
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "Districts";
     const districtMessage =
@@ -304,7 +308,7 @@ export default function DataLayersPlugin(editor) {
 
     const demographicsOverlay = new OverlayContainer(
         "demographics",
-        state.swipeLayers,
+        demoLayers,
         state.population,
         "Show demographics"
     );
@@ -319,7 +323,7 @@ export default function DataLayersPlugin(editor) {
     if (state.vap) {
         const vapOverlays = new OverlayContainer(
             "vap",
-            state.swipeLayers,
+            demoLayers,
             state.vap,
             "Show VAP demographics"
         );
@@ -351,7 +355,7 @@ export default function DataLayersPlugin(editor) {
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
-            state.swipeLayers,
+            demoLayers,
             state.elections
         );
         tab.addSection(

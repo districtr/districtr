@@ -69,8 +69,9 @@ export default class Layer {
     }
     setOpacity(opacity, isText) {
         this.setPaintProperty(`${isText ? "text" : this.type.replace("symbol", "icon")}-opacity`, opacity);
-        if (window.mapslide) {
-            window.mapslide.setSlider(opacity > 0 ? Math.round(window.innerWidth * 0.4) : 10000);
+        if (window.mapslide && window.location.href.includes("slider")) {
+            document.getElementsByClassName("mapboxgl-compare")[0].style.display = opacity ? "block" : "none";
+            window.mapslide.setSlider(opacity ? Math.round(window.innerWidth * 0.4) : 10000);
         }
     }
     setColor(color) {

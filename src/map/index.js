@@ -7,6 +7,45 @@ import { stateNameToFips, COUNTIES_TILESET } from "../utils";
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
+class MapSliderControl {
+    onAdd(map){
+        this.map = map;
+        this.container = document.createElement('div');
+        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group map-slider-control";
+
+        let btn1 = document.createElement('button');
+        btn1.type = "button";
+        btn1.title = "Stack layers mode";
+        btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
+        this.container.appendChild(btn1);
+
+        let btn2 = document.createElement('button');
+        btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
+        btn2.type = "button";
+        btn2.title = "Slide layers mode";
+        this.container.appendChild(btn2);
+
+        if (window.location.href.includes("slider")) {
+            btn2.className = "active";
+            btn1.onclick = () => {
+                window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
+            };
+        } else {
+            btn1.className = "active";
+            btn2.onclick = () => {
+                let joiner = window.location.search ? "&" : "?";
+                window.location.href = window.location.href + joiner + "slider=true";
+            };
+        }
+
+        return this.container;
+    }
+    onRemove(){
+        this.container.parentNode.removeChild(this.container);
+        this.map = undefined;
+    }
+}
+
 export class MapState {
     constructor(mapContainer, options, mapStyle) {
         this.map = new mapboxgl.Map({
@@ -25,6 +64,8 @@ export class MapState {
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
 
+        const sliderOpt = new MapSliderControl();
+        this.map.addControl(sliderOpt, "top-left");
         this.swipemap = new mapboxgl.Map({
             container: "swipemap",
             style: mapStyle,
@@ -126,7 +167,7 @@ export function addLayers(map, swipemap, comparer, parts, tilesets, layerAdder, 
     }
     const { units, unitsBorders } = addUnits(
         map,
-        comparer,
+        null,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
         layerAdder
@@ -140,12 +181,20 @@ export function addLayers(map, swipemap, comparer, parts, tilesets, layerAdder, 
     );
     const swipeUnits = swipe_details.units;
     const swipeUnitsBorders = swipe_details.unitsBorders;
+
     const points = addPoints(
+        map,
+        null,
+        tilesets.find(tileset => tileset.type === "circle"),
+        layerAdder
+    );
+    const swipePoints = addPoints(
         swipemap,
         comparer,
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
+
     const counties = addCounties(
         map,
         COUNTIES_TILESET,
@@ -204,5 +253,5 @@ export function addLayers(map, swipemap, comparer, parts, tilesets, layerAdder, 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, counties };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties };
 }
