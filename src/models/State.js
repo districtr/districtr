@@ -71,6 +71,7 @@ class DistrictingPlan {
 export default class State {
     constructor(
         map,
+        swipemap,
         { place, problem, id, assignment, units, ...args },
         readyCallback
     ) {
@@ -91,6 +92,7 @@ export default class State {
 
         this.initializeMapState(
             map,
+            swipemap,
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols,
             place.id
@@ -111,9 +113,10 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, points, counties } = addLayers(
+    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
+        const { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties } = addLayers(
             map,
+            swipemap,
             this.parts,
             unitsRecord.tilesets,
             layerAdder,
@@ -122,8 +125,11 @@ export default class State {
 
         this.units = units;
         this.unitsBorders = unitsBorders;
+        this.swipeUnits = swipeUnits;
+        // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
         this.layers = [units, points];
+        this.swipeLayers = [swipeUnits, swipePoints];
         this.map = map;
     }
     update(feature, part) {

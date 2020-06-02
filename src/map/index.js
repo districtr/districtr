@@ -1,10 +1,52 @@
 import mapboxgl from "mapbox-gl";
+import MapboxCompare from 'mapbox-gl-compare';
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
 import { stateNameToFips, COUNTIES_TILESET } from "../utils";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
+
+class MapSliderControl {
+    onAdd(map){
+        this.map = map;
+        this.container = document.createElement('div');
+        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group map-slider-control";
+
+        let btn1 = document.createElement('button');
+        btn1.type = "button";
+        btn1.title = "Stack layers mode";
+        btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
+        this.container.appendChild(btn1);
+
+        let btn2 = document.createElement('button');
+        btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
+        btn2.type = "button";
+        btn2.title = "Slide layers mode";
+        this.container.appendChild(btn2);
+
+        if (localStorage.getItem("slide_layer") === "active" || window.location.href.includes("slider")) {
+            localStorage.setItem("slide_layer", "active");
+            btn2.className = "active";
+            btn1.onclick = () => {
+                localStorage.setItem("slide_layer", "off");
+                window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
+            };
+        } else {
+            btn1.className = "active";
+            btn2.onclick = () => {
+                let joiner = window.location.search ? "&" : "?";
+                window.location.href = window.location.href + joiner + "slider=true";
+            };
+        }
+
+        return this.container;
+    }
+    onRemove(){
+        this.container.parentNode.removeChild(this.container);
+        this.map = undefined;
+    }
+}
 
 export class MapState {
     constructor(mapContainer, options, mapStyle) {
@@ -15,7 +57,7 @@ export class MapState {
             center: [-86.0, 37.83],
             zoom: 3,
             pitchWithRotate: false,
-            // dragRotate: false,
+            dragRotate: false,
             preserveDrawingBuffer: true,
             dragPan: true,
             touchZoomRotate: true,
@@ -23,6 +65,34 @@ export class MapState {
         });
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
+
+        const sliderOpt = new MapSliderControl();
+        this.map.addControl(sliderOpt, "top-left");
+
+        if (localStorage.getItem("slide_layer") === "active") {
+            this.swipemap = new mapboxgl.Map({
+                container: "swipemap",
+                style: mapStyle,
+                attributionControl: false,
+                center: [-86.0, 37.83],
+                zoom: 3,
+                pitchWithRotate: false,
+                dragRotate: false,
+                preserveDrawingBuffer: true,
+                dragPan: true,
+                touchZoomRotate: true,
+                ...options
+            });
+
+            this.comparer = new MapboxCompare(this.map, this.swipemap, "#comparison-container", {});
+            this.comparer.setSlider(10000);
+            window.mapslide = this.comparer;
+        } else {
+            this.swipemap = null;
+            this.comparer = null;
+            window.mapslide = null;
+        }
+
         this.mapboxgl = mapboxgl;
     }
 }
@@ -57,16 +127,20 @@ function addUnits(map, parts, tileset, layerAdder) {
     return { units, unitsBorders };
 }
 
-function addPoints(map, tileset) {
-    return new Layer(map, {
-        id: "units-points",
-        type: "circle",
-        source: tileset.sourceLayer,
-        "source-layer": tileset.sourceLayer,
-        paint: {
-            "circle-opacity": 0
-        }
-    });
+function addPoints(map, tileset, layerAdder) {
+    return new Layer(
+        map,
+        {
+            id: "units-points",
+            type: "circle",
+            source: tileset.sourceLayer,
+            "source-layer": tileset.sourceLayer,
+            paint: {
+                "circle-opacity": 0
+            }
+        },
+        layerAdder
+    );
 }
 
 function addCounties(map, tileset, layerAdder, placeID) {
@@ -94,11 +168,13 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
-export function addLayers(map, parts, tilesets, layerAdder, borderId) {
+export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
+        if (swipemap) {
+            swipemap.addSource(tileset.sourceLayer, tileset.source);
+        }
     }
-
     const { units, unitsBorders } = addUnits(
         map,
         parts,
@@ -110,6 +186,27 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
+
+    let swipeUnits = null,
+        swipeUnitsBorders = null,
+        swipePoints = null;
+
+    if (swipemap) {
+        let swipe_details = addUnits(
+            swipemap,
+            parts,
+            tilesets.find(tileset => tileset.type === "fill"),
+            layerAdder
+        );
+        swipeUnits = swipe_details.units;
+        swipeUnitsBorders = swipe_details.unitsBorders;
+        swipePoints = addPoints(
+            swipemap,
+            tilesets.find(tileset => tileset.type === "circle"),
+            layerAdder
+        );
+    }
+
     const counties = addCounties(
         map,
         COUNTIES_TILESET,
@@ -168,5 +265,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points, counties };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties };
 }
