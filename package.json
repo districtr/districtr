@@ -2,10 +2,9 @@
     "name": "districtr",
     "version": "0.0.1",
     "description": "A tool for drawing districting plans",
-    "private": true,
     "scripts": {
         "test": "node validate.js && karma start --coverage",
-        "build": "run-p build:**",
+        "build": "npm run build:lambda && npm run build:app",
         "build:app": "gulp build",
         "build:lambda": "netlify-lambda build src/lambda",
         "develop": "gulp develop",
@@ -56,7 +55,6 @@
         "mocha-junit-reporter": "^1.23.1",
         "mongodb-client-encryption": "^1.0.1",
         "mongoose": "^5.9.16",
-        "netlify-lambda": "^1.6.3",
         "node-fetch": "^2.6.0",
         "npm-run-all": "^4.1.5",
         "rollup": "^2.10.9",
@@ -76,6 +74,7 @@
         "hotkeys-js": "^3.7.6",
         "lit-html": "^1.1.2",
         "mapbox-gl": "^1.9.1",
-        "mapbox-gl-compare": "^0.4.0"
+        "mapbox-gl-compare": "^0.4.0",
+        "netlify-lambda": "^1.6.3"
     }
 }
