@@ -266,7 +266,7 @@ export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const tab = new LayerTab("layers", "Data Layers", editor.store);
 
-    const demoLayers = window.location.href.includes("slider") ? state.swipeLayers : state.layers;
+    const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
 
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "Districts";

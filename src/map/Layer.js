@@ -48,16 +48,12 @@ export default class Layer {
      * @param {function} [adder] a function (map, layer) -> void that adds the layer
      *  to the map.
      */
-    constructor(map, layer, adder, comparer) {
+    constructor(map, layer, adder) {
         this.map = map;
         this.id = layer.id;
         this.sourceId = isString(layer.source) ? layer.source : layer.id;
         this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
-        this.comparer = comparer;
-        if (this.comparer) {
-            window.mapslide = this.comparer;
-        }
 
         if (adder) {
             adder(map, layer);
@@ -69,7 +65,7 @@ export default class Layer {
     }
     setOpacity(opacity, isText) {
         this.setPaintProperty(`${isText ? "text" : this.type.replace("symbol", "icon")}-opacity`, opacity);
-        if (window.mapslide && window.location.href.includes("slider")) {
+        if (window.mapslide) {
             document.getElementsByClassName("mapboxgl-compare")[0].style.display = opacity ? "block" : "none";
             window.mapslide.setSlider(opacity ? Math.round(window.innerWidth * 0.4) : 10000);
         }

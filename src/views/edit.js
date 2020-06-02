@@ -166,7 +166,7 @@ function loadContext(context) {
     };
 
     mapState.map.on("load", () => {
-        let state = new State(mapState.map, mapState.swipemap, mapState.comparer, context, () => {
+        let state = new State(mapState.map, mapState.swipemap, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {

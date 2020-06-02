@@ -25,9 +25,11 @@ class MapSliderControl {
         btn2.title = "Slide layers mode";
         this.container.appendChild(btn2);
 
-        if (window.location.href.includes("slider")) {
+        if (localStorage.getItem("slide_layer") === "active" || window.location.href.includes("slider")) {
+            localStorage.setItem("slide_layer", "active");
             btn2.className = "active";
             btn1.onclick = () => {
+                localStorage.setItem("slide_layer", "off");
                 window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
             };
         } else {
@@ -66,28 +68,36 @@ export class MapState {
 
         const sliderOpt = new MapSliderControl();
         this.map.addControl(sliderOpt, "top-left");
-        this.swipemap = new mapboxgl.Map({
-            container: "swipemap",
-            style: mapStyle,
-            attributionControl: false,
-            center: [-86.0, 37.83],
-            zoom: 3,
-            pitchWithRotate: false,
-            dragRotate: false,
-            preserveDrawingBuffer: true,
-            dragPan: true,
-            touchZoomRotate: true,
-            ...options
-        });
 
-        this.comparer = new MapboxCompare(this.map, this.swipemap, "#comparison-container", {});
-        this.comparer.setSlider(10000);
+        if (localStorage.getItem("slide_layer") === "active") {
+            this.swipemap = new mapboxgl.Map({
+                container: "swipemap",
+                style: mapStyle,
+                attributionControl: false,
+                center: [-86.0, 37.83],
+                zoom: 3,
+                pitchWithRotate: false,
+                dragRotate: false,
+                preserveDrawingBuffer: true,
+                dragPan: true,
+                touchZoomRotate: true,
+                ...options
+            });
+
+            this.comparer = new MapboxCompare(this.map, this.swipemap, "#comparison-container", {});
+            this.comparer.setSlider(10000);
+            window.mapslide = this.comparer;
+        } else {
+            this.swipemap = null;
+            this.comparer = null;
+            window.mapslide = null;
+        }
 
         this.mapboxgl = mapboxgl;
     }
 }
 
-function addUnits(map, comparer, parts, tileset, layerAdder) {
+function addUnits(map, parts, tileset, layerAdder) {
     const units = new Layer(
         map,
         {
@@ -100,8 +110,7 @@ function addUnits(map, comparer, parts, tileset, layerAdder) {
                 "fill-opacity": 0.8
             }
         },
-        layerAdder,
-        comparer
+        layerAdder
     );
     const unitsBorders = new Layer(
         map,
@@ -118,7 +127,7 @@ function addUnits(map, comparer, parts, tileset, layerAdder) {
     return { units, unitsBorders };
 }
 
-function addPoints(map, comparer, tileset, layerAdder) {
+function addPoints(map, tileset, layerAdder) {
     return new Layer(
         map,
         {
@@ -130,8 +139,7 @@ function addPoints(map, comparer, tileset, layerAdder) {
                 "circle-opacity": 0
             }
         },
-        layerAdder,
-        comparer
+        layerAdder
     );
 }
 
@@ -160,40 +168,44 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
-export function addLayers(map, swipemap, comparer, parts, tilesets, layerAdder, borderId) {
+export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
-        swipemap.addSource(tileset.sourceLayer, tileset.source);
+        if (swipemap) {
+            swipemap.addSource(tileset.sourceLayer, tileset.source);
+        }
     }
     const { units, unitsBorders } = addUnits(
         map,
-        null,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
         layerAdder
     );
-    let swipe_details = addUnits(
-        swipemap,
-        comparer,
-        parts,
-        tilesets.find(tileset => tileset.type === "fill"),
-        layerAdder
-    );
-    const swipeUnits = swipe_details.units;
-    const swipeUnitsBorders = swipe_details.unitsBorders;
-
     const points = addPoints(
         map,
-        null,
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
-    const swipePoints = addPoints(
-        swipemap,
-        comparer,
-        tilesets.find(tileset => tileset.type === "circle"),
-        layerAdder
-    );
+
+    let swipeUnits = null,
+        swipeUnitsBorders = null,
+        swipePoints = null;
+
+    if (swipemap) {
+        let swipe_details = addUnits(
+            swipemap,
+            parts,
+            tilesets.find(tileset => tileset.type === "fill"),
+            layerAdder
+        );
+        swipeUnits = swipe_details.units;
+        swipeUnitsBorders = swipe_details.unitsBorders;
+        swipePoints = addPoints(
+            swipemap,
+            tilesets.find(tileset => tileset.type === "circle"),
+            layerAdder
+        );
+    }
 
     const counties = addCounties(
         map,

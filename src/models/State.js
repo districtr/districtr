@@ -72,7 +72,6 @@ export default class State {
     constructor(
         map,
         swipemap,
-        comparer,
         { place, problem, id, assignment, units, ...args },
         readyCallback
     ) {
@@ -94,7 +93,6 @@ export default class State {
         this.initializeMapState(
             map,
             swipemap,
-            comparer,
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols,
             place.id
@@ -115,11 +113,10 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, swipemap, comparer, unitsRecord, layerAdder, borderId) {
+    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
         const { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties } = addLayers(
             map,
             swipemap,
-            comparer,
             this.parts,
             unitsRecord.tilesets,
             layerAdder,
