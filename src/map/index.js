@@ -88,6 +88,7 @@ export class MapState {
             this.comparer.setSlider(10000);
             window.mapslide = this.comparer;
         } else {
+            document.getElementById("swipemap").style.display = "none";
             this.swipemap = null;
             this.comparer = null;
             window.mapslide = null;
