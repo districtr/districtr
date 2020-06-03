@@ -11,11 +11,25 @@
         "type": "draw"
       },
       {
-        "name": "Why?",
+        "name": "Districts in Oregon",
+        "nav": "Districts",
+        "pages": ["alaska"],
+        "type": "text",
+        "content": "<p>Alaska currently has 1 at-large congressional district. Their State Legislature has 20 state Senate districts and 40 state House districts. These districts are nested, where each state Senate district contains two state House districts. Alaska has a particularly high percentage of unprecincted votes, coming from sources such as early and absentee ballots that accounted for a third of all ballots cast in the 2018 US House of Representatives and state Governor elections.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Alaska",
+        "nav": "Rules",
+        "pages": ["alaska"],
+        "type": "text",
+        "content": "<p>The Voting Rights Act of 1965 requires that minority groups have the ability to elect their chosen candidate where possible. It is particularly significant in Alaska due to the large rural Native Alaskan population.</p><p>An amendment was made to the Alaskan state Constitution in 1998 that created a five-member Alaska Redistricting Board to oversee the redistricting process after each Decennial census. Three out of the five members must approve of the redistricting plan in order for it to be enacted. The state constitution requires House districts to be: <blockquote>“contiguous and compact territory containing as nearly as practicable a relatively integrated socio-economic area.... [and] contain[ing] a population as near as practicable to the quotient obtained by dividing the population of the state by forty…”</blockquote>and requires Senate districts to be: <blockquote>“...composed as near as practicable of two contiguous house districts”.</blockquote></p><p>The rules on whether or not water bodies violate district contiguity are vague.</p>"
+      },
+      {
+        "name": "Research Context",
         "nav": "Why?",
         "pages": ["alaska"],
         "type": "text",
-        "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.</p>"
+        "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"
       },
       {
         "name": "About the data",
@@ -485,7 +499,7 @@
         ]
       },
       {
-        "name": "Why?",
+        "name": "Research Context",
         "nav": "Why?",
         "type": "text",
         "pages": ["ma"],
@@ -652,6 +666,19 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in North Carolina",
+        "nav": "Districts",
+        "pages": ["nc"],
+        "type": "text",
+        "content": "<p>North Carolina currently has 13 Congressional seats, a 50 member State Senate, and a 120 member State House. Representatives are elected from single member districts. </p>"
+      },
+      {
+        "name": "Redistricting rules in North Carolina",
+        "nav": "Rules",
+        "type": "text",
+        "content": "<p>Like all states in the US, North Carolina must comply with Constitutional equal population requirements and the Voting Rights Act. There are no additional requirements for Congressional districts, but North Carolina state and case law establishes the following additional criteria for state legislative districts:<ul><li>Districts must be contiguous. They cannot be only touching at a point.</li><li>Districts must be compact.</li><li>Districts should attempt to keep communities of interest intact.</li><li>Districts should preserve county lines as much as possible. When counties are grouped, districts should include as few counties as possible.</li><li>Districts must not be drawn for the purpose of favoring a political party </li></ul>  The state legislature draws districts for both congress and the state legislature. They are not subject to veto by the governor. </p>"
       },
       {
         "name": "Rucho v. Common Cause",
@@ -935,6 +962,19 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Virginia",
+        "nav": "Districts",
+        "pages": ["virginia"],
+        "type": "text",
+        "content": "<p>The General Assembly of the State of Virginia consists of a House of Delegates with 100 members and a Senate with 40 members.</p>"
+      },
+      {
+        "name": "Redistricting rules in Virginia",
+        "nav": "Rules",
+        "type": "text",
+        "content": "<p>These legislators commission and approve Virginia’s electoral boundaries. However this is often partisanly skewed. Virginia has faced several gerrymandering lawsuits since its last redistricting cycle in 2011.</p><p>Around 20% of the population of Virginia is Black, making the Voting Rights Act of 1965 requirement that minority groups have the ability to elect their chosen candidate where possible an important consideration in redistricting.</p><p>A state constitutional amendment is currently underway that would create a new bipartisan commission to oversee the drawing and approval of new congressional and legislative districts. The amendment would require redistricting plans to: <blockquote>“Preserve opportunity to elect candidates of choice for ‘substantial racial or ethnic minority communities’”</blockquote> and <blockquote>“Form districts to be compact and contiguous.” </blockquote> The amendment must make it through the General Assembly twice, and would then be added as a referendum on the November 2020 ballot.</p><p>In Virginia, population deviation in legislative districts must not exceed 1% from ideal size in House of Delegates districts and 2% in Senate districts. Congressional and state legislative districts must be contiguous and compact.</p><p>The 2011 legislative redistricting committees’ guidelines stated that: <blockquote>\"legislative consideration of the varied factors that can create or contribute to communities of interest,\"</blockquote> including <blockquote>\"economic factors, social factors, cultural factors, geographic features, governmental jurisdictions and service delivery areas, political beliefs, voting trends, and incumbency considerations.\"<blockquote></p>"
       },
       {
         "name": "Redistricting in the court",
