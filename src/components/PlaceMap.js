@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { geoPath, geoAlbersUsa } from "d3-geo";
 import { svg, html, render } from "lit-html";
-import { PlacesListForState } from "../components/PlacesList";
+import { PlacesListForState } from "./PlacesList";
 import { select, selectAll } from "d3-selection";
 import "d3-transition";
 
@@ -271,11 +271,11 @@ window.onpopstate = () => {
     resetMap();
 };
 
-function modulesAvailable(feature, onClose) {
+function modulesAvailable(feature, onClose, placeId) {
     if (!onClose) {
         onClose = () => history.back();
     }
-    const list = PlacesListForState(feature.properties.NAME, () =>
+    const list = PlacesListForState(feature.properties.NAME, placeId, () =>
         emptyModuleFallback(feature)
     );
     return html`
@@ -370,7 +370,7 @@ export function PlaceMap(features, selectedId) {
                       currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
                       history.replaceState({}, "Districtr", currentHistoryState);
                       resetMap();
-                  })
+                  }, location.pathname.split("/")[3])
                 : ""}
         </div>
         <figure class="place-map">
@@ -380,10 +380,9 @@ export function PlaceMap(features, selectedId) {
 }
 
 export function PlaceMapWithData() {
-    const selectedId = location.pathname
-        .split("/")
-        .slice(-1)[0]
-        .toLowerCase();
+    // empty string or state postal code
+    const selectedId = (location.pathname.split("/")[2] || "").toLowerCase();
+
     return fetchFeatures().then(features =>
         PlaceMap(
             features,

@@ -41,11 +41,13 @@ export function listPlacesForState(state) {
 
 export function PlacesListForState(
     state,
+    selectModule,
     fallbackComponent,
     placeItemsTemplate = placeItems
 ) {
     return new PlacesList(
         listPlacesForState(state),
+        selectModule,
         startNewPlan,
         placeItemsTemplate,
         fallbackComponent
@@ -147,11 +149,13 @@ export function placeItems(place, onClick) {
 export default class PlacesList {
     constructor(
         places,
+        selectModule,
         choosePlace,
         placeItemsTemplate = placeItems,
         fallbackComponent
     ) {
         this.places = places;
+        this.selectModule = selectModule;
         this.choosePlace = choosePlace;
         this.placeItemsTemplate = placeItemsTemplate;
         if (fallbackComponent === null || fallbackComponent === undefined) {
@@ -167,6 +171,7 @@ export default class PlacesList {
                         ? html`
                               <ul class="places-list">
                                   ${p
+                                      .filter(!this.selectModule || this.selectModule === place.id)
                                       .map(place =>
                                           this.placeItemsTemplate(
                                               place,
