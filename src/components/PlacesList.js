@@ -171,7 +171,7 @@ export default class PlacesList {
                         ? html`
                               <ul class="places-list">
                                   ${p
-                                      .filter(!this.selectModule || this.selectModule === place.id)
+                                      .filter(place => (!this.selectModule || this.selectModule === place.id))
                                       .map(place =>
                                           this.placeItemsTemplate(
                                               place,
