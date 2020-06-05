@@ -360,12 +360,12 @@ export default function MultiLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (spatial_abilities(state.place.id).native_american) {
-        addAmerIndianLayer(tab, state);
-    }
-
     if (spatial_abilities(state.place.id).current_districts) {
         addCurrentDistricts(tab, state);
+    }
+
+    if (spatial_abilities(state.place.id).native_american) {
+        addAmerIndianLayer(tab, state);
     }
 
     let emitters, coal, colleges, hospitals = null;
