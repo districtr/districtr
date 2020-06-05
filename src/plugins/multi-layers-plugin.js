@@ -65,9 +65,7 @@ export function addCountyLayer(tab, state) {
 
 
 function addCurrentDistricts(tab, state) {
-    let fed_borders = null,
-        senate_borders = null,
-        house_borders = null;
+    let borders = {};
     fetch(`/assets/${state.place.id}/fed_districts.geojson?v=2`).then(res => res.json()).then((fed) => {
     fetch(`/assets/${state.place.id}/state_house_districts.geojson`).then(res => res.json()).then((state_house) => {
     fetch(`/assets/${state.place.id}/state_senate_districts.geojson`).then(res => res.json()).then((state_senate) => {
@@ -85,7 +83,7 @@ function addCurrentDistricts(tab, state) {
             data: state_senate
         });
 
-        fed_borders = new Layer(
+        borders.federal = new Layer(
             state.map,
             {
                 id: 'fed_districts',
@@ -99,7 +97,7 @@ function addCurrentDistricts(tab, state) {
             },
             addBelowLabels
         );
-        senate_borders = new Layer(
+        borders.senate = new Layer(
             state.map,
             {
                 id: 'state_senate',
@@ -113,7 +111,7 @@ function addCurrentDistricts(tab, state) {
             },
             addBelowLabels
         );
-        house_borders = new Layer(
+        borders.house = new Layer(
             state.map,
             {
                 id: 'state_house',
@@ -128,16 +126,44 @@ function addCurrentDistricts(tab, state) {
             addBelowLabels
         );
     })})});
+
+    let currentBorder = null;
+    let showBorder = (lyr) => {
+        if (currentBorder) {
+            currentBorder.setOpacity(0);
+        }
+        if (lyr) {
+            lyr.setOpacity(0.8);
+        }
+        currentBorder = lyr;
+    };
+
     tab.addSection(() => html`
-        ${toggle("Show US Congress Districts", false, (checked) => {
-            fed_borders.setOpacity(checked ? 0.8 : 0);
-        })}
-        ${toggle("Show State Senate Districts", false, (checked) => {
-            senate_borders.setOpacity(checked ? 0.8 : 0);
-        })}
-        ${toggle("Show State House Districts", false, (checked) => {
-            house_borders.setOpacity(checked ? 0.8 : 0);
-        })}
+        <h4>Current Districts</h4>
+        <li>
+          <label style="cursor: pointer;">
+            <input type="radio" name="districts" value="none" checked="true" @change="${e => showBorder()}"/>
+            None
+          </label>
+        </li>
+        <li>
+          <label style="cursor: pointer;">
+            <input type="radio" name="districts" value="fed" @change="${e => showBorder(borders.federal)}"/>
+            US Congress
+          </label>
+        </li>
+        <li>
+          <label style="cursor: pointer;">
+            <input type="radio" name="districts" value="senate" @change="${e => showBorder(borders.senate)}"/>
+            State Senate
+          </label>
+        </li>
+        <li>
+          <label style="cursor: pointer;">
+            <input type="radio" name="districts" value="house" @change="${e => showBorder(borders.house)}"/>
+            State House
+          </label>
+        </li>
     `);
 }
 
@@ -359,13 +385,12 @@ export default function MultiLayersPlugin(editor) {
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
     }
+    if (spatial_abilities(state.place.id).native_american) {
+        addAmerIndianLayer(tab, state);
+    }
 
     if (spatial_abilities(state.place.id).current_districts) {
         addCurrentDistricts(tab, state);
-    }
-
-    if (spatial_abilities(state.place.id).native_american) {
-        addAmerIndianLayer(tab, state);
     }
 
     let emitters, coal, colleges, hospitals = null;
