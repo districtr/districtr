@@ -13,31 +13,31 @@ class MapSliderControl {
         this.container = document.createElement('div');
         this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group map-slider-control";
 
-        let btn1 = document.createElement('button');
-        btn1.type = "button";
-        btn1.title = "Stack layers mode";
-        btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
-        this.container.appendChild(btn1);
-
-        let btn2 = document.createElement('button');
-        btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
-        btn2.type = "button";
-        btn2.title = "Slide layers mode";
-        this.container.appendChild(btn2);
+        // let btn1 = document.createElement('button');
+        // btn1.type = "button";
+        // btn1.title = "Stack layers mode";
+        // btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
+        // this.container.appendChild(btn1);
+        //
+        // let btn2 = document.createElement('button');
+        // btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
+        // btn2.type = "button";
+        // btn2.title = "Slide layers mode";
+        // this.container.appendChild(btn2);
 
         if (localStorage.getItem("slide_layer") === "active" || window.location.href.includes("slider")) {
             localStorage.setItem("slide_layer", "active");
-            btn2.className = "active";
-            btn1.onclick = () => {
-                localStorage.setItem("slide_layer", "off");
-                window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
-            };
+            // btn2.className = "active";
+            // btn1.onclick = () => {
+            //     localStorage.setItem("slide_layer", "off");
+            //     window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
+            // };
         } else {
-            btn1.className = "active";
-            btn2.onclick = () => {
-                let joiner = window.location.search ? "&" : "?";
-                window.location.href = window.location.href + joiner + "slider=true";
-            };
+            // btn1.className = "active";
+            // btn2.onclick = () => {
+            //     let joiner = window.location.search ? "&" : "?";
+            //     window.location.href = window.location.href + joiner + "slider=true";
+            // };
         }
 
         return this.container;
