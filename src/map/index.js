@@ -69,9 +69,9 @@ function addPoints(map, tileset) {
     });
 }
 
-function addPrecincts(map, tileset, layerAdder) {
+function addPrecincts(map, tileset, layerAdder, newest) {
     return new Layer(map, {
-        id: "extra-precincts",
+        id: "extra-precincts" + (newest ? "_new" : ""),
         type: "fill",
         source: tileset.sourceLayer,
         "source-layer": tileset.sourceLayer,
@@ -136,8 +136,15 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
     );
     const precincts = addPrecincts(
         map,
-        tilesets.find(tileset => tileset.source.url.includes("precincts")),
-        layerAdder
+        tilesets.find(tileset => tileset.source.url.includes("nc_precincts")),
+        layerAdder,
+        false
+    );
+    const new_precincts = addPrecincts(
+        map,
+        tilesets.find(tileset => tileset.source.url.includes("norcar2_precincts")),
+        layerAdder,
+        true
     );
     const tracts = addTracts(
         map,
@@ -202,5 +209,5 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
         });
     }
 
-    return { units, unitsBorders, points, counties, precincts, tracts };
+    return { units, unitsBorders, points, counties, precincts, new_precincts, tracts };
 }

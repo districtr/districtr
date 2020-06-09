@@ -7739,9 +7739,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.norcar_precincts"
+              "url": "mapbox://districtr.nc_precincts"
             },
-            "sourceLayer": "norcar_precincts"
+            "sourceLayer": "nc_precincts"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.norcar2_precincts"
+            },
+            "sourceLayer": "norcar2_precincts"
           },
           {
             "type": "fill",
