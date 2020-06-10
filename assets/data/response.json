@@ -12928,6 +12928,324 @@
     "id": "oklahoma"
   },
   {
+    "name": "Arizona",
+    "state": "Arizona",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6392017,
+              "min": 0,
+              "max": 5426
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 3695647,
+                "min": 0,
+                "max": 2517
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 239101,
+                "min": 0,
+                "max": 1087
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1895149,
+                "min": 0,
+                "max": 3078
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 170509,
+                "min": 0,
+                "max": 988
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 257426,
+                "min": 0,
+                "max": 1196
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 10959,
+                "min": 0,
+                "max": 895
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 114631,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 8595,
+                "min": 0,
+                "max": 36
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -114.8166,
+            31.3322
+          ],
+          [
+            -109.0452,
+            37.0043
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.arizona2_blocks"
+            },
+            "sourceLayer": "arizona2_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.arizona2_blocks_points"
+            },
+            "sourceLayer": "arizona2_blocks_points"
+          }
+        ]
+      }
+    ],
+    "id": "arizona2",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 9,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "Congress",
+        "numberOfParts": 10,
+        "pluralNoun": "Congressional Districts"
+      }
+    ]
+  },
+  {
+    "name": "Yuma County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 195751,
+              "min": 0,
+              "max": 2404
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 69022,
+                "min": 0,
+                "max": 754
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 3169,
+                "min": 0,
+                "max": 409
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 116912,
+                "min": 0,
+                "max": 1075
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2041,
+                "min": 0,
+                "max": 45
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 1957,
+                "min": 0,
+                "max": 118
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 204,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 2230,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 216,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 140566,
+              "min": 0,
+              "max": 2404
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 59244,
+                "min": 0,
+                "max": 754
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2508,
+                "min": 0,
+                "max": 409
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 74204,
+                "min": 0,
+                "max": 1075
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1448,
+                "min": 0,
+                "max": 118
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 166,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1612,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 114,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 1270,
+                "min": 0,
+                "max": 29
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -114.8166,
+            32.0386
+          ],
+          [
+            -113.3332,
+            33.4647
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yuma_blocks"
+            },
+            "sourceLayer": "yuma_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yuma_blocks_points"
+            },
+            "sourceLayer": "yuma_blocks_points"
+          }
+        ]
+      }
+    ],
+    "id": "yuma",
+    "state": "Arizona",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
     "state": "Arizona",
     "id": "arizona",
     "units": [
