@@ -112,7 +112,7 @@ class BrushToolOptions {
                 ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush)
                 : ""}
             ${this.colors.length > 1
-                ? BrushLock(this.brush.locked, this.toggleBrushLock)
+                ? BrushLock(this.brush.locked, this.toggleBrushLock, this.options)
                 : ""}
             ${UndoRedo(this.brush)}
         `;
@@ -134,7 +134,7 @@ const CountyBrush = (county_brush, toggle) => html`
     </div>
 `;
 
-const BrushLock = (locked, toggle) => html`
+const BrushLock = (locked, toggle, options) => html`
     <div class="ui-option">
         <label class="toolbar-checkbox">
             <input
@@ -144,7 +144,7 @@ const BrushLock = (locked, toggle) => html`
                 ?checked=${locked}
                 @change=${toggle}
             />
-            Lock already-drawn districts
+            Lock already-drawn ${options && options.community ? "communities" : "districts"}
         </label>
     </div>
 `;
