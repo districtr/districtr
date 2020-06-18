@@ -168,7 +168,16 @@ export default class CommunityBrush extends Brush {
             // eraser color "undefined" should act like a brush set to null
             let featureColor = atomicAction[fid].color,
                 finalColor = brushedColor; // only stays brushedColor for empty features
-            if (featureColor || (featureColor === 0 || featureColor === '0')) {
+            if (brushedColor === null || brushedColor === undefined) {
+                // redo erasing
+                if (Array.isArray(featureColor)) {
+                    featureColor.forEach((color) => {
+                        this.changedColors.add(color * 1);
+                    });
+                } else if (featureColor || (featureColor === 0 || featureColor === '0')) {
+                    this.changedColors.add(featureColor * 1);
+                }
+            } else if (featureColor || (featureColor === 0 || featureColor === '0')) {
                 // re-apply brushedColor to existing feature
                 if (Array.isArray(featureColor)) {
                     if (!featureColor.includes(brushedColor)) {
