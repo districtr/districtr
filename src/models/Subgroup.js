@@ -54,22 +54,15 @@ export class Subgroup extends NumericalColumn {
                     });
             }
         }
-        if (
-            feature.state !== undefined &&
-            feature.state.color !== undefined &&
-            feature.state.color !== null
-        ) {
-            if (color === null || !feature.state.COI) {
-                // this happens on districting whenever a color is replaced
-                // this happens on community only when erasing (overlap allowed)
-                oldColors.filter(c => (c || (c === 0))).forEach((oldColor) => {
-                    if (!newColors.includes(oldColor)) {
-                        // console.log("subtract from " + Number(oldColor));
-                        this.data[Number(oldColor)] -= this.getValue(feature);
-                    }
-                });
+
+        // this happens on districting whenever a color is replaced
+        // this happens on community only when erasing (overlap allowed)
+        oldColors.filter(c => (c || (c === 0))).forEach((oldColor) => {
+            if (!newColors.includes(oldColor)) {
+                // console.log("subtract from " + Number(oldColor));
+                this.data[Number(oldColor)] -= this.getValue(feature);
             }
-        }
+        });
     }
     getAbbreviation() {
         if (ABBREVIATIONS.hasOwnProperty(this.key)) {
