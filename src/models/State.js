@@ -48,28 +48,7 @@ class DistrictingPlan {
     }
     update(feature, part) {
         let featureId = this.idColumn.getValue(feature);
-        if (this.problem.type === "community" && (part || (part === 0))) {
-            // overlapping communities possible
-            let current = this.assignment[featureId];
-            if (!current && (current !== 0)) {
-                // no current state; set to brush
-                this.assignment[featureId] = part;
-            } else {
-                if (!Array.isArray(current)) {
-                    // current state is not an array yet
-                    this.assignment[featureId] = [current];
-                }
-                if (Array.isArray(part)) {
-                    part.forEach((p) => {
-                        if (!this.assignment[featureId].includes(p)) {
-                            this.assignment[featureId].push(p);
-                        }
-                    });
-                } else if (!this.assignment[featureId].includes(part)) {
-                    this.assignment[featureId].push(part);
-                }
-            }
-        } else if (!part) {
+        if (!part && (part !== 0)) {
             // erasing this part
             delete this.assignment[featureId];
         } else {
