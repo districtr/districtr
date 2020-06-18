@@ -68,6 +68,8 @@ class DistrictingPlan {
                     }
                 }
             }
+        } else if (part === null) {
+            delete this.assignment[featureId];
         } else {
             this.assignment[featureId] = part;
         }

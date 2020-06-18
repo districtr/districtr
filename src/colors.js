@@ -149,7 +149,11 @@ export function getUnitColorProperty(parts) {
 export function blendColors (colors) {
     if (!colors || !Array.isArray(colors)) {
         return colors;
-    } else if (colors.length === 1) {
+    }
+    colors = colors.filter(c => c !== null);
+    if (!colors.length) {
+        return null;
+    } else if (colors.length <= 1) {
         return colors[0] * 1;
     } else {
         let r = 0, g = 0, b = 0;

@@ -38,16 +38,20 @@ export class Subgroup extends NumericalColumn {
     update(feature, color) {
         let oldColors = String(feature.state ?
             (feature.state.color === undefined ? "" : feature.state.color)
-            : "").split(",");
+            : "").split(",").filter(c => c !== "");
         let newColors = String(color).split(",");
+        // note that JSON.stringify [0,undefined] == [0,null]
+        // console.log(JSON.stringify((feature.state || {}).color) + " to " + JSON.stringify(color))
 
         if (color !== undefined && color !== null) {
             if (!oldColors.includes(String(color))) {
                 // newColors usually receives one color at a time
                 // except when loading multiple colors from a community plan
-                newColors.forEach((c) => {
-                    this.data[Number(c)] += this.getValue(feature);
-                });
+                newColors.filter(c => (c || (c === 0)) && (!oldColors.includes(c)))
+                    .forEach((c) => {
+                        // console.log("add to " + Number(c));
+                        this.data[Number(c)] += this.getValue(feature);
+                    });
             }
         }
         if (
@@ -58,19 +62,13 @@ export class Subgroup extends NumericalColumn {
             if (color === null || !feature.state.COI) {
                 // this happens on districting whenever a color is replaced
                 // this happens on community only when erasing (overlap allowed)
-                oldColors.forEach((oldColor) => {
-                    this.data[Number(oldColor)] -= this.getValue(feature);
+                oldColors.filter(c => (c || (c === 0))).forEach((oldColor) => {
+                    if (!newColors.includes(oldColor)) {
+                        // console.log("subtract from " + Number(oldColor));
+                        this.data[Number(oldColor)] -= this.getValue(feature);
+                    }
                 });
             }
-            // else if (feature.state.COI && oldColors.length > 1 && newColors.length) {
-            //     console.log(oldColors);
-            //     console.log('to');
-            //     console.log(newColors);
-            //     oldColors.filter(c => !newColors.includes(String(c))).forEach((oldColor) => {
-            //         console.log('remove ' + oldColor);
-            //         this.data[Number(oldColor)] -= this.getValue(feature);
-            //     });
-            // }
         }
     }
     getAbbreviation() {

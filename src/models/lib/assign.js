@@ -44,7 +44,9 @@ function assign(state, feature, partId) {
     }
     state.update(feature, partId);
     partId.forEach((p) => {
-        state.parts[p].visible = true;
+        if (p || (p === 0)) {
+            state.parts[p].visible = true;
+        }
     });
     state.units.setAssignment(feature, partId);
 }

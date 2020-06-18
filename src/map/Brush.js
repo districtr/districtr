@@ -19,7 +19,7 @@ export default class Brush extends HoverWithRadius {
             undo: [],
             redo: []
         };
-        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "undo", "redo", "clearUndo"],
+        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "prepToUndo", "undo", "redo", "clearUndo"],
             this);
         this.clearUndo();
     }
@@ -169,10 +169,28 @@ export default class Brush extends HoverWithRadius {
             listener();
         }
     }
-    onClick() {
+    prepToUndo() {
+        if (Object.keys(this.trackUndo[this.cursorUndo]).length > 1) {
+            if (this.cursorUndo < this.trackUndo.length - 1) {
+                this.trackUndo = this.trackUndo.slice(0, this.cursorUndo + 1);
+            }
+
+            // limit number of changes in the stack
+            if (this.trackUndo.length > 19) {
+                this.trackUndo = this.trackUndo.slice(1);
+            }
+
+            this.trackUndo.push({
+                color: this.color
+            });
+            this.cursorUndo = this.trackUndo.length - 1;
+        }
+    }
+    onClick(e) {
         this.changedColors = new Set();
+        this.prepToUndo();
         this.colorFeatures();
-        if (!this.county_brush && Object.keys(this.trackUndo[this.cursorUndo]).length > 1) {
+        if (!this.county_brush) {
             for (let listener of this.listeners.colorop) {
                 listener(false, this.changedColors);
             }
@@ -189,21 +207,7 @@ export default class Brush extends HoverWithRadius {
 
         // after you undo, the cursor is in the middle of the undo stack (possible to redo an action)
         // when you draw new material, it is no longer possible to redo
-        if (Object.keys(this.trackUndo[this.cursorUndo]).length > 1) {
-            if (this.cursorUndo < this.trackUndo.length - 1) {
-                this.trackUndo = this.trackUndo.slice(0, this.cursorUndo + 1);
-            }
-
-            // limit number of changes in the stack
-            if (this.trackUndo.length > 9) {
-                this.trackUndo = this.trackUndo.slice(1);
-            }
-
-            this.trackUndo.push({
-                color: this.color
-            });
-            this.cursorUndo = this.trackUndo.length - 1;
-        }
+        this.prepToUndo();
     }
     onMouseUp() {
         this.coloring = false;

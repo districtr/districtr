@@ -8,7 +8,7 @@ export default class CommunityBrush extends Brush {
 
         this.brush_type = "community";
 
-        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart"], this);
+        bindAll(["onMouseDown", "onMouseUp", "onClick", "onTouchStart", "_colorFeatures"], this);
     }
     _colorFeatures(filter) {
         let seenFeatures = new Set(),
@@ -19,55 +19,6 @@ export default class CommunityBrush extends Brush {
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
-                if (this.county_brush) {
-                    let ps = feature.properties,
-                        countyFIPS = null,
-                        idSearch = (key, substr, fn) => {
-                            if (!ps[key]) {
-                                if (ps[key.toLowerCase()]) {
-                                    key = key.toLowerCase();
-                                } else {
-                                    return;
-                                }
-                            }
-                            if (substr) {
-                                return [key, ps[key].substring(0, substr)];
-                            } else {
-                                if (!fn) {
-                                    fn = x => x;
-                                }
-                                return [key, fn(ps[key])];
-                            }
-                        },
-                        nameSplice = (val) => {
-                            let name = val.split("-")[0].split(" ");
-                            name.splice(-1);
-                            return name.join(" ");
-                        };
-                    [countyProp, countyFIPS] = idSearch("GEOID10", 5)
-                        || idSearch("VTD", 5)
-                        // || idSearch("CNTYVTD", 3)
-                        // || idSearch("DsslvID", 2) // Utah
-                        // || idSearch("PRECODE", 2) // Oklahoma
-                        || idSearch("COUNTYFP10")
-                        || idSearch("COUNTY")
-                        || idSearch("CTYNAME")
-                        || idSearch("CNTYNAME")
-                        || idSearch("cnty_nm")
-                        || idSearch("locality")
-                        || idSearch("NAME", null, nameSplice)
-                        || idSearch("NAME10", null, nameSplice)
-                        || idSearch("Precinct", null, (val) => {
-                            // Oregon
-                            let name = val.split("_");
-                            name.splice(-1);
-                            return name.join("_");
-                        });
-                    if (countyFIPS) {
-                        seenCounties.add(countyFIPS);
-                    }
-                }
-
                 let fullColors = this.layer.getAssignment(feature.id);
                 if (this.color === null) {
                     fullColors = null;
@@ -86,7 +37,7 @@ export default class CommunityBrush extends Brush {
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     for (let listener of this.listeners.colorfeature) {
-                        listener(feature, this.color);
+                        listener(feature, fullColors);
                     }
                 }
 

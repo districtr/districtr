@@ -23,8 +23,10 @@ export default function ToolsPlugin(editor) {
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
 
-    let brushOptions = { community: state.problem.type === "community" };
-    if (spatial_abilities(state.place.id).county_brush) {
+    let brushOptions = {};
+    if (state.problem.type === "community") {
+        brushOptions.community = true;
+    } else if (spatial_abilities(state.place.id).county_brush) {
         brushOptions.county_brush = new HoverWithRadius(state.counties, 20);
     }
 
