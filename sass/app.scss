@@ -169,6 +169,7 @@ select {
         code {
             display: block;
             word-break: break-all;
+            user-select: all;
         }
 
         button {

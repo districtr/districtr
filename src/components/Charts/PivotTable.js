@@ -1,4 +1,4 @@
-import { roundToDecimal, numberWithCommas } from "../../utils";
+import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 import { html } from "lit-html";
 import Select from "../Select";
@@ -49,11 +49,11 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
             label: "Total",
             entries: [
                 {
-                    content: numberWithCommas(columnSet.total.data[part.id]),
+                    content: columnSet.total.data[part.id].toLocaleString({ maximumFractionDigits: 2 }),
                     style: "width: 40%"
                 },
                 {
-                    content: numberWithCommas(columnSet.total.sum),
+                    content: columnSet.total.sum.toLocaleString({ maximumFractionDigits: 2 }),
                     style: "width: 40%"
                 }
             ]
