@@ -23,12 +23,12 @@ export default function ToolsPlugin(editor) {
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
 
-    let brushOptions = {};
-    if (state.problem.type === "community") {
-        brushOptions.community = true;
-    } else if (spatial_abilities(state.place.id).county_brush) {
-        brushOptions.county_brush = new HoverWithRadius(state.counties, 20);
-    }
+    let brushOptions = {
+        community: (state.problem.type === "community"),
+        county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
+            ? new HoverWithRadius(state.counties, 20)
+            : null)
+    };
 
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = ContiguityChecker(state, brush);

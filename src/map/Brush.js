@@ -26,7 +26,8 @@ export default class Brush extends HoverWithRadius {
     clearUndo() {
         this.cursorUndo = 0;
         this.trackUndo = [{
-            color: this.color
+            color: "test",
+            initial: true,
         }];
     }
     setColor(color) {

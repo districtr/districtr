@@ -12,8 +12,7 @@ export default class CommunityBrush extends Brush {
     }
     _colorFeatures(filter) {
         let seenFeatures = new Set(),
-            seenCounties = new Set(),
-            countyProp = "GEOID10";
+            seenCounties = new Set();
         if (this.color || this.color === 0 || this.color === '0') {
             this.changedColors.add(Number(this.color));
         }
@@ -76,20 +75,6 @@ export default class CommunityBrush extends Brush {
                     ...feature.state,
                     COI: true
                 });
-            }
-        }
-        if (this.county_brush && seenCounties.size > 0) {
-            seenCounties.forEach(fips => {
-                this.layer.setCountyState(fips, countyProp, {
-                    color: this.color
-                },
-                filter,
-                this.trackUndo[this.cursorUndo],
-                this.listeners.colorfeature,
-                true); // overlapping COI
-            });
-            for (let listener of this.listeners.colorop) {
-                listener();
             }
         }
         for (let listener of this.listeners.colorend) {
