@@ -18,6 +18,8 @@ export default class CommunityBrush extends Brush {
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
+                feature.state.COI = true;
+
                 let fullColors = this.layer.getAssignment(feature.id);
                 if (this.color === null) {
                     fullColors = null;
@@ -27,6 +29,13 @@ export default class CommunityBrush extends Brush {
                     fullColors = [fullColors, this.color];
                 } else if (Array.isArray(fullColors) && !fullColors.includes(this.color)) {
                     fullColors.push(this.color);
+                }
+
+                if (!this.trackUndo[this.cursorUndo][feature.id]) {
+                    this.trackUndo[this.cursorUndo][feature.id] = {
+                        properties: feature.properties,
+                        color: feature.state.color
+                    };
                 }
 
                 // Community of Interest flag for eraser behavior
@@ -40,14 +49,6 @@ export default class CommunityBrush extends Brush {
                     }
                 }
 
-                feature.state.COI = true;
-
-                if (!this.trackUndo[this.cursorUndo][feature.id]) {
-                    this.trackUndo[this.cursorUndo][feature.id] = {
-                        properties: feature.properties,
-                        color: feature.state.color
-                    };
-                }
                 if (Array.isArray(feature.state.color)) {
                     feature.state.color.forEach((color) => {
                         this.changedColors.add(Number(color));
@@ -155,7 +156,7 @@ export default class CommunityBrush extends Brush {
         this.cursorUndo++;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
-        if (brushedColor || brushedColor === 0 || brushedColor === '0') {
+        if (brushedColor || (brushedColor === 0 || brushedColor === '0')) {
             this.changedColors.add(brushedColor * 1);
         }
         let listeners = this.listeners.colorfeature;
@@ -165,27 +166,20 @@ export default class CommunityBrush extends Brush {
             }
 
             // eraser color "undefined" should act like a brush set to null
-            let amendColor = atomicAction[fid].color;
-            let finalColor = brushedColor;
-            if ((amendColor === 0 || amendColor === '0') || amendColor) {
-                if (Array.isArray(amendColor)) {
-                    amendColor.forEach((color) => {
-                        this.changedColors.add(amendColor);
-                    });
-                    if (!amendColor.includes(brushedColor)) {
-                        amendColor.push(finalColor);
+            let featureColor = atomicAction[fid].color,
+                finalColor = brushedColor; // only stays brushedColor for empty features
+            if (featureColor || (featureColor === 0 || featureColor === '0')) {
+                // re-apply brushedColor to existing feature
+                if (Array.isArray(featureColor)) {
+                    if (!featureColor.includes(brushedColor)) {
+                        finalColor = featureColor.concat([brushedColor]); // added color
+                    } else {
+                        finalColor = featureColor; // unchanged
                     }
-                } else {
-                    amendColor = Number(atomicAction[fid].color);
-                    if (isNaN(amendColor)) {
-                        amendColor = null;
-                    } else if (amendColor !== brushedColor && brushedColor !== null) {
-                        finalColor = [amendColor, brushedColor];
-                        this.changedColors.add(amendColor);
-                    }
+                } else if (featureColor !== brushedColor) {
+                    // combined colors, first time blending
+                    finalColor = [featureColor, brushedColor];
                 }
-            } else {
-                amendColor = null;
             }
 
             // change map colors
@@ -204,9 +198,9 @@ export default class CommunityBrush extends Brush {
             for (let listener of listeners) {
                 listener({
                     id: fid,
-                    state: { color: amendColor, COI: true },
+                    state: { color: featureColor, COI: true },
                     properties: atomicAction[fid].properties
-                }, brushedColor);
+                }, finalColor);
             }
         });
 
