@@ -92,7 +92,7 @@ export default class Layer {
             state
         );
     }
-    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners, arrayLike) {
+    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners) {
         let seenFeatures = new Set(),
             filterStrings = [
                 "all",
@@ -120,35 +120,11 @@ export default class Layer {
                         listener(feature, setState.color);
                     });
 
-                    let setColor = setState.color,
-                        currentColor = feature.state.color;
-                    if (arrayLike) {
-                        if (typeof currentColor === 'number') {
-                            currentColor = [currentColor];
-                        } else if (currentColor && currentColor.includes(setState.color)) {
-                            return;
-                        }
-
-                        if (setState.color === null) {
-                            // erasing all colors
-                            setColor = null;
-                        } else if (currentColor || currentColor === '0' || currentColor === 0) {
-                            // adding to colors
-                            setColor = [setState.color].concat(currentColor);
-                        }
-                    }
-
-                    feature.state.COI = true;
-                    let useBlendColor = Array.isArray(setColor) && (setColor.length > 1),
-                        blendColor = Array.isArray(setColor) ? blendColors(setColor) : setColor;
                     this.setFeatureState(feature.id, {
                         ...feature.state,
-                        color: setColor,
-                        blendColor: blendColor,
-                        useBlendColor: useBlendColor,
-                        COI: true
+                        color: setState.color
                     });
-                    feature.state.color = setColor;
+                    feature.state.color = setState.color;
                 }
             }
         });
