@@ -1,6 +1,6 @@
 import Brush from "./Brush";
 import { bindAll } from "../utils";
-import { blendColors } from "../colors";
+import { blendColors, changeColorLuminance } from "../colors";
 
 export default class CommunityBrush extends Brush {
     constructor(layer, radius, color) {
@@ -18,8 +18,6 @@ export default class CommunityBrush extends Brush {
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
-                feature.state.COI = true;
-
                 let fullColors = this.layer.getAssignment(feature.id);
                 if (this.color === null) {
                     fullColors = null;
@@ -60,9 +58,9 @@ export default class CommunityBrush extends Brush {
                 this.layer.setFeatureState(feature.id, {
                     ...feature.state,
                     color: fullColors,
-                    COI: true,
+                    useBlendColor: useBlendColor,
                     blendColor: blendColor,
-                    useBlendColor: useBlendColor
+                    blendHoverColor: changeColorLuminance(blendColor, -0.3)
                 });
                 // set color again here
                 // fixes a bug where we re-paint the same district repeatedly
@@ -70,12 +68,6 @@ export default class CommunityBrush extends Brush {
                 feature.state.color = fullColors;
                 feature.state.useBlendColor = useBlendColor;
                 feature.state.blendColor = blendColor;
-            } else {
-                feature.state.COI = true;
-                this.layer.setFeatureState(feature.id, {
-                    ...feature.state,
-                    COI: true
-                });
             }
         }
         for (let listener of this.listeners.colorend) {
@@ -121,7 +113,7 @@ export default class CommunityBrush extends Brush {
                 color: amendColor,
                 useBlendColor: useBlendColor,
                 blendColor: blendColor,
-                COI: true
+                blendHoverColor: changeColorLuminance(blendColor, -0.3)
             });
 
             // update subgroup totals (restoring old brush color)
@@ -194,20 +186,20 @@ export default class CommunityBrush extends Brush {
             // change map colors
             let featureState = this.layer.getFeatureState(fid);
             let useBlendColor = Array.isArray(finalColor) && (finalColor.length > 1),
-                blendColor = Array.isArray(finalColor) ? blendColors(finalColor) : finalColor;
+                blendColor = Array.isArray(finalColor) ? blendColors(finalColor)[0] : finalColor;
             this.layer.setFeatureState(fid, {
                 ...featureState,
                 color: finalColor,
                 useBlendColor: useBlendColor,
                 blendColor: blendColor,
-                COI: true
+                blendHoverColor: changeColorLuminance(blendColor, -0.3)
             });
 
             // update subgroup totals (restoring old brush color)
             for (let listener of listeners) {
                 listener({
                     id: fid,
-                    state: { color: featureColor, COI: true },
+                    state: { color: featureColor },
                     properties: atomicAction[fid].properties
                 }, finalColor);
             }

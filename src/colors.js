@@ -75,7 +75,7 @@ const hoverColorScheme = colorScheme.map(hex =>
  * @param {string} hex
  * @param {number} lum
  */
-function changeColorLuminance(hex, lum) {
+export function changeColorLuminance(hex, lum) {
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, "");
     if (hex.length < 6) {
@@ -136,10 +136,17 @@ export function getUnitColorProperty(parts) {
         unitColorStyle
     ];
 
+    const blendWithHoverOption = [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        ["feature-state", "blendHoverColor"],
+        ["feature-state", "blendColor"]
+    ];
+
     const unitColorProperty = [
         "case",
         ["==", ["feature-state", "useBlendColor"], true],
-        ["feature-state", "blendColor"],
+        blendWithHoverOption,
         standardColor,
     ];
 
