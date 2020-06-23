@@ -8504,6 +8504,183 @@
             "sourceLayer": "vermont_towns_points"
           }
         ]
+      },
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 625741,
+              "min": 0,
+              "max": 4100
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 590223,
+                "min": 0,
+                "max": 3596
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 5943,
+                "min": 0,
+                "max": 272
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 9208,
+                "min": 0,
+                "max": 183
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 7875,
+                "min": 0,
+                "max": 276
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2023,
+                "min": 0,
+                "max": 69
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 140,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 9792,
+                "min": 0,
+                "max": 139
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 537,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 496508,
+              "min": 0,
+              "max": 4091
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 472559,
+                "min": 0,
+                "max": 3590
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 3840,
+                "min": 0,
+                "max": 139
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 6328,
+                "min": 0,
+                "max": 181
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1619,
+                "min": 0,
+                "max": 58
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 117,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 5876,
+                "min": 0,
+                "max": 275
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 347,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 5822,
+                "min": 0,
+                "max": 136
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "unique id",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -73.4379,
+            42.7268
+          ],
+          [
+            -71.465,
+            45.0167
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.vermont_bg_blockgroups"
+            },
+            "sourceLayer": "vermont_bg_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.vermont_bg_blockgroups_points"
+            },
+            "sourceLayer": "vermont_bg_blockgroups_points"
+          }
+        ]
       }
     ],
     "name": "Vermont",
