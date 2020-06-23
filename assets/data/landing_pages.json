@@ -11,7 +11,7 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Oregon",
+        "name": "Districts in Alaksa",
         "nav": "Districts",
         "pages": ["alaska"],
         "type": "text",
@@ -26,7 +26,7 @@
       },
       {
         "name": "Research Context",
-        "nav": "Why?",
+        "nav": "Research",
         "pages": ["alaska"],
         "type": "text",
         "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"
@@ -131,6 +131,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Colorado",
+        "nav": "Districts",
+        "pages": ["colorado"],
+        "type": "text",
+        "content": "<p>Colorado has 7 Congressional Districts. The Colorado state legislature consists of a 65 seat House of Representatives and a 35 seat Senate.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Colorado",
+        "nav": "Rules",
+        "pages": ["colorado"],
+        "type": "text",
+        "content": "<p>Colorado has a 12 member independent commission for drawing districts. The same commission selection and districting rules apply to congressional and state legislative redistricting. The commission consists of 4 registered with each of the 2 major parties and 4 registered with neither major party, and 6 commissioners randomly chosen by the judicial panel. Commission members cannot be compensated by public officials or hold public office. The non-partisan members of the commission are in charge of drawing the proposed districts.</p><p>State law requires that districts:<ul><li>Be contiguous and compact</li><li>Have a population deviation of less than 5%</li><li>Preserve communities of interest and political subdivisions</li><li>Maximize number of competitive districts after adhering to other criteria</li><li>Not be drawn to favor incumbents or certain political parties</li><li>Not interfere with the ability of a racial or language minority group to elect a candidate of choice</li></ul>State legislative districts must additionally preserve political boundaries wherever possible and be as compact as possible given their total perimeter.</p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -149,6 +163,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Connecticut",
+        "nav": "Districts",
+        "pages": ["connecticut"],
+        "type": "text",
+        "content": "<p>Connecticut has 5 Congressional districts. The State legislature consists of a House of Representatives with 151 members and a Senate with 36 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Connecticut",
+        "nav": "Rules",
+        "pages": ["connecticut"],
+        "type": "text",
+        "content": "<p>Connecticut has a Reapportionment Committee for drawing districts. There are no state-level criteria for Congressional districts, but state legislative districts must be contiguous and keep town boundaries intact as much as possible.</p>"
       },
       {
         "name": "About the data",
@@ -413,6 +441,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Maryland",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["maryland"],
+        "content": "<p>Maryland has 8 Congressional districts. The state legislature consists of a House of Representatives with 141 members and a Senate with 47 members. State house districts are nested with Senate districts, with 3 and 1 members respectively.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Maryland",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["maryland"],
+        "content": "<p>The state legislature draws congressional districting plans, while either the governor or the state legislature can draw and present state legislature districting plans. There are no specific criteria for congressional plans, but state legislature plans must honor compactness, contiguity, and give “due regard” to natural and political boundaries.</p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -499,8 +541,22 @@
         ]
       },
       {
+        "name": "Districts in Massachusetts",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["ma"],
+        "content": "<p>Massachusetts has a bicameral state legislature consisting of 160 House members and 40 Senate members. For the US House of Representatives, Massachusetts has 9 congressional districts.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Massachusetts",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["ma"],
+        "content": "<p>The state legislature is in charge of drawing districts. There are no specific criteria for Congressional districts, but state legislative districts:<ul><li>Require contiguity</li><li>Must follow political boundaries</li><li>Can be vetoed by the governor</li><li>Senate requires single-member districts</li></ul></p>"
+      },
+      {
         "name": "Research Context",
-        "nav": "Why?",
+        "nav": "Research",
         "type": "text",
         "pages": ["ma"],
         "content": "<p>These modules were created to aid in a paper, <a href=\"https://arxiv.org/abs/1810.09051\"> \"Locating the representational baseline: Republicans in Massachusetts,\"</a> written by MGGG and collaborators. Despite Republicans usually gaining between 30% and 40% of the two-way vote share in statewide elections, Massachusetts has not elected a Republican to the US House of Representatives since 1994. The paper finds that the underperformance of Republicans in Massachusetts is not the result of gerrymandering or candidate availability, but rather is a factor of the spatial distribution of Republican voters in the state.</p>"
@@ -531,6 +587,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Michigan",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["michigan"],
+        "content": "<p>Michigan currently has 14 Congressional districts. The state legislature consists of a House of Representatives with 110 members and a Senate with 38 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Michigan",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["michigan"],
+        "content": "<p>Michigan has an independent commission for drawing districts. The commission has 13 members, with 4 for each major party (Democrat and Republican) and 5 unaffiliated or affiliated with a minor party. Commission members may not hold public office or associated positions such as lobbyists and state employees. The commission requires an 8 vote majority to pass a plan, after which members must rank each plan and the highest ranked is submitted.</p><p>For both congressional and state legislative districts, Michigan requires that districts:<ul><li>Be contiguous and compact</li><li>Accurately represent the state’s diversity and communities of interest</li><li>Respect political boundaries wherever possible</li><li>Do not lend advantage or disadvantage to any party, incumbent, or candidate</li><li>Stay within a 2% population deviation</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -573,8 +643,8 @@
         "type": "draw"
       },
       {
-        "name": "Why?",
-        "nav": "Why?",
+        "name": "Research Context",
+        "nav": "Research",
         "type": "text",
         "pages": ["mississippi"],
         "content": "<p>This Mississippi module comes out of a project from MGGG's Voting Rights Data Institute that explored how many majority-Black congressional districts are possible to draw. A write-up of this experiment is forthcoming.</p>"
@@ -798,7 +868,7 @@
       },
       {
         "name": "Election reform in Oregon",
-        "nav": "Why?",
+        "nav": "Election Reform",
         "pages": ["oregon"],
         "type": "text",
         "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"
@@ -861,6 +931,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Rhode Island",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["rhode_island"],
+        "content": "<p>Rhode Island has 2 Congressional seats, 75 State House seats, and state Senate seats. The state legislature is responsible for drawing federal and state districts, but the governor has veto power over districting plans. There is also an advisory commission tasked with recommending congressional and state legislative plans to the legislature. There are 18 members in the commission: 7 chosen by each the state Senate and state House majority leaders of whom 4 are legislature members and 3 are not and 2 members chosen by each the state Senate and state House minority leaders, of whom all are members of the legislature. The advisory commission is tasked with conducting public hearings before finalizing a district plan recommendation to the legislature. State law states that any software used for redistricting must be made available for public access.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Rhode Island",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["rhode_island"],
+        "content": "<p>The Rhode Island state Constitution requires that state legislative districts be as compact as possible, but this does not extend to congressional districts. The state has additional criteria for both state legislative and congressional districts that are subject to modification by the state legislature as deemed necessary. Current laws for Rhode Island request that districts:<ul><li>Be as contiguous as possible</li><li>Be as equal in population as possible</li><li>Reflect natural, historical, geographical and municipal and other political lines</li><li>Preserve \"the right of all Rhode Islanders to fair representation and equal access to the political process.\"</li><li>Coincide for the state House, state Senate, and United States Congress (with the stipulation that if districts do not align perfectly that they should avoid precincts with fewer than 100 people having distinct ballot options.)</li></ul></p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -918,7 +1002,7 @@
       },
       {
         "name": "Independent Commission",
-        "nav": "Why?",
+        "nav": "Independent Commission",
         "type": "text",
         "pages": ["utah"],
         "content": "<p>In November 2018, Utah narrowly passed Proposition 4, a ballot initiative which shifted the responsibility of redistricting for Utah's state legislative and congressional districts from the state legislature to an independent commission. </p>"

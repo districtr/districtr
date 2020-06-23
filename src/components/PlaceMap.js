@@ -294,16 +294,30 @@ export function Features(features, onHover, selectedId) {
             selectedId
         )}"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
-            d="${path(feature)}" @mouseover=${() => onHover(feature)} 
-            onclick="window.location.href='/${feature.properties.type === "local"
-                                             ? feature.properties.name.replace(/\s+/g, '_').toLowerCase()
-                                             : feature.properties.NAME.replace(/\s+/g, '_').toLowerCase()}'"></path>`;
+            d="${path(feature)}" @mouseover=${() => onHover(feature)}
+            onclick=${selectLandingPage(feature)}></path>`;
     })}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
     )}"></path>
     </g>
   </svg>`;
+}
+
+function selectLandingPage(feature, target) {
+  console.log(feature, target);
+  if (feature.properties.isAvailable) {
+    let page = feature.properties.NAME.replace(/\s+/g, '_').toLowerCase();
+    if (feature.properties.type === "local") {
+      page = feature.properties.name.replace(/\s+/g, '_').toLowerCase();
+    }
+    console.log(page);
+    console.log("window.location.href='/" + page + "'");
+    return "window.location.href='/" + page + "'";
+  } 
+  else {
+    return "";
+  }
 }
 
 function emptyModuleFallback(feature) {
