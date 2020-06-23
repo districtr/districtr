@@ -9957,7 +9957,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 2762995,
+              "sum": 2764052,
               "min": 0,
               "max": 6083
             },
@@ -9965,58 +9965,58 @@
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 2220808,
+                "sum": 2221862,
                 "min": 0,
                 "max": 5250
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 25112,
+                "sum": 25953,
                 "min": 0,
-                "max": 275
+                "max": 276
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 357322,
+                "sum": 358378,
                 "min": 0,
                 "max": 2569
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 53246,
+                "sum": 54178,
                 "min": 0,
                 "max": 1054
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 26233,
+                "sum": 27078,
                 "min": 0,
-                "max": 1201
+                "max": 1202
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 23162,
+                "sum": 23913,
                 "min": 0,
-                "max": 454
+                "max": 455
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
-                "sum": 47998,
+                "sum": 48989,
                 "min": 0,
-                "max": 153
+                "max": 154
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 3177,
+                "sum": 3721,
                 "min": 0,
-                "max": 88
+                "max": 89
               }
             ]
           },
@@ -10026,7 +10026,7 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 1891928,
+              "sum": 1892984,
               "min": 0,
               "max": 5797
             },
@@ -10034,58 +10034,58 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 1562620,
+                "sum": 1563686,
                 "min": 0,
                 "max": 5056
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 15633,
+                "sum": 16407,
                 "min": 0,
-                "max": 271
+                "max": 272
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 213490,
+                "sum": 214503,
                 "min": 0,
-                "max": 1510
+                "max": 1511
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 17598,
+                "sum": 18434,
                 "min": 0,
-                "max": 757
+                "max": 758
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 13996,
+                "sum": 14719,
                 "min": 0,
                 "max": 253
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 40847,
+                "sum": 41742,
                 "min": 0,
                 "max": 920
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 1805,
+                "sum": 2285,
                 "min": 0,
-                "max": 84
+                "max": 85
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 20257,
+                "sum": 21187,
                 "min": 0,
-                "max": 145
+                "max": 146
               }
             ]
           },
