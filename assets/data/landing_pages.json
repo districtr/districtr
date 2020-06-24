@@ -41,6 +41,26 @@
     ]
   },
   {
+    "state": "Arizona",
+    "code": "AZ",
+    "modules": [
+      {"name": "Arizona", "id": "arizona", "default": "true"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["arizona"],
+        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>The precinct shapefile is made available on <a href=\"https://www.kaggle.com/azsecretaryofstate/arizona-statewide-precinct-shapefile?select=az_vtd_2018_new_pima.shp\">Kaggle</a> by Garret Archer, formerly Senior Elections Analyst with the Arizona Secratary of State and currently a Data Analyst with ABC15 Arizona. Tabular election data are from the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. Processing was completed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>Some very limited merging of precincts in the original shapefile was necessary to join election results. La Paz County precincts were edited to match data provided on the county's <a href=\"http://www.co.la-paz.az.us/DocumentCenter/View/76/Precinct-Map-PDF\">election website</a>.</p>"
+      }
+    ]
+  },
+  {
     "state": "Arkansas",
     "code": "AK",
     "modules": [
@@ -188,6 +208,26 @@
     ]
   },
   {
+    "state": "Florida",
+    "code": "FL",
+    "modules": [
+      {"name": "Miami-Dade County", "id": "miamidade", "default": "true"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["miamidade"],
+        "content": "<p>The units you see here are <strong>census block groups</strong>. Data for this module were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+      }
+    ]
+  },
+  {
     "state": "Georgia",
     "code": "GA",
     "modules": [
@@ -239,11 +279,25 @@
         "type": "draw"
       },
       {
+        "name": "Community Areas",
+        "nav": "Community Areas",
+        "type": "text",
+        "pages": ["chicago"],
+        "content": "<p>The demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. The city is made up of 77 community areas that have played an important role in city planning and culture since their inception by researchers at the University of Chicago in the 1920s. The community areas, and the city more generally, are highly segregated. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.</p>"
+      },
+      {
         "name": "Chicago City Council",
         "nav": "City Council",
         "type": "text",
         "pages": ["chicago"],
-        "content": "<p>Chicago currently has fifty wards (i.e., districts) that each elect a single alderman to serve on the city council. As part of <a href=\"https://mggg.org\">MGGG's</a><a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>, we set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government. <a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"
+        "content": "<p>The Chicago City Council is composed of 50 elected officials known as aldermen. Each alderman is elected by and represents a single-member district of the city known as a ward. The current ward plan in Chicago is widely criticized for being gerrymandered, with districts of vastly uneven population distributions, illogical shapes, heightened segregation, and unfair favor towards incumbents. There is also some argument that the 50-member city council is inefficiently large. Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.</p>"
+      },
+      {
+        "name": "Research Context",
+        "nav": "Research",
+        "type": "text",
+        "pages": ["chicago"],
+        "content": "<p>This module was created as part of <a href=\"https://mggg.org\">MGGG</a>'s <a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>. We set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government.  The report considered the following reform methods: <ul><li>Redrawing the lines in the current 50-ward system</li><li>Shrinking the city council from 50 members to 30 or fewer</li><li>Moving from single-member districts to multi-member districts</li><li>Moving from plurality elections to ranked choice voting</li></ul></p><p><a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"
       },
       {
         "name": "See the plans featured in the report",
@@ -459,7 +513,7 @@
         "nav": "Data",
         "type": "text",
         "pages": ["maryland"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>This shapefile was obtained from the Maryland Department of Planning website and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a>. Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>.</p><p>Statewide election returns from the Board of Elections were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
+        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>This shapefile was obtained from the Maryland Department of Planning website and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a>. Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.</p><p>Statewide election returns from the Board of Elections were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
       }
     ]
   },
@@ -702,8 +756,7 @@
     "state": "New York",
     "code": "NY",
     "modules": [
-      {"name": "Statewide", "id": "newyork", "default": "true"},
-      {"name": "Islip", "id": "islip"}],
+      {"name": "Islip", "id": "islip", "default": "true"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -811,7 +864,8 @@
     "code": "OR",
     "modules": [
       {"name": "Statewide", "id": "oregon", "default": "true"},
-      {"name": "Portland", "id": "portlandor"}
+      {"name": "Portland", "id": "portlandor"},
+      {"name": "Salem-Keizer Schools", "id": "salem_keizer"}
     ],
     "sections": [
       {
@@ -836,6 +890,7 @@
       {
         "name": "Redistricting rules in Oregon",
         "nav": "Rules",
+        "pages": ["oregon"],
         "type": "text",
         "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
       },
@@ -868,7 +923,7 @@
       },
       {
         "name": "Election reform in Oregon",
-        "nav": "Election Reform",
+        "nav": "Reform",
         "pages": ["oregon"],
         "type": "text",
         "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"
@@ -876,8 +931,16 @@
       {
         "name": "About the data",
         "nav": "Data",
+        "pages": ["oregon", "portlandor"],
         "type": "text",
         "content": "<p>The units in these modules are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p><p>The Oregon precinct shapefile was obtained from <a href=\"http://www.kevinrancik.com/elections/Oregon/eOregon.html\">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href=\"http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf\">here</a>. Election results for 2016 and 2018 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Certain precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "pages": ["salem_keizer"],
+        "type": "text",
+        "content": "<p>The units you see here are <strong>Census blocks</strong>.  Data for this module were obtained from the US Census Bureau. The block shapefile for the Salem-Keizer Unified School District was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
       }
     ]
   },
@@ -1052,13 +1115,13 @@
         "nav": "Districts",
         "pages": ["virginia"],
         "type": "text",
-        "content": "<p>The General Assembly of the State of Virginia consists of a House of Delegates with 100 members and a Senate with 40 members.</p>"
+        "content": "<p>Virginia has 11 Congressional districts for the US House of Representatives. The General Assembly of the State of Virginia consists of a House of Delegates with 100 members and a Senate with 40 members. These legislators commission and approve Virginia’s electoral boundaries. However this is often partisanly skewed. Virginia has faced several gerrymandering lawsuits since its last redistricting cycle in 2011.</p><p>Around 20% of the population of Virginia is Black, making the Voting Rights Act of 1965 requirement that minority groups have the ability to elect their chosen candidate where possible an important consideration in redistricting.</p><p>A state constitutional amendment is currently underway that would create a new bipartisan commission to oversee the drawing and approval of new congressional and legislative districts. The amendment would require redistricting plans to: <ul><li>\"Preserve opportunity to elect candidates of choice for 'substantial racial or ethnic minority communities'\"</li><li>and \"Form districts to be compact and contiguous.\"The amendment must make it through the General Assembly twice, and would then be added as a referendum on the November 2020 ballot.</li></ul></p>"
       },
       {
         "name": "Redistricting rules in Virginia",
         "nav": "Rules",
         "type": "text",
-        "content": "<p>These legislators commission and approve Virginia’s electoral boundaries. However this is often partisanly skewed. Virginia has faced several gerrymandering lawsuits since its last redistricting cycle in 2011.</p><p>Around 20% of the population of Virginia is Black, making the Voting Rights Act of 1965 requirement that minority groups have the ability to elect their chosen candidate where possible an important consideration in redistricting.</p><p>A state constitutional amendment is currently underway that would create a new bipartisan commission to oversee the drawing and approval of new congressional and legislative districts. The amendment would require redistricting plans to: <blockquote>“Preserve opportunity to elect candidates of choice for ‘substantial racial or ethnic minority communities’”</blockquote> and <blockquote>“Form districts to be compact and contiguous.” </blockquote> The amendment must make it through the General Assembly twice, and would then be added as a referendum on the November 2020 ballot.</p><p>In Virginia, population deviation in legislative districts must not exceed 1% from ideal size in House of Delegates districts and 2% in Senate districts. Congressional and state legislative districts must be contiguous and compact.</p><p>The 2011 legislative redistricting committees’ guidelines stated that: <blockquote>\"legislative consideration of the varied factors that can create or contribute to communities of interest,\"</blockquote> including <blockquote>\"economic factors, social factors, cultural factors, geographic features, governmental jurisdictions and service delivery areas, political beliefs, voting trends, and incumbency considerations.\"<blockquote></p>"
+        "content": "<p>In Virginia, population deviation in legislative districts must not exceed 1% from ideal size in House of Delegates districts and 2% in Senate districts. Congressional and state legislative districts must be contiguous and compact.</p><p>The current rules state that compactness and contiguity when drawing districts is necessary. Districts must also:<blockquote>“Follow clearly defined and clearly observable, meaning streets and natural or constructed physical feature shown on official maps, boundaries.”</blockquote></p><p>The 2011 legislative redistricting committees’ guidelines stated that: <blockquote>\"legislative consideration of the varied factors that can create or contribute to communities of interest,\" including \"economic factors, social factors, cultural factors, geographic features, governmental jurisdictions and service delivery areas, political beliefs, voting trends, and incumbency considerations.\"<blockquote></p>"
       },
       {
         "name": "Redistricting in the court",
@@ -1066,6 +1129,59 @@
         "type": "text",
         "pages": ["virginia"],
         "content": "<p>In June 2018, the Eastern District Court of Virginia ruled 11 of the House of Delegates districts unconstitutional racial gerrymanders. <a href=\"https://mggg.org/VA-report.pdf\">MGGG published a report</a> evaluating the 2011 Enacted House of Delegates plan as well as several of the proposed alternatives.</p>"
+      },
+      {
+        "name": "Districts in Virginia",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["virginia"],
+        "content": "<p></p>"
+      },
+      {
+        "name": "Redistricting rules in Virginia",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["virginia"],
+        "content": "<h3>Who draws the lines?</h3><h3>Rules and criteria</h3><p></p>"
+      },
+      {
+        "name": "Voting Rights Act",
+        "nav": "VRA",
+        "type": "text",
+        "pages": ["virginia"],
+        "content": "<p></p>"
+      },
+      {
+        "name": "Redistricting in the court",
+        "nav": "In the Court",
+        "type": "text",
+        "pages": ["virginia"],
+        "content": "<p></p>"
+      },
+      {
+        "name": "See the enacted plans over the decade",
+        "nav": "Plans",
+        "pages": ["virginia"],
+        "type": "plans",
+        "ref": "virginia",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "2011 Enacted Plans",
+            "plans": []
+          },
+          {
+            "title": "Remedial Plans",
+            "plans": []
+          }
+        ]
+      },
+      {
+        "name": "Reform efforts",
+        "nav": "Reform",
+        "type": "text",
+        "pages": ["virginia"],
+        "content": "<p></p>"
       },
       {
         "name": "About the data",
