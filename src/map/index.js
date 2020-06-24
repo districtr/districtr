@@ -8,36 +8,47 @@ mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
 class MapSliderControl {
+    constructor(activated) {
+        this.activated = activated;
+    }
+
     onAdd(map){
         this.map = map;
         this.container = document.createElement('div');
         this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group map-slider-control";
 
-        // let btn1 = document.createElement('button');
-        // btn1.type = "button";
-        // btn1.title = "Stack layers mode";
-        // btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
-        // this.container.appendChild(btn1);
-        //
-        // let btn2 = document.createElement('button');
-        // btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
-        // btn2.type = "button";
-        // btn2.title = "Slide layers mode";
-        // this.container.appendChild(btn2);
+        let btn1 = null,
+            btn2 = null;
+
+        if (this.activated) {
+            btn1 = document.createElement('button');
+            btn1.type = "button";
+            btn1.title = "Stack layers mode";
+            btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
+            this.container.appendChild(btn1);
+
+            btn2 = document.createElement('button');
+            btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
+            btn2.type = "button";
+            btn2.title = "Slide layers mode";
+            this.container.appendChild(btn2);
+        }
 
         if (localStorage.getItem("slide_layer") === "active" || window.location.href.includes("slider")) {
             localStorage.setItem("slide_layer", "active");
-            // btn2.className = "active";
-            // btn1.onclick = () => {
-            //     localStorage.setItem("slide_layer", "off");
-            //     window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
-            // };
-        } else {
-            // btn1.className = "active";
-            // btn2.onclick = () => {
-            //     let joiner = window.location.search ? "&" : "?";
-            //     window.location.href = window.location.href + joiner + "slider=true";
-            // };
+            if (this.activated) {
+                btn2.className = "active";
+                btn1.onclick = () => {
+                    localStorage.setItem("slide_layer", "off");
+                    window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
+                };
+            }
+        } else if (this.activated) {
+            btn1.className = "active";
+            btn2.onclick = () => {
+                let joiner = window.location.search ? "&" : "?";
+                window.location.href = window.location.href + joiner + "slider=true";
+            };
         }
 
         return this.container;
@@ -66,7 +77,9 @@ export class MapState {
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
 
-        const sliderOpt = new MapSliderControl();
+        // Georgia specific
+        const activated = (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
+        const sliderOpt = new MapSliderControl(activated);
         this.map.addControl(sliderOpt, "top-left");
 
         if (localStorage.getItem("slide_layer") === "active") {
