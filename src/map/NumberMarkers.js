@@ -1,4 +1,5 @@
 import Layer from "./Layer";
+import { spatial_abilities } from "../utils";
 
 export default function NumberMarkers(state, brush) {
     state.numbers = [];
@@ -6,11 +7,7 @@ export default function NumberMarkers(state, brush) {
         console.log("no numberOfParts for NumberMarkers");
         return;
     }
-    if (state.plan.problem.type === "community") {
-        console.log("not numbering on community of interest");
-        return;
-    }
-    if (!["alaska", "chicago", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "minnesota", "mississippi", "nc", "new_mexico", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id)) {
+    if (!spatial_abilities(state.place.id).number_markers) {
         console.log("not on NumberMarkers whitelist");
         return;
     }

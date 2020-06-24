@@ -15,33 +15,47 @@ function getBackgroundColor(value) {
     )})`;
 }
 
+function popNumber(value) {
+  if (value >= 1000000) {
+    return Math.round(value / 100000) / 10 + "M";
+  } else if (value >= 100000) {
+    return Math.round(value / 1000) + "k";
+  } else if (value >= 10000) {
+    return Math.round(value / 100) / 10 + "k";
+  } else {
+    return value.toLocaleString();
+  }
+}
+
 function getCellStyle(value) {
     const background = getBackgroundColor(value);
     const color = value > 0.4 ? "white" : "black";
     return `background: ${background}; color: ${color}`;
 }
 
-function getCell(subgroup, part, width) {
+function getCell(subgroup, part, width, decimals) {
     const value =
         part !== null
             ? subgroup.getFractionInPart(part.id)
             : subgroup.sum / subgroup.total.sum;
     return {
-        content: `${roundToDecimal(value * 100, 1)}%`,
+        content: decimals === "population"
+            ? popNumber(part === null ? subgroup.sum : subgroup.getSum(part.id))
+            : `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
         style: getCellStyle(value) + `; width: ${width}`
     };
 }
 
-export default (subgroups, parts) => {
+export default (subgroups, parts, decimals=true) => {
     const width = `${Math.round(81 / subgroups.length)}%`;
     const headers = subgroups.map(subgroup => subgroup.getAbbreviation());
     let rows = parts.map(part => ({
         label: part.renderLabel(),
-        entries: subgroups.map(subgroup => getCell(subgroup, part, width))
+        entries: subgroups.map(subgroup => getCell(subgroup, part, width, decimals))
     }));
     rows.push({
         label: "Overall",
-        entries: subgroups.map(subgroup => getCell(subgroup, null, width))
+        entries: subgroups.map(subgroup => getCell(subgroup, null, width, decimals))
     });
     return DataTable(headers, rows);
 };

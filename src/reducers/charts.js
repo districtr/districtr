@@ -40,6 +40,13 @@ export const handlers = {
             ...state[action.chart],
             activePartIndex: action.partIndex
         }
+    }),
+    selectAgeView: (state, action) => ({
+        ...state,
+        [action.chart]: {
+            ...state[action.chart],
+            ageView: action.ageView
+        }
     })
 };
 

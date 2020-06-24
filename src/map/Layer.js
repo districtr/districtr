@@ -65,6 +65,10 @@ export default class Layer {
     }
     setOpacity(opacity, isText) {
         this.setPaintProperty(`${isText ? "text" : this.type.replace("symbol", "icon")}-opacity`, opacity);
+        if (window.mapslide) {
+            document.getElementsByClassName("mapboxgl-compare")[0].style.display = opacity ? "block" : "none";
+            window.mapslide.setSlider(opacity ? Math.round(window.innerWidth * 0.4) : 10000);
+        }
     }
     setColor(color) {
         this.setPaintProperty(`${this.type}-color`, color);
@@ -86,6 +90,42 @@ export default class Layer {
             },
             state
         );
+    }
+    setCountyState(fips, countyProp, setState, filter, undoInfo, tallyListeners) {
+        let seenFeatures = new Set(),
+            filterStrings = [
+                "all",
+                ["has", countyProp]
+            ];
+        if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP10", "cnty_nm", "locality"].includes(countyProp)) {
+            filterStrings.push(["==", ["get", countyProp], fips]);
+        } else {
+            filterStrings.push([">=", ["get", countyProp], fips]);
+            filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);
+        }
+        this.map.querySourceFeatures(this.sourceId, {
+            sourceLayer: this.sourceLayer,
+            filter: filterStrings
+        }).forEach(feature => {
+            if (!seenFeatures.has(feature.id)) {
+                seenFeatures.add(feature.id);
+                feature.state = this.getFeatureState(feature.id);
+                if (filter(feature)) {
+                    undoInfo[feature.id] = {
+                        properties: feature.properties,
+                        color: String(feature.state.color)
+                    };
+                    tallyListeners.forEach((listener) => {
+                        listener(feature, setState.color);
+                    });
+                    this.setFeatureState(feature.id, {
+                        ...feature.state,
+                        color: setState.color
+                    });
+                    feature.state.color = setState.color;
+                }
+            }
+        });
     }
     setPaintProperty(name, value) {
         this.map.setPaintProperty(this.id, name, value);

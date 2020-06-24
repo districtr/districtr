@@ -8,6 +8,7 @@ export default class Brush extends HoverWithRadius {
         this.id = Math.random();
         this.color = color;
         this.coloring = false;
+        this.county_brush = false;
         this.locked = false;
         this.changedColors = new Set();
 
@@ -54,19 +55,71 @@ export default class Brush extends HoverWithRadius {
             this._colorFeatures(
                 feature =>
                     feature.state.color === null ||
-                    feature.state.color === undefined
+                    feature.state.color === undefined ||
+                    isNaN(feature.state.color)
             );
         } else {
             this._colorFeatures(feature => feature.state.color !== this.color);
         }
     }
     _colorFeatures(filter) {
-        let seenFeatures = new Set();
+        let seenFeatures = new Set(),
+            seenCounties = new Set(),
+            countyProp = "GEOID10";
         if (this.color || this.color === 0 || this.color === '0') {
             this.changedColors.add(Number(this.color));
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
+                if (this.county_brush) {
+                    let ps = feature.properties,
+                        countyFIPS = null,
+                        idSearch = (key, substr, fn) => {
+                            if (!ps[key]) {
+                                if (ps[key.toLowerCase()]) {
+                                    key = key.toLowerCase();
+                                } else {
+                                    return;
+                                }
+                            }
+                            if (substr) {
+                                return [key, ps[key].substring(0, substr)];
+                            } else {
+                                if (!fn) {
+                                    fn = x => x;
+                                }
+                                return [key, fn(ps[key])];
+                            }
+                        },
+                        nameSplice = (val) => {
+                            let name = val.split("-")[0].split(" ");
+                            name.splice(-1);
+                            return name.join(" ");
+                        };
+                    [countyProp, countyFIPS] = idSearch("GEOID10", 5)
+                        || idSearch("VTD", 5)
+                        // || idSearch("CNTYVTD", 3)
+                        // || idSearch("DsslvID", 2) // Utah
+                        // || idSearch("PRECODE", 2) // Oklahoma
+                        || idSearch("COUNTYFP10")
+                        || idSearch("COUNTY")
+                        || idSearch("CTYNAME")
+                        || idSearch("CNTYNAME")
+                        || idSearch("cnty_nm")
+                        || idSearch("locality")
+                        || idSearch("NAME", null, nameSplice)
+                        || idSearch("NAME10", null, nameSplice)
+                        || idSearch("Precinct", null, (val) => {
+                            // Oregon
+                            let name = val.split("_");
+                            name.splice(-1);
+                            return name.join("_");
+                        });
+                    if (countyFIPS) {
+                        seenCounties.add(countyFIPS);
+                    }
+                }
+
                 if (!seenFeatures.has(feature.id)) {
                     seenFeatures.add(feature.id);
                     for (let listener of this.listeners.colorfeature) {
@@ -99,6 +152,19 @@ export default class Brush extends HoverWithRadius {
                 });
             }
         }
+        if (this.county_brush && seenCounties.size > 0) {
+            seenCounties.forEach(fips => {
+                this.layer.setCountyState(fips, countyProp, {
+                    color: this.color
+                },
+                filter,
+                this.trackUndo[this.cursorUndo],
+                this.listeners.colorfeature);
+            });
+            for (let listener of this.listeners.colorop) {
+                listener();
+            }
+        }
         for (let listener of this.listeners.colorend) {
             listener();
         }
@@ -106,8 +172,10 @@ export default class Brush extends HoverWithRadius {
     onClick() {
         this.changedColors = new Set();
         this.colorFeatures();
-        for (let listener of this.listeners.colorop) {
-            listener(false, this.changedColors);
+        if (!this.county_brush) {
+            for (let listener of this.listeners.colorop) {
+                listener(false, this.changedColors);
+            }
         }
     }
     onMouseDown(e) {
@@ -164,13 +232,18 @@ export default class Brush extends HoverWithRadius {
             let amendColor = atomicAction[fid].color;
             if ((amendColor === 0 || amendColor === '0') || amendColor) {
                 amendColor = Number(atomicAction[fid].color);
+                if (isNaN(amendColor)) {
+                    amendColor = null;
+                }
             } else {
                 amendColor = null;
             }
             this.changedColors.add(amendColor);
 
             // change map colors
+            let featureState = this.layer.getFeatureState(fid);
             this.layer.setFeatureState(fid, {
+                ...featureState,
                 color: amendColor
             });
 
@@ -178,10 +251,11 @@ export default class Brush extends HoverWithRadius {
             for (let listener of listeners) {
                 listener({
                     id: fid,
-                    state: { color: brushedColor },
+                    state: featureState,
                     properties: atomicAction[fid].properties
                 }, amendColor);
             }
+            featureState.color = amendColor;
         });
 
         this.cursorUndo = Math.max(0, this.cursorUndo - 1);
@@ -247,11 +321,13 @@ export default class Brush extends HoverWithRadius {
             listener(this.cursorUndo >= this.trackUndo.length - 1);
         }
     }
-    activate() {
+    activate(mouseover) {
+        super.activate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
         this.layer.map.getCanvas().classList.add("brush-tool");
-
-        super.activate();
-
         this.layer.map.dragPan.disable();
         this.layer.map.touchZoomRotate.disable();
         this.layer.map.doubleClickZoom.disable();
@@ -260,11 +336,15 @@ export default class Brush extends HoverWithRadius {
         this.layer.map.on("touchstart", this.onTouchStart);
         this.layer.map.on("mousedown", this.onMouseDown);
     }
-    deactivate() {
+
+    deactivate(mouseover) {
+        super.deactivate(mouseover);
+        if (mouseover) {
+            return;
+        }
+
+        this.hoverOff();
         this.layer.map.getCanvas().classList.remove("brush-tool");
-
-        super.deactivate();
-
         this.layer.map.dragPan.enable();
         this.layer.map.doubleClickZoom.enable();
         this.layer.map.touchZoomRotate.enable();

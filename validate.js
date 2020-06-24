@@ -270,8 +270,10 @@ function validateColumnSet(columnSet, columnSetIndex, unitIndex, planId) {
         }
     } else {
         checks.push("name");
-        checks.push("total");
-        validateCSentry(columnSet, 'total', columnSetIndex, unitIndex, planId);
+        if (columnSet.type !== "text") {
+            // checks.push("total");
+            validateCSentry(columnSet, 'total', columnSetIndex, unitIndex, planId);
+        }
     }
 
     checks.forEach((check) => {
@@ -297,6 +299,10 @@ function validateCSentry(columnSet, field, columnSetIndex, unitIndex, planId) {
     let columnData = (typeof field === 'number')
         ? columnSet.subgroups[field]
         : columnSet[field];
+    if (!columnData) {
+        // text field
+        return;
+    }
     ["key", "name"].forEach((check) => {
         if (!columnData[check]) {
             console.error(planId + " is missing a " + check + " on its "

@@ -1,14 +1,17 @@
+import hotkeys from 'hotkeys-js';
+
 import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
+import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
-import { download } from "../utils";
+import { download, spatial_abilities /* , stateNameToFips */ } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -16,6 +19,11 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
+
+    let brushOptions = { community: state.problem.type === "community" };
+    if (spatial_abilities(state.place.id).county_brush) {
+        brushOptions.county_brush = new HoverWithRadius(state.counties, 20);
+    }
 
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = ContiguityChecker(state, brush);
@@ -31,7 +39,7 @@ export default function ToolsPlugin(editor) {
 
     let tools = [
         new PanTool(),
-        new BrushTool(brush, state.parts),
+        new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
@@ -51,6 +59,27 @@ export default function ToolsPlugin(editor) {
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
     toolbar.setState(state);
+
+    hotkeys.filter = ({ target }) => {
+        return (!["INPUT", "TEXTAREA"].includes(target.tagName)
+          || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
+    };
+    hotkeys("h", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("pan");
+    });
+    hotkeys("p", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("brush");
+    });
+    hotkeys("e", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("eraser");
+    });
+    hotkeys("i", (evt, handler) => {
+        evt.preventDefault();
+        toolbar.selectTool("inspect");
+    });
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL

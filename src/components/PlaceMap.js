@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { geoPath, geoAlbersUsa } from "d3-geo";
 import { svg, html, render } from "lit-html";
-import { PlacesListForState } from "../components/PlacesList";
+import { PlacesListForState } from "./PlacesList";
 import { select, selectAll } from "d3-selection";
 import "d3-transition";
 
@@ -11,7 +11,10 @@ import "d3-transition";
 
 const available = [
     "Alaska",
+    "Arizona",
     "Arkansas",
+    "Connecticut",
+    "Florida",
     "Georgia",
     "Pennsylvania",
     "Vermont",
@@ -24,7 +27,6 @@ const available = [
     "Mississippi",
     "Illinois",
     "Texas",
-    "Nevada",
     "New Mexico",
     "New York",
     "North Carolina",
@@ -337,11 +339,11 @@ window.onpopstate = () => {
     resetMap();
 };
 
-function modulesAvailable(feature, onClose) {
+function modulesAvailable(feature, onClose, placeId) {
     if (!onClose) {
         onClose = () => history.back();
     }
-    const list = PlacesListForState(feature.properties.NAME, () =>
+    const list = PlacesListForState(feature.properties.NAME, placeId, () =>
         emptyModuleFallback(feature)
     );
     return html`
@@ -359,6 +361,21 @@ function modulesAvailable(feature, onClose) {
                 ${feature.properties.NAME}
             </h3>
             <div class="media__body">
+                ${(feature.properties.NAME == "North Carolina" && window.location.pathname.includes("community"))
+                    ? html`<ul class="places-list">
+                      <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
+                        <li class="places-list__item ">
+                          <div class="place-name">
+                            North Carolina
+                          </div>
+                          <div class="place-info">Identify a community</div>
+                          <div class="place-info">
+                              Built out of blocks
+                          </div>
+                        </li>
+                      </a>
+                    </ul>`
+                    : ""}
                 ${feature.properties.NAME == "Illinois"
                     ? html`
                           <p>
@@ -370,7 +387,7 @@ function modulesAvailable(feature, onClose) {
                           </p>
                       `
                     : ""}
-                ${list.render()}
+                ${window.location.pathname.includes("community/nc") ? "" : list.render()}
             </div>
             <a class="learn__more" href="/${feature.properties.NAME.replace(/\s+/g, '_').toLowerCase()}">
                 More about Redistricting in ${feature.properties.NAME}</a>
@@ -426,7 +443,7 @@ export function PlaceMap(features, selectedId) {
                       currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
                       history.replaceState({}, "Districtr", currentHistoryState);
                       resetMap();
-                  })
+                  }, location.pathname.split("/")[3])
                 : ""}
         </div>
         <figure class="place-map">
@@ -436,10 +453,9 @@ export function PlaceMap(features, selectedId) {
 }
 
 export function PlaceMapWithData() {
-    const selectedId = location.pathname
-        .split("/")
-        .slice(-1)[0]
-        .toLowerCase();
+    // empty string or state postal code
+    const selectedId = (location.pathname.split("/")[2] || "").toLowerCase();
+
     return fetchFeatures().then(features =>
         PlaceMap(
             features,
