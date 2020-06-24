@@ -1152,7 +1152,7 @@
               },
               {
                 "id": "house_2011",
-                "name": "2011 Enacted State Senate Plan"
+                "name": "2011 Enacted State House Plan"
               }
             ]
           },
@@ -1164,7 +1164,7 @@
                 "name": "2016 Remedial Congressional Plan"
               },
               {
-                "id": "house_2019_rem",
+                "id": "house_2019",
                 "name": "2019 Remedial State House Plan"
               }
             ]
