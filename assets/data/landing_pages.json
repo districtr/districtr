@@ -32,6 +32,25 @@
         "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"
       },
       {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["alaska"],
+        "type": "plans",
+        "ref": "alaska",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -809,6 +828,33 @@
         "type": "text",
         "pages": ["nc"],
         "content": "<p>In March 2019 the US Supreme Court heard oral arguments for Rucho v. Common Cause, in which plaintiffs claim that North Carolina's remedial 2016 congressional map is an unconstitutional partisan gerrymander. The 2016 remedial map had been drawn after the Supreme Court struck down two of the state's 2011 enacted congressional districts as unconstitutional racial gerrymanders. MGGG and our collaborators filed an amicus brief which can be accessed <a href=\"https://mggg.org/amicus\">on our website</a>.</p>"
+      },
+      {
+        "name": "Explore the plans",
+        "nav": "Plans",
+        "pages": ["nc"],
+        "type": "plans",
+        "ref": "north_carolina",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Congressional Plans",
+            "plans": [
+              {
+                "id": "congress_2011",
+                "name": "2011 Enacted Plan"
+              },
+              {
+                "id": "congress_2016",
+                "name": "2016 Enacted Plan"
+              },
+              {
+                "id": "congress_judge",
+                "name": "Judge's Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
