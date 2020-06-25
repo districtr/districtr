@@ -14,6 +14,7 @@ const available = [
     "Arizona",
     "Arkansas",
     "Connecticut",
+    "Delaware",
     "Florida",
     "Georgia",
     "Pennsylvania",
