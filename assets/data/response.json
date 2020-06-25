@@ -9350,66 +9350,66 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 7999808,
+              "sum": 8001024,
               "min": 57,
-              "max": 23501
+              "max": 23502
             },
             "subgroups": [
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 5185250,
+                "sum": 5186450,
                 "min": 16,
-                "max": 13957
+                "max": 13958
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 1522564,
+                "sum": 1523704,
                 "min": 0,
-                "max": 5617
+                "max": 5618
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 630652,
+                "sum": 631825,
                 "min": 0,
-                "max": 5054
+                "max": 5055
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 435196,
+                "sum": 436298,
                 "min": 0,
-                "max": 4605
+                "max": 4606
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 19565,
+                "sum": 20679,
                 "min": 0,
-                "max": 369
+                "max": 370
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 4493,
+                "sum": 5061,
                 "min": 0,
                 "max": 63
               },
               {
                 "key": "NH_2MORE",
                 "name": "Two or more races",
-                "sum": 180470,
+                "sum": 181669,
                 "min": 0,
-                "max": 657
+                "max": 658
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 14406,
+                "sum": 15338,
                 "min": 0,
-                "max": 99
+                "max": 100
               }
             ]
           },
@@ -9419,66 +9419,66 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 6146142,
+              "sum": 6147347,
               "min": 44,
-              "max": 22925
+              "max": 22926
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 4132189,
+                "sum": 4133385,
                 "min": 16,
-                "max": 13463
+                "max": 13464
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 1133875,
+                "sum": 1135015,
                 "min": 0,
-                "max": 5098
+                "max": 5099
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 425694,
+                "sum": 426857,
                 "min": 0,
-                "max": 3827
+                "max": 3828
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 15064,
+                "sum": 16173,
                 "min": 0,
-                "max": 304
+                "max": 305
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 3404,
+                "sum": 3958,
                 "min": 0,
                 "max": 63
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 333048,
+                "sum": 334140,
                 "min": 0,
-                "max": 3315
+                "max": 3316
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 7034,
+                "sum": 7833,
                 "min": 0,
-                "max": 98
+                "max": 99
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 88794,
+                "sum": 89986,
                 "min": 0,
-                "max": 628
+                "max": 629
               }
             ]
           },
@@ -9490,6 +9490,7 @@
           },
           {
             "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "G16RPRS",
@@ -9505,14 +9506,11 @@
                 "min": 5,
                 "max": 3334
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2018 Senate",
             "subgroups": [
               {
                 "key": "G18RSEN",
@@ -9528,14 +9526,11 @@
                 "min": 11,
                 "max": 3055
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2018
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2017 Lt. Governor",
             "subgroups": [
               {
                 "key": "G17RLTG",
@@ -9551,14 +9546,11 @@
                 "min": 8,
                 "max": 2484
               }
-            ],
-            "metadata": {
-              "race": "Lt. Governor",
-              "year": 2017
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2017 Attorney General",
             "subgroups": [
               {
                 "key": "G17RATG",
@@ -9574,14 +9566,11 @@
                 "min": 8,
                 "max": 2478
               }
-            ],
-            "metadata": {
-              "race": "Attorney General",
-              "year": 2017
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2017 House of Delegates",
             "subgroups": [
               {
                 "key": "G17RHOD",
@@ -9597,14 +9586,11 @@
                 "min": 0,
                 "max": 2578
               }
-            ],
-            "metadata": {
-              "race": "House of Delegates",
-              "year": 2017
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2016 US House",
             "subgroups": [
               {
                 "key": "G16RHOR",
@@ -9620,11 +9606,7 @@
                 "min": 10,
                 "max": 3158
               }
-            ],
-            "metadata": {
-              "race": "US House",
-              "year": 2016
-            }
+            ]
           }
         ],
         "idColumn": {

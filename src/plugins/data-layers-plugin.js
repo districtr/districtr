@@ -274,6 +274,8 @@ export default function DataLayersPlugin(editor) {
         state.plan.problem.type === "community"
             ? "Show communities"
             : "Show districts";
+    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "district")
+        + " numbers";
     tab.addSection(
         () => html`
             <h4>${districtsHeading}</h4>
@@ -284,7 +286,7 @@ export default function DataLayersPlugin(editor) {
             ${(["chicago_community_areas"].includes(state.units.sourceId)
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
-                : toggle("Show district numbers", false, checked => {
+                : toggle(districtNumberLabel, false, checked => {
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
                         number.setOpacity(Math.round(opacity))

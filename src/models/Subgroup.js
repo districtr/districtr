@@ -36,16 +36,33 @@ export class Subgroup extends NumericalColumn {
         );
     }
     update(feature, color) {
+        let oldColors = String(feature.state ?
+            (feature.state.color === undefined ? "" : feature.state.color)
+            : "").split(",").filter(c => c !== "");
+        let newColors = String(color).split(",");
+        // note that JSON.stringify [0,undefined] == [0,null]
+        // console.log(JSON.stringify((feature.state || {}).color) + " to " + JSON.stringify(color))
+
         if (color !== undefined && color !== null) {
-            this.data[color] += this.getValue(feature);
+            if (!oldColors.includes(String(color))) {
+                // newColors usually receives one color at a time
+                // except when loading multiple colors from a community plan
+                newColors.filter(c => (c || (c === 0)) && (!oldColors.includes(c)))
+                    .forEach((c) => {
+                        // console.log("add to " + Number(c));
+                        this.data[Number(c)] += this.getValue(feature);
+                    });
+            }
         }
-        if (
-            feature.state !== undefined &&
-            feature.state.color !== undefined &&
-            feature.state.color !== null
-        ) {
-            this.data[feature.state.color] -= this.getValue(feature);
-        }
+
+        // this happens on districting whenever a color is replaced
+        // this happens on community only when erasing (overlap allowed)
+        oldColors.filter(c => (c || (c === 0))).forEach((oldColor) => {
+            if (!newColors.includes(oldColor)) {
+                // console.log("subtract from " + Number(oldColor));
+                this.data[Number(oldColor)] -= this.getValue(feature);
+            }
+        });
     }
     getAbbreviation() {
         if (ABBREVIATIONS.hasOwnProperty(this.key)) {

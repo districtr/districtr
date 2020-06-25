@@ -75,7 +75,7 @@ const hoverColorScheme = colorScheme.map(hex =>
  * @param {string} hex
  * @param {number} lum
  */
-function changeColorLuminance(hex, lum) {
+export function changeColorLuminance(hex, lum) {
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, "");
     if (hex.length < 6) {
@@ -129,14 +129,58 @@ export function getUnitColorProperty(parts) {
         "#aaaaaa"
     ];
 
-    const unitColorProperty = [
+    const standardColor = [
         "case",
         ["boolean", ["feature-state", "hover"], false],
         hoveredUnitColorStyle,
         unitColorStyle
     ];
 
+    const blendWithHoverOption = [
+        "case",
+        ["boolean", ["feature-state", "hover"], false],
+        ["feature-state", "blendHoverColor"],
+        ["feature-state", "blendColor"]
+    ];
+
+    const unitColorProperty = [
+        "case",
+        ["==", ["feature-state", "useBlendColor"], true],
+        blendWithHoverOption,
+        standardColor,
+    ];
+
     return unitColorProperty;
+}
+
+export function blendColors (colors) {
+    if (!colors || !Array.isArray(colors)) {
+        return colors;
+    }
+    colors = colors.filter(c => c !== null);
+    if (!colors.length) {
+        return null;
+    } else if (colors.length <= 1) {
+        return colors[0] * 1;
+    } else {
+        let r = 0, g = 0, b = 0;
+        colors.forEach((color) => {
+            if (typeof color === 'number') {
+                color = districtColors[color].hex;
+            }
+
+            r += parseInt("0x" + color.substring(1, 3));
+            g += parseInt("0x" + color.substring(3, 5));
+            b += parseInt("0x" + color.substring(5));
+        });
+        r = Math.round(r / colors.length).toString(16);
+        g = Math.round(g / colors.length).toString(16);
+        b = Math.round(b / colors.length).toString(16);
+        if (r.length === 1) { r = '0' + r; }
+        if (g.length === 1) { g = '0' + g; }
+        if (b.length === 1) { b = '0' + b; }
+        return '#' + [r, g, b].join('');
+    }
 }
 
 /**

@@ -39,10 +39,15 @@ export function getAssignedUnitIds(assignment) {
 }
 
 function assign(state, feature, partId) {
-    state.update(feature, partId);
-    for (let i = 0; i <= partId; i++) {
-        state.parts[i].visible = true;
+    if (typeof partId === 'number') {
+        partId = [partId];
     }
+    state.update(feature, partId);
+    partId.forEach((p) => {
+        if (p || (p === 0)) {
+            state.parts[p].visible = true;
+        }
+    });
     state.units.setAssignment(feature, partId);
 }
 

@@ -47,7 +47,14 @@ class DistrictingPlan {
         this.idColumn = idColumn;
     }
     update(feature, part) {
-        this.assignment[this.idColumn.getValue(feature)] = part;
+        let featureId = this.idColumn.getValue(feature);
+        if (!part && (part !== 0)) {
+            // erasing this part
+            delete this.assignment[featureId];
+        } else {
+            // districting (only one assignment possible at a time)
+            this.assignment[featureId] = part;
+        }
     }
     serialize() {
         return {

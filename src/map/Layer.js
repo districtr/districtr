@@ -1,4 +1,5 @@
 import { isString } from "../utils";
+import { blendColors } from "../colors";
 
 // The addBelowLabels method gives the right look on the Mapbox "streets" basemap,
 // while addBelowSymbols gives the right look on the "light" basemap.
@@ -118,6 +119,7 @@ export default class Layer {
                     tallyListeners.forEach((listener) => {
                         listener(feature, setState.color);
                     });
+
                     this.setFeatureState(feature.id, {
                         ...feature.state,
                         color: setState.color
@@ -159,9 +161,21 @@ export default class Layer {
         return this.getFeatureState(featureId).color;
     }
     setAssignment(feature, part) {
+        // used when loading
+        let useBlendColor = false,
+            blendColor = null;
+        if (Array.isArray(part)) {
+            if (part.length === 1) {
+                part = part[0];
+            } else {
+                useBlendColor = true;
+            }
+        }
         this.setFeatureState(feature.id, {
             ...feature.state,
-            color: part
+            color: part,
+            useBlendColor: useBlendColor,
+            blendColor: useBlendColor ? blendColors(part) : null
         });
     }
     on(type, ...args) {
