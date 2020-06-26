@@ -299,6 +299,59 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
+    if (state.place.id === "virginia") {
+        console.log('downloading va plans');
+        let plan2010 = null,
+            plan2013 = null;
+        fetch("/assets/current_districts/virginia_2010.geojson").then(res => res.json()).then((va2010) => {
+            state.map.addSource('va2010', {
+                type: 'geojson',
+                data: va2010
+            });
+
+            plan2010 = new Layer(state.map,
+                {
+                    id: 'va2010',
+                    source: 'va2010',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+
+            fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
+                state.map.addSource('va2013', {
+                    type: 'geojson',
+                    data: va2013
+                });
+
+                plan2013 = new Layer(state.map,
+                    {
+                        id: 'va2013',
+                        source: 'va2013',
+                        type: 'line',
+                        paint: { "line-color": "#000", "line-opacity": 0 }
+                    },
+                    addBelowLabels
+                );
+            });
+        });
+
+        tab.addSection(
+          () => html`
+            <h4>Enacted Plans</h4>
+            ${toggle("2003-2013 Congressional Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}
+            ${toggle("2013-2017 Congressional Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2013 && plan2013.setOpacity(opacity);
+            })}
+          `
+        )
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
