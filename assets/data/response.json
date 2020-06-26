@@ -13273,6 +13273,197 @@
     ]
   },
   {
+    "id": "miamifl",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 399457,
+              "min": 0,
+              "max": 1778
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 47622,
+                "min": 0,
+                "max": 600
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 64993,
+                "min": 0,
+                "max": 737
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 279456,
+                "min": 0,
+                "max": 1510
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 3649,
+                "min": 0,
+                "max": 72
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 361,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 58,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 2642,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 676,
+                "min": 0,
+                "max": 19
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 326011,
+              "min": 0,
+              "max": 1599
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 38439,
+                "min": 0,
+                "max": 568
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 48192,
+                "min": 0,
+                "max": 587
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 233320,
+                "min": 0,
+                "max": 1327
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 264,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 50,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 3207,
+                "min": 0,
+                "max": 62
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 481,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 2058,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -80.3198,
+            25.709
+          ],
+          [
+            -80.1397,
+            25.8556
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.miamifl_blocks"
+            },
+            "sourceLayer": "miamifl_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.miamifl_blocks_points"
+            },
+            "sourceLayer": "miamifl_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "Florida",
+    "name": "City of Miami",
+    "districtingProblems": [
+      {
+        "name": "City Commission",
+        "numberOfParts": 5,
+        "pluralNoun": "Commission Districts"
+      }
+    ]
+  },
+  {
     "id": "miamidade",
     "name": "Miami-Dade County",
     "units": [
