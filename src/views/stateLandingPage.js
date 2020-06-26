@@ -25,8 +25,8 @@ export default () => {
             def = def.length ? def[0] : stateData.modules.filter(m => m.default)[0];
             console.log(def);
 
-            document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
-                                : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
+            document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
+                                : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
 
             var currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
                                                                  : "/" + window.location.pathname.split("/")[1] 
@@ -59,8 +59,8 @@ export default () => {
                 var targetBox = $("." + inputValue);
                 def = stateData.modules.filter(m => m.id === inputValue)[0];
                 console.log(def);
-                document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
-                                    : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
+                document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
+                                    : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
                 currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
                                                                      : "/" + window.location.pathname.split("/")[1] 
                                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
