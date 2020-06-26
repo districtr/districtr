@@ -2,6 +2,8 @@ import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
 import OverlayContainer from "../layers/OverlayContainer";
 import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
+import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
+import DemographicsTable from "../components/Charts/DemographicsTable";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
 import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
@@ -335,6 +337,36 @@ export default function DataLayersPlugin(editor) {
                     <h4>Voting Age Population</h4>
                     ${vapOverlays.render()}
                 `
+        );
+    }
+
+    if (state.incomes) {
+        tab.addSection(
+            (uiState, dispatch) =>  html`<h4>Individual Income</h4>
+            <div>
+                <div class="centered">
+                  <strong>Histogram</strong>
+                </div>
+                ${IncomeHistogramTable(
+                    "Income Histograms",
+                    state.incomes,
+                    state.activeParts,
+                    uiState.charts["Income Histograms"],
+                    dispatch
+                )}
+            </div>`
+        );
+    }
+
+    if (state.rent) {
+        tab.addSection(
+            (uiState, dispatch) => html`<h4>Homeowner or Renter</h4>
+            <div class="sectionThing">
+                ${DemographicsTable(
+                    state.rent.subgroups,
+                    state.activeParts
+                )}
+            </div>`
         );
     }
 
