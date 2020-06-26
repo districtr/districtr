@@ -2,12 +2,8 @@
 /new/* /new.html 200
 /community/* /community.html 200
 /user_guide /guide
-/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
-/:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
-/:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
 
 ## Landing Pages
-##/:state/* /:state.html 200
 /alabama/*          /alabama.html 200
 /alaska/*           /alaska.html 200
 /arizona/*          /arizona.html 200
@@ -58,3 +54,8 @@
 /west_virginia/*    /west_virginia.html 200
 /wisconsin/*        /wisconsin.html 200
 /wyoming/*          /wyoming.html 200
+
+## Plan Redirects
+/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
+/:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
+/:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
