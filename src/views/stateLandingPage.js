@@ -18,14 +18,21 @@ export default () => {
             render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
 
             // set statewide to default
-            var hash = window.location.hash;
-            var def = hash ? stateData.modules.filter(m => hash.substr(1) === m.name.replace(/\s+/g, '-').toLowerCase() 
-                                                        || hash.substr(1) === m.id) : [];
+            var locality = window.location.pathname.split("/")[2];
+            var def = locality ? stateData.modules.filter(m => locality === m.name.replace(/\s+/g, '-').toLowerCase() 
+                                                            || locality === m.id) : [];
 
             def = def.length ? def[0] : stateData.modules.filter(m => m.default)[0];
+            console.log(def);
 
             document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
                                 : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
+
+            var currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
+                                                                 : "/" + window.location.pathname.split("/")[1] 
+                                                                       + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
+            history.replaceState({}, document.title, currentHistoryState);
+
             var statewide = $("." + def.id);
             var btn = document.getElementById(def.id);
 
@@ -47,12 +54,18 @@ export default () => {
 
             // config toggle buttons
             $('input[type="radio"]').click(function(){
-                history.replaceState({}, document.title, window.location.pathname)
+
                 var inputValue = $(this).attr("value");
                 var targetBox = $("." + inputValue);
                 def = stateData.modules.filter(m => m.id === inputValue)[0];
+                console.log(def);
                 document.title =  (def.name === "Statewide") ? curState.concat(" | Districtr")
                                     : stateData.code.concat("—").concat(def.name).concat(" | Districtr");
+                currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
+                                                                     : "/" + window.location.pathname.split("/")[1] 
+                                                                           + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
+
+                history.replaceState({}, document.title, currentHistoryState);
                 
                 $(".places-list__item").not(targetBox).hide();
                 $(".text-toggle").not(targetBox).hide();
