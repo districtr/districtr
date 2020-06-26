@@ -298,18 +298,18 @@
         "type": "draw"
       },
       {
-        "name": "Community Areas",
-        "nav": "Community Areas",
-        "type": "text",
-        "pages": ["chicago"],
-        "content": "<p>The demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. The city is made up of 77 community areas that have played an important role in city planning and culture since their inception by researchers at the University of Chicago in the 1920s. The community areas, and the city more generally, are highly segregated. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.</p>"
-      },
-      {
-        "name": "Chicago City Council",
+        "name": "City Council Districts in Chicago",
         "nav": "City Council",
         "type": "text",
         "pages": ["chicago"],
-        "content": "<p>The Chicago City Council is composed of 50 elected officials known as aldermen. Each alderman is elected by and represents a single-member district of the city known as a ward. The current ward plan in Chicago is widely criticized for being gerrymandered, with districts of vastly uneven population distributions, illogical shapes, heightened segregation, and unfair favor towards incumbents. There is also some argument that the 50-member city council is inefficiently large. Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.</p>"
+        "content": "<p>The City of Chicago is divided into 50 districts, known as wards, for the City Council. The Chicago City Council is represented by 50 elected officials, known as aldermen. Each alderman is elected by and represents a single ward.</p><p>The current ward plan in Chicago is widely criticized for being gerrymandered, with districts of vastly uneven population distributions, illogical shapes, heightened segregation, and unfair favor towards incumbents. Some argue that the 50-member city council is inefficiently large. Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.</p><h3>Community Areas</h3><p>In the 1920s, researchers at the University of Chicago divided the city into 77 community areas that have played an important role in city planning and culture since their inception. The community areas, and the city more generally, are highly segregated. Today, the demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.</p>"
+      },
+      {
+        "name": "Redistricting Rules for the Chicago City Council",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["chicago"],
+        "content": "<h3>Who draws the lines?</h3><p>The Municipal Code of Chicago specifies that City Councilmembers are responsible for drawing the City’s 50 wards [Art. III, § 2-8-300], although the mayor has power to veto the ordinance defining these electoral boundaries.</p><h3>Rules and criteria</h3><p>The City of Chicago Municipal Code requires the ward to be compact, contiguous, and of substantially equal population with an acceptable deviation to respect established communities of interest [Art. III, § 2-8-300].</p>"
       },
       {
         "name": "Research Context",
@@ -1222,7 +1222,7 @@
         "nav": "Research",
         "type": "text",
         "pages": ["virginia"],
-        "content": "<p>In June 2018, the Eastern District Court of Virginia ruled 11 of the House of Delegates districts unconstitutional racial gerrymanders. <a href=\"https://mggg.org/VA-report.pdf\">MGGG published a report</a> evaluating the 2011 Enacted House of Delegates plan as well as several of the proposed alternatives.  MGGG <a href=\"https://mggg.org/VA-criteria.pdf\">published an additional report</a> assessing the potential impacts of the proposed constitutional amendment for redistricting in Virginia, particularly the proposed rules for constraints and priorities in drawing districts.</p>"
+        "content": "<p>In June 2018, the Eastern District Court of Virginia ruled 11 of the House of Delegates districts unconstitutional racial gerrymanders. <a href=\"https://mggg.org/VA-report.pdf\">MGGG published a report</a> evaluating the 2011 Enacted House of Delegates plan as well as several of the proposed alternatives.  In April 2019, <a href=\"https://mggg.org/VA-criteria.pdf\">MGGG published a subsequent report</a>, assessing the potential impacts of a proposed constitutional amendment for redistricting in Virginia, particularly the proposed rules for constraints and priorities in drawing districts.</p>"
       },
       {
         "name": "Reform efforts",
