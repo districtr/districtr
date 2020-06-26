@@ -60,7 +60,7 @@ export default class CommunityBrush extends Brush {
                     color: fullColors,
                     useBlendColor: useBlendColor,
                     blendColor: blendColor,
-                    blendHoverColor: changeColorLuminance(blendColor, -0.3)
+                    blendHoverColor: useBlendColor ? changeColorLuminance(blendColor, -0.3) : "#ccc"
                 });
                 // set color again here
                 // fixes a bug where we re-paint the same district repeatedly
