@@ -309,12 +309,12 @@ export function Features(features, onHover, selectedId) {
 function selectLandingPage(feature, target) {
   console.log(feature, target);
   if (feature.properties.isAvailable) {
-    let page = feature.properties.NAME.replace(/\s+/g, '_').toLowerCase();
+    let page = feature.properties.NAME.replace(/\s+/g, '-').toLowerCase();
     if (feature.properties.type === "local") {
-      page = feature.properties.name.replace(/\s+/g, '_').toLowerCase();
+      page = feature.properties.name.replace(/\s+/g, '-').toLowerCase();
     }
-    console.log(page);
-    console.log("window.location.href='/" + page + "'");
+    // console.log(page);
+    // console.log("window.location.href='/" + page + "'");
     return "window.location.href='/" + page + "'";
   } 
   else {

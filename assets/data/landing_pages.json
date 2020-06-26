@@ -63,7 +63,7 @@
     "state": "Arizona",
     "code": "AZ",
     "modules": [
-      {"name": "Arizona", "id": "arizona", "default": "true"}],
+      {"name": "Statewide", "id": "arizona", "default": "true"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
