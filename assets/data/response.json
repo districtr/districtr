@@ -2680,7 +2680,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 3574063,
+              "sum": 3574097,
               "min": 51,
               "max": 15920
             },
@@ -2688,7 +2688,7 @@
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 2546228,
+                "sum": 2546262,
                 "min": 3,
                 "max": 13270
               },
@@ -2749,7 +2749,7 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 2757054,
+              "sum": 2757082,
               "min": 36,
               "max": 15490
             },
@@ -2757,7 +2757,7 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 2046520,
+                "sum": 2046548,
                 "min": 2,
                 "max": 12070
               },
@@ -2819,14 +2819,14 @@
               {
                 "key": "AG18R",
                 "name": "Republican",
-                "sum": 605360,
+                "sum": 605504,
                 "min": 0,
                 "max": 4272
               },
               {
                 "key": "AG18D",
                 "name": "Democratic",
-                "sum": 691391,
+                "sum": 691496,
                 "min": 5,
                 "max": 3228
               }
@@ -2839,14 +2839,14 @@
               {
                 "key": "COMP18R",
                 "name": "Republican",
-                "sum": 562973,
+                "sum": 563099,
                 "min": 0,
                 "max": 4163
               },
               {
                 "key": "COMP18D",
                 "name": "Democratic",
-                "sum": 717920,
+                "sum": 718033,
                 "min": 4,
                 "max": 3296
               }
@@ -2859,14 +2859,14 @@
               {
                 "key": "GOV18R",
                 "name": "Republican",
-                "sum": 624613,
+                "sum": 624750,
                 "min": 0,
                 "max": 4467
               },
               {
                 "key": "GOV18D",
                 "name": "Democratic",
-                "sum": 676537,
+                "sum": 676649,
                 "min": 4,
                 "max": 3248
               }
@@ -2879,14 +2879,14 @@
               {
                 "key": "SOS18R",
                 "name": "Republican",
-                "sum": 557489,
+                "sum": 557616,
                 "min": 0,
                 "max": 3986
               },
               {
                 "key": "SOS18D",
                 "name": "Democratic",
-                "sum": 735628,
+                "sum": 735743,
                 "min": 5,
                 "max": 3335
               }
@@ -2899,14 +2899,14 @@
               {
                 "key": "TRE18R",
                 "name": "Republican",
-                "sum": 569612,
+                "sum": 569737,
                 "min": 0,
                 "max": 4019
               },
               {
                 "key": "TRE18D",
                 "name": "Democratic",
-                "sum": 716890,
+                "sum": 717002,
                 "min": 5,
                 "max": 3250
               }
@@ -2919,14 +2919,14 @@
               {
                 "key": "SEN18R",
                 "name": "Republican",
-                "sum": 545591,
+                "sum": 545717,
                 "min": 0,
                 "max": 3942
               },
               {
                 "key": "SEN18D",
                 "name": "Democratic",
-                "sum": 787558,
+                "sum": 787685,
                 "min": 5,
                 "max": 3600
               }
@@ -2939,14 +2939,14 @@
               {
                 "key": "USH18R",
                 "name": "Republican",
-                "sum": 512373,
+                "sum": 512495,
                 "min": 0,
                 "max": 3924
               },
               {
                 "key": "USH18D",
                 "name": "Democratic",
-                "sum": 808519,
+                "sum": 808652,
                 "min": 4,
                 "max": 3605
               }
@@ -9939,7 +9939,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 2764052,
+              "sum": 2764056,
               "min": 0,
               "max": 6083
             },
@@ -11630,7 +11630,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 588550,
+              "sum": 592024,
               "min": 7,
               "max": 17974
             },
