@@ -13540,28 +13540,28 @@
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 47622,
+                "sum": 47630,
                 "min": 0,
                 "max": 600
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 64993,
+                "sum": 64998,
                 "min": 0,
                 "max": 737
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 279456,
+                "sum": 279474,
                 "min": 0,
                 "max": 1510
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 3649,
+                "sum": 3650,
                 "min": 0,
                 "max": 72
               },
@@ -13601,7 +13601,7 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 326011,
+              "sum": 326039,
               "min": 0,
               "max": 1599
             },
@@ -13609,21 +13609,21 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 38439,
+                "sum": 38447,
                 "min": 0,
                 "max": 568
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 48192,
+                "sum": 48197,
                 "min": 0,
                 "max": 587
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 233320,
+                "sum": 233334,
                 "min": 0,
                 "max": 1327
               },
@@ -13644,7 +13644,7 @@
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 3207,
+                "sum": 3208,
                 "min": 0,
                 "max": 62
               },
