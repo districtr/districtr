@@ -13276,252 +13276,6 @@
     "id": "miamifl",
     "units": [
       {
-        "id": "blockgroups",
-        "name": "Block Groups",
-        "unitType": "Block Groups",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "TOTPOP",
-              "name": "Total population",
-              "sum": 466948,
-              "min": 0,
-              "max": 4890
-            },
-            "subgroups": [
-              {
-                "key": "NH_WHITE",
-                "name": "White population",
-                "sum": 49362,
-                "min": 0,
-                "max": 2122
-              },
-              {
-                "key": "NH_BLACK",
-                "name": "Black population",
-                "sum": 76072,
-                "min": 0,
-                "max": 2208
-              },
-              {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 333461,
-                "min": 0,
-                "max": 3737
-              },
-              {
-                "key": "NH_ASIAN",
-                "name": "Asian population",
-                "sum": 4380,
-                "min": 0,
-                "max": 341
-              },
-              {
-                "key": "NH_AMIN",
-                "name": "American Indian population",
-                "sum": 380,
-                "min": 0,
-                "max": 149
-              },
-              {
-                "key": "NH_NHPI",
-                "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 61,
-                "min": 0,
-                "max": 44
-              },
-              {
-                "key": "NH_2MORE",
-                "name": "Two or more races",
-                "sum": 2660,
-                "min": 0,
-                "max": 161
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 572,
-                "min": 0,
-                "max": 83
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Households by Rental",
-            "subgroups": [
-              {
-                "key": "B25003_002",
-                "name": "Owner-occupied",
-                "sum": 53007,
-                "min": 0,
-                "max": 589
-              },
-              {
-                "key": "B25003_003",
-                "name": "Renter-occupied",
-                "sum": 122541,
-                "min": 0,
-                "max": 2067
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Households by Income",
-            "subgroups": [
-              {
-                "key": "B19001_002",
-                "name": "in_0_10",
-                "sum": 25008,
-                "min": 0,
-                "max": 601
-              },
-              {
-                "key": "B19001_003",
-                "name": "in_10_15",
-                "sum": 13373,
-                "min": 0,
-                "max": 242
-              },
-              {
-                "key": "B19001_004",
-                "name": "in_15_20",
-                "sum": 13541,
-                "min": 0,
-                "max": 330
-              },
-              {
-                "key": "B19001_005",
-                "name": "in_20_25",
-                "sum": 12648,
-                "min": 0,
-                "max": 185
-              },
-              {
-                "key": "B19001_006",
-                "name": "in_25_30",
-                "sum": 10743,
-                "min": 0,
-                "max": 204
-              },
-              {
-                "key": "B19001_007",
-                "name": "in_30_35",
-                "sum": 9534,
-                "min": 0,
-                "max": 180
-              },
-              {
-                "key": "B19001_008",
-                "name": "in_35_40",
-                "sum": 7759,
-                "min": 0,
-                "max": 164
-              },
-              {
-                "key": "B19001_009",
-                "name": "in_40_45",
-                "sum": 7258,
-                "min": 0,
-                "max": 166
-              },
-              {
-                "key": "B19001_010",
-                "name": "in_45_50",
-                "sum": 7452,
-                "min": 0,
-                "max": 146
-              },
-              {
-                "key": "B19001_011",
-                "name": "in_50_60",
-                "sum": 11938,
-                "min": 0,
-                "max": 189
-              },
-              {
-                "key": "B19001_012",
-                "name": "in_60_75",
-                "sum": 13142,
-                "min": 0,
-                "max": 225
-              },
-              {
-                "key": "B19001_013",
-                "name": "in_75_100",
-                "sum": 14364,
-                "min": 0,
-                "max": 433
-              },
-              {
-                "key": "B19001_014",
-                "name": "in_100_125",
-                "sum": 8912,
-                "min": 0,
-                "max": 273
-              },
-              {
-                "key": "B19001_015",
-                "name": "in_125_150",
-                "sum": 4722,
-                "min": 0,
-                "max": 174
-              },
-              {
-                "key": "B19001_016",
-                "name": "in_150_200",
-                "sum": 6006,
-                "min": 0,
-                "max": 360
-              },
-              {
-                "key": "B19001_017",
-                "name": "in_200_plus",
-                "sum": 9148,
-                "min": 0,
-                "max": 314
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "GEOID",
-          "key": "GEOID"
-        },
-        "bounds": [
-          [
-            -80.3186,
-            25.661
-          ],
-          [
-            -80.1237,
-            25.8613
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.miami_bg_blockgroups"
-            },
-            "sourceLayer": "miami_bg_blockgroups"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.miami_bg_blockgroups_points"
-            },
-            "sourceLayer": "miami_bg_blockgroups_points"
-          }
-        ]
-      },
-      {
         "name": "Blocks",
         "id": "blocks",
         "unitType": "Blocks",
@@ -13853,6 +13607,213 @@
                 "sum": 14501,
                 "min": 0,
                 "max": 165
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population",
+              "sum": 2715516,
+              "min": 0,
+              "max": 8874
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 365131,
+                "min": 0,
+                "max": 2927
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 436864,
+                "min": 0,
+                "max": 3358
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 1845646,
+                "min": 0,
+                "max": 7264
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 41372,
+                "min": 0,
+                "max": 724
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 2321,
+                "min": 0,
+                "max": 248
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 590,
+                "min": 0,
+                "max": 107
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 16222,
+                "min": 0,
+                "max": 321
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 7370,
+                "min": 0,
+                "max": 273
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 449056,
+                "min": 0,
+                "max": 1563
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 420995,
+                "min": 0,
+                "max": 2067
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 82208,
+                "min": 0,
+                "max": 601
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 51145,
+                "min": 0,
+                "max": 333
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 50160,
+                "min": 0,
+                "max": 330
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 51039,
+                "min": 0,
+                "max": 268
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 48831,
+                "min": 0,
+                "max": 347
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 42661,
+                "min": 0,
+                "max": 214
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 40391,
+                "min": 0,
+                "max": 222
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 40295,
+                "min": 0,
+                "max": 215
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 35748,
+                "min": 0,
+                "max": 165
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 65277,
+                "min": 0,
+                "max": 237
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 80050,
+                "min": 0,
+                "max": 400
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 92119,
+                "min": 0,
+                "max": 634
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 61538,
+                "min": 0,
+                "max": 404
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 37026,
+                "min": 0,
+                "max": 298
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 40549,
+                "min": 0,
+                "max": 360
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 51014,
+                "min": 0,
+                "max": 427
               }
             ]
           }
