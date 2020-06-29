@@ -13522,8 +13522,8 @@
         ]
       },
       {
-        "id": "blocks",
         "name": "Blocks",
+        "id": "blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -13532,7 +13532,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 399457,
+              "sum": 399489,
               "min": 0,
               "max": 1778
             },
