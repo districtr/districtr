@@ -301,6 +301,41 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
+    if (state.place.id === "miamidade") {
+        let miami = null;
+        fetch("/assets/city_border/miamifl.geojson").then(res => res.json()).then((border) => {
+            state.map.addSource('city_border', {
+                type: 'geojson',
+                data: border
+            });
+
+            miami = new Layer(
+                state.map,
+                {
+                    id: "city_border",
+                    source: "city_border",
+                    type: "line",
+                    paint: {
+                        "line-color": "#000",
+                        "line-opacity": 0.7,
+                        "line-width": 1.5
+                    }
+                }
+            );
+        });
+
+        tab.addSection(
+            () => html`
+                <h4>City of Miami</h4>
+                ${toggle("Show boundary", true, (checked) => {
+                    miami.setOpacity(
+                        checked ? 0.7 : 0
+                    );
+                })}
+            `
+        );
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
@@ -324,19 +359,21 @@ export default function DataLayersPlugin(editor) {
         `
     );
 
-    const demographics18Overlay = new OverlayContainer(
-        "demographics18",
-        demoLayers,
-        state.population18,
-        "Show demographics (2018)"
-    );
+    if (state.population18) {
+        const demographics18Overlay = new OverlayContainer(
+            "demographics18",
+            demoLayers,
+            state.population18,
+            "Show demographics (2018)"
+        );
 
-    tab.addSection(
-        () => html`
-            <h4>Demographics (2018)</h4>
-            ${demographics18Overlay.render()}
-        `
-    );
+        tab.addSection(
+            () => html`
+                <h4>Demographics (2018)</h4>
+                ${demographics18Overlay.render()}
+            `
+        );
+    }
 
     if (state.vap) {
         const vapOverlays = new OverlayContainer(
