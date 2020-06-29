@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import Parameter from "../components/Parameter";
 import Select from "../components/Select";
 import { toggle } from "../components/Toggle";
-import { colorByCount, colorByFraction } from "./color-rules";
+import { colorByCount, purpleByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
@@ -19,9 +19,11 @@ export default class OverlayContainer {
         // and to register new overlay types. Plugins could just register
         // their layer styles against columnSet/subgroup types.
         const colorRule =
-            (firstOnly || this.subgroups[0].total === this.subgroups[0])
-                ? colorByCount
-                : colorByFraction;
+            (this.firstOnly ? purpleByCount
+              : ((this.subgroups[0].total === this.subgroups[0])
+                  ? colorByCount
+                  : colorByFraction)
+            );
 
         this.overlay = new Overlay(
             layers,
@@ -74,14 +76,20 @@ export default class OverlayContainer {
         }
 
         if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i])) {
-            this.overlay.setColorRule(colorByCount);
+            if (this.firstOnly) {
+              this.overlay.setColorRule(purpleByCount);
+            } else {
+                this.overlay.setColorRule(colorByCount);
+            }
 
             let total = this.subgroups[i].max;
             document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
                 let num = Math.floor(total * index / 5);
                 if (num === 0 || total < 100000) {
                     if (num < 1000 || total < 10000) {
-                        if (total < 1000) {
+                        if (total < 100) {
+                            sq.innerText = num.toFixed(1);
+                        } else if (total < 1000) {
                             sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
                         } else {
                             sq.innerText = Math.floor(Math.round(num / 100) * 100).toLocaleString();
@@ -107,7 +115,7 @@ export default class OverlayContainer {
             <div class="ui-option ui-option--slim">
                 ${this.visibilityToggle}
             </div>
-            ${this.firstOnly ? null : (html`<div>
+            ${(this.firstOnly && this.subgroups.length < 3) ? null : (html`<div>
                 ${Parameter({
                     label: "Variable:",
                     element: Select(

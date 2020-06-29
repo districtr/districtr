@@ -605,7 +605,7 @@ export default function MultiLayersPlugin(editor) {
     if (state.incomes) {
         const incomeOverlay = new OverlayContainer(
             "income",
-            state.layers,
+            state.layers.filter(lyr => lyr.id.includes("blockgroups")),
             state.incomes,
             "Map median income",
             true // first layer only
@@ -642,7 +642,8 @@ export default function MultiLayersPlugin(editor) {
             "education",
             state.layers.filter(lyr => lyr.id.includes("blockgroups") || lyr.type === "circle"),
             state.education,
-            "Map Education Level"
+            "Map Education Level",
+            true
         );
         tab.addSection(
             (uiState, dispatch) => html`<h4>Education</h4>
@@ -704,7 +705,8 @@ export default function MultiLayersPlugin(editor) {
             "asthma",
             state.layers.filter(lyr => lyr.id.includes("tract")),
             state.asthma,
-            "Asthma (cities)"
+            "Asthma (only select cities)",
+            true
         );
         tab.addSection(() => html`<h4>
           Health

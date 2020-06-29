@@ -7632,13 +7632,6 @@
           {
             "type": "population",
             "name": "Health issues",
-            "total": {
-              "key": "hundred",
-              "name": "Total fixed to 100",
-              "sum": 219200,
-              "min": 100,
-              "max": 100
-            },
             "subgroups": [
               {
                 "key": "asthma_2016",
