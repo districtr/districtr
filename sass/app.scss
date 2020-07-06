@@ -140,6 +140,11 @@ select {
     }
 }
 
+.modal-wrapper code {
+    user-select: all;
+    -webkit-user-select: text;
+}
+
 #save-popup {
     display: none;
     visibility: hidden;
@@ -169,6 +174,8 @@ select {
         code {
             display: block;
             word-break: break-all;
+            user-select: all;
+            -webkit-user-select: text;
         }
 
         button {
