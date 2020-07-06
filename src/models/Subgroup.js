@@ -6,6 +6,7 @@ export class Subgroup extends NumericalColumn {
         super(args);
         this.columnSet = columnSet;
         this.data = zeros(parts.length);
+        this.total_alt = args.total_alt;
 
         this.update = this.update.bind(this);
         this.fractionAsMapboxExpression = this.fractionAsMapboxExpression.bind(
@@ -16,7 +17,7 @@ export class Subgroup extends NumericalColumn {
         this.getOverallFraction = this.getOverallFraction.bind(this);
     }
     get total() {
-        return this.columnSet.total;
+        return this.total_alt ? this.columnSet.total_alt : this.columnSet.total;
     }
     getFractionFromFeature(feature) {
         return this.getValue(feature) / this.total.getValue(feature);

@@ -39,21 +39,21 @@ export function getParts(problem) {
 }
 
 function getPopulation(place, parts) {
-    const population = place.columnSets.find(
+    let population = place.columnSets.find(
         columnSet => columnSet.name === "Population"
     );
-    return new Population({ ...population, parts });
-}
-
-function getPopulation18(place, parts) {
-    const population = place.columnSets.find(
+    let population18 = place.columnSets.find(
         columnSet => columnSet.name === "Population (2018)"
     );
-    if (population) {
-        return new Population({ ...population, parts });
-    } else {
-        return null;
+    if (population18) {
+        population18.subgroups.forEach(sg => {
+            sg.name += " (2018)";
+            sg.total_alt = true;
+            population.subgroups.push(sg);
+        });
+        population.total_alt = population18.total;
     }
+    return new Population({ ...population, parts });
 }
 
 function getVAP(place, parts) {
@@ -129,7 +129,6 @@ export function getColumnSets(state, unitsRecord) {
     state.elections = getElections(unitsRecord, state.parts);
     state.population = getPopulation(unitsRecord, state.parts);
     state.vap = getVAP(unitsRecord, state.parts);
-    state.population18 = getPopulation18(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
     state.incomes = getIncomes(unitsRecord, state.parts);
     state.rent = getRent(unitsRecord, state.parts);
@@ -147,13 +146,6 @@ export function getColumnSets(state, unitsRecord) {
             ...state.columns,
             ...state.vap.subgroups,
             state.vap.total
-        ];
-    }
-    if (state.population18) {
-        state.columns = [
-            ...state.columns,
-            ...state.population18.subgroups,
-            state.population18.total
         ];
     }
     if (state.ages) {
@@ -181,9 +173,6 @@ export function getColumnSets(state, unitsRecord) {
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
         columnSets.push(state.vap);
-    }
-    if (state.population18) {
-        columnSets.push(state.population18);
     }
     if (state.ages) {
         columnSets.push(state.ages);

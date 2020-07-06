@@ -354,26 +354,10 @@ export default function DataLayersPlugin(editor) {
 
     tab.addSection(
         () => html`
-            <h4>Demographics (2010)</h4>
+            <h4>Demographics</h4>
             ${demographicsOverlay.render()}
         `
     );
-
-    if (state.population18) {
-        const demographics18Overlay = new OverlayContainer(
-            "demographics18",
-            demoLayers,
-            state.population18,
-            "Show demographics (2018)"
-        );
-
-        tab.addSection(
-            () => html`
-                <h4>Demographics (2018)</h4>
-                ${demographics18Overlay.render()}
-            `
-        );
-    }
 
     if (state.vap) {
         const vapOverlays = new OverlayContainer(
