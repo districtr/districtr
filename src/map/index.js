@@ -229,7 +229,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     );
 
     // cities in Communities of Interest will have a thick border
-    if (["austin", "chicago", "lowell", "ontarioca", "philadelphia", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa"].includes(borderId)) {
+    if (["austin", "chicago", "lowell", "ontarioca", "philadelphia", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa", "miamifl"].includes(borderId)) {
         fetch(`/assets/city_border/${borderId}.geojson`)
             .then(res => res.json())
             .then((geojson) => {

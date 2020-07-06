@@ -2,7 +2,7 @@ import { SumOfColumns } from "./NumericalColumn";
 import { Subgroup } from "./Subgroup";
 
 export default class ColumnSet {
-    constructor({ subgroups, total, parts, type }, sort = true) {
+    constructor({ subgroups, total, total_alt, parts, type }, sort = true) {
         this.type = type;
         this.subgroups = subgroups
             ? subgroups.map(
@@ -32,6 +32,13 @@ export default class ColumnSet {
                 parts
             });
         }
+        if (total_alt) {
+            this.total_alt = new Subgroup({
+                ...total_alt,
+                parts,
+                columnSet: this
+            });
+        }
 
         this.update = this.update.bind(this);
     }
@@ -54,5 +61,13 @@ function sortable(subgroups) {
 }
 
 function sortSubgroups(subgroups) {
-    return subgroups.sort((s, t) => t.sum - s.sum);
+    return subgroups.sort((s, t) => {
+        if (s.name.includes("(") && !t.name.includes("(")) {
+            return 1;
+        } else if (t.name.includes("(") && !s.name.includes("(")) {
+            return -1;
+        } else {
+            return t.sum - s.sum;
+        }
+    });
 }

@@ -39,9 +39,20 @@ export function getParts(problem) {
 }
 
 function getPopulation(place, parts) {
-    const population = place.columnSets.find(
+    let population = place.columnSets.find(
         columnSet => columnSet.name === "Population"
     );
+    let population18 = place.columnSets.find(
+        columnSet => columnSet.name === "Population (2018)"
+    );
+    if (population18) {
+        population18.subgroups.forEach(sg => {
+            sg.name += " (2018)";
+            sg.total_alt = true;
+            population.subgroups.push(sg);
+        });
+        population.total_alt = population18.total;
+    }
     return new Population({ ...population, parts });
 }
 
@@ -62,6 +73,28 @@ function getAges(place, parts) {
     );
     if (ages) {
         return new Population({ ...ages, parts });
+    } else {
+        return null;
+    }
+}
+
+function getIncomes(place, parts) {
+    const incomes = place.columnSets.find(
+        columnSet => columnSet.name === "Households by Income"
+    );
+    if (incomes) {
+        return new Population({ ...incomes, parts });
+    } else {
+        return null;
+    }
+}
+
+function getRent(place, parts) {
+    const rent = place.columnSets.find(
+        columnSet => columnSet.name === "Households by Rental"
+    );
+    if (rent) {
+        return new Population({ ...rent, parts });
     } else {
         return null;
     }
@@ -97,6 +130,8 @@ export function getColumnSets(state, unitsRecord) {
     state.population = getPopulation(unitsRecord, state.parts);
     state.vap = getVAP(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
+    state.incomes = getIncomes(unitsRecord, state.parts);
+    state.rent = getRent(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -120,6 +155,20 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.incomes) {
+        state.columns = [
+            ...state.columns,
+            ...state.incomes.subgroups
+            // no total
+        ];
+    }
+    if (state.rent) {
+        state.columns = [
+            ...state.columns,
+            ...state.rent.subgroups
+            // no total
+        ];
+    }
 
     let columnSets = [state.population, ...state.elections];
     if (state.vap) {
@@ -127,6 +176,12 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.ages) {
         columnSets.push(state.ages);
+    }
+    if (state.incomes) {
+        columnSets.push(state.incomes);
+    }
+    if (state.rent) {
+        columnSets.push(state.rent);
     }
     return columnSets;
 }
