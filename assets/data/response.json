@@ -13119,6 +13119,197 @@
     ]
   },
   {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1449224,
+              "min": 0,
+              "max": 4320
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 674074,
+                "min": 0,
+                "max": 1687
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 87024,
+                "min": 0,
+                "max": 579
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 591451,
+                "min": 0,
+                "max": 1936
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 43991,
+                "min": 0,
+                "max": 988
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 23455,
+                "min": 0,
+                "max": 204
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2062,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 24922,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 2245,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1039680,
+              "min": 0,
+              "max": 3983
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 550505,
+                "min": 0,
+                "max": 1562
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 61795,
+                "min": 0,
+                "max": 541
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 360735,
+                "min": 0,
+                "max": 1668
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 16775,
+                "min": 0,
+                "max": 182
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1491,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 33792,
+                "min": 0,
+                "max": 847
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1424,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 13163,
+                "min": 0,
+                "max": 65
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -112.3109,
+            33.2903
+          ],
+          [
+            -111.9253,
+            33.9184
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.phoenix_blocks"
+            },
+            "sourceLayer": "phoenix_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.phoenix_blocks_points"
+            },
+            "sourceLayer": "phoenix_blocks_points"
+          }
+        ]
+      }
+    ],
+    "name": "Phoenix",
+    "state": "Arizona",
+    "id": "phoenix",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 8,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
     "id": "nwaz",
     "state": "Arizona",
     "name": "North and West Zone",
