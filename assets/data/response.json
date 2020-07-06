@@ -13121,7 +13121,8 @@
   {
     "id": "nwaz",
     "state": "Arizona",
-    "name": "Northwest",
+    "name": "North and West Zone",
+    "limit": "community",
     "units": [
       {
         "id": "blocks",
@@ -13310,7 +13311,8 @@
     ]
   },
   {
-    "name": "Southeast",
+    "name": "Southeast Zone",
+    "limit": "community",
     "id": "seaz",
     "state": "Arizona",
     "units": [

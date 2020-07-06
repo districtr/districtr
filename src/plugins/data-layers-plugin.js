@@ -133,7 +133,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Nations";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington", "arizona"].includes(state.place.id)) {
+    } else if (["ma", "rhode_island", "washington", "arizona"].includes(state.place.id) || (state.place.state === "Arizona")) {
         native_am_type = "Nations and Tribes";
     } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
@@ -141,7 +141,12 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Tribes and Communities";
     }
 
-    fetch(`/assets/native_official/${state.place.id}.geojson`)
+    const shared_az = {
+        maricopa: "arizona",
+        nwaz: "arizona",
+        seaz: "arizona"
+    };
+    fetch(`/assets/native_official/${shared_az[state.place.id] || state.place.id}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -177,7 +182,7 @@ export function addAmerIndianLayer(tab, state) {
         });
 
         if (amin_type === "brown3" || amin_type === "shades") {
-            fetch(`/assets/native_official/${state.place.id}_centroids.geojson`)
+            fetch(`/assets/native_official/${shared_az[state.place.id] || state.place.id}_centroids.geojson`)
                 .then(res => res.json())
                 .then((centroids) => {
 

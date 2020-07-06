@@ -244,6 +244,15 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
       },
+      maricopa: {
+        native_american: true,
+      },
+      nwaz: {
+        native_american: true,
+      },
+      seaz: {
+        native_american: true,
+      },
       chicago: {
         number_markers: true,
       },
