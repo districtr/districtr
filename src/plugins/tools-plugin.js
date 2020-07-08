@@ -38,7 +38,7 @@ export default function ToolsPlugin(editor) {
 
         if (["iowa", "texas"].includes(state.place.id)) {
             console.log("making request");
-            const GERRYCHAIN_URL = "http://lieu.pythonanywhere.com";
+            const GERRYCHAIN_URL = "//lieu.pythonanywhere.com";
             fetch(GERRYCHAIN_URL, {
                 method: "POST",
                 headers: {
