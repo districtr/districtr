@@ -129,7 +129,7 @@ function addUnits(map, parts, tileset, layerAdder) {
     const unitsBorders = new Layer(
         map,
         {
-            id: "units-borders",
+            id: tileset.sourceLayer + "-borders",
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
@@ -145,7 +145,7 @@ function addPoints(map, tileset, layerAdder) {
     return new Layer(
         map,
         {
-            id: "units-points",
+            id: tileset.sourceLayer + "-points",
             type: "circle",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
@@ -182,6 +182,18 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
+function addBGs(map, tileset, layerAdder) {
+    return new Layer(map, {
+        id: "extra-bgs",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
+}
+
 export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
@@ -198,6 +210,11 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     const points = addPoints(
         map,
         tilesets.find(tileset => tileset.type === "circle"),
+        layerAdder
+    );
+    const bg_areas = addBGs(
+        map,
+        tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
         layerAdder
     );
 
@@ -279,5 +296,5 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas };
 }

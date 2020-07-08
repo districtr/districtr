@@ -381,21 +381,38 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.incomes) {
-        tab.addSection(
-            (uiState, dispatch) =>  html`<h4>Individual Income</h4>
-            <div>
-                <div class="centered">
-                  <strong>Histogram</strong>
-                </div>
-                ${IncomeHistogramTable(
-                    "Income Histograms",
-                    state.incomes,
-                    state.activeParts,
-                    uiState.charts["Income Histograms"],
-                    dispatch
-                )}
-            </div>`
-        );
+        if (state.place.state === "Arizona") {
+            const incomeOverlay = new OverlayContainer(
+                "income",
+                state.layers.filter(lyr => lyr.id.includes("bgs")),
+                state.incomes,
+                "Map median income",
+                true // first layer only
+            );
+
+            tab.addSection(
+                (uiState, dispatch) =>  html`<h4>Household Income</h4>
+                <div>
+                    ${incomeOverlay.render()}
+                </div>`
+            );
+        } else {
+            tab.addSection(
+                (uiState, dispatch) =>  html`<h4>Household Income</h4>
+                <div>
+                    <div class="centered">
+                      <strong>Histogram</strong>
+                    </div>
+                    ${IncomeHistogramTable(
+                        "Income Histograms",
+                        state.incomes,
+                        state.activeParts,
+                        uiState.charts["Income Histograms"],
+                        dispatch
+                    )}
+                </div>`
+            );
+        }
     }
 
     if (state.rent) {
