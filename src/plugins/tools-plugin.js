@@ -33,7 +33,25 @@ export default function ToolsPlugin(editor) {
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = ContiguityChecker(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
-        savePlanToStorage(state.serialize());
+        let saveplan = state.serialize();
+        savePlanToStorage(saveplan);
+
+        if (["iowa", "texas"].includes(state.place.id)) {
+            console.log("making request");
+            const GERRYCHAIN_URL = "http://lieu.pythonanywhere.com";
+            fetch(GERRYCHAIN_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(saveplan),
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                return data;
+            });
+        }
 
         c_checker(state, colorsAffected);
 
