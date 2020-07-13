@@ -135,7 +135,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Nations";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington", "arizona"].includes(state.place.id) || (state.place.state === "Arizona")) {
+    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
     } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
@@ -432,7 +432,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.incomes) {
-        if (state.place.state === "Arizona") {
+        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
             const incomeOverlay = new OverlayContainer(
                 "income",
                 state.layers.filter(lyr => lyr.id.includes("bgs")),
