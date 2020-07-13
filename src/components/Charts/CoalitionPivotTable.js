@@ -81,7 +81,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
     const visibleParts = parts.filter(part => part.visible);
     let fullsum = 0,
         mockData = [],
-        selectSGs = columnSet.subgroups.filter(sg => uiState.charts[chartId][sg.key]);
+        selectSGs = columnSet.subgroups.filter(sg => window.coalitionGroups[sg.key]);
     selectSGs.forEach(sg => {
         fullsum += sg.sum;
         sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
@@ -98,16 +98,6 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
             });
             return portion;
         },
-        fractionAsMapboxExpression: () => [
-            "case",
-            ["==", ["get", "TOTPOP"], 0],
-                0,
-            [
-                "/",
-                ["+"].concat(selectSGs.map(sg => ["get", sg.key])),
-                columnSet.subgroups[0].total.asMapboxExpression()
-            ]
-        ],
         sum: fullsum,
         total: columnSet.subgroups[0].total
     };
@@ -117,63 +107,8 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
       subgroups: [coalitionSubgroup]
     };
 
-    function createLayer(layer) {
-        let layerSpec = {
-            id: `${layer.id}-overlay-${generateId(8)}`,
-            source: layer.sourceId,
-            type: layer.type,
-            paint: {
-                'fill-opacity': 0,
-                'fill-color': '#444'
-            }
-        };
-        if (layer.sourceLayer !== undefined) {
-            layerSpec["source-layer"] = layer.sourceLayer;
-        }
-        return new Layer(layer.map, layerSpec, addBelowLabels);
-    }
-    if (!window.unitLayer) {
-        window.unitLayer = createLayer(units);
-    } else {
-        if (selectSGs.length > 0) {
-            window.unitLayer.setPaintProperty('fill-color', [
-                "interpolate",
-                ["linear"],
-                coalitionSubgroup.fractionAsMapboxExpression(),
-                0,
-                "rgba(0,0,0,0)",
-                0.499,
-                "rgba(0,0,0,0)",
-                0.5,
-                "rgba(249,249,249,0)",
-                1,
-                "rgba(0,0,139,1)"
-            ]);
-        } else {
-            window.unitLayer.setPaintProperty('fill-color', 'rgba(0, 0, 0, 0)');
-        }
-    }
-
     return html`
         <section class="toolbar-section" style="padding:10px;">
-            ${toggle("Map coalition majority districts", uiState.charts[chartId].coalitionActive, (checked) => {
-                window.unitLayer.setOpacity(checked ? 0.4 : 0);
-            }, "toggle_coalition_map")}
-            <br/>
-            ${Parameter({
-                label: "Components:",
-                element: html`<div>
-                    ${columnSet.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
-                        ${toggle(sg.name.replace(" population", ""), false, checked =>
-                            dispatch(actions.selectCoalitionPop({
-                                chart: chartId,
-                                subgroup: sg
-                            })),
-                            "toggle_" + sg.key
-                        )}
-                    </div>`)}
-                </div>`
-            })}
             ${visibleParts.length > 1
                 ? Parameter({
                       label: "Community:",

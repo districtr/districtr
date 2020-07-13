@@ -13403,6 +13403,131 @@
                 "max": 65
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 34108,
+                "min": 0,
+                "max": 303
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 22972,
+                "min": 0,
+                "max": 184
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 24254,
+                "min": 0,
+                "max": 331
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 24102,
+                "min": 0,
+                "max": 249
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 24379,
+                "min": 0,
+                "max": 349
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 21843,
+                "min": 0,
+                "max": 292
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 19571,
+                "min": 0,
+                "max": 229
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 20338,
+                "min": 0,
+                "max": 223
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 17755,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 33736,
+                "min": 0,
+                "max": 574
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 39707,
+                "min": 0,
+                "max": 563
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 43904,
+                "min": 0,
+                "max": 444
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 24664,
+                "min": 0,
+                "max": 326
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 13626,
+                "min": 0,
+                "max": 263
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 12389,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 9305,
+                "min": 0,
+                "max": 191
+              },
+              {
+                "key": "B19013_001",
+                "name": "Median Income",
+                "sum": 30118559,
+                "min": 0,
+                "max": 118048
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -14133,133 +14258,6 @@
     ]
   },
   {
-    "name": "Arizona",
-    "state": "Arizona",
-    "units": [
-      {
-        "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "TOTPOP",
-              "name": "Total population",
-              "sum": 6392017,
-              "min": 0,
-              "max": 5426
-            },
-            "subgroups": [
-              {
-                "key": "NH_WHITE",
-                "name": "White population",
-                "sum": 3695647,
-                "min": 0,
-                "max": 2517
-              },
-              {
-                "key": "NH_BLACK",
-                "name": "Black population",
-                "sum": 239101,
-                "min": 0,
-                "max": 1087
-              },
-              {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 1895149,
-                "min": 0,
-                "max": 3078
-              },
-              {
-                "key": "NH_ASIAN",
-                "name": "Asian population",
-                "sum": 170509,
-                "min": 0,
-                "max": 988
-              },
-              {
-                "key": "NH_AMIN",
-                "name": "American Indian population",
-                "sum": 257426,
-                "min": 0,
-                "max": 1196
-              },
-              {
-                "key": "NH_NHPI",
-                "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 10959,
-                "min": 0,
-                "max": 895
-              },
-              {
-                "key": "NH_2MORE",
-                "name": "Two or more races",
-                "sum": 114631,
-                "min": 0,
-                "max": 126
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 8595,
-                "min": 0,
-                "max": 36
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Geo ID",
-          "key": "GEOID10"
-        },
-        "bounds": [
-          [
-            -114.8166,
-            31.3322
-          ],
-          [
-            -109.0452,
-            37.0043
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.arizona2_blocks"
-            },
-            "sourceLayer": "arizona2_blocks"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.arizona2_blocks_points"
-            },
-            "sourceLayer": "arizona2_blocks_points"
-          }
-        ]
-      }
-    ],
-    "id": "arizona2",
-    "districtingProblems": [
-      {
-        "name": "Congress",
-        "numberOfParts": 9,
-        "pluralNoun": "Congressional Districts"
-      },
-      {
-        "name": "Congress",
-        "numberOfParts": 10,
-        "pluralNoun": "Congressional Districts"
-      }
-    ]
-  },
-  {
     "name": "Yuma County",
     "units": [
       {
@@ -14404,6 +14402,131 @@
                 "max": 29
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 34108,
+                "min": 0,
+                "max": 303
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 22972,
+                "min": 0,
+                "max": 184
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 24254,
+                "min": 0,
+                "max": 331
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 24102,
+                "min": 0,
+                "max": 249
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 24379,
+                "min": 0,
+                "max": 349
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 21843,
+                "min": 0,
+                "max": 292
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 19571,
+                "min": 0,
+                "max": 229
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 20338,
+                "min": 0,
+                "max": 223
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 17755,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 33736,
+                "min": 0,
+                "max": 574
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 39707,
+                "min": 0,
+                "max": 563
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 43904,
+                "min": 0,
+                "max": 444
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 24664,
+                "min": 0,
+                "max": 326
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 13626,
+                "min": 0,
+                "max": 263
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 12389,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 9305,
+                "min": 0,
+                "max": 191
+              },
+              {
+                "key": "B19013_001",
+                "name": "Median Income",
+                "sum": 30118559,
+                "min": 0,
+                "max": 118048
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -14436,6 +14559,14 @@
               "url": "mapbox://districtr.yuma_blocks_points"
             },
             "sourceLayer": "yuma_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nwaz_bg_blockgroups"
+            },
+            "sourceLayer": "nwaz_bg_blockgroups"
           }
         ]
       }

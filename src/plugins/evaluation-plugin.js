@@ -3,6 +3,7 @@ import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -78,6 +79,18 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+
+    const coalitionPivot = CoalitionPivotTable(
+        "Forming Coalitions",
+        state.population,
+        state.place.name,
+        state.parts,
+        state.units
+    );
+    tab.addRevealSection("Forming Coalitions", coalitionPivot, {
+        isOpen: true,
+        activePartIndex: 0
+    });
 
     // if (state.plan.problem.type !== "community"
     //     && (["alaska", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "michigan", "minnesota", "mississippi", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id))

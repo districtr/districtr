@@ -13,7 +13,7 @@ export default function CommunityPlugin(editor) {
     const about = new AboutSection(editor);
     tab.addRevealSection("About Your Community", about.render);
 
-    const evaluationTab = new Tab("population", "Population", editor.store);
+    const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
         "Population",
         state.population,

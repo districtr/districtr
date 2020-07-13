@@ -188,6 +188,7 @@ function addBGs(map, tileset, layerAdder) {
         type: "fill",
         source: tileset.sourceLayer,
         "source-layer": tileset.sourceLayer,
+        background: true,
         paint: {
             "fill-opacity": 0
         }
@@ -212,11 +213,14 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
-    const bg_areas = addBGs(
-        map,
-        tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
-        layerAdder
-    );
+    let bg_areas = null;
+    if (["yuma", "nwaz", "seaz", "maricopa", "phoenix"].includes(borderId)) {
+        bg_areas = addBGs(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
+            layerAdder
+        );
+    }
 
     let swipeUnits = null,
         swipeUnitsBorders = null,

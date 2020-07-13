@@ -24,7 +24,7 @@ function getPlugins(context) {
 }
 
 function getMapStyle(context) {
-    if (context.problem.type === "community") {
+    if (context.problem.type === "community" && context.place.state !== "Arizona") {
         return "mapbox://styles/mapbox/streets-v11";
     } else {
         return "mapbox://styles/mapbox/light-v10";
