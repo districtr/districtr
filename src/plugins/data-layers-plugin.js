@@ -383,7 +383,7 @@ export default function DataLayersPlugin(editor) {
 
         tab.addSection(
             (uiState, dispatch) => html`
-              <h4>Forming Coalitions</h4>
+              <h4>Coalition Builder</h4>
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
