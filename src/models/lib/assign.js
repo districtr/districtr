@@ -57,7 +57,7 @@ function assignFeatures(state, assignment, assigned) {
     let successes = 0;
     while (features.length > 0) {
         let feature = features.pop();
-        if (state.hasExpectedData(feature)) {
+        if (true) { //state.hasExpectedData(feature)) {
             let unitId = state.idColumn.getValue(feature);
             if (
                 assigned[unitId] !== true &&
