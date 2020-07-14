@@ -41,14 +41,6 @@ export const handlers = {
             activePartIndex: action.partIndex
         }
     }),
-    selectCoalitionPop: (state, action) => {
-        let originState = state[action.chart];
-        originState[action.subgroup.key] = !originState[action.subgroup.key]
-        return {
-            ...state,
-            [action.chart]: originState
-        };
-    },
     selectAgeView: (state, action) => ({
         ...state,
         [action.chart]: {

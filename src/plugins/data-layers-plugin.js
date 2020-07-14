@@ -381,10 +381,6 @@ export default function DataLayersPlugin(editor) {
                           window.coalitionGroups[sg.key] = checked;
                           window.coalitionGroups[vapEquivalents[sg.key]] = checked;
                           coalitionOverlays.forEach(cat => cat.overlay.repaint());
-                          // dispatch(actions.selectCoalitionPop({
-                          //     chart: chartId,
-                          //     subgroup: sg
-                          // }))
                         },
                         "toggle_" + sg.key
                       )}
