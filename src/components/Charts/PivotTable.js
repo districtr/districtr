@@ -71,11 +71,45 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
 
 export default DistrictEvaluationTable;
 
-export const PivotTable = (chartId, columnSet, placeName, parts) => (
+export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnabled) => (
     uiState,
     dispatch
 ) => {
     const visibleParts = parts.filter(part => part.visible);
+    let mockColumnSet = columnSet;
+
+    if (coalitionEnabled) {
+
+        let fullsum = 0,
+            mockData = [],
+            selectSGs = columnSet.subgroups.filter(sg => window.coalitionGroups[sg.key]);
+        selectSGs.forEach(sg => {
+            fullsum += sg.sum;
+            sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
+        });
+
+        let coalitionSubgroup = {
+            data: mockData,
+            key: 'coal',
+            name: (selectSGs.length > 1 ? 'Coalition' : (selectSGs[0] || {name: 'None'}).name),
+            getAbbreviation: () => "Coalition",
+            getFractionInPart: (p) => {
+                let portion = 0;
+                selectSGs.forEach((selected) => {
+                    portion += selected.getFractionInPart(p);
+                });
+                return portion;
+            },
+            sum: fullsum,
+            total: columnSet.subgroups[0].total
+        };
+
+        mockColumnSet = {
+          ...columnSet,
+          subgroups: columnSet.subgroups.concat([coalitionSubgroup])
+        };
+    }
+
     return html`
         <section class="toolbar-section">
             ${visibleParts.length > 1
@@ -92,7 +126,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts) => (
                   })
                 : ""}
             ${DistrictEvaluationTable(
-                columnSet,
+                mockColumnSet,
                 placeName,
                 parts[uiState.charts[chartId].activePartIndex]
             )}
