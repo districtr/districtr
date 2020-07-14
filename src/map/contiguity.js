@@ -1,31 +1,52 @@
+function setNumCutEdges(json_response) {
+  let cut_edges_str = json_response["cut_edges"]; // this is a string
+  cut_edges_str = cut_edges_str.slice(1, cut_edges_str.length - 1);
+  console.log(cut_edges_str);
 
-function setContiguityStatus(contiguities, dnum) {
-    try {
-        document.querySelector(`#contiguity-${dnum}`).style.display =
-            contiguities[dnum] ? "none" : "flex";
+  let cut_edges = cut_edges_str.split(",");
+  console.log(cut_edges);
 
-        let foundDiscontiguity = false;
-        Object.keys(contiguities).forEach((d) => {
-            if (!contiguities[d]) {
-                foundDiscontiguity = true;
-            }
-        });
-        document.querySelector("#contiguity-status").innerText =
-            foundDiscontiguity
-                ? "Districts may have contiguity gaps"
-                : "Any districts are contiguous"
-    } catch(e) { }
+  document.querySelector("#num-cut-edges").innerText = cut_edges.length;
+  document.querySelector("#cut-edges").innerText = cut_edges;
+}
+
+function setContiguityStatus(contiguity_object, dnum) {
+  let contiguous = contiguity_object["contiguity"];
+  console.log(contiguous);
+  document.querySelector("#contiguity-status").innerText = !contiguous
+    ? "Districts may have contiguity gaps"
+    : "Any districts are contiguous";
 }
 
 export default function ContiguityChecker(state, brush) {
-    if (!state.contiguity) {
-        state.contiguity = {};
+  if (!state.contiguity) {
+    state.contiguity = {};
+  }
+
+  const updater = (state, colorsAffected) => {
+    let saveplan = state.serialize();
+    if (["iowa", "texas"].includes(state.place.id)) {
+      console.log("making request");
+      const GERRYCHAIN_URL = "//lieu.pythonanywhere.com";
+      fetch(GERRYCHAIN_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(saveplan),
+      })
+        .then((res) => res.json())
+        .catch((e) => console.error(e))
+        .then((data) => {
+          console.log(data);
+          setContiguityStatus(data, -999);
+          setNumCutEdges(data);
+          return data;
+        });
     }
+    return;
 
-    const updater = (state, colorsAffected) => {
-        // deactivate
-        return;
-
+    /*
         let assignment = state.plan.assignment,
             source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
             place = source || state.place.id,
@@ -86,14 +107,15 @@ export default function ContiguityChecker(state, brush) {
                 }
             });
         });
-    };
+        */
+  };
 
-    let allDistricts = [],
-        i = 0;
-    while (i < state.problem.numberOfParts) {
-        allDistricts.push(i);
-        i++;
-    }
-    updater(state, allDistricts);
-    return updater;
+  let allDistricts = [],
+    i = 0;
+  while (i < state.problem.numberOfParts) {
+    allDistricts.push(i);
+    i++;
+  }
+  updater(state, allDistricts);
+  return updater;
 }
