@@ -12928,6 +12928,48 @@
     "id": "oklahoma"
   },
   {
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [{
+            "id": 1,
+            "type": "Feature",
+            "properties": {
+              "name": "Arizona State Prison"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [[
+                [
+                  -112.659087,
+                  33.203863
+                ],
+                [
+                  -112.64956,
+                  33.202391
+                ],
+                [
+                  -112.646685,
+                  33.21549683
+                ],
+                [
+                  -112.656126,
+                  33.21675345
+                ],
+                [
+                  -112.659087,
+                  33.203863
+                ]
+              ]]
+            }
+          }]
+        }
+      }
+    },
     "units": [
       {
         "id": "blocks",
