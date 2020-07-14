@@ -83,7 +83,7 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
 
 export default DistrictEvaluationTable;
 
-export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units, totalOnly) => (
+export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units, totalOnly, districtView) => (
     uiState,
     dispatch
 ) => {
@@ -116,11 +116,14 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units,
       subgroups: [coalitionSubgroup]
     };
 
+    // support nameless districts and communities
+    visibleParts.forEach((p, i) => p.name = p.name || ("District " + (i + 1)));
+
     return html`
         <section class="toolbar-section" style=${{ padding: totalOnly ? 0 : 10 }}>
             ${!totalOnly && visibleParts.length > 1
                 ? Parameter({
-                      label: "Community:",
+                      label: (districtView ? "District:" : "Community:"),
                       element: Select(visibleParts, i =>
                           dispatch(
                               actions.selectPart({

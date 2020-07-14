@@ -87,7 +87,9 @@ export default function EvaluationPlugin(editor) {
             state.population,
             state.place.name,
             state.parts,
-            state.units
+            state.units,
+            false, // single total
+            true // districts
         );
         tab.addRevealSection("Coalition Builder", coalitionPivot, {
             isOpen: true,
