@@ -357,9 +357,10 @@ export default function DataLayersPlugin(editor) {
     // layer types for different columnSet types and have
     // that determine what is rendered.
 
-    window.coalitionGroups = {};
-    let coalitionOverlays = [],
-        vapEquivalents = {
+    let coalitionOverlays = [];
+    if (spatial_abilities(state.place.id).coalition) {
+        window.coalitionGroups = {};
+        let vapEquivalents = {
           NH_WHITE: 'WVAP',
           NH_BLACK: 'BVAP',
           HISP: 'HVAP',
@@ -370,25 +371,26 @@ export default function DataLayersPlugin(editor) {
           NH_OTHER: 'OTHERVAP'
         };
 
-    tab.addSection(
-        (uiState, dispatch) => html`
-          <h4>Forming Coalitions</h4>
-          ${Parameter({
-              label: "Components:",
-              element: html`<div>
-                  ${state.population.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
-                      ${toggle(sg.name.replace(" population", ""), false, checked => {
-                          window.coalitionGroups[sg.key] = checked;
-                          window.coalitionGroups[vapEquivalents[sg.key]] = checked;
-                          coalitionOverlays.forEach(cat => cat.overlay.repaint());
-                        },
-                        "toggle_" + sg.key
-                      )}
-                  </div>`)}
-              </div>`
-          })}
-        `
-    );
+        tab.addSection(
+            (uiState, dispatch) => html`
+              <h4>Forming Coalitions</h4>
+              ${Parameter({
+                  label: "Components:",
+                  element: html`<div>
+                      ${state.population.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
+                          ${toggle(sg.name.replace(" population", ""), false, checked => {
+                              window.coalitionGroups[sg.key] = checked;
+                              window.coalitionGroups[vapEquivalents[sg.key]] = checked;
+                              coalitionOverlays.forEach(cat => cat.overlay.repaint());
+                            },
+                            "toggle_" + sg.key
+                          )}
+                      </div>`)}
+                  </div>`
+              })}
+            `
+        );
+    }
 
     const demographicsOverlay = new OverlayContainer(
         "demographics",

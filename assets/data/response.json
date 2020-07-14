@@ -12939,7 +12939,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 3817117,
               "min": 0,
               "max": 5084
@@ -13008,7 +13008,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 2809256,
               "min": 0,
               "max": 5084
@@ -13159,7 +13159,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 1449224,
               "min": 0,
               "max": 4320
@@ -13228,7 +13228,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 1039680,
               "min": 0,
               "max": 3983
@@ -13383,7 +13383,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 994444,
               "min": 0,
               "max": 2404
@@ -13452,7 +13452,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 756155,
               "min": 0,
               "max": 2404
@@ -13604,7 +13604,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 1580456,
               "min": 0,
               "max": 5426
@@ -13673,7 +13673,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 1197592,
               "min": 0,
               "max": 5426
@@ -13822,7 +13822,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 195751,
               "min": 0,
               "max": 2404
@@ -13891,7 +13891,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 140566,
               "min": 0,
               "max": 2404
@@ -14035,7 +14035,7 @@
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total population",
+              "name": "Total population (2010 Census)",
               "sum": 6392017,
               "min": 0,
               "max": 40132
@@ -14104,7 +14104,7 @@
             "name": "Voting Age Population",
             "total": {
               "key": "VAP",
-              "name": "Voting age population",
+              "name": "Voting age population (2010 Census)",
               "sum": 4763003,
               "min": 0,
               "max": 32343
