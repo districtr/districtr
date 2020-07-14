@@ -12984,7 +12984,7 @@
               "name": "Total population (2010 Census)",
               "sum": 3817117,
               "min": 0,
-              "max": 5084
+              "max": 3000
             },
             "subgroups": [
               {
@@ -13204,7 +13204,7 @@
               "name": "Total population (2010 Census)",
               "sum": 1449224,
               "min": 0,
-              "max": 4320
+              "max": 3000
             },
             "subgroups": [
               {

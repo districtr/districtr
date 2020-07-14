@@ -103,6 +103,8 @@ export default class OverlayContainer {
                     if (num < 1000 || total < 10000) {
                         if (total < 1000) {
                             sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
+                        } else if (total === 3000 && num === 3000) {
+                            sq.innerText = "≥3,000";
                         } else {
                             sq.innerText = Math.floor(Math.round(num / 100) * 100).toLocaleString();
                         }

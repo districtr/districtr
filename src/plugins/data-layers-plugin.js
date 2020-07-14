@@ -396,7 +396,7 @@ export default function DataLayersPlugin(editor) {
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
         state.population,
-        "Show demographics",
+        "Show population (2010 Census)",
         false, // first only (one layer)?
         "Coalition population" // coalition subgroup
     );
@@ -414,7 +414,7 @@ export default function DataLayersPlugin(editor) {
             "vap",
             demoLayers.filter(lyr => !lyr.background),
             state.vap,
-            "Show VAP demographics",
+            "Show VAP (2010 Census)",
             false,
             "Coalition voting age population"
         );
