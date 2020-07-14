@@ -35,31 +35,40 @@ function getCell(value) {
     };
 }
 
+function getTotal(value) {
+    return {
+        content: value.toLocaleString(),
+        style: getCellStyle(value)
+    };
+}
+
 function getEntries(subgroup, part) {
     const districtFraction = subgroup.getFractionInPart(part.id);
     const overallFraction = subgroup.sum / subgroup.total.sum;
-    return [getCell(districtFraction), getCell(overallFraction)];
+    return [part === "" ? getTotal(subgroup.sum) : getCell(districtFraction), getCell(overallFraction)];
 }
 
 export function DistrictEvaluationTable(columnSet, placeName, part) {
-    if (!part) {
+    if (!part && part !== "") {
         part = [{ id: 0 }];
     }
     const subgroups = columnSet.subgroups;
-    const headers = [part.name || part.renderLabel(), placeName];
+    const headers = part ? [part.name || part.renderLabel(), placeName] : [placeName];
+    let entries = [];
+    if (part) {
+        entries.push({
+            content: numberWithCommas(columnSet.total.data[part.id]),
+            style: "width: 40%"
+        });
+    }
+    entries.push({
+        content: numberWithCommas(columnSet.total.sum),
+        style: "width: 40%"
+    });
     let rows = [
         {
             label: "Total",
-            entries: [
-                {
-                    content: numberWithCommas(columnSet.total.data[part.id]),
-                    style: "width: 40%"
-                },
-                {
-                    content: numberWithCommas(columnSet.total.sum),
-                    style: "width: 40%"
-                }
-            ]
+            entries: entries
         }
     ];
     rows.push(
@@ -74,7 +83,7 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
 
 export default DistrictEvaluationTable;
 
-export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units) => (
+export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units, totalOnly) => (
     uiState,
     dispatch
 ) => {
@@ -108,8 +117,8 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
     };
 
     return html`
-        <section class="toolbar-section" style="padding:10px;">
-            ${visibleParts.length > 1
+        <section class="toolbar-section" style=${{ padding: totalOnly ? 0 : 10 }}>
+            ${!totalOnly && visibleParts.length > 1
                 ? Parameter({
                       label: "Community:",
                       element: Select(visibleParts, i =>
@@ -125,7 +134,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
             ${DistrictEvaluationTable(
                 mockColumnSet,
                 placeName,
-                parts[uiState.charts[chartId].activePartIndex]
+                totalOnly ? "" : parts[uiState.charts[chartId].activePartIndex]
             )}
         </section>
     `;

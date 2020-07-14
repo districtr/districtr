@@ -9,27 +9,31 @@ export default class OverlayContainer {
     constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition) {
         this._id = id;
         this._currentSubgroupIndex = firstOnly ? 1 : 0;
-        this.subgroups = includeCoalition ? columnSet.columns.concat([{
-            key: "_COALITION",
-            name: includeCoalition,
-            columnSet: { type: "population" },
-            asMapboxExpression: () => ["get", "TOTPOP"],
-            fractionAsMapboxExpression: () => [
-                "case",
-                ["==", ["get", "TOTPOP"], 0],
-                    0,
-                [
-                    "/",
-                    ["+"].concat(this.subgroups
-                        .filter(sg => window.coalitionGroups[sg.key])
-                        .map(sg => ["get", sg.key])
-                    ),
-                    this.subgroups[0].total.asMapboxExpression()
-                ]
-            ],
-            // sum: fullsum,
-            total: columnSet.subgroups[0].total
-        }]) : columnSet.columns;
+        this.subgroups = columnSet.columns;
+        if (includeCoalition) {
+            this.subgroups = this.subgroups.concat([]);
+            this.subgroups.splice(1, 0, {
+                key: "_COALITION",
+                name: includeCoalition,
+                columnSet: { type: "population" },
+                asMapboxExpression: () => ["get", "TOTPOP"],
+                fractionAsMapboxExpression: () => [
+                    "case",
+                    ["==", ["get", "TOTPOP"], 0],
+                        0,
+                    [
+                        "/",
+                        ["+"].concat(this.subgroups
+                            .filter(sg => window.coalitionGroups[sg.key])
+                            .map(sg => ["get", sg.key])
+                        ),
+                        this.subgroups[0].total.asMapboxExpression()
+                    ]
+                ],
+                // sum: fullsum,
+                total: columnSet.subgroups[0].total
+            });
+        }
         this.firstOnly = firstOnly || false;
 
         // These color rules should be explicitly attached to each subgroup,

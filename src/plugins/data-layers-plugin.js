@@ -1,4 +1,4 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -8,6 +8,7 @@ import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import DemographicsTable from "../components/Charts/DemographicsTable";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
 
 const COUNTIES_LAYER = {
@@ -371,23 +372,36 @@ export default function DataLayersPlugin(editor) {
           NH_OTHER: 'OTHERVAP'
         };
 
+        const coalitionPivot = CoalitionPivotTable(
+            "Coalition Builder",
+            state.population,
+            state.place.name,
+            state.parts,
+            state.units,
+            true // totals only
+        );
+
         tab.addSection(
             (uiState, dispatch) => html`
               <h4>Forming Coalitions</h4>
               ${Parameter({
-                  label: "Components:",
-                  element: html`<div>
+                  label: "",
+                  element: html`<div style="margin-top:8px">
                       ${state.population.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
                           ${toggle(sg.name.replace(" population", ""), false, checked => {
                               window.coalitionGroups[sg.key] = checked;
                               window.coalitionGroups[vapEquivalents[sg.key]] = checked;
                               coalitionOverlays.forEach(cat => cat.overlay.repaint());
+                              render(coalitionPivot(uiState, dispatch), document.getElementById("coalition-table"));
                             },
                             "toggle_" + sg.key
                           )}
                       </div>`)}
                   </div>`
               })}
+              <div id="coalition-table">
+                ${coalitionPivot(uiState, dispatch)}
+              </div>
             `
         );
     }
