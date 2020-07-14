@@ -38,13 +38,13 @@ export default function CommunityPlugin(editor) {
     }
 
     const coalitionPivot = CoalitionPivotTable(
-        "Forming Coalitions",
+        "Coalition Builder",
         state.population,
         state.place.name,
         state.parts,
         state.units
     );
-    evaluationTab.addRevealSection("Forming Coalitions", coalitionPivot, {
+    evaluationTab.addRevealSection("Coalition Builder", coalitionPivot, {
         isOpen: true,
         activePartIndex: 0
     });

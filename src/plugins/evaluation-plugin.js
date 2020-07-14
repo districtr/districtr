@@ -83,13 +83,13 @@ export default function EvaluationPlugin(editor) {
 
     if (spatial_abilities(state.place.id).coalition) {
         const coalitionPivot = CoalitionPivotTable(
-            "Forming Coalitions",
+            "Coalition Builder",
             state.population,
             state.place.name,
             state.parts,
             state.units
         );
-        tab.addRevealSection("Forming Coalitions", coalitionPivot, {
+        tab.addRevealSection("Coalition Builder", coalitionPivot, {
             isOpen: true,
             activePartIndex: 0
         });
