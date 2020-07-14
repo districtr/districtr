@@ -1,11 +1,14 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import { toggle } from "../components/Toggle";
+import { actions } from "../reducers/charts";
+import Parameter from "../components/Parameter";
 import OverlayContainer from "../layers/OverlayContainer";
 import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
 import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import DemographicsTable from "../components/Charts/DemographicsTable";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
 
 const COUNTIES_LAYER = {
@@ -133,7 +136,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Nations";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington", "arizona"].includes(state.place.id)) {
+    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
     } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
@@ -141,7 +144,14 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Tribes and Communities";
     }
 
-    fetch(`/assets/native_official/${state.place.id}.geojson`)
+    const shared_az = {
+        maricopa: "arizona",
+        nwaz: "arizona",
+        seaz: "arizona",
+        yuma: "arizona",
+        phoenix: "arizona",
+    };
+    fetch(`/assets/native_official/${shared_az[state.place.id] || state.place.id}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -177,7 +187,7 @@ export function addAmerIndianLayer(tab, state) {
         });
 
         if (amin_type === "brown3" || amin_type === "shades") {
-            fetch(`/assets/native_official/${state.place.id}_centroids.geojson`)
+            fetch(`/assets/native_official/${shared_az[state.place.id] || state.place.id}_centroids.geojson`)
                 .then(res => res.json())
                 .then((centroids) => {
 
@@ -251,7 +261,10 @@ export function addAmerIndianLayer(tab, state) {
 
     tab.addSection(
         () => html`
-            <h4>Native American Communities</h4>
+            <h4>
+              Native American Areas
+              <small> -&nbsp;Census&nbsp;(AIANNH)</small>
+            </h4>
             ${toggle("Show " + native_am_type, false, (checked) => {
                 nativeamerican.setOpacity(
                     checked ? AMERINDIAN_LAYER.paint["fill-opacity"] : 0
@@ -274,7 +287,7 @@ export default function DataLayersPlugin(editor) {
         state.plan.problem.type === "community" ? "Communities" : "Districts";
     const districtMessage =
         state.plan.problem.type === "community"
-            ? "Show communities"
+            ? "Show my communities"
             : "Show districts";
     const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "district")
         + " numbers";
@@ -345,12 +358,63 @@ export default function DataLayersPlugin(editor) {
     // layer types for different columnSet types and have
     // that determine what is rendered.
 
+    let coalitionOverlays = [];
+    if (spatial_abilities(state.place.id).coalition) {
+        window.coalitionGroups = {};
+        let vapEquivalents = {
+          NH_WHITE: 'WVAP',
+          NH_BLACK: 'BVAP',
+          HISP: 'HVAP',
+          NH_ASIAN: 'ASIANVAP',
+          NH_AMIN: 'AMINVAP',
+          NH_NHPI: 'NHPIVAP',
+          'NH_2MORE': '2MOREVAP',
+          NH_OTHER: 'OTHERVAP'
+        };
+
+        const coalitionPivot = CoalitionPivotTable(
+            "Coalition Builder",
+            state.population,
+            state.place.name,
+            state.parts,
+            state.units,
+            true // totals only
+        );
+
+        tab.addSection(
+            (uiState, dispatch) => html`
+              <h4>Forming Coalitions</h4>
+              ${Parameter({
+                  label: "",
+                  element: html`<div style="margin-top:8px">
+                      ${state.population.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
+                          ${toggle(sg.name.replace(" population", ""), false, checked => {
+                              window.coalitionGroups[sg.key] = checked;
+                              window.coalitionGroups[vapEquivalents[sg.key]] = checked;
+                              coalitionOverlays.forEach(cat => cat.overlay.repaint());
+                              render(coalitionPivot(uiState, dispatch), document.getElementById("coalition-table"));
+                            },
+                            "toggle_" + sg.key
+                          )}
+                      </div>`)}
+                  </div>`
+              })}
+              <div id="coalition-table">
+                ${coalitionPivot(uiState, dispatch)}
+              </div>
+            `
+        );
+    }
+
     const demographicsOverlay = new OverlayContainer(
         "demographics",
-        demoLayers,
+        demoLayers.filter(lyr => !lyr.background),
         state.population,
-        "Show demographics"
+        "Show population (2010 Census)",
+        false, // first only (one layer)?
+        "Coalition population" // coalition subgroup
     );
+    coalitionOverlays.push(demographicsOverlay);
 
     tab.addSection(
         () => html`
@@ -360,37 +424,58 @@ export default function DataLayersPlugin(editor) {
     );
 
     if (state.vap) {
-        const vapOverlays = new OverlayContainer(
+        const vapOverlay = new OverlayContainer(
             "vap",
-            demoLayers,
+            demoLayers.filter(lyr => !lyr.background),
             state.vap,
-            "Show VAP demographics"
+            "Show VAP (2010 Census)",
+            false,
+            "Coalition voting age population"
         );
+        coalitionOverlays.push(vapOverlay);
+
         tab.addSection(
             () =>
                 html`
                     <h4>Voting Age Population</h4>
-                    ${vapOverlays.render()}
+                    ${vapOverlay.render()}
                 `
         );
     }
 
     if (state.incomes) {
-        tab.addSection(
-            (uiState, dispatch) =>  html`<h4>Individual Income</h4>
-            <div>
-                <div class="centered">
-                  <strong>Histogram</strong>
-                </div>
-                ${IncomeHistogramTable(
-                    "Income Histograms",
-                    state.incomes,
-                    state.activeParts,
-                    uiState.charts["Income Histograms"],
-                    dispatch
-                )}
-            </div>`
-        );
+        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
+            const incomeOverlay = new OverlayContainer(
+                "income",
+                state.layers.filter(lyr => lyr.id.includes("bgs")),
+                state.incomes,
+                "Map median income (by block group)",
+                true // first layer only
+            );
+
+            tab.addSection(
+                (uiState, dispatch) =>  html`<h4>Household Income</h4>
+                <div>
+                    ${incomeOverlay.render()}
+                </div>`
+            );
+        } else {
+            tab.addSection(
+                (uiState, dispatch) =>  html`<h4>Household Income</h4>
+                <div>
+                    <div class="centered">
+                      <strong>Histogram</strong>
+                    </div>
+                    ${IncomeHistogramTable(
+                        "Income Histograms",
+                        state.incomes,
+                        state.activeParts,
+                        uiState.charts["Income Histograms"],
+                        dispatch
+                    )}
+                </div>`
+            );
+        }
     }
 
     if (state.rent) {

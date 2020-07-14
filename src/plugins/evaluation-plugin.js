@@ -3,6 +3,8 @@ import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
+import { spatial_abilities } from "../utils";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -77,6 +79,20 @@ export default function EvaluationPlugin(editor) {
                         : false
             }
         );
+    }
+
+    if (spatial_abilities(state.place.id).coalition) {
+        const coalitionPivot = CoalitionPivotTable(
+            "Forming Coalitions",
+            state.population,
+            state.place.name,
+            state.parts,
+            state.units
+        );
+        tab.addRevealSection("Forming Coalitions", coalitionPivot, {
+            isOpen: true,
+            activePartIndex: 0
+        });
     }
 
     // if (state.plan.problem.type !== "community"

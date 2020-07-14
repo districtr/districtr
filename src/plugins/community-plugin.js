@@ -1,4 +1,5 @@
 import { PivotTable } from "../components/Charts/PivotTable";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
@@ -12,7 +13,7 @@ export default function CommunityPlugin(editor) {
     const about = new AboutSection(editor);
     tab.addRevealSection("About Your Community", about.render);
 
-    const evaluationTab = new Tab("population", "Population", editor.store);
+    const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
         "Population",
         state.population,
@@ -35,6 +36,18 @@ export default function CommunityPlugin(editor) {
             activePartIndex: 0
         });
     }
+
+    const coalitionPivot = CoalitionPivotTable(
+        "Forming Coalitions",
+        state.population,
+        state.place.name,
+        state.parts,
+        state.units
+    );
+    evaluationTab.addRevealSection("Forming Coalitions", coalitionPivot, {
+        isOpen: true,
+        activePartIndex: 0
+    });
 
     editor.toolbar.addTabFirst(tab);
     editor.toolbar.addTab(evaluationTab);

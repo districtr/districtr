@@ -15,7 +15,7 @@ export default class InspectTool extends Tool {
             `
         );
 
-        this.columnSets = columnSets;
+        this.columnSets = columnSets.filter(lyr => lyr.subgroups.length > 1);
         this.activeColumnSetIndex = 0;
 
         const renderTooltipContent = features =>

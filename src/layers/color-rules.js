@@ -64,6 +64,23 @@ export function colorByCount(subgroup) {
     ];
 }
 
+export function purpleByCount(subgroup) {
+    const rgb = [0, 0, 139];
+    return [
+        "rgba",
+        ...rgb,
+        [
+            "interpolate",
+            ["linear"],
+            subgroup.asMapboxExpression(),
+            0,
+            0,
+            subgroup.total.max,
+            1
+        ]
+    ];
+}
+
 /**
  * Sizes circles according to the total population count.
  * @param {Subgroup} subgroup
