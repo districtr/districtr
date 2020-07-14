@@ -91,8 +91,8 @@ export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnable
         let coalitionSubgroup = {
             data: mockData,
             key: 'coal',
-            name: (selectSGs.length > 1 ? 'Coalition' : (selectSGs[0] || {name: 'None'}).name),
-            getAbbreviation: () => "Coalition",
+            name: (selectSGs.length > 1 ? coalitionEnabled : (selectSGs[0] || {name: 'None'}).name),
+            getAbbreviation: () => coalitionEnabled,
             getFractionInPart: (p) => {
                 let portion = 0;
                 selectSGs.forEach((selected) => {
