@@ -22,7 +22,14 @@
         "nav": "Rules",
         "pages": ["alaska"],
         "type": "text",
-        "content": "<p>The Voting Rights Act of 1965 requires that minority groups have the ability to elect their chosen candidate where possible. It is particularly significant in Alaska due to the large rural Native Alaskan population.</p><p>An amendment was made to the Alaskan state Constitution in 1998 that created a five-member Alaska Redistricting Board to oversee the redistricting process after each Decennial census. Three out of the five members must approve of the redistricting plan in order for it to be enacted. The state constitution requires House districts to be: <blockquote>“contiguous and compact territory containing as nearly as practicable a relatively integrated socio-economic area.... [and] contain[ing] a population as near as practicable to the quotient obtained by dividing the population of the state by forty…”</blockquote>and requires Senate districts to be: <blockquote>“...composed as near as practicable of two contiguous house districts”.</blockquote></p><p>The rules on whether or not water bodies violate district contiguity are vague.</p>"
+        "content": "<h3>Who draws the lines?</h3><p>An amendment was made to the Alaskan state Constitution in 1998 that created a five-member Alaska Redistricting Board to oversee the redistricting process after each Decennial census. Three out of the five members must approve of the redistricting plan in order for it to be enacted.</p><h3>Rules and criteria</h3><p>The state constitution requires House districts to be: <blockquote>“contiguous and compact territory containing as nearly as practicable a relatively integrated socio-economic area.... [and] contain[ing] a population as near as practicable to the quotient obtained by dividing the population of the state by forty…”</blockquote>and requires Senate districts to be: <blockquote>“...composed as near as practicable of two contiguous house districts”.</blockquote></p><p>The rules on whether or not water bodies violate district contiguity are vague.</p><p>House districts must be nested in senate districts and must be single member districts. Districts must follow geographic boundaries, but the rules on whether or not water bodies violate district contiguity are vague. </p>"
+      },
+      {
+        "name": "Redistricting in the Courts",
+        "nav": "In the Courts",
+        "pages": ["alaska"],
+        "type": "text",
+        "content": "<h3>Voting Rights Act</h3><p>The Voting Rights Act of 1965 requires that minority groups have the ability to elect their chosen candidate where possible. It is particularly significant in Alaska due to the large rural Native Alaskan population.</p>"
       },
       {
         "name": "Research Context",
@@ -181,7 +188,7 @@
         "nav": "Rules",
         "pages": ["colorado"],
         "type": "text",
-        "content": "<p>Colorado has a 12 member independent commission for drawing districts. The same commission selection and districting rules apply to congressional and state legislative redistricting. The commission consists of 4 registered with each of the 2 major parties and 4 registered with neither major party, and 6 commissioners randomly chosen by the judicial panel. Commission members cannot be compensated by public officials or hold public office. The non-partisan members of the commission are in charge of drawing the proposed districts.</p><p>State law requires that districts:<ul><li>Be contiguous and compact</li><li>Have a population deviation of less than 5%</li><li>Preserve communities of interest and political subdivisions</li><li>Maximize number of competitive districts after adhering to other criteria</li><li>Not be drawn to favor incumbents or certain political parties</li><li>Not interfere with the ability of a racial or language minority group to elect a candidate of choice</li></ul>State legislative districts must additionally preserve political boundaries wherever possible and be as compact as possible given their total perimeter.</p>"
+        "content": "<h3>Who draws the lines?</h3><p>Colorado has a 12 member independent commission for drawing districts. The same commission selection and districting rules apply to congressional and state legislative redistricting. The commission consists of 4 registered with each of the 2 major parties and 4 registered with neither major party, and 6 commissioners randomly chosen by the judicial panel. Commission members cannot be compensated by public officials or hold public office. The non-partisan members of the commission are in charge of drawing the proposed districts.</p><h3>Rules and criteria</h3><p>State law requires that districts:<ul><li>Be contiguous and compact</li><li>Have a population deviation of less than 5%</li><li>Preserve communities of interest and political subdivisions</li><li>Maximize number of competitive districts after adhering to other criteria</li><li>Not be drawn to favor incumbents or certain political parties</li><li>Not interfere with the ability of a racial or language minority group to elect a candidate of choice</li></ul>State legislative districts must additionally preserve political boundaries wherever possible and be as compact as possible given their total perimeter.</p>"
       },
       {
         "name": "About the data",
@@ -215,7 +222,7 @@
         "nav": "Rules",
         "pages": ["connecticut"],
         "type": "text",
-        "content": "<p>Connecticut has a Reapportionment Committee for drawing districts. There are no state-level criteria for Congressional districts, but state legislative districts must be contiguous and keep town boundaries intact as much as possible.</p>"
+        "content": "<h3>Who draws the lines?</h3><p>Connecticut has an advisory committee of 8 legislators exists to draw districts, with a 9 member backup committee.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for Congressional districts, but state legislative districts must be contiguous and keep town boundaries intact as much as possible.</p>"
       },
       {
         "name": "About the data",
@@ -256,6 +263,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Georgia",
+        "nav": "Districts",
+        "pages": ["georgia"],
+        "type": "text",
+        "content": "<p>Georgia has 14 congressional districts. The Georgia legislature consists of a House of Representatives with 180 members and a state Senate of 56 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Georgia",
+        "nav": "Rules",
+        "pages": ["georgia"],
+        "type": "text",
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Georgia state constitution demands that state legislative districts be contiguous. In 2011 the legislative committees established guidelines asserting: <ul><li>Multimember districts are prohibited</li><li>A redistricting plan should consider county and precinct boundaries, compactness, and communities of interest</li><li>Efforts should be made to avoid the unnecessary pairing of incumbents</li></ul></p>"
       },
       {
         "name": "About the data",
