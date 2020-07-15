@@ -299,6 +299,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Hawaii",
+        "nav": "Districts",
+        "pages": ["hawaii"],
+        "type": "text",
+        "content": "<p>Hawaii has 2 congressional districts. The Hawaii state legislature consists of a House of Representatives with 51 members and a Senate of 25 members. </p>"
+      },
+      {
+        "name": "Redistricting Rules in Hawaii",
+        "nav": "Rules",
+        "pages": ["hawaii"],
+        "type": "text",
+        "content": "<h3>Who draws the lines?</h3><p>A nine-member politician commission draws Hawaii’s congressional and state legislative lines. At least one public hearing is held in each of the state’s basic island units before state lines are finalized.</p><h3>Rules and criteria</h3><p>Hawaii requires that districts:<ul><li>Should achieve district apportionment among basic island units</li><li>Follow boundaries of basic island units</li><li>No undue favoritism towards a person or political faction</li><li>Contiguity except when districts include more than 1 island</li><li>Districts must be compact</li><li>Follow census tract and geographic boundaries where possible</li><li>Nest house districts in senate districts where practicable</li><li>No more than 4 members per district</li><li>Preserve communities of socio-economic interest where practicable</li></ul></p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -959,7 +973,7 @@
         "nav": "Rules",
         "pages": ["oregon"],
         "type": "text",
-        "content": "<p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
+        "content": "<h3>Who draws the lines?</h3><p>Districts can be drawn by the state legislature, or the secretary of state for state assembly and senate districts.</p><h3>Rules and criteria</h3><p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
       },
       {
         "name": "Explore the currently enacted plans",
