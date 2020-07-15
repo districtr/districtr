@@ -113,7 +113,7 @@ export default class CommunityBrush extends Brush {
                 color: amendColor,
                 useBlendColor: useBlendColor,
                 blendColor: blendColor,
-                blendHoverColor: changeColorLuminance(blendColor, -0.3)
+                blendHoverColor: useBlendColor ? changeColorLuminance(blendColor, -0.3) : "#ccc"
             });
 
             // update subgroup totals (restoring old brush color)
@@ -186,13 +186,13 @@ export default class CommunityBrush extends Brush {
             // change map colors
             let featureState = this.layer.getFeatureState(fid);
             let useBlendColor = Array.isArray(finalColor) && (finalColor.length > 1),
-                blendColor = Array.isArray(finalColor) ? blendColors(finalColor)[0] : finalColor;
+                blendColor = Array.isArray(finalColor) ? blendColors(finalColor) : finalColor;
             this.layer.setFeatureState(fid, {
                 ...featureState,
                 color: finalColor,
                 useBlendColor: useBlendColor,
                 blendColor: blendColor,
-                blendHoverColor: changeColorLuminance(blendColor, -0.3)
+                blendHoverColor: useBlendColor ? changeColorLuminance(blendColor, -0.3) : "#ccc"
             });
 
             // update subgroup totals (restoring old brush color)
