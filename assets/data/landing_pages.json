@@ -43,7 +43,7 @@
         "nav": "Enacted Plans",
         "pages": ["alaska"],
         "type": "plans",
-        "ref": "alaska",
+        "ref": "ak",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
@@ -869,7 +869,7 @@
         "nav": "Plans",
         "pages": ["nc"],
         "type": "plans",
-        "ref": "north_carolina",
+        "ref": "nc",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
@@ -980,7 +980,7 @@
         "nav": "Enacted Plans",
         "pages": ["oregon"],
         "type": "plans",
-        "ref": "oregon",
+        "ref": "or",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
@@ -1217,7 +1217,7 @@
         "nav": "Plans",
         "pages": ["virginia"],
         "type": "plans",
-        "ref": "virginia",
+        "ref": "va",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
