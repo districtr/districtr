@@ -5635,6 +5635,12 @@
             ]
           },
           {
+            "type": "text",
+            "key": "COUNTYNAME",
+            "name": "County",
+            "subgroups": []
+          },
+          {
             "type": "election",
             "name": "2014 Senate",
             "subgroups": [
@@ -6014,17 +6020,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mn18_precincts"
+              "url": "mapbox://districtr.minnesota_precincts"
             },
-            "sourceLayer": "mn18_precincts"
+            "sourceLayer": "minnesota_precincts"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mn18_precincts_points"
+              "url": "mapbox://districtr.minnesota_precincts_points"
             },
-            "sourceLayer": "mn18_precincts_points"
+            "sourceLayer": "minnesota_precincts_points"
           }
         ]
       }
@@ -12839,7 +12845,7 @@
           },
           {
             "type": "text",
-            "key": "COUNTYNAME",
+            "key": "CNTYNAME",
             "name": "County",
             "subgroups": []
           },
