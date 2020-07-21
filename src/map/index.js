@@ -78,11 +78,9 @@ export class MapState {
         this.map.addControl(this.nav, "top-left");
 
         // Georgia specific
-        const activated = (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
-        const sliderOpt = new MapSliderControl(activated);
-        this.map.addControl(sliderOpt, "top-left");
-
+        let activated = false;
         if (localStorage.getItem("slide_layer") === "active") {
+            activated = true;
             this.swipemap = new mapboxgl.Map({
                 container: "swipemap",
                 style: mapStyle,
@@ -106,6 +104,10 @@ export class MapState {
             this.comparer = null;
             window.mapslide = null;
         }
+        
+        activated = activated || (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
+        const sliderOpt = new MapSliderControl(activated);
+        this.map.addControl(sliderOpt, "top-left");
 
         this.mapboxgl = mapboxgl;
     }
