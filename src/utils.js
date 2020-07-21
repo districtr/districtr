@@ -292,6 +292,9 @@ export function spatial_abilities (id) {
         number_markers: true,
         // modern precincts, towns have issues
       },
+      miamidade: {
+        multiyear: true
+      },
       michigan: {
         number_markers: true,
         // precode?

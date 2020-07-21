@@ -410,9 +410,10 @@ export default function DataLayersPlugin(editor) {
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
         state.population,
-        "Show population (2010 Census)",
+        "Population by race",
         false, // first only (one layer)?
-        "Coalition population" // coalition subgroup
+        spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
+        spatial_abilities(state.place.id).multiyear // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 
@@ -428,18 +429,16 @@ export default function DataLayersPlugin(editor) {
             "vap",
             demoLayers.filter(lyr => !lyr.background),
             state.vap,
-            "Show VAP (2010 Census)",
+            "Voting Age Population (VAP) by race",
             false,
-            "Coalition voting age population"
+            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+            spatial_abilities(state.place.id).multiyear // multiple years
         );
         coalitionOverlays.push(vapOverlay);
 
         tab.addSection(
             () =>
-                html`
-                    <h4>Voting Age Population</h4>
-                    ${vapOverlay.render()}
-                `
+                html`${vapOverlay.render()}`
         );
     }
 

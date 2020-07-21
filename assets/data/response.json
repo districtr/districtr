@@ -14777,7 +14777,7 @@
             "name": "Population (2018)",
             "total": {
               "key": "TOTPOPX",
-              "name": "Total population",
+              "name": "Total population (2018)",
               "sum": 2715516,
               "min": 0,
               "max": 8874

@@ -28,6 +28,20 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
 }
 
+.yrselect {
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    label, input {
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    label:first-child {
+      cursor: default;
+    }
+}
+
 .color-legend {
     text-align: center;
     margin-left: auto;
