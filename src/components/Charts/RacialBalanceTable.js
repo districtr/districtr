@@ -36,7 +36,7 @@ export default function RacialBalanceTable(
         <section class="toolbar-section">
             ${SelectBoxes(
                 chartId,
-                population.subgroups,
+                population.subgroups.filter(sg => !sg.name.includes("(2018)")),
                 chartState.activeSubgroupIndices,
                 dispatch
             )}
