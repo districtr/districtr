@@ -102,7 +102,7 @@ export default class OverlayContainer {
             }
         }
         this.overlay.setSubgroup(this.subgroups[i]);
-        if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i])) {
+        if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i]) || (this.subgroups[i].key.includes("TOTPOP"))) {
             if (this.firstOnly) {
               this.overlay.setColorRule(purpleByCount);
             } else {

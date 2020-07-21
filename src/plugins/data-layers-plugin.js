@@ -353,10 +353,7 @@ export default function DataLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
-    // Right now we're doing all of these if statements,
-    // but in the future we should just be able to register
-    // layer types for different columnSet types and have
-    // that determine what is rendered.
+    tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition) {
@@ -381,9 +378,9 @@ export default function DataLayersPlugin(editor) {
             true // totals only
         );
 
-        tab.addSection(
+        tab.addRevealSection(
+            "Coalition Builder",
             (uiState, dispatch) => html`
-              <h4>Coalition Builder</h4>
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
@@ -402,7 +399,10 @@ export default function DataLayersPlugin(editor) {
               <div id="coalition-table">
                 ${coalitionPivot(uiState, dispatch)}
               </div>
-            `
+            `,
+            {
+                isOpen: true
+            }
         );
     }
 
@@ -410,37 +410,37 @@ export default function DataLayersPlugin(editor) {
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
         state.population,
-        "Population by race",
+        "Show population",
         false, // first only (one layer)?
         spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
         spatial_abilities(state.place.id).multiyear // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 
-    tab.addSection(
-        () => html`
-            <h4>Demographics</h4>
-            ${demographicsOverlay.render()}
-        `
-    );
-
+    let vapOverlay = null;
     if (state.vap) {
-        const vapOverlay = new OverlayContainer(
+        vapOverlay = new OverlayContainer(
             "vap",
             demoLayers.filter(lyr => !lyr.background),
             state.vap,
-            "Voting Age Population (VAP) by race",
+            "Show voting age population (VAP)",
             false,
             spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
             spatial_abilities(state.place.id).multiyear // multiple years
         );
         coalitionOverlays.push(vapOverlay);
-
-        tab.addSection(
-            () =>
-                html`${vapOverlay.render()}`
-        );
     }
+
+    tab.addRevealSection(
+        "Race",
+        (uiState, dispatch) => html`
+            ${demographicsOverlay.render()}
+            ${vapOverlay ? vapOverlay.render() : null}
+        `,
+        {
+            isOpen: true
+        }
+    );
 
     if (state.incomes) {
         if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
@@ -452,16 +452,19 @@ export default function DataLayersPlugin(editor) {
                 true // first layer only
             );
 
-            tab.addSection(
-                (uiState, dispatch) =>  html`<h4>Household Income</h4>
-                <div>
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
                     ${incomeOverlay.render()}
-                </div>`
+                </div>`,
+                {
+                  isOpen: false
+                }
             );
         } else {
-            tab.addSection(
-                (uiState, dispatch) =>  html`<h4>Household Income</h4>
-                <div>
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
                     <div class="centered">
                       <strong>Histogram</strong>
                     </div>
@@ -472,20 +475,26 @@ export default function DataLayersPlugin(editor) {
                         uiState.charts["Income Histograms"],
                         dispatch
                     )}
-                </div>`
+                </div>`,
+                {
+                  isOpen: false
+                }
             );
         }
     }
 
     if (state.rent) {
-        tab.addSection(
-            (uiState, dispatch) => html`<h4>Homeowner or Renter</h4>
-            <div class="sectionThing">
+        tab.addRevealSection(
+            'Homeowner or Renter',
+            (uiState, dispatch) => html`<div class="sectionThing">
                 ${DemographicsTable(
                     state.rent.subgroups,
                     state.activeParts
                 )}
-            </div>`
+            </div>`,
+            {
+              isOpen: false
+            }
         );
     }
 
@@ -511,12 +520,15 @@ export default function DataLayersPlugin(editor) {
             demoLayers,
             state.elections
         );
-        tab.addSection(
+        tab.addRevealSection('Previous Elections',
             () => html`
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>
-            `
+            `,
+            {
+              isOpen: true
+            }
         );
     }
 
