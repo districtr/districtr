@@ -419,15 +419,25 @@ export default function DataLayersPlugin(editor) {
 
     let vapOverlay = null;
     if (state.vap) {
-        vapOverlay = new OverlayContainer(
-            "vap",
-            demoLayers.filter(lyr => !lyr.background),
-            state.vap,
-            "Show voting age population (VAP)",
-            false,
-            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
-            spatial_abilities(state.place.id).multiyear // multiple years
-        );
+        if (spatial_abilities(state.place.id).nonvap) {
+            vapOverlay = new OverlayContainer(
+                "nonvap",
+                demoLayers.filter(lyr => !lyr.background),
+                state.vap,
+                "Show children (age < 18)",
+                true
+            );
+        } else {
+            vapOverlay = new OverlayContainer(
+                "vap",
+                demoLayers.filter(lyr => !lyr.background),
+                state.vap,
+                "Show voting age population (VAP)",
+                false,
+                spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+                spatial_abilities(state.place.id).multiyear // multiple years
+            );
+        }
         coalitionOverlays.push(vapOverlay);
     }
 

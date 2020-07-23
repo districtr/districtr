@@ -29,21 +29,40 @@ export default function EvaluationPlugin(editor) {
         );
     }
     if (state.vap) {
-        tab.addRevealSection(
-            "Voting Age Population by Race",
-            (uiState, dispatch) =>
-                RacialBalanceTable(
-                    "Voting Age Population by Race",
-                    state.vap,
-                    state.activeParts,
-                    uiState.charts["Voting Age Population by Race"],
-                    dispatch
-                ),
-            {
-                isOpen: state.population.subgroups.length > 1 ? false : true,
-                activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
-            }
-        );
+        if (spatial_abilities(state.place.id).nonvap) {
+            tab.addRevealSection(
+                "Children Ages 0-17 by Race",
+                (uiState, dispatch) =>
+                    RacialBalanceTable(
+                        "Children Ages 0-17 by Race",
+                        state.vap,
+                        state.activeParts,
+                        uiState.charts["Children Ages 0-17 by Race"],
+                        dispatch,
+                        state.population // nonvap
+                    ),
+                {
+                    isOpen: state.population.subgroups.length > 1 ? false : true,
+                    activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
+                }
+            );
+        } else {
+            tab.addRevealSection(
+                "Voting Age Population by Race",
+                (uiState, dispatch) =>
+                    RacialBalanceTable(
+                        "Voting Age Population by Race",
+                        state.vap,
+                        state.activeParts,
+                        uiState.charts["Voting Age Population by Race"],
+                        dispatch
+                    ),
+                {
+                    isOpen: state.population.subgroups.length > 1 ? false : true,
+                    activeSubgroupIndices: state.vap.indicesOfMajorSubgroups()
+                }
+            );
+        }
     }
     if (state.ages) {
         tab.addRevealSection(

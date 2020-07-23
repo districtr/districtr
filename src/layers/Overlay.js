@@ -3,7 +3,7 @@ import Layer, { addBelowLabels } from "../map/Layer";
 import { generateId } from "../utils";
 
 export default class Overlay {
-    constructor(layers, subgroup, defaultColorRule) {
+    constructor(layers, subgroup, defaultColorRule, overlayID) {
         this.layers = layers.map(layer => createLayer(layer));
 
         this._currentLayerIndex = 0;
@@ -15,6 +15,7 @@ export default class Overlay {
         this.setColorRule = this.setColorRule.bind(this);
         this.hide = this.hide.bind(this);
         this.show = this.show.bind(this);
+        this.overlayID = overlayID;
 
         this.setSubgroup(subgroup);
     }
@@ -49,7 +50,7 @@ export default class Overlay {
     }
     // Sets the overlay's paint style. Does _not_ change its visibility.
     repaint() {
-        this.currentLayer.setColor(this.colorRule(this.subgroup));
+        this.currentLayer.setColor(this.colorRule(this.subgroup, this.overlayID));
         if (this.currentLayer.type === "circle") {
             this.currentLayer.setPaintProperty(
                 "circle-radius",

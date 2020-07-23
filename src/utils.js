@@ -261,6 +261,9 @@ export function spatial_abilities (id) {
             native_american: true,
             coalition: true,
           },
+      little_rock: {
+        nonvap: true,
+      },
       chicago: {
         number_markers: true,
       },
