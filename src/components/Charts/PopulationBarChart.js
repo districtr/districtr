@@ -22,10 +22,12 @@ function maxDisplayValue(population) {
     return Math.max(population.ideal * 2, ...population.total.data);
 }
 
-const horizontalBarChart = (population, parts) => {
+const horizontalBarChart = (population, parts, nonvap) => {
     // Slice so that we only use active parts
     // Should we only use districts with population > 0?
-    const data = population.total.data.slice(0, parts.length);
+    const data = population.total.data.slice(0, parts.length).map((count, index) =>
+       nonvap ? (count - nonvap.total.data[index]) : count
+    );
     const maxValue = maxDisplayValue(population);
     const colors = parts.map(part => part.color);
     const formattedIdeal = population.formattedIdeal;
@@ -83,9 +85,9 @@ const horizontalBarChart = (population, parts) => {
     `;
 };
 
-const populationBarChart = (population, parts) => html`
+const populationBarChart = (population, parts, nonvap) => html`
     <section class="toolbar-section">
-        ${horizontalBarChart(population, parts)}
+        ${horizontalBarChart(population, parts, nonvap)}
     </section>
 `;
 

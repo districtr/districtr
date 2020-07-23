@@ -5,6 +5,7 @@ import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
 import populationBarChart from "../components/Charts/PopulationBarChart";
 import populationDeviation from "../components/Charts/PopulationDeviation";
 import unassignedPopulation from "../components/Charts/UnassignedPopulation";
+import { spatial_abilities } from "../utils";
 
 export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
@@ -24,10 +25,14 @@ export default function PopulationBalancePlugin(editor) {
         );
     } else {
         tab.addRevealSection(
-            "Population Balance",
+            spatial_abilities(state.place.id).nonvap ? "Under 18 - Balance" : "Population Balance",
             () =>
                 html`
-                    ${populationBarChart(state.population, state.activeParts)}
+                    ${populationBarChart(
+                       state.population,
+                       state.activeParts,
+                       spatial_abilities(state.place.id).nonvap ? state.vap : null
+                    )}
                     <dl class="report-data-list">
                         ${unassignedPopulation(state.population)}
                         ${populationDeviation(state.population)}
