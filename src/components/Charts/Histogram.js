@@ -3,8 +3,8 @@ import DataTable from "./DataTable";
 
 function getColumn(subgroup, part, max, median_name, isAge) {
     let years = (subgroup.age_range.length === 1 ? 1 : (subgroup.age_range[1] - subgroup.age_range[0] + 1)),
-        width = Math.round(years * (isAge ? 2 : 12)),
-        height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * (isAge ? 125 : (125 * 6))),
+        width = Math.round(years * (isAge ? 2 : 38)),
+        height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * (isAge ? 125 : (125 * 9))),
         is_median = (subgroup.name === median_name);
     return {
       content: html`<div style="background:${is_median ? "#888" : "#444"};width:${width}px; height:${height}px"></div>`,
@@ -79,11 +79,22 @@ export default (subgroups, parts, isAge) => {
       }
     });
 
+    let fmt = (label) => {
+       if (label.indexOf("in_") === 0) {
+          if (label.includes("plus")) {
+              return ">= $" + label.split("_")[1] + "k";
+          } else {
+              return "$" + label.split("_")[1] + "-" + label.split("_")[2] + "k";
+          }
+       }
+       return label;
+    };
+
     let rows = parts.map(part => ({
         label: part.renderLabel(),
         entries: subgroups.map(subgroup => getColumn(subgroup, part, max[part.id], median[part.id], isAge))
             .concat([{
-                content: median[part.id] ? html`Median:<br/>${median[part.id]}` : "",
+                content: median[part.id] ? html`Median:<br/>${fmt(median[part.id])}` : "",
                 style: ""
             }]
         )
