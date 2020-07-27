@@ -465,9 +465,6 @@ export default function DataLayersPlugin(editor) {
             tab.addRevealSection(
                 'Household Income',
                 (uiState, dispatch) =>  html`<div>
-                    <div class="centered">
-                      <strong>Histogram</strong>
-                    </div>
                     ${IncomeHistogramTable(
                         "Income Histograms",
                         state.incomes,
