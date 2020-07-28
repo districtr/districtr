@@ -263,7 +263,7 @@
         "nav": "Data",
         "type": "text",
         "pages": ["delaware"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
       }
     ]
   },
@@ -310,7 +310,7 @@
         "nav": "Rules",
         "pages": ["georgia"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Georgia state constitution demands that state legislative districts be contiguous. In 2011 the legislative committees established guidelines asserting: <ul><li>Multimember districts are prohibited</li><li>A redistricting plan should consider county and precinct boundaries, compactness, and communities of interest</li><li>Efforts should be made to avoid the unnecessary pairing of incumbents</li></ul></p>"
+        "content": "<h3>Who draws the lines?</h3><p>In Georiga, districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Georgia state constitution demands that state legislative districts be contiguous. In 2011 the legislative committees established guidelines asserting: <ul><li>Multimember districts are prohibited</li><li>A redistricting plan should consider county and precinct boundaries, compactness, and communities of interest</li><li>Efforts should be made to avoid the unnecessary pairing of incumbents</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -563,6 +563,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Iowa",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["iowa"],
+        "content": "<p>Iowa has 4 congressional districts and a bicameral legislature consisting of a state House with 100 seats and a state Senate with 50 seats. State House districts are nested within state Senate districts.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Iowa",
+        "nav": "Rules",
+        "pages": ["iowa"],
+        "type": "text",
+        "content": "<h3>Who draws the lines?</h3><p>There is a nonpartisan legislative services agency and an advisory commission to draw districts for the state. The state legislature must approve the plan, but the governor may veto it. For state legislative districts, the advisory commission is required to hold 3 public hearings in different regions of the state.</p><h3>Rules and criteria</h3><p>In Iowa congressional districts must be draw out of whole counties.  In addition, for both state legislative districts and congressional districts, Iowa mandates that districts:<ul><li>Be compact and contiguous</li><li>Follow political boundaries</li><li>Cannot favor any person, party, or group</li><li>Cannot distort minority group voting strength</li></ul></p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -594,7 +608,7 @@
         "nav": "Rules",
         "type": "text",
         "pages": ["maryland"],
-        "content": "<p>The state legislature draws congressional districting plans, while either the governor or the state legislature can draw and present state legislature districting plans. There are no specific criteria for congressional plans, but state legislature plans must honor compactness, contiguity, and give “due regard” to natural and political boundaries.</p>"
+        "content": "<h3>Who draws the lines?</h3><p>The state legislature draws congressional districting plans, while either the governor or the state legislature can draw and present state legislature districting plans.</p><h3>Rules and criteria</h3><p>There are no specific criteria for congressional plans, but state legislature plans must have districts that:<ul><li>are compact and contiguous</li><li>give \"due regard\" to natural and political boundaries.</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -694,7 +708,7 @@
         "nav": "Rules",
         "type": "text",
         "pages": ["ma"],
-        "content": "<p>The state legislature is in charge of drawing districts. There are no specific criteria for Congressional districts, but state legislative districts:<ul><li>Require contiguity</li><li>Must follow political boundaries</li><li>Can be vetoed by the governor</li><li>Senate requires single-member districts</li></ul></p>"
+        "content": "<h3>Who draws the lines?</h3><p>In Massachusetts, districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>There are no specific criteria for Congressional districts, but state legislative districts:<ul><li>Require contiguity</li><li>Must follow political boundaries</li><li>Can be vetoed by the governor</li><li>Senate requires single-member districts</li></ul></p>"
       },
       {
         "name": "Research Context",
@@ -742,7 +756,7 @@
         "nav": "Rules",
         "type": "text",
         "pages": ["michigan"],
-        "content": "<p>Michigan has an independent commission for drawing districts. The commission has 13 members, with 4 for each major party (Democrat and Republican) and 5 unaffiliated or affiliated with a minor party. Commission members may not hold public office or associated positions such as lobbyists and state employees. The commission requires an 8 vote majority to pass a plan, after which members must rank each plan and the highest ranked is submitted.</p><p>For both congressional and state legislative districts, Michigan requires that districts:<ul><li>Be contiguous and compact</li><li>Accurately represent the state’s diversity and communities of interest</li><li>Respect political boundaries wherever possible</li><li>Do not lend advantage or disadvantage to any party, incumbent, or candidate</li><li>Stay within a 2% population deviation</li></ul></p>"
+        "content": "<h3>Who draws the lines?</h3><p>Michigan has an independent commission for drawing districts. The commission has 13 members, with 4 for each major party (Democrat and Republican) and 5 unaffiliated or affiliated with a minor party. Commission members may not hold public office or associated positions such as lobbyists and state employees. The commission requires an 8 vote majority to pass a plan, after which members must rank each plan and the highest ranked is submitted.</p><h3>Rules and criteria</h3><p>For both congressional and state legislative districts, Michigan requires that districts:<ul><li>Be contiguous and compact</li><li>Accurately represent the state’s diversity and communities of interest</li><li>Respect political boundaries wherever possible</li><li>Do not lend advantage or disadvantage to any party, incumbent, or candidate</li><li>Stay within a 2% population deviation</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -765,6 +779,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Minnesota",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["minnesota"],
+        "content": "<p>Minnesota has 8 congressional districts. House of Representatives with 134 members and a Senate with 67 members.  These districts are nested, where each state Senate district contains two state House districts.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Minnesota",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["minnesota"],
+        "content": "<h3>Who draws the lines?</h3><p>Congressional and state legislative districts are drawn by the state legislature. The governor has the authority to veto a plan.</p><h3>Rules and criteria</h3><p>Minnesota requires that districts are contiguous.</p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -783,6 +811,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Mississippi",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["mississippi"],
+        "content": "<p>Mississippi has 4 congressional districts. The state House consists of 122 members and the state Senate consists of 51 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Mississippi",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["mississippi"],
+        "content": "<h3>Who draws the lines?</h3><p>Congressional and state legislative districts are drawn by the state legislature. The governor has the authority to veto a plan.</p><h3>Rules and criteria</h3><p>Mississippi requires that districts:<ul><li>Be contiguous and compact</li><li>Cross political boundaries as little as possible</li></ul></p>"
       },
       {
         "name": "Research Context",
@@ -830,6 +872,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in New Mexico",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["new_mexico"],
+        "content": "<p>New Mexico has 3 congressional districts and 42 state Senate districts. The state House consists of 70 members and the state Senate 42 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in New Mexico",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["new_mexico"],
+        "content": "<h3>Who draws the lines?</h3><p>Congressional districts and state Senate districts are drawn by the state legislature. The governor can veto a plan.</p><h3>Rules and criteria</h3><p>New Mexico requires that districts:<ul><li>Be contiguous and compact</li><li>Do no split voting precincts</li><li>Attempt to preserve communities of interest</li><li>Factor in political and geographic boundaries</li><li>Seek to preserve the core of existing districts</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -883,13 +939,14 @@
         "nav": "Districts",
         "pages": ["nc"],
         "type": "text",
-        "content": "<p>North Carolina currently has 13 Congressional seats, a 50 member State Senate, and a 120 member State House. Representatives are elected from single member districts. </p>"
+        "content": "<p>North Carolina currently has 13 Congressional seats, a 50 member State Senate, and a 120 member State House. Representatives are elected from single member districts.</p>"
       },
       {
         "name": "Redistricting rules in North Carolina",
         "nav": "Rules",
         "type": "text",
-        "content": "<p>Like all states in the US, North Carolina must comply with Constitutional equal population requirements and the Voting Rights Act. There are no additional requirements for Congressional districts, but North Carolina state and case law establishes the following additional criteria for state legislative districts:<ul><li>Districts must be contiguous. They cannot be only touching at a point.</li><li>Districts must be compact.</li><li>Districts should attempt to keep communities of interest intact.</li><li>Districts should preserve county lines as much as possible. When counties are grouped, districts should include as few counties as possible.</li><li>Districts must not be drawn for the purpose of favoring a political party </li></ul>  The state legislature draws districts for both congress and the state legislature. They are not subject to veto by the governor. </p>"
+        "pages": ["nc"],
+        "content": "<h3>Who draws the lines?</h3><p>The state legislature draws districts for both congress and the state legislature. They <b>cannot</b> be vetoed by the governor.</p><h3>Rules and criteria</h3><p>Like all states in the US, North Carolina must comply with Constitutional equal population requirements and the Voting Rights Act. There are no additional requirements for Congressional districts, but North Carolina state and case law establishes the following additional criteria for state legislative districts:<ul><li>Districts must be contiguous. They cannot be only touching at a point.</li><li>Districts must be compact.</li><li>Districts should attempt to keep communities of interest intact.</li><li>Districts should preserve county lines as much as possible. When counties are grouped, districts should include as few counties as possible.</li><li>Districts must not be drawn for the purpose of favoring a political party </li></ul></p>"
       },
       {
         "name": "Rucho v. Common Cause",
@@ -946,6 +1003,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Ohio",
+        "nav": "Districts",
+        "pages": ["ohio"],
+        "type": "text",
+        "content": "<p>Ohio has 16 Congressional districts. The state legislature consists of a state House with 99 seats and a state Senate with 33 seats. Each Senate district has 3 House districts nested within it.</p>"
+      },
+      {
+        "name": "Redistricting rules in Ohio",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["ohio"],
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the Political Appointee Commission.</p><h3>Rules and criteria</h3><p>The Ohio state Constitution requires that for Congressional districts, any plan passed with less than 60 percent support in each chamber or less than one-third support from both major parties in each chamber cannot favor or disfavor a political party or its incumbents. Congressional districts must also:<ul><li>Be compact and contiguous</li><li>Keep 65 counties whole, with 18 counties allowed to be split once and 5 counties allowed to be split twice</li></ul></p><p>Ohio state law insists that the proportional seat share of political parties for the state legislature should closely mirror the results seen in statewide elections. There must be 3 public hearings held before a state legislature redistricting plan can be published. The state requires that state legislative districts:<ul><li>Be compact</li><li>Use the boundaries of existing boundaries of counties, municipalities, and townships to determine district boundaries</li><li>Not have a population deviation greater than 5%</li><li>Not favor any political party</li></ul></p><p>Ohio further requires the following additional criteria for state House districts specifically:<ul><li>Districts must avoid splitting a county more than once</li><li>Districts should be contiguous</li></ul></p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -964,6 +1035,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Oklahoma",
+        "nav": "Districts",
+        "pages": ["oklahoma"],
+        "type": "text",
+        "content": "<p>Oklahoma has 5 Congressional districts. The state legislature consists of a state House with 101 seats and a state Senate with 48 seats.</p>"
+      },
+      {
+        "name": "Redistricting rules in Oklahoma",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["oklahoma"],
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature, or a backup commission for state legislative districts. For Congressional district plans, the governor has veto power.</p><h3>Rules and criteria</h3><p>Oklahoma has no state-level districting criteria for Congressional districts or state House districts. However, state laws require that state Senate districts:<ul><li>Be as compact and contiguous as possible</li><li>Follow political boundaries as much as possible</li><li>Have consideration for \"economic and political interests and historical precedents\" as feasible</li></ul></p><p>Despite no formal legislation on state House districts, the redistricting committee of the state House has set forth some guidelines:<ul><li>House districts should not have a population deviation greater than 3%, unless necessary to accommodate a political boundary</li><li>Residency of incumbents may be considered in drawing House districts</li><li>House districts should preserve communities of interest, defined as \"long-standing communities of interest based on social, cultural, ethnic, and economic similarities\", and also including preservation of \"the core of existing districts\"</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -1007,7 +1092,7 @@
         "nav": "Rules",
         "pages": ["oregon"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>Districts can be drawn by the state legislature, or the secretary of state for state assembly and senate districts.</p><h3>Rules and criteria</h3><p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul>  Currently in Oregon districts are drawn by the State Legislature and subject to veto by the governor. </p>"
+        "content": "<h3>Who draws the lines?</h3><p>Constitutional districts in Oregon districts are drawn by the State Legislature and subject to veto by the governor.  The state legislature has the primary responsibility for drawing state legislative districts; if they fail to do so, state legislative boundaries are drawn by the Secretary of State.</p><h3>Rules and criteria</h3><p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul></p>"
       },
       {
         "name": "Explore the currently enacted plans",
@@ -1073,6 +1158,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Pennsylvania",
+        "nav": "Districts",
+        "pages": ["pennsylvania"],
+        "type": "text",
+        "content": "<p>Pennsylvania has 18 Congressional districts and a bicameral state legislature made up of a state House with 203 seats and a state Senate with 50 seats.  Pennsylvania is projected to loose a congressional seat after the 2020 Census.</p>"
+      },
+      {
+        "name": "Redistricting rules in Pennsylvania",
+        "nav": "Rules",
+        "pages": ["pennsylvania"],
+        "type": "text",
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the Political Appointee Commission.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for Congressional districts. Pennsylvania requires that state legislative districts:<ul><li>Be compact and contiguous</li><li>Have populations as equal as practicable</li><li>Follow county, city, town and ward boundaries as much as possible</li></ul></p>"
+      },
+      {
         "name": "Redistricting in the court",
         "nav": "In the Court",
         "type": "text",
@@ -1113,14 +1212,14 @@
         "nav": "Districts",
         "type": "text",
         "pages": ["rhode_island"],
-        "content": "<p>Rhode Island has 2 Congressional seats, 75 State House seats, and state Senate seats. The state legislature is responsible for drawing federal and state districts, but the governor has veto power over districting plans. There is also an advisory commission tasked with recommending congressional and state legislative plans to the legislature. There are 18 members in the commission: 7 chosen by each the state Senate and state House majority leaders of whom 4 are legislature members and 3 are not and 2 members chosen by each the state Senate and state House minority leaders, of whom all are members of the legislature. The advisory commission is tasked with conducting public hearings before finalizing a district plan recommendation to the legislature. State law states that any software used for redistricting must be made available for public access.</p>"
+        "content": "<p>Rhode Island has 2 Congressional seats, 75 State House seats, and state Senate seats.  Rhode Island is projected to loose their second congressional seat after the 2020 Census.</p>"
       },
       {
         "name": "Redistricting Rules in Rhode Island",
         "nav": "Rules",
         "type": "text",
         "pages": ["rhode_island"],
-        "content": "<p>The Rhode Island state Constitution requires that state legislative districts be as compact as possible, but this does not extend to congressional districts. The state has additional criteria for both state legislative and congressional districts that are subject to modification by the state legislature as deemed necessary. Current laws for Rhode Island request that districts:<ul><li>Be as contiguous as possible</li><li>Be as equal in population as possible</li><li>Reflect natural, historical, geographical and municipal and other political lines</li><li>Preserve \"the right of all Rhode Islanders to fair representation and equal access to the political process.\"</li><li>Coincide for the state House, state Senate, and United States Congress (with the stipulation that if districts do not align perfectly that they should avoid precincts with fewer than 100 people having distinct ballot options.)</li></ul></p>"
+        "content": "<h3>Who draws the lines?</h3><p>The state legislature is responsible for drawing federal and state districts, but the governor has veto power over districting plans. There is also an advisory commission tasked with recommending congressional and state legislative plans to the legislature. There are 18 members in the commission: 7 chosen by each the state Senate and state House majority leaders of whom 4 are legislature members and 3 are not and 2 members chosen by each the state Senate and state House minority leaders, of whom all are members of the legislature. The advisory commission is tasked with conducting public hearings before finalizing a district plan recommendation to the legislature.</p><h3>Rules and criteria</h3><p>State law states that any software used for redistricting must be made available for public access. The Rhode Island state Constitution requires that state legislative districts be as compact as possible, but this does not extend to congressional districts. The state has additional criteria for both state legislative and congressional districts that are subject to modification by the state legislature as deemed necessary. Current laws for Rhode Island request that districts:<ul><li>Be as contiguous as possible</li><li>Be as equal in population as possible</li><li>Reflect natural, historical, geographical and municipal and other political lines</li><li>Preserve \"the right of all Rhode Islanders to fair representation and equal access to the political process.\"</li><li>Coincide for the state House, state Senate, and United States Congress (with the stipulation that if districts do not align perfectly that they should avoid precincts with fewer than 100 people having distinct ballot options.)</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -1152,6 +1251,20 @@
         "type": "draw"
       },
       {
+        "name": "Districts in Texas",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["texas"],
+        "content": "<p>Texas is made up of 36 congressional districts, and is projected to gain 3 seats after the 2020 Census. Texas Legislature is comprised of the Senate with 31 members and the House of Representatives with 150 members.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Texas",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["texas"],
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature. A backup commission can draw state legislative districts if the legislature fails to do so in a certain timeframe. The Governor has veto power on districting plans.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for congressional districts. However, the Texas state constitution requires that state legislative districts be contiguous and that state House districts in particular should follow county boundaries where possible.</p>"
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1179,11 +1292,18 @@
         "type": "draw"
       },
       {
-        "name": "Independent Commission",
-        "nav": "Independent Commission",
+        "name": "Districts in Utah",
+        "nav": "Districts",
         "type": "text",
         "pages": ["utah"],
-        "content": "<p>In November 2018, Utah narrowly passed Proposition 4, a ballot initiative which shifted the responsibility of redistricting for Utah's state legislative and congressional districts from the state legislature to an independent commission. </p>"
+        "content": "<p>Utah contains 4 congressional districts. The state legislature has 75 state House seats and 29 state Senate seats. Districts are drawn by a 7 member Advisory commission or the state legislature.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Utah",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["utah"],
+        "content": "<h3>Who draws the lines?</h3><p>In November 2018, Utah narrowly passed Proposition 4, a ballot initiative which shifted the responsibility of redistricting for Utah's state legislative and congressional districts from the state legislature to an independent commission.</p><h3>Rules and criteria</h3><p>Utah law requires that districts:<ul><li>Keep political boundaries in tact as much as possible</li><li>Be compact</li><li>Be contiguous</li><li>Preserve communities of interest</li><li>Observe natural and geographic boundaries</li><li>Are not drawn to favor or discriminate against any candidate, party, or incumbent</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -1204,6 +1324,20 @@
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Districts in Vermont",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["vermont"],
+        "content": "<p>Vermont has one Congressional District. The state legislature is made up of a state House with 150 representatives and a state Senate with 30 representatives.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Vermont",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["vermont"],
+        "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by an Advisory Commission. The commission proposes an initial plan that can then be approved or replaced by the full state legislature. The governor holds veto power over all plans.</p><h3>Rules and criteria</h3><p>The state constitution requires that all districts be compact and contiguous. State legislature districts are additionally required to:<ul><li>Observe county boundaries and other political boundaries as practically allowed</li><li>Preserve communities of interests as practically allowed</li></ul></p>"
       },
       {
         "name": "About the data",
@@ -1379,11 +1513,25 @@
         "type": "draw"
       },
       {
-        "name": "Gill v. Whitford",
+        "name": "Districts in Wisconsin",
+        "nav": "Districts",
+        "type": "text",
+        "pages": ["wisconsin"],
+        "content": "<p>Wisconsin has 8 Congressional districts. The state legislature is made up of an Assembly with 99 seats and a Senate with 33 seats. 3 state Assembly districts are nested with each state Senate district.</p>"
+      },
+      {
+        "name": "Redistricting rules in Wisconsin",
+        "nav": "Rules",
+        "type": "text",
+        "pages": ["wisconsin"],
+        "content": "<h3>Who draws the lines?</h3><p>The state legislature draws districting plans and the governor has veto power.</p><h3>Rules and criteria</h3><p>Wisconsin has no state-level criteria for Congressional districts. However, state legislative districts are required by the Wisconsin constitution to be contiguous and nest assembly districts within senate districts.  In addition, assembly districts must be compact and follow county, precinct, town or ward lines and senate districts must consist of a “convenient” geographic area</p>"
+      },
+      {
+        "name": "Redistricting in the court",
         "nav": "In the Court",
         "type": "text",
         "pages": ["wisconsin"],
-        "content": "<p>In June 2018, the US Supreme Court remanded back to the lower courts Gill v. Whitford, a case challenging Wisconsin's state assembly districts as an unconstitutional partisan gerrymander.</p>"
+        "content": "<h3>Gill v. Whitford</h3><p>In June 2018, the US Supreme Court remanded back to the lower courts Gill v. Whitford, a case challenging Wisconsin's state assembly districts as an unconstitutional partisan gerrymander.</p>"
       },
       {
         "name": "About the data",
