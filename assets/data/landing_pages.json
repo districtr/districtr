@@ -234,6 +234,40 @@
     ]
   },
   {
+    "state": "Delaware",
+    "code": "DE",
+    "modules": [
+      {"name": "Statewide", "id": "delaware", "default": "true"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Districts in Delaware",
+        "nav": "Districts",
+        "pages": ["delaware"],
+        "type": "text",
+        "content": "<p>Delaware has 1 congressional district. The state legislature consists of a House with 41 seats and a Senate with 21 seats.</p>"
+      },
+      {
+        "name": "Redistricting Rules in Delaware",
+        "nav": "Rules",
+        "pages": ["delaware"],
+        "type": "text",
+        "content": "<h3>Who draws the lines?</h3><p>In Delaware, state legislative districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Delaware law insists that census data be adjusted to count incarcerated individuals at their last known place of residence rather than their location of incarceration. State laws require that state legislature districts:<ul><li>Be contiguous</li><li>Follow major roads, streams, and other natural boundaries</li><li>Do not show favor to any one person or party</li></ul></p>"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "pages": ["delaware"],
+        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+      }
+    ]
+  },
+  {
     "state": "Florida",
     "code": "FL",
     "modules": [
