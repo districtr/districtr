@@ -24,7 +24,8 @@ function communitiesFilter(place) {
 export function listPlacesForState(state) {
     if (_placesList === null) {
         return listPlaces().then(items => {
-            _placesList = items.map(communitiesFilter);
+            _placesList = items.filter(place => !place.limit || justCommunities)
+                .map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
                 item => item.state === state || item.name === state
             );

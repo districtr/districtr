@@ -14,6 +14,7 @@ const available = [
     "Arizona",
     "Arkansas",
     "Connecticut",
+    "Delaware",
     "Florida",
     "Georgia",
     "Pennsylvania",
@@ -370,7 +371,7 @@ function modulesAvailable(feature, onClose, placeId) {
                           </div>
                           <div class="place-info">Identify a community</div>
                           <div class="place-info">
-                              Built out of blocks
+                              Built out of block groups
                           </div>
                         </li>
                       </a>

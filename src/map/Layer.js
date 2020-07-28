@@ -55,6 +55,7 @@ export default class Layer {
         this.sourceId = isString(layer.source) ? layer.source : layer.id;
         this.type = layer.type;
         this.sourceLayer = layer["source-layer"];
+        this.background = layer.background;
 
         if (adder) {
             adder(map, layer);

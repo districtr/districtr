@@ -7,7 +7,9 @@ function HeaderRow(variableNames) {
             ${variableNames.map(
                 name =>
                     html`
-                        <th class="data-table__column-heading">${name}</th>
+                        <th class="data-table__column-heading" colSpan=${variableNames.length === 1 ? 2 : 1}>
+                            ${name}
+                        </th>
                     `
             )}
         </tr>

@@ -121,7 +121,7 @@ export default class State {
         return this.plan.parts.filter(part => part.visible);
     }
     initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties } = addLayers(
+        const { units, unitsBorders, bg_areas, bg_points, swipeUnits, swipeUnitsBorders, points, swipePoints, counties } = addLayers(
             map,
             swipemap,
             this.parts,
@@ -136,6 +136,10 @@ export default class State {
         // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
         this.layers = [units, points];
+        if (bg_areas) {
+            this.layers.push(bg_areas);
+            // this.layers.push(bg_points);
+        }
         this.swipeLayers = [swipeUnits, swipePoints];
         this.map = map;
     }

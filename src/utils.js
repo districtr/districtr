@@ -243,7 +243,24 @@ export function spatial_abilities (id) {
         // number_markers: true,
         county_brush: true,
         native_american: true,
+        coalition: true,
       },
+          maricopa: {
+            native_american: true,
+            coalition: true,
+          },
+          nwaz: {
+            native_american: true,
+            coalition: true,
+          },
+          seaz: {
+            native_american: true,
+            coalition: true,
+          },
+          phoenix: {
+            native_american: true,
+            coalition: true,
+          },
       chicago: {
         number_markers: true,
       },

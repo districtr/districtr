@@ -140,6 +140,11 @@ select {
     }
 }
 
+.modal-wrapper code {
+    user-select: all;
+    -webkit-user-select: text;
+}
+
 #save-popup {
     display: none;
     visibility: hidden;
@@ -170,6 +175,7 @@ select {
             display: block;
             word-break: break-all;
             user-select: all;
+            -webkit-user-select: text;
         }
 
         button {
@@ -221,4 +227,8 @@ select {
     .mapboxgl-control-container {
         display: none;
     }
+}
+
+.modal-wrapper {
+    top: 0;
 }

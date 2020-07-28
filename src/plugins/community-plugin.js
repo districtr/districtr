@@ -1,7 +1,9 @@
 import { PivotTable } from "../components/Charts/PivotTable";
+import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
+import { spatial_abilities } from "../utils";
 
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
@@ -12,12 +14,13 @@ export default function CommunityPlugin(editor) {
     const about = new AboutSection(editor);
     tab.addRevealSection("About Your Community", about.render);
 
-    const evaluationTab = new Tab("population", "Population", editor.store);
+    const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
         "Population",
         state.population,
         state.place.name,
-        state.parts
+        state.parts,
+        spatial_abilities(state.place.id).coalition ? "Coalition" : false
     );
     evaluationTab.addRevealSection("Population", populationPivot, {
         isOpen: true,
@@ -28,10 +31,25 @@ export default function CommunityPlugin(editor) {
             "Voting Age Population",
             state.vap,
             state.place.name,
-            state.parts
+            state.parts,
+            spatial_abilities(state.place.id).coalition ? "Coalition VAP" : false
         );
         evaluationTab.addRevealSection("Voting Age Population", vapPivot, {
             isOpen: false,
+            activePartIndex: 0
+        });
+    }
+
+    if (spatial_abilities(state.place.id).coalition) {
+        const coalitionPivot = CoalitionPivotTable(
+            "Coalition Builder",
+            state.population,
+            state.place.name,
+            state.parts,
+            state.units
+        );
+        evaluationTab.addRevealSection("Coalition Builder", coalitionPivot, {
+            isOpen: true,
             activePartIndex: 0
         });
     }

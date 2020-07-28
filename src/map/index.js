@@ -78,11 +78,9 @@ export class MapState {
         this.map.addControl(this.nav, "top-left");
 
         // Georgia specific
-        const activated = (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
-        const sliderOpt = new MapSliderControl(activated);
-        this.map.addControl(sliderOpt, "top-left");
-
+        let activated = false;
         if (localStorage.getItem("slide_layer") === "active") {
+            activated = true;
             this.swipemap = new mapboxgl.Map({
                 container: "swipemap",
                 style: mapStyle,
@@ -106,6 +104,10 @@ export class MapState {
             this.comparer = null;
             window.mapslide = null;
         }
+        
+        activated = activated || (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
+        const sliderOpt = new MapSliderControl(activated);
+        this.map.addControl(sliderOpt, "top-left");
 
         this.mapboxgl = mapboxgl;
     }
@@ -129,7 +131,7 @@ function addUnits(map, parts, tileset, layerAdder) {
     const unitsBorders = new Layer(
         map,
         {
-            id: "units-borders",
+            id: tileset.sourceLayer + "-borders",
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
@@ -145,7 +147,7 @@ function addPoints(map, tileset, layerAdder) {
     return new Layer(
         map,
         {
-            id: "units-points",
+            id: tileset.sourceLayer + "-points",
             type: "circle",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
@@ -182,6 +184,19 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
+function addBGs(map, tileset, layerAdder) {
+    return new Layer(map, {
+        id: "extra-bgs",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        background: true,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
+}
+
 export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
@@ -200,6 +215,14 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         tilesets.find(tileset => tileset.type === "circle"),
         layerAdder
     );
+    let bg_areas = null;
+    if (["yuma", "nwaz", "seaz", "maricopa", "phoenix"].includes(borderId)) {
+        bg_areas = addBGs(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
+            layerAdder
+        );
+    }
 
     let swipeUnits = null,
         swipeUnitsBorders = null,
@@ -229,7 +252,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     );
 
     // cities in Communities of Interest will have a thick border
-    if (["austin", "chicago", "lowell", "ontarioca", "philadelphia", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa"].includes(borderId)) {
+    if (["austin", "chicago", "lowell", "ontarioca", "philadelphia", "phoenix", "providence_ri", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa", "miamifl"].includes(borderId)) {
         fetch(`/assets/city_border/${borderId}.geojson`)
             .then(res => res.json())
             .then((geojson) => {
@@ -247,7 +270,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
                 type: 'geojson',
                 data: {
                   type: "FeatureCollection",
-                  features: geojson.features.filter(f => f.geometry.type === "Polygon")
+                  features: geojson.features.filter(f => f.geometry.type === "Polygon" || f.geometry.type === "MultiPolygon")
                 }
             });
 
@@ -279,5 +302,5 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas };
 }

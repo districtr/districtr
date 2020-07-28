@@ -40,7 +40,7 @@ export default class Overlay {
     show() {
         this.hide();
         this.repaint();
-        this.currentLayer.setOpacity(0.8);
+        this.currentLayer.setOpacity(0.7);
         this.visible = true;
     }
     hide() {

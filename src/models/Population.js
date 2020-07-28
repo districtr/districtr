@@ -2,8 +2,8 @@ import { numberWithCommas, roundToDecimal } from "../utils";
 import ColumnSet from "./ColumnSet";
 
 export default class Population extends ColumnSet {
-    constructor({ name, subgroups, total, parts }) {
-        super({ subgroups, total, parts });
+    constructor({ name, subgroups, total, total_alt, parts }) {
+        super({ subgroups, total, total_alt, parts });
         this.name = name;
 
         this.ideal = this.total.sum / parts.length;

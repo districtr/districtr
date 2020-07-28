@@ -124,6 +124,7 @@ export function loadPlanFromJSON(planRecord) {
     });
     return listPlaces().then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
+        place.landmarks = (planRecord.place || {}).landmarks;
         return {
             ...planRecord,
             place

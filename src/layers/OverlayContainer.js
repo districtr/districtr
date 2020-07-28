@@ -2,14 +2,40 @@ import { html } from "lit-html";
 import Parameter from "../components/Parameter";
 import Select from "../components/Select";
 import { toggle } from "../components/Toggle";
-import { colorByCount, colorByFraction } from "./color-rules";
+import { colorByCount, purpleByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(id, layers, columnSet, toggleText) {
+    constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition) {
         this._id = id;
-        this._currentSubgroupIndex = 0;
+        this._currentSubgroupIndex = firstOnly ? 1 : 0;
         this.subgroups = columnSet.columns;
+        if (includeCoalition) {
+            this.subgroups = this.subgroups.concat([]);
+            this.subgroups.splice(1, 0, {
+                key: "_COALITION",
+                name: includeCoalition,
+                columnSet: { type: "population" },
+                asMapboxExpression: () => ["get", "TOTPOP"],
+                fractionAsMapboxExpression: () => [
+                    "case",
+                    ["==", ["get", "TOTPOP"], 0],
+                        0,
+                    [
+                        "/",
+                        ["+"].concat(this.subgroups
+                            .filter(sg => window.coalitionGroups[sg.key])
+                            .map(sg => ["get", sg.key])
+                        ),
+                        this.subgroups[0].total.asMapboxExpression()
+                    ]
+                ],
+                // sum: fullsum,
+                total: columnSet.subgroups[0].total
+            });
+        }
+        this.firstOnly = firstOnly || false;
+
         // These color rules should be explicitly attached to each subgroup,
         // instead of doing these brittle checks to try and figure out what's
         // appropriate.
@@ -18,9 +44,11 @@ export default class OverlayContainer {
         // and to register new overlay types. Plugins could just register
         // their layer styles against columnSet/subgroup types.
         const colorRule =
-            this.subgroups[0].total === this.subgroups[0]
-                ? colorByCount
-                : colorByFraction;
+            (this.firstOnly ? purpleByCount
+              : ((this.subgroups[0].total === this.subgroups[0])
+                  ? colorByCount
+                  : colorByFraction)
+            );
 
         this.overlay = new Overlay(
             layers,
@@ -51,7 +79,7 @@ export default class OverlayContainer {
             });
         }
 
-        this.visibilityToggle = toggle(toggleText, (this._currentSubgroupIndex !== 0), visible => {
+        this.visibilityToggle = toggle(toggleText, (!this.firstOnly && this._currentSubgroupIndex !== 0), visible => {
             document.getElementById("color-" + this._id).style.display
                 = (visible ? "block" : "none");
             if (visible) {
@@ -65,8 +93,12 @@ export default class OverlayContainer {
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
         this.overlay.setSubgroup(this.subgroups[i]);
-        if (this.subgroups[i].total === this.subgroups[i]) {
-            this.overlay.setColorRule(colorByCount);
+        if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i])) {
+            if (this.firstOnly) {
+              this.overlay.setColorRule(purpleByCount);
+            } else {
+                this.overlay.setColorRule(colorByCount);
+            }
 
             let total = this.subgroups[i].max;
             document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
@@ -75,6 +107,8 @@ export default class OverlayContainer {
                     if (num < 1000 || total < 10000) {
                         if (total < 1000) {
                             sq.innerText = Math.floor(Math.round(num / 10) * 10).toLocaleString();
+                        } else if (total === 3000 && num === 3000) {
+                            sq.innerText = "≥3,000";
                         } else {
                             sq.innerText = Math.floor(Math.round(num / 100) * 100).toLocaleString();
                         }
@@ -99,27 +133,31 @@ export default class OverlayContainer {
             <div class="ui-option ui-option--slim">
                 ${this.visibilityToggle}
             </div>
-            ${Parameter({
-                label: "Variable:",
-                element: Select(
-                    this.subgroups,
-                    this.changeSubgroup,
-                    this._currentSubgroupIndex
-                )
-            })}
-            ${Parameter({
-                label: "Display as",
-                element: Select(
-                    this.overlay.layers.map(layer =>
-                        getLayerDescription(layer)
-                    ),
-                    (i) => {
-                        this.overlay.setLayer(i);
-                    }
-                )
-            })}
+            ${this.firstOnly ? "" :
+                Parameter({
+                    label: "Variable:",
+                    element: Select(
+                        this.subgroups,
+                        this.changeSubgroup,
+                        this._currentSubgroupIndex
+                    )
+                })
+            }
+            ${this.firstOnly ? "" :
+                Parameter({
+                    label: "Display as",
+                    element: Select(
+                        this.overlay.layers.map(layer =>
+                            getLayerDescription(layer)
+                        ),
+                        (i) => {
+                            this.overlay.setLayer(i);
+                        }
+                    )
+                })
+            }
             <div id="color-${this._id}" class="color-legend">
-                <span class="gradientbar"></span>
+                <span class="gradientbar ${!this.firstOnly || 'purple'}"></span>
                 <br/>
                 <div id="notches-${this._id}" class="notches">
                     <span class="notch">|</span>

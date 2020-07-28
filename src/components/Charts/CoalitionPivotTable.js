@@ -1,9 +1,12 @@
-import { roundToDecimal } from "../../utils";
+import { roundToDecimal, numberWithCommas } from "../../utils";
 import DataTable from "./DataTable";
 import { html } from "lit-html";
 import Select from "../Select";
 import Parameter from "../Parameter";
+import { toggle } from "../Toggle";
 import { actions } from "../../reducers/charts";
+import { generateId } from "../../utils";
+import Layer, { addBelowLabels } from "../../map/Layer";
 
 /**
  * We want the background color to be #f9f9f9 when value = 0, and black when
@@ -32,31 +35,40 @@ function getCell(value) {
     };
 }
 
+function getTotal(value) {
+    return {
+        content: value.toLocaleString(),
+        style: getCellStyle(value)
+    };
+}
+
 function getEntries(subgroup, part) {
     const districtFraction = subgroup.getFractionInPart(part.id);
     const overallFraction = subgroup.sum / subgroup.total.sum;
-    return [getCell(districtFraction), getCell(overallFraction)];
+    return [part === "" ? getTotal(subgroup.sum) : getCell(districtFraction), getCell(overallFraction)];
 }
 
 export function DistrictEvaluationTable(columnSet, placeName, part) {
-    if (!part) {
+    if (!part && part !== "") {
         part = [{ id: 0 }];
     }
     const subgroups = columnSet.subgroups;
-    const headers = [part.name || part.renderLabel(), placeName];
+    const headers = part ? [part.name || part.renderLabel(), placeName] : [placeName];
+    let entries = [];
+    if (part) {
+        entries.push({
+            content: numberWithCommas(columnSet.total.data[part.id]),
+            style: "width: 40%"
+        });
+    }
+    entries.push({
+        content: numberWithCommas(columnSet.total.sum),
+        style: "width: 40%"
+    });
     let rows = [
         {
             label: "Total",
-            entries: [
-                {
-                    content: columnSet.total.data[part.id].toLocaleString({ maximumFractionDigits: 2 }),
-                    style: "width: 40%"
-                },
-                {
-                    content: columnSet.total.sum.toLocaleString({ maximumFractionDigits: 2 }),
-                    style: "width: 40%"
-                }
-            ]
+            entries: entries
         }
     ];
     rows.push(
@@ -71,50 +83,47 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
 
 export default DistrictEvaluationTable;
 
-export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnabled) => (
+export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units, totalOnly, districtView) => (
     uiState,
     dispatch
 ) => {
     const visibleParts = parts.filter(part => part.visible);
-    let mockColumnSet = columnSet;
+    let fullsum = 0,
+        mockData = [],
+        selectSGs = columnSet.subgroups.filter(sg => window.coalitionGroups[sg.key]);
+    selectSGs.forEach(sg => {
+        fullsum += sg.sum;
+        sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
+    });
+    let coalitionSubgroup = {
+        data: mockData,
+        key: 'coal',
+        name: (selectSGs.length > 1 ? 'Coalition' : (selectSGs[0] || {name: 'None'}).name),
+        getAbbreviation: () => "Coalition",
+        getFractionInPart: (p) => {
+            let portion = 0;
+            selectSGs.forEach((selected) => {
+                portion += selected.getFractionInPart(p);
+            });
+            return portion;
+        },
+        sum: fullsum,
+        total: columnSet.subgroups[0].total
+    };
 
-    if (coalitionEnabled) {
+    let mockColumnSet = {
+      ...columnSet,
+      subgroups: [coalitionSubgroup]
+    };
 
-        let fullsum = 0,
-            mockData = [],
-            selectSGs = columnSet.subgroups.filter(sg => window.coalitionGroups[sg.key]);
-        selectSGs.forEach(sg => {
-            fullsum += sg.sum;
-            sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
-        });
-
-        let coalitionSubgroup = {
-            data: mockData,
-            key: 'coal',
-            name: (selectSGs.length > 1 ? coalitionEnabled : (selectSGs[0] || {name: 'None'}).name),
-            getAbbreviation: () => coalitionEnabled,
-            getFractionInPart: (p) => {
-                let portion = 0;
-                selectSGs.forEach((selected) => {
-                    portion += selected.getFractionInPart(p);
-                });
-                return portion;
-            },
-            sum: fullsum,
-            total: columnSet.subgroups[0].total
-        };
-
-        mockColumnSet = {
-          ...columnSet,
-          subgroups: columnSet.subgroups.concat([coalitionSubgroup])
-        };
-    }
+    // support nameless districts and communities
+    visibleParts.forEach((p, i) => p.name = p.name || ("District " + (i + 1)));
 
     return html`
-        <section class="toolbar-section">
-            ${visibleParts.length > 1
+        <section class="toolbar-section" style=${{ padding: totalOnly ? 0 : 10 }}>
+            ${!totalOnly && visibleParts.length > 1
                 ? Parameter({
-                      label: "Community:",
+                      label: (districtView ? "District:" : "Community:"),
                       element: Select(visibleParts, i =>
                           dispatch(
                               actions.selectPart({
@@ -128,7 +137,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnable
             ${DistrictEvaluationTable(
                 mockColumnSet,
                 placeName,
-                parts[uiState.charts[chartId].activePartIndex]
+                totalOnly ? "" : parts[uiState.charts[chartId].activePartIndex]
             )}
         </section>
     `;

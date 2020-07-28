@@ -64,5 +64,9 @@
         border: 1px solid #ddd;
         border-left: none;
         border-right: none;
+
+        &.purple {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 139, 0.81));
+        }
     }
 }
