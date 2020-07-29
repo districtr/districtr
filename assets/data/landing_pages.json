@@ -1493,6 +1493,42 @@
         "content": "<p>In February 2018, Moon Duchin was asked by Governor Tom Wolf to provide guidance in evaluating redistricting plans for fairness after the Pennsylvania Supreme Court struck down the 2011 enacted plan as an unconstitutional partisan gerrymander. Her report is hosted on <a href=\"https://mggg.org/uploads/md-report.pdf\">MGGG's website</a>.</p>"
       },
       {
+        "name": "See the enacted plans over the decade",
+        "nav": "Plans",
+        "pages": ["pennsylvania"],
+        "type": "plans",
+        "ref": "pa",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress_2011",
+                "name": "2011 Enacted Congressional Plan"
+              },
+              {
+                "id": "congress_2018_rem",
+                "name": "2018 Remedial Congressional Plan"
+              }
+            ]
+          },
+          {
+            "title": "Proposed Plans",
+            "plans": [
+              {
+                "id": "congress_gov",
+                "name": "Governor’s Proposed Congressional Plan"
+              },
+              {
+                "id": "congress_ts",
+                "name": "Turzai-Scarnati Proposed Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1534,6 +1570,33 @@
         "type": "text",
         "pages": ["rhode_island"],
         "content": "<h3>Who draws the lines?</h3><p>The state legislature is responsible for drawing federal and state districts, but the governor has veto power over districting plans. There is also an advisory commission tasked with recommending congressional and state legislative plans to the legislature. There are 18 members in the commission: 7 chosen by each the state Senate and state House majority leaders of whom 4 are legislature members and 3 are not and 2 members chosen by each the state Senate and state House minority leaders, of whom all are members of the legislature. The advisory commission is tasked with conducting public hearings before finalizing a district plan recommendation to the legislature.</p><h3>Rules and criteria</h3><p>State law states that any software used for redistricting must be made available for public access. The Rhode Island state Constitution requires that state legislative districts be as compact as possible, but this does not extend to congressional districts. The state has additional criteria for both state legislative and congressional districts that are subject to modification by the state legislature as deemed necessary. Current laws for Rhode Island request that districts:<ul><li>Be as contiguous as possible</li><li>Be as equal in population as possible</li><li>Reflect natural, historical, geographical and municipal and other political lines</li><li>Preserve \"the right of all Rhode Islanders to fair representation and equal access to the political process.\"</li><li>Coincide for the state House, state Senate, and United States Congress (with the stipulation that if districts do not align perfectly that they should avoid precincts with fewer than 100 people having distinct ballot options.)</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["rhode_island"],
+        "type": "plans",
+        "ref": "ri",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -1579,6 +1642,25 @@
         "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature. A backup commission can draw state legislative districts if the legislature fails to do so in a certain timeframe. The Governor has veto power on districting plans.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for congressional districts. However, the Texas state constitution requires that state legislative districts be contiguous and that state House districts in particular should follow county boundaries where possible.</p>"
       },
       {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["texas"],
+        "type": "plans",
+        "ref": "tx",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1618,6 +1700,29 @@
         "type": "text",
         "pages": ["utah"],
         "content": "<h3>Who draws the lines?</h3><p>In November 2018, Utah narrowly passed Proposition 4, a ballot initiative which shifted the responsibility of redistricting for Utah's state legislative and congressional districts from the state legislature to an independent commission.</p><h3>Rules and criteria</h3><p>Utah law requires that districts:<ul><li>Keep political boundaries in tact as much as possible</li><li>Be compact</li><li>Be contiguous</li><li>Preserve communities of interest</li><li>Observe natural and geographic boundaries</li><li>Are not drawn to favor or discriminate against any candidate, party, or incumbent</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["utah"],
+        "type": "plans",
+        "ref": "ut",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -1846,6 +1951,25 @@
         "type": "text",
         "pages": ["wisconsin"],
         "content": "<h3>Gill v. Whitford</h3><p>In June 2018, the US Supreme Court remanded back to the lower courts Gill v. Whitford, a case challenging Wisconsin's state assembly districts as an unconstitutional partisan gerrymander.</p>"
+      },
+      {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["wisconsin"],
+        "type": "plans",
+        "ref": "wi",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
