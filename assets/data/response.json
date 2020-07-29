@@ -6003,7 +6003,7 @@
         ],
         "idColumn": {
           "name": "Precinct unique identifier",
-          "key": "VTD"
+          "key": "VTDID"
         },
         "bounds": [
           [
