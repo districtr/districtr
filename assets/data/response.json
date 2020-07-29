@@ -2998,14 +2998,14 @@
         "pluralNoun": "Congressional Districts"
       },
       {
-        "name": "State House",
-        "numberOfParts": 151,
-        "pluralNoun": "State House Districts"
-      },
-      {
         "name": "State Senate",
         "numberOfParts": 36,
         "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 151,
+        "pluralNoun": "State House Districts"
       }
     ]
   },

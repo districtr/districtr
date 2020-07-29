@@ -70,12 +70,38 @@
     "state": "Arizona",
     "code": "AZ",
     "modules": [
-      {"name": "Statewide", "id": "arizona", "default": "true"}],
+      {"name": "Statewide", "id": "arizona", "default": "true"},
+      {"name": "Maricopa County", "id": "maricopa"},
+      {"name": "Phoenix", "id": "phoenix"},
+      {"name": "Yuma County", "id": "yuma"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["arizona"],
+        "type": "plans",
+        "ref": "az",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_legislature",
+                "name": "State Legislative Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -191,6 +217,33 @@
         "content": "<h3>Who draws the lines?</h3><p>Colorado has a 12 member independent commission for drawing districts. The same commission selection and districting rules apply to congressional and state legislative redistricting. The commission consists of 4 registered with each of the 2 major parties and 4 registered with neither major party, and 6 commissioners randomly chosen by the judicial panel. Commission members cannot be compensated by public officials or hold public office. The non-partisan members of the commission are in charge of drawing the proposed districts.</p><h3>Rules and criteria</h3><p>State law requires that districts:<ul><li>Be contiguous and compact</li><li>Have a population deviation of less than 5%</li><li>Preserve communities of interest and political subdivisions</li><li>Maximize number of competitive districts after adhering to other criteria</li><li>Not be drawn to favor incumbents or certain political parties</li><li>Not interfere with the ability of a racial or language minority group to elect a candidate of choice</li></ul>State legislative districts must additionally preserve political boundaries wherever possible and be as compact as possible given their total perimeter.</p>"
       },
       {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["colorado"],
+        "type": "plans",
+        "ref": "co",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -225,6 +278,33 @@
         "content": "<h3>Who draws the lines?</h3><p>Connecticut has an advisory committee of 8 legislators exists to draw districts, with a 9 member backup committee.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for Congressional districts, but state legislative districts must be contiguous and keep town boundaries intact as much as possible.</p>"
       },
       {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["connecticut"],
+        "type": "plans",
+        "ref": "ct",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -257,6 +337,29 @@
         "pages": ["delaware"],
         "type": "text",
         "content": "<h3>Who draws the lines?</h3><p>In Delaware, state legislative districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Delaware law insists that census data be adjusted to count incarcerated individuals at their last known place of residence rather than their location of incarceration. State laws require that state legislature districts:<ul><li>Be contiguous</li><li>Follow major roads, streams, and other natural boundaries</li><li>Do not show favor to any one person or party</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["delaware"],
+        "type": "plans",
+        "ref": "de",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -313,6 +416,33 @@
         "content": "<h3>Who draws the lines?</h3><p>In Georiga, districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Georgia state constitution demands that state legislative districts be contiguous. In 2011 the legislative committees established guidelines asserting: <ul><li>Multimember districts are prohibited</li><li>A redistricting plan should consider county and precinct boundaries, compactness, and communities of interest</li><li>Efforts should be made to avoid the unnecessary pairing of incumbents</li></ul></p>"
       },
       {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["georgia"],
+        "type": "plans",
+        "ref": "ga",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -345,6 +475,33 @@
         "pages": ["hawaii"],
         "type": "text",
         "content": "<h3>Who draws the lines?</h3><p>A nine-member politician commission draws Hawaii’s congressional and state legislative lines. At least one public hearing is held in each of the state’s basic island units before state lines are finalized.</p><h3>Rules and criteria</h3><p>Hawaii requires that districts:<ul><li>Should achieve district apportionment among basic island units</li><li>Follow boundaries of basic island units</li><li>No undue favoritism towards a person or political faction</li><li>Contiguity except when districts include more than 1 island</li><li>Districts must be compact</li><li>Follow census tract and geographic boundaries where possible</li><li>Nest house districts in senate districts where practicable</li><li>No more than 4 members per district</li><li>Preserve communities of socio-economic interest where practicable</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["hawaii"],
+        "type": "plans",
+        "ref": "hi",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -577,6 +734,25 @@
         "content": "<h3>Who draws the lines?</h3><p>There is a nonpartisan legislative services agency and an advisory commission to draw districts for the state. The state legislature must approve the plan, but the governor may veto it. For state legislative districts, the advisory commission is required to hold 3 public hearings in different regions of the state.</p><h3>Rules and criteria</h3><p>In Iowa congressional districts must be draw out of whole counties.  In addition, for both state legislative districts and congressional districts, Iowa mandates that districts:<ul><li>Be compact and contiguous</li><li>Follow political boundaries</li><li>Cannot favor any person, party, or group</li><li>Cannot distort minority group voting strength</li></ul></p>"
       },
       {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["iowa"],
+        "type": "plans",
+        "ref": "ia",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -609,6 +785,25 @@
         "type": "text",
         "pages": ["maryland"],
         "content": "<h3>Who draws the lines?</h3><p>The state legislature draws congressional districting plans, while either the governor or the state legislature can draw and present state legislature districting plans.</p><h3>Rules and criteria</h3><p>There are no specific criteria for congressional plans, but state legislature plans must have districts that:<ul><li>are compact and contiguous</li><li>give \"due regard\" to natural and political boundaries.</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["maryland"],
+        "type": "plans",
+        "ref": "md",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -718,6 +913,25 @@
         "content": "<p>These modules were created to aid in a paper, <a href=\"https://arxiv.org/abs/1810.09051\"> \"Locating the representational baseline: Republicans in Massachusetts,\"</a> written by MGGG and collaborators. Despite Republicans usually gaining between 30% and 40% of the two-way vote share in statewide elections, Massachusetts has not elected a Republican to the US House of Representatives since 1994. The paper finds that the underperformance of Republicans in Massachusetts is not the result of gerrymandering or candidate availability, but rather is a factor of the spatial distribution of Republican voters in the state.</p>"
       },
       {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["ma"],
+        "type": "plans",
+        "ref": "ma",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -759,6 +973,33 @@
         "content": "<h3>Who draws the lines?</h3><p>Michigan has an independent commission for drawing districts. The commission has 13 members, with 4 for each major party (Democrat and Republican) and 5 unaffiliated or affiliated with a minor party. Commission members may not hold public office or associated positions such as lobbyists and state employees. The commission requires an 8 vote majority to pass a plan, after which members must rank each plan and the highest ranked is submitted.</p><h3>Rules and criteria</h3><p>For both congressional and state legislative districts, Michigan requires that districts:<ul><li>Be contiguous and compact</li><li>Accurately represent the state’s diversity and communities of interest</li><li>Respect political boundaries wherever possible</li><li>Do not lend advantage or disadvantage to any party, incumbent, or candidate</li><li>Stay within a 2% population deviation</li></ul></p>"
       },
       {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["michigan"],
+        "type": "plans",
+        "ref": "mi",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -791,6 +1032,29 @@
         "type": "text",
         "pages": ["minnesota"],
         "content": "<h3>Who draws the lines?</h3><p>Congressional and state legislative districts are drawn by the state legislature. The governor has the authority to veto a plan.</p><h3>Rules and criteria</h3><p>Minnesota requires that districts are contiguous.</p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["minnesota"],
+        "type": "plans",
+        "ref": "mn",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -886,6 +1150,29 @@
         "type": "text",
         "pages": ["new_mexico"],
         "content": "<h3>Who draws the lines?</h3><p>Congressional districts and state Senate districts are drawn by the state legislature. The governor can veto a plan.</p><h3>Rules and criteria</h3><p>New Mexico requires that districts:<ul><li>Be contiguous and compact</li><li>Do no split voting precincts</li><li>Attempt to preserve communities of interest</li><li>Factor in political and geographic boundaries</li><li>Seek to preserve the core of existing districts</li></ul></p>"
+      },
+       {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["new_mexico"],
+        "type": "plans",
+        "ref": "nm",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -1049,6 +1336,33 @@
         "type": "text",
         "pages": ["oklahoma"],
         "content": "<h3>Who draws the lines?</h3><p>Districts are drawn by the state legislature, or a backup commission for state legislative districts. For Congressional district plans, the governor has veto power.</p><h3>Rules and criteria</h3><p>Oklahoma has no state-level districting criteria for Congressional districts or state House districts. However, state laws require that state Senate districts:<ul><li>Be as compact and contiguous as possible</li><li>Follow political boundaries as much as possible</li><li>Have consideration for \"economic and political interests and historical precedents\" as feasible</li></ul></p><p>Despite no formal legislation on state House districts, the redistricting committee of the state House has set forth some guidelines:<ul><li>House districts should not have a population deviation greater than 3%, unless necessary to accommodate a political boundary</li><li>Residency of incumbents may be considered in drawing House districts</li><li>House districts should preserve communities of interest, defined as \"long-standing communities of interest based on social, cultural, ethnic, and economic similarities\", and also including preservation of \"the core of existing districts\"</li></ul></p>"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["oklahoma"],
+        "type": "plans",
+        "ref": "ok",
+        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
