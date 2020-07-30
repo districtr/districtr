@@ -388,7 +388,7 @@ export default function DataLayersPlugin(editor) {
         });
 
         tab.addRevealSection(
-            'Enacted Plans'
+            'Enacted Plans',
             (uiState, dispatch) => html`
             ${toggle("2003-2013 Congressional Plan", false, checked => {
                 let opacity = checked ? 1 : 0;
@@ -399,7 +399,7 @@ export default function DataLayersPlugin(editor) {
                 plan2013 && plan2013.setOpacity(opacity);
             })}`,
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
