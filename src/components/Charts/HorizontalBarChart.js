@@ -34,10 +34,14 @@ export function HorizontalBarChart(
     total,
     maxVariableLength = 27
 ) {
+    let columns = columnSet.columns.filter(c => c.name);
+    if (columns.length > 2 && columns[1].name.substring(0, 3) === "in_") {
+        columns = columns.sort((a, b) => (a.name.split("_")[1] * 1 < b.name.split("_")[1] * 1) ? -1 : 1);
+    }
     return html`
         <dl class="tooltip-data">
-            ${columnSet.columns.map((column, i) => {
-                const value = values[i];
+            ${columns.map((column, i) => {
+                const value = values[columnSet.columns[0].name ? i : (i+1)];
                 return html`
                     <div class="tooltip-data__row">
                         <dt>
