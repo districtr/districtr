@@ -51,6 +51,7 @@ function getPopulation(place, parts) {
             sg.total_alt = true;
             population.subgroups.push(sg);
         });
+        population.subgroups.push(population18.total);
         population.total_alt = population18.total;
     }
     return new Population({ ...population, parts });

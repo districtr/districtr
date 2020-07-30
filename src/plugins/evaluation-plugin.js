@@ -13,13 +13,13 @@ export default function EvaluationPlugin(editor) {
 
     if (state.population.subgroups.length > 1) {
         tab.addRevealSection(
-            "Racial Balance",
+            "Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "Racial Balance",
+                    "Population by Race",
                     state.population,
                     state.activeParts,
-                    uiState.charts["Racial Balance"],
+                    uiState.charts["Population by Race"],
                     dispatch
                 ),
             {
@@ -30,13 +30,13 @@ export default function EvaluationPlugin(editor) {
     }
     if (state.vap) {
         tab.addRevealSection(
-            "VAP Balance",
+            "Voting Age Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "VAP Balance",
+                    "Voting Age Population by Race",
                     state.vap,
                     state.activeParts,
-                    uiState.charts["VAP Balance"],
+                    uiState.charts["Voting Age Population by Race"],
                     dispatch
                 ),
             {
