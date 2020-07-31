@@ -19,16 +19,18 @@ export default function ContiguitySection(contiguities, uiState, dispatch) {
       <div class="district-row">
         ${Object.keys(contiguities).map((dnum) => {
           return html`
-            <span
-              id="contiguity-${dnum}"
-              class="part-number"
-              style="background:${districtColors[dnum].hex};
+            <div>
+              <span
+                id="contiguity-${dnum}"
+                class="part-number"
+                style="background:${districtColors[dnum].hex};
                                   display:${contiguities[dnum]
-                ? "none"
-                : "flex"};"
-            >
-              ${Number(dnum) + 1}
-            </span>
+                  ? "none"
+                  : "flex"};"
+              >
+                ${Number(dnum) + 1}
+              </span>
+            </div>
           `;
         })}
       </div>
