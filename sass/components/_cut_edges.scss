@@ -1,3 +1,11 @@
 #cut_edges_distrib_canvas {
   background-image: url("assets/cut_edges_histograms/iowa.png");
 }
+
+.cut_edges_distribution {
+  max-width: 100%;
+}
+
+.cut_edges_distribution > img {
+  max-width: 100%;
+}

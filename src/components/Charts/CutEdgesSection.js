@@ -19,8 +19,12 @@ export default function CutEdgesSection(state, uiState, dispatch) {
       <h4>
         Number of cut edges compared to 50,000 plans under Recom step:
       </h4>
-      <div id="cut_edges_distribution">
+      <div class="cut_edges_distribution">
         <canvas id="cut_edges_distrib_canvas"></canvas>
+        <img
+          id="cut_edges_distrib_img"
+          src="assets/cut_edges_histograms/iowa.png"
+        />
       </div>
 
       <h4>

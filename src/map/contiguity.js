@@ -1,4 +1,7 @@
 /* eslint-disable linebreak-style */
+
+function _drawLineOnCanvas(min_x, max_x) {}
+
 function setNumCutEdges(json_response) {
   let cut_edges_str = json_response["cut_edges"]; // this is a string
   cut_edges_str = cut_edges_str.slice(1, cut_edges_str.length - 1);
