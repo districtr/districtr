@@ -9,6 +9,20 @@ function setNumCutEdges(json_response) {
 
   document.querySelector("#num-cut-edges").innerText = cut_edges.length;
   document.querySelector("#cut-edges").innerText = cut_edges;
+
+  const cs = document.querySelector("#cut_edges_distrib_canvas");
+  // naturalHeight is the intrinsic height of the image in CSS pixels
+  const nh = document.querySelector("#cut_edges_distrib_img").naturalHeight;
+  const nw = document.querySelector("#cut_edges_distrib_img").naturalWidth;
+  // height/width is the rendered height/width of the image in CSS pixels
+  const h = document.querySelector("#cut_edges_distrib_img").height;
+  const w = document.querySelector("#cut_edges_distrib_img").width;
+
+  const h_scale = h / nh;
+  const w_scale = w / nw;
+
+  const start_x = 20;
+  const end_x = 100;
 }
 
 function setContiguityStatus(contiguity_object, dnum) {
