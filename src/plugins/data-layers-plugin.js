@@ -408,6 +408,20 @@ export default function DataLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
+    if (state.plan.problem.type === "community") {
+        tab.addSection(() => toggle("Neighborhood names", true, checked => {
+            state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
+                : ["case",
+                ["==", ["get", "type"], "neighborhood"],
+                "",
+                ["==", ["get", "type"], "neighbourhood"],
+                "",
+                ["==", ["get", "type"], "block"],
+                "",
+                ["get", "name"]]); // default
+        }));
+    }
+
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
