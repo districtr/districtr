@@ -1,17 +1,16 @@
 /* eslint-disable linebreak-style */
 
-function _drawLineOnCanvas(min_x, max_x) {}
-
 function setNumCutEdges(json_response) {
-  let cut_edges_str = json_response["cut_edges"]; // this is a string
-  cut_edges_str = cut_edges_str.slice(1, cut_edges_str.length - 1);
-  console.log(cut_edges_str);
-
-  let cut_edges = cut_edges_str.split(",");
-  console.log(cut_edges);
+  let str = json_response.cut_edges; // this is a string
+  // "{(12, 17), (2, 42).... (19, 56)}"
+  // Convert from Python format to Javascript
+  str = str.replace("{", "[");
+  str = str.replace("}", "]");
+  str = str.replaceAll("(", "[");
+  str = str.replaceAll(")", "]");
+  let cut_edges = JSON.parse(str);
 
   document.querySelector("#num-cut-edges").innerText = cut_edges.length;
-  document.querySelector("#cut-edges").innerText = cut_edges;
 
   const cs = document.querySelector("#cut_edges_distrib_canvas");
   // naturalHeight is the intrinsic height of the image in CSS pixels
@@ -29,7 +28,7 @@ function setNumCutEdges(json_response) {
 }
 
 function setContiguityStatus(contiguity_object, dnum) {
-  let contiguous = contiguity_object["contiguity"];
+  let contiguous = contiguity_object.contiguity;
   console.log(contiguous);
   document.querySelector("#contiguity-status").innerText = !contiguous
     ? "Districts may have contiguity gaps"
@@ -69,7 +68,6 @@ export default function ContiguityChecker(state, brush) {
           return data;
         });
     }
-    return;
   };
 
   let allDistricts = [],
