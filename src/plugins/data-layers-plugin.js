@@ -53,7 +53,7 @@ export function addCountyLayer(tab, state) {
     if (stateNameToFips[(state.place.state || state.place.id).toLowerCase()]) {
         tab.addSection(
             () => html`
-                <h4>Counties</h4>
+                <h4>Boundaries</h4>
                 ${toggle(`Show county boundaries`, false, checked =>
                     counties.setOpacity(
                         checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
@@ -409,16 +409,18 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.plan.problem.type === "community") {
-        tab.addSection(() => toggle("Neighborhood names", true, checked => {
+        const noNames = ["case",
+            ["==", ["get", "type"], "neighborhood"],
+            "",
+            ["==", ["get", "type"], "neighbourhood"],
+            "",
+            ["==", ["get", "type"], "block"],
+            "",
+            ["get", "name"]];
+        state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
+        tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
             state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
-                : ["case",
-                ["==", ["get", "type"], "neighborhood"],
-                "",
-                ["==", ["get", "type"], "neighbourhood"],
-                "",
-                ["==", ["get", "type"], "block"],
-                "",
-                ["get", "name"]]); // default
+                : noNames);
         }));
     }
 
