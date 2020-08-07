@@ -283,6 +283,7 @@ export function spatial_abilities (id) {
       },
       iowa: {
         number_markers: true,
+        contiguity: true,
       },
       maryland: {
         number_markers: true,
@@ -343,6 +344,7 @@ export function spatial_abilities (id) {
       texas: {
         number_markers: true,
         county_brush: true,
+        contiguity: true,
       },
       utah: {
         number_markers: true,
