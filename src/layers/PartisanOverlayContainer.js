@@ -1,7 +1,6 @@
 import { html } from "lit-html";
 import { Parameter } from "../components/Parameter";
 import Select from "../components/Select";
-import { toggle } from "../components/Toggle";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
@@ -55,9 +54,28 @@ export default class PartisanOverlayContainer {
         const overlay = this.currentElectionOverlay;
         return html`
             <div class="ui-option ui-option--slim">
-                ${toggle(`Show partisan lean`, overlay.isVisible, checked =>
-                    this.toggleVisibility(checked)
-                )}
+                <label class="toolbar-checkbox">
+                    <input
+                        type="checkbox"
+                        name="data_layers"
+                        ?checked="${overlay.isVisible}"
+                        value="partisan"
+                        @change=${(e) => {
+                            if (e.bubbles) {
+                                let checks = document.getElementsByName("data_layers");
+                                for (let c = 0; c < checks.length; c++) {
+                                    if (checks[c].value !== this._id) {
+                                        checks[c].checked = false;
+                                        let evt = new Event("change");
+                                        checks[c].dispatchEvent(evt);
+                                    }
+                                }
+                            }
+                            this.toggleVisibility(e.target.checked);
+                        }}
+                    />
+                    Show partisan lean
+                </label>
             </div>
             ${[
                 {
