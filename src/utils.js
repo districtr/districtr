@@ -248,22 +248,27 @@ export function spatial_abilities (id) {
           maricopa: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           nwaz: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           seaz: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           phoenix: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           yuma: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
       chicago: {
         number_markers: true,

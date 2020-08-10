@@ -10,7 +10,7 @@ export default function NumberMarkers(state, brush) {
     if (!spatial_abilities(state.place.id).number_markers) {
         console.log("not on NumberMarkers allowlist");
         return;
-    } else if (["arizona", "ma"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
+    } else if (["ma"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
         console.log("state NumberMarker support limited to precincts");
         return;
     }
