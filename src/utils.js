@@ -261,6 +261,10 @@ export function spatial_abilities (id) {
             native_american: true,
             coalition: true,
           },
+          yuma: {
+            native_american: true,
+            coalition: true,
+          },
       chicago: {
         number_markers: true,
       },

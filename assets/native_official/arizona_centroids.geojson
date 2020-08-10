@@ -21,6 +21,7 @@
 { "type": "Feature", "properties": { "NAME": "Kaibab" }, "geometry": { "type": "Point", "coordinates": [ -112.679675658771842, 36.912799348408797 ] } },
 { "type": "Feature", "properties": { "NAME": "San Carlos" }, "geometry": { "type": "Point", "coordinates": [ -110.161216390411511, 33.332597987747128 ] } },
 { "type": "Feature", "properties": { "NAME": "Tonto Apache" }, "geometry": { "type": "Point", "coordinates": [ -111.328372829930672, 34.220943369426472 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fort Yuma" }, "geometry": { "type": "Point", "coordinates": [ -114.645298193338007, 32.78438941540805 ] } },
 { "type": "Feature", "properties": { "NAME": "Fort Mojave" }, "geometry": { "type": "Point", "coordinates": [ -114.480333309312272, 34.737359703436454 ] } },
 { "type": "Feature", "properties": { "NAME": "Fort Mojave" }, "geometry": { "type": "Point", "coordinates": [ -114.494737353104071, 34.761438047600713 ] } },
 { "type": "Feature", "properties": { "NAME": "Fort Mojave" }, "geometry": { "type": "Point", "coordinates": [ -114.501714983548069, 34.769162265700146 ] } },
