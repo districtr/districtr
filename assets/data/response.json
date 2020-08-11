@@ -5373,6 +5373,12 @@
                 "max": 236
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "county_nam",
+            "name": "County",
+            "subgroups": []
           }
         ],
         "idColumn": {

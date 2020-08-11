@@ -321,7 +321,7 @@ export function spatial_abilities (id) {
       michigan: {
         number_markers: true,
         native_american: true,
-        // precode? county fix!
+        county_brush: true,
       },
       minnesota: {
         number_markers: true,

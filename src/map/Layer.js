@@ -99,12 +99,13 @@ export default class Layer {
                 "all",
                 ["has", countyProp]
             ];
-        if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP10", "cnty_nm", "locality"].includes(countyProp)) {
+        if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP10", "cnty_nm", "county_nam", "locality"].includes(countyProp)) {
             filterStrings.push(["==", ["get", countyProp], fips]);
         } else {
             filterStrings.push([">=", ["get", countyProp], fips]);
             filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);
         }
+
         this.map.querySourceFeatures(this.sourceId, {
             sourceLayer: this.sourceLayer,
             filter: filterStrings
