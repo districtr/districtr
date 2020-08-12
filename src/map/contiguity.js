@@ -14,7 +14,7 @@ function setContiguityStatus(contiguity_object, dnum) {
 // 2. number of cut edges
 // and this function then calls two other functions (defined above)
 // that modify the innerHTML of the file
-export default function ContiguityChecker(state, brush) {
+export default function ContiguityChecker(state) {
   if (!state.contiguity) {
     state.contiguity = {};
   }
@@ -33,7 +33,7 @@ export default function ContiguityChecker(state, brush) {
       .catch((e) => console.error(e))
       .then((data) => {
         console.log(data);
-        setContiguityStatus(data, -999);
+        setContiguityStatus(data);
         return data;
       });
   };
