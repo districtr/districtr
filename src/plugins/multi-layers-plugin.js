@@ -120,7 +120,13 @@ function addCurrentDistricts(tab, state) {
                 paint: {
                     'line-color': '#000',
                     'line-opacity': 0,
-                    'line-width': 1
+                    'line-width': [
+                       "step",
+                       ["zoom"],
+                       1,
+                       10,
+                       2
+                    ]
                 }
             },
             addBelowLabels
@@ -133,7 +139,7 @@ function addCurrentDistricts(tab, state) {
             currentBorder.setOpacity(0);
         }
         if (lyr) {
-            lyr.setOpacity(0.8);
+            lyr.setOpacity(1);
         }
         currentBorder = lyr;
     };

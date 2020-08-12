@@ -30,10 +30,21 @@ export class Subgroup extends NumericalColumn {
         return total > 0 ? this.sum / total : 0;
     }
     fractionAsMapboxExpression() {
-        return divideOrZeroIfNaN(
-            this.asMapboxExpression(),
-            this.total.asMapboxExpression()
-        );
+        return ["case",
+            [
+                ">",
+                divideOrZeroIfNaN(
+                    this.asMapboxExpression(),
+                    this.total.asMapboxExpression()
+                ),
+                0.2
+            ],
+            divideOrZeroIfNaN(
+                this.asMapboxExpression(),
+                this.total.asMapboxExpression()
+            ),
+            0
+        ];
     }
     update(feature, color) {
         if (color !== undefined && color !== null) {

@@ -59,7 +59,7 @@
     .gradientbar {
         width: 218px; /* 240px; */
         height: 24px;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 139, 0.81));
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 19.9%, rgba(204, 204, 232) 20%, rgba(0, 0, 139, 0.81));
         display: inline-block;
         border: 1px solid #ddd;
         border-left: none;
