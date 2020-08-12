@@ -145,9 +145,9 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units)
                 0.499,
                 "rgba(0,0,0,0)",
                 0.5,
-                "rgba(249,249,249,0)",
+                "rgba(140, 140, 160, 0.5)", //"rgba(249,249,249,0)",
                 1,
-                "orange"
+                "rgba(0,0,210,0.9)"
             ]);
         } else {
             window.unitLayer.setPaintProperty('fill-color', 'rgba(0, 0, 0, 0)');
