@@ -282,10 +282,12 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
         number_markers: true,
+        contiguity: true,
       },
       delaware: {
         number_markers: true,
         native_american: true,
+        contiguity: true,
       },
       georgia: {
         number_markers: true,
@@ -361,6 +363,8 @@ export function spatial_abilities (id) {
         number_markers: true,
         native_american: true,
         county_brush: true,
+        contiguity: true,
+        coalition: true,
       },
       ontarioca: {
         number_markers: true,
