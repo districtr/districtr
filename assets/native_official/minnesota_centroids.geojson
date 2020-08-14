@@ -9,6 +9,7 @@
 { "type": "Feature", "properties": { "NAME": "Shakopee Mdewakanton Sioux" }, "geometry": { "type": "Point", "coordinates": [ -93.472395918780236, 44.737569243495876 ] } },
 { "type": "Feature", "properties": { "NAME": "Lower Sioux" }, "geometry": { "type": "Point", "coordinates": [ -94.987666788134518, 44.530132711142116 ] } },
 { "type": "Feature", "properties": { "NAME": "Leech Lake" }, "geometry": { "type": "Point", "coordinates": [ -94.256708410803199, 47.355612915991756 ] } },
+{ "type": "Feature", "properties": { "NAME": "Lake Traverse" }, "geometry": { "type": "Point", "coordinates": [ -97.098594508157092, 45.645444719722171 ] } },
 { "type": "Feature", "properties": { "NAME": "White Earth" }, "geometry": { "type": "Point", "coordinates": [ -95.721738442559186, 47.227602928249119 ] } },
 { "type": "Feature", "properties": { "NAME": "Bois Forte" }, "geometry": { "type": "Point", "coordinates": [ -92.335683002996547, 47.81956123414578 ] } },
 { "type": "Feature", "properties": { "NAME": "Bois Forte" }, "geometry": { "type": "Point", "coordinates": [ -93.187020361075525, 48.09187755577981 ] } },

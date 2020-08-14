@@ -21,23 +21,21 @@ export default function ContiguityChecker(state, brush) {
 
   const updater = (state, colorsAffected) => {
     let saveplan = state.serialize();
-    if (["iowa", "texas"].includes(state.place.id)) {
-      const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-      fetch(GERRYCHAIN_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(saveplan),
-      })
-        .then((res) => res.json())
-        .catch((e) => console.error(e))
-        .then((data) => {
-          console.log(data);
-          setContiguityStatus(data, -999);
-          return data;
-        });
-    }
+    const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
+    fetch(GERRYCHAIN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(saveplan),
+    })
+      .then((res) => res.json())
+      .catch((e) => console.error(e))
+      .then((data) => {
+        console.log(data);
+        setContiguityStatus(data, -999);
+        return data;
+      });
   };
 
   let allDistricts = [],

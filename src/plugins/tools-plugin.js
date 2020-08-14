@@ -34,7 +34,9 @@ export default function ToolsPlugin(editor) {
     const c_checker = ContiguityChecker(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
-        c_checker(state, colorsAffected);
+        if (spatial_abilities(state.place.id).contiguity) {
+            c_checker(state, colorsAffected);
+        }
 
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);

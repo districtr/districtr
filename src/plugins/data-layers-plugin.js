@@ -122,15 +122,15 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Alaskan Native Communities";
     } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
-    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "virginia", "wisconsin", "wyoming"].includes(state.place.id)) {
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Tribes";
-    } else if (["montana", "oregon"].includes(state.place.id)) {
+    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
     } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    } else if (["connecticut", "delaware", "maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+    } else if (["maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Indian Tribes";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
@@ -142,6 +142,8 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Tribal Communities";
     } else if (state.place.id === "northdakota") {
         native_am_type = "Tribes and Communities";
+    } else if (state.place.id === "mississippi") {
+        native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
     const shared_az = {
