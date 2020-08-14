@@ -1,0 +1,30 @@
+/* eslint-disable linebreak-style */
+import { html } from "lit-html";
+
+import { actions } from "../../reducers/charts";
+
+export default function CutEdgesSection(state, uiState, dispatch) {
+  let numCutEdges = 0;
+
+  let cutEdges = [];
+
+  return html`
+    <section class="toolbar-section">
+      <h4>
+        Number of cut edges:
+      </h4>
+      <span id="num-cut-edges"> ${numCutEdges} </span>
+      <h4>
+        Number of cut edges compared to 50,000 plans under Recom step:
+      </h4>
+      <div class="cut_edges_distribution">
+        <canvas id="cut_edges_distrib_canvas"></canvas>
+        <img
+          id="cut_edges_distrib_img"
+          src="assets/cut_edges_histograms/ia.png"
+        />
+      </div>
+      <span id="cut-edges"> ${cutEdges} </span>
+    </section>
+  `;
+}

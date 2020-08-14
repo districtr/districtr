@@ -301,6 +301,7 @@ export function spatial_abilities (id) {
       iowa: {
         number_markers: true,
         contiguity: true,
+        cut_edges: true
       },
       little_rock: {
         number_markers: true,

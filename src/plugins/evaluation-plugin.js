@@ -5,6 +5,7 @@ import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
+import CutEdgesSection from "../components/Charts/CutEdgesSection";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -74,7 +75,7 @@ export default function EvaluationPlugin(editor) {
             {
                 isOpen:
                     state.population.subgroups.length <= 1 &&
-                    state.vap === undefined
+                        state.vap === undefined
                         ? true
                         : false
             }
@@ -106,6 +107,24 @@ export default function EvaluationPlugin(editor) {
             (uiState, dispatch) =>
                 ContiguitySection(
                     state.contiguity,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: true
+            }
+        );
+    }
+
+    if (state.plan.problem.type !== "community"
+        && (spatial_abilities(state.place.id).cut_edges)
+        && (state.units.sourceId !== "ma_towns")
+    ) {
+        tab.addRevealSection(
+            "CutEdges",
+            (uiState, dispatch) =>
+                CutEdgesSection(
+                    state,
                     uiState,
                     dispatch
                 ),
