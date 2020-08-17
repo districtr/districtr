@@ -4,7 +4,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-import LandmarkTool from "../components/Toolbar/LandmarkTool";
+// import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
@@ -34,7 +34,7 @@ export default function ToolsPlugin(editor) {
     const c_checker = ContiguityChecker(state, brush);
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
-        if (spatial_abilities(state.place.id).contiguity) {
+        if (state.problem.type !== "community" && spatial_abilities(state.place.id).contiguity) {
             c_checker(state, colorsAffected);
         }
 
@@ -47,7 +47,7 @@ export default function ToolsPlugin(editor) {
         new PanTool(),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
-        (state.problem.type === "community" && new LandmarkTool(state)),
+        // (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
             state.units,
             state.columnSets,
