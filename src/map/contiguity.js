@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 
-function setContiguityStatus(contiguity_object, dnum) {
+function setContiguityStatus(contiguity_object) {
   let contiguous = contiguity_object.contiguity;
   document.querySelector("#contiguity-status").innerText = !contiguous
     ? "Districts may have contiguity gaps"
