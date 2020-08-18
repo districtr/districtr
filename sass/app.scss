@@ -232,3 +232,16 @@ select {
 .modal-wrapper {
     top: 0;
 }
+
+.landmarks {
+    border: 1px solid #444;
+    border-bottom: none;
+    padding: 5px;
+
+    button, select {
+        cursor: pointer;
+    }
+    .option-list__item {
+        margin-bottom: 0.25rem;
+    }
+}

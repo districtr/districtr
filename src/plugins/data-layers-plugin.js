@@ -312,6 +312,18 @@ export default function DataLayersPlugin(editor) {
         `
     );
 
+    // if (state.plan.problem.type === "community") {
+    //     let drawTool = new MapboxDraw({
+    //         displayControlsDefault: false,
+    //         controls: { point: true }
+    //     });
+    //     tab.addSection(() => toggle(
+    //         "Show landmarks",
+    //         drawTool.visible,
+    //         drawTool.handleToggle
+    //     ));
+    // }
+
     if (state.place.state === state.place.name) {
         addCountyLayer(tab, state);
     }

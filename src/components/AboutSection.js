@@ -4,6 +4,8 @@ import Select from "./Select";
 import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
 import { colorScheme } from "../colors";
+import { Landmarks } from "./Landmark";
+import { LandmarkOptions } from "./Toolbar/LandmarkTool";
 
 export default class AboutSection {
     constructor({ state, render }) {
@@ -13,9 +15,36 @@ export default class AboutSection {
         this.state = state;
         this.renderCallback = render;
         this.saved = false;
+
+        this.updateLandmarkList = this.updateLandmarkList.bind(this);
+
+        let lm = state.place.landmarks;
+        if (!lm.source && !lm.type) {
+            // initialize a blank landmarks object
+            // we cannot replace the object, which is used to remember landmarks
+            lm.type = "geojson";
+            lm.data = {"type": "FeatureCollection", "features": []};
+        }
+        // compatibility with old landmarks
+        lm = lm.source || lm;
+
+        // remove landmarks which were being drawn and not saved
+        lm.data.features = lm.data.features.filter(f => !f.number_id);
+
+        this.landmarks = new Landmarks(state.map, lm, this.updateLandmarkList);
+        this.landmarks.handleDrawToggle(true);
+
         bindAll(
-            ["onSave", "setName", "setDescription", "render", "setPart"],
+            ["onSave", "setName", "setDescription", "render", "setPart", "saveFeature", "deleteFeature"],
             this
+        );
+
+        this.options = new LandmarkOptions(
+            this.landmarks,
+            lm.data.features,
+            this.saveFeature,
+            this.deleteFeature,
+            this.renderCallback
         );
     }
     setPart(index) {
@@ -43,6 +72,26 @@ export default class AboutSection {
         });
         savePlanToStorage(this.state.serialize());
         this.saved = true;
+        this.renderCallback();
+    }
+    updateLandmarkList(selectLastFeature) {
+        savePlanToStorage(this.state.serialize());
+        if (selectLastFeature) {
+            this.options.handleSelectFeature(-1);
+            // TODO: update UI
+            // handleSelectFeature calls render
+        } else {
+            this.renderCallback();
+        }
+    }
+    saveFeature(id) {
+        this.landmarks.saveFeature(id);
+        savePlanToStorage(this.state.serialize());
+        this.renderCallback();
+    }
+    deleteFeature(id) {
+        this.landmarks.deleteFeature(id);
+        savePlanToStorage(this.state.serialize());
         this.renderCallback();
     }
     render() {
@@ -88,7 +137,8 @@ function AboutSectionTemplate({
     saved,
     onSave,
     setName,
-    setDescription
+    setDescription,
+    options
 }) {
     return html`
         <ul class="option-list">
@@ -99,17 +149,27 @@ function AboutSectionTemplate({
                     class="text-input"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}
+                    @blur=${e => setName(e.target.value)}
                 />
+            </li>
+            <li class="option-list__item landmarks">
+                ${options.render()}
+                <button @click="${e => {
+                    document.getElementById("tool-pan").click();
+                    document.getElementsByClassName("mapbox-gl-draw_point")[0].click();
+                }}">Add a Landmark</button>
             </li>
             <li class="option-list__item">
                 <label class="ui-label">Describe Your Community</label>
                 <textarea
                     class="text-input text-area"
-                    @input=${e => setDescription(e.target.value)}
+                    placeholder="Write about what your community has in common, its boundaries, or recent history"
                     .value="${description}"
+                    @input=${e => setDescription(e.target.value)}
+                    @blur=${e => setDescription(e.target.value)}
                 ></textarea>
                 <br/>
-                <code>Your community details are saved automatically</code>
+                <code>Your community details are updated automatically</code>
             </li>
         </ul>
     `;

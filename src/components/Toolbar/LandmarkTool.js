@@ -64,7 +64,7 @@ export default class LandmarkTool extends Tool {
         super.activate();
         // enable / disable drawing toolbar
         this.landmarks.handleDrawToggle(true);
-        document.querySelector(".mapbox-gl-draw_point").click();
+        document.getElementsByClassName("mapbox-gl-draw_point")[0].click();
     }
     deactivate() {
         super.deactivate();
@@ -72,7 +72,7 @@ export default class LandmarkTool extends Tool {
     }
 }
 
-class LandmarkOptions {
+export class LandmarkOptions {
     constructor(drawTool, features, saveFeature, deleteFeature, renderCallback) {
         this.drawTool = drawTool;
         this.features = features;
@@ -100,15 +100,11 @@ class LandmarkOptions {
     // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
         this.updateName = name;
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        this.onSave();
     }
     setDescription(description) {
         this.updateDescription = description;
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        this.onSave();
     }
     onSave() {
         // save name, description, and location on map and localStorage
@@ -116,10 +112,7 @@ class LandmarkOptions {
         updateFeature.properties.name = this.updateName;
         updateFeature.properties.short_description = this.updateDescription;
         this.saveFeature(updateFeature.id);
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = true;
-        saveButton.innerText = "Saved";
-        document.querySelector(".mapbox-gl-draw_point").click();
+        document.getElementsByClassName("mapbox-gl-draw_point")[0].click();
     }
     onDelete() {
         // delete currently viewed shape
@@ -155,7 +148,7 @@ class LandmarkOptions {
         <li class="option-list__item">
             ${properties.length > 1
                 ? Parameter({
-                      label: "Edit:",
+                      label: "Selected:",
                       element: Select(
                           properties,
                           this.handleSelectFeature,
@@ -194,7 +187,7 @@ function LandmarkFormTemplate({
                 <input
                     type="text"
                     name="landmark-name"
-                    autocomplete="off" 
+                    autocomplete="off"
                     class="text-input vertical-align"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}
@@ -213,23 +206,16 @@ function LandmarkFormTemplate({
                 </button>
             </li>
             <li class="option-list__item">
+                <label class="ui-label">Describe This Landmark</label>
                 <textarea
                     class="text-input text-area short-text-area"
                     name="landmark-desc"
+                    placeholder="Include some details about the landmark"
                     autocomplete="off"
                     @input=${e => setDescription(e.target.value)}
                     @blur=${e => setDescription(e.target.value)}
                     .value="${description}"
                 ></textarea>
-            </li>
-            <li class="option-list__item">
-                <button
-                    id="landmark-save-button"
-                    class="button button--submit button--alternate ui-label"
-                    @click=${onSave}
-                >
-                    Save
-                </button>
             </li>
         </ul>
     `;
