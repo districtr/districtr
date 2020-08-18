@@ -413,21 +413,32 @@ li:first-child > input:checked ~ .tabs__tab {
     }
     .arrow::before {
          left: -5px;
-         transform: rotate(45deg);
+         transform: rotate(-45deg);
          background-color: #394a6d;
     }
     .arrow::after {
          left: 5px;
-         transform: rotate(-45deg);
+         transform: rotate(45deg);
          background-color: #394a6d;
     }
     &.open .arrow::before {
          left: -5px;
-         transform: rotate(-45deg);
+         transform: rotate(45deg);
     }
     &.open .arrow::after {
          left: 5px;
-         transform: rotate(45deg);
+         transform: rotate(-45deg);
+    }
+}
+.landmarks {
+    border-bottom: 1px solid #888;
+    padding-bottom: 18px;
+
+    button, select {
+        cursor: pointer;
+    }
+    .option-list__item {
+        margin-bottom: 0.25rem;
     }
 }
  .custom-select__trigger {

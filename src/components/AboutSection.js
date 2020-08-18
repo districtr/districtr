@@ -98,6 +98,13 @@ export default class AboutSection {
         const parts = this.state.activeParts;
         return html`
             <ul class="option-list">
+                <li class="option-list__item landmarks">
+                    ${this.options.render()}
+                    <button @click="${e => {
+                        document.getElementById("tool-pan").click();
+                        document.getElementsByClassName("mapbox-gl-draw_point")[0].click();
+                    }}">Add a Landmark</button>
+                </li>
                 <li class="option-list__item">
                     ${parts.length > 1
                         ? Parameter({
@@ -137,8 +144,7 @@ function AboutSectionTemplate({
     saved,
     onSave,
     setName,
-    setDescription,
-    options
+    setDescription
 }) {
     return html`
         <ul class="option-list">
@@ -151,13 +157,6 @@ function AboutSectionTemplate({
                     @input=${e => setName(e.target.value)}
                     @blur=${e => setName(e.target.value)}
                 />
-            </li>
-            <li class="option-list__item landmarks">
-                ${options.render()}
-                <button @click="${e => {
-                    document.getElementById("tool-pan").click();
-                    document.getElementsByClassName("mapbox-gl-draw_point")[0].click();
-                }}">Add a Landmark</button>
             </li>
             <li class="option-list__item">
                 <label class="ui-label">Describe Your Community</label>
