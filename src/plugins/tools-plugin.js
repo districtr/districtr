@@ -22,7 +22,20 @@ export default function ToolsPlugin(editor) {
         console.log(state.idColumn.key);
         let uid = e.properties[state.idColumn.key];
         fetch("/.netlify/functions/localPlans?id=" + uid).then(res => res.json()).then((data) => {
-            console.log(data);
+            let plans = data.plans;
+            plans = plans.map((upload) => {
+                let assignment = upload.plan.assignment;
+                let selectColor = assignment[uid];
+                return Object.keys(assignment).filter(key => assignment[key] === selectColor);
+            });
+            console.log(plans);
+            if (plans.length) {
+                let samplePlan = {};
+                plans[0].forEach(key => samplePlan[key] = 0);
+                state.plan.assignment = samplePlan;
+                savePlanToStorage(state.serialize());
+                window.location.reload();
+            }
         });
     });
     brush.on("colorend", state.render);
