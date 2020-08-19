@@ -16,18 +16,21 @@ import { download, spatial_abilities /* , stateNameToFips */ } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
-    const brush = (state.problem.type === 'community')
-        ? new CommunityBrush(state.units, 20, 0)
-        : new Brush(state.units, 20, 0);
+    const brush = new Brush(state.units, 1, 0);
     brush.on("colorfeature", state.update);
+    brush.on("colorfeature", (e) => {
+        console.log(state.idColumn.key);
+        let uid = e.properties[state.idColumn.key];
+        fetch("/.netlify/functions/localPlans?id=" + uid).then(res => res.json()).then((data) => {
+            console.log(data);
+        });
+    });
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
 
     let brushOptions = {
-        community: (state.problem.type === "community"),
-        county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
-            ? new HoverWithRadius(state.counties, 20)
-            : null)
+        community: false,
+        county_brush: null
     };
 
     let planNumbers = NumberMarkers(state, brush);
