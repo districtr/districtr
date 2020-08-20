@@ -35,7 +35,8 @@ export default function ContiguityChecker(state) {
         console.log(data);
         setContiguityStatus(data);
         // TODO think about how to separate these two things
-        setNumCutEdges(data);
+        // saveplan['placeId'] is the name of the state
+        setNumCutEdges(data, saveplan['placeId']);
         return data;
       });
   };
@@ -52,7 +53,7 @@ export default function ContiguityChecker(state) {
 
 
 // TODO think about how to separate this function away
-function setNumCutEdges(json_response) {
+function setNumCutEdges(json_response, state_name) {
   let str = json_response.cut_edges; // this is a string
   // "{(12, 17), (2, 42).... (19, 56)}"
   // Convert from Python format to Javascript
@@ -64,31 +65,65 @@ function setNumCutEdges(json_response) {
 
   document.querySelector("#num-cut-edges").innerText = cut_edges.length;
 
+  // how do we get the json_response
+  const state_info = {
+    'connecticut': {
+      state_png: 'url("../assets/cut_edges_histograms/ct.png")',
+      lr_bounds: [80, 300],
+    },
+    'iowa': {
+      state_png: 'url("../assets/cut_edges_histograms/ia.png")',
+      lr_bounds: [20, 80],
+    },
+    'texas': {
+      state_png: 'url("../assets/cut_edges_histograms/ct.png")',
+      lr_bounds: [1900, 3000],
+    }
+  }
+
+  console.log(state_name)
+
+  // Get the canvas, and set its background image to the saved histogram
+  // (thanks Gabe)
   const cs = document.querySelector("#cut_edges_distrib_canvas");
+  cs.style.setProperty("background-image", state_info[state_name]["state_png"]);
+  cs.style.setProperty("background-size", "contain");
+  cs.style.setProperty("background-repeat", "no-repeat");
+  console.log(cs.style);
+
+  // Get the <img> element, and set its background image to the saved histogram
+  const hist_img = document.querySelector("#cut_edges_distrib_img");
+  hist_img.src = state_info[state_name]["state_png"];
+
   // naturalHeight is the intrinsic height of the image in CSS pixels
   const nh = document.querySelector("#cut_edges_distrib_img").naturalHeight;
   const nw = document.querySelector("#cut_edges_distrib_img").naturalWidth;
   // height/width is the rendered height/width of the image in CSS pixels
-  const w = document.querySelector("#cut_edges_distrib_canvas").width;
-  const h = document.querySelector("#cut_edges_distrib_canvas").height;
 
-  const start_x = 20;
-  const end_x = 80;
-
-  // TODO
+  // Get the lower and upper bounds on the number of cut edges
+  const left_bound = state_info[state_name]["lr_bounds"][0];
+  const right_bound = state_info[state_name]["lr_bounds"][1];
   const num_cut_edges = cut_edges.length;
-  let line_position; // this is going to be a value between 0 and w
 
-  if (num_cut_edges <= start_x) {
+  draw_line_on_canvas(cs, num_cut_edges, left_bound, right_bound)
+}
+
+function draw_line_on_canvas(canvas, num_cut_edges, left_bound, right_bound) {
+  let line_position = 0; // this is going to be a value between 0 and w
+
+  if (num_cut_edges <= left_bound) {
     line_position = 0;
-  } else if (num_cut_edges >= end_x) {
-    line_position = w;
+  } else if (num_cut_edges >= right_bound) {
+    line_position = canvas.width;
   } else {
-    line_position = ((num_cut_edges - start_x) / (end_x - start_x)) * w;
+    line_position = ((num_cut_edges - left_bound) /
+      (right_bound - left_bound)) * canvas.width;
   }
 
+  const w = canvas.width;
+  const h = canvas.height;
   console.log("Line position:", line_position);
-  const ctx = cs.getContext("2d");
+  const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, w, h);
   ctx.lineWidth = 2;
   ctx.strokeStyle = "red";
@@ -97,6 +132,4 @@ function setNumCutEdges(json_response) {
   ctx.lineTo(line_position, h);
   ctx.closePath();
   ctx.stroke();
-
-  console.log(nh, nw, w);
 }

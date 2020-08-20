@@ -120,6 +120,7 @@ export default function EvaluationPlugin(editor) {
         && (spatial_abilities(state.place.id).cut_edges)
         && (state.units.sourceId !== "ma_towns")
     ) {
+        console.log(state)
         tab.addRevealSection(
             "CutEdges",
             (uiState, dispatch) =>
