@@ -387,6 +387,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       county_brush: true,
       contiguity: true,
+      cut_edges: true,
     },
     utah: {
       number_markers: true,
