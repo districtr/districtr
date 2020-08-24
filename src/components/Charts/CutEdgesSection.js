@@ -24,6 +24,8 @@ export default function CutEdgesSection(state, uiState, dispatch) {
           src="assets/cut_edges_histograms/ia.png"
         />
       </div>
+      <div class="cut_edges_distribution_vega">
+      </div>
       <span id="cut-edges"> ${cutEdges} </span>
     </section>
   `;

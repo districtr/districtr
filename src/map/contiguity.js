@@ -69,20 +69,83 @@ function setNumCutEdges(json_response, state_name) {
   const state_info = {
     'connecticut': {
       state_png: 'url("../assets/cut_edges_histograms/ct.png")',
-      lr_bounds: [80, 300],
+      state_csv: "../assets/cut_edges_histograms/CT_chain_10000.csv",
+      lr_bounds: [110, 270],
     },
     'iowa': {
       state_png: 'url("../assets/cut_edges_histograms/ia.png")',
-      lr_bounds: [20, 80],
+      state_csv: "../assets/cut_edges_histograms/IA_chain_10000.csv",
+      // lr_bounds: [20, 80],
+      lr_bounds: [150, 470],
     },
     'texas': {
       state_png: 'url("../assets/cut_edges_histograms/ct.png")',
-      lr_bounds: [1900, 3000],
+      state_csv: "../assets/cut_edges_histograms/TX_chain_10000.csv",
+      //lr_bounds: [1900, 3000],
+      lr_bounds: [2720, 3440],
     }
   }
 
   console.log(state_name)
 
+  var view;
+  const vega_json = form_vega_json(state_name)
+
+  function form_vega_json(state_name) {
+    const vega_json = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+      "data": { "url": state_info[state_name]['state_csv'] },
+      "layer": [
+        {
+          "mark": "bar",
+          "width": 400,
+          "encoding": {
+            "x": {
+              "bin": { "maxbins": 40 },
+              "field": "cut_edges",
+              //"type": "ordinal"
+            },
+            "y": { "aggregate": "count" }
+          }
+        }
+      ],
+      "config": {
+        "axisY": {
+          "labels": false,
+          "title": null
+        }
+      }
+    }
+
+    return vega_json;
+  }
+
+  const cs = document.querySelector("#cut_edges_distrib_canvas");
+  vegaEmbed('.cut_edges_distribution_vega', vega_json).then((res) => {
+    const url = res['view'].toImageURL('png').then((url) => {
+      const url_string = `url(${url})`;
+
+      // const hist_img = document.querySelector("#cut_edges_distrib_img");
+      // hist_img.src = url_string;
+
+      const cs = document.querySelector("#cut_edges_distrib_canvas");
+      // cs.style.setProperty("background-image", state_info[state_name]["state_png"]);
+      cs.style.setProperty("background-image", url_string);
+      cs.style.setProperty("background-size", "contain");
+      cs.style.setProperty("background-repeat", "no-repeat");
+
+      // Get the lower and upper bounds on the number of cut edges
+      const left_bound = state_info[state_name]["lr_bounds"][0];
+      const right_bound = state_info[state_name]["lr_bounds"][1];
+      const num_cut_edges = cut_edges.length;
+
+      draw_line_on_canvas(cs, num_cut_edges, left_bound, right_bound)
+      //draw_line_on_canvas(cs, num_cut_edges, left_bound, right_bound)
+    })
+  });
+
+
+  /*
   // Get the canvas, and set its background image to the saved histogram
   // (thanks Gabe)
   const cs = document.querySelector("#cut_edges_distrib_canvas");
@@ -106,6 +169,7 @@ function setNumCutEdges(json_response, state_name) {
   const num_cut_edges = cut_edges.length;
 
   draw_line_on_canvas(cs, num_cut_edges, left_bound, right_bound)
+  */
 }
 
 function draw_line_on_canvas(canvas, num_cut_edges, left_bound, right_bound) {

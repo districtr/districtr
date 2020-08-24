@@ -6,9 +6,14 @@
 
 .cut_edges_distribution {
   max-width: 100%;
+  width: 350px;
 }
 
 .cut_edges_distribution > img {
   max-width: 100%;
+  display: none;
+}
+
+.marks {
   display: none;
 }
