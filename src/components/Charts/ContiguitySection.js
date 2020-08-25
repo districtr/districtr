@@ -5,8 +5,8 @@ import { districtColors } from "../../colors";
 export default function ContiguitySection(contiguities, uiState, dispatch) {
   return html`
     <section class="toolbar-section">
-      <h4 id="contiguity-status">
-      </h4>
+      <span id="contiguity-status">
+      </span>
     </section>
   `;
 }
