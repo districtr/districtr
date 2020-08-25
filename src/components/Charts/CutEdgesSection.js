@@ -18,9 +18,6 @@ export default function CutEdgesSection(state, uiState, dispatch) {
       <h4>
         Number of cut edges compared to 50,000 plans under Recom step:
       </h4>
-      <div class="cut_edges_distribution">
-        <canvas id="cut_edges_distrib_canvas"></canvas>
-      </div>
       <div class="cut_edges_distribution_vega">
       </div>
       <span id="cut-edges"> ${cutEdges} </span>

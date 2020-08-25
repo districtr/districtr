@@ -1,19 +1,13 @@
-#cut_edges_distrib_canvas {
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: 1px solid black;
-}
-
-.cut_edges_distribution {
+.cut_edges_section {
+  text-align: center;
   max-width: 100%;
-  width: 350px;
+  width: 100%;
 }
 
-.cut_edges_distribution > img {
-  max-width: 100%;
-  display: none;
+.cut_edges_distribution_vega {
+  width: 100%;
 }
 
-.marks {
-  display: none;
+.vega-embed.has-actions {
+  padding: 0 !important;
 }
