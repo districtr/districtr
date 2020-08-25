@@ -10,6 +10,7 @@ export default function CutEdgesSection(state, uiState, dispatch) {
 
   return html`
     <section class="toolbar-section">
+    <div class="cut_edges_section">
       <h4>
         Number of cut edges:
       </h4>
@@ -19,14 +20,11 @@ export default function CutEdgesSection(state, uiState, dispatch) {
       </h4>
       <div class="cut_edges_distribution">
         <canvas id="cut_edges_distrib_canvas"></canvas>
-        <img
-          id="cut_edges_distrib_img"
-          src="assets/cut_edges_histograms/ia.png"
-        />
       </div>
       <div class="cut_edges_distribution_vega">
       </div>
       <span id="cut-edges"> ${cutEdges} </span>
+      </div>
     </section>
   `;
 }
