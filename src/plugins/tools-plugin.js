@@ -148,7 +148,7 @@ function getMenuItems(state) {
         },
         {
             id: "mobile-upload",
-            name: "Share plan",
+            name: "Save plan",
             onClick: () => renderSaveModal(state, savePlanToDB)
         }
     ];

@@ -33,33 +33,39 @@ export function renderSaveModal(state, exportPlanToDB) {
         let withUrl = (_id) => {
             render(renderModal(
                 html`
-                    <h2>Share Plan</h2>
+                    <h2>Plan is Saved</h2>
                     You can share your current plan by copying this URL:
                     <code>https://${window.location.host}/edit/${_id}</code>
                     <br/>
-                    <label>Have an event code?</label>
-                    <input
-                        id="event-coder"
-                        type="text"
-                        class="text-input"
-                        value=""
-                        @input="${() => document.getElementById("re-save").disabled = false}"
-                    />
-                    <br/>
-                    <button
-                        id="re-save"
-                        disabled
-                        @click="${() => {
-                            exportPlanToDB(
-                                state,
-                                document.getElementById("event-coder").value,
-                                () => { console.log("added event code"); }
-                            );
-                            render("", target);
-                        }}"
-                    >
-                        Add to Event
-                    </button>
+                    <label>
+                        <input id="save_modal_check" type="checkbox"/>
+                        Optional: can Districtr share this plan with local groups?
+                    </label>
+                    <div style="display:none">
+                        <label>Have an event code?</label>
+                        <input
+                            id="event-coder"
+                            type="text"
+                            class="text-input"
+                            value=""
+                            @input="${() => document.getElementById("re-save").disabled = false}"
+                        />
+                        <br/>
+                        <button
+                            id="re-save"
+                            disabled
+                            @click="${() => {
+                                exportPlanToDB(
+                                    state,
+                                    document.getElementById("event-coder").value,
+                                    () => { console.log("added event code"); }
+                                );
+                                render("", target);
+                            }}"
+                        >
+                            Add to Event
+                        </button>
+                    </div>
                 `
             ), target);
         };

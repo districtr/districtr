@@ -62,7 +62,7 @@ export default class Toolbar {
         // only need to update the button if user previously saved state
         // and we now need to allow an update
         if (btn.innerText === "Saved") {
-            btn.innerText = "Update";
+            btn.innerText = "Save Changes";
             btn.className = "updated";
         }
     }
@@ -90,7 +90,7 @@ export default class Toolbar {
                         class="unsaved"
                         @click="${this.savePlan.bind(this)}"
                     >
-                        Share
+                        Save
                     </div>
                     <div id="save-popup">
                         <button
@@ -105,29 +105,35 @@ export default class Toolbar {
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
                         <br/>
-                        <label>Have an event code?</label>
-                        <input
-                            id="event-coder-popup"
-                            type="text"
-                            class="text-input"
-                            value=""
-                            @input="${() => document.getElementById("re-save-popup").disabled = false}"
-                        />
-                        <br/>
-                        <button
-                            id="re-save-popup"
-                            disabled
-                            @click="${() => {
-                                document.getElementById("save-popup").className = "hide";
-                                savePlanToDB(
-                                    this.state,
-                                    document.getElementById("event-coder-popup").value,
-                                    () => { console.log("added event code"); }
-                                );
-                            }}"
-                        >
-                            Add to Event
-                        </button>
+                        <label>
+                            <input id="save_pop_check" type="checkbox"/>
+                            Optional: can Districtr share this plan with local groups?
+                        </label>
+                        <div style="display:none">
+                            <label>Have an event code?</label>
+                            <input
+                                id="event-coder-popup"
+                                type="text"
+                                class="text-input"
+                                value=""
+                                @input="${() => document.getElementById("re-save-popup").disabled = false}"
+                            />
+                            <br/>
+                            <button
+                                id="re-save-popup"
+                                disabled
+                                @click="${() => {
+                                    document.getElementById("save-popup").className = "hide";
+                                    savePlanToDB(
+                                        this.state,
+                                        document.getElementById("event-coder-popup").value,
+                                        () => { console.log("added event code"); }
+                                    );
+                                }}"
+                            >
+                                Add to Event
+                            </button>
+                        </div>
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}
                 </div>
