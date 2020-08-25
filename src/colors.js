@@ -193,6 +193,12 @@ export const unitBordersPaintProperty = {
     "line-opacity": 0.3
 };
 
+export const coiBordersPaintProperty = {
+    "line-color": "#fff",
+    "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0, 4, 1.5],
+    "line-opacity": 0.7
+};
+
 export const highlightUnassignedUnitBordersPaintProperty = {
     ...unitBordersPaintProperty,
     "line-color": [
