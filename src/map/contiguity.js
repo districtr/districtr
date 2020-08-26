@@ -1,10 +1,14 @@
 /* eslint-disable linebreak-style */
 
-function setContiguityStatus(contiguity_object, dnum) {
-  let contiguous = contiguity_object.contiguity;
-  document.querySelector("#contiguity-status").innerText = !contiguous
-    ? "Districts may have contiguity gaps"
-    : "Any districts are contiguous";
+function setContiguityStatus(contiguity_breaks) {
+  document.querySelector("#contiguity-status").innerText =
+      contiguity_breaks.length
+          ? "Districts may have contiguity gaps"
+          : "Any districts are contiguous";
+  let myDistricts = document.querySelectorAll('.district-row .part-number');
+  for (let d = 0; d < myDistricts.length; d++) {
+     myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
+  }
 }
 
 // This makes a POST request to a PythonAnywhere server
@@ -32,9 +36,11 @@ export default function ContiguityChecker(state, brush) {
       .then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
-        console.log(data);
-        setContiguityStatus(data, -999);
-        return data;
+        state.contiguity = {};
+        data.split.forEach((district) => {
+          state.contiguity[district] = true;
+        });
+        setContiguityStatus(data.split);
       });
   };
 
