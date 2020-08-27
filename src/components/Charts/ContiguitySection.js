@@ -17,7 +17,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
               <span
                 id="contiguity-${dnum}"
                 class="part-number"
-                style="background:${districtColors[dnum].hex};
+                style="background:${districtColors[dnum % districtColors.length].hex};
                                   display:${Object.keys(contiguityProblems).includes(dnum)
                   ? "flex"
                   : "none"};"
