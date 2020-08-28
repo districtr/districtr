@@ -154,9 +154,10 @@ export function loadPlanFromCSV(assignmentList, state) {
             throw new Error("CSV is for a different module (another state or region).");
         } else if (unitId !== state.units.id.split("_").slice(-1)[0]) {
             throw new Error("CSV is for this module but a different unit map (e.g. blocks, precincts).");
-        } else if (pluralType !== state.problem.pluralNoun.replace(/\s+/g, "")) {
-            throw new Error("CSV is for this module but a different division map (e.g. districts)");
         }
+        // else if (pluralType !== state.problem.pluralNoun.replace(/\s+/g, "")) {
+        //     throw new Error("CSV is for this module but a different division map (e.g. districts)");
+        // }
         state.problem.numberOfParts = partCount * 1;
     } else {
         // old format, no column headers

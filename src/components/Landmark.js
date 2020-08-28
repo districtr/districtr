@@ -56,6 +56,7 @@ export class Landmarks {
             addBelowLabels
         );
         this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
+        this.landmarksTooltip.activate();
 
         // point landmarks and tooltip
         this.points = {

@@ -7,6 +7,4 @@ export default function ContiguitySection(contiguities, uiState, dispatch) {
     <section class="toolbar-section">
       <span id="contiguity-status">
       </span>
-    </section>
-  `;
 }

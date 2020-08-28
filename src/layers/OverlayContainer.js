@@ -1,7 +1,6 @@
 import { html } from "lit-html";
 import Parameter from "../components/Parameter";
 import Select from "../components/Select";
-import { toggle } from "../components/Toggle";
 import { colorByCount, purpleByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
@@ -81,16 +80,35 @@ export default class OverlayContainer {
             });
         }
 
-        this.visibilityToggle = toggle(toggleText, (!this.firstOnly && this._currentSubgroupIndex !== 0), visible => {
-            document.getElementById("color-" + this._id).style.display
-                = (visible ? "block" : "none");
-            if (visible) {
-                this.overlay.show();
-                this.changeSubgroup(this._currentSubgroupIndex);
-            } else {
-                this.overlay.hide();
-            }
-        });
+        this.visibilityToggle = html`<label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                name="data_layers"
+                ?checked="${!this.firstOnly && this._currentSubgroupIndex !== 0}"
+                value="${this._id}"
+                @change=${(e) => {
+                    if (e.bubbles) {
+                        let checks = document.getElementsByName("data_layers");
+                        for (let c = 0; c < checks.length; c++) {
+                            if (checks[c].value !== this._id) {
+                                checks[c].checked = false;
+                                let evt = new Event("change");
+                                checks[c].dispatchEvent(evt);
+                            }
+                        }
+                    }
+                    let visible = e.target.checked;
+                    document.getElementById("color-" + this._id).style.display = (visible ? "block" : "none");
+                    if (visible) {
+                        this.overlay.show();
+                        this.changeSubgroup(this._currentSubgroupIndex);
+                    } else {
+                        this.overlay.hide();
+                    }
+                }}
+            />
+            ${toggleText}
+        </label>`;
     }
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
