@@ -31,6 +31,7 @@ export default function ContiguityChecker(state) {
 
   const updater = (state, colorsAffected) => {
     let saveplan = state.serialize();
+    console.log(saveplan)
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
 
     fetch(GERRYCHAIN_URL, {
@@ -89,19 +90,7 @@ function setContiguityStatus(contiguity_object) {
 }
 
 function setNumCutEdges(json_response, state_name) {
-  let str = json_response.cut_edges; // this is a string
-
-  let num_cut_edges = 0;
-
-  if (str !== "set()") {
-    // "{(12, 17), (2, 42).... (19, 56)}"
-    // Convert from Python format to Javascript
-    str = str.replace("{", "[");
-    str = str.replace("}", "]");
-    str = str.replaceAll("(", "[");
-    str = str.replaceAll(")", "]");
-    num_cut_edges = JSON.parse(str).length;
-  }
+  let num_cut_edges = json_response.cut_edges;
 
   document.querySelector("#num-cut-edges").innerText = num_cut_edges;
   return num_cut_edges
