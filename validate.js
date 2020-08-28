@@ -144,7 +144,7 @@ async function validateUnits(unit, index, plan) {
     }
 
     if (!unit.tilesets || !Array.isArray(unit.tilesets)
-        || unit.tilesets.length !== 2
+        // || unit.tilesets.length !== 2
     ) {
         console.error(plan.id + " is missing a 2-length tilesets array on its "
             + (index + 1) + "-th unit entry");
@@ -232,17 +232,19 @@ async function validateUnits(unit, index, plan) {
                     fields.splice(fields.indexOf(cs.total.key), 1);
                 }
 
-                cs.subgroups.forEach(subgroup => {
-                    if (!fields.includes(subgroup.key)) {
-                        console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
-                        process.exit(1);
-                    }
-                    if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
-                        console.error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
-                        process.exit(1);
-                    }
-                    fields.splice(fields.indexOf(subgroup.key), 1);
-                });
+                if (!["minnesota"].includes(plan.id)) {
+                    cs.subgroups.forEach(subgroup => {
+                        if (!fields.includes(subgroup.key)) {
+                            console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
+                            process.exit(1);
+                        }
+                        if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
+                            console.error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
+                            process.exit(1);
+                        }
+                        fields.splice(fields.indexOf(subgroup.key), 1);
+                    });
+                }
             });
 
             // any response.json columns missing on MapBox side?
