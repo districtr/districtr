@@ -214,7 +214,7 @@ async function validateUnits(unit, index, plan) {
             let fields = Object.keys(content.vector_layers[0].fields);
 
             // check ID and name column present
-            if (!fields.includes(unit.idColumn.key)) {
+            if (!fields.includes(unit.idColumn.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
                 console.error("MapBox layer " + tset + " is missing ID column (" + unit.idColumn.key + ")");
                 process.exit(1);
             }
@@ -225,14 +225,14 @@ async function validateUnits(unit, index, plan) {
 
             unit.columnSets.forEach(cs => {
                 if (cs.total) {
-                    if (!fields.includes(cs.total.key)) {
-                        console.error("MapBox layer " + tset + " missing total field from response.json (" + subgroup.key + ")");
+                    if (!fields.includes(cs.total.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+                        console.error("MapBox layer " + tset + " missing total field from response.json (" + cs.total.key + ")");
                         process.exit(1);
                     }
                     fields.splice(fields.indexOf(cs.total.key), 1);
                 }
 
-                if (!["minnesota"].includes(plan.id)) {
+                if (!["minnesota", "maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
                     cs.subgroups.forEach(subgroup => {
                         if (!fields.includes(subgroup.key)) {
                             console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
