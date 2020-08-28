@@ -8,4 +8,5 @@ export default function ContiguitySection(contiguities, uiState, dispatch) {
       <span id="contiguity-status">
       </span>
     </section>
+  `;
 }
