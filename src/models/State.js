@@ -129,7 +129,7 @@ export default class State {
             unitsRecord.tilesets,
             layerAdder,
             borderId,
-            problemType
+            { problemType: problemType, id: this.place.id }
         );
 
         this.units = units;

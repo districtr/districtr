@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import MapboxCompare from 'mapbox-gl-compare';
-import { unitBordersPaintProperty, coiBordersPaintProperty, getUnitColorProperty } from "../colors";
+import { unitBordersPaintProperty, satBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
 import { stateNameToFips, COUNTIES_TILESET } from "../utils";
 
@@ -113,7 +113,7 @@ export class MapState {
     }
 }
 
-function addUnits(map, parts, tileset, layerAdder, problemType) {
+function addUnits(map, parts, tileset, layerAdder, problemDetails) {
     const units = new Layer(
         map,
         {
@@ -135,7 +135,9 @@ function addUnits(map, parts, tileset, layerAdder, problemType) {
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
-            paint: (problemType === "community") ? coiBordersPaintProperty : unitBordersPaintProperty
+            paint: (problemDetails.problemType === "community" && ["miamifl", "miamidade"].includes(problemDetails.id))
+                ? satBordersPaintProperty
+                : unitBordersPaintProperty
         },
         layerAdder
     );
@@ -197,7 +199,7 @@ function addBGs(map, tileset, layerAdder) {
     });
 }
 
-export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, problemType) {
+export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, problemDetails) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
         if (swipemap) {
@@ -209,7 +211,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
         layerAdder,
-        problemType
+        problemDetails
     );
     const points = addPoints(
         map,

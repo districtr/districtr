@@ -24,8 +24,14 @@ function getPlugins(context) {
 }
 
 function getMapStyle(context) {
-    if (context.problem.type === "community" && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(context.place.id)) {
-        return "mapbox://styles/mapbox/satellite-streets-v11";
+    if (context.problem.type === "community") {
+        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(context.place.id)) {
+            return "mapbox://styles/mapbox/light-v10";
+        } else if (["miamifl", "miamidade"].includes(context.place.id)) {
+            return "mapbox://styles/mapbox/satellite-streets-v11";
+        } else {
+            return "mapbox://styles/mapbox/streets-v11";
+        }
     } else {
         return "mapbox://styles/mapbox/light-v10";
     }
