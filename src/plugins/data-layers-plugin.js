@@ -416,6 +416,10 @@ export default function DataLayersPlugin(editor) {
             "",
             ["==", ["get", "type"], "neighbourhood"],
             "",
+            ["==", ["get", "type"], "locality"],
+            "",
+            [">=", ["get", "admin_level"], 8],
+            "",
             ["==", ["get", "type"], "block"],
             "",
             ["get", "name"]];
