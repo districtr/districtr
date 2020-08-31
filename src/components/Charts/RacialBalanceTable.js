@@ -4,7 +4,7 @@ import Parameter from "../Parameter";
 import Select from "../Select";
 import DemographicsTable from "./DemographicsTable";
 
-function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
+function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch, nonvap) {
     const onChange = j => i =>
         dispatch(
             actions.selectSubgroup({
@@ -18,7 +18,7 @@ function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
         Parameter({
             label: labels[j] || "and",
             element: Select(subgroups.map(sg => {
-                return {...sg, name: sg.name.replace("voting age population", "VAP") }
+                return {...sg, name: sg.name.replace("voting age population", nonvap ? "children" : "VAP") }
             }), onChange(j), index)
         })
     );
@@ -29,18 +29,35 @@ export default function RacialBalanceTable(
     population,
     parts,
     chartState,
-    dispatch
+    dispatch,
+    nonvap
 ) {
+    let sgs = population.subgroups.filter(sg => !sg.name.includes("(2018)"));
+    if (nonvap) {
+       sgs = sgs.map((sg, sgdex) => {
+           let abbv = sg.getAbbreviation().replace("VAP", "");
+           return {
+              ...sg,
+              getAbbreviation: () => abbv,
+              data: sg.data.map((p, index) => nonvap.subgroups[sgdex].data[index] - p),
+              sum: nonvap.subgroups[sgdex].sum - sg.sum,
+              total: {
+                  sum: nonvap.subgroups[0].total.sum - sg.total.sum
+              }
+           }
+       })
+    }
     const subgroups = chartState.activeSubgroupIndices.map(
-        index => population.subgroups[index]
+        index => sgs[index]
     );
     return html`
         <section class="toolbar-section">
             ${SelectBoxes(
                 chartId,
-                population.subgroups.filter(sg => !sg.name.includes("(2018)")),
+                sgs,
                 chartState.activeSubgroupIndices,
-                dispatch
+                dispatch,
+                nonvap
             )}
             ${DemographicsTable(subgroups, parts)}
         </section>

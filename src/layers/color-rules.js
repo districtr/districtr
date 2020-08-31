@@ -64,7 +64,7 @@ export function colorByCount(subgroup) {
     ];
 }
 
-export function purpleByCount(subgroup) {
+export function purpleByCount(subgroup, overlayID) {
     const rgb = [0, 0, 139];
     return [
         "rgba",
@@ -72,7 +72,9 @@ export function purpleByCount(subgroup) {
         [
             "interpolate",
             ["linear"],
-            subgroup.asMapboxExpression(),
+            overlayID === "nonvap"
+              ? ["-", ["get", "TOTPOP"], subgroup.asMapboxExpression()]
+              : subgroup.asMapboxExpression(),
             0,
             0,
             subgroup.total.max,

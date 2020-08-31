@@ -270,6 +270,9 @@ export function spatial_abilities (id) {
             coalition: true,
             number_markers: true,
           },
+      little_rock: {
+        nonvap: true,
+      },
       chicago: {
         number_markers: true,
       },

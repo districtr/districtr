@@ -54,7 +54,8 @@ export default class OverlayContainer {
         this.overlay = new Overlay(
             layers,
             this.subgroups[this._currentSubgroupIndex],
-            colorRule
+            colorRule,
+            this._id
         );
 
         if (!toggleText) {
