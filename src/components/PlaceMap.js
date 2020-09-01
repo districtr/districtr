@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
-import { geoPath, geoAlbersUsa } from "d3-geo";
+import { geoPath } from "d3-geo";
+import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 import { svg, html, render } from "lit-html";
 import { PlacesListForState } from "./PlacesList";
 import { select, selectAll } from "d3-selection";
@@ -8,6 +9,29 @@ import "d3-transition";
 // ============
 // Global state
 // ============
+
+const coi_available = [
+    "Alabama",
+    "Florida",
+    "Idaho",
+    "Indiana",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "New Hampshire",
+    "New Jersey",
+    "North Dakota",
+    "Puerto Rico",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "West Virginia",
+    "Wyoming"
+];
 
 const available = [
     "Alaska",
@@ -29,6 +53,7 @@ const available = [
     "Mississippi",
     "Illinois",
     "Texas",
+    "Nevada",
     "New Mexico",
     "New York",
     "North Carolina",
@@ -108,7 +133,7 @@ let FEATURES = [];
 const scale = 1280;
 const translate = [640, 300];
 const path = geoPath(
-    geoAlbersUsa()
+    geoAlbersUsaTerritories()
         .scale(scale)
         .translate(translate)
 );
@@ -330,24 +355,13 @@ let defaultHistoryState = location.pathname;
 let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
 
 export function PlaceMap(features, selectedId) {
-    // document.addEventListener("scroll", () => {
-    //     let el = document.getElementById("place-search");
-    //     let { top, bottom } = el.getBoundingClientRect();
-    //     let isVisible = top < window.innerHeight && bottom >= 0;
-    //     if (isVisible) {
-    //         if (location.pathname !== currentHistoryState) {
-    //             history.replaceState({}, "Districtr", currentHistoryState);
-    //         }
-    //     } else {
-    //         history.replaceState({}, "Districtr", defaultHistoryState);
-    //     }
-    // });
     document.addEventListener("keyup", (e) => {
         let selectedState = window.location.pathname.split("/").slice(-1)[0];
         if (selectedState.length === 2 && e.keyCode === 27) {
             history.back();
         }
     });
+
     const selectedFeature = selectedId
         ? features.features.find(
               feature => feature.properties.STUSPS.toLowerCase() === selectedId
@@ -421,10 +435,13 @@ function fetchFeatures(availablePlaces = available) {
                 let feature = states.features[i];
                 feature.properties.isAvailable = availablePlaces.includes(
                     feature.properties.NAME
+                ) || (
+                    window.location.href.includes("community") && coi_available.includes(
+                        feature.properties.NAME
+                    )
                 );
             }
             FEATURES = states;
-
             return states;
         });
 }
