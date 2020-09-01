@@ -108,6 +108,7 @@ const uspost = {
   "Oklahoma": "ok",
   "Oregon": "or",
   "Pennsylvania": "pa",
+  "Puerto Rico": "pr",
   "Rhode Island": "ri",
   "South Carolina": "sc",
   "South Dakota": "sd",
@@ -383,7 +384,8 @@ export function PlaceMap(features, selectedId) {
                 }}
             >
               ${Object.keys(uspost).map(st => {
-                  return html`<option value="${st}" ?disabled=${!available.includes(st)}>
+                  return html`<option value="${st}" ?disabled=${!(available.includes(st) ||
+                      (window.location.href.includes("community") && coi_available.includes(st)))}>
                       ${st}
                   </option>`;
               })}
