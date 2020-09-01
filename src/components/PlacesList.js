@@ -125,7 +125,7 @@ export function placeItems(place, onClick) {
     });
     return districtingProblems
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"

@@ -3012,6 +3012,114 @@
   {
     "units": [
       {
+        "id": "precincts",
+        "name": "Election Districts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 335542,
+              "min": 0,
+              "max": 6146
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 195282,
+                "min": 0,
+                "max": 2946
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 27898,
+                "min": 0,
+                "max": 962
+              },
+              {
+                "key": "HPOP",
+                "name": "Hispanic population",
+                "sum": 97371,
+                "min": 0,
+                "max": 4771
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 9358,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 520,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "NH_NAHI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 52,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_OTH",
+                "name": "Other races",
+                "sum": 813,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 4248,
+                "min": 0,
+                "max": 145
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Election District",
+          "key": "TC_ED"
+        },
+        "bounds": [
+          [
+            -73.3183,
+            40.5557
+          ],
+          [
+            -73.0379,
+            40.833
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.islip_precincts_points"
+            },
+            "sourceLayer": "islip_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.islip_precincts"
+            },
+            "sourceLayer": "islip_precincts"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
@@ -3112,6 +3220,11 @@
     "districtingProblems": [
       {
         "numberOfParts": 4,
+        "pluralNoun": "Town Council Districts",
+        "name": "Town Council"
+      },
+      {
+        "numberOfParts": 6,
         "pluralNoun": "Town Council Districts",
         "name": "Town Council"
       }
