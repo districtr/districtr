@@ -316,6 +316,26 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
+    if (state.plan.problem.type === "community") {
+        const noNames = ["case",
+            ["==", ["get", "type"], "neighborhood"],
+            "",
+            ["==", ["get", "type"], "neighbourhood"],
+            "",
+            ["==", ["get", "type"], "locality"],
+            "",
+            [">=", ["get", "admin_level"], 8],
+            "",
+            ["==", ["get", "type"], "block"],
+            "",
+            ["get", "name"]];
+        state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
+        tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
+            state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
+                : noNames);
+        }));
+    }
+
     if (state.place.id === "miamidade") {
         let miami = null;
         fetch("/assets/city_border/miamifl.geojson").then(res => res.json()).then((border) => {
@@ -351,11 +371,10 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    if (state.place.id === "virginia") {
-        console.log('downloading va plans');
+    if (["virginia", "lax"].includes(state.place.id)) {
         let plan2010 = null,
             plan2013 = null;
-        fetch("/assets/current_districts/virginia_2010.geojson").then(res => res.json()).then((va2010) => {
+        fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
                 data: va2010
@@ -366,10 +385,14 @@ export default function DataLayersPlugin(editor) {
                     id: 'va2010',
                     source: 'va2010',
                     type: 'line',
-                    paint: { "line-color": "#000", "line-opacity": 0 }
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
                 },
                 addBelowLabels
             );
+
+            if (state.place.id !== "virginia") {
+                return;
+            }
 
             fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
                 state.map.addSource('va2013', {
@@ -382,52 +405,46 @@ export default function DataLayersPlugin(editor) {
                         id: 'va2013',
                         source: 'va2013',
                         type: 'line',
-                        paint: { "line-color": "#000", "line-opacity": 0 }
+                        paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
                     },
                     addBelowLabels
                 );
             });
         });
 
-        tab.addRevealSection(
-            'Enacted Plans',
-            (uiState, dispatch) => html`
-            ${toggle("2003-2013 Congressional Plan", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2010 && plan2010.setOpacity(opacity);
-            })}
-            ${toggle("2013-2017 Congressional Plan", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2013 && plan2013.setOpacity(opacity);
-            })}`,
-            {
-                isOpen: false
-            }
-        );
+        if (state.place.id === "virginia") {
+            tab.addRevealSection(
+                'Enacted Plans',
+                (uiState, dispatch) => html`
+                ${toggle("2003-2013 Congressional Plan", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2010 && plan2010.setOpacity(opacity);
+                })}
+                ${toggle("2013-2017 Congressional Plan", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2013 && plan2013.setOpacity(opacity);
+                })}`,
+                {
+                    isOpen: false
+                }
+            );
+        } else {
+            tab.addRevealSection(
+                'Enacted Plans',
+                (uiState, dispatch) => html`
+                ${toggle("State Assembly", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2010 && plan2010.setOpacity(opacity);
+                })}`,
+                {
+                    isOpen: false
+                }
+            );
+        }
     }
 
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
-    }
-
-    if (state.plan.problem.type === "community") {
-        const noNames = ["case",
-            ["==", ["get", "type"], "neighborhood"],
-            "",
-            ["==", ["get", "type"], "neighbourhood"],
-            "",
-            ["==", ["get", "type"], "locality"],
-            "",
-            [">=", ["get", "admin_level"], 8],
-            "",
-            ["==", ["get", "type"], "block"],
-            "",
-            ["get", "name"]];
-        state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
-        tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
-            state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
-                : noNames);
-        }));
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
