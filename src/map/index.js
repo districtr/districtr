@@ -104,7 +104,7 @@ export class MapState {
             this.comparer = null;
             window.mapslide = null;
         }
-        
+
         activated = activated || (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
         const sliderOpt = new MapSliderControl(activated);
         this.map.addControl(sliderOpt, "top-left");
@@ -135,7 +135,7 @@ function addUnits(map, parts, tileset, layerAdder, problemDetails) {
             type: "line",
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
-            paint: (problemDetails.problemType === "community" && ["miamifl", "miamidade"].includes(problemDetails.id))
+            paint: (problemDetails.problemType === "community" && ["miamifl", "miamidade", "philadelphia"].includes(problemDetails.id))
                 ? satBordersPaintProperty
                 : unitBordersPaintProperty
         },
