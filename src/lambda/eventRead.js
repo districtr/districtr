@@ -19,8 +19,7 @@ exports.handler = async (event, context) => {
     }
 
     const plans = await Plan.find({
-        eventCode: eventCode,
-        hostname: myHost
+        eventCode: eventCode
     }).select("_id simple_id startDate plan screenshot");
     // be careful not to share token here
     return {

@@ -29,6 +29,8 @@ exports.handler = async (event, context) => {
       }
 
       plan.plan = data.plan;
+      plan.eventCode = data.eventCode || plan.eventCode || "";
+
       let rep = await plan.save();
       return {
           statusCode: 201,

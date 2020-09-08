@@ -32,7 +32,7 @@ export default () => {
         fetch("/.netlify/functions/eventRead?event=" + eventCode)
             .then(res => res.json())
             .catch(() => {
-                showPlans({"msg":"Plan(s) successfully found","plans":[{"_id":"5d9629d2f6986abe7ba608df"},{"_id":"5d965c68e593c7c67bc9bfd7"},{"_id":"5d965e4be593c7dedac9bfda"}]});
+                showPlans({"msg":"Plan(s) successfully found","plans":[{"_id":"5d9629d2f6986abe7ba608df",plan:{assignment:{}}},{"_id":"5d965c68e593c7c67bc9bfd7",plan:{assignment:{}}},{"_id":"5d965e4be593c7dedac9bfda",plan:{assignment:{}}}]});
             })
             .then(showPlans);
     } else {
@@ -70,7 +70,9 @@ const numberList = numbers => html`
     </dl>
 `;
 
-const loadablePlan = plan => html`
+const loadablePlan = (plan) => {
+    console.log(plan);
+    return html`
     <a href="/edit/${plan.simple_id || plan._id}">
         <li class="plan-thumbs__thumb">
             ${(typeof plan.screenshot !== 'undefined')
@@ -84,10 +86,10 @@ const loadablePlan = plan => html`
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.simple_id || plan._id}</h6>
             </figcaption>
-            <span style="margin:10px">${(plan.filledBlocks || Object.keys(plan.plan.assignment).length).toLocaleString()} units</span>
+            <span style="margin:10px">${(plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()} units</span>
         </li>
-    </a>
-`;
+    </a>`;
+}
 
 const districtingOptions = places =>
     html`
