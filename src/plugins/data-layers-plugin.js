@@ -372,8 +372,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (["virginia", "lax"].includes(state.place.id)) {
-        let plan2010 = null,
-            plan2013 = null;
+        let plan2010, plan2013, ush;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -390,26 +389,57 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            if (state.place.id !== "virginia") {
-                return;
-            }
+            if (state.place.id === "virginia") {
+                fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
 
-            fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
-                state.map.addSource('va2013', {
-                    type: 'geojson',
-                    data: va2013
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
                 });
+            } else if (state.place.id === "lax") {
+                fetch("/assets/current_districts/lax_senate.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
 
-                plan2013 = new Layer(state.map,
-                    {
-                        id: 'va2013',
-                        source: 'va2013',
-                        type: 'line',
-                        paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                    },
-                    addBelowLabels
-                );
-            });
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+                fetch("/assets/current_districts/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
+                    state.map.addSource('lax_ush', {
+                        type: 'geojson',
+                        data: lax_ush
+                    });
+
+                    ush = new Layer(state.map,
+                        {
+                            id: 'lax_ush',
+                            source: 'lax_ush',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+            }
         });
 
         if (state.place.id === "virginia") {
@@ -435,6 +465,14 @@ export default function DataLayersPlugin(editor) {
                 ${toggle("State Assembly", false, checked => {
                     let opacity = checked ? 1 : 0;
                     plan2010 && plan2010.setOpacity(opacity);
+                })}
+                ${toggle("State Senate", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2013 && plan2013.setOpacity(opacity);
+                })}
+                ${toggle("US House", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    ush && ush.setOpacity(opacity);
                 })}`,
                 {
                     isOpen: false
