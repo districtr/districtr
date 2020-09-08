@@ -46,9 +46,9 @@ export default function ToolsPlugin(editor) {
 
     let tools = [
         new PanTool(),
+        (state.problem.type === "community" && new LandmarkTool(state)),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
-        (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
             state.units,
             state.columnSets,
