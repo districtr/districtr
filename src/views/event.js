@@ -4,6 +4,7 @@ import { startNewPlan } from "../routes";
 
 const validEventCodes = {
   test: 'pennsylvania',
+  fyi: 'forsyth_nc',
   unc: 'nc'
 }
 
@@ -16,10 +17,10 @@ export default () => {
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = eventCode;
 
-        // listPlacesForState(validEventCodes[eventCode]).then(places => {
-        //     const target = document.getElementById("districting-options");
-        //     render(districtingOptions(places), target);
-        // });
+        listPlacesForState(validEventCodes[eventCode]).then(places => {
+            const target = document.getElementById("districting-options");
+            render(districtingOptions(places), target);
+        });
 
         let showPlans = (data) => {
             const plans = [{
@@ -71,7 +72,6 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = (plan) => {
-    console.log(plan);
     return html`
     <a href="/edit/${plan.simple_id || plan._id}">
         <li class="plan-thumbs__thumb">
