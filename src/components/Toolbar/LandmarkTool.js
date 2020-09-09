@@ -10,7 +10,7 @@ import Select from "../Select";
 
 export default class LandmarkTool extends Tool {
     constructor(state) {
-        const icon = html`<img src="/assets/in-landmark.png" alt="Landmark"/>`;
+        const icon = html`<img src="/assets/Icons_Landmark_grey.svg"alt="Landmark"/>`;
         super("landmark", "Landmark", icon);
 
         this.state = state;

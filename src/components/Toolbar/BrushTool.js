@@ -7,7 +7,7 @@ import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
-    return html`<img src="/assets/in-paint.png" alt="Brush"/>`
+    return html`<img src="/assets/Icons_Paint_grey.svg" alt="Brush"/>`
     // if (active && colorId !== undefined) {
     //     return html`
     //         <i class="material-icons" style="color: ${colors[colorId].color};"
