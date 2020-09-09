@@ -303,6 +303,7 @@ export function spatial_abilities (id) {
       iowa: {
         number_markers: true,
         contiguity: true,
+        screenshot: true,
       },
       little_rock: {
         number_markers: true,
@@ -363,6 +364,10 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: true,
       },
+          forsyth_nc: {
+            contiguity: true,
+            screenshot: true,
+          },
       ohio: {
         number_markers: true,
         county_brush: true,

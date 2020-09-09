@@ -12,7 +12,7 @@ import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
-import { download, spatial_abilities /* , stateNameToFips */ } from "../utils";
+import { download, spatial_abilities } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -39,19 +39,6 @@ export default function ToolsPlugin(editor) {
         if (c_checker) {
             c_checker(state, colorsAffected);
         }
-
-        fetch("//mggg.pythonanywhere.com/picture", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(state.serialize()),
-        })
-          .then((res) => res.text())
-          .catch((e) => console.error(e))
-          .then((data) => {
-              console.log('data:image/png;base64,' + data.substring(2, data.length - 1));
-          });
 
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);

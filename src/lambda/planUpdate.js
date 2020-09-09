@@ -30,6 +30,7 @@ exports.handler = async (event, context) => {
 
       plan.plan = data.plan;
       plan.eventCode = data.eventCode || plan.eventCode || "";
+      plan.screenshot = data.screenshot || plan.screenshot || "";
 
       let rep = await plan.save();
       return {
