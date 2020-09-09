@@ -3,7 +3,7 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": "alaska", "default": "true"}],
+      {"name": "Statewide", "ids": ["alaska"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -70,10 +70,9 @@
     "state": "Arizona",
     "code": "AZ",
     "modules": [
-      {"name": "Statewide", "id": "arizona", "default": "true"},
-      {"name": "Maricopa County", "id": "maricopa"},
-      {"name": "Phoenix", "id": "phoenix"},
-      {"name": "Yuma County", "id": "yuma"}],
+      {"name": "Statewide", "ids": ["arizona"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties"},
+      {"name": "Cities", "ids": ["phoenix"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -116,7 +115,7 @@
     "state": "Arkansas",
     "code": "AK",
     "modules": [
-      {"name": "Little Rock", "id": "little_rock", "default": "true"}],
+      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -136,10 +135,8 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "Napa", "id": "napa", "default": "true"},
-      {"name": "Napa Valley Schools", "id": "napaschools"},
-      {"name": "Santa Clara", "id": "santa_clara"},
-      {"name": "Ontario", "id": "ontarioca"}
+      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc", "default": "true"},
+      {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
       {
@@ -195,7 +192,7 @@
     "state": "Colorado",
     "code": "CO",
     "modules": [
-      {"name": "Statewide", "id": "colorado", "default": "true"}],
+      {"name": "Statewide", "ids": ["colorado"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -256,7 +253,7 @@
     "state": "Connecticut",
     "code": "CT",
     "modules": [
-      {"name": "Statewide", "id": "connecticut", "default": "true"}],
+      {"name": "Statewide", "ids": ["connecticut"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -317,7 +314,7 @@
     "state": "Delaware",
     "code": "DE",
     "modules": [
-      {"name": "Statewide", "id": "delaware", "default": "true"}],
+      {"name": "Statewide", "ids": ["delaware"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -374,7 +371,7 @@
     "state": "Florida",
     "code": "FL",
     "modules": [
-      {"name": "Miami-Dade County", "id": "miamidade", "default": "true"}],
+      {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -394,7 +391,7 @@
     "state": "Georgia",
     "code": "GA",
     "modules": [
-      {"name": "Statewide", "id": "georgia", "default": "true"}],
+      {"name": "Statewide", "ids": ["georgia"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -455,7 +452,7 @@
     "state": "Hawaii",
     "code": "HI",
     "modules": [
-      {"name": "Statewide", "id": "hawaii", "default": "true"}],
+      {"name": "Statewide", "ids": ["hawaii"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -516,7 +513,7 @@
     "state": "Illinois",
     "code": "IL",
     "modules": [
-      {"name": "Chicago", "id": "chicago", "default": "true"}],
+      {"name": "Cities", "ids": ["chicago"], "default": "true", "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -712,7 +709,7 @@
     "state": "Iowa",
     "code": "IA",
     "modules": [
-      {"name": "Statewide", "id": "iowa", "default": "true"}],
+      {"name": "Statewide", "ids": ["iowa"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -765,7 +762,7 @@
     "state": "Maryland",
     "code": "MD",
     "modules": [
-      {"name": "Statewide", "id": "maryland", "default": "true"}],
+      {"name": "Statewide", "ids": ["maryland"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -818,8 +815,8 @@
     "state": "Massachusetts",
     "code": "MA",
     "modules": [
-      {"name": "Statewide", "id": "ma", "default": "true"},
-      {"name": "Lowell", "id": "lowell"}],
+      {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -951,7 +948,7 @@
     "state": "Michigan",
     "code": "MI",
     "modules": [
-      {"name": "Statewide", "id": "michigan", "default": "true"}],
+      {"name": "Statewide", "ids": ["michigan"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1012,7 +1009,7 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "id": "minnesota", "default": "true"}],
+      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1069,7 +1066,7 @@
     "state": "Mississippi",
     "code": "MS",
     "modules": [
-      {"name": "Statewide", "id": "mississippi", "default": "true"}],
+      {"name": "Statewide", "ids": ["mississippi"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1110,7 +1107,7 @@
     "state": "Nevada",
     "code": "NV",
     "modules": [
-      {"name": "Clark County", "id": "clarknv", "default": "true"}],
+      {"name": "Counties", "ids": ["clarknv"], "default": "true", "id": "counties"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1130,7 +1127,7 @@
     "state": "New Mexico",
     "code": "NM",
     "modules": [
-      {"name": "Statewide", "id": "new_mexico", "default": "true"}],
+      {"name": "Statewide", "ids": ["new_mexico"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1187,7 +1184,7 @@
     "state": "New York",
     "code": "NY",
     "modules": [
-      {"name": "Islip", "id": "islip", "default": "true"}],
+      {"name": "Cities", "ids": ["islip"], "default": "true", "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1214,7 +1211,7 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "id": "nc", "default": "true"}],
+      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1282,7 +1279,7 @@
     "state": "Ohio",
     "code": "OH",
     "modules": [
-      {"name": "Statewide", "id": "ohio", "default": "true"}],
+      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1316,7 +1313,7 @@
     "state": "Oklahoma",
     "code": "OK",
     "modules": [
-      {"name": "Statewide", "id": "oklahoma", "default": "true"}],
+      {"name": "Statewide", "ids": ["oklahoma"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1450,8 +1447,8 @@
     "state": "Pennsylvania",
     "code": "PA",
     "modules": [
-      {"name": "Statewide", "id": "pennsylvania", "default": "true"},
-      {"name": "Philadelphia", "id": "philadelphia"}
+      {"name": "Statewide", "ids": ["pennsylvania"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["philadelphia"], "id": "loc"}
     ],
     "sections": [
       {
@@ -1536,8 +1533,8 @@
     "state": "Rhode Island",
     "code": "RI",
     "modules": [
-      {"name": "Statewide", "id": "rhode_island", "default": "true"},
-      {"name": "Providence", "id": "providence_ri"}
+      {"name": "Statewide", "ids": ["rhode_island"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["providence_ri"], "id": "loc"}
     ],
     "sections": [
       {
@@ -1606,8 +1603,8 @@
     "state": "Texas",
     "code": "TX",
     "modules": [
-      {"name": "Statewide", "id": "texas", "default": "true"},
-      {"name": "Austin", "id": "austin"}
+      {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["austin"], "id": "loc"}
     ],
     "sections": [
       {
@@ -1668,7 +1665,7 @@
     "state": "Utah",
     "code": "UT",
     "modules": [
-      {"name": "Statewide", "id": "utah", "default": "true"}],
+      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1725,7 +1722,7 @@
     "state": "Vermont",
     "code": "VT",
     "modules": [
-      {"name": "Statewide", "id": "vermont", "default": "true"}],
+      {"name": "Statewide", "ids": ["vermont"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1759,7 +1756,7 @@
     "state": "Virginia",
     "code": "VA",
     "modules": [
-      {"name": "Statewide", "id": "virginia", "default": "true"}],
+      {"name": "Statewide", "ids": ["virginia"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

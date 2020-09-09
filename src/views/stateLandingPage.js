@@ -18,21 +18,11 @@ export default () => {
             // render page
             render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
 
-            // set statewide to default
-            // var locality = window.location.pathname.split("/")[2];
-            // var def = locality ? stateData.modules.filter(m => locality === m.name.replace(/\s+/g, '-').toLowerCase() 
-            //                                                 || locality === m.id) : [];
 
             var def = stateData.modules.filter(m => m.default)[0];
             console.log(def);
 
-            document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
-                                : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
-
-            // var currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
-            //                                                      : "/" + window.location.pathname.split("/")[1] 
-            //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
-            // history.replaceState({}, document.title, currentHistoryState);
+            document.title = curState.concat(" | Districtr");
 
             var statewide = $("." + def.id);
             var btn = document.getElementById(def.id);
@@ -48,11 +38,9 @@ export default () => {
                 $(".communities").hide();
             });
 
-            btn.checked = true;
-            // $(".text-toggle").not(statewide).hide();
-            // $(".nav").not(statewide).hide();
-            // $(".place__name").hide();
-            // $(".districtr-about").not(statewide).hide();
+            if (btn) {
+                btn.checked = true;
+            }
             
 
             // config toggle buttons
@@ -63,21 +51,9 @@ export default () => {
                 console.log(targetBox)
                 def = stateData.modules.filter(m => m.id === inputValue)[0];
                 console.log(def);
-                // document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
-                //                     : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
-                // currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
-                //                                                      : "/" + window.location.pathname.split("/")[1] 
-                //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
-
-                // history.replaceState({}, document.title, currentHistoryState);
                 
                 $(".places-list__item").hide();
-                // $(".text-toggle").not(targetBox).hide();
-                // $(".nav").not(targetBox).hide();
-                // $(".place__name").hide();
-                // $(".districtr-about").not(targetBox).hide();
                 def.ids.map(id => $("." + id).show());
-                // $(targetBox).show();
             });
 
             $('input[name="draw-selection"]:radio').click(function(){
@@ -96,24 +72,6 @@ export default () => {
                 $(".districts").hide();
                 $(".communities").hide();
                 $(targetBox).show();
-
-                // def = stateData.modules.filter(m => m.id === inputValue)[0];
-                // console.log(def);
-                // document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
-                //                     : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
-                // currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
-                //                                                      : "/" + window.location.pathname.split("/")[1] 
-                //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
-
-                // history.replaceState({}, document.title, currentHistoryState);
-                
-                // $(".places-list__item").hide();
-                // $(".text-toggle").not(targetBox).hide();
-                // $(".nav").not(targetBox).hide();
-                // $(".place__name").hide();
-                // $(".districtr-about").not(targetBox).hide();
-                // def.ids.map(id => $("." + id).show());
-                // $(targetBox).show();
             });
         });
 };
@@ -331,6 +289,17 @@ function getProblems(place) {
     return districtingProblems;
 }
 
+const problemTypeInfo = {
+    multimember: html`
+        <div class="place-info">
+            Multi-member districts of varying sizes
+        </div>
+    `,
+    community: html`
+        <div class="place-info">Identify a community</div>
+    `
+};
+
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         getProblems(place)
@@ -344,6 +313,7 @@ const placeItemsTemplate = (places, onClick) =>
                         <div class="place-name">
                             ${place.name}
                         </div>
+                        ${problemTypeInfo[problem.type] || ""}
                         ${problem.partCounts.length > 1
                               ? html`<div class="place-info">
                                     ${problem.pluralNoun}: </div>
