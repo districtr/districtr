@@ -84,7 +84,9 @@ const loadablePlan = (plan) => {
                 : null
             }
             <figcaption class="thumb__caption">
-                <h6 class="thumb__heading">${plan.simple_id || plan._id}</h6>
+                <h6 class="thumb__heading">#${plan.simple_id || plan._id}</h6>
+                <br/>
+                <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>
             <span style="margin:10px">${(plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()} units</span>
         </li>
