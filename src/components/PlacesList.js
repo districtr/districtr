@@ -127,7 +127,7 @@ export function placeItems(place, onClick) {
                  <ul class="places-list places-list--columns ${place.name.replace(/\s+/g, '')}">
                  ${districtingProblems
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"

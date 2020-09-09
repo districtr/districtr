@@ -8,7 +8,10 @@ export default function NumberMarkers(state, brush) {
         return;
     }
     if (!spatial_abilities(state.place.id).number_markers) {
-        console.log("not on NumberMarkers whitelist");
+        console.log("not on NumberMarkers allowlist");
+        return;
+    } else if (["ma"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
+        console.log("state NumberMarker support limited to precincts");
         return;
     }
 
@@ -19,7 +22,7 @@ export default function NumberMarkers(state, brush) {
         districts = [],
         dpr = window.devicePixelRatio || 1,
         map = state.units.map;
-    canv.height = 22;
+    canv.height = 22 * dpr;
     ctx.scale(dpr, dpr);
     if (typeof ctx.ellipse === "undefined") {
         // IE helper
@@ -31,13 +34,14 @@ export default function NumberMarkers(state, brush) {
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 32;
-        ctx.strokeStyle = "#000";
+        canv.width = 32 * dpr;
+        // ctx.translate(0.5, 0.5);
+        // ctx.strokeStyle = "#000";
         ctx.fillStyle = "#fff";
-        ctx.lineWidth = 2;
+        // ctx.lineWidth = 1;
         ctx.ellipse(16, 11, 14, 10, 0, 0, 2 * Math.PI);
         ctx.fill();
-        ctx.stroke();
+        // ctx.stroke();
         ctx.fillStyle = "#000";
         ctx.font = "14px sans-serif";
         ctx.fillText(
@@ -45,9 +49,6 @@ export default function NumberMarkers(state, brush) {
             16 - ctx.measureText(dnum + 1).width / 2,
             16
         );
-        // if (!dnum) {
-        //     console.log(canv.toDataURL());
-        // }
 
         map.addSource("number_source_" + dnum, {
             type: "geojson",

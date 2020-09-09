@@ -53,7 +53,7 @@ export function addCountyLayer(tab, state) {
     if (stateNameToFips[(state.place.state || state.place.id).toLowerCase()]) {
         tab.addSection(
             () => html`
-                <h4>Counties</h4>
+                <h4>Boundaries</h4>
                 ${toggle(`Show county boundaries`, false, checked =>
                     counties.setOpacity(
                         checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
@@ -122,15 +122,15 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Alaskan Native Communities";
     } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
-    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "virginia", "wisconsin", "wyoming"].includes(state.place.id)) {
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Tribes";
-    } else if (["montana", "oregon"].includes(state.place.id)) {
+    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
     } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    } else if (["connecticut", "delaware", "maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+    } else if (["maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Indian Tribes";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
@@ -142,6 +142,8 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Tribal Communities";
     } else if (state.place.id === "northdakota") {
         native_am_type = "Tribes and Communities";
+    } else if (state.place.id === "mississippi") {
+        native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
     const shared_az = {
@@ -314,6 +316,26 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
+    if (state.plan.problem.type === "community") {
+        const noNames = ["case",
+            ["==", ["get", "type"], "neighborhood"],
+            "",
+            ["==", ["get", "type"], "neighbourhood"],
+            "",
+            ["==", ["get", "type"], "locality"],
+            "",
+            [">=", ["get", "admin_level"], 8],
+            "",
+            ["==", ["get", "type"], "block"],
+            "",
+            ["get", "name"]];
+        state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
+        tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
+            state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
+                : noNames);
+        }));
+    }
+
     if (state.place.id === "miamidade") {
         let miami = null;
         fetch("/assets/city_border/miamifl.geojson").then(res => res.json()).then((border) => {
@@ -349,14 +371,121 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    if (["virginia", "lax"].includes(state.place.id)) {
+        let plan2010, plan2013, ush;
+        fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
+            state.map.addSource('va2010', {
+                type: 'geojson',
+                data: va2010
+            });
+
+            plan2010 = new Layer(state.map,
+                {
+                    id: 'va2010',
+                    source: 'va2010',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+
+            if (state.place.id === "virginia") {
+                fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
+
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+            } else if (state.place.id === "lax") {
+                fetch("/assets/current_districts/lax_senate.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
+
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+                fetch("/assets/current_districts/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
+                    state.map.addSource('lax_ush', {
+                        type: 'geojson',
+                        data: lax_ush
+                    });
+
+                    ush = new Layer(state.map,
+                        {
+                            id: 'lax_ush',
+                            source: 'lax_ush',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+            }
+        });
+
+        if (state.place.id === "virginia") {
+            tab.addRevealSection(
+                'Enacted Plans',
+                (uiState, dispatch) => html`
+                ${toggle("2003-2013 Congressional Plan", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2010 && plan2010.setOpacity(opacity);
+                })}
+                ${toggle("2013-2017 Congressional Plan", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2013 && plan2013.setOpacity(opacity);
+                })}`,
+                {
+                    isOpen: false
+                }
+            );
+        } else {
+            tab.addRevealSection(
+                'Enacted Plans',
+                (uiState, dispatch) => html`
+                ${toggle("State Assembly", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2010 && plan2010.setOpacity(opacity);
+                })}
+                ${toggle("State Senate", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    plan2013 && plan2013.setOpacity(opacity);
+                })}
+                ${toggle("US House", false, checked => {
+                    let opacity = checked ? 1 : 0;
+                    ush && ush.setOpacity(opacity);
+                })}`,
+                {
+                    isOpen: false
+                }
+            );
+        }
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
 
-    // Right now we're doing all of these if statements,
-    // but in the future we should just be able to register
-    // layer types for different columnSet types and have
-    // that determine what is rendered.
+    tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition) {
@@ -381,9 +510,9 @@ export default function DataLayersPlugin(editor) {
             true // totals only
         );
 
-        tab.addSection(
+        tab.addRevealSection(
+            "Coalition Builder",
             (uiState, dispatch) => html`
-              <h4>Coalition Builder</h4>
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
@@ -402,7 +531,10 @@ export default function DataLayersPlugin(editor) {
               <div id="coalition-table">
                 ${coalitionPivot(uiState, dispatch)}
               </div>
-            `
+            `,
+            {
+                isOpen: true
+            }
         );
     }
 
@@ -410,38 +542,37 @@ export default function DataLayersPlugin(editor) {
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
         state.population,
-        "Show population (2010 Census)",
+        "Show population",
         false, // first only (one layer)?
-        "Coalition population" // coalition subgroup
+        spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
+        spatial_abilities(state.place.id).multiyear // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 
-    tab.addSection(
-        () => html`
-            <h4>Demographics</h4>
-            ${demographicsOverlay.render()}
-        `
-    );
-
+    let vapOverlay = null;
     if (state.vap) {
-        const vapOverlay = new OverlayContainer(
+        vapOverlay = new OverlayContainer(
             "vap",
             demoLayers.filter(lyr => !lyr.background),
             state.vap,
-            "Show VAP (2010 Census)",
+            "Show voting age population (VAP)",
             false,
-            "Coalition voting age population"
+            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+            spatial_abilities(state.place.id).multiyear // multiple years
         );
         coalitionOverlays.push(vapOverlay);
-
-        tab.addSection(
-            () =>
-                html`
-                    <h4>Voting Age Population</h4>
-                    ${vapOverlay.render()}
-                `
-        );
     }
+
+    tab.addRevealSection(
+        "Race",
+        (uiState, dispatch) => html`
+            ${demographicsOverlay.render()}
+            ${vapOverlay ? vapOverlay.render() : null}
+        `,
+        {
+            isOpen: true
+        }
+    );
 
     if (state.incomes) {
         if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
@@ -453,19 +584,19 @@ export default function DataLayersPlugin(editor) {
                 true // first layer only
             );
 
-            tab.addSection(
-                (uiState, dispatch) =>  html`<h4>Household Income</h4>
-                <div>
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
                     ${incomeOverlay.render()}
-                </div>`
+                </div>`,
+                {
+                  isOpen: false
+                }
             );
         } else {
-            tab.addSection(
-                (uiState, dispatch) =>  html`<h4>Household Income</h4>
-                <div>
-                    <div class="centered">
-                      <strong>Histogram</strong>
-                    </div>
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
                     ${IncomeHistogramTable(
                         "Income Histograms",
                         state.incomes,
@@ -473,20 +604,26 @@ export default function DataLayersPlugin(editor) {
                         uiState.charts["Income Histograms"],
                         dispatch
                     )}
-                </div>`
+                </div>`,
+                {
+                  isOpen: false
+                }
             );
         }
     }
 
     if (state.rent) {
-        tab.addSection(
-            (uiState, dispatch) => html`<h4>Homeowner or Renter</h4>
-            <div class="sectionThing">
+        tab.addRevealSection(
+            'Homeowner or Renter',
+            (uiState, dispatch) => html`<div class="sectionThing">
                 ${DemographicsTable(
                     state.rent.subgroups,
                     state.activeParts
                 )}
-            </div>`
+            </div>`,
+            {
+              isOpen: false
+            }
         );
     }
 
@@ -512,12 +649,15 @@ export default function DataLayersPlugin(editor) {
             demoLayers,
             state.elections
         );
-        tab.addSection(
+        tab.addRevealSection('Previous Elections',
             () => html`
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>
-            `
+            `,
+            {
+              isOpen: true
+            }
         );
     }
 

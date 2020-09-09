@@ -10,9 +10,7 @@ export default class InspectTool extends Tool {
         super(
             "inspect",
             "Inspect",
-            html`
-                <i class="material-icons">search</i>
-            `
+            html`<img src="/assets/Icons_Inspect_grey.svg" alt="Inspect"/>`
         );
 
         this.columnSets = columnSets.filter(lyr => lyr.subgroups.length > 1);

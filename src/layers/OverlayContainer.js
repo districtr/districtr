@@ -1,12 +1,11 @@
 import { html } from "lit-html";
 import Parameter from "../components/Parameter";
 import Select from "../components/Select";
-import { toggle } from "../components/Toggle";
 import { colorByCount, purpleByCount, colorByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition) {
+    constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition, multiYear) {
         this._id = id;
         this._currentSubgroupIndex = firstOnly ? 1 : 0;
         this.subgroups = columnSet.columns;
@@ -35,6 +34,8 @@ export default class OverlayContainer {
             });
         }
         this.firstOnly = firstOnly || false;
+        this.multiYear = multiYear;
+        this.yr = 2010;
 
         // These color rules should be explicitly attached to each subgroup,
         // instead of doing these brittle checks to try and figure out what's
@@ -58,7 +59,7 @@ export default class OverlayContainer {
 
         if (!toggleText) {
             toggleText = columnSet.name
-                ? `Show ${columnSet.name.toLowerCase()}`
+                ? columnSet.name
                 : "Show data layer";
         }
 
@@ -79,21 +80,47 @@ export default class OverlayContainer {
             });
         }
 
-        this.visibilityToggle = toggle(toggleText, (!this.firstOnly && this._currentSubgroupIndex !== 0), visible => {
-            document.getElementById("color-" + this._id).style.display
-                = (visible ? "block" : "none");
-            if (visible) {
-                this.overlay.show();
-                this.changeSubgroup(this._currentSubgroupIndex);
-            } else {
-                this.overlay.hide();
-            }
-        });
+        this.visibilityToggle = html`<label class="toolbar-checkbox">
+            <input
+                type="checkbox"
+                name="data_layers"
+                ?checked="${!this.firstOnly && this._currentSubgroupIndex !== 0}"
+                value="${this._id}"
+                @change=${(e) => {
+                    if (e.bubbles) {
+                        let checks = document.getElementsByName("data_layers");
+                        for (let c = 0; c < checks.length; c++) {
+                            if (checks[c].value !== this._id) {
+                                checks[c].checked = false;
+                                let evt = new Event("change");
+                                checks[c].dispatchEvent(evt);
+                            }
+                        }
+                    }
+                    let visible = e.target.checked;
+                    document.getElementById("color-" + this._id).style.display = (visible ? "block" : "none");
+                    if (visible) {
+                        this.overlay.show();
+                        this.changeSubgroup(this._currentSubgroupIndex);
+                    } else {
+                        this.overlay.hide();
+                    }
+                }}
+            />
+            ${toggleText}
+        </label>`;
     }
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
+        if (this.yr === 2018) {
+            while(this.subgroups[i] &&
+                (!this.subgroups[i].name.includes("(2018)")
+                || !this.subgroups[i].name.includes(this.subgroups[this._currentSubgroupIndex].name))) {
+                i++;
+            }
+        }
         this.overlay.setSubgroup(this.subgroups[i]);
-        if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i])) {
+        if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i]) || (this.subgroups[i].key.includes("TOTPOP"))) {
             if (this.firstOnly) {
               this.overlay.setColorRule(purpleByCount);
             } else {
@@ -128,20 +155,50 @@ export default class OverlayContainer {
             document.getElementById("percents-" + this._id).style.display = "block";
         }
     }
+    selectYear(yr) {
+        this.yr = yr;
+        this.changeSubgroup(this._currentSubgroupIndex);
+    }
     render() {
         return html`
             <div class="ui-option ui-option--slim">
-                ${this.visibilityToggle}
+                <h5>${this.visibilityToggle}</h5>
             </div>
             ${this.firstOnly ? "" :
                 Parameter({
                     label: "Variable:",
                     element: Select(
-                        this.subgroups,
+                        this.subgroups.filter(sg => !this.multiYear || !sg.name.includes("(2018)")),
                         this.changeSubgroup,
                         this._currentSubgroupIndex
                     )
                 })
+            }
+            ${this.multiYear
+              ? html`<div class="yrselect parameter">
+                <label class="parameter__label ui-label ui-label--row">Year</label>
+                <label>
+                  <input
+                    type="radio"
+                    name="${this._id + 'yr'}"
+                    value="2010"
+                    ?checked="${this.yr === 2010}"
+                    @change="${e => this.selectYear(2010)}"
+                  />
+                  2010
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="${this._id + 'yr'}"
+                    value="2018"
+                    ?checked="${this.yr === 2018}"
+                    @change="${e => this.selectYear(2018)}"
+                  />
+                  2018
+                </label>
+              </div>`
+              : ""
             }
             ${this.firstOnly ? "" :
                 Parameter({

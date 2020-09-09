@@ -7,17 +7,18 @@ import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
-    if (active && colorId !== undefined) {
-        return html`
-            <i class="material-icons" style="color: ${colors[colorId].color};"
-                >brush</i
-            >
-        `;
-    } else {
-        return html`
-            <i class="material-icons">brush</i>
-        `;
-    }
+    return html`<img src="/assets/Icons_Paint_grey.svg" alt="Brush"/>`
+    // if (active && colorId !== undefined) {
+    //     return html`
+    //         <i class="material-icons" style="color: ${colors[colorId].color};"
+    //             >brush</i
+    //         >
+    //     `;
+    // } else {
+    //     return html`
+    //         <i class="material-icons">brush</i>
+    //     `;
+    // }
 };
 
 export default class BrushTool extends Tool {

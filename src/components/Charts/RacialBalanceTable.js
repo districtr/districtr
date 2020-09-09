@@ -17,7 +17,9 @@ function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
     return activeSubgroupIndices.map((index, j) =>
         Parameter({
             label: labels[j] || "and",
-            element: Select(subgroups, onChange(j), index)
+            element: Select(subgroups.map(sg => {
+                return {...sg, name: sg.name.replace("voting age population", "VAP") }
+            }), onChange(j), index)
         })
     );
 }
@@ -36,7 +38,7 @@ export default function RacialBalanceTable(
         <section class="toolbar-section">
             ${SelectBoxes(
                 chartId,
-                population.subgroups,
+                population.subgroups.filter(sg => !sg.name.includes("(2018)")),
                 chartState.activeSubgroupIndices,
                 dispatch
             )}

@@ -144,7 +144,7 @@ async function validateUnits(unit, index, plan) {
     }
 
     if (!unit.tilesets || !Array.isArray(unit.tilesets)
-        || unit.tilesets.length !== 2
+        // || unit.tilesets.length !== 2
     ) {
         console.error(plan.id + " is missing a 2-length tilesets array on its "
             + (index + 1) + "-th unit entry");
@@ -214,7 +214,7 @@ async function validateUnits(unit, index, plan) {
             let fields = Object.keys(content.vector_layers[0].fields);
 
             // check ID and name column present
-            if (!fields.includes(unit.idColumn.key)) {
+            if (!fields.includes(unit.idColumn.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
                 console.error("MapBox layer " + tset + " is missing ID column (" + unit.idColumn.key + ")");
                 process.exit(1);
             }
@@ -225,24 +225,26 @@ async function validateUnits(unit, index, plan) {
 
             unit.columnSets.forEach(cs => {
                 if (cs.total) {
-                    if (!fields.includes(cs.total.key)) {
-                        console.error("MapBox layer " + tset + " missing total field from response.json (" + subgroup.key + ")");
+                    if (!fields.includes(cs.total.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+                        console.error("MapBox layer " + tset + " missing total field from response.json (" + cs.total.key + ")");
                         process.exit(1);
                     }
                     fields.splice(fields.indexOf(cs.total.key), 1);
                 }
 
-                cs.subgroups.forEach(subgroup => {
-                    if (!fields.includes(subgroup.key)) {
-                        console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
-                        process.exit(1);
-                    }
-                    if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
-                        console.error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
-                        process.exit(1);
-                    }
-                    fields.splice(fields.indexOf(subgroup.key), 1);
-                });
+                if (!["minnesota", "maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+                    cs.subgroups.forEach(subgroup => {
+                        if (!fields.includes(subgroup.key)) {
+                            console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
+                            process.exit(1);
+                        }
+                        if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
+                            console.error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
+                            process.exit(1);
+                        }
+                        fields.splice(fields.indexOf(subgroup.key), 1);
+                    });
+                }
             });
 
             // any response.json columns missing on MapBox side?

@@ -3,7 +3,7 @@ import Tool from "./Tool";
 
 export default class PanTool extends Tool {
     constructor() {
-        const icon = html`<i class="material-icons">pan_tool</i>`;
+        const icon = html`<img src="/assets/Icons_Pan_grey.svg" alt="Pan Map"/>`;
         super("pan", "Pan", icon);
     }
 }

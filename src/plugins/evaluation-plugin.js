@@ -13,13 +13,13 @@ export default function EvaluationPlugin(editor) {
 
     if (state.population.subgroups.length > 1) {
         tab.addRevealSection(
-            "Racial Balance",
+            "Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "Racial Balance",
+                    "Population by Race",
                     state.population,
                     state.activeParts,
-                    uiState.charts["Racial Balance"],
+                    uiState.charts["Population by Race"],
                     dispatch
                 ),
             {
@@ -30,13 +30,13 @@ export default function EvaluationPlugin(editor) {
     }
     if (state.vap) {
         tab.addRevealSection(
-            "VAP Balance",
+            "Voting Age Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
-                    "VAP Balance",
+                    "Voting Age Population by Race",
                     state.vap,
                     state.activeParts,
-                    uiState.charts["VAP Balance"],
+                    uiState.charts["Voting Age Population by Race"],
                     dispatch
                 ),
             {
@@ -97,23 +97,24 @@ export default function EvaluationPlugin(editor) {
         });
     }
 
-    // if (state.plan.problem.type !== "community"
-    //     && (["alaska", "colorado", "georgia", "hawaii", "iowa", "ma", "maryland", "michigan", "minnesota", "mississippi", "nc", "new_mexico", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "texas", "utah", "vermont", "virginia", "wisconsin"].includes(state.place.id))
-    //     && (state.units.sourceId !== "ma_towns")
-    // ) {
-    //     tab.addRevealSection(
-    //         "Contiguity",
-    //         (uiState, dispatch) =>
-    //             ContiguitySection(
-    //                 state.contiguity,
-    //                 uiState,
-    //                 dispatch
-    //             ),
-    //         {
-    //             isOpen: true
-    //         }
-    //     );
-    // }
+    if (state.plan.problem.type !== "community"
+        && (spatial_abilities(state.place.id).contiguity)
+        && (state.units.sourceId !== "ma_towns")
+    ) {
+        tab.addRevealSection(
+            "Contiguity",
+            (uiState, dispatch) =>
+                ContiguitySection(
+                    state.parts,
+                    state.contiguity,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: true
+            }
+        );
+    }
 
     if (tab.sections.length > 0) {
         toolbar.addTab(tab);

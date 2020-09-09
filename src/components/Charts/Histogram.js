@@ -1,10 +1,21 @@
 import { html } from "lit-html";
 import DataTable from "./DataTable";
 
+const fmtIncome = (label) => {
+   if (label.indexOf("in_") === 0) {
+      if (label.includes("gt")) {
+          return "> " + label.split("_")[2] + "k";
+      } else {
+          return "$" + label.split("_")[1] + "-" + label.split("_")[2] + "k";
+      }
+   }
+   return label;
+};
+
 function getColumn(subgroup, part, max, median_name, isAge) {
     let years = (subgroup.age_range.length === 1 ? 1 : (subgroup.age_range[1] - subgroup.age_range[0] + 1)),
-        width = Math.round(years * (isAge ? 2 : 12)),
-        height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * (isAge ? 125 : (125 * 6))),
+        width = Math.round(years * (isAge ? 2 : 44)),
+        height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * (isAge ? 125 : 2100)),
         is_median = (subgroup.name === median_name);
     return {
       content: html`<div style="background:${is_median ? "#888" : "#444"};width:${width}px; height:${height}px"></div>`,
@@ -24,8 +35,10 @@ export default (subgroups, parts, isAge) => {
             })
         }
     } else {
+        // clone and sort income sgs
+        // don't include Median Income ($) compared to other income columns (# of households)
         subgroups = [].concat(subgroups.sort((a, b) => {
-          return a.key < b.key ? -1 : 1
+           return a.key < b.key ? -1 : 1
         }).filter(c => c.name.indexOf("Median")));
     }
 
@@ -83,11 +96,19 @@ export default (subgroups, parts, isAge) => {
         label: part.renderLabel(),
         entries: subgroups.map(subgroup => getColumn(subgroup, part, max[part.id], median[part.id], isAge))
             .concat([{
-                content: median[part.id] ? html`Median:<br/>${median[part.id]}` : "",
-                style: ""
+                content: median[part.id] ? html`Median:<br/>${fmtIncome(median[part.id])}` : "",
             }]
         )
     }));
+    if (!isAge) {
+        // income headers
+        rows = [{
+            entries: subgroups.map(sg => {
+                return { content: html`<div style="width:44px">${fmtIncome(sg.key)}</div>` }
+            }).concat([{ content: "" }])
+        }].concat(rows);
+    }
+
     return html`
     <div class="age-histogram">
       ${DataTable(new Array(subgroups.length), rows)}

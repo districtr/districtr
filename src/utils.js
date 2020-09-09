@@ -240,7 +240,7 @@ export function spatial_abilities (id) {
         native_american: true,
       },
       arizona: {
-        // number_markers: true,
+        number_markers: true,
         county_brush: true,
         native_american: true,
         coalition: true,
@@ -248,18 +248,27 @@ export function spatial_abilities (id) {
           maricopa: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           nwaz: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           seaz: {
             native_american: true,
             coalition: true,
+            number_markers: true,
           },
           phoenix: {
             native_american: true,
             coalition: true,
+            number_markers: true,
+          },
+          yuma: {
+            native_american: true,
+            coalition: true,
+            number_markers: true,
           },
       chicago: {
         number_markers: true,
@@ -267,10 +276,18 @@ export function spatial_abilities (id) {
       colorado: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       connecticut: {
         county_brush: true,
         native_american: true,
+        number_markers: true,
+        contiguity: true,
+      },
+      delaware: {
+        number_markers: true,
+        native_american: true,
+        contiguity: true,
       },
       georgia: {
         number_markers: true,
@@ -283,6 +300,10 @@ export function spatial_abilities (id) {
       },
       iowa: {
         number_markers: true,
+        contiguity: true,
+      },
+      little_rock: {
+        number_markers: true,
       },
       maryland: {
         number_markers: true,
@@ -292,17 +313,33 @@ export function spatial_abilities (id) {
         number_markers: true,
         // modern precincts, towns have issues
       },
+      miamifl: {
+        number_markers: true,
+      },
+      miamidade: {
+        multiyear: true,
+        number_markers: true,
+      },
       michigan: {
         number_markers: true,
-        // precode?
+        native_american: true,
+        county_brush: true,
       },
       minnesota: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       mississippi: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
+      },
+      napa: {
+        number_markers: true,
+      },
+      napaschools: {
+        number_markers: true,
       },
       new_mexico: {
         number_markers: true,
@@ -316,6 +353,7 @@ export function spatial_abilities (id) {
       nc: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       ohio: {
         number_markers: true,
@@ -325,10 +363,16 @@ export function spatial_abilities (id) {
         number_markers: true,
         native_american: true,
         county_brush: true,
+        contiguity: true,
+        coalition: true,
+      },
+      ontarioca: {
+        number_markers: true,
       },
       oregon: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       pennsylvania: {
         number_markers: true,
@@ -340,10 +384,12 @@ export function spatial_abilities (id) {
       texas: {
         number_markers: true,
         county_brush: true,
+        contiguity: true,
       },
       utah: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       vermont: {
         number_markers: true,
@@ -352,6 +398,7 @@ export function spatial_abilities (id) {
       virginia: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       washington: {
         number_markers: true,
@@ -361,6 +408,7 @@ export function spatial_abilities (id) {
       wisconsin: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
   };
   return status[id] || {};

@@ -3012,6 +3012,114 @@
   {
     "units": [
       {
+        "id": "precincts",
+        "name": "Election Districts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 335542,
+              "min": 0,
+              "max": 6146
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 195282,
+                "min": 0,
+                "max": 2946
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 27898,
+                "min": 0,
+                "max": 962
+              },
+              {
+                "key": "HPOP",
+                "name": "Hispanic population",
+                "sum": 97371,
+                "min": 0,
+                "max": 4771
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 9358,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 520,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "NH_NAHI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 52,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_OTH",
+                "name": "Other races",
+                "sum": 813,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 4248,
+                "min": 0,
+                "max": 145
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Election District",
+          "key": "TC_ED"
+        },
+        "bounds": [
+          [
+            -73.3183,
+            40.5557
+          ],
+          [
+            -73.0379,
+            40.833
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.islip_precincts_points"
+            },
+            "sourceLayer": "islip_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.islip_precincts"
+            },
+            "sourceLayer": "islip_precincts"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
@@ -3112,6 +3220,11 @@
     "districtingProblems": [
       {
         "numberOfParts": 4,
+        "pluralNoun": "Town Council Districts",
+        "name": "Town Council"
+      },
+      {
+        "numberOfParts": 6,
         "pluralNoun": "Town Council Districts",
         "name": "Town Council"
       }
@@ -5373,6 +5486,12 @@
                 "max": 236
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "county_nam",
+            "name": "County",
+            "subgroups": []
           }
         ],
         "idColumn": {
@@ -6003,7 +6122,7 @@
         ],
         "idColumn": {
           "name": "Precinct unique identifier",
-          "key": "VTD"
+          "key": "VTDID"
         },
         "bounds": [
           [
@@ -7633,6 +7752,197 @@
         "numberOfParts": 10,
         "pluralNoun": "City Council Districts",
         "name": "City Council"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9818605,
+              "min": 0,
+              "max": 9344
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2728321,
+                "min": 0,
+                "max": 4357
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 815086,
+                "min": 0,
+                "max": 2879
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 4687889,
+                "min": 0,
+                "max": 4412
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1325671,
+                "min": 0,
+                "max": 4053
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 18886,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 22464,
+                "min": 0,
+                "max": 221
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 194921,
+                "min": 0,
+                "max": 573
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 25367,
+                "min": 0,
+                "max": 131
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7416397,
+              "min": 0,
+              "max": 9293
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2318944,
+                "min": 0,
+                "max": 2957
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 627714,
+                "min": 0,
+                "max": 2875
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 3199390,
+                "min": 0,
+                "max": 4110
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15440,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 16730,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1097559,
+                "min": 0,
+                "max": 4028
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 17046,
+                "min": 0,
+                "max": 129
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 123574,
+                "min": 0,
+                "max": 571
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -118.9517,
+            32.75
+          ],
+          [
+            -117.6464,
+            34.8233
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blockgroups_points"
+            },
+            "sourceLayer": "lax_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blockgroups"
+            },
+            "sourceLayer": "lax_blockgroups"
+          }
+        ]
+      }
+    ],
+    "id": "lax",
+    "name": "Los Angeles County",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
       }
     ]
   },
@@ -14777,7 +15087,7 @@
             "name": "Population (2018)",
             "total": {
               "key": "TOTPOPX",
-              "name": "Total population",
+              "name": "Total population (2018)",
               "sum": 2715516,
               "min": 0,
               "max": 8874

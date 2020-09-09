@@ -78,7 +78,10 @@ export function TooltipContent(
     if (features === null || features === undefined) {
         return "";
     }
-    const total = sum(features.map(f => columnSet.total.getValue(f)));
+    let total = sum(features.map(f => columnSet.total.getValue(f)));
+    if (columnSet.total_alt) {
+        total = Math.max(total, sum(features.map(f => columnSet.total_alt.getValue(f))));
+    }
     const values = columnSet.columns.map(column =>
         sum(features.map(f => column.getValue(f)))
     );

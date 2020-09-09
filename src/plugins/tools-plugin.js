@@ -31,12 +31,14 @@ export default function ToolsPlugin(editor) {
     };
 
     let planNumbers = NumberMarkers(state, brush);
-    const c_checker = ContiguityChecker(state, brush);
+    const c_checker = spatial_abilities(state.place.id).contiguity
+        ? ContiguityChecker(state, brush)
+        : null;
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
-
-        c_checker(state, colorsAffected);
-
+        if (c_checker) {
+            c_checker(state, colorsAffected);
+        }
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);
         }
@@ -44,9 +46,9 @@ export default function ToolsPlugin(editor) {
 
     let tools = [
         new PanTool(),
+        (state.problem.type === "community" && new LandmarkTool(state)),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
-        (state.problem.type === "community" && new LandmarkTool(state)),
         new InspectTool(
             state.units,
             state.columnSets,
@@ -66,8 +68,10 @@ export default function ToolsPlugin(editor) {
     toolbar.setState(state);
 
     hotkeys.filter = ({ target }) => {
-        return (!["INPUT", "TEXTAREA"].includes(target.tagName)
-          || (target.tagName === 'INPUT' && target.type.toLowerCase() !== 'text'));
+        return (
+            !["INPUT", "TEXTAREA"].includes(target.tagName) ||
+            (target.tagName === "INPUT" && target.type.toLowerCase() !== "text")
+        );
     };
     hotkeys("h", (evt, handler) => {
         evt.preventDefault();
@@ -89,11 +93,8 @@ export default function ToolsPlugin(editor) {
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
     try {
-        if (
-            (window.location.href.indexOf("dev") === -1)
-            && (
-                !localStorage || (localStorage.getItem("lastVisit") !== state.place.id)
-            )
+        if ((window.location.href.indexOf("dev") === -1) &&
+            (!localStorage || localStorage.getItem("lastVisit") !== state.place.id)
         ) {
             renderAboutModal(editor.state);
             localStorage.setItem("lastVisit", state.place.id);

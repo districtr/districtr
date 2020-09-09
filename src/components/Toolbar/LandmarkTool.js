@@ -10,7 +10,7 @@ import Select from "../Select";
 
 export default class LandmarkTool extends Tool {
     constructor(state) {
-        const icon = html`<i class="material-icons">label</i>`;
+        const icon = html`<img src="/assets/Icons_Landmark_grey.svg"alt="Landmark"/>`;
         super("landmark", "Landmark", icon);
 
         this.state = state;
@@ -194,7 +194,7 @@ function LandmarkFormTemplate({
                 <input
                     type="text"
                     name="landmark-name"
-                    autocomplete="off" 
+                    autocomplete="off"
                     class="text-input vertical-align"
                     .value="${name}"
                     @input=${e => setName(e.target.value)}

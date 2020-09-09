@@ -17,7 +17,7 @@ export function LandmarkInfo(features) {
 }
 
 const landmarkPaintProperty = {
-    "fill-opacity": 0, // turn off the highlights by default
+    "fill-opacity": 0.5, // turn off the highlights by default
     "fill-color": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
@@ -27,7 +27,7 @@ const landmarkPaintProperty = {
 };
 
 const landmarkCircleProperty = {
-    'circle-opacity': 0,
+    'circle-opacity': 0.5,
     'circle-radius': 8,
     'circle-color': [
         "case",
@@ -39,7 +39,7 @@ const landmarkCircleProperty = {
 
 export class Landmarks {
     constructor(map, savedPlaces, updateLandmarkList) {
-        this.visible = false;
+        this.visible = true;
         this.savedPlaces = savedPlaces;
         this.updateLandmarkList = updateLandmarkList;
 
@@ -56,6 +56,7 @@ export class Landmarks {
             addBelowLabels
         );
         this.landmarksTooltip = new Tooltip(this.layer, LandmarkInfo, 5);
+        this.landmarksTooltip.activate();
 
         // point landmarks and tooltip
         this.points = {
@@ -78,6 +79,7 @@ export class Landmarks {
             addBelowLabels
         );
         this.ptsTooltip = new Tooltip(this.markerlayer, LandmarkInfo, 5);
+        this.ptsTooltip.activate();
 
         // MapBox GL Draw tool
         this.drawTool = new MapboxDraw({

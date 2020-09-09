@@ -44,8 +44,10 @@ function assign(state, feature, partId) {
     }
     state.update(feature, partId);
     partId.forEach((p) => {
-        if (p || (p === 0)) {
+        if (state.parts[p]) {
             state.parts[p].visible = true;
+        } else {
+            console.error("Off by one? No matching district number for: " + p);
         }
     });
     state.units.setAssignment(feature, partId);
