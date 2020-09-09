@@ -135,7 +135,8 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc", "default": "true"},
+      {"name": "Counties", "ids": ["lax"], "id": "counties", "default": "true"},
+      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -371,7 +372,8 @@
     "state": "Florida",
     "code": "FL",
     "modules": [
-      {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"}],
+      {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"},
+      {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
