@@ -1,6 +1,7 @@
 import { html, render } from "lit-html";
 import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
+import { until } from "lit-html/directives/until";
 
 
 export default () => {
@@ -11,27 +12,27 @@ export default () => {
             var stateData = data.filter(st => st.state === curState)[0];
             
             // navi-bar
-            render(navLinks(stateData.sections, stateData.modules.map(m => m.id)),
+            render(navLinks(stateData.sections, stateData.modules.map(m => m.ids)),
                    document.getElementById("nav-links"));
             
             // render page
             render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
 
             // set statewide to default
-            var locality = window.location.pathname.split("/")[2];
-            var def = locality ? stateData.modules.filter(m => locality === m.name.replace(/\s+/g, '-').toLowerCase() 
-                                                            || locality === m.id) : [];
+            // var locality = window.location.pathname.split("/")[2];
+            // var def = locality ? stateData.modules.filter(m => locality === m.name.replace(/\s+/g, '-').toLowerCase() 
+            //                                                 || locality === m.id) : [];
 
-            def = def.length ? def[0] : stateData.modules.filter(m => m.default)[0];
+            var def = stateData.modules.filter(m => m.default)[0];
             console.log(def);
 
             document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
                                 : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
 
-            var currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
-                                                                 : "/" + window.location.pathname.split("/")[1] 
-                                                                       + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
-            history.replaceState({}, document.title, currentHistoryState);
+            // var currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
+            //                                                      : "/" + window.location.pathname.split("/")[1] 
+            //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
+            // history.replaceState({}, document.title, currentHistoryState);
 
             var statewide = $("." + def.id);
             var btn = document.getElementById(def.id);
@@ -42,37 +43,77 @@ export default () => {
                 render(districtingOptions(places), target);
                 const commtarget = document.getElementById("community-options");
                 render(communityOptions(places), commtarget);
-                $(".places-list__item").not($("." + def.id)).hide();
+                $(".places-list__item").hide();
+                def.ids.map(id => $("." + id).show());
+                $(".communities").hide();
             });
 
             btn.checked = true;
-            $(".text-toggle").not(statewide).hide();
-            $(".nav").not(statewide).hide();
-            $(".place__name").not(statewide).hide();
-            $(".districtr-about").not(statewide).hide();
-            $(statewide).show();
+            // $(".text-toggle").not(statewide).hide();
+            // $(".nav").not(statewide).hide();
+            // $(".place__name").hide();
+            // $(".districtr-about").not(statewide).hide();
+            
 
             // config toggle buttons
-            $('input[type="radio"]').click(function(){
+            $('input[name="place-selection"]:radio').click(function(){
 
                 var inputValue = $(this).attr("value");
                 var targetBox = $("." + inputValue);
+                console.log(targetBox)
                 def = stateData.modules.filter(m => m.id === inputValue)[0];
                 console.log(def);
-                document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
-                                    : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
-                currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
-                                                                     : "/" + window.location.pathname.split("/")[1] 
-                                                                           + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
+                // document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
+                //                     : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
+                // currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
+                //                                                      : "/" + window.location.pathname.split("/")[1] 
+                //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
 
-                history.replaceState({}, document.title, currentHistoryState);
+                // history.replaceState({}, document.title, currentHistoryState);
                 
-                $(".places-list__item").not(targetBox).hide();
-                $(".text-toggle").not(targetBox).hide();
-                $(".nav").not(targetBox).hide();
-                $(".place__name").not(targetBox).hide();
-                $(".districtr-about").not(targetBox).hide();
+                $(".places-list__item").hide();
+                // $(".text-toggle").not(targetBox).hide();
+                // $(".nav").not(targetBox).hide();
+                // $(".place__name").hide();
+                // $(".districtr-about").not(targetBox).hide();
+                def.ids.map(id => $("." + id).show());
+                // $(targetBox).show();
+            });
+
+            $('input[name="draw-selection"]:radio').click(function(){
+
+                var inputValue = $(this).attr("value");
+                var cls = $(this).attr("class");
+                var targetBox = $("." + inputValue);
+                console.log(targetBox);
+
+                var l = $('input[name="place-selection"]:radio').length;
+                var i;
+                for (i = 0; i < l; i++) {
+                    $('input[name="place-selection"]:radio')[i].className = cls;
+                }
+
+                $(".districts").hide();
+                $(".communities").hide();
                 $(targetBox).show();
+
+                // def = stateData.modules.filter(m => m.id === inputValue)[0];
+                // console.log(def);
+                // document.title = (def.name === "Statewide") ? curState.concat(" | Districtr")
+                //                     : def.name.concat(", ").concat(stateData.code).concat(" | Districtr");
+                // currentHistoryState = (def.name === "Statewide") ? "/" + window.location.pathname.split("/")[1] 
+                //                                                      : "/" + window.location.pathname.split("/")[1] 
+                //                                                            + "/" + def.name.replace(/\s+/g, '-').toLowerCase();
+
+                // history.replaceState({}, document.title, currentHistoryState);
+                
+                // $(".places-list__item").hide();
+                // $(".text-toggle").not(targetBox).hide();
+                // $(".nav").not(targetBox).hide();
+                // $(".place__name").hide();
+                // $(".districtr-about").not(targetBox).hide();
+                // def.ids.map(id => $("." + id).show());
+                // $(targetBox).show();
             });
         });
 };
@@ -102,27 +143,38 @@ const navLinks = (sections, placeIds) =>
 
 const drawPage = stateData => {
     return html`
-        ${drawTitles(stateData.modules, stateData.state)}
         
-        ${stateData.modules.length > 1 ? html`<div class="place-options places-list">
-                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
-                                                 id="${m.id}" name="place-selection">
-                                          <label for="${m.id}">${m.name}</label>`)}
-                </div>` : ""}
+        <h1 class="headline place__name"> ${stateData.state} </h1>
+
+        <div class="place-options places-list">
+                <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
+                <label for="districts">Drawing Districts</label>
+                <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
+                <label for="communities">Drawing Communities</label>
+        </div>
 
         
         ${stateData.sections.map(s => drawSection(s, stateData))}
+
         <h2>About Districtr</h2>
         <p><a href="/">Districtr</a>  is a free community webtool for redistricting 
         and community mapping provided by the <a href="http://www.mggg.org">
         MGGG Redistricting Lab</a> at Tufts University. 
         We welcome questions and inquiries about the tool and about our work in
-        ${stateData.modules.map(m => m.name === "Statewide" ? html`<div class="districtr-about ${m.id}">
-                                                                    ${stateData.state}</div>` 
-                                                            : html`<div class="districtr-about ${m.id}">
-                                                                    ${m.name}</div>`)}:
+        ${stateData.state}:
         <a href="mailto:contact@mggg.org">contact@mggg.org</a>
         </p>
+
+        <h2>Awknowledgements</h2>
+        <p>Content for this page is based on redistricting training material developed by materials 
+        created by Common Cause, Mexican American Legal Defense and Educational Fund, and State Voices
+        in collaboration with Arizona Coalition for Change, Asian Americans Advancing Justice | AAJC, 
+        Asian Americans Advancing Justice | Los Angeles, Black Voters Matter Fund, Brennan Center for 
+        Justice, Campaign Legal Center, Center for Community Change, Fair Immigration Reform Movement, 
+        Center for Popular Democracy, Demos, Lawyers Committee for Civil Rights Under Law, National 
+        Association for the Advancement of Colored People-Legal Defense Fund, NALEO Educational Fund, 
+        Pennsylvania Voice, and Southern Coalition for Social Justice.</p>
+
     `
 };
 
@@ -136,11 +188,19 @@ const drawSection = (section, stateData) => {
                              <h2>${section.name}</h2>`;
     if (section.type === "draw") {
        section_body = html`
+
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
-            <h2>Draw a plan from scratch</h2>
-            <div id="districting-options"></div>
-            <h2>Draw your community</h2>
-            <div id="community-options" class="communities"></div>
+            <h2 class="districts">Draw a plan from scratch</h2>
+            <h2 class="communities">Draw your community</h2>
+
+            ${stateData.modules.length > 1 ? html`<div class="place-options places-list locals">
+                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
+                                                     id="${m.id}" name="place-selection">
+                                                  <label for="${m.id}">${m.name}</label>`)}
+            </div>` : ""}
+
+            <div id="districting-options" class="districts"></div>
+            <div id="community-options" class="communities" style="display: none;"></div>
         `;
     } else if (section.type === "plans") {
         section_body = html`
@@ -154,7 +214,16 @@ const drawSection = (section, stateData) => {
         section_body = html`
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
             <h2>${section.name}</h2>
-            ${$.parseHTML(section.content)}
+            ${section.content_source ? until(fetch(section.content_source).then((r) => {
+                                                                                if (r.status === 200) {
+                                                                                    return r.text();
+                                                                                } else if (userRequested) {
+                                                                                    return "No About Page exists for this project";
+                                                                                } else {
+                                                                                    throw new Error(r.statusText);
+                                                                                }}).then(content => $.parseHTML(content))) : ""}
+            ${section.content ? $.parseHTML(section.content) : ""}
+            ${section.subsections ? section.subsections.map(s => html`<h3>${s.name}</h3> ${$.parseHTML(s.content)}`) : ""}
         `;
     };
 
@@ -235,7 +304,8 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
-                <div class="place-name"> Identify a community </div>
+                <div class="place-name">${place.name}</div>
+                <div class="place-info"> Identify a community </div>
                 <div class="place-info">
                     Built out of ${units.name.toLowerCase()}
                 </div>
@@ -243,19 +313,52 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             `)
     }).reduce((items, item) => [...items, ...item], []);
 
+function getProblems(place) {
+    let districtingProblems = [],
+        seenIds = new Set();
+    place.districtingProblems.forEach((problem) => {
+        let problemID = problem.name + problem.pluralNoun;
+        if (seenIds.has(problemID)) {
+            districtingProblems[districtingProblems.length - 1].partCounts.push(
+                problem.numberOfParts
+            );
+        } else {
+            seenIds.add(problemID);
+            problem.partCounts = [problem.numberOfParts];
+            districtingProblems.push(problem);
+        }
+    });
+    return districtingProblems;
+}
+
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
-        place.districtingProblems
+        getProblems(place)
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="${place.id} places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units)}"
+                        class="${place.id} places-list__item places-list__item--small ${problem.partCounts.length > 1 ? "choice" : ""}"
+                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
                         <div class="place-name">
-                            ${problem.numberOfParts} ${problem.pluralNoun}
+                            ${place.name}
                         </div>
+                        ${problem.partCounts.length > 1
+                              ? html`<div class="place-info">
+                                    ${problem.pluralNoun}: </div>
+                                    <div class="place-info">
+                                    ${problem.partCounts.map(num =>
+                                        html`<button
+                                            @click=${() => onClick(place, problem, units, null, num)}
+                                        >
+                                            ${num}
+                                        </button>`
+                                    )}
+                                </div>`
+                              : html`<div class="place-info">
+                                  ${problem.numberOfParts} ${problem.pluralNoun}
+                                </div>`}
                         <div class="place-info">
                             Built out of ${units.name.toLowerCase()}
                         </div>

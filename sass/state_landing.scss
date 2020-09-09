@@ -111,8 +111,16 @@ figcaption {
     align-items: center;
 }
 
+.locals {
+  justify-content: left;
+}
+
 .places-list__item--small {
   max-width: none;
+}
+
+.places-list--columns {
+  align-items: stretch;
 }
 
 /* Statewide vs Local Selection */
@@ -136,6 +144,8 @@ label:hover {
     //color: #92e3ff;
 }
 
+
+
 input[type=radio]
 {
     display:none;
@@ -150,37 +160,15 @@ input[type=radio]:checked + label:hover
     background-color:$mggg-very-dark-blue;
 }
 
-/*label {
-  margin-right: 15px;
-  line-height: 1.5rem;
-  color: white;
-  background-color: $mggg-dark-blue;
-  padding: 5px 10px;
-  border-radius: 0.25rem;
-  border: 0;
-  font-size: 14px;
+input[type=radio].comm:checked + label
+{
+    background-color:$districtr-red-dark;
 }
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-
-  border: 2px solid #999;
-  transition: 0.2s all linear;
-  margin-right: 5px;
-
-  position: relative;
-  top: 4px;
+input[type=radio].comm:checked + label:hover
+{
+    background-color:$districtr-red-very-dark;
 }
-
-input:checked {
-  border: 6px solid $mggg-dark-blue;
-}*/
 
 
 
@@ -337,7 +325,7 @@ input:checked {
   width: 1.5rem;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 750px) {
   nav {
     flex-direction: column;
     padding: 0rem;

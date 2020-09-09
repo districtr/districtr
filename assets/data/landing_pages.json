@@ -3,7 +3,7 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "id": "alaska", "default": "true"}],
+      {"name": "Statewide", "ids": "alaska", "default": "true"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1377,9 +1377,9 @@
     "state": "Oregon",
     "code": "OR",
     "modules": [
-      {"name": "Statewide", "id": "oregon", "default": "true"},
-      {"name": "Portland", "id": "portlandor"},
-      {"name": "Salem-Keizer Schools", "id": "salem_keizer"}
+      {"name": "Statewide", "ids": ["oregon"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["portlandor"], "id": "loc"},
+      {"name": "School Districts", "ids": ["salem_keizer"], "id": "schools"}
     ],
     "sections": [
       {
@@ -1388,30 +1388,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Oregon",
-        "nav": "Districts",
-        "pages": ["oregon"],
-        "type": "text",
-        "content": "<p>Oregon currently has 5 Congressional seats, and is projected to gain a 6th after the 2020 census.  The Oregon Legislative Assembly has 30 members in the State Senate, and 60 members in the State House, where each representative is elected from a single member districts.  Additionally in Oregon, Legislative Assembly districts are nested, where each Senate districts is comprised of two adjacent House districts.</p>"
-      },
-      {
-        "name": "Portland City Council",
-        "nav": "City Council",
-        "pages": ["portlandor"],
-        "type": "text",
-        "content": "<p>The City Council in Portland currently consists of 5 members (including the mayor).  City council members (commissioners) are elected at-large in nonpartisan elections.</p>"
-      },
-      {
-        "name": "Redistricting rules in Oregon",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["oregon"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>Constitutional districts in Oregon districts are drawn by the State Legislature and subject to veto by the governor.  The state legislature has the primary responsibility for drawing state legislative districts; if they fail to do so, state legislative boundaries are drawn by the Secretary of State.</p><h3>Rules and criteria</h3><p>Like all states in the US, Oregon must comply with Constitutional equal population requirements and the Voting Rights Act. In addition, Oregon Law, asks that districts should <i>\"as nearly as practicable\"</i> meet the following criteria:<ul><li>Districts must be contiguous.</li><li>Districts should utilize existing geographic or political boundaries.</li><li>Districts should not divide communities of common interest.</li><li>Districts should be connected by transportation links.</li><li>Districts must not be drawn for the purpose of favoring a political party, incumbent, or other person.</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
         "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["oregon"],
+        "nav": "Examples",
         "type": "plans",
         "ref": "or",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -1436,25 +1420,29 @@
         ]
       },
       {
-        "name": "Election reform in Oregon",
-        "nav": "Reform",
-        "pages": ["oregon"],
+        "name": "Why?",
+        "nav": "Why?",
         "type": "text",
-        "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
+          {"name": "Election reform in Oregon", 
+           "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"},
+          {"name": "Research", "content": "Imagine research paragraph here"}
+        ]
       },
       {
         "name": "About the data",
         "nav": "Data",
-        "pages": ["oregon", "portlandor"],
         "type": "text",
-        "content": "<p>The units in these modules are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.</p><p>The Oregon precinct shapefile was obtained from <a href=\"http://www.kevinrancik.com/elections/Oregon/eOregon.html\">Kevin Rancik's personal website</a>. Rancik and Gerontakis obtained the raw county-level precinct boundaries from local county elections offices and county clerks, documented in detail <a href=\"http://www.kevinrancik.com/elections/Oregon/e2018_11/E2018_Oregon_Metadata.pdf\">here</a>. Election results for 2016 and 2018 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Election Data and Science Lab (MEDSL)</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Oregon along with congressional and state legislative districts were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precinct election returns were cleaned by MGGG staff in order to join them to the precinct shapefile. Certain precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "pages": ["salem_keizer"],
-        "type": "text",
-        "content": "<p>The units you see here are <strong>Census blocks</strong>.  Data for this module were obtained from the US Census Bureau. The block shapefile for the Salem-Keizer Unified School District was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Oregon Precincts", 
+           "content": "<p>The units in the statewide and Portland maps are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  Election results for 2016 and 2018 were cleaned by MGGG staff and joined to the geographic data along with demographic data from the 2010 Decennial Census. More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/OR-shapefiles\">here</a>.</p>"
+          },
+          {"name": "Oregon Census blocks", 
+           "content": "<p>The units you see in the Salem-Keizer Unified School District map are <strong>Census blocks</strong>.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+          }
+        ]
       }
     ]
   },
@@ -1866,9 +1854,8 @@
     "state": "Washington",
     "code": "WA",
     "modules": [
-      {"name": "Statewide", "id": "washington", "default": "true"},
-      {"name": "Yakima County", "id": "yakima_wa"},
-      {"name": "King County", "id": "kingcountywa"}
+      {"name": "Statewide", "ids": ["washington"], "default": "true", "id":"state"},
+      {"name": "Counties", "ids": ["yakima_wa", "kingcountywa"], "id":"counties"}
     ],
     "sections": [
       {
@@ -1924,7 +1911,7 @@
     "state": "Wisconsin",
     "code": "WI",
     "modules": [
-      {"name": "Statewide", "id": "wisconsin", "default": "true"}],
+      {"name": "Statewide", "ids": ["wisconsin"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
