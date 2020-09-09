@@ -130,7 +130,9 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Hawaiian Home Lands";
     } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    } else if (["maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+    } else if (state.place.id === "maine") {
+        native_am_type = "Tribes in Maine";
+    } else if (["nevada", "newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Indian Tribes";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";

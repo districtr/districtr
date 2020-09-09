@@ -305,6 +305,10 @@ export function spatial_abilities (id) {
       little_rock: {
         number_markers: true,
       },
+      maine: {
+        native_american: true,
+        county_brush: true,
+      },
       maryland: {
         number_markers: true,
         county_brush: true,
