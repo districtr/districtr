@@ -307,7 +307,7 @@ export function spatial_abilities (id) {
       },
       maine: {
         native_american: true,
-        county_brush: true,
+        number_markers: true,
       },
       maryland: {
         number_markers: true,
