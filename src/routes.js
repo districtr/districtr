@@ -50,7 +50,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, callback) {
+export function savePlanToDB(state, eventCode, planName, callback) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -64,6 +64,7 @@ export function savePlanToDB(state, eventCode, callback) {
             plan: JSON.parse(JSON.stringify(serialized)),
             token: token.split("_")[0],
             eventCode: eventCode,
+            planName: planName,
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
@@ -83,10 +84,10 @@ export function savePlanToDB(state, eventCode, callback) {
         .then(info => {
             if (info.simple_id) {
                 history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
-                callback(info.simple_id);
-                if (info.token) {
+                if (info.token && localStorage) {
                     localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
                 }
+                callback(info.simple_id);
             } else {
                 callback(null);
             }

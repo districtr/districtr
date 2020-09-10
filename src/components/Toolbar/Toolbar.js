@@ -44,7 +44,7 @@ export default class Toolbar {
         this.tools.push(tool);
     }
     savePlan(e) {
-        savePlanToDB(this.state, undefined, (_id) => {
+        savePlanToDB(this.state, undefined, undefined, (_id) => {
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/edit/${_id}`;
@@ -74,6 +74,10 @@ export default class Toolbar {
     }
     render() {
         const { dropdownMenuOpen } = this.store.state.toolbar;
+        let eventdefault = "";
+        if (window.location.href.includes("event=")) {
+            eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
+        }
         return html`
         <div class="toolbar">
             <nav>
@@ -110,10 +114,23 @@ export default class Toolbar {
                             id="event-coder-popup"
                             type="text"
                             class="text-input"
-                            value=""
-                            @input="${() => document.getElementById("re-save-popup").disabled = false}"
+                            value="${eventdefault}"
+                            @input="${() => {
+                                document.getElementById("re-save-popup").disabled = false;
+                                document.getElementById("extra-event-popup").style.display = "block";
+                            }}"
                         />
-                        <br/>
+                        <div id="${eventdefault.length || "extra-event-popup"}">
+                          <label>Team or Plan Name</label>
+                          <br/>
+                          <input
+                              id="event-plan-name-popup"
+                              type="text"
+                              class="text-input"
+                              value=""
+                              @input="${() => document.getElementById("re-save-popup").disabled = false}"
+                          />
+                        </div>
                         <button
                             id="re-save-popup"
                             disabled
@@ -122,6 +139,7 @@ export default class Toolbar {
                                 savePlanToDB(
                                     this.state,
                                     document.getElementById("event-coder-popup").value,
+                                    document.getElementById("event-plan-name-popup").value,
                                     () => { console.log("added event code"); }
                                 );
                             }}"

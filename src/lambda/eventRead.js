@@ -20,7 +20,9 @@ exports.handler = async (event, context) => {
 
     const plans = await Plan.find({
         eventCode: eventCode
-    }).select("_id simple_id startDate plan screenshot");
+    })
+    .select("_id simple_id startDate plan screenshot planName")
+    .sort([["simple_id", -1]]);
     // be careful not to share token here
     return {
         statusCode: 200,

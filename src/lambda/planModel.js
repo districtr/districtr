@@ -8,6 +8,10 @@ const schema = new mongoose.Schema({
     type: String,
     max: 50
   },
+  planName: {
+    type: String,
+    max: 100
+  },
   hostname: {
     type: String,
     max: 100

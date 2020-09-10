@@ -22,6 +22,7 @@ exports.handler = async (event, context) => {
               plan: data.plan,
               token: rnd(),
               eventCode: data.eventCode || "",
+              planName: data.planName || "",
               hostname: data.hostname,
               startDate: new Date(),
               screenshot: data.screenshot,

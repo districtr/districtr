@@ -16,6 +16,7 @@ export default () => {
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = eventCode;
+        document.getElementById("eventCode").innerText = eventCode;
 
         listPlacesForState(validEventCodes[eventCode]).then(places => {
             const target = document.getElementById("districting-options");
@@ -27,7 +28,7 @@ export default () => {
                 title: "Submitted plans",
                 plans: data.plans
             }];
-            render(plansSection(plans), document.getElementById("plans"));
+            render(plansSection(plans, eventCode), document.getElementById("plans"));
         }
 
         fetch("/.netlify/functions/eventRead?event=" + eventCode)
@@ -41,20 +42,24 @@ export default () => {
     }
 };
 
-const plansSection = (plans) =>
+const plansSection = (plans, eventCode) =>
     plans.map(
         ({ title, plans }) => html`
             <section class="place__section">
                 <h3>${title}</h3>
-                ${loadablePlans(plans)}
+                <p>
+                    Click on any of the districting plans below to open it in
+                    Districtr.
+                </p>
+                ${loadablePlans(plans, eventCode)}
             </section>
         `
     );
 
-const loadablePlans = plans =>
+const loadablePlans = (plans, eventCode) =>
     html`
         <ul class="plan-thumbs">
-            ${plans.map(loadablePlan)}
+            ${plans.map((p, i) => loadablePlan(p, eventCode))}
         </ul>
     `;
 
@@ -71,20 +76,20 @@ const numberList = numbers => html`
     </dl>
 `;
 
-const loadablePlan = (plan) => {
+const loadablePlan = (plan, eventCode) => {
     return html`
-    <a href="/edit/${plan.simple_id || plan._id}">
+    <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
         <li class="plan-thumbs__thumb">
-            ${(typeof plan.screenshot !== 'undefined')
+            ${plan.screenshot
                 ? html`<img
                     class="thumb__img"
                     src="${plan.screenshot}"
                     alt="Districting Plan ${plan.simple_id}"
                 />`
-                : null
+                : ''
             }
             <figcaption class="thumb__caption">
-                <h6 class="thumb__heading">#${plan.simple_id || plan._id}</h6>
+                <h6 class="thumb__heading">${plan.planName || ''} #${plan.simple_id || plan._id}</h6>
                 <br/>
                 <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>

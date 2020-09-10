@@ -30,6 +30,10 @@ export function renderSaveModal(state, exportPlanToDB) {
     const target = document.getElementById("modal");
 
     exportPlanToDB(state, undefined, (_id) => {
+        let eventdefault = "";
+        if (window.location.href.includes("event=")) {
+            eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
+        }
         let withUrl = (_id) => {
             render(renderModal(
                 html`
@@ -42,10 +46,22 @@ export function renderSaveModal(state, exportPlanToDB) {
                         id="event-coder"
                         type="text"
                         class="text-input"
-                        value=""
-                        @input="${() => document.getElementById("re-save").disabled = false}"
+                        value="${eventdefault}"
+                        @input="${() => {
+                            document.getElementById("re-save").disabled = false;
+                            document.getElementById("extra-event").style.display = "block";
+                        }}"
                     />
-                    <br/>
+                    <div id="${eventdefault.length || "extra-event"}">
+                      <label>Team or Plan Name</label>
+                      <input
+                          id="event-plan-name"
+                          type="text"
+                          class="text-input"
+                          value=""
+                          @input="${() => document.getElementById("re-save").disabled = false}"
+                      />
+                    </div>
                     <button
                         id="re-save"
                         disabled
@@ -53,6 +69,7 @@ export function renderSaveModal(state, exportPlanToDB) {
                             exportPlanToDB(
                                 state,
                                 document.getElementById("event-coder").value,
+                                document.getElementById("event-plan-name").value,
                                 () => { console.log("added event code"); }
                             );
                             render("", target);

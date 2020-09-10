@@ -30,6 +30,7 @@ exports.handler = async (event, context) => {
 
       plan.plan = data.plan;
       plan.eventCode = data.eventCode || plan.eventCode || "";
+      plan.planName = data.planName || plan.planName || "";
       plan.screenshot = data.screenshot || plan.screenshot || "";
       plan.startDate = new Date();
 
