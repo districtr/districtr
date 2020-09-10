@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
               _id: mongoose.Types.ObjectId(),
               plan: data.plan,
               token: rnd(),
-              eventCode: data.eventCode || "",
+              eventCode: (data.eventCode || "").toLowerCase().replace(/_/g, '-').replace(/\s/g, ''),
               planName: data.planName || "",
               hostname: data.hostname,
               startDate: new Date(),

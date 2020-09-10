@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const eventCode = (event.queryStringParameters.event || "").toLowerCase();
+    const eventCode = (event.queryStringParameters.event || "").toLowerCase().replace(/_/g, '-');
     const myHost = event.queryStringParameters.hostname;
     if (!eventCode.trim().length) {
         return {

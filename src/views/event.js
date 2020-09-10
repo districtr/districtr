@@ -5,7 +5,8 @@ import { startNewPlan } from "../routes";
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
-  unc: 'nc'
+  unc: 'nc',
+  'unca-forsyth': 'forsyth_nc'
 }
 
 export default () => {
