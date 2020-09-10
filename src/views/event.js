@@ -14,7 +14,7 @@ const unitCounts = {
 
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
-  'unca-forsyth': 'Welcome to your class page UNC Ashville students! We\'re excited for you to start exploring Forsyth County with Districtr. Click here for a tutorial.',
+  'unca-forsyth': 'Welcome to your class page UNC Ashville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
 };
 
 export default () => {
@@ -27,7 +27,7 @@ export default () => {
         document.getElementById("eventHeadline").innerText = eventCode;
         document.getElementById("eventCode").innerText = eventCode;
         if (eventDescriptions[eventCode]) {
-            document.getElementById("event-description").innerText = eventDescriptions[eventCode];
+            document.getElementById("event-description").innerHTML = eventDescriptions[eventCode];
         }
 
         listPlacesForState(validEventCodes[eventCode]).then(places => {
@@ -105,6 +105,12 @@ const loadablePlan = (plan, eventCode) => {
                 <br/>
                 <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>
+            <span style="margin:10px">
+              ${(new Set(
+                  Object.values(plan.plan.assignment || {})
+                        .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
+              )).size} districts
+            </span>
             <span style="margin:10px">${(unitCounts[eventCode]
                 ? (Object.keys(plan.plan.assignment || {}).length).toLocaleString() + '/' + unitCounts[eventCode].toLocaleString()
                 : plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()}
