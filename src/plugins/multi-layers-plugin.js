@@ -83,6 +83,20 @@ function addCurrentDistricts(tab, state) {
             data: state_senate
         });
 
+        borders.house = new Layer(
+            state.map,
+            {
+                id: 'state_house',
+                type: 'line',
+                source: 'state_house',
+                paint: {
+                    'line-color': '#bbb',
+                    'line-opacity': 0,
+                    'line-width': 6.5
+                }
+            },
+            addBelowLabels
+        );
         borders.federal = new Layer(
             state.map,
             {
@@ -92,7 +106,7 @@ function addCurrentDistricts(tab, state) {
                 paint: {
                     'line-color': '#000',
                     'line-opacity': 0,
-                    'line-width': 1
+                    'line-width': 2
                 }
             },
             addBelowLabels
@@ -106,27 +120,7 @@ function addCurrentDistricts(tab, state) {
                 paint: {
                     'line-color': '#000',
                     'line-opacity': 0,
-                    'line-width': 1
-                }
-            },
-            addBelowLabels
-        );
-        borders.house = new Layer(
-            state.map,
-            {
-                id: 'state_house',
-                type: 'line',
-                source: 'state_house',
-                paint: {
-                    'line-color': '#000',
-                    'line-opacity': 0,
-                    'line-width': [
-                       "step",
-                       ["zoom"],
-                       1,
-                       10,
-                       2
-                    ]
+                    'line-width': 1.5
                 }
             },
             addBelowLabels
@@ -134,39 +128,33 @@ function addCurrentDistricts(tab, state) {
     })})});
 
     let currentBorder = null;
-    let showBorder = (lyr) => {
-        if (currentBorder) {
-            currentBorder.setOpacity(0);
-        }
+    let showBorder = (e, lyr) => {
+        // if (currentBorder) {
+        //     currentBorder.setOpacity(0);
+        // }
         if (lyr) {
-            lyr.setOpacity(1);
+            lyr.setOpacity(e.target.checked ? 1 : 0);
         }
-        currentBorder = lyr;
+        // currentBorder = lyr;
     };
 
     tab.addSection(() => html`
         <h4>Current Districts</h4>
         <li>
           <label style="cursor: pointer;">
-            <input type="radio" name="districts" value="none" checked="true" @change="${e => showBorder()}"/>
-            None
-          </label>
-        </li>
-        <li>
-          <label style="cursor: pointer;">
-            <input type="radio" name="districts" value="fed" @change="${e => showBorder(borders.federal)}"/>
+            <input type="checkbox" name="districts" value="fed" @change="${e => showBorder(e, borders.federal)}"/>
             US Congress
           </label>
         </li>
         <li>
           <label style="cursor: pointer;">
-            <input type="radio" name="districts" value="senate" @change="${e => showBorder(borders.senate)}"/>
+            <input type="checkbox" name="districts" value="senate" @change="${e => showBorder(e, borders.senate)}"/>
             State Senate
           </label>
         </li>
         <li>
           <label style="cursor: pointer;">
-            <input type="radio" name="districts" value="house" @change="${e => showBorder(borders.house)}"/>
+            <input type="checkbox" name="districts" value="house" @change="${e => showBorder(e, borders.house)}"/>
             State House
           </label>
         </li>
