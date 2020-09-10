@@ -1,23 +1,34 @@
 import { html, render } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
+import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
-  unc: 'nc',
   'unca-forsyth': 'forsyth_nc'
-}
+};
+
+const unitCounts = {
+  'unca-forsyth': 101,
+};
+
+const eventDescriptions = {
+  test: 'this is a test of the event descriptions',
+  'unca-forsyth': 'Welcome to your class page UNC Ashville students! We\'re excited for you to start exploring Forsyth County with Districtr. Click here for a tutorial.',
+};
 
 export default () => {
     const eventCode = ((window.location.hostname === "localhost")
         ? window.location.search.split("event=")[1].split("&")[0]
         : window.location.pathname.split("/").slice(-1)[0]
-    ).toLowerCase();
+    ).toLowerCase().replace(/_/g, '-');
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = eventCode;
         document.getElementById("eventCode").innerText = eventCode;
+        if (eventDescriptions[eventCode]) {
+            document.getElementById("event-description").innerText = eventDescriptions[eventCode];
+        }
 
         listPlacesForState(validEventCodes[eventCode]).then(places => {
             const target = document.getElementById("districting-options");
@@ -94,7 +105,10 @@ const loadablePlan = (plan, eventCode) => {
                 <br/>
                 <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>
-            <span style="margin:10px">${(plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()} units</span>
+            <span style="margin:10px">${(unitCounts[eventCode]
+                ? (Object.keys(plan.plan.assignment || {}).length).toLocaleString() + '/' + unitCounts[eventCode].toLocaleString()
+                : plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()}
+            units</span>
         </li>
     </a>`;
 }
@@ -102,27 +116,6 @@ const loadablePlan = (plan, eventCode) => {
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${placeItemsTemplate(places[0], startNewPlan)}
+            ${placeItems(places[0], startNewPlan)}
         </ul>
     `;
-
-const placeItemsTemplate = (place, onClick) =>
-    place.districtingProblems
-        .map(problem =>
-            getUnits(place, problem).map(
-                units => html`
-                    <li
-                        class="places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units)}"
-                    >
-                        <div class="place-name">
-                            ${problem.numberOfParts} ${problem.pluralNoun}
-                        </div>
-                        <div class="place-info">
-                            Built out of ${units.unitType}
-                        </div>
-                    </li>
-                `
-            )
-        )
-        .reduce((items, item) => [...items, ...item], []);
