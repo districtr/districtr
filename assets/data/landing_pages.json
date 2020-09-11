@@ -497,26 +497,17 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Hawaii",
-        "nav": "Districts",
-        "pages": ["hawaii"],
-        "type": "text",
-        "content": "<p>Hawaii has 2 congressional districts. The Hawaii state legislature consists of a House of Representatives with 51 members and a Senate of 25 members. </p>"
-      },
-      {
-        "name": "Redistricting Rules in Hawaii",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["hawaii"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>A nine-member politician commission draws Hawaii’s congressional and state legislative lines. At least one public hearing is held in each of the state’s basic island units before state lines are finalized.</p><h3>Rules and criteria</h3><p>Hawaii requires that districts:<ul><li>Should achieve district apportionment among basic island units</li><li>Follow boundaries of basic island units</li><li>No undue favoritism towards a person or political faction</li><li>Contiguity except when districts include more than 1 island</li><li>Districts must be compact</li><li>Follow census tract and geographic boundaries where possible</li><li>Nest house districts in senate districts where practicable</li><li>No more than 4 members per district</li><li>Preserve communities of socio-economic interest where practicable</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
+        "name": "Explore sample plans",
         "nav": "Enacted Plans",
-        "pages": ["hawaii"],
         "type": "plans",
         "ref": "hi",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -538,11 +529,22 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["hawaii"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>This shapefile comes from Hawaii Statewide GIS Program and was processed by Metric Geometry and Gerrymandering Group (MGGG) staff.</p><p>This precinct shapefile comes from the <a href=\"http://planning.hawaii.gov/gis/download-gis-data/\">Hawaii Statewide GIS Program</a> in the State Office of Planning. Election results come from the <a href=\"https://elections.hawaii.gov/election-results/\">State of Hawaii Office of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Hawaii was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts 41-02 and 41-05 were merged as were precincts 42-01 and 42-04 in order to join 2016 and 2018 results onto the same precinct boundaries. Demographic data were aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Hawaii Precints",
+          "content": "<p>This shapefile comes from Hawaii Statewide GIS Program and was processed by Metric Geometry and Gerrymandering Group (MGGG) staff.</p><p>This precinct shapefile comes from the <a href=\"http://planning.hawaii.gov/gis/download-gis-data/\">Hawaii Statewide GIS Program</a> in the State Office of Planning. Election results come from the <a href=\"https://elections.hawaii.gov/election-results/\">State of Hawaii Office of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Hawaii was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts 41-02 and 41-05 were merged as were precincts 42-01 and 42-04 in order to join 2016 and 2018 results onto the same precinct boundaries. Demographic data were aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>.</p>"
+        }]
+        
       }
     ]
   },
@@ -558,33 +560,17 @@
         "type": "draw"
       },
       {
-        "name": "City Council Districts in Chicago",
-        "nav": "City Council",
-        "type": "text",
-        "pages": ["chicago"],
-        "content": "<p>The City of Chicago is divided into 50 districts, known as wards, for the City Council. The Chicago City Council is represented by 50 elected officials, known as aldermen. Each alderman is elected by and represents a single ward.</p><p>The current ward plan in Chicago is widely criticized for being gerrymandered. Some argue that the 50-member city council is inefficiently large. Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.</p><h3>Community Areas</h3><p>In the 1920s, researchers at the University of Chicago divided the city into 77 community areas that have played an important role in city planning and culture since their inception. The community areas, and the city more generally, are highly segregated. Today, the demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.</p>"
-      },
-      {
-        "name": "Redistricting Rules for the Chicago City Council",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["chicago"],
-        "content": "<h3>Who draws the lines?</h3><p>The Municipal Code of Chicago specifies that City Councilmembers are responsible for drawing the City’s 50 wards [Art. III, § 2-8-300], although the mayor has power to veto the ordinance defining these electoral boundaries.</p><h3>Rules and criteria</h3><p>The City of Chicago Municipal Code requires the ward to be compact, contiguous, and of substantially equal population with an acceptable deviation to respect established communities of interest [Art. III, § 2-8-300].</p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Research Context",
-        "nav": "Research",
-        "type": "text",
-        "pages": ["chicago"],
-        "content": "<p>This module was created as part of <a href=\"https://mggg.org\">MGGG</a>'s <a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>. We set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government.  The report considered the following reform methods: <ul><li>Redrawing the lines in the current 50-ward system</li><li>Shrinking the city council from 50 members to 30 or fewer</li><li>Moving from single-member districts to multi-member districts</li><li>Moving from plurality elections to ranked choice voting</li></ul></p><p><a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"
-      },
-      {
-        "name": "See the plans featured in the report",
-        "nav": "Featured Plans",
-        "pages": ["chicago"],
+        "name": "See the sample plans featured in the report",
+        "nav": "Examples",
         "type": "plans",
         "ref": "chicago",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "postscript": "<dl class=\"dfn-list\"><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated poverty</dt><dd class=\"dfn-list__caption\">&ge; 25% of households under $20K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated wealth</dt><dd class=\"dfn-list__caption\">&ge; 25% of households over $150K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Segregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/4 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Hypersegregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/6 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Highly diverse</dt><dd class=\"dfn-list__caption\">three racial groups exceed 1/4 of population</dd></div></dl>",
         "plans": [
           {
@@ -734,11 +720,27 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "City Council Districts in Chicago",
+            "content": "<p>The City of Chicago is divided into 50 districts, known as wards, for the City Council. The Chicago City Council is represented by 50 elected officials, known as aldermen. Each alderman is elected by and represents a single ward.</p><p>The current ward plan in Chicago is widely criticized for being gerrymandered. Some argue that the 50-member city council is inefficiently large. Today, the demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.  Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.  </p>"
+          },
+          {"name": "Research",
+          "content": "<p>These maps were created as part of <a href=\"https://mggg.org\">MGGG</a>'s <a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>. We set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government.  The report considered the following reform methods: <ul><li>Redrawing the lines in the current 50-ward system</li><li>Shrinking the city council from 50 members to 30 or fewer</li><li>Moving from single-member districts to multi-member districts</li><li>Moving from plurality elections to ranked choice voting</li></ul></p><p><a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"}
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["chicago"],
-        "content": "<p>The units used in these modules are <strong>precincts</strong> and Chicago's <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a>, which were drawn by social scientists at UChicago in the 1920s and serve as proxies for neighborhoods. Data for this module were obtained the City of Chicago Data Portal and from the US Census Bureau. The precinct and community area shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Chicago Community Areas and Precincts", "content": "<p>In the 1920s, researchers at the University of Chicago divided the city into 77 <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a> that have played an important role in city planning and culture since their inception and serve as proxies for neighborhoods.  The community area and precinct shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"}
+        ]
       }
     ]
   },
@@ -754,26 +756,17 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Iowa",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["iowa"],
-        "content": "<p>Iowa has 4 congressional districts and a bicameral legislature consisting of a state House with 100 seats and a state Senate with 50 seats. State House districts are nested within state Senate districts.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Iowa",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["iowa"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>There is a nonpartisan legislative services agency and an advisory commission to draw districts for the state. The state legislature must approve the plan, but the governor may veto it. For state legislative districts, the advisory commission is required to hold 3 public hearings in different regions of the state.</p><h3>Rules and criteria</h3><p>In Iowa congressional districts must be draw out of whole counties.  In addition, for both state legislative districts and congressional districts, Iowa mandates that districts:<ul><li>Be compact and contiguous</li><li>Follow political boundaries</li><li>Cannot favor any person, party, or group</li><li>Cannot distort minority group voting strength</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plan",
-        "nav": "Enacted Plans",
-        "pages": ["iowa"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "ia",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -786,12 +779,23 @@
           }
         ]
       },
+       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["iowa"],
-        "content": "<p>The units used here are <strong>counties</strong>. Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html" ,
+        "subsections": [
+          {"name": "Iowa Counties",
+          "content": "<p>Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
+          }
+        ]  
       }
     ]
   },
@@ -806,27 +810,19 @@
         "nav": "Draw",
         "type": "draw"
       },
-      {
-        "name": "Districts in Maryland",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["maryland"],
-        "content": "<p>Maryland has 8 Congressional districts. The state legislature consists of a House of Representatives with 141 members and a Senate with 47 members. State house districts are nested with Senate districts, with 3 and 1 members respectively.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Maryland",
+       {
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["maryland"],
-        "content": "<h3>Who draws the lines?</h3><p>The state legislature draws congressional districting plans, while either the governor or the state legislature can draw and present state legislature districting plans.</p><h3>Rules and criteria</h3><p>There are no specific criteria for congressional plans, but state legislature plans must have districts that:<ul><li>are compact and contiguous</li><li>give \"due regard\" to natural and political boundaries.</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plan",
-        "nav": "Enacted Plans",
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "pages": ["maryland"],
         "type": "plans",
         "ref": "md",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -840,11 +836,20 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["maryland"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>This shapefile was obtained from the Maryland Department of Planning website and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a>. Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.</p><p>Statewide election returns from the Board of Elections were cleaned by MGGG staff in order to join them to the precinct shapefile. Ceratin precincts in the shapefile and in the results were merged in order to reconcile discrepencies. Demographic data was aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Congressional and state legislative district IDs were assigned to precincts also using this package.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Maryland Precints",
+          "content": "<p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/MD-shapefiles\">here</a></p>"}]
       }
     ]
   },
@@ -861,22 +866,38 @@
         "type": "draw"
       },
       {
-        "name": "Election reform in Lowell",
-        "nav": "Election Reform",
-        "pages": ["lowell"],
+        "name": "Redistricting rules",
+        "nav": "Rules",
         "type": "text",
-        "content": "<p>In 2019, all eyes are on Lowell, Massachusetts. The City of Lowell’s at-large electoral system has been challenged in a recent lawsuit (Huot et al. v. City of Lowell et al). Plaintiffs in the case argued that the current system dilutes the votes of Lowell's communities of color for the City Council and School Board. For more information about the lawsuit, read LCR's explainer <a href=\"https://www.lawyerscom.org/wp-content/uploads/2010/08/Lowell-Voting-Rights-Lawsuit-FAQ-Final.pdf\">[here]</a>.</p><p>  This November, Lowell residents will have a chance to vote on a new system! The choices for City Council are (a) a city-wide system electing 9 council members by ranked choice, or (b) 8 districts plus 3 at-large seats, raising the size of the council to 11 members.</p><p> Read our <a href=\"https://mggg.org/Lowell-Report\">public report</a> on the choice facing Lowell voters this November!  We explain the options on the ballot and some general differences between systems of election.  For more technical explanations of our modeling, refer to our <a href=\"https://mggg.org/Lowell-Detailed-Report\">detailed report</a>.</p> <p> Versions of the public report are also available in <a href=\"https://mggg.org/Lowell-Report/sp\">Spanish</a>,  <a href=\"https://mggg.org/Lowell-Report/pt\">Portuguese</a>, and  <a href=\"https://mggg.org/Lowell-Report/kh\">Cambodian Khmer</a>.</p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "See randomly constructed plans",
-        "nav": "Sample Plans",
-        "pages": ["lowell"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "pages": ["ma"],
         "type": "plans",
-        "ref": "lowell",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself! Each of these plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
+        "ref": "ma",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!  Each of the Lowell plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
         "plans": [
           {
-            "title": "Sample valid 3-district plans",
+            "title": "Statewide Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "plans",
+        "ref": "lowell",
+         "nav": "",
+        "disc": "",
+        "plans": [
+          {
+            "title": "Lowell – Sample valid 3-district plans",
             "plans": [
                 {
                   "id": "plan3a",
@@ -888,7 +909,7 @@
                 }]
           },
           {
-            "title": "Sample valid 7-district plans",
+            "title": "Lowell – Sample valid 7-district plans",
             "plans": [
               {
                 "id": "plan7a",
@@ -900,7 +921,7 @@
               }]
           },
           {
-            "title": "Sample valid 8-district plans (Option on the Ballot)",
+            "title": "Lowell – Sample valid 8-district plans (Option on the Ballot)",
             "plans": [
               {
                 "id": "plan8a",
@@ -912,7 +933,7 @@
               }]
           },
           {
-            "title": "Sample valid 9-district plans",
+            "title": "Lowell – Sample valid 9-district plans",
             "plans": [
               {
                 "id": "plan9a",
@@ -926,58 +947,41 @@
         ]
       },
       {
-        "name": "Districts in Massachusetts",
-        "nav": "Districts",
+        "name": "Why?",
+        "nav": "Why?",
         "type": "text",
-        "pages": ["ma"],
-        "content": "<p>Massachusetts has a bicameral state legislature consisting of 160 House members and 40 Senate members. For the US House of Representatives, Massachusetts has 9 congressional districts.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Massachusetts",
-        "nav": "Rules",
-        "type": "text",
-        "pages": ["ma"],
-        "content": "<h3>Who draws the lines?</h3><p>In Massachusetts, districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>There are no specific criteria for Congressional districts, but state legislative districts:<ul><li>Require contiguity</li><li>Must follow political boundaries</li><li>Can be vetoed by the governor</li><li>Senate requires single-member districts</li></ul></p>"
-      },
-      {
-        "name": "Research Context",
-        "nav": "Research",
-        "type": "text",
-        "pages": ["ma"],
-        "content": "<p>These modules were created to aid in a paper, <a href=\"https://arxiv.org/abs/1810.09051\"> \"Locating the representational baseline: Republicans in Massachusetts,\"</a> written by MGGG and collaborators. Despite Republicans usually gaining between 30% and 40% of the two-way vote share in statewide elections, Massachusetts has not elected a Republican to the US House of Representatives since 1994. The paper finds that the underperformance of Republicans in Massachusetts is not the result of gerrymandering or candidate availability, but rather is a factor of the spatial distribution of Republican voters in the state.</p>"
-      },
-      {
-        "name": "Explore the currently enacted plan",
-        "nav": "Enacted Plans",
-        "pages": ["ma"],
-        "type": "plans",
-        "ref": "ma",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
-        "plans": [
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
           {
-            "title": "Enacted Plans",
-            "plans": [
-              {
-                "id": "congress",
-                "name": "Congressional Plan"
-              }
-            ]
-          }
+            "name": "Research",
+            "content": "<p>The statewide amps were created to aid in a paper, <a href=\"https://arxiv.org/abs/1810.09051\"> \"Locating the representational baseline: Republicans in Massachusetts,\"</a> written by MGGG and collaborators. Despite Republicans usually gaining between 30% and 40% of the two-way vote share in statewide elections, Massachusetts has not elected a Republican to the US House of Representatives since 1994. The paper finds that the underperformance of Republicans in Massachusetts is not the result of gerrymandering or candidate availability, but rather is a factor of the spatial distribution of Republican voters in the state.</p>"
+          },
+          {
+            "name": "Election reform in Lowell",
+            "content": "<p>In 2019, all eyes are on Lowell, Massachusetts. The City of Lowell’s at-large electoral system has been challenged in a recent lawsuit (Huot et al. v. City of Lowell et al). Plaintiffs in the case argued that the current system dilutes the votes of Lowell's communities of color for the City Council and School Board. For more information about the lawsuit, read LCR's explainer <a href=\"https://www.lawyerscom.org/wp-content/uploads/2010/08/Lowell-Voting-Rights-Lawsuit-FAQ-Final.pdf\">[here]</a>.</p><p>  This November, Lowell residents will have a chance to vote on a new system! The choices for City Council are (a) a city-wide system electing 9 council members by ranked choice, or (b) 8 districts plus 3 at-large seats, raising the size of the council to 11 members.</p><p> Read our <a href=\"https://mggg.org/Lowell-Report\">public report</a> on the choice facing Lowell voters this November!  We explain the options on the ballot and some general differences between systems of election.  For more technical explanations of our modeling, refer to our <a href=\"https://mggg.org/Lowell-Detailed-Report\">detailed report</a>.</p> <p> Versions of the public report are also available in <a href=\"https://mggg.org/Lowell-Report/sp\">Spanish</a>,  <a href=\"https://mggg.org/Lowell-Report/pt\">Portuguese</a>, and  <a href=\"https://mggg.org/Lowell-Report/kh\">Cambodian Khmer</a>.</p>"
+           }
         ]
       },
+      
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["ma"],
-        "content": "<p>The units you see here are <strong>precincts</strong> from the 2000 redistricting cycle, <strong>precincts</strong> from the 2010 redistricting cycle, and Massachusetts' <strong>towns and municipalities</strong></p><p>The 2002-2010 raw, unprocessed shapefile comes <a href=\"https://catalog.data.gov/dataset/tiger-line-shapefile-2012-2010-state-massachusetts-2010-census-voting-district-state-based-vtd\">from the United States Census Bureau</a> and was sent to MGGG by Secretary of the Commonwealth Francis Galvin's office.  The 2012-2016 raw, unprocessed precinct shapefile comes from the office of the Secretary of the Commonwealth of Massachusetts, William Francis Galvin.  The town shapefile was downloaded from the <a href=\"https://docs.digital.mass.gov/dataset/massgis-data-community-boundaries-towns-survey-points\">Massachusetts Bureau of Geographic Information website</a>.  All election data comes from the Secretary of the Commonwealth's <a href=\"http://electionstats.state.ma.us\">Elections Division website</a>.</p><p>The source precinct shapefiles for these modules, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MA-shapefiles\">@mggg-states</a>.</p>"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "pages": ["lowell"],
-        "content": "<p> The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Lowell was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">@gerrymandr</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "Massachusetts Precincts",
+            "content": "<p>Where you will find precincts: Statewide maps.</p><p>There are two vintages of precincts in these maps, one from the 2000 redistricting cycle and another from the 2010 redistricting cycle.  The 2002-2010 raw, unprocessed shapefile comes <a href=\"https://catalog.data.gov/dataset/tiger-line-shapefile-2012-2010-state-massachusetts-2010-census-voting-district-state-based-vtd\">from the United States Census Bureau</a> and was sent to MGGG by Secretary of the Commonwealth Francis Galvin's office.  The 2012-2016 raw, unprocessed precinct shapefile comes from the office of the Secretary of the Commonwealth of Massachusetts, William Francis Galvin.  All election data comes from the Secretary of the Commonwealth's <a href=\"http://electionstats.state.ma.us\">Elections Division website</a>.  The source precinct shapefiles, along with additional information about processing, are available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MA-shapefiles\">@mggg-states</a>.</p>"
+          },
+          {
+            "name": "Massachusetts Towns and Municipalities",
+            "content": "<p>Where you will find towns: Statewide maps</p><p>The town shapefile was downloaded from the <a href=\"https://docs.digital.mass.gov/dataset/massgis-data-community-boundaries-towns-survey-points\">Massachusetts Bureau of Geographic Information website</a>.</p>"
+          },
+          {
+            "name": "Massachusetts Census Blocks",
+            "content": "<p>Where you will find blocks: Lowell maps</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Lowell was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">@gerrymandr</a>.</p>"
+          }
+        ] 
       }
     ]
   },
@@ -993,23 +997,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Michigan",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["michigan"],
-        "content": "<p>Michigan currently has 14 Congressional districts. The state legislature consists of a House of Representatives with 110 members and a Senate with 38 members.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Michigan",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["michigan"],
-        "content": "<h3>Who draws the lines?</h3><p>Michigan has an independent commission for drawing districts. The commission has 13 members, with 4 for each major party (Democrat and Republican) and 5 unaffiliated or affiliated with a minor party. Commission members may not hold public office or associated positions such as lobbyists and state employees. The commission requires an 8 vote majority to pass a plan, after which members must rank each plan and the highest ranked is submitted.</p><h3>Rules and criteria</h3><p>For both congressional and state legislative districts, Michigan requires that districts:<ul><li>Be contiguous and compact</li><li>Accurately represent the state’s diversity and communities of interest</li><li>Respect political boundaries wherever possible</li><li>Do not lend advantage or disadvantage to any party, incumbent, or candidate</li><li>Stay within a 2% population deviation</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["michigan"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "mi",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -1034,11 +1029,23 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["michigan"],
-        "content": "<p>The units used here are <strong>precincts</strong>. The precinct and congressional district shapefiles come from the Michigan Department of State through the <a href=\"http://gis-michigan.opendata.arcgis.com/datasets/2016-voting-precincts\">State of Michigan GIS Open Data Portal</a>. Demographic data at the block level are from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>. Shapefiles for Michigan's state house and senate districts were downloaded from the US Census Bureau's <a href=\"https://www.census.gov/cgi-bin/geo/shapefiles/index.php\">TIGER/Line Program</a>. Precinct level election data for 2016 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MI-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "Michigan Precincts",
+            "content": "<p>The precinct and congressional district shapefiles come from the Michigan Department of State through the <a href=\"http://gis-michigan.opendata.arcgis.com/datasets/2016-voting-precincts\">State of Michigan GIS Open Data Portal</a>. Demographic data at the block level are from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>. Shapefiles for Michigan's state house and senate districts were downloaded from the US Census Bureau's <a href=\"https://www.census.gov/cgi-bin/geo/shapefiles/index.php\">TIGER/Line Program</a>. Precinct level election data for 2016 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MI-shapefiles\">@mggg-states</a>.</p>"
+          }
+        ]
       }
     ]
   },
@@ -1054,23 +1061,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Minnesota",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["minnesota"],
-        "content": "<p>Minnesota has 8 congressional districts. House of Representatives with 134 members and a Senate with 67 members.  These districts are nested, where each state Senate district contains two state House districts.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Minnesota",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["minnesota"],
-        "content": "<h3>Who draws the lines?</h3><p>Congressional and state legislative districts are drawn by the state legislature. The governor has the authority to veto a plan.</p><h3>Rules and criteria</h3><p>Minnesota requires that districts are contiguous.</p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["minnesota"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "mn",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -1091,11 +1089,23 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["minnesota"],
-        "content": "<p>The units used here are <strong>precincts</strong>. The Minnesota precinct shapefiles with election results were created by the <a href=\"https://www.sos.state.mn.us/elections-voting/\">Minnesota Secretary of State Election Division</a> and obtained from the <a href=\"https://www.gis.leg.mn/html/download.html\">Minnesota LCC-GIS</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MN-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "Michigan Precincts",
+            "content": "<p>The Minnesota precinct shapefiles with election results were created by the <a href=\"https://www.sos.state.mn.us/elections-voting/\">Minnesota Secretary of State Election Division</a> and obtained from the <a href=\"https://www.gis.leg.mn/html/download.html\">Minnesota LCC-GIS</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MN-shapefiles\">@mggg-states</a>.</p>"
+          }
+        ]
       }
     ]
   },
@@ -1111,32 +1121,30 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Mississippi",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["mississippi"],
-        "content": "<p>Mississippi has 4 congressional districts. The state House consists of 122 members and the state Senate consists of 51 members.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Mississippi",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["mississippi"],
-        "content": "<h3>Who draws the lines?</h3><p>Congressional and state legislative districts are drawn by the state legislature. The governor has the authority to veto a plan.</p><h3>Rules and criteria</h3><p>Mississippi requires that districts:<ul><li>Be contiguous and compact</li><li>Cross political boundaries as little as possible</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
-      {
-        "name": "Research Context",
-        "nav": "Research",
+       {
+        "name": "Why?",
+        "nav": "Why?",
         "type": "text",
-        "pages": ["mississippi"],
-        "content": "<p>This Mississippi module comes out of a project from MGGG's Voting Rights Data Institute that explored how many majority-Black congressional districts are possible to draw. A write-up of this experiment is forthcoming.</p>"
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [{"name": "Research", 
+        "content": "<p>This Mississippi module comes out of a project from MGGG's Voting Rights Data Institute that explored how many majority-Black congressional districts are possible to draw. A write-up of this experiment is forthcoming.</p>"}]
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["mississippi"],
-        "content": "<p>The units used here are <strong>census block groups</strong>. Data for this module were obtained from the US Census Bureau. The block group shapefile for Mississippi was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Mississippi\">@gerrymandr</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "Mississippi block groups",
+            "content": "<p> These data were obtained from the US Census Bureau. The block group shapefile for Mississippi was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Mississippi\">@gerrymandr</a>.</p>"
+          }
+        ]
       }
     ]
   },
@@ -1152,10 +1160,22 @@
         "type": "draw"
       },
       {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["clarknv"],
         "content": "<p>The units used here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for Nevada was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
       }
     ]
@@ -1172,23 +1192,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in New Mexico",
-        "nav": "Districts",
-        "type": "text",
-        "pages": ["new_mexico"],
-        "content": "<p>New Mexico has 3 congressional districts and 42 state Senate districts. The state House consists of 70 members and the state Senate 42 members.</p>"
-      },
-      {
-        "name": "Redistricting Rules in New Mexico",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["new_mexico"],
-        "content": "<h3>Who draws the lines?</h3><p>Congressional districts and state Senate districts are drawn by the state legislature. The governor can veto a plan.</p><h3>Rules and criteria</h3><p>New Mexico requires that districts:<ul><li>Be contiguous and compact</li><li>Do no split voting precincts</li><li>Attempt to preserve communities of interest</li><li>Factor in political and geographic boundaries</li><li>Seek to preserve the core of existing districts</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
-       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["new_mexico"],
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "nm",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -1209,11 +1220,23 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["new_mexico"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>The New Mexico precinct shapefile was obtained from the New Mexico <a href=\"http://rgis.unm.edu/rgis6/\">Resource Geographic Information System (RGIS)</a>, which is managed by the Earth Data Analysis Center (EDAC) at the University of New Mexico. It was processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>The Congressional, State Senate and State House district map shape files, as well as the 2010 census block shape file are from the <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">US Census Bureau's TIGER/Line Program</a>. </p><p>Precint level elections returns were provided by the <a href=\"https://www.sos.state.nm.us/voting-and-elections/election-results/past-election-results-2018/\">New Mexico Secretary of State's</a> website. Block level demographic data is from the Census API.</p><p>Statewide election returns from 2016 and 2018 - from the New Mexico Secretary of State - were cleaned by MGGG staff in order to join it with the New Mexico precinct shapefile. Census block data was aggregated to the precinct level using MGGG's <a href=\"https://github.com/mggg/maup\">proration software</a>."
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "New Mexico Precincts",
+            "content": "<p>The New Mexico precinct shapefile was obtained from the New Mexico <a href=\"http://rgis.unm.edu/rgis6/\">Resource Geographic Information System (RGIS)</a>, which is managed by the Earth Data Analysis Center (EDAC) at the University of New Mexico. It was processed by members of the Metric Geometry and Gerrymandering Group (MGGG). The Congressional, State Senate and State House district map shape files, as well as the 2010 census block shape file are from the <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">US Census Bureau's TIGER/Line Program</a>.  Precint level elections returns were provided by the <a href=\"https://www.sos.state.nm.us/voting-and-elections/election-results/past-election-results-2018/\">New Mexico Secretary of State's</a> website. Block level demographic data is from the Census API. Statewide election returns from 2016 and 2018 - from the New Mexico Secretary of State - were cleaned by MGGG staff in order to join it with the New Mexico precinct shapefile. Census block data was aggregated to the precinct level using MGGG's <a href=\"https://github.com/mggg/maup\">proration software</a>."
+          }
+        ]
       }
     ]
   },
@@ -1229,18 +1252,33 @@
         "type": "draw"
       },
       {
-        "name": "About the data",
-        "nav": "Data",
+        "name": "Redistricting rules",
+        "nav": "Rules",
         "type": "text",
-        "pages": ["newyork"],
-        "content": "<p>The units used here are <strong>census block groups</strong>. Data for this module were obtained from the US Census Bureau. The block group shapefile for New York was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["islip"],
-        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Islip was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Islip\">@gerrymandr</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "New York Census Blocks",
+            "content": "<p>Where you will find blocks: Islip maps.</p><p>These data were obtained from the US Census Bureau. The block shapefile for New York was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
+          },
+          {
+            "name": "Islip Election Districts",
+            "content": "<p>Where you will find election districts: Islip maps.</p><p></p>"
+          }
+        ]
       }
     ]
   },
@@ -1256,30 +1294,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in North Carolina",
-        "nav": "Districts",
-        "pages": ["nc"],
-        "type": "text",
-        "content": "<p>North Carolina currently has 13 Congressional seats, a 50 member State Senate, and a 120 member State House. Representatives are elected from single member districts.</p>"
-      },
-      {
-        "name": "Redistricting rules in North Carolina",
+        "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "pages": ["nc"],
-        "content": "<h3>Who draws the lines?</h3><p>The state legislature draws districts for both congress and the state legislature. They <b>cannot</b> be vetoed by the governor.</p><h3>Rules and criteria</h3><p>Like all states in the US, North Carolina must comply with Constitutional equal population requirements and the Voting Rights Act. There are no additional requirements for Congressional districts, but North Carolina state and case law establishes the following additional criteria for state legislative districts:<ul><li>Districts must be contiguous. They cannot be only touching at a point.</li><li>Districts must be compact.</li><li>Districts should attempt to keep communities of interest intact.</li><li>Districts should preserve county lines as much as possible. When counties are grouped, districts should include as few counties as possible.</li><li>Districts must not be drawn for the purpose of favoring a political party </li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Rucho v. Common Cause",
-        "nav": "In the Court",
-        "type": "text",
-        "pages": ["nc"],
-        "content": "<p>In March 2019 the US Supreme Court heard oral arguments for Rucho v. Common Cause, in which plaintiffs claim that North Carolina's remedial 2016 congressional map is an unconstitutional partisan gerrymander. The 2016 remedial map had been drawn after the Supreme Court struck down two of the state's 2011 enacted congressional districts as unconstitutional racial gerrymanders. MGGG and our collaborators filed an amicus brief which can be accessed <a href=\"https://mggg.org/amicus\">on our website</a>.</p>"
-      },
-      {
-        "name": "Explore the plans",
-        "nav": "Plans",
-        "pages": ["nc"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "nc",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -1304,11 +1326,28 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Rucho v. Common Cause",
+            "content": "<p>In March 2019 the US Supreme Court heard oral arguments for Rucho v. Common Cause, in which plaintiffs claim that North Carolina's remedial 2016 congressional map is an unconstitutional partisan gerrymander. The 2016 remedial map had been drawn after the Supreme Court struck down two of the state's 2011 enacted congressional districts as unconstitutional racial gerrymanders. MGGG and our collaborators filed an amicus brief which can be accessed <a href=\"https://mggg.org/amicus\">on our website</a>.</p>"
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["nc"],
-        "content": "<p>The units used here are <strong>voting tabulation districts</strong> or VTDS. Data for this module were obtained from the North Carolina General Assembly and National Historic GIS (NHGIS). The VTD shapefile and election results were downloaded from the North Carolina General Assembly's <a href=\"https://www.ncleg.gov/RnR/Redistricting/BaseData2016\">2016 Redistricting Reference Data</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/NC-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "North Carolina voting tabulation districts (VTDs)",
+            "content": "<p>These data were obtained from the North Carolina General Assembly and National Historic GIS (NHGIS). The VTD shapefile and election results were downloaded from the North Carolina General Assembly's <a href=\"https://www.ncleg.gov/RnR/Redistricting/BaseData2016\">2016 Redistricting Reference Data</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/NC-shapefiles\">@mggg-states</a>.</p>"
+         }
+        ]
       }
     ]
   },

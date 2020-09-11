@@ -79,15 +79,15 @@ export default () => {
 
 
 const navLinks = (sections, placeIds) =>
-    sections.map(section => html`
+    sections.map(section => section.nav ? html`
         <li class="nav ${section.pages ? section.pages.reduce((l, ac) => l.concat(" ").concat(ac))
                                        : placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
             <a href="#${section.nav.replace(/\s+/g, '-').toLowerCase()}" 
               class="nav-links__link nav-links__link--major">
                 ${section.nav}
             </a>
-        </li>
-        `
+        </li>`: html``
+        
     ).concat([html`<li class="nav ${placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
             <a href="/new">
                 <img 
@@ -161,7 +161,7 @@ const drawSection = (section, stateData) => {
     } else if (section.type === "plans") {
         section_body = html`
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
-            <h2>${section.name}</h2>
+            ${section.name ? html`<h2>${section.name}</h2>` : html``}
             <p>${section.disc}</p>
             <div id="plans">${plansSection(section.plans, section.ref)}</div>
             ${$.parseHTML(section.postscript)}
