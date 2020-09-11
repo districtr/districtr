@@ -1393,11 +1393,11 @@
         "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
+        "name": "Explore sample plans",
         "nav": "Examples",
         "type": "plans",
         "ref": "or",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1436,10 +1436,10 @@
         "content_source": "/assets/landing/data.html",
         "subsections": [
           {"name": "Oregon Precincts", 
-           "content": "<p>The units in the statewide and Portland maps are <strong>precincts</strong>.</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  Election results for 2016 and 2018 were cleaned by MGGG staff and joined to the geographic data along with demographic data from the 2010 Decennial Census. More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/OR-shapefiles\">here</a>.</p>"
+           "content": "<p>Where you will find precincts: Statewide and Portland maps</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  Election results for 2016 and 2018 were cleaned by MGGG staff and joined to the geographic data along with demographic data from the 2010 Decennial Census. More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/OR-shapefiles\">here</a>.</p>"
           },
           {"name": "Oregon Census blocks", 
-           "content": "<p>The units you see in the Salem-Keizer Unified School District map are <strong>Census blocks</strong>.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+           "content": "<p>Where you will find blocks: Salem-Keizer Unified School District map.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
           }
         ]
       }

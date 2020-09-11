@@ -118,20 +118,18 @@ const drawPage = stateData => {
         <p><a href="/">Districtr</a>  is a free community webtool for redistricting 
         and community mapping provided by the <a href="http://www.mggg.org">
         MGGG Redistricting Lab</a> at Tufts University. 
-        We welcome questions and inquiries about the tool and about our work in
-        ${stateData.state}:
+        We welcome questions and inquiries about the tool and our work.  Reach out to us at:
         <a href="mailto:contact@mggg.org">contact@mggg.org</a>
         </p>
 
-        <h2>Awknowledgements</h2>
-        <p>Content for this page is based on redistricting training material developed by materials 
-        created by Common Cause, Mexican American Legal Defense and Educational Fund, and State Voices
-        in collaboration with Arizona Coalition for Change, Asian Americans Advancing Justice | AAJC, 
-        Asian Americans Advancing Justice | Los Angeles, Black Voters Matter Fund, Brennan Center for 
-        Justice, Campaign Legal Center, Center for Community Change, Fair Immigration Reform Movement, 
-        Center for Popular Democracy, Demos, Lawyers Committee for Civil Rights Under Law, National 
-        Association for the Advancement of Colored People-Legal Defense Fund, NALEO Educational Fund, 
-        Pennsylvania Voice, and Southern Coalition for Social Justice.</p>
+        <h2>Acknowledgements</h2>
+        <p>Content for this page is based on redistricting training materials by Common Cause, Mexican 
+        American Legal Defense and Educational Fund, and State Voices in collaboration with Arizona Coalition 
+        for Change, Asian Americans Advancing Justice | AAJC, Asian Americans Advancing Justice | Los Angeles, 
+        Black Voters Matter Fund, Brennan Center for Justice, Campaign Legal Center, Center for Community Change, 
+        Fair Immigration Reform Movement, Center for Popular Democracy, Demos, Lawyers Committee for Civil Rights 
+        Under Law, NAACP-Legal Defense Fund, NALEO Educational Fund, Pennsylvania Voice, and Southern Coalition 
+        for Social Justice.</p>
 
     `
 };
