@@ -11,40 +11,17 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Alaksa",
-        "nav": "Districts",
-        "pages": ["alaska"],
-        "type": "text",
-        "content": "<p>Alaska currently has 1 at-large congressional district. Their State Legislature has 20 state Senate districts and 40 state House districts. These districts are nested, where each state Senate district contains two state House districts. Alaska has a particularly high percentage of unprecincted votes, coming from sources such as early and absentee ballots that accounted for a third of all ballots cast in the 2018 US House of Representatives and state Governor elections.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Alaska",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["alaska"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>An amendment was made to the Alaskan state Constitution in 1998 that created a five-member Alaska Redistricting Board to oversee the redistricting process after each Decennial census. Three out of the five members must approve of the redistricting plan in order for it to be enacted.</p><h3>Rules and criteria</h3><p>The state constitution requires House districts to be: <blockquote>“contiguous and compact territory containing as nearly as practicable a relatively integrated socio-economic area.... [and] contain[ing] a population as near as practicable to the quotient obtained by dividing the population of the state by forty…”</blockquote>and requires Senate districts to be: <blockquote>“...composed as near as practicable of two contiguous house districts”.</blockquote></p><p>The rules on whether or not water bodies violate district contiguity are vague.</p><p>House districts must be nested in senate districts and must be single member districts. Districts must follow geographic boundaries, but the rules on whether or not water bodies violate district contiguity are vague. </p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Redistricting in the Courts",
-        "nav": "In the Courts",
-        "pages": ["alaska"],
-        "type": "text",
-        "content": "<h3>Voting Rights Act</h3><p>The Voting Rights Act of 1965 requires that minority groups have the ability to elect their chosen candidate where possible. It is particularly significant in Alaska due to the large rural Native Alaskan population.</p>"
-      },
-      {
-        "name": "Research Context",
-        "nav": "Research",
-        "pages": ["alaska"],
-        "type": "text",
-        "content": "<p>This module was created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"
-      },
-      {
-        "name": "Explore the currently enacted plan",
-        "nav": "Enacted Plans",
-        "pages": ["alaska"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "ak",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -58,11 +35,22 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
+          {"name": "Research", "content": "<p>These maps were created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"}
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["alaska"],
-        "content": "<p>The units used here are <strong>voting precincts</strong>. Data for this module were obtained from the Alaska Division of Elections and from National Historic GIS (NHGIS). The precinct shapefile and election results were downloaded <a href=\"http://www.elections.alaska.gov/Core/electionresources.php\">from the Alaska Division of Elections</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/AK-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Alaska Precincts",
+           "content": "<p>Data for the statewide map were obtained from the Alaska Division of Elections and from National Historic GIS (NHGIS). The precinct shapefile and election results were downloaded <a href=\"http://www.elections.alaska.gov/Core/electionresources.php\">from the Alaska Division of Elections</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/AK-shapefiles\">@mggg-states</a>.</p>"}]
       }
     ]
   },
@@ -80,15 +68,20 @@
         "type": "draw"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["arizona"],
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "az",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
-            "title": "Enacted Plans",
+            "title": "Statewide Enacted Plans",
             "plans": [
               {
                 "id": "congress",
@@ -103,11 +96,25 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["arizona"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>The precinct shapefile is made available on <a href=\"https://www.kaggle.com/azsecretaryofstate/arizona-statewide-precinct-shapefile?select=az_vtd_2018_new_pima.shp\">Kaggle</a> by Garret Archer, formerly Senior Elections Analyst with the Arizona Secratary of State and currently a Data Analyst with ABC15 Arizona. Tabular election data are from the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. Processing was completed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>Some very limited merging of precincts in the original shapefile was necessary to join election results. La Paz County precincts were edited to match data provided on the county's <a href=\"http://www.co.la-paz.az.us/DocumentCenter/View/76/Precinct-Map-PDF\">election website</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Arizona Precincts", 
+           "content": "<p>Where you will find precincts: Statewide maps</p><p>The precinct shapefile is made available on <a href=\"https://www.kaggle.com/azsecretaryofstate/arizona-statewide-precinct-shapefile?select=az_vtd_2018_new_pima.shp\">Kaggle</a> by Garret Archer, formerly Senior Elections Analyst with the Arizona Secratary of State and currently a Data Analyst with ABC15 Arizona. Tabular election data are from the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. Processing was completed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>Some very limited merging of precincts in the original shapefile was necessary to join election results. La Paz County precincts were edited to match data provided on the county's <a href=\"http://www.co.la-paz.az.us/DocumentCenter/View/76/Precinct-Map-PDF\">election website</a>.</p>"
+          },
+          {"name": "Arizona Census blocks", 
+           "content": "<p>Where you will find blocks: Maricopa County, Yuma County, and Pheonix maps.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+          }
+        ]
       }
     ]
   },
@@ -123,11 +130,30 @@
         "type": "draw"
       },
       {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["little_rock"],
-        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Little Rock was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {
+            "name": "Arkansas Census blocks",
+            "content": "<p>Where you will find blocks: Little Rock School Attendance Zones map.</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Little Rock was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
+          }
+        ]
+        
       }
     ]
   },
@@ -146,46 +172,38 @@
         "type": "draw"
       },
       {
-        "name": "Election reform in Napa",
-        "nav": "Election Reform",
-        "pages": ["napa"],
-        "type":"text",
-        "content": "<p>The City of Napa is switching from electing city council seats at-large,to individual districts each with one or more members.</p><p>This districting process should be open and transparent for everyone, and the chosen district should represent neighborhoods and communities.</p>"
-      },
-      {
-        "name": "Election reform in Napa",
-        "nav": "Election Reform",
-        "pages": ["napaschools"],
-        "type":"text",
-        "content": "<p>The Napa Valley Unified School District is considering switching from electing the Board of Education trustees at-large, to seven districts each with one member.</p><p>This districting process should be open and transparent for everyone, and the chosen district should represent neighborhoods and communities.</p>"
-      },
-      {
-        "name": "Election reform in Santa Clara",
-        "nav": "Election Reform",
+        "name": "Redistricting rules",
+        "nav": "Rules",
         "type": "text",
-        "pages": ["santa_clara"],
-        "content": "<p>This module was created because of a lawsuit against Santa Clara's at-large electoral system for City Council, which plaintiffs claim posed a structural impediment to the election of Asian Americans. A district court in May 2018 ruled that the voting system violated the California Voting Rights Act (for more information see <a href=\"https://www.nbcbayarea.com/news/local/Court-Rules-Santa-Clara-Violated-the-California-Voting-Rights-Act-482815201.html\">here</a>. In February 2018, MGGG <a href=\"https://mggg.org/SantaClara.pdf\">released a report</a> with recommendations for alternative voting systems in Santa Clara.</p>"
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Election reform in Napa",
+            "content": "<p>The City of Napa is switching from electing city council seats at-large, to individual districts each with one or more members.  In addition, the Napa Valley Unified School District is considering switching from electing the Board of Education trustees at-large, to seven districts each with one member.</p><p>This districting process should be open and transparent for everyone, and the chosen districts should represent neighborhoods and communities.</p>"
+          },
+          {
+            "name": "Election reform in Santa Clara",
+            "content": "<p>This map was created because of a lawsuit against Santa Clara's at-large electoral system for City Council, which plaintiffs claim posed a structural impediment to the election of Asian Americans. A district court in May 2018 ruled that the voting system violated the California Voting Rights Act (for more information see <a href=\"https://www.nbcbayarea.com/news/local/Court-Rules-Santa-Clara-Violated-the-California-Voting-Rights-Act-482815201.html\">here</a>. In February 2018, MGGG <a href=\"https://mggg.org/SantaClara.pdf\">released a report</a> with recommendations for alternative voting systems in Santa Clara.</p>"
+
+          }]
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["napa", "napaschools"],
-        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for Napa was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "pages": ["santa_clara"],
-        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for the City of Santa Clara was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Santa_Clara\">@gerrymandr</a>.</p>"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "pages": ["ontarioca"],
-        "content": "<p>The units you see here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for California was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "California Census Blocks and Block groups",
+          "content": "<p>Where you will find blocks: Sanata Clara, Napa, Napa Valley Unified School District, and Ontario maps.</p><p>Where you will find block groups: Los Angeles County map.</p><p>These data were obtained from the US Census Bureau. The block and block group shapefiles for California was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+          }
+        ]
+          
       }
     ]
   },
@@ -201,23 +219,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Colorado",
-        "nav": "Districts",
-        "pages": ["colorado"],
-        "type": "text",
-        "content": "<p>Colorado has 7 Congressional Districts. The Colorado state legislature consists of a 65 seat House of Representatives and a 35 seat Senate.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Colorado",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["colorado"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>Colorado has a 12 member independent commission for drawing districts. The same commission selection and districting rules apply to congressional and state legislative redistricting. The commission consists of 4 registered with each of the 2 major parties and 4 registered with neither major party, and 6 commissioners randomly chosen by the judicial panel. Commission members cannot be compensated by public officials or hold public office. The non-partisan members of the commission are in charge of drawing the proposed districts.</p><h3>Rules and criteria</h3><p>State law requires that districts:<ul><li>Be contiguous and compact</li><li>Have a population deviation of less than 5%</li><li>Preserve communities of interest and political subdivisions</li><li>Maximize number of competitive districts after adhering to other criteria</li><li>Not be drawn to favor incumbents or certain political parties</li><li>Not interfere with the ability of a racial or language minority group to elect a candidate of choice</li></ul>State legislative districts must additionally preserve political boundaries wherever possible and be as compact as possible given their total perimeter.</p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["colorado"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "co",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -245,8 +254,12 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["colorado"],
-        "content": "<p>The units used here are <strong>precincts</strong>. </p><p>This shapefile comes from Todd Bleess of the Colorado State Demographer's Office and was cleaned and processed by members of Beth Malmskog's team at Colorado College. This effort was led by Haley Colgate and included Austin Eide, Matt Cooney, Edgar Santos Vega, Kadin Mangalik, and Jose Monge Castro. Some additional processing was done by MGGG staff.</p><p>The 2018 Colorado precinct shapefile was made available to us by Todd Bleess of the Colorado State Demographer's Office. Election data come from the <a href=\"https://www.sos.state.co.us/pubs/elections/Results/Archives.html\">Colorado Secretary of State's Office</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts for certain counties were not included in the shapefile provided by the Demographer's Office and were digitized from maps provided by the county. Those counties are: Boulder, Denver, Douglas, and El Paso. For Las Animas county, the voter file was geocoded and used to identify precinct boundaries. Demographic data were aggregated from the census block level and precincts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Colorado Precincts",
+          "content": "<p>Where you will find precincts: Statewide maps</p><p>This shapefile comes from Todd Bleess of the Colorado State Demographer's Office and was cleaned and processed by members of Beth Malmskog's team at Colorado College. This effort was led by Haley Colgate and included Austin Eide, Matt Cooney, Edgar Santos Vega, Kadin Mangalik, and Jose Monge Castro. Some additional processing was done by MGGG staff.</p><p>The 2018 Colorado precinct shapefile was made available to us by Todd Bleess of the Colorado State Demographer's Office. Election data come from the <a href=\"https://www.sos.state.co.us/pubs/elections/Results/Archives.html\">Colorado Secretary of State's Office</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts for certain counties were not included in the shapefile provided by the Demographer's Office and were digitized from maps provided by the county. Those counties are: Boulder, Denver, Douglas, and El Paso. For Las Animas county, the voter file was geocoded and used to identify precinct boundaries. Demographic data were aggregated from the census block level and precincts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+        }
+        ]
       }
     ]
   },
@@ -262,23 +275,14 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Connecticut",
-        "nav": "Districts",
-        "pages": ["connecticut"],
-        "type": "text",
-        "content": "<p>Connecticut has 5 Congressional districts. The State legislature consists of a House of Representatives with 151 members and a Senate with 36 members.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Connecticut",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["connecticut"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>Connecticut has an advisory committee of 8 legislators exists to draw districts, with a 9 member backup committee.</p><h3>Rules and criteria</h3><p>There are no state-level criteria for Congressional districts, but state legislative districts must be contiguous and keep town boundaries intact as much as possible.</p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["connecticut"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "ct",
         "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
@@ -303,11 +307,23 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["connecticut"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Connecticut Precincts",
+          "content": "<p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+          }
+        ]
+        
       }
     ]
   },
@@ -323,26 +339,17 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Delaware",
-        "nav": "Districts",
-        "pages": ["delaware"],
-        "type": "text",
-        "content": "<p>Delaware has 1 congressional district. The state legislature consists of a House with 41 seats and a Senate with 21 seats.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Delaware",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["delaware"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>In Delaware, state legislative districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Delaware law insists that census data be adjusted to count incarcerated individuals at their last known place of residence rather than their location of incarceration. State laws require that state legislature districts:<ul><li>Be contiguous</li><li>Follow major roads, streams, and other natural boundaries</li><li>Do not show favor to any one person or party</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["delaware"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "de",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -360,11 +367,23 @@
         ]
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["delaware"],
-        "content": "<p>The units you see here are <strong>precincts</strong>.</p><p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [
+          {"name": "Delaware Precincts",
+          "content": "<p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
+          }
+        ]
+        
       }
     ]
   },
@@ -381,11 +400,28 @@
         "type": "draw"
       },
       {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["miamidade"],
-        "content": "<p>The units you see here are <strong>census block groups</strong>. Data for this module were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [{
+          "name": "Florida Census blocks and block groups",
+          "content": "<p>Where you will find blocks: City of Miami map.</p><p>Where you will find block groups: Miami-Dade County map.</p><p>These data were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.  At the block group level, 2018 population estimates, household income, and homeownership data were obtained from the <a href=\"https://www.census.gov/programs-surveys/acs\">ACS</a>.</p>"
+        }]
+        
       }
     ]
   },
@@ -401,26 +437,17 @@
         "type": "draw"
       },
       {
-        "name": "Districts in Georgia",
-        "nav": "Districts",
-        "pages": ["georgia"],
-        "type": "text",
-        "content": "<p>Georgia has 14 congressional districts. The Georgia legislature consists of a House of Representatives with 180 members and a state Senate of 56 members.</p>"
-      },
-      {
-        "name": "Redistricting Rules in Georgia",
+        "name": "Redistricting rules",
         "nav": "Rules",
-        "pages": ["georgia"],
         "type": "text",
-        "content": "<h3>Who draws the lines?</h3><p>In Georiga, districts are drawn by the state legislature.</p><h3>Rules and criteria</h3><p>Georgia state constitution demands that state legislative districts be contiguous. In 2011 the legislative committees established guidelines asserting: <ul><li>Multimember districts are prohibited</li><li>A redistricting plan should consider county and precinct boundaries, compactness, and communities of interest</li><li>Efforts should be made to avoid the unnecessary pairing of incumbents</li></ul></p>"
+        "content_source": "/assets/landing/rules.html"
       },
       {
-        "name": "Explore the currently enacted plans",
-        "nav": "Enacted Plans",
-        "pages": ["georgia"],
+        "name": "Explore sample plans",
+        "nav": "Examples",
         "type": "plans",
         "ref": "ga",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -440,13 +467,21 @@
             ]
           }
         ]
+      },{
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/landing/why.html" ,
+        "subsections": [{"name": "Research", "content": ""}]
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "pages": ["georgia"],
-        "content": "<p>The units you see here are <strong>precincts</strong>. Data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"
+        "content_source": "/assets/landing/data.html",
+        "subsections": [{"name": "Georgia Precincts",  
+        "content": "<p>These data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"}]
+       
       }
     ]
   },
