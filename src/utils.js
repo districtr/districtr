@@ -382,6 +382,9 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
       },
+        philadelphia: {
+          number_markers: true,
+        },
       rhode_island: {
         number_markers: true,
       },
