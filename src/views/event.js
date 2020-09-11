@@ -89,6 +89,16 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = (plan, eventCode) => {
+    let completness = null,
+        unitCount = plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length,
+        districtCount = (new Set(
+            Object.values(plan.plan.assignment || {})
+                  .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
+        )).size,
+        districtGoal = plan.plan.problem.numberOfParts,
+        districtOff = districtCount < districtGoal,
+        unitOff = unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
+
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
         <li class="plan-thumbs__thumb">
@@ -106,15 +116,15 @@ const loadablePlan = (plan, eventCode) => {
                 <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>
             <span style="margin:10px">
-              ${(new Set(
-                  Object.values(plan.plan.assignment || {})
-                        .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
-              )).size} districts
+                ${(districtOff || unitOff)
+                    ? "Incomplete"
+                    : "Complete"}
             </span>
-            <span style="margin:10px">${(unitCounts[eventCode]
-                ? (Object.keys(plan.plan.assignment || {}).length).toLocaleString() + '/' + unitCounts[eventCode].toLocaleString()
-                : plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length).toLocaleString()}
-            units</span>
+            <span style="margin:10px">
+                ${districtOff ? (districtCount + "/" + districtGoal + " districts") : null}
+                ${unitOff ? html`<br/>` : null }
+                ${unitOff ? (unitCount + "/" + unitCounts[eventCode] + " units") : null}
+            </span>
         </li>
     </a>`;
 }
