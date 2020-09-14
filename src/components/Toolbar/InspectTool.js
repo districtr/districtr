@@ -67,7 +67,8 @@ class InspectToolOptions {
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>
                 ${Select(
                     this.inspectTool.columnSets,
-                    this.inspectTool.changeColumnSetByIndex
+                    this.inspectTool.changeColumnSetByIndex,
+                    this.inspectTool.activeColumnSetIndex || 0
                 )}
             </div>
             ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {
