@@ -277,6 +277,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
+        contiguity: true,
       },
       connecticut: {
         county_brush: true,
@@ -292,6 +293,7 @@ export function spatial_abilities (id) {
       georgia: {
         number_markers: true,
         county_brush: true,
+        contiguity: true,
       },
       hawaii: {
         number_markers: true,
@@ -315,7 +317,6 @@ export function spatial_abilities (id) {
       },
       ma: {
         number_markers: true,
-        // modern precincts, towns have issues
       },
       miamifl: {
         number_markers: true,
@@ -338,6 +339,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
+        contiguity: true,
       },
       napa: {
         number_markers: true,
@@ -349,6 +351,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
+        contiguity: true,
       },
       newyork: {
         number_markers: true,
@@ -358,6 +361,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
+        contiguity: true,
       },
       ohio: {
         number_markers: true,
@@ -377,13 +381,20 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
+        contiguity: true,
       },
+        portlandor: {
+          number_markers: true,
+          contiguity: true,
+        },
       pennsylvania: {
         number_markers: true,
         county_brush: true,
+        contiguity: true,
       },
         philadelphia: {
           number_markers: true,
+          contiguity: true,
         },
       rhode_island: {
         number_markers: true,
