@@ -10,9 +10,6 @@ export default function NumberMarkers(state, brush) {
     if (!spatial_abilities(state.place.id).number_markers) {
         console.log("not on NumberMarkers allowlist");
         return;
-    } else if (["ma"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
-        console.log("state NumberMarker support limited to precincts");
-        return;
     }
 
     let numberMarkers = {},
@@ -80,8 +77,12 @@ export default function NumberMarkers(state, brush) {
     const updater = (state, colorsAffected) => {
         let plan = state.plan,
             place = state.place.id,
-            extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0,
-            placeID = extra_source || place;
+            extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
+        if (state.units.sourceId === "ma_towns") {
+            extra_source = "ma_towns";
+        }
+        let placeID = extra_source || place;
+
         if (plan && plan.assignment) {
             let markers = {},
                 seenDistricts = new Set();
