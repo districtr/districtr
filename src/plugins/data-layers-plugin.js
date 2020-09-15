@@ -407,7 +407,7 @@ export default function DataLayersPlugin(editor) {
 
     if (["virginia", "lax"].includes(state.place.id)) {
         let plan2010, plan2013, ush;
-        fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
+        fetch(`/assets/current_districts/${state.place.id}3_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
                 data: va2010
@@ -513,6 +513,80 @@ export default function DataLayersPlugin(editor) {
                 }
             );
         }
+    }
+
+    if (state.place.id === "lax") {
+        let la2001, laasm2001, lasen2001;
+        fetch("/assets/current_districts/lax3_2001.geojson").then(res => res.json()).then((dt) => {
+            state.map.addSource('la2001', {
+                type: 'geojson',
+                data: dt
+            });
+
+            la2001 = new Layer(state.map,
+                {
+                    id: 'la2001',
+                    source: 'la2001',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+
+            fetch("/assets/current_districts/lax_senate_2001.geojson").then(res => res.json()).then((dt) => {
+                state.map.addSource('lasen2001', {
+                    type: 'geojson',
+                    data: dt
+                });
+
+                lasen2001 = new Layer(state.map,
+                    {
+                        id: 'lasen2001',
+                        source: 'lasen2001',
+                        type: 'line',
+                        paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                    },
+                    addBelowLabels
+                );
+
+                fetch("/assets/current_districts/lax_assembly_2001.geojson").then(res => res.json()).then((dt) => {
+                    state.map.addSource('laasm2001', {
+                        type: 'geojson',
+                        data: dt
+                    });
+
+                    laasm2001 = new Layer(state.map,
+                        {
+                            id: 'laasm2001',
+                            source: 'laasm2001',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+            });
+        });
+
+        tab.addRevealSection(
+            'Older Plans',
+            (uiState, dispatch) => html`
+            ${toggle("2001 State Assembly Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                laasm2001 && laasm2001.setOpacity(opacity);
+            })}
+            ${toggle("2001 State Senate Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                lasen2001 && lasen2001.setOpacity(opacity);
+            })}
+            ${toggle("2001 US House Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                la2001 && la2001.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: true
+            }
+        );
     }
 
     if (spatial_abilities(state.place.id).native_american) {
