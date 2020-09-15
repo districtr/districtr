@@ -516,30 +516,30 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.place.id === "lax") {
-        let plan2010 = null;
-        fetch("/assets/current_districts/lax_2001.geojson").then(res => res.json()).then((va2010) => {
-            state.map.addSource('va2010', {
+        let la2001 = null;
+        fetch("/assets/current_districts/lax_2001.geojson").then(res => res.json()).then((dt) => {
+            state.map.addSource('la2001', {
                 type: 'geojson',
-                data: va2010
+                data: dt
             });
 
-            plan2010 = new Layer(state.map,
+            la2001 = new Layer(state.map,
                 {
-                    id: 'va2010',
-                    source: 'va2010',
+                    id: 'la2001',
+                    source: 'la2001',
                     type: 'line',
-                    paint: { "line-color": "#000", "line-opacity": 0 }
+                    paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
                 },
                 addBelowLabels
             );
         });
 
         tab.addRevealSection(
-            'Enacted Plans',
+            'Older Plans',
             (uiState, dispatch) => html`
             ${toggle("2001 Congressional Plan", false, checked => {
                 let opacity = checked ? 1 : 0;
-                plan2010 && plan2010.setOpacity(opacity);
+                la2001 && la2001.setOpacity(opacity);
             })}`,
             {
                 isOpen: true
