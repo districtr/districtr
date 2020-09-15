@@ -85,6 +85,16 @@ export function TooltipContent(
     const values = columnSet.columns.map(column =>
         sum(features.map(f => column.getValue(f)))
     );
+    if (columnSet.type === "election") {
+        let votesum = values.reduce((a, b) => a + b, 0);
+        columnSet = {
+            columns: columnSet.columns.filter(c => c.name).map((c, i) => {
+                c.name = c.name.split(" (")[0] + " (" + Math.round(100 * values[i] / votesum) + "%)";
+                return c;
+            }),
+            ...columnSet
+        };
+    }
     return html`
         ${tooltipHeading(features, nameColumn, pluralNoun, parts)}
         ${HorizontalBarChart(columnSet, values, total)}

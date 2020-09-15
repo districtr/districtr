@@ -1,5 +1,6 @@
 /edit/* /edit.html 200
 /new/* /new.html 200
+/event/* /event.html 200
 /community/* /community.html 200
 /user_guide /guide
 

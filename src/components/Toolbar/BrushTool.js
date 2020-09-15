@@ -48,6 +48,9 @@ export default class BrushTool extends Tool {
         this.brush.activate();
     }
     deactivate() {
+        if (this.brush.county_brush) {
+            this.options.toggleCountyBrush();
+        }
         super.deactivate();
         this.brush.deactivate();
     }

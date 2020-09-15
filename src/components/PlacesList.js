@@ -27,14 +27,14 @@ export function listPlacesForState(state) {
             _placesList = items.filter(place => !place.limit || justCommunities)
                 .map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
-                item => item.state === state || item.name === state
+                item => item.state === state || item.name === state || item.id === state
             );
             return _placesCache[state];
         });
     }
     if (_placesCache[state] === undefined) {
         _placesCache[state] = _placesList.filter(
-            item => item.state === state || item.name === state
+            item => item.state === state || item.name === state || item.id === state
         );
     }
     return Promise.resolve(_placesCache[state]);

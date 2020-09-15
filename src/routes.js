@@ -1,4 +1,5 @@
 import { listPlaces } from "./api/mockApi";
+import { spatial_abilities } from "./utils";
 
 const routes = {
     "/": "/",
@@ -49,7 +50,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, callback) {
+export function savePlanToDB(state, eventCode, planName, callback) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -63,6 +64,7 @@ export function savePlanToDB(state, eventCode, callback) {
             plan: JSON.parse(JSON.stringify(serialized)),
             token: token.split("_")[0],
             eventCode: eventCode,
+            planName: planName,
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
@@ -73,23 +75,43 @@ export function savePlanToDB(state, eventCode, callback) {
             delete requestBody.plan.assignment[key];
         }
     });
-    fetch(saveURL, {
-        method: "POST",
-        body: JSON.stringify(requestBody)
-    })
-    .then(res => res.json())
-    .then(info => {
-        if (info.simple_id) {
-            history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
-            callback(info.simple_id);
-            if (info.token) {
-                localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
+    let saveme = (requestBody) => {
+        fetch(saveURL, {
+            method: "POST",
+            body: JSON.stringify(requestBody)
+        })
+        .then(res => res.json())
+        .then(info => {
+            if (info.simple_id) {
+                history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
+                if (info.token && localStorage) {
+                    localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
+                }
+                callback(info.simple_id);
+            } else {
+                callback(null);
             }
-        } else {
-            callback(null);
-        }
-    })
-    .catch(e => callback(null));
+        })
+        .catch(e => callback(null));
+    };
+    if (spatial_abilities(state.place.id).screenshot) {
+        fetch("//mggg.pythonanywhere.com/picture", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(serialized),
+        })
+        .then((res) => res.text())
+        .catch((e) => {
+            console.error(e);
+            saveme(requestBody);
+        })
+        .then((data) => {
+            requestBody.screenshot = 'data:image/png;base64,' + data.substring(2, data.length - 1);
+            saveme(requestBody);
+        });
+    } else {
+        saveme(requestBody);
+    }
 }
 
 export function getContextFromStorage() {

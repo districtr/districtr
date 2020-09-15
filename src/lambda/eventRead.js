@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const eventCode = event.queryStringParameters.event;
+    const eventCode = (event.queryStringParameters.event || "").toLowerCase().replace(/_/g, '-');
     const myHost = event.queryStringParameters.hostname;
     if (!eventCode.trim().length) {
         return {
@@ -19,9 +19,10 @@ exports.handler = async (event, context) => {
     }
 
     const plans = await Plan.find({
-        eventCode: eventCode,
-        hostname: myHost
-    }).select('_id simple_id');
+        eventCode: eventCode
+    })
+    .select("_id simple_id startDate plan screenshot planName")
+    .sort([["simple_id", -1]]);
     // be careful not to share token here
     return {
         statusCode: 200,

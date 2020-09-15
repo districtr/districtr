@@ -1,8 +1,8 @@
 import { html } from "lit-html";
 import Parameter from "./Parameter";
-import Select from "./Select";
 import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
+import { colorScheme } from "../colors";
 
 export default class AboutSection {
     constructor({ state, render }) {
@@ -13,7 +13,7 @@ export default class AboutSection {
         this.renderCallback = render;
         this.saved = false;
         bindAll(
-            ["onSave", "setName", "setDescription", "render", "setPart"],
+            ["onSave", "setName", "setDescription", "render", "setPart", "saveFeature", "deleteFeature"],
             this
         );
     }
@@ -24,21 +24,16 @@ export default class AboutSection {
         this.part = this.state.parts[index];
         this.name = this.part.name || "";
         this.description = this.part.description || "";
+        document.getElementsByClassName('custom-select')[0].classList.toggle('open');
         this.renderCallback();
     }
     setName(name) {
         this.name = name;
-        if (this.saved) {
-            this.saved = false;
-            this.renderCallback();
-        }
+        this.onSave();
     }
     setDescription(description) {
         this.description = description;
-        if (this.saved) {
-            this.saved = false;
-            this.renderCallback();
-        }
+        this.onSave();
     }
     onSave() {
         this.part.updateDescription({
@@ -49,6 +44,16 @@ export default class AboutSection {
         this.saved = true;
         this.renderCallback();
     }
+    saveFeature(id) {
+        this.landmarks.saveFeature(id);
+        savePlanToStorage(this.state.serialize());
+        this.renderCallback();
+    }
+    deleteFeature(id) {
+        this.landmarks.deleteFeature(id);
+        savePlanToStorage(this.state.serialize());
+        this.renderCallback();
+    }
     render() {
         const parts = this.state.activeParts;
         return html`
@@ -57,7 +62,26 @@ export default class AboutSection {
                     ${parts.length > 1
                         ? Parameter({
                               label: "Community:",
-                              element: Select(parts, i => this.setPart(i))
+                              element: html`<div class="custom-select-wrapper">
+                                      <div class="custom-select">
+                                          <div
+                                              class="custom-select__trigger"
+                                              @click="${(e) => { document.getElementsByClassName('custom-select')[0].classList.toggle('open')}}"
+                                          >
+                                              <span class="part-number" style="${'background:' + colorScheme[this.part.id] }"> </span>
+                                              <span>${this.name}</span>
+                                              <div class="arrow"></div>
+                                          </div>
+                                          <div class="custom-options">
+                                              ${parts.map((p) => {
+                                                 return html`<div @click="${e => this.setPart(p.id)}">
+                                                    <span class="part-number" style="${'background:' + colorScheme[p.id] }"> </span>
+                                                    <span class="custom-option" data-value="${p.name}">${p.name}</span>
+                                                 </div>`;
+                                              })}
+                                          </div>
+                                      </div>
+                                  </div>`
                           })
                         : ""}
                 </li>
@@ -84,7 +108,7 @@ function AboutSectionTemplate({
                     class="text-input"
                     .value="${name}"
                     @blur=${e => setName(e.target.value)}
-                    @focus=${e => setName(e.target.value)}
+                    @input=${e => setName(e.target.value)}
                 />
             </li>
             <li class="option-list__item">
@@ -92,20 +116,13 @@ function AboutSectionTemplate({
                 <textarea
                     class="text-input text-area"
                     @blur=${e => setDescription(e.target.value)}
-                    @focus=${e => setDescription(e.target.value)}
+                    @input=${e => setDescription(e.target.value)}
                     .value="${description}"
                 ></textarea>
             </li>
             <li class="option-list__item">
-                <button
-                    ?disabled=${saved}
-                    class="button button--submit button--${saved
-                        ? "disabled"
-                        : "alternate"} ui-label"
-                    @click=${onSave}
-                >
-                    ${saved ? "Saved" : "Save"}
-                </button>
+                <br/>
+                <code>Your community details are updated automatically</code>
             </li>
         </ul>
     `;

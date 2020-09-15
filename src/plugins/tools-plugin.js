@@ -12,7 +12,7 @@ import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
-import { download, spatial_abilities /* , stateNameToFips */ } from "../utils";
+import { download, spatial_abilities } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -39,6 +39,7 @@ export default function ToolsPlugin(editor) {
         if (c_checker) {
             c_checker(state, colorsAffected);
         }
+
         if (planNumbers) {
             planNumbers.update(state, colorsAffected);
         }

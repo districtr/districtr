@@ -130,7 +130,9 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Hawaiian Home Lands";
     } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    } else if (["maine", "nevada", "newyork", "utah"].includes(state.place.id)) {
+    } else if (state.place.id === "maine") {
+        native_am_type = "Tribes in Maine";
+    } else if (["nevada", "newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Indian Tribes";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
@@ -369,6 +371,38 @@ export default function DataLayersPlugin(editor) {
                 })}
             `
         );
+    }
+
+    if (state.place.id === "forsyth_nc") {
+        let fnc_layer;
+        fetch(`/assets/current_districts/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
+            state.map.addSource('fnc', {
+                type: 'geojson',
+                data: fnc
+            });
+
+            fnc_layer = new Layer(state.map,
+                {
+                    id: 'fnc',
+                    source: 'fnc',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+        });
+        tab.addRevealSection(
+            'Show Boundary',
+            (uiState, dispatch) => html`
+            ${toggle("Winston-Salem", false, checked => {
+                let opacity = checked ? 1 : 0;
+                fnc_layer && fnc_layer.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
+
     }
 
     if (["virginia", "lax"].includes(state.place.id)) {
