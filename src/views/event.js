@@ -14,6 +14,7 @@ const validEventCodes = {
 
 const unitCounts = {
   'unca-forsyth': 101,
+  fyi: 101,
   'common cause md ss': 1809,
   'commoncause md ss': 1809,
   'cc-md-ss': 1809,
