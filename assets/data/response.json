@@ -16709,5 +16709,70 @@
         "pluralNoun": "County Commission Districts"
       }
     ]
+  },
+  {
+    "name": "Los Angeles County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "centroid_y",
+              "name": "Total population",
+              "sum": 11687,
+              "min": 34,
+              "max": 35
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "label"
+        },
+        "bounds": [
+          [
+            -118.9446,
+            33.7037
+          ],
+          [
+            -117.6464,
+            34.8233
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blocks_points"
+            },
+            "sourceLayer": "lax_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blocks"
+            },
+            "sourceLayer": "lax_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "lax",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
