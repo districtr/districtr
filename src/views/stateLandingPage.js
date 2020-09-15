@@ -106,9 +106,9 @@ const drawPage = stateData => {
 
         <div class="place-options places-list">
                 <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
-                <label for="districts">Drawing Districts</label>
+                <label for="districts" class="mode-selection">Drawing Districts</label>
                 <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
-                <label for="communities">Drawing Communities</label>
+                <label for="communities" class="mode-selection">Drawing Communities</label>
         </div>
 
         
@@ -157,6 +157,7 @@ const drawSection = (section, stateData) => {
 
             <div id="districting-options" class="districts"></div>
             <div id="community-options" class="communities" style="display: none;"></div>
+            <p><a href="#data">What are these units?</a></p>
         `;
     } else if (section.type === "plans") {
         section_body = html`
@@ -261,7 +262,7 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
                 <div class="place-name">${place.name}</div>
-                <div class="place-info"> Identify a community </div>
+                ${problemTypeInfo[problem.type] || ""}
                 <div class="place-info">
                     Built out of ${units.name.toLowerCase()}
                 </div>
@@ -300,33 +301,21 @@ const problemTypeInfo = {
 
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
-        getProblems(place)
+        place.districtingProblems
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
                     <li
-                        class="${place.id} places-list__item places-list__item--small ${problem.partCounts.length > 1 ? "choice" : ""}"
-                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
+                        class="${place.id} places-list__item places-list__item--small"
+                        @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">
                             ${place.name}
                         </div>
                         ${problemTypeInfo[problem.type] || ""}
-                        ${problem.partCounts.length > 1
-                              ? html`<div class="place-info">
-                                    ${problem.pluralNoun}: </div>
-                                    <div class="place-info">
-                                    ${problem.partCounts.map(num =>
-                                        html`<button
-                                            @click=${() => onClick(place, problem, units, null, num)}
-                                        >
-                                            ${num}
-                                        </button>`
-                                    )}
-                                </div>`
-                              : html`<div class="place-info">
-                                  ${problem.numberOfParts} ${problem.pluralNoun}
-                                </div>`}
+                        <div class="place-info">
+                            ${problem.numberOfParts} ${problem.pluralNoun}
+                        </div>
                         <div class="place-info">
                             Built out of ${units.name.toLowerCase()}
                         </div>

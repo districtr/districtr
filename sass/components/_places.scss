@@ -42,7 +42,7 @@
     // height: 10rem;
 
     border-radius: 0.5rem;
-    background-color: $mggg-blue;
+    background-color: $districtr-purple;
     color: white;
     cursor: pointer;
 
@@ -50,17 +50,17 @@
         box-shadow: $focus-shadow;
     }
     &:hover {
-        background-color: $mggg-dark-blue;
+        background-color: $districtr-dark-purple;
     }
 
     &.choice {
         cursor: default;
-        background-color: $mggg-blue;
+        background-color: $districtr-purple;
 
         button {
             cursor: pointer;
             background-color: #fff;
-            color: $mggg-blue;
+            color: $districtr-purple;
             padding: 0.2rem 0.6rem;
             margin: 0.2rem 0.5rem;
             border-radius: 0.2rem;
@@ -71,7 +71,7 @@
             }
         }
         &:hover {
-            background-color: $mggg-blue;
+            background-color: $districtr-purple;
         }
     }
 }
@@ -103,6 +103,7 @@
         color: #444;
     }
 
+/*
     .learn__more,
     .learn__more:visited {
         background: $mggg-blue;
@@ -112,6 +113,7 @@
     .learn__more:active {
         background: $mggg-dark-blue;
     }
+*/
 }
 
 .places-list__item--small {
@@ -189,7 +191,7 @@
     }
 }
 
-
+/*
 .learn__more,
 .learn__more:visited {
     background: $districtr-red;
@@ -226,3 +228,4 @@
     box-shadow: $focus-shadow;
     outline: 0;
 }
+*/

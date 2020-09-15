@@ -92,17 +92,17 @@ export default function ToolsPlugin(editor) {
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
-    try {
-        if ((window.location.href.indexOf("dev") === -1) &&
-            (!localStorage || localStorage.getItem("lastVisit") !== state.place.id)
-        ) {
-            renderAboutModal(editor.state);
-            localStorage.setItem("lastVisit", state.place.id);
-        }
-    } catch(e) {
-        // likely no About page exists - silently fail to console
-        console.error(e);
-    }
+    // try {
+    //     if ((window.location.href.indexOf("dev") === -1) &&
+    //         (!localStorage || localStorage.getItem("lastVisit") !== state.place.id)
+    //     ) {
+    //         renderAboutModal(editor.state);
+    //         localStorage.setItem("lastVisit", state.place.id);
+    //     }
+    // } catch(e) {
+    //     // likely no About page exists - silently fail to console
+    //     console.error(e);
+    // }
 }
 
 function exportPlanAsJSON(state) {

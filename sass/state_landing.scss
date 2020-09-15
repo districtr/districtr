@@ -121,6 +121,7 @@ figcaption {
 
 .places-list--columns {
   align-items: stretch;
+  margin-bottom: 1rem;
 }
 
 /* Statewide vs Local Selection */
@@ -137,6 +138,7 @@ label
     border-color: white;
     font-size: 1.125rem;
     cursor: pointer;
+    text-align: center;
 }
 
 label:hover {
@@ -144,6 +146,10 @@ label:hover {
     //color: #92e3ff;
 }
 
+.mode-selection {
+  flex-basis: 20%;
+  flex-grow: 0;
+}
 
 
 input[type=radio]
@@ -152,12 +158,12 @@ input[type=radio]
 }
 input[type=radio]:checked + label
 {
-    background-color:$mggg-dark-blue;
+    background-color:$districtr-dark-purple;
 }
 
 input[type=radio]:checked + label:hover
 {
-    background-color:$mggg-very-dark-blue;
+    background-color:$districtr-very-dark-purple;
 }
 
 input[type=radio].comm:checked + label
