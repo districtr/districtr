@@ -515,6 +515,38 @@ export default function DataLayersPlugin(editor) {
         }
     }
 
+    if (state.place.id === "lax") {
+        let plan2010 = null;
+        fetch("/assets/current_districts/lax_2001.geojson").then(res => res.json()).then((va2010) => {
+            state.map.addSource('va2010', {
+                type: 'geojson',
+                data: va2010
+            });
+
+            plan2010 = new Layer(state.map,
+                {
+                    id: 'va2010',
+                    source: 'va2010',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+        });
+
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("2001 Congressional Plan", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: true
+            }
+        );
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
