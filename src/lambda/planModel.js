@@ -8,6 +8,10 @@ const schema = new mongoose.Schema({
     type: String,
     max: 50
   },
+  planName: {
+    type: String,
+    max: 100
+  },
   hostname: {
     type: String,
     max: 100
@@ -15,6 +19,7 @@ const schema = new mongoose.Schema({
   simple_id: Number,
   token: String,
   startDate: Date,
+  screenshot: String,
   // name: {
   //   type: String,
   //   required: [true, 'Name field is required'],

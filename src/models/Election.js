@@ -5,7 +5,7 @@ export default class Election extends ColumnSet {
         const sortedSubgroups = subgroups.sort((a, b) =>
             a.name.localeCompare(b.name)
         );
-        super({ subgroups: sortedSubgroups, parts }, false);
+        super({ subgroups: sortedSubgroups, type: "election", parts }, false);
         this.name = name;
 
         this.getOtherParty = this.getOtherParty.bind(this);

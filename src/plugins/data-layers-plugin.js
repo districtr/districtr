@@ -373,6 +373,38 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    if (state.place.id === "forsyth_nc") {
+        let fnc_layer;
+        fetch(`/assets/current_districts/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
+            state.map.addSource('fnc', {
+                type: 'geojson',
+                data: fnc
+            });
+
+            fnc_layer = new Layer(state.map,
+                {
+                    id: 'fnc',
+                    source: 'fnc',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+        });
+        tab.addRevealSection(
+            'Show Boundary',
+            (uiState, dispatch) => html`
+            ${toggle("Winston-Salem", false, checked => {
+                let opacity = checked ? 1 : 0;
+                fnc_layer && fnc_layer.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
+
+    }
+
     if (["virginia", "lax"].includes(state.place.id)) {
         let plan2010, plan2013, ush;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
