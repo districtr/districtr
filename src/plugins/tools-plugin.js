@@ -126,7 +126,7 @@ function getMenuItems(state) {
     let items = [
         {
             name: "About this module",
-            onClick: () => renderAboutModal(state, true)
+            onClick: () => window.open("/" + state.place.state.replace(/\s+/g, '-'), "_blank")
         },
         {
             name: "Districtr homepage",

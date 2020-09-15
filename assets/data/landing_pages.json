@@ -14,7 +14,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -38,19 +38,19 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
-          {"name": "Research", "content": "<p>These maps were created as part of the research process for MGGG's paper on Alaska, <a href=\"https://mggg.org/alaska\">Mathematics of Nested Districts: The Case of Alaska</a>.  The report investigates the possibility of a gerrymander that pairs nested House districts for Senate districts to favor Republicans, since Democrats control the House but the Senate has a ⅔ Republican majority. It was ultimately determined that there was a Republican skew in the enacted plans for the Senate when compared to all the possible plans that would fit the necessary criteria. This partisan sway is equivalent to that of a plan made from scratch. Choices in how to determine contiguity rules when it comes to bodies of water and how to distribute the high number of unprecincted votes can have significant sway on partisan results as well. </p>"}
+          {"name": "Research", "content_source": "/assets/about/alaska/research.html"}
         ]
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Alaska Precincts",
-           "content": "<p>Data for the statewide map were obtained from the Alaska Division of Elections and from National Historic GIS (NHGIS). The precinct shapefile and election results were downloaded <a href=\"http://www.elections.alaska.gov/Core/electionresources.php\">from the Alaska Division of Elections</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/AK-shapefiles\">@mggg-states</a>.</p>"}]
+           "content_source": "/assets/about/alaska/data.html"}]
       }
     ]
   },
@@ -71,7 +71,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -99,20 +99,20 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Arizona Precincts", 
-           "content": "<p>Where you will find precincts: Statewide maps</p><p>The precinct shapefile is made available on <a href=\"https://www.kaggle.com/azsecretaryofstate/arizona-statewide-precinct-shapefile?select=az_vtd_2018_new_pima.shp\">Kaggle</a> by Garret Archer, formerly Senior Elections Analyst with the Arizona Secratary of State and currently a Data Analyst with ABC15 Arizona. Tabular election data are from the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. Processing was completed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>Some very limited merging of precincts in the original shapefile was necessary to join election results. La Paz County precincts were edited to match data provided on the county's <a href=\"http://www.co.la-paz.az.us/DocumentCenter/View/76/Precinct-Map-PDF\">election website</a>.</p>"
+           "content_source": "/assets/about/arizona/precincts.html"
           },
           {"name": "Arizona Census blocks", 
-           "content": "<p>Where you will find blocks: Maricopa County, Yuma County, and Pheonix maps.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+           "content_source": "/assets/about/arizona/blocks.html"
           }
         ]
       }
@@ -133,24 +133,24 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Arkansas Census blocks",
-            "content": "<p>Where you will find blocks: Little Rock School Attendance Zones map.</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Little Rock was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
+            "content_source": "/assets/about/arkansas/blocks.html"
           }
         ]
         
@@ -175,21 +175,21 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "Election reform in Napa",
-            "content": "<p>The City of Napa is switching from electing city council seats at-large, to individual districts each with one or more members.  In addition, the Napa Valley Unified School District is considering switching from electing the Board of Education trustees at-large, to seven districts each with one member.</p><p>This districting process should be open and transparent for everyone, and the chosen districts should represent neighborhoods and communities.</p>"
+            "content_source": "/assets/about/california/napa-reform.html"
           },
           {
             "name": "Election reform in Santa Clara",
-            "content": "<p>This map was created because of a lawsuit against Santa Clara's at-large electoral system for City Council, which plaintiffs claim posed a structural impediment to the election of Asian Americans. A district court in May 2018 ruled that the voting system violated the California Voting Rights Act (for more information see <a href=\"https://www.nbcbayarea.com/news/local/Court-Rules-Santa-Clara-Violated-the-California-Voting-Rights-Act-482815201.html\">here</a>. In February 2018, MGGG <a href=\"https://mggg.org/SantaClara.pdf\">released a report</a> with recommendations for alternative voting systems in Santa Clara.</p>"
+            "content_source": "/assets/about/california/santa-clara-reform.html"
 
           }]
       },
@@ -197,10 +197,10 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "California Census Blocks and Block groups",
-          "content": "<p>Where you will find blocks: Sanata Clara, Napa, Napa Valley Unified School District, and Ontario maps.</p><p>Where you will find block groups: Los Angeles County map.</p><p>These data were obtained from the US Census Bureau. The block and block group shapefiles for California was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a> and the <a href=\"https://api.census.gov\">Census API</a>.</p>"
+          "content_source": "/assets/about/california/data.html"
           }
         ]
           
@@ -222,7 +222,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -254,10 +254,10 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Colorado Precincts",
-          "content": "<p>Where you will find precincts: Statewide maps</p><p>This shapefile comes from Todd Bleess of the Colorado State Demographer's Office and was cleaned and processed by members of Beth Malmskog's team at Colorado College. This effort was led by Haley Colgate and included Austin Eide, Matt Cooney, Edgar Santos Vega, Kadin Mangalik, and Jose Monge Castro. Some additional processing was done by MGGG staff.</p><p>The 2018 Colorado precinct shapefile was made available to us by Todd Bleess of the Colorado State Demographer's Office. Election data come from the <a href=\"https://www.sos.state.co.us/pubs/elections/Results/Archives.html\">Colorado Secretary of State's Office</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts for certain counties were not included in the shapefile provided by the Demographer's Office and were digitized from maps provided by the county. Those counties are: Boulder, Denver, Douglas, and El Paso. For Las Animas county, the voter file was geocoded and used to identify precinct boundaries. Demographic data were aggregated from the census block level and precincts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+          "content_source": "/assets/about/colorado/precincts.html"
         }
         ]
       }
@@ -278,7 +278,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -310,17 +310,17 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Connecticut Precincts",
-          "content": "<p> Raw data for Connecticut's voting district boundaries was sourced from election and other town officials and processed by members of the MGGG Redistricting Lab. Precinct-level election results were obtained from the Connecticut Secretary of State's Election Center.</p><p> Block level demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  Demographic data were aggregated from the census block level and voting districts were assigned to districts using <a href=\"https://github.com/mggg/maup\">MGGG's proration software</a>.</p>"
+          "content_source": "/assets/about/connecticut/precincts.html"
           }
         ]
         
@@ -342,7 +342,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -370,14 +370,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Delaware Precincts",
           "content": "<p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
@@ -403,20 +403,20 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [{
           "name": "Florida Census blocks and block groups",
           "content": "<p>Where you will find blocks: City of Miami map.</p><p>Where you will find block groups: Miami-Dade County map.</p><p>These data were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.  At the block group level, 2018 population estimates, household income, and homeownership data were obtained from the <a href=\"https://www.census.gov/programs-surveys/acs\">ACS</a>.</p>"
@@ -440,7 +440,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -471,14 +471,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [{"name": "Research", "content": ""}]
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [{"name": "Georgia Precincts",  
         "content": "<p>These data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"}]
        
@@ -500,7 +500,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -532,14 +532,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Hawaii Precints",
           "content": "<p>This shapefile comes from Hawaii Statewide GIS Program and was processed by Metric Geometry and Gerrymandering Group (MGGG) staff.</p><p>This precinct shapefile comes from the <a href=\"http://planning.hawaii.gov/gis/download-gis-data/\">Hawaii Statewide GIS Program</a> in the State Office of Planning. Election results come from the <a href=\"https://elections.hawaii.gov/election-results/\">State of Hawaii Office of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Hawaii was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts 41-02 and 41-05 were merged as were precincts 42-01 and 42-04 in order to join 2016 and 2018 results onto the same precinct boundaries. Demographic data were aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>.</p>"
@@ -563,7 +563,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "See the sample plans featured in the report",
@@ -723,7 +723,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "City Council Districts in Chicago",
@@ -737,7 +737,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Chicago Community Areas and Precincts", "content": "<p>In the 1920s, researchers at the University of Chicago divided the city into 77 <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a> that have played an important role in city planning and culture since their inception and serve as proxies for neighborhoods.  The community area and precinct shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"}
         ]
@@ -759,7 +759,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -783,14 +783,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html" ,
+        "content_source": "/assets/about/landing/data.html" ,
         "subsections": [
           {"name": "Iowa Counties",
           "content": "<p>Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
@@ -814,20 +814,20 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maine Precints",
           "content": "<p>The Maine precinct shapefile was obtained from the <a href=\"https://www.maine.gov/geolib/catalog.html\">Maine Geolibrary</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://www.maine.gov/sos/cec/elec/results/index.html\">Maine Bureau of Corporations, Elections, & Commissions</a>. Data from absentee votes reported at the state level were disaggregated by voting age population. Because of data reporting and processing, a few precincts cross county boundaries.  Demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/ME-shapefiles\">here</a>.</p>"}]
@@ -849,7 +849,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -874,14 +874,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maryland Precints",
           "content": "<p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/MD-shapefiles\">here</a>.</p>"}]
@@ -904,7 +904,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -985,7 +985,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "Research",
@@ -1002,7 +1002,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Massachusetts Precincts",
@@ -1035,7 +1035,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1067,14 +1067,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Michigan Precincts",
@@ -1099,7 +1099,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1127,14 +1127,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Michigan Precincts",
@@ -1159,13 +1159,13 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
        {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [{"name": "Research", 
         "content": "<p>This Mississippi module comes out of a project from MGGG's Voting Rights Data Institute that explored how many majority-Black congressional districts are possible to draw. A write-up of this experiment is forthcoming.</p>"}]
       },
@@ -1173,7 +1173,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Mississippi block groups",
@@ -1198,13 +1198,13 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
@@ -1230,7 +1230,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1258,14 +1258,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "New Mexico Precincts",
@@ -1290,20 +1290,20 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "New York Census Blocks",
@@ -1332,7 +1332,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1364,7 +1364,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "Rucho v. Common Cause",
@@ -1376,7 +1376,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "North Carolina voting tabulation districts (VTDs)",
@@ -1401,20 +1401,20 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Ohio Precincts",
@@ -1439,7 +1439,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1471,14 +1471,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Oklahoma Precincts",
@@ -1506,7 +1506,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1538,7 +1538,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {"name": "Election reform in Oregon", 
            "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"},
@@ -1549,7 +1549,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Oregon Precincts", 
            "content": "<p>Where you will find precincts: Statewide and Portland maps</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  Election results for 2016 and 2018 were cleaned by MGGG staff and joined to the geographic data along with demographic data from the 2010 Decennial Census. More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/OR-shapefiles\">here</a>.</p>"
@@ -1578,7 +1578,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "See sample plans",
@@ -1619,7 +1619,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {"name": "Redistricting in the court",
           "content": "<p>In February 2018, Moon Duchin was asked by Governor Tom Wolf to provide guidance in evaluating redistricting plans for fairness after the Pennsylvania Supreme Court struck down the 2011 enacted plan as an unconstitutional partisan gerrymander. Her report is hosted on <a href=\"https://mggg.org/uploads/md-report.pdf\">MGGG's website</a>.</p>"}
@@ -1629,7 +1629,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Pennsylvania voting tabulation districts (VTDs)", 
            "content": "<p>Where you will find precincts: Statewide maps</p><p>The raw, unprocessed VTDs were collected from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Election data was compiled at the precinct level by a private individual and was found to be within 1% of the official state-reported results at the county and state levels. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/PA-shapefiles\">@mggg-states</a>.</p>"
@@ -1658,7 +1658,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -1690,14 +1690,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Rhode Island Precincts", 
@@ -1728,7 +1728,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore the currently enacted plan",
@@ -1753,14 +1753,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Texas voting tabulation districts (VTDs)",
@@ -1789,7 +1789,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore the currently enacted plans",
@@ -1818,14 +1818,14 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Utah Precincts",
@@ -1850,20 +1850,20 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
       },
       {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Vermont Towns",
@@ -1892,7 +1892,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "See sample plans",
@@ -1937,7 +1937,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "Research",
@@ -1957,7 +1957,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Virginia Precincts",
@@ -1985,7 +1985,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "See sample plans",
@@ -2018,7 +2018,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "The electoral system in Yakima County",
@@ -2030,7 +2030,7 @@
         "name": "About the Data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Washington Census Blocks and Block groups",
@@ -2059,7 +2059,7 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "Explore sample plans",
@@ -2083,7 +2083,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {
             "name": "Redistricting in the court | Gill v. Whitford",
@@ -2095,7 +2095,7 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/landing/data.html",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
             "name": "Wisconsin Wards",

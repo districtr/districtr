@@ -114,7 +114,7 @@ const drawPage = stateData => {
         
         ${stateData.sections.map(s => drawSection(s, stateData))}
 
-        ${until(fetch("assets/landing/footer.html").then((r) => {if (r.status === 200) {
+        ${until(fetch("assets/about/landing/footer.html").then((r) => {if (r.status === 200) {
                                                                     return r.text();
                                                                 } else {
                                                                     throw new Error(r.statusText);
@@ -169,7 +169,16 @@ const drawSection = (section, stateData) => {
                                                                                     throw new Error(r.statusText);
                                                                                 }}).then(content => $.parseHTML(content))) : ""}
             ${section.content ? $.parseHTML(section.content) : ""}
-            ${section.subsections ? section.subsections.map(s => html`<h3>${s.name}</h3> ${$.parseHTML(s.content)}`) : ""}
+            ${section.subsections ? section.subsections.map(s => html`<h3>${s.name}</h3>  
+                                                                      ${s.content_source ? until(fetch(s.content_source).then((r) => {
+                                                                                if (r.status === 200) {
+                                                                                    return r.text();
+                                                                                } else if (userRequested) {
+                                                                                    return "Section content could not be found at " + s.content_source;
+                                                                                } else {
+                                                                                    throw new Error(r.statusText);
+                                                                                }}).then(content => $.parseHTML(content))) : ""}
+                                                                       ${s.content ? $.parseHTML(s.content) : ""}`) : ""}
         `;
     };
 
