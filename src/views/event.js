@@ -5,16 +5,29 @@ import { startNewPlan } from "../routes";
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
-  'unca-forsyth': 'forsyth_nc'
+  'unca-forsyth': 'forsyth_nc',
+  'common cause md ss': 'maryland',
+  'commoncause md ss': 'maryland',
+  'cc-md-ss': 'maryland',
+  'cc md ss': 'maryland',
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
+  'common cause md ss': 1809,
+  'commoncause md ss': 1809,
+  'cc-md-ss': 1809,
+  'cc md ss': 1809,
 };
 
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Ashville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
+
+  'common cause md ss': 'Welcome to the event page for Common Cause Maryland project!',
+  'commoncause md ss': 'Welcome to the event page for Common Cause Maryland project!',
+  'cc-md-ss': 'Welcome to the event page for Common Cause Maryland project!',
+  'cc md ss': 'Welcome to the event page for Common Cause Maryland project!',
 };
 
 export default () => {
