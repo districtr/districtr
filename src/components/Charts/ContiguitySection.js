@@ -8,7 +8,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
       <h4 id="contiguity-status">
         ${Object.keys(contiguityProblems).length
           ? "Districts may have contiguity gaps"
-          : "Any districts are contiguous"}
+          : "No contiguity gaps detected"}
       </h4>
       <div class="district-row">
         ${allParts.map((part, dnum) => {

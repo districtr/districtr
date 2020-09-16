@@ -4,7 +4,7 @@ function setContiguityStatus(contiguity_breaks) {
   document.querySelector("#contiguity-status").innerText =
       contiguity_breaks.length
           ? "Districts may have contiguity gaps"
-          : "Any districts are contiguous";
+          : "No contiguity gaps detected";
   let myDistricts = document.querySelectorAll('.district-row .part-number');
   for (let d = 0; d < myDistricts.length; d++) {
      myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";

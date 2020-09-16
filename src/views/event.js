@@ -23,7 +23,7 @@ const unitCounts = {
 
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
-  'unca-forsyth': 'Welcome to your class page UNC Ashville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
+  'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
 
   'common cause md ss': 'Welcome to the event page for Common Cause Maryland project!',
   'commoncause md ss': 'Welcome to the event page for Common Cause Maryland project!',

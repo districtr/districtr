@@ -144,6 +144,10 @@ select {
     user-select: all;
     -webkit-user-select: text;
 }
+.modal-wrapper input, .modal-wrapper button {
+    user-select: all;
+    -webkit-user-select: all;
+}
 
 #save-popup {
     display: none;
@@ -176,6 +180,11 @@ select {
             word-break: break-all;
             user-select: all;
             -webkit-user-select: text;
+        }
+
+        input, button {
+            user-select: all;
+            -webkit-user-select: all;
         }
 
         button {

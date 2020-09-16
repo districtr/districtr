@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
-import { geoPath, geoAlbersUsa } from "d3-geo";
+import { geoPath } from "d3-geo";
+import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 import { svg, html, render } from "lit-html";
 import { PlacesListForState } from "./PlacesList";
 import { select, selectAll } from "d3-selection";
@@ -8,6 +9,29 @@ import "d3-transition";
 // ============
 // Global state
 // ============
+
+const coi_available = [
+    "Alabama",
+    "Florida",
+    "Idaho",
+    "Indiana",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "New Hampshire",
+    "New Jersey",
+    "North Dakota",
+    "Puerto Rico",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "West Virginia",
+    "Wyoming"
+];
 
 const available = [
     "Alaska",
@@ -29,6 +53,7 @@ const available = [
     "Mississippi",
     "Illinois",
     "Texas",
+    "Nevada",
     "New Mexico",
     "New York",
     "North Carolina",
@@ -83,6 +108,7 @@ const uspost = {
   "Oklahoma": "ok",
   "Oregon": "or",
   "Pennsylvania": "pa",
+  "Puerto Rico": "pr",
   "Rhode Island": "ri",
   "South Carolina": "sc",
   "South Dakota": "sd",
@@ -147,7 +173,7 @@ let FEATURES = [];
 const scale = 1280;
 const translate = [640, 300];
 const path = geoPath(
-    geoAlbersUsa()
+    geoAlbersUsaTerritories()
         .scale(scale)
         .translate(translate)
 ).pointRadius(2);
@@ -407,6 +433,7 @@ export function PlaceMap(features, selectedId) {
             history.back();
         }
     });
+
     const selectedFeature = selectedId
         ? features.features.find(
               feature => feature.properties.STUSPS.toLowerCase() === selectedId
@@ -428,7 +455,8 @@ export function PlaceMap(features, selectedId) {
                 }}
             >
               ${Object.keys(uspost).map(st => {
-                  return html`<option value="${st}" ?disabled=${!available.includes(st)}>
+                  return html`<option value="${st}" ?disabled=${!(available.includes(st) ||
+                      (window.location.href.includes("community") && coi_available.includes(st)))}>
                       ${st}
                   </option>`;
               })}
@@ -479,6 +507,10 @@ function fetchFeatures(availablePlaces = available) {
             states.features.forEach((feature) => {
                 feature.properties.isAvailable = availablePlaces.includes(
                     feature.properties.NAME
+                ) || (
+                    window.location.href.includes("community") && coi_available.includes(
+                        feature.properties.NAME
+                    )
                 );
             });
             FEATURES = states;
