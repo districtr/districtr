@@ -30,8 +30,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -86,7 +86,9 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Alaska Precincts",
-           "content_source": "/assets/about/alaska/data.html"}]
+           "content_source": "/assets/about/alaska/data.html"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -149,7 +151,9 @@
           },
           {"name": "Arizona Census blocks", 
            "content_source": "/assets/about/arizona/blocks.html"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -188,7 +192,9 @@
           {
             "name": "Arkansas Census blocks",
             "content_source": "/assets/about/arkansas/blocks.html"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
         
       }
@@ -296,7 +302,9 @@
         "subsections": [
           {"name": "Colorado Precincts",
           "content_source": "/assets/about/colorado/precincts.html"
-        }
+          },
+          {"name": "Census Block Groups",
+             "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -359,7 +367,9 @@
         "subsections": [
           {"name": "Connecticut Precincts",
           "content_source": "/assets/about/connecticut/precincts.html"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
         
       }
@@ -419,7 +429,9 @@
         "subsections": [
           {"name": "Delaware Precincts",
           "content": "<p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
         
       }
@@ -458,7 +470,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [{
           "name": "Florida Census blocks and block groups",
-          "content": "<p>Where you will find blocks: City of Miami map.</p><p>Where you will find block groups: Miami-Dade County map.</p><p>These data were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.  At the block group level, 2018 population estimates, household income, and homeownership data were obtained from the <a href=\"https://www.census.gov/programs-surveys/acs\">ACS</a>.</p>"
+          "content": "<p>Where you will find blocks: City of Miami map.</p><p>Where you will find block groups: Miami-Dade County map, Statewide community map.</p><p>These data were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.  At the block group level, 2018 population estimates, household income, and homeownership data were obtained from the <a href=\"https://www.census.gov/programs-surveys/acs\">ACS</a>.</p>"
         }]
         
       }
@@ -519,7 +531,9 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [{"name": "Georgia Precincts",  
-        "content": "<p>These data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"}]
+        "content": "<p>These data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
        
       }
     ]
@@ -582,8 +596,10 @@
         "subsections": [
           {"name": "Hawaii Precints",
           "content": "<p>This shapefile comes from Hawaii Statewide GIS Program and was processed by Metric Geometry and Gerrymandering Group (MGGG) staff.</p><p>This precinct shapefile comes from the <a href=\"http://planning.hawaii.gov/gis/download-gis-data/\">Hawaii Statewide GIS Program</a> in the State Office of Planning. Election results come from the <a href=\"https://elections.hawaii.gov/election-results/\">State of Hawaii Office of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Hawaii was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts 41-02 and 41-05 were merged as were precincts 42-01 and 42-04 in order to join 2016 and 2018 results onto the same precinct boundaries. Demographic data were aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>.</p>"
-        }]
-        
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
       }
     ]
   },
@@ -618,8 +634,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -815,7 +831,9 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Chicago Community Areas and Precincts", "content": "<p>In the 1920s, researchers at the University of Chicago divided the city into 77 <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a> that have played an important role in city planning and culture since their inception and serve as proxies for neighborhoods.  The community area and precinct shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"}
+          {"name": "Chicago Community Areas and Precincts", "content": "<p>In the 1920s, researchers at the University of Chicago divided the city into 77 <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a> that have played an important role in city planning and culture since their inception and serve as proxies for neighborhoods.  The community area and precinct shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -851,8 +869,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -906,7 +924,9 @@
         "subsections": [
           {"name": "Iowa Counties",
           "content": "<p>Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]  
       }
     ]
@@ -942,8 +962,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -978,8 +998,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1014,8 +1034,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1050,7 +1070,9 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maine Precints",
-          "content": "<p>The Maine precinct shapefile was obtained from the <a href=\"https://www.maine.gov/geolib/catalog.html\">Maine Geolibrary</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://www.maine.gov/sos/cec/elec/results/index.html\">Maine Bureau of Corporations, Elections, & Commissions</a>. Data from absentee votes reported at the state level were disaggregated by voting age population. Because of data reporting and processing, a few precincts cross county boundaries.  Demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/ME-shapefiles\">here</a>.</p>"}]
+          "content": "<p>The Maine precinct shapefile was obtained from the <a href=\"https://www.maine.gov/geolib/catalog.html\">Maine Geolibrary</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://www.maine.gov/sos/cec/elec/results/index.html\">Maine Bureau of Corporations, Elections, & Commissions</a>. Data from absentee votes reported at the state level were disaggregated by voting age population. Because of data reporting and processing, a few precincts cross county boundaries.  Demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/ME-shapefiles\">here</a>.</p>"},
+        {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1104,7 +1126,9 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maryland Precints",
-          "content": "<p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/MD-shapefiles\">here</a>.</p>"}]
+          "content": "<p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/MD-shapefiles\">here</a>.</p>"},
+        {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1235,7 +1259,9 @@
           {
             "name": "Massachusetts Census Blocks",
             "content": "<p>Where you will find blocks: Lowell maps</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Lowell was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">@gerrymandr</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ] 
       }
     ]
@@ -1299,7 +1325,9 @@
           {
             "name": "Michigan Precincts",
             "content": "<p>The precinct and congressional district shapefiles come from the Michigan Department of State through the <a href=\"http://gis-michigan.opendata.arcgis.com/datasets/2016-voting-precincts\">State of Michigan GIS Open Data Portal</a>. Demographic data at the block level are from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>. Shapefiles for Michigan's state house and senate districts were downloaded from the US Census Bureau's <a href=\"https://www.census.gov/cgi-bin/geo/shapefiles/index.php\">TIGER/Line Program</a>. Precinct level election data for 2016 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MI-shapefiles\">@mggg-states</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1359,7 +1387,9 @@
           {
             "name": "Michigan Precincts",
             "content": "<p>The Minnesota precinct shapefiles with election results were created by the <a href=\"https://www.sos.state.mn.us/elections-voting/\">Minnesota Secretary of State Election Division</a> and obtained from the <a href=\"https://www.gis.leg.mn/html/download.html\">Minnesota LCC-GIS</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MN-shapefiles\">@mggg-states</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1434,8 +1464,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1470,8 +1500,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1506,8 +1536,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1541,8 +1571,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1577,8 +1607,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1613,8 +1643,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1673,7 +1703,9 @@
           {
             "name": "New Mexico Precincts",
             "content": "<p>The New Mexico precinct shapefile was obtained from the New Mexico <a href=\"http://rgis.unm.edu/rgis6/\">Resource Geographic Information System (RGIS)</a>, which is managed by the Earth Data Analysis Center (EDAC) at the University of New Mexico. It was processed by members of the Metric Geometry and Gerrymandering Group (MGGG). The Congressional, State Senate and State House district map shape files, as well as the 2010 census block shape file are from the <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">US Census Bureau's TIGER/Line Program</a>.  Precint level elections returns were provided by the <a href=\"https://www.sos.state.nm.us/voting-and-elections/election-results/past-election-results-2018/\">New Mexico Secretary of State's</a> website. Block level demographic data is from the Census API. Statewide election returns from 2016 and 2018 - from the New Mexico Secretary of State - were cleaned by MGGG staff in order to join it with the New Mexico precinct shapefile. Census block data was aggregated to the precinct level using MGGG's <a href=\"https://github.com/mggg/maup\">proration software</a>."
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1716,7 +1748,9 @@
           {
             "name": "Islip Election Districts",
             "content": "<p>Where you will find election districts: Islip maps.</p><p></p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1785,7 +1819,9 @@
           {
             "name": "North Carolina voting tabulation districts (VTDs)",
             "content": "<p>These data were obtained from the North Carolina General Assembly and National Historic GIS (NHGIS). The VTD shapefile and election results were downloaded from the North Carolina General Assembly's <a href=\"https://www.ncleg.gov/RnR/Redistricting/BaseData2016\">2016 Redistricting Reference Data</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/NC-shapefiles\">@mggg-states</a>.</p>"
-         }
+         },
+         {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1821,8 +1857,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -1859,7 +1895,9 @@
           {
             "name": "Ohio Precincts",
             "content": "<p>This shapefile was compiled and processed by members of the Voting Rights Data Institute (VRDI) and the Metric Geometry and Gerrymandering Group (MGGG). VRDI was a 2018 summer intensive sponsored by MGGG at Tufts and MIT, with major support from a Bose Research Grant at MIT and from the Jonathon M. Tisch College of Civic Life at Tufts.</p><p>Raw data for Ohio's precinct boundaries was sourced from election and other county officials and processed by members of MGGG and students at VRDI. For more information on the sourcing of this data, please refer to the Metric Geometry and Gerrymandering Group's <a href=\"https://github.com/mggg/ohio-precincts\">Ohio Precincts Github repository</a>. Election data come the <a href=\"https://www.sos.state.oh.us/elections/election-results-and-data/2016-official-elections-results/\">Ohio Secretary of State</a> and the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Demographic data were downloaded at the census block level from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>.</p><p>Demographic data were aggregated from the block level using MGGG’s proration software <a href=\"https://github.com/mggg/maup\">maup</a>. Congressional, house, and senate district IDs were assigned to precincts also using this package.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1923,7 +1961,9 @@
           {
             "name": "Oklahoma Precincts",
             "content": "<p>This shapefile comes from the University of Oklahoma's Center for Spatial Analysis and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>This precinct shapefile was obtained from the <a href=\"https://data.csa.ou.edu/\">Oklahoma Data Warehouse</a> hosted by the Center for Spatial Analysis at the University of Oklahoma. Election results come from the <a href=\"https://www.ok.gov/elections/Election_Info/Election_Results/2018-Election_Results.html\">Oklahoma State Election Board</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile as well as congressional and state legislative districts for Oklahoma were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Oklahoma reports absentee and early votes at the precinct level for every county except for Oklahoma County and Tulsa County, where non-election day votes are reported for the whole county. For those two counties, absentee and early votes were disaggregated to the precinct level by population. Demographic data were aggregated from the block level and precincts were assigned to congressional and state legislative districts using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Precincts for Pushmataha County were digitized to conform to a map provided by the county.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -1996,7 +2036,9 @@
           },
           {"name": "Oregon Census blocks", 
            "content": "<p>Where you will find blocks: Salem-Keizer Unified School District map.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2076,7 +2118,9 @@
           },
           {"name": "Pennsylvania Census blocks", 
            "content": "<p>Where you will find blocks: Philadelphia map.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2112,8 +2156,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -2182,7 +2226,9 @@
           {
             "name": "Rhode Island Census Blocks", 
             "content": "<p>These data were obtained from the US Census Bureau. The block shapefile for the City of Providence was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2218,8 +2264,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -2254,8 +2300,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -2290,8 +2336,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -2353,7 +2399,9 @@
           {
             "name": "Texas Census Blocks",
             "content": "<p>Where you will find blocks: Austin maps</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Austin was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Austin\">@gerrymandr</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2414,7 +2462,9 @@
           {
             "name": "Utah Precincts",
             "content": "<p>These data were obtained from the Utah Automated Geographic Reference Center (AGRC), the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile was downloaded from <a href=\"https://gis.utah.gov/data/political/voter-precincts\">the Utah AGRC</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/UT-shapefiles\">@mggg-states</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2547,7 +2597,9 @@
             "name": "Virginia Precincts",
             "content": "<p>These data were obtained from the Princeton Gerrymandering Project and National Historic GIS (NHGIS). The precinct shapefile was compiled and joined to election results by the <a href=\"https://github.com/PrincetonUniversity/VA-gerrymander/tree/master/Maps/VA%20Precincts/Precincts%20with%20CD/Elections\">Princeton Gerrymandering Project</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/VA-shapefiles\">@mggg-states</a>.</p>"
 
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2659,8 +2711,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   },
@@ -2720,7 +2772,9 @@
           {
             "name": "Wisconsin Wards",
             "content": "<p>Wards are Wisconsin's precinct equivalents. All election data for this module were obtained <a href=\"https://data-ltsb.opendata.arcgis.com\">from the Wisconsin State Legislature</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/WI-shapefiles\">@mggg-states</a>.</p>"
-          }
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
       }
     ]
@@ -2756,8 +2810,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Block Groups",
-           "content_source": ""}]
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
   }
