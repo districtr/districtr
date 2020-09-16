@@ -28,9 +28,10 @@ export default () => {
             var btn = document.getElementById(def.id);
 
             // build a plan options
-            listPlacesForState(stateData.state).then(places => {
+            listPlacesForState(stateData.state, true).then(places => {
+                console.log(stateData.state, places);
                 const target = document.getElementById("districting-options");
-                render(districtingOptions(places), target);
+                render(districtingOptions(places.filter(p => p.limit != "community")), target);
                 const commtarget = document.getElementById("community-options");
                 render(communityOptions(places), commtarget);
                 $(".places-list__item").hide();
@@ -255,7 +256,7 @@ const communityOptions = places =>
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem).map( 
+        return getUnits(place, problem, true).map( 
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">

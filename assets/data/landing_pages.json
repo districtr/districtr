@@ -1,5 +1,41 @@
 [
   {
+    "state": "Alabama",
+    "code": "AL",
+    "modules": [
+      {"name": "Statewide", "ids": ["alabama"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Alaska",
     "code": "AK",
     "modules": [
@@ -122,7 +158,8 @@
     "state": "Arkansas",
     "code": "AK",
     "modules": [
-      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"}],
+      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"},
+      {"name": "Statewide", "ids": ["arkansas"],  "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -549,6 +586,42 @@
     ]
   },
   {
+    "state": "Idaho",
+    "code": "ID",
+    "modules": [
+      {"name": "Statewide", "ids": ["idaho"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Illinois",
     "code": "IL",
     "modules": [
@@ -745,6 +818,42 @@
     ]
   },
   {
+    "state": "Indiana",
+    "code": "IN",
+    "modules": [
+      {"name": "Statewide", "ids": ["indiana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Iowa",
     "code": "IA",
     "modules": [
@@ -796,6 +905,114 @@
           "content": "<p>Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
           }
         ]  
+      }
+    ]
+  },
+  {
+    "state": "Kansas",
+    "code": "KS",
+    "modules": [
+      {"name": "Statewide", "ids": ["kanasa"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "Kentucky",
+    "code": "KY",
+    "modules": [
+      {"name": "Statewide", "ids": ["kentucky"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "Louisiana",
+    "code": "LA",
+    "modules": [
+      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   },
@@ -1184,10 +1401,118 @@
     ]
   },
   {
+    "state": "Missouri",
+    "code": "MO",
+    "modules": [
+      {"name": "Statewide", "ids": ["missouri"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "Montana",
+    "code": "MT",
+    "modules": [
+      {"name": "Statewide", "ids": ["montana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "Nebraska",
+    "code": "NE",
+    "modules": [
+      {"name": "Statewide", "ids": ["nebraska"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Nevada",
     "code": "NV",
     "modules": [
-      {"name": "Counties", "ids": ["clarknv"], "default": "true", "id": "counties"}],
+      {"name": "Statewide", "ids": ["clarknv"], "default": "true", "id": "counties"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1212,6 +1537,78 @@
         "nav": "Data",
         "type": "text",
         "content": "<p>The units used here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for Nevada was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
+      }
+    ]
+  },
+  {
+    "state": "New Hampshire",
+    "code": "NH",
+    "modules": [
+      {"name": "Statewide", "ids": ["newhampshire"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "New Jersey",
+    "code": "NJ",
+    "modules": [
+      {"name": "Statewide", "ids": ["newjersey"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   },
@@ -1383,6 +1780,42 @@
             "content": "<p>These data were obtained from the North Carolina General Assembly and National Historic GIS (NHGIS). The VTD shapefile and election results were downloaded from the North Carolina General Assembly's <a href=\"https://www.ncleg.gov/RnR/Redistricting/BaseData2016\">2016 Redistricting Reference Data</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/NC-shapefiles\">@mggg-states</a>.</p>"
          }
         ]
+      }
+    ]
+  },
+  {
+    "state": "North Dakota",
+    "code": "ND",
+    "modules": [
+      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   },
@@ -1642,6 +2075,42 @@
     ]
   },
   {
+    "state": "Puerto Rico",
+    "code": "PR",
+    "modules": [
+      {"name": "Statewide", "ids": ["puertorico"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Rhode Island",
     "code": "RI",
     "modules": [
@@ -1708,6 +2177,114 @@
             "content": "<p>These data were obtained from the US Census Bureau. The block shapefile for the City of Providence was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
           }
         ]
+      }
+    ]
+  },
+  {
+    "state": "South Carolina",
+    "code": "SC",
+    "modules": [
+      {"name": "Statewide", "ids": ["southcarolina"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "South Dakota",
+    "code": "SD",
+    "modules": [
+      {"name": "Statewide", "ids": ["southdakota"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
+    "state": "Tennessee",
+    "code": "TN",
+    "modules": [
+      {"name": "Statewide", "ids": ["tennessee"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   },
@@ -2045,6 +2622,42 @@
     ]
   },
   {
+    "state": "West Virginia",
+    "code": "WV",
+    "modules": [
+      {"name": "Statewide", "ids": ["westvirginia"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
+      }
+    ]
+  },
+  {
     "state": "Wisconsin",
     "code": "WI",
     "modules": [
@@ -2102,6 +2715,42 @@
             "content": "<p>Wards are Wisconsin's precinct equivalents. All election data for this module were obtained <a href=\"https://data-ltsb.opendata.arcgis.com\">from the Wisconsin State Legislature</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/WI-shapefiles\">@mggg-states</a>.</p>"
           }
         ]
+      }
+    ]
+  },
+  {
+    "state": "Wyoming",
+    "code": "WY",
+    "modules": [
+      {"name": "Statewide", "ids": ["wyoming"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   }

@@ -66,7 +66,25 @@ const available = [
     "Ohio",
     "Oklahoma",
     "Hawaii",
-    "Washington"
+    "Washington",
+    "Alabama",
+    "Idaho",
+    "Indiana",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "New Hampshire",
+    "New Jersey",
+    "North Dakota",
+    "Puerto Rico",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "West Virginia",
+    "Wyoming"
 ];
 
 const uspost = {

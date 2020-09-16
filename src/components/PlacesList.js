@@ -21,10 +21,10 @@ function communitiesFilter(place) {
     return place;
 }
 
-export function listPlacesForState(state) {
+export function listPlacesForState(state, show_just_communities = false) {
     if (_placesList === null) {
         return listPlaces().then(items => {
-            _placesList = items.filter(place => !place.limit || justCommunities)
+            _placesList = items.filter(place => !place.limit || show_just_communities)
                 .map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
                 item => item.state === state || item.name === state || item.id === state
@@ -53,11 +53,12 @@ export function PlacesListForState(
     );
 }
 
-export function getUnits(place, problem) {
+export function getUnits(place, problem, show_just_communities = false) {
+    console.log(problem, place);
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    return place.units.filter((unitType) => !unitType.limit || (unitType.limit === "community" && window.location.href.includes("community")))
+    return place.units.filter((unitType) => !unitType.limit || (unitType.limit === "community" && show_just_communities))
         .sort((a, b) => {
           
         const x = a.name.toLowerCase();
