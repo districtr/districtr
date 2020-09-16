@@ -11,68 +11,76 @@ export default () => {
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
             
+            document.title = curState.concat(" | Districtr");
+            var def = stateData.modules.filter(m => m.default)[0];
+
             // navi-bar
             render(navLinks(stateData.sections, stateData.modules.map(m => m.ids)),
                    document.getElementById("nav-links"));
+
+
             
-            // render page
-            render(drawPage(stateData), document.getElementsByClassName("place__content")[0]);
+            
 
-
-            var def = stateData.modules.filter(m => m.default)[0];
-            console.log(def);
-
-            document.title = curState.concat(" | Districtr");
-
-            var statewide = $("." + def.id);
-            var btn = document.getElementById(def.id);
-
-            // build a plan options
+            
             listPlacesForState(stateData.state, true).then(places => {
-                console.log(stateData.state, places);
-                const target = document.getElementById("districting-options");
-                render(districtingOptions(places.filter(p => p.limit != "community")), target);
+                let districtingPlaces = places.filter(p => p.limit != "community");
+                let onlyCommunityMode = districtingPlaces.length == 0;
+                console.log(places);
+                console.log(districtingPlaces);
+
+                // render page
+                render(drawPage(stateData, onlyCommunityMode), document.getElementsByClassName("place__content")[0]);
+
+                // build a plan options
+                if (!onlyCommunityMode) {
+                     const target = document.getElementById("districting-options");
+                     render(districtingOptions(districtingPlaces), target);
+                }
+
                 const commtarget = document.getElementById("community-options");
                 render(communityOptions(places), commtarget);
                 $(".places-list__item").hide();
                 def.ids.map(id => $("." + id).show());
-                $(".communities").hide();
-            });
-
-            if (btn) {
-                btn.checked = true;
-            }
-            
-
-            // config toggle buttons
-            $('input[name="place-selection"]:radio').click(function(){
-
-                var inputValue = $(this).attr("value");
-                var targetBox = $("." + inputValue);
-                console.log(targetBox)
-                def = stateData.modules.filter(m => m.id === inputValue)[0];
-                console.log(def);
                 
-                $(".places-list__item").hide();
-                def.ids.map(id => $("." + id).show());
-            });
+                onlyCommunityMode ? $(".communities").show() : $(".communities").hide();
 
-            $('input[name="draw-selection"]:radio').click(function(){
-
-                var inputValue = $(this).attr("value");
-                var cls = $(this).attr("class");
-                var targetBox = $("." + inputValue);
-                console.log(targetBox);
-
-                var l = $('input[name="place-selection"]:radio').length;
-                var i;
-                for (i = 0; i < l; i++) {
-                    $('input[name="place-selection"]:radio')[i].className = cls;
+                // select default place
+                var btn = document.getElementById(def.id);
+                if (btn) {
+                    btn.checked = true;
                 }
 
-                $(".districts").hide();
-                $(".communities").hide();
-                $(targetBox).show();
+                // config toggle buttons
+                $('input[name="place-selection"]:radio').click(function(){
+
+                    var inputValue = $(this).attr("value");
+                    var targetBox = $("." + inputValue);
+                    // console.log(targetBox)
+                    def = stateData.modules.filter(m => m.id === inputValue)[0];
+                    // console.log(def);
+                    
+                    $(".places-list__item").hide();
+                    def.ids.map(id => $("." + id).show());
+                });
+
+                $('input[name="draw-selection"]:radio').click(function(){
+
+                    var inputValue = $(this).attr("value");
+                    var cls = $(this).attr("class");
+                    var targetBox = $("." + inputValue);
+                    // console.log(targetBox);
+
+                    var l = $('input[name="place-selection"]:radio').length;
+                    var i;
+                    for (i = 0; i < l; i++) {
+                        $('input[name="place-selection"]:radio')[i].className = cls;
+                    }
+
+                    $(".districts").hide();
+                    $(".communities").hide();
+                    $(targetBox).show();
+                });
             });
         });
 };
@@ -100,20 +108,22 @@ const navLinks = (sections, placeIds) =>
         </li>
     `]);
 
-const drawPage = stateData => {
+const drawPage = (stateData, onlyCommunities) => {
     return html`
         
         <h1 class="headline place__name"> ${stateData.state} </h1>
 
-        <div class="place-options places-list">
-                <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
-                <label for="districts" class="mode-selection">Drawing Districts</label>
-                <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
-                <label for="communities" class="mode-selection">Drawing Communities</label>
-        </div>
+        ${onlyCommunities ? html``
+                          : html`<div class="place-options places-list">
+                                     <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
+                                     <label for="districts" class="mode-selection">Drawing Districts</label>
+                                     <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
+                                     <label for="communities" class="mode-selection">Drawing Communities</label>
+                                 </div>`}
+        
 
         
-        ${stateData.sections.map(s => drawSection(s, stateData))}
+        ${stateData.sections.map(s => drawSection(s, stateData, onlyCommunities))}
 
         ${until(fetch("assets/about/landing/footer.html").then((r) => {if (r.status === 200) {
                                                                     return r.text();
@@ -129,24 +139,27 @@ const drawTitles = (modules, st) =>
                             ${m.name === "Statewide" ? st : m.name}
                           </h1>`);
 
-const drawSection = (section, stateData) => {
+const drawSection = (section, stateData, onlyCommunities) => {
     var section_body =  html`<div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
                              <h2>${section.name}</h2>`;
     if (section.type === "draw") {
        section_body = html`
 
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
-            <h2 class="districts">Draw a plan from scratch</h2>
+
+            ${!onlyCommunities ? html`<h2 class="districts">Draw a plan from scratch</h2>` : html``}
+
             <h2 class="communities">Draw your community</h2>
 
             ${stateData.modules.length > 1 ? html`<div class="place-options places-list locals">
                 ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
                                                      id="${m.id}" name="place-selection">
-                                                  <label for="${m.id}">${m.name}</label>`)}
+                                                  <label for="${m.id}" class="${m.mode}">${m.name}</label>`)}
             </div>` : ""}
 
-            <div id="districting-options" class="districts"></div>
-            <div id="community-options" class="communities" style="display: none;"></div>
+             ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
+            
+            <div id="community-options" class="communities"></div>
             <p><a href="#data">What are these units?</a></p>
         `;
     } else if (section.type === "plans") {
@@ -256,6 +269,7 @@ const communityOptions = places =>
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
+        console.log(place, problem);
         return getUnits(place, problem, true).map( 
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"

@@ -332,7 +332,7 @@ export function Features(features, onHover, selectedId) {
             : ""
     }" @mouseleave=${() => onHover(noHover)}>
     ${features.features.concat(localFeatures).map(feature => {
-        console.log(feature);
+        // console.log(feature);
         const featureId = (feature.properties.type === "local")
             ? feature.properties.name + "_local"
             : feature.properties.STUSPS.toLowerCase();
@@ -353,7 +353,7 @@ export function Features(features, onHover, selectedId) {
 }
 
 function selectLandingPage(feature, target) {
-  console.log(feature, target);
+  // console.log(feature, target);
   if (feature.properties.isAvailable) {
     let page = feature.properties.NAME.replace(/\s+/g, '-').toLowerCase();
     if (feature.properties.type === "local") {

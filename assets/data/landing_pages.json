@@ -158,8 +158,8 @@
     "state": "Arkansas",
     "code": "AK",
     "modules": [
-      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"},
-      {"name": "Statewide", "ids": ["arkansas"],  "id": "state"}],
+      {"name": "Statewide", "ids": ["arkansas"],  "id": "state", "mode": "communities"},
+      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -198,6 +198,7 @@
     "state": "California",
     "code": "CA",
     "modules": [
+      {"name": "Statewide", "ids": ["california"], "id": "state", "mode": "communities"},
       {"name": "Counties", "ids": ["lax"], "id": "counties", "default": "true"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
@@ -428,6 +429,7 @@
     "state": "Florida",
     "code": "FL",
     "modules": [
+      {"name": "Statewide", "ids": ["florida"], "id": "state", "mode": "communities"},
       {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"},
       {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
     "sections": [
@@ -625,6 +627,7 @@
     "state": "Illinois",
     "code": "IL",
     "modules": [
+      {"name": "Statewide", "ids": ["illinois"], "id": "state", "mode": "communities"},
       {"name": "Cities", "ids": ["chicago"], "default": "true", "id": "loc"}],
     "sections": [
       {
@@ -912,7 +915,7 @@
     "state": "Kansas",
     "code": "KS",
     "modules": [
-      {"name": "Statewide", "ids": ["kanasa"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["kansas"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1512,7 +1515,7 @@
     "state": "Nevada",
     "code": "NV",
     "modules": [
-      {"name": "Statewide", "ids": ["clarknv"], "default": "true", "id": "counties"}],
+      {"name": "Statewide", "ids": ["nevada"], "id": "state", "default": "true"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1536,7 +1539,10 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content": "<p>The units used here are <strong>census blocks</strong>. Data for this module were obtained from the US Census Bureau. The block shapefile for Nevada was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Block Groups",
+           "content_source": ""}]
       }
     ]
   },
@@ -1676,6 +1682,7 @@
     "state": "New York",
     "code": "NY",
     "modules": [
+      {"name": "Statewide", "ids": ["newyork"], "id": "state", "mode": "communities"},
       {"name": "Cities", "ids": ["islip"], "default": "true", "id": "loc"}],
     "sections": [
       {

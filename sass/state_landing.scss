@@ -146,11 +146,6 @@ label:hover {
     //color: #92e3ff;
 }
 
-.mode-selection {
-  flex-basis: 20%;
-  flex-grow: 0;
-}
-
 
 input[type=radio]
 {
@@ -174,6 +169,12 @@ input[type=radio].comm:checked + label
 input[type=radio].comm:checked + label:hover
 {
     background-color:$districtr-red-very-dark;
+}
+
+.mode-selection
+{
+  flex-basis: 20%;
+  flex-grow: 0;
 }
 
 
