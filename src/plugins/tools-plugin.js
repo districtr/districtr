@@ -125,8 +125,8 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 function getMenuItems(state) {
     let items = [
         {
-            name: "About this module",
-            onClick: () => window.open("/" + state.place.state.replace(/\s+/g, '-'), "_blank")
+            name: "About this map",
+            onClick: () => window.open("/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'), "_blank")
         },
         {
             name: "Districtr homepage",

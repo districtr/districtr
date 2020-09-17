@@ -532,7 +532,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Georgia Precincts",  
-           "content_source": "/assets/about/georiga/precincts.html"},
+           "content_source": "/assets/about/georgia/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
        
@@ -924,7 +924,7 @@
         "content_source": "/assets/about/landing/data.html" ,
         "subsections": [
           {"name": "Iowa Counties",
-           "content": "/assets/about/iowa/counties.html"
+           "content_source": "/assets/about/iowa/counties.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1251,15 +1251,15 @@
         "subsections": [
           {
             "name": "Massachusetts Precincts",
-            "content": "/assets/about/massachusetts/precincts.html"
+            "content_source": "/assets/about/massachusetts/precincts.html"
           },
           {
             "name": "Massachusetts Towns and Municipalities",
-            "content": "/assets/about/massachusetts/towns.html"
+            "content_source": "/assets/about/massachusetts/towns.html"
           },
           {
             "name": "Massachusetts Census Blocks",
-            "content": "/assets/about/massachusetts/blocks.html"
+            "content_source": "/assets/about/massachusetts/blocks.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1418,7 +1418,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [{"name": "Research", 
-        "content": "<p>This Mississippi module comes out of a project from MGGG's Voting Rights Data Institute that explored how many majority-Black congressional districts are possible to draw. A write-up of this experiment is forthcoming.</p>"}]
+        "content_source": "/assets/about/mississippi/research.html"}]
       },
       {
         "name": "About the data",
@@ -1428,7 +1428,7 @@
         "subsections": [
           {
             "name": "Mississippi block groups",
-            "content": "<p> These data were obtained from the US Census Bureau. The block group shapefile for Mississippi was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Mississippi\">@gerrymandr</a>.</p>"
+            "content_source": "/assets/about/mississippi/blockgroups.html"
           }
         ]
       }
@@ -1703,7 +1703,7 @@
         "subsections": [
           {
             "name": "New Mexico Precincts",
-            "content": "<p>The New Mexico precinct shapefile was obtained from the New Mexico <a href=\"http://rgis.unm.edu/rgis6/\">Resource Geographic Information System (RGIS)</a>, which is managed by the Earth Data Analysis Center (EDAC) at the University of New Mexico. It was processed by members of the Metric Geometry and Gerrymandering Group (MGGG). The Congressional, State Senate and State House district map shape files, as well as the 2010 census block shape file are from the <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">US Census Bureau's TIGER/Line Program</a>.  Precint level elections returns were provided by the <a href=\"https://www.sos.state.nm.us/voting-and-elections/election-results/past-election-results-2018/\">New Mexico Secretary of State's</a> website. Block level demographic data is from the Census API. Statewide election returns from 2016 and 2018 - from the New Mexico Secretary of State - were cleaned by MGGG staff in order to join it with the New Mexico precinct shapefile. Census block data was aggregated to the precinct level using MGGG's <a href=\"https://github.com/mggg/maup\">proration software</a>."
+            "content_source": "/assets/about/new-mexico/precincts.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1744,11 +1744,11 @@
         "subsections": [
           {
             "name": "New York Census Blocks",
-            "content": "<p>Where you will find blocks: Islip maps.</p><p>These data were obtained from the US Census Bureau. The block shapefile for New York was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov/\">Census API</a>.</p>"
+            "content_source": "/assets/about/new-york/blockgroups.html"
           },
           {
             "name": "Islip Election Districts",
-            "content": "<p>Where you will find election districts: Islip maps.</p><p></p>"
+            "content_source": "/assets/about/new-york/election-districts.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1807,7 +1807,7 @@
         "subsections": [
           {
             "name": "Rucho v. Common Cause",
-            "content": "<p>In March 2019 the US Supreme Court heard oral arguments for Rucho v. Common Cause, in which plaintiffs claim that North Carolina's remedial 2016 congressional map is an unconstitutional partisan gerrymander. The 2016 remedial map had been drawn after the Supreme Court struck down two of the state's 2011 enacted congressional districts as unconstitutional racial gerrymanders. MGGG and our collaborators filed an amicus brief which can be accessed <a href=\"https://mggg.org/amicus\">on our website</a>.</p>"
+            "content_source": "/assets/about/north-carolina/courts.html"
           }
         ]
       },
@@ -1819,7 +1819,7 @@
         "subsections": [
           {
             "name": "North Carolina voting tabulation districts (VTDs)",
-            "content": "<p>These data were obtained from the North Carolina General Assembly and National Historic GIS (NHGIS). The VTD shapefile and election results were downloaded from the North Carolina General Assembly's <a href=\"https://www.ncleg.gov/RnR/Redistricting/BaseData2016\">2016 Redistricting Reference Data</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/NC-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/north-carolina/vtds.html"
          },
          {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1895,7 +1895,7 @@
         "subsections": [
           {
             "name": "Ohio Precincts",
-            "content": "<p>This shapefile was compiled and processed by members of the Voting Rights Data Institute (VRDI) and the Metric Geometry and Gerrymandering Group (MGGG). VRDI was a 2018 summer intensive sponsored by MGGG at Tufts and MIT, with major support from a Bose Research Grant at MIT and from the Jonathon M. Tisch College of Civic Life at Tufts.</p><p>Raw data for Ohio's precinct boundaries was sourced from election and other county officials and processed by members of MGGG and students at VRDI. For more information on the sourcing of this data, please refer to the Metric Geometry and Gerrymandering Group's <a href=\"https://github.com/mggg/ohio-precincts\">Ohio Precincts Github repository</a>. Election data come the <a href=\"https://www.sos.state.oh.us/elections/election-results-and-data/2016-official-elections-results/\">Ohio Secretary of State</a> and the <a href=\"https://electionlab.mit.edu/\">MIT Election Data Science Lab</a>. Demographic data were downloaded at the census block level from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>.</p><p>Demographic data were aggregated from the block level using MGGG’s proration software <a href=\"https://github.com/mggg/maup\">maup</a>. Congressional, house, and senate district IDs were assigned to precincts also using this package.</p>"
+            "content_source": "/assets/about/ohio/precincts.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1961,7 +1961,7 @@
         "subsections": [
           {
             "name": "Oklahoma Precincts",
-            "content": "<p>This shapefile comes from the University of Oklahoma's Center for Spatial Analysis and processed by members of the Metric Geometry and Gerrymandering Group (MGGG).</p><p>This precinct shapefile was obtained from the <a href=\"https://data.csa.ou.edu/\">Oklahoma Data Warehouse</a> hosted by the Center for Spatial Analysis at the University of Oklahoma. Election results come from the <a href=\"https://www.ok.gov/elections/Election_Info/Election_Results/2018-Election_Results.html\">Oklahoma State Election Board</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile as well as congressional and state legislative districts for Oklahoma were downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Oklahoma reports absentee and early votes at the precinct level for every county except for Oklahoma County and Tulsa County, where non-election day votes are reported for the whole county. For those two counties, absentee and early votes were disaggregated to the precinct level by population. Demographic data were aggregated from the block level and precincts were assigned to congressional and state legislative districts using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>. Precincts for Pushmataha County were digitized to conform to a map provided by the county.</p>"
+            "content_source": "/assets/about/oklahoma/precincts.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2022,8 +2022,7 @@
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {"name": "Election reform in Oregon", 
-           "content": "<p><a href=\"https://www.peoplenotpoliticiansoregon.com/\">People not Politicians</a> filled Ballot Measures in Oregon that would create an independent citizen redistricting commission if passed in November 2020.</p>"},
-          {"name": "Research", "content": ""}
+           "content_source": "/assets/about/oregon/reform.html"}
         ]
       },
       {
@@ -2033,10 +2032,10 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Oregon Precincts", 
-           "content": "<p>Where you will find precincts: Statewide and Portland maps</p><p>This shapefile was compiled by Kevin Rancik with the help of Steve Gerontakis and was used by The Oregonian. It was processed and verified by members of the Metric Geometry and Gerrymandering Group.  Election results for 2016 and 2018 were cleaned by MGGG staff and joined to the geographic data along with demographic data from the 2010 Decennial Census. More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/OR-shapefiles\">here</a>.</p>"
+           "content_source": "/assets/about/oregon/precincts.html"
           },
           {"name": "Oregon Census blocks", 
-           "content": "<p>Where you will find blocks: Salem-Keizer Unified School District map.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+           "content_source": "/assets/about/oregon/blocks.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2105,7 +2104,7 @@
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
           {"name": "Redistricting in the court",
-          "content": "<p>In February 2018, Moon Duchin was asked by Governor Tom Wolf to provide guidance in evaluating redistricting plans for fairness after the Pennsylvania Supreme Court struck down the 2011 enacted plan as an unconstitutional partisan gerrymander. Her report is hosted on <a href=\"https://mggg.org/uploads/md-report.pdf\">MGGG's website</a>.</p>"}
+          "content_source": "/assets/about/pennsylvania/courts.html"}
         ]
       },
       {
@@ -2115,10 +2114,10 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Pennsylvania voting tabulation districts (VTDs)", 
-           "content": "<p>Where you will find precincts: Statewide maps</p><p>The raw, unprocessed VTDs were collected from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Election data was compiled at the precinct level by a private individual and was found to be within 1% of the official state-reported results at the county and state levels. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/PA-shapefiles\">@mggg-states</a>.</p>"
+           "content_source": "/assets/about/pennsylvania/vtds.html"
           },
           {"name": "Pennsylvania Census blocks", 
-           "content": "<p>Where you will find blocks: Philadelphia map.</p><p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
+           "content_source": "/assets/about/pennsylvania/blocks.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2222,11 +2221,11 @@
         "subsections": [
           {
             "name": "Rhode Island Precincts", 
-            "content": "<p>This shapefile was obtained from the Rhode Island GIS Data Distribution System and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). The precinct shapefile came from the Rhode Island Department of State through the <a href=\"http://www.rigis.org\">Rhode Island GIS Data Distribution System</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Rhode Island was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>. Election data were downloaded from the <a href=\"http://www.elections.ri.gov/elections/preresults/\">Rhode Island Board of Elections</a>.</p>"
+            "content_source": "/assets/about/rhode-island/precincts.html"
           },
           {
             "name": "Rhode Island Census Blocks", 
-            "content": "<p>These data were obtained from the US Census Bureau. The block shapefile for the City of Providence was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>.</p>"
+            "content_source": "/assets/about/rhode-island/blocks.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2395,11 +2394,11 @@
         "subsections": [
           {
             "name": "Texas voting tabulation districts (VTDs)",
-            "content": "<p>Where you will find VTDs: Statewide maps</p><p>These data were obtained from the Texas Legislative Council. The VTD shapefile and election results were downloaded from the Texas Legislative Council's <a href=\"https://tlc.texas.gov/redist/data/data.html\">Texas Redistricting website</a>. Demographic data were compiled by the Texas Legislative Council using 2010 Decennial Census data. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/TX-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/texas/vtds.html"
           },
           {
             "name": "Texas Census Blocks",
-            "content": "<p>Where you will find blocks: Austin maps</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Austin was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Austin\">@gerrymandr</a>.</p>"
+            "content_source": "/assets/about/texas/blocks.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2452,7 +2451,10 @@
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
+        "subsections": [{
+          "name": "Independent Commission",
+          "content_source": "assets/about/utah/reform.html"
+        }]
       },
       {
         "name": "About the data",
@@ -2462,7 +2464,7 @@
         "subsections": [
           {
             "name": "Utah Precincts",
-            "content": "<p>These data were obtained from the Utah Automated Geographic Reference Center (AGRC), the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile was downloaded from <a href=\"https://gis.utah.gov/data/political/voter-precincts\">the Utah AGRC</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/UT-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/utah/precincts.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -2502,11 +2504,11 @@
         "subsections": [
           {
             "name": "Vermont Towns",
-            "content": "<p>These data were obtained from the Vermont Open Geodata Portal, the Vermont Secretary of State, and the US Census Bureau. The town shapefile was downloaded from the <a href=\"http://geodata.vermont.gov/datasets/vt-data-town-boundaries\">Vermont Open Geodata Portal</a> and election results were downloaded from <a href=\"https://www.sec.state.vt.us/elections/election-results.aspx\">the Secretary of State's website</a>. Vermont does not release election results for towns with a total population under 50, thus 9 towns have been excluded from this module. Demographic information from the 2010 Decennial Census was downloaded at the sub-county level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/VT-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/vermont/towns.html"
           },
            {
             "name": "Vermont Census Block groups",
-            "content": "<p>These data were obtained from the US Census Bureau. The block shapefile was downloaded from the Census TIGER/Line Shapefiles. Demographic information from the 2010 Decennial Census was downloaded at the block level from IPUMS NHGIS, University of Minnesota, <a href=\"http://www.nhgis.org\">www.nhgis.org</a>.</p>"
+            "content_sourcet": "/assets/about/vermont/blockgroups.html"
           }
         ]
       }
@@ -2576,15 +2578,15 @@
         "subsections": [
           {
             "name": "Research",
-            "content": "<p>In June 2018, the Eastern District Court of Virginia ruled 11 of the House of Delegates districts unconstitutional racial gerrymanders. <a href=\"https://mggg.org/VA-report.pdf\">MGGG published a report</a> evaluating the 2011 Enacted House of Delegates plan as well as several of the proposed alternatives.  In April 2019, <a href=\"https://mggg.org/VA-criteria.pdf\">MGGG published a subsequent report</a>, assessing the potential impacts of a proposed constitutional amendment for redistricting in Virginia, particularly the proposed rules for constraints and priorities in drawing districts.</p>"
+            "content_source": "/assets/about/virginia/research.html"
           },
           {
             "name": "Reform efforts",
-            "content": "<p>In November 2020, voters in Virginia will determine if the power to draw congressional and state legislative districts should be delegated from the General Assembly to a new bipartisan commission of eight state legislators and eight citizens. If voters support this ballot measure, the Virginia Constitution will be amended.</p>"
+            "content_source": "/assets/about/virginia/reform.html"
           },
           {
             "name": "Legal Challenges",
-            "content": "<h4>Personhuballah v. Alcorn</h4><p>This case was filed in 2013 to challenge Virginia’s Third Congressional District as a racial gerrymander. In 2014, a district court ruled in favor of the plaintiff, determining that the district was an unconstitutional racial gerrymander. When this decision was appealed to a higher court, the U.S. Supreme Court vacated and remanded the case back to the district court for reconsideration in 2015. The district court ruled, again, in favor of the plaintiff. After the U.S. Supreme Court found that the case lacked standing to appeal, an outside expert was commissioned to redraw the districts to remedy the gerrymander. A new remedial plan was implemented in 2016.</p><h4>Vesilind v. Va. State Board of Elections</h4><p>This case was filed in 2015 to challenge state General Assembly districts for violating Virginia’s constitutional requirement to draw compact districts. The district court ruled that the districts were constitutionally valid in 2017. When this decision was appealed, the Virginia Supreme Court upheld this ruling.</p><h4>Bethune-Hill v. Virginia Board of Elections</h4><p>This case was filed in 2014 to challenge 12 State House districts as racial gerrymanders. In 2015, a district court ruled that race did not predominate in 11 of the 12 districts, but race was considered when drawing one district (District 75). However, the court determined that considering race in District 75 was not unconstitutional because the parameter used, a 55% Black voting age population, was justified by the VRA due to highly racially polarized voting in the area of concern. When this decision was appealed to a higher court, the U.S. Supreme Court upheld the rationale for District 75 but vacated and remanded the case back to the lower court for the remaining 11 districts. In 2018, the district court amended their ruling, determining that the remaining 11 districts were racial gerrymanders, initiating a redistricting process. In early 2019, a new map was approved. The Virginia House of Delegates appealed to the U.S. Supreme Court (Virginia House of Delegates v. Bethune-Hill), but the court found that the state House lacked standing to appeal.</p>"
+            "content_source": "/assets/about/virginia/courts.html"
           }
         ]
       },
@@ -2596,7 +2598,7 @@
         "subsections": [
           {
             "name": "Virginia Precincts",
-            "content": "<p>These data were obtained from the Princeton Gerrymandering Project and National Historic GIS (NHGIS). The precinct shapefile was compiled and joined to election results by the <a href=\"https://github.com/PrincetonUniversity/VA-gerrymander/tree/master/Maps/VA%20Precincts/Precincts%20with%20CD/Elections\">Princeton Gerrymandering Project</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/VA-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/virginia/precincts.html"
 
           },
           {"name": "Census Block Groups",
@@ -2659,7 +2661,7 @@
         "subsections": [
           {
             "name": "The electoral system in Yakima County",
-            "content": "<p>On January 15, 2020, <a href=\"https://weareoneamerica.org\">OneAmerica</a> and <a href=\"https://campaignlegal.org\">Campaign Legal Center (CLC)</a> filed a challenge letter over the current system employed by Yakima County. In it, they argue that the system dilutes the votes of Latinos in Yakima County and is in violation of the Washington Voting Rights Act (WVRA) and the Washington State Constitution.  Read the full letter <a href=\"http://weareoneamerica.org/wp-content/uploads/Yakima-County-notice-letter-1.15.20.pdf\">[here]</a>.</p><p>At first glance, Yakima county seems to already be districted to facilitate minority opportunity to elect candidates of choice. There are three districts; District 1 is mostly White, but District 2 has a slight POC majority, including about 40% Hispanic VAP and an additional 8% Native VAP, while District 3 is 55% Hispanic by VAP.</p><p>This is undercut by an unusual—and very problematic—system of electing County Commissioners. Each district is represented by a Commissioner. The primary election is conducted by a district-wide \"jungle primary,\" in which any number of candidates may run and the top two vote-getters advance to the general election without regard to party affiliation. (In fact, candidates with the \"prefers Republican\" label predominate over all others in Yakima, and this is even true for Hispanic candidates.) But the entire county, and not just the district, then votes to choose a winner between the two finalists. This indicates that the system itself negates any advantage of districting, nullifying the minorities' opportunity to elect.</p><p>Read more about our study of Voting Rights in Yakima and possible remedies in our <a href=\"https://mggg.org/uploads/Yakima.pdf\">report</a>.  Our data is available on our <a href=\"https://github.com/mggg/yakima-data\">github</a>.</p>"
+            "content_source": "/assets/about/washington/yakima-reform.html"
           }
         ]
       },
@@ -2671,11 +2673,11 @@
         "subsections": [
           {
             "name": "Washington Census Blocks and Block groups",
-            "content": "<p>Where you will find blocks: Yakima County maps.</p><p>Where you will find block groups: Statewide maps</p><p>These data were obtained from the US Census Bureau. The block and block group shapefiles for Washington were downloaded from the Census's  <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"http://api.census.gov/\">Census API</a>.</p>"
+            "content_source": "/assets/about/washington/data.html"
           },
           {
-            "name": "Yakima County Precincts",
-            "content": "<p>Where you will find precincts: Yakima County and King County maps.</p><p></p>"
+            "name": "Yakima and King County Precincts",
+            "content_source": "/assets/about/washington/precincts.html"
           }
         ]
       }
@@ -2796,7 +2798,7 @@
         "subsections": [
           {
             "name": "Redistricting in the court | Gill v. Whitford",
-            "content": "<p>In June 2018, the US Supreme Court remanded back to the lower courts Gill v. Whitford, a case challenging Wisconsin's state assembly districts as an unconstitutional partisan gerrymander.</p>"
+            "content_source": "/assets/about/wisconsin/courts.html"
           }
         ]
       },
@@ -2808,7 +2810,7 @@
         "subsections": [
           {
             "name": "Wisconsin Wards",
-            "content": "<p>Wards are Wisconsin's precinct equivalents. All election data for this module were obtained <a href=\"https://data-ltsb.opendata.arcgis.com\">from the Wisconsin State Legislature</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/WI-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/wisconsin/wards.html"
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
