@@ -380,7 +380,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Delaware Precincts",
-          "content": "<p>The Delaware election district (precinct) shapefile was obtained from <a href=\"http://opendata.firstmap.delaware.gov/datasets/delaware-election-boundaries\">Delaware FirstMap Data</a>, a GIS service of the State of Delaware. Election data come from the <a href=\"https://elections.delaware.gov/index.shtml\">Delaware Department of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Delaware was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Some very limited merging of precincts in the tabular election data was necessary to join to the precinct shapefile. Data from three countywide precincts that reported absentee votes were disaggregated by voting age population using MGGG’s proration software. Demographic data was aggregated from the block level using MGGG’s proration software. State legislative district IDs were also assigned to precincts using this package.</p>"
+          "content_source": "/assets/about/delaware/precincts.html"
           }
         ]
         
@@ -419,7 +419,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [{
           "name": "Florida Census blocks and block groups",
-          "content": "<p>Where you will find blocks: City of Miami map.</p><p>Where you will find block groups: Miami-Dade County map.</p><p>These data were obtained from the US Census Bureau. The shapefile for Miami-Dade county was downloaded from the Census's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from the <a href=\"https://api.census.gov\">Census API</a>.  At the block group level, 2018 population estimates, household income, and homeownership data were obtained from the <a href=\"https://www.census.gov/programs-surveys/acs\">ACS</a>.</p>"
+          "content_source": "/assets/about/florida/data.html"
         }]
         
       }
@@ -480,7 +480,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [{"name": "Georgia Precincts",  
-        "content": "<p>These data for this module were obtained from the Georgia General Assembly Legislative and Congressional Reapportionment Office, the MIT Elections Data and Science Lab (MEDSL), and National Historic GIS (NHGIS). The precinct shapefile for Georgia was downloaded from the Georgia General Assembly Legislative and Congressional Reapportionment Office's <a href=\"http://www.legis.ga.gov/Joint/reapportionment/en-US/default.aspx\">website</a> and 2016 election results were downloaded from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MEDSL</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://www.nhgis.org\">NHGIS</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/GA-shapefiles\">@mggg-states</a>.</p>"}]
+        "content_source": "/assets/about/georiga/precincts.html"}]
        
       }
     ]
@@ -542,7 +542,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Hawaii Precints",
-          "content": "<p>This shapefile comes from Hawaii Statewide GIS Program and was processed by Metric Geometry and Gerrymandering Group (MGGG) staff.</p><p>This precinct shapefile comes from the <a href=\"http://planning.hawaii.gov/gis/download-gis-data/\">Hawaii Statewide GIS Program</a> in the State Office of Planning. Election results come from the <a href=\"https://elections.hawaii.gov/election-results/\">State of Hawaii Office of Elections</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Hawaii was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>.</p><p>Precincts 41-02 and 41-05 were merged as were precincts 42-01 and 42-04 in order to join 2016 and 2018 results onto the same precinct boundaries. Demographic data were aggregated from the block level using <a href=\"https://github.com/mggg/maup\">MGGG’s proration software</a>.</p>"
+          "content_source": "/assets/about/hawaii/precincts.html"
         }]
         
       }
@@ -727,10 +727,10 @@
         "subsections": [
           {
             "name": "City Council Districts in Chicago",
-            "content": "<p>The City of Chicago is divided into 50 districts, known as wards, for the City Council. The Chicago City Council is represented by 50 elected officials, known as aldermen. Each alderman is elected by and represents a single ward.</p><p>The current ward plan in Chicago is widely criticized for being gerrymandered. Some argue that the 50-member city council is inefficiently large. Today, the demographic makeup of Chicago is split roughly in thirds between Hispanic, Black, and White racial/ethnic groups. Black populations are the most densely clustered in the city, but the Black percentage as a total share of the population has been decreasing in recent decades.  Due to the high levels of segregation in the city, the current wards tend to be dominated by one racial/ethnic group with an alderman nearly always coming from that dominant group. Latinos are the most underrepresented group, with only 22% representation in the city council despite making up 29% of the population.  </p>"
+            "content_source": "/assets/about/illinois/chicago-city-council.html"
           },
           {"name": "Research",
-          "content": "<p>These maps were created as part of <a href=\"https://mggg.org\">MGGG</a>'s <a href=\"https://mggg.org/Chicago.pdf\">Study of Reform Proposals for Chicago City Council</a>. We set out to explore how different districts, or moving to multi-member districts, might impact representation and better promote a fair and responsive city government.  The report considered the following reform methods: <ul><li>Redrawing the lines in the current 50-ward system</li><li>Shrinking the city council from 50 members to 30 or fewer</li><li>Moving from single-member districts to multi-member districts</li><li>Moving from plurality elections to ranked choice voting</li></ul></p><p><a href=\"https://mggg.org/posts/chicago\">You can read more background and access the report here.</a></p>"}
+          "content_source": "/assets/about/illinois/research.html"}
         ]
       },
       {
@@ -739,7 +739,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Chicago Community Areas and Precincts", "content": "<p>In the 1920s, researchers at the University of Chicago divided the city into 77 <a href=\"https://en.wikipedia.org/wiki/Community_areas_in_Chicago\">community areas</a> that have played an important role in city planning and culture since their inception and serve as proxies for neighborhoods.  The community area and precinct shapefiles were downloaded from the <a href=\"https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6\">Chicago Data Portal</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefiles with demographic information are available for download from <a href=\"https://github.com/mggg/chicago/tree/master/shapefiles\">MGGG's GitHub organization</a>.</p>"}
+          {"name": "Chicago Community Areas and Precincts", "content_source": "/assets/about/illinois/chicago-data.html"}
         ]
       }
     ]
@@ -793,7 +793,7 @@
         "content_source": "/assets/about/landing/data.html" ,
         "subsections": [
           {"name": "Iowa Counties",
-          "content": "<p>Iowa has strict laws requiring that congressional districts be built out of counties. The county shapefile comes from the US Census Bureau's <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. 2010 Decennial Census demographic data were downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. County level election data for presidential elections since 2000 were obtained from the <a href=\"https://github.com/MEDSL/official-precinct-returns\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional informationabout processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/IA-shapefiles\">@mggg-states</a>.</p>"
+          "content": "/assets/about/iowa/counties.html"
           }
         ]  
       }
@@ -830,7 +830,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maine Precints",
-          "content": "<p>The Maine precinct shapefile was obtained from the <a href=\"https://www.maine.gov/geolib/catalog.html\">Maine Geolibrary</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://www.maine.gov/sos/cec/elec/results/index.html\">Maine Bureau of Corporations, Elections, & Commissions</a>. Data from absentee votes reported at the state level were disaggregated by voting age population. Because of data reporting and processing, a few precincts cross county boundaries.  Demographic data for the 2010 Decennial Census were retrieved using the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/ME-shapefiles\">here</a>.</p>"}]
+          "content_source": "/assets/about/maine/precincts.html"}]
       }
     ]
   },
@@ -884,7 +884,7 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Maryland Precints",
-          "content": "<p>The Maryland precinct shapefile was obtained from the <a href=\"https://planning.maryland.gov/Redistricting/Pages/2010/precinct.aspx\">Maryland Department of Planning's Redistricting website</a> and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). Election data come from the <a href=\"https://elections.maryland.gov/elections/2018/election_data/index.html\">Maryland State Board of Elections</a>. It is important to note that Maryland only releases election day ballots cast at the precinct level and the election results here do not include early, absentee or provisional votes.  More information about our data sources and processing can be found <a href=\"https://github.com/mggg-states/MD-shapefiles\">here</a>.</p>"}]
+          "content_source": "/assets/about/maryland/precincts.html"}]
       }
     ]
   },
@@ -989,11 +989,11 @@
         "subsections": [
           {
             "name": "Research",
-            "content": "<p>The statewide amps were created to aid in a paper, <a href=\"https://arxiv.org/abs/1810.09051\"> \"Locating the representational baseline: Republicans in Massachusetts,\"</a> written by MGGG and collaborators. Despite Republicans usually gaining between 30% and 40% of the two-way vote share in statewide elections, Massachusetts has not elected a Republican to the US House of Representatives since 1994. The paper finds that the underperformance of Republicans in Massachusetts is not the result of gerrymandering or candidate availability, but rather is a factor of the spatial distribution of Republican voters in the state.</p>"
+            "content_source": "/assets/about/massachusetts/research.html"
           },
           {
             "name": "Election reform in Lowell",
-            "content": "<p>In 2019, all eyes are on Lowell, Massachusetts. The City of Lowell’s at-large electoral system has been challenged in a recent lawsuit (Huot et al. v. City of Lowell et al). Plaintiffs in the case argued that the current system dilutes the votes of Lowell's communities of color for the City Council and School Board. For more information about the lawsuit, read LCR's explainer <a href=\"https://www.lawyerscom.org/wp-content/uploads/2010/08/Lowell-Voting-Rights-Lawsuit-FAQ-Final.pdf\">[here]</a>.</p><p>  This November, Lowell residents will have a chance to vote on a new system! The choices for City Council are (a) a city-wide system electing 9 council members by ranked choice, or (b) 8 districts plus 3 at-large seats, raising the size of the council to 11 members.</p><p> Read our <a href=\"https://mggg.org/Lowell-Report\">public report</a> on the choice facing Lowell voters this November!  We explain the options on the ballot and some general differences between systems of election.  For more technical explanations of our modeling, refer to our <a href=\"https://mggg.org/Lowell-Detailed-Report\">detailed report</a>.</p> <p> Versions of the public report are also available in <a href=\"https://mggg.org/Lowell-Report/sp\">Spanish</a>,  <a href=\"https://mggg.org/Lowell-Report/pt\">Portuguese</a>, and  <a href=\"https://mggg.org/Lowell-Report/kh\">Cambodian Khmer</a>.</p>"
+            "content_source": "/assets/about/massachusetts/lowell-reform.html"
            }
         ]
       },
@@ -1006,15 +1006,15 @@
         "subsections": [
           {
             "name": "Massachusetts Precincts",
-            "content": "<p>Where you will find precincts: Statewide maps.</p><p>There are two vintages of precincts in these maps, one from the 2000 redistricting cycle and another from the 2010 redistricting cycle.  The 2002-2010 raw, unprocessed shapefile comes <a href=\"https://catalog.data.gov/dataset/tiger-line-shapefile-2012-2010-state-massachusetts-2010-census-voting-district-state-based-vtd\">from the United States Census Bureau</a> and was sent to MGGG by Secretary of the Commonwealth Francis Galvin's office.  The 2012-2016 raw, unprocessed precinct shapefile comes from the office of the Secretary of the Commonwealth of Massachusetts, William Francis Galvin.  All election data comes from the Secretary of the Commonwealth's <a href=\"http://electionstats.state.ma.us\">Elections Division website</a>.  The source precinct shapefiles, along with additional information about processing, are available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MA-shapefiles\">@mggg-states</a>.</p>"
+            "content": "/assets/about/massachusetts/precincts.html"
           },
           {
             "name": "Massachusetts Towns and Municipalities",
-            "content": "<p>Where you will find towns: Statewide maps</p><p>The town shapefile was downloaded from the <a href=\"https://docs.digital.mass.gov/dataset/massgis-data-community-boundaries-towns-survey-points\">Massachusetts Bureau of Geographic Information website</a>.</p>"
+            "content": "/assets/about/massachusetts/towns.html"
           },
           {
             "name": "Massachusetts Census Blocks",
-            "content": "<p>Where you will find blocks: Lowell maps</p><p>These data were obtained from the US Census Bureau. The block shapefile for the City of Lowell was downloaded from the Census <a href=\"https://www.census.gov/geo/maps-data/data/tiger-line.html\">TIGER/Line Shapefiles</a>. Demographic information from the 2010 Decennial Census was downloaded at the block level from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">American FactFinder</a>. The source shapefile with demographic information is available for download from MGGG's GitHub organization <a href=\"https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell\">@gerrymandr</a>.</p>"
+            "content": "/assets/about/massachusetts/blocks.html"
           }
         ] 
       }
@@ -1078,7 +1078,7 @@
         "subsections": [
           {
             "name": "Michigan Precincts",
-            "content": "<p>The precinct and congressional district shapefiles come from the Michigan Department of State through the <a href=\"http://gis-michigan.opendata.arcgis.com/datasets/2016-voting-precincts\">State of Michigan GIS Open Data Portal</a>. Demographic data at the block level are from <a href=\"https://www.nhgis.org/\">IPUMS NHGIS</a>. Shapefiles for Michigan's state house and senate districts were downloaded from the US Census Bureau's <a href=\"https://www.census.gov/cgi-bin/geo/shapefiles/index.php\">TIGER/Line Program</a>. Precinct level election data for 2016 were obtained from the <a href=\"https://electionlab.mit.edu\">MIT Elections Data and Science Lab</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MI-shapefiles\">@mggg-states</a>.</p>"
+            "content_source": "/assets/about/michigan/precincts.html"
           }
         ]
       }
@@ -1137,8 +1137,8 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
-            "name": "Michigan Precincts",
-            "content": "<p>The Minnesota precinct shapefiles with election results were created by the <a href=\"https://www.sos.state.mn.us/elections-voting/\">Minnesota Secretary of State Election Division</a> and obtained from the <a href=\"https://www.gis.leg.mn/html/download.html\">Minnesota LCC-GIS</a>. 2010 Decennial Census demographic data were downloaded from the <a href=\"https://api.census.gov/data/2010/dec/sf1\">Census API</a>. The 2010 census block shapefile for Minnesota was downloaded from the US Census Bureau’s <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html\">TIGER/Line Shapefiles</a>. The source shapefile for this module, along with additional information about processing, is available for download from MGGG's GitHub organization <a href=\"https://github.com/mggg-states/MN-shapefiles\">@mggg-states</a>.</p>"
+            "name": "Minnesota Precincts",
+            "content_source": "/assets/about/minnesota/precincts.html"
           }
         ]
       }
