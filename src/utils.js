@@ -315,6 +315,7 @@ export function spatial_abilities (id) {
       maryland: {
         number_markers: true,
         county_brush: true,
+        screenshot: true,
       },
       ma: {
         number_markers: true,
