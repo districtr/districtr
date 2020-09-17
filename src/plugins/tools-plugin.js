@@ -16,18 +16,41 @@ import { download, spatial_abilities } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
-    const brush = (state.problem.type === 'community')
-        ? new CommunityBrush(state.units, 20, 0)
-        : new Brush(state.units, 20, 0);
-    brush.on("colorfeature", state.update);
+    const brush = new Brush(state.units, 1, 0);
+    // brush.on("colorfeature", state.update);
+    brush.on("colorfeature", (e) => {
+        console.log(state.idColumn.key);
+        let uid = e.properties[state.idColumn.key];
+        fetch("/.netlify/functions/localPlans?id=" + uid).then(res => res.json()).then((data) => {
+            let plans = data.plans;
+            window.plans = plans.map((upload) => {
+                let assignment = upload.plan.assignment;
+                let selectColor = assignment[uid];
+                return Object.keys(assignment).filter(key => assignment[key] === selectColor);
+            });
+            // console.log(plans);
+            if (plans.length) {
+                window.setPage = (pageIndex) => {
+                    if (pageIndex < 0 || pageIndex >= window.plans.length) {
+                        return;
+                    }
+                    window.planIndex = pageIndex;
+                    let samplePlan = window.plans[window.planIndex];
+                    Object.keys(state.plan.assignment).forEach((painted) => {
+                        state.update(painted, samplePlan.includes(painted) ? 0 : null);
+                    });
+                    samplePlan.forEach(painted => state.update(painted, 0));
+                };
+                window.setPage(0);
+            }
+        });
+    });
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
 
     let brushOptions = {
-        community: (state.problem.type === "community"),
-        county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
-            ? new HoverWithRadius(state.counties, 20)
-            : null)
+        community: false,
+        county_brush: null
     };
 
     let planNumbers = NumberMarkers(state, brush);

@@ -2,8 +2,6 @@ import { html } from "lit-html";
 import hotkeys from 'hotkeys-js';
 
 import BrushColorPicker from "./BrushColorPicker";
-import BrushSlider from "./BrushSlider";
-import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
@@ -68,8 +66,6 @@ class BrushToolOptions {
         this.options = options;
         this.selectColor = this.selectColor.bind(this);
         this.changeRadius = this.changeRadius.bind(this);
-        this.toggleCountyBrush = this.toggleCountyBrush.bind(this);
-        this.toggleBrushLock = this.toggleBrushLock.bind(this);
     }
     selectColor(e) {
         this.brush.setColor(e.target.value);
@@ -86,39 +82,12 @@ class BrushToolOptions {
         }
         this.renderToolbar();
     }
-    toggleCountyBrush() {
-        this.brush.county_brush = !this.brush.county_brush;
-        // toggle county-unit hover
-        if (this.brush.county_brush) {
-            this.options.county_brush.activate();
-            this.brush.deactivate("mouseover");
-        } else {
-            this.options.county_brush.deactivate();
-            this.brush.activate("mouseover");
-        }
-        // switches county borders visibility to match checkbox
-        let countyLayer = document.getElementById("countyVisible");
-        if (this.brush.county_brush !== countyLayer.checked) {
-            countyLayer.click();
-        }
-    }
-    toggleBrushLock() {
-        this.brush.locked = !this.brush.locked;
-    }
     render() {
         const activeColor = this.colors[this.brush.color].id;
         return html`
             ${this.colors.length > 1
                 ? BrushColorPicker(this.colors, this.selectColor, activeColor)
                 : ""}
-            ${BrushSlider(this.brush.radius, this.changeRadius)}
-            ${this.options && this.options.county_brush
-                ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush)
-                : ""}
-            ${this.colors.length > 1
-                ? BrushLock(this.brush.locked, this.toggleBrushLock, this.options)
-                : ""}
-            ${UndoRedo(this.brush)}
         `;
     }
 }
@@ -134,21 +103,6 @@ const CountyBrush = (county_brush, toggle) => html`
                 @change=${toggle}
             />
             Paint counties
-        </label>
-    </div>
-`;
-
-const BrushLock = (locked, toggle, options) => html`
-    <div class="ui-option">
-        <label class="toolbar-checkbox">
-            <input
-                type="checkbox"
-                name="brush-lock"
-                value="brush-lock"
-                ?checked=${locked}
-                @change=${toggle}
-            />
-            Lock already-drawn ${options && options.community ? "communities" : "districts"}
         </label>
     </div>
 `;

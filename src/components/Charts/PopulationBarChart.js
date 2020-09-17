@@ -86,6 +86,8 @@ const horizontalBarChart = (population, parts) => {
 const populationBarChart = (population, parts) => html`
     <section class="toolbar-section">
         ${horizontalBarChart(population, parts)}
+        <button @click="${e => window.setpage(window.planIndex - 1)}">&larr;</button>
+        <button @click="${e => window.setpage(window.planIndex + 1)}">&rarr;</button>
     </section>
 `;
 
