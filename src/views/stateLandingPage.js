@@ -263,13 +263,25 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
+            ${console.log(places)}
+            ${places[0].state == "North Carolina" ? html`
+                        <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
+                            <li class="nc places-list__item places-list__item--small">
+                                <div class="place-name">
+                                    North Carolina
+                                </div>
+                                <div class="place-info">Identify a community</div>
+                                <div class="place-info">
+                                      Built out of block groups
+                                </div>
+                            </li>
+                        </a>` : html``}
         </ul>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        console.log(place, problem);
         return getUnits(place, problem, true).map( 
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
