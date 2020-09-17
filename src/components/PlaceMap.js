@@ -29,7 +29,6 @@ const coi_available = [
     "South Carolina",
     "South Dakota",
     "Tennessee",
-    "Washington, DC",
     "West Virginia",
     "Wyoming"
 ];
@@ -67,7 +66,26 @@ const available = [
     "Ohio",
     "Oklahoma",
     "Hawaii",
-    "Washington"
+    "Washington",
+    "Alabama",
+    "Idaho",
+    "Indiana",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "New Hampshire",
+    "New Jersey",
+    "North Dakota",
+    "Puerto Rico",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Washington, DC",
+    "West Virginia",
+    "Wyoming"
 ];
 
 const uspost = {
@@ -125,6 +143,45 @@ const uspost = {
   "Wyoming": "wy"
 };
 
+const localFeatures = [
+    {type:"Feature", geometry: {type:"Point", coordinates:[-92.2896,34.7465]},
+                     properties: {name: "Little Rock", type: "local", STUSPS: "AR"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-122.2869,38.2975]},
+                     properties: {name: "Napa", type: "local", STUSPS: "CA"}},
+    {type:"Feature", geometry: {type:"Point", coordinates:[-121.9552,37.3541]},
+                     properties: {name: "Santa Clara", type: "local", STUSPS: "CA"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-87.623177,41.881832]},
+                     properties: {name: "Chicago", type: "local", STUSPS: "IL"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-71.3121125,42.6473304]},
+                     properties: {name: "Lowell", type: "local", STUSPS: "MA"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-115.0940,36.0796]},
+                     properties: {name: "Clark County", type: "local", STUSPS: "NV"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-73.2104,40.7298]},
+                     properties: {name: "Islip", type: "local", STUSPS: "NY"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-122.6750, 45.5051]},
+                     properties: {name: "Portland", type: "local", STUSPS: "OR"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-75.1652,39.9526]},
+                     properties: {name: "Philadelphia", type: "local", STUSPS: "PA"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-71.4128,41.8240]},
+                     properties: {name: "Providence", type: "local", STUSPS: "RI"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-97.7431,30.2672]},
+                     properties: {name: "Austin", type: "local", STUSPS: "TX"}},
+
+    {type:"Feature", geometry: {type:"Point", coordinates:[-120.7558, 46.5436]},
+                     properties: {name: "Yakima County", type: "local", STUSPS: "WA"}},
+    {type:"Feature", geometry: {type:"Point", coordinates:[-121.9836, 47.5480]},
+                     properties: {name: "King County", type: "local", STUSPS: "WA"}},
+];
+
 // Sentinel for when the mouse is not over a state
 const noHover = {};
 
@@ -138,16 +195,18 @@ const path = geoPath(
     geoAlbersUsaTerritories()
         .scale(scale)
         .translate(translate)
-);
+).pointRadius(2);
+
 const dcpath = geoPath(
     geoAlbersUsaTerritories()
         .scale(scale * 4)
         .translate([-290, 400])
 );
 
+
 export function getFeatureBySTUPS(code) {
     code = code.toLowerCase();
-    return FEATURES.find(
+    return FEATURES.filter(
         feature =>
             feature.properties.STUSPS.toLowerCase() === code &&
             feature.properties.isAvailable
@@ -159,11 +218,15 @@ export function getFeatureBySTUPS(code) {
 // =============
 
 export function selectState(feature, target) {
-    if (window.location.pathname.split("/").length >= 3) {
-        // already zoomed in on one state
-        return;
-    }
+    // selectAll("path").attr("stroke-width", 0.5);
+    selectAll(".local").style("display", "block");
     if (stateSelected === false && feature.properties.isAvailable) {
+        if (window.location.pathname.split("/").length >= 3) {
+            // already zoomed in on one state
+            selectAll(".places-list").style("display", "flex");
+            selectAll(".place-name").style("display", "block");
+            return;
+        }
         currentHistoryState = `${window.location.pathname.split("/")[1] || "/new"}/${feature.properties.STUSPS.toLowerCase()}`;
         history.pushState({}, feature.properties.NAME, currentHistoryState);
         target.classList.add("state--selected");
@@ -178,11 +241,18 @@ export function selectState(feature, target) {
             modulesAvailable(feature),
             document.getElementById("places-list")
         );
+    } else if (feature.properties.type === "local") {
+        selectAll(".places-list").style("display", "none");
+        selectAll(".places-list." + feature.properties.name.replace(/\s+/g, '')).style("display", "flex");
+        selectAll(".place-name").style("display", "none");
+        selectAll(".place-name." + feature.properties.name.replace(/\s+/g, '')).style("display", "block");
     }
 }
 
 function resetMap() {
     stateSelected = false;
+    selectAll("path").attr("stroke-width", 2);
+    selectAll(".local").style("display", "none");
     select("g")
         .transition()
         .duration(500)
@@ -247,7 +317,8 @@ function featureClasses(feature, featureId, selectedId) {
         state: true,
         "state--available": feature.properties.isAvailable,
         "state--zoomed": selectedId,
-        "state--selected": selectedId === featureId
+        "state--selected": selectedId === featureId,
+        "local": feature.properties.type === "local"
     };
     return Object.keys(classes)
         .filter(key => classes[key])
@@ -262,29 +333,43 @@ export function Features(features, onHover, selectedId) {
                   features.features.find(
                       feature =>
                           feature.properties.STUSPS.toLowerCase() === selectedId
+                          && feature.type !== "local"
                   )
               )
             : ""
     }" @mouseleave=${() => onHover(noHover)}>
-    ${features.features.map(feature => {
-        const featureId = feature.properties.STUSPS.toLowerCase();
+    ${features.features.concat(localFeatures).map(feature => {
+        // console.log(feature);
+        const featureId = (feature.properties.type === "local")
+            ? feature.properties.name + "_local"
+            : feature.properties.STUSPS.toLowerCase();
         return svg`<path id="${featureId}" class="${featureClasses(
             feature,
             featureId,
             selectedId
         )}"
-            style="${feature.properties.isAvailable ? "" : "cursor:default"}"
-            d="${feature.properties.STUSPS === "DC" ? dcpath(feature) : path(feature)}" @mouseover=${() => onHover(feature)} @click=${
-            feature.properties.isAvailable
-                ? e => selectState(feature, e.target)
-                : undefined
-        }></path>`;
+            style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
+            d="${feature.properties.STUSPS === "DC" ? dcpath(feature) : path(feature)}" @mouseover=${() => onHover(feature)}
+            onclick=${selectLandingPage(feature)}></path>`;
     })}
     <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
         features
     )}"></path>
     </g>
   </svg>`;
+}
+
+function selectLandingPage(feature, target) {
+  if (feature.properties.isAvailable) {
+    let page = feature.properties.NAME.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
+    if (feature.properties.type === "local") {
+      page = feature.properties.name.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
+    }
+    return "window.location.href='/" + page + "'";
+  } 
+  else {
+    return "";
+  }
 }
 
 function emptyModuleFallback(feature) {
@@ -304,59 +389,61 @@ window.onpopstate = () => {
     resetMap();
 };
 
-function modulesAvailable(feature, onClose, placeId) {
-    if (!onClose) {
-        onClose = () => history.back();
-    }
-    const list = PlacesListForState(feature.properties.NAME, placeId, () =>
-        emptyModuleFallback(feature)
-    );
-    return html`
-        <div class="media">
-            <button
-                class="button button--transparent button--icon media__close"
-                id="back-to-map"
-                @click=${onClose}
-            >
-                <i class="material-icons">
-                    close
-                </i>
-            </button>
-            <h3 class="media__title media__title--primary">
-                ${feature.properties.NAME}
-            </h3>
-            <div class="media__body">
-                ${(feature.properties.NAME == "North Carolina" && window.location.pathname.includes("community"))
-                    ? html`<ul class="places-list">
-                      <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
-                        <li class="places-list__item ">
-                          <div class="place-name">
-                            North Carolina
-                          </div>
-                          <div class="place-info">Identify a community</div>
-                          <div class="place-info">
-                              Built out of block groups
-                          </div>
-                        </li>
-                      </a>
-                    </ul>`
-                    : ""}
-                ${feature.properties.NAME == "Illinois"
-                    ? html`
-                          <p>
-                              <a href="/chicago"
-                                  >Read about MGGG's report on alternative
-                                  districting systems for Chicago's City Council
-                                  here.</a
-                              >
-                          </p>
-                      `
-                    : ""}
-                ${window.location.pathname.includes("community/nc") ? "" : list.render()}
-            </div>
-        </div>
-    `;
-}
+// function modulesAvailable(feature, onClose, placeId) {
+//     if (!onClose) {
+//         onClose = () => history.back();
+//     }
+//     const list = PlacesListForState(feature.properties.NAME, placeId, () =>
+//         emptyModuleFallback(feature)
+//     );
+//     return html`
+//         <div class="media">
+//             <button
+//                 class="button button--transparent button--icon media__close"
+//                 id="back-to-map"
+//                 @click=${onClose}
+//             >
+//                 <i class="material-icons">
+//                     close
+//                 </i>
+//             </button>
+//             <h3 class="media__title media__title--primary">
+//                 ${feature.properties.NAME}
+//             </h3>
+//             <div class="media__body">
+//                 ${(feature.properties.NAME == "North Carolina" && window.location.pathname.includes("community"))
+//                     ? html`<ul class="places-list">
+//                       <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
+//                         <li class="places-list__item ">
+//                           <div class="place-name">
+//                             North Carolina
+//                           </div>
+//                           <div class="place-info">Identify a community</div>
+//                           <div class="place-info">
+//                               Built out of block groups
+//                           </div>
+//                         </li>
+//                       </a>
+//                     </ul>`
+//                     : ""}
+//                 ${feature.properties.NAME == "Illinois"
+//                     ? html`
+//                           <p>
+//                               <a href="/chicago"
+//                                   >Read about MGGG's report on alternative
+//                                   districting systems for Chicago's City Council
+//                                   here.</a
+//                               >
+//                           </p>
+//                       `
+//                     : ""}
+//                 ${window.location.pathname.includes("community/nc") ? "" : list.render()}
+//             </div>
+//             <a class="learn__more" href="/${feature.properties.NAME.replace(/\s+/g, '_').toLowerCase()}">
+//                 More about Redistricting in ${feature.properties.NAME}</a>
+//         </div>
+//     `;
+// }
 
 let defaultHistoryState = location.pathname;
 let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
@@ -439,8 +526,7 @@ function fetchFeatures(availablePlaces = available) {
     return fetch("/assets/simple_states.json")
         .then(r => r.json())
         .then(states => {
-            for (let i = 0; i < states.features.length; i++) {
-                let feature = states.features[i];
+            states.features.forEach((feature) => {
                 feature.properties.isAvailable = availablePlaces.includes(
                     feature.properties.NAME
                 ) || (
@@ -448,7 +534,7 @@ function fetchFeatures(availablePlaces = available) {
                         feature.properties.NAME
                     )
                 );
-            }
+            });
             FEATURES = states;
             return states;
         });

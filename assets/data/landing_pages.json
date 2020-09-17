@@ -2681,6 +2681,42 @@
     ]
   },
   {
+    "state": "Washington, DC",
+    "code": "DC",
+    "modules": [
+      {"name": "District-wide", "ids": ["dc"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
     "state": "West Virginia",
     "code": "WV",
     "modules": [
