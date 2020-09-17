@@ -29,6 +29,7 @@ const coi_available = [
     "South Carolina",
     "South Dakota",
     "Tennessee",
+    "Washington, DC",
     "West Virginia",
     "Wyoming"
 ];
@@ -138,6 +139,11 @@ const path = geoPath(
         .scale(scale)
         .translate(translate)
 );
+const dcpath = geoPath(
+    geoAlbersUsaTerritories()
+        .scale(scale * 4)
+        .translate([-290, 400])
+);
 
 export function getFeatureBySTUPS(code) {
     code = code.toLowerCase();
@@ -215,7 +221,7 @@ function setSearchText(feature) {
 // ===========
 
 function transformAndTranslate(feature) {
-    const bounds = path.bounds(feature),
+    const bounds = (feature.properties.STUSPS === "DC" ? dcpath : path).bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
         x = (bounds[0][0] + bounds[1][0]) / 2,
@@ -268,7 +274,7 @@ export function Features(features, onHover, selectedId) {
             selectedId
         )}"
             style="${feature.properties.isAvailable ? "" : "cursor:default"}"
-            d="${path(feature)}" @mouseover=${() => onHover(feature)} @click=${
+            d="${feature.properties.STUSPS === "DC" ? dcpath(feature) : path(feature)}" @mouseover=${() => onHover(feature)} @click=${
             feature.properties.isAvailable
                 ? e => selectState(feature, e.target)
                 : undefined
