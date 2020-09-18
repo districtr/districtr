@@ -54,7 +54,6 @@ export function PlacesListForState(
 }
 
 export function getUnits(place, problem, show_just_communities = false) {
-    // console.log(problem, place);
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
@@ -151,7 +150,6 @@ export function placeItems(place, onClick) {
         .reduce((items, item) => [...items, ...item], [])}
                  </ul>`];
 }
-//From line 132: <div class="place-name">${place.name}</div>
 
 export default class PlacesList {
     constructor(

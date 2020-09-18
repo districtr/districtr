@@ -144,43 +144,49 @@ const uspost = {
 };
 
 const localFeatures = [
-    {type:"Feature", geometry: {type:"Point", coordinates:[-92.2896,34.7465]},
-                     properties: {name: "Little Rock", type: "local", STUSPS: "AR"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-122.2869,38.2975]},
-                     properties: {name: "Napa", type: "local", STUSPS: "CA"}},
-    {type:"Feature", geometry: {type:"Point", coordinates:[-121.9552,37.3541]},
-                     properties: {name: "Santa Clara", type: "local", STUSPS: "CA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-77.0369,38.9072]},
+    //                  properties: {name: "DC", type: "local", STUSPS: "DC"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-92.2896,34.7465]},
+    //                  properties: {name: "Little Rock", type: "local", STUSPS: "AR"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-87.623177,41.881832]},
-                     properties: {name: "Chicago", type: "local", STUSPS: "IL"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-122.2869,38.2975]},
+    //                  properties: {name: "Napa", type: "local", STUSPS: "CA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-121.9552,37.3541]},
+    //                  properties: {name: "Santa Clara", type: "local", STUSPS: "CA"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-71.3121125,42.6473304]},
-                     properties: {name: "Lowell", type: "local", STUSPS: "MA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-87.623177,41.881832]},
+    //                  properties: {name: "Chicago", type: "local", STUSPS: "IL"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-115.0940,36.0796]},
-                     properties: {name: "Clark County", type: "local", STUSPS: "NV"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-71.3121125,42.6473304]},
+    //                  properties: {name: "Lowell", type: "local", STUSPS: "MA"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-73.2104,40.7298]},
-                     properties: {name: "Islip", type: "local", STUSPS: "NY"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-115.0940,36.0796]},
+    //                  properties: {name: "Clark County", type: "local", STUSPS: "NV"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-122.6750, 45.5051]},
-                     properties: {name: "Portland", type: "local", STUSPS: "OR"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-73.2104,40.7298]},
+    //                  properties: {name: "Islip", type: "local", STUSPS: "NY"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-75.1652,39.9526]},
-                     properties: {name: "Philadelphia", type: "local", STUSPS: "PA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-122.6750, 45.5051]},
+    //                  properties: {name: "Portland", type: "local", STUSPS: "OR"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-71.4128,41.8240]},
-                     properties: {name: "Providence", type: "local", STUSPS: "RI"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-75.1652,39.9526]},
+    //                  properties: {name: "Philadelphia", type: "local", STUSPS: "PA"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-97.7431,30.2672]},
-                     properties: {name: "Austin", type: "local", STUSPS: "TX"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-71.4128,41.8240]},
+    //                  properties: {name: "Providence", type: "local", STUSPS: "RI"}},
 
-    {type:"Feature", geometry: {type:"Point", coordinates:[-120.7558, 46.5436]},
-                     properties: {name: "Yakima County", type: "local", STUSPS: "WA"}},
-    {type:"Feature", geometry: {type:"Point", coordinates:[-121.9836, 47.5480]},
-                     properties: {name: "King County", type: "local", STUSPS: "WA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-97.7431,30.2672]},
+    //                  properties: {name: "Austin", type: "local", STUSPS: "TX"}},
+
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-120.7558, 46.5436]},
+    //                  properties: {name: "Yakima County", type: "local", STUSPS: "WA"}},
+    // {type:"Feature", geometry: {type:"Point", coordinates:[-121.9836, 47.5480]},
+    //                  properties: {name: "King County", type: "local", STUSPS: "WA"}},
 ];
+
+const dcpoint = {type:"Feature", geometry: {type:"Point", coordinates:[-77.0369,38.9072]},
+                     properties: {name: "Washington, DC", type: "state", STUSPS: "DC"}};
 
 // Sentinel for when the mouse is not over a state
 const noHover = {};
@@ -200,7 +206,7 @@ const path = geoPath(
 const dcpath = geoPath(
     geoAlbersUsaTerritories()
         .scale(scale * 4)
-        .translate([-290, 400])
+        .translate([-290, 475])
 );
 
 
@@ -343,18 +349,22 @@ export function Features(features, onHover, selectedId) {
         const featureId = (feature.properties.type === "local")
             ? feature.properties.name + "_local"
             : feature.properties.STUSPS.toLowerCase();
-        return svg`<path id="${featureId}" class="${featureClasses(
+
+        return svg`
+            ${feature.properties.STUSPS === "DC" ? svg`<path id="${dcpoint.properties.STUSPS.toLowerCase()}" 
+                                                        class="dc-annotation"
+                                                        d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + dcpath(dcpoint).split(",")[0].substr(1) + "," + dcpath(dcpoint).split(",")[1].slice(0,-2)}" 
+                                                        @mouseover=${() => onHover(dcpoint)} 
+                                                        onclick=${selectLandingPage(dcpoint)}></path>` : svg``}
+            <path id="${featureId}" class="${featureClasses(
             feature,
             featureId,
             selectedId
-        )}"
+        )}" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
             d="${feature.properties.STUSPS === "DC" ? dcpath(feature) : path(feature)}" @mouseover=${() => onHover(feature)}
             onclick=${selectLandingPage(feature)}></path>`;
     })}
-    <path fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="${path(
-        features
-    )}"></path>
     </g>
   </svg>`;
 }

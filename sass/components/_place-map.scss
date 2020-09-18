@@ -35,6 +35,14 @@
     opacity: 1;
 }
 
+.dc-annotation {
+    fill: none;
+    stroke: $mggg-very-dark-blue;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
 .place-map {
     display: flex;
     min-width: 375px;

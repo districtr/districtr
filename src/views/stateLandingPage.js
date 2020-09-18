@@ -56,9 +56,8 @@ export default () => {
 
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
-                    // console.log(targetBox)
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
-                    // console.log(def);
+                    
                     
                     $(".places-list__item").hide();
                     selected.ids.map(id => $("." + id).show());
@@ -73,7 +72,6 @@ export default () => {
                     if (selected.mode) {
                         btn.click();
                     }
-                    // console.log(targetBox);
 
                     var l = $('input[name="place-selection"]:radio').length;
                     var i;
