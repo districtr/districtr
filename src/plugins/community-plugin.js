@@ -10,7 +10,7 @@ export default function CommunityPlugin(editor) {
 
     addLocationSearch(mapState);
 
-    const tab = new Tab("community", "Community", editor.store);
+    const tab = new Tab("community", "Description", editor.store);
     const about = new AboutSection(editor);
     tab.addRevealSection("About Your Community", about.render);
 
