@@ -10,6 +10,7 @@ export default () => {
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
+
             
             document.title = curState.concat(" | Districtr");
             var def = stateData.modules.filter(m => m.default)[0];
@@ -24,10 +25,8 @@ export default () => {
 
             
             listPlacesForState(stateData.state, true).then(places => {
-                let districtingPlaces = places.filter(p => p.limit != "community");
+                let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
                 let onlyCommunityMode = districtingPlaces.length == 0;
-                console.log(places);
-                console.log(districtingPlaces);
 
                 // render page
                 render(drawPage(stateData, onlyCommunityMode), document.getElementsByClassName("place__content")[0]);
@@ -51,17 +50,18 @@ export default () => {
                     btn.checked = true;
                 }
 
+                var selected = def;
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function(){
 
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     // console.log(targetBox)
-                    def = stateData.modules.filter(m => m.id === inputValue)[0];
+                    selected = stateData.modules.filter(m => m.id === inputValue)[0];
                     // console.log(def);
                     
                     $(".places-list__item").hide();
-                    def.ids.map(id => $("." + id).show());
+                    selected.ids.map(id => $("." + id).show());
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
@@ -69,6 +69,10 @@ export default () => {
                     var inputValue = $(this).attr("value");
                     var cls = $(this).attr("class");
                     var targetBox = $("." + inputValue);
+
+                    if (selected.mode) {
+                        btn.click();
+                    }
                     // console.log(targetBox);
 
                     var l = $('input[name="place-selection"]:radio').length;
@@ -116,9 +120,9 @@ const drawPage = (stateData, onlyCommunities) => {
         ${onlyCommunities ? html``
                           : html`<div class="place-options places-list">
                                      <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
-                                     <label for="districts" class="mode-selection">Drawing Districts</label>
+                                     <label for="districts" class="mode-selection">Draw Districts</label>
                                      <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
-                                     <label for="communities" class="mode-selection">Drawing Communities</label>
+                                     <label for="communities" class="mode-selection">Draw Communities</label>
                                  </div>`}
         
 
@@ -263,7 +267,6 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-            ${console.log(places)}
             ${places[0].state == "North Carolina" ? html`
                         <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
                             <li class="nc places-list__item places-list__item--small">

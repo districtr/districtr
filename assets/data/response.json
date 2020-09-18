@@ -7,6 +7,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "limit": "community",
         "columnSets": [
           {
             "type": "population",
@@ -203,6 +204,7 @@
   {
     "state": "Nevada",
     "name": "Clark County",
+    "limit": "unlisted",
     "units": [
       {
         "id": "blocks",
@@ -9306,6 +9308,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "limit": "community",
         "columnSets": [
           {
             "type": "population",

@@ -98,7 +98,8 @@
     "modules": [
       {"name": "Statewide", "ids": ["arizona"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties"},
-      {"name": "Cities", "ids": ["phoenix"], "id": "loc"}],
+      {"name": "Cities", "ids": ["phoenix"], "id": "loc"},
+      {"name": "Zones", "ids": ["nwaz", "seaz"], "id": "zone", "mode": "communities"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
