@@ -318,7 +318,7 @@ export default function DataLayersPlugin(editor) {
         addCountyLayer(tab, state);
     }
 
-    if (state.plan.problem.type === "community") {
+    if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
         const noNames = ["case",
             ["==", ["get", "type"], "neighborhood"],
             "",

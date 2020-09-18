@@ -305,6 +305,9 @@ export function spatial_abilities (id) {
         contiguity: true,
         screenshot: true,
       },
+      lax: {
+        neighborhoods: true,
+      },
       little_rock: {
         number_markers: true,
       },
@@ -322,10 +325,12 @@ export function spatial_abilities (id) {
       },
       miamifl: {
         number_markers: true,
+        neighborhoods: true,
       },
       miamidade: {
         multiyear: true,
         number_markers: true,
+        neighborhoods: true,
       },
       michigan: {
         number_markers: true,

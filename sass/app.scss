@@ -144,9 +144,13 @@ select {
     user-select: all;
     -webkit-user-select: text;
 }
-.modal-wrapper input, .modal-wrapper button {
+.modal-wrapper input, .modal-wrapper button, .custom-select-wrapper {
     user-select: all;
     -webkit-user-select: all;
+}
+input, textarea {
+  user-select: all;
+  -webkit-user-select: text;
 }
 
 #save-popup {
