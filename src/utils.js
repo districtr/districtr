@@ -307,6 +307,8 @@ export function spatial_abilities (id) {
       },
       lax: {
         neighborhoods: true,
+        number_markers: true,
+        contiguity: true,
       },
       little_rock: {
         number_markers: true,
