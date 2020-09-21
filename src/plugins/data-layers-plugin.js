@@ -302,7 +302,13 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
             })}
-            ${(["chicago_community_areas"].includes(state.units.sourceId)
+            ${(["chicago_community_areas", "alaska_blockgroups", "hawaii_blockgroups", "oregon_blockgroups",
+                "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
+               "maryland_blockgroups", "ma_blockgroups", "michigan_blockgroups", "minnesota_blockgroups",
+             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_blockgroups",
+           "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
+            "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
+              "maine_blockgroups"].includes(state.units.sourceId)
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
