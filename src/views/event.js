@@ -21,6 +21,14 @@ const unitCounts = {
   'cc md ss': 1809,
 };
 
+const coi_events = [
+  "fyi",
+  'common cause md ss',
+  'commoncause md ss',
+  'cc-md-ss',
+  'cc md ss',
+];
+
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
@@ -44,14 +52,22 @@ export default () => {
             document.getElementById("event-description").innerHTML = eventDescriptions[eventCode];
         }
 
+        document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "mapping your community" : "drawing districts";
+
         listPlacesForState(validEventCodes[eventCode]).then(places => {
             const target = document.getElementById("districting-options");
+            if (coi_events.includes(eventCode)) {
+                // render(html`<div class="place-info">Identify a community</div>`, target);
+                places[0].districtingProblems = [
+                    { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+                ];
+            }
             render(districtingOptions(places), target);
         });
 
         let showPlans = (data) => {
             const plans = [{
-                title: "Submitted plans",
+                title: coi_events.includes(eventCode) ? "Submitted communities" : "Submitted plans",
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
@@ -110,8 +126,8 @@ const loadablePlan = (plan, eventCode) => {
                   .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
         )).size,
         districtGoal = plan.plan.problem.numberOfParts,
-        districtOff = districtCount < districtGoal,
-        unitOff = unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
+        districtOff = !coi_events.includes(eventCode) && (districtCount < districtGoal),
+        unitOff = !coi_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
