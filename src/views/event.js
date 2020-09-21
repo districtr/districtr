@@ -145,11 +145,14 @@ const loadablePlan = (plan, eventCode) => {
                 <br/>
                 <span>${(new Date(plan.startDate)).toString()}</span>
             </figcaption>
-            <span style="margin:10px">
-                ${(districtOff || unitOff)
-                    ? "Incomplete"
-                    : "Complete"}
-            </span>
+            ${coi_events.includes(eventCode)
+                ? null
+                : html`<span style="margin:10px">
+                    ${(districtOff || unitOff)
+                        ? "Incomplete"
+                        : "Complete"}
+                  </span>`
+            }
             <span style="margin:10px">
                 ${districtOff ? (districtCount + "/" + districtGoal + " districts") : null}
                 ${unitOff ? html`<br/>` : null }
