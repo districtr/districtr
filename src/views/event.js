@@ -143,7 +143,7 @@ const loadablePlan = (plan, eventCode) => {
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.planName || ''} #${plan.simple_id || plan._id}</h6>
                 <br/>
-                <span>${(new Date(plan.startDate)).toString()}</span>
+                <span>${(new Date(plan.startDate)).toLocaleString()}</span>
             </figcaption>
             ${coi_events.includes(eventCode)
                 ? null
