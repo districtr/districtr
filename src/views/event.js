@@ -62,7 +62,7 @@ export default () => {
                     { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                 ];
             }
-            render(districtingOptions(places), target);
+            render(districtingOptions(places, eventCode), target);
         });
 
         let showPlans = (data) => {
@@ -90,7 +90,7 @@ const plansSection = (plans, eventCode) =>
             <section class="place__section">
                 <h3>${title}</h3>
                 <p>
-                    Click on any of the districting plans below to open it in
+                    Click on any of the maps below to open it in
                     Districtr.
                 </p>
                 ${loadablePlans(plans, eventCode)}
@@ -159,9 +159,9 @@ const loadablePlan = (plan, eventCode) => {
     </a>`;
 }
 
-const districtingOptions = places =>
+const districtingOptions = (places, eventCode) =>
     html`
         <ul class="places-list places-list--columns">
-            ${placeItems(places[0], startNewPlan)}
+            ${placeItems(places[0], startNewPlan, eventCode)}
         </ul>
     `;

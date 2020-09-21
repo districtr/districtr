@@ -19,12 +19,12 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, id, setParts) {
+export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     if (setParts) {
         problem.numberOfParts = setParts;
     }
     savePlanToStorage({ place, problem, units, id });
-    navigateTo("/edit");
+    navigateTo(eventCode ? ("/edit?event=" + eventCode) : "/edit");
 }
 
 export function savePlanToStorage({
