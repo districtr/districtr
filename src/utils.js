@@ -136,11 +136,19 @@ export function generateId(len) {
     return Array.from(arr, dec2hex).join("");
 }
 
-export function download(filename, text) {
+export function download(filename, text, isbinary) {
+    let blob;
+    if (isbinary) {
+      blob = new Blob([text], {
+        type: 'application/octet-stream'
+      });
+    }
     let element = document.createElement("a");
     element.setAttribute(
         "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+        isbinary
+          ? window.URL.createObjectURL(blob)
+          : "data:text/plain;charset=utf-8," + encodeURIComponent(text)
     );
     element.setAttribute("download", filename);
 
