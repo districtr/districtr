@@ -141,11 +141,11 @@ function getMenuItems(state) {
             onClick: () => navigateTo("/new")
         },
         {
-            name: "Export this plan",
+            name: "Export plan as JSON",
             onClick: () => exportPlanAsJSON(state)
         },
         {
-            name: "Export as assignment CSV",
+            name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {
