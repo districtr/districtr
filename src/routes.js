@@ -12,8 +12,8 @@ const routes = {
 };
 
 export function navigateTo(route) {
-    if (routes.hasOwnProperty(route)) {
-        location.assign(routes[route]);
+    if (routes.hasOwnProperty(route) || route.includes("/edit?event=")) {
+        location.assign(routes[route] || route);
     } else {
         throw Error("The requested route does not exist: " + route);
     }
