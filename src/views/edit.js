@@ -14,9 +14,13 @@ import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
+import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import { spatial_abilities } from "../utils";
 
 function getPlugins(context) {
-    if (context.problem.type === "community") {
+    if (context.units.coi2) {
+        return [ToolsPlugin, MultiLayersPlugin, CommunityPlugin];
+    } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
         return defaultPlugins;
@@ -24,7 +28,7 @@ function getPlugins(context) {
 }
 
 function getMapStyle(context) {
-    if (context.problem.type === "community" && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(context.place.id)) {
+    if (context.problem.type === "community" && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(context.place.id) && !context.units.coi2) {
         return "mapbox://styles/mapbox/streets-v11";
     } else {
         return "mapbox://styles/mapbox/light-v10";
@@ -96,7 +100,7 @@ function loadContext(context) {
             fitBoundsOptions: {
                 padding: {
                     top: 50,
-                    right: 50,
+                    right: context.units.coi2 ? 250 : 50,
                     left: 50,
                     bottom: 50
                 }
@@ -104,6 +108,9 @@ function loadContext(context) {
         },
         getMapStyle(context)
     );
+    if (context.units.coi2) {
+        document.body.className = "coi2";
+    }
     window.document.title = "Loading... | Districtr";
 
     // display shorter URL

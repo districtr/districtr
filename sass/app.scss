@@ -248,3 +248,31 @@ input, textarea {
 #extra-event, #extra-event-popup {
     display: none;
 }
+
+.section_coi2 {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid silver;
+
+    .centered {
+        text-align: center;
+    }
+
+    .gradientbar {
+        /* rgba(255, 255, 255, 0) 19.9%, rgba(204, 204, 232) 20%, */
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 139, 0.81));
+        &.bwscale {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.81));
+        }
+    }
+}
+.coi2 {
+    .toolbar {
+        width: 40%;
+        max-width: 560px;
+    }
+    .map {
+        width: 60%;
+        width: calc(100% - 560px)
+    }
+}

@@ -90,12 +90,78 @@ function getIncomes(place, parts) {
     }
 }
 
+function getMedIncome(place, parts) {
+    const incomes = place.columnSets.find(
+        columnSet => columnSet.name === "Median Income"
+    );
+    if (incomes) {
+        return new Population({ ...incomes, parts });
+    } else {
+        return null;
+    }
+}
+
 function getRent(place, parts) {
     const rent = place.columnSets.find(
         columnSet => columnSet.name === "Households by Rental"
     );
     if (rent) {
         return new Population({ ...rent, parts });
+    } else {
+        return null;
+    }
+}
+
+function getBroadband(place, parts) {
+    const broadband = place.columnSets.find(
+        columnSet => columnSet.name === "Technology"
+    );
+    if (broadband) {
+        return new Population({ ...broadband, parts });
+    } else {
+        return null;
+    }
+}
+
+function getSNAP(place, parts) {
+    const snap = place.columnSets.find(
+        columnSet => columnSet.name === "Households and Food"
+    );
+    if (snap) {
+        return new Population({ ...snap, parts });
+    } else {
+        return null;
+    }
+}
+
+function getAsthma(place, parts) {
+    const asthma = place.columnSets.find(
+        columnSet => columnSet.name === "Health issues"
+    );
+    if (asthma) {
+        return new Population({ ...asthma, parts });
+    } else {
+        return null;
+    }
+}
+
+function getEducation(place, parts) {
+    const edu = place.columnSets.find(
+        columnSet => columnSet.name === "Education"
+    );
+    if (edu) {
+        return new Population({ ...edu, parts });
+    } else {
+        return null;
+    }
+}
+
+function getVoters(place, parts) {
+    const voters = place.columnSets.find(
+        columnSet => columnSet.name === "Registered Voters"
+    );
+    if (voters) {
+        return new Population({ ...voters, parts });
     } else {
         return null;
     }
@@ -132,7 +198,13 @@ export function getColumnSets(state, unitsRecord) {
     state.vap = getVAP(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
     state.incomes = getIncomes(unitsRecord, state.parts);
+    state.median_income = getMedIncome(unitsRecord, state.parts);
     state.rent = getRent(unitsRecord, state.parts);
+    state.broadband = getBroadband(unitsRecord, state.parts);
+    state.snap = getSNAP(unitsRecord, state.parts);
+    state.asthma = getAsthma(unitsRecord, state.parts);
+    state.education = getEducation(unitsRecord, state.parts);
+    state.voters = getVoters(unitsRecord, state.parts);
 
     state.columns = [
         state.population.total,
@@ -163,11 +235,53 @@ export function getColumnSets(state, unitsRecord) {
             // no total
         ];
     }
+    if (state.median_income) {
+        state.columns = [
+            ...state.columns,
+            ...state.median_income.subgroups
+            // no total
+        ];
+    }
     if (state.rent) {
         state.columns = [
             ...state.columns,
             ...state.rent.subgroups
             // no total
+        ];
+    }
+    if (state.broadband) {
+        state.columns = [
+            ...state.columns,
+            ...state.broadband.subgroups
+            // no total
+        ];
+    }
+    if (state.snap) {
+        state.columns = [
+            ...state.columns,
+            ...state.snap.subgroups
+            // no total
+        ];
+    }
+    if (state.asthma) {
+        state.columns = [
+            ...state.columns,
+            ...state.asthma.subgroups,
+            state.asthma.total
+        ];
+    }
+    if (state.education) {
+        state.columns = [
+            ...state.columns,
+            ...state.education.subgroups.sort((a, b) => (a.key < b.key ? -1 : 1)),
+            // state.population.total
+        ];
+    }
+    if (state.voters) {
+        state.columns = [
+            ...state.columns,
+            ...state.voters.subgroups,
+            state.voters.total
         ];
     }
 
@@ -181,8 +295,26 @@ export function getColumnSets(state, unitsRecord) {
     if (state.incomes) {
         columnSets.push(state.incomes);
     }
+    if (state.median_income) {
+        columnSets.push(state.median_income);
+    }
     if (state.rent) {
         columnSets.push(state.rent);
+    }
+    if (state.broadband) {
+        columnSets.push(state.broadband);
+    }
+    if (state.snap) {
+        columnSets.push(state.snap);
+    }
+    if (state.asthma) {
+        columnSets.push(state.asthma);
+    }
+    if (state.education) {
+        columnSets.push(state.education);
+    }
+    if (state.voters) {
+        columnSets.push(state.voters);
     }
     return columnSets;
 }

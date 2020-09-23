@@ -121,7 +121,7 @@ export default class State {
         return this.plan.parts.filter(part => part.visible);
     }
     initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, bg_areas, bg_points, swipeUnits, swipeUnitsBorders, points, swipePoints, counties } = addLayers(
+        const { units, unitsBorders, bg_areas, bg_points, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, precincts, new_precincts, tracts } = addLayers(
             map,
             swipemap,
             this.parts,
@@ -135,11 +135,7 @@ export default class State {
         this.swipeUnits = swipeUnits;
         // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
-        this.layers = [units, points];
-        if (bg_areas) {
-            this.layers.push(bg_areas);
-            // this.layers.push(bg_points);
-        }
+        this.layers = [units, points, bg_areas, precincts, new_precincts, tracts].filter(x => !!x);
         this.swipeLayers = [swipeUnits, swipePoints];
         this.map = map;
     }
@@ -171,6 +167,9 @@ export default class State {
     }
     hasExpectedData(feature) {
         if (feature === undefined || feature.properties === undefined) {
+            return false;
+        }
+        if (feature.properties[this.idColumn.key] === undefined) {
             return false;
         }
         for (let column of this.columns) {
