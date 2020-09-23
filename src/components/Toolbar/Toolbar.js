@@ -67,7 +67,7 @@ export default class Toolbar {
         }
     }
     setMenuItems(menuItems) {
-        this.menuItems = menuItems;
+        this.menuItems = menuItems.filter(m => m !== null);
     }
     setState(state) {
         this.state = state;
