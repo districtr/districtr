@@ -2,7 +2,7 @@ import mapboxgl from "mapbox-gl";
 import MapboxCompare from 'mapbox-gl-compare';
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
-import { stateNameToFips, COUNTIES_TILESET } from "../utils";
+import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
@@ -104,7 +104,7 @@ export class MapState {
             this.comparer = null;
             window.mapslide = null;
         }
-        
+
         activated = activated || (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
         const sliderOpt = new MapSliderControl(activated);
         this.map.addControl(sliderOpt, "top-left");
@@ -157,6 +157,30 @@ function addPoints(map, tileset, layerAdder) {
         },
         layerAdder
     );
+}
+
+function addPrecincts(map, tileset, layerAdder, newest) {
+    return new Layer(map, {
+        id: "extra-precincts" + (newest ? "_new" : ""),
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
+}
+
+function addTracts(map, tileset, layerAdder) {
+    return new Layer(map, {
+        id: "extra-tracts",
+        type: "fill",
+        source: tileset.sourceLayer,
+        "source-layer": tileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0
+        }
+    });
 }
 
 function addCounties(map, tileset, layerAdder, placeID) {
@@ -244,6 +268,27 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         );
     }
 
+    let precincts, new_precincts, tracts;
+    if (spatial_abilities(borderId).coi2 && tilesets[0].coi2) {
+        precincts = addPrecincts(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("nc_precincts")),
+            layerAdder,
+            false
+        );
+        new_precincts = addPrecincts(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("norcar2_precincts")),
+            layerAdder,
+            true
+        );
+        tracts = addTracts(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("tracts")),
+            layerAdder
+        );
+    }
+
     const counties = addCounties(
         map,
         COUNTIES_TILESET,
@@ -302,5 +347,5 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas };
+    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas, precincts, new_precincts, tracts };
 }

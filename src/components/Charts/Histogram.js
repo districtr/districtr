@@ -12,9 +12,9 @@ const fmtIncome = (label) => {
    return label;
 };
 
-function getColumn(subgroup, part, max, median_name, isAge) {
+function getColumn(subgroup, part, max, median_name, isAge, widthMultiplier) {
     let years = (subgroup.age_range.length === 1 ? 1 : (subgroup.age_range[1] - subgroup.age_range[0] + 1)),
-        width = Math.round(years * (isAge ? 2 : 44)),
+        width = Math.round(years * (isAge ? 2 : 44)) * widthMultiplier,
         height = Math.ceil(((subgroup.data[part.id] || 1) / (max || 1000000000)) / width * (isAge ? 125 : 2100)),
         is_median = (subgroup.name === median_name);
     return {
@@ -23,7 +23,7 @@ function getColumn(subgroup, part, max, median_name, isAge) {
     }
 }
 
-export default (subgroups, parts, isAge) => {
+export default (subgroups, parts, isAge, widthMultiplier) => {
     if (isAge) {
         subgroups = [].concat(subgroups.sort((a, b) => {
           return a.name.replace("<5", "4").replace("+", "").split("-")[0] * 1 - b.name.replace("<5", "4").replace("+", "").split("-")[0] * 1
@@ -94,7 +94,7 @@ export default (subgroups, parts, isAge) => {
 
     let rows = parts.map(part => ({
         label: part.renderLabel(),
-        entries: subgroups.map(subgroup => getColumn(subgroup, part, max[part.id], median[part.id], isAge))
+        entries: subgroups.map(subgroup => getColumn(subgroup, part, max[part.id], median[part.id], isAge, widthMultiplier))
             .concat([{
                 content: median[part.id] ? html`Median:<br/>${fmtIncome(median[part.id])}` : "",
             }]

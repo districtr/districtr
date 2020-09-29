@@ -76,7 +76,7 @@ export default function AgeHistogramTable(
             })}
             ${chartState.ageView == 1 ? DemographicsTable(combinedAges, parts, false) : null}
             ${chartState.ageView == 2 ? DemographicsTable(combinedAges, parts, "population") : null}
-            ${chartState.ageView ? null : Histogram(population.subgroups, parts)}
+            ${chartState.ageView ? null : Histogram(population.subgroups, parts, true, 1)}
         </section>
     `;
 }

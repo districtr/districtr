@@ -294,21 +294,6 @@ function modulesAvailable(feature, onClose, placeId) {
                 ${feature.properties.NAME}
             </h3>
             <div class="media__body">
-                ${(feature.properties.NAME == "North Carolina" && window.location.pathname.includes("community"))
-                    ? html`<ul class="places-list">
-                      <a href="https://deploy-preview-189--districtr-web.netlify.app/edit/4463">
-                        <li class="places-list__item ">
-                          <div class="place-name">
-                            North Carolina
-                          </div>
-                          <div class="place-info">Identify a community</div>
-                          <div class="place-info">
-                              Built out of block groups
-                          </div>
-                        </li>
-                      </a>
-                    </ul>`
-                    : ""}
                 ${feature.properties.NAME == "Illinois"
                     ? html`
                           <p>
@@ -320,7 +305,7 @@ function modulesAvailable(feature, onClose, placeId) {
                           </p>
                       `
                     : ""}
-                ${window.location.pathname.includes("community/nc") ? "" : list.render()}
+                ${list.render()}
             </div>
         </div>
     `;
