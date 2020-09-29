@@ -156,7 +156,7 @@ const loadablePlan = (plan, eventCode) => {
             <span style="margin:10px">
                 ${districtOff ? (districtCount + "/" + districtGoal + " districts") : null}
                 ${unitOff ? html`<br/>` : null }
-                ${unitOff ? (unitCount + "/" + unitCounts[eventCode] + " units") : null}
+                ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
             </span>
         </li>
     </a>`;
