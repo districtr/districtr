@@ -144,6 +144,26 @@
                 "max": 13
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "BLK_TOTPOP",
+              "name": "Total population (2018)",
+              "sum": 353258,
+              "min": 0,
+              "max": 2847
+            },
+            "subgroups": [
+              {
+                "key": "BLK_ENG_LV",
+                "name": "English level population",
+                "sum": 25407,
+                "min": 0,
+                "max": 444
+              }
+            ]
           }
         ],
         "idColumn": {
