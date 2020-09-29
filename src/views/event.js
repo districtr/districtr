@@ -80,6 +80,10 @@ export default () => {
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
+
+            if (data.proposals) {
+                render(plansSection([{ title: 'Proposals', plans: data.proposals }], eventCode), ocument.getElementById("proposals"));
+            }
         }
 
         let eventurl = (window.location.hostname === "localhost")
