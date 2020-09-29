@@ -74,6 +74,13 @@ class BrushToolOptions {
     selectColor(e) {
         this.brush.setColor(e.target.value);
         this.renderToolbar();
+        if (document.querySelectorAll) {
+            let community_opts = document.querySelectorAll('.custom-select .custom-option');
+            if (community_opts.length) {
+               community_opts[e.target.value * 1].click();
+               document.querySelector('.custom-select__trigger').click();
+            }
+        }
     }
     changeRadius(e) {
         e.stopPropagation();

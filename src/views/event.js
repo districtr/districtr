@@ -10,15 +10,11 @@ const validEventCodes = {
   'commoncause md ss': 'maryland',
   'cc-md-ss': 'maryland',
   'cc md ss': 'maryland',
+  ccnm: 'new_mexico_bg',
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
-  fyi: 101,
-  'common cause md ss': 1809,
-  'commoncause md ss': 1809,
-  'cc-md-ss': 1809,
-  'cc md ss': 1809,
 };
 
 const coi_events = [
@@ -27,16 +23,18 @@ const coi_events = [
   'commoncause md ss',
   'cc-md-ss',
   'cc md ss',
+  'ccnm',
 ];
 
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
 
-  'common cause md ss': 'Welcome to the event page for Common Cause Maryland project!',
-  'commoncause md ss': 'Welcome to the event page for Common Cause Maryland project!',
-  'cc-md-ss': 'Welcome to the event page for Common Cause Maryland project!',
-  'cc md ss': 'Welcome to the event page for Common Cause Maryland project!',
+  'common cause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
+  'commoncause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
+  'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
+  'cc md ss': 'Welcome to the event page for the Common Cause Maryland project!',
+  ccnm: 'Welcome to the event page for the Common Cause New Mexico project!'
 };
 
 export default () => {
@@ -54,7 +52,7 @@ export default () => {
 
         document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "mapping your community" : "drawing districts";
 
-        listPlacesForState(validEventCodes[eventCode]).then(places => {
+        listPlacesForState(validEventCodes[eventCode], coi_events.includes(eventCode)).then(places => {
             const target = document.getElementById("districting-options");
             if (coi_events.includes(eventCode)) {
                 // render(html`<div class="place-info">Identify a community</div>`, target);

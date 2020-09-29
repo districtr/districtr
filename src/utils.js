@@ -370,6 +370,11 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: true,
       },
+        new_mexico_bg: {
+          native_american: true,
+          shapefile: true,
+          screenshot: true,
+        },
       newyork: {
         number_markers: true,
         county_brush: true,
