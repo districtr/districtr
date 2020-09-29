@@ -379,6 +379,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
         coi2: true,
+        current_districts: true,
       },
           forsyth_nc: {
             contiguity: true,
