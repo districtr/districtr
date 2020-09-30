@@ -56,7 +56,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
-    fetch(`/assets/native_official/${state.place.id}.geojson`)
+    fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -92,7 +92,7 @@ export function addAmerIndianLayer(tab, state) {
         });
 
         if (amin_type === "brown3" || amin_type === "shades") {
-            fetch(`/assets/native_official/${state.place.id}_centroids.geojson`)
+            fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}_centroids.geojson`)
                 .then(res => res.json())
                 .then((centroids) => {
 
