@@ -94,7 +94,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         })
         .catch(e => callback(null));
     };
-    if (spatial_abilities(state.place.id).screenshot) {
+    if (eventCode && spatial_abilities(state.place.id).screenshot) {
         fetch("//mggg.pythonanywhere.com/picture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
