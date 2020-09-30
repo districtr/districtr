@@ -61,7 +61,7 @@ export default () => {
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
 
-        document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "mapping your community" : "drawing districts";
+        document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
 
         listPlacesForState(validEventCodes[eventCode], coi_events.includes(eventCode)).then(places => {
             const target = document.getElementById("districting-options");
