@@ -95,7 +95,7 @@ export default () => {
 const plansSection = (plans, eventCode) =>
     plans.map(
         ({ title, plans }) => html`
-            <section class="place__section">
+            <section id="shared" class="place__section">
                 <h2>${title}</h2>
                 <p>
                     Click on any of the maps below to open it in

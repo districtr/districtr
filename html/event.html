@@ -28,6 +28,51 @@
     </head>
 
     <body>
+        <header class="site-header">
+            <nav class="site-nav">
+                <div class="site-nav__logo">
+                    <a href="/">
+                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home">
+                    </a>
+                    <script>
+                        function openNav() {
+                          var links = document.getElementById("nav-links");
+                          var openClass = "site-nav__contents--show";
+                          if (links.classList.contains(openClass)) {
+                            links.classList.remove(openClass);
+                          } else {
+                            links.classList.add(openClass);
+                          }
+                        }
+                    </script>
+                    <button class="site-nav__open-btn" onclick="openNav();">
+                        <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                    </button>
+                </div>
+                <ul id="nav-links" class="nav-links site-nav__contents">
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#community">
+                Draw
+            </a>
+        </li>
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#shared">
+                Shared Plans
+            </a>
+        </li>
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#about-section">
+                About
+            </a>
+        </li>
+        <li class="nav">
+            <a href="/new">
+                <img class="nav-links__link nav-links__link--major nav-links__link--img" src="/assets/usa_light_blue.png" alt="Back to Map">
+            </a>
+        </li>
+    </ul>
+            </nav>
+        </header>
         <main id="root" class="place">
             <article class="place__content">
                 <h1 class="headline place__name">
@@ -36,7 +81,7 @@
                 </h1>
                 <div id="event-description"></div>
 
-                <h2 class="communities">Start&nbsp;<span id="draw-goal"></span></h2>
+                <h2 id="communities">Start&nbsp;<span id="draw-goal"></span></h2>
                 <p>Click below to start with a blank map</p>
                 <div id="districting-options"></div>
                 <div id="plans"></div>
