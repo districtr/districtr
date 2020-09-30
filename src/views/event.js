@@ -76,7 +76,7 @@ export default () => {
 
         let showPlans = (data) => {
             const plans = [{
-                title: coi_events.includes(eventCode) ? "Shared communities" : "Shared plans",
+                title: coi_events.includes(eventCode) ? "Shared maps" : "Shared plans",
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
