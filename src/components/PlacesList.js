@@ -24,8 +24,7 @@ function communitiesFilter(place) {
 export function listPlacesForState(state, communityEvent) {
     if (_placesList === null) {
         return listPlaces().then(items => {
-            console.log(items);
-            _placesList = items.filter(place => !place.limit || (justCommunities && !place.limit === "community") || communityEvent)
+            _placesList = items.filter(place => !place.limit || (justCommunities && place.limit === "community") || communityEvent)
                 .map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
                 item => item.state === state || item.name === state || item.id === state
@@ -60,10 +59,8 @@ export function getUnits(place, problem) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    console.log(place.units);
-    return place.units.filter((unitType) => !unitType.limit
-        || (unitType.limit && (window.location.href.includes(unitType.limit)))
-    ).sort((a, b) => {
+    return place.units.filter((unitType) => !unitType.limit || window.location.href.includes(unitType.limit))
+                      .sort((a, b) => {
         const x = a.name.toLowerCase();
         const y = b.name.toLowerCase();
         if (x < y) {
