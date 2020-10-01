@@ -37,14 +37,16 @@ const eventDescriptions = {
   'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!',
-  ccsani: 'Welcome to the event page for zoning Contra Costa County\'s Central Sanitation District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
+  ccsani: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
 };
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
       "The team will use Districtr, a free webtool developed by MGGG at Tufts University, to map important places and community boundaries. The data for this event were obtained from the US Census Bureau. The block group shapefiles were downloaded from the Census's TIGER/Line Shapefiles, and demographic information from the 2010 Decennial Census was downloaded at the block level from the Census API.",
       "We welcome questions and inquiries about the tool and our work. Reach out to us at <a href=\"mailto:contact@mggg.org\">contact@mggg.org</a> if you are interested in working with us."],
-  ccsani: [""],
+  ccsani: [
+    "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
+    "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
 };
 
 const proposals_by_event = {
@@ -84,7 +86,7 @@ export default () => {
 
         let showPlans = (data) => {
             const plans = [{
-                title: "Shared maps",
+                title: "Community-submitted maps",
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
@@ -93,6 +95,8 @@ export default () => {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
                     render(plansSection([{ title: 'Sample plans', plans: sample.plans }], eventCode, true), document.getElementById("proposals"));
                 });
+            } else {
+                document.getElementById("sample_plan_link").style.display = "none";
             }
         }
 
@@ -111,10 +115,11 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
         ({ title, plans }) => html`
             <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
-                <p>
+                ${(isProfessionalSamples || !proposals_by_event[eventCode])
+                  ? html`<p>
                     Click on any of the maps below to open it in
                     Districtr.
-                </p>
+                </p>` : null}
                 <ul class="plan-thumbs">
                     ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
                 </ul>

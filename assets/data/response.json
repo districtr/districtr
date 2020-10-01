@@ -1,6 +1,6 @@
 [
   {
-    "name": "Contra Costa Central Sanitation",
+    "name": "Contra Costa County",
     "units": [
       {
         "id": "blocks",
@@ -253,9 +253,9 @@
     "state": "California",
     "districtingProblems": [
       {
-        "name": "Sanitation District Commission",
+        "name": "Contra Costa County",
         "numberOfParts": 5,
-        "pluralNoun": "Commission Districts"
+        "pluralNoun": "Divisions"
       }
     ]
   },
@@ -444,9 +444,9 @@
     "state": "California",
     "districtingProblems": [
       {
-        "name": "Sanitation District Commission",
+        "name": "Contra Costa County",
         "numberOfParts": 5,
-        "pluralNoun": "Commission Districts"
+        "pluralNoun": "Divisions"
       }
     ]
   },
