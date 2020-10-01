@@ -278,6 +278,14 @@ export function spatial_abilities (id) {
             coalition: true,
             number_markers: true,
           },
+      ccsanitation: {
+        screenshot: true,
+        // multiyear: true,
+      },
+      ccsanitation2: {
+        screenshot: true,
+        multiyear: true,
+      },
       chicago: {
         number_markers: true,
       },

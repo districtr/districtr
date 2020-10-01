@@ -11,10 +11,12 @@ const validEventCodes = {
   'cc-md-ss': 'maryland',
   'cc md ss': 'maryland',
   'cc-nm-abq': 'new_mexico_bg',
+  centralsan: 'ccsanitation2',
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
+  centralsan: 5086,
 };
 
 const coi_events = [
@@ -34,13 +36,21 @@ const eventDescriptions = {
   'commoncause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc md ss': 'Welcome to the event page for the Common Cause Maryland project!',
-  'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!'
+  'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!',
+  centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
 };
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
       "The team will use Districtr, a free webtool developed by MGGG at Tufts University, to map important places and community boundaries. The data for this event were obtained from the US Census Bureau. The block group shapefiles were downloaded from the Census's TIGER/Line Shapefiles, and demographic information from the 2010 Decennial Census was downloaded at the block level from the Census API.",
-      "We welcome questions and inquiries about the tool and our work. Reach out to us at <a href=\"mailto:contact@mggg.org\">contact@mggg.org</a> if you are interested in working with us."]
+      "We welcome questions and inquiries about the tool and our work. Reach out to us at <a href=\"mailto:contact@mggg.org\">contact@mggg.org</a> if you are interested in working with us."],
+  centralsan: [
+    "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
+    "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
+};
+
+const proposals_by_event = {
+  centralsan: true
 };
 
 export default () => {
@@ -76,10 +86,18 @@ export default () => {
 
         let showPlans = (data) => {
             const plans = [{
-                title: coi_events.includes(eventCode) ? "Shared maps" : "Shared plans",
+                title: "Community-submitted maps",
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
+
+            if (proposals_by_event[eventCode]) {
+                fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
+                    render(plansSection([{ title: 'Sample plans', plans: sample.plans }], eventCode, true), document.getElementById("proposals"));
+                });
+            } else {
+                document.getElementById("sample_plan_link").style.display = "none";
+            }
         }
 
         let eventurl = (window.location.hostname === "localhost")
@@ -92,41 +110,24 @@ export default () => {
     }
 };
 
-const plansSection = (plans, eventCode) =>
+const plansSection = (plans, eventCode, isProfessionalSamples) =>
     plans.map(
         ({ title, plans }) => html`
-            <section id="shared" class="place__section">
+            <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
-                <p>
+                ${(isProfessionalSamples || !proposals_by_event[eventCode])
+                  ? html`<p>
                     Click on any of the maps below to open it in
                     Districtr.
-                </p>
-                ${loadablePlans(plans, eventCode)}
+                </p>` : null}
+                <ul class="plan-thumbs">
+                    ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
+                </ul>
             </section>
         `
     );
 
-const loadablePlans = (plans, eventCode) =>
-    html`
-        <ul class="plan-thumbs">
-            ${plans.map((p, i) => loadablePlan(p, eventCode))}
-        </ul>
-    `;
-
-const numberList = numbers => html`
-    <dl class="number-list">
-        ${numbers.map(
-            ({ number, caption }) => html`
-                <div class="number-list__row">
-                    <dt class="number-list__number">${number}</dt>
-                    <dd class="number-list__caption">${caption}</dd>
-                </div>
-            `
-        )}
-    </dl>
-`;
-
-const loadablePlan = (plan, eventCode) => {
+const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     let completness = null,
         unitCount = plan.filledBlocks || Object.keys(plan.plan.assignment || {}).length,
         districtCount = (new Set(
@@ -154,17 +155,18 @@ const loadablePlan = (plan, eventCode) => {
                       <br/>
                       Plan ID: ${plan.simple_id || plan._id}</h6>
                 <br/>
-                <span>Last updated<br/>
-                ${(new Date(plan.startDate)).toLocaleString()}</span>
+                ${isProfessionalSamples ? "" : html`<span>Last updated<br/>
+                      ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>
-            <span style="margin:10px">
-                ${coi_events.includes(eventCode) ? "" : (districtCount + "/" + districtGoal + " districts")}
-                ${unitOff ? html`<br/>` : null }
-                ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
-            </span>
-            ${coi_events.includes(eventCode)
+            ${(coi_events.includes(eventCode) || isProfessionalSamples)
                 ? null
-                : html`<span style="margin:10px;margin-top:0;">
+                : html`
+                  <span style="margin:10px">
+                      ${coi_events.includes(eventCode) ? "" : (districtCount + "/" + districtGoal + " districts")}
+                      ${unitOff ? html`<br/>` : null }
+                      ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
+                  </span>
+                  <span style="margin:10px;margin-top:0;">
                     ${(districtOff || unitOff)
                         ? "Incomplete"
                         : "Complete"}

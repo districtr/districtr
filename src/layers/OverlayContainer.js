@@ -15,10 +15,10 @@ export default class OverlayContainer {
                 key: "_COALITION",
                 name: includeCoalition,
                 columnSet: { type: "population" },
-                asMapboxExpression: () => ["get", "TOTPOP"],
+                asMapboxExpression: () => ["get", this.subgroups[0].key],
                 fractionAsMapboxExpression: () => [
                     "case",
-                    ["==", ["get", "TOTPOP"], 0],
+                    ["==", ["get", this.subgroups[0].key], 0],
                         0,
                     [
                         "/",
