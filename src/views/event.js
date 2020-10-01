@@ -11,7 +11,7 @@ const validEventCodes = {
   'cc-md-ss': 'maryland',
   'cc md ss': 'maryland',
   'cc-nm-abq': 'new_mexico_bg',
-  ccsani: 'ccsanitation',
+  ccsani: 'ccsanitation2',
 };
 
 const unitCounts = {

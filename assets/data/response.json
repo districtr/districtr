@@ -234,22 +234,22 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ccsanitation_blocks_points"
+              "url": "mapbox://districtr.ccsanitation2_blocks_points"
             },
-            "sourceLayer": "ccsanitation_blocks_points"
+            "sourceLayer": "ccsanitation2_blocks_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ccsanitation_blocks"
+              "url": "mapbox://districtr.ccsanitation2_blocks"
             },
-            "sourceLayer": "ccsanitation_blocks"
+            "sourceLayer": "ccsanitation2_blocks"
           }
         ]
       }
     ],
-    "id": "ccsanitation",
+    "id": "ccsanitation2",
     "state": "California",
     "districtingProblems": [
       {

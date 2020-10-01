@@ -282,6 +282,10 @@ export function spatial_abilities (id) {
         screenshot: true,
         // multiyear: true,
       },
+      ccsanitation2: {
+        screenshot: true,
+        multiyear: true,
+      },
       chicago: {
         number_markers: true,
       },
