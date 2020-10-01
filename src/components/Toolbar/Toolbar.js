@@ -44,6 +44,11 @@ export default class Toolbar {
         this.tools.push(tool);
     }
     savePlan(e) {
+        let btn = e.target;
+        btn.innerText = "Saving...";
+        btn.className = "saved";
+        btn.disabled = true;
+
         savePlanToDB(this.state, undefined, undefined, (_id) => {
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
@@ -61,6 +66,7 @@ export default class Toolbar {
         let btn = document.getElementById("desktop-upload");
         // only need to update the button if user previously saved state
         // and we now need to allow an update
+        btn.disabled = false;
         if (btn.innerText === "Saved") {
             btn.innerText = "Update";
             btn.className = "updated";
