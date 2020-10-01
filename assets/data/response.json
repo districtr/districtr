@@ -260,6 +260,197 @@
     ]
   },
   {
+    "name": "Contra Costa Central Sanitation",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 330336,
+              "min": 0,
+              "max": 1933
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHT",
+                "name": "White population",
+                "sum": 228880,
+                "min": 0,
+                "max": 1406
+              },
+              {
+                "key": "NH_DOJ_BLK",
+                "name": "Black population",
+                "sum": 6887,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "HISPANIC_O",
+                "name": "Hispanic population",
+                "sum": 27323,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NH_DOJ_ASN",
+                "name": "Asian population",
+                "sum": 61792,
+                "min": 0,
+                "max": 1245
+              },
+              {
+                "key": "NH_DOJ_IND",
+                "name": "American Indian population",
+                "sum": 1739,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NH_DOJ_HWN",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 875,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NH_DOJ_OT1",
+                "name": "Two or more races",
+                "sum": 1833,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "NH_DOJ_OTH",
+                "name": "Other races",
+                "sum": 988,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "F18_POP",
+              "name": "Voting age population",
+              "sum": 254048,
+              "min": 0,
+              "max": 1284
+            },
+            "subgroups": [
+              {
+                "key": "NH18_WHT",
+                "name": "White voting age population",
+                "sum": 183220,
+                "min": 0,
+                "max": 1029
+              },
+              {
+                "key": "NH18_DOJ_B",
+                "name": "Black voting age population",
+                "sum": 4909,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "H18_POP",
+                "name": "Hispanic voting age population",
+                "sum": 18921,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "NH18_DOJ_I",
+                "name": "Native American voting age population",
+                "sum": 1352,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_H",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 674,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_A",
+                "name": "Asian voting age population",
+                "sum": 43257,
+                "min": 0,
+                "max": 763
+              },
+              {
+                "key": "NH18_DOJ_O",
+                "name": "Other races voting age population",
+                "sum": 631,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH18_DOJ_1",
+                "name": "Two or more races voting age population",
+                "sum": 1065,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "BLOCK"
+        },
+        "bounds": [
+          [
+            -122.2211,
+            37.7391
+          ],
+          [
+            -121.874,
+            38.0491
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation_blocks_points"
+            },
+            "sourceLayer": "ccsanitation_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation_blocks"
+            },
+            "sourceLayer": "ccsanitation_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ccsanitation",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Sanitation District Commission",
+        "numberOfParts": 5,
+        "pluralNoun": "Commission Districts"
+      }
+    ]
+  },
+  {
     "state": "Nevada",
     "name": "Clark County",
     "units": [
