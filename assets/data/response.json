@@ -157,11 +157,60 @@
             },
             "subgroups": [
               {
-                "key": "BLK_ENG_LV",
-                "name": "English level population",
-                "sum": 25407,
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 365131,
                 "min": 0,
-                "max": 444
+                "max": 2927
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 436864,
+                "min": 0,
+                "max": 3358
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 1845646,
+                "min": 0,
+                "max": 7264
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 41372,
+                "min": 0,
+                "max": 724
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 2321,
+                "min": 0,
+                "max": 248
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 590,
+                "min": 0,
+                "max": 107
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 16222,
+                "min": 0,
+                "max": 321
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 7370,
+                "min": 0,
+                "max": 273
               }
             ]
           }
