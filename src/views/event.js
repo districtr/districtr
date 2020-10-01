@@ -84,7 +84,7 @@ export default () => {
 
         let showPlans = (data) => {
             const plans = [{
-                title: coi_events.includes(eventCode) ? "Shared maps" : "Shared plans",
+                title: "Shared maps",
                 plans: data.plans
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
@@ -109,7 +109,7 @@ export default () => {
 const plansSection = (plans, eventCode, isProfessionalSamples) =>
     plans.map(
         ({ title, plans }) => html`
-            <section id="shared" class="place__section">
+            <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
                 <p>
                     Click on any of the maps below to open it in
