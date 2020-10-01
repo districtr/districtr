@@ -1,8 +1,9 @@
 [
   {
-    "name": "Contra Costa County",
+    "name": "Contra Costa CentralSan",
     "units": [
       {
+        "limit": "event",
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
@@ -260,9 +261,10 @@
     ]
   },
   {
-    "name": "Contra Costa Central Sanitation",
+    "name": "Contra Costa CentralSan",
     "units": [
       {
+        "limit": "event",
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
