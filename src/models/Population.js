@@ -2,9 +2,10 @@ import { numberWithCommas, roundToDecimal } from "../utils";
 import ColumnSet from "./ColumnSet";
 
 export default class Population extends ColumnSet {
-    constructor({ name, subgroups, total, total_alt, parts }) {
+    constructor({ name, subgroups, total, name_alt, total_alt, parts }) {
         super({ subgroups, total, total_alt, parts });
         this.name = name;
+        this.name_alt = name_alt;
 
         this.ideal = this.total.sum / parts.length;
         this.formattedIdeal = numberWithCommas(roundToDecimal(this.ideal, 2));

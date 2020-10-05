@@ -160,58 +160,58 @@
               {
                 "key": "NH_WHITEX",
                 "name": "White population",
-                "sum": 365131,
+                "sum": 183220,
                 "min": 0,
-                "max": 2927
+                "max": 1029
               },
               {
                 "key": "NH_BLACKX",
                 "name": "Black population",
-                "sum": 436864,
+                "sum": 4909,
                 "min": 0,
-                "max": 3358
+                "max": 209
               },
               {
                 "key": "HISPX",
                 "name": "Hispanic population",
-                "sum": 1845646,
+                "sum": 18921,
                 "min": 0,
-                "max": 7264
+                "max": 219
               },
               {
                 "key": "NH_ASIANX",
                 "name": "Asian population",
-                "sum": 41372,
+                "sum": 43257,
                 "min": 0,
-                "max": 724
+                "max": 763
               },
               {
                 "key": "NH_AMINX",
                 "name": "American Indian population",
-                "sum": 2321,
+                "sum": 1352,
                 "min": 0,
-                "max": 248
+                "max": 9
               },
               {
                 "key": "NH_NHPIX",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 590,
+                "sum": 674,
                 "min": 0,
-                "max": 107
+                "max": 9
               },
               {
                 "key": "NH_2MOREX",
                 "name": "Two or more races",
-                "sum": 16222,
+                "sum": 1065,
                 "min": 0,
-                "max": 321
+                "max": 13
               },
               {
                 "key": "NH_OTHERX",
                 "name": "Other races",
-                "sum": 7370,
+                "sum": 631,
                 "min": 0,
-                "max": 273
+                "max": 7
               }
             ]
           }

@@ -51,8 +51,10 @@ function getPopulation(place, parts) {
             sg.total_alt = true;
             population.subgroups.push(sg);
         });
+        population18.total.total_alt = true;
         population.subgroups.push(population18.total);
         population.total_alt = population18.total;
+        population.name_alt = "Population (2018)";
     }
     return new Population({ ...population, parts });
 }
