@@ -126,7 +126,7 @@ export function addAmerIndianLayer(tab, state) {
                         'text-opacity': (startFill ? 1 : 0)
                       }
                     },
-                    addBelowLabels
+                    // addBelowLabels
                 );
 
                 nativeamerican = new Layer(
