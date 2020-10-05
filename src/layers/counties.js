@@ -45,7 +45,7 @@ export function addCountyLayer(tab, state) {
     );
     tab.addSection(
         () => html`
-            ${toggle(`Show County Boundaries`, false, checked =>
+            ${toggle(`Show ${state.place.id === "louisiana" ? "Parish" : "County"} Boundaries`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 ),
