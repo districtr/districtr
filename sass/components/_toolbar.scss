@@ -436,8 +436,6 @@ li:first-child > input:checked ~ .tabs__tab {
      align-items: center;
      justify-content: space-between;
      padding: 0 22px;
-     font-size: 18px;
-     font-weight: 300;
      color: #3b3b3b;
      height: 40px;
      line-height: 40px;
@@ -446,6 +444,14 @@ li:first-child > input:checked ~ .tabs__tab {
      border-width: 2px 0 2px 0;
      border-style: solid;
      border-color: #394a6d;
+
+     .label {
+       text-overflow: ellipsis;
+       max-width: fit-content;
+       white-space: nowrap;
+       max-width: 180px;
+       overflow: hidden;
+     }
 
     .part-number {
        margin-top: 0;
@@ -480,6 +486,9 @@ li:first-child > input:checked ~ .tabs__tab {
      color: #3b3b3b;
      line-height: 39px;
      cursor: pointer;
+     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
  .custom-option:hover {
      cursor: pointer;

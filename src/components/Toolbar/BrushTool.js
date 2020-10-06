@@ -8,17 +8,6 @@ import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
     return html`<img src="/assets/Icons_Paint_grey.svg" alt="Brush"/>`
-    // if (active && colorId !== undefined) {
-    //     return html`
-    //         <i class="material-icons" style="color: ${colors[colorId].color};"
-    //             >brush</i
-    //         >
-    //     `;
-    // } else {
-    //     return html`
-    //         <i class="material-icons">brush</i>
-    //     `;
-    // }
 };
 
 export default class BrushTool extends Tool {
@@ -74,6 +63,13 @@ class BrushToolOptions {
     selectColor(e) {
         this.brush.setColor(e.target.value);
         this.renderToolbar();
+        if (document.querySelectorAll) {
+            let community_opts = document.querySelectorAll('.custom-select .custom-option');
+            if (community_opts.length) {
+               community_opts[e.target.value * 1].click();
+               document.querySelector('.custom-select__trigger').click();
+            }
+        }
     }
     changeRadius(e) {
         e.stopPropagation();
@@ -113,7 +109,7 @@ class BrushToolOptions {
                 : ""}
             ${BrushSlider(this.brush.radius, this.changeRadius)}
             ${this.options && this.options.county_brush
-                ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush)
+                ? CountyBrush(this.brush.county_brush, this.toggleCountyBrush, this.options.alt_counties)
                 : ""}
             ${this.colors.length > 1
                 ? BrushLock(this.brush.locked, this.toggleBrushLock, this.options)
@@ -123,7 +119,7 @@ class BrushToolOptions {
     }
 }
 
-const CountyBrush = (county_brush, toggle) => html`
+const CountyBrush = (county_brush, toggle, alt_counties) => html`
     <div class="ui-option">
         <label class="toolbar-checkbox">
             <input
@@ -133,7 +129,7 @@ const CountyBrush = (county_brush, toggle) => html`
                 ?checked=${county_brush}
                 @change=${toggle}
             />
-            Paint counties
+            Paint ${alt_counties || "counties"}
         </label>
     </div>
 `;

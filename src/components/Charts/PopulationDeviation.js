@@ -4,7 +4,7 @@ import { roundToDecimal } from "../../utils";
 export default population => {
     let deviations = population
         .deviations()
-        // .filter(d => d != -1) // leave out empty districts
+        .filter(d => d != -1) // leave out empty districts
         .map(d => Math.abs(d));
     if (deviations.length == 0) {
         deviations.push(1);

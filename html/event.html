@@ -8,28 +8,94 @@
         <link
             rel="stylesheet"
             type="text/css"
-            media="screen"
-            href="/css/chicago.css"
+            href="/css/state_landing.css"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
             rel="stylesheet"
         />
+        <style type="text/css">
+          .thumb__heading {
+              overflow: hidden;
+              width: 280px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+          }
+          #about-section {
+            display: none;
+          }
+        </style>
     </head>
 
     <body>
+        <header class="site-header">
+            <nav class="site-nav">
+                <div class="site-nav__logo">
+                    <a href="/">
+                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home">
+                    </a>
+                    <script>
+                        function openNav() {
+                          var links = document.getElementById("nav-links");
+                          var openClass = "site-nav__contents--show";
+                          if (links.classList.contains(openClass)) {
+                            links.classList.remove(openClass);
+                          } else {
+                            links.classList.add(openClass);
+                          }
+                        }
+                    </script>
+                    <button class="site-nav__open-btn" onclick="openNav();">
+                        <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                    </button>
+                </div>
+                <ul id="nav-links" class="nav-links site-nav__contents">
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#community">
+                Draw
+            </a>
+        </li>
+        <li id="sample_plan_link" class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#sample">
+                Sample Plans
+            </a>
+        </li>
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#shared">
+                Shared Maps
+            </a>
+        </li>
+        <li class="nav">
+            <a class="nav-links__link nav-links__link--major" href="#about-section">
+                About
+            </a>
+        </li>
+        <li class="nav">
+            <a href="/new">
+                <img class="nav-links__link nav-links__link--major nav-links__link--img" src="/assets/usa_light_blue.png" alt="Back to Map">
+            </a>
+        </li>
+    </ul>
+            </nav>
+        </header>
         <main id="root" class="place">
             <article class="place__content">
                 <h1 class="headline place__name">
-                    <span id="eventHeadline"></span>:
-                    <small>Open Event</small>
+                    Public Event:
+                    <span id="eventHeadline"></span>
                 </h1>
                 <div id="event-description"></div>
 
-                <h3>Start drawing districts</h3>
-                <p>To share your work, enter the event code: <code id="eventCode"></code></p>
+                <h2 id="communities">Start&nbsp;<span id="draw-goal"></span></h2>
+                <p>Click below to start with a blank map.</p>
                 <div id="districting-options"></div>
+                <div id="proposals"></div>
                 <div id="plans"></div>
+                <div id="about-section">
+                  <h2>About</h2>
+                  <div id="about-section-text">
+                  </div>
+                </div>
             </article>
         </main>
         <script src="/es6/event.js"></script>

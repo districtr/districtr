@@ -6,7 +6,8 @@ export default function IncomeHistogramTable(
     population,
     parts,
     chartState,
-    dispatch
+    dispatch,
+    widthMultiplier
 ) {
     // console.log(population.subgroups);
     let adjustGroups = [
@@ -41,7 +42,7 @@ export default function IncomeHistogramTable(
 
     return html`
         <section class="toolbar-section">
-            ${Histogram(adjustGroups, parts, false)}
+            ${Histogram(adjustGroups, parts, false, widthMultiplier || 1)}
         </section>
     `;
 }

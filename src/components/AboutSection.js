@@ -59,7 +59,7 @@ export default class AboutSection {
         return html`
             <ul class="option-list">
                 <li class="option-list__item">
-                    ${parts.length > 1
+                    ${parts.length > 0
                         ? Parameter({
                               label: "Community:",
                               element: html`<div class="custom-select-wrapper">
@@ -69,7 +69,7 @@ export default class AboutSection {
                                               @click="${(e) => { document.getElementsByClassName('custom-select')[0].classList.toggle('open')}}"
                                           >
                                               <span class="part-number" style="${'background:' + colorScheme[this.part.id] }"> </span>
-                                              <span>${this.name}</span>
+                                              <span class="label">${this.name}</span>
                                               <div class="arrow"></div>
                                           </div>
                                           <div class="custom-options">
@@ -122,7 +122,7 @@ function AboutSectionTemplate({
             </li>
             <li class="option-list__item">
                 <br/>
-                <code>Your community details are updated automatically</code>
+                <span>Your community details are updated automatically</span>
             </li>
         </ul>
     `;

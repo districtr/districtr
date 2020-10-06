@@ -13,7 +13,11 @@ export default class InspectTool extends Tool {
             html`<img src="/assets/Icons_Inspect_grey.svg" alt="Inspect"/>`
         );
 
-        this.columnSets = columnSets.filter(lyr => lyr.subgroups.length > 1);
+        this.columnSets = [].concat(columnSets.filter(lyr => lyr.subgroups.length > 1));
+        // separate out 2018 pop
+        if (this.columnSets.length && this.columnSets[0].name_alt) {
+            this.columnSets.splice(1, 0, this.columnSets[0]);
+        }
         this.activeColumnSetIndex = 0;
 
         const renderTooltipContent = features =>
@@ -22,7 +26,8 @@ export default class InspectTool extends Tool {
                 this.activeColumnSet,
                 nameColumn,
                 unitsRecord.unitType,
-                parts
+                parts,
+                this.activeColumnSetIndex
             );
         this.layer = units;
         this.tooltip = new Tooltip(units, renderTooltipContent);
@@ -66,7 +71,9 @@ class InspectToolOptions {
             <div class="ui-option">
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>
                 ${Select(
-                    this.inspectTool.columnSets,
+                    this.inspectTool.columnSets.map((col, i) => {
+                        return { name: i ? (col.name_alt || col.name) : col.name };
+                    }),
                     this.inspectTool.changeColumnSetByIndex,
                     this.inspectTool.activeColumnSetIndex || 0
                 )}

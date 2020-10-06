@@ -25,7 +25,7 @@ export default class ColumnSet {
                 parts,
                 columnSet: this
             });
-        } else {
+        } else if (total !== null) {
             this.total = new SumOfColumns({
                 columns: this.subgroups,
                 columnSet: this,

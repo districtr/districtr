@@ -27,7 +27,8 @@ export default function ToolsPlugin(editor) {
         community: (state.problem.type === "community"),
         county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
             ? new HoverWithRadius(state.counties, 20)
-            : null)
+            : null),
+        alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
     let planNumbers = NumberMarkers(state, brush);
@@ -111,6 +112,26 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
+function exportPlanAsSHP(state) {
+    const serialized = state.serialize();
+    Object.keys(serialized.assignment).forEach((assign) => {
+        if (typeof serialized.assignment[assign] === 'number') {
+            serialized.assignment[assign] = [serialized.assignment[assign]];
+        }
+    });
+    fetch("//mggg.pythonanywhere.com/shp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(serialized),
+    })
+    .then((res) => res.arrayBuffer())
+    .catch((e) => console.error(e))
+    .then((data) => {
+        download(`districtr-plan-${serialized.id}.shp.zip`, data, true);
+    });
+}
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     let text = `"id-${state.place.id}-${state.units.id}-${state.problem.numberOfParts}`;
@@ -141,11 +162,15 @@ function getMenuItems(state) {
             onClick: () => navigateTo("/new")
         },
         {
-            name: "Export this plan",
+            name: "Export plan as JSON",
             onClick: () => exportPlanAsJSON(state)
         },
+        (spatial_abilities(state.place.id).contiguity || spatial_abilities(state.place.id).screenshot) ?  {
+            name: "Export plan as SHP",
+            onClick: () => exportPlanAsSHP(state)
+        } : null,
         {
-            name: "Export as assignment CSV",
+            name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         {

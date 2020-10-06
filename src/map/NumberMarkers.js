@@ -11,6 +11,7 @@ export default function NumberMarkers(state, brush) {
         console.log("not on NumberMarkers allowlist");
         return;
     }
+    const sep = (state.place.id === "louisiana") ? ";" : ",";
 
     let numberMarkers = {},
         canv = document.createElement("canvas"),
@@ -125,7 +126,7 @@ export default function NumberMarkers(state, brush) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
 
-                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(",")}`).then(res => res.json()).then((centroid) => {
+                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
                     if (typeof centroid === "object") {
                         centroid = centroid[0][`merged_${placeID}`];
                     }

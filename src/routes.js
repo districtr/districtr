@@ -12,19 +12,19 @@ const routes = {
 };
 
 export function navigateTo(route) {
-    if (routes.hasOwnProperty(route)) {
-        location.assign(routes[route]);
+    if (routes.hasOwnProperty(route) || route.includes("/edit?event=")) {
+        location.assign(routes[route] || route);
     } else {
         throw Error("The requested route does not exist: " + route);
     }
 }
 
-export function startNewPlan(place, problem, units, id, setParts) {
+export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     if (setParts) {
         problem.numberOfParts = setParts;
     }
     savePlanToStorage({ place, problem, units, id });
-    navigateTo("/edit");
+    navigateTo(eventCode ? ("/edit?event=" + eventCode) : "/edit");
 }
 
 export function savePlanToStorage({
@@ -94,7 +94,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         })
         .catch(e => callback(null));
     };
-    if (spatial_abilities(state.place.id).screenshot) {
+    if (eventCode && spatial_abilities(state.place.id).screenshot) {
         fetch("//mggg.pythonanywhere.com/picture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

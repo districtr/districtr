@@ -136,11 +136,19 @@ export function generateId(len) {
     return Array.from(arr, dec2hex).join("");
 }
 
-export function download(filename, text) {
+export function download(filename, text, isbinary) {
+    let blob;
+    if (isbinary) {
+      blob = new Blob([text], {
+        type: 'application/octet-stream'
+      });
+    }
     let element = document.createElement("a");
     element.setAttribute(
         "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+        isbinary
+          ? window.URL.createObjectURL(blob)
+          : "data:text/plain;charset=utf-8," + encodeURIComponent(text)
     );
     element.setAttribute("download", filename);
 
@@ -270,6 +278,14 @@ export function spatial_abilities (id) {
             coalition: true,
             number_markers: true,
           },
+      ccsanitation: {
+        screenshot: true,
+        // multiyear: true,
+      },
+      ccsanitation2: {
+        screenshot: true,
+        multiyear: true,
+      },
       chicago: {
         number_markers: true,
       },
@@ -305,8 +321,19 @@ export function spatial_abilities (id) {
         contiguity: true,
         screenshot: true,
       },
+      lax: {
+        neighborhoods: true,
+        number_markers: true,
+        contiguity: true,
+      },
       little_rock: {
         number_markers: true,
+      },
+      louisiana: {
+        native_american: true,
+        county_brush: true,
+        number_markers: true,
+        contiguity: true,
       },
       maine: {
         native_american: true,
@@ -315,16 +342,19 @@ export function spatial_abilities (id) {
       maryland: {
         number_markers: true,
         county_brush: true,
+        screenshot: true,
       },
       ma: {
         number_markers: true,
       },
       miamifl: {
         number_markers: true,
+        neighborhoods: true,
       },
       miamidade: {
         multiyear: true,
         number_markers: true,
+        neighborhoods: true,
       },
       michigan: {
         number_markers: true,
@@ -354,6 +384,11 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: true,
       },
+        new_mexico_bg: {
+          native_american: true,
+          shapefile: true,
+          screenshot: true,
+        },
       newyork: {
         number_markers: true,
         county_brush: true,
@@ -362,7 +397,8 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        contiguity: true,
+        coi2: true,
+        current_districts: true,
       },
           forsyth_nc: {
             contiguity: true,

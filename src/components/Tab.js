@@ -10,6 +10,11 @@ export class Tab {
         this.store = store;
     }
     addSection(element) {
+        if (name) {
+            this.store.dispatch(
+                actions.addChart({ chart: name })
+            );
+        }
         this.sections.push(element);
     }
     addRevealSection(name, element, options) {

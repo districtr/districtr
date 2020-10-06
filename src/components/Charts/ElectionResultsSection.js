@@ -13,7 +13,7 @@ export default function ElectionResultsSection(
         <section class="toolbar-section">
             ${Select(elections, index =>
                 dispatch(actions.changeElection({ index }))
-            )}
+            , uiState.elections.activeElectionIndex)}
             ${ElectionResults(
                 elections[uiState.elections.activeElectionIndex],
                 parts

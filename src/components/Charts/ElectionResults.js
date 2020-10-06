@@ -51,7 +51,6 @@ export default function ElectionResults(election, parts) {
     // entries: election.parties.map(party => getCell(party))
     // });
     return html`
-        <h4>${election.name}</h4>
         <strong>two-party vote share</strong>
         ${DataTable(headers, rows)}
     `;

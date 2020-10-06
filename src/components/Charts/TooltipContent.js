@@ -73,18 +73,17 @@ export function TooltipContent(
     columnSet,
     nameColumn,
     pluralNoun,
-    parts
+    parts,
+    columnSetIndex
 ) {
     if (features === null || features === undefined) {
         return "";
     }
     let total = sum(features.map(f => columnSet.total.getValue(f)));
-    if (columnSet.total_alt) {
-        total = Math.max(total, sum(features.map(f => columnSet.total_alt.getValue(f))));
-    }
-    const values = columnSet.columns.map(column =>
+    let values = columnSet.columns.map(column =>
         sum(features.map(f => column.getValue(f)))
     );
+
     if (columnSet.type === "election") {
         let votesum = values.reduce((a, b) => a + b, 0);
         columnSet = {
@@ -94,7 +93,26 @@ export function TooltipContent(
             }),
             ...columnSet
         };
+    } else if (columnSet.total_alt) {
+        if (columnSetIndex === 0) {
+            // 2010 pop
+            values = values.filter((f, index) => !columnSet.columns[index].total_alt);
+            columnSet = {
+                columns: columnSet.columns.filter(c => !c.total_alt),
+                ...columnSet,
+            };
+        } else {
+            //  2018 pop
+            total = sum(features.map(f => columnSet.total_alt.getValue(f)));
+            values = values.filter((f, index) => columnSet.columns[index].total_alt);
+            columnSet = {
+                columns: columnSet.columns.filter(c => c.total_alt),
+                ...columnSet,
+            };
+        }
     }
+
+
     return html`
         ${tooltipHeading(features, nameColumn, pluralNoun, parts)}
         ${HorizontalBarChart(columnSet, values, total)}
