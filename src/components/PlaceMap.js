@@ -41,7 +41,8 @@ const available = [
     "Ohio",
     "Oklahoma",
     "Hawaii",
-    "Washington"
+    "Washington",
+    "Louisiana"
 ];
 
 const uspost = {

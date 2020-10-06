@@ -27,7 +27,8 @@ export default function ToolsPlugin(editor) {
         community: (state.problem.type === "community"),
         county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
             ? new HoverWithRadius(state.counties, 20)
-            : null)
+            : null),
+        alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
     let planNumbers = NumberMarkers(state, brush);

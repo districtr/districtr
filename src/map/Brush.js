@@ -102,6 +102,7 @@ export default class Brush extends HoverWithRadius {
                         || idSearch("VTD", 5)
                         || idSearch("VTDID", 5)
                         // || idSearch("CNTYVTD", 3)
+                        || idSearch("Code", null, (precinct) => precinct.split(",")[0] + ",")
                         || idSearch("COUNTYFP")
                         || idSearch("COUNTYFP10")
                         || idSearch("COUNTY")
