@@ -119,7 +119,7 @@ class LandmarkOptions {
         let saveButton = document.getElementById("landmark-save-button")
         saveButton.disabled = true;
         saveButton.innerText = "Saved";
-        document.querySelector(".mapbox-gl-draw_point").click();
+        // document.querySelector(".mapbox-gl-draw_point").click();
     }
     onDelete() {
         // delete currently viewed shape
