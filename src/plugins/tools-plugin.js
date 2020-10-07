@@ -32,7 +32,7 @@ export default function ToolsPlugin(editor) {
     };
 
     let planNumbers = NumberMarkers(state, brush);
-    const c_checker = spatial_abilities(state.place.id).contiguity
+    const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
         : null;
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
