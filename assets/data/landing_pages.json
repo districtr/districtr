@@ -11,18 +11,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -47,6 +47,15 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Research", "content_source": "/assets/about/alaska/research.html"}
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -57,7 +66,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ak",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -68,15 +77,6 @@
               }
             ]
           }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {"name": "Research", "content_source": "/assets/about/alaska/research.html"}
         ]
       },
       {
@@ -107,6 +107,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -117,7 +124,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "az",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Statewide Enacted Plans",
@@ -133,13 +140,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -172,17 +172,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -217,12 +217,6 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
@@ -237,6 +231,12 @@
             "content_source": "/assets/about/california/santa-clara-reform.html"
 
           }]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -263,6 +263,13 @@
         "nav": "Draw",
         "type": "draw"
       },
+       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
       {
         "name": "Redistricting rules",
         "nav": "Rules",
@@ -274,7 +281,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "co",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -321,6 +328,13 @@
         "nav": "Draw",
         "type": "draw"
       },
+       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
       {
         "name": "Redistricting rules",
         "nav": "Rules",
@@ -332,7 +346,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ct",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -352,13 +366,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -388,6 +395,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -398,7 +412,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "de",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -414,13 +428,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -452,17 +459,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -489,6 +496,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [{"name": "Research", "content": ""}]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -499,7 +513,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ga",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -519,12 +533,6 @@
             ]
           }
         ]
-      },{
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{"name": "Research", "content": ""}]
       },
       {
         "name": "About the data",
@@ -552,6 +560,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -562,7 +577,7 @@
         "nav": "Enacted Plans",
         "type": "plans",
         "ref": "hi",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -582,13 +597,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -616,18 +624,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -653,6 +661,20 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "City Council Districts in Chicago",
+            "content_source": "/assets/about/illinois/chicago-city-council.html"
+          },
+          {"name": "Research",
+           "content_source": "/assets/about/illinois/research.html"}
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -663,7 +685,6 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "chicago",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
         "postscript": "<dl class=\"dfn-list\"><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated poverty</dt><dd class=\"dfn-list__caption\">&ge; 25% of households under $20K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated wealth</dt><dd class=\"dfn-list__caption\">&ge; 25% of households over $150K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Segregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/4 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Hypersegregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/6 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Highly diverse</dt><dd class=\"dfn-list__caption\">three racial groups exceed 1/4 of population</dd></div></dl>",
         "plans": [
           {
@@ -813,20 +834,6 @@
         ]
       },
       {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "City Council Districts in Chicago",
-            "content_source": "/assets/about/illinois/chicago-city-council.html"
-          },
-          {"name": "Research",
-           "content_source": "/assets/about/illinois/research.html"}
-        ]
-      },
-      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -852,18 +859,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -888,6 +895,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -898,7 +912,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ia",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -910,13 +924,6 @@
             ]
           }
         ]
-      },
-       {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -945,18 +952,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -981,18 +988,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1017,18 +1024,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1052,18 +1059,18 @@
         "nav": "Draw",
         "type": "draw"
       },
-       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1089,7 +1096,14 @@
         "nav": "Draw",
         "type": "draw"
       },
-       {
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1101,7 +1115,7 @@
         "pages": ["maryland"],
         "type": "plans",
         "ref": "md",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1113,13 +1127,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -1147,6 +1154,22 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Research",
+            "content_source": "/assets/about/massachusetts/research.html"
+          },
+          {
+            "name": "Election reform in Lowell",
+            "content_source": "/assets/about/massachusetts/lowell-reform.html"
+           }
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1158,7 +1181,7 @@
         "pages": ["ma"],
         "type": "plans",
         "ref": "ma",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!  Each of the Lowell plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
+        "disc": "The plan below was legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Statewide Enacted Plans",
@@ -1174,8 +1197,9 @@
       {
         "type": "plans",
         "ref": "lowell",
-         "nav": "",
-        "disc": "",
+        "nav": "",
+        "no_header": "True",
+        "disc": " Each of the Lowell plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
         "plans": [
           {
             "title": "Lowell | Sample valid 3-district plans",
@@ -1228,23 +1252,6 @@
         ]
       },
       {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "Research",
-            "content_source": "/assets/about/massachusetts/research.html"
-          },
-          {
-            "name": "Election reform in Lowell",
-            "content_source": "/assets/about/massachusetts/lowell-reform.html"
-           }
-        ]
-      },
-      
-      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1280,6 +1287,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1290,7 +1304,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "mi",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1310,13 +1324,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -1346,6 +1353,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1356,7 +1370,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "mn",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1372,13 +1386,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -1408,18 +1415,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-       {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [{"name": "Research", 
         "content_source": "/assets/about/mississippi/research.html"}]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1447,18 +1454,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1483,18 +1490,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1519,18 +1526,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1555,17 +1562,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1590,18 +1597,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1626,18 +1633,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1662,6 +1669,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1672,7 +1686,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "nm",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1688,13 +1702,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -1725,17 +1732,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1769,6 +1776,18 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Rucho v. Common Cause",
+            "content_source": "/assets/about/north-carolina/courts.html"
+          }
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1779,7 +1798,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "nc",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "",
         "plans": [
           {
             "title": "Congressional Plans",
@@ -1797,18 +1816,6 @@
                 "name": "Judge's Plan"
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "Rucho v. Common Cause",
-            "content_source": "/assets/about/north-carolina/courts.html"
           }
         ]
       },
@@ -1840,18 +1847,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1876,17 +1883,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -1916,6 +1923,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1926,7 +1940,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ok",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -1946,13 +1960,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -1985,6 +1992,16 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Election reform in Oregon", 
+           "content_source": "/assets/about/oregon/reform.html"}
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -1995,7 +2012,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "or",
-        "disc": "Click on any of the plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2014,16 +2031,6 @@
               }
             ]
           }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {"name": "Election reform in Oregon", 
-           "content_source": "/assets/about/oregon/reform.html"}
         ]
       },
       {
@@ -2058,6 +2065,16 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Redistricting in the court",
+          "content_source": "/assets/about/pennsylvania/courts.html"}
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2068,7 +2085,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "pa",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2096,16 +2113,6 @@
               }
             ]
           }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {"name": "Redistricting in the court",
-          "content_source": "/assets/about/pennsylvania/courts.html"}
         ]
       },
       {
@@ -2138,18 +2145,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2176,6 +2183,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2186,7 +2200,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "ri",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2206,13 +2220,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -2246,18 +2253,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2282,18 +2289,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2318,18 +2325,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2356,6 +2363,13 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2367,7 +2381,7 @@
         "pages": ["texas"],
         "type": "plans",
         "ref": "tx",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2379,13 +2393,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": []
       },
       {
         "name": "About the data",
@@ -2419,6 +2426,16 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [{
+          "name": "Independent Commission",
+          "content_source": "assets/about/utah/reform.html"
+        }]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2430,7 +2447,7 @@
         "pages": ["utah"],
         "type": "plans",
         "ref": "ut",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2446,16 +2463,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{
-          "name": "Independent Commission",
-          "content_source": "assets/about/utah/reform.html"
-        }]
       },
       {
         "name": "About the data",
@@ -2485,17 +2492,17 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2527,6 +2534,26 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Research",
+            "content_source": "/assets/about/virginia/research.html"
+          },
+          {
+            "name": "Reform efforts",
+            "content_source": "/assets/about/virginia/reform.html"
+          },
+          {
+            "name": "Legal Challenges",
+            "content_source": "/assets/about/virginia/courts.html"
+          }
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2537,7 +2564,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "va",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "2011-12 Enacted Plans",
@@ -2572,26 +2599,6 @@
         ]
       },
       {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "Research",
-            "content_source": "/assets/about/virginia/research.html"
-          },
-          {
-            "name": "Reform efforts",
-            "content_source": "/assets/about/virginia/reform.html"
-          },
-          {
-            "name": "Legal Challenges",
-            "content_source": "/assets/about/virginia/courts.html"
-          }
-        ]
-      },
-      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -2622,6 +2629,18 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "The electoral system in Yakima County",
+            "content_source": "/assets/about/washington/yakima-reform.html"
+          }
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2632,7 +2651,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "yakima",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "",
         "plans":
         [
           {
@@ -2651,18 +2670,6 @@
                 "name": "Plan C"
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "The electoral system in Yakima County",
-            "content_source": "/assets/about/washington/yakima-reform.html"
           }
         ]
       },
@@ -2696,18 +2703,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2732,18 +2739,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",
@@ -2768,6 +2775,18 @@
         "type": "draw"
       },
       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Redistricting in the court | Gill v. Whitford",
+            "content_source": "/assets/about/wisconsin/courts.html"
+          }
+        ]
+      },
+      {
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
@@ -2778,7 +2797,7 @@
         "nav": "Examples",
         "type": "plans",
         "ref": "wi",
-        "disc": "Click on any of the districting plans below to open it in Districtr. Then feel free to start modifying it yourself!",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
             "title": "Enacted Plans",
@@ -2788,18 +2807,6 @@
                 "name": "Congressional Plan"
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-          {
-            "name": "Redistricting in the court | Gill v. Whitford",
-            "content_source": "/assets/about/wisconsin/courts.html"
           }
         ]
       },
@@ -2831,18 +2838,18 @@
         "type": "draw"
       },
       {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
         ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
       },
       {
         "name": "About the data",

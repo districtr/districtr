@@ -44,6 +44,7 @@ export default () => {
                 
                 onlyCommunityMode ? $(".communities").show() : $(".communities").hide();
 
+
                 // select default place
                 var btn = document.getElementById(def.id);
                 if (btn) {
@@ -53,7 +54,7 @@ export default () => {
                 var selected = def;
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function(){
-
+                    $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-".concat(stateData.code).concat(".php");
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
@@ -64,7 +65,7 @@ export default () => {
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
-
+                    $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-".concat(stateData.code).concat(".php");
                     var inputValue = $(this).attr("value");
                     var cls = $(this).attr("class");
                     var targetBox = $("." + inputValue);
@@ -84,9 +85,9 @@ export default () => {
                     $(targetBox).show();
                 });
             });
+            return stateData;
         });
 };
-
 
 
 const navLinks = (sections, placeIds) =>
@@ -162,12 +163,15 @@ const drawSection = (section, stateData, onlyCommunities) => {
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
             
             <div id="community-options" class="communities"></div>
-            <p><a href="#data">What are these units?</a></p>
+            <p style="text-align: right;"><a href="#data">What are the building blocks?</a></p>
         `;
     } else if (section.type === "plans") {
         section_body = html`
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
             ${section.name ? html`<h2>${section.name}</h2>` : html``}
+            ${section.no_header ?  html``: html `<p>Sometimes the easiest way to get started is by exploring a complete plan. 
+                                            Click on any of the plans below to open it in Districtr. 
+                                            Then feel free to start modifying it yourself!</p>`}
             <p>${section.disc}</p>
             <div id="plans">${plansSection(section.plans, section.ref)}</div>
             ${$.parseHTML(section.postscript)}
