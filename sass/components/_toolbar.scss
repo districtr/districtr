@@ -368,14 +368,20 @@ li:first-child > input:checked ~ .tabs__tab {
 .mapbox-gl-draw_point {
     background-color: rgb(250, 250, 120) !important;
 
+    .tool-options & {
+        height: 29px;
+        width: 29px;
+        border-radius: 6px;
+        margin-left: 15px;
+    }
+
     &::after {
         content: '+';
-        right: 0;
         position: absolute;
-        top: -2px;
         font-size: 13px;
         color: darkgreen;
         font-weight: bold;
+        margin-left: 3px;
     }
 }
 

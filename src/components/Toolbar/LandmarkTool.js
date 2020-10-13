@@ -64,11 +64,16 @@ export default class LandmarkTool extends Tool {
         super.activate();
         // enable / disable drawing toolbar
         this.landmarks.handleDrawToggle(true);
-        document.querySelector(".mapbox-gl-draw_point").click();
+        document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click();
     }
     deactivate() {
         super.deactivate();
         this.landmarks.handleDrawToggle(false);
+        try {
+          document.querySelector(".mapboxgl-canvas-container").classList.remove("mapboxgl-interactive");
+        } catch(e){
+          // IE
+        }
     }
 }
 
@@ -100,15 +105,11 @@ class LandmarkOptions {
     // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
         this.updateName = name;
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        this.onSave();
     }
     setDescription(description) {
         this.updateDescription = description;
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = false;
-        saveButton.innerText = "Save";
+        this.onSave();
     }
     onSave() {
         // save name, description, and location on map and localStorage
@@ -116,10 +117,6 @@ class LandmarkOptions {
         updateFeature.properties.name = this.updateName;
         updateFeature.properties.short_description = this.updateDescription;
         this.saveFeature(updateFeature.id);
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = true;
-        saveButton.innerText = "Saved";
-        document.querySelector(".mapbox-gl-draw_point").click();
     }
     onDelete() {
         // delete currently viewed shape
@@ -144,23 +141,30 @@ class LandmarkOptions {
 
         return html`
     <div class="ui-option">
-        <legend class="ui-label ui-label--row">Landmarks</legend>
+        <legend class="ui-label ui-label--row">Important Places</legend>
         ${toggle(
-            "Show landmarks",
+            "Show places",
             this.drawTool.visible,
             this.drawTool.handleToggle
         )}
     </div>
     <ul class="option-list">
         <li class="option-list__item">
-            ${properties.length > 1
+            ${properties.length > 0
                 ? Parameter({
                       label: "Edit:",
-                      element: Select(
+                      element: html`${Select(
                           properties,
                           this.handleSelectFeature,
                           this.selectFeature
-                      )
+                      )}
+                      <button
+                          class="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_point"
+                          @click=${() => {
+                              document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click();
+                          }}
+                      >
+                      </button>`
                   })
                 : ""}
         </li>
@@ -216,20 +220,13 @@ function LandmarkFormTemplate({
                 <textarea
                     class="text-input text-area short-text-area"
                     name="landmark-desc"
-                    autocomplete="off"
+                    placeholder="Describe this place"
                     @input=${e => setDescription(e.target.value)}
                     @blur=${e => setDescription(e.target.value)}
                     .value="${description}"
                 ></textarea>
-            </li>
-            <li class="option-list__item">
-                <button
-                    id="landmark-save-button"
-                    class="button button--submit button--alternate ui-label"
-                    @click=${onSave}
-                >
-                    Save
-                </button>
+                <br/>
+                Your place details are saved automatically
             </li>
         </ul>
     `;
