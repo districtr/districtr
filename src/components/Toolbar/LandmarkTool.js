@@ -144,9 +144,9 @@ class LandmarkOptions {
 
         return html`
     <div class="ui-option">
-        <legend class="ui-label ui-label--row">Landmarks</legend>
+        <legend class="ui-label ui-label--row">Important Places</legend>
         ${toggle(
-            "Show landmarks",
+            "Show important places",
             this.drawTool.visible,
             this.drawTool.handleToggle
         )}
@@ -216,7 +216,7 @@ function LandmarkFormTemplate({
                 <textarea
                     class="text-input text-area short-text-area"
                     name="landmark-desc"
-                    autocomplete="off"
+                    placeholder="About this place / landmark"
                     @input=${e => setDescription(e.target.value)}
                     @blur=${e => setDescription(e.target.value)}
                     .value="${description}"
