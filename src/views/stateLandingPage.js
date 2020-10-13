@@ -54,7 +54,6 @@ export default () => {
                 var selected = def;
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function(){
-                    $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-".concat(stateData.code).concat(".php");
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
@@ -65,7 +64,6 @@ export default () => {
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
-                    $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-".concat(stateData.code).concat(".php");
                     var inputValue = $(this).attr("value");
                     var cls = $(this).attr("class");
                     var targetBox = $("." + inputValue);
@@ -83,6 +81,10 @@ export default () => {
                     $(".districts").hide();
                     $(".communities").hide();
                     $(targetBox).show();
+                });
+
+                $(document).ready(function(){
+                $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
                 });
             });
             return stateData;
