@@ -117,10 +117,6 @@ class LandmarkOptions {
         updateFeature.properties.name = this.updateName;
         updateFeature.properties.short_description = this.updateDescription;
         this.saveFeature(updateFeature.id);
-        let saveButton = document.getElementById("landmark-save-button")
-        saveButton.disabled = true;
-        saveButton.innerText = "Saved";
-        // document.querySelector(".mapbox-gl-draw_point").click();
     }
     onDelete() {
         // delete currently viewed shape
