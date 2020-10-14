@@ -50,25 +50,9 @@ body * {
     zoom: 1.2;
 }
 
-.overmapLogo {
-    position: absolute;
-    right: 25%;
-    bottom: 5px;
-    cursor: pointer;
-
-    img {
-        height: 3rem;
-        border-radius: 10px;
-    }
-}
-
 @media (max-width: 1200px) {
     .mapcontainer, .map {
         width: calc(100% - 300px);
-    }
-
-    .overmapLogo {
-        right: 305px;
     }
 }
 
@@ -76,9 +60,20 @@ body * {
     .mapcontainer, .map {
         width: calc(100% - 350px);
     }
+}
 
-    .overmapLogo {
-        right: 355px;
+.coi2 {
+    .mapcontainer {
+        width: 100%;
+        width: calc(60%);
+        overflow: hidden;
+    }
+    .map {
+        position: absolute !important;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        width: calc(60%);
     }
 }
 

@@ -41,7 +41,7 @@ export default function DataLayersPlugin(editor) {
              "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_blockgroups",
            "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
             "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
-              "maine_blockgroups"].includes(state.units.sourceId)
+              "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {

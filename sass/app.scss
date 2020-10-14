@@ -271,11 +271,7 @@ input, textarea {
 }
 .coi2 {
     .toolbar {
-        width: 40%;
-        max-width: 560px;
-    }
-    .map {
-        width: 60%;
-        width: calc(100% - 560px)
+        width: 40% !important;
+        max-width: 40% !important;
     }
 }
