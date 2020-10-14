@@ -1,7 +1,7 @@
 /edit/* /edit.html 200
-/new/* /new.html 200
+/new/* /new.html 
 /event/* /event.html 200
-/community/* /community.html 200
+/community/* /community.html 
 /user_guide /guide
 
 ## Landing Pages

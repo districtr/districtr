@@ -191,11 +191,9 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
-            "name": "Arkansas Census blocks",
-            "content_source": "/assets/about/arkansas/blocks.html"
-          },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+            "name": "Arkansas Census Blocks and Block Groups",
+            "content_source": "/assets/about/arkansas/data.html"
+          }
         ]
         
       }
