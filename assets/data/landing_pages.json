@@ -1,0 +1,2864 @@
+[
+  {
+    "state": "Alabama",
+    "code": "AL",
+    "modules": [
+      {"name": "Statewide", "ids": ["alabama"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Alaska",
+    "code": "AK",
+    "modules": [
+      {"name": "Statewide", "ids": ["alaska"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Research", "content_source": "/assets/about/alaska/research.html"}
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ak",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Alaska Precincts",
+           "content_source": "/assets/about/alaska/data.html"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Arizona",
+    "code": "AZ",
+    "modules": [
+      {"name": "Statewide", "ids": ["arizona"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties"},
+      {"name": "Cities", "ids": ["phoenix"], "id": "loc"},
+      {"name": "Zones", "ids": ["nwaz", "seaz"], "id": "zone", "mode": "communities"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "az",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Statewide Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_legislature",
+                "name": "State Legislative Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Arizona Precincts", 
+           "content_source": "/assets/about/arizona/precincts.html"
+          },
+          {"name": "Arizona Census blocks", 
+           "content_source": "/assets/about/arizona/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Arkansas",
+    "code": "AK",
+    "modules": [
+      {"name": "Statewide", "ids": ["arkansas"],  "id": "state", "mode": "communities"},
+      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Arkansas Census Blocks and Block Groups",
+            "content_source": "/assets/about/arkansas/data.html"
+          }
+        ]
+        
+      }
+    ]
+  },
+  {
+    "state": "California",
+    "code": "CA",
+    "modules": [
+      {"name": "Statewide", "ids": ["california"], "id": "state", "mode": "communities"},
+      {"name": "Counties", "ids": ["lax"], "id": "counties", "default": "true"},
+      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
+      {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Election reform in Napa",
+            "content_source": "/assets/about/california/napa-reform.html"
+          },
+          {
+            "name": "Election reform in Santa Clara",
+            "content_source": "/assets/about/california/santa-clara-reform.html"
+
+          }]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "California Census Blocks and Block groups",
+          "content_source": "/assets/about/california/data.html"
+          }
+        ]
+          
+      }
+    ]
+  },
+  {
+    "state": "Colorado",
+    "code": "CO",
+    "modules": [
+      {"name": "Statewide", "ids": ["colorado"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "co",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Colorado Precincts",
+          "content_source": "/assets/about/colorado/precincts.html"
+          },
+          {"name": "Census Block Groups",
+             "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Connecticut",
+    "code": "CT",
+    "modules": [
+      {"name": "Statewide", "ids": ["connecticut"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+       {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ct",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Connecticut Precincts",
+          "content_source": "/assets/about/connecticut/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+        
+      }
+    ]
+  },
+  {
+    "state": "Delaware",
+    "code": "DE",
+    "modules": [
+      {"name": "Statewide", "ids": ["delaware"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "de",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Delaware Precincts",
+          "content_source": "/assets/about/delaware/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+        
+      }
+    ]
+  },
+  {
+    "state": "Florida",
+    "code": "FL",
+    "modules": [
+      {"name": "Statewide", "ids": ["florida"], "id": "state", "mode": "communities"},
+      {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"},
+      {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [{
+          "name": "Florida Census blocks and block groups",
+          "content_source": "/assets/about/florida/data.html"
+        }]
+        
+      }
+    ]
+  },
+  {
+    "state": "Georgia",
+    "code": "GA",
+    "modules": [
+      {"name": "Statewide", "ids": ["georgia"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [{"name": "Research", "content": ""}]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ga",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Georgia Precincts",  
+           "content_source": "/assets/about/georgia/precincts.html"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+       
+      }
+    ]
+  },
+  {
+    "state": "Hawaii",
+    "code": "HI",
+    "modules": [
+      {"name": "Statewide", "ids": ["hawaii"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Enacted Plans",
+        "type": "plans",
+        "ref": "hi",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Hawaii Precints",
+           "content_source": "/assets/about/hawaii/precincts.html"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Idaho",
+    "code": "ID",
+    "modules": [
+      {"name": "Statewide", "ids": ["idaho"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Illinois",
+    "code": "IL",
+    "modules": [
+      {"name": "Statewide", "ids": ["illinois"], "id": "state", "mode": "communities"},
+      {"name": "Cities", "ids": ["chicago"], "default": "true", "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "City Council Districts in Chicago",
+            "content_source": "/assets/about/illinois/chicago-city-council.html"
+          },
+          {"name": "Research",
+           "content_source": "/assets/about/illinois/research.html"}
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "See the sample plans featured in the report",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "chicago",
+        "postscript": "<dl class=\"dfn-list\"><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated poverty</dt><dd class=\"dfn-list__caption\">&ge; 25% of households under $20K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Concentrated wealth</dt><dd class=\"dfn-list__caption\">&ge; 25% of households over $150K annual income</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Segregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/4 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Hypersegregated</dt><dd class=\"dfn-list__caption\">only one racial group exceeds 1/6 of population</dd></div><div class=\"dfn-list__row\"><dt class=\"dfn-list__term\">Highly diverse</dt><dd class=\"dfn-list__caption\">three racial groups exceed 1/4 of population</dd></div></dl>",
+        "plans": [
+          {
+            "title": "Current enacted plan",
+            "plans": [
+              {
+                "id": "current-wards",
+                "name": "Current Enacted Plan",
+                "numbers": [
+                    { "number": 46, "caption": "wards with a majority race" },
+                    { "number": 38, "caption": "segregated wards" },
+                    { "number": 19, "caption": "hypersegregated wards" },
+                    { "number": 19, "caption": "wards with concentrated poverty" },
+                    { "number": 13, "caption": "wards with concentrated wealth" }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "50 single-member wards built out of precincts",
+            "plans": [
+              {
+                "id": "prec50-6084",
+                "name": "Plan #6084",
+                "numbers": [
+                  {
+                    "number": 26,
+                    "caption": "segregated wards (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "prec50-12816",
+                "name": "Plan #12816",
+                "description": "Most economic parity",
+                "numbers": [
+                  {
+                    "number": 13,
+                    "caption": "wards with concentrated poverty (fewest)"
+                  },
+                  {
+                    "number": 5,
+                    "caption": "wards with concentrated wealth"
+                  }
+                ]
+              },
+              {
+                "id": "prec50-55139",
+                "name": "Plan #55139",
+                "numbers": [
+                  {
+                    "number": 34,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "10 multi-member wards built out of precincts",
+            "plans": [
+              {
+                "id": "prec10-205",
+                "name": "Plan #205",
+                "description": "Most economic parity",
+                "numbers": [
+                  { "number": 1, "caption": "ward with concentrated poverty" },
+                  { "number": 0, "caption": "wards with concentrated wealth" }
+                ]
+              },
+              {
+                "id": "prec10-8178",
+                "name": "Plan #8178",
+                "numbers": [
+                  {
+                    "number": 0,
+                    "caption": "hypersegregated wards"
+                  }
+                ]
+              },
+              {
+                "id": "prec10-8698",
+                "name": "Plan #8698",
+                "numbers": [
+                  {
+                    "number": 3,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "prec10-55213",
+                "name": "Plan #55213",
+                "numbers": [
+                  {
+                    "number": 6,
+                    "caption": "highly diverse wards (most)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "10 multi-member wards built out of community areas",
+            "plans": [
+              {
+                "id": "ca10-937",
+                "name": "Plan #937",
+                "numbers": [
+                  {
+                    "number": 0,
+                    "caption": "hypersegregated wards"
+                  }
+                ]
+              },
+              {
+                "id": "ca10-1042",
+                "name": "Plan #1042",
+                "numbers": [
+                  {
+                    "number": 3,
+                    "caption": "wards with a majority race (fewest)"
+                  }
+                ]
+              },
+              {
+                "id": "ca10-5848",
+                "name": "Plan #5848",
+                "description": "Most economic parity",
+                "numbers": [
+                  { "number": 1, "caption": "ward with concentrated poverty" },
+                  { "number": 0, "caption": "wards with concentrated wealth" }
+                ]
+              },
+              {
+                "id": "ca10-25218",
+                "name": "Plan #25218",
+                "numbers": [
+                  {
+                    "number": 6,
+                    "caption": "highly diverse wards (most)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Chicago Community Areas and Precincts", 
+           "content_source": "/assets/about/illinois/chicago-data.html"},
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Indiana",
+    "code": "IN",
+    "modules": [
+      {"name": "Statewide", "ids": ["indiana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Iowa",
+    "code": "IA",
+    "modules": [
+      {"name": "Statewide", "ids": ["iowa"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ia",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html" ,
+        "subsections": [
+          {"name": "Iowa Counties",
+           "content_source": "/assets/about/iowa/counties.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]  
+      }
+    ]
+  },
+  {
+    "state": "Kansas",
+    "code": "KS",
+    "modules": [
+      {"name": "Statewide", "ids": ["kansas"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Kentucky",
+    "code": "KY",
+    "modules": [
+      {"name": "Statewide", "ids": ["kentucky"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Louisiana",
+    "code": "LA",
+    "modules": [
+      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Maine",
+    "code": "ME",
+    "modules": [
+      {"name": "Statewide", "ids": ["maine"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Maine Precints",
+           "content_source": "/assets/about/maine/precincts.html"},
+        {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Maryland",
+    "code": "MD",
+    "modules": [
+      {"name": "Statewide", "ids": ["maryland"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "pages": ["maryland"],
+        "type": "plans",
+        "ref": "md",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Maryland Precints",
+           "content_source": "/assets/about/maryland/precincts.html"},
+        {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Massachusetts",
+    "code": "MA",
+    "modules": [
+      {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Research",
+            "content_source": "/assets/about/massachusetts/research.html"
+          },
+          {
+            "name": "Election reform in Lowell",
+            "content_source": "/assets/about/massachusetts/lowell-reform.html"
+           }
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "pages": ["ma"],
+        "type": "plans",
+        "ref": "ma",
+        "disc": "The plan below was legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Statewide Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "plans",
+        "ref": "lowell",
+        "nav": "",
+        "no_header": "True",
+        "disc": " Each of the Lowell plans was generated by randomized algorithms, while making sure that the Asian and Latino communities meet the statistical thresholds laid out in the legal requirements, where applicable.",
+        "plans": [
+          {
+            "title": "Lowell | Sample valid 3-district plans",
+            "plans": [
+                {
+                  "id": "plan3a",
+                  "name": "Random Plan 3A"
+                },
+                {
+                  "id": "plan3b",
+                  "name": "Random Plan 3B"
+                }]
+          },
+          {
+            "title": "Lowell | Sample valid 7-district plans",
+            "plans": [
+              {
+                "id": "plan7a",
+                "name": "Random Plan 7A"
+              },
+              {
+                "id": "plan7b",
+                "name": "Random Plan 7B"
+              }]
+          },
+          {
+            "title": "Lowell | Sample valid 8-district plans (Option on the Ballot)",
+            "plans": [
+              {
+                "id": "plan8a",
+                "name": "Random Plan 8A"
+              },
+              {
+                "id": "plan8b",
+                "name": "Random Plan 8B"
+              }]
+          },
+          {
+            "title": "Lowell | Sample valid 9-district plans",
+            "plans": [
+              {
+                "id": "plan9a",
+                "name": "Random Plan 9A"
+              },
+              {
+                "id": "plan9b",
+                "name": "Random Plan 9B"
+              }]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Massachusetts Precincts",
+            "content_source": "/assets/about/massachusetts/precincts.html"
+          },
+          {
+            "name": "Massachusetts Towns and Municipalities",
+            "content_source": "/assets/about/massachusetts/towns.html"
+          },
+          {
+            "name": "Massachusetts Census Blocks",
+            "content_source": "/assets/about/massachusetts/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ] 
+      }
+    ]
+  },
+  {
+    "state": "Michigan",
+    "code": "MI",
+    "modules": [
+      {"name": "Statewide", "ids": ["michigan"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "mi",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Michigan Precincts",
+            "content_source": "/assets/about/michigan/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Minnesota",
+    "code": "MN",
+    "modules": [
+      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "mn",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Minnesota Precincts",
+            "content_source": "/assets/about/minnesota/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Mississippi",
+    "code": "MS",
+    "modules": [
+      {"name": "Statewide", "ids": ["mississippi"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [{"name": "Research", 
+        "content_source": "/assets/about/mississippi/research.html"}]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Mississippi block groups",
+            "content_source": "/assets/about/mississippi/blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Missouri",
+    "code": "MO",
+    "modules": [
+      {"name": "Statewide", "ids": ["missouri"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Montana",
+    "code": "MT",
+    "modules": [
+      {"name": "Statewide", "ids": ["montana"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Nebraska",
+    "code": "NE",
+    "modules": [
+      {"name": "Statewide", "ids": ["nebraska"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Nevada",
+    "code": "NV",
+    "modules": [
+      {"name": "Statewide", "ids": ["nevada"], "id": "state", "default": "true"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "New Hampshire",
+    "code": "NH",
+    "modules": [
+      {"name": "Statewide", "ids": ["newhampshire"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "New Jersey",
+    "code": "NJ",
+    "modules": [
+      {"name": "Statewide", "ids": ["newjersey"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "New Mexico",
+    "code": "NM",
+    "modules": [
+      {"name": "Statewide", "ids": ["new_mexico"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "nm",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "New Mexico Precincts",
+            "content_source": "/assets/about/new-mexico/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "New York",
+    "code": "NY",
+    "modules": [
+      {"name": "Statewide", "ids": ["newyork"], "id": "state", "mode": "communities"},
+      {"name": "Cities", "ids": ["islip"], "default": "true", "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "New York Census Blocks",
+            "content_source": "/assets/about/new-york/blockgroups.html"
+          },
+          {
+            "name": "Islip Election Districts",
+            "content_source": "/assets/about/new-york/election-districts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "North Carolina",
+    "code": "NC",
+    "modules": [
+      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["forsyth_nc"], "id": "loc"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Rucho v. Common Cause",
+            "content_source": "/assets/about/north-carolina/courts.html"
+          }
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "nc",
+        "disc": "",
+        "plans": [
+          {
+            "title": "Congressional Plans",
+            "plans": [
+              {
+                "id": "congress_2011",
+                "name": "2011 Enacted Plan"
+              },
+              {
+                "id": "congress_2016",
+                "name": "2016 Enacted Plan"
+              },
+              {
+                "id": "congress_judge",
+                "name": "Judge's Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "North Carolina voting tabulation districts (VTDs)",
+            "content_source": "/assets/about/north-carolina/vtds.html"
+         },
+         {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "North Dakota",
+    "code": "ND",
+    "modules": [
+      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Ohio",
+    "code": "OH",
+    "modules": [
+      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Ohio Precincts",
+            "content_source": "/assets/about/ohio/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Oklahoma",
+    "code": "OK",
+    "modules": [
+      {"name": "Statewide", "ids": ["oklahoma"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ok",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Oklahoma Precincts",
+            "content_source": "/assets/about/oklahoma/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Oregon",
+    "code": "OR",
+    "modules": [
+      {"name": "Statewide", "ids": ["oregon"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["portlandor"], "id": "loc"},
+      {"name": "School Districts", "ids": ["salem_keizer"], "id": "schools"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Election reform in Oregon", 
+           "content_source": "/assets/about/oregon/reform.html"}
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "or",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "enacted-congressional",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "enacted-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "enacted-house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Oregon Precincts", 
+           "content_source": "/assets/about/oregon/precincts.html"
+          },
+          {"name": "Oregon Census blocks", 
+           "content_source": "/assets/about/oregon/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Pennsylvania",
+    "code": "PA",
+    "modules": [
+      {"name": "Statewide", "ids": ["pennsylvania"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["philadelphia"], "id": "loc"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {"name": "Redistricting in the court",
+          "content_source": "/assets/about/pennsylvania/courts.html"}
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "See sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "pa",
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress_2011",
+                "name": "2011 Enacted Congressional Plan"
+              },
+              {
+                "id": "congress_2018_rem",
+                "name": "2018 Remedial Congressional Plan"
+              }
+            ]
+          },
+          {
+            "title": "Proposed Plans",
+            "plans": [
+              {
+                "id": "congress_gov",
+                "name": "Governor’s Proposed Congressional Plan"
+              },
+              {
+                "id": "congress_ts",
+                "name": "Turzai-Scarnati Proposed Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Pennsylvania voting tabulation districts (VTDs)", 
+           "content_source": "/assets/about/pennsylvania/vtds.html"
+          },
+          {"name": "Pennsylvania Census blocks", 
+           "content_source": "/assets/about/pennsylvania/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Puerto Rico",
+    "code": "PR",
+    "modules": [
+      {"name": "Statewide", "ids": ["puertorico"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Rhode Island",
+    "code": "RI",
+    "modules": [
+      {"name": "Statewide", "ids": ["rhode_island"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["providence_ri"], "id": "loc"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "ri",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Rhode Island Precincts", 
+            "content_source": "/assets/about/rhode-island/precincts.html"
+          },
+          {
+            "name": "Rhode Island Census Blocks", 
+            "content_source": "/assets/about/rhode-island/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "South Carolina",
+    "code": "SC",
+    "modules": [
+      {"name": "Statewide", "ids": ["southcarolina"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "South Dakota",
+    "code": "SD",
+    "modules": [
+      {"name": "Statewide", "ids": ["southdakota"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Tennessee",
+    "code": "TN",
+    "modules": [
+      {"name": "Statewide", "ids": ["tennessee"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Texas",
+    "code": "TX",
+    "modules": [
+      {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["austin"], "id": "loc"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore the currently enacted plan",
+        "nav": "Enacted Plans",
+        "pages": ["texas"],
+        "type": "plans",
+        "ref": "tx",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Texas voting tabulation districts (VTDs)",
+            "content_source": "/assets/about/texas/vtds.html"
+          },
+          {
+            "name": "Texas Census Blocks",
+            "content_source": "/assets/about/texas/blocks.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Utah",
+    "code": "UT",
+    "modules": [
+      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [{
+          "name": "Independent Commission",
+          "content_source": "assets/about/utah/reform.html"
+        }]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore the currently enacted plans",
+        "nav": "Enacted Plans",
+        "pages": ["utah"],
+        "type": "plans",
+        "ref": "ut",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Utah Precincts",
+            "content_source": "/assets/about/utah/precincts.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Vermont",
+    "code": "VT",
+    "modules": [
+      {"name": "Statewide", "ids": ["vermont"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Vermont Towns",
+            "content_source": "/assets/about/vermont/towns.html"
+          },
+           {
+            "name": "Vermont Census Block groups",
+            "content_sourcet": "/assets/about/vermont/blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Virginia",
+    "code": "VA",
+    "modules": [
+      {"name": "Statewide", "ids": ["virginia"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Research",
+            "content_source": "/assets/about/virginia/research.html"
+          },
+          {
+            "name": "Reform efforts",
+            "content_source": "/assets/about/virginia/reform.html"
+          },
+          {
+            "name": "Legal Challenges",
+            "content_source": "/assets/about/virginia/courts.html"
+          }
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "See sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "va",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "2011-12 Enacted Plans",
+            "plans": [
+              {
+                "id": "cong_2012",
+                "name": "2012 Enacted Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "2011 Enacted State Senate Plan"
+              },
+              {
+                "id": "house_2011",
+                "name": "2011 Enacted State House Plan"
+              }
+            ]
+          },
+          {
+            "title": "Remedial Plans",
+            "plans": [
+              {
+                "id": "cong_2016",
+                "name": "2016 Remedial Congressional Plan"
+              },
+              {
+                "id": "house_2019",
+                "name": "2019 Remedial State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Virginia Precincts",
+            "content_source": "/assets/about/virginia/precincts.html"
+
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Washington",
+    "code": "WA",
+    "modules": [
+      {"name": "Statewide", "ids": ["washington"], "default": "true", "id":"state"},
+      {"name": "Counties", "ids": ["yakima_wa", "kingcountywa"], "id":"counties"}
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "The electoral system in Yakima County",
+            "content_source": "/assets/about/washington/yakima-reform.html"
+          }
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "See sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "yakima",
+        "disc": "",
+        "plans":
+        [
+          {
+            "title": "Yakima County | Sample valid 3-district plans",
+            "plans": [
+              {
+                "id": "plan_a",
+                "name": "Plan A"
+              },
+              {
+                "id": "plan_b",
+                "name": "Plan B"
+              },
+              {
+                "id": "plan_c",
+                "name": "Plan C"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the Data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Washington Census Blocks and Block groups",
+            "content_source": "/assets/about/washington/data.html"
+          },
+          {
+            "name": "Washington Precincts",
+            "content_source": "/assets/about/washington/precincts.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Washington, DC",
+    "code": "DC",
+    "modules": [
+      {"name": "District-wide", "ids": ["dc"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "West Virginia",
+    "code": "WV",
+    "modules": [
+      {"name": "Statewide", "ids": ["westvirginia"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  },
+  {
+    "state": "Wisconsin",
+    "code": "WI",
+    "modules": [
+      {"name": "Statewide", "ids": ["wisconsin"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+          {
+            "name": "Redistricting in the court | Gill v. Whitford",
+            "content_source": "/assets/about/wisconsin/courts.html"
+          }
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "wi",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Wisconsin Wards",
+            "content_source": "/assets/about/wisconsin/wards.html"
+          },
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Wyoming",
+    "code": "WY",
+    "modules": [
+      {"name": "Statewide", "ids": ["wyoming"], "default": "true", "id": "state"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {"name": "Census Block Groups",
+           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+      }
+    ]
+  }
+]

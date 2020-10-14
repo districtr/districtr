@@ -31,7 +31,7 @@ h2 {
    margin: 2rem 0;
    margin-bottom: 1rem;
    padding: 0.5rem 1.5rem;
-   margin-left: -10%;
+   margin-left: -5%;
    display: inline-flex;
    border-radius: 0.25rem;
 }
@@ -91,7 +91,7 @@ figcaption {
 }
 
 .place__name {
-    font-family: "Source Sans Pro";
+    //font-family: "Source Sans Pro";
     font-weight: 700;
     line-height: 1.5;
     text-align: center;
@@ -139,6 +139,9 @@ label
     font-size: 1.125rem;
     cursor: pointer;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 label:hover {
@@ -460,7 +463,7 @@ td {
   padding: 0.5rem;
 }
 
-caption {
+caption { 
   display: table-caption;
   text-align: top center;
   background: #000;
@@ -470,6 +473,14 @@ caption {
   padding: 0.75rem;
 }
 
-tr:nth-child(even) {
+.rules {
+  td:nth-child(even) {
   background-color: #f2f2f2;
+  }
+}
+
+.data {
+  tr:nth-child(even) {
+  background-color: #f2f2f2;
+  }
 }

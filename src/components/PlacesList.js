@@ -15,16 +15,16 @@ export function onlyCommunities() {
 function communitiesFilter(place) {
     if (justCommunities) {
         place.districtingProblems = [
-            { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+            { type: "community", numberOfParts: 50, pluralNoun: "Community" }
         ];
     }
     return place;
 }
 
-export function listPlacesForState(state, communityEvent) {
+export function listPlacesForState(state, show_just_communities = false) {
     if (_placesList === null) {
         return listPlaces().then(items => {
-            _placesList = items.filter(place => !place.limit || (justCommunities && place.limit === "community") || communityEvent)
+            _placesList = items.filter(place => !place.limit || show_just_communities)
                 .map(communitiesFilter);
             _placesCache[state] = _placesList.filter(
                 item => item.state === state || item.name === state || item.id === state
@@ -42,25 +42,24 @@ export function listPlacesForState(state, communityEvent) {
 
 export function PlacesListForState(
     state,
-    selectModule,
     fallbackComponent,
     placeItemsTemplate = placeItems
 ) {
     return new PlacesList(
         listPlacesForState(state),
-        selectModule,
         startNewPlan,
         placeItemsTemplate,
         fallbackComponent
     );
 }
 
-export function getUnits(place, problem) {
+export function getUnits(place, problem, show_just_communities = false) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    return place.units.filter((unitType) => !unitType.limit || window.location.href.includes(unitType.limit))
-                      .sort((a, b) => {
+    return place.units.filter((unitType) => !unitType.limit || (unitType.limit === "community" && show_just_communities))
+        .sort((a, b) => {
+          
         const x = a.name.toLowerCase();
         const y = b.name.toLowerCase();
         if (x < y) {
@@ -91,7 +90,8 @@ function getProblemInfo(place, problem, units, onClick) {
             ? html`
                   ${problem.partCounts.length > 1
                       ? html`<div class="place-info">
-                            ${problem.pluralNoun}:
+                            ${problem.pluralNoun}: </div>
+                            <div class="place-info">
                             ${problem.partCounts.map(num =>
                                 html`<button
                                     @click=${() => onClick(place, problem, units, null, num)}
@@ -109,7 +109,7 @@ function getProblemInfo(place, problem, units, onClick) {
     `;
 }
 
-export function placeItems(place, onClick, eventCode) {
+export function placeItems(place, onClick) {
     let districtingProblems = [],
         seenIds = new Set();
     place.districtingProblems.forEach((problem) => {
@@ -124,15 +124,17 @@ export function placeItems(place, onClick, eventCode) {
             districtingProblems.push(problem);
         }
     });
-    return districtingProblems
+    return [html`<h3 class="place-name ${place.name.replace(/\s+/g, '')}">
+                 ${place.name === place.state ? "Statewide" : place.name}</h3>
+                 <ul class="places-list places-list--columns ${place.name.replace(/\s+/g, '')}">
+                 ${districtingProblems
         .map(problem =>
             getUnits(place, problem).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
-                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units, null, null, eventCode))}"
+                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
                     >
-                        <div class="place-name">${place.name}</div>
                         ${getProblemInfo(place, problem, units, onClick)}
                         ${units.unitType
                             ? html`
@@ -145,19 +147,18 @@ export function placeItems(place, onClick, eventCode) {
                 `
             )
         )
-        .reduce((items, item) => [...items, ...item], []);
+        .reduce((items, item) => [...items, ...item], [])}
+                 </ul>`];
 }
 
 export default class PlacesList {
     constructor(
         places,
-        selectModule,
         choosePlace,
         placeItemsTemplate = placeItems,
         fallbackComponent
     ) {
         this.places = places;
-        this.selectModule = selectModule;
         this.choosePlace = choosePlace;
         this.placeItemsTemplate = placeItemsTemplate;
         if (fallbackComponent === null || fallbackComponent === undefined) {
@@ -170,9 +171,10 @@ export default class PlacesList {
             ${until(
                 this.places.then(p =>
                     p.length > 0
-                        ? html`
-                              <ul class="places-list">
-                                  ${p
+                        ? //html`
+                            //  <ul class="places-list">
+                                  // ${
+                                    p
                                       .filter(place => (!this.selectModule || this.selectModule === place.id))
                                       .map(place =>
                                           this.placeItemsTemplate(
@@ -183,9 +185,9 @@ export default class PlacesList {
                                       .reduce(
                                           (items, item) => [...items, ...item],
                                           []
-                                      )}
-                              </ul>
-                          `
+                                      )//}
+                             // </ul>
+                         // `
                         : this.fallbackComponent()
                 ),
                 ""

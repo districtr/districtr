@@ -1,8 +1,62 @@
 /edit/* /edit.html 200
-/new/* /new.html 200
+/new/* /new.html 
 /event/* /event.html 200
-/community/* /community.html 200
+/community/* /community.html 
 /user_guide /guide
+
+## Landing Pages
+/alabama/*          /alabama.html 200
+/alaska/*           /alaska.html 200
+/arizona/*          /arizona.html 200
+/arkansas/*         /arkansas.html 200
+/california/*       /california.html 200
+/colorado/*         /colorado.html 200
+/connecticut/*      /connecticut.html 200
+/delaware/*         /delaware.html 200
+/florida/*          /florida.html 200
+/georgia/*          /georgia.html 200
+/hawaii/*           /hawaii.html 200
+/idaho/*            /idaho.html 200
+/illinois/*         /illinois.html 200
+/indiana/*          /indiana.html 200
+/iowa/*             /iowa.html 200
+/kansas/*           /kansas.html 200
+/kentucky/*         /kentucky.html 200
+/louisiana/*        /louisiana.html 200
+/maine/*            /maine.html 200
+/maryland/*         /maryland.html 200
+/massachusetts/*    /massachusetts.html 200
+/michigan/*         /michigan.html 200
+/minnesota/*        /minnesota.html 200
+/mississippi/*      /mississippi.html 200
+/missouri/*         /missouri.html 200
+/montana/*          /montana.html 200
+/nebraska/*         /nebraska.html 200
+/nevada/*           /nevada.html 200
+/new-hampshire/*    /new-hampshire.html 200
+/new-jersey/*       /new-jersey.html 200
+/new-mexico/*       /new-mexico.html 200
+/new-york/*         /new-york.html 200
+/north-carolina/*   /north-carolina.html 200
+/north-dakota/*     /north-dakota.html 200
+/ohio/*             /ohio.html 200
+/oklahoma/*         /oklahoma.html 200
+/oregon/*           /oregon.html 200
+/pennsylvania/*     /pennsylvania.html 200
+/rhode-island/*     /rhode-island.html 200
+/south-carolina/*   /south-carolina.html 200
+/south-dakota/*     /south-dakota.html 200
+/tennessee/*        /tennessee.html 200
+/texas/*            /texas.html 200
+/utah/*             /utah.html 200
+/vermont/*          /vermont.html 200
+/virginia/*         /virginia.html 200
+/washington/*       /washington.html 200
+/west-virginia/*    /west-virginia.html 200
+/wisconsin/*        /wisconsin.html 200
+/wyoming/*          /wyoming.html 200
+
+## Plan Redirects
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan

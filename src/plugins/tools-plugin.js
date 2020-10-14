@@ -94,17 +94,17 @@ export default function ToolsPlugin(editor) {
 
     // show about modal on startup by default
     // exceptions if you last were on this map, or set 'dev' in URL
-    try {
-        if ((window.location.href.indexOf("dev") === -1) &&
-            (!localStorage || localStorage.getItem("lastVisit") !== state.place.id)
-        ) {
-            renderAboutModal(editor.state);
-            localStorage.setItem("lastVisit", state.place.id);
-        }
-    } catch(e) {
-        // likely no About page exists - silently fail to console
-        console.error(e);
-    }
+    // try {
+    //     if ((window.location.href.indexOf("dev") === -1) &&
+    //         (!localStorage || localStorage.getItem("lastVisit") !== state.place.id)
+    //     ) {
+    //         renderAboutModal(editor.state);
+    //         localStorage.setItem("lastVisit", state.place.id);
+    //     }
+    // } catch(e) {
+    //     // likely no About page exists - silently fail to console
+    //     console.error(e);
+    // }
 }
 
 function exportPlanAsJSON(state) {
@@ -146,8 +146,8 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 function getMenuItems(state) {
     let items = [
         {
-            name: "About this module",
-            onClick: () => renderAboutModal(state, true)
+            name: "About this map",
+            onClick: () => window.open("/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'), "_blank")
         },
         {
             name: "Districtr homepage",

@@ -14,6 +14,9 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    //display: grid;
+    //grid-template-columns: repeat(2, 1fr);
+    //grid-column-gap: 0.75rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -24,22 +27,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
+    //margin: 1rem 1rem;
 }
 
 .places-list__item {
     @include user-select(none);
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem;
     padding: 0.5rem;
     font-weight: bold;
     // background: #eee;
 
     transition: all ease 100ms;
-    // width: 10rem;
+    // width: 50%;
     // height: 10rem;
 
     border-radius: 0.5rem;
-    background-color: $mggg-blue;
+    background-color: $districtr-purple;
     color: white;
     cursor: pointer;
 
@@ -47,17 +50,17 @@
         box-shadow: $focus-shadow;
     }
     &:hover {
-        background-color: $mggg-dark-blue;
+        background-color: $districtr-dark-purple;
     }
 
     &.choice {
         cursor: default;
-        background-color: $mggg-blue;
+        background-color: $districtr-purple;
 
         button {
             cursor: pointer;
             background-color: #fff;
-            color: $mggg-blue;
+            color: $districtr-purple;
             padding: 0.2rem 0.6rem;
             margin: 0.2rem 0.5rem;
             border-radius: 0.2rem;
@@ -68,10 +71,11 @@
             }
         }
         &:hover {
-            background-color: $mggg-blue;
+            background-color: $districtr-purple;
         }
     }
 }
+
 
 .communities {
     .state--available {
@@ -98,6 +102,18 @@
     .button--transparent {
         color: #444;
     }
+
+/*
+    .learn__more,
+    .learn__more:visited {
+        background: $mggg-blue;
+    }
+
+    .learn__more:hover,
+    .learn__more:active {
+        background: $mggg-dark-blue;
+    }
+*/
 }
 
 .places-list__item--small {
@@ -174,3 +190,42 @@
         font-size: 1.5rem;
     }
 }
+
+/*
+.learn__more,
+.learn__more:visited {
+    background: $districtr-red;
+    color: white;
+
+    border-radius: 0.5rem;
+    // padding: 0.2rem 0.4rem;
+    padding: 0.1rem 0.4rem;
+
+    font-weight: 600;
+    font-family: $font-family;
+
+    margin-top: 0.5rem;
+    outline: 0;
+    border: none;
+
+    line-height: 1.5;
+    display: block;
+    text-align: center;
+}
+
+.learn__more:hover,
+.learn__more:active {
+    cursor: pointer;
+    color: white;
+    background: $districtr-red-dark;
+}
+
+.learn__more:active {
+    outline: 0;
+}
+
+.learn__more:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+}
+*/
