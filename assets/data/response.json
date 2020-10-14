@@ -10373,7 +10373,684 @@
             "sourceLayer": "nc_precincts_points"
           }
         ]
-      }
+      },
+      {
+         "id": "blockgroups",
+         "coi2": true,
+         "limit": "community",
+         "name": "Block Groups",
+         "unitType": "Block Groups",
+         "columnSets": [
+           {
+             "type": "population",
+             "name": "Population",
+             "total": {
+               "key": "TOTPOP",
+               "name": "Population density",
+               "sum": 10155624,
+               "min": 0,
+               "max": 10624
+             },
+             "subgroups": [
+               {
+                 "key": "NH_WHITE",
+                 "name": "White population",
+                 "sum": 6433039,
+                 "min": 0,
+                 "max": 7898
+               },
+               {
+                 "key": "NH_BLACK",
+                 "name": "Black population",
+                 "sum": 2146254,
+                 "min": 0,
+                 "max": 6199
+               },
+               {
+                 "key": "HISP",
+                 "name": "Hispanic population",
+                 "sum": 935950,
+                 "min": 0,
+                 "max": 2764
+               },
+               {
+                 "key": "NH_ASIAN",
+                 "name": "Asian population",
+                 "sum": 280059,
+                 "min": 0,
+                 "max": 4383
+               },
+               {
+                 "key": "NH_AMIN",
+                 "name": "American Indian population",
+                 "sum": 111360,
+                 "min": 0,
+                 "max": 3310
+               },
+               {
+                 "key": "NH_NHPI",
+                 "name": "Native Hawaiian and Pacific Islander population",
+                 "sum": 5677,
+                 "min": 0,
+                 "max": 253
+               },
+               {
+                 "key": "NH_2MORE",
+                 "name": "Two or more races",
+                 "sum": 220670,
+                 "min": 0,
+                 "max": 844
+               },
+               {
+                 "key": "NH_OTHER",
+                 "name": "Other races",
+                 "sum": 22615,
+                 "min": 0,
+                 "max": 406
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Technology",
+             "subgroups": [
+               {
+                 "key": "B28008_002",
+                 "name": "has_computer",
+                 "sum": 9032467,
+                 "min": 0,
+                 "max": 10571
+               },
+               {
+                 "key": "B28008_004",
+                 "name": "has_broadband",
+                 "sum": 8116169,
+                 "min": 0,
+                 "max": 10455
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Education",
+             "subgroups": [
+               {
+                 "key": "B15003_017",
+                 "name": "High school or equivalent",
+                 "sum": 1780253,
+                 "min": 0,
+                 "max": 1990
+               },
+               {
+                 "key": "B15003_019",
+                 "name": "Some college, no degree",
+                 "sum": 1479791,
+                 "min": 0,
+                 "max": 1357
+               },
+               {
+                 "key": "B15003_021",
+                 "name": "Associates degree",
+                 "sum": 652658,
+                 "min": 0,
+                 "max": 858
+               },
+               {
+                 "key": "B15003_022",
+                 "name": "Bachelors degree",
+                 "sum": 1345846,
+                 "min": 0,
+                 "max": 2466
+               },
+               {
+                 "key": "B15003_023",
+                 "name": "Postgrad or professional degree",
+                 "sum": 753360,
+                 "min": 0,
+                 "max": 1920
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Households by Rental",
+             "subgroups": [
+               {
+                 "key": "B25003_002",
+                 "name": "Owner-occupied",
+                 "sum": 2548705,
+                 "min": 0,
+                 "max": 2933
+               },
+               {
+                 "key": "B25003_003",
+                 "name": "Renter-occupied",
+                 "sum": 1369892,
+                 "min": 0,
+                 "max": 2507
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Households by Income",
+             "subgroups": [
+               {
+                 "key": "B19001_002",
+                 "name": "in_0_10",
+                 "sum": 266502,
+                 "min": 0,
+                 "max": 497
+               },
+               {
+                 "key": "B19001_003",
+                 "name": "in_10_15",
+                 "sum": 212515,
+                 "min": 0,
+                 "max": 407
+               },
+               {
+                 "key": "B19001_004",
+                 "name": "in_15_20",
+                 "sum": 207195,
+                 "min": 0,
+                 "max": 335
+               },
+               {
+                 "key": "B19001_005",
+                 "name": "in_20_25",
+                 "sum": 210335,
+                 "min": 0,
+                 "max": 295
+               },
+               {
+                 "key": "B19001_006",
+                 "name": "in_25_30",
+                 "sum": 210982,
+                 "min": 0,
+                 "max": 343
+               },
+               {
+                 "key": "B19001_007",
+                 "name": "in_30_35",
+                 "sum": 209328,
+                 "min": 0,
+                 "max": 285
+               },
+               {
+                 "key": "B19001_008",
+                 "name": "in_35_40",
+                 "sum": 193292,
+                 "min": 0,
+                 "max": 312
+               },
+               {
+                 "key": "B19001_009",
+                 "name": "in_40_45",
+                 "sum": 196956,
+                 "min": 0,
+                 "max": 287
+               },
+               {
+                 "key": "B19001_010",
+                 "name": "in_45_50",
+                 "sum": 167230,
+                 "min": 0,
+                 "max": 356
+               },
+               {
+                 "key": "B19001_011",
+                 "name": "in_50_60",
+                 "sum": 320322,
+                 "min": 0,
+                 "max": 604
+               },
+               {
+                 "key": "B19001_012",
+                 "name": "in_60_75",
+                 "sum": 387786,
+                 "min": 0,
+                 "max": 440
+               },
+               {
+                 "key": "B19001_013",
+                 "name": "in_75_100",
+                 "sum": 471985,
+                 "min": 0,
+                 "max": 910
+               },
+               {
+                 "key": "B19001_014",
+                 "name": "in_100_125",
+                 "sum": 303156,
+                 "min": 0,
+                 "max": 543
+               },
+               {
+                 "key": "B19001_015",
+                 "name": "in_125_150",
+                 "sum": 185224,
+                 "min": 0,
+                 "max": 616
+               },
+               {
+                 "key": "B19001_016",
+                 "name": "in_150_200",
+                 "sum": 183853,
+                 "min": 0,
+                 "max": 596
+               },
+               {
+                 "key": "B19001_017",
+                 "name": "in_200_plus",
+                 "sum": 191936,
+                 "min": 0,
+                 "max": 786
+               }
+             ]
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL08G_GV_D",
+                 "name": "Democratic",
+                 "sum": 2138044,
+                 "min": 10,
+                 "max": 9439
+               },
+               {
+                 "key": "EL08G_GV_R",
+                 "name": "Republican",
+                 "sum": 1997141,
+                 "min": 6,
+                 "max": 6430
+               }
+             ],
+             "metadata": {
+               "race": "Governor",
+               "year": 2008
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL08G_USS_",
+                 "name": "Democratic",
+                 "sum": 2240832,
+                 "min": 8,
+                 "max": 9332
+               },
+               {
+                 "key": "EL08G_US_1",
+                 "name": "Republican",
+                 "sum": 1883925,
+                 "min": 5,
+                 "max": 5236
+               }
+             ],
+             "metadata": {
+               "race": "Senate",
+               "year": 2008
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL10G_USS_",
+                 "name": "Democratic",
+                 "sum": 1141700,
+                 "min": 4,
+                 "max": 4882
+               },
+               {
+                 "key": "EL10G_US_1",
+                 "name": "Republican",
+                 "sum": 1454082,
+                 "min": 4,
+                 "max": 3848
+               }
+             ],
+             "metadata": {
+               "race": "Senate",
+               "year": 2010
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL12G_GV_D",
+                 "name": "Democratic",
+                 "sum": 1925270,
+                 "min": 7,
+                 "max": 9068
+               },
+               {
+                 "key": "EL12G_GV_R",
+                 "name": "Republican",
+                 "sum": 2437224,
+                 "min": 7,
+                 "max": 8101
+               }
+             ],
+             "metadata": {
+               "race": "Governor",
+               "year": 2012
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL14G_US_1",
+                 "name": "Democratic",
+                 "sum": 1416834,
+                 "min": 0,
+                 "max": 4539
+               },
+               {
+                 "key": "EL14G_USS_",
+                 "name": "Republican",
+                 "sum": 1370303,
+                 "min": 1,
+                 "max": 5821
+               }
+             ],
+             "metadata": {
+               "race": "Senate",
+               "year": 2014
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL12G_PR_D",
+                 "name": "Democratic",
+                 "sum": 2171293,
+                 "min": 4,
+                 "max": 9734
+               },
+               {
+                 "key": "EL12G_PR_R",
+                 "name": "Republican",
+                 "sum": 2267353,
+                 "min": 2,
+                 "max": 7192
+               }
+             ],
+             "metadata": {
+               "race": "Presidential",
+               "year": 2012
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL16G_PR_D",
+                 "name": "Democratic",
+                 "sum": 2180316,
+                 "min": 3,
+                 "max": 9556
+               },
+               {
+                 "key": "EL16G_PR_R",
+                 "name": "Republican",
+                 "sum": 2359749,
+                 "min": 3,
+                 "max": 7202
+               }
+             ],
+             "metadata": {
+               "race": "Presidential",
+               "year": 2016
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL16G_US_1",
+                 "name": "Democratic",
+                 "sum": 2119696,
+                 "min": 3,
+                 "max": 9296
+               },
+               {
+                 "key": "EL16G_USS_",
+                 "name": "Republican",
+                 "sum": 2392439,
+                 "min": 9,
+                 "max": 7907
+               }
+             ],
+             "metadata": {
+               "race": "Senate",
+               "year": 2016
+             }
+           },
+           {
+             "type": "election",
+             "subgroups": [
+               {
+                 "key": "EL16G_GV_D",
+                 "name": "Democratic",
+                 "sum": 2300381,
+                 "min": 5,
+                 "max": 9363
+               },
+               {
+                 "key": "EL16G_GV_R",
+                 "name": "Republican",
+                 "sum": 2296039,
+                 "min": 10,
+                 "max": 7376
+               }
+             ],
+             "metadata": {
+               "race": "Governor",
+               "year": 2016
+             }
+           },
+           {
+             "type": "population",
+             "name": "Households and Food",
+             "total": {
+               "key": "OHU2010",
+               "name": "Total housing",
+               "sum": 3745155,
+               "min": 0,
+               "max": 5117
+             },
+             "subgroups": [
+               {
+                 "key": "TractHUNV",
+                 "name": "No vehicle",
+                 "sum": 244937,
+                 "min": 0,
+                 "max": 688
+               },
+               {
+                 "key": "TractSNAP",
+                 "name": "Receiving SNAP",
+                 "sum": 539264,
+                 "min": 0,
+                 "max": 1361
+               },
+               {
+                 "key": "PovertyRate",
+                 "name": "Percent poverty rate",
+                 "sum": 39980,
+                 "min": 0,
+                 "max": 100
+               },
+               {
+                 "key": "lasnap1",
+                 "name": "Low access 1 mile SNAP",
+                 "sum": 292417,
+                 "min": 0,
+                 "max": 863
+               },
+               {
+                 "key": "lasnap10",
+                 "name": "Low access 10 miles SNAP",
+                 "sum": 6052,
+                 "min": 0,
+                 "max": 663
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Health issues",
+             "subgroups": [
+               {
+                 "key": "asthma_2016",
+                 "name": "Percent adult with asthma",
+                 "sum": 6714,
+                 "min": 0,
+                 "max": 13
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Registered Voters",
+             "total": {
+               "key": "voters",
+               "name": "Total Voters",
+               "sum": 5633293,
+               "min": 0,
+               "max": 13091
+             },
+             "subgroups": [
+               {
+                 "key": "v_inactive",
+                 "name": "Inactive Voters",
+                 "sum": 782036,
+                 "min": 0,
+                 "max": 3342
+               },
+               {
+                 "key": "v_active",
+                 "name": "Active Voters",
+                 "sum": 4848947,
+                 "min": 0,
+                 "max": 10482
+               },
+               {
+                 "key": "v_white",
+                 "name": "Voter IDd as White",
+                 "sum": 3750486,
+                 "min": 0,
+                 "max": 8980
+               },
+               {
+                 "key": "v_black",
+                 "name": "Voter IDd as Black",
+                 "sum": 1206774,
+                 "min": 0,
+                 "max": 6252
+               },
+               {
+                 "key": "v_hisp",
+                 "name": "Voter IDd as Hispanic ethnicity (any race)",
+                 "sum": 176303,
+                 "min": 0,
+                 "max": 1059
+               },
+               {
+                 "key": "v_in_perso",
+                 "name": "Voter ever voted in person",
+                 "sum": 3707226,
+                 "min": 0,
+                 "max": 7272
+               },
+               {
+                 "key": "v_provisio",
+                 "name": "Voter only voted provisional",
+                 "sum": 17871,
+                 "min": 0,
+                 "max": 92
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Median Income",
+             "subgroups": [
+               {
+                 "key": "B19013_001",
+                 "name": "Median Income",
+                 "sum": 30118559,
+                 "min": 0,
+                 "max": 118048
+               }
+             ]
+           }
+         ],
+         "idColumn": {
+           "name": "GEOID",
+           "key": "GEOID"
+         },
+         "bounds": [
+           [
+             -84.321869,
+             33.851112
+           ],
+           [
+             -75.458659,
+             36.588117
+           ]
+         ],
+         "tilesets": [
+           {
+             "type": "fill",
+             "coi2": true,
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.nc_bg_blockgroups"
+             },
+             "sourceLayer": "nc_bg_blockgroups"
+           },
+           {
+             "type": "fill",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.nc_precincts"
+             },
+             "sourceLayer": "nc_precincts"
+           },
+           {
+             "type": "fill",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.norcar2_precincts"
+             },
+             "sourceLayer": "norcar2_precincts"
+           },
+           {
+             "type": "fill",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.nc_tract_tracts"
+             },
+             "sourceLayer": "nc_tract_tracts"
+           },
+           {
+             "type": "circle",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.nc_bg_blockgroups_points"
+             },
+             "sourceLayer": "nc_bg_blockgroups_points"
+           }
+         ]
+       }
     ],
     "name": "North Carolina",
     "state": "North Carolina",
