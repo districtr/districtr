@@ -1766,7 +1766,8 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["forsyth_nc"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
