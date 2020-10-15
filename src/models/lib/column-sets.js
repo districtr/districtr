@@ -178,6 +178,10 @@ function getElections(place, parts) {
             ? election.metadata.year
             : election.name.split(" ")[0];
     });
+    const alternate = place.columnSets.filter(
+        columnSet => columnSet.type === "electionx"
+    );
+
     return elections
         .sort((a, b) => b.year - a.year)
         .map(
@@ -189,7 +193,10 @@ function getElections(place, parts) {
                           } Election`
                         : `${election.name} Election`,
                     election.subgroups,
-                    parts
+                    parts,
+                    alternate
+                        ? alternate.find(e => e.name === election.name)
+                        : null
                 )
         );
 }

@@ -17,6 +17,7 @@ export default class PartisanOverlayContainer {
         this.setElection = this.setElection.bind(this);
         this.render = this.render.bind(this);
         this.toggleVisibility = this.toggleVisibility.bind(this);
+        this.vote = "all";
 
         if (window.location.search.includes("layer=")) {
             let layerSelect = window.location.search.split("layer=")[1].split("&")[0].toUpperCase();
@@ -47,8 +48,12 @@ export default class PartisanOverlayContainer {
         this._currentElectionIndex = i;
         this.electionOverlays.forEach(overlay => overlay.hide());
         if (this.isVisible) {
-            this.currentElectionOverlay.show();
+            this.currentElectionOverlay.show(this.vote);
         }
+    }
+    selectVote(type) {
+        this.vote = type;
+        this.setElection(this._currentElectionIndex);
     }
     render() {
         const overlay = this.currentElectionOverlay;
@@ -85,6 +90,31 @@ export default class PartisanOverlayContainer {
                         i => this.setElection(i),
                         this._currentElectionIndex
                     )
+                },
+                {
+                    label: "Absentee:",
+                    element: html`<div class="yrselect parameter">
+                      <label>
+                        <input
+                          type="radio"
+                          name="${this._id + 'vote'}"
+                          value="all"
+                          ?checked="${this.vote === 'all'}"
+                          @change="${e => this.selectVote('all')}"
+                        />
+                        Included
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="${this._id + 'vote'}"
+                          value="in-person"
+                          ?checked="${this.vote === 'in-person'}"
+                          @change="${e => this.selectVote('in-person')}"
+                        />
+                        Excluded
+                      </label>
+                    </div>`
                 },
                 {
                     label: "Display as",

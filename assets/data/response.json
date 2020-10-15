@@ -6857,6 +6857,306 @@
                 "max": 3186
               }
             ]
+          },
+          {
+            "type": "electionx",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12RX",
+                "name": "Republican",
+                "sum": 792375,
+                "min": 0,
+                "max": 3040
+              },
+              {
+                "key": "PRES12DX",
+                "name": "Democratic",
+                "sum": 1218419,
+                "min": 0,
+                "max": 2264
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2012 Senate",
+            "subgroups": [
+              {
+                "key": "SEN12RX",
+                "name": "Republican",
+                "sum": 554795,
+                "min": 0,
+                "max": 2468
+              },
+              {
+                "key": "SEN12DX",
+                "name": "Democratic",
+                "sum": 1053951,
+                "min": 0,
+                "max": 2018
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2012 US House",
+            "subgroups": [
+              {
+                "key": "USH12RX",
+                "name": "Republican",
+                "sum": 698266,
+                "min": 0,
+                "max": 2816
+              },
+              {
+                "key": "USH12DX",
+                "name": "Democratic",
+                "sum": 1194400,
+                "min": 0,
+                "max": 2202
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14RX",
+                "name": "Republican",
+                "sum": 710854,
+                "min": 0,
+                "max": 2829
+              },
+              {
+                "key": "GOV14DX",
+                "name": "Democratic",
+                "sum": 608476,
+                "min": 0,
+                "max": 1542
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14RX",
+                "name": "Republican",
+                "sum": 548604,
+                "min": 0,
+                "max": 2258
+              },
+              {
+                "key": "AG14DX",
+                "name": "Democratic",
+                "sum": 701386,
+                "min": 0,
+                "max": 1581
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2014 Comptroller",
+            "subgroups": [
+              {
+                "key": "COMP14RX",
+                "name": "Republican",
+                "sum": 511995,
+                "min": 0,
+                "max": 2094
+              },
+              {
+                "key": "COMP14DX",
+                "name": "Democratic",
+                "sum": 796738,
+                "min": 0,
+                "max": 1603
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2014 US House",
+            "subgroups": [
+              {
+                "key": "USH14RX",
+                "name": "Republican",
+                "sum": 567879,
+                "min": 0,
+                "max": 2484
+              },
+              {
+                "key": "USH14DX",
+                "name": "Democratic",
+                "sum": 737506,
+                "min": 0,
+                "max": 1614
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16RX",
+                "name": "Republican",
+                "sum": 654557,
+                "min": 0,
+                "max": 2823
+              },
+              {
+                "key": "PRES16DX",
+                "name": "Democratic",
+                "sum": 897159,
+                "min": 0,
+                "max": 1803
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "SEN16RX",
+                "name": "Republican",
+                "sum": 675205,
+                "min": 0,
+                "max": 3030
+              },
+              {
+                "key": "SEN16DX",
+                "name": "Democratic",
+                "sum": 893627,
+                "min": 0,
+                "max": 1771
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16RX",
+                "name": "Republican",
+                "sum": 664681,
+                "min": 0,
+                "max": 3060
+              },
+              {
+                "key": "USH16DX",
+                "name": "Democratic",
+                "sum": 886248,
+                "min": 0,
+                "max": 1743
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18RX",
+                "name": "Republican",
+                "sum": 855539,
+                "min": 0,
+                "max": 3064
+              },
+              {
+                "key": "GOV18DX",
+                "name": "Democratic",
+                "sum": 608810,
+                "min": 0,
+                "max": 1743
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18RX",
+                "name": "Republican",
+                "sum": 495134,
+                "min": 0,
+                "max": 2133
+              },
+              {
+                "key": "SEN18DX",
+                "name": "Democratic",
+                "sum": 906253,
+                "min": 0,
+                "max": 2250
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18RX",
+                "name": "Republican",
+                "sum": 521827,
+                "min": 0,
+                "max": 2305
+              },
+              {
+                "key": "USH18DX",
+                "name": "Democratic",
+                "sum": 909915,
+                "min": 0,
+                "max": 2244
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18RX",
+                "name": "Republican",
+                "sum": 564151,
+                "min": 0,
+                "max": 2352
+              },
+              {
+                "key": "AG18DX",
+                "name": "Democratic",
+                "sum": 894050,
+                "min": 0,
+                "max": 2232
+              }
+            ]
+          },
+          {
+            "type": "electionx",
+            "name": "2018 Comptroller",
+            "subgroups": [
+              {
+                "key": "COMP18RX",
+                "name": "Republican",
+                "sum": 448838,
+                "min": 0,
+                "max": 1909
+              },
+              {
+                "key": "COMP18DX",
+                "name": "Democratic",
+                "sum": 991794,
+                "min": 0,
+                "max": 2221
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -23635,7 +23935,7 @@
    "name": "Louisiana",
    "id": "louisiana",
    "state": "Louisiana",
-   
+
    "units": [
     {
         "id": "precincts",
