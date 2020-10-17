@@ -477,6 +477,8 @@ li:first-child > input:checked ~ .tabs__tab {
      visibility: hidden;
      pointer-events: none;
      z-index: 2;
+     overflow-y: scroll;
+     max-height: 250px;
 }
  .custom-select.open .custom-options {
      opacity: 1;
