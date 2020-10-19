@@ -86,12 +86,20 @@ export function TooltipContent(
 
     if (columnSet.type === "election") {
         let votesum = values.reduce((a, b) => a + b, 0);
+        let alternate = columnSet.alternate
+            && document.querySelector("input[name='partisanvote']")
+            && !document.querySelector("input[name='partisanvote']").checked;
+        if (alternate) {
+            values = columnSet.alternate.columns.map(column =>
+                sum(features.map(f => column.getValue(f)))
+            );
+        }
         columnSet = {
-            columns: columnSet.columns.filter(c => c.name).map((c, i) => {
+            columns: (alternate ? columnSet.alternate : columnSet).columns.filter(c => c.name).map((c, i) => {
                 c.name = c.name.split(" (")[0] + " (" + Math.round(100 * values[i] / votesum) + "%)";
                 return c;
             }),
-            ...columnSet
+            ...(alternate ? columnSet.alternate : columnSet)
         };
     } else if (columnSet.total_alt) {
         if (columnSetIndex === 0) {

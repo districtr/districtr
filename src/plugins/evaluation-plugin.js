@@ -1,3 +1,4 @@
+import { html } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
@@ -64,13 +65,17 @@ export default function EvaluationPlugin(editor) {
     if (state.elections.length > 0) {
         tab.addRevealSection(
             "Partisan Balance",
-            (uiState, dispatch) =>
-                ElectionResultsSection(
+            (uiState, dispatch) => html`
+                ${spatial_abilities(state.place.id).absentee
+                    ? html`<div style="text-align:center">Election results include absentee votes</div>`
+                    : null
+                }
+                ${ElectionResultsSection(
                     state.elections,
                     state.activeParts,
                     uiState,
                     dispatch
-                ),
+                )}`,
             {
                 isOpen:
                     state.population.subgroups.length <= 1 &&

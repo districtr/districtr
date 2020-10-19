@@ -1,7 +1,7 @@
 import ColumnSet from "./ColumnSet";
 
 export default class Election extends ColumnSet {
-    constructor(name, subgroups, parts) {
+    constructor(name, subgroups, parts, alternate) {
         const sortedSubgroups = subgroups.sort((a, b) =>
             a.name.localeCompare(b.name)
         );
@@ -12,6 +12,10 @@ export default class Election extends ColumnSet {
         this.marginAsMapboxExpression = this.marginAsMapboxExpression.bind(
             this
         );
+
+        if (alternate) {
+            this.alternate = new Election(alternate.name, alternate.subgroups, parts);
+        }
     }
     get parties() {
         return this.subgroups;

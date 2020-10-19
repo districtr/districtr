@@ -15,6 +15,19 @@ export default class PartisanOverlay {
             party => this._overlays[party.key]
         );
 
+        if (election.alternate) {
+            this._altover = election.alternate.parties.reduce(
+                (overlays, party) => ({
+                    ...overlays,
+                    [party.key]: new Overlay(layers, party, voteShareRule)
+                }),
+                {}
+            );
+            this._alternateList = election.alternate.parties.map(
+                party => this._altover[party.key]
+            );
+        }
+
         this.election = election;
         this.isVisible = false;
 
@@ -27,17 +40,28 @@ export default class PartisanOverlay {
     }
     setLayer(i) {
         this.allOverlays().forEach(overlay => overlay.setLayer(i));
+        this.oppOverlays().forEach(overlay => overlay.setLayer(i));
     }
-    show() {
-        this.allOverlays().forEach(overlay => overlay.show());
+    show(use_alternate) {
+        if (use_alternate && use_alternate !== "all") {
+            this.allOverlays().forEach(overlay => overlay.hide());
+            this.oppOverlays().forEach(overlay => overlay.show());
+        } else {
+            this.oppOverlays().forEach(overlay => overlay.hide());
+            this.allOverlays().forEach(overlay => overlay.show());
+        }
         this.isVisible = true;
     }
     hide() {
         this.allOverlays().forEach(overlay => overlay.hide());
+        this.oppOverlays().forEach(overlay => overlay.hide());
         this.isVisible = false;
     }
     allOverlays() {
         return this._overlaysList;
+    }
+    oppOverlays() {
+        return this._alternateList || [];
     }
     getOverlay(party) {
         return this._overlays[party.key];
