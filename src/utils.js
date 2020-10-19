@@ -343,6 +343,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         screenshot: true,
+        absentee: true,
       },
       ma: {
         number_markers: true,

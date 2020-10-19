@@ -40,6 +40,7 @@ export default class PartisanOverlay {
     }
     setLayer(i) {
         this.allOverlays().forEach(overlay => overlay.setLayer(i));
+        this.oppOverlays().forEach(overlay => overlay.setLayer(i));
     }
     show(use_alternate) {
         if (use_alternate && use_alternate !== "all") {
