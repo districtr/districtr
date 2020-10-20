@@ -28,7 +28,7 @@ export default function ContiguityChecker(state, brush) {
         contiguity_breaks.length
             ? "Districts may have contiguity gaps"
             : "No contiguity gaps detected";
-    let myDistricts = document.querySelectorAll('.district-row .part-number');
+    let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
     for (let d = 0; d < myDistricts.length; d++) {
       myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
       myDistricts[d].onclick = (e) => {

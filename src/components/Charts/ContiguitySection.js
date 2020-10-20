@@ -13,19 +13,21 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
       <div class="district-row">
         ${allParts.map((part, dnum) => {
           return html`
-            <div>
+            <div
+              id="contiguity-${dnum}"
+              class="contiguity-label"
+              style="cursor:pointer;display:${Object.keys(contiguityProblems).includes(dnum)
+                ? "flex"
+                : "none"};"
+            >
               <span
-                id="contiguity-${dnum}"
                 class="part-number"
-                style="cursor:pointer;background:${districtColors[dnum % districtColors.length].hex};
-                                  display:${Object.keys(contiguityProblems).includes(dnum)
-                  ? "flex"
-                  : "none"};"
+                style="background:${districtColors[dnum % districtColors.length].hex}"
               >
                 ${Number(dnum) + 1}
               </span>
-            </div>
-          `;
+              &nbsp;- click to highlight
+            </div>`;
         })}
       </div>
     </section>
