@@ -7,7 +7,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
     <section class="toolbar-section">
       <h4 id="contiguity-status">
         ${Object.keys(contiguityProblems).length
-          ? "Districts may have contiguity gaps"
+          ? html`Districts may have contiguity gaps <small>click a number for more information</small>`
           : "No contiguity gaps detected"}
       </h4>
       <div class="district-row">
@@ -17,7 +17,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
               <span
                 id="contiguity-${dnum}"
                 class="part-number"
-                style="background:${districtColors[dnum % districtColors.length].hex};
+                style="cursor:pointer;background:${districtColors[dnum % districtColors.length].hex};
                                   display:${Object.keys(contiguityProblems).includes(dnum)
                   ? "flex"
                   : "none"};"
