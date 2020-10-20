@@ -39,23 +39,29 @@ export default function ContiguityChecker(state, brush) {
             }
             let latlng = centroid.split(" "),
                 lat = latlng[1].split(")")[0] * 1,
-                lng = latlng[0].split("(")[1] * 1;
+                lng = latlng[0].split("(")[1] * 1,
+                zoom = state.map.getZoom();
             let demo = {
                 ...unitBordersPaintProperty,
                 "line-color": [
                     "case",
                     ["in", ["get", state.idColumn.key], ["literal", state.contiguity[d]]],
-                    "#494fff",
+                    "#ff00ff",
                     unitBordersPaintProperty["line-color"]
                 ],
+                "line-opacity": 0.4,
                 "line-width": ["case", ["in", ["get", state.idColumn.key], ["literal", state.contiguity[d]]], 4, 1],
             };
-            console.log(demo);
             state.unitsBorders.setPaintProperties(demo);
-            state.map.flyTo({ center: [lng, lat], zoom: 10 });
+            state.map.flyTo({
+                center: [lng, lat],
+                zoom: zoom > 13
+                    ? zoom
+                    : zoom + 2
+            });
             setTimeout(() => {
                 state.unitsBorders.setPaintProperties(unitBordersPaintProperty);
-            }, 500);
+            }, 1000);
           });
         }
      };
@@ -84,8 +90,7 @@ export default function ContiguityChecker(state, brush) {
 
             // identify smallest section and make event-able
             state.contiguity[Number(district)] = data[district].sort((a, b) => { return a.length - b.length })[0]
-                .slice(0, 100)
-                .map(v => String(v));
+                .slice(0, 100);
           } else {
             state.contiguity[Number(district)] = null;
           }
