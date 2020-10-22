@@ -348,6 +348,11 @@ export function spatial_abilities (id) {
       ma: {
         number_markers: true,
       },
+        lowell: {
+          // neighborhoods: true,
+          contiguity: true,
+          number_markers: true,
+        },
       miamifl: {
         number_markers: true,
         neighborhoods: true,
