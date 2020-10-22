@@ -69,8 +69,15 @@ export default function DataLayersPlugin(editor) {
             "",
             ["==", ["get", "type"], "block"],
             "",
-            ["get", "name"]];
+            ["get", "name"]
+        ];
         state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
+        state.map.setLayoutProperty('settlement-label', 'text-field', ["case",
+            ["==", ["get", "type"], "hamlet"],
+            "",
+            ["get", "name"]
+        ]);
+
         tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
             state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
                 : noNames);
@@ -216,17 +223,26 @@ export default function DataLayersPlugin(editor) {
         });
 
         if (state.place.id === "virginia") {
+            const checkVAplan = () => {
+                // console.log(document.getElementsByName("enacted"));
+                plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
+                plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
+            };
             tab.addRevealSection(
                 'Enacted Plans',
                 (uiState, dispatch) => html`
-                ${toggle("2003-2013 Congressional Plan", false, checked => {
-                    let opacity = checked ? 1 : 0;
-                    plan2010 && plan2010.setOpacity(opacity);
-                })}
-                ${toggle("2013-2017 Congressional Plan", false, checked => {
-                    let opacity = checked ? 1 : 0;
-                    plan2013 && plan2013.setOpacity(opacity);
-                })}`,
+                  <label style="display:block;margin-bottom:8px;">
+                    <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
+                    Hidden
+                  </label>
+                  <label style="display:block;margin-bottom:8px;">
+                    <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
+                    2003-2013 Congressional Plan
+                  </label>
+                  <label style="display:block;margin-bottom:8px;">
+                    <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
+                    2013-2017 Congressional Plan
+                  </label>`,
                 {
                     isOpen: false
                 }
@@ -339,6 +355,7 @@ export default function DataLayersPlugin(editor) {
     tab.addRevealSection(
         "Race",
         (uiState, dispatch) => html`
+            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic) " : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,
@@ -399,22 +416,6 @@ export default function DataLayersPlugin(editor) {
             }
         );
     }
-
-    // if (state.ages) {
-    //     const ageOverlays = new OverlayContainer(
-    //         "ages",
-    //         state.layers,
-    //         state.ages,
-    //         "Show age demographics"
-    //     );
-    //     tab.addSection(
-    //         () =>
-    //             html`
-    //                 <h4>Age Groups</h4>
-    //                 ${ageOverlays.render()}
-    //             `
-    //     );
-    // }
 
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(

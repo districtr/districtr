@@ -91,7 +91,7 @@ export default class PartisanOverlayContainer {
                         this._currentElectionIndex
                     )
                 },
-                {
+                this.elections[0].alternate ? {
                     label: "Absentee:",
                     element: html`<div class="yrselect parameter">
                       <label>
@@ -115,7 +115,7 @@ export default class PartisanOverlayContainer {
                         Excluded
                       </label>
                     </div>`
-                },
+                } : null,
                 {
                     label: "Display as",
                     element: Select(
@@ -126,7 +126,7 @@ export default class PartisanOverlayContainer {
                             )
                     )
                 }
-            ].map(Parameter)}
+            ].filter(x => x !== null).map(Parameter)}
         `;
     }
 }

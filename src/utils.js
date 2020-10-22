@@ -349,7 +349,7 @@ export function spatial_abilities (id) {
         number_markers: true,
       },
         lowell: {
-          // neighborhoods: true,
+          neighborhoods: true,
           contiguity: true,
           number_markers: true,
         },
@@ -463,7 +463,8 @@ export function spatial_abilities (id) {
       virginia: {
         number_markers: true,
         county_brush: true,
-        native_american: true,
+        // native_american: true,
+        coalition: true,
       },
       washington: {
         number_markers: true,
