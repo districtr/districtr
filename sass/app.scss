@@ -275,3 +275,12 @@ input, textarea {
         max-width: 40% !important;
     }
 }
+
+.contiguity-label {
+  cursor: pointer;
+
+  input {
+    vertical-align: middle;
+    margin-left: 16px;
+  }
+}

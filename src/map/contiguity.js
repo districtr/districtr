@@ -23,6 +23,29 @@ export default function ContiguityChecker(state, brush) {
     state.contiguity = {};
   }
 
+  function updateIslandBorders() {
+    let islandAreas = [];
+
+    document.querySelectorAll('.district-row .contiguity-label input').forEach((box, d) => {
+      if (box.checked) {
+        islandAreas = islandAreas.concat(state.contiguity[d] || []);
+      }
+    });
+
+    let demo = {
+        ...unitBordersPaintProperty,
+        "line-color": [
+            "case",
+            ["in", ["get", state.idColumn.key], ["literal", islandAreas]],
+            "#f00000",
+            unitBordersPaintProperty["line-color"]
+        ],
+        "line-opacity": 0.4,
+        "line-width": ["case", ["in", ["get", state.idColumn.key], ["literal", islandAreas]], 4, 1],
+    };
+    state.unitsBorders.setPaintProperties(demo);
+  }
+
   function setContiguityStatus(contiguity_breaks) {
     document.querySelector("#contiguity-status").innerText =
         contiguity_breaks.length
@@ -30,42 +53,17 @@ export default function ContiguityChecker(state, brush) {
             : "No contiguity gaps detected";
     let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
     for (let d = 0; d < myDistricts.length; d++) {
+      // show-hide label altogether
       myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
-      myDistricts[d].onclick = (e) => {
-        if (contiguity_breaks.includes(d)) {
-          fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${state.contiguity[d].join(sep)}`).then(res => res.json()).then((centroid) => {
-            if (typeof centroid === "object") {
-                centroid = centroid[0][`merged_${placeID}`];
-            }
-            let latlng = centroid.split(" "),
-                lat = latlng[1].split(")")[0] * 1,
-                lng = latlng[0].split("(")[1] * 1,
-                zoom = state.map.getZoom();
-            let demo = {
-                ...unitBordersPaintProperty,
-                "line-color": [
-                    "case",
-                    ["in", ["get", state.idColumn.key], ["literal", state.contiguity[d]]],
-                    "#ff00ff",
-                    unitBordersPaintProperty["line-color"]
-                ],
-                "line-opacity": 0.4,
-                "line-width": ["case", ["in", ["get", state.idColumn.key], ["literal", state.contiguity[d]]], 4, 1],
-            };
-            state.unitsBorders.setPaintProperties(demo);
-            state.map.flyTo({
-                center: [lng, lat],
-                zoom: zoom > 13
-                    ? zoom
-                    : zoom + 2
-            });
-            setTimeout(() => {
-                state.unitsBorders.setPaintProperties(unitBordersPaintProperty);
-            }, 1000);
-          });
-        }
-     };
+
+      // checkbox
+      myDistricts[d].querySelector('input').onchange = () => {
+        document.querySelector('#unassigned-checker input').checked = false;
+        updateIslandBorders();
+      };
     }
+
+    updateIslandBorders();
   }
 
   const updater = (state, colorsAffected) => {
@@ -88,9 +86,12 @@ export default function ContiguityChecker(state, brush) {
             // basic contiguity
             issues.push(Number(district));
 
-            // identify smallest section and make event-able
-            state.contiguity[Number(district)] = data[district].sort((a, b) => { return a.length - b.length })[0]
-                .slice(0, 100);
+            // identify largest section and highlight others
+            let islandareas = [];
+            data[district].sort((a, b) => { return b.length - a.length }).slice(1).forEach(island => {
+              islandareas = islandareas.concat(island);
+            })
+            state.contiguity[Number(district)] = islandareas;
           } else {
             state.contiguity[Number(district)] = null;
           }

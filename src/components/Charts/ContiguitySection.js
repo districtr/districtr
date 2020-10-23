@@ -16,7 +16,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
             <div
               id="contiguity-${dnum}"
               class="contiguity-label"
-              style="cursor:pointer;display:${Object.keys(contiguityProblems).includes(dnum)
+              style="display:${Object.keys(contiguityProblems).includes(dnum)
                 ? "flex"
                 : "none"};"
             >
@@ -26,7 +26,10 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
               >
                 ${Number(dnum) + 1}
               </span>
-              &nbsp;- click to highlight
+              <label>
+                <input type="checkbox"/>
+                Highlight islands
+              </label>
             </div>`;
         })}
       </div>
