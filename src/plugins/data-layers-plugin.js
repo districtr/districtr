@@ -12,6 +12,7 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
+import { addCurrentDistricts } from "../layers/current_districts";
 import { spatial_abilities } from "../utils";
 
 export default function DataLayersPlugin(editor) {
@@ -272,6 +273,10 @@ export default function DataLayersPlugin(editor) {
 
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
+    }
+
+    if (spatial_abilities(state.place.id).current_districts) {
+        addCurrentDistricts(tab, state);
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)

@@ -389,11 +389,13 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
         contiguity: true,
+        current_districts: true,
       },
         new_mexico_bg: {
           native_american: true,
           shapefile: true,
           screenshot: true,
+          current_districts: true,
         },
       newyork: {
         number_markers: true,

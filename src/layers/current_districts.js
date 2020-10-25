@@ -4,10 +4,11 @@ import { toggle } from "../components/Toggle";
 import Layer, { addBelowLabels } from "../map/Layer";
 
 export function addCurrentDistricts(tab, state) {
-    let borders = {};
-    fetch(`/assets/current_districts/${state.place.id}/us_house.geojson`).then(res => res.json()).then((fed) => {
-    fetch(`/assets/current_districts/${state.place.id}/state_house.geojson`).then(res => res.json()).then((state_house) => {
-    fetch(`/assets/current_districts/${state.place.id}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
+    let borders = {},
+        placeID = state.place.id.replace("_bg", "");
+    fetch(`/assets/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
+    fetch(`/assets/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
+    fetch(`/assets/current_districts/${placeID}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
 
         state.map.addSource('fed_districts', {
             type: 'geojson',
@@ -29,9 +30,9 @@ export function addCurrentDistricts(tab, state) {
                 type: 'line',
                 source: 'state_house',
                 paint: {
-                    'line-color': '#bbb',
+                    'line-color': '#444',
                     'line-opacity': 0,
-                    'line-width': 6.5
+                    'line-width': 4
                 }
             },
             addBelowLabels
