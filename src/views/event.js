@@ -27,6 +27,7 @@ const coi_events = [
   'cc-md-ss',
   'cc md ss',
   'cc-nm-abq',
+  'santafe',
   // 'mggg-nm',
 ];
 
@@ -81,8 +82,8 @@ export default () => {
             validEventCodes[eventCode] = [validEventCodes[eventCode]];
         }
         validEventCodes[eventCode].forEach(placeID => {
-            listPlacesForState(placeID, coi_events.includes(eventCode)).then(places => {
-                if (coi_events.includes(eventCode)) {
+            listPlacesForState(placeID, coi_events.includes(eventCode) || coi_events.includes(placeID)).then(places => {
+                if (coi_events.includes(eventCode) || coi_events.includes(placeID)) {
                     places[0].districtingProblems = [
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                     ];

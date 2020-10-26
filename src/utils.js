@@ -397,6 +397,9 @@ export function spatial_abilities (id) {
           screenshot: true,
           current_districts: true,
         },
+        santafe: {
+          number_markers: true,
+        },
       newyork: {
         number_markers: true,
         county_brush: true,
