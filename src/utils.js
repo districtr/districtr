@@ -390,6 +390,8 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: true,
         current_districts: true,
+        screenshot: true,
+        shapefile: true,
       },
         new_mexico_bg: {
           native_american: true,
@@ -399,6 +401,9 @@ export function spatial_abilities (id) {
         },
         santafe: {
           number_markers: true,
+          contiguity: true,
+          screenshot: true,
+          shapefile: true,
         },
       newyork: {
         number_markers: true,

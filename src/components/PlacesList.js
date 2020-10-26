@@ -124,31 +124,29 @@ export function placeItems(place, onClick, eventCode) {
             districtingProblems.push(problem);
         }
     });
-    return [html`<h3 class="place-name ${place.name.replace(/\s+/g, '')}">
-                 ${place.name === place.state ? "Statewide" : place.name}</h3>
-                 <ul class="places-list places-list--columns ${place.name.replace(/\s+/g, '')}">
-                 ${districtingProblems
+    return [html`${districtingProblems
         .map(problem =>
             getUnits(place, problem, false, eventCode).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
-                        class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"
-                        @click="${(problem.partCounts.length > 1) || (() => onClick(place, problem, units))}"
+                        class="${place.id + " p" + problem.type} places-list__item places-list__item--small"
+                        @click="${() => onClick(place, problem, units)}"
                     >
-                        ${getProblemInfo(place, problem, units, onClick)}
-                        ${units.unitType
-                            ? html`
-                                  <div class="place-info">
-                                      Built out of ${units.name.toLowerCase()}
-                                  </div>
-                              `
-                            : ""}
+                        <div class="place-name">
+                            ${place.name}
+                        </div>
+                        ${problemTypeInfo[problem.type] || ""}
+                        ${problem.type === "community" ? "" : html`<div class="place-info">
+                            ${problem.numberOfParts} ${problem.pluralNoun}
+                        </div>`}
+                        <div class="place-info">
+                            Built out of ${units.name.toLowerCase()}
+                        </div>
                     </li>
                 `
             )
         )
-        .reduce((items, item) => [...items, ...item], [])}
-                 </ul>`];
+        .reduce((items, item) => [...items, ...item], [])}`];
 }
 
 export default class PlacesList {

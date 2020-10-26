@@ -12,7 +12,7 @@ const validEventCodes = {
   'cc md ss': 'maryland',
   'cc-nm-abq': 'new_mexico',
   centralsan: 'ccsanitation2',
-  'mggg-nm': ['new_mexico', 'santafe']
+  'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe']
 };
 
 const unitCounts = {
@@ -27,8 +27,8 @@ const coi_events = [
   'cc-md-ss',
   'cc md ss',
   'cc-nm-abq',
-  'santafe',
-  // 'mggg-nm',
+  // 'santafe',
+  'mggg-nm',
 ];
 
 const eventDescriptions = {
@@ -90,7 +90,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('div');
                 target.append(mydiv);
-                render(districtingOptions(places, placeID), mydiv);
+                render(placeItems(places[0], startNewPlan, placeID), mydiv);
             });
         });
 
@@ -185,10 +185,3 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
         </li>
     </a>`;
 }
-
-const districtingOptions = (places, eventCode) =>
-    html`
-        <ul class="places-list places-list--columns">
-            ${placeItems(places[0], startNewPlan, eventCode)}
-        </ul>
-    `;
