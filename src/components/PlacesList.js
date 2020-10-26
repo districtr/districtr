@@ -53,13 +53,13 @@ export function PlacesListForState(
     );
 }
 
-export function getUnits(place, problem, show_just_communities = false) {
+export function getUnits(place, problem, show_just_communities = false, eventCode = false) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
-    return place.units.filter((unitType) => !unitType.limit || (unitType.limit === "community" && show_just_communities))
+    return place.units.filter((unitType) => eventCode || !unitType.limit || (unitType.limit === "community" && show_just_communities))
         .sort((a, b) => {
-          
+
         const x = a.name.toLowerCase();
         const y = b.name.toLowerCase();
         if (x < y) {
@@ -109,7 +109,7 @@ function getProblemInfo(place, problem, units, onClick) {
     `;
 }
 
-export function placeItems(place, onClick) {
+export function placeItems(place, onClick, eventCode) {
     let districtingProblems = [],
         seenIds = new Set();
     place.districtingProblems.forEach((problem) => {
@@ -129,7 +129,7 @@ export function placeItems(place, onClick) {
                  <ul class="places-list places-list--columns ${place.name.replace(/\s+/g, '')}">
                  ${districtingProblems
         .map(problem =>
-            getUnits(place, problem).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
+            getUnits(place, problem, false, eventCode).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
                         class="places-list__item ${problem.partCounts.length > 1 ? "choice" : ""}"

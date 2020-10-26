@@ -30,9 +30,9 @@ export function addCurrentDistricts(tab, state) {
                 type: 'line',
                 source: 'state_house',
                 paint: {
-                    'line-color': '#444',
+                    'line-color': '#000',
                     'line-opacity': 0,
-                    'line-width': 4
+                    'line-width': 1.5
                 }
             },
             addBelowLabels
@@ -69,28 +69,34 @@ export function addCurrentDistricts(tab, state) {
 
     let currentBorder = null;
     let showBorder = (e, lyr) => {
-        if (lyr) {
-            lyr.setOpacity(e.target.checked ? 1 : 0);
-        }
+        Object.keys(borders).forEach(lvl => {
+            borders[lvl].setOpacity(lyr === lvl ? 1 : 0);
+        });
     };
 
     tab.addSection(() => html`
         <h4>Current Districts</h4>
         <li>
           <label style="cursor: pointer;">
-            <input type="checkbox" name="districts" value="fed" @change="${e => showBorder(e, borders.federal)}"/>
+            <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
+            Hidden
+          </label>
+        </li>
+        <li>
+          <label style="cursor: pointer;">
+            <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
             US Congress
           </label>
         </li>
         <li>
           <label style="cursor: pointer;">
-            <input type="checkbox" name="districts" value="senate" @change="${e => showBorder(e, borders.senate)}"/>
+            <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
             State Senate
           </label>
         </li>
         <li>
           <label style="cursor: pointer;">
-            <input type="checkbox" name="districts" value="house" @change="${e => showBorder(e, borders.house)}"/>
+            <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
             State House
           </label>
         </li>

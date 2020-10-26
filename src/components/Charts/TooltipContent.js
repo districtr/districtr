@@ -96,7 +96,7 @@ export function TooltipContent(
         }
         columnSet = {
             columns: (alternate ? columnSet.alternate : columnSet).columns.filter(c => c.name).map((c, i) => {
-                c.name = c.name.split(" (")[0] + " (" + Math.round(100 * values[i] / votesum) + "%)";
+                c.share = Math.round(100 * values[i] / votesum);
                 return c;
             }),
             ...(alternate ? columnSet.alternate : columnSet)

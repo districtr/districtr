@@ -12,6 +12,7 @@ const validEventCodes = {
   'cc md ss': 'maryland',
   'cc-nm-abq': 'new_mexico_bg',
   centralsan: 'ccsanitation2',
+  'mggg-nm': ['new_mexico'] //, 'new_mexico_bg'], //, 'santafe']
 };
 
 const unitCounts = {
@@ -26,6 +27,7 @@ const coi_events = [
   'cc-md-ss',
   'cc md ss',
   'cc-nm-abq',
+  // 'mggg-nm',
 ];
 
 const eventDescriptions = {
@@ -38,6 +40,7 @@ const eventDescriptions = {
   'cc md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!',
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
+  'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
 };
 
 const longAbout = {
@@ -73,15 +76,23 @@ export default () => {
 
         document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
 
-        listPlacesForState(validEventCodes[eventCode], coi_events.includes(eventCode)).then(places => {
-            const target = document.getElementById("districting-options");
-            if (coi_events.includes(eventCode)) {
-                // render(html`<div class="place-info">Identify a community</div>`, target);
-                places[0].districtingProblems = [
-                    { type: "community", numberOfParts: 250, pluralNoun: "Community" }
-                ];
-            }
-            render(districtingOptions(places, eventCode), target);
+        if (typeof validEventCodes[eventCode] === 'string') {
+            validEventCodes[eventCode] = [validEventCodes[eventCode]];
+        }
+
+        let showPlaces = [];
+        const target = document.getElementById("districting-options");
+
+        validEventCodes[eventCode].forEach(placeID => {
+            listPlacesForState(placeID, coi_events.includes(eventCode)).then(places => {
+                if (coi_events.includes(eventCode)) {
+                    places[0].districtingProblems = [
+                        { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+                    ];
+                }
+                showPlaces = showPlaces.concat(places);
+                render(districtingOptions(showPlaces, eventCode), target);
+            });
         });
 
         let showPlans = (data) => {

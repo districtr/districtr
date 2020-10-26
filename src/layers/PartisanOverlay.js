@@ -26,6 +26,9 @@ export default class PartisanOverlay {
             this._alternateList = election.alternate.parties.map(
                 party => this._altover[party.key]
             );
+        } else {
+            this._altover = [];
+            this._alternateList = [];
         }
 
         this.election = election;

@@ -48,7 +48,7 @@ export function HorizontalBarChart(
                 return html`
                     <div class="tooltip-data__row">
                         <dt>
-                            ${formatColumnName(column.name, maxVariableLength)}
+                            ${formatColumnName(column.name + (column.share ? ` (${column.share})%` : ""), maxVariableLength)}
                         </dt>
                         <dd>
                             ${numberWithCommas(Math.round(value))}
