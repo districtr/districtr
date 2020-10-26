@@ -130,7 +130,7 @@ export function placeItems(place, onClick, eventCode) {
                 units => html`
                     <li
                         class="${place.id + " p" + problem.type} places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units)}"
+                        @click="${() => onClick(place, problem, units, null, null, eventCode)}"
                     >
                         <div class="place-name">
                             ${place.name}

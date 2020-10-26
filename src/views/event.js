@@ -90,7 +90,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('div');
                 target.append(mydiv);
-                render(placeItems(places[0], startNewPlan, placeID), mydiv);
+                render(placeItems(places[0], startNewPlan, eventCode), mydiv);
             });
         });
 
