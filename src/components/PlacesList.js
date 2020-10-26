@@ -110,21 +110,7 @@ function getProblemInfo(place, problem, units, onClick) {
 }
 
 export function placeItems(place, onClick, eventCode) {
-    let districtingProblems = [],
-        seenIds = new Set();
-    place.districtingProblems.forEach((problem) => {
-        let problemID = problem.name + problem.pluralNoun;
-        if (seenIds.has(problemID)) {
-            districtingProblems[districtingProblems.length - 1].partCounts.push(
-                problem.numberOfParts
-            );
-        } else {
-            seenIds.add(problemID);
-            problem.partCounts = [problem.numberOfParts];
-            districtingProblems.push(problem);
-        }
-    });
-    return [html`${districtingProblems
+    return [html`${place.districtingProblems
         .map(problem =>
             getUnits(place, problem, false, eventCode).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
