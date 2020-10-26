@@ -10,9 +10,9 @@ const validEventCodes = {
   'commoncause md ss': 'maryland',
   'cc-md-ss': 'maryland',
   'cc md ss': 'maryland',
-  'cc-nm-abq': 'new_mexico_bg',
+  'cc-nm-abq': 'new_mexico',
   centralsan: 'ccsanitation2',
-  'mggg-nm': ['new_mexico'] //, 'new_mexico_bg'], //, 'santafe']
+  'mggg-nm': ['new_mexico', 'santafe']
 };
 
 const unitCounts = {
@@ -76,13 +76,10 @@ export default () => {
 
         document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
 
+        const target = document.getElementById("districting-options");
         if (typeof validEventCodes[eventCode] === 'string') {
             validEventCodes[eventCode] = [validEventCodes[eventCode]];
         }
-
-        let showPlaces = [];
-        const target = document.getElementById("districting-options");
-
         validEventCodes[eventCode].forEach(placeID => {
             listPlacesForState(placeID, coi_events.includes(eventCode)).then(places => {
                 if (coi_events.includes(eventCode)) {
@@ -90,8 +87,9 @@ export default () => {
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                     ];
                 }
-                showPlaces = showPlaces.concat(places);
-                render(districtingOptions(showPlaces, eventCode), target);
+                const mydiv = document.createElement('div');
+                target.append(mydiv);
+                render(districtingOptions(places, placeID), mydiv);
             });
         });
 
