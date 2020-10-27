@@ -2,30 +2,35 @@ import { html } from "lit-html";
 import { actions } from "../../reducers/charts";
 import { districtColors } from "../../colors";
 
-export default function ContiguitySection(allParts, contiguityProblems, uiState, dispatch) {
+export default function ContiguitySection(allParts, contiguityProblems, contigVersion, uiState, dispatch) {
   return html`
     <section class="toolbar-section">
       <h4 id="contiguity-status">
         ${Object.keys(contiguityProblems).length
-          ? "Districts may have contiguity gaps"
+          ? html`Districts may have contiguity gaps <small>click a number for more information</small>`
           : "No contiguity gaps detected"}
       </h4>
-      <div class="district-row">
+      <div class="district-row" style="display:${contigVersion === 2 ? "block" : "flex"}">
         ${allParts.map((part, dnum) => {
           return html`
-            <div>
+            <div
+              id="contiguity-${dnum}"
+              class="contiguity-label"
+              style="display:${Object.keys(contiguityProblems).includes(dnum)
+                ? "flex"
+                : "none"};"
+            >
               <span
-                id="contiguity-${dnum}"
                 class="part-number"
-                style="background:${districtColors[dnum % districtColors.length].hex};
-                                  display:${Object.keys(contiguityProblems).includes(dnum)
-                  ? "flex"
-                  : "none"};"
+                style="background:${districtColors[dnum % districtColors.length].hex}"
               >
                 ${Number(dnum) + 1}
               </span>
-            </div>
-          `;
+              ${contigVersion === 2 ? html`<label>
+                <input type="checkbox"/>
+                Highlight islands
+              </label>` : ""}
+            </div>`;
         })}
       </div>
     </section>

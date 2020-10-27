@@ -350,7 +350,7 @@ export function spatial_abilities (id) {
       },
         lowell: {
           neighborhoods: true,
-          contiguity: true,
+          contiguity: 2,
           number_markers: true,
         },
       miamifl: {
@@ -447,7 +447,7 @@ export function spatial_abilities (id) {
       pennsylvania: {
         number_markers: true,
         county_brush: true,
-        contiguity: true,
+        // contiguity: true,
       },
         philadelphia: {
           number_markers: true,

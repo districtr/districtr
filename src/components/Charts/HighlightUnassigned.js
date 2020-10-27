@@ -7,8 +7,11 @@ import toggle from "../Toggle";
 
 export default function HighlightUnassigned(unitsBorders) {
     return html`
-        <div class="ui-option ui-option--slim">
+        <div id="unassigned-checker" class="ui-option ui-option--slim">
             ${toggle("Highlight unassigned units", false, highlight => {
+                document.querySelectorAll('.district-row .contiguity-label input').forEach(box => {
+                    box.checked = false;
+                });
                 if (highlight) {
                     unitsBorders.setPaintProperties(
                         highlightUnassignedUnitBordersPaintProperty
