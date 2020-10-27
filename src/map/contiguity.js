@@ -26,7 +26,11 @@ export default function ContiguityChecker(state, brush) {
   function updateIslandBorders() {
     let islandAreas = [];
 
-    document.querySelectorAll('.district-row .contiguity-label input').forEach((box, d) => {
+    const boxes = document.querySelectorAll('.district-row .contiguity-label input');
+    if (!boxes.length) {
+      return;
+    }
+    boxes.forEach((box, d) => {
       if (box.checked) {
         islandAreas = islandAreas.concat(state.contiguity[d] || []);
       }
@@ -57,10 +61,13 @@ export default function ContiguityChecker(state, brush) {
       myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
 
       // checkbox
-      myDistricts[d].querySelector('input').onchange = () => {
-        document.querySelector('#unassigned-checker input').checked = false;
-        updateIslandBorders();
-      };
+      let box = myDistricts[d].querySelector('input');
+      if (box) {
+        myDistricts[d].querySelector('input').onchange = () => {
+          document.querySelector('#unassigned-checker input').checked = false;
+          updateIslandBorders();
+        };
+      }
     }
 
     updateIslandBorders();

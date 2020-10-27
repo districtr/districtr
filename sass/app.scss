@@ -277,7 +277,9 @@ input, textarea {
 }
 
 .contiguity-label {
-  cursor: pointer;
+  label, input {
+    cursor: pointer;
+  }
 
   input {
     vertical-align: middle;

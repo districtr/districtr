@@ -112,6 +112,7 @@ export default function EvaluationPlugin(editor) {
                 ContiguitySection(
                     state.parts,
                     state.contiguity,
+                    spatial_abilities(state.place.id).contiguity,
                     uiState,
                     dispatch
                 ),

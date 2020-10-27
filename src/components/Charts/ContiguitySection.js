@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import { actions } from "../../reducers/charts";
 import { districtColors } from "../../colors";
 
-export default function ContiguitySection(allParts, contiguityProblems, uiState, dispatch) {
+export default function ContiguitySection(allParts, contiguityProblems, contigVersion, uiState, dispatch) {
   return html`
     <section class="toolbar-section">
       <h4 id="contiguity-status">
@@ -10,7 +10,7 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
           ? html`Districts may have contiguity gaps <small>click a number for more information</small>`
           : "No contiguity gaps detected"}
       </h4>
-      <div class="district-row">
+      <div class="district-row" style="display:${contigVersion === 2 ? "block" : "flex"}">
         ${allParts.map((part, dnum) => {
           return html`
             <div
@@ -26,10 +26,10 @@ export default function ContiguitySection(allParts, contiguityProblems, uiState,
               >
                 ${Number(dnum) + 1}
               </span>
-              <label>
+              ${contigVersion === 2 ? html`<label>
                 <input type="checkbox"/>
                 Highlight islands
-              </label>
+              </label>` : ""}
             </div>`;
         })}
       </div>
