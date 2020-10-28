@@ -23,6 +23,7 @@ export default function NumberMarkers(state, brush) {
         map = state.units.map;
     canv.height = 30 * dpr;
     ctx.scale(dpr, dpr);
+    ctx.strokeStyle = "#000";
 
     if (typeof ctx.ellipse === "undefined") {
         // IE helper
@@ -36,17 +37,21 @@ export default function NumberMarkers(state, brush) {
     districts.forEach((dnum) => {
         canv.width = 30 * dpr;
         ctx.fillStyle = "#fff";
+        ctx.lineWidth = 0;
         ctx.arc(15, 15, 15, 0, 2 * Math.PI);
         ctx.fill();
-        if (dnum >= 99) {
-            ctx.font = '16px Source Sans Pro';
-        } else {
-            ctx.font = '20px Source Sans Pro';
-        }
 
+
+        if (dnum >= 99) {
+            ctx.font = '500 16px Source Sans Pro';
+        } else {
+            ctx.font = '500 22px Source Sans Pro';
+        }
         let numwidth = ctx.measureText(dnum + 1).width / 2;
-        ctx.shadowColor = "#000";
-        ctx.shadowBlur = 2;
+        // ctx.shadowColor = "#000";
+        // ctx.shadowBlur = 5;
+        ctx.lineWidth = 2.5;
+        ctx.strokeText(dnum + 1, 15 - numwidth, 22);
 
         ctx.fillStyle = colorScheme[dnum % colorScheme.length];
         ctx.fillText(
@@ -77,6 +82,10 @@ export default function NumberMarkers(state, brush) {
                         "icon-image": "number_icon_" + dnum,
                         "icon-size": 1
                     }
+                },
+                (map, layer) => {
+                    const layers = map.getStyle().layers;
+                    map.addLayer(layer, layers[layers.length - 1].id);
                 }
             ));
         });
