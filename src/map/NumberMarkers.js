@@ -21,7 +21,7 @@ export default function NumberMarkers(state, brush) {
         districts = [],
         dpr = window.devicePixelRatio || 1,
         map = state.units.map;
-    canv.height = 22 * dpr;
+    canv.height = 30 * dpr;
     ctx.scale(dpr, dpr);
 
     if (typeof ctx.ellipse === "undefined") {
@@ -34,16 +34,25 @@ export default function NumberMarkers(state, brush) {
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 32 * dpr;
+        canv.width = 30 * dpr;
         ctx.fillStyle = "#fff";
-        ctx.ellipse(16, 11, 14, 10, 0, 0, 2 * Math.PI);
+        ctx.arc(15, 15, 15, 0, 2 * Math.PI);
         ctx.fill();
+        if (dnum >= 99) {
+            ctx.font = '16px Source Sans Pro';
+        } else {
+            ctx.font = '20px Source Sans Pro';
+        }
+
+        let numwidth = ctx.measureText(dnum + 1).width / 2;
+        ctx.shadowColor = "#000";
+        ctx.shadowBlur = 2;
+
         ctx.fillStyle = colorScheme[dnum % colorScheme.length];
-        ctx.font = '16px Source Sans Pro';
         ctx.fillText(
             dnum + 1,
-            16 - ctx.measureText(dnum + 1).width / 2,
-            16
+            15 - numwidth,
+            22
         );
 
         map.addSource("number_source_" + dnum, {
