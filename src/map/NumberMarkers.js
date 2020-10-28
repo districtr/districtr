@@ -1,4 +1,5 @@
 import Layer from "./Layer";
+import { colorScheme } from "../colors";
 import { spatial_abilities } from "../utils";
 
 export default function NumberMarkers(state, brush) {
@@ -22,6 +23,7 @@ export default function NumberMarkers(state, brush) {
         map = state.units.map;
     canv.height = 22 * dpr;
     ctx.scale(dpr, dpr);
+
     if (typeof ctx.ellipse === "undefined") {
         // IE helper
         return { update: () => {} };
@@ -33,15 +35,11 @@ export default function NumberMarkers(state, brush) {
     }
     districts.forEach((dnum) => {
         canv.width = 32 * dpr;
-        // ctx.translate(0.5, 0.5);
-        // ctx.strokeStyle = "#000";
         ctx.fillStyle = "#fff";
-        // ctx.lineWidth = 1;
         ctx.ellipse(16, 11, 14, 10, 0, 0, 2 * Math.PI);
         ctx.fill();
-        // ctx.stroke();
-        ctx.fillStyle = "#000";
-        ctx.font = "14px sans-serif";
+        ctx.fillStyle = colorScheme[dnum % colorScheme.length];
+        ctx.font = '16px Source Sans Pro';
         ctx.fillText(
             dnum + 1,
             16 - ctx.measureText(dnum + 1).width / 2,
