@@ -59,19 +59,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
-        const noNames = ["case",
-            ["==", ["get", "type"], "neighborhood"],
-            "",
-            ["==", ["get", "type"], "neighbourhood"],
-            "",
-            ["==", ["get", "type"], "locality"],
-            "",
-            [">=", ["get", "admin_level"], 8],
-            "",
-            ["==", ["get", "type"], "block"],
-            "",
-            ["get", "name"]
-        ];
+        const noNames = "";
         state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
         state.map.setLayoutProperty('settlement-label', 'text-field', ["case",
             ["==", ["get", "type"], "hamlet"],
@@ -82,6 +70,12 @@ export default function DataLayersPlugin(editor) {
         tab.addSection(() => toggle("Suggest neighborhood names", false, checked => {
             state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', checked ? ["get", "name"]
                 : noNames);
+            state.map.setLayoutProperty('settlement-label', 'text-field', checked ? ["get", "name"]
+                : ["case",
+                ["==", ["get", "type"], "hamlet"],
+                "",
+                ["get", "name"]
+            ]);
         }));
     }
 

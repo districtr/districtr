@@ -1,7 +1,10 @@
 import Layer from "./Layer";
+import { colorScheme } from "../colors";
 import { spatial_abilities } from "../utils";
 
 export default function NumberMarkers(state, brush) {
+    const spacer = String.fromCharCode(8202) + String.fromCharCode(8202);
+
     state.numbers = [];
     if (!state.problem || !state.problem.numberOfParts) {
         console.log("no numberOfParts for NumberMarkers");
@@ -20,8 +23,10 @@ export default function NumberMarkers(state, brush) {
         districts = [],
         dpr = window.devicePixelRatio || 1,
         map = state.units.map;
-    canv.height = 22 * dpr;
+    canv.height = 30 * dpr;
     ctx.scale(dpr, dpr);
+    ctx.strokeStyle = "#000";
+
     if (typeof ctx.ellipse === "undefined") {
         // IE helper
         return { update: () => {} };
@@ -32,20 +37,30 @@ export default function NumberMarkers(state, brush) {
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 32 * dpr;
-        // ctx.translate(0.5, 0.5);
-        // ctx.strokeStyle = "#000";
+        canv.width = 30 * dpr;
         ctx.fillStyle = "#fff";
-        // ctx.lineWidth = 1;
-        ctx.ellipse(16, 11, 14, 10, 0, 0, 2 * Math.PI);
+        ctx.lineWidth = 0;
+        ctx.arc(15, 15, 15, 0, 2 * Math.PI);
         ctx.fill();
-        // ctx.stroke();
-        ctx.fillStyle = "#000";
-        ctx.font = "14px sans-serif";
+
+
+        if (dnum >= 99) {
+            ctx.font = '500 16px Source Sans Pro';
+        } else {
+            ctx.font = '500 22px Source Sans Pro';
+        }
+        let numtxt = String(dnum + 1).split("").join(spacer)
+        let numwidth = ctx.measureText(numtxt).width / 2;
+        // ctx.shadowColor = "#000";
+        // ctx.shadowBlur = 5;
+        ctx.lineWidth = 2;
+        ctx.strokeText(numtxt, 15 - numwidth, 22);
+
+        ctx.fillStyle = colorScheme[dnum % colorScheme.length];
         ctx.fillText(
-            dnum + 1,
-            16 - ctx.measureText(dnum + 1).width / 2,
-            16
+            numtxt,
+            15 - numwidth,
+            22
         );
 
         map.addSource("number_source_" + dnum, {
@@ -70,6 +85,10 @@ export default function NumberMarkers(state, brush) {
                         "icon-image": "number_icon_" + dnum,
                         "icon-size": 1
                     }
+                },
+                (map, layer) => {
+                    const layers = map.getStyle().layers;
+                    map.addLayer(layer, layers[layers.length - 1].id);
                 }
             ));
         });
