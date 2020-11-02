@@ -122,7 +122,7 @@ export default class OverlayContainer {
         this.overlay.setSubgroup(this.subgroups[i]);
         if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i]) || (this.subgroups[i].key.includes("TOTPOP"))) {
             if (this.firstOnly) {
-              this.overlay.setColorRule(purpleByCount);
+                this.overlay.setColorRule(purpleByCount);
             } else {
                 this.overlay.setColorRule(colorByCount);
             }
@@ -214,7 +214,7 @@ export default class OverlayContainer {
                 })
             }
             <div id="color-${this._id}" class="color-legend">
-                <span class="gradientbar ${!this.firstOnly || 'purple'}"></span>
+                <span class="gradientbar ${this.firstOnly ? 'purple' : ''}"></span>
                 <br/>
                 <div id="notches-${this._id}" class="notches">
                     <span class="notch">|</span>
