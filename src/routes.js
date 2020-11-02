@@ -187,7 +187,7 @@ export function loadPlanFromCSV(assignmentList, state) {
     }
     let planRecord = state;
     planRecord.assignment = {};
-    return listPlaces(state.placeId).then(places => {
+    return listPlaces(state.place.id).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(","),
