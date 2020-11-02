@@ -3,6 +3,8 @@ import { colorScheme } from "../colors";
 import { spatial_abilities } from "../utils";
 
 export default function NumberMarkers(state, brush) {
+    const spacer = String.fromCharCode(8202) + String.fromCharCode(8202);
+
     state.numbers = [];
     if (!state.problem || !state.problem.numberOfParts) {
         console.log("no numberOfParts for NumberMarkers");
@@ -47,15 +49,16 @@ export default function NumberMarkers(state, brush) {
         } else {
             ctx.font = '500 22px Source Sans Pro';
         }
-        let numwidth = ctx.measureText(dnum + 1).width / 2;
+        let numtxt = String(dnum + 1).split("").join(spacer)
+        let numwidth = ctx.measureText(numtxt).width / 2;
         // ctx.shadowColor = "#000";
         // ctx.shadowBlur = 5;
-        ctx.lineWidth = 2.5;
-        ctx.strokeText(dnum + 1, 15 - numwidth, 22);
+        ctx.lineWidth = 2;
+        ctx.strokeText(numtxt, 15 - numwidth, 22);
 
         ctx.fillStyle = colorScheme[dnum % colorScheme.length];
         ctx.fillText(
-            dnum + 1,
+            numtxt,
             15 - numwidth,
             22
         );
