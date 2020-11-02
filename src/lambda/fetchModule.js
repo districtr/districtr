@@ -1,15 +1,17 @@
 
 const modules = require("../../assets/data/response.json");
 
-exports.handler = (event, context) => {
+exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
+
+  console.log(event.queryStringParameters);
 
   try {
     let search = event.queryStringParameters.id,
         state = event.queryStringParameters.state;
 
     const plans = modules.filter(m => {
-        state ? (m.state === state) : (m.id === search)
+        return state ? (m.state === state) : (m.id === search)
     });
 
     return {
