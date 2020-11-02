@@ -144,7 +144,7 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
-    return listPlaces().then(places => {
+    return listPlaces(planRecord.placeId).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
         return {
@@ -187,7 +187,7 @@ export function loadPlanFromCSV(assignmentList, state) {
     }
     let planRecord = state;
     planRecord.assignment = {};
-    return listPlaces().then(places => {
+    return listPlaces(state.placeId).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(","),
