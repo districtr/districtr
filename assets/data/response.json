@@ -24392,6 +24392,60 @@
           },
           {
             "type": "election",
+            "name": "2019 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE19pR",
+                "name": "Republican",
+                "sum": 769477,
+                "min": 0,
+                "max": 1378
+              },
+              {
+                "key": "TRE19pD",
+                "name": "Democratic",
+                "sum": 442748,
+                "min": 0,
+                "max": 944
+              },
+              {
+                "key": "TRE19pU",
+                "name": "Unaffiliated",
+                "sum": 69901,
+                "min": 0,
+                "max": 123
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Dem. Presidential Primary",
+            "subgroups": [
+              {
+                "key": "PRES16pD2",
+                "name": "Clinton",
+                "sum": 221322,
+                "min": 0,
+                "max": 494
+              },
+              {
+                "key": "PRES16pD7",
+                "name": "Sanders",
+                "sum": 72203,
+                "min": 0,
+                "max": 149
+              },
+              {
+                "key": "PRES16pD6",
+                "name": "O'Malley",
+                "sum": 2017,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "election",
             "name": "2015 Governor",
             "subgroups": [
               {
