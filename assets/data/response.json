@@ -12389,26 +12389,6 @@
           },
           {
             "type": "election",
-            "name": "2014 Governor",
-            "subgroups": [
-              {
-                "key": "F2014GOVD",
-                "name": "Democratic",
-                "sum": 1893844,
-                "min": 0,
-                "max": 1772
-              },
-              {
-                "key": "F2014GOVR",
-                "name": "Republican",
-                "sum": 1562306,
-                "min": 0,
-                "max": 1997
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2010 Governor",
             "subgroups": [
               {
