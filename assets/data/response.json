@@ -28044,59 +28044,101 @@
            "subgroups": [
              {
                "key": "NH_WHITE",
-               "name": "White population",
+               "name": "NH/White population",
                "sum": 26946,
                "min": 0,
                "max": 215
              },
              {
                "key": "NH_BLACK",
-               "name": "Black population",
+               "name": "NH/Black population",
                "sum": 4663,
                "min": 0,
                "max": 96
              },
              {
-               "key": "HISP",
-               "name": "Hispanic population",
-               "sum": 3688455,
-               "min": 0,
-               "max": 8043
-             },
-             {
                "key": "NH_ASIAN",
-               "name": "Asian population",
+               "name": "NH/Asian population",
                "sum": 2930,
                "min": 0,
                "max": 40
              },
              {
                "key": "NH_AMIN",
-               "name": "American Indian population",
+               "name": "NH/American Indian population",
                "sum": 329,
                "min": 0,
                "max": 9
              },
              {
                "key": "NH_NHPI",
-               "name": "Native Hawaiian and Pacific Islander population",
+               "name": "NH/Native Hawaiian and Pacific Islander population",
                "sum": 77,
                "min": 0,
                "max": 4
              },
              {
                "key": "NH_2MORE",
-               "name": "Two or more races",
+               "name": "NH/Two or more races",
                "sum": 1363,
                "min": 0,
                "max": 15
              },
              {
                "key": "NH_OTHER",
-               "name": "Other races",
+               "name": "NH/Other races",
                "sum": 1026,
                "min": 0,
                "max": 11
+             },
+             {
+               "key": "H_WHITE",
+               "name": "Hispanic/White population",
+               "sum": 2798154,
+               "min": 0,
+               "max": 6601
+             },
+             {
+               "key": "H_BLACK",
+               "name": "Hispanic/Black population",
+               "sum": 456835,
+               "min": 0,
+               "max": 1669
+             },
+             {
+               "key": "H_ASIAN",
+               "name": "Hispanic/Asian population",
+               "sum": 3901,
+               "min": 0,
+               "max": 72
+             },
+             {
+               "key": "H_AMIN",
+               "name": "Hispanic/American Indian population",
+               "sum": 19510,
+               "min": 0,
+               "max": 102
+             },
+             {
+               "key": "H_NHPI",
+               "name": "Hispanic/Native Hawaiian and Pacific Islander population",
+               "sum": 293,
+               "min": 0,
+               "max": 9
+             },
+             {
+               "key": "H_2MORE",
+               "name": "Hispanic/Two or more races",
+               "sum": 120883,
+               "min": 0,
+               "max": 467
+             },
+             {
+               "key": "H_OTHER",
+               "name": "Hispanic/Other races",
+               "sum": 288879,
+               "min": 0,
+               "max": 821
              }
            ]
          },
@@ -28113,14 +28155,14 @@
            "subgroups": [
              {
                "key": "WVAP",
-               "name": "White voting age population",
+               "name": "NH/White voting age population",
                "sum": 22299,
                "min": 0,
                "max": 158
              },
              {
                "key": "BVAP",
-               "name": "Black voting age population",
+               "name": "NH/Black voting age population",
                "sum": 3805,
                "min": 0,
                "max": 86
@@ -28134,35 +28176,35 @@
              },
              {
                "key": "AMINVAP",
-               "name": "Native American voting age population",
+               "name": "NH/Native American voting age population",
                "sum": 266,
                "min": 0,
                "max": 5
              },
              {
                "key": "NHPIVAP",
-               "name": "Native Hawaiian and Pacific Islander voting age population",
+               "name": "NH/Native Hawaiian and Pacific Islander voting age population",
                "sum": 63,
                "min": 0,
                "max": 3
              },
              {
                "key": "ASIANVAP",
-               "name": "Asian voting age population",
+               "name": "NH/Asian voting age population",
                "sum": 2470,
                "min": 0,
                "max": 32
              },
              {
                "key": "OTHERVAP",
-               "name": "Other races voting age population",
+               "name": "NH/Other races voting age population",
                "sum": 758,
                "min": 0,
                "max": 8
              },
              {
                "key": "2MOREVAP",
-               "name": "Two or more races voting age population",
+               "name": "NH/Two or more races voting age population",
                "sum": 1051,
                "min": 0,
                "max": 10
@@ -28186,20 +28228,20 @@
        ],
        "tilesets": [
          {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.puertorico_blockgroups"
-           },
-           "sourceLayer": "puertorico_blockgroups"
-         },
-         {
            "type": "circle",
            "source": {
              "type": "vector",
-             "url": "mapbox://districtr.puertorico_blockgroups_points"
+             "url": "mapbox://districtr.puertoricoalt_blockgroups_points"
            },
-           "sourceLayer": "puertorico_blockgroups_points"
+           "sourceLayer": "puertoricoalt_blockgroups_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.puertoricoalt_blockgroups"
+           },
+           "sourceLayer": "puertoricoalt_blockgroups"
          }
        ]
      }
