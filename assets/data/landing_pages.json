@@ -163,8 +163,8 @@
     "state": "Arkansas",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["arkansas"],  "id": "state", "mode": "communities"},
-      {"name": "Cities", "ids": ["little_rock"], "default": "true", "id": "loc"}],
+      {"name": "Statewide", "ids": ["arkansas"],  "id": "state", "default": "true"},
+      {"name": "Cities", "ids": ["little_rock"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -203,8 +203,8 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "Statewide", "ids": ["california"], "id": "state", "mode": "communities"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties", "default": "true"},
+      {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
+      {"name": "Counties", "ids": ["lax"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
@@ -447,8 +447,8 @@
     "state": "Florida",
     "code": "FL",
     "modules": [
-      {"name": "Statewide", "ids": ["florida"], "id": "state", "mode": "communities"},
-      {"name": "Counties", "ids": ["miamidade"], "default": "true", "id": "counties"},
+      {"name": "Statewide", "ids": ["florida"], "id": "state", "default": "true"},
+      {"name": "Counties", "ids": ["miamidade"], "id": "counties"},
       {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
     "sections": [
       {
@@ -650,8 +650,8 @@
     "state": "Illinois",
     "code": "IL",
     "modules": [
-      {"name": "Statewide", "ids": ["illinois"], "id": "state", "mode": "communities"},
-      {"name": "Cities", "ids": ["chicago"], "default": "true", "id": "loc"}],
+      {"name": "Statewide", "ids": ["illinois"], "id": "state", "default": "true"},
+      {"name": "Cities", "ids": ["chicago"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1729,8 +1729,8 @@
     "state": "New York",
     "code": "NY",
     "modules": [
-      {"name": "Statewide", "ids": ["newyork"], "id": "state", "mode": "communities"},
-      {"name": "Cities", "ids": ["islip"], "default": "true", "id": "loc"}],
+      {"name": "Statewide", "ids": ["newyork"], "id": "state", "default": "true"},
+      {"name": "Cities", "ids": ["islip"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

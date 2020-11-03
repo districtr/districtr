@@ -651,7 +651,6 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
-        "limit": "community",
         "columnSets": [
           {
             "type": "population",
@@ -2508,7 +2507,6 @@
   {
     "id": "illinois",
     "state": "Illinois",
-    "limit": "community",
     "units": [
       {
         "id": "blockgroups",
@@ -5906,7 +5904,6 @@
     "name": "New York",
     "id": "newyork",
     "state": "New York",
-    "limit": "community",
     "districtingProblems": [
       {
         "name": "Congress",
@@ -10022,6 +10019,16 @@
         "numberOfParts": 4,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
+      },
+      {
+        "numberOfParts": 52,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 122,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
       }
     ]
   },
@@ -10252,7 +10259,6 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
-        "limit": "community",
         "columnSets": [
           {
             "type": "population",
@@ -13133,7 +13139,6 @@
   {
     "name": "California",
     "id": "california",
-    "limit": "community",
     "units": [
       {
         "id": "blockgroups",
@@ -17963,7 +17968,6 @@
   },
   {
     "name": "Arkansas",
-    "limit": "community",
     "units": [
       {
         "id": "blockgroups",
@@ -21150,7 +21154,6 @@
     "id": "arizona",
     "units": [
       {
-        "limit": "community",
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
@@ -23115,7 +23118,6 @@
     "id": "alabama",
     "name": "Alabama",
     "state": "Alabama",
-    "limit": "community",
     "units": [
       {
         "id": "blockgroups",
@@ -23494,7 +23496,6 @@
       }
     ],
     "name": "Florida",
-    "limit": "community",
     "state": "Florida",
     "id": "florida",
     "districtingProblems": [
@@ -23698,7 +23699,6 @@
    "id": "indiana",
    "name": "Indiana",
    "state": "Indiana",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
@@ -23721,7 +23721,6 @@
    "state": "Kansas",
    "name": "Kansas",
    "id": "kansas",
-   "limit": "community",
    "units": [
      {
        "id": "blockgroups",
@@ -24102,7 +24101,6 @@
      }
    ],
    "state": "Kentucky",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
@@ -25262,7 +25260,6 @@
    "state": "Montana",
    "name": "Montana",
    "id": "montana",
-   "limit": "community",
    "units": [
      {
        "id": "blocks",
@@ -25815,7 +25812,6 @@
    ],
    "state": "Nebraska",
    "id": "nebraska",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
@@ -26467,7 +26463,6 @@
    "id": "newjersey",
    "state": "New Jersey",
    "name": "New Jersey",
-   "limit": "community",
    "units": [
      {
        "id": "blockgroups",
@@ -26843,7 +26838,6 @@
    "state": "North Dakota",
    "id": "northdakota",
    "name": "North Dakota",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "State Legislature",
@@ -26856,7 +26850,6 @@
    "name": "South Carolina",
    "state": "South Carolina",
    "id": "southcarolina",
-   "limit": "community",
    "units": [
      {
        "id": "blockgroups",
@@ -27058,7 +27051,6 @@
    "state": "South Dakota",
    "name": "South Dakota",
    "id": "southdakota",
-   "limit": "community",
    "units": [
      {
        "id": "blockgroups",
@@ -27250,7 +27242,6 @@
    "name": "Tennessee",
    "id": "tennessee",
    "state": "Tennessee",
-   "limit": "community",
    "units": [
      {
        "id": "blockgroups",
@@ -27631,7 +27622,6 @@
    ],
    "state": "West Virginia",
    "name": "West Virginia",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
@@ -27654,7 +27644,6 @@
    "state": "Wyoming",
    "id": "wyoming",
    "name": "Wyoming",
-   "limit": "community",
    "units": [
      {
        "id": "blocks",
@@ -28249,7 +28238,6 @@
    "id": "puertorico",
    "state": "Puerto Rico",
    "name": "Puerto Rico",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "House of Representatives of Puerto Rico",
@@ -28446,7 +28434,6 @@
    ],
    "state": "Idaho",
    "id": "idaho",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
@@ -28644,7 +28631,11 @@
    ],
    "id": "dc",
    "districtingProblems": [
-   ],
-   "limit": "community"
+     {
+       "name": "Wards",
+       "numberOfParts": 8,
+       "pluralNoun": "Wards"
+     }
+   ]
  }
 ]
