@@ -153,7 +153,7 @@ export default class State {
         return {
             ...this.plan.serialize(),
             placeId: this.place.id,
-            units: this.unitsRecord
+            units: { name: this.unitsRecord.name }
         };
     }
     subscribe(f) {
