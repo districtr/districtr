@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
         state = event.queryStringParameters.state;
 
     const plans = modules.filter(m => {
-        return state ? (m.state === state) : (m.id === search)
+        return state ? (m.state === state || m.id === state) : (m.id === search)
     });
 
     return {
