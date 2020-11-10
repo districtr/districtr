@@ -321,6 +321,11 @@ export function spatial_abilities (id) {
         native_american: true,
         county_brush: true,
       },
+      idaho: {
+        multiyear: true,
+        // number_markers: true,
+        // contiguity: true,
+      },
       iowa: {
         number_markers: true,
         contiguity: 2,
