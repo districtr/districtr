@@ -293,23 +293,23 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        contiguity: true,
+        contiguity: 2,
       },
       connecticut: {
         county_brush: true,
         native_american: true,
         number_markers: true,
-        contiguity: true,
+        contiguity: 2,
       },
       delaware: {
         number_markers: true,
         native_american: true,
-        contiguity: true,
+        contiguity: 2,
       },
       georgia: {
         number_markers: true,
         county_brush: true,
-        contiguity: true,
+        contiguity: 2,
       },
       hawaii: {
         number_markers: true,
@@ -318,13 +318,13 @@ export function spatial_abilities (id) {
       },
       iowa: {
         number_markers: true,
-        contiguity: true,
+        contiguity: 2,
         screenshot: true,
       },
       lax: {
         neighborhoods: true,
         number_markers: true,
-        contiguity: true,
+        contiguity: 2,
       },
       little_rock: {
         number_markers: true,
@@ -333,7 +333,7 @@ export function spatial_abilities (id) {
         native_american: true,
         // county_brush: true, // lakes
         number_markers: true,
-        contiguity: true,
+        contiguity: 2,
       },
       maine: {
         native_american: true,
@@ -376,7 +376,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        contiguity: true,
+        contiguity: 2,
       },
       napa: {
         number_markers: true,
@@ -388,7 +388,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        contiguity: true,
+        contiguity: 2,
         current_districts: true,
         screenshot: true,
         shapefile: true,
@@ -401,7 +401,7 @@ export function spatial_abilities (id) {
         },
         santafe: {
           number_markers: true,
-          contiguity: true,
+          contiguity: 2,
           screenshot: true,
           shapefile: true,
         },
@@ -417,7 +417,7 @@ export function spatial_abilities (id) {
         current_districts: true,
       },
           forsyth_nc: {
-            contiguity: true,
+            contiguity: 2,
             screenshot: true,
           },
       ohio: {
@@ -428,7 +428,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         native_american: true,
         county_brush: true,
-        contiguity: true,
+        contiguity: 2,
         coalition: true,
       },
       ontarioca: {
@@ -438,20 +438,20 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        contiguity: true,
+        contiguity: 2,
       },
         portlandor: {
           number_markers: true,
-          contiguity: true,
+          contiguity: 2,
         },
       pennsylvania: {
         number_markers: true,
         county_brush: true,
-        // contiguity: true,
+        // contiguity: 2,
       },
         philadelphia: {
           number_markers: true,
-          contiguity: true,
+          contiguity: 2,
         },
       rhode_island: {
         number_markers: true,
@@ -459,7 +459,7 @@ export function spatial_abilities (id) {
       texas: {
         number_markers: true,
         county_brush: true,
-        contiguity: true,
+        contiguity: 2,
       },
       utah: {
         number_markers: true,
