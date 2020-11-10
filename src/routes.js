@@ -188,27 +188,31 @@ export function loadPlanFromCSV(assignmentList, state) {
     }
     let planRecord = state;
     planRecord.assignment = {};
+    let districtIds = new Set(rows.map((row, index) => row.split(",")[1]));
+    if (headers) {districtIds.delete(rows[0].split(",")[1]);}
+    districtIds.delete(undefined);
+
+    let distMap = Array.from(districtIds.values());
+    // if we didn't set numberOfParts in CSV, find max here
+    state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
+
     return listPlaces(state.place.id).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(","),
-                    val = cols[1] * 1,
+                    val = cols[1],
                     key = (isNaN(cols[0] * 1) || cols[0][0] === "0")
                         ? cols[0]
                         : cols[0] * 1;
+                if (typeof(key) === "string" && (key.includes("\"") || key.includes("\'"))) {
+                    key = key.slice(1, -1);
+                }
 
-                if (key && !isNaN(val)) {
-                    planRecord.assignment[key] = val;
-
-                    // if we didn't set numberOfParts in CSV, find max here
-                    state.problem.numberOfParts = Math.max(
-                        state.problem.numberOfParts,
-                        val
-                    );
+                if (key && val !== undefined) {
+                    planRecord.assignment[key] = distMap.indexOf(val);
                 }
             }
         });
-
         const place = places.find(p => p.id === planRecord.place.id);
         return {
             ...planRecord,
