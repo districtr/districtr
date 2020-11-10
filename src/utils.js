@@ -301,6 +301,11 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
       },
+      dc: {
+        multiyear: true,
+        number_markers: true,
+        contiguity: 2,
+      },
       delaware: {
         number_markers: true,
         native_american: true,
