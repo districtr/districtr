@@ -35,13 +35,81 @@
         <link rel="canonical" href="https://districtr.org" />
         <meta property="og:url" content="https://districtr.org" />
         <meta property="og:site_name" content="Districtr" />
+
+        <style type="text/css">
+.col1, .col2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+ul#nav li {
+  background: none;
+}
+ul#nav li a {
+  color: #0099cd;
+  text-transform: uppercase;
+}
+.splash-text {
+  text-align: center;
+  color: #0099cd;
+}
+.takeaway {
+  font-size: 100%;
+}
+.l-major-section {
+  padding-bottom: 1rem;
+}
+.col1 {
+  width: 55%;
+}
+.col2 {
+  width: 44%;
+}
+@media (min-width:1000px) {
+  .l-major-section {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .col1 {
+    width: 65%;
+  }
+  .col2 {
+    width: 34%;
+  }
+}
+.l-major-section h2, .l-major-section h3 {
+  font-weight: normal;
+  font-size: 100%;
+  color: #555;
+}
+.l-major-section em {
+  font-size: 110%;
+}
+.l-major-section h3 {
+  color: darkblue;
+}
+.l-major-section p {
+  font-size: 70%;
+}
+span.badge {
+  font-size: 70%;
+  background: #0099cd;
+  color: #fff;
+  padding: 6px;
+  border-radius: 6px;
+}
+.start-districting__title {
+  font-size: 100%;
+}
+        </style>
     </head>
 
     <body>
         <main id="root" class="landing-page">
             <ul id="nav">
-                <a href="https://mggg.org">
-                    <img src="/assets/mggg.svg" alt="MGGG"/>
+                <a href="/">
+                    <img src="/assets/districtr-splash-clear.png" alt="Districtr logo" width="200"/>
                 </a>
                 <button
                     class="button button--subtle button--icon button--no-shadow"
@@ -51,230 +119,146 @@
                 </button>
                 <li>
                   <a href="/new">
-                    Quick Start
+                    Get Involved
                   </a>
                 </li>
                 <li>
-                  <a href="/assets/brochure.pdf">
-                    Brochure
+                  <a href="/new">
+                    Find Your State
                   </a>
                 </li>
                 <li>
-                  <a href="/guide">
-                    Tutorial
+                  <a href="/about">
+                    About
                   </a>
                 </li>
-                <!-- <li>
-                  <header class="sign-in" id="sign-in"></header>
-                </li> -->
             </ul>
             <section class="splash splash-grid hello">
                 <header class="splash-text">
-                    <h1 class="headline"><em>You</em> draw the lines.</h1>
+                    <img src="/assets/new_logo.png" alt="new logo"/>
                     <h2 class="takeaway">
-                        <strong>Districtr</strong>
-                        is a project of the
-                        <a href="https://www.mggg.org">MGGG Redistricting Lab</a>
-                        to
-                        <strong>put the tools of redistricting into the hands of the public</strong>
-                        with free software.
-                        <a href="/new" class="districtr-name">Start&nbsp;drawing&nbsp;districts</a>
-                        <img src="/assets/districtr-splash.png" style="max-width: 86%;margin-left:7%;margin-top:3vh;"/>
+                        a free, open-source redistricting tool for communities
                     </h2>
                 </header>
             </section>
-            <section class="l-content u-centered l-major-section decorated-section">
-                <div class="media-list">
-                    <a href="/new" class="link--no-style">
-                        <article
-                            class="media media--bold media-list__item media--interactive"
-                        >
-                            <h3 class="media__title media__title--bold">
-                                Draw a districting plan
-                            </h3>
-                            <img
-                                class="media__img"
-                                src="/assets/districting-plan.svg"
-                                alt="an abstract districting plan"
-                            />
-                            <p class="media__body">
-                                Learn first-hand about the redistricting
-                                process, the trade-offs involved, and what
-                                districts can look like for your state or city.
-                            </p>
-                        </article>
-                    </a>
-                    <a href="/new" class="link--no-style">
-                        <article
-                            class="media media--bold media-list__item media--interactive"
-                        >
-                            <h3 class="media__title media__title--bold">
-                                Identify your community
-                            </h3>
-                            <img
-                                class="media__img"
-                                src="/assets/community.svg"
-                                alt="an abstract community identification"
-                            />
-                            <p class="media__body">
-                                Draw the boundaries of a
-                                <strong>community of interest</strong> that map
-                                drawers should take into account.
-                            </p>
-                        </article>
-                    </a>
+            <section class="l-content l-major-section decorated-section">
+                <div class="col1">
+                  <h2>Districtr helps you contribute to our country's redistricting process.
+                    <br/>
+                    <em>You draw the lines.</em>
+                  </h2>
+                  <br/>
+                  <h3>What is redistricting?</h3>
+                  <p>
+                    Redistricting is dividing up a jurisdiction (like a state, county, or city) into districts for the purpose
+                    of electing representatives. Where and how the lines are drawn influences everything from who is
+                    likely to be elected to how resources get allocated.
+                  </p>
                 </div>
-                <h2 class="section__heading">
-                    Make your voice heard with
-                    <mark class="districtr-name">Districtr.</mark>
-                </h2>
+                <div class="col2">
+                  <a href="/new">
+                    <span class="badge">Take me to the map, I'm ready to draw!</span>
+                    <br/>
+                    <img src="/assets/full_map.png" alt="USA map"/>
+                  </a>
+                </div>
+            </section>
+            <section class="l-content l-major-section">
+              <h3>How can you get involved?</h3>
+              <h3 style="color: purple">You can draw districts.</h3>
+              <div class="col1">
+                <p>Redistricting occurs every 10 years after the Census is released. In most
+states, elected representatives in the state legislature are responsible
+for redrawing the lines. The process often relies on costly software and
+involves little public input.
+                </p>
+                <p>Districtr puts the tools of redistricting in the hands of the public. Pick your
+state and start drawing to learn about the redistricting process, the tradeoff involved, and what districts can look like in your state.
+                </p>
+              </div>
+              <div class="col2" style="background-color:purple;color:#fff;">
+                District Video
+              </div>
+            </section>
+            <section class="l-content l-major-section">
+              <h3 style="color: red">You can draw your community.</h3>
+              <div class="col1">
+                <p>Communities of Interest (known as COIs) are groups with significant
+shared interests that should be kept together.</p>
+                <p>Pick your state and start drawing community boundaries. When we know
+where communities live, map-drawers can take that into account. </p>
+                <p>Keeping communities together gives your community a voice.</p>
+              </div>
+              <div class="col2" style="background-color:red;color:#fff;">
+                COI Video
+              </div>
             </section>
             <section
-                class="start-districting hidden l-major-section"
+                class="start-districting hidden"
                 id="start-districting"
             ></section>
-            <section class="u-centered">
-                <div class="request-new-place">
-                    <h2 class="call-to-request">Looking for somewhere else?</h2>
-                    <a href="/request" class="call-to-request homelink"
-                        >Request a new place to redistrict.</a
-                    >
-                </div>
+            <section class="l-content l-major-section" style="text-align:center">
+              <h3>Looking for somewhere else?</h3>
+              <a>Request a new location</a>
             </section>
-            <section class="splash splash-grid details sepia">
-                <div class="splash-text">
-                    <h2 class="section__heading">About Districtr</h2>
-                    <h3 class="takeaway">
-                        The goal of Districtr is to
-                        <strong
-                            >put the tools of redistricting in the hands of the
-                            public</strong
-                        >, with an emphasis on meeting the needs of civil rights
-                        organizations, community groups, and researchers.
-                    </h3>
-                    <p>
-                        Districtr came about from a conversation with
-                        <a href="http://lawyersforcivilrights.org/"
-                            >Lawyers for Civil Rights</a
-                        >, the Boston arm of the national
-                        <a href="https://lawyerscommittee.org/"
-                            >Lawyers’ Committee for Civil Rights Under Law</a
-                        >. LCR was describing their work with community members
-                        in Lowell, MA, who were frustrated about not having a
-                        voice with the city council. In those conversations, a
-                        few places kept coming up.
-                    </p>
-
-                    <p>
-                        Like <mark>Clemente Park</mark>, a much-loved meeting
-                        point for the city’s Asian and Latino populations, which
-                        felt unsafe at night because the city had not provided
-                        lighting in the park.
-                    </p>
-
-                    <p>
-                        And <mark>Lowell High School</mark>, the city’s only
-                        public high school, which serves over 3000 students. The
-                        city announced plans to move it from its traditional
-                        downtown location, but did not invest in substantial
-                        outreach to communities of color about possible new
-                        sites.
-                    </p>
-                    <p class="takeaway">
-                        Our idea was to create a mapping tool whose fundamental
-                        principle is to
-                        <strong>ask the community what matters.</strong>
-                    </p>
-                    <p>
-                        With maps that show relevant landmarks and data, users
-                        can try their own hand at drawing meaningful
-                        demonstration plans.
-                    </p>
-                </div>
+            <section class="l-content l-major-section">
+              <h3 style="color: darkblue">About Districtr</h3>
+              <p>The goal of Districtr is to put the tools of redistricting in the hands of the public, with an emphasis
+              on meeting the needs of civil rights organizations, community groups, and researchers.
+              </p>
+              <p>Districtr came about from a conversation with Lawyers for Civil Rights, the Boston arm of the national Lawyers’ Committee for Civil Rights Under Law. LCR was describing their work with community members in Lowell, MA, who were frustrated about not having a voice with the city council. In
+              those conversations, a few places kept coming up.</p>
+              <p>Like Clemente Park, a much-loved meeting point for the city’s Asian and Latino populations, which
+              felt unsafe at night because the city had not provided lighting in the park.
+              </p>
+              <p>And Lowell High School, the city’s only public high school, which serves over 3000 students. The
+              city announced plans to move it from its traditional downtown location, but did not invest in substantial outreach to communities of color about possible new sites.</p>
+              <p>
+              Our idea was to create a mapping tool whose fundamental principle is to ask the community what
+              matters.</p>
+              <p>With maps that show relevant landmarks and data, users can try their own hand at drawing meaningful demonstration plans.</p>
+              <hr/>
             </section>
-            <section class="splash-code-details dark">
-                <div class="splash-code-text">
-                    <h2 class="takeaway code-title">
-                        Districtr is a free and open-source web app built with
-                        HTML5, CSS, and JavaScript, as well as:
-                    </h2>
-                    <ul class="technologies">
-                        <li class="technologies__item">
-                            <a href="https://www.mapbox.com/">
-                                <img
-                                    src="/assets/Mapbox_Logo_08.svg"
-                                    alt="Mapbox"
-                                    class="mapbox-logo"
-                                />
-                            </a>
-                        </li>
-                        <li class="technologies__item">
-                            <a href="https://www.netlify.com/" style="background:#fff;">
-                                <img
-                                    src="/assets/Netlify_logo.svg"
-                                    alt="Netlify"
-                                    class="netlify-logo"
-                                />
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="github-link takeaway">
-                        <a href="https://github.com/districtr/districtr">
-                            <img
-                                class="github-logo"
-                                src="/assets/GitHub-Mark-Light-120px-plus.png"
-                                alt="GitHub logo"
-                            />
-                            View the source on GitHub.</a
-                        >
-                    </div>
-                    <div class="team">
-                        <h3 class="team__title">Development Team</h3>
-                        <dl class="team-list">
-                            <div class="team-list__item">
-                                <dt>Lead Developers</dt>
-                                <dd>
-                                  <ul class="team-members">
-                                    <li class="team-member">Nick Doiron</li>
-                                    <li class="team-member">JN Matthews</li>
-                                  </ul>
-                                </dd>
-                            </div>
-                            <div class="team-list__item">
-                                <dt>Geographers</dt>
-                                <dd>
-                                  <ul class="team-members">
-                                    <li class="team-member">Ruth Buck</li>
-                                    <li class="team-member">Heather Rosenfeld</li>
-                                  </ul>
-                                </dd>
-                            </div>
-                            <div class="team-list__item">
-                                <dt>Originating Developer</dt>
-                                <dd>Max Hully</dd>
-                            </div>
-                            <div class="team-list__item">
-                                <dt>Contributors</dt>
-                                <dd>
-                                    <ul class="team-members">
-                                        <li class="team-member">
-                                          Eion Blanchard
-                                        </li>
-                                        <li class="team-member">
-                                            Chris Gernon
-                                        </li>
-                                        <li class="team-member">Muniba Khan</li>
-                                        <li class="team-member">Liz Kopecky</li>
-                                        <li class="team-member">
-                                            Anthony Pizzimenti
-                                        </li>
-                                        <li class="team-member">Anna Schall</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
-                </div>
+            <section class="l-content l-major-section">
+              <p>
+                Districtr is a free and open-source web app built with HTML5, CSS, and JavaScript, as well as:
+              </p>
+              <ul class="technologies">
+                  <li class="technologies__item">
+                      <a href="https://www.mapbox.com/">
+                          <img
+                              src="/assets/Mapbox_Logo_08.svg"
+                              alt="Mapbox"
+                              class="mapbox-logo"
+                          />
+                      </a>
+                  </li>
+                  <li class="technologies__item">
+                      <a href="https://www.netlify.com/" style="background:#fff;">
+                          <img
+                              src="/assets/Netlify_logo.svg"
+                              alt="Netlify"
+                              class="netlify-logo"
+                          />
+                      </a>
+                  </li>
+              </ul>
+            </section>
+            <section class="l-content l-major-section">
+              <h3 style="color:darkblue">Our Values</h3>
+<p>
+<strong>User experience.</strong> Participating in the redistricting process should be easy and enjoyable.
+</p><p>
+<strong>Openness and transparency.</strong> The entire project is open-source, with permissive licenses. All of the
+data used in the app is freely available and well-documented. We explicitly declare where we get
+our data, how we’ve processed it, and what we think of its quality.
+</p><p>
+<strong>Responsiveness to the community.</strong> Different places have different values and priorities when it
+comes to drawing districts. We aim to highlight the specific concerns of the community in each
+place that we include in the app.
+</p><p>
+See additional guiding principles <a href="https://github.com/vrdi/districtr-principles/blob/master/%5BDraft%5DMGGG_Districtr_Guiding_Principles.pdf">here</a>.
+</p>
             </section>
         </main>
         <script src="/es6/index.js"></script>
