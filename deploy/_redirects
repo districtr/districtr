@@ -1,7 +1,7 @@
 /edit/* /edit.html 200
-/new/* /new.html 
+/new/* /new.html
 /event/* /event.html 200
-/community/* /community.html 
+/community/* /community.html
 /user_guide /guide
 
 ## Landing Pages
@@ -57,6 +57,8 @@
 /wyoming/*          /wyoming.html 200
 
 ## Plan Redirects
+/lowell-newplan /edit?url=/assets/plans/lowell-newplan.json#plan
+/plans/lowell-newplan /edit?url=/assets/plans/lowell-newplan.json#plan
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
