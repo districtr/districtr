@@ -193,6 +193,8 @@ export function loadPlanFromCSV(assignmentList, state) {
     districtIds.delete(undefined);
 
     let distMap = Array.from(districtIds.values());
+    (!isNaN(distMap[0] - distMap[1])) ? distMap.sort((a, b) => a - b) : distMap.sort();
+
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
