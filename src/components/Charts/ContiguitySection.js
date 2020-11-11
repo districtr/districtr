@@ -6,8 +6,8 @@ export default function ContiguitySection(allParts, contiguityProblems, contigVe
   return html`
     <section class="toolbar-section">
       <h4 id="contiguity-status">
-        ${Object.keys(contiguityProblems).length
-          ? html`Districts may have contiguity gaps <small>click a number for more information</small>`
+        ${Object.keys(contiguityProblems).filter(k => contiguityProblems[k] && contiguityProblems[k].length > 1).length
+          ? html`Districts may have contiguity gaps (${Object.keys(contiguityProblems).filter(k => contiguityProblems[k] && contiguityProblems[k].length > 1).map(n => (n * 1) + 1).join(", ")})`
           : "No contiguity gaps detected"}
       </h4>
       <div class="district-row" style="display:${contigVersion === 2 ? "block" : "flex"}">
