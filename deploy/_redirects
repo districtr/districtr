@@ -57,8 +57,9 @@
 /wyoming/*          /wyoming.html 200
 
 ## Plan Redirects
-/lowell-newplan /edit?url=/assets/plans/lowell-districts.json#plan
-/plans/lowell-newplan /edit?url=/assets/plans/lowell-districts.json#plan
+/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
+/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
+/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan
 /plans/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
 /plans/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
 /plans/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan
