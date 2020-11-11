@@ -2650,6 +2650,144 @@
                 "max": 277
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 3189035,
+                "min": 0,
+                "max": 4867
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 1641003,
+                "min": 0,
+                "max": 2028
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 314802,
+                "min": 0,
+                "max": 904
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 194284,
+                "min": 0,
+                "max": 231
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 210540,
+                "min": 0,
+                "max": 489
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 220865,
+                "min": 0,
+                "max": 211
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 206622,
+                "min": 0,
+                "max": 262
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 209338,
+                "min": 0,
+                "max": 315
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 198458,
+                "min": 0,
+                "max": 369
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 201578,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 177177,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 359558,
+                "min": 0,
+                "max": 440
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 469039,
+                "min": 0,
+                "max": 882
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 613917,
+                "min": 0,
+                "max": 1156
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 452341,
+                "min": 0,
+                "max": 863
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 298758,
+                "min": 0,
+                "max": 725
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 335066,
+                "min": 0,
+                "max": 714
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 367695,
+                "min": 0,
+                "max": 1281
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -4122,6 +4260,380 @@
                 "sum": 17141,
                 "min": 0,
                 "max": 73
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population (2018)",
+              "sum": 3132499,
+              "min": 0,
+              "max": 16599
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 2695888,
+                "min": 0,
+                "max": 16198
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 107471,
+                "min": 0,
+                "max": 1417
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 183296,
+                "min": 0,
+                "max": 1192
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 74640,
+                "min": 0,
+                "max": 1039
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 9067,
+                "min": 0,
+                "max": 384
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2863,
+                "min": 0,
+                "max": 204
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 56468,
+                "min": 0,
+                "max": 506
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 2806,
+                "min": 0,
+                "max": 323
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 894152,
+                "min": 0,
+                "max": 4824
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 362703,
+                "min": 0,
+                "max": 2360
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 68502,
+                "min": 0,
+                "max": 602
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 55656,
+                "min": 0,
+                "max": 301
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 59026,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 60647,
+                "min": 0,
+                "max": 357
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 59917,
+                "min": 0,
+                "max": 312
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 61240,
+                "min": 0,
+                "max": 226
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 57473,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 61014,
+                "min": 0,
+                "max": 321
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 53332,
+                "min": 0,
+                "max": 271
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 104907,
+                "min": 0,
+                "max": 418
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 137981,
+                "min": 0,
+                "max": 838
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 178095,
+                "min": 0,
+                "max": 974
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 116267,
+                "min": 0,
+                "max": 631
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 68003,
+                "min": 0,
+                "max": 801
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 61585,
+                "min": 0,
+                "max": 972
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 53210,
+                "min": 0,
+                "max": 823
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Age of Population",
+            "subgroups": [
+              {
+                "key": "age_lt_5",
+                "name": "Under 5",
+                "sum": 197430,
+                "min": 0,
+                "max": 1552
+              },
+              {
+                "key": "age_5_9",
+                "name": "Ages 5-9",
+                "sum": 204026,
+                "min": 0,
+                "max": 800
+              },
+              {
+                "key": "age_10_14",
+                "name": "Ages 10-14",
+                "sum": 206158,
+                "min": 0,
+                "max": 1764
+              },
+              {
+                "key": "age_15_17",
+                "name": "Ages 15-17",
+                "sum": 122418,
+                "min": 0,
+                "max": 1054
+              },
+              {
+                "key": "age_18_19",
+                "name": "Ages 18-19",
+                "sum": 92322,
+                "min": 0,
+                "max": 2412
+              },
+              {
+                "key": "age_20",
+                "name": "Age 20",
+                "sum": 48650,
+                "min": 0,
+                "max": 1074
+              },
+              {
+                "key": "age_21",
+                "name": "Age 21",
+                "sum": 46488,
+                "min": 0,
+                "max": 947
+              },
+              {
+                "key": "age_22_24",
+                "name": "Ages 22-24",
+                "sum": 133634,
+                "min": 0,
+                "max": 1567
+              },
+              {
+                "key": "age_25_29",
+                "name": "Ages 25-29",
+                "sum": 195816,
+                "min": 0,
+                "max": 1501
+              },
+              {
+                "key": "age_30_34",
+                "name": "Ages 30-34",
+                "sum": 197717,
+                "min": 0,
+                "max": 1480
+              },
+              {
+                "key": "age_35_39",
+                "name": "Ages 35-39",
+                "sum": 194822,
+                "min": 0,
+                "max": 1362
+              },
+              {
+                "key": "age_40_44",
+                "name": "Ages 40-44",
+                "sum": 176195,
+                "min": 0,
+                "max": 1778
+              },
+              {
+                "key": "age_45_49",
+                "name": "Ages 45-49",
+                "sum": 186082,
+                "min": 0,
+                "max": 954
+              },
+              {
+                "key": "age_50_54",
+                "name": "Ages 50-54",
+                "sum": 203506,
+                "min": 0,
+                "max": 1520
+              },
+              {
+                "key": "age_55_59",
+                "name": "Ages 55-59",
+                "sum": 213388,
+                "min": 0,
+                "max": 875
+              },
+              {
+                "key": "age_60_61",
+                "name": "Ages 60-61",
+                "sum": 83898,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "age_62_64",
+                "name": "Ages 62-64",
+                "sum": 116637,
+                "min": 0,
+                "max": 348
+              },
+              {
+                "key": "age_65_66",
+                "name": "Ages 65-66",
+                "sum": 69703,
+                "min": 0,
+                "max": 221
+              },
+              {
+                "key": "age_67_69",
+                "name": "Ages 67-69",
+                "sum": 92291,
+                "min": 0,
+                "max": 388
+              },
+              {
+                "key": "age_70_74",
+                "name": "Ages 70-74",
+                "sum": 117695,
+                "min": 0,
+                "max": 297
+              },
+              {
+                "key": "age_75_79",
+                "name": "Ages 75-79",
+                "sum": 89761,
+                "min": 0,
+                "max": 295
+              },
+              {
+                "key": "age_80_84",
+                "name": "Ages 80-84",
+                "sum": 66945,
+                "min": 0,
+                "max": 398
+              },
+              {
+                "key": "age_85_plu",
+                "name": "Ages 85+",
+                "sum": 76917,
+                "min": 0,
+                "max": 315
               }
             ]
           }
@@ -10395,6 +10907,213 @@
                 "sum": 53389,
                 "min": 0,
                 "max": 211
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population (2018)",
+              "sum": 6090062,
+              "min": 0,
+              "max": 11562
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 4848330,
+                "min": 0,
+                "max": 9644
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 699730,
+                "min": 0,
+                "max": 3187
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 249105,
+                "min": 0,
+                "max": 1715
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 115311,
+                "min": 0,
+                "max": 1054
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 23566,
+                "min": 0,
+                "max": 299
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 6037,
+                "min": 0,
+                "max": 429
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 138157,
+                "min": 0,
+                "max": 678
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 9826,
+                "min": 0,
+                "max": 276
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 1601845,
+                "min": 0,
+                "max": 3379
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 794426,
+                "min": 0,
+                "max": 1505
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 158836,
+                "min": 0,
+                "max": 504
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 118404,
+                "min": 0,
+                "max": 218
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 122333,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 127388,
+                "min": 0,
+                "max": 348
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 124137,
+                "min": 0,
+                "max": 238
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 129224,
+                "min": 0,
+                "max": 255
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 119243,
+                "min": 0,
+                "max": 236
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 120404,
+                "min": 0,
+                "max": 210
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 104302,
+                "min": 0,
+                "max": 264
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 195669,
+                "min": 0,
+                "max": 372
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 249084,
+                "min": 0,
+                "max": 467
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 300226,
+                "min": 0,
+                "max": 773
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 195077,
+                "min": 0,
+                "max": 591
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 115715,
+                "min": 0,
+                "max": 420
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 111519,
+                "min": 0,
+                "max": 432
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 104710,
+                "min": 0,
+                "max": 538
               }
             ]
           }
@@ -18111,6 +18830,380 @@
                 "max": 97
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population (2018)",
+              "sum": 2990671,
+              "min": 0,
+              "max": 11114
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 2173849,
+                "min": 0,
+                "max": 6377
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 458536,
+                "min": 0,
+                "max": 4210
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 219052,
+                "min": 0,
+                "max": 3399
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 43441,
+                "min": 0,
+                "max": 1076
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 17342,
+                "min": 0,
+                "max": 566
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 7877,
+                "min": 0,
+                "max": 963
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 65933,
+                "min": 0,
+                "max": 333
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 4641,
+                "min": 0,
+                "max": 353
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 756431,
+                "min": 0,
+                "max": 2062
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 395744,
+                "min": 0,
+                "max": 3180
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 93423,
+                "min": 0,
+                "max": 361
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 74534,
+                "min": 0,
+                "max": 347
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 70617,
+                "min": 0,
+                "max": 250
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 73576,
+                "min": 0,
+                "max": 361
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 69556,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 65675,
+                "min": 0,
+                "max": 316
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 61375,
+                "min": 0,
+                "max": 243
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 60069,
+                "min": 0,
+                "max": 430
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 51743,
+                "min": 0,
+                "max": 210
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 95124,
+                "min": 0,
+                "max": 515
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 111457,
+                "min": 0,
+                "max": 440
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 124254,
+                "min": 0,
+                "max": 554
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 78338,
+                "min": 0,
+                "max": 542
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 44816,
+                "min": 0,
+                "max": 263
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 39928,
+                "min": 0,
+                "max": 368
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 37690,
+                "min": 0,
+                "max": 767
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Age of Population",
+            "subgroups": [
+              {
+                "key": "age_lt_5",
+                "name": "Under 5",
+                "sum": 190311,
+                "min": 0,
+                "max": 949
+              },
+              {
+                "key": "age_5_9",
+                "name": "Ages 5-9",
+                "sum": 197784,
+                "min": 0,
+                "max": 1183
+              },
+              {
+                "key": "age_10_14",
+                "name": "Ages 10-14",
+                "sum": 197795,
+                "min": 0,
+                "max": 709
+              },
+              {
+                "key": "age_15_17",
+                "name": "Ages 15-17",
+                "sum": 120053,
+                "min": 0,
+                "max": 438
+              },
+              {
+                "key": "age_18_19",
+                "name": "Ages 18-19",
+                "sum": 81015,
+                "min": 0,
+                "max": 3364
+              },
+              {
+                "key": "age_20",
+                "name": "Age 20",
+                "sum": 44684,
+                "min": 0,
+                "max": 644
+              },
+              {
+                "key": "age_21",
+                "name": "Age 21",
+                "sum": 42221,
+                "min": 0,
+                "max": 562
+              },
+              {
+                "key": "age_22_24",
+                "name": "Ages 22-24",
+                "sum": 117501,
+                "min": 0,
+                "max": 1202
+              },
+              {
+                "key": "age_25_29",
+                "name": "Ages 25-29",
+                "sum": 200238,
+                "min": 0,
+                "max": 1293
+              },
+              {
+                "key": "age_30_34",
+                "name": "Ages 30-34",
+                "sum": 189181,
+                "min": 0,
+                "max": 923
+              },
+              {
+                "key": "age_35_39",
+                "name": "Ages 35-39",
+                "sum": 188129,
+                "min": 0,
+                "max": 902
+              },
+              {
+                "key": "age_40_44",
+                "name": "Ages 40-44",
+                "sum": 180455,
+                "min": 0,
+                "max": 722
+              },
+              {
+                "key": "age_45_49",
+                "name": "Ages 45-49",
+                "sum": 182094,
+                "min": 0,
+                "max": 786
+              },
+              {
+                "key": "age_50_54",
+                "name": "Ages 50-54",
+                "sum": 194386,
+                "min": 0,
+                "max": 656
+              },
+              {
+                "key": "age_55_59",
+                "name": "Ages 55-59",
+                "sum": 195360,
+                "min": 0,
+                "max": 558
+              },
+              {
+                "key": "age_60_61",
+                "name": "Ages 60-61",
+                "sum": 74810,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "age_62_64",
+                "name": "Ages 62-64",
+                "sum": 107118,
+                "min": 0,
+                "max": 347
+              },
+              {
+                "key": "age_65_66",
+                "name": "Ages 65-66",
+                "sum": 66485,
+                "min": 0,
+                "max": 370
+              },
+              {
+                "key": "age_67_69",
+                "name": "Ages 67-69",
+                "sum": 94420,
+                "min": 0,
+                "max": 582
+              },
+              {
+                "key": "age_70_74",
+                "name": "Ages 70-74",
+                "sum": 123119,
+                "min": 0,
+                "max": 851
+              },
+              {
+                "key": "age_75_79",
+                "name": "Ages 75-79",
+                "sum": 88411,
+                "min": 0,
+                "max": 676
+              },
+              {
+                "key": "age_80_84",
+                "name": "Ages 80-84",
+                "sum": 58843,
+                "min": 0,
+                "max": 361
+              },
+              {
+                "key": "age_85_plu",
+                "name": "Ages 85+",
+                "sum": 56258,
+                "min": 0,
+                "max": 392
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -23261,6 +24354,380 @@
                 "max": 66
               }
             ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population (2018)",
+              "sum": 4864680,
+              "min": 0,
+              "max": 10316
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 3196730,
+                "min": 0,
+                "max": 9250
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 1285737,
+                "min": 0,
+                "max": 3471
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 203146,
+                "min": 0,
+                "max": 2229
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 63936,
+                "min": 0,
+                "max": 1076
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 23243,
+                "min": 0,
+                "max": 1013
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1521,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 82864,
+                "min": 0,
+                "max": 605
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 7503,
+                "min": 0,
+                "max": 245
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 1275223,
+                "min": 0,
+                "max": 3209
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 585046,
+                "min": 0,
+                "max": 1652
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 163312,
+                "min": 0,
+                "max": 557
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 117629,
+                "min": 0,
+                "max": 251
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 114088,
+                "min": 0,
+                "max": 246
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 108736,
+                "min": 0,
+                "max": 238
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 100244,
+                "min": 0,
+                "max": 231
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 98408,
+                "min": 0,
+                "max": 277
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 89216,
+                "min": 0,
+                "max": 314
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 86970,
+                "min": 0,
+                "max": 220
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 74023,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 147857,
+                "min": 0,
+                "max": 505
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 176464,
+                "min": 0,
+                "max": 474
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 213319,
+                "min": 0,
+                "max": 671
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 139638,
+                "min": 0,
+                "max": 484
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 82409,
+                "min": 0,
+                "max": 414
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 78452,
+                "min": 0,
+                "max": 436
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 69504,
+                "min": 0,
+                "max": 739
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Age of Population",
+            "subgroups": [
+              {
+                "key": "age_lt_5",
+                "name": "Under 5",
+                "sum": 292125,
+                "min": 0,
+                "max": 858
+              },
+              {
+                "key": "age_5_9",
+                "name": "Ages 5-9",
+                "sum": 302174,
+                "min": 0,
+                "max": 920
+              },
+              {
+                "key": "age_10_14",
+                "name": "Ages 10-14",
+                "sum": 312093,
+                "min": 0,
+                "max": 1223
+              },
+              {
+                "key": "age_15_17",
+                "name": "Ages 15-17",
+                "sum": 192401,
+                "min": 0,
+                "max": 611
+              },
+              {
+                "key": "age_18_19",
+                "name": "Ages 18-19",
+                "sum": 131513,
+                "min": 0,
+                "max": 5748
+              },
+              {
+                "key": "age_20",
+                "name": "Age 20",
+                "sum": 71860,
+                "min": 0,
+                "max": 858
+              },
+              {
+                "key": "age_21",
+                "name": "Age 21",
+                "sum": 69348,
+                "min": 0,
+                "max": 628
+              },
+              {
+                "key": "age_22_24",
+                "name": "Ages 22-24",
+                "sum": 193208,
+                "min": 0,
+                "max": 905
+              },
+              {
+                "key": "age_25_29",
+                "name": "Ages 25-29",
+                "sum": 328222,
+                "min": 0,
+                "max": 899
+              },
+              {
+                "key": "age_30_34",
+                "name": "Ages 30-34",
+                "sum": 304438,
+                "min": 0,
+                "max": 1076
+              },
+              {
+                "key": "age_35_39",
+                "name": "Ages 35-39",
+                "sum": 297842,
+                "min": 0,
+                "max": 844
+              },
+              {
+                "key": "age_40_44",
+                "name": "Ages 40-44",
+                "sum": 301540,
+                "min": 0,
+                "max": 726
+              },
+              {
+                "key": "age_45_49",
+                "name": "Ages 45-49",
+                "sum": 310307,
+                "min": 0,
+                "max": 768
+              },
+              {
+                "key": "age_50_54",
+                "name": "Ages 50-54",
+                "sum": 330762,
+                "min": 0,
+                "max": 895
+              },
+              {
+                "key": "age_55_59",
+                "name": "Ages 55-59",
+                "sum": 334011,
+                "min": 0,
+                "max": 742
+              },
+              {
+                "key": "age_60_61",
+                "name": "Ages 60-61",
+                "sum": 128862,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "age_62_64",
+                "name": "Ages 62-64",
+                "sum": 180142,
+                "min": 0,
+                "max": 339
+              },
+              {
+                "key": "age_65_66",
+                "name": "Ages 65-66",
+                "sum": 112031,
+                "min": 0,
+                "max": 287
+              },
+              {
+                "key": "age_67_69",
+                "name": "Ages 67-69",
+                "sum": 151068,
+                "min": 0,
+                "max": 276
+              },
+              {
+                "key": "age_70_74",
+                "name": "Ages 70-74",
+                "sum": 199958,
+                "min": 0,
+                "max": 651
+              },
+              {
+                "key": "age_75_79",
+                "name": "Ages 75-79",
+                "sum": 141180,
+                "min": 0,
+                "max": 259
+              },
+              {
+                "key": "age_80_84",
+                "name": "Ages 80-84",
+                "sum": 96159,
+                "min": 0,
+                "max": 236
+              },
+              {
+                "key": "age_85_plu",
+                "name": "Ages 85+",
+                "sum": 83436,
+                "min": 0,
+                "max": 343
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -23457,6 +24924,144 @@
                 "sum": 163060,
                 "min": 0,
                 "max": 342
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 4954601,
+                "min": 0,
+                "max": 20235
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 2667159,
+                "min": 0,
+                "max": 5066
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 520876,
+                "min": 0,
+                "max": 740
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 360160,
+                "min": 0,
+                "max": 575
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 389340,
+                "min": 0,
+                "max": 454
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 410675,
+                "min": 0,
+                "max": 905
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 410787,
+                "min": 0,
+                "max": 888
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 402990,
+                "min": 0,
+                "max": 987
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 382842,
+                "min": 0,
+                "max": 1452
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 377521,
+                "min": 0,
+                "max": 1149
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 331613,
+                "min": 0,
+                "max": 760
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 630925,
+                "min": 0,
+                "max": 2043
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 770510,
+                "min": 0,
+                "max": 2801
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 907315,
+                "min": 0,
+                "max": 3842
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 592612,
+                "min": 0,
+                "max": 1887
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 356367,
+                "min": 0,
+                "max": 1154
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 368189,
+                "min": 0,
+                "max": 1265
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 409038,
+                "min": 0,
+                "max": 2130
               }
             ]
           }
@@ -23658,6 +25263,380 @@
                "sum": 43679,
                "min": 0,
                "max": 198
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Population (2018)",
+           "total": {
+             "key": "TOTPOPX",
+             "name": "Total population (2018)",
+             "sum": 6637426,
+             "min": 0,
+             "max": 18064
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITEX",
+               "name": "White population",
+               "sum": 5275162,
+               "min": 0,
+               "max": 14838
+             },
+             {
+               "key": "NH_BLACKX",
+               "name": "Black population",
+               "sum": 610343,
+               "min": 0,
+               "max": 2720
+             },
+             {
+               "key": "HISPX",
+               "name": "Hispanic population",
+               "sum": 450267,
+               "min": 0,
+               "max": 1702
+             },
+             {
+               "key": "NH_ASIANX",
+               "name": "Asian population",
+               "sum": 143883,
+               "min": 0,
+               "max": 2873
+             },
+             {
+               "key": "NH_AMINX",
+               "name": "American Indian population",
+               "sum": 12125,
+               "min": 0,
+               "max": 182
+             },
+             {
+               "key": "NH_NHPIX",
+               "name": "Native Hawaiian and Pacific Islander population",
+               "sum": 2133,
+               "min": 0,
+               "max": 145
+             },
+             {
+               "key": "NH_2MOREX",
+               "name": "Two or more races",
+               "sum": 133720,
+               "min": 0,
+               "max": 735
+             },
+             {
+               "key": "NH_OTHERX",
+               "name": "Other races",
+               "sum": 9793,
+               "min": 0,
+               "max": 291
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Rental",
+           "subgroups": [
+             {
+               "key": "B25003_002",
+               "name": "Owner-occupied",
+               "sum": 1760732,
+               "min": 0,
+               "max": 4699
+             },
+             {
+               "key": "B25003_003",
+               "name": "Renter-occupied",
+               "sum": 793086,
+               "min": 0,
+               "max": 1933
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Income",
+           "subgroups": [
+             {
+               "key": "B19001_002",
+               "name": "in_0_10",
+               "sum": 161937,
+               "min": 0,
+               "max": 673
+             },
+             {
+               "key": "B19001_003",
+               "name": "in_10_15",
+               "sum": 117149,
+               "min": 0,
+               "max": 246
+             },
+             {
+               "key": "B19001_004",
+               "name": "in_15_20",
+               "sum": 130218,
+               "min": 0,
+               "max": 231
+             },
+             {
+               "key": "B19001_005",
+               "name": "in_20_25",
+               "sum": 132008,
+               "min": 0,
+               "max": 315
+             },
+             {
+               "key": "B19001_006",
+               "name": "in_25_30",
+               "sum": 132773,
+               "min": 0,
+               "max": 293
+             },
+             {
+               "key": "B19001_007",
+               "name": "in_30_35",
+               "sum": 135371,
+               "min": 0,
+               "max": 381
+             },
+             {
+               "key": "B19001_008",
+               "name": "in_35_40",
+               "sum": 126209,
+               "min": 0,
+               "max": 227
+             },
+             {
+               "key": "B19001_009",
+               "name": "in_40_45",
+               "sum": 128048,
+               "min": 0,
+               "max": 258
+             },
+             {
+               "key": "B19001_010",
+               "name": "in_45_50",
+               "sum": 112088,
+               "min": 0,
+               "max": 215
+             },
+             {
+               "key": "B19001_011",
+               "name": "in_50_60",
+               "sum": 218078,
+               "min": 0,
+               "max": 646
+             },
+             {
+               "key": "B19001_012",
+               "name": "in_60_75",
+               "sum": 274815,
+               "min": 0,
+               "max": 807
+             },
+             {
+               "key": "B19001_013",
+               "name": "in_75_100",
+               "sum": 335317,
+               "min": 0,
+               "max": 982
+             },
+             {
+               "key": "B19001_014",
+               "name": "in_100_125",
+               "sum": 214337,
+               "min": 0,
+               "max": 1029
+             },
+             {
+               "key": "B19001_015",
+               "name": "in_125_150",
+               "sum": 125469,
+               "min": 0,
+               "max": 537
+             },
+             {
+               "key": "B19001_016",
+               "name": "in_150_200",
+               "sum": 113344,
+               "min": 0,
+               "max": 1005
+             },
+             {
+               "key": "B19001_017",
+               "name": "in_200_plus",
+               "sum": 96657,
+               "min": 0,
+               "max": 1381
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Age of Population",
+           "subgroups": [
+             {
+               "key": "age_lt_5",
+               "name": "Under 5",
+               "sum": 418299,
+               "min": 0,
+               "max": 1375
+             },
+             {
+               "key": "age_5_9",
+               "name": "Ages 5-9",
+               "sum": 437254,
+               "min": 0,
+               "max": 1885
+             },
+             {
+               "key": "age_10_14",
+               "name": "Ages 10-14",
+               "sum": 446006,
+               "min": 0,
+               "max": 1965
+             },
+             {
+               "key": "age_15_17",
+               "name": "Ages 15-17",
+               "sum": 272734,
+               "min": 0,
+               "max": 979
+             },
+             {
+               "key": "age_18_19",
+               "name": "Ages 18-19",
+               "sum": 185614,
+               "min": 0,
+               "max": 4540
+             },
+             {
+               "key": "age_20",
+               "name": "Age 20",
+               "sum": 100981,
+               "min": 0,
+               "max": 1482
+             },
+             {
+               "key": "age_21",
+               "name": "Age 21",
+               "sum": 99786,
+               "min": 0,
+               "max": 985
+             },
+             {
+               "key": "age_22_24",
+               "name": "Ages 22-24",
+               "sum": 276937,
+               "min": 0,
+               "max": 1380
+             },
+             {
+               "key": "age_25_29",
+               "name": "Ages 25-29",
+               "sum": 437569,
+               "min": 0,
+               "max": 1051
+             },
+             {
+               "key": "age_30_34",
+               "name": "Ages 30-34",
+               "sum": 419363,
+               "min": 0,
+               "max": 1457
+             },
+             {
+               "key": "age_35_39",
+               "name": "Ages 35-39",
+               "sum": 419402,
+               "min": 0,
+               "max": 1668
+             },
+             {
+               "key": "age_40_44",
+               "name": "Ages 40-44",
+               "sum": 402312,
+               "min": 0,
+               "max": 2095
+             },
+             {
+               "key": "age_45_49",
+               "name": "Ages 45-49",
+               "sum": 419401,
+               "min": 0,
+               "max": 1451
+             },
+             {
+               "key": "age_50_54",
+               "name": "Ages 50-54",
+               "sum": 445154,
+               "min": 0,
+               "max": 1388
+             },
+             {
+               "key": "age_55_59",
+               "name": "Ages 55-59",
+               "sum": 448932,
+               "min": 0,
+               "max": 749
+             },
+             {
+               "key": "age_60_61",
+               "name": "Ages 60-61",
+               "sum": 172276,
+               "min": 0,
+               "max": 368
+             },
+             {
+               "key": "age_62_64",
+               "name": "Ages 62-64",
+               "sum": 239343,
+               "min": 0,
+               "max": 381
+             },
+             {
+               "key": "age_65_66",
+               "name": "Ages 65-66",
+               "sum": 144737,
+               "min": 0,
+               "max": 213
+             },
+             {
+               "key": "age_67_69",
+               "name": "Ages 67-69",
+               "sum": 191579,
+               "min": 0,
+               "max": 388
+             },
+             {
+               "key": "age_70_74",
+               "name": "Ages 70-74",
+               "sum": 241379,
+               "min": 0,
+               "max": 531
+             },
+             {
+               "key": "age_75_79",
+               "name": "Ages 75-79",
+               "sum": 172617,
+               "min": 0,
+               "max": 273
+             },
+             {
+               "key": "age_80_84",
+               "name": "Ages 80-84",
+               "sum": 119377,
+               "min": 0,
+               "max": 307
+             },
+             {
+               "key": "age_85_plu",
+               "name": "Ages 85+",
+               "sum": 126374,
+               "min": 0,
+               "max": 543
              }
            ]
          }
@@ -23864,6 +25843,380 @@
                "max": 135
              }
            ]
+         },
+         {
+           "type": "population",
+           "name": "Population (2018)",
+           "total": {
+             "key": "TOTPOPX",
+             "name": "Total population (2018)",
+             "sum": 2908776,
+             "min": 0,
+             "max": 8414
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITEX",
+               "name": "White population",
+               "sum": 2214543,
+               "min": 0,
+               "max": 6801
+             },
+             {
+               "key": "NH_BLACKX",
+               "name": "Black population",
+               "sum": 163713,
+               "min": 0,
+               "max": 1571
+             },
+             {
+               "key": "HISPX",
+               "name": "Hispanic population",
+               "sum": 340616,
+               "min": 0,
+               "max": 1924
+             },
+             {
+               "key": "NH_ASIANX",
+               "name": "Asian population",
+               "sum": 82887,
+               "min": 0,
+               "max": 1629
+             },
+             {
+               "key": "NH_AMINX",
+               "name": "American Indian population",
+               "sum": 19504,
+               "min": 0,
+               "max": 592
+             },
+             {
+               "key": "NH_NHPIX",
+               "name": "Native Hawaiian and Pacific Islander population",
+               "sum": 1827,
+               "min": 0,
+               "max": 187
+             },
+             {
+               "key": "NH_2MOREX",
+               "name": "Two or more races",
+               "sum": 83384,
+               "min": 0,
+               "max": 527
+             },
+             {
+               "key": "NH_OTHERX",
+               "name": "Other races",
+               "sum": 2302,
+               "min": 0,
+               "max": 171
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Rental",
+           "subgroups": [
+             {
+               "key": "B25003_002",
+               "name": "Owner-occupied",
+               "sum": 745845,
+               "min": 0,
+               "max": 2256
+             },
+             {
+               "key": "B25003_003",
+               "name": "Renter-occupied",
+               "sum": 378704,
+               "min": 0,
+               "max": 1719
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Income",
+           "subgroups": [
+             {
+               "key": "B19001_002",
+               "name": "in_0_10",
+               "sum": 65369,
+               "min": 0,
+               "max": 340
+             },
+             {
+               "key": "B19001_003",
+               "name": "in_10_15",
+               "sum": 49481,
+               "min": 0,
+               "max": 178
+             },
+             {
+               "key": "B19001_004",
+               "name": "in_15_20",
+               "sum": 51662,
+               "min": 0,
+               "max": 245
+             },
+             {
+               "key": "B19001_005",
+               "name": "in_20_25",
+               "sum": 53743,
+               "min": 0,
+               "max": 261
+             },
+             {
+               "key": "B19001_006",
+               "name": "in_25_30",
+               "sum": 57200,
+               "min": 0,
+               "max": 240
+             },
+             {
+               "key": "B19001_007",
+               "name": "in_30_35",
+               "sum": 57142,
+               "min": 0,
+               "max": 240
+             },
+             {
+               "key": "B19001_008",
+               "name": "in_35_40",
+               "sum": 53796,
+               "min": 0,
+               "max": 190
+             },
+             {
+               "key": "B19001_009",
+               "name": "in_40_45",
+               "sum": 55380,
+               "min": 0,
+               "max": 189
+             },
+             {
+               "key": "B19001_010",
+               "name": "in_45_50",
+               "sum": 48322,
+               "min": 0,
+               "max": 154
+             },
+             {
+               "key": "B19001_011",
+               "name": "in_50_60",
+               "sum": 92506,
+               "min": 0,
+               "max": 268
+             },
+             {
+               "key": "B19001_012",
+               "name": "in_60_75",
+               "sum": 120175,
+               "min": 0,
+               "max": 311
+             },
+             {
+               "key": "B19001_013",
+               "name": "in_75_100",
+               "sum": 147236,
+               "min": 0,
+               "max": 541
+             },
+             {
+               "key": "B19001_014",
+               "name": "in_100_125",
+               "sum": 100104,
+               "min": 0,
+               "max": 436
+             },
+             {
+               "key": "B19001_015",
+               "name": "in_125_150",
+               "sum": 59025,
+               "min": 0,
+               "max": 464
+             },
+             {
+               "key": "B19001_016",
+               "name": "in_150_200",
+               "sum": 58781,
+               "min": 0,
+               "max": 415
+             },
+             {
+               "key": "B19001_017",
+               "name": "in_200_plus",
+               "sum": 54627,
+               "min": 0,
+               "max": 898
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Age of Population",
+           "subgroups": [
+             {
+               "key": "age_lt_5",
+               "name": "Under 5",
+               "sum": 194202,
+               "min": 0,
+               "max": 1058
+             },
+             {
+               "key": "age_5_9",
+               "name": "Ages 5-9",
+               "sum": 201400,
+               "min": 0,
+               "max": 809
+             },
+             {
+               "key": "age_10_14",
+               "name": "Ages 10-14",
+               "sum": 200793,
+               "min": 0,
+               "max": 801
+             },
+             {
+               "key": "age_15_17",
+               "name": "Ages 15-17",
+               "sum": 119150,
+               "min": 0,
+               "max": 466
+             },
+             {
+               "key": "age_18_19",
+               "name": "Ages 18-19",
+               "sum": 81394,
+               "min": 0,
+               "max": 2226
+             },
+             {
+               "key": "age_20",
+               "name": "Age 20",
+               "sum": 45421,
+               "min": 0,
+               "max": 648
+             },
+             {
+               "key": "age_21",
+               "name": "Age 21",
+               "sum": 44755,
+               "min": 0,
+               "max": 798
+             },
+             {
+               "key": "age_22_24",
+               "name": "Ages 22-24",
+               "sum": 126986,
+               "min": 0,
+               "max": 1508
+             },
+             {
+               "key": "age_25_29",
+               "name": "Ages 25-29",
+               "sum": 192312,
+               "min": 0,
+               "max": 1181
+             },
+             {
+               "key": "age_30_34",
+               "name": "Ages 30-34",
+               "sum": 190908,
+               "min": 0,
+               "max": 883
+             },
+             {
+               "key": "age_35_39",
+               "name": "Ages 35-39",
+               "sum": 180519,
+               "min": 0,
+               "max": 882
+             },
+             {
+               "key": "age_40_44",
+               "name": "Ages 40-44",
+               "sum": 169872,
+               "min": 0,
+               "max": 741
+             },
+             {
+               "key": "age_45_49",
+               "name": "Ages 45-49",
+               "sum": 169015,
+               "min": 0,
+               "max": 732
+             },
+             {
+               "key": "age_50_54",
+               "name": "Ages 50-54",
+               "sum": 184222,
+               "min": 0,
+               "max": 664
+             },
+             {
+               "key": "age_55_59",
+               "name": "Ages 55-59",
+               "sum": 192663,
+               "min": 0,
+               "max": 480
+             },
+             {
+               "key": "age_60_61",
+               "name": "Ages 60-61",
+               "sum": 73034,
+               "min": 0,
+               "max": 219
+             },
+             {
+               "key": "age_62_64",
+               "name": "Ages 62-64",
+               "sum": 104353,
+               "min": 0,
+               "max": 338
+             },
+             {
+               "key": "age_65_66",
+               "name": "Ages 65-66",
+               "sum": 62252,
+               "min": 0,
+               "max": 185
+             },
+             {
+               "key": "age_67_69",
+               "name": "Ages 67-69",
+               "sum": 80903,
+               "min": 0,
+               "max": 248
+             },
+             {
+               "key": "age_70_74",
+               "name": "Ages 70-74",
+               "sum": 101865,
+               "min": 0,
+               "max": 366
+             },
+             {
+               "key": "age_75_79",
+               "name": "Ages 75-79",
+               "sum": 74980,
+               "min": 0,
+               "max": 212
+             },
+             {
+               "key": "age_80_84",
+               "name": "Ages 80-84",
+               "sum": 55807,
+               "min": 0,
+               "max": 272
+             },
+             {
+               "key": "age_85_plu",
+               "name": "Ages 85+",
+               "sum": 61970,
+               "min": 0,
+               "max": 446
+             }
+           ]
          }
        ],
        "idColumn": {
@@ -24062,6 +26415,380 @@
                "sum": 28883,
                "min": 0,
                "max": 67
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Population (2018)",
+           "total": {
+             "key": "TOTPOPX",
+             "name": "Total population (2018)",
+             "sum": 4440204,
+             "min": 0,
+             "max": 6798
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITEX",
+               "name": "White population",
+               "sum": 3764082,
+               "min": 0,
+               "max": 6049
+             },
+             {
+               "key": "NH_BLACKX",
+               "name": "Black population",
+               "sum": 349407,
+               "min": 0,
+               "max": 1789
+             },
+             {
+               "key": "HISPX",
+               "name": "Hispanic population",
+               "sum": 158744,
+               "min": 0,
+               "max": 1407
+             },
+             {
+               "key": "NH_ASIANX",
+               "name": "Asian population",
+               "sum": 62432,
+               "min": 0,
+               "max": 945
+             },
+             {
+               "key": "NH_AMINX",
+               "name": "American Indian population",
+               "sum": 8498,
+               "min": 0,
+               "max": 310
+             },
+             {
+               "key": "NH_NHPIX",
+               "name": "Native Hawaiian and Pacific Islander population",
+               "sum": 2339,
+               "min": 0,
+               "max": 176
+             },
+             {
+               "key": "NH_2MOREX",
+               "name": "Two or more races",
+               "sum": 88645,
+               "min": 0,
+               "max": 376
+             },
+             {
+               "key": "NH_OTHERX",
+               "name": "Other races",
+               "sum": 6057,
+               "min": 0,
+               "max": 258
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Rental",
+           "subgroups": [
+             {
+               "key": "B25003_002",
+               "name": "Owner-occupied",
+               "sum": 1157631,
+               "min": 0,
+               "max": 1833
+             },
+             {
+               "key": "B25003_003",
+               "name": "Renter-occupied",
+               "sum": 571050,
+               "min": 0,
+               "max": 1591
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Income",
+           "subgroups": [
+             {
+               "key": "B19001_002",
+               "name": "in_0_10",
+               "sum": 152774,
+               "min": 0,
+               "max": 761
+             },
+             {
+               "key": "B19001_003",
+               "name": "in_10_15",
+               "sum": 105004,
+               "min": 0,
+               "max": 350
+             },
+             {
+               "key": "B19001_004",
+               "name": "in_15_20",
+               "sum": 100724,
+               "min": 0,
+               "max": 225
+             },
+             {
+               "key": "B19001_005",
+               "name": "in_20_25",
+               "sum": 97642,
+               "min": 0,
+               "max": 174
+             },
+             {
+               "key": "B19001_006",
+               "name": "in_25_30",
+               "sum": 94969,
+               "min": 0,
+               "max": 209
+             },
+             {
+               "key": "B19001_007",
+               "name": "in_30_35",
+               "sum": 93022,
+               "min": 0,
+               "max": 209
+             },
+             {
+               "key": "B19001_008",
+               "name": "in_35_40",
+               "sum": 85583,
+               "min": 0,
+               "max": 212
+             },
+             {
+               "key": "B19001_009",
+               "name": "in_40_45",
+               "sum": 84813,
+               "min": 0,
+               "max": 377
+             },
+             {
+               "key": "B19001_010",
+               "name": "in_45_50",
+               "sum": 73021,
+               "min": 0,
+               "max": 311
+             },
+             {
+               "key": "B19001_011",
+               "name": "in_50_60",
+               "sum": 137713,
+               "min": 0,
+               "max": 423
+             },
+             {
+               "key": "B19001_012",
+               "name": "in_60_75",
+               "sum": 169150,
+               "min": 0,
+               "max": 383
+             },
+             {
+               "key": "B19001_013",
+               "name": "in_75_100",
+               "sum": 199666,
+               "min": 0,
+               "max": 437
+             },
+             {
+               "key": "B19001_014",
+               "name": "in_100_125",
+               "sum": 129000,
+               "min": 0,
+               "max": 350
+             },
+             {
+               "key": "B19001_015",
+               "name": "in_125_150",
+               "sum": 76995,
+               "min": 0,
+               "max": 264
+             },
+             {
+               "key": "B19001_016",
+               "name": "in_150_200",
+               "sum": 67534,
+               "min": 0,
+               "max": 437
+             },
+             {
+               "key": "B19001_017",
+               "name": "in_200_plus",
+               "sum": 61071,
+               "min": 0,
+               "max": 438
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Age of Population",
+           "subgroups": [
+             {
+               "key": "age_lt_5",
+               "name": "Under 5",
+               "sum": 274440,
+               "min": 0,
+               "max": 734
+             },
+             {
+               "key": "age_5_9",
+               "name": "Ages 5-9",
+               "sum": 280088,
+               "min": 0,
+               "max": 687
+             },
+             {
+               "key": "age_10_14",
+               "name": "Ages 10-14",
+               "sum": 284645,
+               "min": 0,
+               "max": 882
+             },
+             {
+               "key": "age_15_17",
+               "name": "Ages 15-17",
+               "sum": 172846,
+               "min": 0,
+               "max": 348
+             },
+             {
+               "key": "age_18_19",
+               "name": "Ages 18-19",
+               "sum": 117550,
+               "min": 0,
+               "max": 3132
+             },
+             {
+               "key": "age_20",
+               "name": "Age 20",
+               "sum": 66056,
+               "min": 0,
+               "max": 942
+             },
+             {
+               "key": "age_21",
+               "name": "Age 21",
+               "sum": 63910,
+               "min": 0,
+               "max": 591
+             },
+             {
+               "key": "age_22_24",
+               "name": "Ages 22-24",
+               "sum": 176665,
+               "min": 0,
+               "max": 792
+             },
+             {
+               "key": "age_25_29",
+               "name": "Ages 25-29",
+               "sum": 295823,
+               "min": 0,
+               "max": 803
+             },
+             {
+               "key": "age_30_34",
+               "name": "Ages 30-34",
+               "sum": 278812,
+               "min": 0,
+               "max": 743
+             },
+             {
+               "key": "age_35_39",
+               "name": "Ages 35-39",
+               "sum": 277945,
+               "min": 0,
+               "max": 629
+             },
+             {
+               "key": "age_40_44",
+               "name": "Ages 40-44",
+               "sum": 276536,
+               "min": 0,
+               "max": 966
+             },
+             {
+               "key": "age_45_49",
+               "name": "Ages 45-49",
+               "sum": 287568,
+               "min": 0,
+               "max": 588
+             },
+             {
+               "key": "age_50_54",
+               "name": "Ages 50-54",
+               "sum": 306536,
+               "min": 0,
+               "max": 685
+             },
+             {
+               "key": "age_55_59",
+               "name": "Ages 55-59",
+               "sum": 309964,
+               "min": 0,
+               "max": 527
+             },
+             {
+               "key": "age_60_61",
+               "name": "Ages 60-61",
+               "sum": 116963,
+               "min": 0,
+               "max": 234
+             },
+             {
+               "key": "age_62_64",
+               "name": "Ages 62-64",
+               "sum": 162348,
+               "min": 0,
+               "max": 228
+             },
+             {
+               "key": "age_65_66",
+               "name": "Ages 65-66",
+               "sum": 100924,
+               "min": 0,
+               "max": 213
+             },
+             {
+               "key": "age_67_69",
+               "name": "Ages 67-69",
+               "sum": 136319,
+               "min": 0,
+               "max": 248
+             },
+             {
+               "key": "age_70_74",
+               "name": "Ages 70-74",
+               "sum": 174457,
+               "min": 0,
+               "max": 376
+             },
+             {
+               "key": "age_75_79",
+               "name": "Ages 75-79",
+               "sum": 120881,
+               "min": 0,
+               "max": 290
+             },
+             {
+               "key": "age_80_84",
+               "name": "Ages 80-84",
+               "sum": 81464,
+               "min": 0,
+               "max": 204
+             },
+             {
+               "key": "age_85_plu",
+               "name": "Ages 85+",
+               "sum": 77464,
+               "min": 0,
+               "max": 328
              }
            ]
          }
@@ -28197,6 +30924,144 @@
                "sum": 1051,
                "min": 0,
                "max": 10
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Rental",
+           "subgroups": [
+             {
+               "key": "B25003_002",
+               "name": "Owner-occupied",
+               "sum": 820405,
+               "min": 0,
+               "max": 2278
+             },
+             {
+               "key": "B25003_003",
+               "name": "Renter-occupied",
+               "sum": 384670,
+               "min": 0,
+               "max": 1271
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Households by Income",
+           "subgroups": [
+             {
+               "key": "B19001_002",
+               "name": "in_0_10",
+               "sum": 333145,
+               "min": 0,
+               "max": 683
+             },
+             {
+               "key": "B19001_003",
+               "name": "in_10_15",
+               "sum": 143400,
+               "min": 0,
+               "max": 446
+             },
+             {
+               "key": "B19001_004",
+               "name": "in_15_20",
+               "sum": 122665,
+               "min": 0,
+               "max": 227
+             },
+             {
+               "key": "B19001_005",
+               "name": "in_20_25",
+               "sum": 96672,
+               "min": 0,
+               "max": 304
+             },
+             {
+               "key": "B19001_006",
+               "name": "in_25_30",
+               "sum": 79401,
+               "min": 0,
+               "max": 219
+             },
+             {
+               "key": "B19001_007",
+               "name": "in_30_35",
+               "sum": 67526,
+               "min": 0,
+               "max": 255
+             },
+             {
+               "key": "B19001_008",
+               "name": "in_35_40",
+               "sum": 56023,
+               "min": 0,
+               "max": 191
+             },
+             {
+               "key": "B19001_009",
+               "name": "in_40_45",
+               "sum": 47119,
+               "min": 0,
+               "max": 174
+             },
+             {
+               "key": "B19001_010",
+               "name": "in_45_50",
+               "sum": 38180,
+               "min": 0,
+               "max": 205
+             },
+             {
+               "key": "B19001_011",
+               "name": "in_50_60",
+               "sum": 61015,
+               "min": 0,
+               "max": 241
+             },
+             {
+               "key": "B19001_012",
+               "name": "in_60_75",
+               "sum": 59464,
+               "min": 0,
+               "max": 241
+             },
+             {
+               "key": "B19001_013",
+               "name": "in_75_100",
+               "sum": 46497,
+               "min": 0,
+               "max": 317
+             },
+             {
+               "key": "B19001_014",
+               "name": "in_100_125",
+               "sum": 22355,
+               "min": 0,
+               "max": 199
+             },
+             {
+               "key": "B19001_015",
+               "name": "in_125_150",
+               "sum": 10992,
+               "min": 0,
+               "max": 289
+             },
+             {
+               "key": "B19001_016",
+               "name": "in_150_200",
+               "sum": 10094,
+               "min": 0,
+               "max": 288
+             },
+             {
+               "key": "B19001_017",
+               "name": "in_200_plus",
+               "sum": 10527,
+               "min": 0,
+               "max": 294
              }
            ]
          }
