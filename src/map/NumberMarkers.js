@@ -21,10 +21,10 @@ export default function NumberMarkers(state, brush) {
         ctx = canv.getContext("2d"),
         i = 0,
         districts = [],
-        dpr = window.devicePixelRatio || 1,
+        dpr = 1, //window.devicePixelRatio || 1,
         map = state.units.map;
-    canv.height = 30 * dpr;
-    ctx.scale(dpr, dpr);
+    canv.height = 50 * dpr;
+    // ctx.scale(dpr, dpr);
     ctx.strokeStyle = "#000";
 
     if (typeof ctx.ellipse === "undefined") {
@@ -37,31 +37,27 @@ export default function NumberMarkers(state, brush) {
         i++;
     }
     districts.forEach((dnum) => {
-        canv.width = 30 * dpr;
+        canv.width = 44 * dpr;
         ctx.fillStyle = "#fff";
         ctx.lineWidth = 0;
-        ctx.arc(15, 15, 15, 0, 2 * Math.PI);
+        ctx.arc(22, 22, 22, 0, 2 * Math.PI);
         ctx.fill();
 
 
         if (dnum >= 99) {
-            ctx.font = '500 16px Source Sans Pro';
+            ctx.font = '500 24px Source Sans Pro';
         } else {
-            ctx.font = '500 22px Source Sans Pro';
+            ctx.font = '500 32px Source Sans Pro';
         }
         let numtxt = String(dnum + 1).split("").join(spacer)
-        let numwidth = ctx.measureText(numtxt).width / 2;
+        let numwidth = Math.round(ctx.measureText(numtxt).width / 2);
         // ctx.shadowColor = "#000";
         // ctx.shadowBlur = 5;
-        ctx.lineWidth = 2;
-        ctx.strokeText(numtxt, 15 - numwidth, 22);
+        ctx.lineWidth = 4;
+        ctx.strokeText(numtxt, 22 - numwidth, 32);
 
         ctx.fillStyle = colorScheme[dnum % colorScheme.length];
-        ctx.fillText(
-            numtxt,
-            15 - numwidth,
-            22
-        );
+        ctx.fillText(numtxt, 22 - numwidth, 32);
 
         map.addSource("number_source_" + dnum, {
             type: "geojson",
@@ -83,7 +79,7 @@ export default function NumberMarkers(state, brush) {
                     },
                     layout: {
                         "icon-image": "number_icon_" + dnum,
-                        "icon-size": 1
+                        "icon-size": 0.75
                     }
                 },
                 (map, layer) => {

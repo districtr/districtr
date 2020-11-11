@@ -105,7 +105,7 @@ export class MapState {
             window.mapslide = null;
         }
 
-        activated = activated || (options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
+        activated = activated || (options && options.bounds && options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
         const sliderOpt = new MapSliderControl(activated);
         this.map.addControl(sliderOpt, "top-left");
 
