@@ -206,7 +206,7 @@ export function loadPlanFromCSV(assignmentList, state) {
                     key = (isNaN(cols[0] * 1) || cols[0][0] === "0")
                         ? cols[0]
                         : cols[0] * 1;
-                if (typeof(key) === "string" && (key.includes("\"") || key.includes("\'"))) {
+                if (typeof(key) === "string" && (key.includes("\""))) {
                     key = key.slice(1, -1);
                 }
 
