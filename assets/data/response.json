@@ -25779,6 +25779,424 @@
    "name": "New Hampshire",
    "units": [
      {
+       "id": "precincts",
+       "name": "Precincts",
+       "unitType": "Precincts",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "TOTPOP",
+             "name": "Total population",
+             "sum": 1316470,
+             "min": 0,
+             "max": 33135
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITE",
+               "name": "White population",
+               "sum": 1215050,
+               "min": 0,
+               "max": 30624
+             },
+             {
+               "key": "NH_BLACK",
+               "name": "Black population",
+               "sum": 13625,
+               "min": 0,
+               "max": 630
+             },
+             {
+               "key": "HISP",
+               "name": "Hispanic population",
+               "sum": 36704,
+               "min": 0,
+               "max": 2515
+             },
+             {
+               "key": "NH_ASIAN",
+               "name": "Asian population",
+               "sum": 28241,
+               "min": 0,
+               "max": 1444
+             },
+             {
+               "key": "NH_AMIN",
+               "name": "American Indian population",
+               "sum": 2693,
+               "min": 0,
+               "max": 83
+             },
+             {
+               "key": "NH_NHPI",
+               "name": "Native Hawaiian and Pacific Islander population",
+               "sum": 329,
+               "min": 0,
+               "max": 11
+             },
+             {
+               "key": "NH_2MORE",
+               "name": "Two or more races",
+               "sum": 18025,
+               "min": 0,
+               "max": 474
+             },
+             {
+               "key": "NH_OTHER",
+               "name": "Other races",
+               "sum": 1803,
+               "min": 0,
+               "max": 101
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Voting Age Population",
+           "total": {
+             "key": "VAP",
+             "name": "Voting age population",
+             "sum": 1029236,
+             "min": 0,
+             "max": 24961
+           },
+           "subgroups": [
+             {
+               "key": "WVAP",
+               "name": "White voting age population",
+               "sum": 962931,
+               "min": 0,
+               "max": 23337
+             },
+             {
+               "key": "BVAP",
+               "name": "Black voting age population",
+               "sum": 9436,
+               "min": 0,
+               "max": 378
+             },
+             {
+               "key": "HVAP",
+               "name": "Hispanic voting age population",
+               "sum": 22934,
+               "min": 0,
+               "max": 1563
+             },
+             {
+               "key": "AMINVAP",
+               "name": "Native American voting age population",
+               "sum": 2124,
+               "min": 0,
+               "max": 80
+             },
+             {
+               "key": "NHPIVAP",
+               "name": "Native Hawaiian and Pacific Islander voting age population",
+               "sum": 264,
+               "min": 0,
+               "max": 11
+             },
+             {
+               "key": "ASIANVAP",
+               "name": "Asian voting age population",
+               "sum": 20822,
+               "min": 0,
+               "max": 1082
+             },
+             {
+               "key": "OTHERVAP",
+               "name": "Other races voting age population",
+               "sum": 1237,
+               "min": 0,
+               "max": 82
+             },
+             {
+               "key": "2MOREVAP",
+               "name": "Two or more races voting age population",
+               "sum": 9488,
+               "min": 0,
+               "max": 244
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2012 President",
+           "subgroups": [
+             {
+               "key": "PRES12D",
+               "name": "Democratic",
+               "sum": 369561,
+               "min": 0,
+               "max": 7612
+             },
+             {
+               "key": "PRES12R",
+               "name": "Republican",
+               "sum": 331292,
+               "min": 0,
+               "max": 8389
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2012 Governor",
+           "subgroups": [
+             {
+               "key": "GOV12D",
+               "name": "Democratic",
+               "sum": 378934,
+               "min": 0,
+               "max": 7891
+             },
+             {
+               "key": "GOV12R",
+               "name": "Republican",
+               "sum": 295026,
+               "min": 0,
+               "max": 7471
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2012 US House",
+           "subgroups": [
+             {
+               "key": "USH12D",
+               "name": "Democratic",
+               "sum": 340925,
+               "min": 0,
+               "max": 7316
+             },
+             {
+               "key": "USH12R",
+               "name": "Republican",
+               "sum": 311636,
+               "min": 0,
+               "max": 7558
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2012 Executive Council",
+           "subgroups": [
+             {
+               "key": "EC12D",
+               "name": "Democratic",
+               "sum": 308206,
+               "min": 0,
+               "max": 6779
+             },
+             {
+               "key": "EC12R",
+               "name": "Republican",
+               "sum": 315223,
+               "min": 0,
+               "max": 8222
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2014 Governor",
+           "subgroups": [
+             {
+               "key": "GOV14D",
+               "name": "Democratic",
+               "sum": 254666,
+               "min": 0,
+               "max": 4581
+             },
+             {
+               "key": "GOV14R",
+               "name": "Republican",
+               "sum": 230610,
+               "min": 0,
+               "max": 5809
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2014 State Senate",
+           "subgroups": [
+             {
+               "key": "SSEN14D",
+               "name": "Democratic",
+               "sum": 233544,
+               "min": 0,
+               "max": 4202
+             },
+             {
+               "key": "SSEN14R",
+               "name": "Republican",
+               "sum": 230950,
+               "min": 0,
+               "max": 6083
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2014 Executive Council",
+           "subgroups": [
+             {
+               "key": "EC14D",
+               "name": "Democratic",
+               "sum": 220706,
+               "min": 0,
+               "max": 3883
+             },
+             {
+               "key": "EC14R",
+               "name": "Republican",
+               "sum": 241017,
+               "min": 0,
+               "max": 6573
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 President",
+           "subgroups": [
+             {
+               "key": "PRES16D",
+               "name": "Democratic",
+               "sum": 348526,
+               "min": 0,
+               "max": 6825
+             },
+             {
+               "key": "PRES16R",
+               "name": "Republican",
+               "sum": 345790,
+               "min": 0,
+               "max": 9312
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 US Senate",
+           "subgroups": [
+             {
+               "key": "SEN16D",
+               "name": "Democratic",
+               "sum": 354649,
+               "min": 0,
+               "max": 7211
+             },
+             {
+               "key": "SEN16R",
+               "name": "Republican",
+               "sum": 353632,
+               "min": 0,
+               "max": 8721
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 US House",
+           "subgroups": [
+             {
+               "key": "USH16D",
+               "name": "Democratic",
+               "sum": 336575,
+               "min": 0,
+               "max": 6359
+             },
+             {
+               "key": "USH16R",
+               "name": "Republican",
+               "sum": 316367,
+               "min": 0,
+               "max": 8084
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 State Senate",
+           "subgroups": [
+             {
+               "key": "SSEN16D",
+               "name": "Democratic",
+               "sum": 342052,
+               "min": 0,
+               "max": 6501
+             },
+             {
+               "key": "SSEN16R",
+               "name": "Republican",
+               "sum": 346474,
+               "min": 0,
+               "max": 8817
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2018 Governor",
+           "subgroups": [
+             {
+               "key": "GOV18D",
+               "name": "Democratic",
+               "sum": 262359,
+               "min": 0,
+               "max": 5032
+             },
+             {
+               "key": "GOV18R",
+               "name": "Republican",
+               "sum": 302764,
+               "min": 0,
+               "max": 7293
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Precinct name",
+         "key": "Precinct"
+       },
+       "bounds": [
+         [
+           -72.5571,
+           42.697
+         ],
+         [
+           -70.7022,
+           45.3057
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.newhampshire_precincts_points"
+           },
+           "sourceLayer": "newhampshire_precincts_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.newhampshire_precincts"
+           },
+           "sourceLayer": "newhampshire_precincts"
+         }
+       ]
+     },
+     {
+       "limit": "community",
        "id": "blockgroups",
        "name": "Block Groups",
        "unitType": "Block Groups",
@@ -25958,7 +26376,6 @@
    ],
    "id": "newhampshire",
    "state": "New Hampshire",
-   "limit": "community",
    "districtingProblems": [
      {
        "name": "Congress",
