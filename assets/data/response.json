@@ -26083,6 +26083,26 @@
          },
          {
            "type": "election",
+           "name": "2016 Governor",
+           "subgroups": [
+             {
+               "key": "GOV16D",
+               "name": "Democratic",
+               "sum": 337589,
+               "min": 0,
+               "max": 6519
+             },
+             {
+               "key": "GOV16R",
+               "name": "Republican",
+               "sum": 354040,
+               "min": 0,
+               "max": 9343
+             }
+           ]
+         },
+         {
+           "type": "election",
            "name": "2016 US Senate",
            "subgroups": [
              {
@@ -26381,11 +26401,6 @@
        "name": "Congress",
        "numberOfParts": 2,
        "pluralNoun": "Congressional Districts"
-     },
-     {
-       "name": "State House",
-       "numberOfParts": 204,
-       "pluralNoun": "State House Districts"
      },
      {
        "name": "State Senate",
