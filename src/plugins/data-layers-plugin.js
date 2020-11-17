@@ -333,7 +333,7 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
-        spatial_abilities(state.place.id).multiyear // multiple years
+        (spatial_abilities(state.place.id).multiyear && state.units.id.includes("blockgroups")) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 

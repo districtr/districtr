@@ -55,8 +55,6 @@
 { "type": "Feature", "properties": { "NAME": "Sappony" }, "geometry": { "type": "Point", "coordinates": [ -78.858364015115313, 36.493057753137727 ] } },
 { "type": "Feature", "properties": { "NAME": "Meherrin" }, "geometry": { "type": "Point", "coordinates": [ -76.948173565445487, 36.337542655039307 ] } },
 { "type": "Feature", "properties": { "NAME": "Occaneechi-Saponi" }, "geometry": { "type": "Point", "coordinates": [ -79.265313794926101, 35.997876687856298 ] } },
-{ "type": "Feature", "properties": { "NAME": "Occaneechi-Saponi" }, "geometry": { "type": "Point", "coordinates": [ -79.256913839836386, 36.187218298049395 ] } },
-{ "type": "Feature", "properties": { "NAME": "Upper South Carolina Pee Dee" }, "geometry": { "type": "Point", "coordinates": [ -79.415969337643517, 34.527584649850063 ] } },
-{ "type": "Feature", "properties": { "NAME": "Pee Dee" }, "geometry": { "type": "Point", "coordinates": [ -79.655643049498437, 34.710521486310249 ] } }
+{ "type": "Feature", "properties": { "NAME": "Occaneechi-Saponi" }, "geometry": { "type": "Point", "coordinates": [ -79.256913839836386, 36.187218298049395 ] } }
 ]
 }
