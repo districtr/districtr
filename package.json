@@ -4,7 +4,8 @@
     "description": "A tool for drawing districting plans",
     "scripts": {
         "test": "node validate.js && karma start --coverage",
-        "build": "npm run build:lambda && npm run build:app",
+        "build": "npm run build:aliases && npm run build:lambda && npm run build:app",
+        "build:aliases": "cp html/edit.html html/coi.html && cp html/edit.html html/districts.html",
         "build:app": "gulp build",
         "build:lambda": "netlify-lambda build src/lambda",
         "develop": "gulp develop",

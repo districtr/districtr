@@ -5,6 +5,8 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
+    "/coi": "/coi",
+    "/districts": "/districts",
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
@@ -24,7 +26,10 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode) {
         problem.numberOfParts = setParts;
     }
     savePlanToStorage({ place, problem, units, id });
-    navigateTo(eventCode ? ("/edit?event=" + eventCode) : "/edit");
+    let action = (window.location.hostname === "localhost" ? "edit" : (
+      problem.type === "community" ? "coi" : "districts"
+    ));
+    navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
 
 export function savePlanToStorage({

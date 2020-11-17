@@ -1,4 +1,9 @@
 /edit/* /edit.html 200
+/districts/* /districts.html 200
+/Districts/* /districts.html 200
+/coi/* /coi.html 200
+/COI/* /coi.html 200
+/edit/* /edit.html 200
 /new/* /new.html
 /event/* /event.html 200
 /community/* /community.html
