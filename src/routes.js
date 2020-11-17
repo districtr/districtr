@@ -5,8 +5,8 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
-    "/coi": "/coi",
-    "/districts": "/districts",
+    "/COI": "/COI",
+    "/plan": "/plan",
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
@@ -27,7 +27,7 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     }
     savePlanToStorage({ place, problem, units, id });
     let action = (window.location.hostname === "localhost" ? "edit" : (
-      problem.type === "community" ? "coi" : "districts"
+      problem.type === "community" ? "COI" : "plan"
     ));
     navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
@@ -89,7 +89,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         .then(info => {
             if (info.simple_id) {
                 let action = (window.location.hostname === "localhost" ? "edit" : (
-                  serialized.problem.type === "community" ? "coi" : "districts"
+                  serialized.problem.type === "community" ? "COI" : "plan"
                 ));
                 history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
                 if (info.token && localStorage) {

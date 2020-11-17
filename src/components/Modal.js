@@ -29,7 +29,7 @@ function renderModal(innerContent) {
 export function renderSaveModal(state, savePlanToDB) {
     const target = document.getElementById("modal");
 
-    savePlanToDB(state, undefined, (_id, action) => {
+    savePlanToDB(state, undefined, null, (_id, action) => {
         let eventdefault = "";
         if (window.location.href.includes("event=")) {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
