@@ -203,7 +203,7 @@ export function loadPlanFromCSV(assignmentList, state) {
             if (index > 0 || !headers) {
                 let cols = row.split(","),
                     val = cols[1],
-                    key = (isNaN(cols[0] * 1) || cols[0][0] === "0")
+                    key = (isNaN(cols[0] * 1) || cols[0].match(/[^0-9]/) || cols[0][0] === "0")
                         ? cols[0]
                         : cols[0] * 1;
                 if (typeof(key) === "string" && (key.includes("\""))) {
