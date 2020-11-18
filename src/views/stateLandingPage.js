@@ -83,8 +83,13 @@ export default () => {
                     $(targetBox).show();
                 });
 
+                if (window.location.search.includes("mode=coi")) {
+                  $('input[value="communities"]').trigger('click');
+                }
+
                 $(document).ready(function(){
-                $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
+                  $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
+
                 });
             });
             return stateData;
