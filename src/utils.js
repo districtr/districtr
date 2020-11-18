@@ -384,6 +384,9 @@ export function spatial_abilities (id) {
       napaschools: {
         number_markers: true,
       },
+      newhampshire: {
+        number_markers: true,
+      },
       new_mexico: {
         number_markers: true,
         county_brush: true,
