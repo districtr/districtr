@@ -1606,7 +1606,13 @@
         "name": "Redistricting rules",
         "nav": "Rules",
         "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
+        "content_source": "/assets/about/landing/rules.html",
+        "subsections": [
+          {
+            "name": "New Hampshire Redistricting",
+            "content_source": "/assets/about/new-hampshire/rules.html"
+          }
+        ]
       },
       {
         "name": "About the data",
