@@ -147,10 +147,10 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Arizona Precincts", 
+          {"name": "Arizona Precincts",
            "content_source": "/assets/about/arizona/precincts.html"
           },
-          {"name": "Arizona Census blocks", 
+          {"name": "Arizona Census blocks",
            "content_source": "/assets/about/arizona/blocks.html"
           },
           {"name": "Census Block Groups",
@@ -195,7 +195,7 @@
             "content_source": "/assets/about/arkansas/data.html"
           }
         ]
-        
+
       }
     ]
   },
@@ -246,7 +246,7 @@
           "content_source": "/assets/about/california/data.html"
           }
         ]
-          
+
       }
     ]
   },
@@ -377,7 +377,7 @@
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
-        
+
       }
     ]
   },
@@ -439,7 +439,7 @@
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
         ]
-        
+
       }
     ]
   },
@@ -478,7 +478,7 @@
           "name": "Florida Census blocks and block groups",
           "content_source": "/assets/about/florida/data.html"
         }]
-        
+
       }
     ]
   },
@@ -538,11 +538,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Georgia Precincts",  
+          {"name": "Georgia Precincts",
            "content_source": "/assets/about/georgia/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
-       
+
       }
     ]
   },
@@ -837,7 +837,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Chicago Community Areas and Precincts", 
+          {"name": "Chicago Community Areas and Precincts",
            "content_source": "/assets/about/illinois/chicago-data.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -934,7 +934,7 @@
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
-        ]  
+        ]
       }
     ]
   },
@@ -1269,7 +1269,7 @@
           },
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
-        ] 
+        ]
       }
     ]
   },
@@ -1417,7 +1417,7 @@
         "nav": "Why?",
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{"name": "Research", 
+        "subsections": [{"name": "Research",
         "content_source": "/assets/about/mississippi/research.html"}]
       },
       {
@@ -1614,6 +1614,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
+          {"name": "New Hampshire Precints",
+           "content_source": "/assets/about/new-hampshire/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
@@ -1996,7 +1998,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/why.html" ,
         "subsections": [
-          {"name": "Election reform in Oregon", 
+          {"name": "Election reform in Oregon",
            "content_source": "/assets/about/oregon/reform.html"}
         ]
       },
@@ -2038,10 +2040,10 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Oregon Precincts", 
+          {"name": "Oregon Precincts",
            "content_source": "/assets/about/oregon/precincts.html"
           },
-          {"name": "Oregon Census blocks", 
+          {"name": "Oregon Census blocks",
            "content_source": "/assets/about/oregon/blocks.html"
           },
           {"name": "Census Block Groups",
@@ -2120,10 +2122,10 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Pennsylvania voting tabulation districts (VTDs)", 
+          {"name": "Pennsylvania voting tabulation districts (VTDs)",
            "content_source": "/assets/about/pennsylvania/vtds.html"
           },
-          {"name": "Pennsylvania Census blocks", 
+          {"name": "Pennsylvania Census blocks",
            "content_source": "/assets/about/pennsylvania/blocks.html"
           },
           {"name": "Census Block Groups",
@@ -2227,11 +2229,11 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {
-            "name": "Rhode Island Precincts", 
+            "name": "Rhode Island Precincts",
             "content_source": "/assets/about/rhode-island/precincts.html"
           },
           {
-            "name": "Rhode Island Census Blocks", 
+            "name": "Rhode Island Census Blocks",
             "content_source": "/assets/about/rhode-island/blocks.html"
           },
           {"name": "Census Block Groups",
