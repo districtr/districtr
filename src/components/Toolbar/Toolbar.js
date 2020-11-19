@@ -49,10 +49,10 @@ export default class Toolbar {
         btn.className = "saved";
         btn.disabled = true;
 
-        savePlanToDB(this.state, undefined, undefined, (_id) => {
+        savePlanToDB(this.state, undefined, undefined, (_id, action) => {
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
-                document.getElementById("code-popup").innerText = `https://${window.location.host}/edit/${_id}`;
+                document.getElementById("code-popup").innerText = `https://${window.location.host}/${action}/${_id}`;
 
                 let btn = e.target;
                 btn.innerText = "Saved";

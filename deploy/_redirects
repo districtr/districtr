@@ -1,7 +1,10 @@
 /edit/* /edit.html 200
-/new/* /new.html
+/plan/* /plan.html 200
+/Plan/* /plan.html 200
+/coi/* /COI.html 200
+/COI/* /COI.html 200
+/edit/* /edit.html 200
 /event/* /event.html 200
-/community/* /community.html
 /user_guide /guide
 
 ## Landing Pages
@@ -55,6 +58,112 @@
 /west-virginia/*    /west-virginia.html 200
 /wisconsin/*        /wisconsin.html 200
 /wyoming/*          /wyoming.html 200
+/new/al/*          /alabama
+/new/ak/*           /alaska
+/new/az/*          /arizona
+/new/ar/*         /arkansas
+/new/ca/*       /california
+/new/co/*         /colorado
+/new/ct/*      /connecticut
+/new/de/*         /delaware
+/new/fl/*          /florida
+/new/ga/*          /georgia
+/new/hi/*           /hawaii
+/new/id/*            /idaho
+/new/il/*         /illinois
+/new/in/*          /indiana
+/new/ia/*             /iowa
+/new/ks/*           /kansas
+/new/ky/*         /kentucky
+/new/la/*        /louisiana
+/new/me/*            /maine
+/new/md/*         /maryland
+/new/ma/*    /massachusetts
+/new/mi/*         /michigan
+/new/mn/*        /minnesota
+/new/ms/*      /mississippi
+/new/mo/*         /missouri
+/new/mt/*          /montana
+/new/ne/*         /nebraska
+/new/nv/*           /nevada
+/new/nh/*    /new-hampshire
+/new/nj/*       /new-jersey
+/new/nm/*       /new-mexico
+/new/ny/*         /new-york
+/new/nc/*   /north-carolina
+/new/nd/*     /north-dakota
+/new/oh/*             /ohio
+/new/ok/*         /oklahoma
+/new/or/*           /oregon
+/new/pa/*     /pennsylvania
+/new/ri/*     /rhode-island
+/new/sc/*   /south-carolina
+/new/sd/*     /south-dakota
+/new/tn/*        /tennessee
+/new/tx/*            /texas
+/new/ut/*             /utah
+/new/vt/*          /vermont
+/new/va/*         /virginia
+/new/wa/*       /washington
+/new/wv/*    /west-virginia
+/new/wi/*        /wisconsin
+/new/wy/*          /wyoming
+/community/al/*          /alabama?mode=coi
+/community/ak/*           /alaska?mode=coi
+/community/az/*          /arizona?mode=coi
+/community/ar/*         /arkansas?mode=coi
+/community/ca/*       /california?mode=coi
+/community/co/*         /colorado?mode=coi
+/community/ct/*      /connecticut?mode=coi
+/community/de/*         /delaware?mode=coi
+/community/fl/*          /florida?mode=coi
+/community/ga/*          /georgia?mode=coi
+/community/hi/*           /hawaii?mode=coi
+/community/id/*            /idaho?mode=coi
+/community/il/*         /illinois?mode=coi
+/community/in/*          /indiana?mode=coi
+/community/ia/*             /iowa?mode=coi
+/community/ks/*           /kansas?mode=coi
+/community/ky/*         /kentucky?mode=coi
+/community/la/*        /louisiana?mode=coi
+/community/me/*            /maine?mode=coi
+/community/md/*         /maryland?mode=coi
+/community/ma/*    /massachusetts?mode=coi
+/community/mi/*         /michigan?mode=coi
+/community/mn/*        /minnesota?mode=coi
+/community/ms/*      /mississippi?mode=coi
+/community/mo/*         /missouri?mode=coi
+/community/mt/*          /montana?mode=coi
+/community/ne/*         /nebraska?mode=coi
+/community/nv/*           /nevada?mode=coi
+/community/nh/*    /new-hampshire?mode=coi
+/community/nj/*       /new-jersey?mode=coi
+/community/nm/*       /new-mexico?mode=coi
+/community/ny/*         /new-york?mode=coi
+/community/nc/*   /north-carolina?mode=coi
+/community/nd/*     /north-dakota?mode=coi
+/community/oh/*             /ohio?mode=coi
+/community/ok/*         /oklahoma?mode=coi
+/community/or/*           /oregon?mode=coi
+/community/pa/*     /pennsylvania?mode=coi
+/community/ri/*     /rhode-island?mode=coi
+/community/sc/*   /south-carolina?mode=coi
+/community/sd/*     /south-dakota?mode=coi
+/community/tn/*        /tennessee?mode=coi
+/community/tx/*            /texas?mode=coi
+/community/ut/*             /utah?mode=coi
+/community/vt/*          /vermont?mode=coi
+/community/va/*         /virginia?mode=coi
+/community/wa/*       /washington?mode=coi
+/community/wv/*    /west-virginia?mode=coi
+/community/wi/*        /wisconsin?mode=coi
+/community/wy/*          /wyoming?mode=coi
+/new/:state/*       /:state
+/community/:state/*       /:state?mode=coi
+
+/new/* /new.html
+/community/* /community.html
+/communities/* /community.html
 
 ## Plan Redirects
 /lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan

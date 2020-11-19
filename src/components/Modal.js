@@ -26,10 +26,10 @@ function renderModal(innerContent) {
     `;
 }
 
-export function renderSaveModal(state, exportPlanToDB) {
+export function renderSaveModal(state, savePlanToDB) {
     const target = document.getElementById("modal");
 
-    exportPlanToDB(state, undefined, (_id) => {
+    savePlanToDB(state, undefined, null, (_id, action) => {
         let eventdefault = "";
         if (window.location.href.includes("event=")) {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
@@ -39,7 +39,7 @@ export function renderSaveModal(state, exportPlanToDB) {
                 html`
                     <h2>Share Plan</h2>
                     You can share your current plan by copying this URL:
-                    <code>https://${window.location.host}/edit/${_id}</code>
+                    <code>https://${window.location.host}/${action}/${_id}</code>
                     <br/>
                     <label>Have an event code?</label>
                     <input

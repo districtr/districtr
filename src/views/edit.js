@@ -62,7 +62,7 @@ function getPlanContext() {
             // eslint-disable-next-line no-console
             console.error(e);
         });
-    } else if (finalURLpage !== "edit") {
+    } else if (!["edit", "coi", "plan"].includes(finalURLpage.toLowerCase())) {
         // remove token; save a new plan
         localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB

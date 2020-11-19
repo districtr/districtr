@@ -5,6 +5,8 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
+    "/COI": "/COI",
+    "/plan": "/plan",
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
@@ -12,7 +14,7 @@ const routes = {
 };
 
 export function navigateTo(route) {
-    if (routes.hasOwnProperty(route) || route.includes("/edit?event=")) {
+    if (routes.hasOwnProperty(route) || route.includes("?event=")) {
         location.assign(routes[route] || route);
     } else {
         throw Error("The requested route does not exist: " + route);
@@ -24,7 +26,10 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode) {
         problem.numberOfParts = setParts;
     }
     savePlanToStorage({ place, problem, units, id });
-    navigateTo(eventCode ? ("/edit?event=" + eventCode) : "/edit");
+    let action = (window.location.hostname === "localhost" ? "edit" : (
+      problem.type === "community" ? "COI" : "plan"
+    ));
+    navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
 
 export function savePlanToStorage({
@@ -83,11 +88,14 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         .then(res => res.json())
         .then(info => {
             if (info.simple_id) {
-                history.pushState({}, "Districtr", `/edit/${info.simple_id}`);
+                let action = (window.location.hostname === "localhost" ? "edit" : (
+                  serialized.problem.type === "community" ? "COI" : "plan"
+                ));
+                history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
                 if (info.token && localStorage) {
                     localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
                 }
-                callback(info.simple_id);
+                callback(info.simple_id, action);
             } else {
                 callback(null);
             }

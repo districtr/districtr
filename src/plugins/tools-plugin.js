@@ -162,11 +162,11 @@ function getMenuItems(state) {
             onClick: () => navigateTo("/new")
         },
         {
-            name: "Export plan as JSON",
+            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
         (spatial_abilities(state.place.id).contiguity || spatial_abilities(state.place.id).screenshot) ?  {
-            name: "Export plan as SHP",
+            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
         } : null,
         {

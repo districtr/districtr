@@ -11,7 +11,7 @@ export default () => {
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
-            
+
             document.title = curState.concat(" | Districtr");
             var def = stateData.modules.filter(m => m.default)[0];
 
@@ -20,10 +20,10 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
-            
-            
 
-            
+
+
+
             listPlacesForState(stateData.state, true).then(places => {
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
                 let onlyCommunityMode = districtingPlaces.length == 0;
@@ -41,7 +41,7 @@ export default () => {
                 render(communityOptions(places), commtarget);
                 $(".places-list__item").hide();
                 def.ids.map(id => $("." + id).show());
-                
+
                 onlyCommunityMode ? $(".communities").show() : $(".communities").hide();
 
 
@@ -57,8 +57,8 @@ export default () => {
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
-                    
-                    
+
+
                     $(".places-list__item").hide();
                     selected.ids.map(id => $("." + id).show());
                 });
@@ -83,8 +83,13 @@ export default () => {
                     $(targetBox).show();
                 });
 
+                if (window.location.search.includes("mode=coi")) {
+                  $('input[value="communities"]').trigger('click');
+                }
+
                 $(document).ready(function(){
-                $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
+                  $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
+
                 });
             });
             return stateData;
@@ -96,15 +101,15 @@ const navLinks = (sections, placeIds) =>
     sections.map(section => section.nav ? html`
         <li class="nav ${section.pages ? section.pages.reduce((l, ac) => l.concat(" ").concat(ac))
                                        : placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
-            <a href="#${section.nav.replace(/\s+/g, '-').toLowerCase()}" 
+            <a href="#${section.nav.replace(/\s+/g, '-').toLowerCase()}"
               class="nav-links__link nav-links__link--major">
                 ${section.nav}
             </a>
         </li>`: html``
-        
+
     ).concat([html`<li class="nav ${placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
             <a href="/new">
-                <img 
+                <img
                     class="nav-links__link nav-links__link--major nav-links__link--img"
                     src="/assets/usa_light_blue.png"
                     alt="Back to Map"
@@ -115,7 +120,7 @@ const navLinks = (sections, placeIds) =>
 
 const drawPage = (stateData, onlyCommunities) => {
     return html`
-        
+
         <h1 class="headline place__name"> ${stateData.state} </h1>
 
         ${onlyCommunities ? html``
@@ -125,9 +130,9 @@ const drawPage = (stateData, onlyCommunities) => {
                                      <input type="radio" value="communities"  id="communities" name="draw-selection" class="comm">
                                      <label for="communities" class="mode-selection">Draw Communities</label>
                                  </div>`}
-        
 
-        
+
+
         ${stateData.sections.map(s => drawSection(s, stateData, onlyCommunities))}
 
         ${until(fetch("assets/about/landing/footer.html").then((r) => {if (r.status === 200) {
@@ -139,7 +144,7 @@ const drawPage = (stateData, onlyCommunities) => {
     `
 };
 
-const drawTitles = (modules, st) => 
+const drawTitles = (modules, st) =>
     modules.map(m => html`<h1 class="${m.id} headline place__name">
                             ${m.name === "Statewide" ? st : m.name}
                           </h1>`);
@@ -157,13 +162,13 @@ const drawSection = (section, stateData, onlyCommunities) => {
             <h2 class="communities">Draw your community</h2>
 
             ${stateData.modules.length > 1 ? html`<div class="place-options places-list locals">
-                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}" 
+                ${stateData.modules.map(m => html`<input type="radio" value="${m.id}"
                                                      id="${m.id}" name="place-selection">
                                                   <label for="${m.id}" class="${m.mode}">${m.name}</label>`)}
             </div>` : ""}
 
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
-            
+
             <div id="community-options" class="communities"></div>
             <p style="text-align: right;"><a href="#data">What are the building blocks?</a></p>
         `;
@@ -171,8 +176,8 @@ const drawSection = (section, stateData, onlyCommunities) => {
         section_body = html`
             <div id="${section.nav.replace(/\s+/g, '-').toLowerCase()}" class="jump"></div>
             ${section.name ? html`<h2>${section.name}</h2>` : html``}
-            ${section.no_header ?  html``: html `<p>Sometimes the easiest way to get started is by exploring a complete plan. 
-                                            Click on any of the plans below to open it in Districtr. 
+            ${section.no_header ?  html``: html `<p>Sometimes the easiest way to get started is by exploring a complete plan.
+                                            Click on any of the plans below to open it in Districtr.
                                             Then feel free to start modifying it yourself!</p>`}
             <p>${section.disc}</p>
             <div id="plans">${plansSection(section.plans, section.ref)}</div>
@@ -191,7 +196,7 @@ const drawSection = (section, stateData, onlyCommunities) => {
                                                                                     throw new Error(r.statusText);
                                                                                 }}).then(content => $.parseHTML(content))) : ""}
             ${section.content ? $.parseHTML(section.content) : ""}
-            ${section.subsections ? section.subsections.map(s => html`<h3>${s.name}</h3>  
+            ${section.subsections ? section.subsections.map(s => html`<h3>${s.name}</h3>
                                                                       ${s.content_source ? until(fetch(s.content_source).then((r) => {
                                                                                 if (r.status === 200) {
                                                                                     return r.text();
@@ -206,7 +211,7 @@ const drawSection = (section, stateData, onlyCommunities) => {
 
     var placeIds = stateData.modules.map(m => m.id);
     return html`
-        <div class="text-toggle ${section.pages ? section.pages.reduce((l, ac) => l.concat(" ").concat(ac)) 
+        <div class="text-toggle ${section.pages ? section.pages.reduce((l, ac) => l.concat(" ").concat(ac))
                                                 : placeIds.reduce((l, ac) => l.concat(" ").concat(ac))}">
                 ${section_body}
         </div>
@@ -271,14 +276,14 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-            
+
         </ul>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem, true).map( 
+        return getUnits(place, problem, true).map(
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
@@ -323,6 +328,7 @@ const problemTypeInfo = {
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         place.districtingProblems
+        .sort((a, b) => a.numberOfParts - b.numberOfParts)
         .map(problem =>
             getUnits(place, problem).map(
                 units => html`
