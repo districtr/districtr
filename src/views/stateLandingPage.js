@@ -87,6 +87,12 @@ export default () => {
                   $('input[value="communities"]').trigger('click');
                 }
 
+                $('input[name="custom-selection"]:checkbox').click(function(){
+                    var target = document.getElementById("districting-options");
+                    render(districtingOptions(districtingPlaces), target);
+                    $('input[name="place-selection"]:checked').click();
+                });
+
                 $(document).ready(function(){
                   $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
 
@@ -166,6 +172,11 @@ const drawSection = (section, stateData, onlyCommunities) => {
                                                      id="${m.id}" name="place-selection">
                                                   <label for="${m.id}" class="${m.mode}">${m.name}</label>`)}
             </div>` : ""}
+
+            <div class="districts" style="float: right;">
+                <input type="checkbox" id="custom" name="custom-selection">
+                <label for="custom">Custom Template</label>
+            </div>
 
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
@@ -268,7 +279,10 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${placeItemsTemplate(places, startNewPlan)}
+            ${document.getElementById("custom").checked
+              ? customPlaceItemsTemplate(places, startNewPlan)
+              : placeItemsTemplate(places, startNewPlan)
+            }
         </ul>
     `;
 
@@ -351,3 +365,38 @@ const placeItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []);
+
+const customPlaceItemsTemplate = (places, onClick) =>
+    places.map(place =>
+        place.districtingProblems
+        .map(problem =>
+            getUnits(place, problem).map(
+                units => html`
+                    <li
+                        class="${place.id} places-list__item places-list__item--small"
+                        @click="${() => onClick(place, problem, units, "", document.getElementById(place.id+"_customNumber").value)}"
+                    >
+                        <div class="place-name">
+                            ${place.name}
+                        </div>
+                        ${problemTypeInfo[problem.type] || ""}
+                        <div class="place-info">
+                            <input 
+                              type="number" 
+                              class="custom-input"
+                              id="${place.id+"_customNumber"}"
+                              @click="${e => e.stopPropagation()}"
+                              value="${problem.numberOfParts}"
+                              min="1" max="55"
+                            >
+                            ${problem.pluralNoun}
+                        </div>
+                        <div class="place-info">
+                            Built out of ${units.name.toLowerCase()}
+                        </div>
+                    </li>
+                `
+            )
+        ))
+        .reduce((items, item) => [...items, ...item], []);
+

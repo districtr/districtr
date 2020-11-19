@@ -76,6 +76,52 @@
     }
 }
 
+.custom-input {
+    @include user-select(none);
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    // background: #eee;
+
+    transition: all ease 100ms;
+    // width: 50%;
+    // height: 10rem;
+
+    border-radius: 0.5rem;
+    background-color: $districtr-purple;
+    color: white;
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: $focus-shadow;
+    }
+    &:hover {
+        background-color: $districtr-dark-purple;
+    }
+
+    &.choice {
+        cursor: default;
+        background-color: $districtr-purple;
+
+        button {
+            cursor: pointer;
+            background-color: #fff;
+            color: $districtr-purple;
+            padding: 0.2rem 0.6rem;
+            margin: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            font-size: 100%;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        &:hover {
+            background-color: $districtr-purple;
+        }
+    }
+}
+
 
 .communities {
     .state--available {
