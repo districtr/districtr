@@ -149,6 +149,19 @@ label:hover {
     //color: #92e3ff;
 }
 
+input[type=checkbox]
+{
+    display:none;
+}
+input[type=checkbox]:checked + label
+{
+    background-color:$districtr-dark-purple;
+}
+
+input[type=checkbox]:checked + label:hover
+{
+    background-color:$districtr-very-dark-purple;
+}
 
 input[type=radio]
 {
