@@ -6,7 +6,7 @@ const fmtIncome = (label) => {
       if (label.includes("gt")) {
           return "> " + label.split("_")[2] + "k";
       } else {
-          return "$" + label.split("_")[1] + "-" + label.split("_")[2] + "k";
+          return "$" + label.split("_")[1] + "- " + label.split("_")[2] + "k";
       }
    }
    return label;

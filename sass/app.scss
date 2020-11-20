@@ -150,6 +150,7 @@ select {
 input, textarea {
     -webkit-user-select: text;
     user-select: all;
+    user-select: text;
 }
 
 #save-popup {
