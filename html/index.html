@@ -109,7 +109,7 @@ span.badge {
         <main id="root" class="landing-page">
             <ul id="nav">
                 <a href="/">
-                    <img src="/assets/districtr-splash-clear.png" alt="Districtr logo" width="200"/>
+                    <img src="/assets/mggg.svg" alt="MGGG logo" width="200"/>
                 </a>
                 <button
                     class="button button--subtle button--icon button--no-shadow"
@@ -118,24 +118,27 @@ span.badge {
                     <i class="material-icons">menu</i>
                 </button>
                 <li>
-                  <a href="/new">
-                    Get Involved
-                  </a>
-                </li>
-                <li>
-                  <a href="/new">
-                    Find Your State
-                  </a>
-                </li>
-                <li>
                   <a href="/about">
-                    About
+                    About Districtr
+                  </a>
+                </li>
+                <li>
+                  <a href="/new">
+                    Jump to the map
+                  </a>
+                </li>
+                <li>
+                  <a href="/guide">
+                    How to Use
                   </a>
                 </li>
             </ul>
             <section class="splash splash-grid hello">
                 <header class="splash-text">
                     <img src="/assets/new_logo.png" alt="new logo"/>
+                    <h2 class="youdraw" style="color:#888">
+                      &mdash;<em>you</em> draw the lines&mdash;
+                    </h2>
                     <h2 class="takeaway">
                         a free, open-source redistricting tool for communities
                     </h2>
@@ -143,19 +146,21 @@ span.badge {
             </section>
             <section class="l-content l-major-section decorated-section">
                 <div class="col1">
-                  <h2>Districtr helps you contribute to our country's redistricting process.
-                    <br/>
-                    <em>You draw the lines.</em>
+                  <h2>
+                    Districtr is a free, public web tool for districting and community identification,
+                    brought to you by the MGGG Redistricting Lab.
                   </h2>
-                  <br/>
-                  <h3>What is redistricting?</h3>
+                  <h3>Step up and help shape our democracy!</h3>
                   <p>
-                    Redistricting is dividing up a jurisdiction (like a state, county, or city) into districts for the purpose
-                    of electing representatives. Where and how the lines are drawn influences everything from who is
-                    likely to be elected to how resources get allocated.
+                    Redistricting is dividing up a jurisdiction (like a state, county, or city) into pieces that elect representatives. Where and how the lines are drawn influences everything from who has a shot at getting elected to how resources get allocated.
+                  </p>
+                  <p>
+                    Since the founding of the U.S. as a representative democracy, we’ve had the ideal that
+                    <strong>districts</strong> should be a way to communicate very local interests to our wider governing bodies. This only works if districts are built around
+                    <strong>communities</strong> of shared interest.
                   </p>
                 </div>
-                <div class="col2">
+                <div class="col2" style="text-align:right">
                   <a href="/new">
                     <span class="badge">Take me to the map, I'm ready to draw!</span>
                     <br/>
@@ -164,16 +169,12 @@ span.badge {
                 </div>
             </section>
             <section class="l-content l-major-section">
-              <h3>How can you get involved?</h3>
+              <h3>Use this tool to amplify your voice</h3>
               <h3 style="color: purple">You can draw districts.</h3>
               <div class="col1">
-                <p>Redistricting occurs every 10 years after the Census is released. In most
-states, elected representatives in the state legislature are responsible
-for redrawing the lines. The process often relies on costly software and
-involves little public input.
+                <p>In the U.S., there’s a big redistricting cycle every 10 years after new Census data is released. In most states, elected representatives in the state legislature are responsible for drawing the lines—including the districts for their own re-election. This time around, many states will have redistricting commissions for the first time, putting a bit more distance between the legislature and the process. And many states will be experimenting with collecting more and richer public input than ever before.
                 </p>
-                <p>Districtr puts the tools of redistricting in the hands of the public. Pick your
-state and start drawing to learn about the redistricting process, the tradeoff involved, and what districts can look like in your state.
+                <p>Try your hand at redistricting! Make plans of your own and share them widely—in some cases, you can submit them as public input in your state.
                 </p>
               </div>
               <div class="col2" style="background-color:purple;color:#fff;">
@@ -183,15 +184,18 @@ state and start drawing to learn about the redistricting process, the tradeoff i
             <section class="l-content l-major-section">
               <h3 style="color: red">You can draw your community.</h3>
               <div class="col1">
-                <p>Communities of Interest (known as COIs) are groups with significant
-shared interests that should be kept together.</p>
-                <p>Pick your state and start drawing community boundaries. When we know
-where communities live, map-drawers can take that into account. </p>
-                <p>Keeping communities together gives your community a voice.</p>
+                <p>Communities of Interest (known as “COIs”) are groups or neighborhoods with significant shared interests that deserve consideration by representatives. Many states have rules that indicate that COIs should be kept whole by districting plans whenever possible.</p>
+                <p>But this has been one of the hardest to handle of all the priorities in the redistricting world—if you show up at a meeting to say your community matters, how does that information make its way to the line-drawers?</p>
+                <p>Districtr lets you put your community on the map (literally!) by marking places that matter to make your shared interests visible.</p>
               </div>
               <div class="col2" style="background-color:red;color:#fff;">
                 COI Video
               </div>
+            </section>
+            <section class="l-content l-major-section">
+              <h3 class="section__heading">
+                Where would you like to start?
+              </h3>
             </section>
             <section
                 class="start-districting hidden"
@@ -199,25 +203,39 @@ where communities live, map-drawers can take that into account. </p>
             ></section>
             <section class="l-content l-major-section" style="text-align:center">
               <h3>Looking for somewhere else?</h3>
-              <a>Request a new location</a>
+              <a>Request a new local module</a>
             </section>
             <section class="l-content l-major-section">
               <h3 style="color: darkblue">About Districtr</h3>
-              <p>The goal of Districtr is to put the tools of redistricting in the hands of the public, with an emphasis
-              on meeting the needs of civil rights organizations, community groups, and researchers.
-              </p>
-              <p>Districtr came about from a conversation with Lawyers for Civil Rights, the Boston arm of the national Lawyers’ Committee for Civil Rights Under Law. LCR was describing their work with community members in Lowell, MA, who were frustrated about not having a voice with the city council. In
-              those conversations, a few places kept coming up.</p>
-              <p>Like Clemente Park, a much-loved meeting point for the city’s Asian and Latino populations, which
-              felt unsafe at night because the city had not provided lighting in the park.
-              </p>
-              <p>And Lowell High School, the city’s only public high school, which serves over 3000 students. The
-              city announced plans to move it from its traditional downtown location, but did not invest in substantial outreach to communities of color about possible new sites.</p>
-              <p>
-              Our idea was to create a mapping tool whose fundamental principle is to ask the community what
-              matters.</p>
-              <p>With maps that show relevant landmarks and data, users can try their own hand at drawing meaningful demonstration plans.</p>
+              <p>The goal of Districtr is to put the tools of redistricting in the hands of the public, with an emphasis on meeting the needs of civil rights organizations, community groups, and redistricting commissions.</p>
+              <p>Districtr came about from a conversation with Lawyers for Civil Rights (LCR), the Boston arm of the national Lawyers’ Committee for Civil Rights Under Law. LCR was describing their work with community members in Lowell, MA, who were frustrated about not having a voice in the city council. In those conversations, a few places kept coming up...</p>
+              <p>Like <strong>Clemente Park</strong>, a much-loved meeting point for the city’s Asian and Latinx populations, which felt unsafe at night because the city had not provided lighting...</p>
+              <p>And <strong>Lowell High School</strong>, the city’s only public high school, which serves over 3000 students. The city announced plans to move it from its traditional downtown location, but without sufficient outreach to communities around the city about possible new sites.</p>
+              <p>Our idea was to create a mapping tool whose fundamental principle is to <strong>ask the community what matters</strong>.  With maps that build COIs around relevant zones and landmarks, paired with community narratives, we can start to see local interests come to life.</p>
               <hr/>
+            </section>
+            <section class="l-content l-major-section">
+              <h3 style="color:darkblue">Our Values</h3>
+              <p><strong>Accessibility.</strong> Participating in the redistricting process should be approachable for everyone. Districtr is engineered for maximum accessibility. It’s entirely in-browser with no login and no downloads, it works on tablets as well as computers, and we assign each plan its own web address for easy sharing.</p>
+              <p><strong>Openness and transparency.</strong> The entire project is open source, with permissive licenses. We don’t collect any information about users. All of the underlying shapefile data is freely available, with the fullest documentation we can provide. We tell you where we get our data, how we’ve processed it, and why it’s the best available.</p>
+              <p><strong>Maps not metrics.</strong> We don’t think that good maps can be measured in one-size-fits-all metrics, so we’ve built a more lightweight mapping experience that doesn’t put scores front and center.  You can export maps from Districtr in forms that can be read in the other major redistricting software.</p>
+              <p><strong>All politics is local.</strong> We’ve got 720,000-person congressional districts and 13,000-person city council districts, and every scale in between:  county commissions, school zones, sanitation districts—you name it, we map it.</p>
+              <p><strong>Responsiveness to the community.</strong> We aim to highlight specific local rules, principles, and priorities whenever possible. You can request a custom module for your locality. We also build event pages for organizers so they can see an overview of maps from the group at a glance.</p>
+            </section>
+            <section class="l-content l-major-section">
+              <h3 style="color:darkblue">Still have questions?</h3>
+              <p>If you’d like a custom module for your locality, fill out our request form.
+              If you are interested in partnering with us or sponsoring a voting rights project, reach out to us at
+              <a href="mailto:Districtr@mggg.org">Districtr@mggg.org</a>.</p>
+
+              <h3 style="color:darkblue">Development Team</h3>
+              <p>
+                <strong>Originating Team</strong>: Max Hully, Ruth Buck<br/>
+                <strong>Project Manager</strong>: Liz Kopecky<br/>
+                <strong>Lead Developers</strong>: Nick Doiron, JN Matthews<br/>
+                <strong>Lead Geographer</strong>: Heather Rosenfeld<br/>
+                <strong>Contributors</strong>: Eion Blanchard, Moon Duchin, Chris Gernon, Muniba Khan, Anthony Pizzimenti, Anna Schall, and many more<br/>
+              </p>
             </section>
             <section class="l-content l-major-section">
               <p>
@@ -243,40 +261,6 @@ where communities live, map-drawers can take that into account. </p>
                       </a>
                   </li>
               </ul>
-            </section>
-            <section class="l-content l-major-section">
-              <h3 style="color:darkblue">Our Values</h3>
-              <p>
-              <strong>User experience.</strong> Participating in the redistricting process should be easy and enjoyable.
-              </p><p>
-              <strong>Openness and transparency.</strong> The entire project is open-source, with permissive licenses. All of the
-              data used in the app is freely available and well-documented. We explicitly declare where we get
-              our data, how we’ve processed it, and what we think of its quality.
-              </p><p>
-              <strong>Responsiveness to the community.</strong> Different places have different values and priorities when it
-              comes to drawing districts. We aim to highlight the specific concerns of the community in each
-              place that we include in the app.
-              </p><p>
-              See additional guiding principles <a href="https://github.com/vrdi/districtr-principles/blob/master/%5BDraft%5DMGGG_Districtr_Guiding_Principles.pdf">here</a>.
-              </p>
-            </section>
-            <section class="l-content l-major-section">
-              <h3 style="color:darkblue">Contact Us</h3>
-              <p>To request a new location, fill out our <a href="">form</a>.
-              If you are interested in partnering with us or sponsoring a voting rights project, reach out to us at
-              <a href="mailto:Districtr@mggg.org">Districtr@mggg.org</a>.</p>
-
-              <h3 style="color:darkblue">Development Team</h3>
-              <p>
-                <strong>Lead Developers</strong>: Nick Doiron, JN Matthews
-                <br/>
-                <strong>Geographers</strong>: Ruth Buck, Heather Rosenfeld
-                <br/>
-                <strong>Originating Developer</strong>: Max Hully
-                <br/>
-                <strong>Contributors</strong>: Eion Blanchard, Chris Gernon, Muniba Khan, Liz Kopecky, Anthony Pizzimenti, Anna
-                Schall
-              </p>
             </section>
         </main>
         <script src="/es6/index.js"></script>
