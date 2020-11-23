@@ -305,7 +305,7 @@ export default function DataLayersPlugin(editor) {
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
-                      ${state.population.subgroups.map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
+                      ${state.population.subgroups.filter(sg => !sg.total_alt).map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
                           ${toggle(sg.name.replace(" population", ""), false, checked => {
                               window.coalitionGroups[sg.key] = checked;
                               window.coalitionGroups[vapEquivalents[sg.key]] = checked;

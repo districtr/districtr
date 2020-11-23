@@ -2533,7 +2533,9 @@
     "state": "Virginia",
     "code": "VA",
     "modules": [
-      {"name": "Statewide", "ids": ["virginia"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["virginia"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["vabeach"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",

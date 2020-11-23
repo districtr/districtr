@@ -590,6 +590,10 @@ export function spatial_abilities (id) {
         // native_american: true,
         coalition: true,
       },
+        vabeach: {
+          coalition: true,
+          // multiyear: true,
+        },
       washington: {
         number_markers: true,
         county_brush: true,
