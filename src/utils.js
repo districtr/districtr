@@ -287,14 +287,18 @@ export function spatial_abilities (id) {
         multiyear: true,
         number_markers: true,
       },
-      ccsanitation: {
-        screenshot: true,
-        // multiyear: true,
+      california: {
+        number_markers: true,
+        native_american: true,
       },
-      ccsanitation2: {
-        screenshot: true,
-        multiyear: true,
-      },
+        ccsanitation: {
+          screenshot: true,
+          // multiyear: true,
+        },
+        ccsanitation2: {
+          screenshot: true,
+          multiyear: true,
+        },
       chicago: {
         number_markers: true,
       },
@@ -322,6 +326,8 @@ export function spatial_abilities (id) {
       },
       florida: {
         native_american: true,
+        number_markers: true,
+        multiyear: true,
       },
       georgia: {
         number_markers: true,
@@ -336,7 +342,7 @@ export function spatial_abilities (id) {
       idaho: {
         multiyear: true,
         native_american: true,
-        // number_markers: true,
+        number_markers: true,
         // contiguity: true,
       },
       illinois: {
@@ -440,6 +446,10 @@ export function spatial_abilities (id) {
       nevada: {
         multiyear: true,
         native_american: true,
+        number_markers: true,
+      },
+      newhampshire: {
+        number_markers: true,
       },
       newjersey: {
         number_markers: true,
@@ -468,6 +478,7 @@ export function spatial_abilities (id) {
       newyork: {
         number_markers: true,
         county_brush: true,
+        native_american: true,
       },
       nc: {
         number_markers: true,
