@@ -14990,6 +14990,16 @@
         "numberOfParts": 36,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
+      },
+      {
+        "numberOfParts": 150,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      },
+      {
+        "numberOfParts": 31,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
       }
     ]
   },
