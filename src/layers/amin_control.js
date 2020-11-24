@@ -40,10 +40,12 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Country";
     } else if (state.place.id === "maine") {
         native_am_type = "Tribes in Maine";
-    } else if (["nevada", "newyork", "utah"].includes(state.place.id)) {
+    } else if (["newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Indian Tribes";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
+    } else if (state.place.id === "nevada") {
+        native_am_type = "Indian Territory";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
     } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix"].includes(state.place.id)) {

@@ -39,7 +39,8 @@ export default function DataLayersPlugin(editor) {
             ${(["chicago_community_areas", "alaska_blockgroups", "hawaii_blockgroups", "oregon_blockgroups",
                 "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
                "maryland_blockgroups", "ma_blockgroups", "michigan_blockgroups", "minnesota_blockgroups",
-             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_blockgroups",
+               "montana_blocks", "wyoming_blocks", "newhampshire_blockgroups",
+             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_bg_blockgroups",
            "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
             "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
               "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
@@ -333,7 +334,7 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
-        spatial_abilities(state.place.id).multiyear // multiple years
+        (spatial_abilities(state.place.id).multiyear && state.units.id.includes("blockgroups")) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 

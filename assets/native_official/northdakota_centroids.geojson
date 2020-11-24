@@ -12,6 +12,7 @@
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -98.075518161908604, 48.835487327188119 ] } },
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -99.666406827583771, 48.736064294136554 ] } },
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -99.674182073080118, 48.932034485858757 ] } },
+{ "type": "Feature", "properties": { "NAME": "Standing Rock" }, "geometry": { "type": "Point", "coordinates": [ -101.148291437700323, 45.833378959307851 ] } },
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -99.674706752691193, 48.894625502258684 ] } },
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -99.709941935166853, 48.942573296294285 ] } },
 { "type": "Feature", "properties": { "NAME": "Turtle Mountain" }, "geometry": { "type": "Point", "coordinates": [ -99.706667989742328, 48.742213306280121 ] } },

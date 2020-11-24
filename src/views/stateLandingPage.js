@@ -328,9 +328,19 @@ const problemTypeInfo = {
 const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         place.districtingProblems
-        .sort((a, b) => a.numberOfParts - b.numberOfParts)
+        .sort((a, b) => {
+            if (a.name === "Congress" && b.name !== "Congress") {
+                return -1;
+            } else if (b.name === "Congress" && a.name !== "Congress") {
+                return 1;
+            }
+            return a.numberOfParts - b.numberOfParts;
+        })
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem).filter(units => {
+              // block Iowa / US Congress x blockgroups
+              return !units.restrict || units.restrict !== problem.pluralNoun
+            }).map(
                 units => html`
                     <li
                         class="${place.id} places-list__item places-list__item--small"

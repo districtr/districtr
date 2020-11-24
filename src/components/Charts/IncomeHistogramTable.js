@@ -9,7 +9,6 @@ export default function IncomeHistogramTable(
     dispatch,
     widthMultiplier
 ) {
-    // console.log(population.subgroups);
     let adjustGroups = [
       {name: "in_0_20", sgs: [0,1,2] },
       {name: "in_20_35", sgs: [3,4,5] },

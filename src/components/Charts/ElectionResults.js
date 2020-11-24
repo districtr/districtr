@@ -46,12 +46,8 @@ export default function ElectionResults(election, parts) {
         label: "Overall",
         entries: election.parties.map(party => getCell(party, null))
     });
-    // rows.push({
-    // label: "Overall",
-    // entries: election.parties.map(party => getCell(party))
-    // });
     return html`
-        <strong>two-party vote share</strong>
+        ${election.parties.length === 2 ? html`<strong>two-party vote share</strong>` : ""}
         ${DataTable(headers, rows)}
     `;
 }
