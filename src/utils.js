@@ -285,6 +285,7 @@ export function spatial_abilities (id) {
           },
       arkansas: {
         multiyear: true,
+        number_markers: true,
       },
       ccsanitation: {
         screenshot: true,
@@ -337,6 +338,9 @@ export function spatial_abilities (id) {
         native_american: true,
         // number_markers: true,
         // contiguity: true,
+      },
+      illinois: {
+        number_markers: true,
       },
       indiana: {
         multiyear: true,

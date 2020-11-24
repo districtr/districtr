@@ -40,7 +40,7 @@ export default function DataLayersPlugin(editor) {
                 "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
                "maryland_blockgroups", "ma_blockgroups", "michigan_blockgroups", "minnesota_blockgroups",
                "montana_blocks", "wyoming_blocks",
-             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_blockgroups",
+             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_bg_blockgroups",
            "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
             "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
               "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
