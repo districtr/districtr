@@ -11539,6 +11539,16 @@
         "numberOfParts": 8,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
+      },
+      {
+        "numberOfParts": 34,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 163,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
       }
     ]
   },
@@ -16266,6 +16276,11 @@
         "numberOfParts": 8,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
+      },
+      {
+        "numberOfParts": 99,
+        "pluralNoun": "State Assembly Districts",
+        "name": "State Assembly"
       }
     ]
   },
