@@ -203,11 +203,18 @@ const path = geoPath(
         .translate(translate)
 ).pointRadius(2);
 
-const dcpath = geoPath(
+const altpath = {
+  "DC": geoPath(
     geoAlbersUsaTerritories()
-        .scale(scale * 4)
-        .translate([-290, 475])
-);
+        .scale(scale * 6)
+        .translate([-950, 530])
+    ),
+  "PR": geoPath(
+    geoAlbersUsaTerritories()
+        .scale(scale * 1.5)
+        .translate([430, 120])
+    ),
+};
 
 
 export function getFeatureBySTUPS(code) {
@@ -297,7 +304,7 @@ function setSearchText(feature) {
 // ===========
 
 function transformAndTranslate(feature) {
-    const bounds = (feature.properties.STUSPS === "DC" ? dcpath : path).bounds(feature),
+    const bounds = (altpath[feature.properties.STUSPS] || path).bounds(feature),
         dx = bounds[1][0] - bounds[0][0],
         dy = bounds[1][1] - bounds[0][1],
         x = (bounds[0][0] + bounds[1][0]) / 2,
@@ -351,10 +358,10 @@ export function Features(features, onHover, selectedId) {
             : feature.properties.STUSPS.toLowerCase();
 
         return svg`
-            ${feature.properties.STUSPS === "DC" ? svg`<path id="${dcpoint.properties.STUSPS.toLowerCase()}" 
+            ${feature.properties.STUSPS === "DC" ? svg`<path id="${dcpoint.properties.STUSPS.toLowerCase()}"
                                                         class="dc-annotation"
-                                                        d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + dcpath(dcpoint).split(",")[0].substr(1) + "," + dcpath(dcpoint).split(",")[1].slice(0,-2)}" 
-                                                        @mouseover=${() => onHover(dcpoint)} 
+                                                        d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + altpath["DC"](dcpoint).split(",")[0].substr(1) + "," + altpath["DC"](dcpoint).split(",")[1].slice(0,-2)}"
+                                                        @mouseover=${() => onHover(dcpoint)}
                                                         onclick=${selectLandingPage(dcpoint)}></path>` : svg``}
             <path id="${featureId}" class="${featureClasses(
             feature,
@@ -362,7 +369,7 @@ export function Features(features, onHover, selectedId) {
             selectedId
         )}" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
-            d="${feature.properties.STUSPS === "DC" ? dcpath(feature) : path(feature)}" @mouseover=${() => onHover(feature)}
+            d="${(altpath[feature.properties.STUSPS] || path)(feature)}" @mouseover=${() => onHover(feature)}
             onclick=${selectLandingPage(feature)}></path>`;
     })}
     </g>
@@ -376,7 +383,7 @@ function selectLandingPage(feature, target) {
       page = feature.properties.name.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
     }
     return "window.location.href='/" + page + "'";
-  } 
+  }
   else {
     return "";
   }

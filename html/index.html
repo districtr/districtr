@@ -11,6 +11,11 @@
             href="/css/landing_page.css"
         />
         <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/state_landing.css"
+        />
+        <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
             rel="stylesheet"
         />
@@ -66,6 +71,10 @@ ul#nav li a {
 .col2 {
   width: 44%;
 }
+.youdraw, .takeaway {
+  background: #fff;
+  display: block;
+}
 @media (min-width:1000px) {
   .l-major-section {
     margin-left: 15%;
@@ -78,19 +87,11 @@ ul#nav li a {
     width: 34%;
   }
 }
-.l-major-section h2, .l-major-section h3 {
-  font-weight: normal;
-  font-size: 100%;
-  color: #555;
-}
-.l-major-section em {
-  font-size: 110%;
-}
 .l-major-section h3 {
   color: darkblue;
 }
 .l-major-section p {
-  font-size: 70%;
+  font-size: 20px;
 }
 span.badge {
   font-size: 70%;
@@ -99,55 +100,80 @@ span.badge {
   padding: 6px;
   border-radius: 6px;
 }
-.start-districting__title {
-  font-size: 100%;
+.start-districting {
+  height: auto !important;
+}
+#nav-links {
+  justify-content: flex-end;
+}
+a.bookmark {
+  position: relative;
+  top: -30px;
 }
         </style>
     </head>
 
     <body>
+      <header class="site-header">
+          <nav class="site-nav">
+              <div class="site-nav__logo">
+                  <a href="/">
+                      <img src="/assets/mggg.svg" alt="MGGG logo" width="160"/>
+                  </a>
+                  <script>
+                      function openNav() {
+                        var links = document.getElementById("nav-links");
+                        var openClass = "site-nav__contents--show";
+                        if (links.classList.contains(openClass)) {
+                          links.classList.remove(openClass);
+                        } else {
+                          links.classList.add(openClass);
+                        }
+                      }
+                  </script>
+                  <button class="site-nav__open-btn" onclick="openNav();">
+                      <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                  </button>
+              </div>
+              <ul id="nav-links" class="nav-links site-nav__contents">
+      <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#how">
+              How to Use
+          </a>
+      </li>
+      <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#map">
+              Jump to the map
+          </a>
+      </li>
+      <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#about">
+            About Districtr
+          </a>
+      </li>
+  </ul>
+          </nav>
+      </header>
         <main id="root" class="landing-page">
-            <ul id="nav">
-                <a href="/">
-                    <img src="/assets/mggg.svg" alt="MGGG logo" width="200"/>
-                </a>
-                <button
-                    class="button button--subtle button--icon button--no-shadow"
-                    onclick="document.querySelectorAll('#nav li').forEach(s => s.style.display = 'block');event.target.style.display='none';"
-                >
-                    <i class="material-icons">menu</i>
-                </button>
-                <li>
-                  <a href="/#about">
-                    About Districtr
-                  </a>
-                </li>
-                <li>
-                  <a href="/new">
-                    Jump to the map
-                  </a>
-                </li>
-                <li>
-                  <a href="/guide">
-                    How to Use
-                  </a>
-                </li>
-            </ul>
+            <br/>
+            <br/>
+            <br/>
             <section class="splash splash-grid hello">
                 <header class="splash-text">
                     <img src="/assets/new_logo.png" alt="new logo"/>
                     <h2 class="youdraw" style="color:#888">
                       &mdash;<em>you</em> draw the lines&mdash;
                     </h2>
-                    <h2 class="takeaway" style="text-align:left;padding-left:10px;">
+                    <h2 class="takeaway" style="text-align:left;padding-left:30px;padding-right:30px;">
                       Districtr is a free, public web tool for districting and community identification,
                       brought to you by the MGGG Redistricting Lab.
                     </h2>
                 </header>
             </section>
-            <section class="l-content l-major-section decorated-section">
-                <div>
-                  <h3>Step up and help shape our democracy!</h3>
+            <section class="l-content l-major-section">
+                <h2>Step up and help shape our democracy!</h2>
+
+                <div class="col1">
                   <p>
                     Redistricting is dividing up a jurisdiction (like a state, county, or city) into pieces that elect representatives. Where and how the lines are drawn influences everything from who has a shot at getting elected to how resources get allocated.
                   </p>
@@ -157,16 +183,17 @@ span.badge {
                     <strong>communities</strong> of shared interest.
                   </p>
                 </div>
-                <!-- <div class="col2" style="text-align:right">
+                <div class="col2" style="text-align:right">
                   <a href="/new">
-                    <span class="badge">Take me to the map, I'm ready to draw!</span>
+                    <span class="badge">Anyone can map</span>
                     <br/>
-                    <img src="/assets/full_map.png" alt="USA map"/>
+                    <img src="/assets/hands.png" alt="USA map"/>
                   </a>
-                </div> -->
+                </div>
             </section>
+            <a class="bookmark" name="how"></a>
             <section class="l-content l-major-section">
-              <h3>Use this tool to amplify your voice</h3>
+              <h2>Use this tool to amplify your voice</h2>
               <h3 style="color: purple">You can draw districts.</h3>
               <div class="col1">
                 <p>In the U.S., there’s a big redistricting cycle every 10 years after new Census data is released. In most states, elected representatives in the state legislature are responsible for drawing the lines—including the districts for their own re-election. This time around, many states will have redistricting commissions for the first time, putting a bit more distance between the legislature and the process. And many states will be experimenting with collecting more and richer public input than ever before.
@@ -190,22 +217,24 @@ span.badge {
                 COI Video
               </div>
             </section>
+            <a class="bookmark" name="map"></a>
             <section class="l-content l-major-section">
-              <h3 class="section__heading">
+              <h2>
                 Where would you like to start?
-              </h3>
+              </h2>
             </section>
             <section
                 class="start-districting hidden"
                 id="start-districting"
             ></section>
-            <section class="l-content l-major-section" style="text-align:center">
+            <section style="text-align:center">
               <h3>Looking for somewhere else?</h3>
-              <a>Request a new local module</a>
+              <a href="/request">Request a new local module</a>
             </section>
-            <a name="about"></a>
+            <a class="bookmark" name="about"></a>
             <section class="l-content l-major-section">
-              <h3 style="color: darkblue">About Districtr</h3>
+              <h2>About Districtr</h2>
+              <h3 style="color:darkblue">Origin Story</h3>
               <p>The goal of Districtr is to put the tools of redistricting in the hands of the public, with an emphasis on meeting the needs of civil rights organizations, community groups, and redistricting commissions.</p>
               <p>Districtr came about from a conversation with Lawyers for Civil Rights (LCR), the Boston arm of the national Lawyers’ Committee for Civil Rights Under Law. LCR was describing their work with community members in Lowell, MA, who were frustrated about not having a voice in the city council. In those conversations, a few places kept coming up...</p>
               <p>Like <strong>Clemente Park</strong>, a much-loved meeting point for the city’s Asian and Latinx populations, which felt unsafe at night because the city had not provided lighting...</p>
@@ -232,7 +261,7 @@ span.badge {
                 <strong>Project Manager</strong>: Liz Kopecky<br/>
                 <strong>Lead Developers</strong>: Nick Doiron, JN Matthews<br/>
                 <strong>Lead Geographer</strong>: Heather Rosenfeld<br/>
-                <strong>Contributors</strong>: Eion Blanchard, Moon Duchin, Chris Gernon, Muniba Khan, Anthony Pizzimenti, Anna Schall, and many more<br/>
+                <strong>Contributors</strong>: Eion Blanchard, Moon Duchin, Chris Gernon, Muniba Khan, Anthony Pizzimenti, Anna Schall, Lieu Zheng Hong, and many more<br/>
               </p>
             </section>
             <section class="l-content l-major-section">
