@@ -146,10 +146,8 @@
     display: grid;
     width: 100%;
     grid-template-areas:
-        "title title title title"
         "form form form form"
         "map map map map";
-    grid-template-rows: 2fr 1fr 15fr;
     grid-template-columns: auto 1fr 1fr auto;
     height: 700px;
     height: 110vh;
