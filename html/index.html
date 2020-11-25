@@ -59,33 +59,61 @@ ul#nav li a {
   text-align: center;
   color: #0099cd;
 }
+.splash-text img {
+  max-width: 100%;
+}
 .takeaway {
   font-size: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  color: #0099cd;
 }
 .l-major-section {
   padding-bottom: 1rem;
 }
 .col1 {
-  width: 55%;
+  width: 70%;
 }
 .col2 {
-  width: 44%;
+  width: 28%;
+  text-align: right;
+}
+.col2 img {
+  width: 70%;
 }
 .youdraw, .takeaway {
   background: #fff;
   display: block;
 }
+.youdraw {
+  color: #444;
+  padding-top: 0;
+  margin-top: -35px;
+  font-size: 150%;
+}
 @media (min-width:1000px) {
   .l-major-section {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
   .col1 {
-    width: 65%;
+    width: 71%;
   }
   .col2 {
-    width: 34%;
+    width: 28%;
   }
+  .start-districting {
+    width: 75%;
+    margin-left: 12.5%;
+  }
+}
+.place-map__form {
+  margin-top: -50px;
+  margin-bottom: -30px;
+}
+.place-map__search {
+  font-size: 1.5rem;
 }
 .l-major-section h3 {
   color: darkblue;
@@ -110,6 +138,9 @@ a.bookmark {
   position: relative;
   top: -30px;
 }
+strong {
+  font-size: 109%;
+}
         </style>
     </head>
 
@@ -117,7 +148,7 @@ a.bookmark {
       <header class="site-header">
           <nav class="site-nav">
               <div class="site-nav__logo">
-                  <a href="/">
+                  <a href="https://mggg.org">
                       <img src="/assets/mggg.svg" alt="MGGG logo" width="160"/>
                   </a>
                   <script>
@@ -160,61 +191,64 @@ a.bookmark {
             <br/>
             <section class="splash splash-grid hello">
                 <header class="splash-text">
-                    <img src="/assets/new_logo.png" alt="new logo"/>
-                    <h2 class="youdraw" style="color:#888">
-                      &mdash;<em>you</em> draw the lines&mdash;
-                    </h2>
-                    <h2 class="takeaway" style="text-align:left;padding-left:30px;padding-right:30px;">
-                      Districtr is a free, public web tool for districting and community identification,
-                      brought to you by the MGGG Redistricting Lab.
+                    <img src="/assets/new_logo.jpg" alt="new logo" width="677" style="margin-top:-10px"/>
+                    <h2 class="youdraw">
+                      <em>You</em> draw the lines.
                     </h2>
                 </header>
             </section>
             <section class="l-content l-major-section">
+              <h2 class="takeaway">
+                Districtr is a free, public web tool for districting and community identification,
+                brought to you by the MGGG Redistricting Lab.
+              </h2>
+            </section>
+            <section class="l-content l-major-section">
                 <h2>Step up and help shape our democracy!</h2>
 
-                <div class="col1">
+                <!-- <div class="col1"> -->
+                <div>
                   <p>
                     Redistricting is dividing up a jurisdiction (like a state, county, or city) into pieces that elect representatives. Where and how the lines are drawn influences everything from who has a shot at getting elected to how resources get allocated.
                   </p>
                   <p>
                     Since the founding of the U.S. as a representative democracy, we’ve had the ideal that
-                    <strong>districts</strong> should be a way to communicate very local interests to our wider governing bodies. This only works if districts are built around
-                    <strong>communities</strong> of shared interest.
+                    <strong style="color: #b445b6">districts</strong> should be a way to communicate very local interests to our wider governing bodies. This only works if districts are built around
+                    <strong style="color: #ff4f49">communities</strong> of shared interest.
                   </p>
                 </div>
-                <div class="col2" style="text-align:right">
+                <!-- <div class="col2" style="text-align:right">
                   <a href="/new">
                     <span class="badge">Anyone can map</span>
                     <br/>
                     <img src="/assets/hands.png" alt="USA map"/>
                   </a>
-                </div>
+                </div> -->
             </section>
             <a class="bookmark" name="how"></a>
             <section class="l-content l-major-section">
               <h2>Use this tool to amplify your voice</h2>
-              <h3 style="color: purple">You can draw districts.</h3>
+              <h3 style="color: #b445b6">You can draw districts.</h3>
               <div class="col1">
                 <p>In the U.S., there’s a big redistricting cycle every 10 years after new Census data is released. In most states, elected representatives in the state legislature are responsible for drawing the lines—including the districts for their own re-election. This time around, many states will have redistricting commissions for the first time, putting a bit more distance between the legislature and the process. And many states will be experimenting with collecting more and richer public input than ever before.
                 </p>
                 <p>Try your hand at redistricting! Make plans of your own and share them widely—in some cases, you can submit them as public input in your state.
                 </p>
               </div>
-              <div class="col2" style="background-color:purple;color:#fff;">
-                <span class="badge" style="background-color:purple;color:#fff;">District Video coming soon</span>
-                <img src="/assets/Paint_tool.gif" style="max-width:100%"/>
+              <div class="col2" style="background-color:#fff;">
+                <!-- <span class="badge" style="background-color:#b445b6;color:#fff;">District Video coming soon</span> -->
+                <img src="/assets/districting-plan.svg"/>
               </div>
             </section>
             <section class="l-content l-major-section">
-              <h3 style="color: red">You can draw your community.</h3>
+              <h3 style="color: #ff4f49">You can draw your community.</h3>
               <div class="col1">
                 <p>Communities of Interest (known as “COIs”) are groups or neighborhoods with significant shared interests that deserve consideration by representatives. Many states have rules that indicate that COIs should be kept whole by districting plans whenever possible.</p>
                 <p>But this has been one of the hardest to handle of all the priorities in the redistricting world—if you show up at a meeting to say your community matters, how does that information make its way to the line-drawers?</p>
                 <p>Districtr lets you put your community on the map (literally!) by marking places that matter to make your shared interests visible.</p>
               </div>
-              <div class="col2" style="background-color:red;color:#fff;">
-                COI Video
+              <div class="col2" style="background-color:#fff;">
+                <img src="/assets/community.svg"/>
               </div>
             </section>
             <a class="bookmark" name="map"></a>
@@ -227,10 +261,10 @@ a.bookmark {
                 class="start-districting hidden"
                 id="start-districting"
             ></section>
-            <section style="text-align:center">
+            <!-- <section style="text-align:center">
               <h3>Looking for somewhere else?</h3>
               <a href="/request">Request a new local module</a>
-            </section>
+            </section> -->
             <a class="bookmark" name="about"></a>
             <section class="l-content l-major-section">
               <h2>About Districtr</h2>
@@ -251,7 +285,7 @@ a.bookmark {
             </section>
             <section class="l-content l-major-section">
               <h3 style="color:darkblue">Still have questions?</h3>
-              <p>If you’d like a custom module for your locality, fill out our request form.
+              <p>If you’d like a custom module for your locality, fill out <a href="/request">our request form</a>.
               If you are interested in partnering with us or sponsoring a voting rights project, reach out to us at
               <a href="mailto:Districtr@mggg.org">Districtr@mggg.org</a>.</p>
 
@@ -261,7 +295,7 @@ a.bookmark {
                 <strong>Project Manager</strong>: Liz Kopecky<br/>
                 <strong>Lead Developers</strong>: Nick Doiron, JN Matthews<br/>
                 <strong>Lead Geographer</strong>: Heather Rosenfeld<br/>
-                <strong>Contributors</strong>: Eion Blanchard, Moon Duchin, Chris Gernon, Muniba Khan, Anthony Pizzimenti, Anna Schall, Lieu Zheng Hong, and many more<br/>
+                <strong>Contributors</strong>: Eion Blanchard, Moon Duchin, Chris Gernon, Muniba Khan, Zhenghong Lieu, Anthony Pizzimenti, Anna Schall, and many more<br/>
               </p>
             </section>
             <section class="l-content l-major-section">

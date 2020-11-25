@@ -14,7 +14,7 @@ export default function renderNewPlanView() {
     const target = document.getElementById("root");
     render(
         html`
-            <div class="start-districting start-districting--alone">
+            <div class="start-districting start-districting--alone" style="display:block">
                 <h1 class="start-districting__title section__heading">
                     Where would you like to start?
                 </h1>
