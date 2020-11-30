@@ -103,7 +103,7 @@ export default class Layer {
             filterStrings.push(["==", ["get", countyProp], fips]);
         } else {
             filterStrings.push([">=", ["get", countyProp], fips]);
-            filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);
+            filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || (String(fips)[0] === "0") || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);
         }
 
         this.map.querySourceFeatures(this.sourceId, {
