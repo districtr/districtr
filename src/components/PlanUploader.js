@@ -22,12 +22,8 @@ export default class PlanUploader {
     render() {
         return html`
             <div class="plan-loader">
-                <h3>...or, load an exported plan here:</h3>
+                <h4>Or to upload an exported JSON plan:</h4>
                 <input type="file" @change="${this.handleFiles}" />
-                <p>
-                    You can export a plan as a <code>.json</code> file using the
-                    "Export Plan" button in the editor.
-                </p>
             </div>
         `;
     }

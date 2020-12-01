@@ -4,6 +4,9 @@ import { client } from "../api/client";
 import { until } from "lit-html/directives/until";
 import { PlaceMapWithData } from "../components/PlaceMap";
 
+import PlanUploader from "../components/PlanUploader";
+import { loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
+
 function clearQueriesFromURL() {
     history.replaceState(
         {},
@@ -25,6 +28,16 @@ function renderInitialView() {
 
 export default () => {
     renderInitialView();
+
+    const uploadPlan = new PlanUploader(fileContent => {
+        loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
+            savePlanToStorage(context);
+            navigateTo("/edit");
+        });
+    });
+    render(uploadPlan.render(), document.getElementById("uploader"));
+
+
     initializeAuthContext(client).then(user => {
         clearQueriesFromURL();
         const signInHeader = document.getElementById("sign-in")

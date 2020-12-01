@@ -86,22 +86,6 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    if (spatial_abilities(state.place.id).coalition) {
-        const coalitionPivot = CoalitionPivotTable(
-            "Coalition Builder",
-            state.population,
-            state.place.name,
-            state.parts,
-            state.units,
-            false, // single total
-            true // districts
-        );
-        tab.addRevealSection("Coalition Builder", coalitionPivot, {
-            isOpen: true,
-            activePartIndex: 0
-        });
-    }
-
     if (state.plan.problem.type !== "community"
         && (spatial_abilities(state.place.id).contiguity)
         && (state.units.sourceId !== "ma_towns")
