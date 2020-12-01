@@ -13,12 +13,42 @@ export default function EvaluationPlugin(editor) {
     const tab = new Tab("evaluation", "Evaluation", editor.store);
 
     if (state.population.subgroups.length > 1) {
+        let mockColumnSet = state.population;
+        if (window.coalitionGroups) {
+            let coalitionSubgroup = {
+                data: [],
+                key: 'coal',
+                name: "Coalition population",
+                getAbbreviation: () => "Coalition",
+                getFractionInPart: function (p) {
+                    let fullsum = 0,
+                        selectSGs = state.population.subgroups.filter(sg => window.coalitionGroups[sg.key]);
+                    selectSGs.forEach(sg => {
+                        fullsum += sg.sum;
+                        sg.data.forEach((val, idx) => this.data[idx] = (this.data[idx] || 0) + val);
+                    });
+                    this.sum = fullsum;
+                    let portion = 0;
+                    selectSGs.forEach((selected) => {
+                        portion += selected.getFractionInPart(p);
+                    });
+                    return portion;
+                },
+                sum: 0,
+                total: mockColumnSet.subgroups[0].total
+            };
+            mockColumnSet = {
+                ...mockColumnSet,
+                subgroups: [].concat(mockColumnSet.subgroups).concat(coalitionSubgroup)
+            };
+        }
+
         tab.addRevealSection(
             "Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
                     "Population by Race",
-                    state.population,
+                    mockColumnSet,
                     state.activeParts,
                     uiState.charts["Population by Race"],
                     dispatch

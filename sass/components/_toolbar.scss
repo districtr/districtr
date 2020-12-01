@@ -504,3 +504,10 @@ li:first-child > input:checked ~ .tabs__tab {
      color: #ffffff;
      background-color: #305c91;
 }
+
+.coalition-table {
+    td:first-of-type {
+      background: rgba(0, 0, 0, 0.1) !important;
+      color: #000 !important;
+    }
+}

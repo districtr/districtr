@@ -120,7 +120,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units,
     visibleParts.forEach((p, i) => p.name = p.name || ("District " + (i + 1)));
 
     return html`
-        <section class="toolbar-section" style=${{ padding: totalOnly ? 0 : 10 }}>
+        <section class="toolbar-section coalition-table" style=${{ padding: totalOnly ? 0 : 10 }}>
             ${!totalOnly && visibleParts.length > 1
                 ? Parameter({
                       label: (districtView ? "District:" : "Community:"),
