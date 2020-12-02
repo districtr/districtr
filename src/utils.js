@@ -592,7 +592,7 @@ export function spatial_abilities (id) {
       },
         vabeach: {
           coalition: true,
-          // multiyear: true,
+          multiyear: true,
         },
       washington: {
         number_markers: true,

@@ -18657,6 +18657,11 @@
       },
       {
         "name": "City Council",
+        "numberOfParts": 10,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
         "numberOfParts": 11,
         "pluralNoun": "City Council Districts"
       }
