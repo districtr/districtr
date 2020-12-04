@@ -2088,41 +2088,6 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
-        "name": "See sample plans",
-        "nav": "Examples",
-        "type": "plans",
-        "ref": "pa",
-        "disc": "",
-        "plans": [
-          {
-            "title": "Enacted Plans",
-            "plans": [
-              {
-                "id": "congress_2011",
-                "name": "2011 Enacted Congressional Plan"
-              },
-              {
-                "id": "congress_2018_rem",
-                "name": "2018 Remedial Congressional Plan"
-              }
-            ]
-          },
-          {
-            "title": "Proposed Plans",
-            "plans": [
-              {
-                "id": "congress_gov",
-                "name": "Governor’s Proposed Congressional Plan"
-              },
-              {
-                "id": "congress_ts",
-                "name": "Turzai-Scarnati Proposed Congressional Plan"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
