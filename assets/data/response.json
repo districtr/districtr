@@ -15852,65 +15852,65 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "PERSONS",
-              "name": "Population",
-              "sum": 5686986,
+              "key": "TOTPOP",
+              "name": "Population from 2010 Census",
+              "sum": 5778601,
               "min": 0,
-              "max": 3905
+              "max": 4636
             },
             "subgroups": [
               {
                 "key": "WHITE",
-                "name": "White population",
+                "name": "White population from 2010 Census",
                 "sum": 4738411,
                 "min": 0,
                 "max": 3245
               },
               {
                 "key": "BLACK",
-                "name": "Black/African American population",
+                "name": "Black/African American population from 2010 Census",
                 "sum": 380660,
                 "min": 0,
                 "max": 2770
               },
               {
                 "key": "HISPANIC",
-                "name": "Population of Hispanic origin",
+                "name": "Population of Hispanic origin from 2010 Census",
                 "sum": 336056,
                 "min": 0,
                 "max": 2495
               },
               {
                 "key": "ASIAN",
-                "name": "Asian population",
+                "name": "Asian population from 2010 Census",
                 "sum": 143931,
                 "min": 0,
                 "max": 1475
               },
               {
                 "key": "AMINDIAN",
-                "name": "American Indian or Alaska Native population",
+                "name": "American Indian or Alaska Native population from 2010 Census",
                 "sum": 68593,
                 "min": 0,
                 "max": 771
               },
               {
                 "key": "PISLAND",
-                "name": "Native Hawaiian or other Pacific Islander population",
+                "name": "Native Hawaiian or other Pacific Islander population from 2010 Census",
                 "sum": 2639,
                 "min": 0,
                 "max": 23
               },
               {
                 "key": "OTHER",
-                "name": "Population of other race",
+                "name": "Population of other race from 2010 Census",
                 "sum": 5249,
                 "min": 0,
                 "max": 27
               },
               {
                 "key": "OTHERMLT",
-                "name": "Population of other multiple races",
+                "name": "Population of other multiple races from 2010 Census",
                 "sum": 11447,
                 "min": 0,
                 "max": 51
@@ -15919,6 +15919,7 @@
           },
           {
             "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "PREDEM16",
@@ -15934,14 +15935,11 @@
                 "min": 0,
                 "max": 1207
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Presidential",
             "subgroups": [
               {
                 "key": "PREDEM12",
@@ -15957,14 +15955,11 @@
                 "min": 0,
                 "max": 1356
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2016 Senate",
             "subgroups": [
               {
                 "key": "USSDEM16",
@@ -15980,14 +15975,11 @@
                 "min": 0,
                 "max": 1379
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2016
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Senate",
             "subgroups": [
               {
                 "key": "USSDEM12",
@@ -16003,14 +15995,11 @@
                 "min": 0,
                 "max": 1341
               }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2012
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2014 Governor",
             "subgroups": [
               {
                 "key": "GOVDEM14",
@@ -16026,14 +16015,11 @@
                 "min": 0,
                 "max": 1226
               }
-            ],
-            "metadata": {
-              "race": "Governor",
-              "year": 2014
-            }
+            ]
           },
           {
             "type": "election",
+            "name": "2012 Governor",
             "subgroups": [
               {
                 "key": "GOVDEM12",
@@ -16049,11 +16035,7 @@
                 "min": 0,
                 "max": 1252
               }
-            ],
-            "metadata": {
-              "race": "Governor",
-              "year": 2012
-            }
+            ]
           }
         ],
         "idColumn": {
@@ -16062,30 +16044,30 @@
         },
         "bounds": [
           [
-            -92.886697124409,
-            42.49192
+            -92.8894,
+            42.4919
           ],
           [
-            -86.805868,
-            47.037013
+            -86.764,
+            47.0808
           ]
         ],
         "tilesets": [
           {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.wisconsin_wards"
-            },
-            "sourceLayer": "wisconsin_wards"
-          },
-          {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.wisconsin_wards_points"
+              "url": "mapbox://districtr.wisconsin_d_wards_points"
             },
-            "sourceLayer": "wisconsin_wards_points"
+            "sourceLayer": "wisconsin_d_wards_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wisconsin_d_wards"
+            },
+            "sourceLayer": "wisconsin_d_wards"
           }
         ]
       },
