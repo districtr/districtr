@@ -16057,17 +16057,17 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.wisconsin_d_wards_points"
+              "url": "mapbox://districtr.wisconsin_v4_wards_points"
             },
-            "sourceLayer": "wisconsin_d_wards_points"
+            "sourceLayer": "wisconsin_v4_wards_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.wisconsin_d_wards"
+              "url": "mapbox://districtr.wisconsin_v4_wards"
             },
-            "sourceLayer": "wisconsin_d_wards"
+            "sourceLayer": "wisconsin_v4_wards"
           }
         ]
       },
