@@ -14,7 +14,7 @@ export default function EvaluationPlugin(editor) {
 
     if (state.population.subgroups.length > 1) {
         let mockColumnSet = state.population;
-        if (window.coalitionGroups) {
+        if (spatial_abilities(state.place.id).coalition) {
             let coalitionSubgroup = {
                 data: [],
                 key: 'coal',
@@ -39,7 +39,7 @@ export default function EvaluationPlugin(editor) {
             };
             mockColumnSet = {
                 ...mockColumnSet,
-                subgroups: [].concat(mockColumnSet.subgroups).concat(coalitionSubgroup)
+                subgroups: [].concat(mockColumnSet.subgroups.filter(x => x.total !== mockColumnSet.total_alt)).concat([coalitionSubgroup])
             };
         }
 

@@ -18,7 +18,7 @@ export default class OverlayContainer {
                 asMapboxExpression: () => ["get", this.subgroups[0].key],
                 fractionAsMapboxExpression: () => [
                     "case",
-                    ["==", ["get", this.subgroups[0].key], 0],
+                    ["==", ["get", columnSet.total.key], 0],
                         0,
                     [
                         "/",
@@ -26,12 +26,34 @@ export default class OverlayContainer {
                             .filter(sg => window.coalitionGroups[sg.key])
                             .map(sg => ["get", sg.key])
                         ),
-                        this.subgroups[0].total.asMapboxExpression()
+                        columnSet.total.asMapboxExpression()
                     ]
                 ],
-                // sum: fullsum,
-                total: columnSet.subgroups[0].total
+                total: columnSet.total
             });
+
+            if (multiYear) {
+                this.subgroups.push({
+                    key: "_COALITIONX",
+                    name: includeCoalition + " (2018)",
+                    columnSet: { type: "population" },
+                    asMapboxExpression: () => ["get", this.subgroups[0].key],
+                    fractionAsMapboxExpression: () => [
+                        "case",
+                        ["==", ["get", columnSet.total_alt.key], 0],
+                            0,
+                        [
+                            "/",
+                            ["+"].concat(this.subgroups
+                                .filter(sg => window.coalitionGroups[sg.key])
+                                .map(sg => ["get", sg.key + "X"])
+                            ),
+                            columnSet.total_alt.asMapboxExpression()
+                        ]
+                    ],
+                    total: columnSet.total_alt
+                });
+            }
         }
         this.firstOnly = firstOnly || false;
         this.multiYear = multiYear;
