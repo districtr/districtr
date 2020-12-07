@@ -196,8 +196,11 @@ export function loadPlanFromCSV(assignmentList, state) {
     }
     let planRecord = state;
     planRecord.assignment = {};
-    let districtIds = new Set(rows.map((row, index) => row.split(",")[1]));
-    if (headers) {districtIds.delete(rows[0].split(",")[1]);}
+
+    const delimiter = (state.place.id === "louisiana") ? ";" : ",";
+
+    let districtIds = new Set(rows.map((row, index) => row.split(delimiter)[1]));
+    if (headers) {districtIds.delete(rows[0].split(delimiter)[1]);}
     districtIds.delete(undefined);
 
     let distMap = Array.from(districtIds.values());
@@ -206,10 +209,11 @@ export function loadPlanFromCSV(assignmentList, state) {
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
+
     return listPlaces(state.place.id).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
-                let cols = row.split(","),
+                let cols = row.split(delimiter),
                     val = cols[1],
                     key = (isNaN(cols[0] * 1) || cols[0].match(/[^0-9]/) || cols[0][0] === "0")
                         ? cols[0]

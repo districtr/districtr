@@ -134,6 +134,9 @@ function exportPlanAsSHP(state) {
 }
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
+    if (state.place.id === "louisiana") {
+        delimiter = ";";
+    }
     let text = `"id-${state.place.id}-${state.units.id}-${state.problem.numberOfParts}`;
     text += `-${state.problem.pluralNoun.replace(/\s+/g, "")}"`;
     text += `${delimiter}assignment\n`;
