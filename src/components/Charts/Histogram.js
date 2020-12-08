@@ -1,12 +1,12 @@
 import { html } from "lit-html";
 import DataTable from "./DataTable";
 
-const fmtIncome = (label) => {
+const fmtIncome = (label, oneline) => {
    if (label.indexOf("in_") === 0) {
       if (label.includes("gt")) {
           return "> " + label.split("_")[2] + "k";
       } else {
-          return "$" + label.split("_")[1] + "- " + label.split("_")[2] + "k";
+          return "$" + label.split("_")[1] + "-" + (oneline ? "" : " ") + label.split("_")[2] + "k";
       }
    }
    return label;
@@ -96,7 +96,7 @@ export default (subgroups, parts, isAge, widthMultiplier) => {
         label: part.renderLabel(),
         entries: subgroups.map(subgroup => getColumn(subgroup, part, max[part.id], median[part.id], isAge, widthMultiplier))
             .concat([{
-                content: median[part.id] ? html`Median:<br/>${fmtIncome(median[part.id])}` : "",
+                content: median[part.id] ? html`Median:<br/>${fmtIncome(median[part.id], true)}` : "",
             }]
         )
     }));

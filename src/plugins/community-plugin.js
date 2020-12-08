@@ -40,20 +40,6 @@ export default function CommunityPlugin(editor) {
         });
     }
 
-    if (spatial_abilities(state.place.id).coalition) {
-        const coalitionPivot = CoalitionPivotTable(
-            "Coalition Builder",
-            state.population,
-            state.place.name,
-            state.parts,
-            state.units
-        );
-        evaluationTab.addRevealSection("Coalition Builder", coalitionPivot, {
-            isOpen: true,
-            activePartIndex: 0
-        });
-    }
-
     editor.toolbar.addTabFirst(tab);
     editor.toolbar.addTab(evaluationTab);
     editor.store.dispatch(actions.changeTab({ id: "community" }));
