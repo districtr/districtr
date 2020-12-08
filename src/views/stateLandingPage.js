@@ -173,11 +173,6 @@ const drawSection = (section, stateData, onlyCommunities) => {
                                                   <label for="${m.id}" class="${m.mode}">${m.name}</label>`)}
             </div>` : ""}
 
-            <div class="districts" style="float: right;">
-                <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Custom Template</label>
-            </div>
-
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
             <div id="community-options" class="communities"></div>
@@ -280,7 +275,7 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${document.getElementById("custom").checked
+            ${(document.getElementById("custom") && document.getElementById("custom").checked)
               ? customPlaceItemsTemplate(places, startNewPlan)
               : placeItemsTemplate(places, startNewPlan)
             }
@@ -372,7 +367,14 @@ const placeItemsTemplate = (places, onClick) =>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []);
+        .reduce((items, item) => [...items, ...item], []).concat([
+          html`<li>
+            <div style="padding-top:30px">
+                <input type="checkbox" id="custom" name="custom-selection">
+                <label for="custom">Custom Template</label>
+            </div>
+          </li>`
+        ]);
 
 const customPlaceItemsTemplate = (places, onClick) =>
     places.map(place =>
@@ -389,8 +391,8 @@ const customPlaceItemsTemplate = (places, onClick) =>
                         </div>
                         ${problemTypeInfo[problem.type] || ""}
                         <div class="place-info">
-                            <input 
-                              type="number" 
+                            <input
+                              type="number"
                               class="custom-input"
                               id="${place.id+"_customNumber"}"
                               @click="${e => e.stopPropagation()}"
@@ -406,5 +408,11 @@ const customPlaceItemsTemplate = (places, onClick) =>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []);
-
+        .reduce((items, item) => [...items, ...item], []).concat([
+          html`<li>
+            <div style="padding-top:30px">
+                <input type="checkbox" id="custom" name="custom-selection">
+                <label for="custom">Custom Template</label>
+            </div>
+          </li>`
+        ]);

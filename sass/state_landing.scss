@@ -153,15 +153,6 @@ input[type=checkbox]
 {
     display:none;
 }
-input[type=checkbox]:checked + label
-{
-    background-color:$districtr-dark-purple;
-}
-
-input[type=checkbox]:checked + label:hover
-{
-    background-color:$districtr-very-dark-purple;
-}
 
 input[type=radio]
 {
@@ -476,7 +467,7 @@ td {
   padding: 0.5rem;
 }
 
-caption { 
+caption {
   display: table-caption;
   text-align: top center;
   background: #000;
