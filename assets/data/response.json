@@ -29736,6 +29736,10 @@
            ]
          }
        ],
+       "nameColumn": {
+         "name": "County",
+         "key": "COUNTY"
+       },
        "idColumn": {
          "name": "Precinct code",
          "key": "unique"
