@@ -1543,6 +1543,8 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
+          {"name": "Nebraska Precints",
+           "content_source": "/assets/about/nebraska/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }

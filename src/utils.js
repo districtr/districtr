@@ -450,10 +450,11 @@ export function spatial_abilities (id) {
         number_markers: true,
       },
       nebraska: {
-        multiyear: true,
+        // multiyear: true,
+        // number_markers: true,
         native_american: true,
-        number_markers: true,
         county_brush: true,
+        absentee: true,
       },
       nevada: {
         multiyear: true,
