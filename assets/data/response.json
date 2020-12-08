@@ -29473,9 +29473,307 @@
    "name": "Nebraska",
    "units": [
      {
+       "id": "precincts",
+       "name": "Precincts",
+       "unitType": "Precincts",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "TOTPOP",
+             "name": "Total population",
+             "sum": 1826341,
+             "min": 0,
+             "max": 6784
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITE",
+               "name": "White population",
+               "sum": 1499753,
+               "min": 0,
+               "max": 5861
+             },
+             {
+               "key": "NH_BLACK",
+               "name": "Black population",
+               "sum": 80959,
+               "min": 0,
+               "max": 2034
+             },
+             {
+               "key": "HISP",
+               "name": "Hispanic population",
+               "sum": 167405,
+               "min": 0,
+               "max": 2865
+             },
+             {
+               "key": "NH_ASIAN",
+               "name": "Asian population",
+               "sum": 31919,
+               "min": 0,
+               "max": 978
+             },
+             {
+               "key": "NH_AMIN",
+               "name": "American Indian population",
+               "sum": 14797,
+               "min": 0,
+               "max": 1662
+             },
+             {
+               "key": "NH_NHPI",
+               "name": "Native Hawaiian and Pacific Islander population",
+               "sum": 966,
+               "min": 0,
+               "max": 21
+             },
+             {
+               "key": "NH_2MORE",
+               "name": "Two or more races",
+               "sum": 28426,
+               "min": 0,
+               "max": 246
+             },
+             {
+               "key": "NH_OTHER",
+               "name": "Other races",
+               "sum": 2116,
+               "min": 0,
+               "max": 37
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Voting Age Population",
+           "total": {
+             "key": "VAP",
+             "name": "Voting age population",
+             "sum": 1367120,
+             "min": 0,
+             "max": 6778
+           },
+           "subgroups": [
+             {
+               "key": "WVAP",
+               "name": "White voting age population",
+               "sum": 1166956,
+               "min": 0,
+               "max": 5858
+             },
+             {
+               "key": "BVAP",
+               "name": "Black voting age population",
+               "sum": 54981,
+               "min": 0,
+               "max": 1331
+             },
+             {
+               "key": "HVAP",
+               "name": "Hispanic voting age population",
+               "sum": 98221,
+               "min": 0,
+               "max": 1683
+             },
+             {
+               "key": "AMINVAP",
+               "name": "Native American voting age population",
+               "sum": 9637,
+               "min": 0,
+               "max": 916
+             },
+             {
+               "key": "NHPIVAP",
+               "name": "Native Hawaiian and Pacific Islander voting age population",
+               "sum": 686,
+               "min": 0,
+               "max": 11
+             },
+             {
+               "key": "ASIANVAP",
+               "name": "Asian voting age population",
+               "sum": 23417,
+               "min": 0,
+               "max": 836
+             },
+             {
+               "key": "OTHERVAP",
+               "name": "Other races voting age population",
+               "sum": 1046,
+               "min": 0,
+               "max": 17
+             },
+             {
+               "key": "2MOREVAP",
+               "name": "Two or more races voting age population",
+               "sum": 12176,
+               "min": 0,
+               "max": 111
+             }
+           ]
+         },
+         {
+           "type": "electionx",
+           "name": "2018 Governor",
+           "subgroups": [
+             {
+               "key": "GOV18R",
+               "name": "Republican",
+               "sum": 391444,
+               "min": 0,
+               "max": 1769
+             },
+             {
+               "key": "GOV18D",
+               "name": "Democratic",
+               "sum": 276244,
+               "min": 0,
+               "max": 1038
+             }
+           ]
+         },
+         {
+           "type": "electionx",
+           "name": "2018 US House",
+           "subgroups": [
+             {
+               "key": "USH18R",
+               "name": "Republican",
+               "sum": 410708,
+               "min": 0,
+               "max": 1842
+             },
+             {
+               "key": "USH18D",
+               "name": "Democratic",
+               "sum": 255646,
+               "min": 0,
+               "max": 1036
+             }
+           ]
+         },
+         {
+           "type": "electionx",
+           "name": "2018 Secretary of State",
+           "subgroups": [
+             {
+               "key": "SOS18R",
+               "name": "Republican",
+               "sum": 386768,
+               "min": 0,
+               "max": 1756
+             },
+             {
+               "key": "SOS18D",
+               "name": "Democratic",
+               "sum": 255016,
+               "min": 0,
+               "max": 1004
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2018 Governor",
+           "subgroups": [
+             {
+               "key": "GOV18RX",
+               "name": "Republican",
+               "sum": 412430,
+               "min": 0,
+               "max": 1769
+             },
+             {
+               "key": "GOV18DX",
+               "name": "Democratic",
+               "sum": 286274,
+               "min": 0,
+               "max": 1038
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2018 US House",
+           "subgroups": [
+             {
+               "key": "USH18RX",
+               "name": "Republican",
+               "sum": 432732,
+               "min": 0,
+               "max": 1842
+             },
+             {
+               "key": "USH18DX",
+               "name": "Democratic",
+               "sum": 264587,
+               "min": 0,
+               "max": 1036
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2018 Secretary of State",
+           "subgroups": [
+             {
+               "key": "SOS18RX",
+               "name": "Republican",
+               "sum": 407221,
+               "min": 0,
+               "max": 1756
+             },
+             {
+               "key": "SOS18DX",
+               "name": "Democratic",
+               "sum": 264054,
+               "min": 0,
+               "max": 1004
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Precinct code",
+         "key": "unique"
+       },
+       "bounds": [
+         [
+           -104.0535,
+           39.9999
+         ],
+         [
+           -95.3083,
+           43.0017
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.nebraska_precincts_points"
+           },
+           "sourceLayer": "nebraska_precincts_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.nebraska_precincts"
+           },
+           "sourceLayer": "nebraska_precincts"
+         }
+       ]
+     },
+     {
        "id": "blockgroups",
        "name": "Block Groups",
        "unitType": "Block Groups",
+       "limit": "community",
        "columnSets": [
          {
            "type": "population",
