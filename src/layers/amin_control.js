@@ -71,7 +71,7 @@ export function addAmerIndianLayer(tab, state) {
             }
             let name = space.properties.NAME;
             if (!knownNames.has(name)) {
-                shadeNames.push(["==", ["get", "NAME"], name]);
+                shadeNames.push(["==", ["get", "NAME"], name || ""]);
                 knownNames.add(name);
                 knownNames.add(`rgb(${r},${g},${b})`);
                 r += 6;
@@ -87,60 +87,59 @@ export function addAmerIndianLayer(tab, state) {
             }
         });
         shadeNames.push("#ddd");
+        console.log(shadeNames);
 
         state.map.addSource('nativeamerican', {
             type: 'geojson',
             data: geojson
         });
 
-        if (amin_type === "brown3" || amin_type === "shades") {
-            fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}_centroids.geojson`)
-                .then(res => res.json())
-                .then((centroids) => {
+        fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}_centroids.geojson`)
+            .then(res => res.json())
+            .then((centroids) => {
 
-                state.map.addSource('nat_centers', {
-                    type: 'geojson',
-                    data: centroids
-                });
-
-                nativeamerican_labels = new Layer(
-                    state.map,
-                    {
-                      id: 'nat-labels',
-                      type: 'symbol',
-                      source: 'nat_centers',
-                      layout: {
-                        'text-field': [
-                            'format',
-                            '\n',
-                            {},
-                            ['get', 'NAME'],
-                            {'font-scale': 0.75},
-                            '\n\n',
-                            {}
-                        ],
-                        'text-anchor': 'center',
-                        // 'text-ignore-placement': true,
-                        'text-radial-offset': 0,
-                        'text-justify': 'center'
-                      },
-                      paint: {
-                        'text-opacity': (startFill ? 1 : 0)
-                      }
-                    },
-                    addBelowLabels
-                );
-
-                nativeamerican = new Layer(
-                    state.map,
-                    {
-                        ...AMERINDIAN_LAYER,
-                        paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
-                    },
-                    addBelowLabels
-                );
+            state.map.addSource('nat_centers', {
+                type: 'geojson',
+                data: centroids
             });
-        }
+
+            nativeamerican_labels = new Layer(
+                state.map,
+                {
+                  id: 'nat-labels',
+                  type: 'symbol',
+                  source: 'nat_centers',
+                  layout: {
+                    'text-field': [
+                        'format',
+                        '\n',
+                        {},
+                        ['get', 'NAME'],
+                        {'font-scale': 0.75},
+                        '\n\n',
+                        {}
+                    ],
+                    'text-anchor': 'center',
+                    // 'text-ignore-placement': true,
+                    'text-radial-offset': 0,
+                    'text-justify': 'center'
+                  },
+                  paint: {
+                    'text-opacity': (startFill ? 1 : 0)
+                  }
+                },
+                addBelowLabels
+            );
+
+            nativeamerican = new Layer(
+                state.map,
+                {
+                    ...AMERINDIAN_LAYER,
+                    paint: { ...AMERINDIAN_LAYER.paint, "fill-opacity": startFill }
+                },
+                addBelowLabels
+            );
+        });
     });
 
     tab.addSection(
