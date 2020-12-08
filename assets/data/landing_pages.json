@@ -602,7 +602,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Hawaii Precints",
+          {"name": "Hawaii Precincts",
            "content_source": "/assets/about/hawaii/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}
@@ -1076,7 +1076,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Maine Precints",
+          {"name": "Maine Precincts",
            "content_source": "/assets/about/maine/precincts.html"},
         {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
@@ -1132,7 +1132,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Maryland Precints",
+          {"name": "Maryland Precincts",
            "content_source": "/assets/about/maryland/precincts.html"},
         {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
@@ -1543,7 +1543,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Nebraska Precints",
+          {"name": "Nebraska Precincts",
            "content_source": "/assets/about/nebraska/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
@@ -1622,7 +1622,7 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "New Hampshire Precints",
+          {"name": "New Hampshire Precincts",
            "content_source": "/assets/about/new-hampshire/precincts.html"},
           {"name": "Census Block Groups",
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
