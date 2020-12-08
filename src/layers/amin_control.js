@@ -87,7 +87,6 @@ export function addAmerIndianLayer(tab, state) {
             }
         });
         shadeNames.push("#ddd");
-        console.log(shadeNames);
 
         state.map.addSource('nativeamerican', {
             type: 'geojson',
