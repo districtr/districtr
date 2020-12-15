@@ -4,7 +4,14 @@ import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function submitRequest(payload) {
-    return client.post("/.netlify/functions/planRequest", payload);
+    return fetch("/.netlify/functions/planRequest", {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        "form-name": event.target.getAttribute("name"),
+        ...payload,
+      }).toString()
+    });
 }
 
 function onSubmit({
