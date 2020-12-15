@@ -199,7 +199,7 @@ export function loadPlanFromCSV(assignmentList, state) {
 
     const delimiter = (state.place.id === "louisiana") ? ";" : ",";
 
-    let districtIds = new Set(rows.map((row, index) => row.split(delimiter)[1]));
+    let districtIds = new Set(rows.map((row, index) => row.split(delimiter)[1].split("_")[0] ));
     if (headers) {districtIds.delete(rows[0].split(delimiter)[1]);}
     districtIds.delete(undefined);
 
@@ -214,7 +214,7 @@ export function loadPlanFromCSV(assignmentList, state) {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(delimiter),
-                    val = cols[1],
+                    val = cols[1].split("_"),
                     key = (isNaN(cols[0] * 1) || cols[0].match(/[^0-9]/) || cols[0][0] === "0")
                         ? cols[0]
                         : cols[0] * 1;
@@ -223,7 +223,8 @@ export function loadPlanFromCSV(assignmentList, state) {
                 }
 
                 if (key && val !== undefined) {
-                    planRecord.assignment[key] = distMap.indexOf(val);
+                    planRecord.assignment[key] = [];
+                    val.forEach(v => planRecord.assignment[key].push(distMap.indexOf(v)));
                 }
             }
         });

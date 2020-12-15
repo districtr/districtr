@@ -137,11 +137,12 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     if (state.place.id === "louisiana") {
         delimiter = ";";
     }
+    let srl = (assignment) => typeof assignment === "object" ? assignment.join("_") : assignment;
     let text = `"id-${state.place.id}-${state.units.id}-${state.problem.numberOfParts}`;
     text += `-${state.problem.pluralNoun.replace(/\s+/g, "")}"`;
     text += `${delimiter}assignment\n`;
     text += Object.keys(state.plan.assignment)
-        .map(unitId => `${unitId}${delimiter}${state.plan.assignment[unitId]}`)
+        .map(unitId => `${unitId}${delimiter}${srl(state.plan.assignment[unitId])}`)
         .join("\n");
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
