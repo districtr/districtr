@@ -34,11 +34,11 @@ function onSubmit({
     })
         .then(
             handleResponse({
-                201: () => {
+                200: () => {
                     document.getElementById("form").remove();
                     const message = document.getElementById("success-message");
                     message.innerText =
-                        "Success! You request has been submitted.";
+                        "Success! Your request has been submitted.";
                     message.classList.remove("hidden");
                     window.setTimeout(() => navigateTo("/"), 2000);
                 },
