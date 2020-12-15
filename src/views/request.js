@@ -4,12 +4,12 @@ import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function submitRequest(payload) {
-    return fetch("/.netlify/functions/planRequest", {
+    return fetch("/", {
       method: 'POST',
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
-        "form-name": "requestPlace",
         ...payload,
+        "form-name": "requestPlace",
       }).toString()
     });
 }
