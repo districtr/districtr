@@ -8,7 +8,7 @@ function submitRequest(payload) {
       method: 'POST',
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
-        "form-name": event.target.getAttribute("name"),
+        "form-name": "requestPlace",
         ...payload,
       }).toString()
     });
@@ -24,12 +24,10 @@ function onSubmit({
     info
 }) {
     submitRequest({
-        user: {
-            first: first.value,
-            last: last.value,
-            email: email.value,
-            organization: organization.value
-        },
+        first: first.value,
+        last: last.value,
+        email: email.value,
+        organization: organization.value,
         name: place.value,
         districtTypes: districtTypes.value,
         information: info.value
