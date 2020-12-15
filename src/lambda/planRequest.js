@@ -8,13 +8,18 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-      const data = JSON.parse(event.body),
+      const data = new URLSearchParams(event.body),
           plan = {
               _id: mongoose.Types.ObjectId(),
-              user: data.user,
-              name: data.name,
-              districtTypes: data.districtTypes,
-              information: data.information
+              user: {
+                first: data.get('first'),
+                last: data.get('last'),
+                email: data.get('email'),
+                organization: data.get('organization') || "",
+              },
+              name: data.get('name'),
+              districtTypes: data.get('districtTypes'),
+              information: data.get('information')
           };
 
       await Requested.create(plan)

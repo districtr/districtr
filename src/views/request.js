@@ -4,7 +4,14 @@ import { navigateTo } from "../routes";
 import { handleResponse } from "../utils";
 
 function submitRequest(payload) {
-    return client.post("/.netlify/functions/planRequest", payload);
+    return fetch("/", {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        ...payload,
+        "form-name": "requestPlace",
+      }).toString()
+    });
 }
 
 function onSubmit({
@@ -17,23 +24,21 @@ function onSubmit({
     info
 }) {
     submitRequest({
-        user: {
-            first: first.value,
-            last: last.value,
-            email: email.value,
-            organization: organization.value
-        },
+        first: first.value,
+        last: last.value,
+        email: email.value,
+        organization: organization.value,
         name: place.value,
         districtTypes: districtTypes.value,
         information: info.value
     })
         .then(
             handleResponse({
-                201: () => {
+                200: () => {
                     document.getElementById("form").remove();
                     const message = document.getElementById("success-message");
                     message.innerText =
-                        "Success! You request has been submitted.";
+                        "Success! Your request has been submitted.";
                     message.classList.remove("hidden");
                     window.setTimeout(() => navigateTo("/"), 2000);
                 },
