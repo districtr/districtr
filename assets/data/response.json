@@ -17072,26 +17072,6 @@
           },
           {
             "type": "election",
-            "name": "2017 House of Delegates",
-            "subgroups": [
-              {
-                "key": "G17RHOD",
-                "name": "Republican",
-                "sum": 1075834,
-                "min": 0,
-                "max": 1904
-              },
-              {
-                "key": "G17DHOD",
-                "name": "Democratic",
-                "sum": 1303185,
-                "min": 0,
-                "max": 2578
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2016 US House",
             "subgroups": [
               {
@@ -18012,26 +17992,6 @@
                 "sum": 1384412,
                 "min": 8,
                 "max": 2478
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2017 House of Delegates",
-            "subgroups": [
-              {
-                "key": "G17RHOD",
-                "name": "Republican",
-                "sum": 1075834,
-                "min": 0,
-                "max": 1904
-              },
-              {
-                "key": "G17DHOD",
-                "name": "Democratic",
-                "sum": 1303185,
-                "min": 0,
-                "max": 2578
               }
             ]
           },
