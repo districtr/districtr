@@ -550,6 +550,9 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
       },
+        puertorico_prec: {
+          number_markers: true,
+        },
       rhode_island: {
         number_markers: true,
       },
