@@ -8,7 +8,12 @@ import { divideOrZeroIfNaN } from "../utils";
  */
 const partyRGBColors = {
     Democratic: [25, 118, 210],
-    Republican: [211, 47, 47]
+    Republican: [211, 47, 47],
+
+    Independent: [11, 102, 35],
+    // PR
+    "Nuevo Progresista": [22, 22, 135],
+    "Popular Democrático": [254, 51, 51]
 };
 
 /**
@@ -125,7 +130,10 @@ function colorbyVoteShare(party, colorStops) {
     return [
         "interpolate",
         ["linear"],
-        party.fractionAsMapboxExpression(),
+        (["Democratic", "Republican"].includes(party.name)
+          ? party.fractionAsMapboxExpression()
+          : ["*", 1.2, party.fractionAsMapboxExpression()]
+        ),
         ...colorStops
     ];
 }

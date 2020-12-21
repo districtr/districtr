@@ -34970,49 +34970,49 @@
              },
              {
                "key": "H_WHITE",
-               "name": "Hispanic/White population",
+               "name": "Hispanic/ White population",
                "sum": 2798154,
                "min": 895,
                "max": 75842
              },
              {
                "key": "H_BLACK",
-               "name": "Hispanic/Black population",
+               "name": "Hispanic/ Black population",
                "sum": 456835,
                "min": 166,
                "max": 22066
              },
              {
                "key": "H_ASIAN",
-               "name": "Hispanic/Asian population",
+               "name": "Hispanic/ Asian population",
                "sum": 3901,
                "min": 0,
                "max": 382
              },
              {
                "key": "H_AMIN",
-               "name": "Hispanic/American Indian population",
+               "name": "Hispanic/ American Indian population",
                "sum": 19510,
                "min": 8,
                "max": 953
              },
              {
                "key": "H_NHPI",
-               "name": "Hispanic/Native Hawaiian and Pacific Islander population",
+               "name": "Hispanic/ Native Hawaiian and Pacific Islander population",
                "sum": 293,
                "min": 0,
                "max": 12
              },
              {
                "key": "H_2MORE",
-               "name": "Hispanic/Two or more races",
+               "name": "Hispanic/ Two or more races",
                "sum": 120883,
                "min": 86,
                "max": 4055
              },
              {
                "key": "H_OTHER",
-               "name": "Hispanic/Other races",
+               "name": "Hispanic/ Other races",
                "sum": 288879,
                "min": 68,
                "max": 8480
@@ -35275,49 +35275,49 @@
              },
              {
                "key": "H_WHITE",
-               "name": "Hispanic/White population",
+               "name": "Hispanic/ White population",
                "sum": 2798154,
                "min": 0,
                "max": 6601
              },
              {
                "key": "H_BLACK",
-               "name": "Hispanic/Black population",
+               "name": "Hispanic/ Black population",
                "sum": 456835,
                "min": 0,
                "max": 1669
              },
              {
                "key": "H_ASIAN",
-               "name": "Hispanic/Asian population",
+               "name": "Hispanic/ Asian population",
                "sum": 3901,
                "min": 0,
                "max": 72
              },
              {
                "key": "H_AMIN",
-               "name": "Hispanic/American Indian population",
+               "name": "Hispanic/ American Indian population",
                "sum": 19510,
                "min": 0,
                "max": 102
              },
              {
                "key": "H_NHPI",
-               "name": "Hispanic/Native Hawaiian and Pacific Islander population",
+               "name": "Hispanic/ Native Hawaiian and Pacific Islander population",
                "sum": 293,
                "min": 0,
                "max": 9
              },
              {
                "key": "H_2MORE",
-               "name": "Hispanic/Two or more races",
+               "name": "Hispanic/ Two or more races",
                "sum": 120883,
                "min": 0,
                "max": 467
              },
              {
                "key": "H_OTHER",
-               "name": "Hispanic/Other races",
+               "name": "Hispanic/ Other races",
                "sum": 288879,
                "min": 0,
                "max": 821
