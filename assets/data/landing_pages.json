@@ -1669,7 +1669,8 @@
     "state": "New Mexico",
     "code": "NM",
     "modules": [
-      {"name": "Statewide", "ids": ["new_mexico"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["new_mexico"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["santafe"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
