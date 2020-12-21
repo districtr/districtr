@@ -2139,7 +2139,10 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+           "content_source": "/assets/about/landing/community_blockgroups.html"},
+          {"name": "Precincts",
+           "content_source": "/assets/about/puerto-rico/precincts.html"}
+         ]
       }
     ]
   },
