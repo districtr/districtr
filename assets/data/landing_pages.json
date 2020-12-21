@@ -2111,7 +2111,7 @@
     "state": "Puerto Rico",
     "code": "PR",
     "modules": [
-      {"name": "Statewide", "ids": ["puertorico"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["puertorico", "puertorico_prec"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

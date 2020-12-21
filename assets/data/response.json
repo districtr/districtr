@@ -34904,6 +34904,311 @@
  {
    "units": [
      {
+       "id": "precincts",
+       "name": "Precincts",
+       "unitType": "Precincts",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "TOTPOP",
+             "name": "Total population",
+             "sum": 3725789,
+             "min": 1818,
+             "max": 94215
+           },
+           "subgroups": [
+             {
+               "key": "NH_WHITE",
+               "name": "NH/White population",
+               "sum": 26946,
+               "min": 16,
+               "max": 2084
+             },
+             {
+               "key": "NH_BLACK",
+               "name": "NH/Black population",
+               "sum": 4663,
+               "min": 0,
+               "max": 502
+             },
+             {
+               "key": "NH_ASIAN",
+               "name": "NH/Asian population",
+               "sum": 2930,
+               "min": 0,
+               "max": 242
+             },
+             {
+               "key": "NH_AMIN",
+               "name": "NH/American Indian population",
+               "sum": 329,
+               "min": 0,
+               "max": 23
+             },
+             {
+               "key": "NH_NHPI",
+               "name": "NH/Native Hawaiian and Pacific Islander population",
+               "sum": 77,
+               "min": 0,
+               "max": 7
+             },
+             {
+               "key": "NH_2MORE",
+               "name": "NH/Two or more races",
+               "sum": 1363,
+               "min": 0,
+               "max": 90
+             },
+             {
+               "key": "NH_OTHER",
+               "name": "NH/Other races",
+               "sum": 1026,
+               "min": 0,
+               "max": 51
+             },
+             {
+               "key": "H_WHITE",
+               "name": "Hispanic/White population",
+               "sum": 2798154,
+               "min": 895,
+               "max": 75842
+             },
+             {
+               "key": "H_BLACK",
+               "name": "Hispanic/Black population",
+               "sum": 456835,
+               "min": 166,
+               "max": 22066
+             },
+             {
+               "key": "H_ASIAN",
+               "name": "Hispanic/Asian population",
+               "sum": 3901,
+               "min": 0,
+               "max": 382
+             },
+             {
+               "key": "H_AMIN",
+               "name": "Hispanic/American Indian population",
+               "sum": 19510,
+               "min": 8,
+               "max": 953
+             },
+             {
+               "key": "H_NHPI",
+               "name": "Hispanic/Native Hawaiian and Pacific Islander population",
+               "sum": 293,
+               "min": 0,
+               "max": 12
+             },
+             {
+               "key": "H_2MORE",
+               "name": "Hispanic/Two or more races",
+               "sum": 120883,
+               "min": 86,
+               "max": 4055
+             },
+             {
+               "key": "H_OTHER",
+               "name": "Hispanic/Other races",
+               "sum": 288879,
+               "min": 68,
+               "max": 8480
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Voting Age Population",
+           "total": {
+             "key": "VAP",
+             "name": "Voting age population",
+             "sum": 2822494,
+             "min": 1403,
+             "max": 73156
+           },
+           "subgroups": [
+             {
+               "key": "WVAP",
+               "name": "NH/White voting age population",
+               "sum": 22299,
+               "min": 12,
+               "max": 1871
+             },
+             {
+               "key": "BVAP",
+               "name": "NH/Black voting age population",
+               "sum": 3805,
+               "min": 0,
+               "max": 436
+             },
+             {
+               "key": "HVAP",
+               "name": "Hispanic voting age population",
+               "sum": 2791782,
+               "min": 1259,
+               "max": 71932
+             },
+             {
+               "key": "AMINVAP",
+               "name": "NH/Native American voting age population",
+               "sum": 266,
+               "min": 0,
+               "max": 20
+             },
+             {
+               "key": "NHPIVAP",
+               "name": "NH/Native Hawaiian and Pacific Islander voting age population",
+               "sum": 63,
+               "min": 0,
+               "max": 5
+             },
+             {
+               "key": "ASIANVAP",
+               "name": "NH/Asian voting age population",
+               "sum": 2470,
+               "min": 0,
+               "max": 205
+             },
+             {
+               "key": "OTHERVAP",
+               "name": "NH/Other races voting age population",
+               "sum": 758,
+               "min": 0,
+               "max": 39
+             },
+             {
+               "key": "2MOREVAP",
+               "name": "NH/Two or more races voting age population",
+               "sum": 1051,
+               "min": 0,
+               "max": 80
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 Governor",
+           "subgroups": [
+             {
+               "key": "GOV16PPD",
+               "name": "Popular Democr\u00e1tico",
+               "sum": 614190,
+               "min": 478,
+               "max": 15089
+             },
+             {
+               "key": "GOV16PNP",
+               "name": "Nuevo Progresista",
+               "sum": 660510,
+               "min": 465,
+               "max": 16941
+             },
+             {
+               "key": "GOV16I",
+               "name": "Independent",
+               "sum": 266325,
+               "min": 196,
+               "max": 8884
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 Resident Commissioner",
+           "subgroups": [
+             {
+               "key": "RC16PNP",
+               "name": "Nuevo Progresista",
+               "sum": 718591,
+               "min": 488,
+               "max": 17910
+             },
+             {
+               "key": "RC16PPD",
+               "name": "Popular Democr\u00e1tico",
+               "sum": 695073,
+               "min": 489,
+               "max": 18699
+             }
+           ]
+         },
+         {
+           "type": "election",
+           "name": "2016 Mayor",
+           "subgroups": [
+             {
+               "key": "MAY16PNP",
+               "name": "Nuevo Progresista",
+               "sum": 766719,
+               "min": 469,
+               "max": 27285
+             },
+             {
+               "key": "MAY16PPD",
+               "name": "Popular Democr\u00e1tico",
+               "sum": 752354,
+               "min": 421,
+               "max": 25053
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Precinct code",
+         "key": "Code"
+       },
+       "bounds": [
+         [
+           -67.9542,
+           17.8813
+         ],
+         [
+           -65.221,
+           18.5161
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.puertorico_precincts_points"
+           },
+           "sourceLayer": "puertorico_precincts_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.puertorico_precincts"
+           },
+           "sourceLayer": "puertorico_precincts"
+         }
+       ]
+     }
+   ],
+   "id": "puertorico_prec",
+   "state": "Puerto Rico",
+   "name": "Puerto Rico",
+   "districtingProblems": [
+     {
+       "name": "House of Representatives of Puerto Rico",
+       "numberOfParts": 40,
+       "pluralNoun": "House Districts"
+     },
+     {
+       "name": "Senate of Puerto Rico",
+       "numberOfParts": 16,
+       "pluralNoun": "Senatorial Districts"
+     }
+   ]
+ },
+ {
+   "units": [
+     {
        "id": "blockgroups",
        "name": "Block Groups",
        "unitType": "Block Groups",
