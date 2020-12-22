@@ -6,7 +6,7 @@ import { divideOrZeroIfNaN } from "../utils";
 /**
  * Default color scheme for the two major parties.
  */
-const partyRGBColors = {
+export const partyRGBColors = {
     Democratic: [25, 118, 210],
     Republican: [211, 47, 47],
 

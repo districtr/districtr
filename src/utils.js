@@ -552,6 +552,7 @@ export function spatial_abilities (id) {
       },
         puertorico_prec: {
           number_markers: true,
+          parties: ["Nuevo Progresista", "Popular Democrático"],
         },
       rhode_island: {
         number_markers: true,

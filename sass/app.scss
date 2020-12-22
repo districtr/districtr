@@ -279,3 +279,13 @@ input, textarea {
     margin-left: 16px;
   }
 }
+
+li.party-desc {
+  span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+}
