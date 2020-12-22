@@ -5054,8 +5054,13 @@
         "pluralNoun": "Congressional Districts"
       },
       {
+        "numberOfParts": 50,
+        "name": "Iowa Senate",
+        "pluralNoun": "Legislative Districts"
+      },
+      {
         "numberOfParts": 100,
-        "name": "General Assembly",
+        "name": "Iowa House of Representatives",
         "pluralNoun": "Legislative Districts"
       }
     ],
@@ -8280,9 +8285,9 @@
         "name": "Congress"
       },
       {
-        "pluralNoun": "State Senate Districts",
+        "pluralNoun": "Legislative Districts",
         "numberOfParts": 47,
-        "name": "State Senate"
+        "name": "General Assembly"
       }
     ]
   },
@@ -9984,6 +9989,11 @@
         "name": "State Senate",
         "numberOfParts": 67,
         "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 134,
+        "pluralNoun": "State House Districts"
       }
     ],
     "units": [
@@ -11865,6 +11875,11 @@
         "pluralNoun": "State Senate Districts",
         "numberOfParts": 42,
         "name": "State Senate"
+      },
+      {
+        "pluralNoun": "State House Districts",
+        "numberOfParts": 70,
+        "name": "State House"
       }
     ]
   },
@@ -12062,6 +12077,11 @@
         "pluralNoun": "State Senate Districts",
         "numberOfParts": 42,
         "name": "State Senate"
+      },
+      {
+        "pluralNoun": "State House Districts",
+        "numberOfParts": 70,
+        "name": "State House"
       }
     ]
   },
@@ -13142,6 +13162,11 @@
         "numberOfParts": 50,
         "pluralNoun": "State Senate Districts",
         "name": "State Senate"
+      },
+      {
+        "numberOfParts": 120,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
       }
     ]
   },
@@ -18000,6 +18025,11 @@
         "pluralNoun": "State Senate Districts",
         "numberOfParts": 29,
         "name": "State Senate"
+      },
+      {
+        "pluralNoun": "State House Districts",
+        "numberOfParts": 75,
+        "name": "State House"
       }
     ],
     "id": "utah",
