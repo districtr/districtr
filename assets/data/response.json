@@ -5043,25 +5043,33 @@
             },
             "sourceLayer": "iowa_blockgroups"
           }
-        ],
-        "restrict": "Congressional Districts"
+        ]
       }
     ],
     "districtingProblems": [
       {
         "numberOfParts": 4,
         "name": "Congress",
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "units": [
+          "counties"
+        ]
       },
       {
         "numberOfParts": 50,
-        "name": "Iowa Senate",
-        "pluralNoun": "Legislative Districts"
+        "name": "State Senate",
+        "pluralNoun": "State Senate Districts",
+        "units": [
+          "blockgroups"
+        ]
       },
       {
         "numberOfParts": 100,
-        "name": "Iowa House of Representatives",
-        "pluralNoun": "Legislative Districts"
+        "name": "State House",
+        "pluralNoun": "State House Districts",
+        "units": [
+          "blockgroups"
+        ]
       }
     ],
     "name": "Iowa"
@@ -16306,6 +16314,11 @@
         "numberOfParts": 99,
         "pluralNoun": "State Assembly Districts",
         "name": "State Assembly"
+      },
+      {
+        "numberOfParts": 33,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
       }
     ]
   },
