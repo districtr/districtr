@@ -337,10 +337,7 @@ const placeItemsTemplate = (places, onClick) =>
             return a.numberOfParts - b.numberOfParts;
         })
         .map(problem =>
-            getUnits(place, problem).filter(units => {
-              // block Iowa / US Congress x blockgroups
-              return !units.restrict || units.restrict !== problem.pluralNoun
-            }).map(
+            getUnits(place, problem).map(
                 units => html`
                     <li
                         class="${place.id} places-list__item places-list__item--small"

@@ -32,7 +32,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Communities";
     } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Tribes";
-    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin"].includes(state.place.id)) {
+    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
@@ -58,7 +58,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
-    fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}.geojson`)
+    fetch(`/assets/native_official/${state.place.id.replace("_bg", "").replace("2020", "")}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -93,7 +93,7 @@ export function addAmerIndianLayer(tab, state) {
             data: geojson
         });
 
-        fetch(`/assets/native_official/${state.place.id.replace("_bg", "")}_centroids.geojson`)
+        fetch(`/assets/native_official/${state.place.id.replace("_bg", "").replace("2020", "")}_centroids.geojson`)
             .then(res => res.json())
             .then((centroids) => {
 
