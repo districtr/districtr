@@ -12,8 +12,8 @@ export const partyRGBColors = {
 
     Independent: [11, 102, 35],
     // PR
-    "Nuevo Progresista": [22, 22, 135],
-    "Popular Democrático": [254, 51, 51]
+    "Nuevo Progresista": [102, 102, 204],
+    "Popular Democrático": [255, 102, 51]
 };
 
 /**

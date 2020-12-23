@@ -428,8 +428,8 @@ export default function DataLayersPlugin(editor) {
             () => html`
                 ${(spatial_abilities(state.place.id).parties || []).map((p) =>
                   html`<li class="party-desc">
-                    <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.7)"></span>
-                    ${p}
+                    <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
+                    <span>${p}</span>
                   </li>`
                 )}
                 <div class="option-list__item">

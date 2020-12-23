@@ -280,12 +280,13 @@ input, textarea {
   }
 }
 
-li.party-desc {
-  span {
+li.party-desc span {
+  vertical-align: middle;
+
+  &:first-child {
     display: inline-block;
     width: 15px;
     height: 15px;
     margin-right: 8px;
-    vertical-align: middle;
   }
 }
