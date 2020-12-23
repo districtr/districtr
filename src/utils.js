@@ -407,6 +407,7 @@ export function spatial_abilities (id) {
       },
       louisiana: {
         native_american: true,
+        vra_effectiveness: true,
         // county_brush: true, // lakes
         number_markers: true,
         contiguity: 2,

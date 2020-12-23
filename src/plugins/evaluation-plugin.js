@@ -3,6 +3,7 @@ import ElectionResultsSection from "../components/Charts/ElectionResultsSection"
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import ContiguitySection from "../components/Charts/ContiguitySection";
+import VRAEffectivenessTable from "../components/Charts/VRATable";
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
@@ -138,5 +139,24 @@ export default function EvaluationPlugin(editor) {
 
     if (tab.sections.length > 0) {
         toolbar.addTab(tab);
+    }
+
+    if (state.plan.problem.type !== "community"
+        && (spatial_abilities(state.place.id).vra_effectiveness)
+        && (state.units.sourceId !== "ma_towns")
+    ) {
+        tab.addRevealSection(
+            "VRA Effectiveness",
+            (uiState, dispatch) =>
+                VRAEffectivenessTable(
+                    state.parts,
+                    state.vra_effectiveness,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: false
+            }
+        );
     }
 }
