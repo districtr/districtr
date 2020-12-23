@@ -303,10 +303,12 @@ export function spatial_abilities (id) {
         ccsanitation: {
           screenshot: true,
           // multiyear: true,
+          shapefile: true,
         },
         ccsanitation2: {
           screenshot: true,
           multiyear: true,
+          shapefile: true,
         },
       chicago: {
         number_markers: true,
@@ -430,6 +432,7 @@ export function spatial_abilities (id) {
           neighborhoods: true,
           contiguity: 2,
           number_markers: true,
+          shapefile: true,
         },
       miamifl: {
         number_markers: true,
