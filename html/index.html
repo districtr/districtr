@@ -94,6 +94,29 @@ ul#nav li a {
 }
 h2 {
   margin-left: 0;
+  vertical-align: middle;
+}
+@media (max-device-width:900px) {
+  section {
+    text-align: center;
+  }
+  section p {
+    text-align: left;
+  }
+  .headerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2, .mobilehide {
+    display: none;
+  }
+  h2 {
+    margin-left: 0;
+  }
 }
 @media (min-width:1000px) {
   h2 {
@@ -150,6 +173,12 @@ strong {
 #uploader {
   margin-top: -30px;
   margin-bottom: -10px;
+}
+.headerimg {
+  display: inline-block;
+  width: 165px;
+  vertical-align: middle;
+  margin-left: 20px;
 }
         </style>
     </head>
@@ -214,8 +243,10 @@ strong {
               </h2>
             </section>
             <section class="l-content l-major-section">
-                <div class="col1">
-                  <h2>Step up and help shape our democracy!</h2>
+                <div>
+                  <h2>Help shape our democracy!</h2>
+                  <span class="mobilehide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <img class="headerimg" src="/assets/home-hands.png" alt="hands showing community participation"/>
                   <p>
                     Redistricting is dividing up a jurisdiction (like a state, county, or city) into pieces that elect representatives. Where and how the lines are drawn influences everything from who has a shot at getting elected to how resources get allocated.
                   </p>
@@ -226,13 +257,17 @@ strong {
                   </p>
                 </div>
                 <div class="col2" style="text-align:right">
-                  <img src="/assets/home-hands.png" alt="hands showing community participation"/>
                 </div>
             </section>
             <a class="bookmark" name="how"></a>
             <section class="l-content l-major-section">
-              <div class="col1">
+              <div class="col1" style="width:100%">
                 <h2>Use this tool to amplify your voice</h2>
+                <img class="headerimg" src="/assets/home-megaphone.png" alt="megaphone"/>
+              </div>
+            </section>
+            <section class="l-content l-major-section">
+              <div class="col1" style="margin-top:-25px">
                 <h3 style="color: #b445b6">You can draw districts.</h3>
                 <p>In the U.S., there’s a big redistricting cycle every 10 years after new Census data is released. In most states, elected representatives in the state legislature are responsible for drawing the lines—including the districts for their own re-election. This time around, many states will have redistricting commissions for the first time, putting a bit more distance between the legislature and the process. And many states will be experimenting with collecting more and richer public input than ever before.
                 </p>
@@ -241,7 +276,7 @@ strong {
               </div>
               <div class="col2" style="background-color:#fff;">
                 <!-- <span class="badge" style="background-color:#b445b6;color:#fff;">District Video coming soon</span> -->
-                <img src="/assets/home-megaphone.png" alt="megaphone"/>
+                <img src="/assets/districting-plan.svg" style="width:65%"/>
               </div>
             </section>
             <section class="l-content l-major-section">
@@ -252,7 +287,7 @@ strong {
                 <p>Districtr lets you put your community on the map (literally!) by marking places that matter to make your shared interests visible.</p>
               </div>
               <div class="col2" style="background-color:#fff;">
-                <img src="/assets/community.svg" style="width:75%"/>
+                <img src="/assets/community.svg" style="width:65%"/>
               </div>
             </section>
             <a class="bookmark" name="map"></a>
