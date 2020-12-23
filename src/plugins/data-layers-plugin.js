@@ -14,6 +14,7 @@ import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addCurrentDistricts } from "../layers/current_districts";
 import { spatial_abilities } from "../utils";
+import { partyRGBColors } from "../layers/color-rules";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
@@ -425,6 +426,12 @@ export default function DataLayersPlugin(editor) {
         );
         tab.addRevealSection('Previous Elections',
             () => html`
+                ${(spatial_abilities(state.place.id).parties || []).map((p) =>
+                  html`<li class="party-desc">
+                    <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
+                    <span>${p}</span>
+                  </li>`
+                )}
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>
