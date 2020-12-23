@@ -424,6 +424,7 @@ export function spatial_abilities (id) {
       },
       ma: {
         number_markers: true,
+        shapefile: true,
       },
         lowell: {
           neighborhoods: true,
@@ -468,6 +469,7 @@ export function spatial_abilities (id) {
         multiyear: true,
         native_american: true,
         number_markers: true,
+        shapefile: true,
       },
       napa: {
         number_markers: true,
@@ -669,6 +671,7 @@ export function spatial_abilities (id) {
           // number_markers: true,
           // county_brush: true,
           native_american: true,
+          shapefile: true,
         },
       wyoming: {
         multiyear: true,
