@@ -61,7 +61,7 @@ export default class AboutSection {
                 <li class="option-list__item">
                     ${parts.length > 0
                         ? Parameter({
-                              label: "Community:",
+                              label: "Select",
                               element: html`<div class="custom-select-wrapper">
                                       <div class="custom-select">
                                           <div
@@ -112,10 +112,10 @@ function AboutSectionTemplate({
                 />
             </li>
             <li class="option-list__item">
-                <label class="ui-label">Description</label>
+                <label class="ui-label"></label>
                 <textarea
                     class="text-input text-area"
-                    placeholder="Tell us about it... \nWhat defines this community?"
+                    placeholder="Describe this community"
                     @blur=${e => setDescription(e.target.value)}
                     @input=${e => setDescription(e.target.value)}
                     .value="${description}"
