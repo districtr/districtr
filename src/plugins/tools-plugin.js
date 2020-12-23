@@ -169,10 +169,10 @@ function getMenuItems(state) {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
-        (spatial_abilities(state.place.id).contiguity || spatial_abilities(state.place.id).screenshot) ?  {
+        (spatial_abilities(state.place.id).shapefile ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
-        } : null,
+        } : null),
         {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
