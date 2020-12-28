@@ -16487,7 +16487,6 @@
               }
             ]
           },
-
           {
             "type": "election",
             "name": "2016 US Senate",
@@ -16545,66 +16544,6 @@
                 "sum": 1295084,
                 "min": 0,
                 "max": 1304
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 US House",
-            "subgroups": [
-              {
-                "key": "USH14D",
-                "name": "Democratic",
-                "sum": 1102581,
-                "min": 0,
-                "max": 2046
-              },
-              {
-                "key": "USH14R",
-                "name": "Republican",
-                "sum": 1233341,
-                "min": 0,
-                "max": 1199
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 US House",
-            "subgroups": [
-              {
-                "key": "USH16D",
-                "name": "Democratic",
-                "sum": 1379998,
-                "min": 0,
-                "max": 2469
-              },
-              {
-                "key": "USH16R",
-                "name": "Republican",
-                "sum": 1270448,
-                "min": 0,
-                "max": 1414
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 US House",
-            "subgroups": [
-              {
-                "key": "USH18D",
-                "name": "Democratic",
-                "sum": 1367497,
-                "min": 0,
-                "max": 2823
-              },
-              {
-                "key": "USH18R",
-                "name": "Republican",
-                "sum": 1172993,
-                "min": 0,
-                "max": 1276
               }
             ]
           },
@@ -16667,27 +16606,7 @@
             "max": 1257
           }
         ]
-        },
-        {
-        "type": "election",
-        "name": "2012 US House",
-        "subgroups": [
-          {
-            "key": "USH12D",
-            "name": "Democratic",
-            "sum": 1445015,
-            "min": 0,
-            "max": 2298
-          },
-          {
-            "key": "USH12R",
-            "name": "Republican",
-            "sum": 1401995,
-            "min": 0,
-            "max": 1201
-          }
-        ]
-          }
+        }
         ],
         "idColumn": {
           "name": "Ward FIPS code",
