@@ -42,10 +42,12 @@ export default function VRAEffectivenessTable(
     state,
     dispatch
 ) {
-    console.log("VRA:")
-    console.log(effectiveness);
-    const subgroups = [{"name": "Black", "values": pid => pid in Object.keys(effectiveness) ? effectiveness[pid][0] : 0}, 
-                       {"name": "Other", "values": pid => pid in Object.keys(effectiveness) ? effectiveness[pid][1] : 0}]
+    const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: [0,0]}), {});
+    const e_scores = {...def_values, ...effectiveness};
+    console.log(e_scores)
+
+    const subgroups = [{"name": "Black", "values": pid => e_scores[pid][0]}, 
+                       {"name": "Other", "values": pid => e_scores[pid][1]}]
     return html`
         <section class="toolbar-section">
             ${getTable(subgroups, parts)}
