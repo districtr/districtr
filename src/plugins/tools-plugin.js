@@ -10,6 +10,7 @@ import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
+import VRAEffectiveness from "../map/vra_effectiveness"
 import { renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
@@ -31,6 +32,10 @@ export default function ToolsPlugin(editor) {
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
+    let vraEffectiveness = (spatial_abilities(state.place.id).vra_effectiveness && state.problem.type !== "community")
+                         ? VRAEffectiveness(state, brush)
+                         : null;
+
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
@@ -39,6 +44,10 @@ export default function ToolsPlugin(editor) {
         savePlanToStorage(state.serialize());
         if (c_checker) {
             c_checker(state, colorsAffected);
+        }
+
+        if (vraEffectiveness) {
+            vraEffectiveness(state, colorsAffected);
         }
 
         if (planNumbers) {
