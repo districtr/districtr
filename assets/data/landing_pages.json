@@ -1732,7 +1732,7 @@
     "code": "NY",
     "modules": [
       {"name": "Statewide", "ids": ["newyork"], "id": "state", "default": "true"},
-      {"name": "Cities", "ids": ["islip"], "id": "loc"}],
+      {"name": "Cities", "ids": ["islip", "ithacany"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
