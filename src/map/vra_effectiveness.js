@@ -1,4 +1,6 @@
-export default function VRAEffectiveness(state, brush) {
+// import Tabs from "../components/Tabs";
+
+export default function VRAEffectiveness(state, brush, toolbar) {
     let place = state.place.id,
       extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
   if (state.units.sourceId === "ma_towns") {
@@ -35,8 +37,11 @@ export default function VRAEffectiveness(state, brush) {
       .then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
-        // console.log(data);
+        
+        console.log(data);
         state.vra_effectiveness = data;
+        const vratab = toolbar.tabs.find(t => t.id === "vra")
+        console.log(vratab)
       });
   };
   vraupdater(state);

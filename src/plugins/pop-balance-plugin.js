@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Tab } from "../components/Tab";
+import { spatial_abilities } from "../utils";
 import HighlightUnassigned from "../components/Charts/HighlightUnassigned";
 import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
 import populationBarChart from "../components/Charts/PopulationBarChart";
@@ -9,7 +10,8 @@ import unassignedPopulation from "../components/Charts/UnassignedPopulation";
 export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
     const state = editor.state;
-    const tab = new Tab("criteria", "Population", editor.store);
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const tab = new Tab("criteria", showVRA ? "Pop" : "Population", editor.store);
 
     if (problem.type === "multimember") {
         tab.addRevealSection(

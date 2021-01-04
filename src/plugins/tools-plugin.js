@@ -11,12 +11,13 @@ import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import VRAEffectiveness from "../map/vra_effectiveness"
-import { renderAboutModal, renderSaveModal } from "../components/Modal";
+import { renderVRAAboutModal, renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const brush = (state.problem.type === 'community')
         ? new CommunityBrush(state.units, 20, 0)
         : new Brush(state.units, 20, 0);
@@ -32,9 +33,7 @@ export default function ToolsPlugin(editor) {
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
-    let vraEffectiveness = (spatial_abilities(state.place.id).vra_effectiveness && state.problem.type !== "community")
-                         ? VRAEffectiveness(state, brush)
-                         : null;
+    let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
     let planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
@@ -102,6 +101,16 @@ export default function ToolsPlugin(editor) {
     });
 
     // show about modal on startup by default
+
+    if (showVRA) {
+        try {
+            renderVRAAboutModal(state.place);
+        }
+        catch(e) {
+            // likely no About page exists - silently fail to console
+            console.error(e);
+        }
+    }
     // exceptions if you last were on this map, or set 'dev' in URL
     // try {
     //     if ((window.location.href.indexOf("dev") === -1) &&

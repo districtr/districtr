@@ -112,3 +112,29 @@ export function renderAboutModal({ place, unitsRecord }, userRequested) {
     );
     render(template, target);
 }
+
+export function renderVRAAboutModal(place) {
+    const target = document.getElementById("modal");
+    const template = until(
+        fetch(`/assets/about/vra/precomputation_${place.id}.html`)
+            .then((r) => {
+                if (r.status === 200) {
+                    return r.text();
+                } else if (userRequested) {
+                    return "No About Page exists for this project";
+                } else {
+                    throw new Error(r.statusText);
+                }
+            })
+            .then(
+                content => renderModal(
+                    html`
+                        <h2 class="media__title">${place.name}</h2>
+                        ${html([content])}
+                    `
+                )
+            ),
+        ""
+    );
+    render(template, target);
+}

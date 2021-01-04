@@ -18,7 +18,8 @@ import { partyRGBColors } from "../layers/color-rules";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const tab = new LayerTab("layers", "Data Layers", editor.store);
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
     const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
 
