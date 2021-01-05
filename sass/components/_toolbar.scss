@@ -363,24 +363,8 @@ li:first-child > input:checked ~ .tabs__tab {
     @include user-select(none);
 }
 
-.mapbox-gl-draw_point {
-    background-color: rgb(250, 250, 120) !important;
-
-    .tool-options & {
-        height: 29px;
-        width: 29px;
-        border-radius: 6px;
-        margin-left: 15px;
-    }
-
-    &::after {
-        content: '+';
-        position: absolute;
-        font-size: 13px;
-        color: darkgreen;
-        font-weight: bold;
-        margin-left: 3px;
-    }
+.mapbox-gl-draw_point, .mapboxgl-ctrl-top-right {
+    visibility: hidden;
 }
 
 .custom-select-wrapper {
@@ -510,4 +494,36 @@ li:first-child > input:checked ~ .tabs__tab {
       background: rgba(0, 0, 0, 0.1) !important;
       color: #000 !important;
     }
+}
+
+.landmark-list {
+  padding-inline-start: 0;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+  border-radius: 6px;
+
+  li {
+    list-style-type: none;
+    border: 1px solid silver;
+    padding: 8px;
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .marker-name {
+      text-overflow: ellipsis;
+      font-weight: bold;
+      display: inline-block;
+      white-space: nowrap;
+      max-width: 230px;
+      overflow-x: hidden;
+    }
+
+    .marker-expand {
+      float: right;
+    }
+  }
 }
