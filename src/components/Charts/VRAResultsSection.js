@@ -38,7 +38,7 @@ function getRankCell(elect, width) {
     const moveon = place === 2 && elect.FirstPlace[1] < 0.5
     const background = place === 1 ? "limegreen" : (moveon ? "yellow" : "white");
     return {
-        content: `${place < 3 ? place : X}`,
+        content: `${place < 3 ? place : "X"}`,
         style: `background: ${background}; color: black; width: ${width}`
     };
 }
