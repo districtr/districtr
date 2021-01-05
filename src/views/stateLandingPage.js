@@ -6,6 +6,7 @@ import { until } from "lit-html/directives/until";
 
 export default () => {
     var curState = document.head.id;
+    const vraPage = curState === "VRA";
     // document.title = curState.concat(" | Districtr");
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
@@ -20,24 +21,25 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
-            const vraFutures = curState === "VRA" ? stateData.states.map(st => listPlacesForState(st, true)) : null
-            const statePlaces = curState === "VRA" ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
+            
+            const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
+            const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
 
             statePlaces.then(ps => {
-                let places = curState === "VRA" ? ps.flat(1) : ps;
+                let places = vraPage ? ps.flat(1) : ps;
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
                 let onlyCommunityMode = districtingPlaces.length == 0;
 
                 // render page
-                render(drawPage(stateData, onlyCommunityMode, curState === "VRA"), document.getElementsByClassName("place__content")[0]);
+                render(drawPage(stateData, onlyCommunityMode, vraPage), document.getElementsByClassName("place__content")[0]);
 
                 // build a plan options
                 if (!onlyCommunityMode) {
                      const target = document.getElementById("districting-options");
                      render(districtingOptions(districtingPlaces), target);
                 }
-                if (curState !== "VRA") {
+                if (!vraPage) {
                     const commtarget = document.getElementById("community-options");
                     render(communityOptions(places), commtarget);
                 }
