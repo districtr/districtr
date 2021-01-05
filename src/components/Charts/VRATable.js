@@ -27,7 +27,7 @@ function getCell(subgroup, part, width, decimals) {
 }
 
 function getTable(subgroups, parts, decimals=true) {
-    const width = `${Math.round(81 / subgroups.length)}%`;
+    const width = `${Math.round(41 / subgroups.length)}%`;
     const headers = subgroups.map(subgroup => subgroup.name);
     let rows = parts.map(part => ({
         label: part.renderLabel(),
@@ -48,7 +48,7 @@ export default function VRAEffectivenessTable(
     const e_scores = {...def_values, ...part_scores};
     // console.log(e_scores)
 
-    const subgroups = [{"name": "Black", "values": pid => e_scores[pid][0]}]
+    const subgroups = [{"name": "Black Effectiveness Score", "values": pid => e_scores[pid][0]}]
     return html`
         <section class="toolbar-section">
             ${getTable(subgroups, parts)}

@@ -11,7 +11,7 @@ export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
     const state = editor.state;
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
-    const tab = new Tab("criteria", showVRA ? "Pop" : "Population", editor.store);
+    const tab = new Tab("criteria", showVRA ? "Pop." : "Population", editor.store);
 
     if (problem.type === "multimember") {
         tab.addRevealSection(

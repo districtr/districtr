@@ -269,6 +269,13 @@ input, textarea {
     }
 }
 
+.vra {
+    .toolbar {
+        width: 30% !important;
+        max-width: 30% !important;
+    }
+}
+
 .contiguity-label {
   label, input {
     cursor: pointer;

@@ -20,25 +20,27 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
+            const vraFutures = curState === "VRA" ? stateData.states.map(st => listPlacesForState(st, true)) : null
+            const statePlaces = curState === "VRA" ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
 
-
-
-            listPlacesForState(stateData.state, true).then(places => {
+            statePlaces.then(ps => {
+                let places = curState === "VRA" ? ps.flat(1) : ps;
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
                 let onlyCommunityMode = districtingPlaces.length == 0;
 
                 // render page
-                render(drawPage(stateData, onlyCommunityMode), document.getElementsByClassName("place__content")[0]);
+                render(drawPage(stateData, onlyCommunityMode, curState === "VRA"), document.getElementsByClassName("place__content")[0]);
 
                 // build a plan options
                 if (!onlyCommunityMode) {
                      const target = document.getElementById("districting-options");
                      render(districtingOptions(districtingPlaces), target);
                 }
-
-                const commtarget = document.getElementById("community-options");
-                render(communityOptions(places), commtarget);
+                if (curState !== "VRA") {
+                    const commtarget = document.getElementById("community-options");
+                    render(communityOptions(places), commtarget);
+                }
                 $(".places-list__item").hide();
                 def.ids.map(id => $("." + id).show());
 
@@ -118,12 +120,12 @@ const navLinks = (sections, placeIds) =>
         </li>
     `]);
 
-const drawPage = (stateData, onlyCommunities) => {
+const drawPage = (stateData, onlyCommunities, vra) => {
     return html`
 
         <h1 class="headline place__name"> ${stateData.state} </h1>
 
-        ${onlyCommunities ? html``
+        ${onlyCommunities || vra ? html``
                           : html`<div class="place-options places-list">
                                      <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
                                      <label for="districts" class="mode-selection">Draw Districts</label>

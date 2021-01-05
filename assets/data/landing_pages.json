@@ -2840,5 +2840,34 @@
            "content_source": "/assets/about/landing/community_blockgroups.html"}]
       }
     ]
+  },
+  {
+    "state": "VRA",
+    "code": "VRA",
+    "states": ["Louisiana"],
+    "modules": [
+      {"name": "Louisiana", "ids": ["louisiana"], "default": "true", "id": "la"}],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "VRA Effectiveness in Lousisiana",
+        "nav": "LA",
+        "type": "text",
+        "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": []
+      }
+    ]
   }
 ]

@@ -102,15 +102,6 @@ export default function ToolsPlugin(editor) {
 
     // show about modal on startup by default
 
-    if (showVRA) {
-        try {
-            renderVRAAboutModal(state.place);
-        }
-        catch(e) {
-            // likely no About page exists - silently fail to console
-            console.error(e);
-        }
-    }
     // exceptions if you last were on this map, or set 'dev' in URL
     // try {
     //     if ((window.location.href.indexOf("dev") === -1) &&
@@ -172,16 +163,6 @@ function getMenuItems(state) {
             name: "About this map",
             onClick: () => window.open("/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'), "_blank")
         },
-        (showVRA ? {
-            name: "About VRA Effectiveness",
-            onClick: () => {try {
-                                    renderVRAAboutModal(state.place);
-                                }
-                                catch(e) {
-                                    // likely no About page exists - silently fail to console
-                                    console.error(e);
-                                }}
-        } : null),
         {
             name: "Districtr homepage",
             onClick: () => {

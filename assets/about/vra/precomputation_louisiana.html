@@ -1,23 +1,22 @@
-<h3 class="media__subtitle">VRA Effectiveness</h3>
-
 <p>
-    The effectiveness score in this module looks at the preformance of Black candidates of choice
+    The effectiveness score in this module looks at the performance of Black candidates of choice
     (estimated using EI at the statewide level) in the drawn districts over historical elections.
     The following precomputed factors are then used to weight those results: the confidence of the
-    candiate of choice, whether or not the canidate is a member of the minority group, and the
+    candidate of choice, whether or not the candidate is a member of the minority group, and the
     recency of the elections.
 </p>
 <p>
     The table below shows these precomputed factors for the 10 election groups looked at in Louisiana.
 </p>
 
-<table class="data-table">
+<table class="data">
     <tr>
       <th>Election Group</th>
       <th>primary CoC</th>
       <th>conf CoC</th>
       <th>group member?</th>
       <th>recency</th>
+      <th>election weight</th>
       <th>Runoff?</th>
     </tr>
     <tr>
@@ -26,7 +25,8 @@
       <td>1</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>Y</td>
+      <td></td>
+      <td>Yes</td>
     </tr>
     <tr>
         <td>Secratary of State 2015</td>
@@ -34,7 +34,8 @@
         <td>1</td>
         <td>1</td>
         <td>0.5</td>
-        <td style="background-color: grey;">N</td>
+        <td></td>
+        <td style="background-color: rgb(51, 51, 51);"></td>
     </tr>
     <tr>
         <td>President 2016</td>
@@ -43,6 +44,7 @@
         <td>0.5</td>
         <td>0.595</td>
         <td></td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td>US Senate 2016</td>
@@ -51,6 +53,7 @@
         <td>0.5</td>
         <td>0.595</td>
         <td></td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td>Treasurer 2017</td>
@@ -59,6 +62,7 @@
         <td>1</td>
         <td>0.707</td>
         <td></td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td>Secratary of State 2018</td>
@@ -67,14 +71,16 @@
         <td>1</td>
         <td>0.841</td>
         <td></td>
+        <td>Yes</td>
     </tr>
     <tr>
-        <td>Commissioner of Agriculture and Forestry 2019</td>
+        <td>Agriculture Commissioner 2019</td>
         <td>Green</td>
         <td>1</td>
         <td>0.5</td>
         <td>1</td>
-        <td style="background-color: grey;">N</td>
+        <td></td>
+        <td style="background-color: rgb(51, 51, 51);"></td>
     </tr>
     <tr>
         <td>Govenor 2019</td>
@@ -83,6 +89,7 @@
         <td>0.5</td>
         <td>1</td>
         <td></td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td>Lt. Govenor 2019</td>
@@ -90,7 +97,8 @@
         <td>1</td>
         <td>1</td>
         <td>1</td>
-        <td style="background-color: grey;">N</td>
+        <td></td>
+        <td style="background-color: rgb(51, 51, 51);"></td>
     </tr>
     <tr>
         <td>Treasurer 2019</td>
@@ -98,7 +106,8 @@
         <td>1</td>
         <td>1</td>
         <td>1</td>
-        <td style="background-color: grey;">N</td>
+        <td></td>
+        <td style="background-color: rgb(51, 51, 51);"></td>
     </tr>
   </table>
 

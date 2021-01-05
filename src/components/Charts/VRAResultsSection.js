@@ -18,11 +18,11 @@ function getCellStyle(value) {
     return `background: ${background}; color: ${color}`;
 }
 
-function getCell(value, width, decimals) {
+function getCell(value, width, decimals, simple=false) {
     // const value = subgroup.values(part.id)
     return {
         content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
-        style: getCellStyle(value) + `; width: ${width}`
+        style: simple ? `background: white; color: black` : getCellStyle(value) + `; width: ${width}`
     };
 }
 
@@ -35,11 +35,14 @@ function getTextCell(value, width) {
 
 function getRankCell(elect, width) {
     const place = elect.CoC_place;
-    const moveon = place === 2 && elect.FirstPlace[1] < 0.5
-    const background = place === 1 ? "limegreen" : (moveon ? "yellow" : "white");
+    const majority = elect.FirstPlace[1] > 0.5;
+    const moveon = place === 1 || (place === 2 && !majority)
+    const background = moveon ? "limegreen" : "white";
+    const color = place < 3 ? "black" : "red"
+    const suffix = majority ? "M" : "P";
     return {
-        content: `${place < 3 ? place : "X"}`,
-        style: `background: ${background}; color: black; width: ${width}`
+        content: `${place < 3 ? place + suffix : "X"}`,
+        style: `background: ${background}; color: ${color}; width: ${width}`
     };
 }
 
@@ -64,15 +67,29 @@ function getElectLable(elect) {
 
 
 
-function getTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(),"CoC", "Group Control", "Primary Rank", "Primary %"]; //subgroups.map(subgroup => subgroup.name);
+function getPrimTable(dist, elects, decimals=true) {
+    const headers = [dist.renderLabel(),"CoC", "Group Control", "Rank", "%"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLable(elect),
         entries: [getTextCell(elect.CoC, width), 
-                  getCell(elect.GroupControl, width, decimals),
+                  getCell(elect.GroupControl, width, decimals, true),
                   getRankCell(elect, width), 
-                  getCell(elect.CoC_perc, width, decimals)]
+                  getCell(elect.CoC_perc, width, decimals)
+                ]
+    }));
+    return DataTable(headers, rows, true);
+}
+
+function getGenTable(dist, elects, decimals=true) {
+    const headers = [dist.renderLabel(),"Proxy CoC", "Success", "%"]; //subgroups.map(subgroup => subgroup.name);
+    const width = `${Math.round(81 / headers.length)}%`;
+    let rows = elects.map(elect => ({
+        label: getElectLable(elect),
+        entries: [getTextCell(elect.CoC, width), 
+                  getRankCell(elect, width), 
+                  getCell(elect.CoC_perc, width, decimals)
+                ]
     }));
     return DataTable(headers, rows, true);
 }
@@ -80,10 +97,23 @@ function getTable(dist, elects, decimals=true) {
 function DistrictResults(effectiveness, dist) {
     return html`
         <div class="ui-option ui-option--slim">
-            <h5> Historical Election Breakdown</h5>
+            <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[dist.id] ? getTable(dist, effectiveness[dist.id].electionDetails) : ""}
+            ${effectiveness[dist.id] ? getPrimTable(dist, effectiveness[dist.id].electionDetails) : ""}
+            <ul class="option-list">
+                <li class="option-list__item">
+                    * M indicates that the first place candidate recieved a majority of the votes. </br>
+                    * P indicates that they won the primary with a plurality of votes.
+                </li>
+            </ul>
+        </section>
+        
+        <div class="ui-option ui-option--slim">
+            <h5> General Elections Breakdown</h5>
+        </div>
+        <section class="toolbar-section">
+            ${effectiveness[dist.id] ? getGenTable(dist, effectiveness[dist.id].electionDetails) : ""}
         </section>
     `;
 }

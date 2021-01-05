@@ -82,6 +82,7 @@ function getPlanContext() {
 
 function loadContext(context) {
     const root = document.getElementById("root");
+    const showVRA = spatial_abilities(context.place.id).vra_effectiveness;
     root.className = "";
     render(
         html`
@@ -100,7 +101,7 @@ function loadContext(context) {
             fitBoundsOptions: {
                 padding: {
                     top: 50,
-                    right: context.units.coi2 ? 250 : 50,
+                    right: context.units.coi2 ? 250 : showVRA ? 100 : 50,
                     left: 50,
                     bottom: 50
                 }
@@ -110,6 +111,9 @@ function loadContext(context) {
     );
     if (context.units.coi2) {
         document.body.className = "coi2";
+    }
+    if (showVRA) {
+        document.body.className = "vra";
     }
     window.document.title = "Loading... | Districtr";
 

@@ -13,7 +13,7 @@ export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
 
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
-    const tab = new Tab("evaluation", showVRA ? "Eval" : "Evaluation", editor.store);
+    const tab = new Tab("evaluation", showVRA ? "Eval." : "Evaluation", editor.store);
     const VRAtab = new Tab("vra", "VRA", editor.store);
 
     if (state.population.subgroups.length > 1) {
