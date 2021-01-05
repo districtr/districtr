@@ -64,8 +64,8 @@ function getElectLable(elect) {
 
 
 
-function getTable(elects, decimals=true) {
-    const headers = ["CoC", "Group Control", "Primary Rank", "Primary %"]; //subgroups.map(subgroup => subgroup.name);
+function getTable(dist, elects, decimals=true) {
+    const headers = [dist.renderLabel(),"CoC", "Group Control", "Primary Rank", "Primary %"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLable(elect),
@@ -74,16 +74,16 @@ function getTable(elects, decimals=true) {
                   getRankCell(elect, width), 
                   getCell(elect.CoC_perc, width, decimals)]
     }));
-    return DataTable(headers, rows);
+    return DataTable(headers, rows, true);
 }
 
 function DistrictResults(effectiveness, dist) {
     return html`
         <div class="ui-option ui-option--slim">
-            <h5>Historical Election Breakdown</h5>
+            <h5> Historical Election Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[dist.id] ? getTable(effectiveness[dist.id].electionDetails) : ""}
+            ${effectiveness[dist.id] ? getTable(dist, effectiveness[dist.id].electionDetails) : ""}
         </section>
     `;
 }
