@@ -29,7 +29,8 @@ const COUNTIES_LAYER = {
 };
 
 export function addCountyLayer(tab, state) {
-    let startFill = window.location.search.includes("county=true") ? 0.4 : 0;
+    let startFill = window.location.search.includes("county=true") ? 0.4 : 0,
+        statecode = String(stateNameToFips[(state.place.state || state.place.id).toLowerCase().replace("2020", "").replace("_bg", "")]);
     const counties = new Layer(
         state.map,
         {
@@ -38,7 +39,7 @@ export function addCountyLayer(tab, state) {
             filter: [
                 "==",
                 ["get", "STATEFP"],
-                String(stateNameToFips[(state.place.state || state.place.id).toLowerCase()])
+                statecode
             ]
         },
         addBelowLabels
