@@ -166,11 +166,22 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 }
 
 function getMenuItems(state) {
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     let items = [
         {
             name: "About this map",
             onClick: () => window.open("/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'), "_blank")
         },
+        (showVRA ? {
+            name: "About VRA Effectiveness",
+            onClick: () => {try {
+                                    renderVRAAboutModal(state.place);
+                                }
+                                catch(e) {
+                                    // likely no About page exists - silently fail to console
+                                    console.error(e);
+                                }}
+        } : null),
         {
             name: "Districtr homepage",
             onClick: () => {

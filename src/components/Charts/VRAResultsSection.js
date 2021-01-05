@@ -33,12 +33,35 @@ function getTextCell(value, width) {
     };
 }
 
+function getRankCell(elect, width) {
+    const place = elect.CoC_place;
+    const moveon = place === 2 && elect.FirstPlace[1] < 0.5
+    const background = place === 1 ? "green" : (moveon ? "limegreen" : "white");
+    return {
+        content: `${place < 3 ? place : X}`,
+        style: `background: ${background}; color: black; width: ${width}`
+    };
+}
+
+function getElectLable(elect) {
+    const electionAbrev = {"19Governor": "GOV19", "19Lt_Governor": "LTG19", "19Treasurer": "TRES19",
+                           "19Ag_Comm": "AGC19", "18SOS": "SOS18", "17Treasurer": "TRES17", 
+                           "16US_Sen": "SEN16", "16_President": "PRES16", "15_Governor": "GOV15",
+                           "15_SOS": "SOS15", "15_Treasurer": "TRES15"};
+    return electionAbrev[elect.name] ? electionAbrev[elect.name] : elect.name;
+}
+
+
+
 function getTable(elects, decimals=true) {
-    const headers = ["Group Control", "CoC", "Primary Support"]; //subgroups.map(subgroup => subgroup.name);
+    const headers = ["CoC", "Group Control", "Primary Rank", "Primary %"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
-        label: elect.name,
-        entries: [getCell(elect.GroupControl, width, decimals), getTextCell(elect.CoC, width), getCell(elect.CoC_res, width, decimals)]
+        label: getElectLable(elect),
+        entries: [getTextCell(elect.CoC, width), 
+                  getCell(elect.GroupControl, width, decimals),
+                  getRankCell(elect, width), 
+                  getCell(elect.CoC_perc, width, decimals)]
     }));
     return DataTable(headers, rows);
 }
@@ -76,7 +99,7 @@ export default function VRAResultsSection(
     dispatch
 ) {
     // console.log(effectiveness);
-    console.log(parts);
+    // console.log(parts);
     return html`
         <section class="toolbar-section">
             ${Parameter({
