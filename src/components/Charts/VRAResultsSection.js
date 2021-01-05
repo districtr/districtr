@@ -36,7 +36,7 @@ function getTextCell(value, width) {
 function getRankCell(elect, width) {
     const place = elect.CoC_place;
     const moveon = place === 2 && elect.FirstPlace[1] < 0.5
-    const background = place === 1 ? "green" : (moveon ? "limegreen" : "white");
+    const background = place === 1 ? "limegreen" : (moveon ? "yellow" : "white");
     return {
         content: `${place < 3 ? place : X}`,
         style: `background: ${background}; color: black; width: ${width}`
@@ -44,11 +44,22 @@ function getRankCell(elect, width) {
 }
 
 function getElectLable(elect) {
-    const electionAbrev = {"19Governor": "GOV19", "19Lt_Governor": "LTG19", "19Treasurer": "TRES19",
-                           "19Ag_Comm": "AGC19", "18SOS": "SOS18", "17Treasurer": "TRES17", 
-                           "16US_Sen": "SEN16", "16_President": "PRES16", "15_Governor": "GOV15",
-                           "15_SOS": "SOS15", "15_Treasurer": "TRES15"};
-    return electionAbrev[elect.name] ? electionAbrev[elect.name] : elect.name;
+    const electionAbrev = {"19Governor": ["GOV19", "2019 Govenor"], "19Lt_Governor": ["LTG19", "2019 Lt. Govenor"], 
+                           "19Treasurer": ["TRES19", "2019 Treasurer"], "19Ag_Comm": ["AGC19", "2019 Commissioner of Agriculture and Forestry"], 
+                           "18SOS": ["SOS18", "2018 Secretary of State"], "17Treasurer": ["TRES17", "2017 Treasurer"], 
+                           "16US_Sen": ["SEN16", "2016 US Senate"], "16_President": ["PRES16", "2016 US President"], 
+                           "15_Governor":["GOV15", "2015 Govenor"], "15_SOS": ["SOS15", "2015 Secratary of State"], 
+                           "15_Treasurer": ["TRES15", "2015 Treasurer"]};
+    
+    const name = electionAbrev[elect.name] ? electionAbrev[elect.name][0] : elect.name;
+    const desc = electionAbrev[elect.name] ? electionAbrev[elect.name][1] : "";
+    return html`
+        <div class="elect_tooltip">${name}
+            <span class="elect_tooltiptext">${desc}</span>
+        </div>
+    `;
+    
+    
 }
 
 
