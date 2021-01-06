@@ -731,6 +731,12 @@
                 "max": 1257
               }
             ]
+          },
+          {
+            "type": "text",
+            "key": "COUNTY",
+            "name": "County",
+            "subgroups": []
           }
         ],
         "idColumn": {
