@@ -22,7 +22,7 @@ function getCell(value, width, decimals, simple=false) {
     // const value = subgroup.values(part.id)
     return {
         content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
-        style: simple ? `background: white; color: black` : getCellStyle(value) + `; width: ${width}`
+        style: simple ? `color: black` : getCellStyle(value) + `; width: ${width}; text-align: center;`
     };
 }
 
@@ -37,12 +37,12 @@ function getRankCell(elect, width) {
     const place = elect.CoC_place;
     const majority = elect.FirstPlace[1] > 0.5;
     const moveon = place === 1 || (place === 2 && !majority)
-    const background = moveon ? "limegreen" : "white";
+    const background = moveon ? "limegreen" : "";
     const color = place < 3 ? "black" : "red"
     const suffix = majority ? "M" : "P";
     return {
-        content: `${place < 3 ? place + suffix : "X"}`,
-        style: `background: ${background}; color: ${color}; width: ${width}`
+        content: `${place < 3 ? place + suffix : "✘"}`,
+        style: `background: ${background}; color: ${color}; width: ${width}; text-align: center;`
     };
 }
 
@@ -63,6 +63,15 @@ function getElectLable(elect) {
     `;
     
     
+}
+
+function getGenSuccessCell(vote_perc, width) {
+    const color = vote_perc > 0.5 ? "limegreen" : "red";
+    const mark =  vote_perc > 0.5 ? `✔` : `✘`;
+    return {
+        content: `${mark}`,
+        style: `color: ${color}; width: ${width}; text-align: center;`
+    };
 }
 
 
@@ -86,9 +95,12 @@ function getGenTable(dist, elects, decimals=true) {
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLable(elect),
-        entries: [getTextCell(elect.CoC, width), 
-                  getRankCell(elect, width), 
-                  getCell(elect.CoC_perc, width, decimals)
+        entries: [elect.CoC_proxy ? getTextCell(elect.CoC_proxy, width) 
+                                  : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`}, 
+                  elect.CoC_proxy ? getGenSuccessCell(elect.proxy_perc, width) 
+                                  : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
+                  elect.CoC_proxy ? getCell(elect.proxy_perc, width, decimals) 
+                                  : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                 ]
     }));
     return DataTable(headers, rows, true);
