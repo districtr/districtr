@@ -22,8 +22,11 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
         numberAssigned += successes;
         if (numberAssigned === assignmentLength && failures === 0) {
             done();
-            readyCallback();
+        } else {
+            // console.error([numberAssigned, assignmentLength]);
+            // console.error(failures + " failures");
         }
+        readyCallback();
         state.render();
     });
 }

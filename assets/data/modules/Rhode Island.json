@@ -1,0 +1,635 @@
+[
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 248124,
+                "min": 3,
+                "max": 1699
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 178596,
+                "min": 1,
+                "max": 1372
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2016
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 198011,
+                "min": 1,
+                "max": 1584
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 140716,
+                "min": 0,
+                "max": 1398
+              }
+            ],
+            "metadata": {
+              "race": "Governor",
+              "year": 2018
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 231441,
+                "min": 1,
+                "max": 1653
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 144996,
+                "min": 0,
+                "max": 1228
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2018
+            }
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1051746,
+              "min": 3,
+              "max": 7597
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 802951,
+                "min": 0,
+                "max": 6348
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 51325,
+                "min": 0,
+                "max": 1128
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 130420,
+                "min": 0,
+                "max": 3574
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 29768,
+                "min": 0,
+                "max": 848
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 3828,
+                "min": 0,
+                "max": 112
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 252,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 8703,
+                "min": 0,
+                "max": 509
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 827884,
+              "min": 3,
+              "max": 7118
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 660166,
+                "min": 0,
+                "max": 5943
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 36984,
+                "min": 0,
+                "max": 813
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 84488,
+                "min": 0,
+                "max": 2488
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2737,
+                "min": 0,
+                "max": 85
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 190,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 23029,
+                "min": 0,
+                "max": 628
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 6233,
+                "min": 0,
+                "max": 373
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 12793,
+                "min": 0,
+                "max": 263
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct ID",
+          "key": "JOINID"
+        },
+        "nameColumn": {
+          "name": "Precint Name",
+          "key": "PRENAME"
+        },
+        "bounds": [
+          [
+            -71.8924,
+            41.1466
+          ],
+          [
+            -71.1205,
+            42.0188
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rhode_island_precincts"
+            },
+            "sourceLayer": "rhode_island_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rhode_island_precincts_points"
+            },
+            "sourceLayer": "rhode_island_precincts_points"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1052567,
+              "min": 3,
+              "max": 5677
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 803685,
+                "min": 2,
+                "max": 4587
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 51560,
+                "min": 0,
+                "max": 1080
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 130655,
+                "min": 0,
+                "max": 1780
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 29988,
+                "min": 0,
+                "max": 641
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 4020,
+                "min": 0,
+                "max": 84
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 305,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 23479,
+                "min": 0,
+                "max": 229
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 8875,
+                "min": 0,
+                "max": 364
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 828611,
+              "min": 3,
+              "max": 5605
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 660823,
+                "min": 2,
+                "max": 4539
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 37225,
+                "min": 0,
+                "max": 1048
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 84715,
+                "min": 0,
+                "max": 1192
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2933,
+                "min": 0,
+                "max": 52
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 240,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 23257,
+                "min": 0,
+                "max": 639
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 6401,
+                "min": 0,
+                "max": 261
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 13017,
+                "min": 0,
+                "max": 151
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -71.8937,
+            41.1455
+          ],
+          [
+            -71.1199,
+            42.0188
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rhode_island_blockgroups_points"
+            },
+            "sourceLayer": "rhode_island_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rhode_island_blockgroups"
+            },
+            "sourceLayer": "rhode_island_blockgroups"
+          }
+        ],
+        "limit": "community"
+      }
+    ],
+    "districtingProblems": [
+      {
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress",
+        "numberOfParts": 2
+      },
+      {
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate",
+        "numberOfParts": 38
+      },
+      {
+        "pluralNoun": "State House Districts",
+        "name": "State House",
+        "numberOfParts": 75
+      }
+    ],
+    "name": "Rhode Island",
+    "state": "Rhode Island",
+    "id": "rhode_island"
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 178040,
+              "min": 0,
+              "max": 1873
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 66909,
+                "min": 0,
+                "max": 1691
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 23398,
+                "min": 0,
+                "max": 165
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 67835,
+                "min": 0,
+                "max": 471
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 11153,
+                "min": 0,
+                "max": 259
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 1220,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 88,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 1727,
+                "min": 0,
+                "max": 46
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 136406,
+              "min": 0,
+              "max": 1872
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 60172,
+                "min": 0,
+                "max": 1691
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 16716,
+                "min": 0,
+                "max": 120
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 44669,
+                "min": 0,
+                "max": 296
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 845,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 73,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 9058,
+                "min": 0,
+                "max": 259
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1233,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 3640,
+                "min": 0,
+                "max": 61
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Census GEOID",
+          "key": "GEOID10"
+        },
+        "nameColumn": {
+          "name": "Block Name",
+          "key": "NAME10"
+        },
+        "bounds": [
+          [
+            -71.4727,
+            41.7724
+          ],
+          [
+            -71.3766,
+            41.8616
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.providence_ri_blocks"
+            },
+            "sourceLayer": "providence_ri_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.providence_ri_blocks_points"
+            },
+            "sourceLayer": "providence_ri_blocks_points"
+          }
+        ]
+      }
+    ],
+    "id": "providence_ri",
+    "state": "Rhode Island",
+    "name": "Providence",
+    "districtingProblems": [
+      {
+        "pluralNoun": "City Council Wards",
+        "numberOfParts": 15,
+        "name": "City Council"
+      }
+    ]
+  }
+]

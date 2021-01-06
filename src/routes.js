@@ -152,7 +152,7 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
-    return listPlaces(planRecord.placeId).then(places => {
+    return listPlaces(planRecord.placeId, planRecord.state).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
         planRecord.units = place.units.find(u => (u.name === planRecord.units.name) || (u.name === "Wards" && planRecord.units.name === "2011 Wards") || (u.name === "2011 Wards" && planRecord.units.name === "Wards"));
@@ -210,7 +210,7 @@ export function loadPlanFromCSV(assignmentList, state) {
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
 
-    return listPlaces(state.place.id).then(places => {
+    return listPlaces(state.place.id, state.place.state).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
                 let cols = row.split(delimiter),

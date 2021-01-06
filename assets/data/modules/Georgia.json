@@ -1,0 +1,433 @@
+[
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9687653,
+              "min": 0,
+              "max": 44065
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 5413920,
+                "min": 0,
+                "max": 27519
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2910800,
+                "min": 0,
+                "max": 21054
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 853689,
+                "min": 0,
+                "max": 9354
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 311692,
+                "min": 0,
+                "max": 3514
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 21279,
+                "min": 0,
+                "max": 167
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 5152,
+                "min": 0,
+                "max": 74
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 151980,
+                "min": 0,
+                "max": 677
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 19141,
+                "min": 0,
+                "max": 160
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7196101,
+              "min": 0,
+              "max": 34169
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4242514,
+                "min": 0,
+                "max": 22026
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2072946,
+                "min": 0,
+                "max": 14934
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 539002,
+                "min": 0,
+                "max": 5586
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 16324,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3699,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 234164,
+                "min": 0,
+                "max": 2443
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 10107,
+                "min": 0,
+                "max": 124
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 77345,
+                "min": 0,
+                "max": 383
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "key": "CTYNAME",
+            "name": "County",
+            "subgroups": []
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 2089514,
+                "min": 0,
+                "max": 9619
+              },
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 1877665,
+                "min": 0,
+                "max": 7147
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2016
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 2136207,
+                "min": 0,
+                "max": 9197
+              },
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 1599788,
+                "min": 0,
+                "max": 6138
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2016
+            }
+          }
+        ],
+        "idColumn": {
+          "name": "ID",
+          "key": "ID"
+        },
+        "bounds": [
+          [
+            -85.6052,
+            30.3558
+          ],
+          [
+            -80.7514,
+            35.0007
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.georgia_precincts"
+            },
+            "sourceLayer": "georgia_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.georgia_precincts_points"
+            },
+            "sourceLayer": "georgia_precincts_points"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9687653,
+              "min": 0,
+              "max": 15089
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 5413920,
+                "min": 0,
+                "max": 7901
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2910800,
+                "min": 0,
+                "max": 7889
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 853689,
+                "min": 0,
+                "max": 3920
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 311692,
+                "min": 0,
+                "max": 2376
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 21279,
+                "min": 0,
+                "max": 61
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 5152,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 151980,
+                "min": 0,
+                "max": 314
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 19141,
+                "min": 0,
+                "max": 95
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7196101,
+              "min": 0,
+              "max": 11561
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4242514,
+                "min": 0,
+                "max": 6404
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2072946,
+                "min": 0,
+                "max": 5330
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 539002,
+                "min": 0,
+                "max": 2359
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 16324,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3699,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 234164,
+                "min": 0,
+                "max": 1756
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 10107,
+                "min": 0,
+                "max": 78
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 77345,
+                "min": 0,
+                "max": 206
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -85.6052,
+            30.3558
+          ],
+          [
+            -80.8398,
+            35.0007
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.georgia_blockgroups_points"
+            },
+            "sourceLayer": "georgia_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.georgia_blockgroups"
+            },
+            "sourceLayer": "georgia_blockgroups"
+          }
+        ],
+        "limit": "community"
+      }
+    ],
+    "name": "Georgia",
+    "state": "Georgia",
+    "id": "georgia",
+    "districtingProblems": [
+      {
+        "numberOfParts": 14,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      },
+      {
+        "numberOfParts": 56,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 180,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      }
+    ]
+  }
+]
