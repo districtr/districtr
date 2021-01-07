@@ -203,8 +203,8 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
+      {"name": "Statewide", "ids": ["california", "calinodata"], "id": "state", "default": "true"},
+      {"name": "Counties", "ids": ["lax", "laxzoom"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],

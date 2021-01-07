@@ -644,6 +644,197 @@
     ]
   },
   {
+    "name": "Los Angeles County",
+    "id": "laxzoom",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9818605,
+              "min": 0,
+              "max": 6062
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2728321,
+                "min": 0,
+                "max": 1850
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 815086,
+                "min": 0,
+                "max": 1842
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 4687889,
+                "min": 0,
+                "max": 2499
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1325671,
+                "min": 0,
+                "max": 2685
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 18886,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 22464,
+                "min": 0,
+                "max": 124
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 194921,
+                "min": 0,
+                "max": 363
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 25367,
+                "min": 0,
+                "max": 119
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7416397,
+              "min": 0,
+              "max": 6030
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2318944,
+                "min": 0,
+                "max": 1840
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 627714,
+                "min": 0,
+                "max": 1708
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 3199390,
+                "min": 0,
+                "max": 2371
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15440,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 16730,
+                "min": 0,
+                "max": 72
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1097559,
+                "min": 0,
+                "max": 2671
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 17046,
+                "min": 0,
+                "max": 117
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 123574,
+                "min": 0,
+                "max": 362
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -118.9517,
+            32.75
+          ],
+          [
+            -117.6464,
+            34.8233
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.laxzoom_blocks_points"
+            },
+            "sourceLayer": "laxzoom_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.laxzoom_blocks"
+            },
+            "sourceLayer": "laxzoom_blocks"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
     "name": "Napa",
     "units": [
       {
@@ -1110,6 +1301,69 @@
       }
     ]
   },
+  {
+    "name": "Cali (no data)",
+    "id": "calinodata",
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -124.482,
+            32.5288
+          ],
+          [
+            -114.1312,
+            42.0095
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cali_nodata_blockgroups"
+            },
+            "sourceLayer": "cali_nodata_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cali_nodata_blockgroups_points"
+            },
+            "sourceLayer": "cali_nodata_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 53,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 40,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State Assembly",
+        "numberOfParts": 80,
+        "pluralNoun": "State Assembly Districts"
+      }
+    ]
+  },
+
   {
     "units": [
       {
