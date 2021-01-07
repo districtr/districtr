@@ -15,7 +15,7 @@ function getBackgroundColor(value) {
 function getCellStyle(value) {
     const background = getBackgroundColor(value);
     const color = value > 0.4 ? "white" : "black";
-    return `background: ${background}; color: ${color}`;
+    return `background: ${background}; color: ${color}; text-align: center;`;
 }
 
 function getCell(subgroup, part, width, decimals) {

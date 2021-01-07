@@ -166,6 +166,7 @@ export default function EvaluationPlugin(editor) {
                     "VRA District Details",
                     state.parts,
                     state.vra_effectiveness,
+                    state.place.id,
                     uiState,
                     dispatch
                 ),
