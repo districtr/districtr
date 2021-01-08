@@ -357,7 +357,7 @@ export default function DataLayersPlugin(editor) {
     tab.addRevealSection(
         "Race",
         (uiState, dispatch) => html`
-            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic) " : ""}
+            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,

@@ -1,4 +1,6 @@
 // import Tabs from "../components/Tabs";
+// import {DistrictResults} from "../components/Charts/VRAResultsSection"
+import { html, render } from "lit-html";
 
 export default function VRAEffectiveness(state, brush, toolbar) {
     let place = state.place.id,
@@ -37,11 +39,12 @@ export default function VRAEffectiveness(state, brush, toolbar) {
       .then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
-        
-        console.log(data);
         state.vra_effectiveness = data;
-        const vratab = toolbar.tabs.find(t => t.id === "vra")
-        console.log(vratab)
+        const target = document.getElementById("toolbar");
+        if (target === null) {
+            return;
+        }
+        render(toolbar.render(), target);
       });
   };
   vraupdater(state);

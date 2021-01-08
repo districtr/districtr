@@ -21,12 +21,12 @@ const candNames = {"EdwardsD_19G_Governor": "J. Edwards","EdwardsD_19P_Governor"
                    "ClintonD_16P_President": "H. Clinton", "EdwardsD_15P_Governor": "J. Edwards",
                    "EdwardsD_15G_Governor": "J. Edwards", "TysonD_15P_SOS": "C. Tyson",};
 
-function loadNameData(placeID, callback) {
+// function loadNameData(placeID, callback) {
     
-    $.getJSON( "assets/about/vra/" + placeID + ".json", function( data ) {
-       callback(data);
-    })
- }
+//     $.getJSON( "assets/about/vra/" + placeID + ".json", function( data ) {
+//        callback(data);
+//     })
+//  }
 
 
 function getBackgroundColor(value) {
@@ -170,8 +170,8 @@ export default function VRAResultsSection(
     dispatch
 ) {
     // console.log(effectiveness);
-    // console.log(parts);
-    let districtRes = DistrictResults.bind(null, effectiveness, parts[uiState.charts[chartID].activePartIndex])
+    // console.log(uiState);
+    // let districtRes = DistrictResults.bind(null, effectiveness, parts[uiState.charts[chartID].activePartIndex])
     
     return html`
         <section class="toolbar-section">

@@ -183,6 +183,5 @@ export default function EvaluationPlugin(editor) {
 
     if (VRAtab.sections.length > 0) {
         toolbar.addTab(VRAtab);
-        console.log(state);
     }
 }
