@@ -1,0 +1,635 @@
+[
+  {
+    "name": "Louisiana",
+    "id": "louisiana",
+    "state": "Louisiana",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 4528798,
+              "min": 0,
+              "max": 8387
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2733042,
+                "min": 0,
+                "max": 5985
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1440029,
+                "min": 0,
+                "max": 5122
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 192463,
+                "min": 0,
+                "max": 1336
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 69135,
+                "min": 0,
+                "max": 1495
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 28083,
+                "min": 0,
+                "max": 1050
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1544,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 57723,
+                "min": 0,
+                "max": 237
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 6779,
+                "min": 0,
+                "max": 53
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3411716,
+              "min": 0,
+              "max": 7934
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2146116,
+                "min": 0,
+                "max": 5844
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1017740,
+                "min": 0,
+                "max": 4299
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 138010,
+                "min": 0,
+                "max": 1036
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 19944,
+                "min": 0,
+                "max": 670
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1152,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 53501,
+                "min": 0,
+                "max": 1329
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 4526,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 30727,
+                "min": 0,
+                "max": 130
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1177979,
+                "min": 0,
+                "max": 1784
+              },
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 778878,
+                "min": 0,
+                "max": 1484
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US Senate run-off",
+            "subgroups": [
+              {
+                "key": "SEN16roR",
+                "name": "Republican",
+                "sum": 535756,
+                "min": 0,
+                "max": 1023
+              },
+              {
+                "key": "SEN16roD",
+                "name": "Democratic",
+                "sum": 346958,
+                "min": 0,
+                "max": 780
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State run-off",
+            "subgroups": [
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 306306,
+                "min": 0,
+                "max": 800
+              },
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 209585,
+                "min": 0,
+                "max": 592
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2015 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS15R",
+                "name": "Republican",
+                "sum": 649230,
+                "min": 0,
+                "max": 1155
+              },
+              {
+                "key": "SOS15D",
+                "name": "Democratic",
+                "sum": 393929,
+                "min": 0,
+                "max": 717
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS19R",
+                "name": "Republican",
+                "sum": 867590,
+                "min": 0,
+                "max": 1567
+              },
+              {
+                "key": "SOS19D",
+                "name": "Democratic",
+                "sum": 601131,
+                "min": 0,
+                "max": 1264
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG19R",
+                "name": "Republican",
+                "sum": 855335,
+                "min": 0,
+                "max": 1474
+              },
+              {
+                "key": "AG19D",
+                "name": "Democratic",
+                "sum": 436501,
+                "min": 0,
+                "max": 984
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE19pR",
+                "name": "Republican",
+                "sum": 769477,
+                "min": 0,
+                "max": 1378
+              },
+              {
+                "key": "TRE19pD",
+                "name": "Democratic",
+                "sum": 442748,
+                "min": 0,
+                "max": 944
+              },
+              {
+                "key": "TRE19pU",
+                "name": "Unaffiliated",
+                "sum": 69901,
+                "min": 0,
+                "max": 123
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Dem. Presidential Primary",
+            "subgroups": [
+              {
+                "key": "PRES16pD2",
+                "name": "Clinton",
+                "sum": 221322,
+                "min": 0,
+                "max": 494
+              },
+              {
+                "key": "PRES16pD7",
+                "name": "Sanders",
+                "sum": 72203,
+                "min": 0,
+                "max": 149
+              },
+              {
+                "key": "PRES16pD6",
+                "name": "O'Malley",
+                "sum": 2017,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2015 Governor",
+            "subgroups": [
+              {
+                "key": "GOV15R",
+                "name": "Republican",
+                "sum": 505694,
+                "min": 0,
+                "max": 960
+              },
+              {
+                "key": "GOV15D",
+                "name": "Democratic",
+                "sum": 646075,
+                "min": 0,
+                "max": 1001
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Governor",
+            "subgroups": [
+              {
+                "key": "GOV19R",
+                "name": "Republican",
+                "sum": 734275,
+                "min": 0,
+                "max": 1300
+              },
+              {
+                "key": "GOV19D",
+                "name": "Democratic",
+                "sum": 774502,
+                "min": 0,
+                "max": 1634
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Lieutenant Governor",
+            "subgroups": [
+              {
+                "key": "LG19R",
+                "name": "Republican",
+                "sum": 884314,
+                "min": 0,
+                "max": 1603
+              },
+              {
+                "key": "LG19D",
+                "name": "Democratic",
+                "sum": 413577,
+                "min": 0,
+                "max": 865
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE17R",
+                "name": "Republican",
+                "sum": 207986,
+                "min": 0,
+                "max": 454
+              },
+              {
+                "key": "TRE17D",
+                "name": "Democratic",
+                "sum": 165061,
+                "min": 0,
+                "max": 607
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "Code"
+        },
+        "bounds": [
+          [
+            -94.0434,
+            28.8551
+          ],
+          [
+            -88.7584,
+            33.0195
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.louisiana_precincts_points"
+            },
+            "sourceLayer": "louisiana_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.louisiana_precincts"
+            },
+            "sourceLayer": "louisiana_precincts"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
+        "limit": "community",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 4533372,
+              "min": 0,
+              "max": 6891
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2734884,
+                "min": 0,
+                "max": 5525
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1442420,
+                "min": 0,
+                "max": 4931
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 192560,
+                "min": 0,
+                "max": 1054
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 69327,
+                "min": 0,
+                "max": 1049
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 28092,
+                "min": 0,
+                "max": 712
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1544,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 57766,
+                "min": 0,
+                "max": 152
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 6779,
+                "min": 0,
+                "max": 63
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3415357,
+              "min": 0,
+              "max": 6447
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2147661,
+                "min": 0,
+                "max": 3876
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1019582,
+                "min": 0,
+                "max": 4630
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 138091,
+                "min": 0,
+                "max": 778
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 19952,
+                "min": 0,
+                "max": 495
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1152,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 53638,
+                "min": 0,
+                "max": 948
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 4526,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 30755,
+                "min": 0,
+                "max": 78
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -94.0434,
+            28.9186
+          ],
+          [
+            -88.9472,
+            33.0195
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.louisiana_blockgroups"
+            },
+            "sourceLayer": "louisiana_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.louisiana_blockgroups_points"
+            },
+            "sourceLayer": "louisiana_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 6,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 105,
+        "pluralNoun": "State House Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 39,
+        "pluralNoun": "State Senate Districts"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1585 @@
+[
+  {
+    "name": "Contra Costa CentralSan",
+    "units": [
+      {
+        "limit": "event",
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 330336,
+              "min": 0,
+              "max": 1933
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHT",
+                "name": "White population",
+                "sum": 228880,
+                "min": 0,
+                "max": 1406
+              },
+              {
+                "key": "NH_DOJ_BLK",
+                "name": "Black population",
+                "sum": 6887,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "HISPANIC_O",
+                "name": "Hispanic population",
+                "sum": 27323,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NH_DOJ_ASN",
+                "name": "Asian population",
+                "sum": 61792,
+                "min": 0,
+                "max": 1245
+              },
+              {
+                "key": "NH_DOJ_IND",
+                "name": "American Indian population",
+                "sum": 1739,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NH_DOJ_HWN",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 875,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NH_DOJ_OT1",
+                "name": "Two or more races",
+                "sum": 1833,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "NH_DOJ_OTH",
+                "name": "Other races",
+                "sum": 988,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "F18_POP",
+              "name": "Voting age population",
+              "sum": 254048,
+              "min": 0,
+              "max": 1284
+            },
+            "subgroups": [
+              {
+                "key": "NH18_WHT",
+                "name": "White voting age population",
+                "sum": 183220,
+                "min": 0,
+                "max": 1029
+              },
+              {
+                "key": "NH18_DOJ_B",
+                "name": "Black voting age population",
+                "sum": 4909,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "H18_POP",
+                "name": "Hispanic voting age population",
+                "sum": 18921,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "NH18_DOJ_I",
+                "name": "Native American voting age population",
+                "sum": 1352,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_H",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 674,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_A",
+                "name": "Asian voting age population",
+                "sum": 43257,
+                "min": 0,
+                "max": 763
+              },
+              {
+                "key": "NH18_DOJ_O",
+                "name": "Other races voting age population",
+                "sum": 631,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH18_DOJ_1",
+                "name": "Two or more races voting age population",
+                "sum": 1065,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2018)",
+            "total": {
+              "key": "BLK_TOTPOP",
+              "name": "Total population (2018)",
+              "sum": 353258,
+              "min": 0,
+              "max": 2847
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 365131,
+                "min": 0,
+                "max": 2927
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 436864,
+                "min": 0,
+                "max": 3358
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 1845646,
+                "min": 0,
+                "max": 7264
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 41372,
+                "min": 0,
+                "max": 724
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 2321,
+                "min": 0,
+                "max": 248
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 590,
+                "min": 0,
+                "max": 107
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 16222,
+                "min": 0,
+                "max": 321
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 7370,
+                "min": 0,
+                "max": 273
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "BLOCK"
+        },
+        "bounds": [
+          [
+            -122.2211,
+            37.7391
+          ],
+          [
+            -121.874,
+            38.0491
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation2_blocks_points"
+            },
+            "sourceLayer": "ccsanitation2_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation2_blocks"
+            },
+            "sourceLayer": "ccsanitation2_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ccsanitation2",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Contra Costa County",
+        "numberOfParts": 5,
+        "pluralNoun": "Divisions"
+      }
+    ]
+  },
+  {
+    "name": "Contra Costa CentralSan",
+    "units": [
+      {
+        "limit": "event",
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 330336,
+              "min": 0,
+              "max": 1933
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHT",
+                "name": "White population",
+                "sum": 228880,
+                "min": 0,
+                "max": 1406
+              },
+              {
+                "key": "NH_DOJ_BLK",
+                "name": "Black population",
+                "sum": 6887,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "HISPANIC_O",
+                "name": "Hispanic population",
+                "sum": 27323,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NH_DOJ_ASN",
+                "name": "Asian population",
+                "sum": 61792,
+                "min": 0,
+                "max": 1245
+              },
+              {
+                "key": "NH_DOJ_IND",
+                "name": "American Indian population",
+                "sum": 1739,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NH_DOJ_HWN",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 875,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NH_DOJ_OT1",
+                "name": "Two or more races",
+                "sum": 1833,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "NH_DOJ_OTH",
+                "name": "Other races",
+                "sum": 988,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "F18_POP",
+              "name": "Voting age population",
+              "sum": 254048,
+              "min": 0,
+              "max": 1284
+            },
+            "subgroups": [
+              {
+                "key": "NH18_WHT",
+                "name": "White voting age population",
+                "sum": 183220,
+                "min": 0,
+                "max": 1029
+              },
+              {
+                "key": "NH18_DOJ_B",
+                "name": "Black voting age population",
+                "sum": 4909,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "H18_POP",
+                "name": "Hispanic voting age population",
+                "sum": 18921,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "NH18_DOJ_I",
+                "name": "Native American voting age population",
+                "sum": 1352,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_H",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 674,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH18_DOJ_A",
+                "name": "Asian voting age population",
+                "sum": 43257,
+                "min": 0,
+                "max": 763
+              },
+              {
+                "key": "NH18_DOJ_O",
+                "name": "Other races voting age population",
+                "sum": 631,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH18_DOJ_1",
+                "name": "Two or more races voting age population",
+                "sum": 1065,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "BLOCK"
+        },
+        "bounds": [
+          [
+            -122.2211,
+            37.7391
+          ],
+          [
+            -121.874,
+            38.0491
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation_blocks_points"
+            },
+            "sourceLayer": "ccsanitation_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation_blocks"
+            },
+            "sourceLayer": "ccsanitation_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ccsanitation",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Contra Costa County",
+        "numberOfParts": 5,
+        "pluralNoun": "Divisions"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9818605,
+              "min": 0,
+              "max": 9344
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2728321,
+                "min": 0,
+                "max": 4357
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 815086,
+                "min": 0,
+                "max": 2879
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 4687889,
+                "min": 0,
+                "max": 4412
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1325671,
+                "min": 0,
+                "max": 4053
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 18886,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 22464,
+                "min": 0,
+                "max": 221
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 194921,
+                "min": 0,
+                "max": 573
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 25367,
+                "min": 0,
+                "max": 131
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7416397,
+              "min": 0,
+              "max": 9293
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2318944,
+                "min": 0,
+                "max": 2957
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 627714,
+                "min": 0,
+                "max": 2875
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 3199390,
+                "min": 0,
+                "max": 4110
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15440,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 16730,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1097559,
+                "min": 0,
+                "max": 4028
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 17046,
+                "min": 0,
+                "max": 129
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 123574,
+                "min": 0,
+                "max": 571
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -118.9517,
+            32.75
+          ],
+          [
+            -117.6464,
+            34.8233
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blockgroups_points"
+            },
+            "sourceLayer": "lax_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lax_blockgroups"
+            },
+            "sourceLayer": "lax_blockgroups"
+          }
+        ]
+      }
+    ],
+    "id": "lax",
+    "name": "Los Angeles County",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "name": "Napa",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 76915,
+              "min": 0,
+              "max": 1297
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 43963,
+                "min": 0,
+                "max": 604
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 370,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 28923,
+                "min": 0,
+                "max": 1056
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 1685,
+                "min": 0,
+                "max": 75
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 312,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 116,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 1441,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 105,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 58067,
+              "min": 0,
+              "max": 840
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 36424,
+                "min": 0,
+                "max": 537
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 283,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 18635,
+                "min": 0,
+                "max": 642
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 263,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 96,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1431,
+                "min": 0,
+                "max": 75
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 81,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 854,
+                "min": 0,
+                "max": 15
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.3577,
+            38.2211
+          ],
+          [
+            -122.2222,
+            38.3508
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_blocks"
+            },
+            "sourceLayer": "napa_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_blocks_points"
+            },
+            "sourceLayer": "napa_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "napa",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "state": "California",
+    "id": "napaschools",
+    "name": "Napa Valley Unified School District",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 115541,
+              "min": 0,
+              "max": 1410
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Census block FIPS code",
+          "key": "BLOCK"
+        },
+        "bounds": [
+          [
+            -122.4595,
+            38.1549
+          ],
+          [
+            -122.1034,
+            38.5479
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napaschools2_blocks"
+            },
+            "sourceLayer": "napaschools2_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napaschools2_blocks_points"
+            },
+            "sourceLayer": "napaschools2_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Board of Education Trustees",
+        "numberOfParts": 7,
+        "pluralNoun": "Trustee Districts"
+      }
+    ]
+  },
+  {
+    "name": "California",
+    "id": "california",
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 37253956,
+              "min": 0,
+              "max": 37452
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 14956253,
+                "min": 0,
+                "max": 23326
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2163804,
+                "min": 0,
+                "max": 3372
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 14013719,
+                "min": 0,
+                "max": 8761
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 4775070,
+                "min": 0,
+                "max": 7190
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 162250,
+                "min": 0,
+                "max": 1299
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 128577,
+                "min": 0,
+                "max": 318
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 968696,
+                "min": 0,
+                "max": 1417
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 85587,
+                "min": 0,
+                "max": 609
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 27958916,
+              "min": 0,
+              "max": 28368
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 12409858,
+                "min": 0,
+                "max": 18751
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1640279,
+                "min": 0,
+                "max": 3371
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 9257499,
+                "min": 0,
+                "max": 6145
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 125020,
+                "min": 0,
+                "max": 824
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 96399,
+                "min": 0,
+                "max": 236
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 3809082,
+                "min": 0,
+                "max": 5028
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 59024,
+                "min": 0,
+                "max": 609
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 561755,
+                "min": 0,
+                "max": 608
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -124.482,
+            32.5288
+          ],
+          [
+            -114.1312,
+            42.0095
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.california_blockgroups"
+            },
+            "sourceLayer": "california_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.california_blockgroups_points"
+            },
+            "sourceLayer": "california_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 53,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 40,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State Assembly",
+        "numberOfParts": 80,
+        "pluralNoun": "State Assembly Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 116501,
+              "min": 0,
+              "max": 2055
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 42045,
+                "min": 0,
+                "max": 663
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2929,
+                "min": 0,
+                "max": 83
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 43544,
+                "min": 0,
+                "max": 1594
+              },
+              {
+                "key": "HPOP",
+                "name": "Hispanic population",
+                "sum": 22590,
+                "min": 0,
+                "max": 595
+              },
+              {
+                "key": "NH_NAHI",
+                "name": "Hawaiian Native population",
+                "sum": 604,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 240,
+                "min": 0,
+                "max": 10
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2010 Census GEOID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.0054,
+            37.3231
+          ],
+          [
+            -121.9297,
+            37.4189
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.santa_clara_blocks"
+            },
+            "sourceLayer": "santa_clara_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.santa_clara_blocks_points"
+            },
+            "sourceLayer": "santa_clara_blocks_points"
+          }
+        ]
+      }
+    ],
+    "name": "Santa Clara",
+    "state": "California",
+    "id": "santa_clara",
+    "districtingProblems": [
+      {
+        "numberOfParts": 6,
+        "pluralNoun": "City Council Districts",
+        "name": "City Council"
+      },
+      {
+        "numberOfParts": 6,
+        "type": "multimember",
+        "pluralNoun": "City Council Seats",
+        "name": "City Council"
+      }
+    ]
+  },
+  {
+    "id": "ontarioca",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 163929,
+              "min": 0,
+              "max": 2018
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 29903,
+                "min": 0,
+                "max": 587
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 9598,
+                "min": 0,
+                "max": 410
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 113085,
+                "min": 0,
+                "max": 1139
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 8078,
+                "min": 0,
+                "max": 198
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 361,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 448,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 2070,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 386,
+                "min": 0,
+                "max": 26
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Age of Population",
+            "subgroups": [
+              {
+                "key": "P012003_mf",
+                "name": "Under 5",
+                "sum": 13737,
+                "min": 0,
+                "max": 189
+              },
+              {
+                "key": "P012004_mf",
+                "name": "Ages 5-9",
+                "sum": 13027,
+                "min": 0,
+                "max": 161
+              },
+              {
+                "key": "P012005_mf",
+                "name": "Ages 10-14",
+                "sum": 13759,
+                "min": 0,
+                "max": 136
+              },
+              {
+                "key": "P012006_mf",
+                "name": "Ages 15-17",
+                "sum": 8923,
+                "min": 0,
+                "max": 79
+              },
+              {
+                "key": "P012007_mf",
+                "name": "Ages 18-19",
+                "sum": 5805,
+                "min": 0,
+                "max": 61
+              },
+              {
+                "key": "P012008_mf",
+                "name": "Age 20",
+                "sum": 2787,
+                "min": 0,
+                "max": 31
+              },
+              {
+                "key": "P012009_mf",
+                "name": "Age 21",
+                "sum": 2765,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "P012010_mf",
+                "name": "Ages 22-24",
+                "sum": 7939,
+                "min": 0,
+                "max": 137
+              },
+              {
+                "key": "P012011_mf",
+                "name": "Ages 25-29",
+                "sum": 13609,
+                "min": 0,
+                "max": 317
+              },
+              {
+                "key": "P012012_mf",
+                "name": "Ages 30-34",
+                "sum": 12428,
+                "min": 0,
+                "max": 214
+              },
+              {
+                "key": "P012013_mf",
+                "name": "Ages 35-39",
+                "sum": 11973,
+                "min": 0,
+                "max": 169
+              },
+              {
+                "key": "P012014_mf",
+                "name": "Ages 40-44",
+                "sum": 11420,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "P012015_mf",
+                "name": "Ages 45-49",
+                "sum": 10942,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "P012016_mf",
+                "name": "Ages 50-54",
+                "sum": 9918,
+                "min": 0,
+                "max": 97
+              },
+              {
+                "key": "P012017_mf",
+                "name": "Ages 55-59",
+                "sum": 7864,
+                "min": 0,
+                "max": 95
+              },
+              {
+                "key": "P012018_mf",
+                "name": "Ages 60-61",
+                "sum": 2721,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "P012019_mf",
+                "name": "Ages 62-64",
+                "sum": 3258,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "P012020_mf",
+                "name": "Ages 65-66",
+                "sum": 1668,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "P012021_mf",
+                "name": "Ages 67-69",
+                "sum": 2148,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "P012022_mf",
+                "name": "Ages 70-74",
+                "sum": 2670,
+                "min": 0,
+                "max": 52
+              },
+              {
+                "key": "P012023_mf",
+                "name": "Ages 75-79",
+                "sum": 1925,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "P012024_mf",
+                "name": "Ages 80-84",
+                "sum": 1366,
+                "min": 0,
+                "max": 52
+              },
+              {
+                "key": "P012025_mf",
+                "name": "Ages 85+",
+                "sum": 1277,
+                "min": 0,
+                "max": 112
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 114483,
+              "min": 0,
+              "max": 1522
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 25126,
+                "min": 0,
+                "max": 496
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 7254,
+                "min": 0,
+                "max": 301
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 73556,
+                "min": 0,
+                "max": 757
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 288,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 294,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 6497,
+                "min": 0,
+                "max": 159
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 232,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 1236,
+                "min": 0,
+                "max": 43
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -117.6835,
+            33.9753
+          ],
+          [
+            -117.524,
+            34.0925
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ontarioca_blocks"
+            },
+            "sourceLayer": "ontarioca_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ontarioca_blocks_points"
+            },
+            "sourceLayer": "ontarioca_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Ontario",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 2967297,
+              "min": 0,
+              "max": 7131
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 1722287,
+                "min": 0,
+                "max": 5546
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1093512,
+                "min": 0,
+                "max": 3753
+              },
+              {
+                "key": "HPOP",
+                "name": "Hispanic population",
+                "sum": 81481,
+                "min": 0,
+                "max": 1839
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 25477,
+                "min": 0,
+                "max": 432
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 13845,
+                "min": 0,
+                "max": 1756
+              },
+              {
+                "key": "NH_NAHI",
+                "name": "Hawaiian Native population",
+                "sum": 948,
+                "min": 0,
+                "max": 29
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2211742,
+              "min": 0,
+              "max": 5086
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1370641,
+                "min": 0,
+                "max": 4092
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 767499,
+                "min": 0,
+                "max": 3119
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 54977,
+                "min": 0,
+                "max": 1829
+              },
+              {
+                "key": "NAHIVAP",
+                "name": "Native Hawaiian voting age population",
+                "sum": 912,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 19643,
+                "min": 0,
+                "max": 293
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 10216,
+                "min": 0,
+                "max": 1125
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2010 Census GEOID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -91.636942,
+            30.180753
+          ],
+          [
+            -88.097888,
+            34.995694
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mississippi_block_groups"
+            },
+            "sourceLayer": "mississippi_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mississippi_block_groups_points"
+            },
+            "sourceLayer": "mississippi_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "name": "Mississippi",
+    "state": "Mississippi",
+    "id": "mississippi",
+    "districtingProblems": [
+      {
+        "numberOfParts": 4,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      },
+      {
+        "numberOfParts": 52,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 122,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      }
+    ]
+  }
+]

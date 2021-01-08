@@ -1,0 +1,467 @@
+[
+  {
+    "units": [
+      {
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "PRECODE"
+        },
+        "bounds": [
+          [
+            -103.0025,
+            33.6158
+          ],
+          [
+            -94.4307,
+            37.0023
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oklahoma_precincts"
+            },
+            "sourceLayer": "oklahoma_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oklahoma_precincts_points"
+            },
+            "sourceLayer": "oklahoma_precincts_points"
+          }
+        ],
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 3751351,
+              "min": 0,
+              "max": 9451
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2575381,
+                "min": 0,
+                "max": 5944
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 272071,
+                "min": 0,
+                "max": 3041
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 332007,
+                "min": 0,
+                "max": 6523
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 64154,
+                "min": 0,
+                "max": 718
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 308733,
+                "min": 0,
+                "max": 1539
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 3977,
+                "min": 0,
+                "max": 230
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 192074,
+                "min": 0,
+                "max": 628
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 2954,
+                "min": 0,
+                "max": 29
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2821685,
+              "min": 0,
+              "max": 6764
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2055504,
+                "min": 0,
+                "max": 4970
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 195546,
+                "min": 0,
+                "max": 2207
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 199457,
+                "min": 0,
+                "max": 3931
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 207883,
+                "min": 0,
+                "max": 1073
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 2701,
+                "min": 0,
+                "max": 133
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 48930,
+                "min": 0,
+                "max": 646
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1792,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 109872,
+                "min": 0,
+                "max": 391
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "key": "CNTYNAME",
+            "name": "County",
+            "subgroups": []
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 750511,
+                "min": 0,
+                "max": 2265
+              },
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 421460,
+                "min": 0,
+                "max": 1191
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 644318,
+                "min": 0,
+                "max": 1852
+              },
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 500725,
+                "min": 0,
+                "max": 1403
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Lieutenant Governor",
+            "subgroups": [
+              {
+                "key": "LG18R",
+                "name": "Republican",
+                "sum": 728967,
+                "min": 0,
+                "max": 2167
+              },
+              {
+                "key": "LG18D",
+                "name": "Democratic",
+                "sum": 406553,
+                "min": 0,
+                "max": 1170
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 730266,
+                "min": 0,
+                "max": 2249
+              },
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 428190,
+                "min": 0,
+                "max": 1194
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 3751351,
+              "min": 0,
+              "max": 7306
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2575381,
+                "min": 0,
+                "max": 5800
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 272071,
+                "min": 0,
+                "max": 1845
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 332007,
+                "min": 0,
+                "max": 2107
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 64154,
+                "min": 0,
+                "max": 849
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 308733,
+                "min": 0,
+                "max": 1110
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 3977,
+                "min": 0,
+                "max": 193
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 192074,
+                "min": 0,
+                "max": 355
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 2954,
+                "min": 0,
+                "max": 22
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2821685,
+              "min": 0,
+              "max": 5060
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2055504,
+                "min": 0,
+                "max": 4173
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 195546,
+                "min": 0,
+                "max": 1486
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 199457,
+                "min": 0,
+                "max": 2076
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 207883,
+                "min": 0,
+                "max": 743
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 2701,
+                "min": 0,
+                "max": 111
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 48930,
+                "min": 0,
+                "max": 781
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1792,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 109872,
+                "min": 0,
+                "max": 194
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -103.0025,
+            33.6158
+          ],
+          [
+            -94.4307,
+            37.0023
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oklahoma_blockgroups_points"
+            },
+            "sourceLayer": "oklahoma_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oklahoma_blockgroups"
+            },
+            "sourceLayer": "oklahoma_blockgroups"
+          }
+        ],
+        "limit": "community"
+      }
+    ],
+    "name": "Oklahoma",
+    "districtingProblems": [
+      {
+        "numberOfParts": 5,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      },
+      {
+        "numberOfParts": 48,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      },
+      {
+        "numberOfParts": 101,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      }
+    ],
+    "state": "Oklahoma",
+    "id": "oklahoma"
+  }
+]
