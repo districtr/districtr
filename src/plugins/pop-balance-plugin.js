@@ -21,7 +21,7 @@ export default function PopulationBalancePlugin(editor) {
     const placeID = extra_source || place;
     const sep = (placeID === "louisiana") ? ";" : ",";
 
-    const zoomToUnassigned = spatial_abilities(editor.state.place.id).contiguity
+    const zoomToUnassigned = spatial_abilities(editor.state.place.id).find_unpainted
       ? (e) => {
         let saveplan = state.serialize();
         const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
@@ -37,11 +37,15 @@ export default function PopulationBalancePlugin(editor) {
         .then((data) => {
           if (data["-1"] && data["-1"].length) {
             const ids = data["-1"].sort((a, b) => b.length - a.length)[0];
-            fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${ids.join(sep)}`).then(res => res.json()).then((centroid) => {
-              centroid = centroid.replace('POINT', '').replace('(', '').replace(')', '').trim().split(" ").map(n => Number(n));
-              editor.state.map.flyTo({
-                center: centroid,
-                zoom: 14
+            fetch(`https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?ids=${ids.join(sep)}`).then(res => res.json()).then((bbox) => {
+              if (bbox.length) {
+                bbox = bbox[0];
+              }
+              Object.values(bbox).forEach(mybbox => {
+                editor.state.map.fitBounds([
+                  [mybbox[0], mybbox[2]],
+                  [mybbox[1], mybbox[3]]
+                ]);
               });
             });
           }

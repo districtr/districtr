@@ -248,6 +248,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        find_unpainted: true,
       },
       alaska: {
         number_markers: true,
@@ -299,6 +300,7 @@ export function spatial_abilities (id) {
         native_american: true,
         county_brush: true,
         shapefile: true,
+        find_unpainted: true,
       },
         ccsanitation: {
           screenshot: true,
@@ -319,6 +321,7 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       connecticut: {
         county_brush: true,
@@ -326,18 +329,21 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       dc: {
         multiyear: true,
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       delaware: {
         number_markers: true,
         native_american: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       florida: {
         native_american: true,
@@ -351,6 +357,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       hawaii: {
         number_markers: true,
@@ -382,6 +389,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         screenshot: true,
         shapefile: true,
+        find_unpainted: true,
       },
       kansas: {
         multiyear: true,
@@ -401,6 +409,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       little_rock: {
         number_markers: true,
@@ -411,6 +420,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       maine: {
         native_american: true,
@@ -433,6 +443,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           number_markers: true,
           shapefile: true,
+          find_unpainted: true,
         },
       miamifl: {
         number_markers: true,
@@ -461,6 +472,7 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       missouri: {
         multiyear: true,
@@ -512,6 +524,7 @@ export function spatial_abilities (id) {
         current_districts: true,
         screenshot: true,
         shapefile: true,
+        find_unpainted: true,
       },
         new_mexico_bg: {
           native_american: true,
@@ -525,6 +538,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           screenshot: true,
           shapefile: true,
+          find_unpainted: true,
         },
       newyork: {
         number_markers: true,
@@ -544,6 +558,7 @@ export function spatial_abilities (id) {
             contiguity: 2,
             screenshot: true,
             shapefile: true,
+            find_unpainted: true,
           },
       northdakota: {
         multiyear: true,
@@ -564,6 +579,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         coalition: true,
         shapefile: true,
+        find_unpainted: true,
       },
       ontarioca: {
         number_markers: true,
@@ -574,20 +590,24 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
         portlandor: {
           number_markers: true,
           contiguity: 2,
+          find_unpainted: true,
         },
       pennsylvania: {
         number_markers: true,
         county_brush: true,
         shapefile: true,
         // contiguity: 2,
+        find_unpainted: true,
       },
         philadelphia: {
           number_markers: true,
           contiguity: 2,
+          find_unpainted: true,
         },
       puertorico: {
         number_markers: true,
@@ -627,6 +647,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         contiguity: 2,
         shapefile: true,
+        find_unpainted: true,
       },
       utah: {
         number_markers: true,
