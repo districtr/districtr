@@ -36,8 +36,8 @@ export default function PopulationBalancePlugin(editor) {
         .catch((e) => console.error(e))
         .then((data) => {
           if (data["-1"] && data["-1"].length) {
-            const ids = data["-1"].sort((a, b) => b.length - a.length)[0];
-            fetch(`https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?ids=${ids.join(sep)}`).then(res => res.json()).then((bbox) => {
+            const ids = data["-1"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
+            fetch(`https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
               if (bbox.length) {
                 bbox = bbox[0];
               }
