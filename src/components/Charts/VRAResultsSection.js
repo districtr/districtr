@@ -94,21 +94,28 @@ function getGenSuccessCell(vote_perc, width) {
 
 
 function getPrimTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(),"CoC", "Group Control", "Rank", "%"]; //subgroups.map(subgroup => subgroup.name);
+    const cocHeader = html`<div class="elect_tooltip">CoC
+                                <span class="elect_tooltiptext">Black Candidate of Choice</span>
+                           </div>`;
+    const groupControlHeader = html`<div class="elect_tooltip">Group Control
+                                            <span class="elect_tooltiptext">Estimated Black share in the support received by CoC</span>
+                                    </div>`;
+    const headers = [dist.renderLabel(),cocHeader, "%", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLable(elect),
         entries: [getTextCell(elect.CoC, width*1.75), 
-                  getCell(elect.GroupControl, width, decimals, true),
+                  getCell(elect.CoC_perc, width, decimals),
                   getRankCell(elect, width), 
-                  getCell(elect.CoC_perc, width, decimals)
+                  getTextCell(elect.numCands, width/2), 
+                  getCell(elect.GroupControl, width, decimals, true),
                 ]
     }));
     return DataTable(headers, rows, true);
 }
 
 function getGenTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(),"Proxy CoC", "Success", "%"]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),"CoC", "Success", "%"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLable(elect),
