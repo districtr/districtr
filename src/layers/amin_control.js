@@ -30,7 +30,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Alaskan Native Communities";
     } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
-    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "la_vra", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Tribes";
     } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";

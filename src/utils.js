@@ -413,9 +413,9 @@ export function spatial_abilities (id) {
         shapefile: true,
       },
         la_vra: {
-          // native_american: true,
+          native_american: true,
           vra_effectiveness: true,
-          // county_brush: true, // lakes 
+          county_brush: true, // lakes 
           number_markers: true,
         },
       maine: {

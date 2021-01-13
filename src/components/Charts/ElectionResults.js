@@ -38,7 +38,9 @@ function getCell(party, part) {
 }
 
 export default function ElectionResults(election, parts) {
-    const headers = election.parties.map(party => party.name);
+    const headers = election.parties.map(party => {
+                        const rgb = getPartyRGBColors(party.name);
+                        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`});
     let rows = parts.map(part => ({
         label: part.renderLabel(),
         entries: election.parties.map(party => getCell(party, part))
@@ -48,7 +50,7 @@ export default function ElectionResults(election, parts) {
         entries: election.parties.map(party => getCell(party, null))
     });
     return html`
-        ${election.parties.length === 2 ? html`<strong>two-party vote share</strong>` : ""}
+        ${election.parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
         ${DataTable(headers, rows)}
     `;
 }
