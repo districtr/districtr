@@ -2,6 +2,7 @@ import { interpolateRdBu } from "d3-scale-chromatic";
 import { html } from "lit-html";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
+import { getPartyRGBColors } from "../../layers/color-rules"
 
 /**
  * Get the style property for a cell in the ElectionResults table,
@@ -15,9 +16,9 @@ import DataTable from "./DataTable";
  * @param {Subgroup} party
  */
 function getCellStyle(percent, party) {
-    if (party.name === "Democratic" && percent > 0.5) {
+    if ((party.name === "Democratic" || party.name.includes("(Dem)")) && percent > 0.5) {
         return `background: ${interpolateRdBu(percent)}`;
-    } else if (party.name === "Republican" && percent > 0.5) {
+    } else if ((party.name === "Republican" || party.name.includes("(Rep)")) && percent > 0.5) {
         return `background: ${interpolateRdBu(1 - percent)}`;
     }
     return `background: #f9f9f9`;

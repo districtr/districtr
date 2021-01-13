@@ -1,4 +1,4 @@
-import { html, render } from "lit-html";
+import { html, parts, render } from "lit-html";
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -425,14 +425,15 @@ export default function DataLayersPlugin(editor) {
             demoLayers,
             state.elections
         );
+        const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
-                ${(spatial_abilities(state.place.id).parties || []).map((p) =>
+                ${parties ? parties.map((p) =>
                   html`<li class="party-desc">
                     <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
                     <span>${p}</span>
                   </li>`
-                )}
+                ) : ""}
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>

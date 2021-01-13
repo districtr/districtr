@@ -5,11 +5,11 @@ import Parameter from "../Parameter";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
-const electionAbrev = {"19Governor": ["GOV19", "2019 Govenor"], "19Lt_Governor": ["LTG19", "2019 Lt. Govenor"], 
+const electionAbrev = {"19Governor": ["GOV19", "2019 Governor"], "19Lt_Governor": ["LTG19", "2019 Lt. Governor"], 
                            "19Treasurer": ["TRES19", "2019 Treasurer"], "19Ag_Comm": ["AGC19", "2019 Commissioner of Agriculture and Forestry"], 
                            "18SOS": ["SOS18", "2018 Secretary of State"], "17Treasurer": ["TRES17", "2017 Treasurer"], 
                            "16US_Sen": ["SEN16", "2016 US Senate"], "16_President": ["PRES16", "2016 US President"], 
-                           "15_Governor":["GOV15", "2015 Govenor"], "15_SOS": ["SOS15", "2015 Secratary of State"], 
+                           "15_Governor":["GOV15", "2015 Governor"], "15_SOS": ["SOS15", "2015 Secretary of State"], 
                            "15_Treasurer": ["TRES15", "2015 Treasurer"]};
 
 const candNames = {"EdwardsD_19G_Governor": "J. Edwards","EdwardsD_19P_Governor": "J. Edwards",
@@ -70,7 +70,7 @@ function getRankCell(elect, width) {
     };
 }
 
-function getElectLable(elect) {
+function getElectLabel(elect) {
     const name = electionAbrev[elect.name] ? electionAbrev[elect.name][0] : elect.name;
     const desc = electionAbrev[elect.name] ? electionAbrev[elect.name][1] : "";
     return html`
@@ -91,19 +91,18 @@ function getGenSuccessCell(vote_perc, width) {
     };
 }
 
-
-
-function getPrimTable(dist, elects, decimals=true) {
-    const cocHeader = html`<div class="elect_tooltip">CoC
+const cocHeader = html`<div class="elect_tooltip">CoC
                                 <span class="elect_tooltiptext">Black Candidate of Choice</span>
                            </div>`;
+
+function getPrimTable(dist, elects, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">Group Control
                                             <span class="elect_tooltiptext">Estimated Black share in the support received by CoC</span>
                                     </div>`;
     const headers = [dist.renderLabel(),cocHeader, "%", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
-        label: getElectLable(elect),
+        label: getElectLabel(elect),
         entries: [getTextCell(elect.CoC, width*1.75), 
                   getCell(elect.CoC_perc, width, decimals),
                   getRankCell(elect, width), 
@@ -115,15 +114,15 @@ function getPrimTable(dist, elects, decimals=true) {
 }
 
 function getGenTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(),"CoC", "Success", "%"]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(), cocHeader, "%", "Success"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
-        label: getElectLable(elect),
+        label: getElectLabel(elect),
         entries: [elect.CoC_proxy ? getTextCell(elect.CoC_proxy, width*2.25) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width*2.25}; text-align: center;`}, 
-                  elect.CoC_proxy ? getGenSuccessCell(elect.proxy_perc, width) 
-                                  : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                   elect.CoC_proxy ? getCell(elect.proxy_perc, width, decimals) 
+                                  : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
+                  elect.CoC_proxy ? getGenSuccessCell(elect.proxy_perc, width) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                 ]
     }));
@@ -138,9 +137,11 @@ function DistrictResults(effectiveness, dist) {
         <section class="toolbar-section">
             ${effectiveness[dist.id] ? getPrimTable(dist, effectiveness[dist.id].electionDetails) : ""}
             <ul class="option-list">
-                <li class="option-list__item">
-                    * M indicates that the first place candidate recieved a majority of the votes. </br>
-                    * P indicates that they won the primary with a plurality of votes.
+                <li class="option-list__item" style="text-align: center;">
+                In the candidate rank column, M indicates that some candidate won a majority of 
+                votes in this district, and P indicates a plurality situation. The entries shaded 
+                green are those elections where the given candidate would have won or advanced to a
+                runoff in a district-specific election.
                 </li>
             </ul>
         </section>

@@ -6,7 +6,7 @@ import { until } from "lit-html/directives/until";
 
 export default () => {
     var curState = document.head.id;
-    const vraPage = curState === "VRA";
+    const vraPage = curState === "VRA - Dashbord";
     // document.title = curState.concat(" | Districtr");
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {

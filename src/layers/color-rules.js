@@ -33,14 +33,25 @@ let cachedColors = {};
  * Returns a color for the given party.
  * @param {String} name the party's name (e.g. Democratic)
  */
-function getPartyRGBColors(name) {
+export function getPartyRGBColors(name) {
     if (partyRGBColors.hasOwnProperty(name)) {
         return partyRGBColors[name];
     }
+    if (name.includes("(Dem)")) {
+        return partyRGBColors["Democratic"]
+    }
+    if (name.includes("(Rep)")) {
+        return partyRGBColors["Republican"]
+    }
+    if (name.includes("(Ind)")) {
+        return partyRGBColors["Independent"]
+    }
+
     if (cachedColors.hasOwnProperty(name)) {
         return cachedColors[name];
     }
-    let color = vizColors.pop();
+    let color = vizColors.shift();
+    vizColors.push(color);
     cachedColors[name] = color;
     return color;
 }

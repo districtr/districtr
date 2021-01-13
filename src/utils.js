@@ -407,12 +407,17 @@ export function spatial_abilities (id) {
       },
       louisiana: {
         native_american: true,
-        vra_effectiveness: true,
         // county_brush: true, // lakes
         number_markers: true,
         contiguity: 2,
         shapefile: true,
       },
+        la_vra: {
+          // native_american: true,
+          vra_effectiveness: true,
+          // county_brush: true, // lakes 
+          number_markers: true,
+        },
       maine: {
         native_american: true,
         number_markers: true,
