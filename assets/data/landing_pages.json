@@ -2864,6 +2864,24 @@
         ]
       },
       {
+        "name": "Explore the enacted plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "la",
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans in Louisiana",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
