@@ -411,6 +411,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        vra_effectiveness: true,
       },
         la_vra: {
           native_american: true,
