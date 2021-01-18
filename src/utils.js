@@ -428,7 +428,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
-        find_unpainted: true,
+        // find_unpainted: true,
       },
       maine: {
         native_american: true,
@@ -484,7 +484,7 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: 2,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
       missouri: {
         multiyear: true,
@@ -618,7 +618,6 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // contiguity: 2,
       },
         philadelphia: {
           number_markers: true,
@@ -629,17 +628,18 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
         puertorico_prec: {
           number_markers: true,
           parties: ["Nuevo Progresista", "Popular Democrático"],
+          shapefile: true,
           // find_unpainted: true,
         },
       rhode_island: {
         number_markers: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
       southcarolina: {
         multiyear: true,
@@ -647,7 +647,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
       southdakota: {
         multiyear: true,
@@ -655,14 +655,14 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
       tennessee: {
         multiyear: true,
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
       texas: {
         number_markers: true,
