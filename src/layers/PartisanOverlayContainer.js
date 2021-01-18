@@ -1,11 +1,12 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import { Parameter } from "../components/Parameter";
 import Select from "../components/Select";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections) {
+    constructor(id, layers, elections, toolbar) {
+        console.log(toolbar);
         this._id = id;
         this.elections = elections;
         this.layers = layers;
@@ -13,6 +14,8 @@ export default class PartisanOverlayContainer {
             election => new PartisanOverlay(layers, election)
         );
         this._currentElectionIndex = 0;
+        this._inspection = toolbar.toolsById.inspect;
+        this._toolbar = toolbar;
 
         this.setElection = this.setElection.bind(this);
         this.render = this.render.bind(this);
@@ -50,7 +53,26 @@ export default class PartisanOverlayContainer {
         if (this.isVisible) {
             this.currentElectionOverlay.show(this.vote);
         }
+        this.syncInspectTool();
     }
+
+    syncInspectTool() {
+        console.log("syncing")
+        console.log(this._inspection);
+        const curElect = this.elections[this._currentElectionIndex].name;
+        const inspectIndex = this._inspection.columnSets.findIndex(cs => cs.name === curElect);
+        // console.log(curElect);
+        // console.log(this._inspection.columnSets[inspectIndex]);
+        this._inspection.changeColumnSetByIndex(inspectIndex);
+        if (this._inspection.active) {
+            const target = document.getElementById("toolbar");
+            if (target === null) {
+                return;
+            }
+            render(this._toolbar.render(), target);
+        }
+    }
+
     selectVote(type) {
         this.vote = type;
         this.setElection(this._currentElectionIndex);

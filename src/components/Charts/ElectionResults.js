@@ -39,7 +39,7 @@ function getCell(party, part) {
 
 export default function ElectionResults(election, parts) {
     const headers = election.parties.map(party => {
-                        const rgb = getPartyRGBColors(party.name);
+                        const rgb = getPartyRGBColors(party.name + party.key);
                         return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`});
     let rows = parts.map(part => ({
         label: part.renderLabel(),

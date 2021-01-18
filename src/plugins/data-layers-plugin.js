@@ -420,10 +420,14 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
+        console.log(state);
+        console.log(toolbar);
+        // console.log(toolbar.toolsById.inspect);
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
             demoLayers,
-            state.elections
+            state.elections,
+            toolbar
         );
         const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',

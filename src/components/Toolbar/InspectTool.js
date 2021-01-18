@@ -67,6 +67,8 @@ class InspectToolOptions {
         this.renderToolbar();
     }
     render() {
+        console.log('rendering');
+        console.log(this.inspectTool.activeColumnSetIndex)
         return html`
             <div class="ui-option">
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>
@@ -75,7 +77,7 @@ class InspectToolOptions {
                         return { name: i ? (col.name_alt || col.name) : col.name };
                     }),
                     this.inspectTool.changeColumnSetByIndex,
-                    this.inspectTool.activeColumnSetIndex || 0
+                    this.inspectTool.activeColumnSetIndex
                 )}
             </div>
             ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {

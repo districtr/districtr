@@ -1,6 +1,6 @@
 // import Tabs from "../components/Tabs";
 // import {DistrictResults} from "../components/Charts/VRAResultsSection"
-import { html, render } from "lit-html";
+import { render } from "lit-html";
 
 export default function VRAEffectiveness(state, brush, toolbar) {
     let place = state.place.id,
