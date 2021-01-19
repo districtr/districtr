@@ -6,9 +6,14 @@ import { divideOrZeroIfNaN } from "../utils";
 /**
  * Default color scheme for the two major parties.
  */
-const partyRGBColors = {
+export const partyRGBColors = {
     Democratic: [25, 118, 210],
-    Republican: [211, 47, 47]
+    Republican: [211, 47, 47],
+
+    Independent: [11, 102, 35],
+    // PR
+    "Nuevo Progresista": [102, 102, 204],
+    "Popular Democrático": [255, 102, 51]
 };
 
 /**
@@ -125,7 +130,10 @@ function colorbyVoteShare(party, colorStops) {
     return [
         "interpolate",
         ["linear"],
-        party.fractionAsMapboxExpression(),
+        (["Democratic", "Republican"].includes(party.name)
+          ? party.fractionAsMapboxExpression()
+          : ["*", 1.2, party.fractionAsMapboxExpression()]
+        ),
         ...colorStops
     ];
 }

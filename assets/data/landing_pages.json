@@ -1669,8 +1669,9 @@
     "state": "New Mexico",
     "code": "NM",
     "modules": [
-      {"name": "Statewide", "ids": ["new_mexico"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["santafe"], "id": "loc"}],
+      {"name": "Statewide", "ids": ["new_mexico", "new_mexico_bg"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["santafe"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1733,7 +1734,7 @@
     "code": "NY",
     "modules": [
       {"name": "Statewide", "ids": ["newyork"], "id": "state", "default": "true"},
-      {"name": "Cities", "ids": ["islip"], "id": "loc"}],
+      {"name": "Cities", "ids": ["islip", "ithacany"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2112,7 +2113,7 @@
     "state": "Puerto Rico",
     "code": "PR",
     "modules": [
-      {"name": "Statewide", "ids": ["puertorico"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["puertorico", "puertorico_prec"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2140,7 +2141,10 @@
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
           {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+           "content_source": "/assets/about/landing/community_blockgroups.html"},
+          {"name": "Precincts",
+           "content_source": "/assets/about/puerto-rico/precincts.html"}
+         ]
       }
     ]
   },
@@ -2744,7 +2748,7 @@
     "state": "Wisconsin",
     "code": "WI",
     "modules": [
-      {"name": "Statewide", "ids": ["wisconsin"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["wisconsin", "wisconsin2020"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

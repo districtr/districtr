@@ -2,6 +2,20 @@ import { html, render } from "lit-html";
 import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
+const stateForEvent = {
+  test: 'Pennsylvania',
+  fyi: 'North Carolina',
+  'unca-forsyth': 'North Carolina',
+  'common cause md ss': 'Maryland',
+  'commoncause md ss': 'Maryland',
+  'cc-md-ss': 'Maryland',
+  'cc md ss': 'Maryland',
+  'cc-nm-abq': 'New Mexico',
+  centralsan: 'California',
+  'mggg-nm': 'New Mexico',
+  wisc: 'Wisconsin',
+};
+
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
@@ -12,8 +26,13 @@ const validEventCodes = {
   'cc md ss': 'maryland',
   'cc-nm-abq': 'new_mexico',
   centralsan: 'ccsanitation2',
-  'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe']
+  'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
+  wisc: 'wisconsin2020'
 };
+
+const unitTypes = {
+  // wisc: 'blockgroups',
+}
 
 const unitCounts = {
   'unca-forsyth': 101,
@@ -29,6 +48,7 @@ const coi_events = [
   'cc-nm-abq',
   // 'santafe',
   'mggg-nm',
+  'wisc',
 ];
 
 const eventDescriptions = {
@@ -42,6 +62,7 @@ const eventDescriptions = {
   'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!',
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
+  'wisc': 'Welcome to the COI collection page for Wisconsin (DEMO)',
 };
 
 const longAbout = {
@@ -51,6 +72,7 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
+  wisc: "",
 };
 
 const proposals_by_event = {
@@ -81,16 +103,21 @@ export default () => {
         if (typeof validEventCodes[eventCode] === 'string') {
             validEventCodes[eventCode] = [validEventCodes[eventCode]];
         }
-        validEventCodes[eventCode].forEach(placeID => {
-            listPlacesForState(placeID, coi_events.includes(eventCode) || coi_events.includes(placeID)).then(places => {
+
+        listPlacesForState(stateForEvent[eventCode], coi_events.includes(eventCode)).then(places => {
+            validEventCodes[eventCode].forEach(placeID => {
+                let place = places.find(p => p.id === placeID);
                 if (coi_events.includes(eventCode) || coi_events.includes(placeID)) {
-                    places[0].districtingProblems = [
+                    place.districtingProblems = [
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                     ];
                 }
+                if (unitTypes[eventCode]) {
+                    place.units = place.units.filter(u => u.id === unitTypes[eventCode]);
+                }
                 const mydiv = document.createElement('div');
                 target.append(mydiv);
-                render(placeItems(places[0], startNewPlan, eventCode), mydiv);
+                render(placeItems(place, startNewPlan, eventCode), mydiv);
             });
         });
 

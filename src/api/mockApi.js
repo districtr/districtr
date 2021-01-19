@@ -1,9 +1,14 @@
+import lookupState from "./lookupOldState";
+
 export function listPlaces(placeID, stateName) {
-    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-        return fetch("/assets/data/response.json").then(resp => resp.json());
-    } else if (stateName) {
-        return fetch("/.netlify/functions/fetchModule?state=" + stateName).then(resp => resp.json());
+    if (!stateName) {
+        stateName = lookupState[placeID];
+    }
+    if (placeID) {
+        return fetch("/assets/data/modules/" + stateName + ".json").then(resp => resp.json()).then((data) => {
+          return data.filter(d => d.id === placeID);
+        });
     } else {
-        return fetch("/.netlify/functions/fetchModule?id=" + placeID).then(resp => resp.json());
+        return fetch("/assets/data/modules/" + stateName + ".json").then(resp => resp.json());
     }
 }
