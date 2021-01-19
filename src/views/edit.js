@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
 import { MapState } from "../map";
+import Layer from "../map/Layer";
 import State from "../models/State";
 import {
     loadPlanFromURL,
@@ -15,7 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
-import { spatial_abilities } from "../utils";
+import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
     if (context.units.coi2) {
@@ -131,16 +132,44 @@ function loadContext(context) {
 
     // block of event handlers; drop a file onto the map
     function planHandler(f) {
-        let plan = f.getAsFile();
-        if (plan.name.includes(".json") || plan.name.includes(".csv")) {
+        let plan = f.getAsFile(),
+            pname = plan.name.toLowerCase();
+        if (pname.includes(".json") || pname.includes(".geojson") || pname.includes(".csv")) {
             let reader = new FileReader();
             reader.onload = (e) => {
                 localStorage.setItem(
                     "jsonload_viewstate",
                     document.querySelector("input[name=tabs]:checked").value
                 );
-                if (plan.name.includes(".json")) {
+                if (pname.includes(".json") || pname.includes(".geojson")) {
                     let planData = JSON.parse(reader.result);
+                    if (planData.type === "Feature" || planData.type === "FeatureCollection") {
+                        // load GeoJSON / Representable
+                        let rnd = Math.round(Math.random() * 100000);
+                        mapState.map.addSource('gj_up_' + rnd, {
+                          type: 'geojson',
+                          data: planData
+                        });
+                        new Layer(
+                            mapState.map,
+                            {
+                                id: 'gj_up_' + rnd,
+                                source: 'gj_up_' + rnd,
+                                type: "fill",
+                                paint: {
+                                    "fill-color": "#f44",
+                                    "fill-opacity": 0.3
+                                }
+                            }
+                        );
+
+                        let bnd = boundsOfGJ(planData);
+                        mapState.map.fitBounds([
+                          [bnd[0], bnd[1]],
+                          [bnd[2], bnd[3]]
+                        ]);
+                        return;
+                    }
                     if (planData.place.id !== context.place.id) {
                         let conf = window.confirm("Switch locations to load this plan file?");
                         if (!conf) {
