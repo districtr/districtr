@@ -47,6 +47,12 @@ export function getPartyRGBColors(name) {
     if (name.includes("(Ind)") || name.includes("Independent")) {
         return partyRGBColors["Independent"]
     }
+    if (name.includes("Nuevo Progresista")) {
+        return partyRGBColors["Nuevo Progresista"]
+    }
+    if (name.includes("Popular Democrático")) {
+        return partyRGBColors["Popular Democrático"]
+    }
 
     if (cachedColors.hasOwnProperty(name)) {
         return cachedColors[name];
