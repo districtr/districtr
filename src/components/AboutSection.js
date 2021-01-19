@@ -61,7 +61,7 @@ export default class AboutSection {
                 <li class="option-list__item">
                     ${parts.length > 0
                         ? Parameter({
-                              label: "Community:",
+                              label: "Select",
                               element: html`<div class="custom-select-wrapper">
                                       <div class="custom-select">
                                           <div
@@ -102,7 +102,7 @@ function AboutSectionTemplate({
     return html`
         <ul class="option-list">
             <li class="option-list__item">
-                <label class="ui-label">Community Name</label>
+                <label class="ui-label">Name</label>
                 <input
                     type="text"
                     class="text-input"
@@ -112,9 +112,10 @@ function AboutSectionTemplate({
                 />
             </li>
             <li class="option-list__item">
-                <label class="ui-label">Describe Your Community</label>
+                <label class="ui-label"></label>
                 <textarea
                     class="text-input text-area"
+                    placeholder="Describe this community"
                     @blur=${e => setDescription(e.target.value)}
                     @input=${e => setDescription(e.target.value)}
                     .value="${description}"
@@ -122,7 +123,7 @@ function AboutSectionTemplate({
             </li>
             <li class="option-list__item">
                 <br/>
-                <span>Your community details are updated automatically</span>
+                <span>These details are updated automatically</span>
             </li>
         </ul>
     `;

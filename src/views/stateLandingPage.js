@@ -170,7 +170,8 @@ const drawSection = (section, stateData, onlyCommunities) => {
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
             <div id="community-options" class="communities"></div>
-            <p style="text-align: right;"><a href="#data">What are the building blocks?</a></p>
+            <p style="text-align: right;"><a href="#data">What are the building blocks?</a>
+            </br><a href="#data">What are the data layers?</a></p>
         `;
     } else if (section.type === "plans") {
         section_body = html`

@@ -4,15 +4,28 @@ import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
 import { spatial_abilities } from "../utils";
+import { html } from "lit-html";
 
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
 
     addLocationSearch(mapState);
 
-    const tab = new Tab("community", "Description", editor.store);
+    const tab = new Tab("community", "Drawing", editor.store);
     const about = new AboutSection(editor);
-    tab.addRevealSection("About Your Community", about.render);
+    tab.addRevealSection("Areas of Interest", about.render);
+
+    tab.addRevealSection("Help?", () => html`<ul class="option-list">
+                                                <li class="option-list__item">
+                                                Prompting Questions:
+                                                <ul>
+                                                    <li>What unites this community?</li>
+                                                    <li>Who lives here?</li>
+                                                    <li>Are there important places or traditions?</li>
+                                                </ul>
+                                                </li>`,
+                         {isOpen: false, activePartIndex: 0})
+
 
     const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
