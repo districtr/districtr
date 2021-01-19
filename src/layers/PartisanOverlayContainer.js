@@ -3,6 +3,7 @@ import { Parameter } from "../components/Parameter";
 import Select from "../components/Select";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
+import { getPartyRGBColors } from "../layers/color-rules";
 
 export default class PartisanOverlayContainer {
     constructor(id, layers, elections, toolbar) {
@@ -54,6 +55,12 @@ export default class PartisanOverlayContainer {
             this.currentElectionOverlay.show(this.vote);
         }
         this.syncInspectTool();
+
+        const target = document.getElementById("candidate-legend");
+        if (target === null) {
+            return;
+        }
+        render(this.candidateLegend(), target);
     }
 
     syncInspectTool() {
@@ -77,9 +84,23 @@ export default class PartisanOverlayContainer {
         this.vote = type;
         this.setElection(this._currentElectionIndex);
     }
+
+    candidateLegend() {
+        const cands = this.elections[this._currentElectionIndex].subgroups;
+        console.log(cands);
+        return cands.map(c => html`
+                                <li class="party-desc">
+                                    <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>
+                                    <span>${c.name}</span>
+                                </li>`);
+    }
+
     render() {
         const overlay = this.currentElectionOverlay;
+        
+        
         return html`
+            <div id="candidate-legend">${this.candidateLegend()}</div>
             <div class="ui-option ui-option--slim">
                 <label class="toolbar-checkbox">
                     <input
