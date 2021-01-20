@@ -56,7 +56,11 @@ export default function DataLayersPlugin(editor) {
         `
     );
 
-    if (state.place.state === state.place.name) {
+    let smatch = (name) => {
+      return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('_', '');
+    };
+
+    if (smatch(state.place.state) === smatch(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
