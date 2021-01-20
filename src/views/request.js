@@ -17,19 +17,19 @@ function onSubmit({
     first,
     last,
     email,
-    place,
+    pl,
     organization,
     districtTypes,
-    info
+    districtData,
 }) {
     submitRequest({
         first: first.value,
         last: last.value,
         email: email.value,
         organization: organization.value,
-        name: place.value,
+        place: place.value,
         districtTypes: districtTypes.value,
-        information: info.value
+        districtData: districtData.value
     })
         .then(
             handleResponse({
@@ -56,7 +56,7 @@ function onSubmit({
         });
 }
 
-function validate({ place, districtTypes, first, last, email, submit }) {
+function validate({ pl, districtTypes, first, last, email, submit }) {
     const valid =
         place.value.length > 0 &&
         districtTypes.value.length > 0 &&
@@ -73,7 +73,7 @@ export default function main() {
         [
             "place",
             "districtTypes",
-            "info",
+            "districtData",
             "first",
             "last",
             "email",
