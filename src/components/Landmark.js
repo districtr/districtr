@@ -116,6 +116,7 @@ export class Landmarks {
             // the drawTool creates an alphanumeric ID; we need a numeric ID for tooltip
             editFeature.number_id = Math.round(Math.random() * 1000000000);
             editFeature.properties.name = `New ${editFeature.geometry.type} ${this.savedPlaces.data.features.length + 1}`;
+            editFeature.properties.short_description = '';
 
             // a point is not rendered by the final polygon/tooltip layer
             // but we need it in this array for localStorage / export

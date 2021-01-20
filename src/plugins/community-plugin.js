@@ -35,9 +35,17 @@ export default function CommunityPlugin(editor) {
 
     let lmo;
     if (!state.map.landmarks) {
-        state.map.landmarks = new Landmarks(state.map, lm, () => {
+        window.selectLandmarkFeature = 0;
+        state.map.landmarks = new Landmarks(state.map, lm, (isNew) => {
           // update landmark list
           savePlanToStorage(state.serialize());
+          if (isNew) {
+            window.selectLandmarkFeature = lm.data.features.length - 1;
+            document.querySelector('.landmark-select .label').innerText = "New Point " + lm.data.features.length;
+            document.querySelector(".marker-form").style.display = "block";
+            document.querySelector(".marker-form input").value = "New Point " + (window.selectLandmarkFeature + 1);
+            document.querySelector(".marker-form textarea").value= "";
+          }
           state.render();
         });
     }
@@ -168,31 +176,19 @@ class LandmarkOptions {
         this.map = map;
         this.updateLandmarkList = landmarks.updateLandmarkList;
 
-        bindAll(["onSave", "onDelete", "setName", "setDescription", "saveFeature", "deleteFeature"],
+        bindAll(["onDelete", "setName", "setDescription", "saveFeature", "deleteFeature"],
             this);
-
-        if (this.features.length) {
-            this.updateName = this.features[0].properties.name;
-            this.updateDescription = this.features[0].properties.short_description || '';
-        } else {
-            this.updateName = null;
-            this.updateDescription = null;
-        }
     }
     // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
-        this.updateName = name;
-        this.onSave();
+        let updateFeature = this.features[window.selectLandmarkFeature];
+        updateFeature.properties.name = name;
+        document.querySelector('.landmark-select .label').innerText = name;
+        this.saveFeature(updateFeature.id);
     }
     setDescription(description) {
-        this.updateDescription = description;
-        this.onSave();
-    }
-    onSave() {
-        // save name, description, and location on map and localStorage
-        let updateFeature = this.features[this.selectFeature];
-        updateFeature.properties.name = this.updateName;
-        updateFeature.properties.short_description = this.updateDescription;
+        let updateFeature = this.features[window.selectLandmarkFeature];
+        updateFeature.properties.short_description = description;
         this.saveFeature(updateFeature.id);
     }
     saveFeature(feature_id) {
@@ -233,40 +229,54 @@ class LandmarkOptions {
       });
 
       // lock any in-progress shapes before saving to map
-      this.saveFeature();
+      this.updateLandmarkList();
     }
     onDelete() {
         // delete currently viewed shape
-        let deleteID = this.features[this.selectFeature].id;
+        let deleteID = this.features[window.selectLandmarkFeature].id;
         this.deleteFeature(deleteID);
     }
     render() {
         const properties = this.features.map(feature => feature.properties);
 
-        return html`
-    <ul class="landmark-list">
-        ${properties.map((p, idx) => html`
-          <li>
-            <span class="marker-name">${p.name}</span>
-            <button class="marker-expand" @click="${() => {
-                document.querySelectorAll(".marker-form").forEach((m, idx2) => {
-                  m.style.display = (idx === idx2) ? "block" : "none"
-                })
-                document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
-                  m.style.display = (idx === idx2) ? "none" : "inline-block"
-                })
-            }}"> + </button>
-            <div class="marker-form" style="display: none">
-              <label>Edit marker:</label>
+        return html`<ul class="landmark-list">
+        <div class="custom-select-wrapper">
+            <div class="custom-select landmark-select">
+                <div
+                  class="custom-select__trigger"
+                  @click="${(e) => { document.getElementsByClassName('landmark-select')[0].classList.toggle('open')}}"
+                >
+                    <span class="label">${(properties.length && window.selectLandmarkFeature >= 0)
+                        ? properties[window.selectLandmarkFeature].name
+                        : "Select place"
+                    }</span>
+                    <div class="arrow"></div>
+                </div>
+                <div class="custom-options">
+                  ${properties.map((p, idx) => html`<div @click="${() => {
+                      window.selectLandmarkFeature = idx * 1;
+                      document.getElementsByClassName('landmark-select')[0].classList.toggle('open');
+                      document.querySelector('.landmark-select .label').innerText = properties[window.selectLandmarkFeature].name;
+                      document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
+                      document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
+                    }}">
+                    <span class="custom-option" data-value="${idx}">
+                      ${p.name}
+                    </span>
+                  </div>`)}
+                </div>
+            </div>
+        </div>
+          <li class="marker" style="display: ${properties.length ? "block" : "none"}">
+            <div class="marker-form">
               <input
                 class="text-input"
                 type="text"
-                placeholder="Name"
-                value="${p.name}"
+                placeholder="Place name"
+                value="${(properties[window.selectLandmarkFeature] || {}).name}"
                 autofill="off"
                 autocomplete="off"
                 @input="${e => {
-                  this.selectFeature = idx;
                   this.setName(e.target.value);
                 }}"
               />
@@ -276,36 +286,36 @@ class LandmarkOptions {
                 autofill="off"
                 autocomplete="off"
                 @input="${e => {
-                  this.selectFeature = idx;
                   this.setDescription(e.target.value);
                 }}"
-              >${p.description}</textarea>
+              >${(properties[window.selectLandmarkFeature] || {}).short_description}</textarea>
               <div>
                 <button @click="${(e) => {
-                  document.querySelectorAll(".marker-form")[idx].style.display = "none";
-                  document.querySelectorAll(".marker-expand")[idx].style.display = "inline-block";
+                  window.selectLandmarkFeature = -1;
                 }}">Close</button>
-                <button @click="${(e) => {
+                <button style="display:none" @click="${(e) => {
                   const yn = window.confirm("Would you like to remove this place?");
                   if (yn) {
-                    this.selectFeature = idx;
                     this.onDelete();
+                    window.selectLandmarkFeature = 0;
+                    if (properties.length) {
+                      document.querySelector('.marker-form input').value = properties[0].name;
+                      document.querySelector('.marker-form textarea').value = properties[0].short_description;
+                    } else {
+                      document.querySelector('.marker-form input').value = "";
+                      document.querySelector('.marker-form textarea').value = "";
+                    }
                   }
                 }}">Delete?</button>
               </div>
             </div>
           </li>
-        `)}
         <li>
           <button
             @click="${() => {
+              window.selectLandmarkFeature = -1;
               document.querySelector("#tool-pan").click();
-              document.querySelectorAll(".marker-form").forEach((m, idx2) => {
-                m.style.display = "none";
-              })
-              document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
-                m.style.display = "inline-block";
-              })
+              document.querySelector(".marker-form").style.display = "none";
               document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
             }}"
           >

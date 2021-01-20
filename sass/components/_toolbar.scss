@@ -498,13 +498,10 @@ li:first-child > input:checked ~ .tabs__tab {
 
 .landmark-list {
   padding-inline-start: 0;
-  border-top: 1px solid silver;
-  border-bottom: 1px solid silver;
   margin: 6px;
 
-  li {
+  li.marker {
     list-style-type: none;
-    border: 1px solid silver;
     padding: 8px;
 
     input, textarea {
