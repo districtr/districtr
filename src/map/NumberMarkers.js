@@ -140,10 +140,15 @@ export default function NumberMarkers(state, brush) {
                 if (filterOdds < 1) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
-
-                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
+                const serverurl = spatial_abilities(state.place.id).centroid_server
+                    ? `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`
+                    : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
+                fetch(`${serverurl}ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
                     if (typeof centroid === "object") {
-                        centroid = centroid[0][`merged_${placeID}`];
+                        centroid = centroid[0];
+                        if (typeof centroid === "object") {
+                            centroid = centroid[0][`merged_${placeID}`];
+                        }
                     }
                     let latlng = centroid.split(" "),
                         lat = latlng[1].split(")")[0] * 1,

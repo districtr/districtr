@@ -634,7 +634,8 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
+        find_unpainted: true,
+        // centroid_server: true,
       },
       oklahoma: {
         number_markers: true,
@@ -766,6 +767,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         screenshot: true,
         find_unpainted: true,
+        centroid_server: true,
       },
         wisconsin2020: {
           number_markers: true,
@@ -774,6 +776,7 @@ export function spatial_abilities (id) {
           shapefile: true,
           screenshot: true,
           find_unpainted: true,
+          centroid_server: true,
         },
       wyoming: {
         multiyear: true,
