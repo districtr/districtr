@@ -13,7 +13,7 @@ const stateForEvent = {
   'cc-nm-abq': 'New Mexico',
   centralsan: 'California',
   'mggg-nm': 'New Mexico',
-  wisc: 'Wisconsin',
+  'pmc-demo': 'Wisconsin',
 };
 
 const validEventCodes = {
@@ -27,12 +27,12 @@ const validEventCodes = {
   'cc-nm-abq': 'new_mexico',
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
-  wisc: 'wisconsin2020'
+  'pmc-demo': ['wisconsin2020', 'wisconsin'],
 };
 
 const unitTypes = {
-  // wisc: 'blockgroups',
-}
+  "pmc-demo": {no: '2011 Wards'},
+};
 
 const unitCounts = {
   'unca-forsyth': 101,
@@ -48,7 +48,7 @@ const coi_events = [
   'cc-nm-abq',
   // 'santafe',
   'mggg-nm',
-  'wisc',
+  'pmc-demo',
 ];
 
 const eventDescriptions = {
@@ -62,7 +62,7 @@ const eventDescriptions = {
   'cc-nm-abq': 'Welcome to the event page for the Common Cause New Mexico project!',
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
-  'wisc': 'Welcome to the COI collection page for Wisconsin (DEMO)',
+  'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
 };
 
 const longAbout = {
@@ -72,7 +72,7 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
-  wisc: "",
+  "pmc-demo": "",
 };
 
 const proposals_by_event = {
@@ -113,7 +113,13 @@ export default () => {
                     ];
                 }
                 if (unitTypes[eventCode]) {
-                    place.units = place.units.filter(u => u.id === unitTypes[eventCode]);
+                    if (unitTypes[eventCode].no) {
+                        // block-list
+                        place.units = place.units.filter(u => !unitTypes[eventCode].no.includes(u.name));
+                    } else if (unitTypes[eventCode].yes) {
+                        // allow-list
+                        place.units = place.units.filter(u => unitTypes[eventCode].yes.includes(u.name));
+                    }
                 }
                 const mydiv = document.createElement('div');
                 target.append(mydiv);
