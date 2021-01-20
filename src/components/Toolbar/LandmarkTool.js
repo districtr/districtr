@@ -16,7 +16,7 @@ export default class LandmarkTool extends Tool {
         this.state = state;
         this.renderCallback = state.render;
 
-        bindAll(["saveFeature", "deleteFeature", "updateLandmarkList"],
+        bindAll(["updateLandmarkList", "saveFeature", "deleteFeature"],
             this);
 
         let lm = state.place.landmarks;
@@ -43,7 +43,12 @@ export default class LandmarkTool extends Tool {
     }
     updateLandmarkList(selectLastFeature) {
         savePlanToStorage(this.state.serialize());
-        this.renderCallback();
+        if (selectLastFeature) {
+            this.options.handleSelectFeature(-1);
+            // handleSelectFeature already calls render
+        } else {
+            this.renderCallback();
+        }
     }
     saveFeature(id) {
         this.landmarks.saveFeature(id);
@@ -59,6 +64,7 @@ export default class LandmarkTool extends Tool {
         super.activate();
         // enable / disable drawing toolbar
         this.landmarks.handleDrawToggle(true);
+        document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click();
     }
     deactivate() {
         super.deactivate();
@@ -79,9 +85,10 @@ class LandmarkOptions {
         this.deleteFeature = deleteFeature;
         this.renderCallback = renderCallback;
 
-        bindAll(["onSave", "onDelete", "setName", "setDescription"],
+        bindAll(["handleSelectFeature", "onSave", "onDelete", "setName", "setDescription"],
             this);
 
+        this.selectFeature = this.features.length ? 0 : null;
         if (this.features.length) {
             this.updateName = this.features[0].properties.name;
             this.updateDescription = this.features[0].properties.short_description || '';
@@ -89,6 +96,11 @@ class LandmarkOptions {
             this.updateName = null;
             this.updateDescription = null;
         }
+    }
+    handleSelectFeature(e) {
+        // e can be set to -1 (most recent layer)
+        this.selectFeature = (e > -1) ? e : (this.features.length - 1);
+        this.renderCallback();
     }
     // setName / setDescription: remember but don't yet save to map and localStorage
     setName(name) {
@@ -109,10 +121,23 @@ class LandmarkOptions {
     onDelete() {
         // delete currently viewed shape
         let deleteID = this.features[this.selectFeature].id;
+        if (this.selectFeature === this.features.length - 1) {
+            // adjust index if viewing most recent feature
+            this.handleSelectFeature(this.features.length - 2);
+        }
         this.deleteFeature(deleteID);
     }
     render() {
-        const properties = this.features.map(feature => feature.properties);
+        let properties = this.features.map(feature => feature.properties);
+        if (this.features.length) {
+            if (!this.selectFeature) {
+                // when we add our first feature, this selects it
+                this.selectFeature = 0;
+            }
+
+            this.updateName = this.features[this.selectFeature].properties.name;
+            this.updateDescription = this.features[this.selectFeature].properties.short_description || '';
+        }
 
         return html`
     <div class="ui-option">
@@ -123,66 +148,86 @@ class LandmarkOptions {
             this.drawTool.handleToggle
         )}
     </div>
-    <ul class="landmark-list">
-        ${properties.map((p, idx) => html`
-          <li>
-            <span class="marker-name">${p.name}</span>
-            <button class="marker-expand" @click="${() => {
-                document.querySelectorAll(".marker-form").forEach((m, idx2) => {
-                  m.style.display = (idx === idx2) ? "block" : "none"
-                })
-                document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
-                  m.style.display = (idx === idx2) ? "none" : "inline-block"
-                })
-            }}"> + </button>
-            <div class="marker-form" style="display: none">
-              <label>Edit marker:</label>
-              <input
-                class="text-input"
-                type="text"
-                placeholder="Name"
-                value="${p.name}"
-                autofill="off"
-                autocomplete="off"
-              />
-              <textarea
-                class="text-input"
-                placeholder="Description"
-                autofill="off"
-                autocomplete="off"
-              >${p.description}</textarea>
-              <div>
-                <button @click="${(e) => {
-                  document.querySelectorAll(".marker-form")[idx].style.display = "none";
-                  document.querySelectorAll(".marker-expand")[idx].style.display = "inline-block";
-                }}">Close</button>
-                <button @click="${(e) => {
-                  const form = e.target.parentElement.parentElement;
-                  this.selectFeature = idx;
-                  this.setName(form.children[1].value);
-                  this.setDescription(form.children[2].value);
-                  this.onSave();
-                }}">Save</button>
-              </div>
-            </div>
-          </li>
-        `)}
-        <li>
-          <button
-            @click="${() => {
-              document.querySelectorAll(".marker-form").forEach((m, idx2) => {
-                m.style.display = "none";
-              })
-              document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
-                m.style.display = "inline-block";
-              })
-              document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
-            }}"
-          >
-            New Marker
-          </button>
-          - then click place on map
+    <ul class="option-list">
+        <li class="option-list__item">
+            ${properties.length > 0
+                ? Parameter({
+                      label: "Edit:",
+                      element: html`${Select(
+                          properties,
+                          this.handleSelectFeature,
+                          this.selectFeature
+                      )}
+                      <button
+                          class="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_point"
+                          @click=${() => {
+                              document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click();
+                          }}
+                      >
+                      </button>`
+                  })
+                : ""}
         </li>
-    </ul>`;
+    </ul>
+
+    ${this.features.length ? LandmarkFormTemplate({
+        name: this.updateName,
+        description: this.updateDescription,
+        onSave: this.onSave,
+        setName: this.setName,
+        setDescription: this.setDescription,
+        onDelete: this.onDelete
+    }) : "Click on the map with the crosshairs (+) to add a point"}
+        `;
     }
+}
+
+
+function LandmarkFormTemplate({
+    name,
+    description,
+    onSave,
+    setName,
+    setDescription,
+    onDelete
+}) {
+    return html`
+        <ul class="option-list">
+            <li>
+                <label class="ui-label">Name</label>
+                <input
+                    type="text"
+                    name="landmark-name"
+                    autocomplete="off"
+                    class="text-input vertical-align"
+                    .value="${name}"
+                    @input=${e => setName(e.target.value)}
+                    @blur=${e => setName(e.target.value)}
+                />
+                <button
+                    class="button vertical-align"
+                    @click=${onDelete}
+                >
+                    <div
+                        class="icon"
+                        title="delete"
+                    >
+                        <i class="material-icons">delete</i>
+                    </div>
+                </button>
+            </li>
+            <li class="option-list__item">
+                <textarea
+                    class="text-input text-area short-text-area"
+                    name="landmark-desc"
+                    placeholder="Describe this place"
+                    @input=${e => setDescription(e.target.value)}
+                    @blur=${e => setDescription(e.target.value)}
+                    .value="${description}"
+                ></textarea>
+                <br/>
+                Your place details are saved automatically
+            </li>
+        </ul>
+    `;
 }

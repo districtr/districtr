@@ -1,3 +1,5 @@
+import { html } from "lit-html";
+
 import { PivotTable } from "../components/Charts/PivotTable";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import OverlayContainer from "../layers/OverlayContainer";
@@ -6,8 +8,10 @@ import DemographicsTable from "../components/Charts/DemographicsTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
-import { spatial_abilities } from "../utils";
-import { html } from "lit-html";
+import { Landmarks } from "../components/Landmark";
+import { toggle } from "../components/Toggle";
+import { bindAll, spatial_abilities } from "../utils";
+import { savePlanToStorage } from "../routes";
 
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
@@ -29,6 +33,32 @@ export default function CommunityPlugin(editor) {
                                                 </li>`,
                          {isOpen: false, activePartIndex: 0})
 
+
+    let lm = state.place.landmarks;
+    if (!lm.source && !lm.type) {
+        // initialize a blank landmarks object
+        // we cannot replace the object, which is used to remember landmarks
+        lm.type = "geojson";
+        lm.data = {"type": "FeatureCollection", "features": []};
+    }
+    // compatibility with old landmarks
+    lm = lm.source || lm;
+    lm.data.features = lm.data.features.filter(f => !f.number_id);
+
+    let lmo;
+    if (!state.map.landmarks) {
+        state.map.landmarks = new Landmarks(state.map, lm, () => {
+          // update landmark list
+          savePlanToStorage(state.serialize());
+          state.render();
+        });
+    }
+    lmo = new LandmarkOptions(
+        state.map.landmarks,
+        lm.data.features,
+        state.map
+    );
+    tab.addRevealSection("Important Places", lmo.render.bind(lmo));
 
     const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
@@ -129,4 +159,153 @@ function addLocationSearch(mapState) {
                 console.error(e);
             })
     );
+}
+
+class LandmarkOptions {
+    constructor(landmarks, features, map) {
+        this.points = landmarks.points;
+        this.drawTool = landmarks.drawTool;
+        this.features = features;
+        this.map = map;
+        this.updateLandmarkList = landmarks.updateLandmarkList;
+
+        bindAll(["onSave", "onDelete", "setName", "setDescription", "saveFeature", "deleteFeature"],
+            this);
+
+        if (this.features.length) {
+            this.updateName = this.features[0].properties.name;
+            this.updateDescription = this.features[0].properties.short_description || '';
+        } else {
+            this.updateName = null;
+            this.updateDescription = null;
+        }
+    }
+    // setName / setDescription: remember but don't yet save to map and localStorage
+    setName(name) {
+        this.updateName = name;
+        this.onSave();
+    }
+    setDescription(description) {
+        this.updateDescription = description;
+        this.onSave();
+    }
+    onSave() {
+        // save name, description, and location on map and localStorage
+        let updateFeature = this.features[this.selectFeature];
+        updateFeature.properties.name = this.updateName;
+        updateFeature.properties.short_description = this.updateDescription;
+        this.saveFeature(updateFeature.id);
+    }
+    saveFeature(feature_id) {
+        // if this feature ID is currently move-able, we lock it
+        this.features.forEach((feature) => {
+            // if you draw multiple items without saving them
+            // saving this feature will save all unsaved points
+            // we need to remove their old IDs, too
+            if (feature.number_id) {
+                this.drawTool.trash(feature.id);
+                feature.id = feature.number_id + "";
+                delete feature.number_id;
+
+                this.points.data.features.push(feature);
+            }
+        });
+
+        // save names and locations
+        this.map.getSource("landmarkpoints")
+            .setData(this.points.data);
+        this.updateLandmarkList();
+    }
+    deleteFeature(delete_id) {
+      this.features.forEach((feature, index) => {
+          if (feature.id === delete_id) {
+              let deleteFeature = this.savedPlaces.data.features.splice(index, 1);
+              this.drawTool.trash(deleteFeature.id);
+
+              // if point, also remove from the Points layer
+              if (deleteFeature[0].geometry.type === 'Point') {
+                  this.points.data.features.forEach((point, pindex) => {
+                      if (point.id === delete_id) {
+                          this.points.data.features.splice(pindex, 1);
+                      }
+                  });
+              }
+          }
+      });
+
+      // lock any in-progress shapes before saving to map
+      this.saveFeature();
+    }
+    onDelete() {
+        // delete currently viewed shape
+        let deleteID = this.features[this.selectFeature].id;
+        this.deleteFeature(deleteID);
+    }
+    render() {
+        const properties = this.features.map(feature => feature.properties);
+
+        return html`
+    <ul class="landmark-list">
+        ${properties.map((p, idx) => html`
+          <li>
+            <span class="marker-name">${p.name}</span>
+            <button class="marker-expand" @click="${() => {
+                document.querySelectorAll(".marker-form").forEach((m, idx2) => {
+                  m.style.display = (idx === idx2) ? "block" : "none"
+                })
+                document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
+                  m.style.display = (idx === idx2) ? "none" : "inline-block"
+                })
+            }}"> + </button>
+            <div class="marker-form" style="display: none">
+              <label>Edit marker:</label>
+              <input
+                class="text-input"
+                type="text"
+                placeholder="Name"
+                value="${p.name}"
+                autofill="off"
+                autocomplete="off"
+              />
+              <textarea
+                class="text-input"
+                placeholder="Description"
+                autofill="off"
+                autocomplete="off"
+              >${p.description}</textarea>
+              <div>
+                <button @click="${(e) => {
+                  document.querySelectorAll(".marker-form")[idx].style.display = "none";
+                  document.querySelectorAll(".marker-expand")[idx].style.display = "inline-block";
+                }}">Close</button>
+                <button @click="${(e) => {
+                  const form = e.target.parentElement.parentElement;
+                  this.selectFeature = idx;
+                  this.setName(form.children[1].value);
+                  this.setDescription(form.children[2].value);
+                  this.onSave();
+                }}">Save</button>
+              </div>
+            </div>
+          </li>
+        `)}
+        <li>
+          <button
+            @click="${() => {
+              document.querySelector("#tool-pan").click();
+              document.querySelectorAll(".marker-form").forEach((m, idx2) => {
+                m.style.display = "none";
+              })
+              document.querySelectorAll(".marker-expand").forEach((m, idx2) => {
+                m.style.display = "inline-block";
+              })
+              document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
+            }}"
+          >
+            New Marker
+          </button>
+          - then click place on map
+        </li>
+    </ul>`;
+    }
 }

@@ -500,7 +500,7 @@ li:first-child > input:checked ~ .tabs__tab {
   padding-inline-start: 0;
   border-top: 1px solid silver;
   border-bottom: 1px solid silver;
-  border-radius: 6px;
+  margin: 6px;
 
   li {
     list-style-type: none;
