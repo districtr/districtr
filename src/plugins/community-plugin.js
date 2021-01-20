@@ -22,18 +22,6 @@ export default function CommunityPlugin(editor) {
     const about = new AboutSection(editor);
     tab.addRevealSection("Areas of Interest", about.render);
 
-    tab.addRevealSection("Help?", () => html`<ul class="option-list">
-                                                <li class="option-list__item">
-                                                Prompting Questions:
-                                                <ul>
-                                                    <li>What unites this community?</li>
-                                                    <li>Who lives here?</li>
-                                                    <li>Are there important places or traditions?</li>
-                                                </ul>
-                                                </li>`,
-                         {isOpen: false, activePartIndex: 0})
-
-
     let lm = state.place.landmarks;
     if (!lm.source && !lm.type) {
         // initialize a blank landmarks object
@@ -59,6 +47,17 @@ export default function CommunityPlugin(editor) {
         state.map
     );
     tab.addRevealSection("Important Places", lmo.render.bind(lmo));
+
+    tab.addRevealSection("Help?", () => html`<ul class="option-list">
+                                                <li class="option-list__item">
+                                                Prompting Questions:
+                                                <ul>
+                                                    <li>What unites this community?</li>
+                                                    <li>Who lives here?</li>
+                                                    <li>Are there important places or traditions?</li>
+                                                </ul>
+                                                </li>`,
+                         {isOpen: false, activePartIndex: 0})
 
     const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
@@ -219,7 +218,7 @@ class LandmarkOptions {
     deleteFeature(delete_id) {
       this.features.forEach((feature, index) => {
           if (feature.id === delete_id) {
-              let deleteFeature = this.savedPlaces.data.features.splice(index, 1);
+              let deleteFeature = this.features.splice(index, 1);
               this.drawTool.trash(deleteFeature.id);
 
               // if point, also remove from the Points layer
@@ -266,12 +265,20 @@ class LandmarkOptions {
                 value="${p.name}"
                 autofill="off"
                 autocomplete="off"
+                @input="${e => {
+                  this.selectFeature = idx;
+                  this.setName(e.target.value);
+                }}"
               />
               <textarea
                 class="text-input"
                 placeholder="Description"
                 autofill="off"
                 autocomplete="off"
+                @input="${e => {
+                  this.selectFeature = idx;
+                  this.setDescription(e.target.value);
+                }}"
               >${p.description}</textarea>
               <div>
                 <button @click="${(e) => {
@@ -279,12 +286,12 @@ class LandmarkOptions {
                   document.querySelectorAll(".marker-expand")[idx].style.display = "inline-block";
                 }}">Close</button>
                 <button @click="${(e) => {
-                  const form = e.target.parentElement.parentElement;
-                  this.selectFeature = idx;
-                  this.setName(form.children[1].value);
-                  this.setDescription(form.children[2].value);
-                  this.onSave();
-                }}">Save</button>
+                  const yn = window.confirm("Would you like to remove this place?");
+                  if (yn) {
+                    this.selectFeature = idx;
+                    this.onDelete();
+                  }
+                }}">Delete?</button>
               </div>
             </div>
           </li>
