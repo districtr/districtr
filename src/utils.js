@@ -634,8 +634,8 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        find_unpainted: true,
-        // centroid_server: true,
+        // find_unpainted: true,
+        centroid_server: true,
       },
       oklahoma: {
         number_markers: true,
