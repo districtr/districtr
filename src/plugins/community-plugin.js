@@ -37,7 +37,7 @@ export default function CommunityPlugin(editor) {
     if (!state.map.landmarks) {
         window.selectLandmarkFeature = 0;
         state.map.landmarks = new Landmarks(state.map, lm, (isNew) => {
-          // update landmark list
+          // updateLandmarkList
           savePlanToStorage(state.serialize());
           if (isNew) {
             window.selectLandmarkFeature = lm.data.features.length - 1;
@@ -45,6 +45,10 @@ export default function CommunityPlugin(editor) {
             document.querySelector(".marker-form").style.display = "block";
             document.querySelector(".marker-form input").value = "New Point " + (window.selectLandmarkFeature + 1);
             document.querySelector(".marker-form textarea").value= "";
+          } else if (window.selectLandmarkFeature >= 0 && lm.data.features.length) {
+            document.querySelector('.landmark-select .label').innerText = lm.data.features[window.selectLandmarkFeature].properties.name;
+          } else if (!lm.data.features.length) {
+            document.querySelector('.landmark-select .label').innerText = "Select place";
           }
           state.render();
         });
@@ -227,9 +231,8 @@ class LandmarkOptions {
               }
           }
       });
-
-      // lock any in-progress shapes before saving to map
-      this.updateLandmarkList();
+      this.map.getSource("landmarkpoints")
+          .setData(this.points.data);
     }
     onDelete() {
         // delete currently viewed shape
@@ -259,6 +262,7 @@ class LandmarkOptions {
                       document.querySelector('.landmark-select .label').innerText = properties[window.selectLandmarkFeature].name;
                       document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
                       document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
+                      this.updateLandmarkList();
                     }}">
                     <span class="custom-option" data-value="${idx}">
                       ${p.name}
@@ -267,7 +271,7 @@ class LandmarkOptions {
                 </div>
             </div>
         </div>
-          <li class="marker" style="display: ${properties.length ? "block" : "none"}">
+          <li class="marker" style="display: ${(properties.length && window.selectLandmarkFeature >= 0) ? "block" : "none"}">
             <div class="marker-form">
               <input
                 class="text-input"
@@ -292,12 +296,14 @@ class LandmarkOptions {
               <div>
                 <button @click="${(e) => {
                   window.selectLandmarkFeature = -1;
+                  this.updateLandmarkList();
                 }}">Close</button>
-                <button style="display:none" @click="${(e) => {
+                <button @click="${(e) => {
                   const yn = window.confirm("Would you like to remove this place?");
                   if (yn) {
                     this.onDelete();
-                    window.selectLandmarkFeature = 0;
+                    window.selectLandmarkFeature -= 1;
+                    this.updateLandmarkList();
                     if (properties.length) {
                       document.querySelector('.marker-form input').value = properties[0].name;
                       document.querySelector('.marker-form textarea').value = properties[0].short_description;
