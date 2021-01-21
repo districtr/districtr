@@ -25,7 +25,7 @@ export default function ToolsPlugin(editor) {
 
     let brushOptions = {
         community: (state.problem.type === "community"),
-        county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
+        county_brush: ((spatial_abilities(state.place.id).county_brush)
             ? new HoverWithRadius(state.counties, 20)
             : null),
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
