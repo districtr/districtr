@@ -68,7 +68,7 @@ export default class CommunityBrush extends Brush {
                   if (countyFIPS) {
                       seenCounties.add(countyFIPS);
                   }
-              }
+              } else {
 
 
                 let fullColors = this.layer.getAssignment(feature.id);
@@ -121,12 +121,14 @@ export default class CommunityBrush extends Brush {
                 feature.state.color = fullColors;
                 feature.state.useBlendColor = useBlendColor;
                 feature.state.blendColor = blendColor;
+              }
             }
         }
         if (this.county_brush && seenCounties.size > 0) {
             seenCounties.forEach(fips => {
                 this.layer.setCountyState(fips, countyProp, {
-                    color: this.color
+                    color: this.color,
+                    multicolor: true,
                 },
                 filter,
                 this.trackUndo[this.cursorUndo],
