@@ -970,8 +970,8 @@
     "districtingProblems": [
       {
         "name": "City Council",
-        "numberOfParts": 7,
-        "pluralNoun": "Council Districts"
+        "numberOfParts": 6,
+        "pluralNoun": "Wards"
       }
     ]
   },
