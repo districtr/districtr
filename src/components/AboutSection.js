@@ -1,4 +1,4 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import Parameter from "./Parameter";
 import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
@@ -56,6 +56,15 @@ export default class AboutSection {
     }
     render() {
         const parts = this.state.activeParts;
+        render(html`${parts.map(p => html`<div>
+            <h4>
+              <span class="part-number" style="${'border: 8px solid ' + colorScheme[p.id] }"> </span>
+              ${p.name || (p.id + 1)}
+            </h4>
+            <p>${p.description || ""}</p>
+          </div>`)}`,
+          document.querySelector(".print-summary")
+        );
         return html`
             <ul class="option-list">
                 <li class="option-list__item">

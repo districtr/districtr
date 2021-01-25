@@ -230,6 +230,9 @@ input, textarea {
     }
 }
 
+.print-only {
+  display: none;
+}
 @media print {
     .mapboxgl-canvas {
         transform:scale(.65);
@@ -237,12 +240,48 @@ input, textarea {
     }
 
     .report-data-list .toolbar-checkbox,
-    .mapboxgl-control-container {
+    .mapboxgl-control-container, .geocoder {
         display: none;
     }
 
     web-header {
       display: none;
+    }
+
+    .print-only {
+      display: block;
+    }
+
+    .toolbar {
+      position: absolute;
+    }
+
+    .print-summary {
+      width: 100%;
+      z-index: 999;
+      top: 102%;
+      top: 102vh;
+      position: absolute;
+      background: #fff;
+      clear: both;
+      margin-top: 2%;
+
+      & > div {
+        border-bottom: 1px solid silver;
+        padding-bottom: 10px;
+      }
+
+      h4 > .part-number {
+        display: inline-block;
+        vertical-align: middle;
+        width: 1px;
+        height: 1px;
+        margin-right: 12px;
+      }
+
+      p {
+        white-space: pre;
+      }
     }
 }
 

@@ -91,6 +91,7 @@ function loadContext(context) {
               <div id="swipemap" class="map"></div>
             </div>
             <div id="toolbar"></div>
+            <div class="print-only print-summary"></div>
         `,
         root
     );
