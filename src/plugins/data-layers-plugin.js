@@ -85,9 +85,19 @@ export default function DataLayersPlugin(editor) {
         }));
     }
 
-    if (state.place.id === "miamidade") {
-        let miami = null;
-        fetch("/assets/city_border/miamifl.geojson").then(res => res.json()).then((border) => {
+    // city border within county
+    if (["miamidade", "olmsted"].includes(state.place.id)) {
+        let miami = null,
+            cityid = {
+              miamidade: "miamifl",
+              olmsted: "rochestermn",
+            },
+            cityname = {
+              miamidade: "City of Miami",
+              olmsted: "Rochester",
+            };
+
+        fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
             state.map.addSource('city_border', {
                 type: 'geojson',
                 data: border
@@ -110,7 +120,7 @@ export default function DataLayersPlugin(editor) {
 
         tab.addSection(
             () => html`
-                <h4>City of Miami</h4>
+                <h4>${cityname[state.place.id]}</h4>
                 ${toggle("Show boundary", true, (checked) => {
                     miami.setOpacity(
                         checked ? 0.7 : 0

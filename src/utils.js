@@ -524,6 +524,12 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+        olmsted: {
+          number_markers: true,
+        },
+        rochestermn: {
+          number_markers: true,
+        },
       mississippi: {
         number_markers: true,
         county_brush: true,

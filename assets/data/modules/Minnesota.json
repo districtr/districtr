@@ -951,7 +951,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.rochestermn_blocks_points"
+              "url": "mapbox://districtr.rochestermn_blocks_points?v=2"
             },
             "sourceLayer": "rochestermn_blocks_points"
           },
@@ -959,7 +959,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.rochestermn_blocks"
+              "url": "mapbox://districtr.rochestermn_blocks?v=2"
             },
             "sourceLayer": "rochestermn_blocks"
           }
@@ -1140,7 +1140,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.olmsted_blocks_points"
+              "url": "mapbox://districtr.olmsted_blocks_points?v=2"
             },
             "sourceLayer": "olmsted_blocks_points"
           },
@@ -1148,7 +1148,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.olmsted_blocks"
+              "url": "mapbox://districtr.olmsted_blocks?v=2"
             },
             "sourceLayer": "olmsted_blocks"
           }
