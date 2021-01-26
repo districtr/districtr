@@ -48,7 +48,6 @@ export default function ToolsPlugin(editor) {
 
     let tools = [
         new PanTool(),
-        new LandmarkTool(state),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
@@ -164,6 +163,10 @@ function getMenuItems(state) {
         {
             name: "New plan",
             onClick: () => navigateTo("/new")
+        },
+        {
+            name: "Print / PDF",
+            onClick: () => window.print()
         },
         {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,

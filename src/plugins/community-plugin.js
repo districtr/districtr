@@ -242,65 +242,82 @@ class LandmarkOptions {
     render() {
         const properties = this.features.map(feature => feature.properties);
 
-        return html`<ul class="landmark-list">
-        <div class="custom-select-wrapper">
-            <div class="custom-select landmark-select">
-                <div
-                  class="custom-select__trigger"
-                  @click="${(e) => { document.getElementsByClassName('landmark-select')[0].classList.toggle('open')}}"
-                >
-                    <span class="label">${(properties.length && window.selectLandmarkFeature >= 0)
-                        ? properties[window.selectLandmarkFeature].name
-                        : "Select place"
-                    }</span>
-                    <div class="arrow"></div>
-                </div>
-                <div class="custom-options">
-                  ${properties.map((p, idx) => html`<div @click="${() => {
-                      window.selectLandmarkFeature = idx * 1;
-                      document.getElementsByClassName('landmark-select')[0].classList.toggle('open');
-                      document.querySelector('.landmark-select .label').innerText = properties[window.selectLandmarkFeature].name;
-                      document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
-                      document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
-                      this.updateLandmarkList();
-                    }}">
-                    <span class="custom-option" data-value="${idx}">
-                      ${p.name}
-                    </span>
-                  </div>`)}
+        /*
+        <button @click="${(e) => {
+          window.selectLandmarkFeature = -1;
+          this.updateLandmarkList();
+        }}">Close</button>
+        */
+
+        return html`<ul class="option-list landmark-list">
+        <li class="option-list__item">
+          <div class="parameter">
+              <button
+                @click="${() => {
+                  window.selectLandmarkFeature = -1;
+                  document.querySelector("#tool-pan").click();
+                  document.querySelector(".marker-form").style.display = "none";
+                  document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
+                }}"
+              >
+                <img src="/assets/new_landmark.svg"/>
+                New Marker
+              </button>
+              &nbsp;&nbsp;&nbsp;- click map to locate
+          </div>
+        </li>
+        <li class="option-list__item">
+          <div class="parameter">
+            <label class="parameter__label ui-label ui-label--row">Select</label>
+            <div class="custom-select-wrapper">
+                <div class="custom-select landmark-select">
+                    <div
+                      class="custom-select__trigger"
+                      @click="${(e) => { document.getElementsByClassName('landmark-select')[0].classList.toggle('open')}}"
+                    >
+                        <span class="label">${(properties.length && window.selectLandmarkFeature >= 0)
+                            ? properties[window.selectLandmarkFeature].name
+                            : "Select place"
+                        }</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options">
+                      ${properties.map((p, idx) => html`<div @click="${() => {
+                          window.selectLandmarkFeature = idx * 1;
+                          document.getElementsByClassName('landmark-select')[0].classList.toggle('open');
+                          document.querySelector('.landmark-select .label').innerText = properties[window.selectLandmarkFeature].name;
+                          document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
+                          document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
+                          this.updateLandmarkList();
+                        }}">
+                        <span class="custom-option" data-value="${idx}">
+                          ${p.name}
+                        </span>
+                      </div>`)}
+                    </div>
                 </div>
             </div>
-        </div>
-          <li class="marker" style="display: ${(properties.length && window.selectLandmarkFeature >= 0) ? "block" : "none"}">
-            <div class="marker-form">
-              <input
-                class="text-input"
-                type="text"
-                placeholder="Place name"
-                value="${(properties[window.selectLandmarkFeature] || {}).name}"
-                autofill="off"
-                autocomplete="off"
-                @input="${e => {
-                  this.setName(e.target.value);
-                }}"
-              />
-              <textarea
-                class="text-input"
-                placeholder="Description"
-                autofill="off"
-                autocomplete="off"
-                @input="${e => {
-                  this.setDescription(e.target.value);
-                }}"
-              >${(properties[window.selectLandmarkFeature] || {}).short_description}</textarea>
-              <div>
-                <button @click="${(e) => {
-                  window.selectLandmarkFeature = -1;
-                  this.updateLandmarkList();
-                }}">Close</button>
-                <button @click="${(e) => {
-                  const yn = window.confirm("Would you like to remove this place?");
-                  if (yn) {
+          </div>
+          <div class="parameter">
+            <li class="marker" style="display: ${(properties.length && window.selectLandmarkFeature >= 0) ? "block" : "none"}">
+              <div class="marker-form">
+                <label class="parameter__label ui-label ui-label--row">Place Name</label>
+                <input
+                  class="text-input"
+                  type="text"
+                  placeholder="Place name"
+                  value="${(properties[window.selectLandmarkFeature] || {}).name}"
+                  autofill="off"
+                  autocomplete="off"
+                  @input="${e => {
+                    this.setName(e.target.value);
+                  }}"
+                  style="width: 80%;"
+                />
+                <button
+                  class="text-input"
+                  style="background:#f00; width:18%; vertical-align: top; height: 30px; padding: 2px;"
+                  @click="${(e) => {
                     this.onDelete();
                     window.selectLandmarkFeature -= 1;
                     this.updateLandmarkList();
@@ -311,24 +328,24 @@ class LandmarkOptions {
                       document.querySelector('.marker-form input').value = "";
                       document.querySelector('.marker-form textarea').value = "";
                     }
-                  }
-                }}">Delete?</button>
+                }}">
+                  <div class="icon" title="delete">
+                      <i class="material-icons">delete</i>
+                  </div>
+                </button>
+
+                <textarea
+                  class="text-input text-area"
+                  placeholder="Describe this point"
+                  autofill="off"
+                  autocomplete="off"
+                  @input="${e => {
+                    this.setDescription(e.target.value);
+                  }}"
+                >${(properties[window.selectLandmarkFeature] || {}).short_description}</textarea>
               </div>
-            </div>
-          </li>
-        <li>
-          <button
-            @click="${() => {
-              window.selectLandmarkFeature = -1;
-              document.querySelector("#tool-pan").click();
-              document.querySelector(".marker-form").style.display = "none";
-              document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
-            }}"
-          >
-            New Marker
-          </button>
-          - then click place on map
-        </li>
+            </li>
+          </div>
     </ul>`;
     }
 }

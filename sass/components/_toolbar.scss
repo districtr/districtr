@@ -497,30 +497,19 @@ li:first-child > input:checked ~ .tabs__tab {
 }
 
 .landmark-list {
-  padding-inline-start: 0;
-  margin: 6px;
+  button {
+    background-color: #005178;
+    color: #fff;
+    cursor: pointer;
 
-  li.marker {
-    list-style-type: none;
-    padding: 8px;
-
-    input, textarea {
-      display: block;
-      width: 100%;
-      background-color: #fff;
-    }
-
-    .marker-name {
-      text-overflow: ellipsis;
-      font-weight: bold;
+    img {
       display: inline-block;
-      white-space: nowrap;
-      max-width: 230px;
-      overflow-x: hidden;
+      width: 28px;
+      vertical-align: middle;
     }
+  }
 
-    .marker-expand {
-      float: right;
-    }
+  .option-list__item {
+    margin-bottom: 0.5rem;
   }
 }
