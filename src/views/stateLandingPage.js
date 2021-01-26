@@ -371,7 +371,7 @@ const placeItemsTemplate = (places, onClick) =>
           places.filter(p => p.id === "minnesota").length ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Custom Template</label>
+                <label for="custom">Customize</label>
             </div>
           </li>` : ""
         ]);
@@ -412,7 +412,7 @@ const customPlaceItemsTemplate = (places, onClick) =>
           html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Custom Template</label>
+                <label for="custom">Customize</label>
             </div>
           </li>`
         ]);
