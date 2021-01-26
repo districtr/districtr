@@ -397,7 +397,7 @@ const customPlaceItemsTemplate = (places, onClick) =>
                               id="${place.id+"_customNumber"}"
                               @click="${e => e.stopPropagation()}"
                               value="${problem.numberOfParts}"
-                              min="1" max="55"
+                              min="1" max="250"
                             >
                             ${problem.pluralNoun}
                         </div>
