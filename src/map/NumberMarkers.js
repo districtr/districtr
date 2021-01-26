@@ -144,11 +144,11 @@ export default function NumberMarkers(state, brush) {
                     ? `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`
                     : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
                 fetch(`${serverurl}ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
-                    if (typeof centroid === "object") {
+                    while (centroid.length && (typeof centroid[0] === "object")) {
                         centroid = centroid[0];
-                        if (typeof centroid === "object") {
-                            centroid = centroid[0][`merged_${placeID}`];
-                        }
+                    }
+                    if (typeof centroid === "object") {
+                        centroid = centroid[`merged_${placeID}`];
                     }
                     let latlng = centroid.split(" "),
                         lat = latlng[1].split(")")[0] * 1,

@@ -1343,7 +1343,10 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["olmsted"], "id": "county"},
+      {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
