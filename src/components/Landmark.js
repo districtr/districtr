@@ -6,13 +6,29 @@ export function LandmarkInfo(features) {
     if (features.length === 0) {
         return "";
     }
+    const isSimpleFeature = (f) => {
+        let ks = Object.keys(f.properties || {});
+        return ks.length == 2 && ks.includes("name") ** ks.includes("short_description");
+    };
     return features.map(
-        feature => html`
-            <div class="tooltip__text tooltip__text--column">
-                <h4 class="tooltip__title">${feature.properties.name}</h4>
-                ${feature.properties.short_description || ""}
-            </div>
-        `
+        feature => isSimpleFeature(feature)
+          ? html`
+              <div class="tooltip__text tooltip__text--column">
+                  <h4 class="tooltip__title">${feature.properties.name}</h4>
+                  ${feature.properties.short_description || ""}
+              </div>
+          `
+          : html`
+              <div class="tooltip__text tooltip__text--column">
+                  <h4 class="tooltip__title">Imported GeoJSON</h4>
+                  <table>
+                    ${Object.keys(feature.properties).map(k => html`<tr>
+                      <td>${k}</td>
+                      <td>${feature.properties[k]}</td>
+                    </tr>`)}
+                  </table>
+              </div>
+          `
     );
 }
 

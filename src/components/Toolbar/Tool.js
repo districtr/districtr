@@ -1,11 +1,12 @@
 import { html } from "lit-html";
 
 export default class Tool {
-    constructor(id, name, icon) {
+    constructor(id, name, icon, hideMe) {
         this.id = id;
         this.name = name;
         this.icon = icon;
         this.active = false;
+        this.hideMe = hideMe; // for GJ landmarks on districting mode
     }
     activate() {
         this.active = true;
@@ -17,7 +18,8 @@ export default class Tool {
         this.active = false;
     }
     render(selectTool) {
-        return html`
+        return this.hideMe ? ""
+          : html`
             <div class="icon-list__item" title="${this.name}">
                 <label>${this.name}</label>
                 <input

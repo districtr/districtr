@@ -1,13 +1,13 @@
 import { html, render } from "lit-html";
 import { MapState } from "../map";
-import Layer from "../map/Layer";
 import State from "../models/State";
 import {
     loadPlanFromURL,
     loadPlanFromJSON,
     loadPlanFromCSV,
     getContextFromStorage,
-    navigateTo
+    navigateTo,
+    savePlanToStorage
 } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
@@ -132,44 +132,45 @@ function loadContext(context) {
     }
 
     // block of event handlers; drop a file onto the map
-    function planHandler(f) {
+    function planHandler(f, callback) {
         let plan = f.getAsFile(),
             pname = plan.name.toLowerCase();
         if (pname.includes(".json") || pname.includes(".geojson") || pname.includes(".csv")) {
             let reader = new FileReader();
             reader.onload = (e) => {
-                localStorage.setItem(
-                    "jsonload_viewstate",
-                    document.querySelector("input[name=tabs]:checked").value
-                );
                 if (pname.includes(".json") || pname.includes(".geojson")) {
                     let planData = JSON.parse(reader.result);
                     if (planData.type === "Feature" || planData.type === "FeatureCollection") {
                         // load GeoJSON / Representable
-                        let rnd = Math.round(Math.random() * 100000);
-                        mapState.map.addSource('gj_up_' + rnd, {
-                          type: 'geojson',
-                          data: planData
-                        });
-                        new Layer(
-                            mapState.map,
-                            {
-                                id: 'gj_up_' + rnd,
-                                source: 'gj_up_' + rnd,
-                                type: "fill",
-                                paint: {
-                                    "fill-color": "#f44",
-                                    "fill-opacity": 0.3
-                                }
+                        let rnd = Math.round(Math.random() * 100000),
+                            rnd_offset = 0;
+                        if (planData.features) {
+                          planData.features = planData.features.map(f => {
+                            if (!f.id) {
+                              f.id = rnd + rnd_offset;
+                              rnd_offset++;
                             }
-                        );
+                            return f;
+                          })
+                        } else if (!planData.id) {
+                          planData.id = rnd;
+                        }
 
                         let bnd = boundsOfGJ(planData);
                         mapState.map.fitBounds([
                           [bnd[0], bnd[1]],
                           [bnd[2], bnd[3]]
                         ]);
-                        return;
+
+                        if (callback) {
+                            callback(planData);
+                        }
+                    }
+                    if (document.querySelector("input[name=tabs]:checked")) {
+                        localStorage.setItem(
+                            "jsonload_viewstate",
+                            document.querySelector("input[name=tabs]:checked").value
+                        );
                     }
                     if (planData.place.id !== context.place.id) {
                         let conf = window.confirm("Switch locations to load this plan file?");
@@ -192,18 +193,41 @@ function loadContext(context) {
     }
     document.body.ondrop = (ev) => {
         ev.preventDefault();
+
+        let loadGJ = (gj) => {
+          let lm = state.place.landmarks;
+          lm.type = "geojson";
+          if (!lm.data) {
+            lm.data = { features: [] };
+          } else if (!lm.data.features) {
+            lm.data.features = [];
+          }
+          if (gj.features) {
+            lm.data.features = lm.data.features.concat(gj.features);
+          } else {
+            lm.data.features.push(gj);
+          }
+
+          state.map.getSource("landmarklist").setData({
+            type: "FeatureCollection",
+            features: lm.data.features.filter(f => f.geometry.type !== "Point")
+          });
+          savePlanToStorage(state.serialize());
+        };
+
         if (ev.dataTransfer.items && ev.dataTransfer.items.length) {
-            planHandler(ev.dataTransfer.items[0]);
+            planHandler(ev.dataTransfer.items[0], loadGJ);
         } else if (ev.dataTransfer.files && ev.dataTransfer.files.length) {
-            planHandler(ev.dataTransfer.files[0]);
+            planHandler(ev.dataTransfer.files[0], loadGJ);
         }
     };
     document.body.ondragover = (ev) => {
         ev.preventDefault();
     };
 
+    let state;
     mapState.map.on("load", () => {
-        let state = new State(mapState.map, mapState.swipemap, context, () => {
+        state = new State(mapState.map, mapState.swipemap, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {

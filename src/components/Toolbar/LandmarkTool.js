@@ -11,7 +11,7 @@ import Select from "../Select";
 export default class LandmarkTool extends Tool {
     constructor(state) {
         const icon = html`<img src="/assets/Icons_Landmark_grey.svg"alt="Landmark"/>`;
-        super("landmark", "Landmark", icon);
+        super("landmark", "Landmark", icon, true);
 
         this.state = state;
         this.renderCallback = state.render;
