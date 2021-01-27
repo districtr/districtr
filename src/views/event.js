@@ -139,7 +139,7 @@ export default () => {
         let showPlans = (data) => {
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(Number(p.id))))
+                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id)))
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
 
