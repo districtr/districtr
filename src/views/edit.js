@@ -172,6 +172,9 @@ function loadContext(context) {
                             document.querySelector("input[name=tabs]:checked").value
                         );
                     }
+                    if (planData.plan) {
+                        planData = planData.plan;
+                    }
                     if (planData.place.id !== context.place.id) {
                         let conf = window.confirm("Switch locations to load this plan file?");
                         if (!conf) {
