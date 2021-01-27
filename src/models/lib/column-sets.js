@@ -45,6 +45,9 @@ function getPopulation(place, parts) {
     let population18 = place.columnSets.find(
         columnSet => columnSet.name === "Population (2018)"
     );
+    let population19 = place.columnSets.find(
+        columnSet => columnSet.name === "Population (2019)"
+    );
     if (population18) {
         population18.subgroups.forEach(sg => {
             sg.name += " (2018)";
@@ -55,6 +58,17 @@ function getPopulation(place, parts) {
         population.subgroups.push(population18.total);
         population.total_alt = population18.total;
         population.name_alt = "Population (2018)";
+    }
+    if (population19) {
+        population19.subgroups.forEach(sg => {
+            sg.name += " (2019)";
+            sg.total_alt = true;
+            population.subgroups.push(sg);
+        });
+        population19.total.total_alt = true;
+        population.subgroups.push(population19.total);
+        population.total_alt = population19.total;
+        population.name_alt = "Population (2019)";
     }
     return new Population({ ...population, parts });
 }

@@ -448,5 +448,410 @@
     "state": "Ohio",
     "id": "ohio",
     "name": "Ohio"
+  },
+  {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 2174388,
+              "min": 2,
+              "max": 8339
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 1701484,
+                "min": 1,
+                "max": 5378
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 287708,
+                "min": 0,
+                "max": 4696
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 71422,
+                "min": 0,
+                "max": 821
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 58769,
+                "min": 0,
+                "max": 1522
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 4211,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 942,
+                "min": 0,
+                "max": 84
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 46085,
+                "min": 0,
+                "max": 307
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 3767,
+                "min": 0,
+                "max": 28
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1640493,
+              "min": 2,
+              "max": 5662
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1323199,
+                "min": 1,
+                "max": 3905
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 201788,
+                "min": 0,
+                "max": 3172
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 44366,
+                "min": 0,
+                "max": 464
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 3325,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 609,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 44602,
+                "min": 0,
+                "max": 1049
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1679,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 20925,
+                "min": 0,
+                "max": 128
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population (2019)",
+            "total": {
+              "key": "TOTPOPX",
+              "name": "Total population (2019)",
+              "sum": 2345390,
+              "min": 0,
+              "max": 10669
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITEX",
+                "name": "White population",
+                "sum": 1748787,
+                "min": 0,
+                "max": 6712
+              },
+              {
+                "key": "NH_BLACKX",
+                "name": "Black population",
+                "sum": 334396,
+                "min": 0,
+                "max": 5445
+              },
+              {
+                "key": "HISPX",
+                "name": "Hispanic population",
+                "sum": 92828,
+                "min": 0,
+                "max": 796
+              },
+              {
+                "key": "NH_ASIANX",
+                "name": "Asian population",
+                "sum": 89959,
+                "min": 0,
+                "max": 2510
+              },
+              {
+                "key": "NH_AMINX",
+                "name": "American Indian population",
+                "sum": 3358,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "NH_NHPIX",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 680,
+                "min": 0,
+                "max": 169
+              },
+              {
+                "key": "NH_2MOREX",
+                "name": "Two or more races",
+                "sum": 70424,
+                "min": 0,
+                "max": 702
+              },
+              {
+                "key": "NH_OTHERX",
+                "name": "Other races",
+                "sum": 4958,
+                "min": 0,
+                "max": 305
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 560900,
+                "min": 0,
+                "max": 3001
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 339033,
+                "min": 0,
+                "max": 2239
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
+              {
+                "key": "B19013_001",
+                "name": "Median Income",
+                "sum": 102118899,
+                "min": 0,
+                "max": 250001
+              },
+              {
+                "key": "B19001_002",
+                "name": "in_0_10",
+                "sum": 50882,
+                "min": 0,
+                "max": 349
+              },
+              {
+                "key": "B19001_003",
+                "name": "in_10_15",
+                "sum": 33226,
+                "min": 0,
+                "max": 359
+              },
+              {
+                "key": "B19001_004",
+                "name": "in_15_20",
+                "sum": 36674,
+                "min": 0,
+                "max": 238
+              },
+              {
+                "key": "B19001_005",
+                "name": "in_20_25",
+                "sum": 38974,
+                "min": 0,
+                "max": 209
+              },
+              {
+                "key": "B19001_006",
+                "name": "in_25_30",
+                "sum": 38149,
+                "min": 0,
+                "max": 252
+              },
+              {
+                "key": "B19001_007",
+                "name": "in_30_35",
+                "sum": 41111,
+                "min": 0,
+                "max": 442
+              },
+              {
+                "key": "B19001_008",
+                "name": "in_35_40",
+                "sum": 39777,
+                "min": 0,
+                "max": 291
+              },
+              {
+                "key": "B19001_009",
+                "name": "in_40_45",
+                "sum": 39133,
+                "min": 0,
+                "max": 347
+              },
+              {
+                "key": "B19001_010",
+                "name": "in_45_50",
+                "sum": 35861,
+                "min": 0,
+                "max": 321
+              },
+              {
+                "key": "B19001_011",
+                "name": "in_50_60",
+                "sum": 72104,
+                "min": 0,
+                "max": 488
+              },
+              {
+                "key": "B19001_012",
+                "name": "in_60_75",
+                "sum": 94134,
+                "min": 0,
+                "max": 656
+              },
+              {
+                "key": "B19001_013",
+                "name": "in_75_100",
+                "sum": 121321,
+                "min": 0,
+                "max": 721
+              },
+              {
+                "key": "B19001_014",
+                "name": "in_100_125",
+                "sum": 87340,
+                "min": 0,
+                "max": 808
+              },
+              {
+                "key": "B19001_015",
+                "name": "in_125_150",
+                "sum": 57519,
+                "min": 0,
+                "max": 451
+              },
+              {
+                "key": "B19001_016",
+                "name": "in_150_200",
+                "sum": 57350,
+                "min": 0,
+                "max": 370
+              },
+              {
+                "key": "B19001_017",
+                "name": "in_200_plus",
+                "sum": 56378,
+                "min": 0,
+                "max": 547
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -84.0361,
+            39.4681
+          ],
+          [
+            -82.1791,
+            40.9956
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohcentral_blockgroups_points"
+            },
+            "sourceLayer": "ohcentral_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohcentral_blockgroups"
+            },
+            "sourceLayer": "ohcentral_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "Ohio",
+    "id": "ohcentral",
+    "name": "Ohio Central",
+    "districtingProblems": [
+      {
+        "name": "Wards",
+        "numberOfParts": 8,
+        "pluralNoun": "Wards"
+      }
+    ]
   }
 ]

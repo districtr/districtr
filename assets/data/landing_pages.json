@@ -1891,7 +1891,9 @@
     "state": "Ohio",
     "code": "OH",
     "modules": [
-      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"},
+      {"name": "Regions", "ids": ["ohcentral"], "id": "region"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",

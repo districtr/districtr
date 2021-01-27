@@ -9,6 +9,10 @@ export default class OverlayContainer {
         this._id = id;
         this._currentSubgroupIndex = firstOnly ? 1 : 0;
         this.subgroups = columnSet.columns;
+        this.firstOnly = firstOnly || false;
+        this.multiYear = multiYear;
+        this.yr = 2010;
+        
         if (includeCoalition) {
             this.subgroups = this.subgroups.concat([]);
             this.subgroups.splice(1, 0, {
@@ -35,7 +39,7 @@ export default class OverlayContainer {
             if (multiYear) {
                 this.subgroups.push({
                     key: "_COALITIONX",
-                    name: includeCoalition + " (2018)",
+                    name: `${includeCoalition} (${this.multiYear})`,
                     columnSet: { type: "population" },
                     asMapboxExpression: () => ["get", this.subgroups[0].key],
                     fractionAsMapboxExpression: () => [
@@ -55,9 +59,6 @@ export default class OverlayContainer {
                 });
             }
         }
-        this.firstOnly = firstOnly || false;
-        this.multiYear = multiYear;
-        this.yr = 2010;
 
         // These color rules should be explicitly attached to each subgroup,
         // instead of doing these brittle checks to try and figure out what's
@@ -134,9 +135,9 @@ export default class OverlayContainer {
     }
     changeSubgroup(i) {
         this._currentSubgroupIndex = i;
-        if (this.yr === 2018) {
+        if (this.yr === this.multiYear) {
             while(this.subgroups[i] &&
-                (!this.subgroups[i].name.includes("(2018)")
+                (!this.subgroups[i].name.includes(`(${this.multiYear})`)
                 || !this.subgroups[i].name.includes(this.subgroups[this._currentSubgroupIndex].name))) {
                 i++;
             }
@@ -190,7 +191,7 @@ export default class OverlayContainer {
                 Parameter({
                     label: "Variable:",
                     element: Select(
-                        this.subgroups.filter(sg => !this.multiYear || !sg.name.includes("(2018)")),
+                        this.subgroups.filter(sg => !this.multiYear || !sg.name.includes(`(${this.multiYear})`)),
                         this.changeSubgroup,
                         this._currentSubgroupIndex
                     )
@@ -213,11 +214,11 @@ export default class OverlayContainer {
                   <input
                     type="radio"
                     name="${this._id + 'yr'}"
-                    value="2018"
-                    ?checked="${this.yr === 2018}"
-                    @change="${e => this.selectYear(2018)}"
+                    value="${this.multiYear}"
+                    ?checked="${this.yr === this.multiYear}"
+                    @change="${e => this.selectYear(this.multiYear)}"
                   />
-                  2018
+                  ${this.multiYear}
                 </label>
               </div>`
               : ""
