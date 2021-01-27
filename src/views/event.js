@@ -32,6 +32,10 @@ const validEventCodes = {
   powercoalition: ['louisiana', 'batonrouge'],
 };
 
+const minIDcode = {
+  powercoalition: 9448,
+};
+
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
@@ -135,7 +139,7 @@ export default () => {
         let showPlans = (data) => {
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans
+                plans: data.plans.filter(p => !minIDcode[eventCode] || (Number(p.id) >= Number(minIDcode[eventCode])))
             }];
             render(plansSection(plans, eventCode), document.getElementById("plans"));
 
