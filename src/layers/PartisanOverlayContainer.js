@@ -5,7 +5,7 @@ import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections) {
+    constructor(id, layers, elections, bipolarText) {
         this._id = id;
         this.elections = elections;
         this.layers = layers;
@@ -18,6 +18,7 @@ export default class PartisanOverlayContainer {
         this.render = this.render.bind(this);
         this.toggleVisibility = this.toggleVisibility.bind(this);
         this.vote = "all";
+        this.bipolarText = bipolarText;
 
         if (window.location.search.includes("layer=")) {
             let layerSelect = window.location.search.split("layer=")[1].split("&")[0].toUpperCase();
@@ -79,11 +80,11 @@ export default class PartisanOverlayContainer {
                             this.toggleVisibility(e.target.checked);
                         }}
                     />
-                    Show partisan lean
+                    ${this.bipolarText || "Show partisan lean"}
                 </label>
             </div>
             ${[
-                {
+                this.bipolarText ? null : {
                     label: "Election:",
                     element: Select(
                         this.elections,

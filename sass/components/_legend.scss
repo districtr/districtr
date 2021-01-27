@@ -82,5 +82,9 @@
         &.purple {
             background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 139, 0.81));
         }
+
+        &.greenorange {
+            background: linear-gradient(to right, rgb(250,179,71), 30%, #d8d8d8, 70%, rgb(90,180,122));
+        }
     }
 }

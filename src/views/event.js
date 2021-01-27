@@ -14,6 +14,7 @@ const stateForEvent = {
   centralsan: 'California',
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
+  powercoalition: 'Louisiana',
 };
 
 const validEventCodes = {
@@ -28,10 +29,12 @@ const validEventCodes = {
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
+  powercoalition: ['louisiana', 'batonrouge'],
 };
 
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
+  powercoalition: {no: 'Precincts'},
 };
 
 const unitCounts = {
@@ -49,6 +52,7 @@ const coi_events = [
   // 'santafe',
   'mggg-nm',
   'pmc-demo',
+  'powercoalition',
 ];
 
 const eventDescriptions = {
@@ -63,6 +67,7 @@ const eventDescriptions = {
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
+  powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
 };
 
 const longAbout = {

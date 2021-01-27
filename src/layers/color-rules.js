@@ -13,7 +13,11 @@ export const partyRGBColors = {
     Independent: [11, 102, 35],
     // PR
     "Nuevo Progresista": [102, 102, 204],
-    "Popular Democrático": [255, 102, 51]
+    "Popular Democrático": [255, 102, 51],
+
+    // rent bipolar
+    'Owner-occupied': [250,179,71],
+    'Renter-occupied': [90,180,122],
 };
 
 /**

@@ -8,6 +8,7 @@ import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import DemographicsTable from "../components/Charts/DemographicsTable";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
+import Election from "../models/Election";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 
 import { addAmerIndianLayer } from "../layers/amin_control";
@@ -418,18 +419,61 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.rent) {
-        tab.addRevealSection(
-            'Homeowner or Renter',
-            (uiState, dispatch) => html`<div class="sectionThing">
-                ${DemographicsTable(
-                    state.rent.subgroups,
-                    state.activeParts
-                )}
-            </div>`,
-            {
-              isOpen: false
-            }
-        );
+        if (state.problem.type === "community") {
+            let rentElec = new Election(
+                "Test",
+                state.rent.subgroups,
+                state.parts,
+            );
+            let rentOverlay = new PartisanOverlayContainer(
+                "partisan",
+                demoLayers.filter(lyr => !lyr.background),
+                [rentElec],
+                "Show % Renter"
+            );
+            tab.addRevealSection(
+                'Homeowner or Renter',
+                (uiState, dispatch) => html`
+                  ${rentOverlay.render()}
+                  <div class="color-legend" id="color-vap" style="display: block;">
+                    <span class="gradientbar greenorange"></span>
+                    <br>
+                    <div class="notches" id="notches-vap">
+                        <span class="notch">|</span>
+                        <span class="notch">|</span>
+                        <span class="notch">|</span>
+                        <span class="notch">|</span>
+                        <span class="notch">|</span>
+                        <span class="notch">|</span>
+                    </div>
+                    <div id="percents-vap">
+                        <span class="square">0%</span>
+                        <span class="square">20%</span>
+                        <span class="square">40%</span>
+                        <span class="square">60%</span>
+                        <span class="square">80%</span>
+                        <span class="square">100%</span>
+                    </div>
+                </div>
+                `,
+                {
+                  isOpen: true
+                }
+            );
+        } else {
+            tab.addRevealSection(
+                'Homeowner or Renter',
+                (uiState, dispatch) => html`<div class="sectionThing">
+                    ${DemographicsTable(
+                        state.rent.subgroups,
+                        state.activeParts
+                    )}
+                </div>`,
+                {
+                  isOpen: false
+                }
+            );
+        }
     }
 
     if (state.elections.length > 0) {

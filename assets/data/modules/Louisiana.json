@@ -631,5 +631,217 @@
         "pluralNoun": "State Senate Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "limit": "community",
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Households by Rental",
+            "subgroups": [
+              {
+                "key": "B25003_002",
+                "name": "Owner-occupied",
+                "sum": 204843,
+                "min": 0,
+                "max": 2567
+              },
+              {
+                "key": "B25003_003",
+                "name": "Renter-occupied",
+                "sum": 96620,
+                "min": 0,
+                "max": 1181
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 802484,
+              "min": 0,
+              "max": 6891
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 465308,
+                "min": 0,
+                "max": 5525
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 284561,
+                "min": 0,
+                "max": 4931
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 27357,
+                "min": 0,
+                "max": 723
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 14222,
+                "min": 0,
+                "max": 1049
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 1922,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 178,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 7978,
+                "min": 0,
+                "max": 98
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 958,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 604157,
+              "min": 0,
+              "max": 6447
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 365332,
+                "min": 0,
+                "max": 3876
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 201698,
+                "min": 0,
+                "max": 4630
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 19411,
+                "min": 0,
+                "max": 541
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1451,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 123,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 11007,
+                "min": 0,
+                "max": 948
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 622,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 4513,
+                "min": 0,
+                "max": 54
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -91.8231,
+            30.0253
+          ],
+          [
+            -90.4013,
+            31.0448
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.batonrouge_blockgroups_points"
+            },
+            "sourceLayer": "batonrouge_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.batonrouge_blockgroups"
+            },
+            "sourceLayer": "batonrouge_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "Louisiana",
+    "id": "batonrouge",
+    "name": "Baton Rouge Area",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]

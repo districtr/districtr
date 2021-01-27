@@ -31,7 +31,7 @@ export function addAmerIndianLayer(tab, state) {
     } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
     } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
-        native_am_type = "Tribes";
+        native_am_type = "Native American Areas (Census)";
     } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
@@ -41,7 +41,7 @@ export function addAmerIndianLayer(tab, state) {
     } else if (state.place.id === "maine") {
         native_am_type = "Tribes in Maine";
     } else if (["newyork", "utah"].includes(state.place.id)) {
-        native_am_type = "Indian Tribes";
+        native_am_type = "Native American Areas (Census)";
     } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
     } else if (state.place.id === "nevada") {

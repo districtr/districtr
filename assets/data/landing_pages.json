@@ -1014,7 +1014,9 @@
     "state": "Louisiana",
     "code": "LA",
     "modules": [
-      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"},
+      {"name": "Region", "ids": ["batonrouge"], "id": "region"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",

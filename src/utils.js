@@ -470,12 +470,20 @@ export function spatial_abilities (id) {
       },
       louisiana: {
         native_american: true,
-        // county_brush: true, // lakes
+        county_brush: true, // lakes
         number_markers: true,
         contiguity: 2,
         shapefile: true,
+        coalition: true,
+        screenshot: true,
         // find_unpainted: true,
       },
+        batonrouge: {
+          coalition: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+        },
       maine: {
         native_american: true,
         number_markers: true,
