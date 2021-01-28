@@ -29,7 +29,7 @@ const validEventCodes = {
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
-  powercoalition: ['louisiana', 'batonrouge'],
+  powercoalition: 'batonrouge',
 };
 
 const blockPlans = {
