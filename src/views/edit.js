@@ -175,7 +175,7 @@ function loadContext(context) {
                     if (planData.plan) {
                         planData = planData.plan;
                     }
-                    if (planData.place.id !== context.place.id) {
+                    if (planData.place && (planData.place.id !== context.place.id)) {
                         let conf = window.confirm("Switch locations to load this plan file?");
                         if (!conf) {
                             return;
