@@ -163,7 +163,7 @@ export default function DataLayersPlugin(editor) {
 
     }
 
-    if (["virginia", "lax"].includes(state.place.id)) {
+    if (["virginia", "lax", "ohcentral"].includes(state.place.id)) {
         let plan2010, plan2013, ush;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
@@ -254,6 +254,26 @@ export default function DataLayersPlugin(editor) {
                   <label style="display:block;margin-bottom:8px;">
                     <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
                     2013-2017 Congressional Plan
+                  </label>`,
+                {
+                    isOpen: false
+                }
+            );
+        } else if (state.place.id === "ohcentral") {
+            const checkVAplan = () => {
+                // console.log(document.getElementsByName("enacted"));
+                plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
+            };
+            tab.addRevealSection(
+                'Enacted Plans',
+                (uiState, dispatch) => html`
+                  <label style="display:block;margin-bottom:8px;">
+                    <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
+                    Hidden
+                  </label>
+                  <label style="display:block;margin-bottom:8px;">
+                    <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
+                    Unified School Districts
                   </label>`,
                 {
                     isOpen: false
