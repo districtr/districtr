@@ -782,6 +782,7 @@ export function spatial_abilities (id) {
         screenshot: true,
         find_unpainted: true,
         centroid_server: true,
+        contiguity: true,
       },
         wisconsin2020: {
           number_markers: true,
@@ -791,6 +792,7 @@ export function spatial_abilities (id) {
           screenshot: true,
           find_unpainted: true,
           centroid_server: true,
+          contiguity: true,
         },
       wyoming: {
         multiyear: true,
