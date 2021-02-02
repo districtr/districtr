@@ -123,6 +123,8 @@ export class Landmarks {
             this.savedPlaces.data.features.push(editFeature);
 
             this.updateLandmarkList(true);
+
+            document.querySelector("#landmark-instruction").style.visibility = "hidden";
         });
 
         // update position of draft layer

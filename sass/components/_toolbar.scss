@@ -498,7 +498,7 @@ li:first-child > input:checked ~ .tabs__tab {
 
 .landmark-list {
   button {
-    background-color: #005178;
+    background-color: #0099cd;
     color: #fff;
     cursor: pointer;
 
@@ -511,5 +511,9 @@ li:first-child > input:checked ~ .tabs__tab {
 
   .option-list__item {
     margin-bottom: 0.5rem;
+  }
+
+  #landmark-instruction {
+    visibility: hidden;
   }
 }

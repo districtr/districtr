@@ -42,7 +42,7 @@ export default function CommunityPlugin(editor) {
           if (isNew) {
             window.selectLandmarkFeature = lm.data.features.length - 1;
             document.querySelector('.landmark-select .label').innerText = "New Point " + lm.data.features.length;
-            document.querySelector(".marker-form").style.display = "block";
+            document.querySelector(".marker-form").style.visibility = "visible";
             document.querySelector(".marker-form input").value = "New Point " + (window.selectLandmarkFeature + 1);
             document.querySelector(".marker-form textarea").value= "";
           } else if (window.selectLandmarkFeature >= 0 && lm.data.features.length) {
@@ -60,16 +60,16 @@ export default function CommunityPlugin(editor) {
     );
     tab.addRevealSection("Important Places", lmo.render.bind(lmo));
 
-    tab.addRevealSection("Help?", () => html`<ul class="option-list">
-                                                <li class="option-list__item">
-                                                Prompting Questions:
-                                                <ul>
-                                                    <li>What unites this community?</li>
-                                                    <li>Who lives here?</li>
-                                                    <li>Are there important places or traditions?</li>
-                                                </ul>
-                                                </li>`,
-                         {isOpen: false, activePartIndex: 0})
+    // tab.addRevealSection("Help?", () => html`<ul class="option-list">
+    //                                             <li class="option-list__item">
+    //                                             Prompting Questions:
+    //                                             <ul>
+    //                                                 <li>What unites this community?</li>
+    //                                                 <li>Who lives here?</li>
+    //                                                 <li>Are there important places or traditions?</li>
+    //                                             </ul>
+    //                                             </li>`,
+    //                      {isOpen: false, activePartIndex: 0})
 
     const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(
@@ -256,14 +256,16 @@ class LandmarkOptions {
                 @click="${() => {
                   window.selectLandmarkFeature = -1;
                   document.querySelector("#tool-pan").click();
-                  document.querySelector(".marker-form").style.display = "none";
+                  document.querySelector(".marker-form").style.visibility = "hidden";
                   document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
+                  document.querySelector("#landmark-instruction").style.visibility = "visible";
                 }}"
               >
                 <img src="/assets/new_landmark.svg"/>
                 New Marker
               </button>
-              &nbsp;&nbsp;&nbsp;- click map to locate
+              &nbsp;&nbsp;&nbsp;
+              <span id="landmark-instruction">- activated - click map to place</span>
           </div>
         </li>
         <li class="option-list__item">
@@ -286,6 +288,7 @@ class LandmarkOptions {
                           window.selectLandmarkFeature = idx * 1;
                           document.getElementsByClassName('landmark-select')[0].classList.toggle('open');
                           document.querySelector('.landmark-select .label').innerText = properties[window.selectLandmarkFeature].name;
+                          document.querySelector('.marker-form').style.visibility = "visible";
                           document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
                           document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
                           this.updateLandmarkList();
