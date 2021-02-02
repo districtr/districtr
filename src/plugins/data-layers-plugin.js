@@ -164,7 +164,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (["virginia", "lax", "ohcentral"].includes(state.place.id)) {
-        let plan2010, plan2013, ush;
+        let plan2010, plan2013, ush, plan2010_labels;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -231,6 +231,35 @@ export default function DataLayersPlugin(editor) {
                         addBelowLabels
                     );
                 });
+            } else if (state.place.id === "ohcentral") {
+              fetch(`/assets/current_districts/${state.place.id}_2010_centroids.geojson`).then(res => res.json()).then((va2010_labels) => {
+                  state.map.addSource('va2010_labels', {
+                      type: 'geojson',
+                      data: va2010_labels
+                  });
+
+                  plan2010_labels = new Layer(state.map,
+                      {
+                        id: 'va2010_labels',
+                        source: 'va2010_labels',
+                        type: 'symbol',
+                        layout: {
+                          'text-field': [
+                              'format',
+                              ['get', 'NAME'],
+                              {'font-scale': 0.75},
+                          ],
+                          'text-anchor': 'center',
+                          'text-radial-offset': 0,
+                          'text-justify': 'center'
+                        },
+                        paint: {
+                          'text-opacity': 0
+                        }
+                      },
+                      addBelowLabels
+                  );
+              });
             }
         });
 
@@ -263,6 +292,7 @@ export default function DataLayersPlugin(editor) {
             const checkVAplan = () => {
                 // console.log(document.getElementsByName("enacted"));
                 plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
+                plan2010_labels && plan2010_labels.setPaintProperty('text-opacity', document.getElementById("va2010").checked ? 1 : 0);
             };
             tab.addRevealSection(
                 'Enacted Plans',
