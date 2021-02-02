@@ -150,7 +150,11 @@ export default class OverlayContainer {
                 this.overlay.setColorRule(colorByCount);
             }
 
-            let total = this.subgroups[i].max;
+            // set 100% pop to max of 2010/2018/2019 year toggle
+            let total = Math.max(this.subgroups[i].max, this.subgroups[i].columnSet.total_alt
+                ? this.subgroups[i].columnSet.total_alt.max
+                : 0);
+
             document.querySelectorAll("#counts-" + this._id + " .square").forEach((sq, index) => {
                 let num = Math.floor(total * index / 5);
                 if (num === 0 || total < 100000) {

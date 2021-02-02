@@ -67,7 +67,7 @@ export function colorByCount(subgroup) {
             subgroup.asMapboxExpression(),
             0,
             0,
-            subgroup.total.max,
+            Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0),
             1
         ]
     ];
@@ -102,7 +102,7 @@ export function sizeByCount(subgroup) {
         ["sqrt", subgroup.total.asMapboxExpression()],
         0,
         0,
-        Math.sqrt(subgroup.total.max),
+        Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0),
         20
     ];
 }
