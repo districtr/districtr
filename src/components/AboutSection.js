@@ -56,15 +56,28 @@ export default class AboutSection {
     }
     render() {
         const parts = this.state.activeParts;
-        render(html`${parts.map(p => html`<div>
+
+        // print view of COI and landmarks
+        render(html`
+          <h2>Communities of Interest</h2>
+          ${parts.map(p => html`<div>
             <h4>
-              <span class="part-number" style="${'border: 8px solid ' + colorScheme[p.id] }"> </span>
+              <span class="part-number" style="${'border: 8px solid ' + colorScheme[p.id % colorScheme.length] }"> </span>
               ${p.name || (p.id + 1)}
             </h4>
             <p>${p.description || ""}</p>
+          </div>`)}
+          <h2>${this.state.place.landmarks.data.features.length ? "Important Places" : ""}</h2>
+          ${this.state.place.landmarks.data.features.map(lm => html`<div>
+            <h4>${lm.properties.name}</h4>
+            <p>${lm.properties.short_description}</p>
+            ${Object.keys(lm.properties).filter(p => !["name", "short_description"].includes(p)).forEach(p => {
+              return html`<p><strong>${p}</strong> - ${lm.properties[p]}</p>`
+            })}
           </div>`)}`,
           document.querySelector(".print-summary")
         );
+
         return html`
             <ul class="option-list">
                 <li class="option-list__item">
