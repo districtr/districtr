@@ -164,7 +164,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (["virginia", "lax", "ohcentral"].includes(state.place.id)) {
-        let plan2010, plan2013, ush, plan2010_labels;
+        let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -259,6 +259,51 @@ export default function DataLayersPlugin(editor) {
                       },
                       addBelowLabels
                   );
+
+                  fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((va2013) => {
+                      state.map.addSource('va2013', {
+                          type: 'geojson',
+                          data: va2013
+                      });
+
+                      plan2013 = new Layer(state.map,
+                          {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                          },
+                          addBelowLabels
+                      );
+                      fetch(`/assets/current_districts/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((va2013_labels) => {
+                          state.map.addSource('va2013_labels', {
+                              type: 'geojson',
+                              data: va2013_labels
+                          });
+
+                          plan2013_labels = new Layer(state.map,
+                              {
+                                id: 'va2013_labels',
+                                source: 'va2013_labels',
+                                type: 'symbol',
+                                layout: {
+                                  'text-field': [
+                                      'format',
+                                      ['get', 'NAME'],
+                                      {'font-scale': 0.75},
+                                  ],
+                                  'text-anchor': 'center',
+                                  'text-radial-offset': 0,
+                                  'text-justify': 'center'
+                                },
+                                paint: {
+                                  'text-opacity': 0
+                                }
+                              },
+                              addBelowLabels
+                          );
+                      });
+                  });
               });
             }
         });
@@ -293,13 +338,19 @@ export default function DataLayersPlugin(editor) {
                 // console.log(document.getElementsByName("enacted"));
                 plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
                 plan2010_labels && plan2010_labels.setPaintProperty('text-opacity', document.getElementById("va2010").checked ? 1 : 0);
+                plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
+                plan2013_labels && plan2013_labels.setPaintProperty('text-opacity', document.getElementById("va2013").checked ? 1 : 0);
             };
             tab.addRevealSection(
-                'Enacted Plans',
+                'Boundaries',
                 (uiState, dispatch) => html`
                   <label style="display:block;margin-bottom:8px;">
                     <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
                     Hidden
+                  </label>
+                  <label style="display:block;margin-bottom:8px;">
+                    <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
+                    Cities and Towns
                   </label>
                   <label style="display:block;margin-bottom:8px;">
                     <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>

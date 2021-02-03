@@ -845,6 +845,7 @@
     ],
     "state": "Ohio",
     "id": "ohcentral",
+    "limit": "community",
     "name": "Ohio Central",
     "districtingProblems": [
       {
