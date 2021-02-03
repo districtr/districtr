@@ -1,7 +1,7 @@
 import { PivotTable } from "../components/Charts/PivotTable";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
-import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
+import MedianIncomeTable from "../components/Charts/MedianIncomeTable";
 import DemographicsTable from "../components/Charts/DemographicsTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
@@ -56,42 +56,21 @@ export default function CommunityPlugin(editor) {
         });
     }
 
-    if (state.incomes) {
-        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
-            const incomeOverlay = new OverlayContainer(
-                "income",
-                state.layers.filter(lyr => lyr.id.includes("bgs")),
-                state.incomes,
-                "Map median income (by block group)",
-                true // first layer only
-            );
-
-            evaluationTab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${incomeOverlay.render()}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        } else {
-            evaluationTab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${IncomeHistogramTable(
-                        "Income Histograms",
-                        state.incomes,
-                        state.activeParts,
-                        uiState.charts["Income Histograms"],
-                        dispatch
-                    )}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        }
+    if (state.incomes && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
+        evaluationTab.addRevealSection(
+            'Household Income',
+            (uiState, dispatch) =>  html`<div>
+                ${MedianIncomeTable(
+                    state.incomes,
+                    state.activeParts,
+                    uiState.charts["Median Income"],
+                    dispatch
+                )}
+            </div>`,
+            {
+              isOpen: false
+            }
+        );
     }
 
     if (state.rent) {
