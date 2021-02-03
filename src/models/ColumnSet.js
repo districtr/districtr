@@ -31,6 +31,7 @@ export default class ColumnSet {
                 columnSet: this,
                 parts
             });
+            this.totalIsSum = true;
         }
         if (total_alt) {
             this.total_alt = new Subgroup({

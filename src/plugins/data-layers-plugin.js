@@ -4,7 +4,6 @@ import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
 import OverlayContainer from "../layers/OverlayContainer";
 import PartisanOverlayContainer from "../layers/PartisanOverlayContainer";
-import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import DemographicsTable from "../components/Charts/DemographicsTable";
 import LayerTab from "../components/LayerTab";
 import Layer, { addBelowLabels } from "../map/Layer";
@@ -481,42 +480,19 @@ export default function DataLayersPlugin(editor) {
         }
     );
 
-    if (state.incomes) {
-        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
-            const incomeOverlay = new OverlayContainer(
-                "income",
-                state.layers.filter(lyr => lyr.id.includes("bgs")),
-                state.incomes,
-                "Map median income (by block group)",
-                true // first layer only
-            );
-
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${incomeOverlay.render()}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        } else {
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${IncomeHistogramTable(
-                        "Income Histograms",
-                        state.incomes,
-                        state.activeParts,
-                        uiState.charts["Income Histograms"],
-                        dispatch
-                    )}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        }
+    if (state.median_income) {
+      const incomeOverlay = new OverlayContainer(
+          "income",
+          state.layers.filter(lyr => lyr.id.includes("blockgroups")),
+          state.median_income,
+          "Map median income",
+          true // first layer only
+      );
+      tab.addRevealSection(
+          "Median Household Income",
+          (uiState, dispatch) => html`
+            ${incomeOverlay.render()}
+          `);
     }
 
     if (state.rent) {

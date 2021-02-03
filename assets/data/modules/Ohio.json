@@ -688,13 +688,6 @@
             "name": "Households by Income",
             "subgroups": [
               {
-                "key": "B19013_001",
-                "name": "Median Income",
-                "sum": 102118899,
-                "min": 0,
-                "max": 250001
-              },
-              {
                 "key": "B19001_002",
                 "name": "in_0_10",
                 "sum": 50882,
@@ -805,6 +798,19 @@
                 "sum": 56378,
                 "min": 0,
                 "max": 547
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Median Income",
+            "subgroups": [
+              {
+                "key": "B19013_001",
+                "name": "Median Income",
+                "sum": 102118899,
+                "min": 0,
+                "max": 250001
               }
             ]
           }

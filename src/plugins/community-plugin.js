@@ -1,5 +1,8 @@
 import { PivotTable } from "../components/Charts/PivotTable";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
+import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
+import OverlayContainer from "../layers/OverlayContainer";
+import DemographicsTable from "../components/Charts/DemographicsTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
@@ -51,6 +54,59 @@ export default function CommunityPlugin(editor) {
             isOpen: false,
             activePartIndex: 0
         });
+    }
+
+    if (state.incomes) {
+        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
+            const incomeOverlay = new OverlayContainer(
+                "income",
+                state.layers.filter(lyr => lyr.id.includes("bgs")),
+                state.incomes,
+                "Map median income (by block group)",
+                true // first layer only
+            );
+
+            evaluationTab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
+                    ${incomeOverlay.render()}
+                </div>`,
+                {
+                  isOpen: false
+                }
+            );
+        } else {
+            evaluationTab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
+                    ${IncomeHistogramTable(
+                        "Income Histograms",
+                        state.incomes,
+                        state.activeParts,
+                        uiState.charts["Income Histograms"],
+                        dispatch
+                    )}
+                </div>`,
+                {
+                  isOpen: false
+                }
+            );
+        }
+    }
+
+    if (state.rent) {
+        evaluationTab.addRevealSection(
+            'Homeowner or Renter',
+            (uiState, dispatch) => html`<div class="sectionThing">
+                ${DemographicsTable(
+                    state.rent.subgroups,
+                    state.activeParts
+                )}
+            </div>`,
+            {
+              isOpen: false
+            }
+        );
     }
 
     editor.toolbar.addTabFirst(tab);

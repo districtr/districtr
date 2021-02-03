@@ -2,6 +2,8 @@ import { html } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
+import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
+import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
@@ -76,22 +78,7 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
-    if (state.ages) {
-        tab.addRevealSection(
-            "Age Histograms",
-            (uiState, dispatch) =>
-                AgeHistogramTable(
-                    "Age Histograms",
-                    state.ages,
-                    state.activeParts,
-                    uiState.charts["Age Histograms"],
-                    dispatch
-                ),
-            {
-                isOpen: false
-            }
-        );
-    }
+
     if (state.elections.length > 0) {
         tab.addRevealSection(
             "Partisan Balance",
@@ -114,6 +101,61 @@ export default function EvaluationPlugin(editor) {
                         : false
             }
         );
+    }
+
+    if (state.ages) {
+        tab.addRevealSection(
+            "Age Histograms",
+            (uiState, dispatch) =>
+                AgeHistogramTable(
+                    "Age Histograms",
+                    state.ages,
+                    state.activeParts,
+                    uiState.charts["Age Histograms"],
+                    dispatch
+                ),
+            {
+                isOpen: false
+            }
+        );
+    }
+
+    if (state.incomes) {
+        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
+            const incomeOverlay = new OverlayContainer(
+                "income",
+                state.layers.filter(lyr => lyr.id.includes("bgs")),
+                state.incomes,
+                "Map median income (by block group)",
+                true // first layer only
+            );
+
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
+                    ${incomeOverlay.render()}
+                </div>`,
+                {
+                  isOpen: false
+                }
+            );
+        } else {
+            tab.addRevealSection(
+                'Household Income',
+                (uiState, dispatch) =>  html`<div>
+                    ${IncomeHistogramTable(
+                        "Income Histograms",
+                        state.incomes,
+                        state.activeParts,
+                        uiState.charts["Income Histograms"],
+                        dispatch
+                    )}
+                </div>`,
+                {
+                  isOpen: false
+                }
+            );
+        }
     }
 
     if (state.plan.problem.type !== "community"

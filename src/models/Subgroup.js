@@ -23,7 +23,11 @@ export class Subgroup extends NumericalColumn {
         return this.getValue(feature) / this.total.getValue(feature);
     }
     getFractionInPart(partIndex) {
-        const total = this.total.data[partIndex];
+        let total = this.total.data[partIndex];
+        if (this.columnSet.totalIsSum) {
+            total = 0;
+            this.columnSet.subgroups.forEach(sg => total += sg.data[partIndex]);
+        }
         return total > 0 ? this.data[partIndex] / total : 0;
     }
     getOverallFraction() {
