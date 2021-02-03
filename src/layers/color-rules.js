@@ -102,7 +102,7 @@ export function sizeByCount(subgroup) {
         ["sqrt", subgroup.total.asMapboxExpression()],
         0,
         0,
-        Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0),
+        Math.sqrt(Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0)),
         20
     ];
 }

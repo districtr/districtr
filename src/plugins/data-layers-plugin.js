@@ -480,78 +480,77 @@ export default function DataLayersPlugin(editor) {
         }
     );
 
-    if (state.median_income) {
-      const incomeOverlay = new OverlayContainer(
-          "income",
-          state.layers.filter(lyr => lyr.id.includes("blockgroups")),
-          state.median_income,
-          "Map median income",
-          true // first layer only
-      );
-      tab.addRevealSection(
-          "Median Household Income",
-          (uiState, dispatch) => html`
-            ${incomeOverlay.render()}
-          `);
-    }
-
-    if (state.rent) {
-        if (state.problem.type === "community") {
+    if (state.median_income || state.rent) {
+        let incomeOverlay, rentOverlay;
+        if (state.median_income) {
+            incomeOverlay = new OverlayContainer(
+                "income",
+                state.layers.filter(lyr => lyr.id.includes("blockgroups")),
+                state.median_income,
+                "Map median income",
+                true // first layer only
+            );
+        }
+        if (state.rent) {
             let rentElec = new Election(
                 "Test",
                 state.rent.subgroups,
                 state.parts,
             );
-            let rentOverlay = new PartisanOverlayContainer(
+            rentOverlay = new PartisanOverlayContainer(
                 "partisan",
                 demoLayers.filter(lyr => !lyr.background),
                 [rentElec],
                 "Show % Renter"
             );
-            tab.addRevealSection(
-                'Homeowner or Renter',
-                (uiState, dispatch) => html`
-                  ${rentOverlay.render()}
-                  <div class="color-legend" id="color-vap" style="display: block;">
-                    <span class="gradientbar greenorange"></span>
-                    <br>
-                    <div class="notches" id="notches-vap">
-                        <span class="notch">|</span>
-                        <span class="notch">|</span>
-                        <span class="notch">|</span>
-                        <span class="notch">|</span>
-                        <span class="notch">|</span>
-                        <span class="notch">|</span>
-                    </div>
-                    <div id="percents-vap">
-                        <span class="square">0%</span>
-                        <span class="square">20%</span>
-                        <span class="square">40%</span>
-                        <span class="square">60%</span>
-                        <span class="square">80%</span>
-                        <span class="square">100%</span>
-                    </div>
-                </div>
-                `,
-                {
-                  isOpen: true
-                }
-            );
-        } else {
-            tab.addRevealSection(
-                'Homeowner or Renter',
-                (uiState, dispatch) => html`<div class="sectionThing">
-                    ${DemographicsTable(
-                        state.rent.subgroups,
-                        state.activeParts
-                    )}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
         }
+
+        tab.addRevealSection(
+            "Socioeconomic data" + (spatial_abilities(state.place.id).multiyear
+              ? ` (${spatial_abilities(state.place.id).multiyear})`
+              : ""
+            ),
+            (uiState, dispatch) => html`
+              ${state.median_income ? incomeOverlay.render() : null}
+              ${state.rent ?
+                html`${rentOverlay.render()}
+                <div class="color-legend" id="color-vap" style="display: block;">
+                  <span class="gradientbar greenorange"></span>
+                  <br>
+                  <div class="notches" id="notches-vap">
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                  </div>
+                  <div id="percents-vap">
+                      <span class="square">0%</span>
+                      <span class="square">20%</span>
+                      <span class="square">40%</span>
+                      <span class="square">60%</span>
+                      <span class="square">80%</span>
+                      <span class="square">100%</span>
+                  </div>` : null}
+            `, {}
+        );
     }
+
+    // if (state.rent) {
+    //     tab.addRevealSection(
+    //         'Homeowner or Renter',
+    //         (uiState, dispatch) => html`<div class="sectionThing">
+    //           ${DemographicsTable(
+    //             state.rent.subgroups,
+    //             state.activeParts
+    //           )}
+    //         </div>`,
+    //         {
+    //           isOpen: false
+    //         }
+    //     );
+    // }
 
     if (state.elections.length > 0) {
         const partisanOverlays = new PartisanOverlayContainer(

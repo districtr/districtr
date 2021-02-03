@@ -27,7 +27,6 @@ export default function MedianIncomeTable(
     dispatch
 ) {
     income.subgroups = income.subgroups.sort((a, b) => a.key < b.key ? -1 : 1);
-    console.log(income.subgroups.map(sg => sg.key));
 
     let rows = parts.map((part, i) => {
         let median_count = 0;

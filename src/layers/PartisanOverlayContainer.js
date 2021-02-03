@@ -60,28 +60,30 @@ export default class PartisanOverlayContainer {
         const overlay = this.currentElectionOverlay;
         return html`
             <div class="ui-option ui-option--slim">
-                <label class="toolbar-checkbox">
-                    <input
-                        type="checkbox"
-                        name="data_layers"
-                        ?checked="${overlay.isVisible}"
-                        value="partisan"
-                        @change=${(e) => {
-                            if (e.bubbles) {
-                                let checks = document.getElementsByName("data_layers");
-                                for (let c = 0; c < checks.length; c++) {
-                                    if (checks[c].value !== this._id) {
-                                        checks[c].checked = false;
-                                        let evt = new Event("change");
-                                        checks[c].dispatchEvent(evt);
-                                    }
-                                }
-                            }
-                            this.toggleVisibility(e.target.checked);
-                        }}
-                    />
-                    ${this.bipolarText || "Show partisan lean"}
-                </label>
+                <h5>
+                  <label class="toolbar-checkbox">
+                      <input
+                          type="checkbox"
+                          name="data_layers"
+                          ?checked="${overlay.isVisible}"
+                          value="partisan"
+                          @change=${(e) => {
+                              if (e.bubbles) {
+                                  let checks = document.getElementsByName("data_layers");
+                                  for (let c = 0; c < checks.length; c++) {
+                                      if (checks[c].value !== this._id) {
+                                          checks[c].checked = false;
+                                          let evt = new Event("change");
+                                          checks[c].dispatchEvent(evt);
+                                      }
+                                  }
+                              }
+                              this.toggleVisibility(e.target.checked);
+                          }}
+                      />
+                      ${this.bipolarText || "Show partisan lean"}
+                  </label>
+                </h5>
             </div>
             ${[
                 this.bipolarText ? null : {

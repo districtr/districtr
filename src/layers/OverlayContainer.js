@@ -12,7 +12,7 @@ export default class OverlayContainer {
         this.firstOnly = firstOnly || false;
         this.multiYear = multiYear;
         this.yr = 2010;
-        
+
         if (includeCoalition) {
             this.subgroups = this.subgroups.concat([]);
             this.subgroups.splice(1, 0, {
