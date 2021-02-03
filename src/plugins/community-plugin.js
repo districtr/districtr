@@ -39,6 +39,12 @@ export default function CommunityPlugin(editor) {
         state.map.landmarks = new Landmarks(state.map, lm, (isNew) => {
           // updateLandmarkList
           savePlanToStorage(state.serialize());
+
+          if (lm.data.features.length) {
+              document.querySelector("#landmark-instruction").innerText = "- mouse over marker for details";
+              document.querySelector("#landmark-instruction").style.visibility = "visible";
+          }
+
           if (isNew) {
             window.selectLandmarkFeature = lm.data.features.length - 1;
             document.querySelector('.landmark-select .label').innerText = "New Point " + lm.data.features.length;
@@ -46,7 +52,8 @@ export default function CommunityPlugin(editor) {
             document.querySelector(".marker-form input").value = "New Point " + (window.selectLandmarkFeature + 1);
             document.querySelector(".marker-form textarea").value= "";
           } else if (window.selectLandmarkFeature >= 0 && lm.data.features.length) {
-            document.querySelector('.landmark-select .label').innerText = lm.data.features[window.selectLandmarkFeature].properties.name;
+            const selected = lm.data.features[window.selectLandmarkFeature].properties;
+            document.querySelector('.landmark-select .label').innerText = selected.name;
           } else if (!lm.data.features.length) {
             document.querySelector('.landmark-select .label').innerText = "Select place";
           }
@@ -258,11 +265,14 @@ class LandmarkOptions {
                   document.querySelector("#tool-pan").click();
                   document.querySelector(".marker-form").style.visibility = "hidden";
                   document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
+                  document.querySelector("#landmark-instruction").innerText = "- activated - click map to place";
                   document.querySelector("#landmark-instruction").style.visibility = "visible";
                 }}"
+                title="New Marker"
+                style="border: 2px solid #aaa"
               >
                 <img src="/assets/new_landmark.svg"/>
-                New Marker
+                New
               </button>
               &nbsp;&nbsp;&nbsp;
               <span id="landmark-instruction">- activated - click map to place</span>
@@ -325,8 +335,8 @@ class LandmarkOptions {
                     window.selectLandmarkFeature -= 1;
                     this.updateLandmarkList();
                     if (properties.length) {
-                      document.querySelector('.marker-form input').value = properties[0].name;
-                      document.querySelector('.marker-form textarea').value = properties[0].short_description;
+                      document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
+                      document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
                     } else {
                       document.querySelector('.marker-form input').value = "";
                       document.querySelector('.marker-form textarea').value = "";
