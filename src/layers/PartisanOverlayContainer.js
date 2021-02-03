@@ -44,6 +44,11 @@ export default class PartisanOverlayContainer {
         } else {
             this.currentElectionOverlay.hide();
         }
+        if (this.bipolarText) {
+            // get last word of label ("Renter") to show/hide color scale
+            let colorLabel = this.bipolarText.split(" ");
+            document.querySelector('#color-' + colorLabel[colorLabel.length - 1]).style.visibility = this.isVisible ? "visible" : "hidden";
+        }
     }
     setElection(i) {
         this._currentElectionIndex = i;

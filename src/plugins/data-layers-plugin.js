@@ -487,7 +487,7 @@ export default function DataLayersPlugin(editor) {
                 "income",
                 state.layers.filter(lyr => lyr.id.includes("blockgroups")),
                 state.median_income,
-                "Map median income",
+                "Show median income",
                 true // first layer only
             );
         }
@@ -501,7 +501,7 @@ export default function DataLayersPlugin(editor) {
                 "partisan",
                 demoLayers.filter(lyr => !lyr.background),
                 [rentElec],
-                "Show % Renter"
+                "Show % renter"
             );
         }
 
@@ -514,7 +514,7 @@ export default function DataLayersPlugin(editor) {
               ${state.median_income ? incomeOverlay.render() : null}
               ${state.rent ?
                 html`${rentOverlay.render()}
-                <div class="color-legend" id="color-vap" style="display: block;">
+                <div class="color-legend" id="color-renter" style="display: block;visibility: hidden;">
                   <span class="gradientbar greenorange"></span>
                   <br>
                   <div class="notches" id="notches-vap">
