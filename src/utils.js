@@ -656,6 +656,7 @@ export function spatial_abilities (id) {
         ohcentral: {
           multiyear: 2019,
           number_markers: true,
+          coalition: true,
         },
       oklahoma: {
         number_markers: true,
