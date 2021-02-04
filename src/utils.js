@@ -401,6 +401,17 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+          miamifl: {
+            number_markers: true,
+            neighborhoods: true,
+            coalition: true,
+          },
+          miamidade: {
+            multiyear: true,
+            number_markers: true,
+            neighborhoods: true,
+            coalition: true,
+          },
       georgia: {
         number_markers: true,
         county_brush: true,
@@ -509,15 +520,6 @@ export function spatial_abilities (id) {
           shapefile: true,
           // find_unpainted: true,
         },
-      miamifl: {
-        number_markers: true,
-        neighborhoods: true,
-      },
-      miamidade: {
-        multiyear: true,
-        number_markers: true,
-        neighborhoods: true,
-      },
       michigan: {
         number_markers: true,
         native_american: true,
