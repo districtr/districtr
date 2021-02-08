@@ -550,5 +550,318 @@
         "name": "State Senate"
       }
     ]
+  },
+  {
+    "state": "Texas",
+    "id": "fortbendtx",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 585375,
+              "min": 0,
+              "max": 3066
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 211680,
+                "min": 0,
+                "max": 1940
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 123267,
+                "min": 0,
+                "max": 1790
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 138967,
+                "min": 0,
+                "max": 705
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 98762,
+                "min": 0,
+                "max": 1385
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 1159,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 174,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 10025,
+                "min": 0,
+                "max": 81
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 1341,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 411540,
+              "min": 0,
+              "max": 1870
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 159069,
+                "min": 0,
+                "max": 1179
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 84977,
+                "min": 0,
+                "max": 1152
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 89316,
+                "min": 0,
+                "max": 470
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 792,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 120,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 71297,
+                "min": 0,
+                "max": 927
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 766,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 5203,
+                "min": 0,
+                "max": 49
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -96.0889,
+            29.2626
+          ],
+          [
+            -95.4241,
+            29.7883
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fortbendtx_blocks_points"
+            },
+            "sourceLayer": "fortbendtx_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fortbendtx_blocks"
+            },
+            "sourceLayer": "fortbendtx_blocks"
+          }
+        ]
+      }
+    ],
+    "name": "Fort Bend County",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "id": "tarranttx",
+    "name": "Tarrant County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1809034,
+              "min": 0,
+              "max": 1910
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 937135,
+                "min": 0,
+                "max": 1337
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 262522,
+                "min": 0,
+                "max": 583
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 482977,
+                "min": 0,
+                "max": 930
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 83378,
+                "min": 0,
+                "max": 310
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 7037,
+                "min": 0,
+                "max": 61
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2938,
+                "min": 0,
+                "max": 63
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 30556,
+                "min": 0,
+                "max": 58
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 2491,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -97.5506,
+            32.5487
+          ],
+          [
+            -97.0323,
+            32.9942
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.tarranttx_blocks_points"
+            },
+            "sourceLayer": "tarranttx_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.tarranttx_blocks"
+            },
+            "sourceLayer": "tarranttx_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "Texas",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
