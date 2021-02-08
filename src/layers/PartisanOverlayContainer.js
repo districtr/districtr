@@ -87,7 +87,7 @@ export default class PartisanOverlayContainer {
 
     candidateLegend() {
         const cands = this.elections[this._currentElectionIndex].subgroups;
-        console.log(cands);
+        // console.log(cands);
         return cands.map(c => html`
                                 <li class="party-desc">
                                     <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>

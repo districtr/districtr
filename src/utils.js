@@ -635,6 +635,11 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
       },
+        tx_vra: {
+          vra_effectiveness: true,
+          county_brush: true,
+          number_markers: true,
+        },
       utah: {
         number_markers: true,
         county_brush: true,

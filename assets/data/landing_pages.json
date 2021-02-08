@@ -2846,9 +2846,10 @@
   {
     "state": "VRA - Dashboard",
     "code": "VRA",
-    "states": ["Louisiana"],
+    "states": ["Louisiana", "Texas"],
     "modules": [
-      {"name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la"}],
+      {"name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la"},
+      {"name": "Texas", "ids": ["tx_vra"], "id": "tx"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2860,6 +2861,14 @@
         "nav": "LA",
         "type": "text",
         "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "VRA Effectiveness in Texas",
+        "nav": "TX",
+        "type": "text",
+        "content_source": "/assets/about/vra/precomputation_texas.html" ,
         "subsections": [
         ]
       },

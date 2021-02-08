@@ -550,5 +550,449 @@
         "name": "State Senate"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 25145561,
+              "min": 0,
+              "max": 22091
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 11397345,
+                "min": 0,
+                "max": 8787
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 3168469,
+                "min": 0,
+                "max": 7630
+              },
+              {
+                "key": "HISPANIC",
+                "name": "Hispanic population",
+                "sum": 9460921,
+                "min": 0,
+                "max": 17265
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 1267977,
+                "min": 0,
+                "max": 5095
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 18279737,
+              "min": 0,
+              "max": 15368
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 9074684,
+                "min": 0,
+                "max": 8234
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2196259,
+                "min": 0,
+                "max": 4847
+              },
+              {
+                "key": "HISPVAP",
+                "name": "Hispanic voting age population",
+                "sum": 6143144,
+                "min": 0,
+                "max": 11566
+              },
+              {
+                "key": "OTHVAP",
+                "name": "Other races voting age population",
+                "sum": 933861,
+                "min": 0,
+                "max": 3464
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "key": "COUNTY",
+            "name": "County",
+            "subgroups": []
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "PRES12R",
+                "name": "Republican",
+                "sum": 4568788,
+                "min": 0,
+                "max": 3571
+              },
+              {
+                "key": "PRES12D",
+                "name": "Democratic",
+                "sum": 3307609,
+                "min": 0,
+                "max": 3517
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2012
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "SEN12R",
+                "name": "Republican",
+                "sum": 4439084,
+                "min": 0,
+                "max": 3537
+              },
+              {
+                "key": "SEN12D",
+                "name": "Democratic",
+                "sum": 3194484,
+                "min": 0,
+                "max": 3473
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2012
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "SEN14R",
+                "name": "Republican",
+                "sum": 2861244,
+                "min": 0,
+                "max": 2831
+              },
+              {
+                "key": "SEN14D",
+                "name": "Democratic",
+                "sum": 1597272,
+                "min": 0,
+                "max": 1996
+              }
+            ],
+            "metadata": {
+              "race": "Senate",
+              "year": 2014
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 2796251,
+                "min": 0,
+                "max": 2706
+              },
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1835458,
+                "min": 0,
+                "max": 2211
+              }
+            ],
+            "metadata": {
+              "race": "Governor",
+              "year": 2014
+            }
+          },
+          {
+            "type": "election",
+            "subgroups": [
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 4684288,
+                "min": 0,
+                "max": 3687
+              },
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 3877626,
+                "min": 0,
+                "max": 4479
+              }
+            ],
+            "metadata": {
+              "race": "Presidential",
+              "year": 2016
+            }
+          }
+        ],
+        "idColumn": {
+          "name": "ID",
+          "key": "CNTYVTD"
+        },
+        "bounds": [
+          [
+            -106.623445,
+            25.840378
+          ],
+          [
+            -93.530936,
+            36.500439
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.texas_precincts"
+            },
+            "sourceLayer": "texas_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.texas_precincts_points"
+            },
+            "sourceLayer": "texas_precincts_points"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 25145561,
+              "min": 0,
+              "max": 28537
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 11397345,
+                "min": 0,
+                "max": 11660
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2886825,
+                "min": 0,
+                "max": 7972
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 9460921,
+                "min": 0,
+                "max": 10629
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 948426,
+                "min": 0,
+                "max": 5666
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 80586,
+                "min": 0,
+                "max": 528
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 17920,
+                "min": 0,
+                "max": 156
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 319558,
+                "min": 0,
+                "max": 568
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 33980,
+                "min": 0,
+                "max": 288
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 18279737,
+              "min": 0,
+              "max": 19536
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 9074684,
+                "min": 0,
+                "max": 7593
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2076282,
+                "min": 0,
+                "max": 5124
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 6143144,
+                "min": 0,
+                "max": 6415
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 61856,
+                "min": 0,
+                "max": 370
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 12912,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 716968,
+                "min": 0,
+                "max": 4110
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 21205,
+                "min": 0,
+                "max": 288
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 172686,
+                "min": 0,
+                "max": 279
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -106.6456,
+            25.8372
+          ],
+          [
+            -93.508,
+            36.5007
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.texas_blockgroups_points"
+            },
+            "sourceLayer": "texas_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.texas_blockgroups"
+            },
+            "sourceLayer": "texas_blockgroups"
+          }
+        ],
+        "limit": "community"
+      }
+    ],
+    "name": "Texas",
+    "state": "Texas",
+    "id": "tx_vra",
+    "districtingProblems": [
+      {
+        "numberOfParts": 36,
+        "pluralNoun": "Congressional Districts",
+        "name": "Congress"
+      },
+      {
+        "numberOfParts": 150,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
+      },
+      {
+        "numberOfParts": 31,
+        "pluralNoun": "State Senate Districts",
+        "name": "State Senate"
+      }
+    ]
   }
 ]

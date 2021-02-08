@@ -12,22 +12,14 @@ const electionAbrev = {"19Governor": ["GOV19", "2019 Governor"], "19Lt_Governor"
                            "15_Governor":["GOV15", "2015 Governor"], "15_SOS": ["SOS15", "2015 Secretary of State"], 
                            "15_Treasurer": ["TRES15", "2015 Treasurer"]};
 
-const candNames = {"EdwardsD_19G_Governor": "J. Edwards","EdwardsD_19P_Governor": "J. Edwards",
-                   "GreenupD_18G_SOS": "G. Collins-Greenup","GreenupD_18P_SOS": "G. Collins-Greenup",
-                   "JonesD_19P_Lt_Governor": "W. Jones", "EdwardsD_19P_Treasurer": "D. Edwards",
-                   "GreenD_19P_Ag_Comm": "M. Green", "EdwardsD_17G_Treasurer": "D. Edwards",
-                   "EdwardsD_17P_Treasurer": "D. Edwards", "CampbellD_16G_US_Sen": "F. Campbell",
-                   "CampbellD_16P_US_Sen": "F. Campbell", "ClintonD_16G_President": "H. Clinton",
-                   "ClintonD_16P_President": "H. Clinton", "EdwardsD_15P_Governor": "J. Edwards",
-                   "EdwardsD_15G_Governor": "J. Edwards", "TysonD_15P_SOS": "C. Tyson",};
-
-// function loadNameData(placeID, callback) {
-    
-//     $.getJSON( "assets/about/vra/" + placeID + ".json", function( data ) {
-//        callback(data);
-//     })
-//  }
-
+const candNames = {"EdwardsD_19G_Governor": "J. Edwards (W)","EdwardsD_19P_Governor": "J. Edwards (W)",
+                   "GreenupD_18G_SOS": "G. Collins-Greenup (B)","GreenupD_18P_SOS": "G. Collins-Greenup (B)",
+                   "JonesD_19P_Lt_Governor": "W. Jones (B)", "EdwardsD_19P_Treasurer": "D. Edwards (B)",
+                   "GreenD_19P_Ag_Comm": "M. Green (W)", "EdwardsD_17G_Treasurer": "D. Edwards (B)",
+                   "EdwardsD_17P_Treasurer": "D. Edwards (B)", "CampbellD_16G_US_Sen": "F. Campbell (W)",
+                   "CampbellD_16P_US_Sen": "F. Campbell (W)", "ClintonD_16G_President": "H. Clinton (W)",
+                   "ClintonD_16P_President": "H. Clinton (W)", "EdwardsD_15P_Governor": "J. Edwards (W)",
+                   "EdwardsD_15G_Governor": "J. Edwards (W)", "TysonD_15P_SOS": "C. Tyson (B)",};
 
 function getBackgroundColor(value) {
     return `rgba(0, 0, 0, ${Math.min(
@@ -64,8 +56,13 @@ function getRankCell(elect, width) {
     const background = moveon ? "limegreen" : "";
     const color = place < 3 ? "black" : "red"
     const suffix = majority ? "M" : "P";
+    const desc = place < 3 ? (place === 1 ? "1st" : "2nd") + " place " + (majority ? "(majority)" : "(plurality)") : ""
+
     return {
-        content: `${place < 3 ? place + suffix : "✘"}`,
+        content: html`<div class="elect_tooltip">
+                        ${place < 3 ? html`${place + suffix} <span class="elect_tooltiptext">${desc}</span>` 
+                                    : "✘"}
+                     </div>`,
         style: `background: ${background}; color: ${color}; width: ${width}; text-align: center;`
     };
 }
@@ -99,7 +96,7 @@ function getPrimTable(dist, elects, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">Group Control
                                             <span class="elect_tooltiptext">Estimated Black share in the support received by CoC</span>
                                     </div>`;
-    const headers = [dist.renderLabel(),cocHeader, "%", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),cocHeader, "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLabel(elect),
@@ -114,7 +111,7 @@ function getPrimTable(dist, elects, decimals=true) {
 }
 
 function getGenTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(), cocHeader, "%", "Success"]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(), cocHeader, "District Vote %", "Success"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLabel(elect),
@@ -136,14 +133,6 @@ function DistrictResults(effectiveness, dist) {
         </div>
         <section class="toolbar-section">
             ${effectiveness[dist.id] ? getPrimTable(dist, effectiveness[dist.id].electionDetails) : ""}
-            <ul class="option-list">
-                <li class="option-list__item" style="text-align: center;">
-                In the candidate rank column, M indicates that some candidate won a majority of 
-                votes in this district, and P indicates a plurality situation. The entries shaded 
-                green are those elections where the given candidate would have won or advanced to a
-                runoff in a district-specific election.
-                </li>
-            </ul>
         </section>
         
         <div class="ui-option ui-option--slim">
@@ -154,6 +143,15 @@ function DistrictResults(effectiveness, dist) {
         </section>
     `;
 }
+
+// <ul class="option-list">
+/* <li class="option-list__item" style="text-align: center;">
+In the candidate rank column, M indicates that some candidate won a majority of 
+votes in this district, and P indicates a plurality situation. The entries shaded 
+green are those elections where the given candidate would have won or advanced to a
+runoff in a district-specific election.
+</li>
+</ul> */
 
 function SelectDist(dists, handler, selectedIndex) {
     return html`
