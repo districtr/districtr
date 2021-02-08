@@ -115,31 +115,32 @@ function getGenTable(dist, elects, decimals=true) {
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = elects.map(elect => ({
         label: getElectLabel(elect),
-        entries: [elect.CoC_proxy ? getTextCell(elect.CoC_proxy, width*2.25) 
+        entries: [elect.CoC_proxy_gen ? getTextCell(elect.CoC_proxy_gen, width*2.25) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width*2.25}; text-align: center;`}, 
-                  elect.CoC_proxy ? getCell(elect.proxy_perc, width, decimals) 
+                  elect.CoC_proxy_gen ? getCell(elect.proxy_perc_gen, width, decimals) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
-                  elect.CoC_proxy ? getGenSuccessCell(elect.proxy_perc, width) 
+                  elect.CoC_proxy_gen ? getGenSuccessCell(elect.proxy_perc_gen, width) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                 ]
     }));
     return DataTable(headers, rows, true);
 }
 
-function DistrictResults(effectiveness, dist) {
+function DistrictResults(effectiveness, dist, group) {
+    console.log(group);
     return html`
         <div class="ui-option ui-option--slim">
             <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[dist.id] ? getPrimTable(dist, effectiveness[dist.id].electionDetails) : ""}
+            ${effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails) : ""}
         </section>
         
         <div class="ui-option ui-option--slim">
             <h5> General Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[dist.id] ? getGenTable(dist, effectiveness[dist.id].electionDetails) : ""}
+            ${effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails) : ""}
         </section>
     `;
 }
@@ -167,6 +168,21 @@ function SelectDist(dists, handler, selectedIndex) {
     `;
 }
 
+
+function SelectGroup(groups, handler, selectedIndex) {
+    return html`
+        <select @change="${e => handler(parseInt(e.target.value))}">
+            ${groups.map(
+                (g, i) => html`
+                    <option value="${i}" ?selected=${selectedIndex === i}
+                        >${g}</option
+                    >
+                `
+            )}
+        </select>
+    `;
+}
+
 export default function VRAResultsSection(
     chartID,
     parts,
@@ -175,10 +191,12 @@ export default function VRAResultsSection(
     uiState,
     dispatch
 ) {
-    // console.log(effectiveness);
-    // console.log(uiState);
+    // console.log(chartID);
     // let districtRes = DistrictResults.bind(null, effectiveness, parts[uiState.charts[chartID].activePartIndex])
-    
+    const groups = Object.keys(effectiveness);
+    const group_id = chartID + "_g";
+    uiState.charts[group_id] = {activePartIndex: 0}
+
     return html`
         <section class="toolbar-section">
             ${Parameter({
@@ -192,7 +210,19 @@ export default function VRAResultsSection(
                     ),
                 )
             })}
-            ${DistrictResults(effectiveness, parts[uiState.charts[chartID].activePartIndex])}
+            ${Parameter({
+                label: "Minority Group:",
+                element: SelectGroup(groups, i =>
+                    dispatch(
+                        actions.selectPart({
+                            chart: group_id,
+                            partIndex: i
+                        })
+                    ),
+                )
+            })}
+            ${DistrictResults(effectiveness, parts[uiState.charts[chartID].activePartIndex],
+                              groups[uiState.charts[group_id].activePartIndex])}
         </section>
     `;
 }

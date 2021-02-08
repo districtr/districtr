@@ -33,14 +33,15 @@ export default function VRAEffectiveness(state, brush, toolbar) {
       },
       body: JSON.stringify({
           "assignment": assign,
-          "placeId": state.place.id
+          "placeId": state.place.id,
+          "groups": state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"]
       }),
     })
       .then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
         state.vra_effectiveness = data;
-        console.log(data);
+        // console.log(data);
         const target = document.getElementById("toolbar");
         if (target === null) {
             return;
