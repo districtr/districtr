@@ -300,13 +300,15 @@ strong {
                 class="start-districting hidden"
                 id="start-districting"
             ></section>
-            <div class="plan-loader">
-              Import an existing plan or community map?
-              <br>
-              <a href="/import-export">Import/export options</a>
+            <div class="card">
+              <ul class=" places-list places-list--columns">
+                <li class="places-list__item places-list__item--small" onclick="window.location.href='/import-export'">
+                  Import an existing plan or community map
+                </li>
+              </ul>
             </div>
-            <!-- <div id="uploader">
-            </div> -->
+            <div id="uploader">
+            </div>
             <!-- <section style="text-align:center">
               <h3>Looking for somewhere else?</h3>
               <a href="/request">Request a new local module</a>
