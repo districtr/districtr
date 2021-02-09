@@ -5,21 +5,52 @@ import Parameter from "../Parameter";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
-const electionAbrev = {"19Governor": ["GOV19", "2019 Governor"], "19Lt_Governor": ["LTG19", "2019 Lt. Governor"], 
-                           "19Treasurer": ["TRES19", "2019 Treasurer"], "19Ag_Comm": ["AGC19", "2019 Commissioner of Agriculture and Forestry"], 
-                           "18SOS": ["SOS18", "2018 Secretary of State"], "17Treasurer": ["TRES17", "2017 Treasurer"], 
-                           "16US_Sen": ["SEN16", "2016 US Senate"], "16_President": ["PRES16", "2016 US President"], 
-                           "15_Governor":["GOV15", "2015 Governor"], "15_SOS": ["SOS15", "2015 Secretary of State"], 
-                           "15_Treasurer": ["TRES15", "2015 Treasurer"]};
+const electionAbrev = { // 2019
+                        "19Governor": ["GOV19", "2019 Governor"], "19Lt_Governor": ["LTG19", "2019 Lt. Governor"], 
+                        "19Treasurer": ["TRES19", "2019 Treasurer"], 
+                        "19Ag_Comm": ["AGC19", "2019 Commissioner of Agriculture and Forestry"],
+                        // 2018
+                        "18SOS": ["SOS18", "2018 Secretary of State"], "18Governor": ["GOV18", "2018 Governor"], 
+                        "18RR_Comm_1": ["RRC18", "2018 Railroad Commissioner"], "18Lt_Governor": ["LTG18", "2018 Lt. Governor"],
+                        "18Comptroller": ["COMP18", "2018 Comptroller"], "18US_Sen": ["SEN18", "2018 US Senate"],
+                        "18Land_Comm": ["PLC18", "2018 Public Lands Commissioner"],
+                        // 2017
+                        "17Treasurer": ["TRES17", "2017 Treasurer"], 
+                        // 2016
+                        "16US_Sen": ["SEN16", "2016 US Senate"], "16_President": ["PRES16", "2016 US President"], 
+                        "16RR_Comm_1": ["RRC16", "2016 Railroad Commissioner"], "16President": ["PRES16", "2016 US President"], 
+                        // 2015
+                        "15_Governor":["GOV15", "2015 Governor"], "15_SOS": ["SOS15", "2015 Secretary of State"], 
+                        "15_Treasurer": ["TRES15", "2015 Treasurer"],
+                        // 2014
+                        "14US_Sen": ["SEN14", "2014 US Senate"], "14RR_Comm_3": ["RRC14", "2014 Railroad Commissioner"],
+                        "14Ag_Comm": ["AGC14", "2014 Agriculture Commissioner"], "14Governor": ["GOV14", "2014 Governor"],
+                        // 2012
+                        "12President": ["PRES12", "2012 President"],  "12US_Sen": ["SEN12", "2012 US Senate"],
+                    };
 
-const candNames = {"EdwardsD_19G_Governor": "J. Edwards (W)","EdwardsD_19P_Governor": "J. Edwards (W)",
-                   "GreenupD_18G_SOS": "G. Collins-Greenup (B)","GreenupD_18P_SOS": "G. Collins-Greenup (B)",
-                   "JonesD_19P_Lt_Governor": "W. Jones (B)", "EdwardsD_19P_Treasurer": "D. Edwards (B)",
-                   "GreenD_19P_Ag_Comm": "M. Green (W)", "EdwardsD_17G_Treasurer": "D. Edwards (B)",
-                   "EdwardsD_17P_Treasurer": "D. Edwards (B)", "CampbellD_16G_US_Sen": "F. Campbell (W)",
-                   "CampbellD_16P_US_Sen": "F. Campbell (W)", "ClintonD_16G_President": "H. Clinton (W)",
-                   "ClintonD_16P_President": "H. Clinton (W)", "EdwardsD_15P_Governor": "J. Edwards (W)",
-                   "EdwardsD_15G_Governor": "J. Edwards (W)", "TysonD_15P_SOS": "C. Tyson (B)",};
+const candNames = { // 2019
+                    "EdwardsD_19G_Governor": "J. Edwards (W)","EdwardsD_19P_Governor": "J. Edwards (W)",
+                    "JonesD_19P_Lt_Governor": "W. Jones (B)", "EdwardsD_19P_Treasurer": "D. Edwards (B)",
+                    "GreenD_19P_Ag_Comm": "M. Green (W)",
+                    // 2018
+                    "GreenupD_18G_SOS": "G. Collins-Greenup (B)","GreenupD_18P_SOS": "G. Collins-Greenup (B)",
+
+                    // 2017
+                    "EdwardsD_17G_Treasurer": "D. Edwards (B)", "EdwardsD_17P_Treasurer": "D. Edwards (B)",
+
+                    // 2016
+                    "CampbellD_16G_US_Sen": "F. Campbell (W)", "CampbellD_16P_US_Sen": "F. Campbell (W)",
+                    "ClintonD_16G_President": "H. Clinton (W)", "ClintonD_16P_President": "H. Clinton (W)",
+
+                    // 2015
+                    "EdwardsD_15P_Governor": "J. Edwards (W)", "EdwardsD_15G_Governor": "J. Edwards (W)",
+                    "TysonD_15P_SOS": "C. Tyson (B)",
+
+                    // 2014
+
+                    // 2012
+                };
 
 function getBackgroundColor(value) {
     return `rgba(0, 0, 0, ${Math.min(
@@ -169,19 +200,19 @@ function SelectDist(dists, handler, selectedIndex) {
 }
 
 
-function SelectGroup(groups, handler, selectedIndex) {
-    return html`
-        <select @change="${e => handler(parseInt(e.target.value))}">
-            ${groups.map(
-                (g, i) => html`
-                    <option value="${i}" ?selected=${selectedIndex === i}
-                        >${g}</option
-                    >
-                `
-            )}
-        </select>
-    `;
-}
+// function SelectGroup(groups, handler, selectedIndex) {
+//     return html`
+//         <select @change="${e => handler(parseInt(e.target.value))}">
+//             ${groups.map(
+//                 (g, i) => html`
+//                     <option value="${i}" ?selected=${selectedIndex === i}
+//                         >${g}</option
+//                     >
+//                 `
+//             )}
+//         </select>
+//     `;
+// }
 
 export default function VRAResultsSection(
     chartID,
@@ -212,7 +243,7 @@ export default function VRAResultsSection(
             })}
             ${Parameter({
                 label: "Minority Group:",
-                element: SelectGroup(groups, i =>
+                element: Select(groups, i =>
                     dispatch(
                         actions.selectPart({
                             chart: group_id,
