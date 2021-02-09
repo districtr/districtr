@@ -172,7 +172,8 @@ export default function EvaluationPlugin(editor) {
                 ),
             {
                 isOpen: false,
-                activePartIndex: 0
+                activePartIndex: 0,
+                activeSubgroupIndices: [0,0]
             }
         );
     }
