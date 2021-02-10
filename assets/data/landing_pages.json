@@ -2876,14 +2876,23 @@
         "name": "Explore the enacted plans",
         "nav": "Examples",
         "type": "plans",
-        "ref": "la",
+        "ref": "vra",
         "disc": "",
         "plans": [
           {
             "title": "Enacted Plans in Louisiana",
             "plans": [
               {
-                "id": "congress",
+                "id": "la-congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          },
+          {
+            "title": "Enacted Plans in Texas",
+            "plans": [
+              {
+                "id": "tx-congress",
                 "name": "Congressional Plan"
               }
             ]
