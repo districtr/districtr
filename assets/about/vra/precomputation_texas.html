@@ -1,0 +1,311 @@
+<p>
+    The Texas VRA dashboard allows you to explore districts in terms of their history of 
+    offering effective opportunity to Hispanic and Black voters to elect candidates of choice.   We have 
+    pre-computed some racially polarized voting statistics in order to facilitate this exploration.
+    In particular, we use ecological inference (EI) to identify the Hispanic and Black candidates of choice in 
+    statewide elections from 2012-2018.  Our EI runs are done at the statewide level using eiPack 
+    (a Bayesian hierarchical model for RxC inference).  The confidence in correctly identifying the 
+    candidate of choice depends on the number of times out of 1000 draws that the candidate had the 
+    most Black votes.  In this case, we got 1000/1000 agreement for each identified candidate of 
+    choice in both the primary and the general/runoff.  We also weight more recent elections more 
+    heavily, and we put twice as much weight on elections in which the candidate of choice is 
+    themselves Hispanic/Black-identified. This is in keeping with the way VRA attorneys treat some elections 
+    as more probative (providing more persuasive evidence). For details about the construction of 
+    the “effectiveness score,” see LINK.
+</p>
+<p>
+    The table below shows these precomputed factors for the 14 election groups looked at in Texas, with respect to Hispanic voters.
+</p>
+<table class="data">
+    <tr>
+      <th>Election Group</th>
+      <th>Hispanic primary CoC</th>
+      <th>Hispanic conf CoC</th>
+      <th>group member?</th>
+      <th>recency</th>
+      <th>election weight</th>
+      <th>Runoff?</th>
+    </tr>
+    <tr>
+        <td>Senate 2018</td>
+        <td>B. ORourke</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2018</td>
+        <td>R. McAllen</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Public Lands Commissioner 2018</td>
+        <td>M. Suazo</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lt. Governor 2018</td>
+        <td>M. Cooper</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Governor 2018</td>
+        <td>L. Valdez</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Comptroller 2018</td>
+        <td>T. Mahoney</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US President 2016</td>
+        <td>H. Clinton</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.707</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2016</td>
+        <td>G. Yarbrough</td>
+        <td>0.9</td>
+        <td>0.5</td>
+        <td>0.707</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US Senate 2014</td>
+        <td>D. Alamee</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2014</td>
+        <td>S. Brown</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Governor 2014</td>
+        <td>W. Davis</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Agricultural Commissioner 2014</td>
+        <td>R. Friedman</td>
+        <td>0.992</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US Senate 2012</td>
+        <td>P. Sadler</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.3535</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US President 2012</td>
+        <td>B. Obama</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.3535</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<p>
+    The table below shows these precomputed factors for the 14 election groups looked at in Texas, with respect to Black voters.
+</p>
+<table class="data">
+    <tr>
+      <th>Election Group</th>
+      <th>Black primary CoC</th>
+      <th>Black conf CoC</th>
+      <th>group member?</th>
+      <th>recency</th>
+      <th>election weight</th>
+      <th>Runoff?</th>
+    </tr>
+    <tr>
+        <td>Senate 2018</td>
+        <td>B. ORourke</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2018</td>
+        <td>C. Spellmon</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Public Lands Commissioner 2018</td>
+        <td>M. Suazo</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lt. Governor 2018</td>
+        <td>M. Cooper</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Governor 2018</td>
+        <td>L. Valdez</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Comptroller 2018</td>
+        <td>T. Mahoney</td>
+        <td>0.879</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US President 2016</td>
+        <td>H. Clinton</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.707</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2016</td>
+        <td>G. Yarbrough</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.707</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US Senate 2014</td>
+        <td>D. Alamee</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Railroad Commissioner 2014</td>
+        <td>S. Brown</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Governor 2014</td>
+        <td>W. Davis</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Agricultural Commissioner 2014</td>
+        <td>J. Hogan</td>
+        <td>1</td>
+        <td>0.5</td>
+        <td>0.5</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US Senate 2012</td>
+        <td>P. Sadler</td>
+        <td>0.832</td>
+        <td>0.5</td>
+        <td>0.3535</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>US President 2012</td>
+        <td>B. Obama</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.3535</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<p>
+    When you’re drawing maps in the module, you can see the electoral history of the district as you
+    draw by going to the VRA tab and selecting the district under “District details.”  We have 
+    colored successful primary elections green.  Success for the Hispanic/Black candidate of choice is 
+    assessed in a primary when that candidate either (a) receives a majority of votes in the 
+    district you drew in that primary, or (b) comes in first or second in the primary, but no 
+    candidate receives a majority.  Below that is a table showing the outcomes in the general 
+    elections for those contests that went to a second round because no candidate got a statewide 
+    majority.
+</p>
+<p>
+    In addition to the vote shares, we also show a “group control” factor.  This is the estimated
+    share of the candidate’s support that came from Hispanic or Black voters, again using EI outputs.
+</p>
