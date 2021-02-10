@@ -1892,7 +1892,7 @@
     "code": "OH",
     "modules": [
       {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"},
-      {"name": "Regions", "ids": ["ohcentral"], "id": "region"}
+      {"name": "Zones", "ids": ["ohcentral", "ohse", "ohtoledo", "ohakron", "ohcle", "ohcin"], "id": "region"}
     ],
     "sections": [
       {

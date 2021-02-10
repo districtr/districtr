@@ -356,7 +356,7 @@ export default function DataLayersPlugin(editor) {
                     Unified School Districts
                   </label>`,
                 {
-                    isOpen: false
+                    isOpen: true
                 }
             );
         } else {
