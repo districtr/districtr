@@ -852,7 +852,7 @@
     "state": "Ohio",
     "id": "ohcentral",
     "limit": "community",
-    "name": "Ohio Central",
+    "name": "Central Ohio",
     "districtingProblems": [
       {
         "name": "Wards",
@@ -862,7 +862,7 @@
     ]
   },
   {
-    "name": "Ohio Akron",
+    "name": "Appalachian Region",
     "id": "ohakron",
     "state": "Ohio",
     "units": [
@@ -1662,7 +1662,7 @@
       }
     ],
     "id": "ohcin",
-    "name": "Ohio Cin",
+    "name": "Cincinnati and Dayton",
     "districtingProblems": [
       {
         "name": "Wards",
@@ -1672,7 +1672,7 @@
     ]
   },
   {
-    "name": "Ohio Cleveland",
+    "name": "Greater Cleveland",
     "state": "Ohio",
     "id": "ohcle",
     "units": [
@@ -2471,7 +2471,7 @@
         ]
       }
     ],
-    "name": "Ohio SE",
+    "name": "Southeast Region",
     "id": "ohse",
     "districtingProblems": [
       {
@@ -2876,7 +2876,7 @@
         ]
       }
     ],
-    "name": "Ohio Toledo",
+    "name": "Northwest Region",
     "id": "ohtoledo",
     "districtingProblems": [
       {
@@ -3259,7 +3259,7 @@
         ]
       }
     ],
-    "name": "Cincinatti",
+    "name": "Cincinnati",
     "districtingProblems": [
       {
         "name": "Wards",
