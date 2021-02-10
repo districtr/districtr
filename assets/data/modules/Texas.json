@@ -736,9 +736,9 @@
     "name": "Fort Bend County",
     "districtingProblems": [
       {
-        "name": "Board of Supervisors",
-        "numberOfParts": 5,
-        "pluralNoun": "Supervisorial Districts"
+        "name": "County Commission",
+        "numberOfParts": 4,
+        "pluralNoun": "Commission Districts"
       }
     ]
   },
@@ -858,9 +858,9 @@
     "state": "Texas",
     "districtingProblems": [
       {
-        "name": "Board of Supervisors",
-        "numberOfParts": 5,
-        "pluralNoun": "Supervisorial Districts"
+        "name": "County Commission",
+        "numberOfParts": 4,
+        "pluralNoun": "Commission Districts"
       }
     ]
   },
@@ -980,9 +980,9 @@
     "state": "Texas",
     "districtingProblems": [
       {
-        "name": "Board of Supervisors",
-        "numberOfParts": 5,
-        "pluralNoun": "Supervisorial Districts"
+        "name": "Commissioners",
+        "numberOfParts": 4,
+        "pluralNoun": "Commission Districts"
       }
     ]
   },
