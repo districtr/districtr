@@ -658,6 +658,71 @@ export function spatial_abilities (id) {
           number_markers: true,
           coalition: true,
         },
+        ohakron: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+        },
+        ohcin: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+        },
+        ohcle: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+        },
+        ohse: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+        },
+        ohtoledo: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+        },
+        akroncanton: {
+          number_markers: true,
+          coalition: true,
+        },
+        cincinnati: {
+          number_markers: true,
+          coalition: true,
+        },
+        clevelandeuclid: {
+          number_markers: true,
+          coalition: true,
+        },
+        columbus: {
+          number_markers: true,
+          coalition: true,
+        },
+        dayton: {
+          number_markers: true,
+          coalition: true,
+        },
+        limaoh: {
+          number_markers: true,
+          coalition: true,
+        },
+        mansfield: {
+          number_markers: true,
+          coalition: true,
+        },
+        portsmouthoh: {
+          number_markers: true,
+          coalition: true,
+        },
+        toledo: {
+          number_markers: true,
+          coalition: true,
+        },
+        youngstown: {
+          number_markers: true,
+          coalition: true,
+        },
       oklahoma: {
         number_markers: true,
         native_american: true,

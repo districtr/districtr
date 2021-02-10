@@ -864,6 +864,7 @@
   {
     "name": "Appalachian Region",
     "id": "ohakron",
+    "limit": "community",
     "state": "Ohio",
     "units": [
       {
@@ -1100,7 +1101,7 @@
           },
           {
             "type": "population",
-            "name": "Households by Income",
+            "name": "Median Income",
             "subgroups": [
               {
                 "key": "B19013_001",
@@ -1108,7 +1109,13 @@
                 "sum": 83892674,
                 "min": 0,
                 "max": 195179
-              },
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
               {
                 "key": "B19001_002",
                 "name": "in_0_10",
@@ -1503,7 +1510,7 @@
           },
           {
             "type": "population",
-            "name": "Households by Income",
+            "name": "Median Income",
             "subgroups": [
               {
                 "key": "B19013_001",
@@ -1511,7 +1518,13 @@
                 "sum": 130361370,
                 "min": 0,
                 "max": 250001
-              },
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
               {
                 "key": "B19001_002",
                 "name": "in_0_10",
@@ -1662,6 +1675,7 @@
       }
     ],
     "id": "ohcin",
+    "limit": "community",
     "name": "Cincinnati and Dayton",
     "districtingProblems": [
       {
@@ -1675,6 +1689,7 @@
     "name": "Greater Cleveland",
     "state": "Ohio",
     "id": "ohcle",
+    "limit": "community",
     "units": [
       {
         "id": "blockgroups",
@@ -1910,7 +1925,7 @@
           },
           {
             "type": "population",
-            "name": "Households by Income",
+            "name": "Median Income",
             "subgroups": [
               {
                 "key": "B19013_001",
@@ -1918,7 +1933,13 @@
                 "sum": 103252172,
                 "min": 0,
                 "max": 250001
-              },
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
               {
                 "key": "B19001_002",
                 "name": "in_0_10",
@@ -2313,7 +2334,7 @@
           },
           {
             "type": "population",
-            "name": "Households by Income",
+            "name": "Median Income",
             "subgroups": [
               {
                 "key": "B19013_001",
@@ -2321,7 +2342,13 @@
                 "sum": 40402640,
                 "min": 0,
                 "max": 104554
-              },
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
               {
                 "key": "B19001_002",
                 "name": "in_0_10",
@@ -2473,6 +2500,7 @@
     ],
     "name": "Southeast Region",
     "id": "ohse",
+    "limit": "community",
     "districtingProblems": [
       {
         "name": "Wards",
@@ -2718,7 +2746,7 @@
           },
           {
             "type": "population",
-            "name": "Households by Income",
+            "name": "Median Income",
             "subgroups": [
               {
                 "key": "B19013_001",
@@ -2726,7 +2754,13 @@
                 "sum": 70286862,
                 "min": 0,
                 "max": 176528
-              },
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Households by Income",
+            "subgroups": [
               {
                 "key": "B19001_002",
                 "name": "in_0_10",
@@ -2878,6 +2912,7 @@
     ],
     "name": "Northwest Region",
     "id": "ohtoledo",
+    "limit": "community",
     "districtingProblems": [
       {
         "name": "Wards",
@@ -2888,6 +2923,7 @@
   },
   {
     "id": "akroncanton",
+    "limit": "community",
     "state": "Ohio",
     "units": [
       {
@@ -3079,7 +3115,8 @@
   },
   {
     "state": "Ohio",
-    "id": "cincinatti",
+    "id": "cincinnati",
+    "limit": "community",
     "units": [
       {
         "id": "blocks",
@@ -3270,6 +3307,7 @@
   },
   {
     "id": "clevelandeuclid",
+    "limit": "community",
     "name": "Cleveland-Euclid",
     "state": "Ohio",
     "units": [
@@ -3460,6 +3498,7 @@
     ]
   },  {
     "id": "columbus",
+    "limit": "community",
     "name": "Columbus",
     "state": "Ohio",
     "units": [
@@ -3650,6 +3689,7 @@
     ]
   },  {
     "id": "dayton",
+    "limit": "community",
     "name": "Dayton",
     "units": [
       {
@@ -3840,6 +3880,7 @@
     ]
   },  {
     "id": "limaoh",
+    "limit": "community",
     "units": [
       {
         "id": "blocks",
@@ -4030,6 +4071,7 @@
     ]
   },  {
     "id": "mansfield",
+    "limit": "community",
     "units": [
       {
         "id": "blocks",
@@ -4222,6 +4264,7 @@
     "name": "Portsmouth",
     "state": "Ohio",
     "id": "portsmouthoh",
+    "limit": "community",
     "units": [
       {
         "id": "blocks",
@@ -4591,6 +4634,7 @@
       }
     ],
     "id": "toledo",
+    "limit": "community",
     "name": "Toledo",
     "districtingProblems": [
       {
@@ -4602,6 +4646,7 @@
   },
   {
     "id": "youngstown",
+    "limit": "community",
     "state": "Ohio",
     "units": [
       {
