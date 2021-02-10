@@ -15,7 +15,7 @@ const stateForEvent = {
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
   powercoalition: 'Louisiana',
-  openmaps: 'Ohio',
+  'open-maps': 'Ohio',
 };
 
 const validEventCodes = {
@@ -31,7 +31,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
-  openmaps: ['akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown',
+  'open-maps': ['akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown',
             'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
 };
 
@@ -60,7 +60,7 @@ const coi_events = [
   'mggg-nm',
   'pmc-demo',
   'powercoalition',
-  'openmaps',
+  'open-maps',
 ];
 
 const eventDescriptions = {
@@ -76,7 +76,7 @@ const eventDescriptions = {
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
-  openmaps: 'Welcome to the event page for Open Maps!',
+  'open-maps': 'Welcome to the event page for Open Maps!',
 };
 
 const longAbout = {
