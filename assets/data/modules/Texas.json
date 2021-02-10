@@ -985,5 +985,127 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 825708,
+              "min": 0,
+              "max": 5835
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 367982,
+                "min": 0,
+                "max": 4172
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 142976,
+                "min": 0,
+                "max": 2723
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 267776,
+                "min": 0,
+                "max": 2114
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 29459,
+                "min": 0,
+                "max": 795
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2978,
+                "min": 0,
+                "max": 66
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 717,
+                "min": 0,
+                "max": 45
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 12752,
+                "min": 0,
+                "max": 140
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 1068,
+                "min": 0,
+                "max": 20
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -97.6061,
+            32.5523
+          ],
+          [
+            -97.0338,
+            33.0785
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fortworth_blockgroups_points"
+            },
+            "sourceLayer": "fortworth_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fortworth_blockgroups"
+            },
+            "sourceLayer": "fortworth_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "Texas",
+    "id": "fortworth",
+    "name": "Fort Worth",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 8,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
