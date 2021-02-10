@@ -132,9 +132,9 @@ function getGenSuccessCell(vote_perc, width) {
     };
 }
 
-const cocHeader = html`<div class="elect_tooltip">CoC
-                                <span class="elect_tooltiptext">Candidate of Choice</span>
-                           </div>`;
+const cocHeader = (group, proxy=false) => html`<div class="elect_tooltip">${proxy ? "Proxy" : ""} CoC
+                                    <span class="elect_tooltiptext">${proxy ? "Proxy" : ""} ${group} Candidate of Choice</span>
+                                </div>`;
 
 function sortElects(elects) {
     // console.log(elects);
@@ -144,11 +144,11 @@ function sortElects(elects) {
     return sorted;
 }
 
-function getPrimTable(dist, elects, decimals=true) {
+function getPrimTable(dist, elects, group, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">Group Control
-                                            <span class="elect_tooltiptext">Estimated minority share in the support received by CoC</span>
+                                            <div class="elect_tooltiptext">Estimated ${group} share in the support received by CoC</div>
                                     </div>`;
-    const headers = [dist.renderLabel(),cocHeader, "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
@@ -162,8 +162,8 @@ function getPrimTable(dist, elects, decimals=true) {
     return DataTable(headers, rows, true);
 }
 
-function getGenTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(), cocHeader, "District Vote %", "Success"]; //subgroups.map(subgroup => subgroup.name);
+function getGenTable(dist, elects, group, proxy=true, decimals=true) {
+    const headers = [dist.renderLabel(), cocHeader(group, proxy), "District Vote %", "Success"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
@@ -178,8 +178,8 @@ function getGenTable(dist, elects, decimals=true) {
     return DataTable(headers, rows, true);
 }
 
-function getRunoffTable(dist, elects, decimals=true) {
-    const headers = [dist.renderLabel(), cocHeader, "District Vote %", "Success"]; //subgroups.map(subgroup => subgroup.name);
+function getRunoffTable(dist, elects, group,  decimals=true) {
+    const headers = [dist.renderLabel(), cocHeader(group), "District Vote %", "Success"]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
@@ -197,6 +197,7 @@ function getRunoffTable(dist, elects, decimals=true) {
 function DistrictResults(effectiveness, dist, group, place) {
     // const group = groups[group_index];
     const runoffs = ["tx_vra"].includes(place);
+    const proxy = ! ["la_vra"].includes(place);
     // console.log(place);
     // console.log(group);
     return html`
@@ -204,35 +205,21 @@ function DistrictResults(effectiveness, dist, group, place) {
             <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails) : ""}
+            ${effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
         </section>
         ${runoffs ? html`<div class="ui-option ui-option--slim">
                             <h5> Runoff Elections Breakdown</h5>
                         </div>
                         <section class="toolbar-section">
-                            ${effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].electionDetails) : ""}
+                            ${effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
                         </section>` 
                   : html``}
         <div class="ui-option ui-option--slim">
             <h5> General Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails) : ""}
+            ${effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails, group, proxy) : ""}
         </section>
-    `;
-}
-
-function SelectDist(dists, handler, selectedIndex) {
-    return html`
-        <select @change="${e => handler(parseInt(e.target.value))}">
-            ${dists.map(
-                (d, i) => html`
-                    <option value="${i}" ?selected=${selectedIndex === i}
-                        >${d.displayNumber}</option
-                    >
-                `
-            )}
-        </select>
     `;
 }
 
