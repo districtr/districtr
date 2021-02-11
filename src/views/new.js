@@ -5,12 +5,12 @@ import PlanUploader from "../components/PlanUploader";
 import { loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
 
 export default function renderNewPlanView() {
-    const uploadPlan = new PlanUploader(fileContent => {
-        loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
-            savePlanToStorage(context);
-            navigateTo("/edit");
-        });
-    });
+    // const uploadPlan = new PlanUploader(fileContent => {
+    //     loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
+    //         savePlanToStorage(context);
+    //         navigateTo("/edit");
+    //     });
+    // });
     const target = document.getElementById("root");
     render(
         html`
@@ -20,7 +20,11 @@ export default function renderNewPlanView() {
                 </h1>
                 ${until(PlaceMapWithData(), "")}
             </div>
-            ${uploadPlan.render()}
+            <section class="l-content l-major-section">
+            <p style="text-align: right; margin-right: 10%;">
+                <a href="/import-export">Import an existing plan or community map</a>
+            </p>
+            </section>
         `,
         target
     );

@@ -187,8 +187,8 @@ strong {
       <header class="site-header">
           <nav class="site-nav">
               <div class="site-nav__logo">
-                  <a href="https://mggg.org">
-                      <img src="/assets/mggg.svg" alt="MGGG logo" width="160"/>
+                  <a href="/">
+                      <img src="/assets/districtr-splash-clear.png" alt="Districtr logo" width="160"/>
                   </a>
                   <script>
                       function openNav() {
@@ -206,34 +206,31 @@ strong {
                   </button>
               </div>
               <ul id="nav-links" class="nav-links site-nav__contents">
-    <li class="nav">
-        <a class="nav-links__link nav-links__link--major" href="/">
-            Home
+     <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#table">
+              Summary Table
+          </a>
+      </li>
+      <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#details">
+              Descriptions
+          </a>
+      </li>
+      <li class="nav">
+        <a class="nav-links__link nav-links__link--major" href="/new">
+            Back to the Map
         </a>
     </li>
-     <li class="nav">
-          <a class="nav-links__link nav-links__link--major" href="/#how">
-              How to Use
-          </a>
-      </li>
-      <li class="nav">
-          <a class="nav-links__link nav-links__link--major" href="/#map">
-              Jump to the map
-          </a>
-      </li>
-      <li class="nav">
-          <a class="nav-links__link nav-links__link--major" href="/#about">
-            About Districtr
-          </a>
-      </li>
   </ul>
           </nav>
       </header>
         <main id="root" class="place">
             <article class="place__content">
                 <div>
-                  <h2>Import/Export Options in Districtr</h2>
-                  <span class="mobilehide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <h1 class="headline place__name">Import/Export Options in Districtr</h1>
+                  <!-- <span class="mobilehide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+                  <div class="jump"  id="table"></div>
+                  <h2>Summary Chart</h2>
                   <p>
                     Districtr’s options for exporting and importing data are summarized in the 
                     following chart. Scroll down for more information on each.
@@ -245,65 +242,65 @@ strong {
                               <th>Export Available</th>
                               <th>Import Available</th>
                               <th>Use for...</th>
-                              <th>Example*</th>
+                              <th>Examples*</th>
                           </tr>
                           <tr>
-                              <td>Districtr.org link</td>
+                              <td><a href="#link">Districtr.org link</a></td>
                               <td>Yes</td>
                               <td>Yes</td>
                               <td>Sharing, building on others’ maps, submitting to commissions</td>
                               <td>
-                                <a href="/plan/9806">Districting mode</a>
+                                <a href="/plan/9806">Districts link</a>
                                 <hr>
-                                <a href="/COI/8604">Communities mode</a>
+                                <a href="/COI/8604">Communities link</a>
                               </td>
                           </tr>
                           <tr>
-                            <td>.json</td>
+                            <td><a href="#json">JSON</a></td>
                             <td>Yes (download)</td>
                             <td>Yes, if our units are used (Coming in February: upload communities into Districting mode)</td>
                             <td>Adding communities as base layers in districts, using in other redistricting programs</td>
                             <td>
-                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.json">Districting mode</a>
+                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.json">Districts JSON</a>
                                 <hr>
-                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.json">Communities mode</a>
+                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.json">Communities JSON</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>Shapefile</td>
+                            <td><a href="#shapefile">Shapefile</a></td>
                             <td>Yes (download)</td>
                             <td>No</td>
                             <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
                             <td>
-                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.shp.zip">Districting mode</a>
+                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.shp.zip">Districts shapefile</a>
                                 <hr>
-                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.shp.zip">Communities mode</a>
+                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.shp.zip">Communities shapefile</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>Print to .pdf</td>
+                            <td><a href="#pdf">Print to PDF</a></td>
                             <td>Yes (download)</td>
                             <td>No</td>
                             <td>Submitting to commissions, hanging on your wall</td>
                             <td>
-                                <a href="">Districting mode</a>
+                                <a href="/assets/import-export-examples/districting/Districts - Lowell.pdf">Districts PDF</a>
                                 <hr>
-                                <a href="">Communities mode</a>
+                                <a href="/assets/import-export-examples/communities/COI - St Louis.pdf">Communities PDF</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>Unit assignment file (.csv)</td>
+                            <td><a href="#csv">Unit assignment file (CSV)</a></td>
                             <td>Yes (download)</td>
                             <td>Yes (except landmarks)</td>
                             <td>Having a list of district assignments or communities in the building blocks you chose, analysis in python</td>
                             <td>
-                                <a download href="/assets/import-export-examples/districting/assignment-ec0a7f81.csv">Districting mode</a>
+                                <a download href="/assets/import-export-examples/districting/assignment-ec0a7f81.csv">Districts CSV</a>
                                 <hr>
-                                <a download href="/assets/import-export-examples/communities/assignment-5217364c.csv">Communities mode</a>
+                                <a download href="/assets/import-export-examples/communities/assignment-5217364c.csv">Communities CSV</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>.geojson</td>
+                            <td><a href="#geojson">GeoJSON</a></td>
                             <td>In progress (Coming in March)</td>
                             <td>Yes, if our units are used</td>
                             <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
@@ -314,11 +311,14 @@ strong {
                   <dl class="dfn-list">
                       <div class="dfn-list__row">
                         <!-- <dt class="dfn-list__term">*</dt> -->
-                        <dd class="dfn-list__caption">* The Districting mode examples are a modified version of Lowell’s sample 
-                            valid plan 3A. The Communities mode examples are from collaborator Monyai Chavers.
+                        <dd class="dfn-list__caption">* The Districting mode examples are for Lowell Massachusets. 
+                          The Communities mode examples are for the St. Louis, Missouri area and are from collaborator Monyai Chavers.
                         </dd>
                       </div>
                   </dl>
+                  <div class="jump"  id="details"></div>
+                  <h2>Format Descriptions</h2>
+                  <div class="jump"  id="link"></div>
                   <h3>Districtr.org link</h3>
                     <p>
                         Create this to <em>share</em> with anyone on the internet, including Districtr events and commissions.
@@ -329,12 +329,14 @@ strong {
                         changing the link. When you open and edit someone else’s map (or your own at a 
                         later time), and click <em>share</em>, this will generate a new unique link.
                     </p>
-
-                  <h3>.json</h3>
+                    <div class="jump"  id="json"></div>
+                  <h3>JSON</h3>
                     <p>
-                        A .json file exported from Districtr can be directly re-uploaded into Districtr
-                        from the homepage. 
-                        These can also be used in some other redistricting programs.
+                        A JSON file exported from Districtr can be directly re-uploaded into Districtr.
+                        If you start a new map in the state or area the file was made in, you can load 
+                        the JSON by dragging and dropping it onto that blank map
+                        
+                        JSON files can also be used in some other redistricting programs.
                     </p>
                     <p>
                         Coming in February, it will also be possible to upload a .json file made in 
@@ -342,7 +344,7 @@ strong {
                         <strong style="color: #b445b6">Districting</strong> mode, 
                         to view your communities as a static layer. 
                     </p>
-
+                    <div class="jump"  id="shapefile"></div>
                   <h3>Shapefile</h3>
                     <p>
                         Download a shapefile to use in desktop mapping software (e.g., QGIS and ArcGIS), 
@@ -366,33 +368,33 @@ strong {
                     <p>
                         <em>This download can take a few minutes for larger states.</em>
                     </p>
-
-                  <h3>Print to .pdf</h3>
+                    <div class="jump"  id="pdf"></div>
+                  <h3>Print to PDF</h3>
                     <p>
                         In <strong style="color: #b445b6">Districting</strong> mode, this will print 
                         the current view on your screen.  In <strong style="color: #ff4f49">Communities</strong> 
                         mode, this will generate a short report, including an image of your map along with the text you wrote 
-                        about the communities and important places. .pdf files generated in 
+                        about the communities and important places. PDF files generated in 
                         <strong style="color: #ff4f49">Communities</strong> mode may be especially 
                         useful for submitting to commissions.
                     </p>
                     <p>
-                        You can print to .pdf by using your computer’s print shortcut.
+                        You can print to PDF by using your computer’s print shortcut.
 
                     </p>
-
-                  <h3>Comma-separated values (.csv)</h3>
+                    <div class="jump"  id="csv"></div>
+                  <h3>Comma-separated values (CSV)</h3>
                     <p>
-                        A .csv file will list the districts or communities you made along with their
+                        A CSV file will list the districts or communities you made along with their
                          assignment according to the building blocks used (precincts, block groups, etc.). 
-                         It does not include additional data or unassigned building blocks. A .csv is 
+                         It does not include additional data or unassigned building blocks. A CSV is 
                          the smallest file generated. It can be joined to a shapefile for the same 
                          locality with the same building blocks in mapping software or python.
                     </p>
-
-                  <h3>.geojson</h3>
+                    <div class="jump"  id="geojson"></div>
+                  <h3>GeoJSON</h3>
                   <p>
-                    This is on track to be added in March. A geojson can be used in desktop mapping 
+                    This is on track to be added in March. A GeoJSON can be used in desktop mapping 
                     software (e.g., QGIS and ArcGIS), python, and other redistricting programs.
                   </p>
             </article>
