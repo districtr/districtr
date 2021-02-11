@@ -162,7 +162,7 @@ export default function DataLayersPlugin(editor) {
 
     }
 
-    if (["virginia", "lax", "ohcentral"].includes(state.place.id)) {
+    if (["virginia", "lax"].includes(state.place.id)) {
         let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
@@ -230,156 +230,179 @@ export default function DataLayersPlugin(editor) {
                         addBelowLabels
                     );
                 });
-            } else if (state.place.id === "ohcentral") {
-              fetch(`/assets/current_districts/${state.place.id}_2010_centroids.geojson`).then(res => res.json()).then((va2010_labels) => {
-                  state.map.addSource('va2010_labels', {
-                      type: 'geojson',
-                      data: va2010_labels
-                  });
-
-                  plan2010_labels = new Layer(state.map,
-                      {
-                        id: 'va2010_labels',
-                        source: 'va2010_labels',
-                        type: 'symbol',
-                        layout: {
-                          'text-field': [
-                              'format',
-                              ['get', 'NAME'],
-                              {'font-scale': 0.75},
-                          ],
-                          'text-anchor': 'center',
-                          'text-radial-offset': 0,
-                          'text-justify': 'center'
-                        },
-                        paint: {
-                          'text-opacity': 0
-                        }
-                      },
-                      addBelowLabels
-                  );
-
-                  fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((va2013) => {
-                      state.map.addSource('va2013', {
-                          type: 'geojson',
-                          data: va2013
-                      });
-
-                      plan2013 = new Layer(state.map,
-                          {
-                            id: 'va2013',
-                            source: 'va2013',
-                            type: 'line',
-                            paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
-                          },
-                          addBelowLabels
-                      );
-                      fetch(`/assets/current_districts/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((va2013_labels) => {
-                          state.map.addSource('va2013_labels', {
-                              type: 'geojson',
-                              data: va2013_labels
-                          });
-
-                          plan2013_labels = new Layer(state.map,
-                              {
-                                id: 'va2013_labels',
-                                source: 'va2013_labels',
-                                type: 'symbol',
-                                layout: {
-                                  'text-field': [
-                                      'format',
-                                      ['get', 'NAME'],
-                                      {'font-scale': 0.75},
-                                  ],
-                                  'text-anchor': 'center',
-                                  'text-radial-offset': 0,
-                                  'text-justify': 'center'
-                                },
-                                paint: {
-                                  'text-opacity': 0
-                                }
-                              },
-                              addBelowLabels
-                          );
-                      });
-                  });
-              });
             }
         });
+    }
 
-        if (state.place.id === "virginia") {
-            const checkVAplan = () => {
-                // console.log(document.getElementsByName("enacted"));
-                plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
-                plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
-            };
-            tab.addRevealSection(
-                'Enacted Plans',
-                (uiState, dispatch) => html`
-                  <label style="display:block;margin-bottom:8px;">
-                    <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
-                    Hidden
-                  </label>
-                  <label style="display:block;margin-bottom:8px;">
-                    <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
-                    2003-2013 Congressional Plan
-                  </label>
-                  <label style="display:block;margin-bottom:8px;">
-                    <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
-                    2013-2017 Congressional Plan
-                  </label>`,
+    // ohio zones
+    let schoolsLayer, school_labels, placesLayer, place_labels;
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
+        fetch(`/assets/current_districts/ohschools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+            state.map.addSource('school_gj', {
+                type: 'geojson',
+                data: school_gj
+            });
+            schoolsLayer = new Layer(state.map,
                 {
-                    isOpen: false
-                }
+                    id: 'school_gj',
+                    source: 'school_gj',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
             );
-        } else if (state.place.id === "ohcentral") {
-            const checkVAplan = () => {
-                // console.log(document.getElementsByName("enacted"));
-                plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
-                plan2010_labels && plan2010_labels.setPaintProperty('text-opacity', document.getElementById("va2010").checked ? 1 : 0);
-                plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
-                plan2013_labels && plan2013_labels.setPaintProperty('text-opacity', document.getElementById("va2013").checked ? 1 : 0);
-            };
-            tab.addRevealSection(
-                'Boundaries',
-                (uiState, dispatch) => html`
-                  <label style="display:block;margin-bottom:8px;">
-                    <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
-                    Hidden
-                  </label>
-                  <label style="display:block;margin-bottom:8px;">
-                    <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
-                    Cities and Towns
-                  </label>
-                  <label style="display:block;margin-bottom:8px;">
-                    <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
-                    Unified School Districts
-                  </label>`,
-                {
-                    isOpen: true
+
+            fetch(`/assets/current_districts/ohschools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+                state.map.addSource('school_centroids', {
+                    type: 'geojson',
+                    data: school_centroids
+                });
+
+                school_labels = new Layer(state.map,
+                    {
+                      id: 'school_centroids',
+                      source: 'school_centroids',
+                      type: 'symbol',
+                      layout: {
+                        'text-field': [
+                            'format',
+                            ['get', 'NAME'],
+                            {'font-scale': 0.75},
+                        ],
+                        'text-anchor': 'center',
+                        'text-radial-offset': 0,
+                        'text-justify': 'center'
+                      },
+                      paint: {
+                        'text-opacity': 0
+                      }
+                    },
+                    addBelowLabels
+                );
+
+                if (state.place.id !== "ohcentral") {
+                  return;
                 }
-            );
-        } else {
-            tab.addRevealSection(
-                'Enacted Plans',
-                (uiState, dispatch) => html`
-                ${toggle("State Assembly", false, checked => {
-                    let opacity = checked ? 1 : 0;
-                    plan2010 && plan2010.setOpacity(opacity);
-                })}
-                ${toggle("State Senate", false, checked => {
-                    let opacity = checked ? 1 : 0;
-                    plan2013 && plan2013.setOpacity(opacity);
-                })}
-                ${toggle("US House", false, checked => {
-                    let opacity = checked ? 1 : 0;
-                    ush && ush.setOpacity(opacity);
-                })}`,
-                {
-                    isOpen: false
-                }
-            );
-        }
+                fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
+                    state.map.addSource('places_gj', {
+                        type: 'geojson',
+                        data: places_gj
+                    });
+
+                    placesLayer = new Layer(state.map,
+                        {
+                          id: 'places_gj',
+                          source: 'places_gj',
+                          type: 'line',
+                          paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                    fetch(`/assets/current_districts/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((places_centroids) => {
+                        state.map.addSource('places_centroids', {
+                            type: 'geojson',
+                            data: places_centroids
+                        });
+
+                        place_labels = new Layer(state.map,
+                            {
+                              id: 'places_centroids',
+                              source: 'places_centroids',
+                              type: 'symbol',
+                              layout: {
+                                'text-field': [
+                                    'format',
+                                    ['get', 'NAME'],
+                                    {'font-scale': 0.75},
+                                ],
+                                'text-anchor': 'center',
+                                'text-radial-offset': 0,
+                                'text-justify': 'center'
+                              },
+                              paint: {
+                                'text-opacity': 0
+                              }
+                            },
+                            addBelowLabels
+                        );
+                    });
+                });
+            });
+        });
+    }
+
+    if (state.place.id === "virginia") {
+        const checkVAplan = () => {
+            // console.log(document.getElementsByName("enacted"));
+            plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
+            plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
+        };
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+              <label style="display:block;margin-bottom:8px;">
+                <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
+                Hidden
+              </label>
+              <label style="display:block;margin-bottom:8px;">
+                <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
+                2003-2013 Congressional Plan
+              </label>
+              <label style="display:block;margin-bottom:8px;">
+                <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
+                2013-2017 Congressional Plan
+              </label>`,
+            {
+                isOpen: false
+            }
+        );
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
+        const toggleOHlayer = () => {
+            // console.log(document.getElementsByName("enacted"));
+            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
+            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("ohschools").checked ? 1 : 0);
+            placesLayer && placesLayer.setOpacity(document.getElementById("ohplaces").checked ? 1 : 0);
+            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("ohplaces").checked ? 1 : 0);
+        };
+        tab.addRevealSection(
+            'Boundaries',
+            (uiState, dispatch) => html`
+              <label style="display:block;margin-bottom:8px;">
+                <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
+                Hidden
+              </label>
+              ${state.place.id === "ohcentral" ? html`<label style="display:block;margin-bottom:8px;">
+                <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
+                Cities and Towns
+              </label>` : ""}
+              <label style="display:block;margin-bottom:8px;">
+                <input id="ohschools" type="radio" name="enacted" @change="${toggleOHlayer}"/>
+                Unified School Districts
+              </label>`,
+            {
+                isOpen: true
+            }
+        );
+    } else if (state.place.id === "lax") {
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("State Assembly", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}
+            ${toggle("State Senate", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2013 && plan2013.setOpacity(opacity);
+            })}
+            ${toggle("US House", false, checked => {
+                let opacity = checked ? 1 : 0;
+                ush && ush.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
     }
 
     if (spatial_abilities(state.place.id).native_american) {
