@@ -110,7 +110,7 @@ export function TooltipContent(
                 ...columnSet,
             };
         } else {
-            //  2018 pop
+            //  2018/2019 pop
             total = sum(features.map(f => columnSet.total_alt.getValue(f)));
             values = values.filter((f, index) => columnSet.columns[index].total_alt);
             columnSet = {

@@ -128,7 +128,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnable
             ${DistrictEvaluationTable(
                 {
                   ...mockColumnSet,
-                  subgroups: mockColumnSet.subgroups.filter(sg => !sg.name.includes("(2018)"))
+                  subgroups: mockColumnSet.subgroups.filter(sg => !sg.name.includes("(2018)") && !sg.name.includes("(2019)"))
                 },
                 placeName,
                 parts[uiState.charts[chartId].activePartIndex]

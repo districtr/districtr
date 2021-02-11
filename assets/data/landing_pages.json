@@ -1891,7 +1891,10 @@
     "state": "Ohio",
     "code": "OH",
     "modules": [
-      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"},
+      {"name": "Zones", "ids": ["ohcentral", "ohse", "ohtoledo", "ohakron", "ohcle", "ohcin"], "id": "region"},
+      {"name": "Cities", "ids": ["akroncanton", "cincinnati", "clevelandeuclid", "columbus", "dayton", "limaoh", "mansfield", "portsmouthoh", "toledo", "youngstown"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",

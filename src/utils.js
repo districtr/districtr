@@ -289,7 +289,7 @@ export const stateNameToFips = {
 export function spatial_abilities (id) {
   const status = {
       alabama: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -336,7 +336,7 @@ export function spatial_abilities (id) {
             number_markers: true,
           },
       arkansas: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         county_brush: true,
@@ -352,12 +352,12 @@ export function spatial_abilities (id) {
       },
         ccsanitation: {
           screenshot: true,
-          // multiyear: true,
+          // multiyear: 2018,
           shapefile: true,
         },
         ccsanitation2: {
           screenshot: true,
-          multiyear: true,
+          multiyear: 2018,
           shapefile: true,
         },
       chicago: {
@@ -380,7 +380,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       dc: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         contiguity: 2,
         shapefile: true,
@@ -396,7 +396,7 @@ export function spatial_abilities (id) {
       florida: {
         native_american: true,
         number_markers: true,
-        multiyear: true,
+        multiyear: 2018,
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
@@ -407,7 +407,7 @@ export function spatial_abilities (id) {
             coalition: true,
           },
           miamidade: {
-            multiyear: true,
+            multiyear: 2018,
             number_markers: true,
             neighborhoods: true,
             coalition: true,
@@ -426,7 +426,7 @@ export function spatial_abilities (id) {
         shapefile: true,
       },
       idaho: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -441,7 +441,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       indiana: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
@@ -455,7 +455,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       kansas: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -463,7 +463,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       kentucky: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
@@ -549,13 +549,13 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       missouri: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
       },
       montana: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         shapefile: true,
@@ -568,7 +568,7 @@ export function spatial_abilities (id) {
         number_markers: true,
       },
       nebraska: {
-        // multiyear: true,
+        // multiyear: 2018,
         // number_markers: true,
         native_american: true,
         county_brush: true,
@@ -576,7 +576,7 @@ export function spatial_abilities (id) {
         shapefile: true,
       },
       nevada: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -639,7 +639,7 @@ export function spatial_abilities (id) {
             shapefile: true,
           },
       northdakota: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -653,6 +653,88 @@ export function spatial_abilities (id) {
         // find_unpainted: true,
         centroid_server: true,
       },
+        ohcentral: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        ohakron: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        ohcin: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        ohcle: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        ohse: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        ohtoledo: {
+          multiyear: 2019,
+          number_markers: true,
+          coalition: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        akroncanton: {
+          number_markers: true,
+          coalition: true,
+        },
+        cincinnati: {
+          number_markers: true,
+          coalition: true,
+        },
+        clevelandeuclid: {
+          number_markers: true,
+          coalition: true,
+        },
+        columbus: {
+          number_markers: true,
+          coalition: true,
+        },
+        dayton: {
+          number_markers: true,
+          coalition: true,
+        },
+        limaoh: {
+          number_markers: true,
+          coalition: true,
+        },
+        mansfield: {
+          number_markers: true,
+          coalition: true,
+        },
+        portsmouthoh: {
+          number_markers: true,
+          coalition: true,
+        },
+        toledo: {
+          number_markers: true,
+          coalition: true,
+        },
+        youngstown: {
+          number_markers: true,
+          coalition: true,
+        },
       oklahoma: {
         number_markers: true,
         native_american: true,
@@ -705,7 +787,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       southcarolina: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -713,7 +795,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       southdakota: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
@@ -721,7 +803,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       tennessee: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
@@ -744,7 +826,7 @@ export function spatial_abilities (id) {
       vermont: {
         number_markers: true,
         county_brush: true,
-        multiyear: true,
+        multiyear: 2018,
         shapefile: true,
         // find_unpainted: true,
       },
@@ -758,7 +840,7 @@ export function spatial_abilities (id) {
       },
         vabeach: {
           coalition: true,
-          multiyear: true,
+          multiyear: 2018,
           number_markers: true,
           // find_unpainted: true,
         },
@@ -770,7 +852,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
       },
       westvirginia: {
-        multiyear: true,
+        multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
@@ -797,7 +879,7 @@ export function spatial_abilities (id) {
           contiguity: true,
         },
       wyoming: {
-        multiyear: true,
+        multiyear: 2018,
         native_american: true,
         number_markers: true,
       }

@@ -15,6 +15,7 @@ const stateForEvent = {
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
   powercoalition: 'Louisiana',
+  'open-maps': 'Ohio',
 };
 
 const validEventCodes = {
@@ -30,6 +31,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
+  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
 };
 
 const blockPlans = {
@@ -39,6 +41,7 @@ const blockPlans = {
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
+  "open-maps": {no: 'Precincts'},
 };
 
 const unitCounts = {
@@ -57,6 +60,7 @@ const coi_events = [
   'mggg-nm',
   'pmc-demo',
   'powercoalition',
+  'open-maps',
 ];
 
 const eventDescriptions = {
@@ -72,6 +76,7 @@ const eventDescriptions = {
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
+  'open-maps': 'Welcome to the event page for Open MAPS!',
 };
 
 const longAbout = {
@@ -194,7 +199,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
         <li class="plan-thumbs__thumb">
-            ${plan.screenshot
+            ${(plan.screenshot && plan.screenshot.length > 60)
                 ? html`<img
                     class="thumb__img"
                     src="${plan.screenshot}"

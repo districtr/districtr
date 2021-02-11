@@ -1,5 +1,8 @@
 import { PivotTable } from "../components/Charts/PivotTable";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
+import OverlayContainer from "../layers/OverlayContainer";
+import MedianIncomeTable from "../components/Charts/MedianIncomeTable";
+import DemographicsTable from "../components/Charts/DemographicsTable";
 import { Tab } from "../components/Tab";
 import { actions } from "../reducers/toolbar";
 import AboutSection from "../components/AboutSection";
@@ -51,6 +54,38 @@ export default function CommunityPlugin(editor) {
             isOpen: false,
             activePartIndex: 0
         });
+    }
+
+    if (state.incomes && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
+        evaluationTab.addRevealSection(
+            'Household Income',
+            (uiState, dispatch) =>  html`<div>
+                ${MedianIncomeTable(
+                    state.incomes,
+                    state.activeParts,
+                    uiState.charts["Median Income"],
+                    dispatch
+                )}
+            </div>`,
+            {
+              isOpen: false
+            }
+        );
+    }
+
+    if (state.rent) {
+        evaluationTab.addRevealSection(
+            'Homeowner or Renter',
+            (uiState, dispatch) => html`<div class="sectionThing">
+                ${DemographicsTable(
+                    state.rent.subgroups,
+                    state.activeParts
+                )}
+            </div>`,
+            {
+              isOpen: false
+            }
+        );
     }
 
     editor.toolbar.addTabFirst(tab);

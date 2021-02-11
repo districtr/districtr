@@ -23,7 +23,7 @@ export default class Population extends ColumnSet {
     indicesOfMajorSubgroups() {
         return (
             this.subgroups
-                .filter(sg => !sg.name.includes("2018"))
+                .filter(sg => !sg.name.includes("2018") && !sg.name.includes("2019"))
                 .map((subgroup, i) => i)
                 // .filter(i => this.subgroups[i].sum > this.total.sum * 0.05)
                 .sort((i, j) => this.subgroups[j].sum - this.subgroups[i].sum)
