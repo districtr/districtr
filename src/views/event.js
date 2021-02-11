@@ -31,8 +31,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
-  'open-maps': ['akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown',
-            'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
+  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
 };
 
 const blockPlans = {
@@ -42,6 +41,7 @@ const blockPlans = {
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
+  "open-maps": {no: 'Precincts'},
 };
 
 const unitCounts = {
