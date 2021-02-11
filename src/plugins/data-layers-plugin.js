@@ -58,7 +58,7 @@ export default function DataLayersPlugin(editor) {
     );
 
     let smatch = (name) => {
-      return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('_', '');
+      return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
     if (smatch(state.place.state) === smatch(state.place.id)) {
