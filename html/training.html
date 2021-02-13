@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Training | Districtr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/css/landing_page.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/state_landing.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta property="og:title" content="Districtr" />
+    <meta name="author" content="MGGG Redistricting Lab" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="The open web app for drawing districting plans." />
+    <meta property="og:description" content="The open web app for drawing districting plans." />
+    <link rel="canonical" href="https://districtr.org" />
+    <meta property="og:url" content="https://districtr.org" />
+    <meta property="og:site_name" content="Districtr" />
+    <style type="text/css">
+    .heading {
+        background: #fff;
+        display: block;
+        color: #444;
+        padding-top: 0;
+        margin-top: -35px;
+        font-size: 150%;
+    }
+
+    .splash-text {
+        text-align: center;
+        color: #0099cd;
+    }
+
+    .l-major-section {
+        padding-bottom: 1rem;
+    }
+
+    .l-major-section h3 {
+        color: darkblue;
+    }
+
+    .l-major-section p {
+        font-size: 20px;
+    }
+
+    .col1,
+    .col2 {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .col1 {
+        width: 70%;
+    }
+
+    .col2 {
+        width: 28%;
+        text-align: right;
+    }
+
+    .col2 img {
+        width: 70%;
+    }
+
+    @media (min-width:1000px) {
+        .l-major-section {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .col1 {
+            width: 71%;
+        }
+
+        .col2 {
+            width: 28%;
+        }
+    }
+
+    #nav-links {
+        justify-content: flex-end;
+    }
+
+    a.bookmark {
+        position: relative;
+        top: -30px;
+    }
+
+    strong {
+        font-size: 109%;
+    }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="site-nav__logo">
+                <a href="/">
+                    <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home" />
+                </a>
+            </div>
+            <ul id="nav-links" class="nav-links site-nav__contents">
+                <li class="nav">
+                    <a href="/new">
+                        <img class="site-nav__logo__img" src="/assets/usa_light_blue.png" alt="Back to Map" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="root" class="landing-page">
+        <br />
+        <br />
+        <br />
+        <section>
+            <header class="splash-text">
+                <br />
+                <br />
+                <h2 class="heading">
+                    Training Resources
+                </h2>
+            </header>
+        </section>
+        </section>
+        <section class="l-content l-major-section">
+            <h3 style="color:darkblue">Train-the-trainer</h3>
+            <ul>
+                <li><a href="../assets/training-resources/flyer.pdf" download="districtr-train-the-trainer">Registration flyer</a></li>
+                <li>Training slides (<a href="https://docs.google.com/presentation/d/1FXhbeOlftopCS9NkKD4mBV5-z66fsjpSmJlc3vRwot4/export/pdf">pdf</a> | <a href="https://docs.google.com/presentation/d/1FXhbeOlftopCS9NkKD4mBV5-z66fsjpSmJlc3vRwot4/export/pptx">pptx</a>)</li>
+                <li><a href="https://docs.google.com/presentation/d/1mP1-LhZTz2jqSIIwXzVvN7pqWpL4RJedzwy39B-w34k/export/pdf">Sample agenda</a> for running your own training sessions
+            </ul>
+            <h3 style="color:darkblue">Frequently asked questions</h3>
+            <ul>
+                <li><a href="../assets/training-resources/faq-general.pdf" download="districtr-coi-faq">Communities of Interest</a></li>
+                <li><a href="../assets/training-resources/faq-mapping.pdf" download="districtr-coi-mapping">Mapping communities in Districtr</a></li>
+                <li><a href="../assets/training-resources/faq-sampling.pdf" download="districtr-coi-sampling">COI sampling</a></li>
+            </ul>
+            <h3 style="color:darkblue">Other resources</h3>
+            <ul>
+                <li><a href="../assets/training-resources/quick-start.pdf" download="districtr-coi-start">Communities of Interest quick-start guide</a></li>
+                <li><a href="../assets/training-resources/sample-questions.pdf" download="districtr-coi-questions">Communities of Interest sample questions</a></li>
+            </ul>
+        </section>
+    </main>
+    <script src="/es6/index.js"></script>
+    <script>
+    if (Object.assign === undefined || fetch === undefined) {
+        document.write(
+            '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+        );
+        document.write(
+            '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+        );
+        document.write('<script src="/es5/index.js"><\/script>');
+        document.write("<script>ieBundle();<\/script>");
+    } else {
+        bundle();
+    }
+    </script>
+</body>
+
+</html>
