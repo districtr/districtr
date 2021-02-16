@@ -171,8 +171,7 @@ strong {
   font-size: 109%;
 }
 #uploader {
-  margin-top: -30px;
-  margin-bottom: -10px;
+  display: flex;
 }
 .headerimg {
   display: inline-block;
@@ -180,6 +179,20 @@ strong {
   vertical-align: middle;
   margin-left: 20px;
 }
+
+input[type="file"] {
+    display: none;
+}
+.plan-loader {
+    cursor: pointer;
+    background-color: #0099cd;
+    color: white;
+    border-radius: 0.5rem;
+}
+.plan-loader:hover {
+  background-color: #006b9c;
+}
+
         </style>
     </head>
 
@@ -228,6 +241,32 @@ strong {
             <article class="place__content">
                 <div>
                   <h1 class="headline place__name">Import/Export Options in Districtr</h1>
+                  <div class="jump"></div>
+                  <h2>Direct Upload</h2>
+                  <p>
+                    Currently, only JSON files downloaded from Districtr are supported in our direct upload.
+                    Information on other file types and ways to upload are described below.
+                  </p>
+                  <div id="uploader">
+                    <!-- <div class="plan-loader">
+                        <input type="file">
+                    </div> -->
+                  </div>
+                  <script src="/es6/import.js"></script>
+                  <script>
+                      if (Object.assign === undefined || fetch === undefined) {
+                          document.write(
+                              '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                          );
+                          document.write(
+                              '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                          );
+                          document.write('<script src="/es5/import.js"><\/script>');
+                          document.write("<script>ieBundle();<\/script>");
+                      } else {
+                          bundle();
+                      }
+                  </script>
                   <!-- <span class="mobilehide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
                   <div class="jump"  id="table"></div>
                   <h2>Summary Chart</h2>
@@ -399,6 +438,5 @@ strong {
                   </p>
             </article>
         </main>
-        </script>
     </body>
 </html>
