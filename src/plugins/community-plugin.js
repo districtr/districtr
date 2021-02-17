@@ -51,12 +51,15 @@ export default function CommunityPlugin(editor) {
             document.querySelector(".marker-form").style.visibility = "visible";
             document.querySelector(".marker-form input").value = "New Point " + (window.selectLandmarkFeature + 1);
             document.querySelector(".marker-form textarea").value= "";
+
+            lmo.setDescription(''); // triggers marker save
           } else if (window.selectLandmarkFeature >= 0 && lm.data.features.length) {
             const selected = lm.data.features[window.selectLandmarkFeature].properties;
             document.querySelector('.landmark-select .label').innerText = selected.name;
-          } else if (!lm.data.features.length) {
-            document.querySelector('.landmark-select .label').innerText = "Select place";
           }
+
+          document.querySelector('.landmark-parameter').display = lm.data.features.length ? "flex" : "none";
+
           state.render();
         });
     }
@@ -247,7 +250,7 @@ class LandmarkOptions {
         this.deleteFeature(deleteID);
     }
     render() {
-        const properties = this.features.map(feature => feature.properties);
+        let properties = this.features.map(feature => feature.properties);
 
         /*
         <button @click="${(e) => {
@@ -279,7 +282,7 @@ class LandmarkOptions {
           </div>
         </li>
         <li class="option-list__item">
-          <div class="parameter">
+          <div class="parameter landmark-parameter" style="display: ${properties.length ? "flex" : "none"}">
             <label class="parameter__label ui-label ui-label--row">Select</label>
             <div class="custom-select-wrapper">
                 <div class="custom-select landmark-select">
@@ -332,15 +335,18 @@ class LandmarkOptions {
                   style="background:#f00; width:18%; vertical-align: top; height: 30px; padding: 2px;"
                   @click="${(e) => {
                     this.onDelete();
-                    window.selectLandmarkFeature -= 1;
+                    window.selectLandmarkFeature = 0;
                     this.updateLandmarkList();
-                    if (properties.length) {
+                    
+                    properties = this.features.map(feature => feature.properties);
+                    if (properties.length && properties[window.selectLandmarkFeature]) {
                       document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;
                       document.querySelector('.marker-form textarea').value = properties[window.selectLandmarkFeature].short_description;
                     } else {
                       document.querySelector('.marker-form input').value = "";
                       document.querySelector('.marker-form textarea').value = "";
                     }
+                    document.querySelector('.landmark-parameter').display = properties.length ? "flex" : "none";
                 }}">
                   <div class="icon" title="delete">
                       <i class="material-icons">delete</i>

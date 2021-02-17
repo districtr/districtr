@@ -42,13 +42,13 @@ export default class LandmarkTool extends Tool {
         );
     }
     updateLandmarkList(selectLastFeature) {
-        savePlanToStorage(this.state.serialize());
-        if (selectLastFeature) {
-            this.options.handleSelectFeature(-1);
-            // handleSelectFeature already calls render
-        } else {
-            this.renderCallback();
-        }
+        // savePlanToStorage(this.state.serialize());
+        // if (selectLastFeature) {
+        //     this.options.handleSelectFeature(-1);
+        //     // handleSelectFeature already calls render
+        // } else {
+        //     this.renderCallback();
+        // }
     }
     saveFeature(id) {
         this.landmarks.saveFeature(id);
