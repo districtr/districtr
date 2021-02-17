@@ -2341,7 +2341,8 @@
     "code": "TX",
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["austin"], "id": "loc"}
+      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx"], "id": "cty"},
+      {"name": "Cities", "ids": ["austin", "fortworth"], "id": "loc"}
     ],
     "sections": [
       {
