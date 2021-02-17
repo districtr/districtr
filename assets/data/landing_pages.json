@@ -2893,6 +2893,14 @@
               {
                 "id": "la-congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "la-state-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "la-state-house",
+                "name": "State House Plan"
               }
             ]
           },
@@ -2902,6 +2910,14 @@
               {
                 "id": "tx-congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "tx-state-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "tx-state-house",
+                "name": "State House Plan"
               }
             ]
           }
