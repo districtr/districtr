@@ -97,6 +97,9 @@ export default function NumberMarkers(state, brush) {
         if (state.units.sourceId === "ma_towns") {
             extra_source = "ma_towns";
         }
+        if (state.units.sourceId === "indiana_precincts") {
+            extra_source = "indianaprec";
+        }
         let placeID = extra_source || place;
 
         if (plan && plan.assignment) {
