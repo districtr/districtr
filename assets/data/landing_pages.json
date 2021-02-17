@@ -2857,16 +2857,24 @@
         "type": "draw"
       },
       {
-        "name": "VRA Effectiveness in Louisiana",
-        "nav": "LA",
+        "name": "What is the VRA effectiveness dashboard?",
+        "nav": "Overview",
+        "type": "text",
+        "content_source": "/assets/about/vra/overview.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Louisiana: VRA effectiveness precomputation",
+        "nav": "louisiana",
         "type": "text",
         "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
         "subsections": [
         ]
       },
       {
-        "name": "VRA Effectiveness in Texas",
-        "nav": "TX",
+        "name": "Texas: VRA effectiveness precomputation",
+        "nav": "texas",
         "type": "text",
         "content_source": "/assets/about/vra/precomputation_texas.html" ,
         "subsections": [
