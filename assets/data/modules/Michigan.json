@@ -8,6 +8,7 @@
         "columnSets": [
           {
             "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "PRES16D",
@@ -23,11 +24,7 @@
                 "min": 0,
                 "max": 1616
               }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
+            ]
           },
           {
             "type": "population",
@@ -35,59 +32,59 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 10132186,
+              "sum": 9883640,
               "min": 0,
-              "max": 11242
+              "max": 10977
             },
             "subgroups": [
               {
                 "key": "NH_WHITE",
                 "name": "White population",
-                "sum": 7737567,
+                "sum": 7569939,
                 "min": 0,
-                "max": 9854
+                "max": 9654
               },
               {
                 "key": "NH_BLACK",
                 "name": "Black population",
-                "sum": 1474759,
+                "sum": 1383756,
                 "min": 0,
-                "max": 3327
+                "max": 3275
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 477874,
+                "sum": 436358,
                 "min": 0,
-                "max": 4427
+                "max": 4152
               },
               {
                 "key": "NH_ASIAN",
                 "name": "Asian population",
-                "sum": 282415,
+                "sum": 236490,
                 "min": 0,
-                "max": 2142
+                "max": 2091
               },
               {
                 "key": "NH_AMIN",
                 "name": "American Indian population",
-                "sum": 120852,
+                "sum": 54665,
                 "min": 0,
-                "max": 1258
+                "max": 1068
               },
               {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 6681,
+                "sum": 2170,
                 "min": 0,
-                "max": 84
+                "max": 66
               },
               {
                 "key": "NH_OTHER",
                 "name": "Other races",
-                "sum": 17160,
+                "sum": 9866,
                 "min": 0,
-                "max": 49
+                "max": 37
               }
             ]
           },
@@ -97,66 +94,66 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 7537009,
+              "sum": 7539572,
               "min": 0,
-              "max": 10165
+              "max": 10166
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 5958114,
+                "sum": 5960698,
                 "min": 0,
-                "max": 8928
+                "max": 8929
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 996127,
+                "sum": 998309,
                 "min": 0,
                 "max": 3217
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 262116,
+                "sum": 264511,
                 "min": 0,
                 "max": 2440
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 37858,
+                "sum": 40071,
                 "min": 0,
-                "max": 681
+                "max": 682
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 1213,
+                "sum": 1693,
                 "min": 0,
-                "max": 47
+                "max": 48
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 173152,
+                "sum": 175251,
                 "min": 0,
-                "max": 1536
+                "max": 1539
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 4212,
+                "sum": 5322,
                 "min": 0,
-                "max": 22
+                "max": 23
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 91341,
+                "sum": 93717,
                 "min": 0,
-                "max": 236
+                "max": 238
               }
             ]
           },
@@ -187,20 +184,20 @@
         ],
         "tilesets": [
           {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.michigan_precincts"
-            },
-            "sourceLayer": "michigan_precincts"
-          },
-          {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.michigan_precincts_points"
+              "url": "mapbox://districtr.michigan_precincts2_points"
             },
-            "sourceLayer": "michigan_precincts_points"
+            "sourceLayer": "michigan_precincts2_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.michigan_precincts2"
+            },
+            "sourceLayer": "michigan_precincts2"
           }
         ]
       },
