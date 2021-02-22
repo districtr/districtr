@@ -83,7 +83,6 @@ module.exports = {
             }
         ],
         "line-comment-position": "off",
-        "linebreak-style": ["error", "windows"],
         "lines-around-comment": "off",
         "lines-around-directive": "error",
         "lines-between-class-members": ["error", "never"],
@@ -183,7 +182,6 @@ module.exports = {
         "no-template-curly-in-string": "error",
         "no-ternary": "off",
         "no-throw-literal": "error",
-        "no-trailing-spaces": "error",
         "no-undef-init": "error",
         "no-undefined": "off",
         "no-unmodified-loop-condition": "error",
