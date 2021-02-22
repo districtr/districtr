@@ -16,6 +16,7 @@ const stateForEvent = {
   'pmc-demo': 'Wisconsin',
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
+  'fair-districts-oh': 'Ohio',
 };
 
 const validEventCodes = {
@@ -32,6 +33,7 @@ const validEventCodes = {
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
+  'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
 };
 
 const blockPlans = {
@@ -42,6 +44,7 @@ const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
+  "fair-districts-oh": {no: 'Precincts'},
 };
 
 const unitCounts = {
@@ -61,6 +64,7 @@ const coi_events = [
   'pmc-demo',
   'powercoalition',
   'open-maps',
+  'fair-districts-oh',
 ];
 
 const eventDescriptions = {
@@ -77,6 +81,7 @@ const eventDescriptions = {
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': 'Welcome to the event page for Open MAPS!',
+  'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
 };
 
 const longAbout = {
