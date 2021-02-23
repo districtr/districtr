@@ -51,7 +51,7 @@ export default function VRAEffectivenessTable(
         const part_scores = Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.score]));
         const e_scores = {...def_values, ...part_scores};
         console.log(e_scores);
-        return {"name": g + " Effectivness Score", "values": pid => e_scores[pid][0]};
+        return {"name": g + " Effectiveness Score", "values": pid => e_scores[pid][0]};
         });
     console.log(subgroups);
     return html`
