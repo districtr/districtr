@@ -13,7 +13,7 @@ export default class NumericalColumn {
         this.asMapboxExpression = this.asMapboxExpression.bind(this);
     }
     getValue(feature) {
-        return parseFloat(feature.properties[this.key]);
+        return parseFloat(feature.properties[this.key] || 0);
     }
     formatValue(feature) {
         return numberWithCommas(this.getValue(feature));
