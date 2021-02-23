@@ -795,11 +795,12 @@
     ]
   },
   {
-    "id": "wisco2020acstst",
+    "state": "Wisconsin",
+    "id": "wisco2019acs",
     "units": [
       {
         "id": "wards",
-        "name": "Wards",
+        "name": "2020 Wards",
         "unitType": "Wards",
         "columnSets": [
           {
@@ -1051,23 +1052,22 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.wisco2020acstst_wards"
+              "url": "mapbox://districtr.wisco2019acs_wards"
             },
-            "sourceLayer": "wisco2020acstst_wards"
+            "sourceLayer": "wisco2019acs_wards"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.wisco2020acstst_wards_points"
+              "url": "mapbox://districtr.wisco2019acs_wards_points"
             },
-            "sourceLayer": "wisco2020acstst_wards_points"
+            "sourceLayer": "wisco2019acs_wards_points"
           }
         ]
       }
     ],
     "name": "Wisconsin",
-    "state": "Wisconsin",
     "districtingProblems": [
       {
         "name": "Congress",
