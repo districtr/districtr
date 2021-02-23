@@ -31,7 +31,7 @@ export default function ToolsPlugin(editor) {
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
-    let planNumbers = NumberMarkers(state, brush);
+    window.planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
         : null;
@@ -41,8 +41,8 @@ export default function ToolsPlugin(editor) {
             c_checker(state, colorsAffected);
         }
 
-        if (planNumbers) {
-            planNumbers.update(state, colorsAffected);
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+            window.planNumbers.update(state, colorsAffected);
         }
     });
 
