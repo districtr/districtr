@@ -37,9 +37,8 @@ export default function PopulationBalancePlugin(editor) {
         .then((data) => {
           if (data["-1"] && data["-1"].length) {
             const ids = data["-1"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
-            const myurl = spatial_abilities(editor.state.place.id).centroid_server
-              ? `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`
-              : `https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?`
+            const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
+              // : `https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?`
             fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
               if (bbox.length && typeof bbox[0] === 'number') {
                 bbox = {x: bbox};

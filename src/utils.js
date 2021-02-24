@@ -651,7 +651,6 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         // find_unpainted: true,
-        centroid_server: true,
       },
         ohcentral: {
           multiyear: 2019,
@@ -865,7 +864,6 @@ export function spatial_abilities (id) {
         shapefile: true,
         screenshot: true,
         find_unpainted: true,
-        centroid_server: true,
         contiguity: true,
       },
         wisconsin2020: {
@@ -875,7 +873,6 @@ export function spatial_abilities (id) {
           shapefile: true,
           screenshot: true,
           find_unpainted: true,
-          centroid_server: true,
           contiguity: true,
         },
       wyoming: {
