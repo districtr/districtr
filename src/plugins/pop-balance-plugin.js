@@ -18,6 +18,9 @@ export default function PopulationBalancePlugin(editor) {
     if (editor.state.units.sourceId === "ma_towns") {
         extra_source = "ma_towns";
     }
+    if (editor.state.units.sourceId === "indiana_precincts") {
+        extra_source = "indianaprec";
+    }
     const placeID = extra_source || place;
     const sep = (placeID === "louisiana") ? ";" : ",";
 
