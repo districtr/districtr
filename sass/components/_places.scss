@@ -162,6 +162,16 @@
 */
 }
 
+.card {
+
+    .places-list__item {
+        background-color: $mggg-dark_blue;
+        &:hover {
+            background-color: $mggg-very_dark_blue;
+        }
+    }
+}
+
 .places-list__item--small {
     max-width: 14rem;
     margin: 0.5rem;

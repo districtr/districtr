@@ -181,6 +181,10 @@ function getMenuItems(state) {
             id: "mobile-upload",
             name: "Share plan",
             onClick: () => renderSaveModal(state, savePlanToDB)
+        },
+        {
+            name: "About import/export options",
+            onClick: () => window.open("/import-export", "_blank")
         }
     ];
     return items;
