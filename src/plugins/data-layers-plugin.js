@@ -48,6 +48,9 @@ export default function DataLayersPlugin(editor) {
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
+                    if (checked) {
+                        window.planNumbers.update(state);
+                    }
                     let opacity = checked ? 1 : 0;
                     state.numbers.forEach((number) => {
                         number.setOpacity(Math.round(opacity))
