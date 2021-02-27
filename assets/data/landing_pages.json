@@ -2866,25 +2866,28 @@
       },
       {
         "name": "Louisiana: VRA effectiveness precomputation",
-        "nav": "louisiana",
+        "nav": "Precomputation  (LA)",
         "type": "text",
+        "pages": ["la"],
         "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
         "subsections": [
         ]
       },
       {
         "name": "Texas: VRA effectiveness precomputation",
-        "nav": "texas",
+        "nav": "Precomputation (TX)",
         "type": "text",
+        "pages": ["tx"],
         "content_source": "/assets/about/vra/precomputation_texas.html" ,
         "subsections": [
         ]
       },
       {
         "name": "Explore the enacted plans",
-        "nav": "Examples",
+        "nav": "Examples (LA)",
         "type": "plans",
         "ref": "vra",
+        "pages": ["la"],
         "disc": "",
         "plans": [
           {
@@ -2903,7 +2906,17 @@
                 "name": "State House Plan"
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "name": "Explore the enacted plans",
+        "nav": "Examples (TX)",
+        "type": "plans",
+        "ref": "vra",
+        "pages": ["tx"],
+        "disc": "",
+        "plans": [
           {
             "title": "Enacted Plans in Texas",
             "plans": [

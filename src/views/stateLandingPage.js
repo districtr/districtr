@@ -56,6 +56,19 @@ export default () => {
                 }
 
                 var selected = def;
+
+                let toggleViz = id => {
+                    $(".text-toggle").not(id).hide();
+                    $(".nav").not(id).hide();;
+                    $(id).show();
+                }
+
+                if (vraPage) {
+                    toggleViz($("." + def.id));
+                    selected.ids.map(id => $("." + id).show());
+                }
+                
+                
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function(){
                     var inputValue = $(this).attr("value");
@@ -64,6 +77,9 @@ export default () => {
 
 
                     $(".places-list__item").hide();
+                    if (vraPage) {
+                        toggleViz(targetBox);
+                    }
                     selected.ids.map(id => $("." + id).show());
                 });
 
