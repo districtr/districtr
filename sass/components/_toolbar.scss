@@ -30,6 +30,17 @@
     align-items: center;
 }
 
+.toolbar-inner {
+  display: flex;
+  padding: 1rem;
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.dataset-info > span {
+  font-size: 0.6rem;
+}
+
 .district-row {
     display: block;
 }
