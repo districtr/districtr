@@ -371,6 +371,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
+        screenshot: true,
       },
       connecticut: {
         county_brush: true,
