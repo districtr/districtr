@@ -42,13 +42,13 @@ export default class LandmarkTool extends Tool {
         );
     }
     updateLandmarkList(selectLastFeature) {
-        savePlanToStorage(this.state.serialize());
-        if (selectLastFeature) {
-            this.options.handleSelectFeature(-1);
-            // handleSelectFeature already calls render
-        } else {
-            this.renderCallback();
-        }
+        // savePlanToStorage(this.state.serialize());
+        // if (selectLastFeature) {
+        //     this.options.handleSelectFeature(-1);
+        //     // handleSelectFeature already calls render
+        // } else {
+        //     this.renderCallback();
+        // }
     }
     saveFeature(id) {
         this.landmarks.saveFeature(id);
@@ -169,65 +169,6 @@ class LandmarkOptions {
                 : ""}
         </li>
     </ul>
-
-    ${this.features.length ? LandmarkFormTemplate({
-        name: this.updateName,
-        description: this.updateDescription,
-        onSave: this.onSave,
-        setName: this.setName,
-        setDescription: this.setDescription,
-        onDelete: this.onDelete
-    }) : "Click on the map with the crosshairs (+) to add a point"}
         `;
     }
-}
-
-
-function LandmarkFormTemplate({
-    name,
-    description,
-    onSave,
-    setName,
-    setDescription,
-    onDelete
-}) {
-    return html`
-        <ul class="option-list">
-            <li>
-                <label class="ui-label">Name</label>
-                <input
-                    type="text"
-                    name="landmark-name"
-                    autocomplete="off"
-                    class="text-input vertical-align"
-                    .value="${name}"
-                    @input=${e => setName(e.target.value)}
-                    @blur=${e => setName(e.target.value)}
-                />
-                <button
-                    class="button vertical-align"
-                    @click=${onDelete}
-                >
-                    <div
-                        class="icon"
-                        title="delete"
-                    >
-                        <i class="material-icons">delete</i>
-                    </div>
-                </button>
-            </li>
-            <li class="option-list__item">
-                <textarea
-                    class="text-input text-area short-text-area"
-                    name="landmark-desc"
-                    placeholder="Describe this place"
-                    @input=${e => setDescription(e.target.value)}
-                    @blur=${e => setDescription(e.target.value)}
-                    .value="${description}"
-                ></textarea>
-                <br/>
-                Your place details are saved automatically
-            </li>
-        </ul>
-    `;
 }

@@ -106,6 +106,7 @@ export class Landmarks {
                 //trash: true
             }
         });
+        this.layer.map.addControl(this.drawTool, "top-right");
 
         // create a draft layer (polygon or marker)
         this.layer.map.on('draw.create', (e) => {
@@ -114,13 +115,16 @@ export class Landmarks {
 
             // the drawTool creates an alphanumeric ID; we need a numeric ID for tooltip
             editFeature.number_id = Math.round(Math.random() * 1000000000);
-            editFeature.properties.name = 'New ' + editFeature.geometry.type;
+            editFeature.properties.name = `New ${editFeature.geometry.type} ${this.savedPlaces.data.features.length + 1}`;
+            editFeature.properties.short_description = '';
 
             // a point is not rendered by the final polygon/tooltip layer
             // but we need it in this array for localStorage / export
             this.savedPlaces.data.features.push(editFeature);
 
             this.updateLandmarkList(true);
+
+            // document.querySelector("#landmark-instruction").style.visibility = "hidden";
         });
 
         // update position of draft layer
@@ -137,49 +141,6 @@ export class Landmarks {
 
         this.handleToggle = this.handleToggle.bind(this);
         this.handleDrawToggle = this.handleDrawToggle.bind(this);
-    }
-    saveFeature(feature_id) {
-        // if this feature ID is currently move-able, we lock it
-        this.savedPlaces.data.features.forEach((feature) => {
-            // if you draw multiple items without saving them
-            // saving this feature will save all unsaved points
-            // we need to remove their old IDs, too
-            if (feature.number_id) {
-                this.drawTool.trash(feature.id);
-                feature.id = feature.number_id + "";
-                delete feature.number_id;
-
-                if (feature.geometry.type === "Point") {
-                    this.points.data.features.push(feature);
-                }
-            }
-        });
-
-        // save names and locations
-        this.layer.map.getSource("landmarklist")
-            .setData(this.savedPlaces.data);
-        this.layer.map.getSource("landmarkpoints")
-            .setData(this.points.data);
-    }
-    deleteFeature(delete_id) {
-      this.savedPlaces.data.features.forEach((feature, index) => {
-          if (feature.id === delete_id) {
-              let deleteFeature = this.savedPlaces.data.features.splice(index, 1);
-              this.drawTool.trash(deleteFeature.id);
-
-              // if point, also remove from the Points layer
-              if (deleteFeature[0].geometry.type === 'Point') {
-                  this.points.data.features.forEach((point, pindex) => {
-                      if (point.id === delete_id) {
-                          this.points.data.features.splice(pindex, 1);
-                      }
-                  });
-              }
-          }
-      });
-
-      // lock any in-progress shapes before saving to map
-      this.saveFeature();
     }
     handleToggle(checked) {
         if (checked && !this.visible) {
