@@ -1,4 +1,4 @@
-import { html } from "lit-html";
+import { html, directive } from "lit-html";
 import { Tab } from "../components/Tab";
 import HighlightUnassigned from "../components/Charts/HighlightUnassigned";
 import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
@@ -7,11 +7,76 @@ import populationDeviation from "../components/Charts/PopulationDeviation";
 import unassignedPopulation from "../components/Charts/UnassignedPopulation";
 import { spatial_abilities } from "../utils";
 
+
+/**
+ * Creates an HTML entity which provides some supplementary information about
+ * the dataset being used to balance population.
+ * @param {State} state A State object.
+ * @returns {String} The description for the dataset used.
+ */
+function datasetInfo(state) {
+    // Dictionary of descriptions.
+    let population = state.population,
+        units = state.unitsRecord,
+        place = state.place,
+        populations = {
+            census: "You are balancing population using statistics from the " +
+                "<strong>2010 United States Census</strong>. Most states require the use of " +
+                "data from the most recent decennial Census in their redistricting " +
+                "processes. Constitutionally mandated to be conducted every ten " +
+                "years, this dataset is extremely broad, with more than  This data is " +
+                "available at the <strong>Census block " +
+                "</strong> level, and has been aggregated from the block level to " +
+                place.name + "'s " + units.unitType + ".",
+            acs: "You are balancing population using statistics from the " +
+                "<strong>American Community Survey five-year estimates</strong>. " +
+                "This dataset is produced by the United States Census Bureau, " +
+                "which samples approximately 3.5 million households and uses " +
+                "statistical methods to extrapolate findings from that sample " +
+                "– as well as existing data – to a nationwide dataset similar to " +
+                "the Census. The ACS is not as granular as the Census, and is " +
+                "available at the Census block group level. " +
+                (units.unitType.toLowerCase() !== "block groups" ? "Because " +
+                "this plan's base units are not Census block groups, the data " +
+                "attached have undergone a dis- and re-aggregation process: by " +
+                "breaking the data down into smaller geographic parts, we can " +
+                "fit those smaller parts together to build " + place.name + "'s "
+                + units.unitType + ". " : "")
+        };
+    
+    if (place.name.toLowerCase() === "wisconsin" || population.name !== "Population") {
+        return `<p><span>&#9432;</span> ${populations.acs}</p>`;
+    }
+    return `<p><span>&#9432;</span> ${populations.census}</p>`;
+}
+
+/**
+ * Wrapper function which returns an immediately-callable directive which
+ * populates the dataset-info sections in a nice way.
+ * @param {State} state State object.
+ * @returns {function(*): void}
+ */
+function populateDatasetInfo(state) {
+    return directive(promise => _ => {
+        Promise.resolve(promise).then(__ => {
+            // Retrieve the proper HTML elements.
+            let elements = document.getElementsByClassName("dataset-info"),
+                infoBoxes = Array.from(elements);
+            
+            // For each of the info boxes, retrieve and add the correct
+            // description.
+            infoBoxes.forEach(box => {
+               box.innerHTML = datasetInfo(state);
+            });
+        });
+    })();
+}
+
 export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
     const state = editor.state;
     const tab = new Tab("criteria", "Population", editor.store);
-
+    
     let plan = editor.state.plan,
         place = editor.state.place.id,
         extra_source = (editor.state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
@@ -72,6 +137,7 @@ export default function PopulationBalancePlugin(editor) {
                     ${unassignedPopulation(state.population)}
                     ${HighlightUnassigned(state.unitsBorders, zoomToUnassigned)}
                 </dl>
+                <section class="toolbar-inner dataset-info"></section>
             `
         );
     } else {
@@ -85,8 +151,13 @@ export default function PopulationBalancePlugin(editor) {
                         ${populationDeviation(state.population)}
                         ${HighlightUnassigned(state.unitsBorders, zoomToUnassigned)}
                     </dl>
+                    <section class="toolbar-inner dataset-info">
+                        ${populateDatasetInfo(state)}
+                    </section>
                 `
         );
     }
+    
+    // Add the tab to the toolbar.
     editor.toolbar.addTab(tab);
 }
