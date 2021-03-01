@@ -17,6 +17,7 @@ const stateForEvent = {
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
+  'colorado-cc': 'Colorado',
 };
 
 const validEventCodes = {
@@ -34,6 +35,7 @@ const validEventCodes = {
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
+  'colorado-cc': 'colorado',
 };
 
 const blockPlans = {
@@ -65,6 +67,7 @@ const coi_events = [
   'powercoalition',
   'open-maps',
   'fair-districts-oh',
+  'colorado-cc',
 ];
 
 const eventDescriptions = {
@@ -82,6 +85,7 @@ const eventDescriptions = {
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': 'Welcome to the event page for Open MAPS!',
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
+  'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
 };
 
 const longAbout = {

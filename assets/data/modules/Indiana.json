@@ -5,7 +5,6 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
-        "limit": "community",
         "columnSets": [
           {
             "type": "population",
@@ -557,6 +556,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "limit": "hidden",
         "columnSets": [
           {
             "type": "population",
