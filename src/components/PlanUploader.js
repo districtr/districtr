@@ -21,10 +21,11 @@ export default class PlanUploader {
     }
     render() {
         return html`
-            <div class="plan-loader">
-                <h4>Or to upload an exported JSON plan:</h4>
+            <label class="plan-loader">
                 <input type="file" @change="${this.handleFiles}" />
-            </div>
+                <img src="/assets/upload.png" width="50px" style="margin-right:0.75rem;">
+                Choose File
+            </label>
         `;
     }
 }

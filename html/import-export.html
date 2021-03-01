@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Districtr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/landing_page.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/state_landing.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <meta property="og:title" content="Districtr" />
+        <meta
+            name="author"
+            content="MGGG Redistricting Lab"
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta
+            name="description"
+            content="The open web app for drawing districting plans."
+        />
+        <meta
+            property="og:description"
+            content="The open web app for drawing districting plans."
+        />
+        <link rel="canonical" href="https://districtr.org" />
+        <meta property="og:url" content="https://districtr.org" />
+        <meta property="og:site_name" content="Districtr" />
+
+        <style type="text/css">
+.col1, .col2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+ul#nav li {
+  background: none;
+}
+ul#nav li a {
+  color: #0099cd;
+  text-transform: uppercase;
+}
+.splash-text {
+  text-align: center;
+  color: #0099cd;
+}
+.splash-text img {
+  max-width: 100%;
+}
+.takeaway {
+  font-size: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  color: #0099cd;
+}
+.l-major-section {
+  padding-bottom: 1rem;
+}
+.col1 {
+  width: 70%;
+}
+.col2 {
+  width: 28%;
+  text-align: right;
+}
+.col2 img {
+  width: 85%;
+}
+.youdraw, .takeaway {
+  background: #fff;
+  display: block;
+}
+.youdraw {
+  color: #444;
+  padding-top: 0;
+  margin-top: -35px;
+  font-size: 150%;
+}
+h2 {
+  margin-left: 0;
+  vertical-align: middle;
+}
+@media (max-device-width:900px) {
+  section {
+    text-align: center;
+  }
+  section p {
+    text-align: left;
+  }
+  .headerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2, .mobilehide {
+    display: none;
+  }
+  h2 {
+    margin-left: 0;
+  }
+}
+@media (min-width:1000px) {
+  h2 {
+    margin-left: -5%;
+  }
+  .l-major-section {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .col1 {
+    width: 71%;
+  }
+  .col2 {
+    width: 28%;
+  }
+  .start-districting {
+    width: 75%;
+    margin-left: 12.5%;
+  }
+}
+.place-map__form {
+  margin-top: -50px;
+  margin-bottom: -30px;
+}
+.place-map__search {
+  font-size: 1.5rem;
+}
+.l-major-section h3 {
+  color: darkblue;
+}
+.l-major-section p {
+  font-size: 20px;
+}
+span.badge {
+  font-size: 70%;
+  background: #0099cd;
+  color: #fff;
+  padding: 6px;
+  border-radius: 6px;
+}
+.start-districting {
+  height: auto !important;
+}
+#nav-links {
+  justify-content: flex-end;
+}
+a.bookmark {
+  position: relative;
+  top: -40px;
+}
+strong {
+  font-size: 109%;
+}
+#uploader {
+  display: flex;
+}
+.headerimg {
+  display: inline-block;
+  width: 165px;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.plan-loader {
+    cursor: pointer;
+    background-color: #0099cd;
+    color: white;
+    border-radius: 0.5rem;
+}
+.plan-loader:hover {
+  background-color: #006b9c;
+}
+
+        </style>
+    </head>
+
+    <body>
+      <header class="site-header">
+          <nav class="site-nav">
+              <div class="site-nav__logo">
+                  <a href="/">
+                      <img src="/assets/districtr-splash-clear.png" alt="Districtr logo" width="160"/>
+                  </a>
+                  <script>
+                      function openNav() {
+                        var links = document.getElementById("nav-links");
+                        var openClass = "site-nav__contents--show";
+                        if (links.classList.contains(openClass)) {
+                          links.classList.remove(openClass);
+                        } else {
+                          links.classList.add(openClass);
+                        }
+                      }
+                  </script>
+                  <button class="site-nav__open-btn" onclick="openNav();">
+                      <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                  </button>
+              </div>
+              <ul id="nav-links" class="nav-links site-nav__contents">
+     <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#table">
+              Summary Table
+          </a>
+      </li>
+      <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#details">
+              Descriptions
+          </a>
+      </li>
+      <li class="nav">
+        <a class="nav-links__link nav-links__link--major" href="/new">
+            Back to the Map
+        </a>
+    </li>
+  </ul>
+          </nav>
+      </header>
+        <main id="root" class="place">
+            <article class="place__content">
+                <div>
+                  <h1 class="headline place__name">Import/Export Options in Districtr</h1>
+                  <div class="jump"></div>
+                  <h2>Direct Upload</h2>
+                  <p>
+                    Currently, only JSON files downloaded from Districtr are supported in our direct upload.
+                    Information on other file types and ways to upload are described below.
+                  </p>
+                  <div id="uploader">
+                    <!-- <div class="plan-loader">
+                        <input type="file">
+                    </div> -->
+                  </div>
+                  <script src="/es6/import.js"></script>
+                  <script>
+                      if (Object.assign === undefined || fetch === undefined) {
+                          document.write(
+                              '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                          );
+                          document.write(
+                              '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                          );
+                          document.write('<script src="/es5/import.js"><\/script>');
+                          document.write("<script>ieBundle();<\/script>");
+                      } else {
+                          bundle();
+                      }
+                  </script>
+                  <!-- <span class="mobilehide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+                  <div class="jump"  id="table"></div>
+                  <h2>Summary Chart</h2>
+                  <p>
+                    Districtr’s options for exporting and importing data are summarized in the 
+                    following chart. Scroll down for more information on each.
+                  </p>
+                  <table class="data">
+                      <tbody>
+                          <tr>
+                              <th>Format</th>
+                              <th>Export Available</th>
+                              <th>Import Available</th>
+                              <th>Use for...</th>
+                              <th>Examples*</th>
+                          </tr>
+                          <tr>
+                              <td><a href="#link">Districtr.org link</a></td>
+                              <td>Yes</td>
+                              <td>Yes</td>
+                              <td>Sharing, building on others’ maps, submitting to commissions</td>
+                              <td>
+                                <a href="/plan/9806">Districts link</a>
+                                <hr>
+                                <a href="/COI/8604">Communities link</a>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#json">JSON</a></td>
+                            <td>Yes (download)</td>
+                            <td>Yes, if our units are used (Coming in February: upload communities into Districting mode)</td>
+                            <td>Adding communities as base layers in districts, using in other redistricting programs</td>
+                            <td>
+                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.json">Districts JSON</a>
+                                <hr>
+                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.json">Communities JSON</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#shapefile">Shapefile</a></td>
+                            <td>Yes (download)</td>
+                            <td>No</td>
+                            <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
+                            <td>
+                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.shp.zip">Districts shapefile</a>
+                                <hr>
+                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.shp.zip">Communities shapefile</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#pdf">Print to PDF</a></td>
+                            <td>Yes (download)</td>
+                            <td>No</td>
+                            <td>Submitting to commissions, hanging on your wall</td>
+                            <td>
+                                <a href="/assets/import-export-examples/districting/Districts - Lowell.pdf">Districts PDF</a>
+                                <hr>
+                                <a href="/assets/import-export-examples/communities/COI - St Louis.pdf">Communities PDF</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#csv">Unit assignment file (CSV)</a></td>
+                            <td>Yes (download)</td>
+                            <td>Yes (except landmarks)</td>
+                            <td>Having a list of district assignments or communities in the building blocks you chose, analysis in python</td>
+                            <td>
+                                <a download href="/assets/import-export-examples/districting/assignment-ec0a7f81.csv">Districts CSV</a>
+                                <hr>
+                                <a download href="/assets/import-export-examples/communities/assignment-5217364c.csv">Communities CSV</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#geojson">GeoJSON</a></td>
+                            <td>In progress (Coming in March)</td>
+                            <td>Yes, if our units are used</td>
+                            <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
+                            <td>Coming soon</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  <dl class="dfn-list">
+                      <div class="dfn-list__row">
+                        <!-- <dt class="dfn-list__term">*</dt> -->
+                        <dd class="dfn-list__caption">* The Districting mode examples are for Lowell, Massachusets. 
+                          The Communities mode examples are for the St. Louis, Missouri area and are from collaborator Monyai Chavers.
+                        </dd>
+                      </div>
+                  </dl>
+                  <div class="jump"  id="details"></div>
+                  <h2>Format Descriptions</h2>
+                  <div class="jump"  id="link"></div>
+                  <h3>Districtr.org link</h3>
+                    <p>
+                        Create this to <em>share</em> with anyone on the internet, including Districtr events and commissions.
+                    </p>
+                    <p>
+                        A unique link takes a complete snapshot of your districts or communities. If you 
+                        are the creator and are in the original browser session, you can <em>update</em> it without 
+                        changing the link. When you open and edit someone else’s map (or your own at a 
+                        later time), and click <em>share</em>, this will generate a new unique link.
+                    </p>
+                    <div class="jump"  id="json"></div>
+                  <h3>JSON</h3>
+                    <p>
+                        A JSON file exported from Districtr can be directly re-uploaded into Districtr.
+                        If you start a new map in the state or area the file was made in, you can load 
+                        the JSON by dragging and dropping it onto that blank map.
+                        
+                        JSON files can also be used in some other redistricting programs.
+                    </p>
+                    <p>
+                        Coming in February, it will also be possible to upload a .json file made in 
+                        <strong style="color: #ff4f49">Communities</strong> mode into 
+                        <strong style="color: #b445b6">Districting</strong> mode.  This will enable
+                        you to view your communities as a static layer. 
+                    </p>
+                    <div class="jump"  id="shapefile"></div>
+                  <h3>Shapefile</h3>
+                    <p>
+                        Download a shapefile to use in desktop mapping software (e.g., QGIS and ArcGIS), 
+                        python, and some other redistricting programs. If you want to generate a block 
+                        equivalency file with your communities or districts, we recommend downloading 
+                        a shapefile, the Census data you need, and then converting in QGIS or python.
+                    </p>
+                    <p>
+                        A shapefile is the name for a group of files (.shp, .dbf, .prj, .shx, .sbn), 
+                        and a shapefile download is a zipped folder containing all of these files. 
+                        In addition to your districts or communities, a shapefile also includes any 
+                        election and Census data that was available based on the region and building 
+                        blocks you chose, along with enacted Congressional and State Legislature 
+                        districts, as applicable.
+                    </p>
+                    <p>
+                        In <strong style="color: #ff4f49">Communities</strong> mode, when you 
+                        download a shapefile, a GeoJSON file will also be included in the zipped folder. 
+                        The shapefile contains your communities, and the geojson contains the important places.
+                    </p>
+                    <p>
+                        <em>This download can take a few minutes for larger states.</em>
+                    </p>
+                    <div class="jump"  id="pdf"></div>
+                  <h3>Print to PDF</h3>
+                    <p>
+                        In <strong style="color: #b445b6">Districting</strong> mode, this will print 
+                        the current view on your screen.  In <strong style="color: #ff4f49">Communities</strong> 
+                        mode, this will generate a short report, including an image of your map along with the text you wrote 
+                        about the communities and important places. PDF files generated in 
+                        <strong style="color: #ff4f49">Communities</strong> mode may be especially 
+                        useful for submitting to commissions.
+                    </p>
+                    <p>
+                        You can print to PDF by using your computer’s print shortcut.
+
+                    </p>
+                    <div class="jump"  id="csv"></div>
+                  <h3>Comma-separated values (CSV)</h3>
+                    <p>
+                        A CSV file will list the districts or communities you made along with their
+                         assignment according to the building blocks used (precincts, block groups, etc.). 
+                         It does not include additional data or unassigned building blocks. A CSV is 
+                         the smallest file generated. It can be joined to a shapefile for the same 
+                         locality with the same building blocks in mapping software or python.
+                    </p>
+                    <div class="jump"  id="geojson"></div>
+                  <h3>GeoJSON</h3>
+                  <p>
+                    This is on track to be added in March. A GeoJSON can be used in desktop mapping 
+                    software (e.g., QGIS and ArcGIS), python, and other redistricting programs.
+                  </p>
+            </article>
+        </main>
+    </body>
+</html>

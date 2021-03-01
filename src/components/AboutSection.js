@@ -142,8 +142,6 @@ function AboutSectionTemplate({
                     @input=${e => setDescription(e.target.value)}
                     .value="${description}"
                 ></textarea>
-            </li>
-            <li class="option-list__item">
                 <br/>
                 <span>These details are updated automatically</span>
             </li>

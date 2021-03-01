@@ -4,7 +4,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-import LandmarkTool from "../components/Toolbar/LandmarkTool";
+// import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
@@ -31,7 +31,7 @@ export default function ToolsPlugin(editor) {
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
-    let planNumbers = NumberMarkers(state, brush);
+    window.planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
         : null;
@@ -41,14 +41,13 @@ export default function ToolsPlugin(editor) {
             c_checker(state, colorsAffected);
         }
 
-        if (planNumbers) {
-            planNumbers.update(state, colorsAffected);
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+            window.planNumbers.update(state, colorsAffected);
         }
     });
 
     let tools = [
         new PanTool(),
-        new LandmarkTool(state),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
@@ -166,6 +165,10 @@ function getMenuItems(state) {
             onClick: () => navigateTo("/new")
         },
         {
+            name: "Print / PDF",
+            onClick: () => window.print()
+        },
+        {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
@@ -181,6 +184,10 @@ function getMenuItems(state) {
             id: "mobile-upload",
             name: "Share plan",
             onClick: () => renderSaveModal(state, savePlanToDB)
+        },
+        {
+            name: "About import/export options",
+            onClick: () => window.open("/import-export", "_blank")
         }
     ];
     return items;

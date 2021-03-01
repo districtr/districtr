@@ -301,7 +301,7 @@ export function spatial_abilities (id) {
         // precincts cross county lines
         native_american: true,
         shapefile: true,
-        find_unpainted: true,
+        // find_unpainted: true,
       },
       arizona: {
         number_markers: true,
@@ -309,6 +309,7 @@ export function spatial_abilities (id) {
         native_american: true,
         coalition: true,
         shapefile: true,
+        // find_unpainted: true,
       },
           maricopa: {
             native_american: true,
@@ -370,6 +371,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
+        screenshot: true,
       },
       connecticut: {
         county_brush: true,
@@ -452,7 +454,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         screenshot: true,
         shapefile: true,
-        find_unpainted: true,
+        // find_unpainted: true,
       },
       kansas: {
         multiyear: 2018,
@@ -487,13 +489,14 @@ export function spatial_abilities (id) {
         shapefile: true,
         coalition: true,
         screenshot: true,
-        // find_unpainted: true,
+        find_unpainted: true,
       },
         batonrouge: {
           coalition: true,
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          // find_unpainted: true, COI only
         },
       maine: {
         native_american: true,
@@ -512,6 +515,7 @@ export function spatial_abilities (id) {
       ma: {
         number_markers: true,
         shapefile: true,
+        // find_unpainted: true,
       },
         lowell: {
           neighborhoods: true,
@@ -526,6 +530,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        screenshot: true,
       },
       minnesota: {
         number_markers: true,
@@ -553,6 +558,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        // find_unpainted: true,
       },
       montana: {
         multiyear: 2018,
@@ -574,6 +580,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         absentee: true,
         shapefile: true,
+        // find_unpainted: true,
       },
       nevada: {
         multiyear: 2018,
@@ -586,6 +593,7 @@ export function spatial_abilities (id) {
       newhampshire: {
         number_markers: true,
         shapefile: true,
+        // find_unpainted: true,
       },
       newjersey: {
         number_markers: true,
@@ -616,6 +624,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           screenshot: true,
           shapefile: true,
+          // find_unpainted: true,
         },
       newyork: {
         number_markers: true,
@@ -650,8 +659,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        // find_unpainted: true,
-        centroid_server: true,
+        // find_unpainted: true - needs contiguity
       },
         ohcentral: {
           multiyear: 2019,
@@ -763,6 +771,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        find_unpainted: true,
       },
         philadelphia: {
           number_markers: true,
@@ -784,7 +793,6 @@ export function spatial_abilities (id) {
       rhode_island: {
         number_markers: true,
         shapefile: true,
-        find_unpainted: true,
       },
       southcarolina: {
         multiyear: 2018,
@@ -792,7 +800,6 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        find_unpainted: true,
       },
       southdakota: {
         multiyear: 2018,
@@ -800,14 +807,12 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        find_unpainted: true,
       },
       tennessee: {
         multiyear: 2018,
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        find_unpainted: true,
       },
       texas: {
         number_markers: true,
@@ -865,7 +870,6 @@ export function spatial_abilities (id) {
         shapefile: true,
         screenshot: true,
         find_unpainted: true,
-        centroid_server: true,
         contiguity: true,
       },
         wisconsin2020: {
@@ -875,7 +879,6 @@ export function spatial_abilities (id) {
           shapefile: true,
           screenshot: true,
           find_unpainted: true,
-          centroid_server: true,
           contiguity: true,
         },
       wyoming: {
