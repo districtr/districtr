@@ -41,7 +41,7 @@ export default function CommunityPlugin(editor) {
           savePlanToStorage(state.serialize());
 
           if (lm.data.features.length) {
-              document.querySelector("#landmark-instruction").innerText = "- mouse over marker for details";
+              document.querySelector("#landmark-instruction").innerText = "mouse over marker for info; edit below";
               document.querySelector("#landmark-instruction").style.visibility = "visible";
           }
 
@@ -268,17 +268,18 @@ class LandmarkOptions {
                   document.querySelector("#tool-pan").click();
                   document.querySelector(".marker-form").style.visibility = "hidden";
                   document.querySelector(".mapboxgl-control-container .mapbox-gl-draw_point").click()
-                  document.querySelector("#landmark-instruction").innerText = "- activated - click map to place";
+                  document.querySelector("#landmark-instruction").innerText = "activated - click map to place";
                   document.querySelector("#landmark-instruction").style.visibility = "visible";
                 }}"
                 title="New Marker"
-                style="border: 2px solid #aaa"
+                style="border: 2px solid #aaa;margin-left:auto;margin-right:auto;"
               >
                 <img src="/assets/new_landmark.svg"/>
                 New
               </button>
-              &nbsp;&nbsp;&nbsp;
-              <span id="landmark-instruction">- activated - click map to place</span>
+          </div>
+          <div class="parameter">
+              <span id="landmark-instruction" style="margin-left:auto;margin-right:auto;">activated - click map to place</span>
           </div>
         </li>
         <li class="option-list__item">
@@ -337,7 +338,7 @@ class LandmarkOptions {
                     this.onDelete();
                     window.selectLandmarkFeature = 0;
                     this.updateLandmarkList();
-                    
+
                     properties = this.features.map(feature => feature.properties);
                     if (properties.length && properties[window.selectLandmarkFeature]) {
                       document.querySelector('.marker-form input').value = properties[window.selectLandmarkFeature].name;

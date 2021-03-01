@@ -124,7 +124,7 @@ export class Landmarks {
 
             this.updateLandmarkList(true);
 
-            document.querySelector("#landmark-instruction").style.visibility = "hidden";
+            // document.querySelector("#landmark-instruction").style.visibility = "hidden";
         });
 
         // update position of draft layer
