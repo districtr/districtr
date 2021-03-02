@@ -2406,7 +2406,8 @@
     "state": "Utah",
     "code": "UT",
     "modules": [
-      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["grand_county_2"], "id": "county"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
