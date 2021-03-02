@@ -414,6 +414,12 @@ export function spatial_abilities (id) {
             neighborhoods: true,
             coalition: true,
           },
+          fl_hills: {
+            multiyear: 2019,
+          },
+          fl_orange: {
+            multiyear: 2019,
+          },
       georgia: {
         number_markers: true,
         county_brush: true,
