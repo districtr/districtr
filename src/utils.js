@@ -361,15 +361,15 @@ export function spatial_abilities (id) {
           multiyear: 2018,
           shapefile: true,
         },
-        ca_SanBenito: {
-          // native_american: true, - none in county
-        },
         ca_SanDiego: {
           native_american: true,
           multiyear: 2019,
         },
-        ca_alturas: {
-          
+        ca_CCosta: {
+          multiyear: 2019,
+        },
+        ca_amador: {
+          native_american: true,
         },
       chicago: {
         number_markers: true,

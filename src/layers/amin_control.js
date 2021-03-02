@@ -28,7 +28,7 @@ export function addAmerIndianLayer(tab, state) {
     let native_am_type = "Pueblos, Tribes, and Nations"; // NM
     if (state.place.id === "alaska") {
         native_am_type = "Alaskan Native Communities";
-    } else if (["california", "ca_SanDiego"].includes(state.place.id)) {
+    } else if (["california", "ca_SanDiego", "ca_amador"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
     } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Native American Areas (Census)";
