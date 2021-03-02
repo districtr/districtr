@@ -1,4 +1,5 @@
-import { html, directive } from "lit-html";
+
+import { html } from "lit-html";
 import { Tab } from "../components/Tab";
 import HighlightUnassigned from "../components/Charts/HighlightUnassigned";
 import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
@@ -13,8 +14,7 @@ export default function PopulationBalancePlugin(editor) {
     const state = editor.state;
     const tab = new Tab("criteria", "Population", editor.store);
     
-    let plan = editor.state.plan,
-        place = editor.state.place.id,
+    let place = editor.state.place.id,
         extra_source = (editor.state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
     if (editor.state.units.sourceId === "ma_towns") {
         extra_source = "ma_towns";
@@ -96,5 +96,4 @@ export default function PopulationBalancePlugin(editor) {
     
     // Add the tab to the toolbar.
     editor.toolbar.addTab(tab);
-    console.dir(state);
 }

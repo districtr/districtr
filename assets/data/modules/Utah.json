@@ -1,96 +1,518 @@
 [
-  {
-    "districtingProblems": [
-      {
-        "pluralNoun": "Congressional Districts",
-        "numberOfParts": 4,
-        "name": "Congress"
-      },
-      {
-        "pluralNoun": "State Senate Districts",
-        "numberOfParts": 29,
-        "name": "State Senate"
-      },
-      {
-        "pluralNoun": "State House Districts",
-        "numberOfParts": 75,
-        "name": "State House"
-      }
-    ],
-    "id": "utah",
-    "name": "Utah",
+    {
+        "districtingProblems": [
+        {
+            "pluralNoun": "Congressional Districts",
+            "numberOfParts": 4,
+            "name": "Congress"
+        },
+        {
+            "pluralNoun": "State Senate Districts",
+            "numberOfParts": 29,
+            "name": "State Senate"
+        },
+        {
+            "pluralNoun": "State House Districts",
+            "numberOfParts": 75,
+            "name": "State House"
+        }],
+        "id": "utah",
+        "name": "Utah",
+        "units": [
+        {
+            "id": "blockgroups",
+            "name": "Block Groups",
+            "unitType": "Block Groups",
+            "columnSets": [
+            {
+                "type": "population",
+                "name": "Population",
+                "total":
+                {
+                    "key": "TOTPOP",
+                    "name": "Total population",
+                    "sum": 2763885,
+                    "min": 0,
+                    "max": 11672
+                },
+                "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 2221719,
+                    "min": 0,
+                    "max": 9803
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 25951,
+                    "min": 0,
+                    "max": 257
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 358340,
+                    "min": 0,
+                    "max": 1855
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 54176,
+                    "min": 0,
+                    "max": 588
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 27081,
+                    "min": 0,
+                    "max": 1903
+                },
+                {
+                    "key": "NH_NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 23909,
+                    "min": 0,
+                    "max": 277
+                },
+                {
+                    "key": "NH_2MORE",
+                    "name": "Two or more races",
+                    "sum": 48985,
+                    "min": 0,
+                    "max": 294
+                },
+                {
+                    "key": "NH_OTHER",
+                    "name": "Other races",
+                    "sum": 3724,
+                    "min": 0,
+                    "max": 88
+                }]
+            },
+            {
+                "type": "population",
+                "name": "Voting Age Population",
+                "total":
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 1892858,
+                    "min": 0,
+                    "max": 6852
+                },
+                "subgroups": [
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 1563568,
+                    "min": 0,
+                    "max": 5842
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 16407,
+                    "min": 0,
+                    "max": 256
+                },
+                {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 214494,
+                    "min": 0,
+                    "max": 1052
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American voting age population",
+                    "sum": 18438,
+                    "min": 0,
+                    "max": 1229
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 14719,
+                    "min": 0,
+                    "max": 158
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 41758,
+                    "min": 0,
+                    "max": 435
+                },
+                {
+                    "key": "OTHERVAP",
+                    "name": "Other races voting age population",
+                    "sum": 2286,
+                    "min": 0,
+                    "max": 84
+                },
+                {
+                    "key": "2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 21188,
+                    "min": 0,
+                    "max": 95
+                }]
+            }],
+            "idColumn":
+            {
+                "name": "Block group FIPS code",
+                "key": "GEOID10"
+            },
+            "bounds": [
+                [
+                    -114.053,
+                    36.9979
+                ],
+                [
+                    -109.0411,
+                    42.0016
+                ]
+            ],
+            "tilesets": [
+            {
+                "type": "circle",
+                "source":
+                {
+                    "type": "vector",
+                    "url": "mapbox://districtr.utah_blockgroups_points"
+                },
+                "sourceLayer": "utah_blockgroups_points"
+            },
+            {
+                "type": "fill",
+                "source":
+                {
+                    "type": "vector",
+                    "url": "mapbox://districtr.utah_blockgroups"
+                },
+                "sourceLayer": "utah_blockgroups"
+            }],
+            "limit": "community"
+        },
+        {
+            "id": "precincts",
+            "name": "Precincts",
+            "unitType": "Precincts",
+            "columnSets": [
+            {
+                "type": "population",
+                "name": "Population",
+                "total":
+                {
+                    "key": "TOTPOP",
+                    "name": "Total population",
+                    "sum": 2764056,
+                    "min": 0,
+                    "max": 6083
+                },
+                "subgroups": [
+                {
+                    "key": "NH_WHITE",
+                    "name": "White population",
+                    "sum": 2221862,
+                    "min": 0,
+                    "max": 5250
+                },
+                {
+                    "key": "NH_BLACK",
+                    "name": "Black population",
+                    "sum": 25953,
+                    "min": 0,
+                    "max": 276
+                },
+                {
+                    "key": "HISP",
+                    "name": "Hispanic population",
+                    "sum": 358378,
+                    "min": 0,
+                    "max": 2569
+                },
+                {
+                    "key": "NH_ASIAN",
+                    "name": "Asian population",
+                    "sum": 54178,
+                    "min": 0,
+                    "max": 1054
+                },
+                {
+                    "key": "NH_AMIN",
+                    "name": "American Indian population",
+                    "sum": 27078,
+                    "min": 0,
+                    "max": 1202
+                },
+                {
+                    "key": "NH_NHPI",
+                    "name": "Native Hawaiian and Pacific Islander population",
+                    "sum": 23913,
+                    "min": 0,
+                    "max": 455
+                },
+                {
+                    "key": "NH_2MORE",
+                    "name": "Two or more races",
+                    "sum": 48989,
+                    "min": 0,
+                    "max": 154
+                },
+                {
+                    "key": "NH_OTHER",
+                    "name": "Other races",
+                    "sum": 3721,
+                    "min": 0,
+                    "max": 89
+                }]
+            },
+            {
+                "type": "population",
+                "name": "Voting Age Population",
+                "total":
+                {
+                    "key": "VAP",
+                    "name": "Voting age population",
+                    "sum": 1892984,
+                    "min": 0,
+                    "max": 5797
+                },
+                "subgroups": [
+                {
+                    "key": "WVAP",
+                    "name": "White voting age population",
+                    "sum": 1563686,
+                    "min": 0,
+                    "max": 5056
+                },
+                {
+                    "key": "BVAP",
+                    "name": "Black voting age population",
+                    "sum": 16407,
+                    "min": 0,
+                    "max": 272
+                },
+                {
+                    "key": "HVAP",
+                    "name": "Hispanic voting age population",
+                    "sum": 214503,
+                    "min": 0,
+                    "max": 1511
+                },
+                {
+                    "key": "AMINVAP",
+                    "name": "Native American voting age population",
+                    "sum": 18434,
+                    "min": 0,
+                    "max": 758
+                },
+                {
+                    "key": "NHPIVAP",
+                    "name": "Native Hawaiian and Pacific Islander voting age population",
+                    "sum": 14719,
+                    "min": 0,
+                    "max": 253
+                },
+                {
+                    "key": "ASIANVAP",
+                    "name": "Asian voting age population",
+                    "sum": 41742,
+                    "min": 0,
+                    "max": 920
+                },
+                {
+                    "key": "OTHERVAP",
+                    "name": "Other races voting age population",
+                    "sum": 2285,
+                    "min": 0,
+                    "max": 85
+                },
+                {
+                    "key": "2MOREVAP",
+                    "name": "Two or more races voting age population",
+                    "sum": 21187,
+                    "min": 0,
+                    "max": 146
+                }]
+            },
+            {
+                "type": "election",
+                "subgroups": [
+                {
+                    "key": "PRES16R",
+                    "name": "Republican",
+                    "sum": 515081,
+                    "min": 0,
+                    "max": 1190
+                },
+                {
+                    "key": "PRES16D",
+                    "name": "Democratic",
+                    "sum": 310701,
+                    "min": 0,
+                    "max": 857
+                }],
+                "metadata":
+                {
+                    "race": "Presidential",
+                    "year": 2016
+                }
+            },
+            {
+                "type": "election",
+                "subgroups": [
+                {
+                    "key": "SEN16R",
+                    "name": "Republican",
+                    "sum": 759487,
+                    "min": 0,
+                    "max": 1831
+                },
+                {
+                    "key": "SEN16D",
+                    "name": "Democratic",
+                    "sum": 301952,
+                    "min": 0,
+                    "max": 900
+                }],
+                "metadata":
+                {
+                    "race": "Senate",
+                    "year": 2016
+                }
+            },
+            {
+                "type": "election",
+                "subgroups": [
+                {
+                    "key": "GOV16R",
+                    "name": "Republican",
+                    "sum": 750899,
+                    "min": 0,
+                    "max": 1794
+                },
+                {
+                    "key": "GOV16D",
+                    "name": "Democratic",
+                    "sum": 323157,
+                    "min": 0,
+                    "max": 989
+                }],
+                "metadata":
+                {
+                    "race": "Governor",
+                    "year": 2016
+                }
+            }],
+            "idColumn":
+            {
+                "name": "Precinct unique identifier",
+                "key": "DsslvID"
+            },
+            "bounds": [
+                [
+                    -114.0523,
+                    36.9979
+                ],
+                [
+                    -109.0411,
+                    42.002
+                ]
+            ],
+            "tilesets": [
+            {
+                "type": "fill",
+                "source":
+                {
+                    "type": "vector",
+                    "url": "mapbox://districtr.utah_precincts"
+                },
+                "sourceLayer": "utah_precincts"
+            },
+            {
+                "type": "circle",
+                "source":
+                {
+                    "type": "vector",
+                    "url": "mapbox://districtr.utah_precincts_points"
+                },
+                "sourceLayer": "utah_precincts_points"
+            }]
+        }],
+        "state": "Utah"
+    },
+    {
     "units": [
       {
-        "id": "blockgroups",
-        "name": "Block Groups",
-        "unitType": "Block Groups",
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "TOTPOP",
+              "key": "TOTPOP19",
               "name": "Total population",
-              "sum": 2763885,
+              "sum": 9648,
               "min": 0,
-              "max": 11672
+              "max": 512
             },
             "subgroups": [
               {
-                "key": "NH_WHITE",
+                "key": "NHISP19",
                 "name": "White population",
-                "sum": 2221719,
+                "sum": 8658,
                 "min": 0,
-                "max": 9803
+                "max": 478
               },
               {
-                "key": "NH_BLACK",
+                "key": "BLACK19",
                 "name": "Black population",
-                "sum": 25951,
+                "sum": 30,
                 "min": 0,
-                "max": 257
+                "max": 6
               },
               {
-                "key": "HISP",
+                "key": "HISP19",
                 "name": "Hispanic population",
-                "sum": 358340,
+                "sum": 989,
                 "min": 0,
-                "max": 1855
+                "max": 62
               },
               {
-                "key": "NH_ASIAN",
+                "key": "ASIAN19",
                 "name": "Asian population",
-                "sum": 54176,
+                "sum": 148,
                 "min": 0,
-                "max": 588
+                "max": 10
               },
               {
-                "key": "NH_AMIN",
+                "key": "AMIN19",
                 "name": "American Indian population",
-                "sum": 27081,
+                "sum": 327,
                 "min": 0,
-                "max": 1903
+                "max": 16
               },
               {
-                "key": "NH_NHPI",
+                "key": "NHPI19",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 23909,
+                "sum": 52,
                 "min": 0,
-                "max": 277
+                "max": 10
               },
               {
-                "key": "NH_2MORE",
+                "key": "2MORE19",
                 "name": "Two or more races",
-                "sum": 48985,
+                "sum": 127,
                 "min": 0,
-                "max": 294
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 3724,
-                "min": 0,
-                "max": 88
+                "max": 9
               }
             ]
           },
@@ -98,331 +520,63 @@
             "type": "population",
             "name": "Voting Age Population",
             "total": {
-              "key": "VAP",
+              "key": "VAP19",
               "name": "Voting age population",
-              "sum": 1892858,
+              "sum": 7622,
               "min": 0,
-              "max": 6852
+              "max": 424
             },
             "subgroups": [
               {
-                "key": "WVAP",
-                "name": "White voting age population",
-                "sum": 1563568,
-                "min": 0,
-                "max": 5842
-              },
-              {
-                "key": "BVAP",
-                "name": "Black voting age population",
-                "sum": 16407,
-                "min": 0,
-                "max": 256
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 214494,
-                "min": 0,
-                "max": 1052
-              },
-              {
-                "key": "AMINVAP",
-                "name": "Native American voting age population",
-                "sum": 18438,
-                "min": 0,
-                "max": 1229
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 14719,
-                "min": 0,
-                "max": 158
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian voting age population",
-                "sum": 41758,
-                "min": 0,
-                "max": 435
-              },
-              {
-                "key": "OTHERVAP",
-                "name": "Other races voting age population",
-                "sum": 2286,
-                "min": 0,
-                "max": 84
-              },
-              {
-                "key": "2MOREVAP",
-                "name": "Two or more races voting age population",
-                "sum": 21188,
-                "min": 0,
-                "max": 95
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Block group FIPS code",
-          "key": "GEOID10"
-        },
-        "bounds": [
-          [
-            -114.053,
-            36.9979
-          ],
-          [
-            -109.0411,
-            42.0016
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.utah_blockgroups_points"
-            },
-            "sourceLayer": "utah_blockgroups_points"
-          },
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.utah_blockgroups"
-            },
-            "sourceLayer": "utah_blockgroups"
-          }
-        ],
-        "limit": "community"
-      },
-      {
-        "id": "precincts",
-        "name": "Precincts",
-        "unitType": "Precincts",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "TOTPOP",
-              "name": "Total population",
-              "sum": 2764056,
-              "min": 0,
-              "max": 6083
-            },
-            "subgroups": [
-              {
-                "key": "NH_WHITE",
+                "key": "7_2019",
                 "name": "White population",
-                "sum": 2221862,
+                "sum": 6397,
                 "min": 0,
-                "max": 5250
+                "max": 419
               },
               {
-                "key": "NH_BLACK",
-                "name": "Black population",
-                "sum": 25953,
-                "min": 0,
-                "max": 276
-              },
-              {
-                "key": "HISP",
+                "key": "13_2019",
                 "name": "Hispanic population",
-                "sum": 358378,
+                "sum": 164,
                 "min": 0,
-                "max": 2569
+                "max": 11
               },
               {
-                "key": "NH_ASIAN",
+                "key": "4_2019",
                 "name": "Asian population",
-                "sum": 54178,
+                "sum": 52,
                 "min": 0,
-                "max": 1054
+                "max": 10
               },
               {
-                "key": "NH_AMIN",
+                "key": "3_2019",
                 "name": "American Indian population",
-                "sum": 27078,
+                "sum": 293,
                 "min": 0,
-                "max": 1202
+                "max": 15
               },
               {
-                "key": "NH_NHPI",
+                "key": "6_2019",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 23913,
+                "sum": 52,
                 "min": 0,
-                "max": 455
-              },
-              {
-                "key": "NH_2MORE",
-                "name": "Two or more races",
-                "sum": 48989,
-                "min": 0,
-                "max": 154
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 3721,
-                "min": 0,
-                "max": 89
+                "max": 10
               }
             ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "VAP",
-              "name": "Voting age population",
-              "sum": 1892984,
-              "min": 0,
-              "max": 5797
-            },
-            "subgroups": [
-              {
-                "key": "WVAP",
-                "name": "White voting age population",
-                "sum": 1563686,
-                "min": 0,
-                "max": 5056
-              },
-              {
-                "key": "BVAP",
-                "name": "Black voting age population",
-                "sum": 16407,
-                "min": 0,
-                "max": 272
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 214503,
-                "min": 0,
-                "max": 1511
-              },
-              {
-                "key": "AMINVAP",
-                "name": "Native American voting age population",
-                "sum": 18434,
-                "min": 0,
-                "max": 758
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 14719,
-                "min": 0,
-                "max": 253
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian voting age population",
-                "sum": 41742,
-                "min": 0,
-                "max": 920
-              },
-              {
-                "key": "OTHERVAP",
-                "name": "Other races voting age population",
-                "sum": 2285,
-                "min": 0,
-                "max": 85
-              },
-              {
-                "key": "2MOREVAP",
-                "name": "Two or more races voting age population",
-                "sum": 21187,
-                "min": 0,
-                "max": 146
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "subgroups": [
-              {
-                "key": "PRES16R",
-                "name": "Republican",
-                "sum": 515081,
-                "min": 0,
-                "max": 1190
-              },
-              {
-                "key": "PRES16D",
-                "name": "Democratic",
-                "sum": 310701,
-                "min": 0,
-                "max": 857
-              }
-            ],
-            "metadata": {
-              "race": "Presidential",
-              "year": 2016
-            }
-          },
-          {
-            "type": "election",
-            "subgroups": [
-              {
-                "key": "SEN16R",
-                "name": "Republican",
-                "sum": 759487,
-                "min": 0,
-                "max": 1831
-              },
-              {
-                "key": "SEN16D",
-                "name": "Democratic",
-                "sum": 301952,
-                "min": 0,
-                "max": 900
-              }
-            ],
-            "metadata": {
-              "race": "Senate",
-              "year": 2016
-            }
-          },
-          {
-            "type": "election",
-            "subgroups": [
-              {
-                "key": "GOV16R",
-                "name": "Republican",
-                "sum": 750899,
-                "min": 0,
-                "max": 1794
-              },
-              {
-                "key": "GOV16D",
-                "name": "Democratic",
-                "sum": 323157,
-                "min": 0,
-                "max": 989
-              }
-            ],
-            "metadata": {
-              "race": "Governor",
-              "year": 2016
-            }
           }
         ],
         "idColumn": {
-          "name": "Precinct unique identifier",
-          "key": "DsslvID"
+          "name": "Census Block ID",
+          "key": "GEOID"
         },
         "bounds": [
           [
-            -114.0523,
-            36.9979
+            -110.1793,
+            38.5
           ],
           [
-            -109.0411,
-            42.002
+            -109.0508,
+            39.4998
           ]
         ],
         "tilesets": [
@@ -430,21 +584,30 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.utah_precincts"
+              "url": "mapbox://districtr.grand_county_2_blocks"
             },
-            "sourceLayer": "utah_precincts"
+            "sourceLayer": "grand_county_2_blocks"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.utah_precincts_points"
+              "url": "mapbox://districtr.grand_county_2_blocks_points"
             },
-            "sourceLayer": "utah_precincts_points"
+            "sourceLayer": "grand_county_2_blocks_points"
           }
         ]
       }
     ],
-    "state": "Utah"
+    "id": "grand_county_2",
+    "name": "Grand County",
+    "state": "Utah",
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 5,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
   }
-]
+  ]
