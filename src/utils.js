@@ -416,9 +416,23 @@ export function spatial_abilities (id) {
           },
           fl_hills: {
             multiyear: 2019,
+            number_markers: true,
           },
           fl_orange: {
             multiyear: 2019,
+            number_markers: true,
+          },
+          fl_osceola: {
+            number_markers: true,
+          },
+          orlando: {
+            number_markers: true,
+          },
+          tampa: {
+            number_markers: true,
+          },
+          kissimmee: {
+            number_markers: true,
           },
       georgia: {
         number_markers: true,
