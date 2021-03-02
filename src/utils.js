@@ -364,12 +364,27 @@ export function spatial_abilities (id) {
         ca_SanDiego: {
           native_american: true,
           multiyear: 2019,
+          number_markers: true,
         },
         ca_CCosta: {
           multiyear: 2019,
+          number_markers: true,
         },
         ca_amador: {
           native_american: true,
+          number_markers: true,
+        },
+        ca_alturas: {
+          number_markers: true,
+        },
+        ca_SanBenito: {
+          number_markers: true,
+        },
+        ca_sutter: {
+          number_markers: true,
+        },
+        ca_lockwood: {
+          number_markers: true,
         },
       chicago: {
         number_markers: true,
