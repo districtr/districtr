@@ -361,6 +361,38 @@ export function spatial_abilities (id) {
           multiyear: 2018,
           shapefile: true,
         },
+        ca_SanDiego: {
+          native_american: true,
+          multiyear: 2019,
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_CCosta: {
+          multiyear: 2019,
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_amador: {
+          native_american: true,
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_alturas: {
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_SanBenito: {
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_sutter: {
+          number_markers: true,
+          shapefile: true,
+        },
+        ca_lockwood: {
+          number_markers: true,
+          shapefile: true,
+        },
       chicago: {
         number_markers: true,
       },

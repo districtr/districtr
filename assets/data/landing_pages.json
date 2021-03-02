@@ -204,9 +204,9 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
-      {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
+      {"name": "Counties", "ids": ["lax", "ca_amador", "ca_SanBenito", "ca_SanDiego", "ca_sutter"], "id": "counties"},
+      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_alturas"], "id": "loc"},
+      {"name": "Other Districts", "ids": ["napaschools", "ca_lockwood"], "id": "schools"}
     ],
     "sections": [
       {
