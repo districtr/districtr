@@ -368,6 +368,9 @@ export function spatial_abilities (id) {
           native_american: true,
           multiyear: 2019,
         },
+        ca_alturas: {
+          
+        },
       chicago: {
         number_markers: true,
       },

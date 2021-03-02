@@ -2351,5 +2351,196 @@
         "pluralNoun": "County Board Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 2871,
+              "min": 0,
+              "max": 137
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 2326,
+                "min": 0,
+                "max": 111
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 14,
+                "min": 0,
+                "max": 2
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 348,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 40,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 59,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 7,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 74,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 3,
+                "min": 0,
+                "max": 3
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2158,
+              "min": 0,
+              "max": 95
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1786,
+                "min": 0,
+                "max": 80
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 9,
+                "min": 0,
+                "max": 2
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 222,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 51,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 7,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 33,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 3,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 47,
+                "min": 0,
+                "max": 5
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -120.6166,
+            41.4522
+          ],
+          [
+            -120.5255,
+            41.5058
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_alturas_blocks_points"
+            },
+            "sourceLayer": "ca_alturas_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_alturas_blocks"
+            },
+            "sourceLayer": "ca_alturas_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Alturas",
+    "id": "ca_alturas",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
