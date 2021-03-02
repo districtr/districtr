@@ -41,7 +41,7 @@ export function renderSaveModal(state, savePlanToDB) {
                     You can share your current plan by copying this URL:
                     <code>https://${window.location.host}/${action}/${_id}</code>
                     <br/>
-                    <label>Have an event code?</label>
+                    <label>Add tags? (events, organizations)</label>
                     <input
                         id="event-coder"
                         type="text"

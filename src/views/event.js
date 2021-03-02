@@ -172,7 +172,7 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {
-        render("Event code not recognized", target);
+        render("Tag or Organization not recognized", target);
     }
 };
 
