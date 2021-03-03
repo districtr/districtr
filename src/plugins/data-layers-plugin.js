@@ -469,6 +469,11 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    let supportMultiYear = state.units.id.includes("blockgroup");
+    if (state.place.id === "chicago" && state.units.id.includes("precinct")) {
+      supportMultiYear = true;
+    }
+
     const demographicsOverlay = new OverlayContainer(
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
@@ -476,7 +481,7 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
-        (state.units.id.includes("blockgroups") ? spatial_abilities(state.place.id).multiyear : null) // multiple years
+        (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 

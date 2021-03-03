@@ -15,6 +15,12 @@ export const partyRGBColors = {
     "Nuevo Progresista": [102, 102, 204],
     "Popular Democrático": [255, 102, 51],
 
+    // Chicago
+    "Rahm Emanuel": [250,179,71],
+    "Jesus \u201cChuy\u201d Garc\u00eda": [90,180,122],
+    "Lori Lightfoot": [250,179,71],
+    "Toni Preckwinkle": [90,180,122],
+
     // rent bipolar
     'Owner-occupied': [250,179,71],
     'Renter-occupied': [90,180,122],

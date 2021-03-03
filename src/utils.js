@@ -363,6 +363,7 @@ export function spatial_abilities (id) {
         },
       chicago: {
         number_markers: true,
+        multiyear: 2019,
       },
       colorado: {
         number_markers: true,
