@@ -89,19 +89,21 @@ export default function DataLayersPlugin(editor) {
     }
 
     // city border within county
-    if (["miamidade", "olmsted"].includes(state.place.id)) {
+    if (["miamidade", "olmsted", "buncombe"].includes(state.place.id)) {
         let miami = null,
             cityid = {
               miamidade: "miamifl",
               olmsted: "rochestermn",
+              buncombe: "asheville",
             },
             cityname = {
               miamidade: "City of Miami",
               olmsted: "Rochester",
+              buncombe: "Asheville",
             };
 
         fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
-            state.map.addSource('city_border', {
+            state.map.addSource('togglecity_border', {
                 type: 'geojson',
                 data: border
             });
@@ -109,8 +111,8 @@ export default function DataLayersPlugin(editor) {
             miami = new Layer(
                 state.map,
                 {
-                    id: "city_border",
-                    source: "city_border",
+                    id: "togglecity_border",
+                    source: "togglecity_border",
                     type: "line",
                     paint: {
                         "line-color": "#000",

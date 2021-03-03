@@ -648,6 +648,12 @@ export function spatial_abilities (id) {
             screenshot: true,
             shapefile: true,
           },
+          buncombe: {
+            contiguity: 2,
+            screenshot: true,
+            shapefile: true,
+            number_markers: true,
+          },
       northdakota: {
         multiyear: 2018,
         native_american: true,
