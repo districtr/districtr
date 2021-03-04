@@ -611,6 +611,7 @@ export function spatial_abilities (id) {
         screenshot: true,
         shapefile: true,
         find_unpainted: true,
+        coalition: true,
       },
         new_mexico_bg: {
           native_american: true,
@@ -618,6 +619,7 @@ export function spatial_abilities (id) {
           screenshot: true,
           current_districts: true,
           county_brush: true,
+          coalition: true,
           // find_unpainted: true,
         },
         santafe: {
@@ -625,6 +627,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           screenshot: true,
           shapefile: true,
+          coalition: true,
           // find_unpainted: true,
         },
       newyork: {
