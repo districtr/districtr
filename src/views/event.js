@@ -18,6 +18,7 @@ const stateForEvent = {
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
+  ttt: 'Colorado',
 };
 
 const validEventCodes = {
@@ -36,6 +37,7 @@ const validEventCodes = {
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
+  ttt: 'colorado',
 };
 
 const blockPlans = {
@@ -86,6 +88,7 @@ const eventDescriptions = {
   'open-maps': 'Welcome to the event page for Open MAPS!',
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
+  ttt: 'Training the Trainers',
 };
 
 const longAbout = {
