@@ -150,7 +150,7 @@ export default () => {
                         place.units = place.units.filter(u => unitTypes[eventCode].yes.includes(u.name));
                     }
                 }
-                const mydiv = document.createElement('div');
+                const mydiv = document.createElement('li');
                 target.append(mydiv);
                 render(placeItems(place, startNewPlan, eventCode), mydiv);
             });
