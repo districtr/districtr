@@ -12,29 +12,8 @@ function datasetInfo(state) {
         units = state.unitsRecord,
         place = state.place,
         populations = {
-            census: "This plan's population statistics are drawn from the " +
-                "<strong>2010 United States Census</strong>. Most states require the use of " +
-                "data from the most recent decennial Census in their redistricting " +
-                "processes. Constitutionally mandated to be conducted every ten " +
-                "years, this dataset is extremely broad, with more than 18,000 " +
-                "data points collected across varying levels of geography. This " +
-                "data is available at the <strong>Census block </strong> level, " +
-                "and has been aggregated from the block level to " +
-                place.name + "'s " + units.unitType + ".",
-            acs: "This plan's population statistics are drawn from the " +
-                "<strong>2019 American Community Survey five-year estimates</strong>. " +
-                "This dataset is produced by the United States Census Bureau, " +
-                "which samples approximately 3.5 million households and uses " +
-                "statistical methods to extrapolate findings from that sample " +
-                "– as well as existing data – to a nationwide dataset similar to " +
-                "the Census. The ACS is not as granular as the Census, and is " +
-                "available at the Census block group level. " +
-                (units.unitType.toLowerCase() !== "block groups" ? "Because " +
-                    "this plan's base units are not Census block groups, the data " +
-                    "attached have undergone a dis- and re-aggregation process: by " +
-                    "breaking the data down into smaller geographic parts, we can " +
-                    "fit those smaller parts together to build " + place.name + "'s "
-                    + units.unitType + ". " : "")
+            census: "Uses <strong>2010 Decennial Census</strong> data.",
+            acs: "Uses <strong>2019 American Community Survey</strong> data."
         };
     
     if (place.id.toLowerCase() === "wisco2019acs" || population.name !== "Population") {

@@ -32,9 +32,13 @@
 
 .toolbar-inner {
   display: flex;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   font-size: 0.8rem;
   text-align: justify;
+}
+
+.dataset-info > p {
+  margin: 0;
 }
 
 .dataset-info > span {

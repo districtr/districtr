@@ -68,12 +68,14 @@ export default function PopulationBalancePlugin(editor) {
         tab.addRevealSection(
             "Population Balance",
             () => html`
+                <section class="toolbar-inner dataset-info">
+                    ${populateDatasetInfo(state)};
+                </section>
                 ${MultiMemberPopBalanceChart(state.population, state.parts)}
                 <dl class="report-data-list">
                     ${unassignedPopulation(state.population)}
                     ${HighlightUnassigned(state.unitsBorders, zoomToUnassigned)}
                 </dl>
-                <section class="toolbar-inner dataset-info"></section>
             `
         );
     } else {
@@ -81,15 +83,15 @@ export default function PopulationBalancePlugin(editor) {
             "Population Balance",
             () =>
                 html`
+                    <section class="toolbar-inner dataset-info">
+                        ${populateDatasetInfo(state)};
+                    </section>
                     ${populationBarChart(state.population, state.activeParts)}
                     <dl class="report-data-list">
                         ${unassignedPopulation(state.population)}
                         ${populationDeviation(state.population)}
                         ${HighlightUnassigned(state.unitsBorders, zoomToUnassigned)}
                     </dl>
-                    <section class="toolbar-inner dataset-info">
-                        ${populateDatasetInfo(state)}
-                    </section>
                 `
         );
     }
