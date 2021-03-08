@@ -6,6 +6,7 @@ const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
   'unca-forsyth': 'North Carolina',
+  buncombe: 'North Carolina',
   'common cause md ss': 'Maryland',
   'commoncause md ss': 'Maryland',
   'cc-md-ss': 'Maryland',
@@ -25,6 +26,7 @@ const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
   'unca-forsyth': 'forsyth_nc',
+  buncombe: 'buncombe',
   'common cause md ss': 'maryland',
   'commoncause md ss': 'maryland',
   'cc-md-ss': 'maryland',
@@ -54,6 +56,7 @@ const unitTypes = {
 const unitCounts = {
   'unca-forsyth': 101,
   centralsan: 5086,
+  buncombe: 67,
 };
 
 const coi_events = [
@@ -75,7 +78,7 @@ const coi_events = [
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
-
+  buncombe: 'Welcome to the event page for Buncombe County!',
   'common cause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'commoncause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
