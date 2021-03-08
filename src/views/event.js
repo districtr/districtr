@@ -6,6 +6,7 @@ const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
   'unca-forsyth': 'North Carolina',
+  buncombe: 'North Carolina',
   'common cause md ss': 'Maryland',
   'commoncause md ss': 'Maryland',
   'cc-md-ss': 'Maryland',
@@ -18,12 +19,14 @@ const stateForEvent = {
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
+  ttt: 'Colorado',
 };
 
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
   'unca-forsyth': 'forsyth_nc',
+  buncombe: 'buncombe',
   'common cause md ss': 'maryland',
   'commoncause md ss': 'maryland',
   'cc-md-ss': 'maryland',
@@ -36,6 +39,7 @@ const validEventCodes = {
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
+  ttt: 'colorado',
 };
 
 const blockPlans = {
@@ -52,6 +56,7 @@ const unitTypes = {
 const unitCounts = {
   'unca-forsyth': 101,
   centralsan: 5086,
+  buncombe: 67,
 };
 
 const coi_events = [
@@ -73,7 +78,7 @@ const coi_events = [
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
-
+  buncombe: 'Welcome to the event page for Buncombe County!',
   'common cause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'commoncause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
@@ -86,6 +91,7 @@ const eventDescriptions = {
   'open-maps': 'Welcome to the event page for Open MAPS!',
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
+  ttt: 'Training the Trainers',
 };
 
 const longAbout = {
@@ -172,7 +178,7 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {
-        render("Event code not recognized", target);
+        render("Tag or Organization not recognized", target);
     }
 };
 

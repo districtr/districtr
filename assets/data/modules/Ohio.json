@@ -862,7 +862,7 @@
     ]
   },
   {
-    "name": "Appalachian Region",
+    "name": "Northeast-Central Region",
     "id": "ohakron",
     "limit": "community",
     "state": "Ohio",
@@ -2498,7 +2498,7 @@
         ]
       }
     ],
-    "name": "Southeast Region",
+    "name": "Appalachia Region",
     "id": "ohse",
     "limit": "community",
     "districtingProblems": [

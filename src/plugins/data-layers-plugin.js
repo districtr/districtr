@@ -89,19 +89,21 @@ export default function DataLayersPlugin(editor) {
     }
 
     // city border within county
-    if (["miamidade", "olmsted"].includes(state.place.id)) {
+    if (["miamidade", "olmsted", "buncombe"].includes(state.place.id)) {
         let miami = null,
             cityid = {
               miamidade: "miamifl",
               olmsted: "rochestermn",
+              buncombe: "asheville",
             },
             cityname = {
               miamidade: "City of Miami",
               olmsted: "Rochester",
+              buncombe: "Asheville",
             };
 
         fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
-            state.map.addSource('city_border', {
+            state.map.addSource('togglecity_border', {
                 type: 'geojson',
                 data: border
             });
@@ -109,8 +111,8 @@ export default function DataLayersPlugin(editor) {
             miami = new Layer(
                 state.map,
                 {
-                    id: "city_border",
-                    source: "city_border",
+                    id: "togglecity_border",
+                    source: "togglecity_border",
                     type: "line",
                     paint: {
                         "line-color": "#000",
@@ -239,8 +241,9 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
-        fetch(`/assets/current_districts/ohschools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana"].includes(state.place.id)) {
+        const st = state.place.id === "indiana" ? "in" : "oh";
+        fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
                 data: school_gj
@@ -255,7 +258,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            fetch(`/assets/current_districts/ohschools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+            fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
                 state.map.addSource('school_centroids', {
                     type: 'geojson',
                     data: school_centroids
@@ -283,7 +286,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (state.place.id !== "ohcentral") {
+                if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -359,7 +362,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -374,7 +377,7 @@ export default function DataLayersPlugin(editor) {
                 <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
                 Hidden
               </label>
-              ${state.place.id === "ohcentral" ? html`<label style="display:block;margin-bottom:8px;">
+              ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
                 <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
                 Cities and Towns
               </label>` : ""}
@@ -469,6 +472,11 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    let supportMultiYear = state.units.id.includes("blockgroup");
+    if (state.place.id === "chicago" && state.units.id.includes("precinct")) {
+      supportMultiYear = true;
+    }
+
     const demographicsOverlay = new OverlayContainer(
         "demographics",
         demoLayers.filter(lyr => !lyr.background),
@@ -476,7 +484,7 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
-        (state.units.id.includes("blockgroups") ? spatial_abilities(state.place.id).multiyear : null) // multiple years
+        (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 

@@ -5,6 +5,8 @@
 /COI/* /COI.html 200
 /edit/* /edit.html 200
 /event/* /event.html 200
+/tag/* /tag.html 200
+/group/* /group.html 200
 /user_guide /guide
 
 ## Landing Pages

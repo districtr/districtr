@@ -115,7 +115,8 @@ export default class Toolbar {
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
                         <br/>
-                        <label>Have an event code?</label>
+                        <label>Tag or Event Code</label>
+                        <br/>
                         <input
                             id="event-coder-popup"
                             type="text"
@@ -133,10 +134,12 @@ export default class Toolbar {
                               id="event-plan-name-popup"
                               type="text"
                               class="text-input"
+                              autofill="off"
                               value=""
                               @input="${() => document.getElementById("re-save-popup").disabled = false}"
                           />
                         </div>
+                        <br/>
                         <button
                             id="re-save-popup"
                             disabled
@@ -150,7 +153,7 @@ export default class Toolbar {
                                 );
                             }}"
                         >
-                            Add to Event
+                            Tag your map
                         </button>
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}

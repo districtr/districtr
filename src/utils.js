@@ -363,6 +363,7 @@ export function spatial_abilities (id) {
         },
       chicago: {
         number_markers: true,
+        multiyear: 2019,
       },
       colorado: {
         number_markers: true,
@@ -610,6 +611,7 @@ export function spatial_abilities (id) {
         screenshot: true,
         shapefile: true,
         find_unpainted: true,
+        coalition: true,
       },
         new_mexico_bg: {
           native_american: true,
@@ -617,6 +619,7 @@ export function spatial_abilities (id) {
           screenshot: true,
           current_districts: true,
           county_brush: true,
+          coalition: true,
           // find_unpainted: true,
         },
         santafe: {
@@ -624,6 +627,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           screenshot: true,
           shapefile: true,
+          coalition: true,
           // find_unpainted: true,
         },
       newyork: {
@@ -646,6 +650,12 @@ export function spatial_abilities (id) {
             contiguity: 2,
             screenshot: true,
             shapefile: true,
+          },
+          buncombe: {
+            contiguity: 2,
+            screenshot: true,
+            shapefile: true,
+            number_markers: true,
           },
       northdakota: {
         multiyear: 2018,
