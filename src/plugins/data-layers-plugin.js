@@ -241,8 +241,9 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
-        fetch(`/assets/current_districts/ohschools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana"].includes(state.place.id)) {
+        const st = state.place.id === "indiana" ? "in" : "oh";
+        fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
                 data: school_gj
@@ -257,7 +258,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            fetch(`/assets/current_districts/ohschools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+            fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
                 state.map.addSource('school_centroids', {
                     type: 'geojson',
                     data: school_centroids
@@ -285,7 +286,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (state.place.id !== "ohcentral") {
+                if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -361,7 +362,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -376,7 +377,7 @@ export default function DataLayersPlugin(editor) {
                 <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
                 Hidden
               </label>
-              ${state.place.id === "ohcentral" ? html`<label style="display:block;margin-bottom:8px;">
+              ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
                 <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
                 Cities and Towns
               </label>` : ""}
