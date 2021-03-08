@@ -669,6 +669,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        screenshot: true,
         // find_unpainted: true - needs contiguity
       },
         ohcentral: {

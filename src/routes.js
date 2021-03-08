@@ -103,6 +103,10 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         .catch(e => callback(null));
     };
     if (eventCode && spatial_abilities(state.place.id).screenshot) {
+        if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
+            // enabled on Ohio blockgroups, not precincts
+            return;
+        }
         fetch("//mggg.pythonanywhere.com/picture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
