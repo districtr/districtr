@@ -15,6 +15,7 @@ const stateForEvent = {
   centralsan: 'California',
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
+  pmc: 'Wisconsin',
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
@@ -35,6 +36,7 @@ const validEventCodes = {
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
+  pmc: ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
@@ -48,6 +50,7 @@ const blockPlans = {
 
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
+  pmc: {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
@@ -69,6 +72,7 @@ const coi_events = [
   // 'santafe',
   'mggg-nm',
   'pmc-demo',
+  'pmc',
   'powercoalition',
   'open-maps',
   'fair-districts-oh',
@@ -87,6 +91,7 @@ const eventDescriptions = {
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
+  pmc: 'Welcome to the COI collection page for Wisconsin PMC',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': 'Welcome to the event page for Open MAPS!',
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
@@ -101,7 +106,6 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
-  "pmc-demo": "",
 };
 
 const proposals_by_event = {
