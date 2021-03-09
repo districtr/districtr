@@ -537,6 +537,9 @@ li:first-child > input:checked ~ .tabs__tab {
     transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
     pointer-events: none;
 }
+.elect_tooltip_right_edge {
+    margin-left: -100%;
+}
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .elect_tooltip:hover .elect_tooltiptext {

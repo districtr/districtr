@@ -146,7 +146,7 @@ function sortElects(elects) {
 
 function getPrimTable(dist, elects, group, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">Group Control
-                                            <div class="elect_tooltiptext">Estimated ${group} share in the support received by CoC</div>
+                                            <div class="elect_tooltiptext elect_tooltip_right_edge">Estimated ${group} share in the support received by CoC</div>
                                     </div>`;
     const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
