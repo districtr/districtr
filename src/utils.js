@@ -669,6 +669,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        screenshot: true,
         // find_unpainted: true - needs contiguity
       },
         ohcentral: {
@@ -716,42 +717,62 @@ export function spatial_abilities (id) {
         akroncanton: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         cincinnati: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         clevelandeuclid: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         columbus: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         dayton: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         limaoh: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         mansfield: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         portsmouthoh: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         toledo: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         youngstown: {
           number_markers: true,
           coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
       oklahoma: {
         number_markers: true,
