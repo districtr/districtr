@@ -93,7 +93,11 @@ const eventDescriptions = {
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
   pmc: 'Welcome to the COI collection page for Wisconsin PMC',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
-  'open-maps': 'Welcome to the event page for Open MAPS!',
+  'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
+  <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
+  <p>Our goal is to <strong>collect over 500 community maps and narratives</strong>. Our team will synthesize these maps in a final report that we will submit to Ohio's politician redistricting commission.</p>\
+  <p>Ohio residents, you can participate by drawing and describing Ohio communities in one of our modules. When you click “Share” to save your map, <strong>enter the tag “OPEN-maps”</strong> to post your map on this public submission page!</p>\
+  <p>Visit our <a href='https://districtr.org/training' target='_blank'>training resources</a> page to learn more about Communities of Interest and prompts that you can answer to describe your community. Join one of our Districtr train-the-trainers to learn more about why communities matter and how to collect useful narratives.</p>",
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
