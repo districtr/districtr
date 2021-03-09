@@ -41,7 +41,7 @@ const validEventCodes = {
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
-  ttt: 'colorado',
+  ttt: [],
 };
 
 const blockPlans = {
@@ -135,6 +135,10 @@ export default () => {
         const target = document.getElementById("districting-options");
         if (typeof validEventCodes[eventCode] === 'string') {
             validEventCodes[eventCode] = [validEventCodes[eventCode]];
+        }
+        if (!validEventCodes[eventCode].length) {
+            document.getElementById("communities").style.display = "none";
+            document.getElementsByTagName("p")[0].style.display = "none";
         }
 
         listPlacesForState(stateForEvent[eventCode], coi_events.includes(eventCode)).then(places => {
