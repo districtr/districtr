@@ -6,7 +6,6 @@ import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
 import populationBarChart from "../components/Charts/PopulationBarChart";
 import populationDeviation from "../components/Charts/PopulationDeviation";
 import unassignedPopulation from "../components/Charts/UnassignedPopulation";
-import { spatial_abilities } from "../utils";
 
 export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
