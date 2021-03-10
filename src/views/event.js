@@ -1,6 +1,9 @@
-import { html, render } from "lit-html";
+import { svg, html, render } from "lit-html";
 import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
+
+import { geoPath } from "d3-geo";
+import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 
 const stateForEvent = {
   test: 'Pennsylvania',
@@ -132,6 +135,47 @@ export default () => {
         if (longAbout[eventCode]) {
             document.getElementById("about-section").style.display = "block";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
+        }
+
+        if (eventCode === "open-maps") {
+          // ohio mini-map
+          document.getElementById("mini-map").style.display = "block";
+          const scale = 3200;
+          const translate = [-440, 240];
+          const path = geoPath(
+              geoAlbersUsaTerritories()
+                  .scale(scale)
+                  .translate(translate)
+          ).pointRadius(2);
+          fetch("/assets/oh-zone-map.geojson").then(res => res.json()).then(gj => {
+            render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+              <g id="states-group" @mouseleave=${() => {}}>
+                ${gj.features.map((feature, idx) => {
+                    // console.log(feature);
+                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                        style="cursor:default"
+                        d="${path(feature)}"
+                        @click=${(e) => {
+                          let support = [
+                            ["ohio", "toledo", "lima"],
+                            ["ohio", "portsmouth"],
+                            ["ohio", "cleveland-euclid"],
+                            ["ohio", "cincinnati", "dayton"],
+                            ["ohio", "akron-canton", "youngstown"],
+                            ["ohio", "columbus", "mansfield"]
+                          ][idx];
+                          document.querySelectorAll("#states-group path").forEach((zone, idx2) => {
+                              zone.style.fill = (idx === idx2) ? "orange" : "#0099cd";
+                          });
+                          document.querySelectorAll(".pcommunity").forEach((block) => {
+                              console.log(block.innerText);
+                              block.style.display = (support.includes(block.innerText.trim().split("\n")[0].toLowerCase())) ? "block" : "none";
+                          });
+                        }}></path>`;
+                })}
+                </g>
+              </svg>`, document.getElementById("mini-map"));
+          });
         }
 
         document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
