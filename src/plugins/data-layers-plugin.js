@@ -422,7 +422,7 @@ export default function DataLayersPlugin(editor) {
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
-    if (spatial_abilities(state.place.id).coalition) {
+    if (spatial_abilities(state.place.id).coalition !== false) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -483,7 +483,7 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
+        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population", // coalition subgroup
         (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
@@ -496,7 +496,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show voting age population (VAP)",
             false,
-            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
