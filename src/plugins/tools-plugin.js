@@ -35,7 +35,7 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let planNumbers = NumberMarkers(state, brush);
+    window.planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
         : null;
@@ -49,8 +49,8 @@ export default function ToolsPlugin(editor) {
             vraEffectiveness(state, colorsAffected);
         }
 
-        if (planNumbers) {
-            planNumbers.update(state, colorsAffected);
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+            window.planNumbers.update(state, colorsAffected);
         }
     });
 

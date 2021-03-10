@@ -7,7 +7,6 @@ import { getPartyRGBColors } from "../layers/color-rules";
 
 export default class PartisanOverlayContainer {
     constructor(id, layers, elections, toolbar) {
-        console.log(toolbar);
         this._id = id;
         this.elections = elections;
         this.layers = layers;

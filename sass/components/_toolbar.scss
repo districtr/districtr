@@ -512,6 +512,28 @@ li:first-child > input:checked ~ .tabs__tab {
     }
 }
 
+.landmark-list {
+    button {
+      background-color: #0099cd;
+      color: #fff;
+      cursor: pointer;
+  
+      img {
+        display: inline-block;
+        width: 28px;
+        vertical-align: middle;
+      }
+    }
+  
+    .option-list__item {
+      margin-bottom: 0.5rem;
+    }
+  
+    #landmark-instruction {
+      visibility: hidden;
+    }
+  }
+
 .elect_tooltip {
     position: relative;
     // display: inline-block;
