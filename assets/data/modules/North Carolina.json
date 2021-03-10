@@ -1,5 +1,376 @@
 [
   {
+    "id": "buncombe",
+    "state": "North Carolina",
+    "name": "Buncombe County",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2008 Governor",
+            "subgroups": [
+              {
+                "key": "EL08G_GV_D",
+                "name": "Democratic",
+                "sum": 69671,
+                "min": 188,
+                "max": 2921
+              },
+              {
+                "key": "EL08G_GV_R",
+                "name": "Republican",
+                "sum": 47246,
+                "min": 71,
+                "max": 2225
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 Senate",
+            "subgroups": [
+              {
+                "key": "EL08G_USS_",
+                "name": "Democratic",
+                "sum": 70667,
+                "min": 194,
+                "max": 2957
+              },
+              {
+                "key": "EL08G_US_1",
+                "name": "Republican",
+                "sum": 46822,
+                "min": 68,
+                "max": 2111
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 Senate",
+            "subgroups": [
+              {
+                "key": "EL10G_USS_",
+                "name": "Democratic",
+                "sum": 38995,
+                "min": 118,
+                "max": 1634
+              },
+              {
+                "key": "EL10G_US_1",
+                "name": "Republican",
+                "sum": 36605,
+                "min": 35,
+                "max": 1713
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Governor",
+            "subgroups": [
+              {
+                "key": "EL12G_GV_D",
+                "name": "Democratic",
+                "sum": 64382,
+                "min": 155,
+                "max": 2789
+              },
+              {
+                "key": "EL12G_GV_R",
+                "name": "Republican",
+                "sum": 57539,
+                "min": 65,
+                "max": 2872
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "EL14G_USS_",
+                "name": "Democratic",
+                "sum": 33872,
+                "min": 24,
+                "max": 1649
+              },
+              {
+                "key": "EL14G_US_1",
+                "name": "Republican",
+                "sum": 49455,
+                "min": 132,
+                "max": 1969
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "EL12G_PR_D",
+                "name": "Democratic",
+                "sum": 70618,
+                "min": 158,
+                "max": 3043
+              },
+              {
+                "key": "EL12G_PR_R",
+                "name": "Republican",
+                "sum": 54699,
+                "min": 52,
+                "max": 2728
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "EL16G_PR_D",
+                "name": "Democratic",
+                "sum": 75449,
+                "min": 160,
+                "max": 3351
+              },
+              {
+                "key": "EL16G_PR_R",
+                "name": "Republican",
+                "sum": 55715,
+                "min": 69,
+                "max": 2550
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "EL16G_US_1",
+                "name": "Democratic",
+                "sum": 75891,
+                "min": 186,
+                "max": 3198
+              },
+              {
+                "key": "EL16G_USS_",
+                "name": "Republican",
+                "sum": 56089,
+                "min": 77,
+                "max": 2691
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor",
+            "subgroups": [
+              {
+                "key": "EL16G_GV_D",
+                "name": "Democratic",
+                "sum": 81872,
+                "min": 183,
+                "max": 3552
+              },
+              {
+                "key": "EL16G_GV_R",
+                "name": "Republican",
+                "sum": 51876,
+                "min": 69,
+                "max": 2403
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 238318,
+              "min": 790,
+              "max": 10497
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 201241,
+                "min": 745,
+                "max": 7837
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 14979,
+                "min": 1,
+                "max": 1793
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 14254,
+                "min": 13,
+                "max": 1448
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2388,
+                "min": 2,
+                "max": 278
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 778,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 271,
+                "min": 0,
+                "max": 153
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 4072,
+                "min": 5,
+                "max": 239
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 335,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 189478,
+              "min": 601,
+              "max": 7904
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 164652,
+                "min": 573,
+                "max": 6223
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 11086,
+                "min": 0,
+                "max": 1393
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 8908,
+                "min": 8,
+                "max": 847
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 647,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 166,
+                "min": 0,
+                "max": 79
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1769,
+                "min": 2,
+                "max": 207
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 171,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 2079,
+                "min": 2,
+                "max": 106
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD ID",
+          "key": "VTD"
+        },
+        "bounds": [
+          [
+            -82.8878,
+            35.4166
+          ],
+          [
+            -82.169,
+            35.8241
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.buncombe_precincts_points"
+            },
+            "sourceLayer": "buncombe_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.buncombe_precincts"
+            },
+            "sourceLayer": "buncombe_precincts"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 3,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
+  },
+  {
     "units": [
       {
         "id": "precincts",

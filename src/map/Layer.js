@@ -1,5 +1,5 @@
 import { isString } from "../utils";
-import { blendColors } from "../colors";
+import { blendColors, changeColorLuminance } from "../colors";
 
 // The addBelowLabels method gives the right look on the Mapbox "streets" basemap,
 // while addBelowSymbols gives the right look on the "light" basemap.
@@ -116,17 +116,42 @@ export default class Layer {
                 if (filter(feature)) {
                     undoInfo[feature.id] = {
                         properties: feature.properties,
-                        color: String(feature.state.color)
+                        color: feature.state.color
                     };
                     tallyListeners.forEach((listener) => {
                         listener(feature, setState.color);
                     });
 
+                    let finalColor;
+                    if (setState.multicolor && (feature.state.color || (feature.state.color === 0))) {
+                        if (feature.state.color && feature.state.color.length) {
+                            finalColor = feature.state.color;
+                            if (!feature.state.color.includes(setState.color)) {
+                                finalColor.push(setState.color);
+                            }
+                        } else if ((feature.state.color !== setState.color) && (feature.state.color || (feature.state.color === 0))) {
+                            finalColor = [feature.state.color, setState.color];
+                        } else {
+                            finalColor = setState.color;
+                        }
+                        // else you already have this color
+                    } else {
+                        finalColor = setState.color;
+                    }
+
+                    let useBlendColor = Array.isArray(finalColor) && (finalColor.length > 1),
+                        blendColor = Array.isArray(finalColor) ? blendColors(finalColor) : finalColor;
+
                     this.setFeatureState(feature.id, {
                         ...feature.state,
-                        color: setState.color
+                        color: finalColor,
+                        useBlendColor: useBlendColor,
+                        blendColor: blendColor,
+                        blendHoverColor: useBlendColor ? changeColorLuminance(blendColor, -0.3) : "#ccc"
                     });
-                    feature.state.color = setState.color;
+                    feature.state.color = finalColor;
+                    feature.state.useBlendColor = useBlendColor;
+                    feature.state.blendColor = blendColor;
                 }
             }
         });

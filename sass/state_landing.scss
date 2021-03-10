@@ -149,6 +149,10 @@ label:hover {
     //color: #92e3ff;
 }
 
+input[type=checkbox]
+{
+    display:none;
+}
 
 input[type=radio]
 {
@@ -463,7 +467,7 @@ td {
   padding: 0.5rem;
 }
 
-caption { 
+caption {
   display: table-caption;
   text-align: top center;
   background: #000;

@@ -4,7 +4,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-import LandmarkTool from "../components/Toolbar/LandmarkTool";
+// import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
@@ -27,7 +27,7 @@ export default function ToolsPlugin(editor) {
 
     let brushOptions = {
         community: (state.problem.type === "community"),
-        county_brush: ((spatial_abilities(state.place.id).county_brush && (state.problem.type !== "community"))
+        county_brush: ((spatial_abilities(state.place.id).county_brush)
             ? new HoverWithRadius(state.counties, 20)
             : null),
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
@@ -56,7 +56,6 @@ export default function ToolsPlugin(editor) {
 
     let tools = [
         new PanTool(),
-        (state.problem.type === "community" && new LandmarkTool(state)),
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
@@ -176,6 +175,10 @@ function getMenuItems(state) {
             onClick: () => navigateTo("/new")
         },
         {
+            name: "Print / PDF",
+            onClick: () => window.print()
+        },
+        {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
@@ -191,6 +194,10 @@ function getMenuItems(state) {
             id: "mobile-upload",
             name: "Share plan",
             onClick: () => renderSaveModal(state, savePlanToDB)
+        },
+        {
+            name: "About import/export options",
+            onClick: () => window.open("/import-export", "_blank")
         }
     ];
     return items;

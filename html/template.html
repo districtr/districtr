@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Template | Districtr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/css/landing_page.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/state_landing.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta property="og:title" content="Districtr" />
+    <meta name="author" content="MGGG Redistricting Lab" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="The open web app for drawing districting plans." />
+    <meta property="og:description" content="The open web app for drawing districting plans." />
+    <link rel="canonical" href="https://districtr.org" />
+    <meta property="og:url" content="https://districtr.org" />
+    <meta property="og:site_name" content="Districtr" />
+    <style type="text/css">
+    
+    .heading {
+        background: #fff;
+        display: block;
+        color: #444;
+        padding-top: 0;
+        margin-top: -35px;
+        font-size: 150%;
+    }
+
+    .splash-text {
+        text-align: center;
+        color: #0099cd;
+    }
+
+    .l-major-section {
+        padding-bottom: 1rem;
+    }
+
+    .l-major-section h3 {
+        color: darkblue;
+    }
+
+    .l-major-section p {
+        font-size: 20px;
+    }
+
+    .col1,
+    .col2 {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .col1 {
+        width: 70%;
+    }
+
+    .col2 {
+        width: 28%;
+        text-align: right;
+    }
+
+    .col2 img {
+        width: 70%;
+    }
+
+    @media (min-width:1000px) {
+        .l-major-section {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .col1 {
+            width: 71%;
+        }
+
+        .col2 {
+            width: 28%;
+        }
+    }
+
+    #nav-links {
+        justify-content: flex-end;
+    }
+
+    a.bookmark {
+        position: relative;
+        top: -30px;
+    }
+
+    strong {
+        font-size: 109%;
+    }
+
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="site-nav__logo">
+                <a href="/">
+                    <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home" />
+                </a>
+            </div>
+            <ul id="nav-links" class="nav-links site-nav__contents">
+                <li class="nav">
+                    <a class="nav-links__link nav-links__link--major" href="#sectionA">
+                        Jump to Section A
+                    </a>
+                </li>
+                <li class="nav">
+                    <a class="nav-links__link nav-links__link--major" href="#sectionB">
+                        Jump to Section B
+                    </a>
+                </li>
+                <li></li>
+                <li class="nav">
+                    <a href="/new">
+                    <img class="site-nav__logo__img" src="/assets/usa_light_blue.png" alt="Back to Map" />
+                </a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <main id="root" class="landing-page">
+        <br />
+        <br />
+        <br />
+        <section>
+            <header class="splash-text">
+                <br />
+                <br />
+                <h2 class="heading">
+                    Districtr new page template
+                </h2>
+            </header>
+        </section>
+        <a class="bookmark" name="sectionA"></a>
+        <section class="l-content l-major-section">
+            <h2>Section A</h2>
+            <h3 style="color:darkblue">Bold and Blue text</h3>
+            <ul>
+                You can link to other parts of Districtr, such as <a href='/nebraska'>Nebraska's landing page</a>.
+                <p />
+                Or to <a href="../assets/districtr-splash.png" download="template-sample-file">files</a>.
+            </ul>
+        </section>
+        <a class="bookmark" name="sectionB"></a>
+        <section class="l-content l-major-section">
+            <h2>Section B</h2>
+            <h3 style="color: #b445b6">Multiple Columns</h3>
+            <div class="col1">
+                <p>
+                    Here is some column 1 text. Here is some <strong>strong</strong> text.
+                </p>
+                <p>
+                    Column 2 shows an image. The file lives in the /assets folder.
+                </p>
+            </div>
+            <div class="col2">
+                <img src="/assets/districting-plan.svg" />
+                <p>It's Mississippi!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/es6/index.js"></script>
+    <script>
+    if (Object.assign === undefined || fetch === undefined) {
+        document.write(
+            '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+        );
+        document.write(
+            '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+        );
+        document.write('<script src="/es5/index.js"><\/script>');
+        document.write("<script>ieBundle();<\/script>");
+    } else {
+        bundle();
+    }
+    </script>
+
+</body>
+
+</html>

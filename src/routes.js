@@ -103,6 +103,10 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         .catch(e => callback(null));
     };
     if (eventCode && spatial_abilities(state.place.id).screenshot) {
+        if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
+            // enabled on Ohio blockgroups, not precincts
+            return;
+        }
         fetch("//mggg.pythonanywhere.com/picture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -164,7 +168,7 @@ export function loadPlanFromJSON(planRecord) {
 }
 
 export function loadPlanFromCSV(assignmentList, state) {
-    let rows = assignmentList.split("\n");
+    let rows = assignmentList.trim().split("\n");
     let headers = rows[0].replace(/"/g, "").trim().split(",");
     if (
         headers[0].indexOf("id-") === 0

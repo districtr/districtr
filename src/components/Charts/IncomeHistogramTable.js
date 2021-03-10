@@ -21,11 +21,12 @@ export default function IncomeHistogramTable(
           sum = 0,
           data = new Array(population.subgroups[0].data.length).fill(0);
       group.sgs.forEach((sg) => {
-         min += population.subgroups[sg].min;
-         max += population.subgroups[sg].max;
-         sum += population.subgroups[sg].sum;
+        let r = population.subgroups.sort((a, b) => a.key > b.key ? 1 : -1)[sg];
+         min += r.min;
+         max += r.max;
+         sum += r.sum;
          data.forEach((part, i) => {
-            data[i] += population.subgroups[sg].data[i];
+            data[i] += r.data[i];
          });
       });
       return {

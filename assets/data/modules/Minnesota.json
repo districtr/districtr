@@ -783,5 +783,387 @@
         "limit": "community"
       }
     ]
+  },
+  {
+    "name": "Rochester",
+    "state": "Minnesota",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 108111,
+              "min": 0,
+              "max": 1176
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 85857,
+                "min": 0,
+                "max": 946
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 6598,
+                "min": 0,
+                "max": 340
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 5523,
+                "min": 0,
+                "max": 360
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 7255,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 253,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 40,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 2371,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 214,
+                "min": 0,
+                "max": 19
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 81299,
+              "min": 0,
+              "max": 956
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 67624,
+                "min": 0,
+                "max": 673
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4044,
+                "min": 0,
+                "max": 338
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 3348,
+                "min": 0,
+                "max": 205
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 201,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 31,
+                "min": 0,
+                "max": 2
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 5103,
+                "min": 0,
+                "max": 89
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 115,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 833,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -92.5734,
+            43.8845
+          ],
+          [
+            -92.368,
+            44.1081
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rochestermn_blocks_points?v=2"
+            },
+            "sourceLayer": "rochestermn_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rochestermn_blocks?v=2"
+            },
+            "sourceLayer": "rochestermn_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "rochestermn",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "Wards"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 144248,
+              "min": 0,
+              "max": 1176
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 120348,
+                "min": 0,
+                "max": 946
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 6751,
+                "min": 0,
+                "max": 340
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 6081,
+                "min": 0,
+                "max": 360
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 7771,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 297,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 57,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 2697,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 246,
+                "min": 0,
+                "max": 19
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 107808,
+              "min": 0,
+              "max": 956
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 93207,
+                "min": 0,
+                "max": 673
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4136,
+                "min": 0,
+                "max": 338
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 3656,
+                "min": 0,
+                "max": 205
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 231,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 43,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 5451,
+                "min": 0,
+                "max": 89
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 134,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 950,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -92.6894,
+            43.8337
+          ],
+          [
+            -92.0785,
+            44.1956
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.olmsted_blocks_points?v=2"
+            },
+            "sourceLayer": "olmsted_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.olmsted_blocks?v=2"
+            },
+            "sourceLayer": "olmsted_blocks"
+          }
+        ]
+      }
+    ],
+    "name": "Olmsted County",
+    "id": "olmsted",
+    "state": "Minnesota",
+    "districtingProblems": [
+      {
+        "name": "Board of Commissioners",
+        "numberOfParts": 7,
+        "pluralNoun": "Commission Districts"
+      }
+    ]
   }
 ]

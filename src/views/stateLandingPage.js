@@ -107,6 +107,12 @@ export default () => {
                   $('input[value="communities"]').trigger('click');
                 }
 
+                $('input[name="custom-selection"]:checkbox').click(function(){
+                    var target = document.getElementById("districting-options");
+                    render(districtingOptions(districtingPlaces), target);
+                    $('input[name="place-selection"]:checked').click();
+                });
+
                 $(document).ready(function(){
                   $(".all_about_redistricting_st")[0].href = "https://redistricting.lls.edu/states-"+ stateData.code + ".php";
 
@@ -190,7 +196,8 @@ const drawSection = (section, stateData, onlyCommunities) => {
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
             <div id="community-options" class="communities"></div>
-            <p style="text-align: right;"><a href="#data">What are the building blocks?</a></p>
+            <p style="text-align: right;"><a href="#data">What are the building blocks?</a>
+            </br><a href="#data">What are the data layers?</a></p>
         `;
     } else if (section.type === "plans") {
         section_body = html`
@@ -288,7 +295,10 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${placeItemsTemplate(places, startNewPlan)}
+            ${(document.getElementById("custom") && document.getElementById("custom").checked)
+              ? customPlaceItemsTemplate(places, startNewPlan)
+              : placeItemsTemplate(places, startNewPlan)
+            }
         </ul>
     `;
 
@@ -377,4 +387,52 @@ const placeItemsTemplate = (places, onClick) =>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []);
+        .reduce((items, item) => [...items, ...item], []).concat([
+          places.filter(p => ["michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
+            <div style="padding-top:30px">
+                <input type="checkbox" id="custom" name="custom-selection">
+                <label for="custom">Customize</label>
+            </div>
+          </li>` : ""
+        ]);
+
+const customPlaceItemsTemplate = (places, onClick) =>
+    places.map(place =>
+        place.districtingProblems
+        .map(problem =>
+            getUnits(place, problem).map(
+                units => html`
+                    <li
+                        class="${place.id} places-list__item places-list__item--small"
+                        @click="${() => onClick(place, problem, units, "", document.getElementById(place.id+"_customNumber").value)}"
+                    >
+                        <div class="place-name">
+                            ${place.name}
+                        </div>
+                        ${problemTypeInfo[problem.type] || ""}
+                        <div class="place-info">
+                            <input
+                              type="number"
+                              class="custom-input"
+                              id="${place.id+"_customNumber"}"
+                              @click="${e => e.stopPropagation()}"
+                              value="${problem.numberOfParts}"
+                              min="1" max="250"
+                            >
+                            ${problem.pluralNoun}
+                        </div>
+                        <div class="place-info">
+                            Built out of ${units.name.toLowerCase()}
+                        </div>
+                    </li>
+                `
+            )
+        ))
+        .reduce((items, item) => [...items, ...item], []).concat([
+          html`<li>
+            <div style="padding-top:30px">
+                <input type="checkbox" id="custom" name="custom-selection">
+                <label for="custom">Customize</label>
+            </div>
+          </li>`
+        ]);

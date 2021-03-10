@@ -6,7 +6,8 @@ import {
     loadPlanFromJSON,
     loadPlanFromCSV,
     getContextFromStorage,
-    navigateTo
+    navigateTo,
+    savePlanToStorage
 } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
@@ -15,7 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
-import { spatial_abilities } from "../utils";
+import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
     if (context.units.coi2) {
@@ -91,6 +92,7 @@ function loadContext(context) {
               <div id="swipemap" class="map"></div>
             </div>
             <div id="toolbar"></div>
+            <div class="print-only print-summary"></div>
         `,
         root
     );
@@ -134,18 +136,50 @@ function loadContext(context) {
     }
 
     // block of event handlers; drop a file onto the map
-    function planHandler(f) {
-        let plan = f.getAsFile();
-        if (plan.name.includes(".json") || plan.name.includes(".csv")) {
+    function planHandler(f, callback) {
+        let plan = f.getAsFile(),
+            pname = plan.name.toLowerCase();
+        if (pname.includes(".json") || pname.includes(".geojson") || pname.includes(".csv")) {
             let reader = new FileReader();
             reader.onload = (e) => {
-                localStorage.setItem(
-                    "jsonload_viewstate",
-                    document.querySelector("input[name=tabs]:checked").value
-                );
-                if (plan.name.includes(".json")) {
+                if (pname.includes(".json") || pname.includes(".geojson")) {
                     let planData = JSON.parse(reader.result);
-                    if (planData.place.id !== context.place.id) {
+                    if (planData.type === "Feature" || planData.type === "FeatureCollection") {
+                        // load GeoJSON / Representable
+                        let rnd = Math.round(Math.random() * 100000),
+                            rnd_offset = 0;
+                        if (planData.features) {
+                          planData.features = planData.features.map(f => {
+                            if (!f.id) {
+                              f.id = rnd + rnd_offset;
+                              rnd_offset++;
+                            }
+                            return f;
+                          })
+                        } else if (!planData.id) {
+                          planData.id = rnd;
+                        }
+
+                        let bnd = boundsOfGJ(planData);
+                        mapState.map.fitBounds([
+                          [bnd[0], bnd[1]],
+                          [bnd[2], bnd[3]]
+                        ]);
+
+                        if (callback) {
+                            callback(planData);
+                        }
+                    }
+                    if (document.querySelector("input[name=tabs]:checked")) {
+                        localStorage.setItem(
+                            "jsonload_viewstate",
+                            document.querySelector("input[name=tabs]:checked").value
+                        );
+                    }
+                    if (planData.plan) {
+                        planData = planData.plan;
+                    }
+                    if (planData.place && (planData.place.id !== context.place.id)) {
                         let conf = window.confirm("Switch locations to load this plan file?");
                         if (!conf) {
                             return;
@@ -166,18 +200,41 @@ function loadContext(context) {
     }
     document.body.ondrop = (ev) => {
         ev.preventDefault();
+
+        let loadGJ = (gj) => {
+          let lm = state.place.landmarks;
+          lm.type = "geojson";
+          if (!lm.data) {
+            lm.data = { features: [] };
+          } else if (!lm.data.features) {
+            lm.data.features = [];
+          }
+          if (gj.features) {
+            lm.data.features = lm.data.features.concat(gj.features);
+          } else {
+            lm.data.features.push(gj);
+          }
+
+          state.map.getSource("landmarklist").setData({
+            type: "FeatureCollection",
+            features: lm.data.features.filter(f => f.geometry.type !== "Point")
+          });
+          savePlanToStorage(state.serialize());
+        };
+
         if (ev.dataTransfer.items && ev.dataTransfer.items.length) {
-            planHandler(ev.dataTransfer.items[0]);
+            planHandler(ev.dataTransfer.items[0], loadGJ);
         } else if (ev.dataTransfer.files && ev.dataTransfer.files.length) {
-            planHandler(ev.dataTransfer.files[0]);
+            planHandler(ev.dataTransfer.files[0], loadGJ);
         }
     };
     document.body.ondragover = (ev) => {
         ev.preventDefault();
     };
 
+    let state;
     mapState.map.on("load", () => {
-        let state = new State(mapState.map, mapState.swipemap, context, () => {
+        state = new State(mapState.map, mapState.swipemap, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {

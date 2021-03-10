@@ -1,4 +1,4 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import Parameter from "./Parameter";
 import { savePlanToStorage } from "../routes";
 import { bindAll } from "../utils";
@@ -56,12 +56,34 @@ export default class AboutSection {
     }
     render() {
         const parts = this.state.activeParts;
+
+        // print view of COI and landmarks
+        render(html`
+          <h2>Communities of Interest</h2>
+          ${parts.map(p => html`<div>
+            <h4>
+              <span class="part-number" style="${'border: 8px solid ' + colorScheme[p.id % colorScheme.length] }"> </span>
+              ${p.name || (p.id + 1)}
+            </h4>
+            <p>${p.description || ""}</p>
+          </div>`)}
+          <h2>${this.state.place.landmarks.data.features.length ? "Important Places" : ""}</h2>
+          ${this.state.place.landmarks.data.features.map(lm => html`<div>
+            <h4>${lm.properties.name}</h4>
+            <p>${lm.properties.short_description}</p>
+            ${Object.keys(lm.properties).filter(p => !["name", "short_description"].includes(p)).forEach(p => {
+              return html`<p><strong>${p}</strong> - ${lm.properties[p]}</p>`
+            })}
+          </div>`)}`,
+          document.querySelector(".print-summary")
+        );
+
         return html`
             <ul class="option-list">
                 <li class="option-list__item">
                     ${parts.length > 0
                         ? Parameter({
-                              label: "Community:",
+                              label: "Select",
                               element: html`<div class="custom-select-wrapper">
                                       <div class="custom-select">
                                           <div
@@ -102,7 +124,7 @@ function AboutSectionTemplate({
     return html`
         <ul class="option-list">
             <li class="option-list__item">
-                <label class="ui-label">Community Name</label>
+                <label class="ui-label">Name</label>
                 <input
                     type="text"
                     class="text-input"
@@ -112,17 +134,16 @@ function AboutSectionTemplate({
                 />
             </li>
             <li class="option-list__item">
-                <label class="ui-label">Describe Your Community</label>
+                <label class="ui-label"></label>
                 <textarea
                     class="text-input text-area"
+                    placeholder="Describe this community"
                     @blur=${e => setDescription(e.target.value)}
                     @input=${e => setDescription(e.target.value)}
                     .value="${description}"
                 ></textarea>
-            </li>
-            <li class="option-list__item">
                 <br/>
-                <span>Your community details are updated automatically</span>
+                <span>These details are updated automatically</span>
             </li>
         </ul>
     `;

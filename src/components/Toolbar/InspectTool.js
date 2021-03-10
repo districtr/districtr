@@ -14,7 +14,7 @@ export default class InspectTool extends Tool {
         );
 
         this.columnSets = [].concat(columnSets.filter(lyr => lyr.subgroups.length > 1));
-        // separate out 2018 pop
+        // separate out 2018/2019 pop
         if (this.columnSets.length && this.columnSets[0].name_alt) {
             this.columnSets.splice(1, 0, this.columnSets[0]);
         }

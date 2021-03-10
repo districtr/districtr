@@ -5,21 +5,25 @@ import {
 import { html } from "lit-html";
 import toggle from "../Toggle";
 
-export default function HighlightUnassigned(unitsBorders) {
+export default function HighlightUnassigned(unitsBorders, zoomFunction) {
     return html`
         <div id="unassigned-checker" class="ui-option ui-option--slim">
             ${toggle("Highlight unassigned units", false, highlight => {
                 document.querySelectorAll('.district-row .contiguity-label input').forEach(box => {
                     box.checked = false;
                 });
-                if (highlight) {
-                    unitsBorders.setPaintProperties(
-                        highlightUnassignedUnitBordersPaintProperty
-                    );
-                } else {
-                    unitsBorders.setPaintProperties(unitBordersPaintProperty);
-                }
+                unitsBorders.setPaintProperties(highlight
+                    ? highlightUnassignedUnitBordersPaintProperty
+                    : unitBordersPaintProperty
+                );
+                document.querySelector("#zoom-to-unassigned").style.display = highlight ? "block" : "none";
             })}
+            <div id="zoom-to-unassigned" style="display:none">
+                ${zoomFunction
+                  ? html`<button @click="${zoomFunction}">Zoom to unasssigned</button>`
+                  : ''
+                }
+            </div>
         </div>
     `;
 }

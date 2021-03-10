@@ -97,6 +97,9 @@ export default function NumberMarkers(state, brush) {
         if (state.units.sourceId === "ma_towns") {
             extra_source = "ma_towns";
         }
+        if (state.units.sourceId === "indiana_precincts") {
+            extra_source = "indianaprec";
+        }
         let placeID = extra_source || place;
 
         if (plan && plan.assignment) {
@@ -140,10 +143,14 @@ export default function NumberMarkers(state, brush) {
                 if (filterOdds < 1) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
-
-                fetch(`https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
-                    if (typeof centroid === "object") {
-                        centroid = centroid[0][`merged_${placeID}`];
+                const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
+                    // : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
+                fetch(`${serverurl}ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
+                    while (centroid.length === 1) {
+                        centroid = centroid[0];
+                    }
+                    if (typeof centroid === "object" && centroid[`merged_${placeID}`]) {
+                        centroid = centroid[`merged_${placeID}`];
                     }
                     let latlng = centroid.split(" "),
                         lat = latlng[1].split(")")[0] * 1,

@@ -1014,7 +1014,9 @@
     "state": "Louisiana",
     "code": "LA",
     "modules": [
-      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"},
+      {"name": "Region", "ids": ["batonrouge"], "id": "region"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1343,7 +1345,10 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["olmsted"], "id": "county"},
+      {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1779,7 +1784,7 @@
     "code": "NC",
     "modules": [
       {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["forsyth_nc"], "id": "loc"}],
+      {"name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1886,7 +1891,10 @@
     "state": "Ohio",
     "code": "OH",
     "modules": [
-      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"},
+      {"name": "Zones", "ids": ["ohcentral", "ohse", "ohtoledo", "ohakron", "ohcle", "ohcin"], "id": "region"},
+      {"name": "Cities", "ids": ["akroncanton", "cincinnati", "clevelandeuclid", "columbus", "dayton", "limaoh", "mansfield", "portsmouthoh", "toledo", "youngstown"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2333,7 +2341,8 @@
     "code": "TX",
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["austin"], "id": "loc"}
+      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx"], "id": "cty"},
+      {"name": "Cities", "ids": ["austin", "fortworth"], "id": "loc"}
     ],
     "sections": [
       {
@@ -2397,7 +2406,8 @@
     "state": "Utah",
     "code": "UT",
     "modules": [
-      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["grand_county_2"], "id": "county"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
