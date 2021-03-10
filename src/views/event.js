@@ -130,7 +130,9 @@ export default () => {
         document.getElementById("eventHeadline").innerText = og_eventCode;
         // document.getElementById("eventCode").innerText = og_eventCode;
         if (eventDescriptions[eventCode]) {
-            document.getElementById("event-description").innerHTML = eventDescriptions[eventCode];
+            let desc = document.createElement("div");
+            desc.innerHTML = eventDescriptions[eventCode];
+            document.getElementById("event-description").prepend(desc);
         }
         if (longAbout[eventCode]) {
             document.getElementById("about-section").style.display = "block";
