@@ -205,20 +205,20 @@ function DistrictResults(effectiveness, dist, group, place) {
             <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
+            ${effectiveness[group] && effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
         </section>
         ${runoffs ? html`<div class="ui-option ui-option--slim">
                             <h5> Runoff Elections Breakdown</h5>
                         </div>
                         <section class="toolbar-section">
-                            ${effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
+                            ${effectiveness[group] && effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
                         </section>` 
                   : html``}
         <div class="ui-option ui-option--slim">
             <h5> General Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails, group, proxy) : ""}
+            ${effectiveness[group] && effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails, group, proxy) : ""}
         </section>
     `;
 }

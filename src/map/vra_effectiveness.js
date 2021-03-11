@@ -14,7 +14,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
 
   if (!state.vra_effectiveness) {
-    state.vra_effectiveness = groups.map(g => {return {g: null};});
+    state.vra_effectiveness = Object.fromEntries(groups.map(g => [g, null]));
   }
 
   let awaiting_response = false;
@@ -33,6 +33,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     
     if (!awaiting_response) {
+        state.waiting = true;
         cur_request_id += 1;
         awaiting_response = true;
         fetch(GERRYCHAIN_URL + "/vra", {
@@ -52,6 +53,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
             .then((data) => {
                 if (data["seq_id"] === cur_request_id) {
                     awaiting_response = false;
+                    state.waiting = false;
                     state.vra_effectiveness = data["data"];
                     // console.log(data);
                     const target = document.getElementById("toolbar");

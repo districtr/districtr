@@ -44,6 +44,7 @@ export default function VRAEffectivenessTable(
 ) {
     // console.log(effectiveness)
     const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: [0,0]}), {});
+    console.log(effectiveness);
     const groups = Object.keys(effectiveness);
 
     const subgroups = groups.map(g => {
@@ -54,6 +55,7 @@ export default function VRAEffectivenessTable(
         return {"name": g + " Effectiveness Score", "values": pid => e_scores[pid][0]};
         });
     console.log(subgroups);
+    // ${state.waiting ? "Loading" : "Synced"}
     return html`
         <section class="toolbar-section">
             ${getTable(subgroups, parts)}
