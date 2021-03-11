@@ -11,8 +11,10 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const placeID = extra_source || place;
   const sep = (state.place.id === "louisiana") ? ";" : ",";
 
+  const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
+
   if (!state.vra_effectiveness) {
-    state.vra_effectiveness = {};
+    state.vra_effectiveness = groups.map(g => {return {g: null};});
   }
 
   let awaiting_response = false;
@@ -41,7 +43,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
             body: JSON.stringify({
                 "assignment": assign,
                 "placeId": state.place.id,
-                "groups": state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"],
+                "groups": groups,
                 "seq_id": cur_request_id
             }),
           })
