@@ -564,6 +564,7 @@ export function spatial_abilities (id) {
       },
       napaschools: {
         number_markers: true,
+        coalition: false,
       },
       nebraska: {
         // multiyear: 2018,
