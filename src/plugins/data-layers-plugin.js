@@ -536,7 +536,8 @@ export default function DataLayersPlugin(editor) {
                 "partisan",
                 demoLayers.filter(lyr => !lyr.background),
                 [rentElec],
-                "Show % renter"
+                toolbar,
+                "Show % renter",
             );
         }
 
