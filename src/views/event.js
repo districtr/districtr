@@ -24,6 +24,7 @@ const stateForEvent = {
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
+  grns: 'Wisconsin',
 };
 
 const validEventCodes = {
@@ -45,6 +46,7 @@ const validEventCodes = {
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
   ttt: [],
+  grns: ['wisconsin', 'wisconsin2020'],
 };
 
 const blockPlans = {
@@ -57,6 +59,7 @@ const unitTypes = {
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
+  grns: {no: '2011 Wards'},
 };
 
 const unitCounts = {
@@ -80,6 +83,7 @@ const coi_events = [
   'open-maps',
   'fair-districts-oh',
   'colorado-cc',
+  'grns',
 ];
 
 const eventDescriptions = {
@@ -104,6 +108,7 @@ const eventDescriptions = {
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
+  grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
 };
 
 const longAbout = {
