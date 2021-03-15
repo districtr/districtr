@@ -241,8 +241,13 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana"].includes(state.place.id)) {
-        const st = state.place.id === "indiana" ? "in" : "oh";
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri"].includes(state.place.id)) {
+        let st = "oh";
+        if (state.place.id === "indiana") {
+          st = "in";
+        } else if (state.place.id === "missouri") {
+          st = "mo";
+        }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
@@ -362,7 +367,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -422,7 +427,7 @@ export default function DataLayersPlugin(editor) {
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
-    if (spatial_abilities(state.place.id).coalition) {
+    if (spatial_abilities(state.place.id).coalition !== false) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -483,7 +488,7 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
+        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population", // coalition subgroup
         (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
@@ -496,7 +501,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show voting age population (VAP)",
             false,
-            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
