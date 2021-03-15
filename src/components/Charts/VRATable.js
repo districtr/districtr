@@ -43,7 +43,7 @@ export default function VRAEffectivenessTable(
     state,
     dispatch
 ) {
-    console.log(state)
+    console.log(state);
     const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: [0,0]}), {});
     console.log(effectiveness);
     const groups = Object.keys(effectiveness);
