@@ -39,10 +39,11 @@ function getTable(subgroups, parts, decimals=true) {
 export default function VRAEffectivenessTable(
     parts,
     effectiveness,
+    // loading,
     state,
     dispatch
 ) {
-    // console.log(effectiveness)
+    console.log(state)
     const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: [0,0]}), {});
     console.log(effectiveness);
     const groups = Object.keys(effectiveness);
@@ -57,6 +58,7 @@ export default function VRAEffectivenessTable(
     console.log(subgroups);
     // ${state.waiting ? "Loading" : "Synced"}
     return html`
+        ${true ? html`<p>Loading<p>` : html``}
         <section class="toolbar-section">
             ${getTable(subgroups, parts)}
         </section>

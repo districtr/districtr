@@ -182,6 +182,7 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
+    console.log(state);
     if (showVRA && (state.units.sourceId !== "ma_towns")) 
     {
         VRAtab.addRevealSection(
@@ -190,6 +191,7 @@ export default function EvaluationPlugin(editor) {
                 VRAEffectivenessTable(
                     state.parts,
                     state.vra_effectiveness,
+                    // state.waiting,
                     uiState,
                     dispatch
                 ),

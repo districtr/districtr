@@ -16,6 +16,9 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   if (!state.vra_effectiveness) {
     state.vra_effectiveness = Object.fromEntries(groups.map(g => [g, null]));
   }
+//   if (!state.waiting) {
+//       state.waiting = false;
+//   }
 
   let awaiting_response = false;
   let cur_request_id = 0;
@@ -33,9 +36,16 @@ export default function VRAEffectiveness(state, brush, toolbar) {
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     
     if (!awaiting_response) {
-        state.waiting = true;
+        // state.waiting = true;
         cur_request_id += 1;
         awaiting_response = true;
+        // signal awaiting refreshed data
+        const target = document.getElementById("toolbar");
+                    if (target === null) {
+                        return;
+                    }
+        render(toolbar.render(), target);
+
         fetch(GERRYCHAIN_URL + "/vra", {
             method: "POST",
             headers: {
@@ -53,7 +63,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
             .then((data) => {
                 if (data["seq_id"] === cur_request_id) {
                     awaiting_response = false;
-                    state.waiting = false;
+                    // state.waiting = false;
                     state.vra_effectiveness = data["data"];
                     // console.log(data);
                     const target = document.getElementById("toolbar");
