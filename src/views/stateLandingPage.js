@@ -152,25 +152,12 @@ const drawPage = (stateData, onlyCommunities) => {
                     // the desired section properly.
                     let load = new Event("page-load-complete");
                     window.dispatchEvent(load);
-                }))
+                })
+            )
         }
 
     `;
 };
-
-/**
- * Fires a page-load-complete event when the page is finished loading, because
- * lit-html's `render()` doesn't fire events when it's finished. Weird.
- * @returns {function(): void}
- */
-function onLoad() {
-    return directive(promise => () => {
-        Promise.resolve(promise).then(() => {
-            let load = new Event("page-load-complete");
-            window.dispatchEvent(load);
-        });
-    })();
-}
 
 const drawTitles = (modules, st) =>
     modules.map(m => html`<h1 class="${m.id} headline place__name">

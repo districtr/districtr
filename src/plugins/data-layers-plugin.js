@@ -472,7 +472,7 @@ export default function DataLayersPlugin(editor) {
               </div>
             `,
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
@@ -620,4 +620,3 @@ export default function DataLayersPlugin(editor) {
 
     toolbar.addTab(tab);
 }
-// || configElection
