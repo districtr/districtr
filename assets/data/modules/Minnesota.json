@@ -1165,5 +1165,273 @@
         "pluralNoun": "Commission Districts"
       }
     ]
+  },
+      {
+    "state": "Minnesota",
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 255938,
+              "min": 413,
+              "max": 9362
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 211647,
+                "min": 141,
+                "max": 7417
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 11593,
+                "min": 0,
+                "max": 934
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 10716,
+                "min": 0,
+                "max": 698
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 14726,
+                "min": 0,
+                "max": 1247
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 800,
+                "min": 0,
+                "max": 115
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 110,
+                "min": 0,
+                "max": 57
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 6027,
+                "min": 0,
+                "max": 394
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 319,
+                "min": 0,
+                "max": 50
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 192870,
+              "min": 356,
+              "max": 6554
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Census Block ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -93.0215,
+            44.7457
+          ],
+          [
+            -92.7395,
+            45.2969
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.washington_block_groups"
+            },
+            "sourceLayer": "washington_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.washington_block_groups_points"
+            },
+            "sourceLayer": "washington_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "id": "washington",
+    "name": "Washington",
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 5,
+        "pluralNoun": "Commission Districts"
+      }
+    ]
+  },
+      {
+    "state": "Minnesota",
+    "name": "St Louis",
+    "id": "stlouis",
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 199759,
+              "min": 0,
+              "max": 3072
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 182012,
+                "min": 0,
+                "max": 2846
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 3107,
+                "min": 0,
+                "max": 287
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 3394,
+                "min": 0,
+                "max": 191
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2060,
+                "min": 0,
+                "max": 198
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 3549,
+                "min": 0,
+                "max": 426
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 88,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 5488,
+                "min": 0,
+                "max": 226
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 61,
+                "min": 0,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 161637,
+              "min": 0,
+              "max": 2339
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Census Block ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -93.0977,
+            46.6492
+          ],
+          [
+            -91.7879,
+            48.6315
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.stlouis_block_groups"
+            },
+            "sourceLayer": "stlouis_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.stlouis_block_groups_points"
+            },
+            "sourceLayer": "stlouis_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 7,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
   }
 ]
