@@ -358,6 +358,12 @@ export function spatial_abilities (id) {
       chicago: {
         number_markers: true,
         multiyear: 2019,
+        parties: [
+          "Rahm Emanuel",
+          "Jesus \u201cChuy\u201d Garc\u00eda",
+          "Lori Lightfoot",
+          "Toni Preckwinkle",
+        ]
       },
       colorado: {
         number_markers: true,
@@ -789,7 +795,7 @@ export function spatial_abilities (id) {
       },
         puertorico_prec: {
           number_markers: true,
-          parties: ["Nuevo Progresista", "Popular Democrático"],
+          parties: ["Nuevo Progresista", "Popular Democrático", "Nuevo Progresista", "Popular Democrático"],
           shapefile: true,
           // find_unpainted: true,
         },
