@@ -39,7 +39,7 @@ function getTable(subgroups, parts, decimals=true) {
 export default function VRAEffectivenessTable(
     parts,
     effectiveness,
-    // loading,
+    loading,
     state,
     dispatch
 ) {
@@ -55,12 +55,19 @@ export default function VRAEffectivenessTable(
         console.log(e_scores);
         return {"name": g + " Effectiveness Score", "values": pid => e_scores[pid][0]};
         });
-    console.log(subgroups);
-    // ${state.waiting ? "Loading" : "Synced"}
+    // console.log(subgroups);
     return html`
-        ${true ? html`<p>Loading<p>` : html``}
+        <ul class="option-list">
+            <li class="option-list__item">
+            <span style="align-items: center;display: inline-flex;">
+            ${loading ? html`Loading <img src="/assets/pinwheel.gif" width="50px" height="50px">` : html`Synced with current map`}
+            </span>
+            </li>
+        </ul>
+        
         <section class="toolbar-section">
             ${getTable(subgroups, parts)}
         </section>
     `;
 }
+

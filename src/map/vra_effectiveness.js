@@ -13,38 +13,42 @@ export default function VRAEffectiveness(state, brush, toolbar) {
 
   const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
 
+  console.log(state);
   if (!state.vra_effectiveness) {
     state.vra_effectiveness = Object.fromEntries(groups.map(g => [g, null]));
   }
-//   if (!state.waiting) {
-//       state.waiting = false;
-//   }
+  if (!state.waiting) {
+      state.waiting = false;
+  }
 
   let awaiting_response = false;
   let cur_request_id = 0;
+  let newer_changes = false;
 
   const vraupdater = (state) => {
+    // console.log("hello");
     // Object.keys(state.plan.assignment).map((k, i) => {
     //     state.plan.assignment[k] = Array.isArray(state.plan.assignment[k]) ? state.plan.assignment[k][0] : state.plan.assignment[k]
     // })
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-
+    console.log(assign);
     // console.log(state);
     // console.log(assign);
-    let saveplan = state.serialize();
+    // let saveplan = state.serialize();
     // console.log(JSON.stringify(saveplan));
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     
-    if (!awaiting_response) {
-        // state.waiting = true;
+    if (!awaiting_response && Object.entries(assign).length > 0) {
+        state.waiting = true;
         cur_request_id += 1;
         awaiting_response = true;
+
         // signal awaiting refreshed data
         const target = document.getElementById("toolbar");
-                    if (target === null) {
-                        return;
-                    }
-        render(toolbar.render(), target);
+        if (target !== null && toolbar.tools.length > 0) {
+            render(toolbar.render(), target);
+        }
+        
 
         fetch(GERRYCHAIN_URL + "/vra", {
             method: "POST",
@@ -63,7 +67,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
             .then((data) => {
                 if (data["seq_id"] === cur_request_id) {
                     awaiting_response = false;
-                    // state.waiting = false;
+                    state.waiting = false;
                     state.vra_effectiveness = data["data"];
                     // console.log(data);
                     const target = document.getElementById("toolbar");
@@ -72,7 +76,14 @@ export default function VRAEffectiveness(state, brush, toolbar) {
                     }
                     render(toolbar.render(), target);
               }
+              if (newer_changes) {
+                  newer_changes = false;
+                  vraupdater(state);
+              }
         });
+    }
+    else {
+        newer_changes = true;
     }
   };
   vraupdater(state);
