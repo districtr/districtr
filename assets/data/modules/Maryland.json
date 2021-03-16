@@ -975,7 +975,6 @@
   },
   {
     "name": "Baltimore",
-    "id": "baltimore",
     "units": [
       {
         "id": "block_groups",
@@ -1061,7 +1060,64 @@
               "min": 2,
               "max": 5128
             },
-            "subgroups": []
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 152511,
+                "min": 0,
+                "max": 2941
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 294138,
+                "min": 0,
+                "max": 4236
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 19068,
+                "min": 0,
+                "max": 437
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1496,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 164,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 12853,
+                "min": 0,
+                "max": 610
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 611,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 6560,
+                "min": 0,
+                "max": 79
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -1099,6 +1155,7 @@
       }
     ],
     "state": "Maryland",
+    "id": "baltimore",
     "districtingProblems": [
       {
         "name": "City Council",
