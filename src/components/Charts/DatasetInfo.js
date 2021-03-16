@@ -9,14 +9,14 @@ import { directive } from "lit-html";
 function datasetInfo(state) {
     // Dictionary of descriptions.
     let population = state.population,
-        units = state.unitsRecord,
         place = state.place,
         populations = {
             census: "Uses <strong>2010 Decennial Census</strong> data.",
             acs: "Uses <strong>2019 American Community Survey</strong> data."
-        };
+        },
+        acsLocations = ["wisco2019acs", "grand_county_2"];
     
-    if (place.id.toLowerCase() === "wisco2019acs" || population.name !== "Population") {
+    if (acsLocations.includes(place.id.toLowerCase()) || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
