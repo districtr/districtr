@@ -528,6 +528,10 @@ export function spatial_abilities (id) {
       },
         baltimore: {
           border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+          contiguity: 2,
         },
       ma: {
         number_markers: true,
@@ -568,9 +572,17 @@ export function spatial_abilities (id) {
         },
         washington_mn: {
           border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+          contiguity: 2,
         },
         stlouis_mn: {
           border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+          contiguity: 2,
         },
       mississippi: {
         number_markers: true,
