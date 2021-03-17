@@ -25,7 +25,7 @@ const stateForEvent = {
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
   grns: 'Wisconsin',
-  'TowsonU-Baltimore': 'Maryland',
+  'towsonu-baltimore': 'Maryland',
   fairmapstexas: 'Texas'
 };
 
@@ -49,7 +49,7 @@ const validEventCodes = {
   'colorado-cc': 'colorado',
   ttt: [],
   grns: ['wisconsin', 'wisconsin2020'],
-  'TowsonU-Baltimore': 'baltimore',
+  'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas'
 };
 
@@ -114,7 +114,7 @@ const eventDescriptions = {
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
   grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
-  'TowsonU-Baltimore': 'Welcome to the event page for Towson University',
+  'towsonu-baltimore': 'Welcome to the event page for Towson University',
   fairmapstexas: 'Welcome to the event page for Fair Maps Texas!'
 };
 
