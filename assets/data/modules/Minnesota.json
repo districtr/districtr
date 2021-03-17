@@ -1290,8 +1290,8 @@
         ]
       }
     ],
-    "id": "washington",
-    "name": "Washington",
+    "id": "washington_mn",
+    "name": "Washington County",
     "districtingProblems": [
       {
         "name": "County Commission",
@@ -1302,8 +1302,8 @@
   },
       {
     "state": "Minnesota",
-    "name": "St Louis",
-    "id": "stlouis",
+    "name": "St. Louis County",
+    "id": "stlouis_mn",
     "units": [
       {
         "id": "block_groups",

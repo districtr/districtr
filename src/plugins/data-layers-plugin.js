@@ -89,17 +89,19 @@ export default function DataLayersPlugin(editor) {
     }
 
     // city border within county
-    if (["miamidade", "olmsted", "buncombe"].includes(state.place.id)) {
+    if (["miamidade", "olmsted", "buncombe", "stlouis_mn"].includes(state.place.id)) {
         let miami = null,
             cityid = {
               miamidade: "miamifl",
               olmsted: "rochestermn",
               buncombe: "asheville",
+              stlouis_mn: "duluth",
             },
             cityname = {
               miamidade: "City of Miami",
               olmsted: "Rochester",
               buncombe: "Asheville",
+              stlouis_mn: "Duluth",
             };
 
         fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
@@ -163,6 +165,34 @@ export default function DataLayersPlugin(editor) {
             {
                 isOpen: false
             }
+        );
+
+    }
+
+    if (state.place.id === "baltimore") {
+        let fnc_layer;
+        fetch(`/assets/current_districts/baltimore-precincts.geojson`).then(res => res.json()).then((fnc) => {
+            state.map.addSource('fnc', {
+                type: 'geojson',
+                data: fnc
+            });
+
+            fnc_layer = new Layer(state.map,
+                {
+                    id: 'fnc',
+                    source: 'fnc',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+        });
+        tab.addSection(
+            () => html`
+            ${toggle("Voter Precincts", false, checked => {
+                let opacity = checked ? 0.8 : 0;
+                fnc_layer && fnc_layer.setOpacity(opacity);
+            })}`
         );
 
     }
@@ -599,7 +629,7 @@ export default function DataLayersPlugin(editor) {
         );
         tab.addRevealSection('Previous Elections',
             () => html`
-                ${spatial_abilities(state.place.id).parties ? 
+                ${spatial_abilities(state.place.id).parties ?
                 html`<div class="custom-party-list" style="display: none">
                     ${(spatial_abilities(state.place.id).parties).map((p, pdex) =>
                       html`<li class="party-desc" style="display: ${(pdex >= spatial_abilities(state.place.id).parties.length - 2) ? "" : "none"}">
