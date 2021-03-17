@@ -977,7 +977,7 @@
     "name": "Baltimore",
     "units": [
       {
-        "id": "block_groups",
+        "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
