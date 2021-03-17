@@ -1,11 +1,15 @@
-import { html, render } from "lit-html";
+import { svg, html, render } from "lit-html";
 import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
+
+import { geoPath } from "d3-geo";
+import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 
 const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
   'unca-forsyth': 'North Carolina',
+  buncombe: 'North Carolina',
   'common cause md ss': 'Maryland',
   'commoncause md ss': 'Maryland',
   'cc-md-ss': 'Maryland',
@@ -14,17 +18,22 @@ const stateForEvent = {
   centralsan: 'California',
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
+  pmc: 'Wisconsin',
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
+  grns: 'Wisconsin',
+  'towsonu-baltimore': 'Maryland',
+  fairmapstexas: 'Texas'
 };
 
 const validEventCodes = {
   test: 'pennsylvania',
   fyi: 'forsyth_nc',
   'unca-forsyth': 'forsyth_nc',
+  buncombe: 'buncombe',
   'common cause md ss': 'maryland',
   'commoncause md ss': 'maryland',
   'cc-md-ss': 'maryland',
@@ -33,11 +42,15 @@ const validEventCodes = {
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
+  pmc: ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
-  ttt: 'colorado',
+  ttt: [],
+  grns: ['wisconsin', 'wisconsin2020'],
+  'towsonu-baltimore': 'baltimore',
+  fairmapstexas: 'texas'
 };
 
 const blockPlans = {
@@ -46,14 +59,17 @@ const blockPlans = {
 
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
+  pmc: {no: '2011 Wards'},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
+  grns: {no: '2011 Wards'},
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
   centralsan: 5086,
+  buncombe: 67,
 };
 
 const coi_events = [
@@ -66,16 +82,19 @@ const coi_events = [
   // 'santafe',
   'mggg-nm',
   'pmc-demo',
+  'pmc',
   'powercoalition',
   'open-maps',
   'fair-districts-oh',
   'colorado-cc',
+  'grns',
+  'texas'
 ];
 
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
-
+  buncombe: 'Welcome to the event page for Buncombe County!',
   'common cause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'commoncause md ss': 'Welcome to the event page for the Common Cause Maryland project!',
   'cc-md-ss': 'Welcome to the event page for the Common Cause Maryland project!',
@@ -84,11 +103,19 @@ const eventDescriptions = {
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
+  pmc: 'Welcome to the COI collection page for Wisconsin PMC',
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
-  'open-maps': 'Welcome to the event page for Open MAPS!',
+  'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
+  <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
+  <p>Our goal is to <strong>collect over 500 community maps and narratives</strong>. Our team will synthesize these maps in a final report that we will submit to Ohio's politician redistricting commission.</p>\
+  <p>Ohio residents, you can participate by drawing and describing Ohio communities in one of our modules. When you click “Share” to save your map, <strong>enter the tag “OPEN-maps”</strong> to post your map on this public submission page!</p>\
+  <p>Visit our <a href='https://districtr.org/training' target='_blank'>training resources</a> page to learn more about Communities of Interest and prompts that you can answer to describe your community. Join one of our Districtr train-the-trainers to learn more about why communities matter and how to collect useful narratives.</p>",
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
+  grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
+  'towsonu-baltimore': 'Welcome to the event page for Towson University',
+  fairmapstexas: 'Welcome to the event page for Fair Maps Texas!'
 };
 
 const longAbout = {
@@ -98,7 +125,6 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
-  "pmc-demo": "",
 };
 
 const proposals_by_event = {
@@ -116,11 +142,54 @@ export default () => {
         document.getElementById("eventHeadline").innerText = og_eventCode;
         // document.getElementById("eventCode").innerText = og_eventCode;
         if (eventDescriptions[eventCode]) {
-            document.getElementById("event-description").innerHTML = eventDescriptions[eventCode];
+            let desc = document.createElement("div");
+            desc.innerHTML = eventDescriptions[eventCode];
+            document.getElementById("event-description").prepend(desc);
         }
         if (longAbout[eventCode]) {
             document.getElementById("about-section").style.display = "block";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
+        }
+
+        if (eventCode === "open-maps") {
+          // ohio mini-map
+          document.getElementById("mini-map").style.display = "block";
+          const scale = 3200;
+          const translate = [-440, 240];
+          const path = geoPath(
+              geoAlbersUsaTerritories()
+                  .scale(scale)
+                  .translate(translate)
+          ).pointRadius(2);
+          fetch("/assets/oh-zone-map.geojson").then(res => res.json()).then(gj => {
+            render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+              <g id="states-group" @mouseleave=${() => {}}>
+                ${gj.features.map((feature, idx) => {
+                    // console.log(feature);
+                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                        style="cursor:default"
+                        d="${path(feature)}"
+                        @click=${(e) => {
+                          let support = [
+                            ["ohio", "toledo", "lima"],
+                            ["ohio", "portsmouth"],
+                            ["ohio", "cleveland-euclid"],
+                            ["ohio", "cincinnati", "dayton"],
+                            ["ohio", "akron-canton", "youngstown"],
+                            ["ohio", "columbus", "mansfield"]
+                          ][idx];
+                          document.querySelectorAll("#states-group path").forEach((zone, idx2) => {
+                              zone.style.fill = (idx === idx2) ? "orange" : "#0099cd";
+                          });
+                          document.querySelectorAll(".pcommunity").forEach((block) => {
+                              console.log(block.innerText);
+                              block.style.display = (support.includes(block.innerText.trim().split("\n")[0].toLowerCase())) ? "block" : "none";
+                          });
+                        }}></path>`;
+                })}
+                </g>
+              </svg>`, document.getElementById("mini-map"));
+          });
         }
 
         document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
@@ -128,6 +197,10 @@ export default () => {
         const target = document.getElementById("districting-options");
         if (typeof validEventCodes[eventCode] === 'string') {
             validEventCodes[eventCode] = [validEventCodes[eventCode]];
+        }
+        if (!validEventCodes[eventCode].length) {
+            document.getElementById("communities").style.display = "none";
+            document.getElementsByTagName("p")[0].style.display = "none";
         }
 
         listPlacesForState(stateForEvent[eventCode], coi_events.includes(eventCode)).then(places => {
@@ -147,7 +220,7 @@ export default () => {
                         place.units = place.units.filter(u => unitTypes[eventCode].yes.includes(u.name));
                     }
                 }
-                const mydiv = document.createElement('div');
+                const mydiv = document.createElement('li');
                 target.append(mydiv);
                 render(placeItems(place, startNewPlan, eventCode), mydiv);
             });

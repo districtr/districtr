@@ -87,7 +87,7 @@ export default function CommunityPlugin(editor) {
         state.population,
         state.place.name,
         state.parts,
-        spatial_abilities(state.place.id).coalition ? "Coalition" : false
+        (spatial_abilities(state.place.id).coalition === false) ? false : "Coalition"
     );
     evaluationTab.addRevealSection("Population", populationPivot, {
         isOpen: true,
@@ -99,7 +99,7 @@ export default function CommunityPlugin(editor) {
             state.vap,
             state.place.name,
             state.parts,
-            spatial_abilities(state.place.id).coalition ? "Coalition VAP" : false
+            (spatial_abilities(state.place.id).coalition === false) ? false : "Coalition VAP"
         );
         evaluationTab.addRevealSection("Voting Age Population", vapPivot, {
             isOpen: false,

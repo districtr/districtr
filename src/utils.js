@@ -307,33 +307,27 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         native_american: true,
-        coalition: true,
         shapefile: true,
         // find_unpainted: true,
       },
           maricopa: {
             native_american: true,
-            coalition: true,
             number_markers: true,
           },
           nwaz: {
             native_american: true,
-            coalition: true,
             number_markers: true,
           },
           seaz: {
             native_american: true,
-            coalition: true,
             number_markers: true,
           },
           phoenix: {
             native_american: true,
-            coalition: true,
             number_markers: true,
           },
           yuma: {
             native_american: true,
-            coalition: true,
             number_markers: true,
           },
       arkansas: {
@@ -364,6 +358,12 @@ export function spatial_abilities (id) {
       chicago: {
         number_markers: true,
         multiyear: 2019,
+        parties: [
+          "Rahm Emanuel",
+          "Jesus \u201cChuy\u201d Garc\u00eda",
+          "Lori Lightfoot",
+          "Toni Preckwinkle",
+        ]
       },
       colorado: {
         number_markers: true,
@@ -407,13 +407,11 @@ export function spatial_abilities (id) {
           miamifl: {
             number_markers: true,
             neighborhoods: true,
-            coalition: true,
           },
           miamidade: {
             multiyear: 2018,
             number_markers: true,
             neighborhoods: true,
-            coalition: true,
           },
       georgia: {
         number_markers: true,
@@ -488,12 +486,10 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
-        coalition: true,
         screenshot: true,
         find_unpainted: true,
       },
         batonrouge: {
-          coalition: true,
           number_markers: true,
           shapefile: true,
           screenshot: true,
@@ -523,6 +519,7 @@ export function spatial_abilities (id) {
           contiguity: 2,
           number_markers: true,
           shapefile: true,
+          coalition: false,
           // find_unpainted: true,
         },
       michigan: {
@@ -573,6 +570,7 @@ export function spatial_abilities (id) {
       },
       napaschools: {
         number_markers: true,
+        coalition: false,
       },
       nebraska: {
         // multiyear: 2018,
@@ -611,7 +609,6 @@ export function spatial_abilities (id) {
         screenshot: true,
         shapefile: true,
         find_unpainted: true,
-        coalition: true,
       },
         new_mexico_bg: {
           native_american: true,
@@ -619,7 +616,6 @@ export function spatial_abilities (id) {
           screenshot: true,
           current_districts: true,
           county_brush: true,
-          coalition: true,
           // find_unpainted: true,
         },
         santafe: {
@@ -627,7 +623,6 @@ export function spatial_abilities (id) {
           contiguity: 2,
           screenshot: true,
           shapefile: true,
-          coalition: true,
           // find_unpainted: true,
         },
       newyork: {
@@ -669,96 +664,100 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
+        screenshot: true,
         // find_unpainted: true - needs contiguity
       },
         ohcentral: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         ohakron: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         ohcin: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         ohcle: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         ohse: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         ohtoledo: {
           multiyear: 2019,
           number_markers: true,
-          coalition: true,
           shapefile: true,
           screenshot: true,
         },
         akroncanton: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         cincinnati: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         clevelandeuclid: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         columbus: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         dayton: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         limaoh: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         mansfield: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         portsmouthoh: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         toledo: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
         youngstown: {
           number_markers: true,
-          coalition: true,
+          shapefile: true,
+          screenshot: true,
         },
       oklahoma: {
         number_markers: true,
         native_american: true,
         county_brush: true,
         contiguity: 2,
-        coalition: true,
         shapefile: true,
         find_unpainted: true,
       },
@@ -796,7 +795,7 @@ export function spatial_abilities (id) {
       },
         puertorico_prec: {
           number_markers: true,
-          parties: ["Nuevo Progresista", "Popular Democrático"],
+          parties: ["Nuevo Progresista", "Popular Democrático", "Nuevo Progresista", "Popular Democrático"],
           shapefile: true,
           // find_unpainted: true,
         },
@@ -849,12 +848,10 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         // native_american: true,
-        coalition: true,
         shapefile: true,
         // find_unpainted: true,
       },
         vabeach: {
-          coalition: true,
           multiyear: 2018,
           number_markers: true,
           // find_unpainted: true,
@@ -866,6 +863,9 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+        yakima_wa: {
+          coalition: false,
+        },
       westvirginia: {
         multiyear: 2018,
         number_markers: true,

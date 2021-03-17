@@ -35,6 +35,18 @@
           .pcommunity:hover {
             background: #e44944;
           }
+          .places-list.events {
+            flex-wrap: wrap;
+            flex-direction: row;
+          }
+          path {
+            fill: #0099cd;
+            stroke: white;
+            cursor: pointer;
+          }
+          path:hover {
+            fill: #006b9c;
+          }
         </style>
     </head>
 
@@ -95,11 +107,14 @@
                     Mapping Page:
                     <span id="eventHeadline"></span>
                 </h1>
-                <div id="event-description"></div>
+
+                <div id="event-description">
+                  <figure id="mini-map" style="float:right;width:350px;margin-right:0;margin-top:-30px;margin-bottom:-30px;display:none;"></figure>
+                </div>
 
                 <h2 id="communities">Start&nbsp;<span id="draw-goal"></span></h2>
                 <p>Click below to start with a blank map.</p>
-                <div id="districting-options"></div>
+                <div id="districting-options" class="places-list events"></div>
                 <div style="clear:both"></div>
                 <div id="proposals"></div>
                 <div id="plans"></div>

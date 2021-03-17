@@ -241,8 +241,14 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
-        fetch(`/assets/current_districts/ohschools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri"].includes(state.place.id)) {
+        let st = "oh";
+        if (state.place.id === "indiana") {
+          st = "in";
+        } else if (state.place.id === "missouri") {
+          st = "mo";
+        }
+        fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
                 data: school_gj
@@ -257,7 +263,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            fetch(`/assets/current_districts/ohschools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+            fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
                 state.map.addSource('school_centroids', {
                     type: 'geojson',
                     data: school_centroids
@@ -285,7 +291,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (state.place.id !== "ohcentral") {
+                if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -361,7 +367,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -376,7 +382,7 @@ export default function DataLayersPlugin(editor) {
                 <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
                 Hidden
               </label>
-              ${state.place.id === "ohcentral" ? html`<label style="display:block;margin-bottom:8px;">
+              ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
                 <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
                 Cities and Towns
               </label>` : ""}
@@ -421,7 +427,7 @@ export default function DataLayersPlugin(editor) {
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
     let coalitionOverlays = [];
-    if (spatial_abilities(state.place.id).coalition) {
+    if (spatial_abilities(state.place.id).coalition !== false) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -466,7 +472,7 @@ export default function DataLayersPlugin(editor) {
               </div>
             `,
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
@@ -482,7 +488,7 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        spatial_abilities(state.place.id).coalition ? "Coalition population" : null, // coalition subgroup
+        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population", // coalition subgroup
         (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
@@ -495,7 +501,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show voting age population (VAP)",
             false,
-            spatial_abilities(state.place.id).coalition ? "Coalition voting age population" : null,
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
@@ -504,7 +510,7 @@ export default function DataLayersPlugin(editor) {
     tab.addRevealSection(
         "Race",
         (uiState, dispatch) => html`
-            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic) " : ""}
+            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,
@@ -593,12 +599,15 @@ export default function DataLayersPlugin(editor) {
         );
         tab.addRevealSection('Previous Elections',
             () => html`
-                ${(spatial_abilities(state.place.id).parties || []).map((p) =>
-                  html`<li class="party-desc">
-                    <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
-                    <span>${p}</span>
-                  </li>`
-                )}
+                ${spatial_abilities(state.place.id).parties ? 
+                html`<div class="custom-party-list" style="display: none">
+                    ${(spatial_abilities(state.place.id).parties).map((p, pdex) =>
+                      html`<li class="party-desc" style="display: ${(pdex >= spatial_abilities(state.place.id).parties.length - 2) ? "" : "none"}">
+                        <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
+                        <span>${p}</span>
+                      </li>`
+                    )}
+                </div>`: html``}
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>

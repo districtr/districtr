@@ -1,4 +1,4 @@
-import { html, render } from "lit-html";
+import { html, render, directive } from "lit-html";
 import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
@@ -18,11 +18,7 @@ export default () => {
             // navi-bar
             render(navLinks(stateData.sections, stateData.modules.map(m => m.ids)),
                    document.getElementById("nav-links"));
-
-
-
-
-
+            
 
             listPlacesForState(stateData.state, true).then(places => {
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
@@ -141,14 +137,40 @@ const drawPage = (stateData, onlyCommunities) => {
 
         ${stateData.sections.map(s => drawSection(s, stateData, onlyCommunities))}
 
-        ${until(fetch("assets/about/landing/footer.html").then((r) => {if (r.status === 200) {
-                                                                    return r.text();
-                                                                } else {
-                                                                    throw new Error(r.statusText);
-                                                                }}).then(content => $.parseHTML(content)))}
+        ${
+            until(
+                fetch("assets/about/landing/footer.html")
+                    .then((r) => {
+                        if (r.status === 200) return r.text();
+                        else throw new Error(r.statusText);
+                    })
+                .then(content => $.parseHTML(content))
+                .then(() => {
+                    // Since this is the longest request on the page, we fire
+                    // a page-load-complete event to let all listeners know that
+                    // the page has loaded. This lets us scroll the page to
+                    // the desired section properly.
+                    let load = new Event("page-load-complete");
+                    window.dispatchEvent(load);
+                }))
+        }
 
-    `
+    `;
 };
+
+/**
+ * Fires a page-load-complete event when the page is finished loading, because
+ * lit-html's `render()` doesn't fire events when it's finished. Weird.
+ * @returns {function(): void}
+ */
+function onLoad() {
+    return directive(promise => () => {
+        Promise.resolve(promise).then(() => {
+            let load = new Event("page-load-complete");
+            window.dispatchEvent(load);
+        });
+    })();
+}
 
 const drawTitles = (modules, st) =>
     modules.map(m => html`<h1 class="${m.id} headline place__name">

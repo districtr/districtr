@@ -146,11 +146,38 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
 
+function scrollToSection(state, section) {
+    return () => {
+        let url = "/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'),
+            adjacent = window.open(url);
+    
+        // Attach a listener to the adjacent Window so that, when the
+        // page-load-complete event fires, it's caught and the page is
+        // scrolled to the correct location.
+        adjacent.addEventListener("page-load-complete", e => {
+            let adjacent = e.target,
+                anchorElement = adjacent.document.getElementById(section);
+        
+            // Scrolls the desired anchor element to the top of the page, should
+            // it exist.
+            if (anchorElement) anchorElement.scrollIntoView(true);
+        });
+    };
+}
+
 function getMenuItems(state) {
     let items = [
         {
-            name: "About this map",
-            onClick: () => window.open("/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'), "_blank")
+            name: "About redistricting",
+            onClick: scrollToSection(state, "why?")
+        },
+        {
+            name: "About the data",
+            onClick: scrollToSection(state, "data")
+        },
+        {
+            name: "About the rules",
+            onClick: scrollToSection(state, "rules")
         },
         {
             name: "Districtr homepage",

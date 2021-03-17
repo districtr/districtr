@@ -2759,7 +2759,7 @@
     "state": "Wisconsin",
     "code": "WI",
     "modules": [
-      {"name": "Statewide", "ids": ["wisconsin", "wisconsin2020"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["wisconsin","wisco2019acs"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
