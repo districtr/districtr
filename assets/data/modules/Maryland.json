@@ -972,5 +972,196 @@
         "name": "General Assembly"
       }
     ]
+  },
+  {
+    "name": "Baltimore",
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 620961,
+              "min": 2,
+              "max": 5237
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 174120,
+                "min": 0,
+                "max": 3066
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 392938,
+                "min": 0,
+                "max": 4337
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 25960,
+                "min": 0,
+                "max": 580
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 14397,
+                "min": 0,
+                "max": 612
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 1884,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 192,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 10528,
+                "min": 0,
+                "max": 103
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 942,
+                "min": 0,
+                "max": 22
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 487401,
+              "min": 2,
+              "max": 5128
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 152511,
+                "min": 0,
+                "max": 2941
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 294138,
+                "min": 0,
+                "max": 4236
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 19068,
+                "min": 0,
+                "max": 437
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1496,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 164,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 12853,
+                "min": 0,
+                "max": 610
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 611,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 6560,
+                "min": 0,
+                "max": 79
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Census Block ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -76.7115,
+            39.1972
+          ],
+          [
+            -76.5295,
+            39.3722
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.baltimore_block_groups"
+            },
+            "sourceLayer": "baltimore_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.baltimore_block_groups_points"
+            },
+            "sourceLayer": "baltimore_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "state": "Maryland",
+    "id": "baltimore",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 14,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
