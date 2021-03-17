@@ -575,14 +575,12 @@ export function spatial_abilities (id) {
           number_markers: true,
           shapefile: true,
           screenshot: true,
-          contiguity: 2,
         },
         stlouis_mn: {
           border: true,
           number_markers: true,
           shapefile: true,
           screenshot: true,
-          contiguity: 2,
         },
       mississippi: {
         number_markers: true,
