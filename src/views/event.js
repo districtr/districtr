@@ -89,7 +89,7 @@ const coi_events = [
   'fair-districts-oh',
   'colorado-cc',
   'grns',
-  'texas'
+  'fairmapstexas'
 ];
 
 const eventDescriptions = {
