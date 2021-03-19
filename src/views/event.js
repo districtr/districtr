@@ -125,7 +125,7 @@ const eventDescriptions = {
   fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
   'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
   <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
-  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/map' target='_blank'>our portal</a>.</p>",
+  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
 };
 
 const longAbout = {
