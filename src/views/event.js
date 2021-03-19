@@ -26,7 +26,9 @@ const stateForEvent = {
   ttt: 'Colorado',
   grns: 'Wisconsin',
   'towsonu-baltimore': 'Maryland',
-  fairmapstexas: 'Texas'
+  fairmapstexas: 'Texas',
+  'missouri-mapping': 'Missouri'
+  
 };
 
 const validEventCodes = {
@@ -50,7 +52,8 @@ const validEventCodes = {
   ttt: [],
   grns: ['wisconsin', 'wisconsin2020'],
   'towsonu-baltimore': 'baltimore',
-  fairmapstexas: 'texas'
+  fairmapstexas: 'texas',
+  'missouri-mapping': 'missouri'
 };
 
 const blockPlans = {
@@ -64,6 +67,7 @@ const unitTypes = {
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
+  'missouri-mapping': {no: 'Precincts'}
 };
 
 const unitCounts = {
@@ -89,7 +93,8 @@ const coi_events = [
   'fair-districts-oh',
   'colorado-cc',
   'grns',
-  'fairmapstexas'
+  'fairmapstexas',
+  'missouri-mapping'
 ];
 
 const eventDescriptions = {
@@ -118,7 +123,11 @@ const eventDescriptions = {
   ttt: 'Training the Trainers',
   grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
   'towsonu-baltimore': 'Welcome to the event page for Towson University',
-  fairmapstexas: 'Welcome to the event page for Fair Maps Texas!'
+  fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
+  'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
+  <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
+  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/map' target='_blank'>our portal</a>.</p>"
+
 };
 
 const longAbout = {
