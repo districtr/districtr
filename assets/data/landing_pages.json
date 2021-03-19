@@ -1089,7 +1089,8 @@
     "state": "Maryland",
     "code": "MD",
     "modules": [
-      {"name": "Statewide", "ids": ["maryland"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["maryland"], "default": "true", "id": "state"},
+      {"name": "Cities", "ids": ["baltimore"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1346,7 +1347,7 @@
     "code": "MN",
     "modules": [
       {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["olmsted"], "id": "county"},
+      {"name": "Counties", "ids": ["olmsted","washington_mn","stlouis_mn"], "id": "county"},
       {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
     ],
     "sections": [
