@@ -176,10 +176,6 @@ function getMenuItems(state) {
             onClick: scrollToSection(state, "data")
         },
         {
-            name: "About the rules",
-            onClick: scrollToSection(state, "rules")
-        },
-        {
             name: "Districtr homepage",
             onClick: () => {
                 if (window.confirm("Would you like to return to the Districtr homepage?")) {
