@@ -335,7 +335,6 @@ export function spatial_abilities (id) {
         multiyear: 2018,
         number_markers: true,
         county_brush: true,
-        county_brush: true,
         shapefile: true,
         find_unpainted: true,
       },
@@ -448,7 +447,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        contiguity: true,
+        contiguity: 2,
         find_unpainted: true,
       },
       illinois: {
@@ -939,7 +938,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         screenshot: true,
         find_unpainted: true,
-        contiguity: true,
+        contiguity: 2,
       },
         wisconsin2020: {
           number_markers: true,
@@ -948,7 +947,7 @@ export function spatial_abilities (id) {
           shapefile: true,
           screenshot: true,
           find_unpainted: true,
-          contiguity: true,
+          contiguity: 2,
         },
       wyoming: {
         multiyear: 2018,
