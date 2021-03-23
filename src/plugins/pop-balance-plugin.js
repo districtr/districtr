@@ -1,3 +1,4 @@
+
 import { html } from "lit-html";
 import { Tab } from "../components/Tab";
 import { spatial_abilities } from "../utils";
@@ -68,6 +69,9 @@ export default function PopulationBalancePlugin(editor) {
         tab.addRevealSection(
             "Population Balance",
             () => html`
+                <section class="toolbar-inner dataset-info">
+                    ${populateDatasetInfo(state)};
+                </section>
                 ${MultiMemberPopBalanceChart(state.population, state.parts)}
                 <dl class="report-data-list">
                     ${unassignedPopulation(state.population)}
@@ -80,6 +84,9 @@ export default function PopulationBalancePlugin(editor) {
             "Population Balance",
             () =>
                 html`
+                    <section class="toolbar-inner dataset-info">
+                        ${populateDatasetInfo(state)};
+                    </section>
                     ${populationBarChart(state.population, state.activeParts)}
                     <dl class="report-data-list">
                         ${unassignedPopulation(state.population)}
@@ -89,5 +96,7 @@ export default function PopulationBalancePlugin(editor) {
                 `
         );
     }
+    
+    // Add the tab to the toolbar.
     editor.toolbar.addTab(tab);
 }

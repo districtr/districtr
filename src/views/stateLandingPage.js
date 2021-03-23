@@ -1,4 +1,4 @@
-import { html, render } from "lit-html";
+import { html, render, directive } from "lit-html";
 import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
@@ -161,13 +161,26 @@ const drawPage = (stateData, onlyCommunities, vra) => {
 
         ${stateData.sections.map(s => drawSection(s, stateData, onlyCommunities))}
 
-        ${until(fetch("assets/about/landing/footer.html").then((r) => {if (r.status === 200) {
-                                                                    return r.text();
-                                                                } else {
-                                                                    throw new Error(r.statusText);
-                                                                }}).then(content => $.parseHTML(content)))}
+        ${
+            until(
+                fetch("assets/about/landing/footer.html")
+                    .then((r) => {
+                        if (r.status === 200) return r.text();
+                        else throw new Error(r.statusText);
+                    })
+                .then(content => $.parseHTML(content))
+                .then(() => {
+                    // Since this is the longest request on the page, we fire
+                    // a page-load-complete event to let all listeners know that
+                    // the page has loaded. This lets us scroll the page to
+                    // the desired section properly.
+                    let load = new Event("page-load-complete");
+                    window.dispatchEvent(load);
+                })
+            )
+        }
 
-    `
+    `;
 };
 
 const drawTitles = (modules, st) =>

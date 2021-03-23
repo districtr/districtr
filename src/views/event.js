@@ -24,6 +24,10 @@ const stateForEvent = {
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
+  grns: 'Wisconsin',
+  'towsonu-baltimore': 'Maryland',
+  fairmapstexas: 'Texas',
+  'missouri-mapping': 'Missouri',
 };
 
 const validEventCodes = {
@@ -45,6 +49,10 @@ const validEventCodes = {
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
   'colorado-cc': 'colorado',
   ttt: [],
+  grns: ['wisconsin', 'wisconsin2020'],
+  'towsonu-baltimore': 'baltimore',
+  fairmapstexas: 'texas',
+  'missouri-mapping': 'missouri'
 };
 
 const blockPlans = {
@@ -57,12 +65,15 @@ const unitTypes = {
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
+  grns: {no: '2011 Wards'},
+  'missouri-mapping': {no: 'Precincts'}
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
   centralsan: 5086,
   buncombe: 67,
+  'towsonu-baltimore': 653,
 };
 
 const coi_events = [
@@ -80,6 +91,9 @@ const coi_events = [
   'open-maps',
   'fair-districts-oh',
   'colorado-cc',
+  'grns',
+  'fairmapstexas',
+  'missouri-mapping'
 ];
 
 const eventDescriptions = {
@@ -94,7 +108,9 @@ const eventDescriptions = {
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
-  pmc: 'Welcome to the COI collection page for Wisconsin PMC',
+  pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
+  <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Share\" to save the map.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -104,6 +120,12 @@ const eventDescriptions = {
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
+  grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
+  'towsonu-baltimore': 'Welcome to the event page for Towson University',
+  fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
+  'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
+  <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
+  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
 };
 
 const longAbout = {
