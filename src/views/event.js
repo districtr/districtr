@@ -45,8 +45,8 @@ const validEventCodes = {
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   pmc: ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
-  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
-  'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
+  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
+  'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'colorado-cc': 'colorado',
   ttt: [],
   grns: ['wisconsin', 'wisconsin2020'],
@@ -165,42 +165,66 @@ export default () => {
 
         if (eventCode === "open-maps") {
           // ohio mini-map
-          document.getElementById("mini-map").style.display = "block";
+          document.getElementById("mini-maps").style.display = "block";
+          document.getElementById("districting-options").style.display = "none";
           const scale = 3200;
           const translate = [-440, 240];
           const path = geoPath(
               geoAlbersUsaTerritories()
                   .scale(scale)
                   .translate(translate)
-          ).pointRadius(2);
+          ).pointRadius(12);
           fetch("/assets/oh-zone-map.geojson").then(res => res.json()).then(gj => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
-                ${gj.features.map((feature, idx) => {
+                ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
                     // console.log(feature);
-                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
-                        style="cursor:default"
+                    return svg`<path id="x" stroke-width="0"
                         d="${path(feature)}"
                         @click=${(e) => {
-                          let support = [
-                            ["ohio", "toledo", "lima"],
-                            ["ohio", "portsmouth"],
-                            ["ohio", "cleveland-euclid"],
-                            ["ohio", "cincinnati", "dayton"],
-                            ["ohio", "akron-canton", "youngstown"],
-                            ["ohio", "columbus", "mansfield"]
-                          ][idx];
-                          document.querySelectorAll("#states-group path").forEach((zone, idx2) => {
-                              zone.style.fill = (idx === idx2) ? "orange" : "#0099cd";
-                          });
-                          document.querySelectorAll(".pcommunity").forEach((block) => {
-                              console.log(block.innerText);
-                              block.style.display = (support.includes(block.innerText.trim().split("\n")[0].toLowerCase())) ? "block" : "none";
-                          });
+                            document.querySelectorAll(".pcommunity")[0].click();
+                        }}
+                    ></path>`;
+                })}
+                </g>
+              </svg>`, document.getElementById("mini-map-0"));
+
+            render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+              <g id="states-group" @mouseleave=${() => {}}>
+                ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
+                    // console.log(feature);
+                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                        d="${path(feature)}"
+                        @click=${(e) => {
+                          document.querySelector(".pcommunity." + feature.properties.name).click();
                         }}></path>`;
                 })}
                 </g>
               </svg>`, document.getElementById("mini-map"));
+
+
+              render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+                <g id="states-group" @mouseleave=${() => {}}>
+                  ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
+                      // console.log(feature);
+                      return svg`<path id="x" fill="#ccc" stroke-width="0"
+                          d="${path(feature)}"
+                      ></path>`;
+                  })}
+                  ${gj.features.filter(f => f.geometry.type === "Point").map((feature, idx) => {
+                      return svg`<path class="circle"
+                          d="${path(feature)}"
+                          @click=${(e) => {
+                            document.querySelectorAll(".pcommunity").forEach((block) => {
+                                let city = block.innerText.trim().split("\n")[0].toLowerCase();
+                                if (feature.properties.name.toLowerCase().includes(city)) {
+                                    block.click();
+                                }
+                            });
+                          }}></path>`;
+                  })}
+                  </g>
+                </svg>`, document.getElementById("mini-map-2"));
           });
         }
 
