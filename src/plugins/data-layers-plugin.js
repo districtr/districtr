@@ -624,8 +624,8 @@ export default function DataLayersPlugin(editor) {
     // }
 
     if (state.elections.length > 0) {
-        console.log(state);
-        console.log(toolbar);
+        // console.log(state);
+        // console.log(toolbar);
         // console.log(toolbar.toolsById.inspect);
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
@@ -649,13 +649,3 @@ export default function DataLayersPlugin(editor) {
 
     toolbar.addTab(tab);
 }
-
-// ${spatial_abilities(state.place.id).parties ?
-//     html`<div class="custom-party-list" style="display: none">
-//     ${(spatial_abilities(state.place.id).parties).map((p, pdex) =>
-//       html`<li class="party-desc" style="display: ${(pdex >= spatial_abilities(state.place.id).parties.length - 2) ? "" : "none"}">
-//         <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
-//         <span>${p}</span>
-//       </li>`
-//     )}
-// </div>`: html``}

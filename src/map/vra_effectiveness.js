@@ -13,7 +13,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
 
   const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
 
-  console.log(state);
+//   console.log(state);
   if (!state.vra_effectiveness) {
     state.vra_effectiveness = Object.fromEntries(groups.map(g => [g, null]));
   }
@@ -31,7 +31,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
     //     state.plan.assignment[k] = Array.isArray(state.plan.assignment[k]) ? state.plan.assignment[k][0] : state.plan.assignment[k]
     // })
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    console.log(assign);
+    // console.log(assign);
     // console.log(state);
     // console.log(assign);
     // let saveplan = state.serialize();

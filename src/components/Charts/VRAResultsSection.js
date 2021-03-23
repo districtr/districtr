@@ -198,8 +198,8 @@ function DistrictResults(effectiveness, dist, group, place) {
     // const group = groups[group_index];
     const runoffs = ["tx_vra"].includes(place);
     const proxy = ! ["la_vra"].includes(place);
-    console.log(dist.id);
-    console.log(group);
+    // console.log(dist.id);
+    // console.log(group);
     return html`
         <div class="ui-option ui-option--slim">
             <h5> Primary Elections Breakdown</h5>
@@ -257,7 +257,7 @@ export default function VRAResultsSection(
     dispatch
 ) {
     const groups = Object.keys(effectiveness);
-    console.log(parts);
+    // console.log(parts);
 
     return html`
         <section class="toolbar-section">
