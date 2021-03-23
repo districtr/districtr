@@ -44,10 +44,10 @@ export default class PartisanOverlayContainer {
         this.isVisible = visible;
         if (this.isVisible) {
             this.currentElectionOverlay.show();
-            document.querySelector(".custom-party-list").style.display = "block";
+            // document.querySelector(".custom-party-list").style.display = "block";
         } else {
             this.currentElectionOverlay.hide();
-            document.querySelector(".custom-party-list").style.display = "none";
+            // document.querySelector(".custom-party-list").style.display = "none";
         }
         if (this.bipolarText) {
             // get last word of label ("Renter") to show/hide color scale
@@ -58,12 +58,12 @@ export default class PartisanOverlayContainer {
     setElection(i) {
         this._currentElectionIndex = i;
 
-        if (this.electionOverlays.length > 1) {
-            let candidates = Array.from(document.querySelectorAll(".party-desc")).reverse();
-            candidates.forEach((c, cdex) => {
-                c.style.display = (cdex === i * 2 || cdex === i * 2 + 1) ? "list-item" : "none";
-            });
-        }
+        // if (this.electionOverlays.length > 1) {
+        //     let candidates = Array.from(document.querySelectorAll(".party-desc")).reverse();
+        //     candidates.forEach((c, cdex) => {
+        //         c.style.display = (cdex === i * 2 || cdex === i * 2 + 1) ? "list-item" : "none";
+        //     });
+        // }
 
         this.electionOverlays.forEach(overlay => overlay.hide());
         if (this.isVisible) {
@@ -102,7 +102,8 @@ export default class PartisanOverlayContainer {
 
     candidateLegend() {
         const cands = this.elections[this._currentElectionIndex].subgroups;
-        // console.log(cands);
+        console.log(cands);
+        console.log(cands.map(c => getPartyRGBColors(c.name + c.key).join(",")))
         return cands.map(c => html`
                                 <li class="party-desc">
                                     <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>
