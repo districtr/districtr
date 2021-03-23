@@ -60,7 +60,7 @@ export default function VRAEffectivenessTable(
         <ul class="option-list">
             <li class="option-list__item">
             <span style="align-items: center;display: inline-flex;">
-            ${loading ? html`Loading <img src="/assets/pinwheel.gif" width="50px" height="50px">` : html`Synced with current map`}
+            ${loading ? html`<img src="/assets/pinwheel2.gif" width="20px" height="20px"> &nbsp;&nbsp;&nbsp; Calculating` : html`Synced with current map`}
             </span>
             </li>
         </ul>
