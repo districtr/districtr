@@ -834,6 +834,12 @@ export function spatial_abilities (id) {
           county_brush: true,
           number_markers: true,
         },
+        austin: {
+          border: true,
+        },
+        fortworth: {
+          border: true,
+        },
       utah: {
         number_markers: true,
         county_brush: true,

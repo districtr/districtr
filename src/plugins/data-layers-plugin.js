@@ -601,6 +601,15 @@ export default function DataLayersPlugin(editor) {
         const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
+                ${spatial_abilities(state.place.id).parties ?
+                    html`<div class="custom-party-list" style="display: none">
+                    ${(spatial_abilities(state.place.id).parties).map((p, pdex) =>
+                      html`<li class="party-desc" style="display: ${(pdex >= spatial_abilities(state.place.id).parties.length - 2) ? "" : "none"}">
+                        <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
+                        <span>${p}</span>
+                      </li>`
+                    )}
+                </div>`: html``}
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>

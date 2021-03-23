@@ -6,6 +6,7 @@ import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
 import populationBarChart from "../components/Charts/PopulationBarChart";
 import populationDeviation from "../components/Charts/PopulationDeviation";
 import unassignedPopulation from "../components/Charts/UnassignedPopulation";
+import populateDatasetInfo from "../components/Charts/DatasetInfo";
 
 export default function PopulationBalancePlugin(editor) {
     const problem = editor.state.plan.problem;
@@ -13,8 +14,7 @@ export default function PopulationBalancePlugin(editor) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const tab = new Tab("criteria", showVRA ? "Pop." : "Population", editor.store);
 
-    let plan = editor.state.plan,
-        place = editor.state.place.id,
+    let place = editor.state.place.id,
         extra_source = (editor.state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
     if (editor.state.units.sourceId === "ma_towns") {
         extra_source = "ma_towns";
