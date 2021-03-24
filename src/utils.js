@@ -508,7 +508,7 @@ export function spatial_abilities (id) {
           native_american: true,
           vra_effectiveness: true,
           county_brush: true, // lakes 
-          number_markers: true,
+          number_markers: false, // need different ids that louisiana precincts need to update server
         },
         batonrouge: {
           number_markers: true,
