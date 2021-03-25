@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
         // by default search all plans
         search.hostname = myHost;
     }
-    const plan = await Plan.findOne(search).select('plan screenshot');
+    const plan = await Plan.findOne(search).select('plan simple_id screenshot');
     // be careful not to share secret token
 
     return {
@@ -31,7 +31,9 @@ exports.handler = async (event, context) => {
         headers: headers,
         body: JSON.stringify({
             msg: "Plan successfully found",
-            plan: plan.plan
+            plan: plan.plan,
+            screenshot: plan.screenshot,
+            simple_id: plan.simple_id,
         })
     };
   } catch (err) {
