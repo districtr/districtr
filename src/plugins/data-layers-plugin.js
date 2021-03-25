@@ -1,4 +1,4 @@
-import { html, render } from "lit-html";
+import { html, parts, render } from "lit-html";
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -14,11 +14,12 @@ import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addCurrentDistricts } from "../layers/current_districts";
 import { spatial_abilities } from "../utils";
-import { partyRGBColors } from "../layers/color-rules";
+
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const tab = new LayerTab("layers", "Data Layers", editor.store);
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
     const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
 
@@ -63,7 +64,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id)) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA) {
         addCountyLayer(tab, state);
     }
 
@@ -570,7 +571,8 @@ export default function DataLayersPlugin(editor) {
                 "partisan",
                 demoLayers.filter(lyr => !lyr.background),
                 [rentElec],
-                "Show % renter"
+                toolbar,
+                "Show % renter",
             );
         }
 
@@ -622,22 +624,19 @@ export default function DataLayersPlugin(editor) {
     // }
 
     if (state.elections.length > 0) {
+        // console.log(state);
+        // console.log(toolbar);
+        // console.log(toolbar.toolsById.inspect);
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
             demoLayers,
-            state.elections
+            state.elections,
+            toolbar
         );
+        const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
-                ${spatial_abilities(state.place.id).parties ?
-                html`<div class="custom-party-list" style="display: none">
-                    ${(spatial_abilities(state.place.id).parties).map((p, pdex) =>
-                      html`<li class="party-desc" style="display: ${(pdex >= spatial_abilities(state.place.id).parties.length - 2) ? "" : "none"}">
-                        <span style="background-color:rgba(${partyRGBColors[p].join(",")}, 0.8)"></span>
-                        <span>${p}</span>
-                      </li>`
-                    )}
-                </div>`: html``}
+                
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>

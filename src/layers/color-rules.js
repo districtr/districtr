@@ -1,3 +1,4 @@
+import { parts } from "lit-html";
 import { divideOrZeroIfNaN } from "../utils";
 
 // TODO: Include legends
@@ -43,14 +44,31 @@ let cachedColors = {};
  * Returns a color for the given party.
  * @param {String} name the party's name (e.g. Democratic)
  */
-function getPartyRGBColors(name) {
+export function getPartyRGBColors(name) {
     if (partyRGBColors.hasOwnProperty(name)) {
         return partyRGBColors[name];
     }
+    if (name.includes("(Dem)") || name.includes("Democratic")) {
+        return partyRGBColors["Democratic"]
+    }
+    if (name.includes("(Rep)") || name.includes("Republican")) {
+        return partyRGBColors["Republican"]
+    }
+    if (name.includes("(Ind)") || name.includes("Independent")) {
+        return partyRGBColors["Independent"]
+    }
+    if (name.includes("Nuevo Progresista")) {
+        return partyRGBColors["Nuevo Progresista"]
+    }
+    if (name.includes("Popular Democrático")) {
+        return partyRGBColors["Popular Democrático"]
+    }
+
     if (cachedColors.hasOwnProperty(name)) {
         return cachedColors[name];
     }
-    let color = vizColors.pop();
+    let color = vizColors.shift();
+    vizColors.push(color);
     cachedColors[name] = color;
     return color;
 }
@@ -122,7 +140,7 @@ export function sizeByCount(subgroup) {
 export function colorByFraction(subgroup) {
     const rgb =
         subgroup.columnSet.type === "election"
-            ? getPartyRGBColors(subgroup.name)
+            ? getPartyRGBColors(subgroup.name + subgroup.key)
             : [0, 0, 0];
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
@@ -148,22 +166,24 @@ function colorbyVoteShare(party, colorStops) {
     ];
 }
 
-function getPartisanColorStops(party) {
-    const rgb = getPartyRGBColors(party.name);
+function getPartisanColorStops(party, num_parties) {
+    // console.log(party);
+    const rgb = getPartyRGBColors(party.name + party.key);
+    const thresh = 1/num_parties;
     return [
         0,
         "rgba(0,0,0,0)",
-        0.499,
+        thresh - 0.001,
         "rgba(0,0,0,0)",
-        0.5,
+        thresh,
         "rgba(249,249,249,0)",
         1,
         `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
     ];
 }
 
-export function voteShareRule(party) {
-    const colorStops = getPartisanColorStops(party);
+export const voteShareRule = num_parties => (party) => {
+    const colorStops = getPartisanColorStops(party, num_parties);
     return colorbyVoteShare(party, colorStops);
 }
 

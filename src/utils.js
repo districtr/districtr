@@ -504,6 +504,12 @@ export function spatial_abilities (id) {
         screenshot: true,
         find_unpainted: true,
       },
+        la_vra: {
+          native_american: true,
+          vra_effectiveness: true,
+          county_brush: true, // lakes 
+          number_markers: false, // need different ids that louisiana precincts need to update server
+        },
         batonrouge: {
           number_markers: true,
           shapefile: true,
@@ -878,6 +884,11 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+        tx_vra: {
+          vra_effectiveness: true,
+          county_brush: true,
+          number_markers: true,
+        },
         austin: {
           border: true,
         },
