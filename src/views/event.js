@@ -93,7 +93,8 @@ const coi_events = [
   'colorado-cc',
   'grns',
   'fairmapstexas',
-  'missouri-mapping'
+  'missouri-mapping',
+  'ttt',
 ];
 
 const eventDescriptions = {
