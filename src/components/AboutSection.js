@@ -56,6 +56,9 @@ export default class AboutSection {
     }
     render() {
         const parts = this.state.activeParts;
+        if (this.state.place.landmarks.source && !this.state.place.landmarks.data) {
+            this.state.place.landmarks.data = this.state.place.landmarks.source.data;
+        }
 
         // print view of COI and landmarks
         render(html`
