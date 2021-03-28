@@ -507,7 +507,7 @@ export function spatial_abilities (id) {
         la_vra: {
           native_american: true,
           vra_effectiveness: true,
-          county_brush: true, // lakes 
+          county_brush: true, // lakes
           number_markers: false, // need different ids that louisiana precincts need to update server
         },
         batonrouge: {
@@ -894,6 +894,12 @@ export function spatial_abilities (id) {
         },
         fortworth: {
           border: true,
+        },
+        houston: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          multiyear: 2019,
         },
       utah: {
         number_markers: true,
