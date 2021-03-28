@@ -167,13 +167,14 @@ export default () => {
           // ohio mini-map
           document.getElementById("mini-maps").style.display = "block";
           document.getElementById("districting-options").style.display = "none";
+          document.getElementById("districting-options-title").style.display = "none";
           const scale = 3200;
           const translate = [-440, 240];
           const path = geoPath(
               geoAlbersUsaTerritories()
                   .scale(scale)
                   .translate(translate)
-          ).pointRadius(12);
+          ).pointRadius(9);
           fetch("/assets/oh-zone-map.geojson").then(res => res.json()).then(gj => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
@@ -214,6 +215,12 @@ export default () => {
                   ${gj.features.filter(f => f.geometry.type === "Point").map((feature, idx) => {
                       return svg`<path class="circle"
                           d="${path(feature)}"
+                          @mouseover=${() => {
+                            document.getElementById("city-caption").innerText = feature.properties.name;
+                          }}
+                          @mouseout=${() => {
+                            document.getElementById("city-caption").innerText = "";
+                          }}
                           @click=${(e) => {
                             document.querySelectorAll(".pcommunity").forEach((block) => {
                                 let city = block.innerText.trim().split("\n")[0].toLowerCase();
