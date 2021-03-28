@@ -310,6 +310,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                       <br/>
                       Plan ID: ${plan.simple_id || plan._id}</h6>
                 <br/>
+                ${(plan.isScratch ? html`<h4 style="font-style: italic">Draft Plan</h4>` : "")}
                 ${isProfessionalSamples ? "" : html`<span>Last updated<br/>
                       ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>

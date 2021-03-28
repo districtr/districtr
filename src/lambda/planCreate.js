@@ -26,6 +26,7 @@ exports.handler = async (event, context) => {
               hostname: data.hostname,
               startDate: new Date(),
               screenshot: data.screenshot,
+              isScratch: data.isScratch || false,
           };
       const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
       plan.simple_id = nextPlanID.value;

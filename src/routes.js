@@ -70,6 +70,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             token: token.split("_")[0],
             eventCode: eventCode,
             planName: planName,
+            isScratch: (document.getElementById("is-scratch") || {}).checked,
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
