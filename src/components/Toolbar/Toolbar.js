@@ -115,6 +115,10 @@ export default class Toolbar {
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
                         <br/>
+                        <label style="float: right; cursor: pointer;">
+                          <input id="is-scratch" type="checkbox"/>
+                          Save as Draft
+                        </label>
                         <label>Tag or Event Code</label>
                         <br/>
                         <input
