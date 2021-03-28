@@ -206,7 +206,7 @@
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
       {"name": "Counties", "ids": ["lax"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
-      {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
+      {"name": "School Districts", "ids": ["california_ccd", "napaschools"], "id": "schools"}
     ],
     "sections": [
       {
