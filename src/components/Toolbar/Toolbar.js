@@ -128,10 +128,9 @@ export default class Toolbar {
                             value="${eventdefault}"
                             @input="${() => {
                                 document.getElementById("re-save-popup").disabled = false;
-                                document.getElementById("extra-event-popup").style.display = "block";
                             }}"
                         />
-                        <div id="${eventdefault.length || "extra-event-popup"}">
+                        <div>
                           <label>Team or Plan Name</label>
                           <br/>
                           <input
