@@ -308,10 +308,21 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.planName || ''}
                       <br/>
-                      Plan ID: ${plan.simple_id || plan._id}</h6>
+                      ID: ${plan.simple_id || plan._id}</h6>
                 <br/>
                 ${(plan.isScratch ? html`<h4 style="font-style: italic">Draft Plan</h4>` : "")}
-                ${isProfessionalSamples ? "" : html`<span>Last updated<br/>
+                <span>
+                  ${plan.plan.place.name || ""}
+                  <br/>
+                  ${(plan.plan.problem.type === "community")
+                    ? "Communities of Interest"
+                    : plan.plan.problem.pluralNoun
+                  }
+                  <br/>
+                  from ${plan.plan.units.name}
+                </span>
+                <br/>
+                ${isProfessionalSamples ? "" : html`<span>Updated<br/>
                       ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>
             ${(coi_events.includes(eventCode) || isProfessionalSamples)
