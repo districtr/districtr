@@ -159,6 +159,7 @@ export default () => {
         }
         if (longAbout[eventCode]) {
             document.getElementById("about-section").style.display = "block";
+            document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
 
@@ -211,6 +212,7 @@ export default () => {
         }
         if (!validEventCodes[eventCode].length) {
             document.getElementById("communities").style.display = "none";
+            document.getElementsByClassName("draw-section")[0].style.display = "none";
             document.getElementsByTagName("p")[0].style.display = "none";
         }
 
