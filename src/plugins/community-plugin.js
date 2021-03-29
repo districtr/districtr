@@ -93,7 +93,7 @@ export default function CommunityPlugin(editor) {
         isOpen: true,
         activePartIndex: 0
     });
-    if (state.vap) {
+    if (state.vap && state.vap.subgroups.length > 1) {
         const vapPivot = PivotTable(
             "Voting Age Population",
             state.vap,
