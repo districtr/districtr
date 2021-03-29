@@ -1660,5 +1660,99 @@
         "pluralNoun": "Legislative Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POPULATION",
+              "name": "Total population",
+              "sum": 57531,
+              "min": 0,
+              "max": 1265
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 32529,
+                "min": 0,
+                "max": 464
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 2880,
+                "min": 0,
+                "max": 131
+              },
+              {
+                "key": "Latino",
+                "name": "Latino population",
+                "sum": 8454,
+                "min": 0,
+                "max": 323
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 1378,
+                "min": 0,
+                "max": 70
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -111.8944,
+            33.2773
+          ],
+          [
+            -111.5808,
+            33.5123
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mesaaz_blocks_points"
+            },
+            "sourceLayer": "mesaaz_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mesaaz_blocks"
+            },
+            "sourceLayer": "mesaaz_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "mesaaz",
+    "name": "Mesa",
+    "state": "Arizona",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]

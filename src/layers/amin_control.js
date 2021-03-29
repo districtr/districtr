@@ -48,7 +48,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Territory";
     } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix"].includes(state.place.id)) {
+    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix", "mesaaz"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
     } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
@@ -59,7 +59,7 @@ export function addAmerIndianLayer(tab, state) {
     }
 
     let stateSource = state.place.id.replace("_bg", "").replace("2020", "");
-    if (["nwaz", "seaz", "phoenix", "maricopa", "yuma"].includes(state.place.id)) {
+    if (["nwaz", "seaz", "phoenix", "maricopa", "yuma", "mesaaz"].includes(state.place.id)) {
       stateSource = "arizona";
     } else if (state.place.id.indexOf("ca_") === 0) {
       stateSource = "california";
