@@ -507,7 +507,7 @@ export function spatial_abilities (id) {
         la_vra: {
           native_american: true,
           vra_effectiveness: true,
-          county_brush: true, // lakes 
+          county_brush: true, // lakes
           number_markers: false, // need different ids that louisiana precincts need to update server
         },
         batonrouge: {
@@ -677,6 +677,7 @@ export function spatial_abilities (id) {
         current_districts: true,
         shapefile: true,
         find_unpainted: true,
+        coalition: false,
       },
           forsyth_nc: {
             contiguity: 2,
