@@ -137,7 +137,7 @@ function exportPlanAsSHP(state, geojson) {
     .then((res) => res.arrayBuffer())
     .catch((e) => console.error(e))
     .then((data) => {
-        download(`districtr-plan-${serialized.id}.${geojson ? "geojson" : "shp.zip"}`, data, true);
+        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
     });
 }
 
