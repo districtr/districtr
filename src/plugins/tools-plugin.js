@@ -120,14 +120,14 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state) {
+function exportPlanAsSHP(state, geojson) {
     const serialized = state.serialize();
     Object.keys(serialized.assignment).forEach((assign) => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    fetch("//mggg.pythonanywhere.com/shp", {
+    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ function exportPlanAsSHP(state) {
     .then((res) => res.arrayBuffer())
     .catch((e) => console.error(e))
     .then((data) => {
-        download(`districtr-plan-${serialized.id}.shp.zip`, data, true);
+        download(`districtr-plan-${serialized.id}.${geojson ? "geojson" : "shp.zip"}`, data, true);
     });
 }
 
@@ -202,12 +202,16 @@ function getMenuItems(state) {
             onClick: () => window.print()
         },
         {
-            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
+            name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
         (spatial_abilities(state.place.id).shapefile ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
+        } : null),
+        (spatial_abilities(state.place.id).shapefile ?  {
+            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
+            onClick: () => exportPlanAsSHP(state, true)
         } : null),
         {
             name: "Export assignment as CSV",
