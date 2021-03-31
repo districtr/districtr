@@ -252,9 +252,14 @@ export default () => {
             }];
             render(html`
                 ${plansSection(plans, eventCode)}
-                ${loadExtraPlans ? html`<button class="loadMorePlans" @click="${(e) => {
-                    fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
-                }}">Load All Plans</button>` : ""}
+                ${loadExtraPlans ?
+                  html`<button id="loadMorePlans" @click="${(e) => {
+                      document.getElementById("event-pinwheel").style.display = "block";
+                      document.getElementById("loadMorePlans").style.display = "none";
+                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
+                  }}">Load All Plans</button>
+                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                : ""}
             `, document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
