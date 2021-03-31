@@ -239,12 +239,22 @@ export default () => {
             });
         });
 
-        let showPlans = (data) => {
+        let eventurl = (window.location.hostname === "localhost")
+                    ? "/assets/sample_event.json"
+                    : ("/.netlify/functions/eventRead?limit=17&event=" + eventCode);
+
+        let showPlans = (data, unlimited) => {
+            let loadExtraPlans = !unlimited && ((data.plans.length > 16) || (window.location.hostname.includes("localhost")));
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id)))
+                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, 16)
             }];
-            render(plansSection(plans, eventCode), document.getElementById("plans"));
+            render(html`
+                ${plansSection(plans, eventCode)}
+                ${loadExtraPlans ? html`<button class="loadMorePlans" @click="${(e) => {
+                    fetch(eventurl.replace("limit=17", "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
+                }}">Load All Plans</button>` : ""}
+            `, document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -254,10 +264,6 @@ export default () => {
                 document.getElementById("sample_plan_link").style.display = "none";
             }
         }
-
-        let eventurl = (window.location.hostname === "localhost")
-                    ? "/assets/sample_event.json"
-                    : ("/.netlify/functions/eventRead?event=" + eventCode)
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {
