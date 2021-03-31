@@ -239,20 +239,21 @@ export default () => {
             });
         });
 
+        let limitNum = 16;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
-                    : ("/.netlify/functions/eventRead?limit=17&event=" + eventCode);
+                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
 
         let showPlans = (data, unlimited) => {
-            let loadExtraPlans = !unlimited && ((data.plans.length > 16) || (window.location.hostname.includes("localhost")));
+            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, 16)
+                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
             }];
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ? html`<button class="loadMorePlans" @click="${(e) => {
-                    fetch(eventurl.replace("limit=17", "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
+                    fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
                 }}">Load All Plans</button>` : ""}
             `, document.getElementById("plans"));
 
