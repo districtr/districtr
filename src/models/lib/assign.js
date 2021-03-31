@@ -14,7 +14,6 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
         key => assignment[key] !== undefined && assignment[key] !== null
     ).length;
     let numberAssigned = 0;
-    let assigned = {};
     let notYetLoaded = new Set(Object.keys(assignment));
     let loadRemainingData = () => {
         console.log('Missing units: ' + notYetLoaded.size);
@@ -33,13 +32,17 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 data.forEach((row) => {
-                    assign(state, {
-                        type: 'Feature',
-                        id: row[state.idColumn.key],
-                        properties: row,
-                    }, assignment[row[state.idColumn.key]]);
+                    let unitId = row[state.idColumn.key];
+                    if (notYetLoaded.has(unitId)) {
+                        notYetLoaded.delete(unitId);
+                        assign(state, {
+                            type: 'Feature',
+                            id: unitId,
+                            properties: row,
+                        }, assignment[unitId]);
+                    }
                 });
             });
         }
@@ -49,7 +52,6 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
         const { successes, failures } = assignFeatures(
             state,
             assignment,
-            assigned,
             notYetLoaded
         );
         numberAssigned += successes;
@@ -95,7 +97,7 @@ function assign(state, feature, partId) {
     state.units.setAssignment(feature, partId);
 }
 
-function assignFeatures(state, assignment, assigned, notYetLoaded) {
+function assignFeatures(state, assignment, notYetLoaded) {
     const features = state.units.querySourceFeatures();
     let failures = 0;
     let successes = 0;
@@ -103,15 +105,14 @@ function assignFeatures(state, assignment, assigned, notYetLoaded) {
         let feature = features.pop();
         if (true) { //state.hasExpectedData(feature)) {
             let unitId = state.idColumn.getValue(feature);
-            notYetLoaded.delete(unitId);
             if (
-                assigned[unitId] !== true &&
+                notYetLoaded.has(unitId) &&
                 assignment.hasOwnProperty(unitId) &&
                 assignment[unitId] !== null &&
                 assignment[unitId] !== undefined
             ) {
+                notYetLoaded.delete(unitId);
                 assign(state, feature, assignment[unitId]);
-                assigned[unitId] = true;
                 successes += 1;
             }
         } else {
