@@ -2,7 +2,6 @@ import { html } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
-import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import VRAEffectivenessTable from "../components/Charts/VRATable";
@@ -122,44 +121,6 @@ export default function EvaluationPlugin(editor) {
                 isOpen: false
             }
         );
-    }
-
-    if (state.incomes) {
-        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
-            const incomeOverlay = new OverlayContainer(
-                "income",
-                state.layers.filter(lyr => lyr.id.includes("bgs")),
-                state.incomes,
-                "Map median income (by block group)",
-                true // first layer only
-            );
-
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${incomeOverlay.render()}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        } else {
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${IncomeHistogramTable(
-                        "Income Histograms",
-                        state.incomes,
-                        state.activeParts,
-                        uiState.charts["Income Histograms"],
-                        dispatch
-                    )}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        }
     }
 
     if (state.plan.problem.type !== "community"
