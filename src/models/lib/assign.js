@@ -1,3 +1,5 @@
+import { spatial_abilities } from "../../utils";
+
 /**
  * Assigns units to their districts while the Mapbox tiles are still
  * loading.
@@ -13,13 +15,40 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
     ).length;
     let numberAssigned = 0;
     let assigned = {};
+    let notYetLoaded = new Set(Object.keys(assignment));
+    let loadRemainingData = () => {
+        console.log('Missing units: ' + notYetLoaded.size);
+        if (notYetLoaded.size > 0 && spatial_abilities(state.place.id).sideload) {
+            fetch("//mggg.pythonanywhere.com/demographics", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  id: state.place.id,
+                  keyColumn: state.idColumn.key,
+                  units: Array.from(notYetLoaded),
+                })
+            })
+            .then(res => res.json())
+            .then(data => console.log);
+        }
+    };
+    let sideLoader = null;
     state.units.untilSourceLoaded(done => {
         const { successes, failures } = assignFeatures(
             state,
             assignment,
-            assigned
+            assigned,
+            notYetLoaded
         );
         numberAssigned += successes;
+        if (successes > 0) {
+            if (sideLoader) {
+                clearTimeout(sideLoader);
+            }
+            sideLoader = setTimeout(loadRemainingData, 500);
+        }
         if (numberAssigned === assignmentLength && failures === 0) {
             done();
         } else {
@@ -56,7 +85,7 @@ function assign(state, feature, partId) {
     state.units.setAssignment(feature, partId);
 }
 
-function assignFeatures(state, assignment, assigned) {
+function assignFeatures(state, assignment, assigned, notYetLoaded) {
     const features = state.units.querySourceFeatures();
     let failures = 0;
     let successes = 0;
@@ -64,6 +93,7 @@ function assignFeatures(state, assignment, assigned) {
         let feature = features.pop();
         if (true) { //state.hasExpectedData(feature)) {
             let unitId = state.idColumn.getValue(feature);
+            notYetLoaded.delete(unitId);
             if (
                 assigned[unitId] !== true &&
                 assignment.hasOwnProperty(unitId) &&
