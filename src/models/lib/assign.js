@@ -14,10 +14,11 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
         key => assignment[key] !== undefined && assignment[key] !== null
     ).length;
     let numberAssigned = 0;
-    let notYetLoaded = new Set(Object.keys(assignment));
+    let mapUnloaded = {};
+    let populationUnloaded = new Set(Object.keys(assignment));
     let loadRemainingData = () => {
-        console.log('Missing units: ' + notYetLoaded.size);
-        if (notYetLoaded.size > 0 && spatial_abilities(state.place.id).sideload) {
+        console.log('Missing units: ' + populationUnloaded.size);
+        if (populationUnloaded.size > 0 && spatial_abilities(state.place.id).sideload) {
             fetch("//mggg.pythonanywhere.com/demographics", {
                 method: "POST",
                 headers: {
@@ -27,7 +28,7 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
                   id: state.place.id,
                   unitType: state.units.id,
                   keyColumn: state.idColumn.key,
-                  units: Array.from(notYetLoaded),
+                  units: Array.from(populationUnloaded),
                 })
             })
             .then(res => res.json())
@@ -35,13 +36,13 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
                 // console.log(data);
                 data.forEach((row) => {
                     let unitId = row[state.idColumn.key];
-                    if (notYetLoaded.has(unitId)) {
-                        notYetLoaded.delete(unitId);
+                    if (populationUnloaded.has(unitId)) {
+                        populationUnloaded.delete(unitId);
                         assign(state, {
                             type: 'Feature',
                             id: unitId,
                             properties: row,
-                        }, assignment[unitId]);
+                        }, assignment[unitId], true);
                     }
                 });
             });
@@ -52,7 +53,8 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
         const { successes, failures } = assignFeatures(
             state,
             assignment,
-            notYetLoaded
+            mapUnloaded,
+            populationUnloaded
         );
         numberAssigned += successes;
         if (successes > 0) {
@@ -82,11 +84,13 @@ export function getAssignedUnitIds(assignment) {
     );
 }
 
-function assign(state, feature, partId) {
+function assign(state, feature, partId, updateData) {
     if (typeof partId === 'number') {
         partId = [partId];
     }
-    state.update(feature, partId);
+    if (updateData) {
+        state.update(feature, partId);
+    }
     partId.forEach((p) => {
         if (state.parts[p]) {
             state.parts[p].visible = true;
@@ -97,7 +101,7 @@ function assign(state, feature, partId) {
     state.units.setAssignment(feature, partId);
 }
 
-function assignFeatures(state, assignment, notYetLoaded) {
+function assignFeatures(state, assignment, mapUnloaded, populationUnloaded) {
     const features = state.units.querySourceFeatures();
     let failures = 0;
     let successes = 0;
@@ -106,14 +110,15 @@ function assignFeatures(state, assignment, notYetLoaded) {
         if (true) { //state.hasExpectedData(feature)) {
             let unitId = state.idColumn.getValue(feature);
             if (
-                notYetLoaded.has(unitId) &&
+                mapUnloaded[unitId] !== true &&
                 assignment.hasOwnProperty(unitId) &&
                 assignment[unitId] !== null &&
                 assignment[unitId] !== undefined
             ) {
-                notYetLoaded.delete(unitId);
-                assign(state, feature, assignment[unitId]);
+                assign(state, feature, assignment[unitId], populationUnloaded.has(unitId));
+                mapUnloaded[unitId] = true;
                 successes += 1;
+                populationUnloaded.delete(unitId);
             }
         } else {
             failures += 1;
