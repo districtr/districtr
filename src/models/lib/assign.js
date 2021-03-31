@@ -26,12 +26,22 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
                 },
                 body: JSON.stringify({
                   id: state.place.id,
+                  unitType: state.units.id,
                   keyColumn: state.idColumn.key,
                   units: Array.from(notYetLoaded),
                 })
             })
             .then(res => res.json())
-            .then(data => console.log);
+            .then(data => {
+                console.log(data);
+                data.forEach((row) => {
+                    assign(state, {
+                        type: 'Feature',
+                        id: row[state.idColumn.key],
+                        properties: row,
+                    }, assignment[row[state.idColumn.key]]);
+                });
+            });
         }
     };
     let sideLoader = null;
