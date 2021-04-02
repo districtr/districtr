@@ -239,12 +239,28 @@ export default () => {
             });
         });
 
-        let showPlans = (data) => {
+        let limitNum = 16;
+        let eventurl = (window.location.hostname === "localhost")
+                    ? "/assets/sample_event.json"
+                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
+
+        let showPlans = (data, unlimited) => {
+            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id)))
+                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
             }];
-            render(plansSection(plans, eventCode), document.getElementById("plans"));
+            render(html`
+                ${plansSection(plans, eventCode)}
+                ${loadExtraPlans ?
+                  html`<button id="loadMorePlans" @click="${(e) => {
+                      document.getElementById("event-pinwheel").style.display = "block";
+                      document.getElementById("loadMorePlans").style.display = "none";
+                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
+                  }}">Load All Plans</button>
+                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                : ""}
+            `, document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -254,10 +270,6 @@ export default () => {
                 document.getElementById("sample_plan_link").style.display = "none";
             }
         }
-
-        let eventurl = (window.location.hostname === "localhost")
-                    ? "/assets/sample_event.json"
-                    : ("/.netlify/functions/eventRead?event=" + eventCode)
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {

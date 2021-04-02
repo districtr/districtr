@@ -22,7 +22,8 @@ exports.handler = async (event, context) => {
         eventCode: eventCode
     })
     .select("_id simple_id startDate plan screenshot planName isScratch")
-    .sort([["simple_id", -1]]);
+    .sort([["simple_id", -1]])
+    .limit((event.queryStringParameters.limit || 24) * 1);
     // be careful not to share token here
     return {
         statusCode: 200,
