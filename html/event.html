@@ -42,12 +42,22 @@
             flex-wrap: wrap;
             flex-direction: row;
           }
-          path {
+          #mini-map-2 path {
+            fill: #ccc;
+          }
+          #mini-map-0 path {
+            fill: #0099cd;
+            cursor: pointer;
+          }
+          #mini-map path, #mini-map-2 path.circle {
             fill: #0099cd;
             stroke: white;
             cursor: pointer;
           }
-          path:hover {
+          #mini-map-0 svg:hover path {
+            fill: #006b9c;
+          }
+          #mini-map path:hover, #mini-map-2 path.circle:hover {
             fill: #006b9c;
           }
           button#loadMorePlans, img#event-pinwheel {
@@ -55,6 +65,16 @@
             min-width: 10%;
             cursor: pointer;
             padding: 15px;
+          }
+          figure, #mini-maps .label {
+            width: 320px;
+            margin: 0;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+          }
+          figure {
+            margin-bottom: -50px;
           }
         </style>
     </head>
@@ -118,11 +138,26 @@
                 </h1>
 
                 <div id="event-description">
-                  <figure id="mini-map" style="float:right;width:350px;margin-right:0;margin-top:-30px;margin-bottom:-30px;display:none;"></figure>
                 </div>
 
                 <h2 id="communities">Start&nbsp;<span id="draw-goal"></span></h2>
-                <p>Click below to start with a blank map.</p>
+
+                <div id="mini-maps" style="display: none">
+                  <p>Click below to start with a blank map at the scale of your choosing</p>
+                  <figure id="mini-map-0"></figure>
+                  <figure id="mini-map"></figure>
+                  <figure id="mini-map-2"></figure>
+                  <br/>
+                  <div class="label">Statewide</div>
+                  <div class="label">Regions</div>
+                  <div class="label">
+                    <span id="city-caption"></span>
+                    <br/>
+                    City/Metro
+                  </div>
+                </div>
+
+                <p id="districting-options-title">Click below to start with a blank map.</p>
                 <div id="districting-options" class="places-list events"></div>
                 <div style="clear:both"></div>
                 <div id="proposals"></div>
