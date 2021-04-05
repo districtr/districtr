@@ -28,6 +28,7 @@ const stateForEvent = {
   'towsonu-baltimore': 'Maryland',
   fairmapstexas: 'Texas',
   'missouri-mapping': 'Missouri',
+  'ourmapsmn': 'Minnesota'
 };
 
 const validEventCodes = {
@@ -52,7 +53,8 @@ const validEventCodes = {
   grns: ['wisconsin', 'wisconsin2020'],
   'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas',
-  'missouri-mapping': 'missouri'
+  'missouri-mapping': 'missouri',
+  'ourmapsmn': 'minnesota'
 };
 
 const blockPlans = {
@@ -95,6 +97,7 @@ const coi_events = [
   'fairmapstexas',
   'missouri-mapping',
   'ttt',
+  'ourmapsmn',
 ];
 
 const eventDescriptions = {
@@ -127,6 +130,11 @@ const eventDescriptions = {
   'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
   <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
   <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
+  'ourmapsmn': "<p>Welcome to the Our Maps Minnesota Redistricting Campaign Mapping page! The Our Maps MN Campaign is committed to a community-focused, accessible, and transparent redistricting process in Minnesota. Through this campaign we aim to:</p>\
+   <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
+   <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
+   <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
+   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>"
 };
 
 const longAbout = {
