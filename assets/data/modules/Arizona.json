@@ -1672,40 +1672,40 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "POPULATION",
+              "key": "ACS_19_Pop",
               "name": "Total population",
-              "sum": 57531,
+              "sum": 508303,
               "min": 0,
-              "max": 1265
+              "max": 1659
             },
             "subgroups": [
               {
-                "key": "WHITE",
+                "key": "ACS_19_Wht",
                 "name": "White population",
-                "sum": 32529,
+                "sum": 312979,
                 "min": 0,
-                "max": 464
+                "max": 926
               },
               {
-                "key": "BLACK",
+                "key": "ACS_19_Afa",
                 "name": "Black population",
-                "sum": 2880,
+                "sum": 19435,
                 "min": 0,
-                "max": 131
+                "max": 336
               },
               {
-                "key": "Latino",
+                "key": "ACS_19_Lat",
                 "name": "Latino population",
-                "sum": 8454,
+                "sum": 140245,
                 "min": 0,
-                "max": 323
+                "max": 720
               },
               {
-                "key": "ASIAN",
+                "key": "ACS_19_Asn",
                 "name": "Asian population",
-                "sum": 1378,
+                "sum": 10506,
                 "min": 0,
-                "max": 70
+                "max": 191
               }
             ]
           }
@@ -1729,17 +1729,17 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz_blocks_points"
+              "url": "mapbox://districtr.mesaaz2_blocks_points"
             },
-            "sourceLayer": "mesaaz_blocks_points"
+            "sourceLayer": "mesaaz2_blocks_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz_blocks"
+              "url": "mapbox://districtr.mesaaz2_blocks"
             },
-            "sourceLayer": "mesaaz_blocks"
+            "sourceLayer": "mesaaz2_blocks"
           }
         ]
       }
