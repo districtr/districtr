@@ -47,7 +47,7 @@ export function HorizontalBarChart(
         <dl class="tooltip-data">
             ${columns.map((column, i) => {
                 const value = values[columnSet.columns[0].name ? i : (i+1)];
-                
+
                 const rgb = is_elect ? getPartyRGBColors(column.name + column.key) : [0,0,0];
                 const color = is_elect ? `color: rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` : ``;
                 return html`
@@ -57,7 +57,7 @@ export function HorizontalBarChart(
                             ${formatColumnName(column.name + (column.share ? ` (${column.share})%` : ""), maxVariableLength)}
                         </dt>
                         <dd>
-                            ${numberWithCommas(Math.round(value))}
+                            ${value.toFixed(4)}
                         </dd>
                         ${column.total !== undefined
                             ? TooltipBar(value / total)

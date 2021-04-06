@@ -1674,38 +1674,38 @@
             "total": {
               "key": "ACS_19_Pop",
               "name": "Total population",
-              "sum": 508303,
-              "min": 0,
-              "max": 1659
+              "sum": 508325.22000000003,
+              "min": 0.0,
+              "max": 1659.4274
             },
             "subgroups": [
               {
                 "key": "ACS_19_Wht",
                 "name": "White population",
-                "sum": 312979,
-                "min": 0,
-                "max": 926
+                "sum": 313003.4032,
+                "min": 0.0,
+                "max": 925.5574
               },
               {
                 "key": "ACS_19_Afa",
                 "name": "Black population",
-                "sum": 19435,
-                "min": 0,
-                "max": 336
+                "sum": 19641.154199999997,
+                "min": 0.0,
+                "max": 336.329
               },
               {
                 "key": "ACS_19_Lat",
                 "name": "Latino population",
-                "sum": 140245,
-                "min": 0,
-                "max": 720
+                "sum": 140298.9339,
+                "min": 0.0,
+                "max": 719.9032
               },
               {
                 "key": "ACS_19_Asn",
                 "name": "Asian population",
-                "sum": 10506,
-                "min": 0,
-                "max": 191
+                "sum": 10627.381,
+                "min": 0.0,
+                "max": 190.7652
               }
             ]
           }
