@@ -272,12 +272,14 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri"].includes(state.place.id)) {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
           st = "in";
         } else if (state.place.id === "missouri") {
           st = "mo";
+        } else if (state.place.id === "newhampshire") {
+          st = "nh";
         }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
@@ -322,7 +324,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (!["ohcentral", "indiana"].includes(state.place.id)) {
+                if (!["ohcentral", "indiana", "newhampshire"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -398,7 +400,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -636,7 +638,7 @@ export default function DataLayersPlugin(editor) {
         const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
-                
+
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>
