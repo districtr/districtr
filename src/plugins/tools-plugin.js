@@ -11,9 +11,10 @@ import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import VRAEffectiveness from "../map/vra_effectiveness"
-import { renderVRAAboutModal, renderAboutModal, renderSaveModal } from "../components/Modal";
+import { renderVRAAboutModal, renderAboutModal, renderSaveModal, renderModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
+import { html, render } from "lit-html";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -127,6 +128,7 @@ function exportPlanAsSHP(state, geojson) {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
+    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
     fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
