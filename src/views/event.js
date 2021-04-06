@@ -54,7 +54,7 @@ const validEventCodes = {
   'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas',
   'missouri-mapping': 'missouri',
-  'ourmapsmn': 'minnesota'
+  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn']
 };
 
 const blockPlans = {
