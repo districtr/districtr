@@ -46,14 +46,16 @@ export default function MultiLayersPlugin(editor) {
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
             state.layers.filter(lyr => lyr.id === "extra-precincts"),
-            state.elections
+            state.elections,
+            toolbar
         );
         let registerOverlays = null;
         if (state.voters) {
             registerOverlays = new OverlayContainer(
                 "registered_voters",
                 state.layers.filter(lyr => lyr.id === "extra-precincts_new"),
-                state.voters
+                state.voters,
+                toolbar
             );
         }
         tab.addSection(

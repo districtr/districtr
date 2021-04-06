@@ -1,9 +1,9 @@
 import { html } from "lit-html";
 
-function HeaderRow(variableNames) {
+function HeaderRow(variableNames, left_corner) {
     return html`
         <tr>
-            <th></th>
+            ${left_corner ? "" : html`<th></th>`}
             ${variableNames.map(
                 name =>
                     html`
@@ -22,12 +22,12 @@ function Cell({ content, style }) {
     `;
 }
 
-export const DataTable = (header, rows) => html`
+export const DataTable = (header, rows, left_corner=false) => html`
     <table class="data-table">
         ${header
             ? html`
                   <thead>
-                      ${HeaderRow(header)}
+                      ${HeaderRow(header, left_corner)}
                   </thead>
               `
             : ""}

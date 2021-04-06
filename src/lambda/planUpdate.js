@@ -33,6 +33,7 @@ exports.handler = async (event, context) => {
 
       plan.planName = data.planName || plan.planName || "";
       plan.screenshot = data.screenshot || plan.screenshot || "";
+      plan.isScratch = data.isScratch || false;
       plan.startDate = new Date();
 
       let rep = await plan.save();

@@ -1,0 +1,28 @@
+<p>
+    The state VRA dashboards allow you to explore districts in terms of their history of 
+    offering effective opportunity to minority voters to elect candidates of choice.   We have 
+    pre-computed some racially polarized voting statistics in order to facilitate this exploration.
+    In particular, we use ecological inference (EI) to identify the minority candidates of choice in 
+    historical statewide elections.  Our EI runs are done at the statewide level using eiPack 
+    (a Bayesian hierarchical model for RxC inference).  The confidence in correctly identifying the 
+    candidate of choice depends on the number of times out of 1000 draws that the candidate had the 
+    most votes by the minority group.   We also weight more recent elections more 
+    heavily, and we put twice as much weight on elections in which the candidate of choice is 
+    themselves identified as part of the minority group in question. This is in keeping with the way 
+    VRA attorneys treat some elections as more probative (providing more persuasive evidence). For 
+    details about the construction of the “effectiveness score,” see LINK.
+</p>
+
+<p>
+    When you’re drawing maps in the module, you can see the electoral history of the district as you
+    draw by going to the VRA tab and selecting the district under “District details.”  We have 
+    colored successful primary elections green.  Success for the minority candidate of choice is 
+    assessed in a primary when that candidate either (a) receives a majority of votes in the 
+    district you drew in that primary, or (b) comes in first or second in the primary, but no 
+    candidate receives a majority.  Below that are tables showing the outcomes in the run-off and 
+    general elections for those contests, if there was one.
+</p>
+<p>
+    In addition to the vote shares, we also show a “group control” factor.  This is the estimated
+    share of the candidate’s support that came from minority voters, again using EI outputs.
+</p>

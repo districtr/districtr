@@ -6,6 +6,7 @@ import { until } from "lit-html/directives/until";
 
 export default () => {
     var curState = document.head.id;
+    const vraPage = curState === "VRA - Dashboard";
     // document.title = curState.concat(" | Districtr");
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
@@ -18,23 +19,30 @@ export default () => {
             // navi-bar
             render(navLinks(stateData.sections, stateData.modules.map(m => m.ids)),
                    document.getElementById("nav-links"));
-            
 
-            listPlacesForState(stateData.state, true).then(places => {
+
+            
+            const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
+            const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
+
+
+            statePlaces.then(ps => {
+                let places = vraPage ? ps.flat(1) : ps;
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
                 let onlyCommunityMode = districtingPlaces.length == 0;
 
                 // render page
-                render(drawPage(stateData, onlyCommunityMode), document.getElementsByClassName("place__content")[0]);
+                render(drawPage(stateData, onlyCommunityMode, vraPage), document.getElementsByClassName("place__content")[0]);
 
                 // build a plan options
                 if (!onlyCommunityMode) {
                      const target = document.getElementById("districting-options");
                      render(districtingOptions(districtingPlaces), target);
                 }
-
-                const commtarget = document.getElementById("community-options");
-                render(communityOptions(places), commtarget);
+                if (!vraPage) {
+                    const commtarget = document.getElementById("community-options");
+                    render(communityOptions(places), commtarget);
+                }
                 $(".places-list__item").hide();
                 def.ids.map(id => $("." + id).show());
 
@@ -48,6 +56,19 @@ export default () => {
                 }
 
                 var selected = def;
+
+                let toggleViz = id => {
+                    $(".text-toggle").not(id).hide();
+                    $(".nav").not(id).hide();;
+                    $(id).show();
+                }
+
+                if (vraPage) {
+                    toggleViz($("." + def.id));
+                    selected.ids.map(id => $("." + id).show());
+                }
+                
+                
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function(){
                     var inputValue = $(this).attr("value");
@@ -56,6 +77,9 @@ export default () => {
 
 
                     $(".places-list__item").hide();
+                    if (vraPage) {
+                        toggleViz(targetBox);
+                    }
                     selected.ids.map(id => $("." + id).show());
                 });
 
@@ -120,12 +144,12 @@ const navLinks = (sections, placeIds) =>
         </li>
     `]);
 
-const drawPage = (stateData, onlyCommunities) => {
+const drawPage = (stateData, onlyCommunities, vra) => {
     return html`
 
         <h1 class="headline place__name"> ${stateData.state} </h1>
 
-        ${onlyCommunities ? html``
+        ${onlyCommunities || vra ? html``
                           : html`<div class="place-options places-list">
                                      <input type="radio" value="districts"  id="districts" name="draw-selection" checked="checked" class="dist">
                                      <label for="districts" class="mode-selection">Draw Districts</label>
@@ -377,7 +401,7 @@ const placeItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
+          places.filter(p => ["california", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>

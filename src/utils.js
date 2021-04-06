@@ -325,6 +325,7 @@ export function spatial_abilities (id) {
           phoenix: {
             native_american: true,
             number_markers: true,
+            border: true,
           },
           yuma: {
             native_american: true,
@@ -334,7 +335,6 @@ export function spatial_abilities (id) {
         multiyear: 2018,
         number_markers: true,
         county_brush: true,
-        county_brush: true,
         shapefile: true,
         find_unpainted: true,
       },
@@ -343,6 +343,7 @@ export function spatial_abilities (id) {
         native_american: true,
         county_brush: true,
         shapefile: true,
+        sideload: true,
         // find_unpainted: true,
       },
         ccsanitation: {
@@ -354,10 +355,24 @@ export function spatial_abilities (id) {
           screenshot: true,
           multiyear: 2018,
           shapefile: true,
+          border: true,
+        },
+        santa_clara: {
+          border: true,
+        },
+        napa: {
+          number_markers: true,
+          border: true,
+        },
+        napaschools: {
+          number_markers: true,
+          coalition: false,
+          border: true,
         },
       chicago: {
         number_markers: true,
         multiyear: 2019,
+        border: true,
         parties: [
           "Rahm Emanuel",
           "Jesus \u201cChuy\u201d Garc\u00eda",
@@ -403,10 +418,12 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        sideload: true,
       },
           miamifl: {
             number_markers: true,
             neighborhoods: true,
+            border: true,
           },
           miamidade: {
             multiyear: 2018,
@@ -432,7 +449,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        contiguity: true,
+        contiguity: 2,
         find_unpainted: true,
       },
       illinois: {
@@ -489,10 +506,17 @@ export function spatial_abilities (id) {
         screenshot: true,
         find_unpainted: true,
       },
+        la_vra: {
+          native_american: true,
+          vra_effectiveness: true,
+          county_brush: true, // lakes
+          number_markers: false, // need different ids that louisiana precincts need to update server
+        },
         batonrouge: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
           // find_unpainted: true, COI only
         },
       maine: {
@@ -509,6 +533,13 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+        baltimore: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+          contiguity: 2,
+        },
       ma: {
         number_markers: true,
         shapefile: true,
@@ -520,6 +551,7 @@ export function spatial_abilities (id) {
           number_markers: true,
           shapefile: true,
           coalition: false,
+          border: true,
           // find_unpainted: true,
         },
       michigan: {
@@ -539,9 +571,23 @@ export function spatial_abilities (id) {
       },
         olmsted: {
           number_markers: true,
+          border: true,
         },
         rochestermn: {
           number_markers: true,
+          border: true,
+        },
+        washington_mn: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
+        },
+        stlouis_mn: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          screenshot: true,
         },
       mississippi: {
         number_markers: true,
@@ -564,13 +610,6 @@ export function spatial_abilities (id) {
         number_markers: true,
         shapefile: true,
         find_unpainted: true,
-      },
-      napa: {
-        number_markers: true,
-      },
-      napaschools: {
-        number_markers: true,
-        coalition: false,
       },
       nebraska: {
         // multiyear: 2018,
@@ -640,6 +679,7 @@ export function spatial_abilities (id) {
         current_districts: true,
         shapefile: true,
         find_unpainted: true,
+        coalition: false,
       },
           forsyth_nc: {
             contiguity: 2,
@@ -651,6 +691,7 @@ export function spatial_abilities (id) {
             screenshot: true,
             shapefile: true,
             number_markers: true,
+            border: true,
           },
       northdakota: {
         multiyear: 2018,
@@ -707,51 +748,61 @@ export function spatial_abilities (id) {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         cincinnati: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         clevelandeuclid: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         columbus: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         dayton: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         limaoh: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         mansfield: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         portsmouthoh: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         toledo: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
         youngstown: {
           number_markers: true,
           shapefile: true,
           screenshot: true,
+          border: true,
         },
       oklahoma: {
         number_markers: true,
@@ -763,6 +814,7 @@ export function spatial_abilities (id) {
       },
       ontarioca: {
         number_markers: true,
+        border: true,
       },
       oregon: {
         number_markers: true,
@@ -775,17 +827,20 @@ export function spatial_abilities (id) {
         portlandor: {
           number_markers: true,
           contiguity: 2,
+          border: true,
         },
       pennsylvania: {
         number_markers: true,
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        sideload: true,
       },
         philadelphia: {
           number_markers: true,
           contiguity: 2,
           find_unpainted: true,
+          border: true,
         },
       puertorico: {
         number_markers: true,
@@ -803,6 +858,9 @@ export function spatial_abilities (id) {
         number_markers: true,
         shapefile: true,
       },
+        providence_ri: {
+          border: true,
+        },
       southcarolina: {
         multiyear: 2018,
         native_american: true,
@@ -829,7 +887,19 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
+        sideload: true,
       },
+        tx_vra: {
+          vra_effectiveness: true,
+          county_brush: true,
+          number_markers: true,
+        },
+        austin: {
+          border: true,
+        },
+        fortworth: {
+          border: true,
+        },
       utah: {
         number_markers: true,
         county_brush: true,
@@ -854,6 +924,7 @@ export function spatial_abilities (id) {
         vabeach: {
           multiyear: 2018,
           number_markers: true,
+          border: true,
           // find_unpainted: true,
         },
       washington: {
@@ -865,6 +936,9 @@ export function spatial_abilities (id) {
       },
         yakima_wa: {
           coalition: false,
+        },
+        kingcountywa: {
+          border: true,
         },
       westvirginia: {
         multiyear: 2018,
@@ -880,7 +954,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         screenshot: true,
         find_unpainted: true,
-        contiguity: true,
+        contiguity: 2,
       },
         wisconsin2020: {
           number_markers: true,
@@ -889,7 +963,7 @@ export function spatial_abilities (id) {
           shapefile: true,
           screenshot: true,
           find_unpainted: true,
-          contiguity: true,
+          contiguity: 2,
         },
       wyoming: {
         multiyear: 2018,

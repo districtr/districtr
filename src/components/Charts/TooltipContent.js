@@ -76,6 +76,8 @@ export function TooltipContent(
     parts,
     columnSetIndex
 ) {
+    // console.log(features);
+    // console.log(columnSet);
     if (features === null || features === undefined) {
         return "";
     }

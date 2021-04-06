@@ -10,12 +10,14 @@ import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
-import { renderAboutModal, renderSaveModal } from "../components/Modal";
+import VRAEffectiveness from "../map/vra_effectiveness"
+import { renderVRAAboutModal, renderAboutModal, renderSaveModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const brush = (state.problem.type === 'community')
         ? new CommunityBrush(state.units, 20, 0)
         : new Brush(state.units, 20, 0);
@@ -31,6 +33,8 @@ export default function ToolsPlugin(editor) {
         alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
+    let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
+
     window.planNumbers = NumberMarkers(state, brush);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
@@ -39,6 +43,10 @@ export default function ToolsPlugin(editor) {
         savePlanToStorage(state.serialize());
         if (c_checker) {
             c_checker(state, colorsAffected);
+        }
+
+        if (vraEffectiveness) {
+            vraEffectiveness(state, colorsAffected);
         }
 
         if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
@@ -92,6 +100,7 @@ export default function ToolsPlugin(editor) {
     });
 
     // show about modal on startup by default
+
     // exceptions if you last were on this map, or set 'dev' in URL
     // try {
     //     if ((window.location.href.indexOf("dev") === -1) &&
@@ -111,14 +120,14 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state) {
+function exportPlanAsSHP(state, geojson) {
     const serialized = state.serialize();
     Object.keys(serialized.assignment).forEach((assign) => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    fetch("//mggg.pythonanywhere.com/shp", {
+    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +137,7 @@ function exportPlanAsSHP(state) {
     .then((res) => res.arrayBuffer())
     .catch((e) => console.error(e))
     .then((data) => {
-        download(`districtr-plan-${serialized.id}.shp.zip`, data, true);
+        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
     });
 }
 
@@ -166,6 +175,7 @@ function scrollToSection(state, section) {
 }
 
 function getMenuItems(state) {
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     let items = [
         {
             name: "About redistricting",
@@ -192,12 +202,16 @@ function getMenuItems(state) {
             onClick: () => window.print()
         },
         {
-            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as JSON`,
+            name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
         (spatial_abilities(state.place.id).shapefile ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
+        } : null),
+        (spatial_abilities(state.place.id).shapefile ?  {
+            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
+            onClick: () => exportPlanAsSHP(state, true)
         } : null),
         {
             name: "Export assignment as CSV",

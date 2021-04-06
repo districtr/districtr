@@ -20,6 +20,7 @@ const schema = new mongoose.Schema({
   token: String,
   startDate: Date,
   screenshot: String,
+  isScratch: Boolean,
   // name: {
   //   type: String,
   //   required: [true, 'Name field is required'],

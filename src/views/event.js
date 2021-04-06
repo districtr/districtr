@@ -25,6 +25,10 @@ const stateForEvent = {
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
   grns: 'Wisconsin',
+  'towsonu-baltimore': 'Maryland',
+  fairmapstexas: 'Texas',
+  'missouri-mapping': 'Missouri',
+  'ourmapsmn': 'Minnesota'
 };
 
 const validEventCodes = {
@@ -42,11 +46,15 @@ const validEventCodes = {
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   pmc: ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
-  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
-  'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown'],
+  'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
+  'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'colorado-cc': 'colorado',
   ttt: [],
   grns: ['wisconsin', 'wisconsin2020'],
+  'towsonu-baltimore': 'baltimore',
+  fairmapstexas: 'texas',
+  'missouri-mapping': 'missouri',
+  'ourmapsmn': 'minnesota'
 };
 
 const blockPlans = {
@@ -60,12 +68,14 @@ const unitTypes = {
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
+  'missouri-mapping': {no: 'Precincts'}
 };
 
 const unitCounts = {
   'unca-forsyth': 101,
   centralsan: 5086,
   buncombe: 67,
+  'towsonu-baltimore': 653,
 };
 
 const coi_events = [
@@ -84,6 +94,10 @@ const coi_events = [
   'fair-districts-oh',
   'colorado-cc',
   'grns',
+  'fairmapstexas',
+  'missouri-mapping',
+  'ttt',
+  'ourmapsmn',
 ];
 
 const eventDescriptions = {
@@ -98,7 +112,9 @@ const eventDescriptions = {
   centralsan: 'Welcome to the event page for the Central Contra Costa County Sanitary District. This page uses Districtr, a community web tool provided by the MGGG Redistricting Lab. <a href="/guide">Click here</a> for a Districtr tutorial.',
   'mggg-nm': 'Welcome to the event page for the MGGG - New Mexico demo!',
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
-  pmc: 'Welcome to the COI collection page for Wisconsin PMC',
+  pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
+  <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Share\" to save the map.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -109,6 +125,16 @@ const eventDescriptions = {
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
   grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
+  'towsonu-baltimore': 'Welcome to the event page for Towson University',
+  fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
+  'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
+  <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
+  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
+  'ourmapsmn': "<p>Welcome to the Our Maps Minnesota Redistricting Campaign Mapping page! The Our Maps MN Campaign is committed to a community-focused, accessible, and transparent redistricting process in Minnesota. Through this campaign we aim to:</p>\
+   <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
+   <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
+   <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
+   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>"
 };
 
 const longAbout = {
@@ -141,47 +167,79 @@ export default () => {
         }
         if (longAbout[eventCode]) {
             document.getElementById("about-section").style.display = "block";
+            document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
 
         if (eventCode === "open-maps") {
           // ohio mini-map
-          document.getElementById("mini-map").style.display = "block";
+          document.getElementById("mini-maps").style.display = "block";
+          document.getElementById("districting-options").style.display = "none";
+          document.getElementById("districting-options-title").style.display = "none";
           const scale = 3200;
           const translate = [-440, 240];
           const path = geoPath(
               geoAlbersUsaTerritories()
                   .scale(scale)
                   .translate(translate)
-          ).pointRadius(2);
+          ).pointRadius(9);
           fetch("/assets/oh-zone-map.geojson").then(res => res.json()).then(gj => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
-                ${gj.features.map((feature, idx) => {
+                ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
                     // console.log(feature);
-                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
-                        style="cursor:default"
+                    return svg`<path id="x" stroke-width="0"
                         d="${path(feature)}"
                         @click=${(e) => {
-                          let support = [
-                            ["ohio", "toledo", "lima"],
-                            ["ohio", "portsmouth"],
-                            ["ohio", "cleveland-euclid"],
-                            ["ohio", "cincinnati", "dayton"],
-                            ["ohio", "akron-canton", "youngstown"],
-                            ["ohio", "columbus", "mansfield"]
-                          ][idx];
-                          document.querySelectorAll("#states-group path").forEach((zone, idx2) => {
-                              zone.style.fill = (idx === idx2) ? "orange" : "#0099cd";
-                          });
-                          document.querySelectorAll(".pcommunity").forEach((block) => {
-                              console.log(block.innerText);
-                              block.style.display = (support.includes(block.innerText.trim().split("\n")[0].toLowerCase())) ? "block" : "none";
-                          });
+                            document.querySelectorAll(".pcommunity")[0].click();
+                        }}
+                    ></path>`;
+                })}
+                </g>
+              </svg>`, document.getElementById("mini-map-0"));
+
+            render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+              <g id="states-group" @mouseleave=${() => {}}>
+                ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
+                    // console.log(feature);
+                    return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                        d="${path(feature)}"
+                        @click=${(e) => {
+                          document.querySelector(".pcommunity." + feature.properties.name).click();
                         }}></path>`;
                 })}
                 </g>
               </svg>`, document.getElementById("mini-map"));
+
+
+              render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
+                <g id="states-group" @mouseleave=${() => {}}>
+                  ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
+                      // console.log(feature);
+                      return svg`<path id="x" fill="#ccc" stroke-width="0"
+                          d="${path(feature)}"
+                      ></path>`;
+                  })}
+                  ${gj.features.filter(f => f.geometry.type === "Point").map((feature, idx) => {
+                      return svg`<path class="circle"
+                          d="${path(feature)}"
+                          @mouseover=${() => {
+                            document.getElementById("city-caption").innerText = feature.properties.name;
+                          }}
+                          @mouseout=${() => {
+                            document.getElementById("city-caption").innerText = "";
+                          }}
+                          @click=${(e) => {
+                            document.querySelectorAll(".pcommunity").forEach((block) => {
+                                let city = block.innerText.trim().split("\n")[0].toLowerCase();
+                                if (feature.properties.name.toLowerCase().includes(city)) {
+                                    block.click();
+                                }
+                            });
+                          }}></path>`;
+                  })}
+                  </g>
+                </svg>`, document.getElementById("mini-map-2"));
           });
         }
 
@@ -193,6 +251,7 @@ export default () => {
         }
         if (!validEventCodes[eventCode].length) {
             document.getElementById("communities").style.display = "none";
+            document.getElementsByClassName("draw-section")[0].style.display = "none";
             document.getElementsByTagName("p")[0].style.display = "none";
         }
 
@@ -219,12 +278,28 @@ export default () => {
             });
         });
 
-        let showPlans = (data) => {
+        let limitNum = 16;
+        let eventurl = (window.location.hostname === "localhost")
+                    ? "/assets/sample_event.json"
+                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
+
+        let showPlans = (data, unlimited) => {
+            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
             const plans = [{
                 title: "Community-submitted maps",
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id)))
+                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
             }];
-            render(plansSection(plans, eventCode), document.getElementById("plans"));
+            render(html`
+                ${plansSection(plans, eventCode)}
+                ${loadExtraPlans ?
+                  html`<button id="loadMorePlans" @click="${(e) => {
+                      document.getElementById("event-pinwheel").style.display = "block";
+                      document.getElementById("loadMorePlans").style.display = "none";
+                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
+                  }}">Load All Plans</button>
+                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                : ""}
+            `, document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -234,10 +309,6 @@ export default () => {
                 document.getElementById("sample_plan_link").style.display = "none";
             }
         }
-
-        let eventurl = (window.location.hostname === "localhost")
-                    ? "/assets/sample_event.json"
-                    : ("/.netlify/functions/eventRead?event=" + eventCode)
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {
@@ -288,9 +359,21 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.planName || ''}
                       <br/>
-                      Plan ID: ${plan.simple_id || plan._id}</h6>
+                      ID: ${plan.simple_id || plan._id}</h6>
                 <br/>
-                ${isProfessionalSamples ? "" : html`<span>Last updated<br/>
+                ${(plan.isScratch ? html`<h4 style="font-style: italic">Draft Plan</h4>` : "")}
+                <span>
+                  ${plan.plan.place.name || ""}
+                  <br/>
+                  ${(plan.plan.problem.type === "community")
+                    ? "Communities of Interest"
+                    : plan.plan.problem.pluralNoun
+                  }
+                  <br/>
+                  from ${plan.plan.units.name}
+                </span>
+                <br/>
+                ${isProfessionalSamples ? "" : html`<span>Updated<br/>
                       ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>
             ${(coi_events.includes(eventCode) || isProfessionalSamples)

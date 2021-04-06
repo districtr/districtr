@@ -70,6 +70,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             token: token.split("_")[0],
             eventCode: eventCode,
             planName: planName,
+            isScratch: (document.getElementById("is-scratch") || {}).checked,
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
@@ -102,12 +103,13 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         })
         .catch(e => callback(null));
     };
-    if (eventCode && spatial_abilities(state.place.id).screenshot) {
+    if (eventCode && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
+        let picpath = spatial_abilities(state.place.id).screenshot ? "picture" : "picture2";
         if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
             // enabled on Ohio blockgroups, not precincts
-            return;
+            picpath = "picture2";
         }
-        fetch("//mggg.pythonanywhere.com/picture", {
+        fetch("//mggg.pythonanywhere.com/" + picpath, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(serialized),
