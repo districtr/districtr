@@ -832,6 +832,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        sideload: true,
       },
         philadelphia: {
           number_markers: true,
@@ -884,6 +885,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
+        sideload: true,
       },
         tx_vra: {
           vra_effectiveness: true,
