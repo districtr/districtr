@@ -157,6 +157,30 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
     download(`assignment-${state.plan.id}.${extension}`, text);
 }
 
+function exportPlanAsBlockAssignment(state, delimiter=",", extension="csv") {
+    const assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
+    const units = state.unitsRecord.unitType;
+    const stateName = state.place.state;
+    render(renderModal(`Starting your block assignment file download `), document.getElementById("modal"));
+    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/block_assignment", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "state": stateName,
+            "units": units,
+            "assignment": assign})
+    })
+    .then((res) => res.json())
+    .catch((e) => console.error(e))
+    .then((data) => {
+        console.log(data);
+        const table_data = `Block${delimiter} District\n` + Object.entries(data).map(r => r.join(delimiter)).join("\n")
+        download(`block-assignment-${state.plan.id}.csv`, table_data)
+    })
+}
+
 function scrollToSection(state, section) {
     return () => {
         let url = "/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'),
@@ -219,6 +243,10 @@ function getMenuItems(state) {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
+        (state.unitsRecord.unitType === "Block Groups" ? {
+            name: "Export block assignment file",
+            onClick: () => exportPlanAsBlockAssignment(state)
+        }: null),
         {
             id: "mobile-upload",
             name: "Share plan",
