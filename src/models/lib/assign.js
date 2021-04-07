@@ -115,7 +115,7 @@ function assignFeatures(state, assignment, mapUnloaded, populationUnloaded) {
                 assignment[unitId] !== null &&
                 assignment[unitId] !== undefined
             ) {
-                assign(state, feature, assignment[unitId], populationUnloaded.has(unitId));
+                assign(state, feature, assignment[unitId], populationUnloaded.has(unitId) || populationUnloaded.has(String(unitId)));
                 mapUnloaded[unitId] = true;
                 successes += 1;
                 populationUnloaded.delete(unitId);
