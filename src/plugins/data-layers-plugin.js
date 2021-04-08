@@ -197,9 +197,9 @@ export default function DataLayersPlugin(editor) {
         );
 
     }
-
+    
+    let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
     if (["virginia", "lax"].includes(state.place.id)) {
-        let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
