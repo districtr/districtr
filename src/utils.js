@@ -631,6 +631,7 @@ export function spatial_abilities (id) {
       newhampshire: {
         number_markers: true,
         shapefile: true,
+        multiyear: 2018,
         // find_unpainted: true,
       },
       newjersey: {
@@ -959,6 +960,15 @@ export function spatial_abilities (id) {
         wisconsin2020: {
           number_markers: true,
           county_brush: true,
+          native_american: true,
+          shapefile: true,
+          screenshot: true,
+          find_unpainted: true,
+          contiguity: 2,
+        },
+        wisco2019acs: {
+          number_markers: true,
+          // county_brush: true,
           native_american: true,
           shapefile: true,
           screenshot: true,

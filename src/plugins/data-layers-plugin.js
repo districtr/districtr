@@ -64,7 +64,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs"].includes(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
@@ -610,32 +610,13 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    // if (state.rent) {
-    //     tab.addRevealSection(
-    //         'Homeowner or Renter',
-    //         (uiState, dispatch) => html`<div class="sectionThing">
-    //           ${DemographicsTable(
-    //             state.rent.subgroups,
-    //             state.activeParts
-    //           )}
-    //         </div>`,
-    //         {
-    //           isOpen: false
-    //         }
-    //     );
-    // }
-
     if (state.elections.length > 0) {
-        // console.log(state);
-        // console.log(toolbar);
-        // console.log(toolbar.toolsById.inspect);
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
             demoLayers,
             state.elections,
             toolbar
         );
-        const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
 
