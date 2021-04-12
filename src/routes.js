@@ -103,7 +103,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         })
         .catch(e => callback(null));
     };
-    if (eventCode && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
+    if ((eventCode || (state.place.id === "michigan")) && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
         let picpath = spatial_abilities(state.place.id).screenshot ? "picture" : "picture2";
         if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
             // enabled on Ohio blockgroups, not precincts
