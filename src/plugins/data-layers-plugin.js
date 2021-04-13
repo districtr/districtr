@@ -64,7 +64,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs"].includes(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
@@ -198,8 +198,8 @@ export default function DataLayersPlugin(editor) {
 
     }
 
+    let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
     if (["virginia", "lax"].includes(state.place.id)) {
-        let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
         fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -272,12 +272,16 @@ export default function DataLayersPlugin(editor) {
 
     // ohio zones
     let schoolsLayer, school_labels, placesLayer, place_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri"].includes(state.place.id)) {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
           st = "in";
         } else if (state.place.id === "missouri") {
           st = "mo";
+        } else if (state.place.id === "newhampshire") {
+          st = "nh";
+        } else if (["wisconsin", "wisc2020", "wisco2019acs"].includes(state.place.id)) {
+          st = "wi";
         }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
@@ -322,7 +326,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (!["ohcentral", "indiana"].includes(state.place.id)) {
+                if (!["ohcentral", "indiana", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -398,7 +402,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
@@ -608,35 +612,16 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    // if (state.rent) {
-    //     tab.addRevealSection(
-    //         'Homeowner or Renter',
-    //         (uiState, dispatch) => html`<div class="sectionThing">
-    //           ${DemographicsTable(
-    //             state.rent.subgroups,
-    //             state.activeParts
-    //           )}
-    //         </div>`,
-    //         {
-    //           isOpen: false
-    //         }
-    //     );
-    // }
-
     if (state.elections.length > 0) {
-        // console.log(state);
-        // console.log(toolbar);
-        // console.log(toolbar.toolsById.inspect);
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
             demoLayers,
             state.elections,
             toolbar
         );
-        const parties = spatial_abilities(state.place.id).parties;
         tab.addRevealSection('Previous Elections',
             () => html`
-                
+
                 <div class="option-list__item">
                     ${partisanOverlays.render()}
                 </div>
