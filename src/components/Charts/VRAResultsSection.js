@@ -5,29 +5,39 @@ import Parameter from "../Parameter";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
 
-const electionAbrev = { // 2019
-                        "19Governor": ["GOV19", "2019 Governor"], "19Lt_Governor": ["LTG19", "2019 Lt. Governor"], 
-                        "19Treasurer": ["TRES19", "2019 Treasurer"], 
-                        "19Ag_Comm": ["AGC19", "2019 Commissioner of Agriculture and Forestry"],
-                        // 2018
-                        "18SOS": ["SOS18", "2018 Secretary of State"], "18Governor": ["GOV18", "2018 Governor"], 
-                        "18RR_Comm_1": ["RRC18", "2018 Railroad Commissioner"], "18Lt_Governor": ["LTG18", "2018 Lt. Governor"],
-                        "18Comptroller": ["COMP18", "2018 Comptroller"], "18US_Sen": ["SEN18", "2018 US Senate"],
-                        "18Land_Comm": ["PLC18", "2018 Public Lands Commissioner"],
-                        // 2017
-                        "17Treasurer": ["TRES17", "2017 Treasurer"], 
-                        // 2016
-                        "16US_Sen": ["SEN16", "2016 US Senate"], "16_President": ["PRES16", "2016 US President"], 
-                        "16RR_Comm_1": ["RRC16", "2016 Railroad Commissioner"], "16President": ["PRES16", "2016 US President"], 
-                        // 2015
-                        "15_Governor":["GOV15", "2015 Governor"], "15_SOS": ["SOS15", "2015 Secretary of State"], 
-                        "15_Treasurer": ["TRES15", "2015 Treasurer"],
-                        // 2014
-                        "14US_Sen": ["SEN14", "2014 US Senate"], "14RR_Comm_3": ["RRC14", "2014 Railroad Commissioner"],
-                        "14Ag_Comm": ["AGC14", "2014 Agriculture Commissioner"], "14Governor": ["GOV14", "2014 Governor"],
-                        // 2012
-                        "12President": ["PRES12", "2012 President"],  "12US_Sen": ["SEN12", "2012 US Senate"],
-                    };
+const electDescriptions = {
+    // 2012
+    "PRES12":"2012 President",
+    "SEN12": "2012 US Senate",
+    // 2014
+    "SEN14": "2014 US Senate",
+    "RRC14": "2014 Railroad Commissioner",
+    "AGC14": "2014 Agriculture Commissioner",
+    "GOV14": "2014 Governor",
+    // 2015
+    "GOV15": "2015 Governor",
+    "SOS15": "2015 Secretary of State",
+    "TRES15": "2015 Treasurer",
+    // 2016
+    "SEN16": "2016 US Senate",
+    "PRES16": "2016 US President",
+    "RRC16": "2016 Railroad Commissioner",
+    // 2017
+    "TRES17": "2017 Treasurer",
+    // 2018
+    "SOS18": "2018 Secretary of State",
+    "GOV18": "2018 Governor",
+    "RRC18": "2018 Railroad Commissioner",
+    "LTG18": "2018 Lt. Governor",
+    "COMP18": "2018 Comptroller",
+    "SEN18": "2018 US Senate",
+    "PLC18": "2018 Public Lands Commissioner",
+    // 2019
+    "GOV19": "2019 Governor",
+    "LTG19": "2019 Lt. Governor",
+    "TRES19": "2019 Treasurer",
+    "AGC19": "2019 Commissioner of Agriculture and Forestry",
+};
 
 const candNames = { // 2019
                     "EdwardsD_19G_Governor": "J. Edwards (W)","EdwardsD_19P_Governor": "J. Edwards (W)",
@@ -94,7 +104,7 @@ function getTextCell(value, width) {
 }
 
 function getRankCell(elect, width) {
-    const place = elect.CoC_place;
+    const place = elect.CoCPlace;
     const majority = elect.FirstPlace[1] > 0.5;
     const moveon = place === 1 || (place === 2 && !majority)
     const background = moveon ? "limegreen" : "";
@@ -112,8 +122,8 @@ function getRankCell(elect, width) {
 }
 
 function getElectLabel(elect) {
-    const name = electionAbrev[elect.name] ? electionAbrev[elect.name][0] : elect.name;
-    const desc = electionAbrev[elect.name] ? electionAbrev[elect.name][1] : "";
+    const name = elect.Name;
+    const desc = electDescriptions[elect.Name] ? electDescriptions[elect.Name] : "";
     return html`
         <div class="elect_tooltip">${name}
             <span class="elect_tooltiptext">${desc}</span>
@@ -138,7 +148,7 @@ const cocHeader = (group, proxy=false) => html`<div class="elect_tooltip">${prox
 
 function sortElects(elects) {
     // console.log(elects);
-    const name = elect => electionAbrev[elect.name] ? electionAbrev[elect.name][1] : elect.name;
+    const name = elect => elect.Name;
     let sorted = elects.sort((e1,e2) => name(e2).localeCompare(name(e1)));
     // console.log(sorted);
     return sorted;
@@ -148,15 +158,15 @@ function getPrimTable(dist, elects, group, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">Group Control
                                             <div class="elect_tooltiptext elect_tooltip_right_edge">Estimated ${group} share in the support received by CoC</div>
                                     </div>`;
-    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of"]; //, groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
         entries: [getTextCell(elect.CoC, width*1.75), 
-                  getCell(elect.CoC_perc, width, decimals),
+                  getCell(elect.CoCPerc, width, decimals),
                   getRankCell(elect, width), 
-                  getTextCell(elect.numCands, width/2), 
-                  getCell(elect.GroupControl, width, decimals, true),
+                  getTextCell(elect.NumCands, width/2), 
+                //   getCell(elect.GroupControl, width, decimals, true),
                 ]
     }));
     return DataTable(headers, rows, true);
@@ -167,11 +177,11 @@ function getGenTable(dist, elects, group, proxy=true, decimals=true) {
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
-        entries: [elect.CoC_proxy_gen ? getTextCell(elect.CoC_proxy_gen, width*2.25) 
+        entries: [elect.ExistsGen ? getTextCell(elect.CoCGen, width*2.25) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width*2.25}; text-align: center;`}, 
-                  elect.CoC_proxy_gen ? getCell(elect.proxy_perc_gen, width, decimals) 
+                  elect.ExistsGen ? getCell(elect.CoCPercGen, width, decimals) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
-                  elect.CoC_proxy_gen ? getGenSuccessCell(elect.proxy_perc_gen, width) 
+                  elect.ExistsGen ? getGenSuccessCell(elect.CoCPercGen, width) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                 ]
     }));
@@ -183,11 +193,11 @@ function getRunoffTable(dist, elects, group,  decimals=true) {
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
-        entries: [elect.CoC_proxy_ro ? getTextCell(elect.CoC_proxy_ro, width*2.25) 
+        entries: [elect.ExistsRunoff ? getTextCell(elect.CoCRO, width*2.25) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width*2.25}; text-align: center;`}, 
-                  elect.CoC_proxy_ro ? getCell(elect.proxy_perc_ro, width, decimals) 
+                  elect.ExistsRunoff ? getCell(elect.CoCPercRO, width, decimals) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
-                  elect.CoC_proxy_ro ? getGenSuccessCell(elect.proxy_perc_ro, width) 
+                  elect.ExistsRunoff ? getGenSuccessCell(elect.CoCPercRO, width) 
                                   : {content: "N/A", style:`color: white; background: darkblue; width: ${width}; text-align: center;`},
                 ]
     }));
@@ -205,20 +215,20 @@ function DistrictResults(effectiveness, dist, group, place) {
             <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group] && effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
+            ${effectiveness[group] && effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].ElectionDetails, group) : ""}
         </section>
         ${runoffs ? html`<div class="ui-option ui-option--slim">
                             <h5> Runoff Elections Breakdown</h5>
                         </div>
                         <section class="toolbar-section">
-                            ${effectiveness[group] && effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].electionDetails, group) : ""}
+                            ${effectiveness[group] && effectiveness[group][dist.id] ? getRunoffTable(dist, effectiveness[group][dist.id].ElectionDetails, group) : ""}
                         </section>` 
                   : html``}
         <div class="ui-option ui-option--slim">
             <h5> General Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group] && effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].electionDetails, group, proxy) : ""}
+            ${effectiveness[group] && effectiveness[group][dist.id] ? getGenTable(dist, effectiveness[group][dist.id].ElectionDetails, group, proxy) : ""}
         </section>
     `;
 }

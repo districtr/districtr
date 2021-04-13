@@ -4,7 +4,7 @@ import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
-import VRAEffectivenessTable from "../components/Charts/VRATable";
+import {VRAEffectivenessTable, VRAAlignmentTable} from "../components/Charts/VRATable";
 import VRAResultsSection from "../components/Charts/VRAResultsSection"
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
@@ -160,10 +160,22 @@ export default function EvaluationPlugin(editor) {
                 isOpen: true
             }
         );
-    }
+        
+        VRAtab.addRevealSection(
+            "VRA Alignment",
+            (uiState, dispatch) =>
+                VRAAlignmentTable(
+                    state.parts,
+                    state.vra_effectiveness,
+                    state.waiting,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: false
+            }
+        );
 
-    if (showVRA && (state.units.sourceId !== "ma_towns")) 
-    {
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>
