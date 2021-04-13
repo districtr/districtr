@@ -207,26 +207,6 @@
           },
           {
             "type": "election",
-            "name": "2014 State Senate",
-            "subgroups": [
-              {
-                "key": "SSEN14D",
-                "name": "Democratic",
-                "sum": 233544,
-                "min": 0,
-                "max": 4202
-              },
-              {
-                "key": "SSEN14R",
-                "name": "Republican",
-                "sum": 230950,
-                "min": 0,
-                "max": 6083
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2016 President",
             "subgroups": [
               {
@@ -262,26 +242,6 @@
                 "sum": 353632,
                 "min": 0,
                 "max": 8721
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 State Senate",
-            "subgroups": [
-              {
-                "key": "SSEN16D",
-                "name": "Democratic",
-                "sum": 342052,
-                "min": 0,
-                "max": 6501
-              },
-              {
-                "key": "SSEN16R",
-                "name": "Republican",
-                "sum": 346474,
-                "min": 0,
-                "max": 8817
               }
             ]
           },
@@ -362,26 +322,6 @@
                 "sum": 326229,
                 "min": 0,
                 "max": 8716
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2020 State Senate",
-            "subgroups": [
-              {
-                "key": "SSEN20D",
-                "name": "Democratic",
-                "sum": 381223,
-                "min": 0,
-                "max": 7752
-              },
-              {
-                "key": "SSEN20R",
-                "name": "Republican",
-                "sum": 384138,
-                "min": 0,
-                "max": 11007
               }
             ]
           },
