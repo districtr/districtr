@@ -4,6 +4,7 @@ import { actions } from "../../reducers/toolbar";
 import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
+import { spatial_abilities } from "../../utils";
 
 export default class Toolbar {
     constructor(store, editor) {
@@ -156,8 +157,25 @@ export default class Toolbar {
                                 );
                             }}"
                         >
-                            Tag your map
+                            <span style="user-select: none">Tag your map</span>
                         </button>
+                        ${spatial_abilities(this.state.place.id).portal
+                          ? html`<button style="cursor: pointer; margin-left:8px" @click="${() => {
+                            savePlanToDB(
+                                this.state,
+                                document.getElementById("event-coder-popup").value,
+                                document.getElementById("event-plan-name-popup").value,
+                                (_id, action) => {
+                                    if (_id || (window.location.hostname === 'localhost')) {
+                                      window.open(spatial_abilities(this.state.place.id).portal.endpoint + "?" + spatial_abilities(this.state.place.id).portal.param + "=" + _id, "_blank");
+                                    }
+                                },
+                                true // noNewScreenshot
+                            );
+                          }}">
+                            <span style="user-select: none">Share on State Portal</span>
+                          </button>`
+                          : ""}
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}
                 </div>
