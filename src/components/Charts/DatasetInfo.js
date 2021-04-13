@@ -14,8 +14,8 @@ function datasetInfo(state) {
             census: "Uses <strong>2010 Decennial Census</strong> data.",
             acs: "Uses <strong>2019 American Community Survey</strong> data."
         },
-        acsLocations = ["wisco2019acs", "grand_county_2"];
-    
+        acsLocations = ["wisco2019acs", "grand_county_2", "mesaaz"];
+
     if (acsLocations.includes(place.id.toLowerCase()) || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
     }
