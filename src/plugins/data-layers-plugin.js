@@ -326,7 +326,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (!["ohcentral", "indiana", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
+                if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
