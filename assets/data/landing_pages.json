@@ -1346,7 +1346,7 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["minnesota", "mn2020acs"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["olmsted","washington_mn","stlouis_mn"], "id": "county"},
       {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
     ],
