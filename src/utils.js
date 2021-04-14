@@ -901,6 +901,11 @@ export function spatial_abilities (id) {
         fortworth: {
           border: true,
         },
+        elpasotx: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+        },
       utah: {
         number_markers: true,
         county_brush: true,
