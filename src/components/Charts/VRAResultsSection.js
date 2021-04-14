@@ -105,7 +105,7 @@ function getTextCell(value, width) {
 
 function getRankCell(elect, width) {
     const place = elect.CoCPlace;
-    const majority = elect.FirstPlace[1] > 0.5;
+    const majority = elect.FirstPlacePerc > 0.5;
     const moveon = place === 1 || (place === 2 && !majority)
     const background = moveon ? "limegreen" : "";
     const color = place < 3 ? "black" : "red"
@@ -147,11 +147,9 @@ const cocHeader = (group, proxy=false) => html`<div class="elect_tooltip">${prox
                                 </div>`;
 
 function sortElects(elects) {
-    // console.log(elects);
-    const name = elect => elect.Name;
-    let sorted = elects.sort((e1,e2) => name(e2).localeCompare(name(e1)));
-    // console.log(sorted);
-    return sorted;
+    const desc = elect => electDescriptions[elect.Name] ? electDescriptions[elect.Name] : elect.Name;
+    elects.sort((e1,e2) => -1 * desc(e1).localeCompare(desc(e2)));
+    return elects;
 }
 
 function getPrimTable(dist, elects, group, decimals=true) {
