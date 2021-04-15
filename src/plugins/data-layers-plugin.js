@@ -386,7 +386,7 @@ export default function DataLayersPlugin(editor) {
                   id: 'precinct_gj',
                   source: 'precinct_gj',
                   type: 'line',
-                  paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
               },
               addBelowLabels
           );
