@@ -36,7 +36,7 @@ function getTable(subgroups, parts, decimals=true) {
     return DataTable(headers, rows);
 }
 
-export function VRAEffectivenessTable(
+export default function VRAEffectivenessTable(
     parts,
     effectiveness,
     loading,
@@ -49,9 +49,9 @@ export function VRAEffectivenessTable(
     const subgroups = groups.map(g => {
         const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.Score])) : {};
         const e_scores = {...def_values, ...part_scores};
-        return {"name": g + " Effectiveness Score", "values": pid => e_scores[pid]};
+        return {"name": g + " Electoral Effectiveness", "values": pid => e_scores[pid]};
         });
-        
+
     return html`
         <ul class="option-list">
             <li class="option-list__item">
@@ -67,32 +67,32 @@ export function VRAEffectivenessTable(
     `;
 }
 
-export function VRAAlignmentTable(
-    parts,
-    effectiveness,
-    loading,
-    state,
-    dispatch
-){
-     const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: 0}), {});
-     const groups = Object.keys(effectiveness);
+// export function VRAAlignmentTable(
+//     parts,
+//     effectiveness,
+//     loading,
+//     state,
+//     dispatch
+// ){
+//      const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: 0}), {});
+//      const groups = Object.keys(effectiveness);
  
-     const subgroups = groups.map(g => {
-         const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.GroupControl])) : {};
-         const e_scores = {...def_values, ...part_scores};
-         return {"name": g + " Group Control", "values": pid => e_scores[pid]};
-         });
-     return html`
-         <ul class="option-list">
-             <li class="option-list__item">
-             <span style="align-items: center;display: inline-flex;">
-             ${loading ? html`<img src="/assets/pinwheel2.gif" width="20px" height="20px"> &nbsp;&nbsp;&nbsp; Calculating` : html`Synced with current map`}
-             </span>
-             </li>
-         </ul>
+//      const subgroups = groups.map(g => {
+//          const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.GroupControl])) : {};
+//          const e_scores = {...def_values, ...part_scores};
+//          return {"name": g + " Group Control", "values": pid => e_scores[pid]};
+//          });
+//      return html`
+//          <ul class="option-list">
+//              <li class="option-list__item">
+//              <span style="align-items: center;display: inline-flex;">
+//              ${loading ? html`<img src="/assets/pinwheel2.gif" width="20px" height="20px"> &nbsp;&nbsp;&nbsp; Calculating` : html`Synced with current map`}
+//              </span>
+//              </li>
+//          </ul>
          
-         <section class="toolbar-section">
-             ${getTable(subgroups, parts)}
-         </section>
-     `;
-}
+//          <section class="toolbar-section">
+//              ${getTable(subgroups, parts)}
+//          </section>
+//      `;
+// }

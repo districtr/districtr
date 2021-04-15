@@ -153,10 +153,10 @@ function sortElects(elects) {
 }
 
 function getPrimTable(dist, elects, group, decimals=true) {
-    const groupControlHeader = html`<div class="elect_tooltip">Group Control
-                                            <div class="elect_tooltiptext elect_tooltip_right_edge">Estimated ${group} share in the support received by CoC</div>
+    const groupControlHeader = html`<div class="elect_tooltip">CVAP Share
+                                            <div class="elect_tooltiptext elect_tooltip_right_edge">Estimated ${group} share of CVAP</div>
                                     </div>`;
-    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of"]; //, groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
@@ -164,7 +164,7 @@ function getPrimTable(dist, elects, group, decimals=true) {
                   getCell(elect.CoCPerc, width, decimals),
                   getRankCell(elect, width), 
                   getTextCell(elect.NumCands, width/2), 
-                //   getCell(elect.GroupControl, width, decimals, true),
+                  getCell(elect.GroupControl, width, decimals),
                 ]
     }));
     return DataTable(headers, rows, true);
