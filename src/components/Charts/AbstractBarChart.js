@@ -1,10 +1,10 @@
 
 import { html, svg } from "lit-html";
 
-const defaultHeight = 400;
-const defaultWidth = 260;
-const horizontalSpace = 30;
-const verticalSpace = 30;
+const defaultHeight = 100;
+const defaultWidth = 100;
+const horizontalSpace = 10;
+const verticalSpace = 10;
 const defaultHorizontalAxis = defaultHeight - verticalSpace;
 const defaultVerticalAxis = verticalSpace;
 const gap = 2;
@@ -17,8 +17,7 @@ const gap = 2;
  * labels.
  */
 function fontSize(characters) {
-    let size = Math.trunc((1/characters)**(1/3)*100);
-    return size.toString() + "%";
+    return "0.2em";
 }
 
 /**
@@ -47,8 +46,8 @@ function bar(height, width, x, y, style) {
  * @returns {SVGTemplateResult}
  */
 function tick(x, y, horizontal=true, label="") {
-    let width = horizontal ? 8 : 2,
-        height = horizontal ? 2 : 8,
+    let width = horizontal ? 2 : 1/2,
+        height = horizontal ? 1/2 : 2,
         adjY = horizontal ? defaultHorizontalAxis-y : y-height,
         tick = svg`<rect width=${width} height=${height} x="${x}" y="${adjY}"></rect>`,
         size = fontSize(label.length),
@@ -57,7 +56,7 @@ function tick(x, y, horizontal=true, label="") {
     // Construct the tick label.
     if (horizontal) {
         ticklabel = svg`
-            <text x="${x-(7*horizontalSpace/8)}" y="${adjY+2*gap}" style="font-size: ${size}">${label}</text>
+            <text x="${x-(7*horizontalSpace/8)}" y="${adjY+1}" style="font-size: ${size}">${label}</text>
         `;
     } else {
         ticklabel = svg`
@@ -81,7 +80,7 @@ function horizontalAxis(
         ticks, { y=defaultHorizontalAxis, labels=[] }
     ) {
     // Create an axis object.
-    let axis = svg`<rect width="${defaultWidth}" height="2" x="0" y="${y-2}"></rect>`,
+    let axis = svg`<rect width="${defaultWidth}" height="0.5" x="0" y="${y-2}"></rect>`,
         ticklocs = ticks.map(normedtickloc => (normedtickloc*defaultWidth)+horizontalSpace);
     
     // Add ticks and return.
@@ -104,7 +103,7 @@ function verticalAxis(
         ticks, { x=defaultVerticalAxis, labels=[]}
     ) {
     // Create an axis object.
-    let axis = svg`<rect width="2" height="${defaultHeight}" x="${x}" y="0"></rect>`,
+    let axis = svg`<rect width="0.5" height="${defaultHeight}" x="${x}" y="0"></rect>`,
         ticklocs = ticks.map(normedtickloc => (normedtickloc*defaultHeight));
     
     // Add ticks and return.
@@ -164,10 +163,8 @@ function AbstractBarChart (
     };
     
     return html`
-        <section class="toolbar-section">
-            ${bars(xticks, yticks, args)}
-            <h3 style="text-align: center">${title}</h3>
-        </section>
+        ${bars(xticks, yticks, args)}
+        <h3 style="text-align: center">${title}</h3>
     `;
 }
 
