@@ -89,7 +89,10 @@ function assign(state, feature, partId, updateData) {
         partId = [partId];
     }
     if (updateData) {
+        console.log('update data');
         state.update(feature, partId);
+    } else {
+        console.log('dont update data');
     }
     partId.forEach((p) => {
         if (state.parts[p]) {
@@ -115,7 +118,7 @@ function assignFeatures(state, assignment, mapUnloaded, populationUnloaded) {
                 assignment[unitId] !== null &&
                 assignment[unitId] !== undefined
             ) {
-                assign(state, feature, assignment[unitId], populationUnloaded.has(unitId));
+                assign(state, feature, assignment[unitId], populationUnloaded.has(unitId) || populationUnloaded.has(String(unitId)));
                 mapUnloaded[unitId] = true;
                 successes += 1;
                 populationUnloaded.delete(unitId);

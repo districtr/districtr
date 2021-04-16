@@ -57,6 +57,7 @@ const validEventCodes = {
   'missouri-mapping': 'missouri',
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan'
+  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn']
 };
 
 const blockPlans = {
@@ -130,9 +131,7 @@ const eventDescriptions = {
   grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
   'towsonu-baltimore': 'Welcome to the event page for Towson University',
   fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
-  'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
-  <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
-  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
+  'missouri-mapping': "<p>You can help us map Missouri! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://research.typeform.com/to/zH14rNfF' target='_blank'>our portal</a>.</p>",
   'ourmapsmn': "<p>Welcome to the Our Maps Minnesota Redistricting Campaign Mapping page! The Our Maps MN Campaign is committed to a community-focused, accessible, and transparent redistricting process in Minnesota. Through this campaign we aim to:</p>\
    <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
    <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
@@ -165,6 +164,11 @@ export default () => {
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = og_eventCode;
+        if (coi_events.includes(eventCode)) {
+            document.getElementById("introExplain").innerText = "Map Your Community";
+            document.getElementById("introExplain").style.display = "block";
+        }
+
         // document.getElementById("eventCode").innerText = og_eventCode;
         if (eventDescriptions[eventCode]) {
             let desc = document.createElement("div");
@@ -292,7 +296,7 @@ export default () => {
         let showPlans = (data, unlimited) => {
             let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
             const plans = [{
-                title: "Community-submitted maps",
+                title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
                 plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
             }];
             render(html`

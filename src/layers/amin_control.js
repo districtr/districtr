@@ -32,7 +32,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Communities";
     } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "la_vra", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
+    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
@@ -63,6 +63,8 @@ export function addAmerIndianLayer(tab, state) {
       stateSource = "arizona";
     } else if (state.place.id.indexOf("ca_") === 0) {
       stateSource = "california";
+    } else if (state.place.id === "wisco2019acs") {
+      stateSource = "wisconsin";
     }
 
     fetch(`/assets/native_official/${stateSource}.geojson`)
