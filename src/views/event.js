@@ -28,7 +28,8 @@ const stateForEvent = {
   'towsonu-baltimore': 'Maryland',
   fairmapstexas: 'Texas',
   'missouri-mapping': 'Missouri',
-  'ourmapsmn': 'Minnesota'
+  'ourmapsmn': 'Minnesota',
+  'micrc': 'Michigan'
 };
 
 const validEventCodes = {
@@ -54,7 +55,8 @@ const validEventCodes = {
   'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas',
   'missouri-mapping': 'missouri',
-  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn']
+  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
+  'micrc': 'michigan'
 };
 
 const blockPlans = {
@@ -98,6 +100,7 @@ const coi_events = [
   'missouri-mapping',
   'ttt',
   'ourmapsmn',
+  'michigan'
 ];
 
 const eventDescriptions = {
@@ -134,8 +137,11 @@ const eventDescriptions = {
    <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
    <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
-   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>"
-};
+   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
+   micrc: "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!"
+
+
+  };
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
