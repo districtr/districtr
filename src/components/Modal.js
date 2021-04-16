@@ -1,9 +1,9 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 
-function renderModal(innerContent) {
+export function renderModal(innerContent) {
     const target = document.getElementById("modal");
-    return html`
+    const template = html`
         <div
             class="modal-wrapper"
             @click="${() => render("", target)}"
@@ -24,6 +24,8 @@ function renderModal(innerContent) {
             </div>
         </div>
     `;
+    
+    return template;
 }
 
 export function renderSaveModal(state, savePlanToDB) {
