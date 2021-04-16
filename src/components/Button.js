@@ -6,19 +6,19 @@ import { html } from "lit-html";
  * @param {string} label Text inside the Button.
  * @param {string} hoverText Tooltip text to display when the Button is hovered
  * over.
- * @param {function(Event)} onChange Callback which consumes an Event.
+ * @param {function(Event)} onClick Callback which consumes an Event.
  * @param {string|number} optionalID Number
  * @returns {TemplateResult}
  * @constructor
  */
-export function Button(label, hoverText, onChange, optionalID = null) {
+export function Button(label, hoverText, onClick, optionalID = null) {
     return html`
         <label>
             <button
                 class="button--alternate"
                 title="${hoverText}"
                 type="button" id="${optionalID}"
-                @click="${e => onChange(e)}"
+                @click="${e => onClick(e)}"
             >
                 ${label}
             </button>
