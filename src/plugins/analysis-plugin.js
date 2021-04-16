@@ -17,7 +17,8 @@ function AnalysisPlugin(editor) {
         )
     );
     
-    editor.toolbar.addTab(tab);
+    // Do nothing for now.
+    // editor.toolbar.addTab(tab);
 }
 
 export default AnalysisPlugin;

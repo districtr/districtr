@@ -1,14 +1,38 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import VRAEffectivenessTable from "../components/Charts/VRATable";
-import VRAResultsSection from "../components/Charts/VRAResultsSection"
+import VRAResultsSection from "../components/Charts/VRAResultsSection";
+import { renderModal } from "../components/Modal";
+import Button from "../components/Button";
+import AbstractBarChart from "../components/Charts/AbstractBarChart";
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
+
+/**
+ * @desc Creates a button which, when clicked, opens up a modal for charts.
+ * @param {Tab} tab Tab object.
+ * @returns {undefined}
+ */
+function createAnalysisModal(tab) {
+    let target = document.getElementById("modal"),
+        chart = AbstractBarChart([0.3, 0.4], [0.3, 0.4], { title: "Partisan Bias" }),
+        modal = renderModal(chart);
+    
+    const onChange = (e) => render(modal, target);
+    
+    tab.addSection(
+        () => html`
+            <div style="text-align: center;">
+                ${Button("Analyze", "Analyze your complete plan.", onChange)}
+            </div>
+        `
+    );
+}
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -144,7 +168,7 @@ export default function EvaluationPlugin(editor) {
     }
 
     // console.log(state);
-    if (showVRA && (state.units.sourceId !== "ma_towns")) 
+    if (showVRA && (state.units.sourceId !== "ma_towns"))
     {
         VRAtab.addRevealSection(
             "VRA Effectiveness",
@@ -162,7 +186,7 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    if (showVRA && (state.units.sourceId !== "ma_towns")) 
+    if (showVRA && (state.units.sourceId !== "ma_towns"))
     {
         VRAtab.addRevealSection(
             "VRA District Details",
@@ -190,4 +214,7 @@ export default function EvaluationPlugin(editor) {
     if (VRAtab.sections.length > 0) {
         toolbar.addTab(VRAtab);
     }
+    
+    // Create section.
+    createAnalysisModal(tab);
 }
