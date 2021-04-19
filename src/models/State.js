@@ -2,7 +2,6 @@ import { addLayers } from "../map";
 import IdColumn from "./IdColumn";
 import { getColumnSets } from "./lib/column-sets";
 import { addBelowLabels, addBelowSymbols } from "../map/Layer";
-import DistrictingPlan from "./DistrictingPlan";
 
 // We should break this up. Maybe like this:
 // [ ] MapState (map, layers)

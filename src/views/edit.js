@@ -1,6 +1,5 @@
 import { html, render } from "lit-html";
 import { MapState } from "../map";
-import State from "../models/State";
 import {
     loadPlanFromURL,
     loadPlanFromJSON,
@@ -16,8 +15,6 @@ import CommunityPlugin from "../plugins/community-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
-import DataLayersPlugin from "../plugins/data-layers-plugin";
-import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
