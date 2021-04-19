@@ -10,7 +10,10 @@ import {
     savePlanToStorage
 } from "../routes";
 import Editor from "../models/Editor";
-import ToolsPlugin from "../plugins/tools-plugin";
+import { assignUnitsAsTheyLoad } from "../models/lib/assign";
+import State from "../models/State";
+import CommunityPlugin from "../plugins/community-plugin";
+import DataLayersPlugin from "../plugins/data-layers-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";

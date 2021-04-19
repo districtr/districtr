@@ -1,9 +1,8 @@
 import { addLayers } from "../map";
 import IdColumn from "./IdColumn";
-import { assignUnitsAsTheyLoad } from "./lib/assign";
-import { generateId } from "../utils";
-import { getColumnSets, getParts } from "./lib/column-sets";
+import { getColumnSets } from "./lib/column-sets";
 import { addBelowLabels, addBelowSymbols } from "../map/Layer";
+import DistrictingPlan from "./DistrictingPlan";
 
 // We should break this up. Maybe like this:
 // [ ] MapState (map, layers)
@@ -90,7 +89,6 @@ export default class State {
         }
         this.plan = new DistrictingPlan({
             id,
-            assignment,
             problem,
             place,
             ...args,
@@ -110,12 +108,6 @@ export default class State {
 
         this.update = this.update.bind(this);
         this.render = this.render.bind(this);
-
-        if (assignment) {
-            assignUnitsAsTheyLoad(this, assignment, readyCallback);
-        } else {
-            readyCallback();
-        }
     }
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
