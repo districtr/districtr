@@ -38,7 +38,7 @@ export class EmbeddedDistrictr {
     constructor(target, districtrModule, options) {
         this.render = this.render.bind(this);
 
-        options = { style: "mapbox://styles/mapbox/light-v10", ...options };
+        options = { style: "mapbox://styles/mapbox/light-v10" };
 
         const targetElement = document.getElementById(target);
         targetElement.classList.add("districtr__embed-container");
@@ -73,6 +73,7 @@ export class EmbeddedDistrictr {
                     );
                     this.state = new State(
                         this.mapState.map,
+                        null,
                         context,
                         () => null
                     );

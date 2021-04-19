@@ -16,6 +16,7 @@ import DataLayersPlugin from "../plugins/data-layers-plugin";
 import EvaluationPlugin from "../plugins/evaluation-plugin";
 import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import ToolsPlugin from "../plugins/tools-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {

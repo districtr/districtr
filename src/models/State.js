@@ -1,7 +1,8 @@
 import { addLayers } from "../map";
 import IdColumn from "./IdColumn";
-import { getColumnSets } from "./lib/column-sets";
+import { getColumnSets, getParts } from "./lib/column-sets";
 import { addBelowLabels, addBelowSymbols } from "../map/Layer";
+import { generateId } from "../utils";
 
 // We should break this up. Maybe like this:
 // [ ] MapState (map, layers)
