@@ -66,7 +66,8 @@ function getPlanContext() {
         });
     } else if (!["edit", "coi", "plan"].includes(finalURLpage.toLowerCase())) {
         // remove token; save a new plan
-        if (finalURLpage === "mi") {
+        console.log(finalURLpage);
+        if (["mi"].includes(finalURLpage.toLowerCase())) {
             startNewDefaultPlan("Michigan");
         }
         localStorage.removeItem("districtr_token_" + finalURLpage);
