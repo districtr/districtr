@@ -1,5 +1,6 @@
 import { listPlaces } from "./api/mockApi";
 import { spatial_abilities } from "./utils";
+import { listPlacesForState } from "./components/PlacesList";
 
 const routes = {
     "/": "/",
@@ -246,4 +247,20 @@ export function loadPlanFromURL(url) {
     return fetch(url)
         .then(r => r.json())
         .then(loadPlanFromJSON);
+}
+
+export function startNewDefaultPlan(state) {
+    const place = listPlacesForState(state, true)[0];
+    type = window.location.pathname.split("/").slice(-2)[0];
+    if (type === "coi") {
+        problem = {"type": "community"};
+        unitType = "blockgroups";
+    }
+    else{
+        problem = {"numberOfParts": 13, "pluralNoun": "Congressional Districts", "name": "Congress" };
+        unitType = "precincts";
+    }
+    units = place["units"].filter(u => u.id === unitType)
+
+    return startNewPlan(place, problem, units);
 }

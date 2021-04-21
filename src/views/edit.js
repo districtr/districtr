@@ -7,7 +7,8 @@ import {
     loadPlanFromCSV,
     getContextFromStorage,
     navigateTo,
-    savePlanToStorage
+    savePlanToStorage,
+    startNewDefaultPlan
 } from "../routes";
 import Editor from "../models/Editor";
 import ToolsPlugin from "../plugins/tools-plugin";
@@ -65,6 +66,9 @@ function getPlanContext() {
         });
     } else if (!["edit", "coi", "plan"].includes(finalURLpage.toLowerCase())) {
         // remove token; save a new plan
+        if (finalURLpage === "mi") {
+            startNewDefaultPlan("Michigan");
+        }
         localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
         if (isNaN(finalURLpage * 1)) {
