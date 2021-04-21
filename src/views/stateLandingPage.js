@@ -20,8 +20,6 @@ export default () => {
             render(navLinks(stateData.sections, stateData.modules.map(m => m.ids)),
                    document.getElementById("nav-links"));
 
-
-            
             const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
             const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 

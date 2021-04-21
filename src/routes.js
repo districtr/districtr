@@ -250,18 +250,23 @@ export function loadPlanFromURL(url) {
 }
 
 export function startNewDefaultPlan(state) {
-    const place = listPlacesForState(state, true)[0];
-    const type = window.location.pathname.split("/").slice(-2)[0];
-    const id = state.toLowerCase() + "-portal"
-    if (type === "coi") {
-        var problem = {"type": "community"};
-        var unitType = "blockgroups";
-    }
-    else{
-        var problem = {"numberOfParts": 13, "pluralNoun": "Congressional Districts", "name": "Congress" };
-        var unitType = "precincts";
-    }
-    var units = place["units"].filter(u => u.id === unitType)
+    const places = listPlacesForState(state, true);
+    places.then(ps => {
+            const place = ps[0];
+            const type = window.location.pathname.split("/").slice(-2)[0];
+            const id = state.toLowerCase() + "-portal"
+            if (type === "coi") {
+                var problem = {"type": "community"};
+                var unitType = "blockgroups";
+            }
+            else{
+                var problem = {"numberOfParts": 13, "pluralNoun": "Congressional Districts", "name": "Congress" };
+                var unitType = "precincts";
+            }
+            var units = place["units"].filter(u => u.id === unitType)
 
-    return startNewPlan(place, problem, units, id);
+            return startNewPlan(place, problem, units, id);
+        }
+    )
+    
 }
