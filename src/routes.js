@@ -251,7 +251,7 @@ export function loadPlanFromURL(url) {
 
 export function startNewDefaultPlan(state) {
     const place = listPlacesForState(state, true)[0];
-    type = window.location.pathname.split("/").slice(-2)[0];
+    const type = window.location.pathname.split("/").slice(-2)[0];
     if (type === "coi") {
         problem = {"type": "community"};
         unitType = "blockgroups";
