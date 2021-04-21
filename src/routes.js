@@ -252,15 +252,16 @@ export function loadPlanFromURL(url) {
 export function startNewDefaultPlan(state) {
     const place = listPlacesForState(state, true)[0];
     const type = window.location.pathname.split("/").slice(-2)[0];
+    const id = state.toLowerCase() + "-portal"
     if (type === "coi") {
-        problem = {"type": "community"};
-        unitType = "blockgroups";
+        var problem = {"type": "community"};
+        var unitType = "blockgroups";
     }
     else{
-        problem = {"numberOfParts": 13, "pluralNoun": "Congressional Districts", "name": "Congress" };
-        unitType = "precincts";
+        var problem = {"numberOfParts": 13, "pluralNoun": "Congressional Districts", "name": "Congress" };
+        var unitType = "precincts";
     }
-    units = place["units"].filter(u => u.id === unitType)
+    var units = place["units"].filter(u => u.id === unitType)
 
-    return startNewPlan(place, problem, units);
+    return startNewPlan(place, problem, units, id);
 }
