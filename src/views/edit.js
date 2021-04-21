@@ -64,12 +64,11 @@ function getPlanContext() {
             // eslint-disable-next-line no-console
             console.error(e);
         });
+    } else if  (["mi"].includes(finalURLpage.toLowerCase())) {
+            console.log(finalURLpage);    
+            return startNewDefaultPlan("Michigan");
     } else if (!["edit", "coi", "plan"].includes(finalURLpage.toLowerCase())) {
         // remove token; save a new plan
-        console.log(finalURLpage);
-        if (["mi"].includes(finalURLpage.toLowerCase())) {
-            startNewDefaultPlan("Michigan");
-        }
         localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
         if (isNaN(finalURLpage * 1)) {
