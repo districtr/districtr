@@ -265,7 +265,7 @@ export function startNewDefaultPlan(state) {
             }
             var units = place["units"].filter(u => u.id === unitType)
 
-            return startNewPlan(place, problem, units, id);
+            return startNewPlan(place, problem, units);
         }
     )
     
