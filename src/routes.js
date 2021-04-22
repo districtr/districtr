@@ -103,12 +103,13 @@ export function savePlanToDB(state, eventCode, planName, callback) {
         })
         .catch(e => callback(null));
     };
-    if ((eventCode || (state.place.id === "michigan")) && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
-        let picpath = spatial_abilities(state.place.id).screenshot ? "picture" : "picture2";
-        if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
+    if ((eventCode || (state.place.id === "michigan")) && spatial_abilities(state.place.id).shapefile) {
+        let picpath = "picture";
+        // picture2 is blue maps
+        // if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
             // enabled on Ohio blockgroups, not precincts
-            picpath = "picture2";
-        }
+            // picpath = "picture2";
+        // }
         fetch("//mggg.pythonanywhere.com/" + picpath, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
