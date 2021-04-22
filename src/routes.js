@@ -5,6 +5,7 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
+    "/embedded": "/embedded",
     "/COI": "/COI",
     "/plan": "/plan",
     "/register": "/register",

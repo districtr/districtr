@@ -34,9 +34,18 @@ function getContext({ place, url, units, number, ...districtrModule }) {
     }
 }
 
+function getMapStyle(context) {
+    if (context.problem.type === "community" && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes((context.place || {}).id) && !context.units.coi2) {
+        return "mapbox://styles/mapbox/streets-v11";
+    } else {
+        return "mapbox://styles/mapbox/light-v10";
+    }
+}
+
 export class EmbeddedDistrictr {
     constructor(target, districtrModule, options) {
         this.render = this.render.bind(this);
+        const readOnly = options && options.readOnly;
 
         options = { style: "mapbox://styles/mapbox/light-v10" };
 
@@ -65,47 +74,55 @@ export class EmbeddedDistrictr {
                             }
                         }
                     },
-                    options.style
+                    getMapStyle(context)
                 );
+
                 this.mapState.map.on("load", () => {
-                    this.mapState.map.setMaxBounds(
-                        this.mapState.map.getBounds()
-                    );
+                    // this.mapState.map.setMaxBounds(
+                    //     this.mapState.map.getBounds()
+                    // );
+
                     this.state = new State(
                         this.mapState.map,
                         null,
                         context,
                         () => null
                     );
-                    this.store = new UIStateStore(reducer, {
-                        toolbar: {
-                            activeTab: "criteria",
-                            dropdownMenuOpen: false
-                        },
-                        elections: {
-                            activeElectionIndex: 0
-                        },
-                        charts: {}
-                    });
-                    this.toolbar = new MiniToolbar(this.store, this);
-
-                    for (let plugin of plugins) {
-                        plugin(this);
+                    if (context.assignment) {
+                        this.state.plan.assignment = context.assignment; // know loaded district assignments
                     }
 
-                    this.store.subscribe(this.render);
-                    this.state.subscribe(this.render);
+                    if (!readOnly) {
+                        this.store = new UIStateStore(reducer, {
+                            toolbar: {
+                                activeTab: "criteria",
+                                dropdownMenuOpen: false
+                            },
+                            elections: {
+                                activeElectionIndex: 0
+                            },
+                            charts: {}
+                        });
+                        this.toolbar = new MiniToolbar(this.store, this);
+
+                        for (let plugin of plugins) {
+                            plugin(this);
+                        }
+
+                        this.store.subscribe(this.render);
+                        this.state.subscribe(this.render);
+                    }
                 });
             })
             .catch(e => {
                 // eslint-disable-next-line no-console
                 console.error(e);
-                render(
-                    html`
-                        <h4>An error occurred.</h4>
-                    `,
-                    targetElement
-                );
+                // render(
+                //     html`
+                //         <h4>An error occurred.</h4>
+                //     `,
+                //     targetElement
+                // );
             });
     }
     get map() {
