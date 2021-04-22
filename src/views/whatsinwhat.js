@@ -1,10 +1,16 @@
 import { spatial_abilities } from "../utils.js"
+import { html, render } from "lit-html";
+import initializeAuthContext, { unauthenticatedUser } from "../api/auth";
+import { client } from "../api/client";
+import { until } from "lit-html/directives/until";
+import { PlaceMapWithData, PlaceMap } from "../components/PlaceMap";
 
 export default() => {
     const elt = document.getElementById("choice");
     elt.addEventListener("change", function () {
         get_json_file(elt.value);
     });
+    //renderInitialView();
 }
 
 const get_json_file = (state) => {
@@ -119,4 +125,23 @@ const build_table = (data, state) => {
 
 function is_numeric(str){
     return /^\d+$/.test(str);
+}
+
+function renderInitialView() {
+    const mapSection = document.getElementById("select-map");
+
+    render(
+        until(PlaceMapWithData(), ""),
+        mapSection
+    );
+    mapSection.classList.remove("hidden");
+    change_listeners();
+}
+
+function change_listeners() {
+    var states = document.getElementsByClassName('state--available');
+    console.log(states);
+    for (var state of states) {
+        console.log(state);
+    }
 }
