@@ -1672,40 +1672,54 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "ACS_19_Pop",
+              "key": "ACS_15-19_",
               "name": "Total population",
-              "sum": 508325.22000000003,
+              "sum": 510102.2070255459,
               "min": 0.0,
-              "max": 1659.4274
+              "max": 1659.4273781903
             },
             "subgroups": [
               {
-                "key": "ACS_19_Wht",
+                "key": "ACS_15-1_1",
                 "name": "White population",
-                "sum": 313003.4032,
+                "sum": 314240.9401283333,
                 "min": 0.0,
-                "max": 925.5574
+                "max": 925.5573770492
               },
               {
-                "key": "ACS_19_Afa",
+                "key": "ACS_15-1_2",
                 "name": "Black population",
-                "sum": 19641.154199999997,
+                "sum": 19659.280204621697,
                 "min": 0.0,
-                "max": 336.329
+                "max": 336.3290023202
               },
               {
-                "key": "ACS_19_Lat",
-                "name": "Latino population",
-                "sum": 140298.9339,
+                "key": "ACS_15-1_3",
+                "name": "American Indian population",
+                "sum": 11306.2656898948,
                 "min": 0.0,
-                "max": 719.9032
+                "max": 337.8612529002
               },
               {
-                "key": "ACS_19_Asn",
+                "key": "ACS_15-1_4",
                 "name": "Asian population",
-                "sum": 10627.381,
+                "sum": 10667.2572690907,
                 "min": 0.0,
-                "max": 190.7652
+                "max": 190.7651972158
+              },
+              {
+                "key": "ACS_15-1_5",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2033.1195563689002,
+                "min": 0.0,
+                "max": 75.9610084034
+              },
+              {
+                "key": "ACS_15-1_6",
+                "name": "Hispanic population",
+                "sum": 140714.6888689494,
+                "min": 0.0,
+                "max": 719.9031932773
               }
             ]
           }
@@ -1729,7 +1743,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz2_blocks_points"
+              "url": "mapbox://districtr.mesaaz2_blocks_points?v=2"
             },
             "sourceLayer": "mesaaz2_blocks_points"
           },
@@ -1737,7 +1751,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz2_blocks"
+              "url": "mapbox://districtr.mesaaz2_blocks?v=2"
             },
             "sourceLayer": "mesaaz2_blocks"
           }
