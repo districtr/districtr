@@ -140,7 +140,9 @@ const eventDescriptions = {
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
    <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
    'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!",
-   mesaaz: "Welcome to the public mapping page for MesaAZ! We have created this module with data prepared by Redistricting Partners from the 2015-2019 ACS.",
+   mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
+   <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
+    <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
   };
 
 const longAbout = {
@@ -150,6 +152,9 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
+  mesaaz: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ]
 };
 
 const proposals_by_event = {
