@@ -193,11 +193,11 @@ const build_table_for_state = (data, state) => {
             }
 
             // final formatting
-            var final;
+            var final = "";
             if (elections.length == 0)
-                final = acc.substring(0, acc.length - 2);
+                final = final + acc.substring(0, acc.length - 2);
             else
-                final = acc + "Elections: " + elections.join(', ');
+                final = final + acc + "Elections: " + elections.join(', ');
 
             switch (unit['id']) {
                 case 'blockgroups':
