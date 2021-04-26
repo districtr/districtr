@@ -18,21 +18,32 @@ import { spatial_abilities } from "../utils";
  * @param {Tab} tab Tab object.
  * @returns {undefined}
  */
-function createAnalysisModal(tab) {
-    let target = document.getElementById("modal"),
-        chart = AbstractBarChart([0.3, 0.4], [0.3, 0.4], { title: "Partisan Bias" }),
-        modal = renderModal(chart);
-    
-    const onChange = (e) => render(modal, target);
-    
-    tab.addSection(
-        () => html`
-            <div style="text-align: center;">
-                ${Button("Analyze", "Analyze your complete plan.", onChange)}
-            </div>
-        `
-    );
-}
+//
+// function createAnalysisModal(tab) {
+//     let target = document.getElementById("modal"),
+//         chart = AbstractBarChart([0.3, 0.4], [0.3, 0.4],
+//             {
+//                 hlabels: ["30%", "40%"],
+//                 vlabels: ["30%", "40%"],
+//                 bins: [[0.3, 0.4]],
+//                 heights: [0.35],
+//                 title: "Partisan Bias",
+//                 description: "This chart tells us about partisan bias scores."
+//             }
+//         ),
+//         modal = renderModal(chart);
+//
+//     const onChange = (e) => render(modal, target);
+//
+//     tab.addSection(
+//         () => html`
+//             <div style="text-align: center;">
+//                 ${Button("Analyze", "Analyze your complete plan.", onChange)}
+//             </div>
+//         `
+//     );
+// }
+//
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
