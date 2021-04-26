@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>What's Where | Districtr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/css/landing_page.css" /> -->
     <link rel="stylesheet" type="text/css" href="/css/state_landing.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
@@ -111,17 +112,13 @@
     }
     </style>
     <style type="text/css">
-        .table-container {
-            max-width: 100%;
-            overflow-x: auto;
-        }
         a {
             display: block;
             padding: 10px;
         }
         table {
             width: 100%;
-            font-size: 60%;
+            font-size:50%;
         }
     </style>
 </head>
@@ -163,8 +160,6 @@
             <h2>City and county modules</h2>
             <div id="other-table-div"></div>
         </section>
-        <section class="start-districting hidden" id="select-map">
-        </section>
     </main>
     <script src="/es6/whatsinwhat.js"></script>
     <script>
@@ -181,6 +176,8 @@
         bundle();
     }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>

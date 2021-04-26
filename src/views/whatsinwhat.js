@@ -2,7 +2,8 @@ import { spatial_abilities } from "../utils.js"
 
 export default() => {
     var state_table = `
-    <table id = "state-table" class='data'><tbody><tr>
+    <table id = "state-table" class='data'>
+    <thead class='display'><tr>
     <th>Module</th>
     <th>Coalition Builder</th>
     <th>Contiguity Checks</th>
@@ -12,11 +13,13 @@ export default() => {
     <th>Zoom to Unassigned Units</th>
     <th>Blocks</th>
     <th>Block Groups</th>
-    <th>Precincts/Wards</th></tr>`
+    <th>Precincts/Wards</th></tr>
+    </thead><tbody>`
     
 
     var other_table = `
-    <table id = "other-table" class='data'><tbody><tr>
+    <table id = "other-table" class='data'>
+    <thead class='display'><tr>
     <th>Module</th>
     <th>Coalition Builder</th>
     <th>Contiguity Checks</th>
@@ -26,7 +29,8 @@ export default() => {
     <th>Zoom to Unassigned Units</th>
     <th>Blocks</th>
     <th>Block Groups</th>
-    <th>Precincts/Wards</th></tr>`
+    <th>Precincts/Wards</th></tr>
+    </thead><tbody>`
     
     recursive_table_builder(state_table, other_table, 0);
 
@@ -120,12 +124,22 @@ function recursive_table_builder(state_table, other_table, index) {
 
         // change the DOM
         var state_table_container = document.getElementById('state-table-div');
-        state_table_container.classList.add('table-container');
         state_table_container.innerHTML = state_table;
 
         var other_table_container = document.getElementById('other-table-div');
-        other_table_container.classList.add('table-container');
         other_table_container.innerHTML = other_table;
+        
+        console.log(other_table);
+        console.log(other_table_container);
+        // DataTable constructor
+        $(document).ready(function() {
+            $('table.data').DataTable( {
+                "scrollY":        "1200px",
+                "scrollCollapse": true,
+                "paging":         false
+            } );
+        } );
+
         return;
     }
 
