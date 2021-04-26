@@ -1,5 +1,5 @@
 
-import { html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 /**
  * Creates a Button object which performs the action specified by ``onChange``.
@@ -7,7 +7,7 @@ import { html } from "lit-html";
  * @param {string} hoverText Tooltip text to display when the Button is hovered
  * over.
  * @param {function(Event)} onClick Callback which consumes an Event.
- * @param {string|number} optionalID Number
+ * @param {string|number} optionalID Optional HTML identifier.
  * @returns {TemplateResult}
  * @constructor
  */
