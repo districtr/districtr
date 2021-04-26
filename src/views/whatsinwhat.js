@@ -10,7 +10,7 @@ export default() => {
     elt.addEventListener("change", function () {
         get_json_file(elt.value);
     });
-    //renderInitialView();
+    renderInitialView();
 }
 
 const get_json_file = (state) => {
@@ -68,9 +68,6 @@ const build_table = (data, state) => {
             else
                 row = row + '<td>❌</td>';
         }
-        // TODO do the data layers
-        //    sort out the string comprehensions
-        //    "not available"
 
         var units = {'blocks': "Not Available", "blockgroups": "Not Available", "precincts": "Not Available"};
         for (const unit of module['units']) {
@@ -139,9 +136,9 @@ function renderInitialView() {
 }
 
 function change_listeners() {
-    var states = document.getElementsByClassName('state--available');
+    var states = document.getElementById("select-map").getElementsByClassName('state--available');
     console.log(states);
-    for (var state of states) {
-        console.log(state);
+    for (let state in states) {
+        console.log(state.id); 
     }
 }
