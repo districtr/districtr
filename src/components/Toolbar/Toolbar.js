@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { html } from "lit-html";
 import { repeat } from "lit-html/directives/repeat";
 import { actions } from "../../reducers/toolbar";
@@ -51,6 +52,7 @@ export default class Toolbar {
         btn.disabled = true;
 
         savePlanToDB(this.state, undefined, undefined, (_id, action) => {
+            // eslint-disable-next-line no-extra-parens
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/${action}/${_id}`;
@@ -63,6 +65,7 @@ export default class Toolbar {
             }
         });
     }
+    // eslint-disable-next-line class-methods-use-this
     unsave() {
         let btn = document.getElementById("desktop-upload");
         // only need to update the button if user previously saved state
@@ -112,7 +115,7 @@ export default class Toolbar {
                         >
                             X
                         </button>
-                        <strong>Uploaded Plan</strong>
+                        <strong>Your plan has been saved!</strong>
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
                         <br/>
@@ -140,6 +143,7 @@ export default class Toolbar {
                               class="text-input"
                               autofill="off"
                               value=""
+                              // eslint-disable-next-line no-return-assign
                               @input="${() => document.getElementById("re-save-popup").disabled = false}"
                           />
                         </div>
@@ -153,6 +157,7 @@ export default class Toolbar {
                                     this.state,
                                     document.getElementById("event-coder-popup").value,
                                     document.getElementById("event-plan-name-popup").value,
+                                    // eslint-disable-next-line brace-style
                                     () => { console.log("added event code"); }
                                 );
                             }}"
@@ -165,7 +170,9 @@ export default class Toolbar {
                                 this.state,
                                 document.getElementById("event-coder-popup").value,
                                 document.getElementById("event-plan-name-popup").value,
+                                // eslint-disable-next-line no-unused-vars
                                 (_id, action) => {
+                                    // eslint-disable-next-line no-extra-parens
                                     if (_id || (window.location.hostname === 'localhost')) {
                                       window.open(spatial_abilities(this.state.place.id).portal.endpoint + "?" + spatial_abilities(this.state.place.id).portal.param + "=" + _id, "_blank");
                                     }
