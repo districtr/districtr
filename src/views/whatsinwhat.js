@@ -143,7 +143,7 @@ function recursive_table_builder(state_table, other_table, index) {
 }
 
 const build_table_for_state = (data, state) => {
-    const properties = ['coalition_builder', 'contiguity_checks', 'current_districts', 'county_brush', 'native_american', 'find_unpainted']
+    const properties = ['coalition_builder', 'contiguity', 'current_districts', 'county_brush', 'native_american', 'find_unpainted']
     var state_html = "";
     var other_html = "";
 
