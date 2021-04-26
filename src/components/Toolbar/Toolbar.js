@@ -118,11 +118,34 @@ export default class Toolbar {
                         <strong>Your plan has been saved!</strong>
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
-                        <br/>
+                        <button
+                            id="copy-button"
+                            @click="${() => {
+                                var dummy = document.createElement("textarea");
+                                const link = document.getElementById("code-popup").innerHTML;
+                                document.body.appendChild(dummy);
+                                dummy.value = link;
+                                dummy.focus();
+                                dummy.select(); 
+                                dummy.setSelectionRange(0, 99999); /* For mobile devices */
+                                document.execCommand("copy");
+                                document.body.removeChild(dummy);
+                                document.getElementById("copy-button").innerHTML = "Copied";
+                            }}"
+                        > Copy </button>
                         <label style="float: right; cursor: pointer;">
-                          <input id="is-scratch" type="checkbox"/>
-                          Save as Draft
+                          <input type="radio" id="save-plain" name="save" value="save">
+                          <label for="save-plain">Save</label><br>
+                          <input type="radio" id="event-page" name="save" value="event">
+                          <label for="event-page">Submit to Event Page</label>
+                          ${spatial_abilities(this.state.place.id).portal
+                            ? html`<br>
+                                <input type="radio" id="state-portal" name="save" value="portal">
+                                <label for="state-portal">Submit to State Portal</label>`
+                            :""}
                         </label>
+                        <br/>
+                        <br/>
                         <label>Tag or Event Code</label>
                         <br/>
                         <input
