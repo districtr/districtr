@@ -1,5 +1,5 @@
 import { svg, html, render } from "lit-html";
-import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
+import { listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
 import { geoPath } from "d3-geo";
@@ -103,6 +103,9 @@ const coi_events = [
   'ttt',
   'ourmapsmn',
   'micrc',
+];
+
+const hybrid_events = [
   'mesaaz',
 ];
 
@@ -291,6 +294,17 @@ export default () => {
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
                 render(placeItems(place, startNewPlan, eventCode), mydiv);
+
+                if (hybrid_events.includes(eventCode)) {
+                    const mydiv2 = document.createElement('li');
+                    target.append(mydiv2);
+                    render(placeItems({
+                      ...place,
+                      districtingProblems: [
+                          { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+                      ]
+                    }, startNewPlan, eventCode), mydiv2);
+                }
             });
         });
 
@@ -358,8 +372,8 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                   .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
         )).size,
         districtGoal = plan.plan.problem.numberOfParts,
-        districtOff = !coi_events.includes(eventCode) && (districtCount < districtGoal),
-        unitOff = !coi_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
+        districtOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && (districtCount < districtGoal),
+        unitOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
     let screenshot = plan.screenshot2 || plan.screenshot;
 
