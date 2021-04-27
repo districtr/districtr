@@ -208,11 +208,6 @@ const drawSection = (section, stateData, onlyCommunities) => {
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
             <div id="community-options" class="communities"></div>
-            <div><text style="text-align: left;font-size: 75%">
-                <i>The 2020 Census population data has not yet been published at the above levels of granularity.
-                <br/>
-                Consult the side panel of the map to find the year of the loaded population data when drawing districts.</i>
-            </text></div>
             <p style="text-align: right;"><a href="#data">What are the building blocks?</a>
             </br><a href="#data">What are the data layers?</a></p>
         `;
@@ -393,6 +388,8 @@ const placeItemsTemplate = (places, onClick) =>
         .map(problem =>
             getUnits(place, problem).map(
                 units => 
+                // this ternary can be removed if we don't want to deal with the new 
+                // district numbers separately
                 problem.pluralNoun.includes("Reapportioned") ?
                 html`
                 <li
@@ -404,7 +401,7 @@ const placeItemsTemplate = (places, onClick) =>
                     </div>
                     ${problemTypeInfo[problem.type] || ""}
                     <div class="place-info">
-                        ${problem.numberOfParts} ${problem.pluralNoun}
+                        ${problem.numberOfParts} Congressional Districts
                     </div>
                     <div class="place-info">
                         Built out of ${units.name.toLowerCase()}

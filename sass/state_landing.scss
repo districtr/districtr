@@ -120,11 +120,11 @@ figcaption {
 }
 
 .places-list__item--small.reapportioned {
-  background-color: rgba(146, 62, 255);
+  background-color: $districtr-purple;
 }
 
 .places-list__item--small.reapportioned:hover {
-  background-color: rgb(126, 49, 228);
+  background-color: $districtr-dark-purple;
 }
 
 .places-list--columns {
