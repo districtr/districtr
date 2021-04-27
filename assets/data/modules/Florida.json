@@ -862,6 +862,11 @@
     "id": "florida",
     "districtingProblems": [
       {
+        "name": "2020 Reapportioned Congress",
+        "numberOfParts": 28,
+        "pluralNoun": "Reapportioned Congressional Districts"
+      },
+      {
         "name": "Congress",
         "numberOfParts": 27,
         "pluralNoun": "Congressional Districts"

@@ -12,7 +12,6 @@ export default () => {
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
-
             document.title = curState.concat(" | Districtr");
             var def = stateData.modules.filter(m => m.default)[0];
 
@@ -209,6 +208,11 @@ const drawSection = (section, stateData, onlyCommunities) => {
              ${!onlyCommunities ? html`<div id="districting-options" class="districts"></div>` : html``}
 
             <div id="community-options" class="communities"></div>
+            <div><text style="text-align: left;font-size: 75%">
+                <i>The 2020 Census population data has not yet been published at the above levels of granularity.
+                <br/>
+                Consult the side panel of the map to find the year of the loaded population data when drawing districts.</i>
+            </text></div>
             <p style="text-align: right;"><a href="#data">What are the building blocks?</a>
             </br><a href="#data">What are the data layers?</a></p>
         `;
@@ -372,7 +376,14 @@ const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         place.districtingProblems
         .sort((a, b) => {
-            if (a.name === "Congress" && b.name !== "Congress") {
+            // change so Reapportioned always comes first
+            if (a.name === "2020 Reapportioned Congress" && b.name !== "2020 Reapportioned Congress") {
+                return -1;
+            }
+            else if (b.name === "2020 Reapportioned Congress" && a.name !== "2020 Reapportioned Congress") {
+                return 1;
+            }
+            else if (a.name === "Congress" && b.name !== "Congress") {
                 return -1;
             } else if (b.name === "Congress" && a.name !== "Congress") {
                 return 1;
@@ -381,7 +392,26 @@ const placeItemsTemplate = (places, onClick) =>
         })
         .map(problem =>
             getUnits(place, problem).map(
-                units => html`
+                units => 
+                problem.pluralNoun.includes("Reapportioned") ?
+                html`
+                <li
+                    class="${place.id} places-list__item places-list__item--small reapportioned"
+                    @click="${() => onClick(place, problem, units)}"
+                >
+                    <div class="place-name">
+                        ${place.name}
+                    </div>
+                    ${problemTypeInfo[problem.type] || ""}
+                    <div class="place-info">
+                        ${problem.numberOfParts} ${problem.pluralNoun}
+                    </div>
+                    <div class="place-info">
+                        Built out of ${units.name.toLowerCase()}
+                    </div>
+                </li>
+            `
+                : html`
                     <li
                         class="${place.id} places-list__item places-list__item--small"
                         @click="${() => onClick(place, problem, units)}"
