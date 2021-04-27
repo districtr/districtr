@@ -133,19 +133,12 @@ export default class Toolbar {
                                 document.getElementById("copy-button").innerHTML = "Copied";
                             }}"
                         > Copy </button>
+                        <br/>
+                        <br/>
                         <label style="float: right; cursor: pointer;">
-                          <input type="radio" id="save-plain" name="save" value="save">
-                          <label for="save-plain">Save</label><br>
-                          <input type="radio" id="event-page" name="save" value="event">
-                          <label for="event-page">Submit to Event Page</label>
-                          ${spatial_abilities(this.state.place.id).portal
-                            ? html`<br>
-                                <input type="radio" id="state-portal" name="save" value="portal">
-                                <label for="state-portal">Submit to State Portal</label>`
-                            :""}
+                          <input id="is-scratch" type="checkbox"/>
+                          Save as Draft
                         </label>
-                        <br/>
-                        <br/>
                         <label>Tag or Event Code</label>
                         <br/>
                         <input
