@@ -1,7 +1,7 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 
-function renderModal(innerContent) {
+export function renderModal(innerContent) {
     const target = document.getElementById("modal");
     return html`
         <div
