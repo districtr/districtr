@@ -1,9 +1,11 @@
+/* eslint-disable no-return-assign */
 import { html } from "lit-html";
 import { repeat } from "lit-html/directives/repeat";
 import { actions } from "../../reducers/toolbar";
 import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
+import { spatial_abilities } from "../../utils";
 
 export default class Toolbar {
     constructor(store, editor) {
@@ -50,6 +52,7 @@ export default class Toolbar {
         btn.disabled = true;
 
         savePlanToDB(this.state, undefined, undefined, (_id, action) => {
+            // eslint-disable-next-line no-extra-parens
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/${action}/${_id}`;
@@ -62,6 +65,7 @@ export default class Toolbar {
             }
         });
     }
+    // eslint-disable-next-line class-methods-use-this
     unsave() {
         let btn = document.getElementById("desktop-upload");
         // only need to update the button if user previously saved state
@@ -111,14 +115,37 @@ export default class Toolbar {
                         >
                             X
                         </button>
-                        <strong>Uploaded Plan</strong>
+                        <strong>Your plan has been saved!</strong>
                         You can share your current plan by copying this URL:
                         <code id="code-popup"></code>
-                        <br/>
+                        <button
+                            id="copy-button"
+                            @click="${() => {
+                                var dummy = document.createElement("textarea");
+                                const link = document.getElementById("code-popup").innerHTML;
+                                document.body.appendChild(dummy);
+                                dummy.value = link;
+                                dummy.focus();
+                                dummy.select(); 
+                                dummy.setSelectionRange(0, 99999); /* For mobile devices */
+                                document.execCommand("copy");
+                                document.body.removeChild(dummy);
+                                document.getElementById("copy-button").innerHTML = "Copied";
+                            }}"
+                        > Copy </button>
                         <label style="float: right; cursor: pointer;">
-                          <input id="is-scratch" type="checkbox"/>
-                          Save as Draft
+                          <input type="radio" id="save-plain" name="save" value="save">
+                          <label for="save-plain">Save</label><br>
+                          <input type="radio" id="event-page" name="save" value="event">
+                          <label for="event-page">Submit to Event Page</label>
+                          ${spatial_abilities(this.state.place.id).portal
+                            ? html`<br>
+                                <input type="radio" id="state-portal" name="save" value="portal">
+                                <label for="state-portal">Submit to State Portal</label>`
+                            :""}
                         </label>
+                        <br/>
+                        <br/>
                         <label>Tag or Event Code</label>
                         <br/>
                         <input
@@ -139,6 +166,7 @@ export default class Toolbar {
                               class="text-input"
                               autofill="off"
                               value=""
+                              // eslint-disable-next-line no-return-assign
                               @input="${() => document.getElementById("re-save-popup").disabled = false}"
                           />
                         </div>
@@ -152,12 +180,32 @@ export default class Toolbar {
                                     this.state,
                                     document.getElementById("event-coder-popup").value,
                                     document.getElementById("event-plan-name-popup").value,
+                                    // eslint-disable-next-line brace-style
                                     () => { console.log("added event code"); }
                                 );
                             }}"
                         >
-                            Tag your map
+                            <span style="user-select: none">Tag your map</span>
                         </button>
+                        ${spatial_abilities(this.state.place.id).portal
+                          ? html`<button style="cursor: pointer; margin-left:8px" @click="${() => {
+                            savePlanToDB(
+                                this.state,
+                                document.getElementById("event-coder-popup").value,
+                                document.getElementById("event-plan-name-popup").value,
+                                // eslint-disable-next-line no-unused-vars
+                                (_id, action) => {
+                                    // eslint-disable-next-line no-extra-parens
+                                    if (_id || (window.location.hostname === 'localhost')) {
+                                      window.open(spatial_abilities(this.state.place.id).portal.endpoint + "?" + spatial_abilities(this.state.place.id).portal.param + "=" + _id, "_blank");
+                                    }
+                                },
+                                true // noNewScreenshot
+                            );
+                          }}">
+                            <span style="user-select: none">Share on State Portal</span>
+                          </button>`
+                          : ""}
                     </div>
                     ${DropdownMenuButton(dropdownMenuOpen, this.store.dispatch)}
                 </div>

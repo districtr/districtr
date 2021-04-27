@@ -55,7 +55,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback) {
+export function savePlanToDB(state, eventCode, planName, callback, noNewScreenshot) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",

@@ -552,6 +552,11 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        screenshot: true,
+        portal: {
+          endpoint: 'https://main.dxeh9k44gytyo.amplifyapp.com',
+          param: 'planid',
+        }
       },
       minnesota: {
         number_markers: true,
