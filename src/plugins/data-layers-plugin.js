@@ -270,8 +270,8 @@ export default function DataLayersPlugin(editor) {
         });
     }
 
-    // ohio zones
-    let schoolsLayer, school_labels, placesLayer, place_labels;
+    // school zones and towns
+    let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
     if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
@@ -326,7 +326,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (!["ohcentral", "indiana", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
+                if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -375,6 +375,51 @@ export default function DataLayersPlugin(editor) {
                 });
             });
         });
+    } else if (["elpasotx"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
+      fetch(`/assets/current_districts/${state.place.id}_precincts.geojson`).then(res => res.json()).then((precinct_gj) => {
+          state.map.addSource('precinct_gj', {
+              type: 'geojson',
+              data: precinct_gj
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'precinct_gj',
+                  source: 'precinct_gj',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/current_districts/${state.place.id}_precincts_centroids.geojson`).then(res => res.json()).then((precinct_centroids) => {
+              state.map.addSource('precinct_centroids', {
+                  type: 'geojson',
+                  data: precinct_centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'precinct_centroids',
+                    source: 'precinct_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'VTD'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  },
+                  addBelowLabels
+              );
+          });
+       });
     }
 
     if (state.place.id === "virginia") {
@@ -447,6 +492,19 @@ export default function DataLayersPlugin(editor) {
             })}`,
             {
                 isOpen: false
+            }
+        );
+    } else if (state.place.id === "elpasotx" && !state.units.sourceId.includes("precinct")) {
+        tab.addRevealSection(
+            'Boundaries',
+            (uiState, dispatch) => html`
+            ${toggle("Current Precincts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                precinctsLayer && precinctsLayer.setOpacity(opacity);
+                precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+            })}`,
+            {
+                isOpen: true
             }
         );
     }

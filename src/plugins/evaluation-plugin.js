@@ -147,7 +147,7 @@ export default function EvaluationPlugin(editor) {
     if (showVRA && (state.units.sourceId !== "ma_towns")) 
     {
         VRAtab.addRevealSection(
-            "VRA Effectiveness",
+            "VRA Effectiveness Overview",
             (uiState, dispatch) =>
                 VRAEffectivenessTable(
                     state.parts,
@@ -160,10 +160,22 @@ export default function EvaluationPlugin(editor) {
                 isOpen: true
             }
         );
-    }
+        
+        // VRAtab.addRevealSection(
+        //     "VRA Alignment",
+        //     (uiState, dispatch) =>
+        //         VRAAlignmentTable(
+        //             state.parts,
+        //             state.vra_effectiveness,
+        //             state.waiting,
+        //             uiState,
+        //             dispatch
+        //         ),
+        //     {
+        //         isOpen: false
+        //     }
+        // );
 
-    if (showVRA && (state.units.sourceId !== "ma_towns")) 
-    {
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>
