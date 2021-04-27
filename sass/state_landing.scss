@@ -119,6 +119,14 @@ figcaption {
   max-width: none;
 }
 
+.places-list__item--small.reapportioned {
+  background-color: rgba(146, 62, 255);
+}
+
+.places-list__item--small.reapportioned:hover {
+  background-color: rgb(126, 49, 228);
+}
+
 .places-list--columns {
   align-items: stretch;
   margin-bottom: 1rem;
