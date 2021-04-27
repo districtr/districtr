@@ -4,7 +4,7 @@ export default() => {
     var state_table = `
     <table id = "state-table" class='data'>
     <thead class='display'><tr>
-    <th>Module</th>
+    <th>State</th>
     <th>Coalition Builder</th>
     <th>Contiguity Checks</th>
     <th>Current District Boundaries</th>
@@ -20,7 +20,7 @@ export default() => {
     var other_table = `
     <table id = "other-table" class='data'>
     <thead class='display'><tr>
-    <th>Module</th>
+    <th>Jurisdiction</th>
     <th>Coalition Builder</th>
     <th>Contiguity Checks</th>
     <th>Current District Boundaries</th>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>What's Where | Districtr</title>
+    <title>Features | Districtr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/css/landing_page.css" /> -->
@@ -128,7 +128,7 @@
                     <a href="#state-table-section">Jump to states</a>
                 </li>
                 <li>
-                    <a href="#other-table-section">Jump to cities and counties   </a>
+                    <a href="#other-table-section">Jump to other jurisdictions</a>
                 </li>
                 <li class="nav">
                     <a href="/new">
@@ -140,20 +140,20 @@
     </header>
     <main id="root" class="landing-page">
         <article class="place__content">
-            <h1 class="headling place__name">What's in what module?</h1>
+            <h1 class="headling place__name">Available Features by Jurisdiction</h1>
         </article>
         <section id="state-table-section" class='l-content l-major-section'>
             <br/>
-            <h2>Statewide modules</h2>
+            <h2>States</h2>
             <div id="state-table-div"></div>
         </section>
         <section id="other-table-section" class='l-content l-major-section'>
             <br/>
-            <h2>City and county modules</h2>
+            <h2>Other Jurisdictions</h2>
             <div id="other-table-div"></div>
         </section>
     </main>
-    <script src="/es6/whatsinwhat.js"></script>
+    <script src="/es6/features.js"></script>
     <script>
     if (Object.assign === undefined || fetch === undefined) {
         document.write(
