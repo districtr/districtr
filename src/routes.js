@@ -53,7 +53,9 @@ export function savePlanToStorage({
         description,
         parts
     };
-    localStorage.setItem("savedState", JSON.stringify(state));
+    if (!window.location.href.includes("embed")) {
+        localStorage.setItem("savedState", JSON.stringify(state));
+    }
 }
 
 export function savePlanToDB(state, eventCode, planName, callback) {
@@ -130,7 +132,9 @@ export function savePlanToDB(state, eventCode, planName, callback) {
 }
 
 export function getContextFromStorage() {
-    const savedState = localStorage.getItem("savedState");
+    const savedState = window.location.href.includes("embed")
+        ? null
+        : localStorage.getItem("savedState");
     let state;
     try {
         state = JSON.parse(savedState);
