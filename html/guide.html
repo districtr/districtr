@@ -40,6 +40,10 @@
     .communities {
       display: hidden;
     }
+
+    .l-major-section {
+      padding-bottom: 1rem;
+    }
   </style>
 
 </head>
@@ -66,13 +70,55 @@
           <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
         </button>
       </div>
+      <span class="communities" hidden>
       <ul id="nav-links" class="nav-links site-nav__contents">
         <li class="nav">
-          <a class="nav-links__link nav-links__link--major" href="/new">
-            Back to the Map
+          <a class="nav-links__link nav-links__link--major" href="#startCommunities">
+            Getting Started
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#toolsCommunities">
+            Main Tools
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#tabsCommunities">
+            Tabs
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#sharingCommunities">
+            Sharing your Map
           </a>
         </li>
       </ul>
+    </span>
+    <span class="districts">
+      <ul id="nav-links" class="nav-links site-nav__contents">
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#startDistricts">
+            Getting Started
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#toolsDistricts">
+            Main Tools
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#tabsDistricts">
+            Tabs
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#sharingDistricts">
+            Sharing your Map
+          </a>
+        </li>
+      </ul>
+    </span>
+
     </nav>
   </header>
 
@@ -85,8 +131,11 @@
         <input type="radio" value="communities" id="communities" name="draw-selection" class="comm">
         <label for="communities" class="mode-selection">Communities</label>
       </div>
-      <div class="communities">
-        <h2 class="place__subheading">Getting started</h2>
+      <div class="communities" hidden>
+        <a class="bookmark" name="startCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Getting Started with Communities</h2>
+        </section>
         <ul>
           <li>On the Districtr homepage, click “Jump to the Map” in the top right corner.</li>
           <li>You will be redirected to an interactive map of the United States. Click the state for which you wish to
@@ -100,7 +149,10 @@
           <li>You will now be redirected to your selected districting page.</li>
           <img src="/assets/guide/coi/COI_GIF1.wmv" alt="" class="screenshot">
         </ul>
-        <h2 class="place__subheading">Main Tools</h2>
+        <a class="bookmark" name="toolsCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Main Tools</h2>
+        </section>
         <ul>
           <h3>Moving across the map</h3>
           <ul>
@@ -146,7 +198,10 @@
             <img src="/assets/guide/coi//COI_GIFS/COI_GIF8.gif" alt="" class="screenshot">
           </ul>
         </ul>
-        <h2 class="place__subheading">Tabs</h2>
+        <a class="bookmark" name="tabsCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Tabs</h2>
+        </section>
         <ul>
           <h3>Drawing</h3>
           <ul>
@@ -253,7 +308,10 @@
             <img src="/assets/guide/coi//COI_GIFS/COI_GIF18.gif" alt="" class="screenshot">
           </ul>
         </ul>
-        <h2 class="place__subheading">Sharing your Map</h2>
+        <a class="bookmark" name="sharingCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Sharing your Map</h2>
+        </section>
         <ul>
           <li>Clicking on the “Share” button saves the map you created and uploads it to the Districtr database. You do
             not need to create an account, and only the information in your map is shared.</li>
@@ -290,7 +348,10 @@
         </ul>
       </div>
       <div class="districts">
-        <h2 class="place__subheading">Getting started</h2>
+        <a class="bookmark" name="startDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Getting Started with Districts</h2>
+        </section>
         <ul>
           <li>On the Districtr homepage, click “Jump to the Map” in the top right corner.</li>
           <li>You will be redirected to an interactive map of the United States. Click the state for which you wish to
@@ -304,7 +365,10 @@
           <img src="/assets/guide/districting/GIF2.gif" alt="" class="screenshot">
           <li>You will now be redirected to your selected districting page.</li>
         </ul>
-        <h2 class="place__subheading">Main Tools</h2>
+        <a class="bookmark" name="toolsDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Main Tools</h2>
+        </section>
         <ul>
           <h3>Moving across the map</h3>
           <ul>
@@ -351,7 +415,10 @@
             <img src="/assets/guide/districting/GIF12.gif" alt="" class="screenshot">
           </ul>
         </ul>
-        <h2 class="place__subheading">Tabs</h2>
+        <a class="bookmark" name="tabsDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Tabs</h2>
+        </section>
         <ul>
           <h3>Population</h3>
           <ul>
@@ -445,7 +512,10 @@
             </ul>
           </ul>
         </ul>
-        <h2 class="place__subheading">Sharing your Map</h2>
+        <a class="bookmark" name="sharingDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Sharing your Map</h2>
+        </section>
         <ul>
           <li>Clicking the “Share” button saves the map you created and uploads it to the Districtr database. You do not
             need to create an account, and only the information in your map is shared.</li>
@@ -489,7 +559,7 @@
         element.style.display = "none";
       }
       for (let element of document.getElementsByClassName("districts")) {
-        element.style.display = "block";
+        element.style.display = "inline";
       }
     };
     document.querySelector('#communities').onclick = () => {
@@ -497,7 +567,7 @@
         element.style.display = "none";
       }
       for (let element of document.getElementsByClassName("communities")) {
-        element.style.display = "block";
+        element.style.display = "inline";
       }
     };
 
