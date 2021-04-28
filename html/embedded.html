@@ -31,7 +31,9 @@
         </main>
         <script>
             window.Districtr("little-rock", {
-                url: "https://districtr.org/.netlify/functions/planRead?id=" + window.location.href.split("?id=")[1]
+                url: "https://districtr.org/.netlify/functions/planRead?id=" + window.location.href.split("?id=")[1],
+            }, {
+                readOnly: true
             });
         </script>
     </body>
