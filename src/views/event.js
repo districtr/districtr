@@ -24,11 +24,12 @@ const stateForEvent = {
   'fair-districts-oh': 'Ohio',
   'colorado-cc': 'Colorado',
   ttt: 'Colorado',
-  grns: 'Wisconsin',
+  nsfm: 'Wisconsin',
   'towsonu-baltimore': 'Maryland',
   fairmapstexas: 'Texas',
   'missouri-mapping': 'Missouri',
-  'ourmapsmn': 'Minnesota'
+  'ourmapsmn': 'Minnesota',
+  'micrc': 'Michigan'
 };
 
 const validEventCodes = {
@@ -50,11 +51,12 @@ const validEventCodes = {
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'colorado-cc': 'colorado',
   ttt: [],
-  grns: ['wisconsin', 'wisconsin2020'],
+  nsfm: 'wisconsin2020',
   'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas',
   'missouri-mapping': 'missouri',
-  'ourmapsmn': 'minnesota'
+  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
+  'micrc': 'michigan'
 };
 
 const blockPlans = {
@@ -93,11 +95,12 @@ const coi_events = [
   'open-maps',
   'fair-districts-oh',
   'colorado-cc',
-  'grns',
+  'nsfm',
   'fairmapstexas',
   'missouri-mapping',
   'ttt',
   'ourmapsmn',
+  'micrc'
 ];
 
 const eventDescriptions = {
@@ -124,18 +127,19 @@ const eventDescriptions = {
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
-  grns: 'Welcome to the event page for Grassroots North Shore Fair Maps!',
+  nsfm: "<p>Welcome to the <a href='https://northshorefairmaps.com' target='_blank'>North Shore Fair Maps</a> mapping page. You can help Wisconsin’s <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>People’s Maps Commission</a> #EndGerrymandering! Please draw a map that shows us your “<a href='https://docs.google.com/document/d/15CFn85psZkJvGfgZeQwRGS6BMF1YJgEsTblZuwaBhzg/edit' target='_blank'>community of interest</a>.” Your map will tell the Commission what's on the ground and relevant. Your map will be added to thousands of other maps, computers will do their magic, and before you know it, new Wisconsin voting maps will be created. With so many people involved in map-making, there is no guaranty that YOUR map will rule the day, but it will be considered. It will count. And because of you and others like you, Wisconsin's new voting maps will make sure that everyone’s vote gets counted … and counts. Learn more about how you can help #EndGerrymandering at <a href='http://www.northshorefairmaps.com' target='_blank'>www.NorthShoreFairMaps.com</a>.</p>", 
   'towsonu-baltimore': 'Welcome to the event page for Towson University',
   fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
-  'missouri-mapping': "<p>Welcome to the public mapping page for the Missouri Mapping Project!</p>\
-  <p>Too often, new district map lines have been drawn in Missouri without real public input and without truly honoring our communities. The Missouri Mapping Project is working to change that. Using new technology to engage communities from every corner of the state we are working to document where and how Missourians live in community, so that we can be fully and adequately represented in the new Congressional, state senate, and state house district lines that will be drawn ahead of 2022 elections.</p>\
-  <p>You can help us! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://missouri-mapping.org/' target='_blank'>our portal</a>.</p>",
+  'missouri-mapping': "<p>You can help us map Missouri! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://research.typeform.com/to/zH14rNfF' target='_blank'>our portal</a>.</p>",
   'ourmapsmn': "<p>Welcome to the Our Maps Minnesota Redistricting Campaign Mapping page! The Our Maps MN Campaign is committed to a community-focused, accessible, and transparent redistricting process in Minnesota. Through this campaign we aim to:</p>\
    <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
    <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
-   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>"
-};
+   <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
+   'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!"
+
+
+  };
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
@@ -159,6 +163,11 @@ export default () => {
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = og_eventCode;
+        if (coi_events.includes(eventCode)) {
+            document.getElementById("introExplain").innerText = "Map Your Community";
+            document.getElementById("introExplain").style.display = "block";
+        }
+
         // document.getElementById("eventCode").innerText = og_eventCode;
         if (eventDescriptions[eventCode]) {
             let desc = document.createElement("div");
@@ -286,7 +295,7 @@ export default () => {
         let showPlans = (data, unlimited) => {
             let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
             const plans = [{
-                title: "Community-submitted maps",
+                title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
                 plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
             }];
             render(html`
@@ -345,13 +354,15 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
         districtOff = !coi_events.includes(eventCode) && (districtCount < districtGoal),
         unitOff = !coi_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
+    let screenshot = plan.screenshot2 || plan.screenshot;
+
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
         <li class="plan-thumbs__thumb">
-            ${(plan.screenshot && plan.screenshot.length > 60)
+            ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
                 ? html`<img
                     class="thumb__img"
-                    src="${plan.screenshot}"
+                    src="${screenshot}"
                     alt="Districting Plan ${plan.simple_id}"
                 />`
                 : ''

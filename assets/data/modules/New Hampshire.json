@@ -187,46 +187,6 @@
           },
           {
             "type": "election",
-            "name": "2012 US House",
-            "subgroups": [
-              {
-                "key": "USH12D",
-                "name": "Democratic",
-                "sum": 340925,
-                "min": 0,
-                "max": 7316
-              },
-              {
-                "key": "USH12R",
-                "name": "Republican",
-                "sum": 311636,
-                "min": 0,
-                "max": 7558
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2012 Executive Council",
-            "subgroups": [
-              {
-                "key": "EC12D",
-                "name": "Democratic",
-                "sum": 308206,
-                "min": 0,
-                "max": 6779
-              },
-              {
-                "key": "EC12R",
-                "name": "Republican",
-                "sum": 315223,
-                "min": 0,
-                "max": 8222
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2014 Governor",
             "subgroups": [
               {
@@ -242,46 +202,6 @@
                 "sum": 230610,
                 "min": 0,
                 "max": 5809
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 State Senate",
-            "subgroups": [
-              {
-                "key": "SSEN14D",
-                "name": "Democratic",
-                "sum": 233544,
-                "min": 0,
-                "max": 4202
-              },
-              {
-                "key": "SSEN14R",
-                "name": "Republican",
-                "sum": 230950,
-                "min": 0,
-                "max": 6083
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Executive Council",
-            "subgroups": [
-              {
-                "key": "EC14D",
-                "name": "Democratic",
-                "sum": 220706,
-                "min": 0,
-                "max": 3883
-              },
-              {
-                "key": "EC14R",
-                "name": "Republican",
-                "sum": 241017,
-                "min": 0,
-                "max": 6573
               }
             ]
           },
@@ -307,26 +227,6 @@
           },
           {
             "type": "election",
-            "name": "2016 Governor",
-            "subgroups": [
-              {
-                "key": "GOV16D",
-                "name": "Democratic",
-                "sum": 337589,
-                "min": 0,
-                "max": 6519
-              },
-              {
-                "key": "GOV16R",
-                "name": "Republican",
-                "sum": 354040,
-                "min": 0,
-                "max": 9343
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2016 US Senate",
             "subgroups": [
               {
@@ -347,41 +247,21 @@
           },
           {
             "type": "election",
-            "name": "2016 US House",
+            "name": "2016 Governor",
             "subgroups": [
               {
-                "key": "USH16D",
+                "key": "GOV16D",
                 "name": "Democratic",
-                "sum": 336575,
+                "sum": 337589,
                 "min": 0,
-                "max": 6359
+                "max": 6519
               },
               {
-                "key": "USH16R",
+                "key": "GOV16R",
                 "name": "Republican",
-                "sum": 316367,
+                "sum": 354040,
                 "min": 0,
-                "max": 8084
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 State Senate",
-            "subgroups": [
-              {
-                "key": "SSEN16D",
-                "name": "Democratic",
-                "sum": 342052,
-                "min": 0,
-                "max": 6501
-              },
-              {
-                "key": "SSEN16R",
-                "name": "Republican",
-                "sum": 346474,
-                "min": 0,
-                "max": 8817
+                "max": 9343
               }
             ]
           },
@@ -402,6 +282,66 @@
                 "sum": 302764,
                 "min": 0,
                 "max": 7293
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 President",
+            "subgroups": [
+              {
+                "key": "PRES20D",
+                "name": "Democratic",
+                "sum": 424937,
+                "min": 0,
+                "max": 8725
+              },
+              {
+                "key": "PRES20R",
+                "name": "Republican",
+                "sum": 365660,
+                "min": 0,
+                "max": 9969
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN20D",
+                "name": "Democratic",
+                "sum": 450778,
+                "min": 0,
+                "max": 9229
+              },
+              {
+                "key": "SEN20R",
+                "name": "Republican",
+                "sum": 326229,
+                "min": 0,
+                "max": 8716
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Governor",
+            "subgroups": [
+              {
+                "key": "GOV20D",
+                "name": "Democratic",
+                "sum": 264639,
+                "min": 0,
+                "max": 5020
+              },
+              {
+                "key": "GOV20R",
+                "name": "Republican",
+                "sum": 516609,
+                "min": 0,
+                "max": 13202
               }
             ]
           }

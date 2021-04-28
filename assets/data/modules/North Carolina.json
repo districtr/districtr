@@ -1815,6 +1815,11 @@
     "id": "nc",
     "districtingProblems": [
       {
+        "name": "2020 Reapportioned Congress",
+        "numberOfParts": 14,
+        "pluralNoun": "Reapportioned Congressional Districts"
+      },
+      {
         "numberOfParts": 13,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
