@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({
             msg: "Plan successfully found",
             plan: plan.plan,
-            screenshot: plan.screenshot,
+            screenshot: plan.screenshot2 || plan.screenshot,
             simple_id: plan.simple_id,
         })
     };
