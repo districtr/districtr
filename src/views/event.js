@@ -354,13 +354,15 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
         districtOff = !coi_events.includes(eventCode) && (districtCount < districtGoal),
         unitOff = !coi_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
+    let screenshot = plan.screenshot2 || plan.screenshot;
+
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
         <li class="plan-thumbs__thumb">
-            ${(plan.screenshot && plan.screenshot.length > 60)
+            ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
                 ? html`<img
                     class="thumb__img"
-                    src="${plan.screenshot}"
+                    src="${screenshot}"
                     alt="Districting Plan ${plan.simple_id}"
                 />`
                 : ''
