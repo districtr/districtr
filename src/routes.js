@@ -55,7 +55,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback) {
+export function savePlanToDB(state, eventCode, planName, callback, noNewScreenshot) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -81,51 +81,29 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             delete requestBody.plan.assignment[key];
         }
     });
-    let saveme = (requestBody) => {
-        fetch(saveURL, {
-            method: "POST",
-            body: JSON.stringify(requestBody)
-        })
-        .then(res => res.json())
-        .then(info => {
-            if (info.simple_id) {
-                let action = (window.location.hostname === "localhost" ? "edit" : (
-                  serialized.problem.type === "community" ? "COI" : "plan"
-                ));
-                history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
-                if (info.token && localStorage) {
-                    localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
-                }
-                callback(info.simple_id, action);
-            } else {
-                callback(null);
+    fetch(saveURL, {
+        method: "POST",
+        body: JSON.stringify(requestBody)
+    })
+    .then(res => res.json())
+    .then(info => {
+        if (info.simple_id) {
+            let action = (window.location.hostname === "localhost" ? "edit" : (
+              serialized.problem.type === "community" ? "COI" : "plan"
+            ));
+            history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
+            if (info.token && localStorage) {
+                localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-        })
-        .catch(e => callback(null));
-    };
-    if ((eventCode || (state.place.id === "michigan")) && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
-        let picpath = spatial_abilities(state.place.id).screenshot ? "picture" : "picture2";
-        if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
-            // enabled on Ohio blockgroups, not precincts
-            picpath = "picture2";
+            if ((eventCode || (state.place.id === "michigan")) && spatial_abilities(state.place.id).shapefile) {
+                fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+            }
+            callback(info.simple_id, action);
+        } else {
+            callback(null);
         }
-        fetch("//mggg.pythonanywhere.com/" + picpath, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(serialized),
-        })
-        .then((res) => res.text())
-        .catch((e) => {
-            console.error(e);
-            saveme(requestBody);
-        })
-        .then((data) => {
-            requestBody.screenshot = 'data:image/png;base64,' + data.substring(2, data.length - 1);
-            saveme(requestBody);
-        });
-    } else {
-        saveme(requestBody);
-    }
+    })
+    .catch(e => callback(null));
 }
 
 export function getContextFromStorage() {

@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
         // by default search all plans
         search.hostname = myHost;
     }
-    const plan = await Plan.findOne(search).select('plan simple_id screenshot');
+    const plan = await Plan.findOne(search).select('plan simple_id screenshot screenshot2');
     // be careful not to share secret token
 
     return {
@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({
             msg: "Plan successfully found",
             plan: plan.plan,
-            screenshot: plan.screenshot,
+            screenshot: plan.screenshot2 || plan.screenshot,
             simple_id: plan.simple_id,
         })
     };

@@ -461,6 +461,11 @@
     "id": "colorado",
     "districtingProblems": [
       {
+        "name": "2020 Reapportioned Congress",
+        "numberOfParts": 8,
+        "pluralNoun": "Reapportioned Congressional Districts"
+      },
+      {
         "numberOfParts": 7,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"

@@ -119,6 +119,14 @@ figcaption {
   max-width: none;
 }
 
+.places-list__item--small.reapportioned {
+  background-color: $districtr-purple;
+}
+
+.places-list__item--small.reapportioned:hover {
+  background-color: $districtr-dark-purple;
+}
+
 .places-list--columns {
   align-items: stretch;
   margin-bottom: 1rem;

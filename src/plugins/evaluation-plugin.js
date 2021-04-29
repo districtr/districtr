@@ -99,6 +99,7 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+    
     if (state.vap) {
         tab.addRevealSection(
             "Voting Age Population by Race",
@@ -179,10 +180,9 @@ export default function EvaluationPlugin(editor) {
     }
 
     // console.log(state);
-    if (showVRA && (state.units.sourceId !== "ma_towns"))
-    {
+    if (showVRA && (state.units.sourceId !== "ma_towns")) {
         VRAtab.addRevealSection(
-            "VRA Effectiveness",
+            "VRA Effectiveness Overview",
             (uiState, dispatch) =>
                 VRAEffectivenessTable(
                     state.parts,
@@ -195,10 +195,24 @@ export default function EvaluationPlugin(editor) {
                 isOpen: true
             }
         );
+    
+        // VRAtab.addRevealSection(
+        //     "VRA Alignment",
+        //     (uiState, dispatch) =>
+        //         VRAAlignmentTable(
+        //             state.parts,
+        //             state.vra_effectiveness,
+        //             state.waiting,
+        //             uiState,
+        //             dispatch
+        //         ),
+        //     {
+        //         isOpen: false
+        //     }
+        // );
     }
-
-    if (showVRA && (state.units.sourceId !== "ma_towns"))
-    {
+    
+    if (showVRA && (state.units.sourceId !== "ma_towns")) {
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>
@@ -225,7 +239,4 @@ export default function EvaluationPlugin(editor) {
     if (VRAtab.sections.length > 0) {
         toolbar.addTab(VRAtab);
     }
-    
-    // Create section.
-    createAnalysisModal(tab);
 }
