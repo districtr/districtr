@@ -1781,7 +1781,7 @@
     "state": "Massachusetts",
     "units": [
       {
-        "id": "revere_blockgroups",
+        "id": "revere",
         "name": "Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
