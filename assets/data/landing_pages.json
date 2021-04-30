@@ -204,7 +204,7 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
+      {"name": "Counties", "ids": ["lax", "kern"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
@@ -1147,7 +1147,7 @@
     "code": "MA",
     "modules": [
       {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
+      {"name": "Cities", "ids": ["lowell", "revere"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
