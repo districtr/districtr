@@ -204,7 +204,7 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
+      {"name": "Counties", "ids": ["lax", "kern_ca_jack"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
