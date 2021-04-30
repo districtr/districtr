@@ -1923,17 +1923,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.kern_ca_jack_kern_blockgroups"
+              "url": "mapbox://districtr.kern_ca_jack_kern"
             },
-            "sourceLayer": "kern_ca_jack_kern_blockgroups"
+            "sourceLayer": "kern_ca_jack_kern"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.kern_ca_jack_kern_blockgroups_points"
+              "url": "mapbox://districtr.kern_ca_jack_kern_points"
             },
-            "sourceLayer": "kern_ca_jack_kern_blockgroups_points"
+            "sourceLayer": "kern_ca_jack_kern_points"
           }
         ]
       }
