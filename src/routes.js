@@ -10,7 +10,8 @@ const routes = {
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
-    "/signout": "/signout"
+    "/signout": "/signout",
+    "/analysis": "/analysis"
 };
 
 export function navigateTo(route) {

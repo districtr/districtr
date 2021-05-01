@@ -1,6 +1,15 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 
+
+/**
+ * @desc Closes a modal.
+ */
+export function closeModal() {
+    let modal = document.getElementById("modal");
+    render("", modal);
+}
+
 export function renderModal(innerContent) {
     const target = document.getElementById("modal");
     const template = html`

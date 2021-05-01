@@ -1,0 +1,57 @@
+@import "_colors";
+
+$full-width: calc(100vw - 1em);
+$half-width: calc(50vw - 0.5em);
+
+.pane-contain {
+  width: $full-width;
+  height: 100%;
+}
+
+.modal-row {
+  width: auto;
+}
+
+.pane-contain, .modal-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+// Ensure that the map container div doesn't exceed the width of the Pane
+// containing it.
+.pane {
+  width: $half-width;
+  height: 100%;
+
+  .mapcontainer, .map, .mapboxgl-map, .mapboxgl-canvas {
+    width: $half-width;
+  }
+  .map {
+    height: calc(100%);
+    position: static;
+    overflow: visible;
+  }
+}
+
+.pane, .modal-item {
+  align-content: center;
+  text-align: center;
+  flex-grow: 0.5;
+}
+.modal-item + .modal-item {
+  border-left: 1px solid $districtr-grey-active;
+  padding: 5px;
+}
+
+.modal-bottom-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.bottom-bar {
+  flex-grow: 1;
+  text-align: center;
+}
