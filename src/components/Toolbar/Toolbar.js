@@ -104,7 +104,7 @@ export default class Toolbar {
                         class="unsaved"
                         @click="${this.savePlan.bind(this)}"
                     >
-                        Share
+                        Save
                     </div>
                     <div id="save-popup">
                         <button
