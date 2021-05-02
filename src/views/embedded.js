@@ -8,6 +8,7 @@ import { client } from "../api/client";
 import { generateId } from "../utils";
 import UIStateStore from "../models/UIStateStore";
 import MiniToolbar from "../components/Toolbar/MiniToolbar";
+import CommunityPlugin from "../plugins/community-plugin";
 
 const plugins = [ToolsPlugin];
 
@@ -90,6 +91,30 @@ export class EmbeddedDistrictr {
                     );
                     if (context.assignment) {
                         this.state.plan.assignment = context.assignment; // know loaded district assignments
+
+                        const paint_ids = Object.keys(context.assignment);
+                        if (this.state.place.id === "michigan" && paint_ids.length <= 250) {
+                          const placeID = this.state.units.id.includes("block") ? "michigan_bg" : "michigan";
+                          const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
+                          fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
+                            const bbox = resp[0];
+                            if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
+                              this.state.place.landmarks.data.features.forEach((pt) => {
+                                if (pt.geometry.type === "Point") {
+                                  bbox[0] = Math.min(bbox[0], pt.geometry.coordinates[0]);
+                                  bbox[2] = Math.min(bbox[2], pt.geometry.coordinates[1]);
+                                  bbox[1] = Math.max(bbox[1], pt.geometry.coordinates[0]);
+                                  bbox[3] = Math.max(bbox[3], pt.geometry.coordinates[1]);
+                                }
+                              });
+                            }
+                            this.mapState.map.fitBounds([[bbox[0], bbox[2]], [bbox[1], bbox[3]]]);
+                          });
+                        }
+                    }
+
+                    if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
+                        new CommunityPlugin({ state: this.state, mapState: this.mapState });
                     }
 
                     if (!readOnly) {
