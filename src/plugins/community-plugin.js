@@ -16,11 +16,11 @@ import { savePlanToStorage } from "../routes";
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
 
-    addLocationSearch(mapState);
-
     let tab, about;
     if (editor.store) {
         // skip this on embed
+        addLocationSearch(mapState);
+
         tab = new Tab("community", "Drawing", editor.store);
         about = new AboutSection(editor);
         tab.addRevealSection("Areas of Interest", about.render);
@@ -67,17 +67,18 @@ export default function CommunityPlugin(editor) {
           state.render();
         });
     }
+
+    if (!editor.store) {
+      // embed
+      return;
+    }
+
     lmo = new LandmarkOptions(
         state.map.landmarks,
         lm.data.features,
         state.map
     );
     tab.addRevealSection("Important Places", lmo.render.bind(lmo));
-
-    if (!editor.store) {
-      // embed
-      return;
-    }
 
     const evaluationTab = new Tab("population", "Evaluation", editor.store);
     const populationPivot = PivotTable(

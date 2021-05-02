@@ -97,8 +97,18 @@ export class EmbeddedDistrictr {
                           const placeID = this.state.units.id.includes("block") ? "michigan_bg" : "michigan";
                           const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
                           fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
-                            const bbox = resp[0];
+                            let bbox = resp[0];
+                            if (bbox.includes(null)) {
+                                if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features && this.state.place.landmarks.data.features.length > 1) {
+                                    // landmarks, no districts
+                                    bbox = [180, -180, 90 -90];
+                                } else {
+                                    // no content, no zooming
+                                    return;
+                                }
+                            }
                             if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
+                              // landmarks + districts
                               this.state.place.landmarks.data.features.forEach((pt) => {
                                 if (pt.geometry.type === "Point") {
                                   bbox[0] = Math.min(bbox[0], pt.geometry.coordinates[0]);
