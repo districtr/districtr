@@ -1674,7 +1674,7 @@
             "total": {
               "key": "ACS_15-19_",
               "name": "Total population",
-              "sum": 510102.2070255459,
+              "sum": 509892.2070255459,
               "min": 0.0,
               "max": 1659.4273781903
             },
@@ -1720,6 +1720,61 @@
                 "sum": 140714.6888689494,
                 "min": 0.0,
                 "max": 719.9031932773
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-11",
+              "name": "Total CVAP",
+              "sum": 344280,
+              "min": 0.0,
+              "max": 1091.7285382831
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-12",
+                "name": "White CVAP",
+                "sum": 250899.26507862943,
+                "min": 0.0,
+                "max": 715.414507772
+              },
+              {
+                "key": "CVAP_15-_5",
+                "name": "Black CVAP",
+                "sum": 11981.893943216799,
+                "min": 0.0,
+                "max": 134.7520842475
+              },
+              {
+                "key": "CVAP_15-19",
+                "name": "American Indian CVAP",
+                "sum": 6698.7419155725,
+                "min": 0.0,
+                "max": 248.9907192575
+              },
+              {
+                "key": "CVAP_15-_3",
+                "name": "Asian CVAP",
+                "sum": 5896.1527631526005,
+                "min": 0.0,
+                "max": 126.4106728538
+              },
+              {
+                "key": "CVAP_15-_8",
+                "name": "Native Hawaiian Pacific Islander CVAP",
+                "sum": 1095.8895049803,
+                "min": 0.0,
+                "max": 40.2823529412
+              },
+              {
+                "key": "CVAP_15-_7",
+                "name": "Hispanic CVAP",
+                "sum": 62104.0337451843,
+                "min": 0.0,
+                "max": 277.625079164
               }
             ]
           }

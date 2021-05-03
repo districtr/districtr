@@ -326,6 +326,7 @@ export function spatial_abilities (id) {
             native_american: true,
             number_markers: true,
             border: true,
+            sideload: true,
           },
           phoenix: {
             native_american: true,
