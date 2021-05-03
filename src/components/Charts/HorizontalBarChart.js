@@ -57,7 +57,7 @@ export function HorizontalBarChart(
                             ${formatColumnName(column.name + (column.share ? ` (${column.share})%` : ""), maxVariableLength)}
                         </dt>
                         <dd>
-                            ${value.toFixed(4)}
+                            ${(Math.abs(value - Math.round(value)) < 0.001) ? numberWithCommas(Math.round(value)) : value.toFixed(4)}
                         </dd>
                         ${column.total !== undefined
                             ? TooltipBar(value / total)
