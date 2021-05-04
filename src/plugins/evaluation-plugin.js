@@ -81,6 +81,23 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+    if (state.cvap) {
+        tab.addRevealSection(
+            "Citizen Voting Age Population by Race",
+            (uiState, dispatch) =>
+                RacialBalanceTable(
+                    "Citizen Voting Age Population by Race",
+                    state.cvap,
+                    state.activeParts,
+                    uiState.charts["Citizen Voting Age Population by Race"],
+                    dispatch
+                ),
+            {
+                isOpen: state.population.subgroups.length > 1 ? false : true,
+                activeSubgroupIndices: state.cvap.indicesOfMajorSubgroups()
+            }
+        );
+    }
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
