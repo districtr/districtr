@@ -234,7 +234,7 @@ function AbstractBarChart (
     return html`
         ${barChartTemplate(hticks, vticks, args)}
         <h3 style="text-align: center">${title}</h3>
-        <p style="font-size: 80%">${description}</p>
+        <p class="chart--description" style="font-size: 80%">${description}</p>
     `;
 }
 
