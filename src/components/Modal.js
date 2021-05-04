@@ -56,8 +56,12 @@ export function renderSaveModal(state, savePlanToDB) {
                     > Copy </button>
                     <br/>
                     <br/>
-                    <label>Bring your map to the state portal to share</label>
-                    <a href="${spatial_abilities(state.place.id).portal.url}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}" target="_blank" style="padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;">
+                    <label>The state portal can import this map</label>
+                    <a
+                      href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
+                      target="_blank"
+                      style="padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
+                    >
                       Proceed to Submit Map
                     </a>
                 `
