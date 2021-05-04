@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
+import { spatial_abilities } from "../utils";
 
 export function renderModal(innerContent) {
     const target = document.getElementById("modal");
@@ -37,46 +38,28 @@ export function renderSaveModal(state, savePlanToDB) {
         let withUrl = (_id) => {
             render(renderModal(
                 html`
-                    <h2>Share Plan</h2>
-                    You can share your current plan by copying this URL:
+                    <h3>Plan has been saved</h3>
                     <code>https://${window.location.host}/${action}/${_id}</code>
-                    <br/>
-                    <label>Add tags? (events, organizations)</label>
-                    <input
-                        id="event-coder"
-                        type="text"
-                        class="text-input"
-                        value="${eventdefault}"
-                        @input="${() => {
-                            document.getElementById("re-save").disabled = false;
-                            document.getElementById("extra-event").style.display = "block";
-                        }}"
-                    />
-                    <div id="${eventdefault.length || "extra-event"}">
-                      <label>Team or Plan Name</label>
-                      <input
-                          id="event-plan-name"
-                          type="text"
-                          class="text-input"
-                          value=""
-                          @input="${() => document.getElementById("re-save").disabled = false}"
-                      />
-                    </div>
                     <button
-                        id="re-save"
-                        disabled
+                        id="copy-button"
                         @click="${() => {
-                            exportPlanToDB(
-                                state,
-                                document.getElementById("event-coder").value,
-                                document.getElementById("event-plan-name").value,
-                                () => { console.log("added event code"); }
-                            );
-                            render("", target);
+                            var dummy = document.createElement("textarea");
+                            document.body.appendChild(dummy);
+                            dummy.value = `https://${window.location.host}/${action}/${_id}`;
+                            dummy.focus();
+                            dummy.select();
+                            dummy.setSelectionRange(0, 99999); /* For mobile devices */
+                            document.execCommand("copy");
+                            document.body.removeChild(dummy);
+                            document.getElementById("copy-button").innerHTML = "Copied";
                         }}"
-                    >
-                        Add to Event
-                    </button>
+                    > Copy </button>
+                    <br/>
+                    <br/>
+                    <label>Bring your map to the state portal to share</label>
+                    <a href="${spatial_abilities(state.place.id).portal.url}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}" target="_blank" style="padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;">
+                      Proceed to Submit Map
+                    </a>
                 `
             ), target);
         };

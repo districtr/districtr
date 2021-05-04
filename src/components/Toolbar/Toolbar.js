@@ -5,6 +5,7 @@ import { actions } from "../../reducers/toolbar";
 import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
+import { renderSaveModal } from "../Modal";
 import { spatial_abilities } from "../../utils";
 
 export default class Toolbar {
@@ -50,6 +51,15 @@ export default class Toolbar {
         btn.innerText = "Saving...";
         btn.className = "saved";
         btn.disabled = true;
+
+        if (spatial_abilities(this.state.place.id).portal && window.location.href.includes("portal")) {
+            let btn = e.target;
+            btn.innerText = "Saved";
+            btn.className = "saved";
+
+            renderSaveModal(this.state, savePlanToDB);
+            return;
+        }
 
         savePlanToDB(this.state, undefined, undefined, (_id, action) => {
             // eslint-disable-next-line no-extra-parens
