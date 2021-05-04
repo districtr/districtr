@@ -22,6 +22,10 @@ export class Slide {
         this.title = title;
     }
     
+    /**
+     * @desc Render the contents of this Slide and return it to the callee.
+     * @returns {TemplateResult}
+     */
     render() {
         return html`
             <h2 class="slide--title">${this.title}</h2>
