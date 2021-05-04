@@ -3,14 +3,12 @@ import { html, render } from "lit-html";
 import DisplayPane from "../components/DisplayPane";
 import Button from "../components/Button";
 import { renderModal, closeModal } from "../components/Modal";
-import {
-    loadPlanFromURL,
-    loadPlanFromJSON,
-    loadPlanFromCSV,
-    getContextFromStorage,
-} from "../routes";
+import { loadPlanFromURL } from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
+import { Slide, SlideShow } from "../components/Slides";
+import AbstractBarChart from "../components/Charts/AbstractBarChart";
+import populateDatasetInfo from "../components/Charts/DatasetInfo";
 
 /**
  * @desc Retrieves a test plan if we're doing dev work, the real deal if we
@@ -29,15 +27,7 @@ function loadPlan(url) {
  * @returns {string} Proper map formatting style.
  */
 function getMapStyle(context) {
-    if (
-        context.problem.type === "community"
-        && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes((context.place || {}).id)
-        && !context.units.coi2
-    ) {
-        return "mapbox://styles/mapbox/streets-v11";
-    } else {
-        return "mapbox://styles/mapbox/light-v10";
-    }
+    return "mapbox://styles/mapbox/light-v10";
 }
 
 /**
@@ -94,32 +84,179 @@ function renderMap(container, context) {
 }
 
 /**
+ * @desc Renders the left Pane to the desired content; in this case, that's the
+ * map.
+ * @param {DisplayPane} pane The DisplayPane om the left.
+ * @param {Object} context Context object.
+ * @returns {undefined}
+ */
+function renderLeft(pane, context) {
+    // Set the inner HTML of the Pane.
+    pane.inner = html`
+        <div class="mapcontainer">
+            <div id="map" class="map"></div>
+            <div id="swipemap" class="map"></div>
+        </div>
+    `;
+
+    // Render the template to the Pane, render the Map, and close the
+    // Modal.
+    pane.render();
+    renderMap("map", context);
+}
+
+/**
+ * @desc A placeholder function for doing a cut-edges page. This will likely have to
+ *
+ * @param context
+ * @returns {HTMLTemplateElement}
+ */
+function cutedges(context) {
+    let hticks = [],
+        vticks = [],
+        hlabels = [],
+        vlabels = [],
+        heights = [0, 0, 0, 0.5, 0.3, 0.15, 0.1, 0.08, 0.07],
+        bins = [],
+        fakeState = {
+            population: {
+                name: context.place.name
+            },
+            place: {
+                id: context.place.id
+            }
+        },
+        descriptionHeader = html`
+            <div class="dataset-info">
+                ${populateDatasetInfo(fakeState)}
+            </div>
+        `,
+        descriptionText = html`
+            Here, we can talk about cut edges and other compactness stuff. I
+            mean honestly we can put whatever we want here, including a
+            description of what "cut edges" <i>means</i>, but I think being able
+            to switch back and forth between charts is important.
+        `,
+        description = html`${descriptionHeader}${descriptionText}`;
+    
+    
+    for (let i=10; i<100; i+=10) {
+        hticks.push(i/100);
+        hlabels.push(i.toString());
+        
+        vticks.push(i/100);
+        vlabels.push((i/10).toString());
+        
+        bins.push([(i-10)/100, (i/100)]);
+    }
+    
+    return AbstractBarChart(
+        hticks, vticks,
+        {
+            hlabels: hlabels,
+            vlabels: vlabels,
+            heights: heights,
+            bins: bins,
+            description: description
+        }
+    );
+}
+
+function partisan(context) {
+    let hticks = [],
+        vticks = [],
+        hlabels = [],
+        vlabels = [],
+        heights = [0, 0, 0.1, 0.3, 0.5, 0.3, 0.1, 0, 0],
+        bins = [],
+        fakeState = {
+            population: {
+                name: context.place.name
+            },
+            place: {
+                id: context.place.id
+            }
+        },
+        descriptionHeader = html`
+            <div class="dataset-info">
+                ${populateDatasetInfo(fakeState)}
+            </div>
+        `,
+        descriptionText = html`
+            Here, we'll evalulate partisanship. In this chart, we
+            talk about whatever we want to with regard to some measure of
+            partisanship.
+        `,
+        description = html`${descriptionHeader}${descriptionText}`;
+    
+    
+    for (let i=10; i<100; i+=10) {
+        hticks.push(i/100);
+        hlabels.push(i.toString());
+        
+        vticks.push(i/100);
+        vlabels.push((i/10).toString());
+        
+        bins.push([(i-10)/100, (i/100)]);
+    }
+    
+    return AbstractBarChart(
+        hticks, vticks,
+        {
+            hlabels: hlabels,
+            vlabels: vlabels,
+            heights: heights,
+            bins: bins,
+            description: description
+        }
+    );
+}
+
+/**
+ * @desc Renders the right Pane to the desired content, which is the SlideShow
+ * of analysis things.
+ * @param {DisplayPane} pane The DisplayPane on the right.
+ * @param {Object} context Context object.
+ * @returns {undefined}
+ */
+function renderRight(pane, context) {
+    // Create the charts for the Slides.
+    let slides = [
+            new Slide(partisan(context), "Partisanship"),
+            new Slide(cutedges(context), "Cut Edges")
+        ],
+        s = new SlideShow(pane.pane, slides);
+    
+    s.render();
+}
+
+/**
  * @desc Wrapper which returns a callback function to the "Go" button on the
  * userSelectsMode modal. Once the plan is loaded from the database (or wherever
  * else), this function renders the desired plan on the map and closes the modal.
- * @param {DisplayPane} pane Pane where the Map is going to go.
+ * @param {DisplayPane} left Pane where the Map is going to go.
+ * @param {DisplayPane} right Pane where the analysis will happen.
  */
-function userOnGo(pane) {
+function userOnGo(left, right) {
     // Create a function that does the proper thing when loading.
     return e => {
         // Get the URL, JSON file, or enacted plan provided by the user.
         // TODO do the last two things.
         let url = document.getElementById("shareable-url").value,
             plan = loadPlan(url);
-            
+    
+        // Disable the Go button.
+        e.target.disabled = true;
+        
         plan.then(context => {
-            // Set the inner HTML of the Pane.
-            pane.inner = html`
-                <div class="mapcontainer">
-                    <div id="map" class="map"></div>
-                    <div id="swipemap" class="map"></div>
-                </div>
-            `;
+            // Render the left Pane.
+            renderLeft(left, context);
+            renderRight(right, context);
             
-            // Render the template to the Pane, render the Map, and close the
-            // Modal.
-            pane.render();
-            renderMap("map", context);
+            // Create a State object to use.
+            let State
+            
+            // Close the modal.
             closeModal();
         });
     };
@@ -129,18 +266,14 @@ function userOnGo(pane) {
  * @desc Renders the first thing that loads on the Analysis page: a modal that
  * allows the user to select whether they want to load a map from a Districtr
  * link, load a Districtr JSON or CSV file, or choose an enacted plan to explore.
- * @param {DisplayPane} mapPane Pane in which the map will be rendered.
+ * @param {DisplayPane} left Pane in which the map will be rendered.
+ * @param {DisplayPane} right Pane in which the analysis will be rendered.
  * @returns {undefined}
  */
-function userSelectsMode(mapPane) {
-        // Find the target modal.
-    let target = document.getElementById("modal"),
-        
-        // Create a Button element which the user can click to begin the process
-        // of loading things.
-        // TODO modify the ``onGo`` function to actually start loading things.
-        onGo = userOnGo,
-        go = Button("Go", "Evaluate the selected plan.", onGo(mapPane, target)),
+function userSelectsMode(left, right) {
+    // Create a new Button.
+    let go = new Button(userOnGo(left, right), { label: "Go.", hoverText: "Evaluate the selected plan." }),
+        target = document.getElementById("modal"),
         
         // Create the internal HTMLTemplate for the modal, including the
         // Button.
@@ -187,5 +320,5 @@ export default function renderAnalysisView() {
         right = new DisplayPane({ id: "analysis-right" });
     
     // Spits out the Modal right when we load.
-    userSelectsMode(left);
+    userSelectsMode(left, right);
 }
