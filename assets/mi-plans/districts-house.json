@@ -1,40 +1,55 @@
 {
     "assignment": {},
-    "id": "780fbeef",
+    "id": "96392962",
     "idColumn": {
-        "key": "GEOID10",
-        "name": "Block group FIPS code"
+        "key": "VTD",
+        "name": "Precinct ID"
     },
     "problem": {
-        "type": "community",
-        "numberOfParts": 50,
-        "pluralNoun": "Community"
+        "numberOfParts": 110,
+        "pluralNoun": "State House Districts",
+        "name": "State House"
     },
     "parts": [
         {
             "id": 0,
             "displayNumber": 1,
-            "name": "Community 1"
+            "name": "District 1"
         }
     ],
     "place": {
         "id": "michigan",
-        "landmarks": {
-            "type": "geojson",
-            "data": {
-                "type": "FeatureCollection",
-                "features": []
-            }
-        },
+        "landmarks": {},
         "state": "Michigan",
         "name": "Michigan"
     },
     "placeId": "michigan",
     "units": {
-        "id": "blockgroups",
-        "name": "Block Groups",
-        "unitType": "Block Groups",
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
         "columnSets": [
+            {
+                "type": "election",
+                "name": "2016 Presidential",
+                "subgroups": [
+                    {
+                        "key": "PRES16D",
+                        "name": "Democratic",
+                        "sum": 2210068,
+                        "min": 1,
+                        "max": 1684
+                    },
+                    {
+                        "key": "PRES16R",
+                        "name": "Republican",
+                        "sum": 2270022,
+                        "min": 0,
+                        "max": 1616
+                    }
+                ],
+                "year": "2016"
+            },
             {
                 "type": "population",
                 "name": "Population",
@@ -43,7 +58,7 @@
                     "name": "Total population",
                     "sum": 9883640,
                     "min": 0,
-                    "max": 9154
+                    "max": 10977
                 },
                 "subgroups": [
                     {
@@ -51,56 +66,49 @@
                         "name": "White population",
                         "sum": 7569939,
                         "min": 0,
-                        "max": 8319
+                        "max": 9654
                     },
                     {
                         "key": "NH_BLACK",
                         "name": "Black population",
                         "sum": 1383756,
                         "min": 0,
-                        "max": 3040
+                        "max": 3275
                     },
                     {
                         "key": "HISP",
                         "name": "Hispanic population",
                         "sum": 436358,
                         "min": 0,
-                        "max": 1736
+                        "max": 4152
                     },
                     {
                         "key": "NH_ASIAN",
                         "name": "Asian population",
                         "sum": 236490,
                         "min": 0,
-                        "max": 1191
+                        "max": 2091
                     },
                     {
                         "key": "NH_AMIN",
                         "name": "American Indian population",
                         "sum": 54665,
                         "min": 0,
-                        "max": 920
+                        "max": 1068
                     },
                     {
                         "key": "NH_NHPI",
                         "name": "Native Hawaiian and Pacific Islander population",
                         "sum": 2170,
                         "min": 0,
-                        "max": 42
-                    },
-                    {
-                        "key": "NH_2MORE",
-                        "name": "Two or more races",
-                        "sum": 190396,
-                        "min": 0,
-                        "max": 248
+                        "max": 66
                     },
                     {
                         "key": "NH_OTHER",
                         "name": "Other races",
                         "sum": 9866,
                         "min": 0,
-                        "max": 35
+                        "max": 37
                     }
                 ]
             },
@@ -112,7 +120,7 @@
                     "name": "Voting age population",
                     "sum": 7539572,
                     "min": 0,
-                    "max": 6787
+                    "max": 10166
                 },
                 "subgroups": [
                     {
@@ -120,72 +128,82 @@
                         "name": "White voting age population",
                         "sum": 5960698,
                         "min": 0,
-                        "max": 6027
+                        "max": 8929
                     },
                     {
                         "key": "BVAP",
                         "name": "Black voting age population",
                         "sum": 998309,
                         "min": 0,
-                        "max": 3030
+                        "max": 3217
                     },
                     {
                         "key": "HVAP",
                         "name": "Hispanic voting age population",
                         "sum": 264511,
                         "min": 0,
-                        "max": 1031
+                        "max": 2440
                     },
                     {
                         "key": "AMINVAP",
                         "name": "Native American voting age population",
                         "sum": 40071,
                         "min": 0,
-                        "max": 585
+                        "max": 682
                     },
                     {
                         "key": "NHPIVAP",
                         "name": "Native Hawaiian and Pacific Islander voting age population",
                         "sum": 1693,
                         "min": 0,
-                        "max": 31
+                        "max": 48
                     },
                     {
                         "key": "ASIANVAP",
                         "name": "Asian voting age population",
                         "sum": 175251,
                         "min": 0,
-                        "max": 830
+                        "max": 1539
                     },
                     {
                         "key": "OTHERVAP",
                         "name": "Other races voting age population",
                         "sum": 5322,
                         "min": 0,
-                        "max": 17
+                        "max": 23
                     },
                     {
                         "key": "2MOREVAP",
                         "name": "Two or more races voting age population",
                         "sum": 93717,
                         "min": 0,
-                        "max": 146
+                        "max": 238
                     }
                 ]
+            },
+            {
+                "type": "text",
+                "key": "county_nam",
+                "name": "County",
+                "subgroups": []
             }
         ],
         "idColumn": {
-            "name": "Block group FIPS code",
-            "key": "GEOID10"
+            "name": "Precinct ID",
+            "key": "VTD"
+        },
+        "nameColumn": {
+            "name": "Precinct Name",
+            "key": "name"
         },
         "bounds": [
             [
-                -90.4184,
+                -90.4183,
                 41.6961
             ],
             [
-                -82.41,
-                48.3061
+                -82.4187,
+                48.2627
             ]
         ],
         "tilesets": [
@@ -193,19 +211,18 @@
                 "type": "circle",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.michigan_blockgroups_points"
+                    "url": "mapbox://districtr.michigan_precincts2_points"
                 },
-                "sourceLayer": "michigan_blockgroups_points"
+                "sourceLayer": "michigan_precincts2_points"
             },
             {
                 "type": "fill",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.michigan_blockgroups"
+                    "url": "mapbox://districtr.michigan_precincts2"
                 },
-                "sourceLayer": "michigan_blockgroups"
+                "sourceLayer": "michigan_precincts2"
             }
-        ],
-        "limit": "community"
+        ]
     }
 }

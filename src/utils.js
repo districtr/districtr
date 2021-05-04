@@ -322,6 +322,12 @@ export function spatial_abilities (id) {
             native_american: true,
             number_markers: true,
           },
+          mesaaz: {
+            native_american: true,
+            number_markers: true,
+            border: true,
+            sideload: true,
+          },
           phoenix: {
             native_american: true,
             number_markers: true,
@@ -553,7 +559,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         portal: {
-          endpoint: 'https://main.dxeh9k44gytyo.amplifyapp.com',
+          endpoint: 'https://www.michigan-mapping.org',
           param: 'planid',
         }
       },

@@ -599,6 +599,18 @@ export default function DataLayersPlugin(editor) {
         );
         coalitionOverlays.push(vapOverlay);
     }
+    if (state.cvap) {
+        vapOverlay = new OverlayContainer(
+            "cvap",
+            demoLayers.filter(lyr => !lyr.background),
+            state.cvap,
+            "Show citizen voting age population (CVAP)",
+            false,
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
+            false // multiple years? not on miami-dade
+        );
+        coalitionOverlays.push(vapOverlay);
+    }
 
     tab.addRevealSection(
         "Race",

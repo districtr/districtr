@@ -1,5 +1,5 @@
 import { svg, html, render } from "lit-html";
-import { listPlacesForState, getUnits, placeItems } from "../components/PlacesList";
+import { listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
 import { geoPath } from "d3-geo";
@@ -29,7 +29,8 @@ const stateForEvent = {
   fairmapstexas: 'Texas',
   'missouri-mapping': 'Missouri',
   'ourmapsmn': 'Minnesota',
-  'micrc': 'Michigan'
+  'micrc': 'Michigan',
+  mesaaz: 'Arizona',
 };
 
 const validEventCodes = {
@@ -56,7 +57,8 @@ const validEventCodes = {
   fairmapstexas: 'texas',
   'missouri-mapping': 'missouri',
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
-  'micrc': 'michigan'
+  'micrc': 'michigan',
+  mesaaz: 'mesaaz',
 };
 
 const blockPlans = {
@@ -100,7 +102,11 @@ const coi_events = [
   'missouri-mapping',
   'ttt',
   'ourmapsmn',
-  'micrc'
+  'micrc',
+];
+
+const hybrid_events = [
+  'mesaaz',
 ];
 
 const eventDescriptions = {
@@ -117,28 +123,29 @@ const eventDescriptions = {
   'pmc-demo': 'Welcome to the COI collection page for Wisconsin (DEMO)',
   pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
   <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
-  <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Share\" to save the map.</b></p>",
+  <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Save\" to share the map.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
   <p>Our goal is to <strong>collect over 500 community maps and narratives</strong>. Our team will synthesize these maps in a final report that we will submit to Ohio's politician redistricting commission.</p>\
-  <p>Ohio residents, you can participate by drawing and describing Ohio communities in one of our modules. When you click “Share” to save your map, <strong>enter the tag “OPEN-maps”</strong> to post your map on this public submission page!</p>\
+  <p>Ohio residents, you can participate by drawing and describing Ohio communities in one of our modules. When you click “Save” to share your map, <strong>enter the tag “OPEN-maps”</strong> to post your map on this public submission page!</p>\
   <p>Visit our <a href='https://districtr.org/training' target='_blank'>training resources</a> page to learn more about Communities of Interest and prompts that you can answer to describe your community. Join one of our Districtr train-the-trainers to learn more about why communities matter and how to collect useful narratives.</p>",
   'fair-districts-oh': 'Welcome to the event page for Fair Districts Ohio!',
   'colorado-cc': 'Welcome to the event page for Colorado Common Cause!',
   ttt: 'Training the Trainers',
-  nsfm: "<p>Welcome to the <a href='https://northshorefairmaps.com' target='_blank'>North Shore Fair Maps</a> mapping page. You can help Wisconsin’s <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>People’s Maps Commission</a> #EndGerrymandering! Please draw a map that shows us your “<a href='https://docs.google.com/document/d/15CFn85psZkJvGfgZeQwRGS6BMF1YJgEsTblZuwaBhzg/edit' target='_blank'>community of interest</a>.” Your map will tell the Commission what's on the ground and relevant. Your map will be added to thousands of other maps, computers will do their magic, and before you know it, new Wisconsin voting maps will be created. With so many people involved in map-making, there is no guaranty that YOUR map will rule the day, but it will be considered. It will count. And because of you and others like you, Wisconsin's new voting maps will make sure that everyone’s vote gets counted … and counts. Learn more about how you can help #EndGerrymandering at <a href='http://www.northshorefairmaps.com' target='_blank'>www.NorthShoreFairMaps.com</a>.</p>", 
+  nsfm: "<p>Welcome to the <a href='https://northshorefairmaps.com' target='_blank'>North Shore Fair Maps</a> mapping page. You can help Wisconsin’s <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>People’s Maps Commission</a> #EndGerrymandering! Please draw a map that shows us your “<a href='https://docs.google.com/document/d/15CFn85psZkJvGfgZeQwRGS6BMF1YJgEsTblZuwaBhzg/edit' target='_blank'>community of interest</a>.” Your map will tell the Commission what's on the ground and relevant. Your map will be added to thousands of other maps, computers will do their magic, and before you know it, new Wisconsin voting maps will be created. With so many people involved in map-making, there is no guaranty that YOUR map will rule the day, but it will be considered. It will count. And because of you and others like you, Wisconsin's new voting maps will make sure that everyone’s vote gets counted … and counts. Learn more about how you can help #EndGerrymandering at <a href='http://www.northshorefairmaps.com' target='_blank'>www.NorthShoreFairMaps.com</a>.</p>",
   'towsonu-baltimore': 'Welcome to the event page for Towson University',
   fairmapstexas: 'Welcome to the event page for Fair Maps Texas!',
-  'missouri-mapping': "<p>You can help us map Missouri! When you click “Share” to save your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://research.typeform.com/to/zH14rNfF' target='_blank'>our portal</a>.</p>",
+  'missouri-mapping': "<p>You can help us map Missouri! When you click “Save” to share your map, <strong>enter the tag “missouri-mapping”</strong> to post your map on this public submission page. You can also enter it along with written comments at <a href='https://research.typeform.com/to/zH14rNfF' target='_blank'>our portal</a>.</p>",
   'ourmapsmn': "<p>Welcome to the Our Maps Minnesota Redistricting Campaign Mapping page! The Our Maps MN Campaign is committed to a community-focused, accessible, and transparent redistricting process in Minnesota. Through this campaign we aim to:</p>\
    <ul><li>Empower historically under-represented BIPOC communities and other stakeholders across the state to engage in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community; and</li>\
    <li>Achieve fair Congressional and state legislative district maps that reflect input from communities of interest, particularly BIPOC communities</li></ul>\
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
    <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
-   'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!"
-
-
+   'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!",
+   mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
+   <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
+    <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
   };
 
 const longAbout = {
@@ -148,6 +155,9 @@ const longAbout = {
   centralsan: [
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
+  mesaaz: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ]
 };
 
 const proposals_by_event = {
@@ -284,6 +294,17 @@ export default () => {
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
                 render(placeItems(place, startNewPlan, eventCode), mydiv);
+
+                if (hybrid_events.includes(eventCode)) {
+                    const mydiv2 = document.createElement('li');
+                    target.append(mydiv2);
+                    render(placeItems({
+                      ...place,
+                      districtingProblems: [
+                          { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+                      ]
+                    }, startNewPlan, eventCode), mydiv2);
+                }
             });
         });
 
@@ -351,8 +372,8 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                   .filter(z => ![null, "null", undefined, "undefined", -1].includes(z))
         )).size,
         districtGoal = plan.plan.problem.numberOfParts,
-        districtOff = !coi_events.includes(eventCode) && (districtCount < districtGoal),
-        unitOff = !coi_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
+        districtOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && (districtCount < districtGoal),
+        unitOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
     let screenshot = plan.screenshot2 || plan.screenshot;
 
