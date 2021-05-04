@@ -1776,5 +1776,120 @@
     "id": "ma",
     "name": "Massachusetts",
     "state": "Massachusetts"
+  },
+  {
+    "units": [
+      {
+        "id": "blockgroups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 53692,
+              "min": 0,
+              "max": 2930
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 28634,
+                "min": 0,
+                "max": 1572
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2673,
+                "min": 0,
+                "max": 344
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 18042,
+                "min": 0,
+                "max": 1619
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2596,
+                "min": 0,
+                "max": 290
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 32,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 829,
+                "min": 0,
+                "max": 131
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 886,
+                "min": 0,
+                "max": 172
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2019 Census GEOID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -71.0332,
+            42.3881
+          ],
+          [
+            -70.9584,
+            42.4501
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.test-revere_blockgroups"
+            },
+            "sourceLayer": "test-revere_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.test-revere_blockgroups_points"
+            },
+            "sourceLayer": "test-revere_blockgroups_points"
+          }
+        ]
+      }
+    ],
+    "state": "Massachusetts",
+    "name": "test-revere",
+    "id": "test-revere",
+    "districtingProblems": [
+      {
+        "name": "Supervisorial District",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
