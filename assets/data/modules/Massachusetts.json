@@ -1866,17 +1866,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.test-revere_blockgroups"
+              "url": "mapbox://districtr.revere_jack_revere"
             },
-            "sourceLayer": "test-revere_blockgroups"
+            "sourceLayer": "revere_jack_revere"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.test-revere_blockgroups_points"
+              "url": "mapbox://districtr.revere_jack_revere_points"
             },
-            "sourceLayer": "test-revere_blockgroups_points"
+            "sourceLayer": "revere_jack_revere_points"
           }
         ]
       }
