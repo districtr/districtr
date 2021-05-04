@@ -39,6 +39,7 @@ export function renderSaveModal(state, savePlanToDB) {
             render(renderModal(
                 html`
                     <h3>Plan has been saved</h3>
+                    <label>Use this URL to share your plan!</label>
                     <code>https://${window.location.host}/${action}/${_id}</code>
                     <button
                         id="copy-button"
@@ -53,10 +54,10 @@ export function renderSaveModal(state, savePlanToDB) {
                             document.body.removeChild(dummy);
                             document.getElementById("copy-button").innerHTML = "Copied";
                         }}"
-                    > Copy </button>
+                    > Copy to Clipboard </button>
                     <br/>
-                    <br/>
-                    <label>The state portal can import this map</label>
+                    <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—their changes will save to a new link.</p>
+                    <p>When you are ready, you can bring this map back to the Michigan Redistricting Public Comment Portal.  Pressing this button will pre-fill information on the submission form.</p>
                     <a
                       href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
                       target="_blank"

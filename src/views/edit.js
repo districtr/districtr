@@ -123,7 +123,7 @@ function loadContext(context) {
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
         && window.location.hostname !== 'localhost'
-        && window.location.hash && window.location.hash === "#plan") {
+        && window.location.hash && (["#plan", "#portal"].includes(window.location.hash))) {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
         shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
@@ -131,6 +131,9 @@ function loadContext(context) {
             + window.location.search.replace("url=" + shortPlanName.join("/"), "");
         if (shortPlanName[shortPlanName.length - 1] === "?") {
             shortPlanName = shortPlanName.substring(0, shortPlanName.length - 1);
+        }
+        if (window.location.hash === "#portal") {
+            shortPlanName += "?portal";
         }
         window.history.replaceState({}, "Districtr", shortPlanName);
     }
