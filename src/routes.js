@@ -56,7 +56,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback, noNewScreenshot) {
+export function savePlanToDB(state, eventCode, planName, callback) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -92,7 +92,8 @@ export function savePlanToDB(state, eventCode, planName, callback, noNewScreensh
             let action = (window.location.hostname === "localhost" ? "edit" : (
               serialized.problem.type === "community" ? "COI" : "plan"
             ));
-            history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
+            let extras = window.location.href.includes("portal") ? "?portal" : "";
+            history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
