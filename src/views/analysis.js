@@ -106,9 +106,12 @@ function renderLeft(pane, context) {
 }
 
 /**
- * @desc A placeholder function for doing a cut-edges page. This will likely have to
- *
- * @param context
+ * @desc A placeholder function for doing a cut-edges page. This will obviously
+ * have to change.
+ * TODO find a better way to create/encode individual Slides so we don't have to
+ *  do all this in the Analysis page *and* so we can create Slides based on
+ *  whatever data we have.
+ * @param {Object} context Database context object.
  * @returns {HTMLTemplateElement}
  */
 function cutedges(context) {
@@ -162,6 +165,11 @@ function cutedges(context) {
     );
 }
 
+/**
+ * @desc Just a copy of the above ``cutedges`` function.
+ * @param {Object} context Database context object.
+ * @returns {HTMLTemplateElement}
+ */
 function partisan(context) {
     let hticks = [],
         vticks = [],
