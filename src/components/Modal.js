@@ -56,15 +56,17 @@ export function renderSaveModal(state, savePlanToDB) {
                         }}"
                     > Copy to Clipboard </button>
                     <br/>
-                    <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—their changes will save to a new link.</p>
-                    <p>When you are ready, you can bring this map back to the Michigan Redistricting Public Comment Portal.  Pressing this button will pre-fill information on the submission form.</p>
-                    <a
-                      href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
-                      target="_blank"
-                      style="padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
-                    >
-                      Proceed to Submit Map
-                    </a>
+                    <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—other people’s changes will save to a new link.</p>
+                    <p>When you are ready, you can bring this map back to the submission form on the Michigan Redistricting Public Comment Portal.</p>
+                    <div style="text-align:center">
+                      <a
+                        href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
+                        target="_blank"
+                        style="margin-left:auto;margin-right:auto;padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
+                      >
+                        Proceed to Submit Map
+                      </a>
+                    </div>
                 `
             ), target);
         };

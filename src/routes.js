@@ -91,7 +91,8 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             let action = (window.location.hostname === "localhost" ? "edit" : (
               serialized.problem.type === "community" ? "COI" : "plan"
             ));
-            history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
+            let extras = window.location.href.includes("portal") ? "?portal" : "";
+            history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }

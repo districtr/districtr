@@ -553,7 +553,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         portal: {
-          endpoint: 'https://michigan-mapping.org',
+          endpoint: 'https://www.michigan-mapping.org',
           param: 'planid',
         }
       },
