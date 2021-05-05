@@ -543,6 +543,12 @@ export function spatial_abilities (id) {
         shapefile: true,
         // find_unpainted: true,
       },
+        ma_vra: {
+            number_markers: true,
+            vra_effectiveness: true,
+            // shapefile: true,
+            // find_unpainted: true,
+        },
         lowell: {
           neighborhoods: true,
           contiguity: 2,

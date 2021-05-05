@@ -1776,5 +1776,199 @@
     "id": "ma",
     "name": "Massachusetts",
     "state": "Massachusetts"
+  },
+  {
+    "id": "ma_vra",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6547629,
+              "min": 75,
+              "max": 10172
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 4984800,
+                "min": 6,
+                "max": 8192
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 391693,
+                "min": 0,
+                "max": 2801
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 627654,
+                "min": 0,
+                "max": 3038
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 347495,
+                "min": 0,
+                "max": 4051
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 10778,
+                "min": 0,
+                "max": 171
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1467,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 61547,
+                "min": 0,
+                "max": 815
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 5128706,
+              "min": 64,
+              "max": 8064
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4029458,
+                "min": 3,
+                "max": 6633
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 288523,
+                "min": 0,
+                "max": 2031
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 416775,
+                "min": 0,
+                "max": 2098
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 8219,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1189,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 269089,
+                "min": 0,
+                "max": 3594
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 45871,
+                "min": 0,
+                "max": 563
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 69582,
+                "min": 0,
+                "max": 311
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct name",
+          "key": "NAME"
+        },
+        "bounds": [
+          [
+            -73.5081,
+            41.238
+          ],
+          [
+            -69.928,
+            42.8868
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vra_precincts"
+            },
+            "sourceLayer": "ma_vra_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vra_precincts_points"
+            },
+            "sourceLayer": "ma_vra_precincts_points"
+          }
+        ]
+      }
+    ],
+    "state": "Massachusetts",
+    "name": "Massachusetts",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 9,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 40,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 160,
+        "pluralNoun": "State House Districts"
+      }
+    ]
   }
 ]
