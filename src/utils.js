@@ -669,7 +669,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         // find_unpainted: true,
       },
-      nc: {
+      northcarolina: {
         number_markers: true,
         county_brush: true,
         native_american: true,
