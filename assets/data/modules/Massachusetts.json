@@ -1584,8 +1584,6 @@
               "url": "mapbox://districtr.ma21_precincts_12_16"
             },
             "sourceLayer": "ma21_precincts_12_16"
-          }
-        ]
       },
       {
         "id": "blockgroups",
@@ -1777,10 +1775,9 @@
     "name": "Massachusetts",
     "state": "Massachusetts"
   },
+  
+  [
   {
-    "id": "revere",
-    "state": "Massachusetts",
-    "name": "Revere",
     "units": [
       {
         "id": "block_groups",
@@ -1919,6 +1916,9 @@
         ]
       }
     ],
+    "state": "Massachusetts",
+    "id": "revere",
+    "name": "Revere",
     "districtingProblems": [
       {
         "name": "City Council",
