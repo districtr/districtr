@@ -76,7 +76,7 @@
               "properties": {
                 "name": "Clemente Park",
                 "leisure": "park",
-                "shortDescription": "Clemente Park, renamed for baseball player Roberto Clemente in 1973, has been heavily used by Lowell's communities of color for decades.  Recently, one of the few Cambodian city councilors brought up the issue that the park had no lighting, unlike  parks in the city, making it dangerous for recreational use at night.",
+                "short_description": "Clemente Park, renamed for baseball player Roberto Clemente in 1973, has been heavily used by Lowell's communities of color for decades.  Recently, one of the few Cambodian city councilors brought up the issue that the park had no lighting, unlike  parks in the city, making it dangerous for recreational use at night.",
                 "representativePoint": [
                   -71.321937,
                   42.6385585
@@ -352,7 +352,7 @@
               },
               "properties": {
                 "name": "Lowell High School",
-                "shortDescription": "Lowell High School&mdash;the only public high school in the city, which serves over 3000 students&mdash;has been slated in recent years to move from its downtown location. The student population of the high school has an even higher POC% than the city overall, but there was hardly any outreach to Asian or Latino communities about the choice of a new location.  Placing the school in the wealthier part of town, as some parents had lobbied for, would place a heavy burden on families with less disposable income."
+                "short_description": "Lowell High School - the only public high school in the city, which serves over 3000 students - has been slated in recent years to move from its downtown location. The student population of the high school has an even higher POC% than the city overall, but there was hardly any outreach to Asian or Latino communities about the choice of a new location.  Placing the school in the wealthier part of town, as some parents had lobbied for, would place a heavy burden on families with less disposable income."
               }
             }
           ]
@@ -1584,6 +1584,8 @@
               "url": "mapbox://districtr.ma21_precincts_12_16"
             },
             "sourceLayer": "ma21_precincts_12_16"
+          }
+        ]
       },
       {
         "id": "blockgroups",
@@ -1774,7 +1776,7 @@
     "id": "ma",
     "name": "Massachusetts",
     "state": "Massachusetts"
-  }, 
+  },
   {
     "units": [
       {
