@@ -11,7 +11,13 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const placeID = extra_source || place;
   const sep = (state.place.id === "louisiana") ? ";" : ",";
 
-  const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
+  const group_map = {
+                        "tx_vra": ["Hispanic", "Black"],
+                        "la_vra": ["Black"],
+                        "ma_vra": ["Asian", "Black","Hispanic"]
+                    };
+
+  const groups = group_map[state.place.id];
 
 //   console.log(state);
   if (!state.vra_effectiveness) {

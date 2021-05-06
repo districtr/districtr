@@ -2921,6 +2921,15 @@
         ]
       },
       {
+        "name": "Louisiana: VRA effectiveness precomputation",
+        "nav": "Precomputation  (MA)",
+        "type": "text",
+        "pages": ["massachusetts"],
+        "content_source": "/assets/about/vra/precomputation_mass.html" ,
+        "subsections": [
+        ]
+      },
+      {
         "name": "Texas: VRA effectiveness precomputation",
         "nav": "Precomputation (TX)",
         "type": "text",
