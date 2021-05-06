@@ -1921,7 +1921,7 @@
     "name": "Revere",
     "districtingProblems": [
       {
-        "name": "City Council",
+        "name": "City Council Ward",
         "numberOfParts": 6,
         "pluralNoun": "City Council Wards"
       }
