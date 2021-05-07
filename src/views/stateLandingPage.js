@@ -267,9 +267,9 @@ const plansSection = (plans, place) =>
         ({ title, plans }) => html`
             <section class="place__section">
                 <h3>${title}</h3>
-                <p>Please note that population deviations in current districts may differ from the 
-                actual numbers by small amounts due to population mapping onto the shapes the map
-                is built from.</p>
+                <p>
+                    Important note: these “painted” maps of current districts may differ from the legal definition of the districting plans because they were adjusted to match the geographic units that are shown as tiles in Districtr.  In particular, this may cause districts that are perfectly population balanced to appear to have deviations of up to a few percent.
+                </p>
                 ${loadablePlans(plans, place)}
             </section>
         `
