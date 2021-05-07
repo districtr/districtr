@@ -267,6 +267,9 @@ const plansSection = (plans, place) =>
         ({ title, plans }) => html`
             <section class="place__section">
                 <h3>${title}</h3>
+                <p>Please note that population deviations in current districts may differ from the 
+                actual numbers by small amounts due to population mapping onto the shapes the map
+                is built from.</p>
                 ${loadablePlans(plans, place)}
             </section>
         `
