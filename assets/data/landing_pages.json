@@ -1784,7 +1784,7 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["northcarolina"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc"}],
     "sections": [
       {

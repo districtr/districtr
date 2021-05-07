@@ -64,7 +64,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs"].includes(state.place.id)) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs", "ma"].includes(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
