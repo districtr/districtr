@@ -322,6 +322,12 @@ export function spatial_abilities (id) {
             native_american: true,
             number_markers: true,
           },
+          mesaaz: {
+            native_american: true,
+            number_markers: true,
+            border: true,
+            sideload: true,
+          },
           phoenix: {
             native_american: true,
             number_markers: true,
@@ -347,12 +353,10 @@ export function spatial_abilities (id) {
         // find_unpainted: true,
       },
         ccsanitation: {
-          screenshot: true,
           // multiyear: 2018,
           shapefile: true,
         },
         ccsanitation2: {
-          screenshot: true,
           multiyear: 2018,
           shapefile: true,
           border: true,
@@ -387,7 +391,6 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
-        screenshot: true,
       },
       connecticut: {
         county_brush: true,
@@ -468,7 +471,6 @@ export function spatial_abilities (id) {
       iowa: {
         number_markers: true,
         contiguity: 2,
-        screenshot: true,
         shapefile: true,
         // find_unpainted: true,
       },
@@ -503,7 +505,6 @@ export function spatial_abilities (id) {
         number_markers: true,
         contiguity: 2,
         shapefile: true,
-        screenshot: true,
         find_unpainted: true,
       },
         la_vra: {
@@ -515,7 +516,6 @@ export function spatial_abilities (id) {
         batonrouge: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
           // find_unpainted: true, COI only
         },
@@ -528,7 +528,6 @@ export function spatial_abilities (id) {
       maryland: {
         number_markers: true,
         county_brush: true,
-        screenshot: true,
         absentee: true,
         shapefile: true,
         find_unpainted: true,
@@ -537,7 +536,6 @@ export function spatial_abilities (id) {
           border: true,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           contiguity: 2,
         },
       ma: {
@@ -560,7 +558,10 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
-        screenshot: true,
+        portal: {
+          endpoint: 'https://www.michigan-mapping.org',
+          param: 'planid',
+        }
       },
       minnesota: {
         number_markers: true,
@@ -581,13 +582,11 @@ export function spatial_abilities (id) {
           border: true,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         stlouis_mn: {
           border: true,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
       mississippi: {
         number_markers: true,
@@ -646,14 +645,12 @@ export function spatial_abilities (id) {
         native_american: true,
         contiguity: 2,
         current_districts: true,
-        screenshot: true,
         shapefile: true,
         find_unpainted: true,
       },
         new_mexico_bg: {
           native_american: true,
           shapefile: true,
-          screenshot: true,
           current_districts: true,
           county_brush: true,
           // find_unpainted: true,
@@ -661,7 +658,6 @@ export function spatial_abilities (id) {
         santafe: {
           number_markers: true,
           contiguity: 2,
-          screenshot: true,
           shapefile: true,
           // find_unpainted: true,
         },
@@ -684,12 +680,10 @@ export function spatial_abilities (id) {
       },
           forsyth_nc: {
             contiguity: 2,
-            screenshot: true,
             shapefile: true,
           },
           buncombe: {
             contiguity: 2,
-            screenshot: true,
             shapefile: true,
             number_markers: true,
             border: true,
@@ -706,103 +700,86 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        screenshot: true,
         // find_unpainted: true - needs contiguity
       },
         ohcentral: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         ohakron: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         ohcin: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         ohcle: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         ohse: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         ohtoledo: {
           multiyear: 2019,
           number_markers: true,
           shapefile: true,
-          screenshot: true,
         },
         akroncanton: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         cincinnati: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         clevelandeuclid: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         columbus: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         dayton: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         limaoh: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         mansfield: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         portsmouthoh: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         toledo: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
         youngstown: {
           number_markers: true,
           shapefile: true,
-          screenshot: true,
           border: true,
         },
       oklahoma: {
@@ -901,6 +878,11 @@ export function spatial_abilities (id) {
         fortworth: {
           border: true,
         },
+        elpasotx: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+        },
       utah: {
         number_markers: true,
         county_brush: true,
@@ -953,7 +935,6 @@ export function spatial_abilities (id) {
         county_brush: true,
         native_american: true,
         shapefile: true,
-        screenshot: true,
         find_unpainted: true,
         contiguity: 2,
       },
@@ -962,7 +943,6 @@ export function spatial_abilities (id) {
           county_brush: true,
           native_american: true,
           shapefile: true,
-          screenshot: true,
           find_unpainted: true,
           contiguity: 2,
         },
@@ -971,7 +951,6 @@ export function spatial_abilities (id) {
           // county_brush: true,
           native_american: true,
           shapefile: true,
-          screenshot: true,
           find_unpainted: true,
           contiguity: 2,
         },

@@ -1,340 +1,591 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Districtr User Guide | Districtr</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="./css/chicago.css"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
-            rel="stylesheet"
-        />
-    </head>
 
-    <body>
-        <main id="root" class="place">
-            <article class="place__content">
-                <h1 class="headline place__name">Districtr User Guide</h1>
-                <h2 class="place__subheading">Getting Started</h2>
-                <ol>
-                    <li>
-                        On the Districtr home page, click “Quick Start” in
-                        the top right corner.
-                    </li>
-                    <li>
-                        You will be redirected to an interactive map of the
-                        United States. Click the state for which you want to
-                        create a districting plan.
-                    </li>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Districtr User Guide | Districtr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="/css/landing_page.css" />
+  <link rel="stylesheet" type="text/css" href="/css/state_landing.css" />
 
-                    <li>
-                        Once you have selected a state, choose a module to
-                        complete from the displayed list of options.
-                    </li>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
+    rel="stylesheet" />
+  <style type="text/css">
+    #nav-links {
+      justify-content: flex-end;
+    }
 
-                    <li>
-                        You will now be redirected to your requested Districtr
-                        module.
-                    </li>
-                </ol>
+    a.bookmark {
+      position: relative;
+      top: -40px;
+    }
 
-                <img
-                    src="/assets/Move_tool.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-                <h2 class="place__subheading">Main Tools</h2>
-                <h3>
-                    Move Tool
-                </h3>
-                <p>
-                    To move across the state map, click the hand icon in the
-                    toolbar in the top right corner of the page. This allows you
-                    to click and drag to pan across the map.
-                </p>
-                <img
-                    src="/assets/Move_tool.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-                <h3>
-                    Zoom Tool
-                </h3>
-                <p>
-                    Click the plus (+) and minus (-) buttons on the top left
-                    corner of the page to zoom in and out of the map.
-                </p>
+    strong {
+      font-size: 109%;
+    }
 
-                <img
-                    src="/assets/Zoom_tool.gif"
-                    alt="zoom tool"
-                    class="screenshot"
-                />
-                <h3>
-                    Paint Tool
-                </h3>
-                <ol>
-                    <li>
-                        Click the paintbrush icon in the toolbar in the top
-                        right corner of the page.
-                    </li>
-                    <li>Each color corresponds to a different district.</li>
-                    <li>
-                        Click and drag across the map to add units to that
-                        district.
+    .screenshot {
+      box-shadow: $raised;
+      width: 75%;
+      margin: auto;
+      overflow: auto;
+      border: 1px solid $outline-grey;
+    }
 
-                        <ul>
-                            <li>
-                                To change the size of the brush to capture more
-                                or fewer units per stroke, slide the brush size
-                                option.
-                            </li>
-                        </ul>
-                        <img
-                            src="/assets/Paint_tool.gif"
-                            alt="move tool"
-                            class="screenshot"
-                        />
-                    </li>
+    li {
+      padding: 10px 0px;
+    }
 
-                    <li>
-                        Once you’re done drawing districts and want to inspect
-                        further without altering them, select the “Lock
-                        already-drawn districts” box in the tool’s menu.
-                    </li>
-                </ol>
+    .communities {
+      display: hidden;
+    }
 
-                <img
-                    src="/assets/Paint_tool2.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
+    .l-major-section {
+      padding-bottom: 1rem;
+    }
+  </style>
 
-                <h3>Eraser Tool</h3>
-                <ol>
-                    <li>
-                        Click the eraser icon in the toolbar in the top right
-                        corner of the page.
-                    </li>
-                    <li>
-                        Click and drag across the map to remove localities from
-                        that district.
-                        <ul>
-                            <li>
-                                To change the size of the brush to remove more
-                                or fewer units with each stroke, slide the
-                                eraser size option.
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
+</head>
 
-                <img
-                    src="/assets/Eraser_tool.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-                <h3>Inspect Tool</h3>
-                <ol>
-                    <li>Click the magnifying glass icon in the toolbar.</li>
-                    <li>
-                        Click the Tooltip Data dropdown to select which type of
-                        information you wish to inspect.
-                    </li>
-                    <li>
-                        Hover over a portion of the map to see the corresponding
-                        statistics for that area.
-                    </li>
-                    <li>
-                        Slide the spotlight size option in the tool’s menu to
-                        change the size of the spotlight to inspect more or
-                        fewer units.
-                    </li>
-                </ol>
-                <img
-                    src="/assets/Inspect_tool.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-
-                <h2 class="place__subheading">
-                    Tabs
-                </h2>
-                <h3>Population</h3>
-                <p>
-                    The population tab allows you to see the population of each
-                    district you have created. Use it in conjunction with the
-                    paint tool to show the population balances of each of your
-                    districts
-                </p>
-                <img
-                    src="/assets/Population_tab.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-
-                <p>
-                    Check the highlight unassigned units box to see which
-                    districts you still need to color
-                </p>
-                <img
-                    src="/assets/Highlight_unassigned_units.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-
-                <h3>Data Layers</h3>
-                <p>
-                    The data layers tab allows you to visualize demographic,
-                    voting age population, and partisanship data for each state
-                </p>
-
-                <figure>
-                    <figcaption>Demographics</figcaption>
-                    <img
-                        src="/assets/Demographics.gif"
-                        alt="move tool"
-                        class="figure_screenshot"
-                    />
-                </figure>
-
-                <figure>
-                    <figcaption>Voting Age Population</figcaption>
-
-                    <img
-                        src="/assets/VAP.gif"
-                        alt="move tool"
-                        class="figure_screenshot"
-                    />
-                </figure>
-                <figure>
-                    <figcaption>Partisan Lean</figcaption>
-                    <img
-                        src="/assets/Partisan.gif"
-                        alt="move tool"
-                        class="figure_screenshot"
-                    />
-                </figure>
-
-                <p>
-                    Each variable can be visualized as either shaded regions in
-                    a choropleth map or different sized circles proportional to
-                    the amount of a variable in each district
-                </p>
-
-                <img
-                    src="/assets/sized_circles.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-
-                <h3>
-                    Evaluation
-                </h3>
-                <p>
-                    The evaluation tab allows you to see the racial, voting age
-                    population, and partisan balance of the district plan you’re
-                    making
-                </p>
-                <img
-                    src="/assets/Evaluation_tab.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-                <h2 class="place__subheading">Sharing on Social Media</h2>
-                <p>
-                    Use the 'Share' button to upload your plan to our database,
-                    and get a publicly-shareable URL.
-                </p>
-                <p>
-                    When you edit someone else's map, you will need to click 'Share' and
-                    generate a new URL.
-                </p>
-                <p>
-                    You can continue to update your own map in the same browser for 24 hours.
-                </p>
-                <h2 class="place__subheading">Options</h2>
-                <h3>About this Module</h3>
-                <p>
-                    This tab provides additional information on the units used
-                    in the module, relevant state laws, and sources for
-                    shapefiles and data.
-                </p>
-                <h3>New Plan</h3>
-                <p>
-                    This tab takes you back to the main Districtr menu. It
-                    allows you to select a different module and begin working on
-                    a new districting plan.
-                </p>
-                <h3>Export this plan</h3>
-                <p>
-                    Export your district plan as a JSON.
-                </p>
-
-                <dl class="q-and-a">
-                    <dt class="question">What is a JSON?</dt>
-
-                    <dd>
-                        JSON is short for JavaScript Object Notation. It stores
-                        information in an organized manner that humans can
-                        access in a readable and logical manner.
-                    </dd>
-
-                    <dt class="question">Why would I export it?</dt>
-                    <dd>
-                        By exporting a JSON you can save your district plan and
-                        reload it into Districtr.
-                    </dd>
-                </dl>
-                <h3>
-                    Export as assignment CSV
-                </h3>
-                <p>
-                    Export your district plan as a CSV.
-                </p>
-                <dl class="q-and-a">
-                    <dt class="question">
-                        What is a CSV?
-                    </dt>
-                    <dd>
-                        CSV is short for comma-separated values. It is a
-                        delimited text file that separates all values by a comma
-                        and only includes numbers and text.
-                    </dd>
-                    <dt class="question">Why would I export it?</dt>
-                    <dd>
-                        By exporting a CSV, it is easy to read the information
-                        into programming languages like Python.
-                    </dd>
-                </dl>
-
-                <img
-                    src="/assets/Options.gif"
-                    alt="move tool"
-                    class="screenshot"
-                />
-            </article>
-        </main>
-
-        <script src="./es6/chicago.js"></script>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <div class="site-nav__logo">
+        <a href="/">
+          <img src="/assets/districtr-splash-clear.png" alt="Districtr logo" width="160" />
+        </a>
         <script>
-            if (Object.assign === undefined || fetch === undefined) {
-                document.write(
-                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
-                );
-                document.write(
-                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
-                );
-                document.write('<script src="./es5/chicago.js"><\/script>');
-                document.write("<script>ieBundle();<\/script>");
+          function openNav() {
+            var links = document.getElementById("nav-links");
+            var openClass = "site-nav__contents--show";
+            if (links.classList.contains(openClass)) {
+              links.classList.remove(openClass);
             } else {
-                bundle();
+              links.classList.add(openClass);
             }
+          }
         </script>
-    </body>
+        <button class="site-nav__open-btn" onclick="openNav();">
+          <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+        </button>
+      </div>
+      <span class="communities" hidden>
+      <ul id="nav-links" class="nav-links site-nav__contents">
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#startCommunities">
+            Getting Started
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#toolsCommunities">
+            Main Tools
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#tabsCommunities">
+            Tabs
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#sharingCommunities">
+            Sharing your Map
+          </a>
+        </li>
+      </ul>
+    </span>
+    <span class="districts">
+      <ul id="nav-links" class="nav-links site-nav__contents">
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#startDistricts">
+            Getting Started
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#toolsDistricts">
+            Main Tools
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#tabsDistricts">
+            Tabs
+          </a>
+        </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#sharingDistricts">
+            Sharing your Map
+          </a>
+        </li>
+      </ul>
+    </span>
+
+    </nav>
+  </header>
+
+  <main id="root" class="place">
+    <article class="place__content">
+      <h1 class="headline place__name">User Guide</h1>
+      <div class="place-options places-list">
+        <input type="radio" value="districts" id="districts" name="draw-selection" checked="checked" class="dist">
+        <label for="districts" class="mode-selection">Districts</label>
+        <input type="radio" value="communities" id="communities" name="draw-selection" class="comm">
+        <label for="communities" class="mode-selection">Communities</label>
+      </div>
+      <div class="communities" hidden>
+        <a class="bookmark" name="startCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Getting Started with Communities</h2>
+        </section>
+        <ul>
+          <li>On the Districtr homepage, click “Jump to the Map” in the top right corner.</li>
+          <li>You will be redirected to an interactive map of the United States. Click the state for which you wish to
+            make a districting plan. All states are available, as well as Washington, D.C. and Puerto Rico.</li>
+          <img src="/assets/guide/districts/gif/districts1.gif" alt="" class="screenshot">
+          <li>Once you have selected a state, you will be directed to its landing page, which contains all mapping
+            options along with background information. Click on “Communities” at the top to activate Communities
+            options, which are in red.</li>
+          <li>Choose a locality and unit type by clicking on a red card. (Additional localities can be added <a
+              href='/request'>upon request</a>.)</li>
+          <li>You will now be redirected to your selected districting page.</li>
+          <img src="/assets/guide/coi/gif/coi1.gif" alt="" class="screenshot">
+        </ul>
+        <a class="bookmark" name="toolsCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Main Tools</h2>
+        </section>
+        <ul>
+          <h3>Moving across the map</h3>
+          <ul>
+            <li>Select the hand icon in the top right corner of the page. Then click and drag to pan across the map.
+            </li>
+            <li>To zoom in and out, use the plus and minus buttons in the top left corner of the map. You can also use a
+              mouse scroll wheel or trackpad.</li>
+            <li>Type in a street address, place name, town, or zip code to be directed to that location on the map.</li>
+            <img src="/assets/guide/coi/gif/coi2.gif" alt="" class="screenshot">
+          </ul>
+          <h3>Drawing your communities</h3>
+          <ul>
+            <li>To draw your first community, select the paintbrush in the top right corner of the page. Click and drag
+              on the map to add units to your community.</li>
+            <img src="/assets/guide/coi/gif/coi3.gif" alt="" class="screenshot">
+            <li>To draw an additional community, add a new color from the color bar by selecting the plus sign. A new
+              color will appear and will be automatically selected for your use.
+            </li>
+            <img src="/assets/guide/coi/gif/coi4.gif" alt="" class="screenshot">
+            <li>To change the size of the brush, drag the slider directly below the color bar or use the up/down arrows
+              to the right of the slider.
+            </li>
+            <li>To draw communities without overlapping them with the previous ones, toggle the “Lock already-drawn
+              communities” box.</li>
+            <img src="/assets/guide/coi/gif/coi5.gif" alt="" class="screenshot">
+            <li>To correct the boundaries of your communities, click the erase icon in the top right corner of the page.
+              Click and drag to remove units from that community. The size of the eraser can be adjusted by dragging the
+              slider or using the arrows to its right.
+            </li><img src="/assets/guide/coi/gif/coi6.gif" alt="" class="screenshot">
+            <li>Alternately, click the “undo/redo” buttons to revert the boundaries of your communities to a previous
+              version. You can undo/redo as far back as your most recent use of the paint tool.
+            </li><img src="/assets/guide/coi/gif/coi7.gif" alt="" class="screenshot">
+          </ul>
+          <h3>Examining the districts</h3>
+          <ul>
+            <li>To see detailed population or election information for a particular unit or group of units, select the
+              magnifying glass in the top right corner.
+            </li>
+            <li>Click the Tooltip Data dropdown menu to change the type of information shown. Then mouse over a
+              particular unit to see the corresponding information for that unit.</li>
+            <li>To examine multiple units, drag the slider directly below the Tooltip Data menu or use the arrows to the
+              right of the slider.</li>
+            <img src="/assets/guide/coi/gif/coi8.gif" alt="" class="screenshot">
+          </ul>
+        </ul>
+        <a class="bookmark" name="tabsCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Tabs</h2>
+        </section>
+        <ul>
+          <h3>Drawing</h3>
+          <ul>
+            <li>The drawing tab allows you to name and describe each of the communities you have mapped, as well as
+              adding important places from the area.
+            </li>
+            <h4>Areas of Interest</h4>
+            <ul>
+              <li>To select one of the areas you have mapped to name and describe, click on the drop-down menu and
+                choose one of the ‘Communities’. They are numbered in the order that they were first drawn on the map,
+                and they also have their corresponding color next to the name.</li>
+              <li>Once you selected the community from the menu, below you can change the name and add a description for
+                the area. Those details are updated automatically.</li>
+              <img src="/assets/guide/coi/gif/coi9.gif" alt="" class="screenshot">
+            </ul>
+            <h4>Important places</h4>
+            <ul>
+              <li>To add a point of interest for your community, go to the important places section and click on the
+                blue button that says ‘New’.</li>
+              <li>Pressing the button will prompt you to locate the spot on the map that you want to add as a point.
+                Click on the map to add it.</li>
+              <li>Once you add a point in the map, you will be able to name it and give a description about the place.
+                These changes will be saved automatically. The points you added will also stay on the map, and you can
+                hover over them to see their names and descriptions.</li>
+              <img src="/assets/guide/coi/gif/coi10.gif" alt="" class="screenshot">
+              <li>To add more important places, press the ‘new’ button again, and repeat the previous steps. To switch
+                between points, use the drop-down ‘Select’ menu. You can then edit place names and descriptions of the
+                selected place.</li>
+              <img src="/assets/guide/coi/gif/coi11.gif" alt="" class="screenshot">
+              <li>To remove a place you added, click on the red trash can button next to its name.</li>
+              <img src="/assets/guide/coi/gif/coi12.gif" alt="" class="screenshot">
+            </ul>
+          </ul>
+          <h3>Data Layers</h3>
+          <ul>
+            <li>The Data Layers tab allows you to display community, demographic, and electoral data, as available.</li>
+            <h4>Communities</h4>
+            <ul>
+              <li>To hide the communities from the map, toggle the “Show my communities” box at the top of the tab.</li>
+              <li>To display county boundaries, toggle the “Show County Boundaries” box.</li>
+              <li>To see the boundaries and names of Nations and Tribes, toggle the “Show Nations and Tribes” box. Names
+                of this field vary slightly by local naming conventions.</li>
+              <img src="/assets/guide/coi/gif/coi13.gif" alt="" class="screenshot">
+            </ul>
+            <h3>Demographics</h3>
+            <ul>
+              <h4>Coalition Builder</h4>
+              <ul>
+                <li>Using the Coalition Builder tool, you can combine multiple demographic groups of your choosing into
+                  a shared “Coalition population.” Check off the name of each demographic group to add the group to your
+                  Coalition, and click again to uncheck and remove a group. Below the selection buttons, you can view
+                  the total population of the Coalition as well its percent composition of the jurisdiction as a whole.
+                </li>
+                <li>Under the “Show population” and “Show voting age population” tabs, select the Coalition population
+                  from the dropdown menu to display this layer on the map.</li>
+                <img src="/assets/guide/coi/gif/coi14.gif" alt="" class="screenshot">
+              </ul>
+              <h4>Race</h4>
+              <ul>
+                <li>Toggle the “Show population box” and select the desired variable from the dropdown menu to view
+                  percent variable by unit. Using the dropdown menu for Display, choose to display the data as sized
+                  circles or shaded regions.</li>
+                <img src="/assets/guide/coi/gif/coi15.gif" alt="" class="screenshot">
+              </ul>
+              <h4>Socioeconomic data</h4>
+              <ul>
+                <li>Several states and other areas feature socioeconomic data from the American Community Survey (ACS).
+                  Available data include but are not limited to homeownership, household income, and broadband access.
+                  (Note: ACS data can be added to additional places upon request.)</li>
+                <img src="/assets/guide/coi/gif/coi16.gif" alt="" class="screenshot">
+              </ul>
+            </ul>
+            <h4>Previous elections</h4>
+            <ul>
+              <li>Toggle the “Show partisan lean” box and select the desired set of election results from the dropdown
+                menu to view partisan lean by unit. Using the dropdown menu for Display, choose to display the data as
+                sized circles or shaded regions. Please note that this option is only available when building your
+                communities out of precincts.</li>
+              <img src="/assets/guide/coi/gif/coi17.gif" alt="" class="screenshot">
+            </ul>
+          </ul>
+          <h3>Evaluation</h3>
+          <ul>
+            <li>The evaluation tab allows you to see the racial, voting age population, and partisan balance of the
+              communities you are mapping. Some communities pages have additional data for evaluation, such as household
+              income and age.</li>
+
+            <h3>Population by Race</h3>
+            <ul>
+              <li>You can compare the percentage of the population by race in each of your communities, and compare it
+                to the overall composition of the state you are drawing in.</li>
+            </ul>
+            <h3>Voting Age Population by Race</h3>
+            <ul>
+              <li>As in the previous section, you can compare the percentage of the voting age population by race in
+                each community. Voting Age Population (or VAP) is the group of people who are 18 years or older.</li>
+            </ul>
+            <h3>Age Histograms, Household Income, and other data</h3>
+            <ul>
+              <li>In some areas, there are options to evaluate additional demographic information, such as age and
+                household income, in each community and compared to that of the overall locality. As with the Data
+                Layers tab, this information is from the ACS.</li>
+            </ul>
+            <img src="/assets/guide/coi/gif/coi18.gif" alt="" class="screenshot">
+          </ul>
+        </ul>
+        <a class="bookmark" name="sharingCommunities"></a>
+        <section class="l-content l-major-section">
+          <h2>Sharing your Map</h2>
+        </section>
+        <ul>
+          <li>Clicking on the “Share” button saves the map you created and uploads it to the Districtr database. You do
+            not need to create an account, and only the information in your map is shared.</li>
+          <img src="/assets/guide/coi/gif/coi19.gif" alt="" class="screenshot">
+          <li>As long as you are in the same browser session, you can update this original map, leaving the link
+            unchanged. To save changes made to the map, click on the “Update” button (in the same location as the
+            “Share” button once you have shared). You will know when your map is up to date when the button says
+            “Saved.” You can keep repeating this process to edit and re-save your map as long as you are in the same
+            browser session.</li>
+          <img src="/assets/guide/coi/gif/coi21.gif" alt="" class="screenshot">
+          <li>Anyone who has the link, including you, can open up the map in their browser and make additional changes
+            to it. This edited map doesn’t replace the previous one, but you can save it to a new link by clicking
+            “Share” again.</li>
+          <img src="/assets/guide/coi/gif/coi20.gif" alt="" class="screenshot">
+          <li>Anyone who has the link, including you, can open up the map in their browser and make additional changes
+            to it. These changes can be saved to a new link by clicking “Share” again. When the button says “Saved,”
+            this means all changes are saved to the new link.</li>
+          <img src="/assets/guide/coi/gif/coi21.gif" alt="" class="screenshot">
+          <li>Whenever you need a copy of the link, click on the “Saved” button.</li>
+          <li>To download your map, choose from the options in the drop-down menu in the upper right corner. For more
+            detail on these, refer to the Import/Export Options page.</li>
+          <li>
+            <h3>Event Codes</h3>
+          </li>
+          <ul>
+            <li>MGGG can help you with map collection by setting up an event code for your organization.</li>
+            <li>Once you have an event code, you can tag maps with it. When you click “Share,” “Update,” or “Saved,”
+              enter the event code and click “Tag your map.”</li>
+            <li>All maps tagged with an event code will be viewable in a dashboard available to the event organizers.
+              Event codes can be used to compile a large quantity of maps for a region, to assess coverage and identify
+              areas needing more community mapping, and to compare maps of specific communities. This can be to
+              influence official map-drawing, for community organizing, for educational purposes, and more.</li>
+          </ul>
+        </ul>
+      </div>
+      <div class="districts">
+        <a class="bookmark" name="startDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Getting Started with Districts</h2>
+        </section>
+        <ul>
+          <li>On the Districtr homepage, click “Jump to the Map” in the top right corner.</li>
+          <li>You will be redirected to an interactive map of the United States. Click the state for which you wish to
+            make a districting plan. All states are available, as well as Washington, D.C. and Puerto Rico.</li>
+          <img src="/assets/guide/districts/gif/districts1.gif" alt="" class="screenshot">
+          <li>Once you have selected a state, you will be directed to its landing page. The landing page contains all
+            mapping options along with background information. Districting options are in purple, which is the default
+            setting.</li>
+          <li>Choose a locality (state, region, county, or city) and district type by clicking on a purple card. The
+            available localities and districts vary by state. (Additional localities can be added upon request.)</li>
+          <img src="/assets/guide/districts/gif/districts2.gif" alt="" class="screenshot">
+          <li>You will now be redirected to your selected districting page.</li>
+        </ul>
+        <a class="bookmark" name="toolsDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Main Tools</h2>
+        </section>
+        <ul>
+          <h3>Moving across the map</h3>
+          <ul>
+            <li>Select the hand icon in the top right corner of the page. Then click and drag to pan across the map.
+            </li>
+            <li>To zoom in and out, use the plus and minus buttons in the top left corner of the map. You can also use a
+              mouse scroll wheel or trackpad.</li>
+            <img src="/assets/guide/districts/gif/districts3.gif" alt="" class="screenshot">
+          </ul>
+          <h3>Drawing the districts</h3>
+          <ul>
+            <li>To draw your first district, select the paintbrush icon in the top right corner of the page. Click and
+              drag on the map to add units to your district.</li>
+            <img src="/assets/guide/districts/gif/districts4.gif" alt="" class="screenshot">
+            <li>To draw another district, select a new color from the color bar directly below the paintbrush icon. Each
+              color corresponds to a different district. For pages with large numbers of districts, only one color will
+              show when you start. For these, use the “+” button to add the remaining district colors.</li>
+            <img src="/assets/guide/districts/gif/districts5.gif" alt="" class="screenshot">
+            <li>To change the size of the brush, drag the brush size slider directly below the color bar or use the
+              up/down arrows to the right of the slider.</li>
+            <img src="/assets/guide/districts/gif/districts6.gif" alt="" class="screenshot">
+            <li>To paint whole counties, toggle the “Paint counties” box below the slider.</li>
+            <img src="/assets/guide/districts/gif/districts7.gif" alt="" class="screenshot">
+            <li>To inspect districts without altering them, or to avoid painting over already-drawn areas, toggle the
+              “Lock already-drawn districts” box.</li>
+            <img src="/assets/guide/districts/gif/districts8.gif" alt="" class="screenshot">
+            <li>To correct the boundaries of your districts, click the erase icon in the top right corner of the page.
+              Click and drag to remove units from that district. The size of the eraser can be adjusted by dragging the
+              slider or using the arrows to its right.</li>
+            <img src="/assets/guide/districts/gif/districts9.gif" alt="" class="screenshot">
+            <li>Alternately, click the “undo/redo” buttons to revert the boundaries of your district plan to a previous
+              version. You can undo/redo as far back as your most recent use of the paint tool.</li>
+            <img src="/assets/guide/districts/gif/districts10.gif" alt="" class="screenshot">
+          </ul>
+          <h3>Examining the districts</h3>
+          <ul>
+            <li>To see detailed population or election information for a particular unit or group of units, select the
+              magnifying glass in the top right corner.</li>
+            <li>Click the Tooltip Data dropdown menu to change the type of information shown. The options available vary
+              by page. Then mouse over a particular unit to see the corresponding information for that unit.</li>
+            <img src="/assets/guide/districts/gif/districts11.gif" alt="" class="screenshot">
+            <li>To examine multiple units, drag the slider directly below the Tooltip Data menu or use the arrows to the
+              right of the slider.</li>
+            <img src="/assets/guide/districts/gif/districts12.gif" alt="" class="screenshot">
+          </ul>
+        </ul>
+        <a class="bookmark" name="tabsDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Tabs</h2>
+        </section>
+        <ul>
+          <h3>Population</h3>
+          <ul>
+            <li>The population tab allows you to view the population of each drawn district. To balance your population
+              evenly between districts, make reference to the ideal population count and vertical bar provided in this
+              tab.</li>
+            <li>To see which units you still need to color, click the “Highlight unassigned units” box at the bottom of
+              the tab..</li>
+            <img src="/assets/guide/districts/gif/districts13.gif" alt="" class="screenshot">
+          </ul>
+          <h3>Data Layers</h3>
+          <ul>
+            <li>The Data Layers tab allows you to display districts, boundaries, demographic, and electoral data, as
+              available.</li>
+            <h4>Districts</h4>
+            <ul>
+              <li>To hide the districts from the map, toggle the “Show districts” box at the top of the tab.</li>
+              <li>To see county boundaries overlaid on your map, toggle the “Show County Boundaries” box.</li>
+              <li>To see the boundaries and names of Nations and Tribes, toggle the “Show Nations and Tribes” box.Names
+                of this field vary slightly by local naming conventions.</li>
+              <img src="/assets/guide/districts/gif/districts14.gif" alt="" class="screenshot">
+            </ul>
+          </ul>
+          <h3>Demographics</h3>
+          <ul>
+            <h4>Coalition Builder</h4>
+            <ul>
+              <li>Using the Coalition Builder tool, you can combine multiple demographic groups of your choosing into a
+                shared “Coalition population.” Check off the name of each demographic group you want to add to your
+                Coalition, and click again to uncheck and remove a group. Below the selection buttons, you can view the
+                total population of the Coalition as well its percent composition of the jurisdiction as a whole.</li>
+              <li>Under the “Show population” and “Show voting age population” tabs, select the Coalition population
+                from the dropdown menu to display this layer on the map.</li>
+              <img src="/assets/guide/districts/gif/districts15.gif" alt="" class="screenshot">
+            </ul>
+            <h4>Race</h4>
+            <ul>
+              <li>Toggle the “Show population box” and select the desired variable from the dropdown menu to view
+                percent variable by unit. Using the dropdown menu for Display, choose to display the data as sized
+                circles or shaded regions.</li>
+              <img src="/assets/guide/districts/gif/districts16.gif" alt="" class="screenshot">
+            </ul>
+            <h4>Socioeconomic data</h4>
+            <ul>
+              <li>Several states and other areas feature socioeconomic data from the American Community Survey (ACS).
+                Available features include but are not limited to: homeownership, household income, and broadband
+                access. (Note: ACS data can be added to additional localities upon request.)</li>
+              <img src="/assets/guide/districts/gif/districts17.gif" alt="" class="screenshot">
+            </ul>
+            <h3>Previous elections</h3>
+            <ul>
+              <li>Toggle the “Show partisan lean” box and select the desired set of election results from the dropdown
+                menu to view partisan lean by unit. Using the dropdown menu for Display, choose to display the data as
+                sized circles or shaded regions. Please note that this option is only available when building your
+                districts out of precincts.</li>
+              <img src="/assets/guide/districts/gif/districts18.gif" alt="" class="screenshot">
+            </ul>
+          </ul>
+          <h3>Evaluation</h3>
+          <ul>
+            <li>The evaluation tab allows you to see the racial, voting age population, and partisan balance of the
+              district plan you’re making. Some districting pages have additional data for evaluation, such as household
+              income and age.</li>
+            <h4>Population by Race</h4>
+            <ul>
+              <li>You can compare the percentage of the population by race for districts, relative to one another and
+                relative to the overall composition of the area. Use the drop-down menus to compare different races.
+              </li>
+            </ul>
+            <h3> </h3>
+            <ul>
+              <li>Voting Age Population (or VAP) is the group of people who are 18 years or older. As in the previous
+                section, you can compare the percentage of the voting age population by race for districts, relative to
+                one another and relative to the overall composition of the area. Use the drop-down menus to compare
+                different races.</li>
+            </ul>
+            <h3> </h3>
+            <ul>
+              <li>You can compare the percentage of votes received by the republican and the democratic candidate for a
+                variety of elections, by your districts and relative to the overall partisan lean. In places where we
+                show candidates by other parties or variation within parties, candidate names and/or parties are listed.
+                Note: because we only show two-party vote shares, the overall percentage may differ slightly from
+                official percentages, which include third party candidates</li>
+            </ul>
+            <h3> </h3>
+            <ul>
+              <li>In some areas, there are options to evaluate the age and household income distribution of the
+                population in each district. Some areas also have the ability to check the contiguity of the districts
+                you have drawn.</li>
+              <img src="/assets/guide/districts/gif/districts19.gif" alt="" class="screenshot">
+            </ul>
+          </ul>
+        </ul>
+        <a class="bookmark" name="sharingDistricts"></a>
+        <section class="l-content l-major-section">
+          <h2>Sharing your Map</h2>
+        </section>
+        <ul>
+          <li>Clicking the “Share” button saves the map you created and uploads it to the Districtr database. You do not
+            need to create an account, and only the information in your map is shared.</li>
+          <img src="/assets/guide/districts/gif/districts20.gif" alt="" class="screenshot">
+          <li>As long as you are in the same browser session, you can update this original map, leaving the link
+            unchanged. To save changes made to the map, click on the “Update” button (in the same location as the
+            “Share” button once you have shared). You will know when your map is up to date when the button says
+            “Saved.” You can keep repeating this process to edit and re-save your map as long as you are in the same
+            browser session.</li>
+          <img src="/assets/guide/districts/gif/districts22.gif" alt="" class="screenshot">
+          <li>Anyone who has the link, including you, can open up the map in their browser and make additional changes
+            to it. These changes can be saved to a new link by clicking “Share” again. When the button says “Saved,”
+            this means all changes are saved to the new link.</li>
+          <img src="/assets/guide/districts/gif/districts21.gif" alt="" class="screenshot">
+          <li>Whenever you need a copy of the link, click on the “Saved” button.</li>
+          <li>To download your map, choose from the options in the drop-down menu in the upper right corner. For more
+            detail on these, refer to the Import/Export Options page.</li>
+          <h4>Event Codes</h4>
+          <ul>
+            <li>MGGG can help you with map collection by setting up an event code for your organization.</li>
+            <li>Once you have an event code, you can tag maps with it. When you click “Share,” “Update,” or “Saved,”
+              enter the event code and click “Tag your map.”</li>
+            <li>All maps tagged with an event code will be viewable in a dashboard available to the event organizers.
+            </li>
+            <li>Event codes can be used to compile and compare a large quantity of maps for a region. Map collections
+              made through events can in turn be used to influence official map-drawing, for community organizing, for
+              educational purposes, and more.</li>
+          </ul>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <script src="./es6/chicago.js"></script>
+
+
+  <script>
+    document.querySelector('#districts').onclick = () => {
+      for (let element of document.getElementsByClassName("communities")) {
+        element.style.display = "none";
+      }
+      for (let element of document.getElementsByClassName("districts")) {
+        element.style.display = "inline";
+      }
+    };
+    document.querySelector('#communities').onclick = () => {
+      for (let element of document.getElementsByClassName("districts")) {
+        element.style.display = "none";
+      }
+      for (let element of document.getElementsByClassName("communities")) {
+        element.style.display = "inline";
+      }
+    };
+
+  </script>
+  <script>
+    if (Object.assign === undefined || fetch === undefined) {
+      document.write(
+        '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+      );
+      document.write(
+        '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+      );
+      document.write('<script src="./es5/chicago.js"><\/script>');
+      document.write("<script>ieBundle();<\/script>");
+    } else {
+      bundle();
+    }
+  </script>
+</body>
+
 </html>

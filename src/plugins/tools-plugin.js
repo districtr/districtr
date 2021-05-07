@@ -11,9 +11,10 @@ import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
 import VRAEffectiveness from "../map/vra_effectiveness"
-import { renderVRAAboutModal, renderAboutModal, renderSaveModal } from "../components/Modal";
+import { renderVRAAboutModal, renderAboutModal, renderSaveModal, renderModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
+import { html, render } from "lit-html";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -127,6 +128,7 @@ function exportPlanAsSHP(state, geojson) {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
+    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
     fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
@@ -153,6 +155,30 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
         .map(unitId => `${unitId}${delimiter}${srl(state.plan.assignment[unitId])}`)
         .join("\n");
     download(`assignment-${state.plan.id}.${extension}`, text);
+}
+
+function exportPlanAsBlockAssignment(state, delimiter=",", extension="csv") {
+    const assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
+    const units = state.unitsRecord.unitType;
+    const stateName = state.place.state;
+    render(renderModal(`Starting your block assignment file download `), document.getElementById("modal"));
+    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/block_assignment", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "state": stateName,
+            "units": units,
+            "assignment": assign})
+    })
+    .then((res) => res.json())
+    .catch((e) => console.error(e))
+    .then((data) => {
+        console.log(data);
+        const table_data = `Block${delimiter} District\n` + Object.entries(data).map(r => r.join(delimiter)).join("\n")
+        download(`block-assignment-${state.plan.id}.csv`, table_data)
+    })
 }
 
 function scrollToSection(state, section) {
@@ -186,6 +212,11 @@ function getMenuItems(state) {
             onClick: scrollToSection(state, "data")
         },
         {
+            id: "mobile-upload",
+            name: "Save plan",
+            onClick: () => renderSaveModal(state, savePlanToDB)
+        },
+        {
             name: "Districtr homepage",
             onClick: () => {
                 if (window.confirm("Would you like to return to the Districtr homepage?")) {
@@ -217,11 +248,10 @@ function getMenuItems(state) {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        {
-            id: "mobile-upload",
-            name: "Share plan",
-            onClick: () => renderSaveModal(state, savePlanToDB)
-        },
+        (state.unitsRecord.unitType === "Block Groups" ? {
+            name: "Export block assignment file",
+            onClick: () => exportPlanAsBlockAssignment(state)
+        }: null),
         {
             name: "About import/export options",
             onClick: () => window.open("/import-export", "_blank")

@@ -6,6 +6,12 @@ import Plan from './planModel';
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET'
+  };
+
   try {
     let search = event.queryStringParameters._id ?
           { _id: event.queryStringParameters._id }
@@ -22,6 +28,7 @@ exports.handler = async (event, context) => {
 
     return {
         statusCode: 200,
+        headers: headers,
         body: JSON.stringify({
             msg: "Plan successfully found",
             plan: plan.plan
@@ -31,6 +38,7 @@ exports.handler = async (event, context) => {
       console.log(err) // output to netlify function log
       return {
           statusCode: 500,
+          headers: headers,
           body: JSON.stringify({msg: err.message})
       }
   }

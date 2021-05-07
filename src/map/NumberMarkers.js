@@ -106,6 +106,9 @@ export default function NumberMarkers(state, brush) {
         if (state.place.id === "tx_vra"){
             extra_source = "texas";
         }
+        if (state.place.id === "elpasotx" && state.units.sourceId.includes("precincts")) {
+            extra_source = "texas";
+        }
 
         let placeID = extra_source || place;
         if (plan && plan.assignment) {

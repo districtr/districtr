@@ -62,7 +62,7 @@ export function DistrictEvaluationTable(columnSet, placeName, part) {
         });
     }
     entries.push({
-        content: numberWithCommas(columnSet.total.sum),
+        content: numberWithCommas(Math.round(columnSet.total.sum)),
         style: "width: 40%"
     });
     let rows = [
@@ -107,7 +107,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units,
             });
             return portion;
         },
-        sum: fullsum,
+        sum: Math.round(fullsum),
         total: columnSet.subgroups[0].total
     };
 
