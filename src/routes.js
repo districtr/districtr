@@ -137,6 +137,9 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
+    if (planRecord.placeId === "nc") {
+        planRecord.placeId = "northcarolina";
+    }
     return listPlaces(planRecord.placeId, (planRecord.state || (planRecord.place ? planRecord.place.state : null))).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
@@ -194,7 +197,9 @@ export function loadPlanFromCSV(assignmentList, state) {
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
-
+    if (state.place.id === "nc") {
+        state.place.id = "northcarolina";
+    }
     return listPlaces(state.place.id, state.place.state).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {
