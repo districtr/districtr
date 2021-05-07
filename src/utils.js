@@ -948,7 +948,7 @@ export function spatial_abilities (id) {
         },
         wisco2019acs: {
           number_markers: true,
-          // county_brush: true,
+          county_brush: true,
           native_american: true,
           shapefile: true,
           find_unpainted: true,
