@@ -211,7 +211,7 @@ const build_table_for_state = (data, state) => {
             if (elections.length == 0)
                 final = final + acc.substring(0, acc.length - 2);
             else
-                final = final + acc + "Elections: " + elections.join(', ');
+                final = final + acc + "Elections: " + elections.sort().join(', ');
 
             switch (unit['id']) {
                 case 'blockgroups':
