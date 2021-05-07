@@ -129,8 +129,6 @@ function recursive_table_builder(state_table, other_table, index) {
         var other_table_container = document.getElementById('other-table-div');
         other_table_container.innerHTML = other_table;
         
-        console.log(other_table);
-        console.log(other_table_container);
         // DataTable constructor
         $(document).ready(function() {
             $('table.data').DataTable( {
@@ -166,8 +164,15 @@ const build_table_for_state = (data, state) => {
         
         var row = 
         (module['name'] == state) 
-        ? '<tr><td>' + module['name'] + '</td>' 
-        : '<tr><td>' + module['name'] + ', ' + state_name_to_postal[state] + '</td>';
+        ? '<tr><td>' + module['name'] 
+        : '<tr><td>' + module['name'] + ', ' + state_name_to_postal[state];
+
+        if (module['id'].substring(module['id'].length - 3) == "vra")
+            row = row + " VRA";
+        else if (["Wisconsin", "Puerto Rico"].includes(state))
+            row  = row + " (" + module['id'] + ")";
+
+        row = row + '</td>';
 
         // First do properties
         for (const p of properties) {
