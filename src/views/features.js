@@ -134,7 +134,8 @@ function recursive_table_builder(state_table, other_table, index) {
             $('table.data').DataTable( {
                 "scrollY":        "1200px",
                 "scrollCollapse": true,
-                "paging":         false
+                "paging":         false,
+                "scrollX":        true
             } );
         } );
 
