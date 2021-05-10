@@ -923,6 +923,14 @@ export function spatial_abilities (id) {
           border: true,
           // find_unpainted: true,
         },
+        va_virginiabeach_precincts: {
+          number_markers: true,
+          coalition: false,
+        },
+        va_virginiabeach_blocks: {
+          number_markers: true,
+          coalition: false,
+        },
       washington: {
         number_markers: true,
         county_brush: true,

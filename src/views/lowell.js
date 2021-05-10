@@ -4,6 +4,7 @@ import { startNewPlan } from "../routes";
 
 export default () => {
     listPlacesForState("Massachusetts").then(places => {
+        console.dir(places)
         const target = document.getElementById("districting-options");
         render(districtingOptions(places), target);
     });

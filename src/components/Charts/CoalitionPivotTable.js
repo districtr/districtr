@@ -95,6 +95,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units,
         fullsum += sg.sum;
         sg.data.forEach((val, idx) => mockData[idx] = (mockData[idx] || 0) + val);
     });
+    console.dir(columnSet.subgroups);
     let coalitionSubgroup = {
         data: mockData,
         key: 'coal',
