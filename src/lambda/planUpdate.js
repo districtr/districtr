@@ -32,7 +32,6 @@ exports.handler = async (event, context) => {
       plan.eventCode = (data.eventCode || plan.eventCode || "").toLowerCase().replace(/_/g, '-').replace(/\s/g, ''),
 
       plan.planName = data.planName || plan.planName || "";
-      plan.screenshot = data.screenshot || plan.screenshot || "";
       plan.isScratch = data.isScratch || false;
       plan.startDate = new Date();
 

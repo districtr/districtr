@@ -81,6 +81,23 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+    if (state.cvap) {
+        tab.addRevealSection(
+            "Citizen Voting Age Population by Race",
+            (uiState, dispatch) =>
+                RacialBalanceTable(
+                    "Citizen Voting Age Population by Race",
+                    state.cvap,
+                    state.activeParts,
+                    uiState.charts["Citizen Voting Age Population by Race"],
+                    dispatch
+                ),
+            {
+                isOpen: state.population.subgroups.length > 1 ? false : true,
+                activeSubgroupIndices: state.cvap.indicesOfMajorSubgroups()
+            }
+        );
+    }
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
@@ -147,7 +164,7 @@ export default function EvaluationPlugin(editor) {
     if (showVRA && (state.units.sourceId !== "ma_towns")) 
     {
         VRAtab.addRevealSection(
-            "VRA Effectiveness",
+            "VRA Effectiveness Overview",
             (uiState, dispatch) =>
                 VRAEffectivenessTable(
                     state.parts,
@@ -160,10 +177,22 @@ export default function EvaluationPlugin(editor) {
                 isOpen: true
             }
         );
-    }
+        
+        // VRAtab.addRevealSection(
+        //     "VRA Alignment",
+        //     (uiState, dispatch) =>
+        //         VRAAlignmentTable(
+        //             state.parts,
+        //             state.vra_effectiveness,
+        //             state.waiting,
+        //             uiState,
+        //             dispatch
+        //         ),
+        //     {
+        //         isOpen: false
+        //     }
+        // );
 
-    if (showVRA && (state.units.sourceId !== "ma_towns")) 
-    {
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>

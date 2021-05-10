@@ -36,7 +36,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
     // console.log(assign);
     // let saveplan = state.serialize();
     // console.log(JSON.stringify(saveplan));
-    const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
+    const AWS_URL = "https://gvd4917837.execute-api.us-east-1.amazonaws.com";
     
     if (!awaiting_response && Object.entries(assign).length > 0) {
         state.waiting = true;
@@ -49,27 +49,26 @@ export default function VRAEffectiveness(state, brush, toolbar) {
             render(toolbar.render(), target);
         }
         
-
-        fetch(GERRYCHAIN_URL + "/vra", {
+        fetch(AWS_URL + "/vra", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 "assignment": assign,
-                "placeId": state.place.id,
-                "groups": groups,
-                "seq_id": cur_request_id
+                "state": state.place.state,
+                "precID": state.plan.idColumn.key,
+                "SeqID": cur_request_id
             }),
           })
             .then((res) => res.json())
             .catch((e) => console.error(e))
             .then((data) => {
-                if (data["seq_id"] === cur_request_id) {
+                if (data["SeqID"] === cur_request_id) {
                     awaiting_response = false;
                     state.waiting = false;
-                    state.vra_effectiveness = data["data"];
-                    // console.log(data);
+                    state.vra_effectiveness = data["Data"];
+                    console.log(data);
                     const target = document.getElementById("toolbar");
                     if (target === null) {
                         return;

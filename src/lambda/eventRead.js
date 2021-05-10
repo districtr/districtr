@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
     const plans = await Plan.find({
         eventCode: eventCode
     })
-    .select("_id simple_id startDate plan screenshot planName isScratch")
+    .select("_id simple_id startDate plan screenshot2 planName isScratch")
     .sort([["simple_id", -1]])
     .limit((event.queryStringParameters.limit || 24) * 1);
     // be careful not to share token here

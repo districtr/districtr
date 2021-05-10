@@ -81,51 +81,30 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             delete requestBody.plan.assignment[key];
         }
     });
-    let saveme = (requestBody) => {
-        fetch(saveURL, {
-            method: "POST",
-            body: JSON.stringify(requestBody)
-        })
-        .then(res => res.json())
-        .then(info => {
-            if (info.simple_id) {
-                let action = (window.location.hostname === "localhost" ? "edit" : (
-                  serialized.problem.type === "community" ? "COI" : "plan"
-                ));
-                history.pushState({}, "Districtr", `/${action}/${info.simple_id}`);
-                if (info.token && localStorage) {
-                    localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
-                }
-                callback(info.simple_id, action);
-            } else {
-                callback(null);
+    fetch(saveURL, {
+        method: "POST",
+        body: JSON.stringify(requestBody)
+    })
+    .then(res => res.json())
+    .then(info => {
+        if (info.simple_id) {
+            let action = (window.location.hostname === "localhost" ? "edit" : (
+              serialized.problem.type === "community" ? "COI" : "plan"
+            ));
+            let extras = window.location.href.includes("portal") ? "?portal" : "";
+            history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
+            if (info.token && localStorage) {
+                localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-        })
-        .catch(e => callback(null));
-    };
-    if ((eventCode || (state.place.id === "michigan")) && (spatial_abilities(state.place.id).screenshot || spatial_abilities(state.place.id).shapefile)) {
-        let picpath = spatial_abilities(state.place.id).screenshot ? "picture" : "picture2";
-        if (state.place.id === "ohio" && !state.units.sourceId.includes("block")) {
-            // enabled on Ohio blockgroups, not precincts
-            picpath = "picture2";
+            if ((eventCode || (state.place.id === "michigan")) && spatial_abilities(state.place.id).shapefile) {
+                fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+            }
+            callback(info.simple_id, action);
+        } else {
+            callback(null);
         }
-        fetch("//mggg.pythonanywhere.com/" + picpath, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(serialized),
-        })
-        .then((res) => res.text())
-        .catch((e) => {
-            console.error(e);
-            saveme(requestBody);
-        })
-        .then((data) => {
-            requestBody.screenshot = 'data:image/png;base64,' + data.substring(2, data.length - 1);
-            saveme(requestBody);
-        });
-    } else {
-        saveme(requestBody);
-    }
+    })
+    .catch(e => callback(null));
 }
 
 export function getContextFromStorage() {
@@ -158,6 +137,9 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
+    if (planRecord.placeId === "nc") {
+        planRecord.placeId = "northcarolina";
+    }
     return listPlaces(planRecord.placeId, (planRecord.state || (planRecord.place ? planRecord.place.state : null))).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
@@ -215,7 +197,9 @@ export function loadPlanFromCSV(assignmentList, state) {
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
-
+    if (state.place.id === "nc") {
+        state.place.id = "northcarolina";
+    }
     return listPlaces(state.place.id, state.place.state).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {

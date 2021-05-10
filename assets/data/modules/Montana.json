@@ -736,6 +736,11 @@
     ],
     "districtingProblems": [
       {
+        "name": "2020 Reapportioned Congress",
+        "numberOfParts": 2,
+        "pluralNoun": "Reapportioned Congressional Districts"
+      },
+      {
         "name": "State House",
         "numberOfParts": 100,
         "pluralNoun": "State House Districts"
