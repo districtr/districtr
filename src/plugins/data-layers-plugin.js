@@ -521,6 +521,7 @@ export default function DataLayersPlugin(editor) {
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition !== false) {
+        const coalition_population = spatial_abilities(state.place.id).cvap_coalition ? state.cvap : state.population;
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -532,10 +533,9 @@ export default function DataLayersPlugin(editor) {
           'NH_2MORE': '2MOREVAP',
           NH_OTHER: 'OTHERVAP'
         };
-
         const coalitionPivot = CoalitionPivotTable(
             "Coalition Builder",
-            state.population,
+            coalition_population,
             state.place.name,
             state.parts,
             state.units,
@@ -548,7 +548,7 @@ export default function DataLayersPlugin(editor) {
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
-                      ${state.population.subgroups.filter(sg => !sg.total_alt).map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
+                      ${coalition_population.subgroups.filter(sg => !sg.total_alt).map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
                           ${toggle(sg.name.replace(" population", ""), false, checked => {
                               window.coalitionGroups[sg.key] = checked;
                               window.coalitionGroups[vapEquivalents[sg.key]] = checked;
