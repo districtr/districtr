@@ -123,6 +123,9 @@ function recursive_table_builder(state_table, other_table, index) {
         other_table = other_table + "</tbody></table>"
 
         // change the DOM
+        let loading_message = document.getElementById('loading-msg');
+        loading_message.remove();
+        
         var state_table_container = document.getElementById('state-table-div');
         state_table_container.innerHTML = state_table;
 
