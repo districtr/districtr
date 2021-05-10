@@ -917,6 +917,12 @@ export function spatial_abilities (id) {
         fortworth: {
           border: true,
         },
+        houston: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          multiyear: 2019,
+        },
         elpasotx: {
           border: true,
           number_markers: true,
