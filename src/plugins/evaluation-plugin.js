@@ -101,7 +101,7 @@ export default function EvaluationPlugin(editor) {
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance",
+            spatial_abilities(state.place.id).election_history ? "Election History" : "Partisan Balance",
             (uiState, dispatch) => html`
                 ${spatial_abilities(state.place.id).absentee
                     ? html`<div style="text-align:center">Election results include absentee votes</div>`
