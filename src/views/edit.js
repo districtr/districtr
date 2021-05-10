@@ -30,7 +30,7 @@ function getPlugins(context) {
 
 function getMapStyle(context) {
     if (context.problem.type === "community" && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes((context.place || {}).id) && !context.units.coi2) {
-        return "mapbox://styles/mapbox/streets-v11";
+        return "mapbox://styles/districtr/ckn4znw5702qg17p69f46zopl";
     } else {
         return "mapbox://styles/mapbox/light-v10";
     }
