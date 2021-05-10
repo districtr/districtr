@@ -272,7 +272,7 @@ export default function DataLayersPlugin(editor) {
 
     // school zones and towns
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020", "michigan"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
           st = "in";
@@ -282,6 +282,8 @@ export default function DataLayersPlugin(editor) {
           st = "nh";
         } else if (["wisconsin", "wisc2020", "wisco2019acs"].includes(state.place.id)) {
           st = "wi";
+        } else if (state.place.id === "michigan") {
+          st = "mi";
         }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
@@ -447,7 +449,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs", "michigan"].includes(state.place.id)) {
         const toggleOHlayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
