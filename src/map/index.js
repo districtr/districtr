@@ -140,7 +140,31 @@ function addUnits(map, parts, tileset, layerAdder) {
         layerAdder
     );
 
-    return { units, unitsBorders };
+    const coisrc = tileset.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups");
+    const coiunits = new Layer(
+        map,
+        {
+            id: "browse_" + coisrc,
+            source: coisrc,
+            "source-layer": coisrc,
+            type: "fill",
+            paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+        },
+        layerAdder
+    );
+    const coiunits2 = tileset.sourceLayer.includes("blockgroups") ? null : new Layer(
+        map,
+        {
+            id: "browse_coinative",
+            source: tileset.sourceLayer,
+            "source-layer": tileset.sourceLayer,
+            type: "fill",
+            paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+        },
+        layerAdder
+    );
+
+    return { units, unitsBorders, coiunits, coiunits2 };
 }
 
 function addPoints(map, tileset, layerAdder) {
@@ -228,7 +252,16 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
             swipemap.addSource(tileset.sourceLayer, tileset.source);
         }
     }
-    const { units, unitsBorders } = addUnits(
+    if (tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
+        map.addSource(
+          tilesets[0].sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+          {
+            type: "vector",
+            url: tilesets[0].source.url.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+          }
+        );
+    }
+    const { units, unitsBorders, coiunits, coiunits2 } = addUnits(
         map,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
@@ -347,5 +380,5 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas, precincts, new_precincts, tracts };
+    return { units, unitsBorders, coiunits, coiunits2, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas, precincts, new_precincts, tracts };
 }

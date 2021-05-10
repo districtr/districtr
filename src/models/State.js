@@ -121,8 +121,14 @@ export default class State {
         return this.plan.parts.filter(part => part.visible);
     }
     initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, bg_areas, bg_points, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, precincts, new_precincts, tracts } = addLayers(
-            map,
+        const {
+            units, unitsBorders,
+            coiunits, coiunits2,
+            bg_areas, bg_points,
+            swipeUnits, swipeUnitsBorders,
+            points, swipePoints,
+            counties, precincts, new_precincts, tracts
+        } = addLayers(map,
             swipemap,
             this.parts,
             unitsRecord.tilesets,
@@ -132,6 +138,8 @@ export default class State {
 
         this.units = units;
         this.unitsBorders = unitsBorders;
+        this.coiunits = coiunits;
+        this.coiunits2 = coiunits2;
         this.swipeUnits = swipeUnits;
         // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
