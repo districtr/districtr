@@ -450,27 +450,27 @@ export default function DataLayersPlugin(editor) {
             }
         );
     } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs", "michigan"].includes(state.place.id)) {
-        const toggleOHlayer = () => {
+        const toggleSchoolsTownslayer = () => {
             // console.log(document.getElementsByName("enacted"));
-            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
-            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("ohschools").checked ? 1 : 0);
-            placesLayer && placesLayer.setOpacity(document.getElementById("ohplaces").checked ? 1 : 0);
-            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("ohplaces").checked ? 1 : 0);
+            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("schools").checked ? 1 : 0);
+            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("schools").checked ? 1 : 0);
+            placesLayer && placesLayer.setOpacity(document.getElementById("towns").checked ? 1 : 0);
+            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("towns").checked ? 1 : 0);
         };
         tab.addRevealSection(
             'Boundaries',
             (uiState, dispatch) => html`
               <label style="display:block;margin-bottom:8px;">
-                <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
+                <input type="radio" name="enacted" @change="${toggleSchoolsTownslayer}" checked/>
                 Hidden
               </label>
               ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
-                <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
+                <input id="towns" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
                 Cities and Towns
               </label>` : ""}
               <label style="display:block;margin-bottom:8px;">
-                <input id="ohschools" type="radio" name="enacted" @change="${toggleOHlayer}"/>
-                Unified School Districts
+                <input id="schools" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
+                School Districts
               </label>`,
             {
                 isOpen: true
