@@ -462,10 +462,12 @@ export function spatial_abilities (id) {
           orlando: {
             number_markers: true,
             shapefile: true,
+            border: true,
           },
           tampa: {
             number_markers: true,
             shapefile: true,
+            border: true,
           },
           kissimmee: {
             number_markers: true,
