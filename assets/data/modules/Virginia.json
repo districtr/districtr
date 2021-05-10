@@ -1,5 +1,739 @@
 [
   {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 449403,
+              "min": 0,
+              "max": 2665
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 334629,
+              "min": 0,
+              "max": 2229
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White voting age population",
+                "sum": 220124,
+                "min": 0,
+                "max": 1389
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black voting age population",
+                "sum": 62791,
+                "min": 0,
+                "max": 881
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic voting age population",
+                "sum": 21234,
+                "min": 0,
+                "max": 254
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian voting age population",
+                "sum": 19451,
+                "min": 0,
+                "max": 191
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 51360,
+                "min": 0,
+                "max": 377
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51572,
+                "min": 0,
+                "max": 488
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 60278,
+                "min": 0,
+                "max": 380
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30631,
+                "min": 0,
+                "max": 244
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19452,
+                "min": 0,
+                "max": 155
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17285,
+                "min": 0,
+                "max": 355
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abb_16",
+                "name": "Jessica P. Abbott",
+                "sum": 79144,
+                "min": 0,
+                "max": 571
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 54041,
+                "min": 0,
+                "max": 342
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12859,
+                "min": 0,
+                "max": 91
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12472,
+                "min": 0,
+                "max": 143
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12825,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 35966,
+                "min": 0,
+                "max": 280
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16290,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14652,
+                "min": 0,
+                "max": 109
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1044,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11433,
+                "min": 0,
+                "max": 112
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "blto_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42774,
+                "min": 0,
+                "max": 367
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9660,
+                "min": 0,
+                "max": 124
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38653,
+                "min": 0,
+                "max": 296
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19541,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17532,
+                "min": 0,
+                "max": 177
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25703,
+                "min": 0,
+                "max": 201
+              },
+              {
+                "key": "redm_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18486,
+                "min": 0,
+                "max": 172
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43583,
+                "min": 0,
+                "max": 295
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51393,
+                "min": 0,
+                "max": 398
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "alln_08",
+                "name": "Georgia F. Allen",
+                "sum": 48977,
+                "min": 0,
+                "max": 337
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10717,
+                "min": 0,
+                "max": 74
+              },
+              {
+                "key": "strs_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13242,
+                "min": 0,
+                "max": 104
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5738,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "wlsn_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62442,
+                "min": 0,
+                "max": 441
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block ID",
+          "key": "GEOID10"
+        },
+        "nameColumn": {
+          "name": "Block Name",
+          "key": "NAME10"
+        },
+        "bounds": [
+          [
+            -76.2278,
+            36.5504
+          ],
+          [
+            -75.8675,
+            36.9321
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_blocks"
+            },
+            "sourceLayer": "virginiabeach_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_blocks_points"
+            },
+            "sourceLayer": "virginiabeach_blocks_points"
+          }
+        ]
+      }
+    ],
+    "name": "Virginia",
+    "state": "Virginia",
+    "id": "va_virginiabeach_blocks",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "name": "Virginia",
+    "id": "va_virginiabeach_precincts",
+    "state": "Virginia",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 449417,
+              "min": 1180,
+              "max": 7919
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 334625,
+              "min": 890,
+              "max": 6163
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White voting age population",
+                "sum": 220095,
+                "min": 560,
+                "max": 4255
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black voting age population",
+                "sum": 62815,
+                "min": 0,
+                "max": 2661
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic voting age population",
+                "sum": 21317,
+                "min": 0,
+                "max": 755
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian voting age population",
+                "sum": 19521,
+                "min": 0,
+                "max": 624
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 51409,
+                "min": 185,
+                "max": 1251
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51628,
+                "min": 174,
+                "max": 1024
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 60264,
+                "min": 177,
+                "max": 1163
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30650,
+                "min": 69,
+                "max": 620
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19520,
+                "min": 54,
+                "max": 313
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17315,
+                "min": 36,
+                "max": 1562
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abb_16",
+                "name": "Jessica P. Abbott",
+                "sum": 79135,
+                "min": 0,
+                "max": 1420
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 54050,
+                "min": 0,
+                "max": 1175
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12869,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12507,
+                "min": 0,
+                "max": 509
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12909,
+                "min": 0,
+                "max": 263
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 36012,
+                "min": 0,
+                "max": 743
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16318,
+                "min": 0,
+                "max": 456
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14719,
+                "min": 0,
+                "max": 365
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1488,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11489,
+                "min": 0,
+                "max": 332
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "blto_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42806,
+                "min": 0,
+                "max": 810
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9745,
+                "min": 0,
+                "max": 333
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38682,
+                "min": 0,
+                "max": 1019
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19572,
+                "min": 0,
+                "max": 428
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17579,
+                "min": 0,
+                "max": 633
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25773,
+                "min": 0,
+                "max": 642
+              },
+              {
+                "key": "redm_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18540,
+                "min": 0,
+                "max": 616
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43629,
+                "min": 0,
+                "max": 885
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51431,
+                "min": 0,
+                "max": 1089
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "alln_08",
+                "name": "Georgia F. Allen",
+                "sum": 49014,
+                "min": 0,
+                "max": 1123
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10751,
+                "min": 0,
+                "max": 243
+              },
+              {
+                "key": "strs_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13301,
+                "min": 0,
+                "max": 518
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5849,
+                "min": 0,
+                "max": 134
+              },
+              {
+                "key": "wlsn_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62479,
+                "min": 0,
+                "max": 1303
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct ID",
+          "key": "PRECINCT_N"
+        },
+        "nameColumn": {
+          "name": "Precinct Name",
+          "key": "prec_name"
+        },
+        "bounds": [
+          [
+            -76.2281,
+            36.5504
+          ],
+          [
+            -75.8676,
+            36.9326
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts"
+            },
+            "sourceLayer": "virginiabeach_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts_points"
+            },
+            "sourceLayer": "virginiabeach_precincts_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
     "districtingProblems": [
       {
         "pluralNoun": "Congressional Districts",
