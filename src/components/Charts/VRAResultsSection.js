@@ -76,7 +76,7 @@ const candNames = {
                     "SOC18PJZAKIM": "J. Zakim",
                     "LTGOV18PQPALFREY":"Q. Palfrey (W)",
                     "LTGOV18PJTINGLE":"J. Tingle (W)", 
-                    "GOV18PJGONZALEZ":"J. Gonzalez (H?)", "GOV18GJGONZALEZ":"J. Gonzalez (H?)",
+                    "GOV18PJGONZALEZ":"J. Gonzalez (H)", "GOV18GJGONZALEZ":"J. Gonzalez (H)",
                     // 2017
                     "EdwardsD_17G_Treasurer": "D. Edwards (B)", "EdwardsD_17P_Treasurer": "D. Edwards (B)",
                     // 2016
