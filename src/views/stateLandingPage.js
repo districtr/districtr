@@ -12,7 +12,6 @@ export default () => {
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
-
             document.title = curState.concat(" | Districtr");
             var def = stateData.modules.filter(m => m.default)[0];
 
@@ -372,7 +371,14 @@ const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         place.districtingProblems
         .sort((a, b) => {
-            if (a.name === "Congress" && b.name !== "Congress") {
+            // change so Reapportioned always comes first
+            if (a.name === "2020 Reapportioned Congress" && b.name !== "2020 Reapportioned Congress") {
+                return -1;
+            }
+            else if (b.name === "2020 Reapportioned Congress" && a.name !== "2020 Reapportioned Congress") {
+                return 1;
+            }
+            else if (a.name === "Congress" && b.name !== "Congress") {
                 return -1;
             } else if (b.name === "Congress" && a.name !== "Congress") {
                 return 1;
@@ -381,7 +387,28 @@ const placeItemsTemplate = (places, onClick) =>
         })
         .map(problem =>
             getUnits(place, problem).map(
-                units => html`
+                units => 
+                // this ternary can be removed if we don't want to deal with the new 
+                // district numbers separately
+                problem.pluralNoun.includes("Reapportioned") ?
+                html`
+                <li
+                    class="${place.id} places-list__item places-list__item--small reapportioned"
+                    @click="${() => onClick(place, problem, units)}"
+                >
+                    <div class="place-name">
+                        ${place.name}
+                    </div>
+                    ${problemTypeInfo[problem.type] || ""}
+                    <div class="place-info">
+                        ${problem.numberOfParts} Congressional Districts
+                    </div>
+                    <div class="place-info">
+                        Built out of ${units.name.toLowerCase()}
+                    </div>
+                </li>
+            `
+                : html`
                     <li
                         class="${place.id} places-list__item places-list__item--small"
                         @click="${() => onClick(place, problem, units)}"
@@ -401,7 +428,7 @@ const placeItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
+          places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>

@@ -98,7 +98,7 @@
     "modules": [
       {"name": "Statewide", "ids": ["arizona"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties"},
-      {"name": "Cities", "ids": ["phoenix"], "id": "loc"},
+      {"name": "Cities", "ids": ["phoenix", "mesaaz"], "id": "loc"},
       {"name": "Zones", "ids": ["nwaz", "seaz"], "id": "zone", "mode": "communities"}],
     "sections": [
       {
@@ -448,8 +448,8 @@
     "code": "FL",
     "modules": [
       {"name": "Statewide", "ids": ["florida"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["miamidade"], "id": "counties"},
-      {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
+      {"name": "Counties", "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"], "id": "counties"},
+      {"name": "Cities", "ids": ["miamifl", "kissimmee", "orlando", "tampa"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1784,7 +1784,7 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["northcarolina"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc"}],
     "sections": [
       {
@@ -2101,6 +2101,41 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
+        "name": "See sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "pa",
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress_2011",
+                "name": "2011 Enacted Congressional Plan"
+              },
+              {
+                "id": "congress_2018_rem",
+                "name": "2018 Remedial Congressional Plan"
+              }
+            ]
+          },
+          {
+            "title": "Proposed Plans",
+            "plans": [
+              {
+                "id": "congress_gov",
+                "name": "Governor’s Proposed Congressional Plan"
+              },
+              {
+                "id": "congress_ts",
+                "name": "Turzai-Scarnati Proposed Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -2342,7 +2377,7 @@
     "code": "TX",
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx"], "id": "cty"},
+      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx"], "id": "cty"},
       {"name": "Cities", "ids": ["austin", "fortworth", "houston"], "id": "loc"}
     ],
     "sections": [
