@@ -448,8 +448,8 @@
     "code": "FL",
     "modules": [
       {"name": "Statewide", "ids": ["florida"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["miamidade"], "id": "counties"},
-      {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
+      {"name": "Counties", "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"], "id": "counties"},
+      {"name": "Cities", "ids": ["miamifl", "kissimmee", "orlando", "tampa"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

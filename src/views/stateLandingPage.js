@@ -428,7 +428,7 @@ const placeItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["california", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
+          places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>
