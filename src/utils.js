@@ -984,6 +984,7 @@ export function spatial_abilities (id) {
         native_american: true,
         shapefile: true,
         find_unpainted: true,
+        current_districts: true,
         contiguity: 2,
       },
         wisconsin2020: {
@@ -1000,6 +1001,7 @@ export function spatial_abilities (id) {
           native_american: true,
           shapefile: true,
           find_unpainted: true,
+          current_districts: true,
           contiguity: 2,
         },
       wyoming: {
