@@ -100,8 +100,17 @@ export default function NumberMarkers(state, brush) {
         if (state.units.sourceId === "indiana_precincts") {
             extra_source = "indianaprec";
         }
-        let placeID = extra_source || place;
+        if (state.place.id === "la_vra"){
+            extra_source = "louisiana";
+        }
+        if (state.place.id === "tx_vra"){
+            extra_source = "texas";
+        }
+        if (state.place.id === "elpasotx" && state.units.sourceId.includes("precincts")) {
+            extra_source = "texas";
+        }
 
+        let placeID = extra_source || place;
         if (plan && plan.assignment) {
             let markers = {},
                 seenDistricts = new Set();

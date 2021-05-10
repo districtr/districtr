@@ -5,7 +5,7 @@
     "scripts": {
         "test": "node validate.js && karma start --coverage",
         "build": "npm run build:aliases && npm run build:lambda && npm run build:app",
-        "build:aliases": "cp html/edit.html html/COI.html && cp html/edit.html html/plan.html",
+        "build:aliases": "cp html/edit.html html/COI.html && cp html/edit.html html/plan.html && cp html/event.html html/tag.html && cp html/event.html html/group.html",
         "build:app": "gulp build",
         "build:lambda": "netlify-lambda build src/lambda",
         "develop": "gulp develop",
@@ -76,7 +76,7 @@
         "geo-albers-usa-territories": "0.0.2",
         "hotkeys-js": "^3.7.6",
         "lit-html": "^1.1.2",
-        "mapbox-gl": "^1.9.1",
+        "mapbox-gl": "^2.2.0",
         "mapbox-gl-compare": "^0.4.0",
         "netlify-lambda": "^1.6.3"
     }

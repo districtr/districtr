@@ -2,6 +2,7 @@ import { interpolateRdBu } from "d3-scale-chromatic";
 import { html } from "lit-html";
 import { roundToDecimal } from "../../utils";
 import DataTable from "./DataTable";
+import { getPartyRGBColors } from "../../layers/color-rules"
 
 /**
  * Get the style property for a cell in the ElectionResults table,
@@ -15,9 +16,9 @@ import DataTable from "./DataTable";
  * @param {Subgroup} party
  */
 function getCellStyle(percent, party) {
-    if (party.name === "Democratic" && percent > 0.5) {
+    if ((party.name === "Democratic" || party.name.includes("(Dem)")) && percent > 0.5) {
         return `background: ${interpolateRdBu(percent)}`;
-    } else if (party.name === "Republican" && percent > 0.5) {
+    } else if ((party.name === "Republican" || party.name.includes("(Rep)")) && percent > 0.5) {
         return `background: ${interpolateRdBu(1 - percent)}`;
     }
     return `background: #f9f9f9`;
@@ -37,7 +38,9 @@ function getCell(party, part) {
 }
 
 export default function ElectionResults(election, parts) {
-    const headers = election.parties.map(party => party.name);
+    const headers = election.parties.map(party => {
+                        const rgb = getPartyRGBColors(party.name + party.key);
+                        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`});
     let rows = parts.map(part => ({
         label: part.renderLabel(),
         entries: election.parties.map(party => getCell(party, part))
@@ -47,7 +50,7 @@ export default function ElectionResults(election, parts) {
         entries: election.parties.map(party => getCell(party, null))
     });
     return html`
-        ${election.parties.length === 2 ? html`<strong>two-party vote share</strong>` : ""}
+        ${election.parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
         ${DataTable(headers, rows)}
     `;
 }

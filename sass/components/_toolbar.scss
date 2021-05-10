@@ -30,6 +30,21 @@
     align-items: center;
 }
 
+.toolbar-inner {
+  display: flex;
+  padding: 0 1rem 1rem 1rem;
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.dataset-info > p {
+  margin: 0;
+}
+
+.dataset-info > span {
+  font-size: 0.6rem;
+}
+
 .district-row {
     display: block;
 }
@@ -516,4 +531,37 @@ li:first-child > input:checked ~ .tabs__tab {
   #landmark-instruction {
     visibility: hidden;
   }
+}
+.elect_tooltip {
+    position: relative;
+    // display: inline-block;
+  }
+  
+/* Tooltip text */
+.elect_tooltip .elect_tooltiptext {
+    visibility: hidden;
+    width: auto;
+    height: auto;
+    min-width: 8rem;
+    min-height: 2rem;
+    background-color: #111;
+    color:#eee;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
+    pointer-events: none;
+}
+.elect_tooltip_right_edge {
+    margin-left: -100%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.elect_tooltip:hover .elect_tooltiptext {
+    visibility: visible;
 }

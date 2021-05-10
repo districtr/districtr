@@ -202,7 +202,7 @@ function addCounties(map, tileset, layerAdder, placeID) {
         filter: [
             "==",
             ["get", "STATEFP"],
-            String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "")])
+            String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "").replace("wisco2019acs", "wisconsin")])
         ]
     },
     layerAdder);
@@ -297,9 +297,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     );
 
     // cities in Communities of Interest will have a thick border
-    if (["austin", "batonrouge", "chicago", "fortworth", "lowell", "ontarioca", "philadelphia", "phoenix", "providence_ri", "rochestermn", "santa_clara", "napa", "napaschools", "portlandor", "kingcountywa", "miamifl", "ccsanitation2", "vabeach",
-    "akroncanton", "cincinnati", "clevelandeuclid", "columbus", "dayton", "limaoh", "mansfield", "portsmouthoh", "toledo", "youngstown"
-    ].includes(borderId)) {
+    if (spatial_abilities(borderId).border) {
         fetch(`/assets/city_border/${borderId}.geojson`)
             .then(res => res.json())
             .then((geojson) => {

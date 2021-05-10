@@ -25,7 +25,7 @@ class DistrictingPlan {
         if (!place.landmarks) {
             place.landmarks = {};
         }
-        this.place = { id: place.id, landmarks: place.landmarks, state: place.state };
+        this.place = { id: place.id, landmarks: place.landmarks, state: place.state, name: place.name };
         this.parts = getParts(problem);
         if (parts) {
             for (let i = 0; i < parts.length; i++) {
@@ -65,7 +65,7 @@ class DistrictingPlan {
             idColumn: { key: this.idColumn.key, name: this.idColumn.name },
             problem: this.problem,
             parts: this.parts.filter(p => p.visible).map(p => p.serialize()),
-            place: { id: this.place.id, landmarks: this.place.landmarks, state: this.place.state }
+            place: { id: this.place.id, landmarks: this.place.landmarks, state: this.place.state, name: this.place.name }
         };
     }
 }

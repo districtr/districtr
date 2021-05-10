@@ -1,11 +1,12 @@
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 import { Parameter } from "../components/Parameter";
 import Select from "../components/Select";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
+import { getPartyRGBColors } from "../layers/color-rules";
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections, bipolarText) {
+    constructor(id, layers, elections, toolbar, bipolarText) {
         this._id = id;
         this.elections = elections;
         this.layers = layers;
@@ -13,6 +14,8 @@ export default class PartisanOverlayContainer {
             election => new PartisanOverlay(layers, election)
         );
         this._currentElectionIndex = 0;
+        this._inspection = toolbar.toolsById.inspect;
+        this._toolbar = toolbar;
 
         this.setElection = this.setElection.bind(this);
         this.render = this.render.bind(this);
@@ -41,8 +44,10 @@ export default class PartisanOverlayContainer {
         this.isVisible = visible;
         if (this.isVisible) {
             this.currentElectionOverlay.show();
+            // document.querySelector(".custom-party-list").style.display = "block";
         } else {
             this.currentElectionOverlay.hide();
+            // document.querySelector(".custom-party-list").style.display = "none";
         }
         if (this.bipolarText) {
             // get last word of label ("Renter") to show/hide color scale
@@ -52,18 +57,64 @@ export default class PartisanOverlayContainer {
     }
     setElection(i) {
         this._currentElectionIndex = i;
+
+        // if (this.electionOverlays.length > 1) {
+        //     let candidates = Array.from(document.querySelectorAll(".party-desc")).reverse();
+        //     candidates.forEach((c, cdex) => {
+        //         c.style.display = (cdex === i * 2 || cdex === i * 2 + 1) ? "list-item" : "none";
+        //     });
+        // }
+
         this.electionOverlays.forEach(overlay => overlay.hide());
         if (this.isVisible) {
             this.currentElectionOverlay.show(this.vote);
         }
+        this.syncInspectTool();
+
+        const target = document.getElementById("candidate-legend");
+        if (target === null) {
+            return;
+        }
+        render(this.candidateLegend(), target);
     }
+
+    syncInspectTool() {
+        console.log("syncing")
+        console.log(this._inspection);
+        const curElect = this.elections[this._currentElectionIndex].name;
+        const inspectIndex = this._inspection.columnSets.findIndex(cs => cs.name === curElect);
+        // console.log(curElect);
+        // console.log(this._inspection.columnSets[inspectIndex]);
+        this._inspection.changeColumnSetByIndex(inspectIndex);
+        if (this._inspection.active) {
+            const target = document.getElementById("toolbar");
+            if (target === null) {
+                return;
+            }
+            render(this._toolbar.render(), target);
+        }
+    }
+
     selectVote(type) {
         this.vote = type;
         this.setElection(this._currentElectionIndex);
     }
+
+    candidateLegend() {
+        const cands = this.elections[this._currentElectionIndex].subgroups;
+        return cands.map(c => html`
+                                <li class="party-desc">
+                                    <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>
+                                    <span>${c.name}</span>
+                                </li>`);
+    }
+
     render() {
         const overlay = this.currentElectionOverlay;
+        
+        
         return html`
+            <div id="candidate-legend">${this.candidateLegend()}</div>
             <div class="ui-option ui-option--slim">
                 <h5>
                   <label class="toolbar-checkbox">

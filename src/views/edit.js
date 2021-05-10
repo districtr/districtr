@@ -83,6 +83,7 @@ function getPlanContext() {
 
 function loadContext(context) {
     const root = document.getElementById("root");
+    const showVRA = spatial_abilities(context.place.id).vra_effectiveness;
     root.className = "";
     render(
         html`
@@ -102,7 +103,7 @@ function loadContext(context) {
             fitBoundsOptions: {
                 padding: {
                     top: 50,
-                    right: context.units.coi2 ? 250 : 50,
+                    right: context.units.coi2 ? 250 : showVRA ? 100 : 50,
                     left: 50,
                     bottom: 50
                 }
@@ -113,13 +114,16 @@ function loadContext(context) {
     if (context.units.coi2) {
         document.body.className = "coi2";
     }
+    if (showVRA) {
+        document.body.className = "vra";
+    }
     window.document.title = "Loading... | Districtr";
 
     // display shorter URL
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
         && window.location.hostname !== 'localhost'
-        && window.location.hash && window.location.hash === "#plan") {
+        && window.location.hash && (["#plan", "#portal"].includes(window.location.hash))) {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
         shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
@@ -127,6 +131,9 @@ function loadContext(context) {
             + window.location.search.replace("url=" + shortPlanName.join("/"), "");
         if (shortPlanName[shortPlanName.length - 1] === "?") {
             shortPlanName = shortPlanName.substring(0, shortPlanName.length - 1);
+        }
+        if (window.location.hash === "#portal") {
+            shortPlanName += "?portal";
         }
         window.history.replaceState({}, "Districtr", shortPlanName);
     }

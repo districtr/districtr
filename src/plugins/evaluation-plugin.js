@@ -2,9 +2,10 @@ import { html } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
-import IncomeHistogramTable from "../components/Charts/IncomeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
+import VRAEffectivenessTable from "../components/Charts/VRATable";
+import VRAResultsSection from "../components/Charts/VRAResultsSection"
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
@@ -12,11 +13,13 @@ import { spatial_abilities } from "../utils";
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
 
-    const tab = new Tab("evaluation", "Evaluation", editor.store);
+    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const tab = new Tab("evaluation", showVRA ? "Eval." : "Evaluation", editor.store);
+    const VRAtab = new Tab("vra", "VRA", editor.store);
 
     if (state.population.subgroups.length > 1) {
         let mockColumnSet = state.population;
-        if (spatial_abilities(state.place.id).coalition) {
+        if (spatial_abilities(state.place.id).coalition !== false) {
             let coalitionSubgroup = {
                 data: [],
                 key: 'coal',
@@ -78,6 +81,23 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
+    if (state.cvap) {
+        tab.addRevealSection(
+            "Citizen Voting Age Population by Race",
+            (uiState, dispatch) =>
+                RacialBalanceTable(
+                    "Citizen Voting Age Population by Race",
+                    state.cvap,
+                    state.activeParts,
+                    uiState.charts["Citizen Voting Age Population by Race"],
+                    dispatch
+                ),
+            {
+                isOpen: state.population.subgroups.length > 1 ? false : true,
+                activeSubgroupIndices: state.cvap.indicesOfMajorSubgroups()
+            }
+        );
+    }
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
@@ -120,44 +140,6 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    if (state.incomes) {
-        if (["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
-            const incomeOverlay = new OverlayContainer(
-                "income",
-                state.layers.filter(lyr => lyr.id.includes("bgs")),
-                state.incomes,
-                "Map median income (by block group)",
-                true // first layer only
-            );
-
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${incomeOverlay.render()}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        } else {
-            tab.addRevealSection(
-                'Household Income',
-                (uiState, dispatch) =>  html`<div>
-                    ${IncomeHistogramTable(
-                        "Income Histograms",
-                        state.incomes,
-                        state.activeParts,
-                        uiState.charts["Income Histograms"],
-                        dispatch
-                    )}
-                </div>`,
-                {
-                  isOpen: false
-                }
-            );
-        }
-    }
-
     if (state.plan.problem.type !== "community"
         && (spatial_abilities(state.place.id).contiguity)
         && (state.units.sourceId !== "ma_towns")
@@ -178,7 +160,63 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
+    // console.log(state);
+    if (showVRA && (state.units.sourceId !== "ma_towns")) 
+    {
+        VRAtab.addRevealSection(
+            "VRA Effectiveness Overview",
+            (uiState, dispatch) =>
+                VRAEffectivenessTable(
+                    state.parts,
+                    state.vra_effectiveness,
+                    state.waiting,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: true
+            }
+        );
+        
+        // VRAtab.addRevealSection(
+        //     "VRA Alignment",
+        //     (uiState, dispatch) =>
+        //         VRAAlignmentTable(
+        //             state.parts,
+        //             state.vra_effectiveness,
+        //             state.waiting,
+        //             uiState,
+        //             dispatch
+        //         ),
+        //     {
+        //         isOpen: false
+        //     }
+        // );
+
+        VRAtab.addRevealSection(
+            "VRA District Details",
+            (uiState, dispatch) =>
+                VRAResultsSection(
+                    "VRA District Details",
+                    state.parts,
+                    state.vra_effectiveness,
+                    state.place.id,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: false,
+                activePartIndex: 0,
+                activeSubgroupIndices: [0,0]
+            }
+        );
+    }
+
     if (tab.sections.length > 0) {
         toolbar.addTab(tab);
+    }
+
+    if (VRAtab.sections.length > 0) {
+        toolbar.addTab(VRAtab);
     }
 }

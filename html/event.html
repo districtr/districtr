@@ -17,9 +17,12 @@
         <style type="text/css">
           .thumb__heading {
               overflow: hidden;
-              width: 280px;
               text-overflow: ellipsis;
               white-space: nowrap;
+          }
+          .plan-thumbs__thumb {
+            min-width: 200px;
+            /* flex-direction: row-reverse !important; */
           }
           #about-section {
             display: none;
@@ -34,6 +37,44 @@
           }
           .pcommunity:hover {
             background: #e44944;
+          }
+          .places-list.events {
+            flex-wrap: wrap;
+            flex-direction: row;
+          }
+          #mini-map-2 path {
+            fill: #ccc;
+          }
+          #mini-map-0 path {
+            fill: #0099cd;
+            cursor: pointer;
+          }
+          #mini-map path, #mini-map-2 path.circle {
+            fill: #0099cd;
+            stroke: white;
+            cursor: pointer;
+          }
+          #mini-map-0 svg:hover path {
+            fill: #006b9c;
+          }
+          #mini-map path:hover, #mini-map-2 path.circle:hover {
+            fill: #006b9c;
+          }
+          button#loadMorePlans, img#event-pinwheel {
+            margin-left: 45%;
+            min-width: 10%;
+            cursor: pointer;
+            padding: 15px;
+          }
+          figure, #mini-maps .label {
+            width: 320px;
+            margin: 0;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+          }
+          figure {
+            margin-bottom: -50px;
           }
         </style>
     </head>
@@ -61,7 +102,7 @@
                     </button>
                 </div>
                 <ul id="nav-links" class="nav-links site-nav__contents">
-        <li class="nav">
+        <li class="draw-section" class="nav">
             <a class="nav-links__link nav-links__link--major" href="#communities">
                 Draw
             </a>
@@ -76,7 +117,7 @@
                 Shared Maps
             </a>
         </li>
-        <li class="nav">
+        <li class="about-section" class="nav" style="display: none">
             <a class="nav-links__link nav-links__link--major" href="#about-section">
                 About
             </a>
@@ -92,14 +133,32 @@
         <main id="root" class="place">
             <article class="place__content">
                 <h1 class="headline place__name">
-                    Public Event:
-                    <span id="eventHeadline"></span>
+                    <span id="introExplain">Tag:</span>
+                    <small id="eventHeadline"></small>
                 </h1>
-                <div id="event-description"></div>
+
+                <div id="event-description">
+                </div>
 
                 <h2 id="communities">Start&nbsp;<span id="draw-goal"></span></h2>
-                <p>Click below to start with a blank map.</p>
-                <div id="districting-options"></div>
+
+                <div id="mini-maps" style="display: none">
+                  <p>Click below to start with a blank map at the scale of your choosing</p>
+                  <figure id="mini-map-0"></figure>
+                  <figure id="mini-map"></figure>
+                  <figure id="mini-map-2"></figure>
+                  <br/>
+                  <div class="label">Statewide</div>
+                  <div class="label">Regions</div>
+                  <div class="label">
+                    <span id="city-caption"></span>
+                    <br/>
+                    City/Metro
+                  </div>
+                </div>
+
+                <p id="districting-options-title">Click below to start with a blank map.</p>
+                <div id="districting-options" class="places-list events"></div>
                 <div style="clear:both"></div>
                 <div id="proposals"></div>
                 <div id="plans"></div>

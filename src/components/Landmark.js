@@ -8,14 +8,14 @@ export function LandmarkInfo(features) {
     }
     const isSimpleFeature = (f) => {
         let ks = Object.keys(f.properties || {});
-        return ks.length == 2 && ks.includes("name") ** ks.includes("short_description");
+        return ks.includes("name") && (ks.includes("short_description") || ks.includes("shortDescription"));
     };
     return features.map(
         feature => isSimpleFeature(feature)
           ? html`
               <div class="tooltip__text tooltip__text--column">
                   <h4 class="tooltip__title">${feature.properties.name}</h4>
-                  ${feature.properties.short_description || ""}
+                  ${feature.properties.short_description || feature.properties.shortDescription || ""}
               </div>
           `
           : html`

@@ -1,0 +1,32 @@
+{
+"type": "FeatureCollection",
+"name": "louisiana_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Chitimacha" }, "geometry": { "type": "Point", "coordinates": [ -91.53644000565329, 29.878036246488396 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.685355162057533, 30.543304977412475 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.711862004422301, 30.504094573910379 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.717070892732977, 30.521916237571801 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.796912773017397, 30.529832942723463 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.812174862972995, 30.547468752951222 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tunica-Biloxi" }, "geometry": { "type": "Point", "coordinates": [ -92.053600607391886, 31.113220604411367 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.101151263502302, 31.686673541393851 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.155745677731446, 31.690398731296952 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.18739825663998, 31.696017918530536 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.22208057435077, 31.660874806425756 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.480072347422322, 31.427906725516451 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jena Band of Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.498769901342953, 31.437851587973476 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.710060991282617, 30.522107237965173 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.71669537705445, 30.526121967301787 ] } },
+{ "type": "Feature", "properties": { "NAME": "Coushatta" }, "geometry": { "type": "Point", "coordinates": [ -92.819559916485588, 30.54327149370997 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tunica-Biloxi" }, "geometry": { "type": "Point", "coordinates": [ -92.051141807323944, 31.10113984130323 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tunica-Biloxi" }, "geometry": { "type": "Point", "coordinates": [ -92.062105472803907, 31.10843574359756 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tunica-Biloxi" }, "geometry": { "type": "Point", "coordinates": [ -92.207956837717788, 31.108266331429199 ] } },
+{ "type": "Feature", "properties": { "NAME": "Adais Caddo" }, "geometry": { "type": "Point", "coordinates": [ -92.900483650556367, 31.51954536427796 ] } },
+{ "type": "Feature", "properties": { "NAME": "Adais Caddo" }, "geometry": { "type": "Point", "coordinates": [ -93.329303608022926, 31.777474847606793 ] } },
+{ "type": "Feature", "properties": { "NAME": "United Houma Nation" }, "geometry": { "type": "Point", "coordinates": [ -90.726510896329131, 29.59841437017586 ] } },
+{ "type": "Feature", "properties": { "NAME": "Clifton Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -92.856301447008292, 31.296011298111452 ] } },
+{ "type": "Feature", "properties": { "NAME": "Apache Choctaw" }, "geometry": { "type": "Point", "coordinates": [ -93.666997460378937, 31.628344377190569 ] } },
+{ "type": "Feature", "properties": { "NAME": "Four Winds Cherokee" }, "geometry": { "type": "Point", "coordinates": [ -93.196200506425811, 31.116171907949859 ] } }
+]
+}
