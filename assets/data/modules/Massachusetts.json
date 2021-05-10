@@ -1778,7 +1778,8 @@
     "state": "Massachusetts"
   },
   {
-    "id": "ma_vra",
+    "state": "Massachusetts",
+    "name": "Massachusetts",
     "units": [
       {
         "id": "precincts",
@@ -1915,6 +1916,366 @@
                 "max": 311
               }
             ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Senate",
+            "subgroups": [
+              {
+                "key": "SEN12GEWAR",
+                "name": "Democratic",
+                "sum": 1696346,
+                "min": 19,
+                "max": 3435
+              },
+              {
+                "key": "SEN12GSBRO",
+                "name": "Republican",
+                "sum": 1458048,
+                "min": 2,
+                "max": 2765
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12GBOB",
+                "name": "Democratic",
+                "sum": 1921290,
+                "min": 15,
+                "max": 3830
+              },
+              {
+                "key": "PRES12GMRO",
+                "name": "Republican",
+                "sum": 1188314,
+                "min": 1,
+                "max": 2365
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2013 Senate",
+            "subgroups": [
+              {
+                "key": "SEN13GEMAR",
+                "name": "Democratic",
+                "sum": 645429,
+                "min": 0,
+                "max": 1219
+              },
+              {
+                "key": "SEN13GGGOM",
+                "name": "Republican",
+                "sum": 525307,
+                "min": 0,
+                "max": 1403
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "SEN14GEMAR",
+                "name": "Democratic",
+                "sum": 1289944,
+                "min": 3,
+                "max": 2233
+              },
+              {
+                "key": "SEN14GHERR",
+                "name": "Republican",
+                "sum": 791950,
+                "min": 0,
+                "max": 1760
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14GCBAK",
+                "name": "Republican",
+                "sum": 1044573,
+                "min": 0,
+                "max": 2063
+              },
+              {
+                "key": "GOV14GMCOA",
+                "name": "Democratic",
+                "sum": 1004408,
+                "min": 3,
+                "max": 1817
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14GMHEAL",
+                "name": "Democratic",
+                "sum": 1280513,
+                "min": 3,
+                "max": 2099
+              },
+              {
+                "key": "AG14GJMILL",
+                "name": "Republican",
+                "sum": 793816,
+                "min": 0,
+                "max": 1773
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Secretary of the Commonwealth",
+            "subgroups": [
+              {
+                "key": "SOC14GWGAL",
+                "name": "Democratic",
+                "sum": 1395616,
+                "min": 3,
+                "max": 2341
+              },
+              {
+                "key": "SOC14GDDAR",
+                "name": "Republican",
+                "sum": 597491,
+                "min": 0,
+                "max": 1407
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE14GDGOL",
+                "name": "Democratic",
+                "sum": 1120192,
+                "min": 3,
+                "max": 1905
+              },
+              {
+                "key": "TRE14GMHEF",
+                "name": "Republican",
+                "sum": 828894,
+                "min": 0,
+                "max": 1848
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Auditor",
+            "subgroups": [
+              {
+                "key": "AUD14GPBUM",
+                "name": "Democratic",
+                "sum": 1146987,
+                "min": 3,
+                "max": 1976
+              },
+              {
+                "key": "AUD14GSSAI",
+                "name": "Republican",
+                "sum": 757213,
+                "min": 0,
+                "max": 1775
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16GHCL",
+                "name": "Democratic",
+                "sum": 1995196,
+                "min": 1,
+                "max": 4146
+              },
+              {
+                "key": "PRES16GDTR",
+                "name": "Republican",
+                "sum": 1090893,
+                "min": 0,
+                "max": 2313
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18GCBAK",
+                "name": "Republican",
+                "sum": 1781341,
+                "min": 1,
+                "max": 3071
+              },
+              {
+                "key": "GOV18GJGON",
+                "name": "Democratic",
+                "sum": 885770,
+                "min": 1,
+                "max": 1750
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18GEWAR",
+                "name": "Democratic",
+                "sum": 1633371,
+                "min": 2,
+                "max": 2662
+              },
+              {
+                "key": "SEN18GGDIE",
+                "name": "Republican",
+                "sum": 979210,
+                "min": 0,
+                "max": 1992
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18GMHEAL",
+                "name": "Democratic",
+                "sum": 1874209,
+                "min": 2,
+                "max": 2928
+              },
+              {
+                "key": "AG18GJMCMA",
+                "name": "Republican",
+                "sum": 804832,
+                "min": 0,
+                "max": 1628
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of the Commonwealth",
+            "subgroups": [
+              {
+                "key": "SOC18GWGAL",
+                "name": "Democratic",
+                "sum": 1877065,
+                "min": 2,
+                "max": 2951
+              },
+              {
+                "key": "SOC18GAAMO",
+                "name": "Republican",
+                "sum": 671300,
+                "min": 0,
+                "max": 1398
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18GDGOL",
+                "name": "Democratic",
+                "sum": 1761282,
+                "min": 2,
+                "max": 2803
+              },
+              {
+                "key": "TRE18GKORR",
+                "name": "Republican",
+                "sum": 749596,
+                "min": 0,
+                "max": 1600
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18GSBUM",
+                "name": "Democratic",
+                "sum": 1606518,
+                "min": 2,
+                "max": 2635
+              },
+              {
+                "key": "AUD18GHBRA",
+                "name": "Republican",
+                "sum": 801583,
+                "min": 0,
+                "max": 1692
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20GJBI",
+                "name": "Democratic",
+                "sum": 2382202,
+                "min": 1,
+                "max": 5241
+              },
+              {
+                "key": "PRES20GDTR",
+                "name": "Republican",
+                "sum": 1167202,
+                "min": 0,
+                "max": 2391
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+              {
+                "key": "SEN20GEMAR",
+                "name": "Democratic",
+                "sum": 2357809,
+                "min": 1,
+                "max": 5132
+              },
+              {
+                "key": "SEN20GKOCO",
+                "name": "Republican",
+                "sum": 1177765,
+                "min": 0,
+                "max": 2323
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -1951,8 +2312,7 @@
         ]
       }
     ],
-    "state": "Massachusetts",
-    "name": "Massachusetts",
+    "id": "ma_vra",
     "districtingProblems": [
       {
         "name": "Congress",

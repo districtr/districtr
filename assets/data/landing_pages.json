@@ -2967,6 +2967,33 @@
       },
       {
         "name": "Explore the enacted plans",
+        "nav": "Examples (MA)",
+        "type": "plans",
+        "ref": "vra",
+        "pages": ["massachusetts"],
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans in Massachusetts",
+            "plans": [
+              {
+                "id": "ma-congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "ma-state-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "ma-state-house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Explore the enacted plans",
         "nav": "Examples (TX)",
         "type": "plans",
         "ref": "vra",
