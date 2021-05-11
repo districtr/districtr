@@ -111,7 +111,7 @@ function loadContext(context) {
         },
         getMapStyle(context)
     );
-    if (context.units.coi2) {
+    if (context.units.coi2 || spatial_abilities(context.place.id).coi2) {
         document.body.className = "coi2";
     }
     if (showVRA) {
