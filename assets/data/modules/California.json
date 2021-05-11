@@ -1777,5 +1777,176 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "kern",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 887641,
+              "min": 26,
+              "max": 11624
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White, non-Hispanic",
+                "sum": 303225,
+                "min": 0,
+                "max": 5759
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black, non-Hispanic",
+                "sum": 45761,
+                "min": 0,
+                "max": 1184
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian, non-Hispanic",
+                "sum": 40730,
+                "min": 0,
+                "max": 2939
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian, non-Hispanic",
+                "sum": 4303,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander, non-Hispanic",
+                "sum": 1115,
+                "min": 0,
+                "max": 114
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races, non-Hispanic",
+                "sum": 873,
+                "min": 0,
+                "max": 111
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races, non-Hispanic",
+                "sum": 18260,
+                "min": 0,
+                "max": 427
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 473374,
+                "min": 0,
+                "max": 8539
+              },
+              {
+                "key": "H_WHITE",
+                "name": "White, Hispanic",
+                "sum": 356922,
+                "min": 0,
+                "max": 6631
+              },
+              {
+                "key": "H_BLACK",
+                "name": "Black, Hispanic",
+                "sum": 2789,
+                "min": 0,
+                "max": 271
+              },
+              {
+                "key": "H_ASIAN",
+                "name": "Asian, Hispanic",
+                "sum": 1370,
+                "min": 0,
+                "max": 128
+              },
+              {
+                "key": "H_AMIN",
+                "name": "American Indian, Hispanic",
+                "sum": 4666,
+                "min": 0,
+                "max": 395
+              },
+              {
+                "key": "H_NHPI",
+                "name": "Native Hawaiian and Pacific Islander, Hispanic",
+                "sum": 563,
+                "min": 0,
+                "max": 235
+              },
+              {
+                "key": "H_OTHER",
+                "name": "Other races, Hispanic",
+                "sum": 94292,
+                "min": 0,
+                "max": 1753
+              },
+              {
+                "key": "H_2MORE",
+                "name": "Two or more races, Hispanic",
+                "sum": 12772,
+                "min": 0,
+                "max": 403
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Census GEOID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -120.1942,
+            34.7906
+          ],
+          [
+            -117.6162,
+            35.7982
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.kern_ca_jack_kern"
+            },
+            "sourceLayer": "kern_ca_jack_kern"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.kern_ca_jack_kern_points"
+            },
+            "sourceLayer": "kern_ca_jack_kern_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "kern_ca_jack",
+    "name": "Kern County",
+    "districtingProblems": [
+      {
+        "name": "County Commissioner",
+        "numberOfParts": 5,
+        "pluralNoun": "County Commissioner Districts"
+      }
+    ]
   }
 ]
