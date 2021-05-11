@@ -598,6 +598,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
           param: 'planid',
