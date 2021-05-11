@@ -445,6 +445,34 @@ export function spatial_abilities (id) {
             number_markers: true,
             neighborhoods: true,
           },
+          fl_hills: {
+            multiyear: 2019,
+            number_markers: true,
+            shapefile: true,
+          },
+          fl_orange: {
+            multiyear: 2019,
+            number_markers: true,
+            shapefile: true,
+          },
+          fl_osceola: {
+            number_markers: true,
+            shapefile: true,
+          },
+          orlando: {
+            number_markers: true,
+            shapefile: true,
+            border: true,
+          },
+          tampa: {
+            number_markers: true,
+            shapefile: true,
+            border: true,
+          },
+          kissimmee: {
+            number_markers: true,
+            shapefile: true,
+          },
       georgia: {
         number_markers: true,
         county_brush: true,
@@ -890,6 +918,12 @@ export function spatial_abilities (id) {
         },
         fortworth: {
           border: true,
+        },
+        houston: {
+          border: true,
+          number_markers: true,
+          shapefile: true,
+          multiyear: 2019,
         },
         elpasotx: {
           border: true,

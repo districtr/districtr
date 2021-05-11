@@ -33,7 +33,6 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
             })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 data.forEach((row) => {
                     let unitId = row[state.idColumn.key];
                     if (populationUnloaded.has(unitId)) {
@@ -89,10 +88,9 @@ function assign(state, feature, partId, updateData) {
         partId = [partId];
     }
     if (updateData) {
-        console.log('update data');
         state.update(feature, partId);
     } else {
-        console.log('dont update data');
+        // don't update data; we sideloaded it already 
     }
     partId.forEach((p) => {
         if (state.parts[p]) {
