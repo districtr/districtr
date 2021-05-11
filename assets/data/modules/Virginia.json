@@ -1,5 +1,147 @@
 [
   {
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.176660,
+                  36.835710
+                ]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.100350,
+                  36.833850
+                ]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.170790,
+                  36.788930
+                ]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.996310,
+                  36.698450
+                ]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.983920,
+                  36.871320
+                ]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.128020,
+                  36.817660
+                ]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.971900,
+                  36.838410
+                ]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.130560,
+                  36.778330
+                ]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            }
+          ]
+        }
+      }
+    },
     "units": [
       {
         "id": "blocks",
@@ -367,8 +509,150 @@
     ]
   },
   {
-    "name": "Virginia",
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.176660,
+                  36.835710
+                ]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.100350,
+                  36.833850
+                ]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.170790,
+                  36.788930
+                ]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.996310,
+                  36.698450
+                ]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.983920,
+                  36.871320
+                ]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.128020,
+                  36.817660
+                ]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.971900,
+                  36.838410
+                ]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.130560,
+                  36.778330
+                ]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            }
+          ]
+        }
+      }
+    },
     "id": "va_virginiabeach_precincts",
+    "name": "Virginia",
     "state": "Virginia",
     "units": [
       {

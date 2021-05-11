@@ -925,12 +925,12 @@ export function spatial_abilities (id) {
         },
         va_virginiabeach_precincts: {
           number_markers: true,
-          cvap_coalition: true,
+          coalition: false,
           election_history: true,
         },
         va_virginiabeach_blocks: {
           number_markers: true,
-          cvap_coalition: true,
+          coalition: false,
           election_history: true,
         },
       washington: {
