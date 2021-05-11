@@ -11,7 +11,11 @@ export function bundleView(view, production = true, cache) {
         rollup({
             input: `./src/views/${view}.js`,
             plugins: plugins(IE_TARGETS, !production),
-            cache: !production ? cache : false
+            cache: !production ? cache : false,
+            onwarn: (warning, warn) => {
+                if (warning.code === 'CIRCULAR_DEPENDENCY') return;
+                warn(warning);
+            }
         }).then(bundle =>
             bundle.write({
                 file: `./dist/es5/${view}.js`,
@@ -23,7 +27,11 @@ export function bundleView(view, production = true, cache) {
         rollup({
             input: `./src/views/${view}.js`,
             plugins: plugins(MODERN_TARGETS, !production),
-            cache: !production ? cache : false
+            cache: !production ? cache : false,
+            onwarn: (warning, warn) => {
+                if (warning.code === 'CIRCULAR_DEPENDENCY') return;
+                warn(warning);
+            }
         }).then(bundle =>
             bundle.write({
                 file: `./dist/es6/${view}.js`,
