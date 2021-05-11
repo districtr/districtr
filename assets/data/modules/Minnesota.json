@@ -549,26 +549,6 @@
                 "max": 2460
               }
             ]
-          },
-          {
-            "type": "election",
-            "name": "2018 Auditor",
-            "subgroups": [
-              {
-                "key": "AUD18R",
-                "name": "Republican",
-                "sum": 1095310,
-                "min": 0,
-                "max": 2655
-              },
-              {
-                "key": "AUD18D",
-                "name": "Democratic",
-                "sum": 1250524,
-                "min": 0,
-                "max": 2390
-              }
-            ]
           }
         ],
         "idColumn": {
@@ -590,7 +570,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.minnesota_precincts"
+              "url": "mapbox://districtr.minnesota_precincts?v=2"
             },
             "sourceLayer": "minnesota_precincts"
           },
@@ -598,7 +578,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.minnesota_precincts_points"
+              "url": "mapbox://districtr.minnesota_precincts_points?v=2"
             },
             "sourceLayer": "minnesota_precincts_points"
           }
