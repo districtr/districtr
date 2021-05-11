@@ -961,11 +961,13 @@ export function spatial_abilities (id) {
           number_markers: true,
           coalition: false,
           election_history: true,
+          coi2: true
         },
         va_virginiabeach_blocks: {
           number_markers: true,
           coalition: false,
           election_history: true,
+          coi2: true
         },
       washington: {
         number_markers: true,
