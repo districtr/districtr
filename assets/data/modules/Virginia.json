@@ -173,31 +173,38 @@
             "subgroups": [
               {
                 "key": "WCVAP",
-                "name": "White voting age population",
+                "name": "White citizen voting age population",
                 "sum": 220124,
                 "min": 0,
                 "max": 1389
               },
               {
                 "key": "BCVAP",
-                "name": "Black voting age population",
+                "name": "Black citizen voting age population",
                 "sum": 62791,
                 "min": 0,
                 "max": 881
               },
               {
                 "key": "HCVAP",
-                "name": "Hispanic voting age population",
+                "name": "Hispanic citizen voting age population",
                 "sum": 21234,
                 "min": 0,
                 "max": 254
               },
               {
                 "key": "ASIANCVAP",
-                "name": "Asian voting age population",
+                "name": "Asian citizen voting age population",
                 "sum": 19451,
                 "min": 0,
                 "max": 191
+              },
+              {
+                "key": "BHACVAP",
+                "name": "Black & Hispanic & Asian citizen voting age population",
+                "sum": 103635,
+                "min": 0,
+                "max": 982
               }
             ]
           },
@@ -685,31 +692,38 @@
             "subgroups": [
               {
                 "key": "WCVAP",
-                "name": "White voting age population",
+                "name": "White citizen voting age population",
                 "sum": 220095,
                 "min": 560,
                 "max": 4255
               },
               {
                 "key": "BCVAP",
-                "name": "Black voting age population",
+                "name": "Black citizen voting age population",
                 "sum": 62815,
                 "min": 0,
                 "max": 2661
               },
               {
                 "key": "HCVAP",
-                "name": "Hispanic voting age population",
+                "name": "Hispanic citizen voting age population",
                 "sum": 21317,
                 "min": 0,
                 "max": 755
               },
               {
                 "key": "ASIANCVAP",
-                "name": "Asian voting age population",
+                "name": "Asian citizen voting age population",
                 "sum": 19521,
                 "min": 0,
                 "max": 624
+              },
+              {
+                "key": "BHACVAP",
+                "name": "Black & Hispanic & Asian citizen voting age population",
+                "sum": 103645,
+                "min": 35,
+                "max": 3259
               }
             ]
           },
