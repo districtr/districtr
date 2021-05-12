@@ -4,7 +4,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-// import LandmarkTool from "../components/Toolbar/LandmarkTool";
+import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
@@ -25,6 +25,11 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
+
+    if (state.plan.problem.type !== "community") {
+        // show drop-in geojson and built-in landmarks
+        new LandmarkTool(state);
+    }
 
     let brushOptions = {
         community: (state.problem.type === "community"),

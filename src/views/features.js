@@ -173,7 +173,7 @@ const build_table_for_state = (data, state) => {
 
         if (module['id'].substring(module['id'].length - 3) == "vra")
             row = row + " VRA";
-        else if (["Wisconsin", "Puerto Rico"].includes(state))
+        else if (["Wisconsin", "Puerto Rico", "Minnesota"].includes(state))
             row  = row + " (" + module['id'] + ")";
 
         row = row + '</td>';

@@ -599,6 +599,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         current_districts: true,
+        contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
           param: 'planid',
