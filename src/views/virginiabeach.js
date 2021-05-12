@@ -80,6 +80,7 @@ const districtingOptions = places =>
         <ul class="places-list places-list--columns">
             ${placeItemsTemplate(places[0], startNewPlan)}
             ${placeItemsTemplate(places[1], startNewPlan)}
+            ${placeItemsTemplate(places[2], startNewPlan)}
         </ul>
     `;
 
