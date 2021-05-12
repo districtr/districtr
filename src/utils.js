@@ -961,19 +961,22 @@ export function spatial_abilities (id) {
           number_markers: true,
           coalition: false,
           election_history: true,
-          coi2: true
+          coi2: true,
+          shapefile: true
         },
         va_virginiabeach_blocks: {
           number_markers: true,
           coalition: false,
           election_history: true,
-          coi2: true
+          coi2: true,
+          shapefile: true
         },
         va_virginiabeach_blockgroups: {
           number_markers: true,
           coalition: false,
           election_history: true,
-          coi2: true
+          coi2: true,
+          shapefile: true
         },
       washington: {
         number_markers: true,
