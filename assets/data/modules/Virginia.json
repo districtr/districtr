@@ -215,9 +215,9 @@
               {
                 "key": "rous_18",
                 "name": "Aaron R. Rouse",
-                "sum": 51360,
+                "sum": 60278,
                 "min": 0,
-                "max": 377
+                "max": 380
               },
               {
                 "key": "moss_18",
@@ -229,9 +229,9 @@
               {
                 "key": "olvr_18",
                 "name": "Dee B. Oliver",
-                "sum": 60278,
+                "sum": 51360,
                 "min": 0,
-                "max": 380
+                "max": 377
               },
               {
                 "key": "whit_18",
@@ -684,7 +684,7 @@
             "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP",
-              "name": "Citizen Voting age population",
+              "name": "Citizen voting age population",
               "sum": 334625,
               "min": 890,
               "max": 6163
@@ -734,9 +734,9 @@
               {
                 "key": "rous_18",
                 "name": "Aaron R. Rouse",
-                "sum": 51409,
-                "min": 185,
-                "max": 1251
+                "sum": 60264,
+                "min": 177,
+                "max": 1163
               },
               {
                 "key": "moss_18",
@@ -748,9 +748,9 @@
               {
                 "key": "olvr_18",
                 "name": "Dee B. Oliver",
-                "sum": 60264,
-                "min": 177,
-                "max": 1163
+                "sum": 51409,
+                "min": 185,
+                "max": 1251
               },
               {
                 "key": "whit_18",
