@@ -5,7 +5,11 @@ import Layer, { addBelowLabels } from "../map/Layer";
 
 export function addCurrentDistricts(tab, state) {
     let borders = {},
-        placeID = state.place.id.replace("_bg", "");
+        placeID = state.place.state.toLowerCase().replace(" ","");
+    
+    // current districts should be stored in assets/current_districts/[state]/
+    // if the state name is two words, it should be just have the space removed
+    console.log(placeID);
     fetch(`/assets/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
     fetch(`/assets/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
     fetch(`/assets/current_districts/${placeID}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
