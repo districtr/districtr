@@ -77,6 +77,553 @@
               "geometry": {
                 "type": "Point",
                 "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.983920,
+                  36.871320
+                ]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.128020,
+                  36.817660
+                ]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.971900,
+                  36.838410
+                ]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.130560,
+                  36.778330
+                ]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.176560,
+                  36.869120
+                ]
+              },
+              "properties": {
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.138910,
+                  36.859300
+                ]
+              },
+              "properties": {
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "id": "va_virginiabeach_precincts",
+    "name": "Virginia",
+    "state": "Virginia",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 449417,
+              "min": 1180,
+              "max": 7919
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen voting age population",
+              "sum": 334625,
+              "min": 890,
+              "max": 6163
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 220095,
+                "min": 560,
+                "max": 4255
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 62815,
+                "min": 0,
+                "max": 2661
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 21317,
+                "min": 0,
+                "max": 755
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 19521,
+                "min": 0,
+                "max": 624
+              },
+              {
+                "key": "BHACVAP",
+                "name": "Black & Hispanic & Asian citizen voting age population",
+                "sum": 103645,
+                "min": 35,
+                "max": 3259
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 60264,
+                "min": 177,
+                "max": 1163
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51628,
+                "min": 174,
+                "max": 1024
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 51409,
+                "min": 185,
+                "max": 1251
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30650,
+                "min": 69,
+                "max": 620
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19520,
+                "min": 54,
+                "max": 313
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17315,
+                "min": 36,
+                "max": 1562
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abb_16",
+                "name": "Jessica P. Abbott",
+                "sum": 79135,
+                "min": 0,
+                "max": 1420
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 54050,
+                "min": 0,
+                "max": 1175
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12869,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12507,
+                "min": 0,
+                "max": 509
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12909,
+                "min": 0,
+                "max": 263
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 36012,
+                "min": 0,
+                "max": 743
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16318,
+                "min": 0,
+                "max": 456
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14719,
+                "min": 0,
+                "max": 365
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1488,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11489,
+                "min": 0,
+                "max": 332
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "blto_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42806,
+                "min": 0,
+                "max": 810
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9745,
+                "min": 0,
+                "max": 333
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38682,
+                "min": 0,
+                "max": 1019
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19572,
+                "min": 0,
+                "max": 428
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17579,
+                "min": 0,
+                "max": 633
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25773,
+                "min": 0,
+                "max": 642
+              },
+              {
+                "key": "redm_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18540,
+                "min": 0,
+                "max": 616
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43629,
+                "min": 0,
+                "max": 885
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51431,
+                "min": 0,
+                "max": 1089
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "alln_08",
+                "name": "Georgia F. Allen",
+                "sum": 49014,
+                "min": 0,
+                "max": 1123
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10751,
+                "min": 0,
+                "max": 243
+              },
+              {
+                "key": "strs_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13301,
+                "min": 0,
+                "max": 518
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5849,
+                "min": 0,
+                "max": 134
+              },
+              {
+                "key": "wlsn_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62479,
+                "min": 0,
+                "max": 1303
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct ID",
+          "key": "PRECINCT_N"
+        },
+        "nameColumn": {
+          "name": "Precinct Name",
+          "key": "prec_name"
+        },
+        "bounds": [
+          [
+            -76.2281,
+            36.5504
+          ],
+          [
+            -75.8676,
+            36.9326
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts"
+            },
+            "sourceLayer": "virginiabeach_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts_points"
+            },
+            "sourceLayer": "virginiabeach_precincts_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 10,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.176660,
+                  36.835710
+                ]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.100350,
+                  36.833850
+                ]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.170790,
+                  36.788930
+                ]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -75.996310,
+                  36.698450
+                ]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.114770,
+                  36.868780
+                ]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
                   -76.117853,
                   36.872605
                 ]
@@ -136,6 +683,32 @@
               "properties": {
                 "name": "Sabrina D. Wooten",
                 "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.176560,
+                  36.869120
+                ]
+              },
+              "properties": {
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  -76.138910,
+                  36.859300
+                ]
+              },
+              "properties": {
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
               }
             }
           ]
@@ -658,526 +1231,31 @@
                 "name": "Sabrina D. Wooten",
                 "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
               }
-            }
-          ]
-        }
-      }
-    },
-    "id": "va_virginiabeach_precincts",
-    "name": "Virginia",
-    "state": "Virginia",
-    "units": [
-      {
-        "id": "precincts",
-        "name": "Precincts",
-        "unitType": "Precincts",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "ACS_TOTPOP",
-              "name": "Total population",
-              "sum": 449417,
-              "min": 1180,
-              "max": 7919
             },
-            "subgroups": []
-          },
-          {
-            "type": "population",
-            "name": "Citizen Voting Age Population",
-            "total": {
-              "key": "CVAP",
-              "name": "Citizen voting age population",
-              "sum": 334625,
-              "min": 890,
-              "max": 6163
-            },
-            "subgroups": [
-              {
-                "key": "WCVAP",
-                "name": "White citizen voting age population",
-                "sum": 220095,
-                "min": 560,
-                "max": 4255
-              },
-              {
-                "key": "BCVAP",
-                "name": "Black citizen voting age population",
-                "sum": 62815,
-                "min": 0,
-                "max": 2661
-              },
-              {
-                "key": "HCVAP",
-                "name": "Hispanic citizen voting age population",
-                "sum": 21317,
-                "min": 0,
-                "max": 755
-              },
-              {
-                "key": "ASIANCVAP",
-                "name": "Asian citizen voting age population",
-                "sum": 19521,
-                "min": 0,
-                "max": 624
-              },
-              {
-                "key": "BHACVAP",
-                "name": "Black & Hispanic & Asian citizen voting age population",
-                "sum": 103645,
-                "min": 35,
-                "max": 3259
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 City Council",
-            "subgroups": [
-              {
-                "key": "rous_18",
-                "name": "Aaron R. Rouse",
-                "sum": 60264,
-                "min": 177,
-                "max": 1163
-              },
-              {
-                "key": "moss_18",
-                "name": "John D. Moss",
-                "sum": 51628,
-                "min": 174,
-                "max": 1024
-              },
-              {
-                "key": "olvr_18",
-                "name": "Dee B. Oliver",
-                "sum": 51409,
-                "min": 185,
-                "max": 1251
-              },
-              {
-                "key": "whit_18",
-                "name": "Allison M. White",
-                "sum": 30650,
-                "min": 69,
-                "max": 620
-              },
-              {
-                "key": "bght_18",
-                "name": "Linda M. Bright",
-                "sum": 19520,
-                "min": 54,
-                "max": 313
-              },
-              {
-                "key": "hubb_18",
-                "name": "Garry B. Hubbard",
-                "sum": 17315,
-                "min": 36,
-                "max": 1562
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 City Council",
-            "subgroups": [
-              {
-                "key": "abb_16",
-                "name": "Jessica P. Abbott",
-                "sum": 79135,
-                "min": 0,
-                "max": 1420
-              },
-              {
-                "key": "rh_16",
-                "name": "Amelia N. Ross-Hammond",
-                "sum": 54050,
-                "min": 0,
-                "max": 1175
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 City Council",
-            "subgroups": [
-              {
-                "key": "brow_14",
-                "name": "Beatrice R. \u201cPetey\u201d Browder",
-                "sum": 12869,
-                "min": 0,
-                "max": 224
-              },
-              {
-                "key": "cab_14",
-                "name": "James D. Cabiness II",
-                "sum": 12507,
-                "min": 0,
-                "max": 509
-              },
-              {
-                "key": "john_14",
-                "name": "Stephen A. Johnston",
-                "sum": 12909,
-                "min": 0,
-                "max": 263
-              },
-              {
-                "key": "kane_14",
-                "name": "Shannon Kane",
-                "sum": 36012,
-                "min": 0,
-                "max": 743
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2011 City Council",
-            "subgroups": [
-              {
-                "key": "moss_11",
-                "name": "John Darrell Moss",
-                "sum": 16318,
-                "min": 0,
-                "max": 456
-              },
-              {
-                "key": "free_11",
-                "name": "Dennis Edward Free",
-                "sum": 14719,
-                "min": 0,
-                "max": 365
-              },
-              {
-                "key": "mak_11",
-                "name": "Michael Paul Makela",
-                "sum": 1488,
-                "min": 0,
-                "max": 38
-              },
-              {
-                "key": "sher_11",
-                "name": "Prescott Sherrod",
-                "sum": 11489,
-                "min": 0,
-                "max": 332
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2010 City Council",
-            "subgroups": [
-              {
-                "key": "blto_10",
-                "name": "Rita Sweet Bellitto",
-                "sum": 42806,
-                "min": 0,
-                "max": 810
-              },
-              {
-                "key": "cab_10",
-                "name": "James D. Cabiness, II",
-                "sum": 9745,
-                "min": 0,
-                "max": 333
-              },
-              {
-                "key": "dest_10",
-                "name": "Bill R. Desteph, Jr",
-                "sum": 38682,
-                "min": 0,
-                "max": 1019
-              },
-              {
-                "key": "erb_10",
-                "name": "W. W. Wally Erb",
-                "sum": 19572,
-                "min": 0,
-                "max": 428
-              },
-              {
-                "key": "jack_10",
-                "name": "Andrew R. Jackson",
-                "sum": 17579,
-                "min": 0,
-                "max": 633
-              },
-              {
-                "key": "moss_10",
-                "name": "John D. Moss",
-                "sum": 25773,
-                "min": 0,
-                "max": 642
-              },
-              {
-                "key": "redm_10",
-                "name": "David Dave S. Redmond",
-                "sum": 18540,
-                "min": 0,
-                "max": 616
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2010 City Council (Princess Anne)",
-            "subgroups": [
-              {
-                "key": "pabu_10",
-                "name": "Tanya J. Bullock",
-                "sum": 43629,
-                "min": 0,
-                "max": 885
-              },
-              {
-                "key": "pahe_10",
-                "name": "Barbara M. Henley",
-                "sum": 51431,
-                "min": 0,
-                "max": 1089
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2008 City Council",
-            "subgroups": [
-              {
-                "key": "alln_08",
-                "name": "Georgia F. Allen",
-                "sum": 49014,
-                "min": 0,
-                "max": 1123
-              },
-              {
-                "key": "shul_08",
-                "name": "Leona Lee M. Shuler",
-                "sum": 10751,
-                "min": 0,
-                "max": 243
-              },
-              {
-                "key": "strs_08",
-                "name": "Keith Justin Strausbaugh",
-                "sum": 13301,
-                "min": 0,
-                "max": 518
-              },
-              {
-                "key": "teat_08",
-                "name": "Lawrence J. Teator",
-                "sum": 5849,
-                "min": 0,
-                "max": 134
-              },
-              {
-                "key": "wlsn_08",
-                "name": "Rosemary A. Wilson",
-                "sum": 62479,
-                "min": 0,
-                "max": 1303
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Precinct ID",
-          "key": "PRECINCT_N"
-        },
-        "nameColumn": {
-          "name": "Precinct Name",
-          "key": "prec_name"
-        },
-        "bounds": [
-          [
-            -76.2281,
-            36.5504
-          ],
-          [
-            -75.8676,
-            36.9326
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.virginiabeach_precincts"
-            },
-            "sourceLayer": "virginiabeach_precincts"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.virginiabeach_precincts_points"
-            },
-            "sourceLayer": "virginiabeach_precincts_points"
-          }
-        ]
-      }
-    ],
-    "districtingProblems": [
-      {
-        "name": "City Council",
-        "numberOfParts": 3,
-        "pluralNoun": "City Council Districts"
-      },
-      {
-        "name": "City Council",
-        "numberOfParts": 7,
-        "pluralNoun": "City Council Districts"
-      },
-      {
-        "name": "City Council",
-        "numberOfParts": 10,
-        "pluralNoun": "City Council Districts"
-      }
-    ]
-  },
-  {
-    "landmarks": {
-      "id": "landmarks",
-      "type": "fill",
-      "source": {
-        "type": "geojson",
-        "data": {
-          "type": "FeatureCollection",
-          "features": [
             {
               "geometry": {
                 "type": "Point",
                 "coordinates": [
-                  -76.176660,
-                  36.835710
+                  -76.176560,
+                  36.869120
                 ]
               },
               "properties": {
-                "name": "Jessica P. Abbott",
-                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
               }
             },
             {
               "geometry": {
                 "type": "Point",
                 "coordinates": [
-                  -76.100350,
-                  36.833850
+                  -76.138910,
+                  36.859300
                 ]
               },
               "properties": {
-                "name": "Michael F. Berlucchi",
-                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -76.170790,
-                  36.788930
-                ]
-              },
-              "properties": {
-                "name": "Robert M. Dyer",
-                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -75.996310,
-                  36.698450
-                ]
-              },
-              "properties": {
-                "name": "Barbara M. Henley",
-                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -76.114770,
-                  36.868780
-                ]
-              },
-              "properties": {
-                "name": "Louis R. Jones",
-                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -76.114770,
-                  36.868780
-                ]
-              },
-              "properties": {
-                "name": "John Moss",
-                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -75.983920,
-                  36.871320
-                ]
-              },
-              "properties": {
-                "name": "Guy Tower",
-                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -76.128020,
-                  36.817660
-                ]
-              },
-              "properties": {
-                "name": "Aaron Rouse",
-                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -75.971900,
-                  36.838410
-                ]
-              },
-              "properties": {
-                "name": "Rosemary Wilson",
-                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
-              }
-            },
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  -76.130560,
-                  36.778330
-                ]
-              },
-              "properties": {
-                "name": "Sabrina D. Wooten",
-                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
               }
             }
           ]
@@ -1561,7 +1639,7 @@
         "pluralNoun": "City Council Districts"
       }
     ]
-  }
+  },
   {
     "districtingProblems": [
       {
