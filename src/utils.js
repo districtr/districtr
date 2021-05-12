@@ -598,6 +598,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        current_districts: true,
         contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
@@ -984,6 +985,7 @@ export function spatial_abilities (id) {
         native_american: true,
         shapefile: true,
         find_unpainted: true,
+        current_districts: true,
         contiguity: 2,
       },
         wisconsin2020: {
@@ -1000,6 +1002,7 @@ export function spatial_abilities (id) {
           native_american: true,
           shapefile: true,
           find_unpainted: true,
+          current_districts: true,
           contiguity: 2,
         },
       wyoming: {
