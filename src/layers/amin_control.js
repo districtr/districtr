@@ -46,7 +46,7 @@ export function addAmerIndianLayer(tab, state) {
         native_am_type = "Indian Nations";
     } else if (state.place.id === "nevada") {
         native_am_type = "Indian Territory";
-    } else if (["michigan", "minnesota"].includes(state.place.id)) {
+    } else if (["michigan", "minnesota", "mn2020acs"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
     } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix", "mesaaz"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
@@ -65,6 +65,8 @@ export function addAmerIndianLayer(tab, state) {
       stateSource = "california";
     } else if (state.place.id === "wisco2019acs") {
       stateSource = "wisconsin";
+    } else if (state.place.id === "mn2020acs") {
+      stateSource = "minnesota";
     }
 
     fetch(`/assets/native_official/${stateSource}.geojson`)
