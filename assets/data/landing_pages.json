@@ -448,8 +448,8 @@
     "code": "FL",
     "modules": [
       {"name": "Statewide", "ids": ["florida"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["miamidade"], "id": "counties"},
-      {"name": "Cities", "ids": ["miamifl"], "id": "loc"}],
+      {"name": "Counties", "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"], "id": "counties"},
+      {"name": "Cities", "ids": ["miamifl", "orlando", "tampa"], "id": "loc"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1346,7 +1346,7 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "ids": ["minnesota"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["minnesota", "mn2020acs"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["olmsted","washington_mn","stlouis_mn"], "id": "county"},
       {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
     ],
@@ -1784,7 +1784,7 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "ids": ["nc"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["northcarolina"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc"}],
     "sections": [
       {
@@ -1830,7 +1830,7 @@
               },
               {
                 "id": "congress_judge",
-                "name": "Judge's Plan"
+                "name": "Judges' 2016 Proposed Plan"
               }
             ]
           }
@@ -2378,7 +2378,7 @@
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
       {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx"], "id": "cty"},
-      {"name": "Cities", "ids": ["austin", "fortworth"], "id": "loc"}
+      {"name": "Cities", "ids": ["austin", "fortworth", "houston"], "id": "loc"}
     ],
     "sections": [
       {
@@ -2606,7 +2606,7 @@
               },
               {
                 "id": "house_2011",
-                "name": "2011 Enacted State House Plan"
+                "name": "2011 Enacted House of Delegates Plan"
               }
             ]
           },
@@ -2619,7 +2619,7 @@
               },
               {
                 "id": "house_2019",
-                "name": "2019 Remedial State House Plan"
+                "name": "2019 Remedial House of Delegates Plan"
               }
             ]
           }

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Features | Districtr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/landing_page.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/state_landing.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style type="text/css">
+    .heading {
+        background: #fff;
+        display: block;
+        color: #444;
+        padding-top: 0;
+        margin-top: -35px;
+        font-size: 150%;
+    }
+
+    .splash-text {
+        text-align: center;
+        color: #0099cd;
+    }
+
+    .l-major-section {
+        padding-bottom: 1rem;
+    }
+
+    .l-major-section h3 {
+        color: darkblue;
+    }
+
+    .l-major-section p {
+        font-size: 20px;
+    }
+
+    .col1,
+    .col2 {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .col1 {
+        width: 70%;
+    }
+
+    .col2 {
+        width: 28%;
+        text-align: right;
+    }
+
+    .col2 img {
+        width: 70%;
+    }
+
+    @media (min-width:1000px) {
+        .l-major-section {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .col1 {
+            width: 71%;
+        }
+
+        .col2 {
+            width: 28%;
+        }
+    }
+
+    #nav-links {
+        justify-content: flex-end;
+    }
+
+    a.bookmark {
+        position: relative;
+        top: -30px;
+    }
+
+    strong {
+        font-size: 109%;
+    }
+
+    ul li.module::marker {
+        content: '\1F5FA \  ';
+    }
+
+    ul li.feature::marker {
+        content: '\1F4BB \  ';
+    }
+
+    ul li.design::marker {
+        content: '\1F4A5 \  ';
+    }
+
+    ul li.activity::marker {
+        content: '\1F46A \  ';
+    }
+    </style>
+    <style type="text/css">
+        a {
+            display: block;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            font-size:50%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="site-nav__logo">
+                <a href="/">
+                    <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home" />
+                </a>
+            </div>
+            <ul id="nav-links" class="nav-links site-nav__contents">
+                <li>
+                    <a href="#state-table-section">Jump to states</a>
+                </li>
+                <li>
+                    <a href="#other-table-section">Jump to other jurisdictions</a>
+                </li>
+                <li class="nav">
+                    <a href="/new">
+                        <img class="site-nav__logo__img" src="/assets/usa_light_blue.png" alt="Back to Map" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="root" class="landing-page">
+        <article class="place__content">
+            <h1 class="headling place__name">Available Features by Jurisdiction</h1>
+        </article>
+        <h3 style='text-align: center' id="loading-msg">Loading features.</h3>
+        <section id="state-table-section" class='l-content l-major-section'>
+            <br/>
+            <h2>States</h2>
+            <div id="state-table-div"></div>
+        </section>
+        <section id="other-table-section" class='l-content l-major-section'>
+            <br/>
+            <h2>Other Jurisdictions</h2>
+            <div id="other-table-div"></div>
+        </section>
+    </main>
+    <script src="/es6/features.js"></script>
+    <script>
+    if (Object.assign === undefined || fetch === undefined) {
+        document.write(
+            '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+        );
+        document.write(
+            '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+        );
+        document.write('<script src="/es5/index.js"><\/script>');
+        document.write("<script>ieBundle();<\/script>");
+    } else {
+        bundle();
+    }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</body>
+
+</html>

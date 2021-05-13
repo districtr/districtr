@@ -202,7 +202,7 @@ function addCounties(map, tileset, layerAdder, placeID) {
         filter: [
             "==",
             ["get", "STATEFP"],
-            String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "")])
+            String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "").replace("wisco2019acs", "wisconsin").replace("mnacs", "minnesota")])
         ]
     },
     layerAdder);

@@ -64,7 +64,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs"].includes(state.place.id)) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs", "mn2020acs", "ma"].includes(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
@@ -272,7 +272,7 @@ export default function DataLayersPlugin(editor) {
 
     // school zones and towns
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020", "michigan"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
           st = "in";
@@ -282,6 +282,8 @@ export default function DataLayersPlugin(editor) {
           st = "nh";
         } else if (["wisconsin", "wisc2020", "wisco2019acs"].includes(state.place.id)) {
           st = "wi";
+        } else if (state.place.id === "michigan") {
+          st = "mi";
         }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
@@ -447,28 +449,28 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
-        const toggleOHlayer = () => {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs", "michigan"].includes(state.place.id)) {
+        const toggleSchoolsTownslayer = () => {
             // console.log(document.getElementsByName("enacted"));
-            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
-            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("ohschools").checked ? 1 : 0);
-            placesLayer && placesLayer.setOpacity(document.getElementById("ohplaces").checked ? 1 : 0);
-            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("ohplaces").checked ? 1 : 0);
+            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("schools").checked ? 1 : 0);
+            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("schools").checked ? 1 : 0);
+            placesLayer && placesLayer.setOpacity(document.getElementById("towns").checked ? 1 : 0);
+            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("towns").checked ? 1 : 0);
         };
         tab.addRevealSection(
             'Boundaries',
             (uiState, dispatch) => html`
               <label style="display:block;margin-bottom:8px;">
-                <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
+                <input type="radio" name="enacted" @change="${toggleSchoolsTownslayer}" checked/>
                 Hidden
               </label>
               ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
-                <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
+                <input id="towns" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
                 Cities and Towns
               </label>` : ""}
               <label style="display:block;margin-bottom:8px;">
-                <input id="ohschools" type="radio" name="enacted" @change="${toggleOHlayer}"/>
-                Unified School Districts
+                <input id="schools" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
+                School Districts
               </label>`,
             {
                 isOpen: true

@@ -178,6 +178,10 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
+        if (eventCode === "mesaaz") {
+            document.getElementById("partnership-icon").innerHTML = "<img src='/assets/partners-rp.png' height='60' alt='Logo for Redistricting Partners'/>";
+        }
+
         // document.getElementById("eventCode").innerText = og_eventCode;
         if (eventDescriptions[eventCode]) {
             let desc = document.createElement("div");
