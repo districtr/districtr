@@ -15,14 +15,11 @@ const plans = [
         title: "Sample valid 3-district plans",
         plans: [
             {
-                id: "plan3a",
-                name: "Random Plan 3A (3-districts)",
-                numbers: []
-            },
-            {
-                id: "plan3b",
-                name: "Random Plan 3B (3-districts)",
-                numbers: []
+                id: "plan7",
+                name: "7-district plan",
+                numbers: [{number: 4, caption: "50.2% Coalition, effectiveness 5"},
+                        {number: 5, caption: "50.8% Coalition, effectiveness 8, with Wooten inside"}
+            ]
             }
         ]
     }
@@ -59,13 +56,9 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/virginiabeach/${plan.id}">
+
+    <a href="http://localhost:3000/edit?url=/assets/virginiabeach-plans/plan7.json">
         <li class="plan-thumbs__thumb">
-            <img
-                class="thumb__img"
-                src="/assets/virginiabeach-plans/${plan.id}.png"
-                alt="Districting Plan ${plan.id}"
-            />
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.name || plan.id}</h6>
                 ${plan.description ? plan.description : ""}
