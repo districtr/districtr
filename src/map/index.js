@@ -202,7 +202,7 @@ function addCounties(map, tileset, layerAdder, placeID) {
         filter: [
             "==",
             ["get", "STATEFP"],
-            String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "").replace("wisco2019acs", "wisconsin")])
+            String(stateNameToFips[placeID.toLowerCase().replace(" ", "")])
         ]
     },
     layerAdder);
@@ -221,7 +221,7 @@ function addBGs(map, tileset, layerAdder) {
     });
 }
 
-export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) {
+export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, statename) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
         if (swipemap) {
@@ -293,7 +293,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         map,
         COUNTIES_TILESET,
         layerAdder,
-        borderId
+        statename
     );
 
     // cities in Communities of Interest will have a thick border
