@@ -11,15 +11,32 @@ export default () => {
 };
 
 const plans = [
-        {
-        title: "Sample valid 3-district plans",
+    {
+        title: "Sample valid plans",
         plans: [
+            {
+                id: "plan3",
+                name: "3-district plan",
+                numbers: [ 
+                    { number: 3, caption: "50.6% non-White, effectiveness 5, Rouse in here" },
+                ]
+            },
             {
                 id: "plan7",
                 name: "7-district plan",
-                numbers: [{number: 4, caption: "50.2% Coalition, effectiveness 5"},
-                        {number: 5, caption: "50.8% Coalition, effectiveness 8, with Wooten inside"}
-            ]
+                numbers: [
+                    { number: 4, caption: "50.2% Coalition, effectiveness 5" },
+                    { number: 5, caption: "50.8% Coalition, effectiveness 8, with Wooten inside" }
+                ]
+            },
+            {
+                id: "plan10",
+                name: "10-district plan",
+                numbers: [
+                    { number: 4, caption: "50.2% Coalition, effectiveness 8, both plaintiffs in here" },
+                    { number: 7, caption: "50.3% Coalition, effectiveness 5" },
+                    { number: 8, caption: "50.1% Coalition, effectiveness 5, Wooten in here" }
+                ]
             }
         ]
     }
@@ -45,19 +62,19 @@ const loadablePlans = plans =>
 const numberList = numbers => html`
     <dl class="number-list">
         ${numbers.map(
-            ({ number, caption }) => html`
+    ({ number, caption }) => html`
                 <div class="number-list__row">
                     <dt class="number-list__number">${number}</dt>
                     <dd class="number-list__caption">${caption}</dd>
                 </div>
             `
-        )}
+)}
     </dl>
 `;
 
 const loadablePlan = plan => html`
 
-    <a href="http://localhost:3000/edit?url=/assets/virginiabeach-plans/plan7.json">
+    <a href="https://deploy-preview-338--districtr-web.netlify.app/edit?url=/assets/virginiabeach-plans/${plan.id}.json">
         <li class="plan-thumbs__thumb">
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.name || plan.id}</h6>
