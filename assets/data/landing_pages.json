@@ -3,7 +3,7 @@
     "state": "Alabama",
     "code": "AL",
     "modules": [
-      {"name": "Statewide", "ids": ["alabama, alabama2019"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["alabama", "alabama2019"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
