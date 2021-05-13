@@ -612,6 +612,13 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
       },
+        mn2020acs: {
+          number_markers: true,
+          county_brush: true,
+          native_american: true,
+          shapefile: true,
+          find_unpainted: true,
+        },
         olmsted: {
           number_markers: true,
           border: true,
