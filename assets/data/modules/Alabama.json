@@ -5,8 +5,8 @@
     "state": "Alabama",
     "units": [
       {
-        "id": "blockgroups",
-        "name": "Block Groups",
+        "id": "blockgroups 2010",
+        "name": "2010 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
           {
@@ -554,31 +554,7 @@
             "sourceLayer": "alabama_blockgroups_points"
           }
         ]
-      }
-    ],
-    "districtingProblems": [
-      {
-        "name": "Congress",
-        "numberOfParts": 7,
-        "pluralNoun": "Congressional Districts"
       },
-      {
-        "name": "State House",
-        "numberOfParts": 105,
-        "pluralNoun": "State House Districts"
-      },
-      {
-        "name": "State Senate",
-        "numberOfParts": 35,
-        "pluralNoun": "State Senate Districts"
-      }
-    ]
-  },
-  {
-    "name": "Alabama",
-    "state": "Alabama",
-    "id": "alabama2019",
-    "units": [
       {
         "id": "blockgroups",
         "name": "Block Groups",
@@ -687,6 +663,31 @@
           }
         ]
       }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 7,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 105,
+        "pluralNoun": "State House Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 35,
+        "pluralNoun": "State Senate Districts"
+      }
+    ]
+  },
+  {
+    "name": "Alabama",
+    "state": "Alabama",
+    "id": "alabama2019",
+    "units": [
+
     ],
     "districtingProblems": [
       {
