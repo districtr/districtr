@@ -507,6 +507,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
+        school_districts: true,
       },
       iowa: {
         number_markers: true,
@@ -599,6 +600,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         current_districts: true,
+        school_districts: true,
         contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
@@ -644,6 +646,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         // find_unpainted: true,
+        school_districts: true,
       },
       montana: {
         multiyear: 2018,
@@ -675,6 +678,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         multiyear: 2018,
         // find_unpainted: true,
+        school_districts: true,
       },
       newjersey: {
         number_markers: true,
@@ -987,6 +991,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
         current_districts: true,
         contiguity: 2,
+        school_districts: true,
       },
         wisconsin2020: {
           number_markers: true,
@@ -995,6 +1000,7 @@ export function spatial_abilities (id) {
           shapefile: true,
           find_unpainted: true,
           contiguity: 2,
+          school_districts: true,
         },
         wisco2019acs: {
           number_markers: true,
@@ -1004,6 +1010,7 @@ export function spatial_abilities (id) {
           find_unpainted: true,
           current_districts: true,
           contiguity: 2,
+          school_districts: true,
         },
       wyoming: {
         multiyear: 2018,
