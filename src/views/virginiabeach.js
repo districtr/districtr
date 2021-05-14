@@ -17,25 +17,25 @@ const plans = [
             {
                 id: "plan3",
                 name: "3-district plan",
-                numbers: [
-                    { number: 3, caption: "50.6% non-White, performance: 5/9 candidates of choice, with Rouse inside" },
+                numbers: [ 
+                    { number: 3, caption: "50.6% non-White, effectiveness 5, Rouse in here" },
                 ]
             },
             {
                 id: "plan7",
                 name: "7-district plan",
                 numbers: [
-                    { number: 4, caption: "coalition: 50.2%, performance: 5/9 candidates of choice" },
-                    { number: 5, caption: "coalition: 50.8%, performance: 8/9 candidates of choice, with Wooten inside" }
+                    { number: 4, caption: "50.2% Coalition, effectiveness 5" },
+                    { number: 5, caption: "50.8% Coalition, effectiveness 8, with Wooten inside" }
                 ]
             },
             {
                 id: "plan10",
                 name: "10-district plan",
                 numbers: [
-                    { number: 4, caption: "coalition: 50.2%, performance: 8/9 candidates of choice, both plaintiffs inside" },
-                    { number: 7, caption: "coalition: 50.3%, performance: 5/9 candidates of choice" },
-                    { number: 8, caption: "coalition: 50.1%, performance: 5/9 candidates of choice, with Wooten inside" }
+                    { number: 4, caption: "50.2% Coalition, effectiveness 8, both plaintiffs in here" },
+                    { number: 7, caption: "50.3% Coalition, effectiveness 5" },
+                    { number: 8, caption: "50.1% Coalition, effectiveness 5, Wooten in here" }
                 ]
             }
         ]
