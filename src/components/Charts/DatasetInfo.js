@@ -15,7 +15,7 @@ function datasetInfo(state) {
             acs: "Uses <strong>2019 American Community Survey</strong> data.",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners.",
         },
-        acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs"];
+        acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs", "alabama"];
     if (acsLocations.includes(place.id.toLowerCase()) || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
     } else if (["mesaaz"].includes(place.id)) {

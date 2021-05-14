@@ -8,6 +8,7 @@
         "id": "blockgroups 2010",
         "name": "2010 Block Groups",
         "unitType": "Block Groups",
+		    "limit": "hide",
         "columnSets": [
           {
             "type": "population",
@@ -679,21 +680,6 @@
         "name": "State Senate",
         "numberOfParts": 35,
         "pluralNoun": "State Senate Districts"
-      }
-    ]
-  },
-  {
-    "name": "Alabama",
-    "state": "Alabama",
-    "id": "alabama2019",
-    "units": [
-
-    ],
-    "districtingProblems": [
-      {
-        "name": "Congress",
-        "numberOfParts": 7,
-        "pluralNoun": "Congressional Districts"
       }
     ]
   }
