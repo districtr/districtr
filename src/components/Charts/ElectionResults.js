@@ -32,7 +32,7 @@ function getCell(party, part) {
         percent = party.getOverallFraction();
     }
     return {
-        content: `${roundToDecimal(percent * 100, 2)}%`,
+        content: `${percent * 100}%`,
         style: getCellStyle(percent, party)
     };
 }
