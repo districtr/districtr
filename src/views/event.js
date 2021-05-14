@@ -103,10 +103,11 @@ const coi_events = [
   'ttt',
   'ourmapsmn',
   'micrc',
+  'mesaaz',
 ];
 
 const hybrid_events = [
-  'mesaaz',
+  // 'mesaaz',
 ];
 
 const eventDescriptions = {
