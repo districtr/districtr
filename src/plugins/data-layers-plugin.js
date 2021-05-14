@@ -714,9 +714,10 @@ export default function DataLayersPlugin(editor) {
         fetch(`/assets/current_districts/ak-overlays/plan5.geojson`).then(res => res.json()).then((plan5) => {
             // load into the tab
             let ps = [plan1, plan2, plan3, plan4, plan5]
+            let colors = ['#000', '#E21D2D', '#90E21D', '#1DE2D2', '#6F1DE2']
             var planLayers = []
-            for (let i = 1; i <=5; i++) {
-                var name = 'plan' + i;
+            for (let i = 0; i < 5; i++) {
+                var name = 'plan' + (i+1);
                 state.map.addSource(name, {
                     type: 'geojson',
                     data: ps[i]
@@ -727,7 +728,7 @@ export default function DataLayersPlugin(editor) {
                         id: name,
                         source: name,
                         type: 'line',
-                        paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        paint: { "line-color": colors[i], "line-width": 2, "line-opacity": 0 }
                     },
                     addBelowLabels
                 ));
