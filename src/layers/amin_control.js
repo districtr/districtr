@@ -24,8 +24,8 @@ export function addAmerIndianLayer(tab, state) {
     let nativeamerican = null,
         nativeamerican_labels = null,
         startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
-    console.dir(state);
-    let native_am_type = "Pueblos, Tribes, and Nations"; // NM
+
+        let native_am_type = "Pueblos, Tribes, and Nations"; // NM
     if (state.place.state === "Alaska") {
         native_am_type = "Alaskan Native Communities";
     } else if (["California"].includes(state.place.state)) {
