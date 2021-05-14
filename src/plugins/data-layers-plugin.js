@@ -704,5 +704,80 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    // alaska plan overlay
+    if (state.place.id === 'alaska') {
+        // fetch all five plans
+        fetch(`/assets/current_districts/ak-overlays/plan1.geojson`).then(res => res.json()).then((plan1) => {
+        fetch(`/assets/current_districts/ak-overlays/plan2.geojson`).then(res => res.json()).then((plan2) => {
+        fetch(`/assets/current_districts/ak-overlays/plan3.geojson`).then(res => res.json()).then((plan3) => {
+        fetch(`/assets/current_districts/ak-overlays/plan4.geojson`).then(res => res.json()).then((plan4) => {
+        fetch(`/assets/current_districts/ak-overlays/plan5.geojson`).then(res => res.json()).then((plan5) => {
+            // load into the tab
+            let ps = [plan1, plan2, plan3, plan4, plan5]
+            var planLayers = []
+            for (let i = 1; i <=5; i++) {
+                var name = 'plan' + i;
+                state.map.addSource(name, {
+                    type: 'geojson',
+                    data: ps[i]
+                });
+
+                planLayers.push(new Layer(state.map,
+                    {
+                        id: name,
+                        source: name,
+                        type: 'line',
+                        paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                    },
+                    addBelowLabels
+                ));
+            }
+
+        tab.addSection(() => html`
+        <h4>Potential Plans</h4>
+        <li>
+            ${toggle(`Plan 1`, false, checked =>
+                planLayers[0].setOpacity(
+                    checked ? 1 : 0
+                ),
+                "plan1-visible"
+            )}
+        </li>
+        <li>
+            ${toggle(`Plan 2`, false, checked =>
+                planLayers[1].setOpacity(
+                    checked ? 1 : 0
+                ),
+                "plan2-visible"
+            )}
+        </li>
+        <li>
+            ${toggle(`Plan 3`, false, checked =>
+                planLayers[2].setOpacity(
+                    checked ? 1 : 0
+                ),
+                "plan3-visible"
+            )}
+        </li>
+        <li>
+            ${toggle(`Plan 4`, false, checked =>
+                planLayers[3].setOpacity(
+                    checked ? 1 : 0
+                ),
+                "plan4-visible"
+            )}
+        </li>
+        <li>
+            ${toggle(`Plan 5`, false, checked =>
+                planLayers[4].setOpacity(
+                    checked ? 1 : 0
+                ),
+                "plan5-visible"
+            )}
+        </li>
+        `);
+        })})})})});
+    }
+
     toolbar.addTab(tab);
 }
