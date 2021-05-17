@@ -5,8 +5,8 @@
     "state": "Alabama",
     "units": [
       {
-        "id": "blockgroups 2010",
-        "name": "2010 Block Groups",
+        "id": "blockgroups",
+        "name": "Block Groups",
         "unitType": "Block Groups",
 		    "limit": "hide",
         "columnSets": [
