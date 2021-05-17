@@ -79,6 +79,3 @@ typings/
 
 assets/raw
 /lambda
-
-package-lock.json
-package.json
