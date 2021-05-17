@@ -751,6 +751,10 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         // find_unpainted: true - needs contiguity
+        portal: {
+          endpoint: 'https://portal.ohio-mapping.org/',
+          param: 'planid',
+        },
       },
         ohcentral: {
           multiyear: 2019,

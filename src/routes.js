@@ -96,7 +96,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-            if ((eventCode || ["Michigan", "Ohio", "Missouri"].includes(state.place.state)) && spatial_abilities(state.place.id).shapefile) {
+            if ((eventCode || ["Michigan", "Ohio", "Missouri", "Utah"].includes(state.place.state)) && spatial_abilities(state.place.id).shapefile) {
                 fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
             }
             callback(info.simple_id, action);
