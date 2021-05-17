@@ -301,7 +301,6 @@ export const stateNameToFips = {
 export function spatial_abilities (id) {
   const status = {
       alabama: {
-        multiyear: 2018,
         native_american: true,
         number_markers: true,
         county_brush: true,
