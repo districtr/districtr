@@ -602,8 +602,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
-          param: 'planid',
-        }
+        },
       },
       minnesota: {
         number_markers: true,
@@ -752,8 +751,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         // find_unpainted: true - needs contiguity
         portal: {
-          endpoint: 'https://portal.ohio-mapping.org/',
-          param: 'planid',
+          endpoint: 'https://portal.ohio-mapping.org',
         },
       },
         ohcentral: {
