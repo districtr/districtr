@@ -522,15 +522,16 @@ export default function DataLayersPlugin(editor) {
     // alaska plan overlay
     if (state.place.id === 'alaska') {
         // fetch all five plans
+        var planLayers = [];
         fetch(`/assets/current_districts/ak-overlays/plan1.geojson`).then(res => res.json()).then((plan1) => {
         fetch(`/assets/current_districts/ak-overlays/plan2.geojson`).then(res => res.json()).then((plan2) => {
         fetch(`/assets/current_districts/ak-overlays/plan3.geojson`).then(res => res.json()).then((plan3) => {
         fetch(`/assets/current_districts/ak-overlays/plan4.geojson`).then(res => res.json()).then((plan4) => {
         fetch(`/assets/current_districts/ak-overlays/plan5.geojson`).then(res => res.json()).then((plan5) => {
+            
             // load into the tab
             let ps = [plan1, plan2, plan3, plan4, plan5]
             let colors = ['#000', '#E21D2D', '#90E21D', '#1DE2D2', '#6F1DE2']
-            var planLayers = []
             for (let i = 0; i < 5; i++) {
                 var name = 'plan' + (i+1);
                 state.map.addSource(name, {
@@ -548,7 +549,8 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 ));
             }
-
+        })})})})}); // closing all the fetch calls
+        
         tab.addSection(() => html`
         <h4>Potential Plans</h4>
         <li>
@@ -592,7 +594,6 @@ export default function DataLayersPlugin(editor) {
             )}
         </li>
         `);
-        })})})})});
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
