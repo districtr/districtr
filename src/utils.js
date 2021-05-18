@@ -402,7 +402,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
       connecticut: {
         county_brush: true,
@@ -411,7 +411,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
       dc: {
         multiyear: 2018,
@@ -508,7 +508,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         shapefile: true,
         find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
       iowa: {
         number_markers: true,
@@ -548,7 +548,7 @@ export function spatial_abilities (id) {
         contiguity: 2,
         shapefile: true,
         find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
         la_vra: {
           native_american: true,
@@ -574,7 +574,7 @@ export function spatial_abilities (id) {
         absentee: true,
         shapefile: true,
         find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
         baltimore: {
           border: true,
@@ -653,7 +653,7 @@ export function spatial_abilities (id) {
         number_markers: true,
         county_brush: true,
         shapefile: true,
-        load_coi: true,
+        load_coi: false,
         // find_unpainted: true,
       },
       montana: {
@@ -671,7 +671,7 @@ export function spatial_abilities (id) {
         county_brush: true,
         absentee: true,
         shapefile: true,
-        load_coi: true,
+        load_coi: false,
         // find_unpainted: true,
       },
       nevada: {
@@ -871,7 +871,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         sideload: true,
-        load_coi: true,
+        load_coi: false,
       },
         philadelphia: {
           number_markers: true,
@@ -968,7 +968,7 @@ export function spatial_abilities (id) {
         // native_american: true,
         shapefile: true,
         // find_unpainted: true,
-        load_coi: true,
+        load_coi: false,
       },
         vabeach: {
           multiyear: 2018,

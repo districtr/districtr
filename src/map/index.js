@@ -163,14 +163,17 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
     }
-    if (tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
-        map.addSource(
-          tilesets.find(t => t.type ==="fill").sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
-          {
-            type: "vector",
-            url: tilesets.find(t => t.type ==="fill").source.url.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
-          }
-        );
+    if (borderId && spatial_abilities(borderId).load_coi && tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
+        const coibg = tilesets.find(t => t.type ==="fill");
+        if (coibg) {
+            map.addSource(
+              coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+              {
+                type: "vector",
+                url: coibg.source.url.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+              }
+            );
+        }
     }
     const { units, unitsBorders, coiunits, coiunits2 } = addUnits(
         map,
