@@ -54,29 +54,32 @@ function addUnits(map, parts, tileset, layerAdder) {
         layerAdder
     );
 
-    const coisrc = tileset.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups");
-    const coiunits = new Layer(
-        map,
-        {
-            id: "browse_" + coisrc,
-            source: coisrc,
-            "source-layer": coisrc,
-            type: "fill",
-            paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
-        },
-        layerAdder
-    );
-    const coiunits2 = tileset.sourceLayer.includes("blockgroups") ? null : new Layer(
-        map,
-        {
-            id: "browse_coinative",
-            source: tileset.sourceLayer,
-            "source-layer": tileset.sourceLayer,
-            type: "fill",
-            paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
-        },
-        layerAdder
-    );
+    let coiunits, coiunits2;
+    if (false) {
+        const coisrc = tileset.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups");
+        coiunits = new Layer(
+            map,
+            {
+                id: "browse_" + coisrc,
+                source: coisrc,
+                "source-layer": coisrc,
+                type: "fill",
+                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+            },
+            layerAdder
+        );
+        coiunits2 = tileset.sourceLayer.includes("blockgroups") ? null : new Layer(
+            map,
+            {
+                id: "browse_coinative",
+                source: tileset.sourceLayer,
+                "source-layer": tileset.sourceLayer,
+                type: "fill",
+                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+            },
+            layerAdder
+        );
+    }
 
     return { units, unitsBorders, coiunits, coiunits2 };
 }
