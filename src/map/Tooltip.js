@@ -52,19 +52,20 @@ export default class Tooltip extends HoverWithRadius {
         this.render();
     }
     render() {
+        const insert = this.content(this.hoveredFeatures)
         render(
             html`
                 <aside
                     class=${classMap({
                         tooltip: true,
-                        "tooltip--hidden": !this.visible
+                        "tooltip--hidden": (!this.visible || !insert)
                     })}
                     style=${styleMap({
                         left: `${this.x + 4}px`,
                         top: `${this.y + 8}px`
                     })}
                 >
-                    ${this.content(this.hoveredFeatures)}
+                    ${insert}
                 </aside>
             `,
             this.container
