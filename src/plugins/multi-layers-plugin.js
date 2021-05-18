@@ -55,7 +55,9 @@ export default function MultiLayersPlugin(editor) {
                 "registered_voters",
                 state.layers.filter(lyr => lyr.id === "extra-precincts_new"),
                 state.voters,
-                toolbar
+                "Registered Voters",
+                false,
+                // toolbar
             );
         }
         tab.addSection(
