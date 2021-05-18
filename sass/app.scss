@@ -339,7 +339,7 @@ li.party-desc span {
 
 #coi_browse {
   display: none;
-  border: 3px inset #888;
+  border: 2px inset #888;
   max-height: 150px;
   overflow-y: scroll;
   padding: 3px;
@@ -388,7 +388,8 @@ li.party-desc span {
       margin-block-start: 0;
       margin-block-end: 0;
       padding-inline-start: 0;
-      padding: 20px;
+      padding: 10px;
+      padding-top: 0;
       background: aliceblue;
 
       &.selected {

@@ -164,7 +164,6 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         map.addSource(tileset.sourceLayer, tileset.source);
     }
     if (tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
-        console.log(tilesets.find(t => t.type ==="fill"));
         map.addSource(
           tilesets.find(t => t.type ==="fill").sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
           {
