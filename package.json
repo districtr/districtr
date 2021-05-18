@@ -79,7 +79,6 @@
         "hotkeys-js": "^3.7.6",
         "lit-html": "^1.1.2",
         "mapbox-gl": "^2.2.0",
-        "mapbox-gl-compare": "^0.4.0",
         "netlify-lambda": "^1.6.3"
     }
 }

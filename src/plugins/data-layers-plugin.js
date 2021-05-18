@@ -25,7 +25,7 @@ export default function DataLayersPlugin(editor) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
-    const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
+    const demoLayers = state.layers;
 
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "Districts";

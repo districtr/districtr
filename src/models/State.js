@@ -144,7 +144,7 @@ export default class State {
         // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
         this.layers = [units, points, bg_areas, precincts, new_precincts, tracts].filter(x => !!x);
-        this.swipeLayers = [swipeUnits, swipePoints];
+        this.swipeLayers = [];
         this.map = map;
     }
     update(feature, part) {
