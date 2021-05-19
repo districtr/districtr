@@ -14,12 +14,15 @@ function datasetInfo(state) {
             census: "Uses <strong>2010 Decennial Census</strong> data.",
             acs: "Uses <strong>2019 American Community Survey</strong> data.",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners.",
+            pasorobles: "Uses <strong>2018 and 2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies.",
         },
         acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs"];
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
     } else if (["mesaaz"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
+    } else if (["pasorobles"].includes(place.id)) {
+        return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
 }

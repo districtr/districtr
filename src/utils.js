@@ -366,6 +366,11 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    pasorobles: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+    },
     ccsanitation: {
       // multiyear: 2018,
       shapefile: true,
@@ -1082,7 +1087,7 @@ export function spatial_abilities(id) {
 
 export function nested(st) {
   return [
-    'alaska', 
+    'alaska',
     'illinois',
     'iowa',
     'minnesota',
