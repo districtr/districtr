@@ -1,0 +1,54 @@
+ 
+ # The Districtr Model for Plans, Contexts, Assignment etc..
+ 
+ Districtr keeps track of data regarding a specific area in a JSON format that's
+ shared internally as a context. The seeds of this format date back to [@maxhully]'s 
+ initial November 2018 attempts to load into our Mapbox server. This story is
+ detailed in the commits of repository `district-process`, which is responsible
+ for helping us upload geographic data.
+ 
+ The structure of our plans are as follows...
+ 
+ ## Identifiers
+ 
+- `id`: Id of geographic area, used throughout Districtr
+- `name`: Display name of City, County or State, loaded into the State Portals
+- `state`: State where area is located.
+
+## Units
+Units can be precincts or block groups and hold the important settings on which
+areas a user can paint over. 
+
+ - `units` is a list of Objects of the following specification.
+     ## Unit Identifier
+     - `id`, identifier used throughout districtr, e.g. `"blockgroups"`
+     - `name`, front-facing display name
+     - `unitType`, designates whether precincts, Census units, etc.
+     - `limit`, optional parameter, can limit display to `"community"` or `"hide"`
+     ### Column Sets
+     - `columnSets` is a list of different data tables relevant to this context. JSONs
+     without `columnSets` can still be loaded by Districtr. Each Object in the `columnSet`
+     list has...
+     - `type`, typically `"population"`
+     - `name`, display name for `type` like `"Population"` or `"Voting Age Population`" or `"Households by Renters"`
+     - `total`, an Object of summary statistics like column `key`, display `name`, `sum` and range `min`, `max`
+     - `subgroups`, a list of many Objects representing non-total columns that mirror the `total` Object.
+     - `idcolumn`, an Object of pair `name` and `key` that identifies the index column (and without `sum` and range)
+     - `bounds`, An array of two arrays, of bounding box coordinated auto-populated by `districtr-process`.
+     - `tilesets`, Very important pair of objects containing mapbox address of shapefiles to be rendered by the Map.
+     Contains one of `type` `"fill"` and `"circle"`, each bearing a `source` object with a `type`, usually vector,
+     and `url` mapbox:// address of the geometry. 
+
+## Districting Problems
+- Back at the top level, we have `districtingProblems,`an array of various "problem" objects, typically for `"Congress",
+ "State House", and "State Senate". Each problem has a `"name"`, `numberOfParts` and a `pluralNoun` for display.
+ For instance, Alabama.json has three "problems," one each for its 7 Congressional Districts, 105 State House
+Distrits and 35 State Senate seats. 
+
+## Additional properties for Communities of Interest
+
+  - Additional
+  
+## Use, in State
+
+## Saving and Retrieving
