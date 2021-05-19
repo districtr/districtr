@@ -11,9 +11,16 @@
  
  ## Identifiers
  
-- `id`: Id of geographic area, used throughout Districtr
-- `name`: Display name of City, County or State, loaded into the State Portals
-- `state`: State where area is located.
+- `id`, Alphanumeric id individual plan
+- `name`, Display name of City, County or State, loaded into the State Portals
+- `state`, State where area is located.
+- `idColumn`, An object with `key`, `name` pair that identifies the id column for base unit identifiers.
+- `place`, an object pair with its own `id` and `landmarks`, an object that contains landmarks created when identifying communities of interest. 
+- `placeID`, Id of relevant geographic area, used throughout Districtr
+
+## Assignment and Parts
+- `assignment`: The assignment of precincts, blocks or other units to districts are kept in this object. This objects assigns a unit identifier as a key to a single or array of integers corresponding to the parts the key is assigned to, e.g. `{"001-AAA": [1] "001-AAB": [1],...}`.
+- `parts` is an array list of simple objects. Each objects lists a zero-based `id` and its real-world, one-based `displayNumber`.
 
 ## Units
 Units can be precincts or block groups and hold the important settings on which
