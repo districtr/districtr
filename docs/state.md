@@ -27,8 +27,8 @@ It is called in `edit.js`[] when `loadContext` is ready to complete and
 is collected by the `Editor`[] object with a corresponding `MapState`[].
 
 It's construction relies on the `MapState.map` Mapbox object, ready for
-use within the HTML DOM, an experimental `MapState.mapswipe` that is
-rarely used, an important context JSON object and a readyCallback,
+use within the HTML DOM, an *experimental `MapState.mapswipe` that is
+rarely used*, an important context JSON object and a readyCallback,
 currently set in `edit.js` to rename the window title.
 
 The important [context JSON object][] is described here and contains
@@ -56,11 +56,11 @@ for the `Map` object using `addLayers`[], which requests parameters
 for the `State` instance.
 - `this.units`, the same as unitsRecord?
 - `this.unitsBorders`
-- `this.sweipeUnits`, experimental
+- *`this.sweipeUnits`, experimental*
 - `this.counties`
 - `this.layers`, which looks for `units`, `points`, `bg_areas`, 
 `precincts`, `new_precincts` and `tracts` layers
-- `this.swipeLayers`, experimental
+- *`this.swipeLayers`, experimental*
 - `this.map`, the map itself, as DOM object.
 
 State keeps the following instance methods apart from its `constructor`
@@ -72,7 +72,7 @@ and the `initializeMapState` functions.
 - `subscribe(f)`, subscribes external subsribers to be rendered with
 state
 - `render()`, for lit-html, renders each subscriber into template
-- `hasExpectedData(feature)`, experimental feature.
+- *`hasExpectedData(feature)`, experimental feature.*
 
 
 ## The DistrictingPlan class
