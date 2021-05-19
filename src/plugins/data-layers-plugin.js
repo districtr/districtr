@@ -272,7 +272,7 @@ export default function DataLayersPlugin(editor) {
 
     // school zones and towns
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020", "michigan"].includes(state.place.id)) {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020", "michigan", "austin2020blocks"].includes(state.place.id)) {
         let st = "oh";
         if (state.place.id === "indiana") {
           st = "in";
@@ -284,6 +284,8 @@ export default function DataLayersPlugin(editor) {
           st = "wi";
         } else if (state.place.id === "michigan") {
           st = "mi";
+        } else if (state.place.id === "austin2020blocks") {
+          st = "tx";
         }
         fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
@@ -328,7 +330,7 @@ export default function DataLayersPlugin(editor) {
                     addBelowLabels
                 );
 
-                if (!["ohcentral", "indiana"].includes(state.place.id)) {
+                if (!["ohcentral", "indiana", "austin2020blocks"].includes(state.place.id)) {
                   return;
                 }
                 fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
@@ -449,7 +451,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs", "michigan"].includes(state.place.id)) {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs", "michigan", "austin2020blocks"].includes(state.place.id)) {
         const toggleSchoolsTownslayer = () => {
             // console.log(document.getElementsByName("enacted"));
             schoolsLayer && schoolsLayer.setOpacity(document.getElementById("schools").checked ? 1 : 0);
@@ -464,7 +466,7 @@ export default function DataLayersPlugin(editor) {
                 <input type="radio" name="enacted" @change="${toggleSchoolsTownslayer}" checked/>
                 Hidden
               </label>
-              ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
+              ${["ohcentral", "indiana", "austin2020blocks"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
                 <input id="towns" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
                 Cities and Towns
               </label>` : ""}
@@ -509,6 +511,38 @@ export default function DataLayersPlugin(editor) {
                 isOpen: true
             }
         );
+    } 
+    
+    // Austin 2010 block outline on 2020 blocks module
+    if (state.place.id === "austin2020blocks") {
+        let blocks10_layer;
+        fetch(`/assets/current_districts/austin_blocks2010.geojson`).then(res => res.json()).then((blocks10) => {
+            
+            state.map.addSource('blocks10', {
+                type: 'geojson',
+                data: blocks10
+            });
+
+            blocks10_layer = new Layer(state.map,
+                {
+                    id: 'blocks10',
+                    source: 'blocks10',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 1, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+
+        });
+        tab.addSection(
+            () => html`
+                <h4>2010 Census Block Boundaries</h4>
+                ${toggle("Show 2010 Census Blocks", false, (checked) => {
+                    blocks10_layer.setOpacity(
+                        checked ? 1 : 0
+                    );
+                })}`)
+    
     }
 
     if (spatial_abilities(state.place.id).native_american) {
