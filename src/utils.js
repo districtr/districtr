@@ -926,6 +926,10 @@ export function spatial_abilities (id) {
         austin: {
           border: true,
         },
+        austin2020blocks: {
+          border: true,
+          coalition: false,
+        },
         fortworth: {
           border: true,
         },
