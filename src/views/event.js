@@ -31,7 +31,8 @@ const stateForEvent = {
   'ourmapsmn': 'Minnesota',
   'micrc': 'Michigan',
   mesaaz: 'Arizona',
-  'ourmapsne': 'Nebraska'
+  'ourmapsne': 'Nebraska',
+  prjusd: 'California',
 };
 
 const validEventCodes = {
@@ -60,7 +61,8 @@ const validEventCodes = {
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
-  'ourmapsne': 'nebraska'
+  'ourmapsne': 'nebraska',
+  prjusd: 'pasorobles',
 };
 
 const blockPlans = {
@@ -82,6 +84,7 @@ const unitCounts = {
   centralsan: 5086,
   buncombe: 67,
   'towsonu-baltimore': 653,
+  prjusd: 2818,
 };
 
 const coi_events = [
@@ -150,7 +153,11 @@ const eventDescriptions = {
    mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
    <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
     <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
-   'ourmapsne': "Welcome to the event page for Nebraska!"
+    'ourmapsne': "Welcome to the event page for Nebraska!",
+    prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
+    <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
+    <a href='https://districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
+    <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>"
   };
 
 const longAbout = {
