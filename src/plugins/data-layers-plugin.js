@@ -1,4 +1,5 @@
 import { html, parts, render } from "lit-html";
+
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -13,15 +14,15 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addCurrentDistricts } from "../layers/current_districts";
+import { addMyCOI } from "../layers/my_coi";
 import { spatial_abilities } from "../utils";
-
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
-    const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
+    const demoLayers = state.layers;
 
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "Districts";
@@ -551,6 +552,10 @@ export default function DataLayersPlugin(editor) {
 
     if (spatial_abilities(state.place.id).current_districts) {
         addCurrentDistricts(tab, state);
+    }
+
+    if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
+        addMyCOI(state, tab);
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)

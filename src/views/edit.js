@@ -89,7 +89,6 @@ function loadContext(context) {
         html`
             <div id="comparison-container" class="mapcontainer">
               <div id="map" class="map"></div>
-              <div id="swipemap" class="map"></div>
             </div>
             <div id="toolbar"></div>
             <div class="print-only print-summary"></div>
@@ -237,7 +236,7 @@ function loadContext(context) {
 
     let state;
     mapState.map.on("load", () => {
-        state = new State(mapState.map, mapState.swipemap, context, () => {
+        state = new State(mapState.map, null, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {
