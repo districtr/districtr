@@ -24,7 +24,6 @@ export default () => {
             const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
             const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
-
             statePlaces.then(ps => {
                 let places = vraPage ? ps.flat(1) : ps;
                 let districtingPlaces = places.filter(p => !p.limit && p.units.some(u => !u.limit));
@@ -325,8 +324,9 @@ const communityOptions = places =>
         </ul>
     `;
 
-const placeItemsTemplateCommunities = (places, onClick) =>
-    places.map(place => {
+const placeItemsTemplateCommunities = (places, onClick) => {
+    places.sort((a,b) => (a.name > b.name) ? 1 : -1);
+    return places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
         return getUnits(place, problem, true).map(
             units => html`
@@ -340,6 +340,7 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             </li>
             `)
     }).reduce((items, item) => [...items, ...item], []);
+}
 
 function getProblems(place) {
     let districtingProblems = [],

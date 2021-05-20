@@ -2206,5 +2206,51 @@
         "pluralNoun": "Jurisdiction Districts"
       }
     ]
+  },
+  {
+    "id": "austin2020blocks",
+    "state": "Texas",
+    "name": "Austin",
+    "limit": "community",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -98.173,
+            30.0234
+          ],
+          [
+            -97.3695,
+            30.6282
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.austin2020blocks_blocks"
+            },
+            "sourceLayer": "austin2020blocks_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.austin2020blocks_blocks_points"
+            },
+            "sourceLayer": "austin2020blocks_blocks_points"
+          }
+        ]
+      }
+    ]
   }
 ]
