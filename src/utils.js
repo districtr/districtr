@@ -655,6 +655,9 @@ export function spatial_abilities (id) {
         shapefile: true,
         load_coi: false,
         // find_unpainted: true,
+        portal: {
+          endpoint: "https://portal.missouri-mapping.org",
+        },
       },
       montana: {
         multiyear: 2018,
@@ -925,6 +928,9 @@ export function spatial_abilities (id) {
         shapefile: true,
         find_unpainted: true,
         sideload: true,
+        portal: {
+          endpoint: "https://portal.texas-mapping.org",
+        },
       },
         tx_vra: {
           vra_effectiveness: true,
