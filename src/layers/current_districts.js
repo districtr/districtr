@@ -211,7 +211,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 <li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        Nested State Legislature
+                        State Legislature (Nested)
                     </label>
                 </li>` : 
                 html`<li>
