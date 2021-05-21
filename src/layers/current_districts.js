@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
-
+import { spatial_abilities, nested } from "../utils";
 import Layer, { addBelowLabels } from "../map/Layer";
 
 export function addBoundaryLayers(tab, state, current_districts, school_districts, municipalities) {
@@ -31,20 +31,6 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 data: state_senate
             });
 
-            borders.house = new Layer(
-                state.map,
-                {
-                    id: 'state_house',
-                    type: 'line',
-                    source: 'state_house',
-                    paint: {
-                        'line-color': '#000',
-                        'line-opacity': 0,
-                        'line-width': 1.5
-                    }
-                },
-                addBelowLabels
-            );
             borders.federal = new Layer(
                 state.map,
                 {
@@ -66,6 +52,26 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     type: 'line',
                     source: 'state_senate',
                     paint: {
+                        'line-color': '#000',
+                        'line-opacity': 0,
+                        'line-width': nested(placeID) ? 2 : 1.5
+                    } 
+                },
+                addBelowLabels
+            );
+            borders.house = new Layer(
+                state.map,
+                {
+                    id: 'state_house',
+                    type: 'line',
+                    source: 'state_house',
+                    paint: nested(placeID) ? 
+                    {
+                        'line-color': '#ff0000',
+                        'line-opacity': 0,
+                        'line-width': .75
+                    } :
+                    {
                         'line-color': '#000',
                         'line-opacity': 0,
                         'line-width': 1.5
@@ -140,7 +146,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 addBelowLabels
             );
     
-            state.map.addSource('centroids', {
+            state.map.addSource('muni_centroids', {
                 type: 'geojson',
                 data: centroids
             });
@@ -175,7 +181,9 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
             if (lvl === 'school_labels') 
                 borders[lvl].setPaintProperty('text-opacity', (lyr === 'schools') ? 1 : 0);
             else if (lvl === 'muni_labels')
-                borders[lvl].setPaintProperty('text-opacity', (lyr === 'municipalities') ? 1: 0);
+                borders[lvl].setPaintProperty('text-opacity', (lyr === 'municipalities') ? 1 : 0);
+            else if (nested(placeID) && lvl == 'house')
+                borders[lvl].setOpacity((lyr === 'senate') ? 1 : 0);
             else
                 borders[lvl].setOpacity(lyr === lvl ? 1 : 0);
         });
@@ -192,7 +200,20 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     Hidden
                 </label>
             </li>
-            ${current_districts ? 
+            ${current_districts ?
+                (nested(placeID) ? 
+                html`<li>
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
+                        US Congress
+                    </label>
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                        Nested State Legislature
+                    </label>
+                </li>` : 
                 html`<li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
@@ -210,7 +231,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                         <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
                         State House
                     </label>
-                </li>`: ""}
+                </li>`): ""}
                 ${school_districts ? 
                     html`<li>
                         <label style="cursor: pointer;">

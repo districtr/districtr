@@ -1023,3 +1023,21 @@ export function spatial_abilities (id) {
   };
   return status[id] || {};
 }
+
+export function nested(st) {
+  return [
+    'alaska', 
+    'arizona',
+    'illinois',
+    'iowa',
+    'maryland',
+    'minnesota',
+    'montana',
+    'newjersey',
+    'northdakota',
+    'ohio',
+    'oregon',
+    'southdakota',
+    'washington',
+    'wisconsin'].includes(st);
+}
