@@ -313,6 +313,9 @@ export function spatial_abilities (id) {
         native_american: true,
         shapefile: true,
         // find_unpainted: true,
+        portal: {
+          endpoint: 'https://portal.alaska-mapping.org',
+        },
       },
       arizona: {
         number_markers: true,
@@ -705,6 +708,9 @@ export function spatial_abilities (id) {
         current_districts: true,
         shapefile: true,
         find_unpainted: true,
+        portal: {
+          endpoint: 'https://portal.newmexico-mapping.org',
+        },
       },
         new_mexico_bg: {
           native_american: true,
@@ -960,6 +966,9 @@ export function spatial_abilities (id) {
         native_american: true,
         shapefile: true,
         // find_unpainted: true,
+        portal: {
+          endpoint: 'https://portal.utah-mapping.org',
+        },
       },
       vermont: {
         number_markers: true,
@@ -975,6 +984,9 @@ export function spatial_abilities (id) {
         shapefile: true,
         // find_unpainted: true,
         load_coi: false,
+        portal: {
+          endpoint: 'https://portal.virginia-mapping.org',
+        },
       },
         vabeach: {
           multiyear: 2018,
@@ -1010,6 +1022,9 @@ export function spatial_abilities (id) {
         find_unpainted: true,
         current_districts: true,
         contiguity: 2,
+        portal: {
+          endpoint: 'https://portal.wisconsin-mapping.org',
+        },
       },
         wisconsin2020: {
           number_markers: true,
