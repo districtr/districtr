@@ -270,7 +270,7 @@ export default function DataLayersPlugin(editor) {
         });
     }
 
-    // school zones and towns
+    // school zones and towns for non statewide
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
     if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
         let st = state.place.state.toLowerCase().replace(" ","");
@@ -504,7 +504,7 @@ export default function DataLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
-    addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts);
+    addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
 
 
     tab.addSection(() => html`<h4>Demographics</h4>`)

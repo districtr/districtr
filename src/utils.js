@@ -1012,6 +1012,7 @@ export function spatial_abilities (id) {
           current_districts: true,
           contiguity: 2,
           school_districts: true,
+          municipalities: true,
         },
       wyoming: {
         multiyear: 2018,

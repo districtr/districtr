@@ -3,9 +3,9 @@ import { toggle } from "../components/Toggle";
 
 import Layer, { addBelowLabels } from "../map/Layer";
 
-export function addBoundaryLayers(tab, state, current_districts, school_districts) {
+export function addBoundaryLayers(tab, state, current_districts, school_districts, municipalities) {
     // check if we have to draw anything, if not, just leave
-    if (!current_districts && !school_districts)
+    if (!current_districts && !school_districts && !municipalities)
         return;
 
     let borders = {},
@@ -122,6 +122,52 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
             );
         })});
     }
+    // municipal boundaries should be stored in /assets/boundaries/municipalities/[state]/
+    if (municipalities) {
+        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities.geojson`).then(res => res.json()).then((muni) => {
+        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
+        
+            state.map.addSource('muni', {
+                type: 'geojson',
+                data: muni
+            });
+            borders.municipalities = new Layer(state.map,
+                {
+                    id: 'muni',
+                    source: 'muni',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+    
+            state.map.addSource('centroids', {
+                type: 'geojson',
+                data: centroids
+            });
+            borders.muni_labels = new Layer(state.map,
+                {
+                    id: 'muni_centroids',
+                    source: 'muni_centroids',
+                    type: 'symbol',
+                    layout: {
+                    'text-field': [
+                        'format',
+                        ['get', 'NAME'],
+                        {'font-scale': 0.75},
+                    ],
+                    'text-anchor': 'center',
+                    'text-radial-offset': 0,
+                    'text-justify': 'center'
+                    },
+                    paint: {
+                    'text-opacity': 0
+                    }
+                },
+                addBelowLabels
+            );
+        })});
+    }
 
     let currentBorder = null;
     let showBorder = (e, lyr) => {
@@ -129,93 +175,63 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
             // have to link the labels to the schools
             if (lvl === 'school_labels') 
                 borders[lvl].setPaintProperty('text-opacity', (lyr === 'schools') ? 1 : 0);
+            else if (lvl === 'muni_labels')
+                borders[lvl].setPaintProperty('text-opacity', (lyr === 'municipalities') ? 1: 0);
             else
                 borders[lvl].setOpacity(lyr === lvl ? 1 : 0);
         });
     };
 
-    // create radio buttons if schools exist or not
-    if (current_districts && school_districts) {
-        tab.addSection(() => html`
-        <div id='district-overlay'>    
-            <h4>Boundary Overlays</h4>
-            <li>
-            <label style="cursor: pointer;">
-                <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
-                Hidden
-            </label>
+    // create radio buttons depending on what exists
+    var html_acc = "";
+    if (current_districts) {
+        html_acc = html_acc + 
+            `<li>
+                <label style="cursor: pointer;">
+                    <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
+                    US Congress
+                </label>
             </li>
             <li>
-            <label style="cursor: pointer;">
-                <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                US Congress
-            </label>
+                <label style="cursor: pointer;">
+                    <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                    State Senate
+                </label>
             </li>
             <li>
-            <label style="cursor: pointer;">
-                <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                State Senate
-            </label>
-            </li>
-            <li>
-            <label style="cursor: pointer;">
-                <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                State House
-            </label>
-            </li>
-        </div>
-        <li>
-            <label style="cursor: pointer;">
-                <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                Schools
-            </label>
-        </li>`)
+                <label style="cursor: pointer;">
+                    <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
+                    State House
+                </label>
+            </li>`
     }
-    else if (current_districts) {
-        tab.addSection(() => html`
-            <div id='district-overlay'>    
-                <h4>Boundary Overlay</h4>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
-                        Hidden
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        US Congress
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Senate
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                        State House
-                    </label>
-                </li>`);
+    if (school_districts) {
+        html_acc = html_acc + `
+            <li>
+                <label style="cursor: pointer;">
+                    <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
+                    Schools
+                </label>
+            </li>`
     }
-    else { 
-        // just school districts 
-        tab.addSection(() => html`
-        <div id='district-overlay'>    
+    if (municipalities) { 
+        html_acc = html_acc + `
+            <li>
+                <label style="cursor: pointer;">
+                    <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
+                    Municipalities
+                </label>
+            </li>`
+    }
+    console.log(html_acc);
+    html_acc = 
+        `<div id='district-overlay'>    
             <h4>Boundary Overlays</h4>
             <li>
                 <label style="cursor: pointer;">
                     <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
                     Hidden
                 </label>
-            </li>
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                    Schools
-                </label>
-            </li>`);
-    }
+            </li>` + html_acc + '</div>'
+    tab.addSection(() => html_acc);
 }
