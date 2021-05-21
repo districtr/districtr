@@ -15,41 +15,70 @@ Distirctr keeps track of a specific problem or assignment of a certain region, i
 [The Plan/Model JSON]: ./plancontext.md
 [The State Object]: ./state.md
 
-## 2. Initializing the Editor
+## 2. Initializing: the Editor and its Map
 
 - [How is the Districtr Editor page loaded?]
 - [edit.js and the Editor Object]
 - [The Map Object]
+- [Adding Layers]
 
 [How is the Districtr Editor page loaded?]: ./initialization.md
 [edit.js and the Editor Object]: ./editor.md
 [The Map Object]: ./map.md
+[Adding Layers]: ./layer.md
+
+## 3. User Interace: Tools and Plugins 
+
+[Making space for the Toolbar] 
+[The Tools-Plugin prevails]
+  - [The `Tool` Class and The `Pan` Tool] 
+  - [Brush and Erase Tools]
+  - [Inspect Tool]
+[Popups a la Modal]
+[The top-bar Menu]
+Undo and Redo
+
+[Making space for the Toolbar]: ./toolbar.md
+[The Tools-Plugin prevails]: ./toolsplugin.md
+[The `Tool` Class and The `Pan` Tool]: ./tool.md
+[Brush and Erase Tools]: ./BrushEraseTools.md
+[Inspect Tool]: ./inspecttool.md
+
+[Adding new features]
+
+## 4. User Interaction: Drawing Districts
+
+[UIStateStore]: ./uistatestore.md
+[Actions and Reducers]: ./actionsreducers.md
+OptionsContainer
+The Brush
 
 
-## 3. Tools and Plugins 
 
-toolbar
-plugins
-  - plugin 1
-  - plugin 2
 
-adding new features
+## 5. Interesting Communities and Landmarks
 
-## 4. Drawing Districts and Communities
+  - Landmark Tool
+  - Landmark Class
+  - community-plugin.js
 
-store
+## 6. Charts and Analysis
 
-## 5. Districtr-default State Portals
+## 7. Districtr-default State Portals
 
-## 6. Routes and Server Operations
+## 8. Routes and Server Operations
+
+Contiguity Checker
 
 routes
 
-## 7. Communities of Interest
+## 10. Deployment and Navigation
 
-## 8. Deployment and Navigation
+## 11. Spatial Abilities and Exceptions
 
-## 9. Spatial Abilities and Exceptions
+## 12. Events and Tags
+
+## 13. Grand Suggestions
 
 For June 1, 2021
 
