@@ -13,7 +13,6 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     
     // current districts should be stored in assets/boundaries/current_districts/[state]/
     // if the state name is two words, it should be just have the space removed
-
     if (current_districts) {
         fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
         fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
@@ -183,55 +182,50 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     };
 
     // create radio buttons depending on what exists
-    var html_acc = "";
-    if (current_districts) {
-        html_acc = html_acc + 
-            `<li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                    US Congress
-                </label>
-            </li>
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                    State Senate
-                </label>
-            </li>
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                    State House
-                </label>
-            </li>`
-    }
-    if (school_districts) {
-        html_acc = html_acc + `
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                    Schools
-                </label>
-            </li>`
-    }
-    if (municipalities) { 
-        html_acc = html_acc + `
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
-                    Municipalities
-                </label>
-            </li>`
-    }
-    console.log(html_acc);
-    html_acc = 
-        `<div id='district-overlay'>    
+    tab.addSection(() =>
+        html`
+        <div id='district-overlay'>    
             <h4>Boundary Overlays</h4>
             <li>
                 <label style="cursor: pointer;">
                     <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
                     Hidden
                 </label>
-            </li>` + html_acc + '</div>'
-    tab.addSection(() => html_acc);
+            </li>
+            ${current_districts ? 
+                html`<li>
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
+                        US Congress
+                    </label>
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                        State Senate
+                    </label>
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
+                        State House
+                    </label>
+                </li>`: ""}
+                ${school_districts ? 
+                    html`<li>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
+                            Schools
+                        </label>
+                    </li>` : ""}
+                ${municipalities ? 
+                    html`<li>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
+                            Municipalities
+                        </label>
+                    </li>`: ""}
+                </div>
+                `
+    )
 }
