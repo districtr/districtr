@@ -41,4 +41,13 @@ export default class Election extends ColumnSet {
             otherParty.asMapboxExpression()
         ];
     }
+    getSeatsWonParty(party) {
+        let groups = this.subgroups;
+        let data = groups.map(g => g.data);
+        let count = 0;
+        for (let i = 0; i < party.data.length; i++) {
+            (party.data[i] == Math.max(...data.map(d => d[i]))) ? count++ : null;
+        }
+        return count;
+    }
 }
