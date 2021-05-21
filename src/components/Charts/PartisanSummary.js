@@ -51,11 +51,11 @@ function parseElectionName(election) {
     if (isNaN(yr))
         return election
     if (election.includes('Presidential'))
-        return yr + " Pres"
+        return yr + " PRES"
     if (election.includes('Senate'))
-        return yr + " Sen"
+        return yr + " SEN"
     if (election.includes('Governor'))
-        return yr + " Gov"
+        return yr + " GOV"
     return election
 }
 
