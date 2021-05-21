@@ -41,7 +41,7 @@ function getCellSeatShare(party, election) {
     let won = election.getSeatsWonParty(party);
     let total = party.data.length;
     return {
-        content: won,
+        content: `${roundToDecimal(won/total * 100, 2)}%`,
         style: getCellStyle(won/total, party)
     };
 }
@@ -66,11 +66,15 @@ function PartisanSummary(elections, parts) {
     let rows = [];
     for (let election of elections) {
         rows.push({
-            label: parseElectionName(election.name) + " Vote Share",
+            label: parseElectionName(election.name),
+            entries: [{content: "", style: "background: #ffffff"}, {content: "", style: "background: #ffffff"}]
+        })
+        rows.push({
+            label: "Vote Share",
             entries: election.parties.map(party => getCell(party, null))
         });
         rows.push({
-            label: parseElectionName(election.name) + " Seat Share",
+            label: "Seat Share",
             entries: election.parties.map(party => getCellSeatShare(party, election))
         });
     }  
