@@ -1,0 +1,99 @@
+
+{
+    "plans":
+    [
+        {
+            "_id": 20885,
+            "plan": 
+            {
+                "assignment":{}, 
+                "place":
+                {
+                    "name": false
+                },
+                "problem": 
+                {
+                    "name": "State Assembly", 
+                    "numberOfParts": 99, 
+                    "pluralNoun": "State Assembly Districts",
+                    "type": "state_assembly"
+                },
+                "units":
+                {
+                    "name": "2020 Wards"
+                }
+            }, 
+            "planName": "High Compactness"
+        },
+        {
+            "_id": 20886,
+            "plan": 
+            {
+                "assignment":{}, 
+                "place":
+                {
+                    "name": false
+                },
+                "problem": 
+                {
+                    "name": "State Assembly", 
+                    "numberOfParts": 99, 
+                    "pluralNoun": "State Assembly Districts",
+                    "type": "state_assembly"
+                },
+                "units":
+                {
+                    "name": "2020 Wards"
+                }
+            }, 
+            "planName": "Low Compactness"
+        },
+        {
+            "_id": 20887,
+            "plan": 
+            {
+                "assignment":{}, 
+                "place":
+                {
+                    "name": false
+                },
+                "problem": 
+                {
+                    "name": "State Assembly", 
+                    "numberOfParts": 99, 
+                    "pluralNoun": "State Assembly Districts",
+                    "type": "state_assembly"
+                },
+                "units":
+                {
+                    "name": "2020 Wards"
+                }
+            }, 
+            "planName": "Dem Leaning"
+        },
+        {
+            "_id": 20888,
+            "plan": 
+            {
+                "assignment":{}, 
+                "place":
+                {
+                    "name": false
+                },
+                "problem": 
+                {
+                    "name": "State Assembly", 
+                    "numberOfParts": 99, 
+                    "pluralNoun": "State Assembly Districts",
+                    "type": "state_assembly"
+                },
+                "units":
+                {
+                    "name": "2020 Wards"
+                }
+            }, 
+            "planName": "Rep Leaning"
+        }
+    ]
+
+}

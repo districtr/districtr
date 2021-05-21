@@ -162,7 +162,8 @@ const longAbout = {
 };
 
 const proposals_by_event = {
-  centralsan: true
+  centralsan: true,
+  pmc: true
 };
 
 export default () => {
