@@ -749,6 +749,7 @@ export function spatial_abilities (id) {
         shapefile: true,
         // find_unpainted: true - needs contiguity
         school_districts: true,
+        current_districts: true,
       },
         ohcentral: {
           multiyear: 2019,
