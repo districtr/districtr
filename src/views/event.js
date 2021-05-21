@@ -150,7 +150,7 @@ const eventDescriptions = {
    mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
    <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
     <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
-   'ourmapsne': "welcome to the event page for mapping Nebraska!"
+   'ourmapsne': "Welcome to the event page for Nebraska!"
   };
 
 const longAbout = {
