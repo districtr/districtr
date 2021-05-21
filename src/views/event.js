@@ -31,6 +31,7 @@ const stateForEvent = {
   'ourmapsmn': 'Minnesota',
   'micrc': 'Michigan',
   mesaaz: 'Arizona',
+  'ourmapsne': 'Nebraska'
 };
 
 const validEventCodes = {
@@ -59,6 +60,7 @@ const validEventCodes = {
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
+  'ourmapsne': 'nebraska'
 };
 
 const blockPlans = {
@@ -104,6 +106,7 @@ const coi_events = [
   'ourmapsmn',
   'micrc',
   'mesaaz',
+  'ourmapsne'
 ];
 
 const hybrid_events = [
@@ -147,6 +150,7 @@ const eventDescriptions = {
    mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
    <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
     <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
+   'ourmapsne': "welcome to the event page for mapping Nebraska!"
   };
 
 const longAbout = {
