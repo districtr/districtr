@@ -9,48 +9,40 @@ As of June, 2021, Districtr is managed by MGGG, a research group at the Tisch Co
 ## 1. The Districtr JSON context/plan model
 Distirctr keeps track of a specific problem or assignment of a certain region, its districts and units used in a model described in the following model.
 
-- [The Plan/Model JSON] 
-- [The State Object]
-
-[The Plan/Model JSON]: ./plancontext.md
-[The State Object]: ./state.md
+- [The Plan/Model JSON](./plancontext.md)
+- [The State Object](./state.md)
 
 ## 2. Initializing: the Editor and its Map
 
-- [How is the Districtr Editor page loaded?]
-- [edit.js and the Editor Object]
-- [The Map Object]
-- [Adding Layers]
+- [How is the Districtr Editor page loaded?](./initialization.md)
+- [edit.js and the Editor Object](./editor.md)
+- [The Map Object](./map.md)
+- [Adding Layers](./layer.md)
 
-[How is the Districtr Editor page loaded?]: ./initialization.md
-[edit.js and the Editor Object]: ./editor.md
-[The Map Object]: ./map.md
-[Adding Layers]: ./layer.md
 
 ## 3. User Interace: Tools and Plugins 
 
-[Making space for the Toolbar] 
-[The Tools-Plugin prevails]
-  - [The `Tool` Class and The `Pan` Tool] 
-  - [Brush and Erase Tools]
-  - [Inspect Tool]
-[Popups a la Modal]
-[The top-bar Menu]
+[Making space for the Toolbar](./toolbar.md)
+[The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+
+Popups a la Modal
+
+The top-bar Menu
+
 Undo and Redo
 
-[Making space for the Toolbar]: ./toolbar.md
-[The Tools-Plugin prevails]: ./toolsplugin.md
-[The `Tool` Class and The `Pan` Tool]: ./tool.md
-[Brush and Erase Tools]: ./BrushEraseTools.md
-[Inspect Tool]: ./inspecttool.md
-
-[Adding new features]
+Adding new features
 
 ## 4. User Interaction: Drawing Districts
 
-[UIStateStore]: ./uistatestore.md
-[Actions and Reducers]: ./actionsreducers.md
+[UIStateStore](./uistatestore.md)
+[Actions and Reducers](./actionsreducers.md)
+
 OptionsContainer
+
 The Brush
 
 
@@ -80,11 +72,12 @@ routes
 
 ## 13. Grand Suggestions
 
-For June 1, 2021
-
 <a name="team" />
-   The Team
 
+## 14. The Team
+
+## 15. Colophon
+For June 1, 2021
 
 
 
