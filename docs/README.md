@@ -18,34 +18,49 @@ Distirctr keeps track of a specific problem or assignment of a certain region, i
 - [edit.js and the Editor Object](./editor.md)
 - [The Map Object](./map.md)
 - [Adding Layers](./layer.md)
+NumberMarkers
 
 
 ## 3. User Interace: Tools and Plugins 
 
 [Making space for the Toolbar](./toolbar.md)
+
 [The Tools-Plugin prevails](./toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](./tool.md)
   - [Brush and Erase Tools](./BrushEraseTools.md)
   - [Inspect Tool](./inspecttool.md)
 
-Popups a la Modal
+[Popups a la Modal](./modal.md)
 
-The top-bar Menu
+[The top-bar Menu](./topmenu.md)
 
-Undo and Redo
+[Rendering in Action: OptionsContainer](./optionscontainer.md)
 
-Adding new features
+
+[UIStateStore](./uistatestore.md)
+
+[Actions and Reducers](./actionsreducers.md)
+
+[A List of UI and Display Components](./uicomponents.md)
+
+
+BrushColorPicker
+BrushSlide
 
 ## 4. User Interaction: Drawing Districts
 
-[UIStateStore](./uistatestore.md)
-[Actions and Reducers](./actionsreducers.md)
 
-OptionsContainer
+[Hovering over the Map](./brush.md)
 
-The Brush
+[Painting and Erasing with Brush](./mapbrush.md)
+- With CommunityBrush
 
+[Undo and Redo](./undoredo.md)
 
+Inspect Tool and ToolTips
+
+ToolTips
+contiguity
 
 
 ## 5. Interesting Communities and Landmarks
@@ -56,11 +71,36 @@ The Brush
 
 ## 6. Charts and Analysis
 
+Tabs and more here!
+Chart js functions
+
+
 ## 7. Districtr-default State Portals
+
+Index.html
+[Districtr State Portals](./districtrstateportals.md)
+PLaceMap
+
 
 ## 8. Routes and Server Operations
 
 Contiguity Checker
+
+components
+
+About Section
+LayerTab
+Parameter
+PlaceMap
+PlacesList
+PlanUploader
+RevealSection
+Select
+Tab
+Tabs
+Toggle
+
+
 
 routes
 
