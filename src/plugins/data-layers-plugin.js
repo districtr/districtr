@@ -1,4 +1,5 @@
 import { html, parts, render } from "lit-html";
+
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -13,15 +14,15 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addBoundaryLayers } from "../layers/current_districts";
+import { addMyCOI } from "../layers/my_coi";
 import { spatial_abilities } from "../utils";
-
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
-    const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
+    const demoLayers = state.layers;
 
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "Districts";
@@ -64,7 +65,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs", "ma"].includes(state.place.id)) {
+    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs", "mn2020acs", "ma"].includes(state.place.id)) {
         addCountyLayer(tab, state);
     }
 
@@ -506,6 +507,10 @@ export default function DataLayersPlugin(editor) {
 
     addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
 
+
+    if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
+        addMyCOI(state, tab);
+    }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
