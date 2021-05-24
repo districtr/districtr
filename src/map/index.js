@@ -1,63 +1,10 @@
 import mapboxgl from "mapbox-gl";
-import MapboxCompare from 'mapbox-gl-compare';
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
 import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
-
-class MapSliderControl {
-    constructor(activated) {
-        this.activated = activated;
-    }
-
-    onAdd(map){
-        this.map = map;
-        this.container = document.createElement('div');
-        this.container.className = "mapboxgl-ctrl mapboxgl-ctrl-group map-slider-control";
-
-        let btn1 = null,
-            btn2 = null;
-
-        if (this.activated) {
-            btn1 = document.createElement('button');
-            btn1.type = "button";
-            btn1.title = "Stack layers mode";
-            btn1.innerHTML = "<img src='/assets/layer_icon.svg'/>";
-            this.container.appendChild(btn1);
-
-            btn2 = document.createElement('button');
-            btn2.innerHTML = "<img src='/assets/swiper_icon.svg'/>";
-            btn2.type = "button";
-            btn2.title = "Slide layers mode";
-            this.container.appendChild(btn2);
-        }
-
-        if (localStorage.getItem("slide_layer") === "active" || window.location.href.includes("slider")) {
-            localStorage.setItem("slide_layer", "active");
-            if (this.activated) {
-                btn2.className = "active";
-                btn1.onclick = () => {
-                    localStorage.setItem("slide_layer", "off");
-                    window.location.href = window.location.href.replace("slider=true", "").replace("slider", "");
-                };
-            }
-        } else if (this.activated) {
-            btn1.className = "active";
-            btn2.onclick = () => {
-                let joiner = window.location.search ? "&" : "?";
-                window.location.href = window.location.href + joiner + "slider=true";
-            };
-        }
-
-        return this.container;
-    }
-    onRemove(){
-        this.container.parentNode.removeChild(this.container);
-        this.map = undefined;
-    }
-}
 
 export class MapState {
     constructor(mapContainer, options, mapStyle) {
@@ -76,39 +23,6 @@ export class MapState {
         });
         this.nav = new mapboxgl.NavigationControl();
         this.map.addControl(this.nav, "top-left");
-
-        // Georgia specific
-        let activated = false;
-        if (localStorage.getItem("slide_layer") === "active") {
-            activated = true;
-            this.swipemap = new mapboxgl.Map({
-                container: "swipemap",
-                style: mapStyle,
-                attributionControl: false,
-                center: [-86.0, 37.83],
-                zoom: 3,
-                pitchWithRotate: false,
-                dragRotate: false,
-                preserveDrawingBuffer: true,
-                dragPan: true,
-                touchZoomRotate: true,
-                ...options
-            });
-
-            this.comparer = new MapboxCompare(this.map, this.swipemap, "#comparison-container", {});
-            this.comparer.setSlider(10000);
-            window.mapslide = this.comparer;
-        } else {
-            document.getElementById("swipemap").style.display = "none";
-            this.swipemap = null;
-            this.comparer = null;
-            window.mapslide = null;
-        }
-
-        activated = activated || (options && options.bounds && options.bounds[0][0] === -85.6052 && options.bounds[0][1] === 30.3558);
-        const sliderOpt = new MapSliderControl(activated);
-        this.map.addControl(sliderOpt, "top-left");
-
         this.mapboxgl = mapboxgl;
     }
 }
@@ -140,7 +54,34 @@ function addUnits(map, parts, tileset, layerAdder) {
         layerAdder
     );
 
-    return { units, unitsBorders };
+    let coiunits, coiunits2;
+    if (false) {
+        const coisrc = tileset.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups");
+        coiunits = new Layer(
+            map,
+            {
+                id: "browse_" + coisrc,
+                source: coisrc,
+                "source-layer": coisrc,
+                type: "fill",
+                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+            },
+            layerAdder
+        );
+        coiunits2 = tileset.sourceLayer.includes("blockgroups") ? null : new Layer(
+            map,
+            {
+                id: "browse_coinative",
+                source: tileset.sourceLayer,
+                "source-layer": tileset.sourceLayer,
+                type: "fill",
+                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+            },
+            layerAdder
+        );
+    }
+
+    return { units, unitsBorders, coiunits, coiunits2 };
 }
 
 function addPoints(map, tileset, layerAdder) {
@@ -224,11 +165,20 @@ function addBGs(map, tileset, layerAdder) {
 export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, statename) {
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
-        if (swipemap) {
-            swipemap.addSource(tileset.sourceLayer, tileset.source);
+    }
+    if (borderId && spatial_abilities(borderId).load_coi && tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
+        const coibg = tilesets.find(t => t.type ==="fill");
+        if (coibg) {
+            map.addSource(
+              coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+              {
+                type: "vector",
+                url: coibg.source.url.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+              }
+            );
         }
     }
-    const { units, unitsBorders } = addUnits(
+    const { units, unitsBorders, coiunits, coiunits2 } = addUnits(
         map,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
@@ -244,26 +194,6 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
         bg_areas = addBGs(
             map,
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
-            layerAdder
-        );
-    }
-
-    let swipeUnits = null,
-        swipeUnitsBorders = null,
-        swipePoints = null;
-
-    if (swipemap) {
-        let swipe_details = addUnits(
-            swipemap,
-            parts,
-            tilesets.find(tileset => tileset.type === "fill"),
-            layerAdder
-        );
-        swipeUnits = swipe_details.units;
-        swipeUnitsBorders = swipe_details.unitsBorders;
-        swipePoints = addPoints(
-            swipemap,
-            tilesets.find(tileset => tileset.type === "circle"),
             layerAdder
         );
     }
@@ -347,5 +277,5 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
         });
     }
 
-    return { units, unitsBorders, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, bg_areas, precincts, new_precincts, tracts };
+    return { units, unitsBorders, coiunits, coiunits2, points, counties, bg_areas, precincts, new_precincts, tracts };
 }

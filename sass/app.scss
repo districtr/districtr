@@ -336,3 +336,70 @@ li.party-desc span {
     margin-right: 8px;
   }
 }
+
+#coi_browse {
+  display: none;
+  border: 2px inset #888;
+  max-height: 150px;
+  overflow-y: scroll;
+  padding: 3px;
+
+  label {
+    cursor: pointer;
+
+    .coi-squareSpan {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 8px;
+    }
+  }
+}
+
+#modal-coi-copy {
+  min-width: 500px;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .number-box {
+    border-radius: 10px;
+    background: #ccc;
+    width: 20px;
+    text-align: center;
+    margin-right: 3px;
+  }
+
+  h4 small {
+    display: block;
+    max-width: 160px;
+    overflow: hidden;
+  }
+
+  & > div {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    margin-top: 10px;
+
+    ul {
+      flex-direction: column;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+      padding: 10px;
+      padding-top: 0;
+      background: aliceblue;
+
+      &.selected {
+        background: lightblue;
+      }
+
+      li {
+        display: flex;
+        list-style-type: none;
+      }
+    }
+  }
+}
