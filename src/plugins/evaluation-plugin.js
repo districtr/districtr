@@ -151,6 +151,7 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.contiguity,
                     spatial_abilities(state.place.id).contiguity,
+                    state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch
                 ),
