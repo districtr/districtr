@@ -1,14 +1,14 @@
 {
     "assignment": {},
-    "id": "bb39e97b",
+    "id": "fd7f2e5f",
     "idColumn": {
-        "key": "ID",
-        "name": "ID"
+        "key": "loc_prec",
+        "name": "Locality and precinct names"
     },
     "problem": {
-        "numberOfParts": 20,
-        "pluralNoun": "State Senate Districts",
-        "name": "State Senate"
+        "pluralNoun": "Congressional Districts",
+        "numberOfParts": 11,
+        "name": "Congress"
     },
     "parts": [
         {
@@ -65,55 +65,10 @@
             "id": 10,
             "displayNumber": 11,
             "name": "District 11"
-        },
-        {
-            "id": 11,
-            "displayNumber": 12,
-            "name": "District 12"
-        },
-        {
-            "id": 12,
-            "displayNumber": 13,
-            "name": "District 13"
-        },
-        {
-            "id": 13,
-            "displayNumber": 14,
-            "name": "District 14"
-        },
-        {
-            "id": 14,
-            "displayNumber": 15,
-            "name": "District 15"
-        },
-        {
-            "id": 15,
-            "displayNumber": 16,
-            "name": "District 16"
-        },
-        {
-            "id": 16,
-            "displayNumber": 17,
-            "name": "District 17"
-        },
-        {
-            "id": 17,
-            "displayNumber": 18,
-            "name": "District 18"
-        },
-        {
-            "id": 18,
-            "displayNumber": 19,
-            "name": "District 19"
-        },
-        {
-            "id": 19,
-            "displayNumber": 20,
-            "name": "District 20"
         }
     ],
     "place": {
-        "id": "alaska",
+        "id": "virginia",
         "landmarks": {
             "type": "geojson",
             "data": {
@@ -121,10 +76,10 @@
                 "features": []
             }
         },
-        "state": "Alaska",
-        "name": "Alaska"
+        "state": "Virginia",
+        "name": "Virginia"
     },
-    "placeId": "alaska",
+    "placeId": "virginia",
     "units": {
         "id": "precincts",
         "name": "Precincts",
@@ -136,59 +91,66 @@
                 "total": {
                     "key": "TOTPOP",
                     "name": "Total population",
-                    "sum": 710231,
-                    "min": 44,
-                    "max": 7994
+                    "sum": 8001024,
+                    "min": 57,
+                    "max": 23502
                 },
                 "subgroups": [
                     {
-                        "key": "WHITE",
+                        "key": "NH_WHITE",
                         "name": "White population",
-                        "sum": 473576,
-                        "min": 1,
-                        "max": 5953
+                        "sum": 5186450,
+                        "min": 16,
+                        "max": 13958
                     },
                     {
-                        "key": "BLACK",
+                        "key": "NH_BLACK",
                         "name": "Black population",
-                        "sum": 23263,
+                        "sum": 1523704,
                         "min": 0,
-                        "max": 980
+                        "max": 5618
                     },
                     {
-                        "key": "ASIAN",
+                        "key": "HISP",
+                        "name": "Hispanic population",
+                        "sum": 631825,
+                        "min": 0,
+                        "max": 5055
+                    },
+                    {
+                        "key": "NH_ASIAN",
                         "name": "Asian population",
-                        "sum": 38135,
+                        "sum": 436298,
                         "min": 0,
-                        "max": 1452
+                        "max": 4606
                     },
                     {
-                        "key": "AMIN",
-                        "name": "Native American and Alaskan Native population",
-                        "sum": 104871,
+                        "key": "NH_AMIN",
+                        "name": "American Indian population",
+                        "sum": 20679,
                         "min": 0,
-                        "max": 2428
+                        "max": 370
                     },
                     {
-                        "key": "NHPI",
+                        "key": "NH_NHPI",
                         "name": "Native Hawaiian and Pacific Islander population",
-                        "sum": 7409,
+                        "sum": 5061,
                         "min": 0,
-                        "max": 428
+                        "max": 63
                     },
                     {
-                        "key": "2MORE",
+                        "key": "NH_2MORE",
                         "name": "Two or more races",
-                        "sum": 51875,
+                        "sum": 181669,
                         "min": 0,
-                        "max": 499
+                        "max": 658
                     },
                     {
-                        "key": "OTHER",
+                        "key": "NH_OTHER",
                         "name": "Other races",
-                        "sum": 11102,
+                        "sum": 15338,
                         "min": 0,
-                        "max": 364
+                        "max": 100
                     }
                 ]
             },
@@ -198,195 +160,193 @@
                 "total": {
                     "key": "VAP",
                     "name": "Voting age population",
-                    "sum": 522853,
-                    "min": 31,
-                    "max": 5372
+                    "sum": 6147347,
+                    "min": 44,
+                    "max": 22926
                 },
                 "subgroups": [
                     {
                         "key": "WVAP",
                         "name": "White voting age population",
-                        "sum": 368895,
-                        "min": 1,
-                        "max": 4122
+                        "sum": 4133385,
+                        "min": 16,
+                        "max": 13464
                     },
                     {
                         "key": "BVAP",
                         "name": "Black voting age population",
-                        "sum": 16904,
+                        "sum": 1135015,
                         "min": 0,
-                        "max": 645
+                        "max": 5099
+                    },
+                    {
+                        "key": "HVAP",
+                        "name": "Hispanic voting age population",
+                        "sum": 426857,
+                        "min": 0,
+                        "max": 3828
                     },
                     {
                         "key": "AMINVAP",
                         "name": "Native American voting age population",
-                        "sum": 70630,
+                        "sum": 16173,
                         "min": 0,
-                        "max": 1528
+                        "max": 305
                     },
                     {
                         "key": "NHPIVAP",
                         "name": "Native Hawaiian and Pacific Islander voting age population",
-                        "sum": 4599,
+                        "sum": 3958,
                         "min": 0,
-                        "max": 228
+                        "max": 63
                     },
                     {
                         "key": "ASIANVAP",
                         "name": "Asian voting age population",
-                        "sum": 28312,
+                        "sum": 334140,
                         "min": 0,
-                        "max": 1245
+                        "max": 3316
                     },
                     {
                         "key": "OTHERVAP",
                         "name": "Other races voting age population",
-                        "sum": 7988,
+                        "sum": 7833,
                         "min": 0,
-                        "max": 304
+                        "max": 99
                     },
                     {
                         "key": "2MOREVAP",
                         "name": "Two or more races voting age population",
-                        "sum": 25525,
+                        "sum": 89986,
                         "min": 0,
-                        "max": 257
+                        "max": 629
                     }
                 ]
             },
             {
+                "type": "text",
+                "key": "locality",
+                "name": "City or county",
+                "subgroups": []
+            },
+            {
                 "type": "election",
+                "name": "2016 Presidential",
                 "subgroups": [
                     {
-                        "key": "USH14D",
+                        "key": "G16DPRS",
                         "name": "Democratic",
-                        "sum": 77004,
-                        "min": 0,
-                        "max": 887
-                    },
-                    {
-                        "key": "USH14R",
-                        "name": "Republican",
-                        "sum": 102464,
+                        "sum": 1978980,
                         "min": 5,
-                        "max": 988
-                    }
-                ],
-                "metadata": {
-                    "race": "U.S. House",
-                    "year": 2014
-                },
-                "year": 2014
-            },
-            {
-                "type": "election",
-                "subgroups": [
-                    {
-                        "key": "PRES16D",
-                        "name": "Democratic",
-                        "sum": 69097,
-                        "min": 1,
-                        "max": 798
+                        "max": 3334
                     },
                     {
-                        "key": "PRES16R",
+                        "key": "G16RPRS",
                         "name": "Republican",
-                        "sum": 103457,
-                        "min": 0,
-                        "max": 1044
-                    }
-                ],
-                "metadata": {
-                    "race": "Presidential",
-                    "year": 2016
-                },
-                "year": 2016
-            },
-            {
-                "type": "election",
-                "subgroups": [
-                    {
-                        "key": "SEN16D",
-                        "name": "Democratic",
-                        "sum": 19602,
-                        "min": 0,
-                        "max": 224
-                    },
-                    {
-                        "key": "SEN16R",
-                        "name": "Republican",
-                        "sum": 87854,
-                        "min": 0,
-                        "max": 915
-                    }
-                ],
-                "metadata": {
-                    "race": "Senate",
-                    "year": 2016
-                },
-                "year": 2016
-            },
-            {
-                "type": "election",
-                "subgroups": [
-                    {
-                        "key": "USH18D",
-                        "name": "Democratic",
-                        "sum": 83855,
+                        "sum": 1768781,
                         "min": 2,
-                        "max": 1027
-                    },
-                    {
-                        "key": "USH18R",
-                        "name": "Republican",
-                        "sum": 103385,
-                        "min": 3,
-                        "max": 966
+                        "max": 2912
                     }
                 ],
-                "metadata": {
-                    "race": "U.S. House",
-                    "year": 2018
-                },
-                "year": 2018
+                "year": "2016"
             },
             {
                 "type": "election",
+                "name": "2018 Senate",
                 "subgroups": [
                     {
-                        "key": "GOV18D",
+                        "key": "G18DSEN",
                         "name": "Democratic",
-                        "sum": 80954,
-                        "min": 4,
-                        "max": 997
+                        "sum": 1908816,
+                        "min": 11,
+                        "max": 3055
                     },
                     {
-                        "key": "GOV18R",
+                        "key": "G18RSEN",
                         "name": "Republican",
-                        "sum": 100372,
-                        "min": 0,
-                        "max": 981
+                        "sum": 1374045,
+                        "min": 3,
+                        "max": 2209
                     }
                 ],
-                "metadata": {
-                    "race": "Governor",
-                    "year": 2018
-                },
-                "year": 2018
+                "year": "2018"
+            },
+            {
+                "type": "election",
+                "name": "2017 Lt. Governor",
+                "subgroups": [
+                    {
+                        "key": "G17DLTG",
+                        "name": "Democratic",
+                        "sum": 1367403,
+                        "min": 8,
+                        "max": 2484
+                    },
+                    {
+                        "key": "G17RLTG",
+                        "name": "Republican",
+                        "sum": 1224137,
+                        "min": 3,
+                        "max": 1836
+                    }
+                ],
+                "year": "2017"
+            },
+            {
+                "type": "election",
+                "name": "2017 Attorney General",
+                "subgroups": [
+                    {
+                        "key": "G17DATG",
+                        "name": "Democratic",
+                        "sum": 1384412,
+                        "min": 8,
+                        "max": 2478
+                    },
+                    {
+                        "key": "G17RATG",
+                        "name": "Republican",
+                        "sum": 1209229,
+                        "min": 5,
+                        "max": 1837
+                    }
+                ],
+                "year": "2017"
+            },
+            {
+                "type": "election",
+                "name": "2016 US House",
+                "subgroups": [
+                    {
+                        "key": "G16DHOR",
+                        "name": "Democratic",
+                        "sum": 1857674,
+                        "min": 10,
+                        "max": 3158
+                    },
+                    {
+                        "key": "G16RHOR",
+                        "name": "Republican",
+                        "sum": 1842067,
+                        "min": 0,
+                        "max": 3032
+                    }
+                ],
+                "year": "2016"
             }
         ],
         "idColumn": {
-            "name": "ID",
-            "key": "ID"
+            "name": "Locality and precinct names",
+            "key": "loc_prec"
         },
         "bounds": [
             [
-                -179.228,
-                51.1753
+                -83.6754,
+                36.5408
             ],
             [
-                -129.98,
-                71.4411
+                -75.1664,
+                39.466
             ]
         ],
         "tilesets": [
@@ -394,17 +354,17 @@
                 "type": "fill",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.alaska_precincts"
+                    "url": "mapbox://districtr.virginia_precincts"
                 },
-                "sourceLayer": "alaska_precincts"
+                "sourceLayer": "virginia_precincts"
             },
             {
                 "type": "circle",
                 "source": {
                     "type": "vector",
-                    "url": "mapbox://districtr.alaska_precincts_points"
+                    "url": "mapbox://districtr.virginia_precincts_points"
                 },
-                "sourceLayer": "alaska_precincts_points"
+                "sourceLayer": "virginia_precincts_points"
             }
         ]
     }
