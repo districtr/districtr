@@ -601,6 +601,7 @@ export function spatial_abilities (id) {
         find_unpainted: true,
         current_districts: true,
         school_districts: true,
+        municipalities: true,
         contiguity: 2,
         portal: {
           endpoint: 'https://www.michigan-mapping.org',
