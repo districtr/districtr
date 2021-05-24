@@ -27,7 +27,7 @@ export class MapState {
     }
 }
 
-function addUnits(map, parts, tileset, layerAdder) {
+function addUnits(map, parts, tileset, layerAdder, coibg) {
     const units = new Layer(
         map,
         {
@@ -55,25 +55,13 @@ function addUnits(map, parts, tileset, layerAdder) {
     );
 
     let coiunits, coiunits2;
-    if (false) {
-        const coisrc = tileset.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups");
+    if (coibg) {
         coiunits = new Layer(
             map,
             {
-                id: "browse_" + coisrc,
-                source: coisrc,
-                "source-layer": coisrc,
-                type: "fill",
-                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
-            },
-            layerAdder
-        );
-        coiunits2 = tileset.sourceLayer.includes("blockgroups") ? null : new Layer(
-            map,
-            {
-                id: "browse_coinative",
-                source: tileset.sourceLayer,
-                "source-layer": tileset.sourceLayer,
+                id: "browse_" + coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+                source: coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
+                "source-layer": coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
                 type: "fill",
                 paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
             },
@@ -166,8 +154,9 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
     for (let tileset of tilesets) {
         map.addSource(tileset.sourceLayer, tileset.source);
     }
+    let coibg;
     if (borderId && spatial_abilities(borderId).load_coi && tilesets.length === 2 && !tilesets[0].sourceLayer.includes("blockgroups")) {
-        const coibg = tilesets.find(t => t.type ==="fill");
+        coibg = tilesets.find(t => t.type === "fill");
         if (coibg) {
             map.addSource(
               coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
@@ -182,7 +171,8 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId) 
         map,
         parts,
         tilesets.find(tileset => tileset.type === "fill"),
-        layerAdder
+        layerAdder,
+        coibg,
     );
     const points = addPoints(
         map,

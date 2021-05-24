@@ -405,7 +405,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
     },
     connecticut: {
       county_brush: true,
@@ -414,7 +414,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
     },
     dc: {
       multiyear: 2018,
@@ -511,7 +511,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
     },
     iowa: {
       number_markers: true,
@@ -551,7 +551,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
     },
     la_vra: {
       native_american: true,
@@ -577,7 +577,7 @@ export function spatial_abilities(id) {
       absentee: true,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
     },
     baltimore: {
       border: true,
@@ -665,7 +665,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       county_brush: true,
       shapefile: true,
-      load_coi: false,
+      load_coi: true,
       // find_unpainted: true,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
@@ -686,7 +686,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       absentee: true,
       shapefile: true,
-      load_coi: false,
+      load_coi: true,
       // find_unpainted: true,
     },
     nevada: {
@@ -889,7 +889,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
-      load_coi: false,
+      load_coi: true,
     },
     philadelphia: {
       number_markers: true,
@@ -997,7 +997,7 @@ export function spatial_abilities(id) {
       // native_american: true,
       shapefile: true,
       // find_unpainted: true,
-      load_coi: false,
+      load_coi: true,
       portal: {
         endpoint: 'https://portal.virginia-mapping.org',
       },
