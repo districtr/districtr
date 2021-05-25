@@ -178,7 +178,8 @@ const longAbout = {
 
 const proposals_by_event = {
   centralsan: true,
-  pmc: true
+  pmc: true,
+  prjusd: true,
 };
 
 export default () => {
