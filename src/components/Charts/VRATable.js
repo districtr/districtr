@@ -40,17 +40,28 @@ export default function VRAEffectivenessTable(
     parts,
     effectiveness,
     loading,
+    placeId,
     state,
     dispatch
 ) {
     const def_values = parts.reduce((o, part) => Object.assign(o, {[part.id]: 0}), {});
     const groups = Object.keys(effectiveness);
 
-    const subgroups = groups.map(g => {
-        const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.Score])) : {};
-        const e_scores = {...def_values, ...part_scores};
-        return {"name": g + " Electoral Effectiveness", "values": pid => e_scores[pid]};
-        });
+    const separateAlignment = ["ma_vra"].includes(placeId);
+
+    const subgroups = separateAlignment 
+        ? groups.map(g => {
+                const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.Score])) : {};
+                const part_cvaps = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.CVAPShare])) : {};
+                const e_scores = {...def_values, ...part_scores};
+                const e_cvaps = {...def_values, ...part_cvaps}
+                return [{"name": g + " Eff.", "values": pid => e_scores[pid]}, {"name": g + " CVAP %", "values": pid => e_cvaps[pid]}];
+            }).flat()
+         : groups.map(g => {
+                    const part_scores = effectiveness[g] ? Object.fromEntries(Object.entries(effectiveness[g]).map(([k, v]) => [k, v.Score])) : {};
+                    const e_scores = {...def_values, ...part_scores};
+                    return {"name": g + " Electoral Effectiveness", "values": pid => e_scores[pid]};
+                });
 
     return html`
         <ul class="option-list">

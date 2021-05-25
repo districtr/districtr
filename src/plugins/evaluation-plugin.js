@@ -170,6 +170,7 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.vra_effectiveness,
                     state.waiting,
+                    state.place.id,
                     uiState,
                     dispatch
                 ),

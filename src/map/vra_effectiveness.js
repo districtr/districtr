@@ -12,7 +12,7 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const sep = (state.place.id === "louisiana") ? ";" : ",";
 
   const group_map = {
-                        "tx_vra": ["Hispanic", "Black"],
+                        "tx_vra": ["Black", "Hispanic"],
                         "la_vra": ["Black"],
                         "ma_vra": ["Asian", "Black","Hispanic"]
                     };
