@@ -102,7 +102,8 @@ export default class State {
             swipemap,
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols,
-            place.id
+            place.id,
+            place.state
         );
         this.columnSets = getColumnSets(this, units);
 
@@ -120,7 +121,7 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
+    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId, statename) {
         const {
             units, unitsBorders,
             coiunits, coiunits2,
@@ -133,7 +134,8 @@ export default class State {
             this.parts,
             unitsRecord.tilesets,
             layerAdder,
-            borderId
+            borderId,
+            statename
         );
 
         this.units = units;

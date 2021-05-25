@@ -356,6 +356,12 @@ li.party-desc span {
   }
 }
 
+iframe {
+  /* netlify widget */
+  display: none !important;
+  visibility: hidden !important;
+}
+
 #modal-coi-copy {
   min-width: 500px;
   max-width: 800px;

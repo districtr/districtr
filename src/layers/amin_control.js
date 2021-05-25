@@ -25,49 +25,40 @@ export function addAmerIndianLayer(tab, state) {
         nativeamerican_labels = null,
         startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
 
-    let native_am_type = "Pueblos, Tribes, and Nations"; // NM
-    if (state.place.id === "alaska") {
+        let native_am_type = "Pueblos, Tribes, and Nations"; // NM
+    if (state.place.state === "Alaska") {
         native_am_type = "Alaskan Native Communities";
-    } else if (["california"].includes(state.place.id)) {
+    } else if (["California"].includes(state.place.state)) {
         native_am_type = "Indian Communities";
-    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "la_vra", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
+    } else if (["Alabama", "Colorado", "Florida", "Georgia", "Idaho", "Iowa", "Kansas", "Louisiana", "Nebraska", "South Carolina", "South Dakota", "Wyoming"].includes(state.place.state)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
+    } else if (["Connecticut", "Delaware", "Montana", "Oregon", "Virginia", "Wisconsin"].includes(state.place.state)) {
         native_am_type = "Tribal Nations";
-    } else if (state.place.id === "hawaii") {
+    } else if (state.place.state === "Hawaii") {
         native_am_type = "Hawaiian Home Lands";
-    } else if (state.place.id === "oklahoma") {
+    } else if (state.place.state === "Oklahoma") {
         native_am_type = "Indian Country";
-    } else if (state.place.id === "maine") {
+    } else if (state.place.state === "Maine") {
         native_am_type = "Tribes in Maine";
-    } else if (["newyork", "utah"].includes(state.place.id)) {
+    } else if (["New York", "Utah"].includes(state.place.state)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (state.place.id === "texas") {
+    } else if (state.place.state === "Texas") {
         native_am_type = "Indian Nations";
-    } else if (state.place.id === "nevada") {
+    } else if (state.place.state === "Nevada") {
         native_am_type = "Indian Territory";
-    } else if (["michigan", "minnesota", "mn2020acs"].includes(state.place.id)) {
+    } else if (["Michigan", "Minnesota"].includes(state.place.state)) {
         native_am_type = "Tribal Governments";
-    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix", "mesaaz"].includes(state.place.id)) {
+    } else if (["Massachusetts", "Rhode Island", "Washington", "Arizona"].includes(state.place.state)) {
         native_am_type = "Nations and Tribes";
-    } else if (["nc", "newjersey"].includes(state.place.id)) {
+    } else if (["North Carolina", "New Jersey"].includes(state.place.state)) {
         native_am_type = "Tribal Communities";
-    } else if (state.place.id === "northdakota") {
+    } else if (state.place.state === "North Dakota") {
         native_am_type = "Tribes and Communities";
-    } else if (state.place.id === "mississippi") {
+    } else if (state.place.state === "Mississippi") {
         native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
-    let stateSource = state.place.id.replace("_bg", "").replace("2020", "");
-    if (["nwaz", "seaz", "phoenix", "maricopa", "yuma", "mesaaz"].includes(state.place.id)) {
-      stateSource = "arizona";
-    } else if (state.place.id.indexOf("ca_") === 0) {
-      stateSource = "california";
-    } else if (state.place.id === "wisco2019acs") {
-      stateSource = "wisconsin";
-    } else if (state.place.id === "mn2020acs") {
-      stateSource = "minnesota";
-    }
+    let stateSource = state.place.state.toLowerCase().replace(" ", "");
 
     fetch(`/assets/native_official/${stateSource}.geojson`)
         .then(res => res.json())

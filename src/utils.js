@@ -512,6 +512,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
+      school_districts: true,
     },
     iowa: {
       number_markers: true,
@@ -615,6 +616,8 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       current_districts: true,
+      school_districts: true,
+      municipalities: true,
       contiguity: 2,
       portal: {
         endpoint: 'https://www.michigan-mapping.org',
@@ -667,6 +670,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       load_coi: false,
       // find_unpainted: true,
+      school_districts: true,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
@@ -702,6 +706,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       multiyear: 2018,
       // find_unpainted: true,
+      school_districts: true
     },
     newjersey: {
       number_markers: true,
@@ -777,6 +782,8 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
+      school_districts: true,
+      current_districts: true
     },
     ohcentral: {
       multiyear: 2019,
@@ -1035,6 +1042,8 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       current_districts: true,
+      school_districts: true,
+      municipalities: true,
       contiguity: 2,
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
@@ -1046,6 +1055,9 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       find_unpainted: true,
+      current_districts: true,
+      school_districts: true,
+      municipalities: true,
       contiguity: 2,
     },
     wisco2019acs: {
@@ -1055,6 +1067,8 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       current_districts: true,
+      school_districts: true,
+      municipalities: true,
       contiguity: 2,
     },
     wyoming: {
@@ -1064,4 +1078,18 @@ export function spatial_abilities(id) {
     }
   };
   return status[id] || {};
+}
+
+export function nested(st) {
+  return [
+    'alaska', 
+    'illinois',
+    'iowa',
+    'minnesota',
+    'montana',
+    'ohio',
+    'oregon',
+    'southdakota',
+    'washington',
+    'wisconsin'].includes(st);
 }
