@@ -1083,14 +1083,10 @@ export function spatial_abilities(id) {
 export function nested(st) {
   return [
     'alaska', 
-    'arizona',
     'illinois',
     'iowa',
-    'maryland',
     'minnesota',
     'montana',
-    'newjersey',
-    'northdakota',
     'ohio',
     'oregon',
     'southdakota',
