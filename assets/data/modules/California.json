@@ -1789,70 +1789,70 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "TOTALPOP18",
-              "name": "Total population",
-              "sum": 34656,
-              "min": 0,
-              "max": 843
-            },
-            "subgroups": [
-              {
-                "key": "WHITE18",
-                "name": "White population",
-                "sum": 24228,
-                "min": 0,
-                "max": 658
-              },
-              {
-                "key": "BLACK18",
-                "name": "Black population",
-                "sum": 494,
-                "min": 0,
-                "max": 26
-              },
-              {
-                "key": "AMERIND18",
-                "name": "American Indian population",
-                "sum": 222,
-                "min": 0,
-                "max": 9
-              },
-              {
-                "key": "ASIAN18",
-                "name": "Asian population",
-                "sum": 578,
-                "min": 0,
-                "max": 17
-              },
-              {
-                "key": "HAWPI18",
-                "name": "Native Hawaiian Pacific Islander population",
-                "sum": 53,
-                "min": 0,
-                "max": 6
-              },
-              {
-                "key": "OTHER18",
-                "name": "Other races",
-                "sum": 48,
-                "min": 0,
-                "max": 5
-              },
-              {
-                "key": "TWOMORE18",
-                "name": "Two or more races",
-                "sum": 568,
-                "min": 0,
-                "max": 20
-              },
-              {
-                "key": "HISPLAT18",
-                "name": "Hispanic population",
-                "sum": 8465,
-                "min": 0,
-                "max": 300
-              }
-            ]
+               "key": "TOTALPOP",
+               "name": "Total population",
+               "sum": 46165,
+               "min": 0,
+               "max": 1039
+             },
+             "subgroups": [
+               {
+                 "key": "WHITE",
+                 "name": "White population",
+                 "sum": 29901,
+                 "min": 0,
+                 "max": 770
+               },
+               {
+                 "key": "BLACK",
+                 "name": "Black population",
+                 "sum": 667,
+                 "min": 0,
+                 "max": 32
+               },
+               {
+                 "key": "AMERIND",
+                 "name": "American Indian population",
+                 "sum": 289,
+                 "min": 0,
+                 "max": 13
+               },
+               {
+                 "key": "ASIAN",
+                 "name": "Asian population",
+                 "sum": 697,
+                 "min": 0,
+                 "max": 22
+               },
+               {
+                 "key": "HAWPI",
+                 "name": "Native Hawaiian Pacific Islander population",
+                 "sum": 66,
+                 "min": 0,
+                 "max": 9
+               },
+               {
+                 "key": "OTHER",
+                 "name": "Other races",
+                 "sum": 64,
+                 "min": 0,
+                 "max": 5
+               },
+               {
+                 "key": "TWOORMORE",
+                 "name": "Two or more races",
+                 "sum": 943,
+                 "min": 0,
+                 "max": 29
+               },
+               {
+                 "key": "HISPLATINO",
+                 "name": "Hispanic population",
+                 "sum": 13538,
+                 "min": 0,
+                 "max": 482
+               }
+             ]
           },
           {
             "type": "population",
@@ -1929,7 +1929,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pasorobles_blocks_points"
+              "url": "mapbox://districtr.pasorobles_blocks_points?v=2"
             },
             "sourceLayer": "pasorobles_blocks_points"
           },
@@ -1937,7 +1937,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pasorobles_blocks"
+              "url": "mapbox://districtr.pasorobles_blocks?v=2"
             },
             "sourceLayer": "pasorobles_blocks"
           }
