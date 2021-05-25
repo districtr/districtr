@@ -25,12 +25,12 @@ export default function DataLayersPlugin(editor) {
     const demoLayers = state.layers;
 
     const districtsHeading =
-        state.plan.problem.type === "community" ? "Communities" : "Painted Districts";
+        state.plan.problem.type === "community" ? "Communities" : "Districts";
     const districtMessage =
         state.plan.problem.type === "community"
             ? "Show my communities"
-            : "Show painted districts";
-    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "painted district")
+            : "Show districts";
+    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "district")
         + " numbers";
     tab.addSection(
         () => html`
