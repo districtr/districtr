@@ -2,9 +2,9 @@
 _Commentary by [@gomotopia], May 2021_
 
 The current state of a plan is kept in data objects akin to those
-prescribed in the [districtr-json]. These contexts are read into [`edit.js`]
-and stored as a `State` object which interacts with the [`Toolbar`] and
-[`Map`].
+prescribed in the districtr-json] [`plan/context`] These contexts are read into
+[`edit.js`] and stored as a `State` object which interacts with the
+[`Toolbar`] and [`Map`].
 
 ## src/models/State.js
 The State object is kept as a model in its own [`State.js`] file. This
@@ -44,17 +44,18 @@ A complete list of instance variables are as follows.
 - `this.unitsRecord`, from `districtr-json.units`
 - `this.place`, `districtr-json.place``id`,`landmark` pair
 - `this.idColumn`, `districtr-json.idColumn` identifier of base units
-- `this.plan` as `DistrictingPlan` object and updates district assignments.
+- `this.plan` as `DistrictingPlan` object and updates district
+assignments.
 - `this.columnSets`, keeps `districtr-json.columnSets` objects
 - `this.subscribers`, usually Editor Object's render function `
 - `this.update`, bound to the `update` instance method
 - `this.render`, bound to the `render` instance method
 
-Instance method `this.initializeMapState` acts to intialize a new Layer
-for the `Map` object using function [`addLayers`], which requests parameters
-`map`, `swipemap`, `unitsRecord`, `layerAdder` and `borderId`. The map state
-initializers returns the following values that are then assigned as
-instance variables for the `State` object.
+Instance method `this.initializeMapState(` acts to intialize a new Layer
+for the `Map` object using function [`addLayers`], which requests
+parameters `map`, `swipemap`, `unitsRecord`, `layerAdder` and
+`borderId`. The map state initializers returns the following values that
+are then assigned as instance variables for the `State` object.
 - `this.units`, the same as unitsRecord?
 - `this.unitsBorders`
 - *`this.sweipeUnits`, experimental*
@@ -69,7 +70,8 @@ State keeps the following instance methods apart from its `constructor`
 and the `initializeMapState` functions.
 - `activeParts()` returns DistrictingPlan parts that are set to visible.
 - `parts()`, returns all DistrictingPlan in the plan. 
-- `problem()`, specific DistrictingPlan speficiation on offices and district numbers
+- `problem()`, specific DistrictingPlan speficiation on offices and
+district numbers
 - `serailize()`, returns a json format string of the current map state
 - `subscribe(f)`, subscribes external subsribers to be rendered with
 state
@@ -100,9 +102,13 @@ be broken up, as mentioned above.
 // [ ] MapState (map, layers)
 // [ ] DistrictData (column sets) ?
 // [x] DistrictingPlan (assignment, problem, export()) ?
-// [ ] Units (unitsRecord, reference to layer?) ? <--- really need this one
+// [ ] Units (unitsRecord, reference to layer?) ? <--- really need this
+one
 // "place" is mostly split up into these categories now.
 ```
+
+- _State.initializeMapState(...) calls and returns from only one
+function. Is it needed?
 
 [@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
@@ -114,3 +120,4 @@ be broken up, as mentioned above.
 [`State.js`]: ../src/models/State.js
 [Map/index.js]: ../src/map/index.js
 [`addLayers`]: ./layers.md
+[`plan/context`]: ./plancontext.md

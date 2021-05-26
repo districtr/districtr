@@ -1,27 +1,50 @@
 # The Story of [Districtr]
-In the name of Democracy, "Districtr is a free, public web tool for districting and community identification, brought to you by the [MGGG Redistricting Lab]." Districtr allows citizens to draw maps and calculate demographics to help with the drawing of districts large and small.
 
-This app was born on Sat. Aug. 18, 2018. What began with [@maxhully]'s Sept. 2018 [Mapbox] experiments has bloomed into a vital app that many citizens and state redistricting comissions rely on for governing the district boundaries that in turn, govern us. Over time, many creative minds in Mathematics, Computer Science, Geography and Politics have converged to promote transparent and good governance as a new decade is born. 
+<img src="../assets/new_logo.jpg" width=50%>
 
-As of June, 2021, Districtr is managed by MGGG, a research group at the Tisch College of Civic Life, at Tufts University near Boston, Mass., led by Principal Investigator, Moon Duchin, Associate Professor of Mathematics and her dedicated [team].
+In the name of Democracy, "Districtr is a free, public web tool for
+districting and community identification, brought to you by the
+[MGGG Redistricting Lab]." Districtr allows citizens to draw maps and
+calculate demographics to help with the drawing of districts large and
+small.
 
+This app was born on Sat. Aug. 18, 2018. What began with [@maxhully]'s
+Sept. 2018 [Mapbox] experiments has bloomed into a vital app that many
+citizens and state redistricting comissions rely on for governing the
+district boundaries that in turn, govern us. Over time, many creative
+minds in Mathematics, Computer Science, Geography and Politics have
+converged to promote transparent and good governance as a new decade is
+born. 
+
+As of June, 2021, Districtr is managed by MGGG, a research group at the
+Tisch College of Civic Life, at Tufts University near Boston, Mass., led
+by Principal Investigator, Moon Duchin, Associate Professor of
+Mathematics and her dedicated [team].
+
+<img src="./pics/timeline.png" width=75%>
 
 ## 1. The Districtr JSON context/plan model
-Distirctr keeps track of a specific problem or assignment of a certain region, its districts and units used in a model described in the following model.
+Distirctr keeps track of a specific problem or assignment of a certain
+region, its districts and units used in a model described in the
+following model.
 
 - [The Plan/Model JSON](./plancontext.md)
 - [The State Object](./state.md)
 
 ## 2. Initializing: the Editor and its Map
 
+<img src="./pics/initializesimple.png" width=75%>
+
 - [How is the Districtr Editor page loaded?](./initialization.md)
 - [edit.js and the Editor Object](./editor.md)
 - [The Map Object](./map.md)
 - [Adding Layers](./layer.md)
-NumberMarkers
+- [Number Markers](./numbermarkers.md)
 
 
 ## 3. User Interace: Tools and Plugins 
+
+<img src="./pics/toolbarbasics.png" width=50%>
 
 [Making space for the Toolbar](./toolbar.md)
 
@@ -36,32 +59,25 @@ NumberMarkers
 
 [Rendering in Action: OptionsContainer](./optionscontainer.md)
 
-
 [UIStateStore](./uistatestore.md)
 
 [Actions and Reducers](./actionsreducers.md)
 
 [A List of UI and Display Components](./uicomponents.md)
 
-
-BrushColorPicker
-BrushSlide
-
 ## 4. User Interaction: Drawing Districts
 
+<img src="./pics/drawingbasics.png" width=50%>
 
 [Hovering over the Map](./brush.md)
 
-[Painting and Erasing with Brush](./mapbrush.md)
-- With CommunityBrush
+[Painting and Erasing with Brush and Community Brush](./mapbrush.md)
 
 [Undo and Redo](./undoredo.md)
 
 Inspect Tool and ToolTips
 
-ToolTips
-contiguity
-
+Checking for Contiguity
 
 ## 5. Interesting Communities and Landmarks
 
@@ -72,37 +88,20 @@ contiguity
 ## 6. Charts and Analysis
 
 Tabs and more here!
+
 Chart js functions
 
 
 ## 7. Districtr-default State Portals
 
 Index.html
+
 [Districtr State Portals](./districtrstateportals.md)
-PLaceMap
+
+PlaceMap
 
 
 ## 8. Routes and Server Operations
-
-Contiguity Checker
-
-components
-
-About Section
-LayerTab
-Parameter
-PlaceMap
-PlacesList
-PlanUploader
-RevealSection
-Select
-Tab
-Tabs
-Toggle
-
-
-
-routes
 
 ## 10. Deployment and Navigation
 

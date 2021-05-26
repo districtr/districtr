@@ -1,22 +1,26 @@
+# The Districtr Model for Plans, Contexts, Assignment etc..
  
- # The Districtr Model for Plans, Contexts, Assignment etc..
- 
- Districtr keeps track of data regarding a specific area in a JSON format that's
- shared internally as a context. The seeds of this format date back to [@maxhully]'s 
- initial November 2018 attempts to load into our Mapbox server. This story is
- detailed in the commits of repository `district-process`, which is responsible
- for helping us upload geographic data.
- 
- The structure of our plans are as follows...
+Districtr keeps track of data regarding a specific area in a JSON format
+that's shared internally as a context. The seeds of this format date
+back to [@maxhully]'s  initial November 2018 attempts to load into our
+Mapbox server. This story is detailed in the commits of repository
+`MGGG/district-process`, which is responsible for helping us upload
+geographic data.
+
+The structure of our plans are as follows...
  
  ## Identifiers
  
 - `id`, Alphanumeric id individual plan
-- `name`, Display name of City, County or State, loaded into the State Portals
+- `name`, Display name of City, County or State, loaded into the State
+Portals
 - `state`, State where area is located.
-- `idColumn`, An object with `key`, `name` pair that identifies the id column for base unit identifiers.
-- `place`, an object pair with its own `id` and `landmarks`, an object that contains landmarks created when identifying communities of interest. 
-- `placeID`, Id of relevant geographic area, used throughout Districtr
+- `idColumn`, An object with `key`, `name` pair that identifies the id
+column for base unit identifiers.
+- `place`, an object pair with its own `id` and `landmarks`, an object
+that contains landmarks created when identifying communities of
+interest
+- `placeID`, Id of relevant geographic area, used throughout Districtr.
 
 ## Assignment and Parts
 - `assignment`: The assignment of precincts, blocks or other units to districts are kept in this object. This objects assigns a unit identifier as a key to a single or array of integers corresponding to the parts the key is assigned to, e.g. `{"001-AAA": [1] "001-AAB": [1],...}`.
