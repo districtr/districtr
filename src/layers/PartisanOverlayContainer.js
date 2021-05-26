@@ -102,6 +102,7 @@ export default class PartisanOverlayContainer {
 
     candidateLegend() {
         const cands = this.elections[this._currentElectionIndex].subgroups;
+        console.log(cands);
         return cands.map(c => html`
                                 <li class="party-desc">
                                     <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>
@@ -114,34 +115,7 @@ export default class PartisanOverlayContainer {
         
         
         return html`
-            <div id="candidate-legend">${this.candidateLegend()}</div>
-            <div class="ui-option ui-option--slim">
-                <h5>
-                  <label class="toolbar-checkbox">
-                      <input
-                          type="checkbox"
-                          name="data_layers"
-                          ?checked="${overlay.isVisible}"
-                          value="partisan"
-                          @change=${(e) => {
-                              if (e.bubbles) {
-                                  let checks = document.getElementsByName("data_layers");
-                                  for (let c = 0; c < checks.length; c++) {
-                                      if (checks[c].value !== this._id) {
-                                          checks[c].checked = false;
-                                          let evt = new Event("change");
-                                          checks[c].dispatchEvent(evt);
-                                      }
-                                  }
-                              }
-                              this.toggleVisibility(e.target.checked);
-                          }}
-                      />
-                      ${this.bipolarText || "Show partisan lean"}
-                  </label>
-                </h5>
-            </div>
-            ${[
+            ${Parameter(
                 this.bipolarText ? null : {
                     label: "Election:",
                     element: Select(
@@ -149,43 +123,82 @@ export default class PartisanOverlayContainer {
                         i => this.setElection(i),
                         this._currentElectionIndex
                     )
-                },
-                this.elections[0].alternate ? {
-                    label: "Absentee:",
-                    element: html`<div class="yrselect parameter">
-                      <label>
-                        <input
-                          type="radio"
-                          name="${this._id + 'vote'}"
-                          value="all"
-                          ?checked="${this.vote === 'all'}"
-                          @change="${e => this.selectVote('all')}"
-                        />
-                        Included
-                      </label>
-                      <label>
-                        <input
-                          type="radio"
-                          name="${this._id + 'vote'}"
-                          value="in-person"
-                          ?checked="${this.vote === 'in-person'}"
-                          @change="${e => this.selectVote('in-person')}"
-                        />
-                        Excluded
-                      </label>
-                    </div>`
-                } : null,
-                {
-                    label: "Display as",
-                    element: Select(
-                        this.layers.map(layer => getLayerDescription(layer)),
-                        i =>
-                            this.electionOverlays.forEach(overlay =>
-                                overlay.setLayer(i)
-                            )
-                    )
-                }
+                })
+            }
+            <div class="ui-option ui-option--slim">
+            <h5>
+              <label class="toolbar-checkbox">
+                  <input
+                      type="checkbox"
+                      name="data_layers"
+                      ?checked="${overlay.isVisible}"
+                      value="partisan"
+                      @change=${(e) => {
+                          if (e.bubbles) {
+                              let checks = document.getElementsByName("data_layers");
+                              for (let c = 0; c < checks.length; c++) {
+                                  if (checks[c].value !== this._id) {
+                                      checks[c].checked = false;
+                                      let evt = new Event("change");
+                                      checks[c].dispatchEvent(evt);
+                                  }
+                              }
+                          }
+                          this.toggleVisibility(e.target.checked);
+                          let legend = document.getElementById("candidate-legend");
+                          let election_options = document.getElementById("election-options");
+                          // toggle some attributes
+                          (e.target.checked) ? 
+                            legend.style.display = "block" : 
+                            legend.style.display = "none";
+                            (e.target.checked) ? 
+                            election_options.style.display = "block" : 
+                            election_options.style.display = "none";
+                        }}
+                  />
+                  ${this.bipolarText || "Show partisan lean"}
+              </label>
+            </h5>
+        </div>
+        <div id="candidate-legend" style="display: none">${this.candidateLegend()}</div>
+        <div id="election-options" style="display: none">
+            ${[this.elections[0].alternate ? {
+                label: "Absentee:",
+                element: html`<div class="yrselect parameter">
+                <label>
+                    <input
+                    type="radio"
+                    name="${this._id + 'vote'}"
+                    value="all"
+                    ?checked="${this.vote === 'all'}"
+                    @change="${e => this.selectVote('all')}"
+                    />
+                    Included
+                </label>
+                <label>
+                    <input
+                    type="radio"
+                    name="${this._id + 'vote'}"
+                    value="in-person"
+                    ?checked="${this.vote === 'in-person'}"
+                    @change="${e => this.selectVote('in-person')}"
+                    />
+                    Excluded
+                </label>
+                </div>`
+            } : null,
+            {
+                label: "Display as",
+                element: Select(
+                    this.layers.map(layer => getLayerDescription(layer)),
+                    i =>
+                        this.electionOverlays.forEach(overlay =>
+                            overlay.setLayer(i)
+                        )
+                )
+            }
             ].filter(x => x !== null).map(Parameter)}
+        </div>
         `;
     }
 }
