@@ -25,13 +25,12 @@ export default function DataLayersPlugin(editor) {
     const demoLayers = state.layers;
 
     const districtsHeading =
-        state.plan.problem.type === "community" ? "Communities" : "Districts";
+        state.plan.problem.type === "community" ? "Communities" : "My Painted Districts";
     const districtMessage =
         state.plan.problem.type === "community"
             ? "Show my communities"
-            : "Show districts";
-    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "district")
-        + " numbers";
+            : "Show painted districts";
+    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community numbers" : "numbering for painted districts");
     tab.addSection(
         () => html`
             <h4>${districtsHeading}</h4>
@@ -64,10 +63,6 @@ export default function DataLayersPlugin(editor) {
     let smatch = (name) => {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
-
-    if (smatch(state.place.state) === smatch(state.place.name) || showVRA) {
-        addCountyLayer(tab, state);
-    }
 
     if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
         const noNames = "";
@@ -501,18 +496,27 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    tab.addSection(() => html`<h4>Boundaries</h4>`)
+
+    if (smatch(state.place.state) === smatch(state.place.name) || showVRA) {
+        addCountyLayer(tab, state);
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
 
     addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
 
-
     if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
         addMyCOI(state, tab);
     }
 
-    tab.addSection(() => html`<h4>Demographics</h4>`)
+    tab.addSection(() => html`<h4>Demographics</h4>
+        <p class="italic-note">Use the coalition builder to define a collection 
+        of racial and ethnic groups from the Census. In the other data layers below, 
+        you'll be able to select the coalition you have defined.</p>    
+    `)
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition !== false) {
@@ -538,7 +542,7 @@ export default function DataLayersPlugin(editor) {
         );
 
         tab.addRevealSection(
-            "Coalition Builder",
+            html`<h5>Coalition Builder</h5>`,
             (uiState, dispatch) => html`
               ${Parameter({
                   label: "",
@@ -608,14 +612,14 @@ export default function DataLayersPlugin(editor) {
     }
 
     tab.addRevealSection(
-        "Race",
+        html`<h5>Race</h5>`,
         (uiState, dispatch) => html`
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,
         {
-            isOpen: true
+            isOpen: false
         }
     );
 
@@ -646,10 +650,10 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            "Socioeconomic data" + (spatial_abilities(state.place.id).multiyear
-              ? ` (${spatial_abilities(state.place.id).multiyear})`
-              : ""
-            ),
+            html`"Socioeconomic data" + ${spatial_abilities(state.place.id).multiyear
+              ? spatial_abilities(state.place.id).multiyear
+              : ""}
+            )`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
               ${state.rent ?
@@ -673,7 +677,7 @@ export default function DataLayersPlugin(editor) {
                       <span class="square">80%</span>
                       <span class="square">100%</span>
                   </div>` : null}
-            `, {}
+            `, {isOpen: false}
         );
     }
 
@@ -684,16 +688,10 @@ export default function DataLayersPlugin(editor) {
             state.elections,
             toolbar
         );
-        tab.addRevealSection('Previous Elections',
-            () => html`
-
-                <div class="option-list__item">
+        tab.addSection(() => html`<h4>Statewide Elections</h4>
+            <div class="option-list__item">
                     ${partisanOverlays.render()}
-                </div>
-            `,
-            {
-              isOpen: true
-            }
+            </div>`
         );
     }
 
