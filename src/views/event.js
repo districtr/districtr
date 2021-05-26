@@ -166,7 +166,8 @@ const eventDescriptions = {
     <a href='https://districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
     <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>",
    hia: "Welcome to the event page for Houston in Action!",
-   onelovemi: "Welcome to the event page for Michigan!"
+   onelovemi: "<p><strong>Welcome to the event page for One Love Michigan!</strong></p>\
+              <p>We know that historically, maps have been used as a tool for racism and white supremacy, between taking land from indigenous people to redlining and racial gerrymandering, so this is a moment to reclaim maps for empowerment. We need YOU to get involved!!! Join One Love Global in drawing maps of your community to ensure that they are kept intact during the redistricting process.</p>\"
   
   };
 
