@@ -33,6 +33,8 @@ const stateForEvent = {
   mesaaz: 'Arizona',
   ourmapsne: 'Nebraska',
   prjusd: 'California',
+  hia: 'Texas',
+  onelovemi: 'Michigan'
 };
 
 const validEventCodes = {
@@ -63,6 +65,8 @@ const validEventCodes = {
   mesaaz: 'mesaaz',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
+  hia: 'houston',
+  onelovemi: 'michigan'
 };
 
 const blockPlans = {
@@ -109,7 +113,9 @@ const coi_events = [
   'ourmapsmn',
   'micrc',
   'mesaaz',
-  'ourmapsne'
+  'ourmapsne',
+  'hia',
+  'onelovemi'
 ];
 
 const hybrid_events = [
@@ -158,7 +164,10 @@ const eventDescriptions = {
     prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
     <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
     <a href='https://districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
-    <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>"
+    <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>",
+   hia: "Welcome to the event page for Houston in Action!",
+   onelovemi: "Welcome to the event page for Michigan!"
+  
   };
 
 const longAbout = {
