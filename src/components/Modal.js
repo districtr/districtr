@@ -2,9 +2,18 @@ import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 import { spatial_abilities } from "../utils";
 
+
+/**
+ * @desc Closes a modal.
+ */
+export function closeModal() {
+    let modal = document.getElementById("modal");
+    render("", modal);
+}
+
 export function renderModal(innerContent) {
     const target = document.getElementById("modal");
-    return html`
+    const template = html`
         <div
             class="modal-wrapper"
             @click="${() => render("", target)}"
@@ -25,6 +34,8 @@ export function renderModal(innerContent) {
             </div>
         </div>
     `;
+    
+    return template;
 }
 
 export function renderSaveModal(state, savePlanToDB) {
@@ -57,7 +68,7 @@ export function renderSaveModal(state, savePlanToDB) {
                     > Copy to Clipboard </button>
                     <br/>
                     <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—other people’s changes will save to a new link.</p>
-                    <p>When you are ready, you can bring this map back to the submission form on the Michigan Redistricting Public Comment Portal.</p>
+                    <p>When you are ready, you can bring this map back to the submission form on the ${state.place.state} Redistricting Public Comment Portal.</p>
                     <div style="text-align:center">
                       <a
                         href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"

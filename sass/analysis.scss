@@ -1,0 +1,120 @@
+
+@import "_mixins";
+@import "_colors";
+@import "_base";
+@import "components/_button";
+
+$full-width: calc(100vw - 1em);
+$half-width: calc(50vw - 0.5em);
+
+.pane-contain {
+  width: $full-width;
+  height: 100%;
+}
+
+.modal-row {
+  width: auto;
+}
+
+.pane-contain, .modal-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+// Ensure that the map container div doesn't exceed the width of the Pane
+// containing it.
+.pane {
+  width: $half-width;
+  height: 100%;
+
+  .mapcontainer, .map, .mapboxgl-map, .mapboxgl-canvas {
+    width: $half-width;
+  }
+  .map {
+    height: calc(100%);
+    position: static;
+    overflow: visible;
+  }
+}
+
+.pane, .modal-item {
+  align-content: center;
+  text-align: center;
+  flex-grow: 0.5;
+}
+.modal-item + .modal-item {
+  border-left: 1px solid $districtr-grey-active;
+  padding: 5px;
+}
+
+.modal-bottom-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.bottom-bar {
+  flex-grow: 1;
+  text-align: center;
+}
+
+#analysis-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+// Styles for the SlideShow.
+.slideshow--inner {
+  width: calc(80% - 0.5em);
+  height: 100%
+}
+
+label {
+  button {
+    // Disallow highlighting.
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+.button--slideshow {
+  border: 2px solid #ffffff;
+  background: $mggg-blue;
+  @include button;
+
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+
+  &:hover {
+    background-color: $mggg-dark_blue;
+    border: 2px solid #ff4f49;
+  }
+}
+
+.button--alternate--clicked {
+  background-color: $mggg-dark_blue;
+  border: 2px solid #ff4f49;
+  @include button;
+}
+
+.slide--title {
+  margin-top: 10%;
+}
+
+// Stuff for the charts.
+.chart--description {
+  text-align: justify;
+  font-size: 100% !important;
+
+  .dataset-info {
+    margin-bottom: 1em;
+  }
+}

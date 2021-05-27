@@ -16,6 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import AnalysisPlugin from "../plugins/analysis-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -40,7 +41,8 @@ const defaultPlugins = [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    EvaluationPlugin
+    EvaluationPlugin,
+    AnalysisPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
@@ -89,7 +91,6 @@ function loadContext(context) {
         html`
             <div id="comparison-container" class="mapcontainer">
               <div id="map" class="map"></div>
-              <div id="swipemap" class="map"></div>
             </div>
             <div id="toolbar"></div>
             <div class="print-only print-summary"></div>
@@ -237,7 +238,7 @@ function loadContext(context) {
 
     let state;
     mapState.map.on("load", () => {
-        state = new State(mapState.map, mapState.swipemap, context, () => {
+        state = new State(mapState.map, null, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {
