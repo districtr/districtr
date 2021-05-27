@@ -52,7 +52,7 @@ export default class Toolbar {
         btn.className = "saved";
         btn.disabled = true;
 
-        if (spatial_abilities(this.state.place.id).portal && (window.location.href.includes("portal") || window.location.href.includes("qa-portal")) {
+        if (spatial_abilities(this.state.place.id).portal && (window.location.href.includes("portal") || window.location.href.includes("qa-portal"))) {
             let btn = e.target;
             btn.innerText = "Saved";
             btn.className = "saved";
