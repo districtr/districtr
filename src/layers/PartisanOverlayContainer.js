@@ -171,7 +171,7 @@ export default class PartisanOverlayContainer {
                             election_options.style.display = "none";
                         }}
                   />
-                  ${this.bipolarText || "Show partisan lean"}
+                  ${this.bipolarText || "Show election results"}
               </label>
             </h5>
         </div>
