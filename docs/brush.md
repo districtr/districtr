@@ -28,7 +28,8 @@ A listing of instnace variables are as follows...
 - `this.coloring` tells us if the brush is coloring or hovering
 - `this.county_brush` tells us if we are coloring by county
 - `this.locked` tells us if we can overpaint colored features
-- `this.changedColors` is a set of colors whose features may have been painted
+- `this.changedColors` is a set of colors whose features may have been
+painted
 
 Though not defined on construction, `this._previousColor`, `this.erasing`,
 `this.cursorUndo` and `this.trackRedo` are also instance variables used later. _please define!_
@@ -256,7 +257,7 @@ the `Brush` is as simple as activating and deactivating the object
 through its base class `Hover`. If the mouse is away from the map,
 say, when it clicks on the Toolbar, certain map behaviors are toggled.
 
-When actiavted...
+When activated...
 - `brush-tool` is added to the map canvas class list
 - Map properties `dragPan`, `touchZoomRotate` and `doubleClickZoom` are disabled
 - `this.onClick` is bound to its layer
@@ -268,3 +269,5 @@ Finally, an `on(event, listener)` function registers callback functions to
 events in `this.listeners`. 
 
 _no off?_
+
+# Community Brush

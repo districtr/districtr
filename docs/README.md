@@ -94,6 +94,8 @@ Chart js functions
 
 ## 7. Districtr-default State Portals
 
+<img src="./pics/portalsbasics.png" width=75%>
+
 Index.html
 
 [Districtr State Portals](./districtrstateportals.md)
@@ -111,7 +113,7 @@ PlaceMap
 
 ## 13. Grand Suggestions
 
-<a name="team" />
+<a name="team"></a>
 
 ## 14. The Team
 

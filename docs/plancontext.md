@@ -1,10 +1,12 @@
 # The Districtr Model for Plans, Contexts, Assignment etc..
  
+<img src="./pics/plancontext.png" width=50%>
+
 Districtr keeps track of data regarding a specific area in a JSON format
 that's shared internally as a context. The seeds of this format date
 back to [@maxhully]'s  initial November 2018 attempts to load into our
 Mapbox server. This story is detailed in the commits of repository
-`MGGG/district-process`, which is responsible for helping us upload
+[`MGGG/districtr-process`], which is responsible for helping us upload
 geographic data.
 
 The structure of our plans are as follows...
@@ -18,48 +20,66 @@ Portals
 - `idColumn`, An object with `key`, `name` pair that identifies the id
 column for base unit identifiers.
 - `place`, an object pair with its own `id` and `landmarks`, an object
-that contains landmarks created when identifying communities of
-interest
+that contains landmarks created when identifying communities of interest
 - `placeID`, Id of relevant geographic area, used throughout Districtr.
 
 ## Assignment and Parts
-- `assignment`: The assignment of precincts, blocks or other units to districts are kept in this object. This objects assigns a unit identifier as a key to a single or array of integers corresponding to the parts the key is assigned to, e.g. `{"001-AAA": [1] "001-AAB": [1],...}`.
-- `parts` is an array list of simple objects. Each objects lists a zero-based `id` and its real-world, one-based `displayNumber`.
+- `assignment`: The assignment of precincts, blocks or other units to
+districts are kept in this object. This objects assigns a unit
+identifier as a key to a single or array of integers corresponding to
+the parts the key is assigned to, e.g. `{"001-AAA": [1] "001-AAB": [1],...}`.
+- `parts` is an array list of simple objects. Each objects lists a
+zero-based `id` and its real-world, one-based `displayNumber`.
 
 ## Units
-Units can be precincts or block groups and hold the important settings on which
-areas a user can paint over. 
+Units can be precincts or block groups and hold the important settings
+on which areas a user can paint over. 
 
  - `units` is a list of Objects of the following specification.
      ## Unit Identifier
      - `id`, identifier used throughout districtr, e.g. `"blockgroups"`
      - `name`, front-facing display name
      - `unitType`, designates whether precincts, Census units, etc.
-     - `limit`, optional parameter, can limit display to `"community"` or `"hide"`
+     - `limit`, optional parameter, can limit display to `"community"`
+     or `"hide"`
      ### Column Sets
-     - `columnSets` is a list of different data tables relevant to this context. JSONs
-     without `columnSets` can still be loaded by Districtr. Each Object in the `columnSet`
-     list has...
+     `columnSets` is a list of different data tables relevant to this
+     context. JSONs without `columnSets` can still be loaded by
+     Districtr. Each Object in the `columnSet` list has...
      - `type`, typically `"population"`
-     - `name`, display name for `type` like `"Population"` or `"Voting Age Population`" or `"Households by Renters"`
-     - `total`, an Object of summary statistics like column `key`, display `name`, `sum` and range `min`, `max`
-     - `subgroups`, a list of many Objects representing non-total columns that mirror the `total` Object.
-     - `idcolumn`, an Object of pair `name` and `key` that identifies the index column (and without `sum` and range)
-     - `bounds`, An array of two arrays, of bounding box coordinated auto-populated by `districtr-process`.
-     - `tilesets`, Very important pair of objects containing mapbox address of shapefiles to be rendered by the Map.
-     Contains one of `type` `"fill"` and `"circle"`, each bearing a `source` object with a `type`, usually vector,
-     and `url` mapbox:// address of the geometry. 
+     - `name`, display name for `type` like `"Population"` or
+     `"Voting Age Population`" or `"Households by Renters"`
+     - `total`, an Object of summary statistics like column `key`,
+     display `name`, `sum` and range `min`, `max`
+     - `subgroups`, a list of many Objects representing non-total
+     columns that mirror the `total` Object.
+     - `idcolumn`, an Object of pair `name` and `key` that identifies
+     the index column (and without `sum` and range)
+     - `bounds`, An array of two arrays, of bounding box coordinated
+     auto-populated by `districtr-process`.
+     - `tilesets`, Very important pair of objects containing mapbox
+     address of shapefiles to be rendered by the Map. Contains one of
+     `type` `"fill"` and `"circle"`, each bearing a `source` object with
+     a `type`, usually vector, and `url` mapbox:// address of the
+     geometry. 
 
 ## Districting Problems
-- Back at the top level, we have `districtingProblems,`an array of various "problem" objects, typically for `"Congress",
- "State House", and "State Senate". Each problem has a `"name"`, `numberOfParts` and a `pluralNoun` for display.
- For instance, Alabama.json has three "problems," one each for its 7 Congressional Districts, 105 State House
-Distrits and 35 State Senate seats. 
+- Back at the top level, we have `districtingProblems,`an array of
+various "problem" objects, typically for `"Congress",
+"State House", and "State Senate". Each problem has a `"name"`,
+`numberOfParts` and a `pluralNoun` for display. For instance,
+[`Alabama.json`] has three "problems," one each for its 7 Congressional
+Districts, 105 State House Districts and 35 State Senate seats. 
 
-## Additional properties for Communities of Interest
+[//]: # (## Additional properties for Communities of Interest)
 
-  - Additional
+[//]: # ( - Additional)
   
-## Use, in State
+[//]: # (## Use, in State)
 
-## Saving and Retrieving
+[//]: # (## Saving and Retrieving)
+
+[`State`]: ./state.md
+[@maxhully]: http://github.com/maxhully
+[`Alabama.json`]: ../assets/data/modules/Alabama.json
+[`MGGG/district-process`]: https://github.com/districtr/districtr-process

@@ -5,7 +5,7 @@
 Districtr's main editing screen contains both a Toolbar and a Map. In
 the HTML, the Map is contained within nested divs 
 `#comparison-container` of class `.mapcontainer` and `#swipemap` of
-class `.map` created when [edit.js] calls function `loadContext()`.
+class `.map` created when [`edit.js`] calls function `loadContext()`.
 A `MapState` object is created upon the genesis of an [`Editor`] model
 object, updated as a context is loaded and rendered as part of the
 `Editor` after a [`State`] object is created.
@@ -17,18 +17,19 @@ Moved into map folder in Nov. '18 and merged into current districtr repo
 on August 17, 2019 in [pull #68].
 
 Maintained by [@mapmeld] since October of 2019 with contributions by
-[@AtlasCommaJ]. 
+[@AtlasCommaJ].
 
 ### Imports
 Important imports include...
-- `mapboxgl` and `MapboxCompare` provided to us from mapbox
+- `mapboxgl` and `MapboxCompare` provided to us from [mapbox]
 - `colors` paint properties
 - the `Layer` object
 - other `utils`
 
 ### The `MapState` class 
+<a name="map"></a>
 The `MapState` class is based on the `Map` provided by Mapbox and its
-`mapboxgl`. We define `this.mapboxgl`as a mapbox-type map with options
+[`mapboxgl`]. We define `this.mapboxgl`as a mapbox-type map with options
 such as...
 - `container`, its home in the HTML DOM
 - `mapStyle`, a settings parameter provided on construction
@@ -37,7 +38,7 @@ such as...
 `dragRotate`, `preserveDrawingBuffer`, `dragPan`, `touchZoomRotate`
 - more options as needed, passsed in as a parameter on contruction.
 
-In addition, this object contains `this.nav` to serve as Navigation
+In addition, this object contains `this.nav` that serves as Navigation
 Control, as provided by `mapboxgl`. 
 
 ### The `addUnits` function
@@ -51,7 +52,7 @@ determining color properties.
 -`layerAdder`, a utility function that describes the front-back order of
 added layers.
 
-This function returns a collection of four `Layer` objects as follows. 
+This function returns a collection of four [`Layer`] objects as follows. 
 
 - `units`, a layer of standard, paintable precinct/census units, set to
 specifications from `colors`
@@ -80,7 +81,7 @@ that have the ability to be hoverable in the map editor. We source these
 - `addBGs(map, tileset, layerAdder)`, a `Layer` of state counties, that
 have the ability to be hoverable in the map editor. We source these 
 
-### Adding Layers with `addLayers`
+### Adding [Layers] with `addLayers`
 Since settings of which layers to display in the Map are `State`
 specific, it is this object which initizalizes the map's layers. Thus,
 Map function `addlayers(...)` is of vital important. This function
@@ -142,12 +143,53 @@ for clarity, e.g., `return(units_layer...` instead of
 -`borderId` could be renamed given that it corresponds to `place.id`. 
 
 [@gomotopia]: http://github.com/gomotopia
-[`Editor`]: ./editor.md
-[edit.js]: ../src/views/edit.js
-[`State`]: ./state.md
-[@mapmeld]: http://github.com/mapmeld
 [@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
-[src/map/index.js]: ../src/map/index.js
+[@jenni-niels]: http://github.com/jenni-niels
+
+[`src/models/State.js`]: ../src/models/State.js
+
+[plan/context]: ./plancontext.md
+[`Map`]: ./map.md
+[`MapState`]: ./map.md
+[`MapState.map`]: ./map.md#map
+[`Toolbar`]: ./toolbar.md
+[`addLayers`]: ./layers.md
+[`Editor`]: ./editor.md
+[`State`]: ./state.md
+
+[Layers]: ./layers.md
+
+[`mapboxgl`]: https://docs.mapbox.com/mapbox-gl-js/api/
+[mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
+
+[`IdColumn`]: ./idcolumn.md
+[`utils`]: ./utils.md
+[`./lib/column-set`]: ./columnset.md
+[`map/Layer`]: ./layer.md
+
+[`edit.js`]: ../src/views/edit.js
+[`views/edit.js`]: ../src/views/edit.js
+[`State.js`]: ../src/models/State.js
+[`map/index.js`]: ../src/map/index.js
+[`index.js`]: ../src/map/index.js
+[`src/map/index.js`]: ../src/map/index.js
+
+[dropdown menu]: ./topmenu.md
+
+[`deploy/_redirects`]: ../deploy/_redirects
+[`routes.js`]: ../src/routes.js
+[`package.json`]: ../package.json
+[`edit.html`]: ../html/edit.html
+[`mapbox instance`]: ./map.md#map
+[`plugins`]: ./plugins.md
+[`models/editor.js`]: ../src/models/editor.js
+[`UIStateStore`]: ./uistatestore.md
+[`OptionsContainer`]: ./optionscontainer.md
+
+[`/src/map`]: ../src/map
+[`Layers`]: ./layer.md
+[`reducers`]: ./reducers.md
+
 [pull #68]: https://github.com/districtr/districtr/pull/68
-[`src/map/index.js`]: ../src.map/index.js

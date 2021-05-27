@@ -71,7 +71,7 @@ instructs `Toolbar` to recognize this Tool as active, by its id.
 Finally, a div of class `.icon-list__item___radio` is created and the
 instance `icon` is depicted, and the div class `.icon-list__item` is closed.
 
-## The `Pan` Example
+# The `Pan` Example
 
 The `Pan` tool, which corresponds to `mapboxgl`'s default drag and pan
 functionality is defined here with the following code, in its entirety.
