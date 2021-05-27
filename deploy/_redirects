@@ -275,6 +275,8 @@
 /plans/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
 /plans/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan
 /portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#portal
+/qa-portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#qa-portal
+
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
