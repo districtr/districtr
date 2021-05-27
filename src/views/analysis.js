@@ -261,9 +261,6 @@ function userOnGo(left, right) {
             renderLeft(left, context);
             renderRight(right, context);
             
-            // Create a State object to use.
-            let State
-            
             // Close the modal.
             closeModal();
         });
