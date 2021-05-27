@@ -236,7 +236,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                            Schools
+                            School Districts
                         </label>
                     </li>` : ""}
                 ${municipalities ? 
