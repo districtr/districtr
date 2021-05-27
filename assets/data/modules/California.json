@@ -1777,5 +1777,182 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+               "key": "TOTALPOP",
+               "name": "Total population",
+               "sum": 46165,
+               "min": 0,
+               "max": 1039
+             },
+             "subgroups": [
+               {
+                 "key": "WHITE",
+                 "name": "White population",
+                 "sum": 29901,
+                 "min": 0,
+                 "max": 770
+               },
+               {
+                 "key": "BLACK",
+                 "name": "Black population",
+                 "sum": 667,
+                 "min": 0,
+                 "max": 32
+               },
+               {
+                 "key": "AMERIND",
+                 "name": "American Indian population",
+                 "sum": 289,
+                 "min": 0,
+                 "max": 13
+               },
+               {
+                 "key": "ASIAN",
+                 "name": "Asian population",
+                 "sum": 697,
+                 "min": 0,
+                 "max": 22
+               },
+               {
+                 "key": "HAWPI",
+                 "name": "Native Hawaiian Pacific Islander population",
+                 "sum": 66,
+                 "min": 0,
+                 "max": 9
+               },
+               {
+                 "key": "OTHER",
+                 "name": "Other races",
+                 "sum": 64,
+                 "min": 0,
+                 "max": 5
+               },
+               {
+                 "key": "TWOORMORE",
+                 "name": "Two or more races",
+                 "sum": 943,
+                 "min": 0,
+                 "max": 29
+               },
+               {
+                 "key": "HISPLATINO",
+                 "name": "Hispanic population",
+                 "sum": 13538,
+                 "min": 0,
+                 "max": 482
+               }
+             ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP19TOT",
+              "name": "Total population",
+              "sum": 35007,
+              "min": 0,
+              "max": 971
+            },
+            "subgroups": [
+              {
+                "key": "CVAP19WHT",
+                "name": "White population",
+                "sum": 25457,
+                "min": 0,
+                "max": 783
+              },
+              {
+                "key": "CVAP19BLK",
+                "name": "Black population",
+                "sum": 582,
+                "min": 0,
+                "max": 106
+              },
+              {
+                "key": "CVAP19AMN",
+                "name": "American Indian population",
+                "sum": 254,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "CVAP19ASN",
+                "name": "Asian population",
+                "sum": 592,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "CVAP19HWP",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 10,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CVAP19HSP",
+                "name": "Hispanic population",
+                "sum": 7685,
+                "min": 0,
+                "max": 317
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -121.1757,
+            35.5132
+          ],
+          [
+            -120.4037,
+            35.9465
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pasorobles_blocks_points?v=2"
+            },
+            "sourceLayer": "pasorobles_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pasorobles_blocks?v=2"
+            },
+            "sourceLayer": "pasorobles_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Paso Robles Joint Unified School District",
+    "id": "pasorobles",
+    "districtingProblems": [
+      {
+        "name": "Board of Education",
+        "numberOfParts": 7,
+        "pluralNoun": "Board Districts"
+      }
+    ]
   }
 ]

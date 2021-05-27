@@ -97,7 +97,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-            if ((eventCode || (state.place.id === "michigan")) && spatial_abilities(state.place.id).shapefile) {
+            if ((eventCode || ["Michigan", "Ohio", "Missouri", "Utah"].includes(state.place.state)) && spatial_abilities(state.place.id).shapefile) {
                 fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
             }
             callback(info.simple_id, action);
@@ -138,6 +138,9 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
+    if (planRecord.placeId === "nc") {
+        planRecord.placeId = "northcarolina";
+    }
     return listPlaces(planRecord.placeId, (planRecord.state || (planRecord.place ? planRecord.place.state : null))).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
@@ -195,7 +198,9 @@ export function loadPlanFromCSV(assignmentList, state) {
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
-
+    if (state.place.id === "nc") {
+        state.place.id = "northcarolina";
+    }
     return listPlaces(state.place.id, state.place.state).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {

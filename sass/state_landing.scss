@@ -10,6 +10,12 @@ ol {
     padding: 0;
 }
 
+iframe {
+  /* netlify widget */
+  display: none !important;
+  visibility: hidden !important;
+}
+
 .screenshot {
     box-shadow: $raised;
     width: 150%;

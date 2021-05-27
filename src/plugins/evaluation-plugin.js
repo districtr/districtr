@@ -12,6 +12,7 @@ import AbstractBarChart from "../components/Charts/AbstractBarChart";
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
+import PartisanSummarySection from "../components/Charts/PartisanSummary";
 
 /**
  * @desc Creates a button which, when clicked, opens up a modal for charts.
@@ -137,7 +138,31 @@ export default function EvaluationPlugin(editor) {
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance",
+            "Partisan Balance Summary",
+            (uiState, dispatch) => html`
+                ${spatial_abilities(state.place.id).absentee
+                    ? html`<div style="text-align:center">Election results include absentee votes</div>`
+                    : null
+                }
+                ${PartisanSummarySection(
+                    state.elections,
+                    state.activeParts,
+                    uiState,
+                    dispatch
+                )}`,
+            {
+                isOpen:
+                    state.population.subgroups.length <= 1 &&
+                    state.vap === undefined
+                        ? true
+                        : false
+            }
+        );
+    }
+
+    if (state.elections.length > 0) {
+        tab.addRevealSection(
+            "Election Details",
             (uiState, dispatch) => html`
                 ${spatial_abilities(state.place.id).absentee
                     ? html`<div style="text-align:center">Election results include absentee votes</div>`
