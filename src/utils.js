@@ -737,6 +737,9 @@ export function spatial_abilities(id) {
       current_districts: true,
       county_brush: true,
       // find_unpainted: true,
+      portal: {
+        endpoint: 'https://portal.newmexico-mapping.org',
+      },
     },
     santafe: {
       number_markers: true,
@@ -991,7 +994,7 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.utah-mapping.org',
       },
     },
-      grandcounty: {
+      'grand_county_2': {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },
@@ -1064,6 +1067,9 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       contiguity: 2,
+      portal: {
+        endpoint: 'https://portal.wisconsin-mapping.org',
+      },
     },
     wisco2019acs: {
       number_markers: true,
@@ -1075,6 +1081,9 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       contiguity: 2,
+      portal: {
+        endpoint: 'https://portal.wisconsin-mapping.org',
+      },
     },
     wyoming: {
       multiyear: 2018,
