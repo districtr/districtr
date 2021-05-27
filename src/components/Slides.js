@@ -49,8 +49,7 @@ export class SlideShow {
      * arrow by default.
      */
     constructor(
-        container, slides=[], leftSymbol="←",
-        rightSymbol="→"
+        container, slides=[], leftSymbol="←", rightSymbol="→"
     ) {
         // Add defaults.
         this.container = container;
