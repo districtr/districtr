@@ -998,6 +998,7 @@ export function spatial_abilities(id) {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },
+        shapefile: true,
       },
     vermont: {
       number_markers: true,
