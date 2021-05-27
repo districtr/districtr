@@ -4,6 +4,9 @@ import Select from "../components/Select";
 import PartisanOverlay from "./PartisanOverlay";
 import { getLayerDescription } from "./OverlayContainer";
 import { getPartyRGBColors } from "../layers/color-rules";
+import { DataTable } from "../components/Charts/DataTable"
+import { getCell } from "../components/Charts/PartisanSummary"
+
 
 export default class PartisanOverlayContainer {
     constructor(id, layers, elections, toolbar, bipolarText) {
@@ -102,7 +105,6 @@ export default class PartisanOverlayContainer {
 
     candidateLegend() {
         const cands = this.elections[this._currentElectionIndex].subgroups;
-        console.log(cands);
         return cands.map(c => html`
                                 <li class="party-desc">
                                     <span style="background-color:rgba(${getPartyRGBColors(c.name + c.key).join(",")}, 0.8)"></span>
@@ -112,19 +114,32 @@ export default class PartisanOverlayContainer {
 
     render() {
         const overlay = this.currentElectionOverlay;
-        
-        
+        let headers = this.elections[this._currentElectionIndex].parties.map(party => {
+            const rgb = getPartyRGBColors(party.name + party.key);
+            return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`
+        });
         return html`
             ${Parameter(
                 this.bipolarText ? null : {
                     label: "Election:",
                     element: Select(
                         this.elections,
-                        i => this.setElection(i),
+                        ((i) => {
+                            this.setElection(i); 
+                                render(html`${DataTable(headers, 
+                                        [{label: "Overall", 
+                                        entries: this.elections[this._currentElectionIndex].parties.map(
+                                            party => getCell(party, null))}])}`,
+                                    document.getElementById('election-vote-share'));
+                            
+                        }),
                         this._currentElectionIndex
                     )
                 })
             }
+            <div id="election-vote-share">
+                ${DataTable(headers, [{label: "Overall", entries: this.elections[this._currentElectionIndex].parties.map(party => getCell(party, null))}])}
+            </div>
             <div class="ui-option ui-option--slim">
             <h5>
               <label class="toolbar-checkbox">

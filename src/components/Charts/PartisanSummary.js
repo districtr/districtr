@@ -24,7 +24,7 @@ function getCellStyle(percent, party) {
     return `background: #f9f9f9`;
 }
 
-function getCell(party, part) {
+export function getCell(party, part) {
     let percent;
     if (part !== undefined && part !== null) {
         percent = party.getFractionInPart(part.id);
