@@ -19,6 +19,7 @@ const stateForEvent = {
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
   pmc: 'Wisconsin',
+  'pmc-districts': 'Wisconsin',
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
@@ -51,6 +52,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   pmc: ['wisconsin2020', 'wisconsin'],
+  'pmc-districts':['wisconsin2020','wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
@@ -76,6 +78,7 @@ const blockPlans = {
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   pmc: {no: '2011 Wards'},
+  'pmc-districts': {no: ['2011 Wards', 'Block Groups']},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
@@ -89,6 +92,7 @@ const unitCounts = {
   buncombe: 67,
   'towsonu-baltimore': 653,
   prjusd: 2818,
+  'pmc-districts':7078
 };
 
 const coi_events = [
@@ -137,6 +141,8 @@ const eventDescriptions = {
   pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
   <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
   <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Save\" to share the map.</b></p>",
+  'pmc-districts': "<p>Welcome to the District-Drawing public mapping tag page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p><b>To display your map on this page, be sure the tag \ “PMC-districts\” is filled out after you’ve clicked \ “Save\” to share the map.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -187,7 +193,7 @@ const longAbout = {
 
 const proposals_by_event = {
   centralsan: true,
-  pmc: true,
+  'pmc-districts': true,
   prjusd: true,
 };
 
@@ -364,7 +370,7 @@ export default () => {
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
-                    render(plansSection([{ title: 'Sample plans', plans: sample.plans }], eventCode, true), document.getElementById("proposals"));
+                    render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
                 });
             } else {
                 document.getElementById("sample_plan_link").style.display = "none";
@@ -379,7 +385,7 @@ export default () => {
 
 const plansSection = (plans, eventCode, isProfessionalSamples) =>
     plans.map(
-        ({ title, plans }) => html`
+        ({ title, plans, desc }) => html`
             <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
@@ -387,6 +393,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                     Click on any of the maps below to open it in
                     Districtr.
                 </p>` : null}
+                ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
                     ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
                 </ul>

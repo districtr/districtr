@@ -60,7 +60,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true,
+                isOpen: false,
                 activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
             }
         );
@@ -176,11 +176,12 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.contiguity,
                     spatial_abilities(state.place.id).contiguity,
+                    state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
@@ -199,7 +200,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
         

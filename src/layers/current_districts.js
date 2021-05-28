@@ -193,7 +193,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     tab.addSection(() =>
         html`
         <div id='district-overlay'>    
-            <h4>Boundary Overlays</h4>
+            <h5>Previous Boundaries</h5>
             <li>
                 <label style="cursor: pointer;">
                     <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
@@ -236,7 +236,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                            Schools
+                            School Districts
                         </label>
                     </li>` : ""}
                 ${municipalities ? 
