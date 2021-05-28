@@ -364,7 +364,7 @@ export default () => {
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
-                    render(plansSection([{ title: 'Sample plans', plans: sample.plans }], eventCode, true), document.getElementById("proposals"));
+                    render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
                 });
             } else {
                 document.getElementById("sample_plan_link").style.display = "none";
@@ -379,7 +379,7 @@ export default () => {
 
 const plansSection = (plans, eventCode, isProfessionalSamples) =>
     plans.map(
-        ({ title, plans }) => html`
+        ({ title, plans, desc }) => html`
             <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
@@ -387,6 +387,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                     Click on any of the maps below to open it in
                     Districtr.
                 </p>` : null}
+                ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
                     ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
                 </ul>
