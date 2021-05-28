@@ -1258,7 +1258,7 @@
       {
         "name": "Constables",
         "numberOfParts": 8,
-        "name": "Constable Districts"
+        "pluralNoun": "Constable Districts"
       }
     ]
   },
