@@ -37,7 +37,7 @@ function getCell(party, part) {
     };
 }
 
-function getCellSeatShare(party, election) {
+export function getCellSeatShare(party, election) {
     let won = election.getSeatsWonParty(party);
     let total = party.data.length;
     return {
