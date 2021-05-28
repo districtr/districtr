@@ -25,6 +25,7 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
+    state.brush = brush;
 
     if (state.plan.problem.type !== "community") {
         // show drop-in geojson and built-in landmarks

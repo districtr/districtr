@@ -38,6 +38,11 @@ export default function DataLayersPlugin(editor) {
             ${toggle(districtMessage, true, checked => {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
+                if (checked) {
+                  state.brush.activate();
+                } else {
+                  state.brush.deactivate();
+                }
             })}
             ${(["chicago_community_areas", "alaska_blockgroups", "hawaii_blockgroups", "oregon_blockgroups",
                 "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
