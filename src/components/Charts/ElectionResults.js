@@ -57,7 +57,7 @@ export default function ElectionResults(election, parts) {
         label: part.renderLabel(),
         entries: election.parties.map(party => getCell(party, part))
     }));
-    console.dir(rows);
+
     return html`
         ${election.parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
         <strong> Overall </strong>
