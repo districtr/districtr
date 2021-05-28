@@ -78,7 +78,7 @@ const blockPlans = {
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   pmc: {no: '2011 Wards'},
-  'pmc-districts': {no: '2011 Wards'},
+  'pmc-districts': {no: '2011 Wards', 'Block Groups'},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
