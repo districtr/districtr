@@ -193,7 +193,7 @@ const longAbout = {
 
 const proposals_by_event = {
   centralsan: true,
-  pmc: true,
+  'pmc-districts': true,
   prjusd: true,
 };
 
