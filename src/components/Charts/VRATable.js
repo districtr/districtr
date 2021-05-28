@@ -43,7 +43,7 @@ function message(state) {
             we are reporting a raw effectiveness score from the statewide 
             elections:  using the probativity weights for the elections, 
             this simply records the weighted share of elections where the 
-            candidate of choice for each racial group would have been prevailed 
+            candidate of choice for each racial group would have prevailed 
             in this district.  Note that the candidate of choice must win 
             in both the primary and the general to get credit for an election.
              The citizen voting age population (CVAP) comes from the most 
