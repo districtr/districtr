@@ -1822,19 +1822,27 @@
             "plans": [
               {
                 "id": "congress_2011",
-                "name": "2011 Enacted Plan"
+                "name": "2011 Enacted Congressional Plan"
               },
               {
                 "id": "congress_2016",
-                "name": "2016 Enacted Plan"
+                "name": "2016 Enacted Congressional Plan"
               },
               {
                 "id": "congress_judge",
-                "name": "Judges' 2016 Proposed Plan"
+                "name": "Judges' 2016 Proposed Congressional Plan"
               },
               {
                 "id": "congress_2019",
-                "name": "2019 Enacted Plan"
+                "name": "2019 Enacted Congressional Plan"
+              },
+              {
+                "id": "state_senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }
