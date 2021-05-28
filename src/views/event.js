@@ -65,7 +65,7 @@ const validEventCodes = {
   mesaaz: 'mesaaz',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
-  hia: 'houston',
+  'hia': ['texas', 'fortbendtx', 'tarranttx', 'harristx', 'elpasotx', 'austin', 'fortworth', 'houston']
   onelovemi: 'michigan'
 };
 
@@ -114,12 +114,12 @@ const coi_events = [
   'micrc',
   'mesaaz',
   'ourmapsne',
-  'hia',
   'onelovemi'
 ];
 
 const hybrid_events = [
   // 'mesaaz',
+  'hia',
 ];
 
 const eventDescriptions = {
