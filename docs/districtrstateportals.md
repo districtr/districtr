@@ -134,11 +134,13 @@ This one place, with three types of problems out of two kinds of units results i
 districting options, gleamed from the `districtingOptions(districtingplaces)` module which uses either
 `placeItemsTemplate` or `customPlaceItemsTemplate` to extract these combinations. 
 
-
 A similar process is done with communities. Helper function `communityOptions(places)` selects
 each place in a list and renders a button for each possible type of `units`. Arizona communities
 can be drawn in precincts or census block groups, resulting in two kinds of community buttons, 
 with the same repeated for sub-statewide places like counties, cities and zones. 
+
+That we are able to display new problems reflecting 2020 reapportionment is thanks to [@jackdeschler].
+Recent changes to `customPlaceItemsTemplate` ensure that these buttons are given priority in the list.
 
 
 **It is these buttons that eventually, save the module context into localStorage for 
@@ -148,9 +150,17 @@ The function now ensures that the button corresponding to the default module is 
 and set new function variable `selected` to this default. For Arizona, this is the Arizona state-wide
 new districting plan module. 
 
-### Custom Number of Districts
+### Custom Number of Districts with `CustomPlaceItemsTemplate(...)`
 
+On Thu., Nov. 19, 2020 [@AtlasCommaJ] wrote a custom selections template that would be merged into districtr
+by January. At the top of the page, `districtingOptions` renders a checkbox that toggles whether place
+buttons are rendered with standard `placeItemTemplates(...)` and `customPlaceItemsTemplate(...)`. If a user
+desires to change the number of districts one wants to draw given a specific problem, each plan
+button now renders an input type `number`, class `.custom-input` whose rose is to change the value of
+`problem.numberOfParts`, up to 55 units. 
 
+When each of these Place Items buttons are clicked, listener `startNewPlan(...)`, imported from `/routes.js`,
+saves the problem to the storage using `savePlanToStorage(...)` and navigates the user to the editor. 
 
 ### Finally
 
