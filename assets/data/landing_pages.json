@@ -1831,6 +1831,10 @@
               {
                 "id": "congress_judge",
                 "name": "Judges' 2016 Proposed Plan"
+              },
+              {
+                "id": "congress_2019",
+                "name": "2019 Enacted Plan"
               }
             ]
           }
