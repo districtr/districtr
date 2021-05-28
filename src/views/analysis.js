@@ -17,7 +17,7 @@ import populateDatasetInfo from "../components/Charts/DatasetInfo";
  * @returns {Promise}
  */
 function loadPlan(url) {
-    if (_isDev()) return loadPlanFromURL("/assets/plans/districtr-nc-2011.json");
+    if (_isDev()) return loadPlanFromURL("/assets/nc-plans/congress_2011.json");
     return loadPlanFromURL(url);
 }
 
