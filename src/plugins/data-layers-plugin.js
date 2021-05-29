@@ -655,10 +655,9 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            html`"Socioeconomic data" + ${spatial_abilities(state.place.id).multiyear
-              ? spatial_abilities(state.place.id).multiyear
-              : ""}
-            )`,
+            html`Socioeconomic data ${spatial_abilities(state.place.id).multiyear
+              ? `(${spatial_abilities(state.place.id).multiyear})`
+              : ""}`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
               ${state.rent ?
