@@ -67,7 +67,7 @@ const validEventCodes = {
   mesaaz: 'mesaaz',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
-  'hia': ['texas', 'fortbendtx', 'tarranttx', 'harristx', 'elpasotx', 'austin', 'fortworth', 'houston'],
+  'hia': ['texas', 'harristx', 'houston'],
   onelovemi: 'michigan'
 };
 
