@@ -109,7 +109,7 @@ function assignFeatures(state, assignment, mapUnloaded, populationUnloaded) {
     while (features.length > 0) {
         let feature = features.pop();
         if (true) { //state.hasExpectedData(feature)) {
-            let unitId = state.idColumn.getValue(feature);
+            let unitId = String(state.idColumn.getValue(feature));
             if (
                 mapUnloaded[unitId] !== true &&
                 assignment.hasOwnProperty(unitId) &&
