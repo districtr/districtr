@@ -9,6 +9,8 @@ import State from "../models/State";
 import { Slide, SlideShow } from "../components/Slides";
 import AbstractBarChart from "../components/Charts/AbstractBarChart";
 import populateDatasetInfo from "../components/Charts/DatasetInfo";
+import PartisanSummarySection from "../components/Charts/PartisanSummary";
+import Editor from "../models/Editor";
 
 /**
  * @desc Retrieves a test plan if we're doing dev work, the real deal if we
@@ -70,8 +72,9 @@ function renderMap(container, context) {
     // new State object (which will go unused, as the user cannot edit the
     // plan while it's being analyzed) and render the map to the page. Again
     // follows the protocol set out in edit.js.
+    let state;
     mapState.map.on("load", () => {
-        let state = new State(
+        state = new State(
             mapState.map,
             mapState.swipemap,
             context,
@@ -80,6 +83,9 @@ function renderMap(container, context) {
         
         if (context.assignment) state.plan.assignment = context.assignment;
         state.render();
+        // let editor =  new Editor(state, mapState, []);
+        //editor.render();
+        renderRight(new DisplayPane({ id: "analysis-right" }), context, state);
     });
 }
 
@@ -121,17 +127,9 @@ function cutedges(context) {
         vlabels = [],
         heights = [0, 0, 0, 0.5, 0.3, 0.15, 0.1, 0.08, 0.07],
         bins = [],
-        fakeState = {
-            population: {
-                name: context.place.name
-            },
-            place: {
-                id: context.place.id
-            }
-        },
         descriptionHeader = html`
             <div class="dataset-info">
-                ${populateDatasetInfo(fakeState)}
+                ${populateDatasetInfo(context)}
             </div>
         `,
         descriptionText = html`
@@ -142,7 +140,7 @@ function cutedges(context) {
         `,
         description = html`${descriptionHeader}${descriptionText}`;
     
-    
+            
     for (let i=10; i<100; i+=10) {
         hticks.push(i/100);
         hlabels.push(i.toString());
@@ -177,17 +175,9 @@ function partisan(context) {
         vlabels = [],
         heights = [0, 0, 0.1, 0.3, 0.5, 0.3, 0.1, 0, 0],
         bins = [],
-        fakeState = {
-            population: {
-                name: context.place.name
-            },
-            place: {
-                id: context.place.id
-            }
-        },
         descriptionHeader = html`
             <div class="dataset-info">
-                ${populateDatasetInfo(fakeState)}
+                ${populateDatasetInfo(context)}
             </div>
         `,
         descriptionText = html`
@@ -196,7 +186,6 @@ function partisan(context) {
             partisanship.
         `,
         description = html`${descriptionHeader}${descriptionText}`;
-    
     
     for (let i=10; i<100; i+=10) {
         hticks.push(i/100);
@@ -227,14 +216,16 @@ function partisan(context) {
  * @param {Object} context Context object.
  * @returns {undefined}
  */
-function renderRight(pane, context) {
+function renderRight(pane, context, state) {
+
+    console.log(state.elections);
     // Create the charts for the Slides.
     let slides = [
-            new Slide(partisan(context), "Partisanship"),
-            new Slide(cutedges(context), "Cut Edges")
+            new Slide(partisan(state), "Partisanship"),
+            new Slide(cutedges(state), "Cut Edges")
         ],
         s = new SlideShow(pane.pane, slides);
-    
+
     s.render();
 }
 
@@ -245,7 +236,7 @@ function renderRight(pane, context) {
  * @param {DisplayPane} left Pane where the Map is going to go.
  * @param {DisplayPane} right Pane where the analysis will happen.
  */
-function userOnGo(left, right) {
+function userOnGo(left) {
     // Create a function that does the proper thing when loading.
     return e => {
         // Get the URL, JSON file, or enacted plan provided by the user.
@@ -257,10 +248,8 @@ function userOnGo(left, right) {
         e.target.disabled = true;
         
         plan.then(context => {
-            // Render the left Pane.
             renderLeft(left, context);
-            renderRight(right, context);
-            
+            // right gets rendered within the left pane, since we need the mapstate            
             // Close the modal.
             closeModal();
         });
@@ -272,12 +261,11 @@ function userOnGo(left, right) {
  * allows the user to select whether they want to load a map from a Districtr
  * link, load a Districtr JSON or CSV file, or choose an enacted plan to explore.
  * @param {DisplayPane} left Pane in which the map will be rendered.
- * @param {DisplayPane} right Pane in which the analysis will be rendered.
  * @returns {undefined}
  */
-function userSelectsMode(left, right) {
+function userSelectsMode(left) {
     // Create a new Button.
-    let go = new Button(userOnGo(left, right), { label: "Go.", hoverText: "Evaluate the selected plan." }),
+    let go = new Button(userOnGo(left), { label: "Go.", hoverText: "Evaluate the selected plan." }),
         target = document.getElementById("modal"),
         
         // Create the internal HTMLTemplate for the modal, including the
@@ -320,10 +308,11 @@ function userSelectsMode(left, right) {
  * @returns {undefined}
  */
 export default function renderAnalysisView() {
-    // Create left and right display panes.
-    let left = new DisplayPane({ id: "analysis-left" }),
-        right = new DisplayPane({ id: "analysis-right" });
-    
+    // Create left display pane.
+    // hold on creating the right one, bc we need the mapstate first
+    let left = new DisplayPane({ id: "analysis-left" });
+
+
     // Spits out the Modal right when we load.
-    userSelectsMode(left, right);
+    userSelectsMode(left);
 }
