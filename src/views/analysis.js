@@ -112,104 +112,6 @@ function renderLeft(pane, context) {
 }
 
 /**
- * @desc A placeholder function for doing a cut-edges page. This will obviously
- * have to change.
- * TODO find a better way to create/encode individual Slides so we don't have to
- *  do all this in the Analysis page *and* so we can create Slides based on
- *  whatever data we have.
- * @param {Object} context Database context object.
- * @returns {HTMLTemplateElement}
- */
-function cutedges(context) {
-    let hticks = [],
-        vticks = [],
-        hlabels = [],
-        vlabels = [],
-        heights = [0, 0, 0, 0.5, 0.3, 0.15, 0.1, 0.08, 0.07],
-        bins = [],
-        descriptionHeader = html`
-            <div class="dataset-info">
-                ${populateDatasetInfo(context)}
-            </div>
-        `,
-        descriptionText = html`
-            Here, we can talk about cut edges and other compactness stuff. I
-            mean honestly we can put whatever we want here, including a
-            description of what "cut edges" <i>means</i>, but I think being able
-            to switch back and forth between charts is important.
-        `,
-        description = html`${descriptionHeader}${descriptionText}`;
-    
-            
-    for (let i=10; i<100; i+=10) {
-        hticks.push(i/100);
-        hlabels.push(i.toString());
-        
-        vticks.push(i/100);
-        vlabels.push((i/10).toString());
-        
-        bins.push([(i-10)/100, (i/100)]);
-    }
-    
-    return AbstractBarChart(
-        hticks, vticks,
-        {
-            hlabels: hlabels,
-            vlabels: vlabels,
-            heights: heights,
-            bins: bins,
-            description: description
-        }
-    );
-}
-
-/**
- * @desc Just a copy of the above ``cutedges`` function.
- * @param {Object} context Database context object.
- * @returns {HTMLTemplateElement}
- */
-function partisan(context) {
-    let hticks = [],
-        vticks = [],
-        hlabels = [],
-        vlabels = [],
-        heights = [0, 0, 0.1, 0.3, 0.5, 0.3, 0.1, 0, 0],
-        bins = [],
-        descriptionHeader = html`
-            <div class="dataset-info">
-                ${populateDatasetInfo(context)}
-            </div>
-        `,
-        descriptionText = html`
-            Here, we'll evalulate partisanship. In this chart, we
-            talk about whatever we want to with regard to some measure of
-            partisanship.
-        `,
-        description = html`${descriptionHeader}${descriptionText}`;
-    
-    for (let i=10; i<100; i+=10) {
-        hticks.push(i/100);
-        hlabels.push(i.toString());
-        
-        vticks.push(i/100);
-        vlabels.push((i/10).toString());
-        
-        bins.push([(i-10)/100, (i/100)]);
-    }
-    
-    return AbstractBarChart(
-        hticks, vticks,
-        {
-            hlabels: hlabels,
-            vlabels: vlabels,
-            heights: heights,
-            bins: bins,
-            description: description
-        }
-    );
-}
-
-/**
  * @desc Renders the right Pane to the desired content, which is the SlideShow
  * of analysis things.
  * @param {DisplayPane} pane The DisplayPane on the right.
@@ -221,8 +123,9 @@ function renderRight(pane, context, state) {
     console.log(state.elections);
     // Create the charts for the Slides.
     let slides = [
-            new Slide(partisan(state), "Partisanship"),
-            new Slide(cutedges(state), "Cut Edges")
+            //new Slide(partisan(state), "Partisanship"),
+            //new Slide(cutedges(state), "Cut Edges"),
+            new Slide(election_slide(state), "Election Results")
         ],
         s = new SlideShow(pane.pane, slides);
 
@@ -315,4 +218,115 @@ export default function renderAnalysisView() {
 
     // Spits out the Modal right when we load.
     userSelectsMode(left);
+}
+
+
+
+/***** SLIDES ******/
+/**
+ * @desc A placeholder function for doing a cut-edges page. This will obviously
+ * have to change.
+ * TODO find a better way to create/encode individual Slides so we don't have to
+ *  do all this in the Analysis page *and* so we can create Slides based on
+ *  whatever data we have.
+ * @param {Object} context Database context object.
+ * @returns {HTMLTemplateElement}
+ */
+ function cutedges(context) {
+    let hticks = [],
+        vticks = [],
+        hlabels = [],
+        vlabels = [],
+        heights = [0, 0, 0, 0.5, 0.3, 0.15, 0.1, 0.08, 0.07],
+        bins = [],
+        descriptionHeader = html`
+            <div class="dataset-info">
+                ${populateDatasetInfo(context)}
+            </div>
+        `,
+        descriptionText = html`
+            Here, we can talk about cut edges and other compactness stuff. I
+            mean honestly we can put whatever we want here, including a
+            description of what "cut edges" <i>means</i>, but I think being able
+            to switch back and forth between charts is important.
+        `,
+        description = html`${descriptionHeader}${descriptionText}`;
+    
+            
+    for (let i=10; i<100; i+=10) {
+        hticks.push(i/100);
+        hlabels.push(i.toString());
+        
+        vticks.push(i/100);
+        vlabels.push((i/10).toString());
+        
+        bins.push([(i-10)/100, (i/100)]);
+    }
+    
+    return AbstractBarChart(
+        hticks, vticks,
+        {
+            hlabels: hlabels,
+            vlabels: vlabels,
+            heights: heights,
+            bins: bins,
+            description: description
+        }
+    );
+}
+
+/**
+ * @desc Just a copy of the above ``cutedges`` function.
+ * @param {Object} context Database context object.
+ * @returns {HTMLTemplateElement}
+ */
+function partisan(context) {
+    let hticks = [],
+        vticks = [],
+        hlabels = [],
+        vlabels = [],
+        heights = [0, 0, 0.1, 0.3, 0.5, 0.3, 0.1, 0, 0],
+        bins = [],
+        descriptionHeader = html`
+            <div class="dataset-info">
+                ${populateDatasetInfo(context)}
+            </div>
+        `,
+        descriptionText = html`
+            Here, we'll evalulate partisanship. In this chart, we
+            talk about whatever we want to with regard to some measure of
+            partisanship.
+        `,
+        description = html`${descriptionHeader}${descriptionText}`;
+    
+    for (let i=10; i<100; i+=10) {
+        hticks.push(i/100);
+        hlabels.push(i.toString());
+        
+        vticks.push(i/100);
+        vlabels.push((i/10).toString());
+        
+        bins.push([(i-10)/100, (i/100)]);
+    }
+    
+    return AbstractBarChart(
+        hticks, vticks,
+        {
+            hlabels: hlabels,
+            vlabels: vlabels,
+            heights: heights,
+            bins: bins,
+            description: description
+        }
+    );
+}
+
+// Election Results Slide
+function election_slide(state) {
+    return html`
+    <div class="dataset-info">
+        ${populateDatasetInfo(state)}
+    </div>
+    ${PartisanSummarySection(state.elections, null)}
+    `
 }
