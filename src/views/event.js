@@ -126,6 +126,11 @@ const hybrid_events = [
   'hia',
 ];
 
+const portal_events = [
+  'open-maps',
+  'fyi',
+];
+
 const eventDescriptions = {
   test: 'this is a test of the event descriptions',
   'unca-forsyth': 'Welcome to your class page UNC Asheville students! We\'re excited for you to start exploring Forsyth County with Districtr. <a href="/guide">Click here</a> for a tutorial.',
@@ -335,7 +340,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
-                render(placeItems(place, startNewPlan, eventCode), mydiv);
+                render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
 
                 if (hybrid_events.includes(eventCode)) {
                     const mydiv2 = document.createElement('li');
@@ -345,7 +350,7 @@ export default () => {
                       districtingProblems: [
                           { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                       ]
-                    }, startNewPlan, eventCode), mydiv2);
+                    }, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv2);
                 }
             });
         });
@@ -419,9 +424,13 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
         unitOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
     let screenshot = plan.screenshot2 || plan.screenshot;
+    let urlcode = eventCode;
+    if (portal_events.includes(eventCode)) {
+      urlcode += '&portal';
+    }
 
     return html`
-    <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
+    <a href="/edit/${plan.simple_id || plan._id}?event=${urlcode}">
         <li class="plan-thumbs__thumb">
             ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
                 ? html`<img

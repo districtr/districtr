@@ -767,6 +767,9 @@ export function spatial_abilities(id) {
     forsyth_nc: {
       contiguity: 2,
       shapefile: true,
+      portal: {
+        endpoint: 'https://qa-portal.ohio-mapping.org',
+      },
     },
     buncombe: {
       contiguity: 2,

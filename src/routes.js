@@ -21,7 +21,7 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, id, setParts, eventCode) {
+export function startNewPlan(place, problem, units, id, setParts, eventCode, portalOn) {
     if (setParts) {
         problem.numberOfParts = setParts;
     }
@@ -29,6 +29,9 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     let action = (window.location.hostname === "localhost" ? "edit" : (
       problem.type === "community" ? "COI" : "plan"
     ));
+    if (portalOn) {
+      eventCode += "&portal";
+    }
     navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
 
