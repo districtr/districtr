@@ -214,7 +214,9 @@ export default () => {
 
         if (eventCode === "mesaaz") {
             document.getElementById("partnership-icons").style.display = "block";
+            document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
             document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+            document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         }
 
