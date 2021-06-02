@@ -15,7 +15,7 @@ import { getPartyRGBColors } from "../../layers/color-rules"
  * @param {number} percent
  * @param {Subgroup} party
  */
-function getCellStyle(percent, party) {
+export function getCellStyle(percent, party) {
     if ((party.name === "Democratic" || party.name.includes("(Dem)")) && percent > 0.5) {
         return `background: ${interpolateRdBu(percent)}`;
     } else if ((party.name === "Republican" || party.name.includes("(Rep)")) && percent > 0.5) {
@@ -24,7 +24,7 @@ function getCellStyle(percent, party) {
     return `background: #f9f9f9`;
 }
 
-function getCell(party, part) {
+export function getCell(party, part) {
     let percent;
     if (part !== undefined && part !== null) {
         percent = party.getFractionInPart(part.id);
@@ -37,7 +37,7 @@ function getCell(party, part) {
     };
 }
 
-function getCellSeatShare(party, election) {
+export function getCellSeatShare(party, election) {
     let won = election.getSeatsWonParty(party);
     let total = party.data.length;
     return {
@@ -46,7 +46,7 @@ function getCellSeatShare(party, election) {
     };
 }
 
-function parseElectionName(election) {
+export function parseElectionName(election) {
     let yr = election.substring(0,4);
     if (isNaN(yr))
         return election

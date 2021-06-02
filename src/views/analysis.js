@@ -9,8 +9,13 @@ import State from "../models/State";
 import { Slide, SlideShow } from "../components/Slides";
 import AbstractBarChart from "../components/Charts/AbstractBarChart";
 import populateDatasetInfo from "../components/Charts/DatasetInfo";
-import PartisanSummarySection from "../components/Charts/PartisanSummary";
-import Editor from "../models/Editor";
+import { getCell, getCellStyle, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
+import { getPartyRGBColors } from "../layers/color-rules"
+import { DataTable } from "../components/Charts/DataTable"
+import { interpolateRdBu } from "d3-scale-chromatic";
+import { roundToDecimal } from "../utils";
+
+
 
 /**
  * @desc Retrieves a test plan if we're doing dev work, the real deal if we
@@ -83,8 +88,6 @@ function renderMap(container, context) {
         
         if (context.assignment) state.plan.assignment = context.assignment;
         state.render();
-        // let editor =  new Editor(state, mapState, []);
-        //editor.render();
         renderRight(new DisplayPane({ id: "analysis-right" }), context, state);
     });
 }
@@ -120,7 +123,6 @@ function renderLeft(pane, context) {
  */
 function renderRight(pane, context, state) {
 
-    console.log(state.elections);
     // Create the charts for the Slides.
     let slides = [
             //new Slide(partisan(state), "Partisanship"),
@@ -323,10 +325,51 @@ function partisan(context) {
 
 // Election Results Slide
 function election_slide(state) {
+    let elections = state.elections;
+    let rows = [];
+
+    let headers = 
+        elections[0].parties.map(party => {
+        const rgb = getPartyRGBColors(party.name + party.key);
+        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`}).concat(
+        elections[0].parties.map(party => {
+            const rgb = getPartyRGBColors(party.name + party.key);
+            return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`})).concat(
+                [html`<div>Biased To</div>`]
+            );
+        
+    let bias_acc = []
+    for (let election of elections) {
+        let votes = election.parties.map(party => getCell(party, null)),
+            seats = election.parties.map(party => getCellSeatShare(party, election));
+            let d_votes = election.parties[0].getOverallFraction(),
+            d_seats = election.getSeatsWonParty(election.parties[0]);
+        let bias_to = (d_votes > d_seats) ? "R" : "D";
+        console.log(d_seats);
+
+
+        // > 0 if biased towards Rs, < 0 if toward Ds
+        let bias_by = Math.round((d_votes - d_seats) * election.total.data.length * 10)/10;
+        bias_acc.push(bias_by);
+        
+        let biases = [
+            (bias_to == "R") ? {content: `Republicans by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.2)}`}
+                             : {content: `Democrats by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.8)}`}    
+        ]
+
+        rows.push({
+            label: parseElectionName(election.name),
+            entries: votes.concat(seats).concat(biases)
+        });
+    }
+    let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
+    let var_bias = roundToDecimal(bias_acc.map(b => Math.pow(b-avg_bias, 2)).reduce((a,b) => a + b)/bias_acc.length, 2);
     return html`
-    <div class="dataset-info">
-        ${populateDatasetInfo(state)}
-    </div>
-    ${PartisanSummarySection(state.elections, null)}
-    `
+        Your plan has an average bias of ${avg_bias} seats towards 
+        <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over
+        ${bias_acc.length} elections, with a variance of ${var_bias}.
+        <br/>
+        ${elections[0].parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
+        ${DataTable(headers, rows)}
+        `;
 }
