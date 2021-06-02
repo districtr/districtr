@@ -162,10 +162,11 @@ const eventDescriptions = {
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
    <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
    'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!",
-   mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to keep communities together in the same district. Communities could be an HOA or a registered neighborhood, an area where many of the residents speak the same language or even an area where the residents use the same community facilities. <u>It’s basically any area of Mesa where people have a common interest</u>.</p>\
-   <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-   <p>Every map submitted will be carefully reviewed by the Mesa residents charged with redrawing the Mesa City Council District Map. For more information on Mesa’s Citizen Redistricting Commission, please visit the Redistricting Commission <a href='https://www.mesaaz.gov/government/advisory-boards-committees/redistricting-commission' target='_blank'>web page</a>.</p>\
-    <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
+   mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
+      <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the Mesa residents charged with redrawing the Mesa City Council District Map. For more information, visit <a href='https://www.mesaaz.gov/government/advisory-boards-committees/redistricting-commission' target='_blank'>Mesa’s Citizen Redistricting Commission</a>.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MesaAZ” (any capitalization) is entered.</p>",
    ourmapsne: "Welcome to the event page for Nebraska!",
     prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
     <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
@@ -212,7 +213,9 @@ export default () => {
         }
 
         if (eventCode === "mesaaz") {
-            document.getElementById("partnership-icon").innerHTML = "<img src='/assets/partners-rp.png' height='60' alt='Logo for Redistricting Partners'/>";
+            document.getElementById("partnership-icons").style.display = "block";
+            document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+            document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;
