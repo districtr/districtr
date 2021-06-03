@@ -39,7 +39,7 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["alaska"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["alaska", "alaska_blocks"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",

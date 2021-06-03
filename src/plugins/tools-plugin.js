@@ -32,12 +32,17 @@ export default function ToolsPlugin(editor) {
         new LandmarkTool(state);
     }
 
+    let alt_counties = {
+      alaska: 'boroughs',
+      alaska_blocks: 'boroughs',
+      louisiana: 'parishes',
+    }[state.place.id];
     let brushOptions = {
         community: (state.problem.type === "community"),
         county_brush: ((spatial_abilities(state.place.id).county_brush)
             ? new HoverWithRadius(state.counties, 20)
             : null),
-        alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
+        alt_counties: alt_counties,
     };
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
