@@ -598,7 +598,12 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.massachusetts-mapping.org',
       },
-
+    },
+    ma_vra: {
+      // number_markers: true,
+      vra_effectiveness: true,
+      // shapefile: true,
+      // find_unpainted: true,
     },
     lowell: {
       neighborhoods: true,
