@@ -346,7 +346,8 @@ function partisan(context) {
 
 // Overview Slide
 function overview_slide (state, contig, problems) {
-    return html`<h4 id="contiguity-status">
+    // contiguity
+    let contig_section = html`<h4 id="contiguity-status">
         ${contig ? "No contiguity gaps detected" 
             : html`The following districts have contiguity gaps:
         </h4>
@@ -362,6 +363,45 @@ function overview_slide (state, contig, problems) {
                 >
                     ${Number(dnum) + 1}
                 </span>`})}</div>`}`
+    
+    // population deviation
+    let deviations = state.population.deviations();
+    let min = deviations[0], max = deviations[0], argmin = 0, argmax = 0;
+    for (let d = 1; d < deviations.length; d++) {
+        if (deviations[d] < min) {
+            min = deviations[d];
+            argmin = d;
+        }
+        if (deviations[d] > max) {
+            max = deviations[d];
+            argmax = d;
+        }
+    }
+    let pop_section = html`<div style="text-align:left"><strong>Population deviation</strong>
+    is the percentage difference in population between districts and the ideal population of a district,
+    were the population to be split perfectly evenly. 
+    The population deviation of a district plan should always be less than 5%, though some states require it to be smaller.<br/>
+    Your plan's most populous district is district  
+    <span
+        class="part-number"
+        style="background:${districtColors[argmax % districtColors.length].hex};
+        display:${problems.includes(argmax)
+            ? "inline-flex"
+            : "none"}"
+    >
+        ${Number(argmax) + 1}
+    </span> and your plan's least populous district is district  
+    <span
+    class="part-number"
+    style="background:${districtColors[argmin % districtColors.length].hex};
+    display:${problems.includes(argmin)
+        ? "inline-flex"
+        : "none"}"
+    >
+    ${Number(argmin) + 1}
+    </span>.<br/> 
+    The population deviation of your plan is ${max}`;
+    return html`${contig_section}${pop_section}</div>`;
 }
 
 // Election Results Slide
