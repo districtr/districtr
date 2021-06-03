@@ -19,6 +19,7 @@ const stateForEvent = {
   'mggg-nm': 'New Mexico',
   'pmc-demo': 'Wisconsin',
   pmc: 'Wisconsin',
+  'pmc-districts': 'Wisconsin',
   powercoalition: 'Louisiana',
   'open-maps': 'Ohio',
   'fair-districts-oh': 'Ohio',
@@ -31,6 +32,10 @@ const stateForEvent = {
   'ourmapsmn': 'Minnesota',
   'micrc': 'Michigan',
   mesaaz: 'Arizona',
+  ourmapsne: 'Nebraska',
+  prjusd: 'California',
+  hia: 'Texas',
+  onelovemi: 'Michigan'
 };
 
 const validEventCodes = {
@@ -47,6 +52,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   pmc: ['wisconsin2020', 'wisconsin'],
+  'pmc-districts':['wisconsin2020','wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
@@ -59,6 +65,10 @@ const validEventCodes = {
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
+  ourmapsne: 'nebraska',
+  prjusd: 'pasorobles',
+  'hia': ['texas', 'harristx', 'houston'],
+  onelovemi: 'michigan'
 };
 
 const blockPlans = {
@@ -68,6 +78,7 @@ const blockPlans = {
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
   pmc: {no: '2011 Wards'},
+  'pmc-districts': {no: ['2011 Wards', 'Block Groups']},
   powercoalition: {no: 'Precincts'},
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
@@ -80,6 +91,8 @@ const unitCounts = {
   centralsan: 5086,
   buncombe: 67,
   'towsonu-baltimore': 653,
+  prjusd: 2818,
+  'pmc-districts':7078
 };
 
 const coi_events = [
@@ -103,10 +116,19 @@ const coi_events = [
   'ttt',
   'ourmapsmn',
   'micrc',
+  'mesaaz',
+  'ourmapsne',
+  'onelovemi'
 ];
 
 const hybrid_events = [
-  'mesaaz',
+  // 'mesaaz',
+  'hia',
+];
+
+const portal_events = [
+  'open-maps',
+  'fyi',
 ];
 
 const eventDescriptions = {
@@ -124,6 +146,8 @@ const eventDescriptions = {
   pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
   <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
   <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Save\" to share the map.</b></p>",
+  'pmc-districts': "<p>Welcome to the District-Drawing public mapping tag page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p><b>To display your map on this page, be sure the tag \ “PMC-districts\” is filled out after you’ve clicked \ “Save\” to share the map.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -143,9 +167,19 @@ const eventDescriptions = {
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
    <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
    'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!",
-   mesaaz: "<p>Welcome to the Community of Interest public mapping page for the City of Mesa Redistricting Commission. This year the Commission will draw new city council districts. As part of the redistricting process, the Commission will consider Communities of Interest (COIs), groups with shared interests that should be given special consideration.</p>\
-   <p>When you map COIs, you can let the Commission know where communities are and what common concerns community members share.</p>\
-    <p>To save your map, click “Share” in the upper right corner of the mapping module. To pin your map to this page, tag your map with the code “MesaAZ”.</p>",
+   mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
+      <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the Mesa residents charged with redrawing the Mesa City Council District Map. For more information, visit <a href='https://www.mesaaz.gov/government/advisory-boards-committees/redistricting-commission' target='_blank'>Mesa’s Citizen Redistricting Commission</a>.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MesaAZ” (any capitalization) is entered.</p>",
+   ourmapsne: "Welcome to the event page for Nebraska!",
+    prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
+    <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
+    <a href='https://districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
+    <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>",
+   hia: "Welcome to the event page for Houston in Action!",
+   onelovemi: "<p>Welcome to the event page for One Love Michigan! Here is a message from the organization:</p>\
+                <p>We know that historically, maps have been used as a tool for racism and white supremacy, between taking land from indigenous people to redlining and racial gerrymandering, so this is a moment to reclaim maps for empowerment. We need YOU to get involved!!! Join One Love Global in drawing maps of your community to ensure that they are kept intact during the redistricting process.</p>"
   };
 
 const longAbout = {
@@ -157,11 +191,16 @@ const longAbout = {
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
   mesaaz: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
-  ]
+  ],
+  prjusd: [
+    "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
+  ],
 };
 
 const proposals_by_event = {
-  centralsan: true
+  centralsan: true,
+  'pmc-districts': true,
+  prjusd: true,
 };
 
 export default () => {
@@ -176,6 +215,14 @@ export default () => {
         if (coi_events.includes(eventCode)) {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
+        }
+
+        if (eventCode === "mesaaz") {
+            document.getElementById("partnership-icons").style.display = "block";
+            document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
+            document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+            document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
+            document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;
@@ -293,7 +340,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
-                render(placeItems(place, startNewPlan, eventCode), mydiv);
+                render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
 
                 if (hybrid_events.includes(eventCode)) {
                     const mydiv2 = document.createElement('li');
@@ -303,7 +350,7 @@ export default () => {
                       districtingProblems: [
                           { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                       ]
-                    }, startNewPlan, eventCode), mydiv2);
+                    }, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv2);
                 }
             });
         });
@@ -333,7 +380,7 @@ export default () => {
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
-                    render(plansSection([{ title: 'Sample plans', plans: sample.plans }], eventCode, true), document.getElementById("proposals"));
+                    render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
                 });
             } else {
                 document.getElementById("sample_plan_link").style.display = "none";
@@ -348,7 +395,7 @@ export default () => {
 
 const plansSection = (plans, eventCode, isProfessionalSamples) =>
     plans.map(
-        ({ title, plans }) => html`
+        ({ title, plans, desc }) => html`
             <section id="${isProfessionalSamples ? "sample" : "shared"}" class="place__section">
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
@@ -356,6 +403,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                     Click on any of the maps below to open it in
                     Districtr.
                 </p>` : null}
+                ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
                     ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
                 </ul>
@@ -376,9 +424,13 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
         unitOff = !coi_events.includes(eventCode) && !hybrid_events.includes(eventCode) && unitCounts[eventCode] && (unitCount < unitCounts[eventCode]);
 
     let screenshot = plan.screenshot2 || plan.screenshot;
+    let urlcode = eventCode;
+    if (portal_events.includes(eventCode)) {
+      urlcode += '&portal';
+    }
 
     return html`
-    <a href="/edit/${plan.simple_id || plan._id}?event=${eventCode}">
+    <a href="/edit/${plan.simple_id || plan._id}?event=${urlcode}">
         <li class="plan-thumbs__thumb">
             ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
                 ? html`<img

@@ -549,26 +549,6 @@
                 "max": 2460
               }
             ]
-          },
-          {
-            "type": "election",
-            "name": "2018 Auditor",
-            "subgroups": [
-              {
-                "key": "AUD18R",
-                "name": "Republican",
-                "sum": 1095310,
-                "min": 0,
-                "max": 2655
-              },
-              {
-                "key": "AUD18D",
-                "name": "Democratic",
-                "sum": 1250524,
-                "min": 0,
-                "max": 2390
-              }
-            ]
           }
         ],
         "idColumn": {
@@ -590,7 +570,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.minnesota_precincts"
+              "url": "mapbox://districtr.minnesota_precincts?v=2"
             },
             "sourceLayer": "minnesota_precincts"
           },
@@ -598,7 +578,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.minnesota_precincts_points"
+              "url": "mapbox://districtr.minnesota_precincts_points?v=2"
             },
             "sourceLayer": "minnesota_precincts_points"
           }
@@ -1431,6 +1411,238 @@
         "name": "County Commission",
         "numberOfParts": 7,
         "pluralNoun": "Commission Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "2020 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP19",
+              "name": "Total Population",
+              "sum": 5563892,
+              "min": 0,
+              "max": 9613
+            },
+            "subgroups": [
+              {
+                "key": "WHITE19",
+                "name": "White Population",
+                "sum": 4609377,
+                "min": 0,
+                "max": 9024
+              },
+              {
+                "key": "BLACK19",
+                "name": "Black Population",
+                "sum": 356537,
+                "min": 0,
+                "max": 4545
+              },
+              {
+                "key": "HISP19",
+                "name": "Hispanic Population",
+                "sum": 299528,
+                "min": 0,
+                "max": 2378
+              },
+              {
+                "key": "ASIAN19",
+                "name": "Asian Population",
+                "sum": 268194,
+                "min": 0,
+                "max": 3310
+              },
+              {
+                "key": "AMIN19",
+                "name": "Indigenous American Population",
+                "sum": 57971,
+                "min": 0,
+                "max": 2238
+              },
+              {
+                "key": "NHPI19",
+                "name": "Native Hawaiian and Pacific Islander Population",
+                "sum": 2179,
+                "min": 0,
+                "max": 248
+              },
+              {
+                "key": "2MORE19",
+                "name": "Two or more races",
+                "sum": 165421,
+                "min": 0,
+                "max": 836
+              },
+              {
+                "key": "OTH19",
+                "name": "Other races",
+                "sum": 103993,
+                "min": 0,
+                "max": 1646
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US President",
+            "subgroups": [
+              {
+                "key": "USPRSR",
+                "name": "Republican",
+                "sum": 1484065,
+                "min": 0,
+                "max": 3789
+              },
+              {
+                "key": "USPRSDFL",
+                "name": "Democratic",
+                "sum": 1717077,
+                "min": 0,
+                "max": 3183
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "USSENR",
+                "name": "Republican",
+                "sum": 1398145,
+                "min": 0,
+                "max": 3627
+              },
+              {
+                "key": "USSENDFL",
+                "name": "Democratic",
+                "sum": 1566522,
+                "min": 0,
+                "max": 2882
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US House",
+            "subgroups": [
+              {
+                "key": "USREPR",
+                "name": "Republican",
+                "sum": 1474820,
+                "min": 0,
+                "max": 4205
+              },
+              {
+                "key": "USREPDFL",
+                "name": "Democratic",
+                "sum": 1554373,
+                "min": 0,
+                "max": 2642
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 State Senate",
+            "subgroups": [
+              {
+                "key": "MNSENR",
+                "name": "Republican",
+                "sum": 1533021,
+                "min": 0,
+                "max": 4058
+              },
+              {
+                "key": "MNSENDFL",
+                "name": "Democratic",
+                "sum": 1578278,
+                "min": 0,
+                "max": 2973
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 State House",
+            "subgroups": [
+              {
+                "key": "MNLEGR",
+                "name": "Republican",
+                "sum": 1511548,
+                "min": 0,
+                "max": 3967
+              },
+              {
+                "key": "MNLEGDFL",
+                "name": "Democratic",
+                "sum": 1602023,
+                "min": 0,
+                "max": 2953
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct Unique Identifier",
+          "key": "VTDID"
+        },
+        "bounds": [
+          [
+            -97.2391,
+            43.4994
+          ],
+          [
+            -89.4918,
+            49.3838
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mn2020acs_precincts"
+            },
+            "sourceLayer": "mn2020acs_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mn2020acs_precincts_points"
+            },
+            "sourceLayer": "mn2020acs_precincts_points"
+          }
+        ]
+      }
+    ],
+    "name": "Minnesota",
+    "state": "Minnesota",
+    "id": "mn2020acs",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 7,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 67,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 134,
+        "pluralNoun": "State House Districts"
       }
     ]
   }

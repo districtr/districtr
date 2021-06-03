@@ -9,6 +9,7 @@ import VRAResultsSection from "../components/Charts/VRAResultsSection"
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
+import PartisanSummarySection from "../components/Charts/PartisanSummary";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -59,7 +60,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true,
+                isOpen: false,
                 activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
             }
         );
@@ -101,7 +102,31 @@ export default function EvaluationPlugin(editor) {
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance",
+            "Partisan Balance Summary",
+            (uiState, dispatch) => html`
+                ${spatial_abilities(state.place.id).absentee
+                    ? html`<div style="text-align:center">Election results include absentee votes</div>`
+                    : null
+                }
+                ${PartisanSummarySection(
+                    state.elections,
+                    state.activeParts,
+                    uiState,
+                    dispatch
+                )}`,
+            {
+                isOpen:
+                    state.population.subgroups.length <= 1 &&
+                    state.vap === undefined
+                        ? true
+                        : false
+            }
+        );
+    }
+
+    if (state.elections.length > 0) {
+        tab.addRevealSection(
+            "Election Details",
             (uiState, dispatch) => html`
                 ${spatial_abilities(state.place.id).absentee
                     ? html`<div style="text-align:center">Election results include absentee votes</div>`
@@ -151,11 +176,12 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.contiguity,
                     spatial_abilities(state.place.id).contiguity,
+                    state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
@@ -175,7 +201,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
         
