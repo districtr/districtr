@@ -118,8 +118,10 @@ PlaceMap
 ## 14. The Team
 
 ## 15. Colophon
-For June 1, 2021
+This documentation covers the state of districtr on [Tues., June 1, 2021]. 
+Further changes will be noted periodically.
 
+[Tues., June 1, 2021](https://github.com/districtr/districtr/commit/6da65021cdbcf76022c0d8603e67111a3455b25f)
 
 
 [@maxhully]: http://github.com/maxhully
