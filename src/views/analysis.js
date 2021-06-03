@@ -14,6 +14,7 @@ import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
 import { roundToDecimal } from "../utils";
+import { districtColors } from "../colors";
 
 
 
@@ -24,7 +25,7 @@ import { roundToDecimal } from "../utils";
  * @returns {Promise}
  */
 function loadPlan(url) {
-    if (_isDev()) return loadPlanFromURL("/assets/mi-plans/congress.json");
+    if (_isDev()) return loadPlanFromURL("/assets/nc-plans/congress_2011.json");
     return loadPlanFromURL(url);
 }
 
@@ -137,7 +138,7 @@ function renderRight(pane, context, state) {
             console.log(data);
             // Create the charts for the Slides.
             let slides = [
-                // new Slide(overview_slide(state, data.contiguity, data.split), "Overview"),
+                new Slide(overview_slide(state, data.contiguity, data.split), "Overview"),
                 // overview (show 1)
                 new Slide(election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
@@ -345,7 +346,22 @@ function partisan(context) {
 
 // Overview Slide
 function overview_slide (state, contig, problems) {
-
+    return html`<h4 id="contiguity-status">
+        ${contig ? "No contiguity gaps detected" 
+            : html`The following districts have contiguity gaps:
+        </h4>
+        <div class="district-row" style="display:block">
+            ${state.parts.map((part, dnum) => {
+            return html`
+                <span
+                    class="part-number"
+                    style="background:${districtColors[dnum % districtColors.length].hex};
+                    display:${problems.includes(dnum)
+                        ? "inline-flex"
+                        : "none"}"
+                >
+                    ${Number(dnum) + 1}
+                </span>`})}</div>`}`
 }
 
 // Election Results Slide
