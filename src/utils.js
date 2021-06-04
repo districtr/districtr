@@ -317,6 +317,12 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.alaska-mapping.org',
       },
     },
+    alaska_blocks: {
+      native_american: true,
+      portal: {
+        endpoint: 'https://portal.alaska-mapping.org',
+      },
+    },
     arizona: {
       number_markers: true,
       county_brush: true,
@@ -767,9 +773,6 @@ export function spatial_abilities(id) {
     forsyth_nc: {
       contiguity: 2,
       shapefile: true,
-      portal: {
-        endpoint: 'https://qa-portal.ohio-mapping.org',
-      },
     },
     buncombe: {
       contiguity: 2,
@@ -800,81 +803,129 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohakron: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohcin: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohcle: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohse: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohtoledo: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     akroncanton: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     cincinnati: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     clevelandeuclid: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     columbus: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     dayton: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     limaoh: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     mansfield: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     portsmouthoh: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     toledo: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     youngstown: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     oklahoma: {
       number_markers: true,
