@@ -430,12 +430,13 @@ function election_slide(state) {
             seats = election.parties.map(party => getCellSeatShare(party, election));
             let d_votes = election.parties[0].getOverallFraction(),
             d_seats = election.getSeatsWonParty(election.parties[0]);
-        let bias_to = (d_votes > d_seats) ? "R" : "D";
+        let d_seat_share = d_seats/election.total.data.length;
+        let bias_to = (d_votes > d_seat_share) ? "R" : "D";
         console.log(d_seats);
 
 
         // > 0 if biased towards Rs, < 0 if toward Ds
-        let bias_by = Math.round((d_votes - d_seats) * election.total.data.length * 10)/10;
+        let bias_by = Math.round(((d_votes - d_seat_share) * election.total.data.length) * 10)/10;
         bias_acc.push(bias_by);
         
         let biases = [
