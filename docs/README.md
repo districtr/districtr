@@ -65,6 +65,8 @@ following model.
 
 [A List of UI and Display Components](./uicomponents.md)
 
+Tabs and Reveal Sections 
+
 ## 4. User Interaction: Drawing Districts
 
 <img src="./pics/drawingbasics.png" width=50%>
@@ -75,22 +77,36 @@ following model.
 
 [Undo and Redo](./undoredo.md)
 
-Inspect Tool and ToolTips
+[The Tooltip Brush](./tooltip.md)
 
-Checking for Contiguity
+[Checking for Contiguity](./contiguity.md)
 
 ## 5. Interesting Communities and Landmarks
 
+  - COI and landmarks in use
   - Landmark Tool
   - Landmark Class
   - community-plugin.js
+  - multi-layers-plugin.js
+  - data-layers-plugin.js
+  
+Layer Overlay 
+
 
 ## 6. Charts and Analysis
 
-Tabs and more here!
+Horizontal Bar Chart
+- Population Bar Chart
 
-Chart js functions
+Election Results
 
+DataTable
+  - Demographics
+  - Racial Balance Table
+Pivot Table
+  - Coalition Pivot Table
+
+datasetInfo 
 
 ## 7. Districtr-default State Portals
 
@@ -102,14 +118,35 @@ Index.html
 
 PlaceMap
 
+Parameter
+
+Select 
 
 ## 8. Routes and Server Operations
 
+[Routes](./routes.md)
+
+districtr-eda
+
+netlift lambda?
+
 ## 10. Deployment and Navigation
+
+package.json
+
+`_headers`
+
+`_redirects`
+
+npm, netlify, 
 
 ## 11. Spatial Abilities and Exceptions
 
+Spatial Abilities in Utils
+
 ## 12. Events and Tags
+
+src/views/event.js, Toolbar.js, modal, state landing page
 
 ## 13. Grand Suggestions
 
@@ -121,8 +158,7 @@ PlaceMap
 This documentation covers the state of districtr on [Tues., June 1, 2021]. 
 Further changes will be noted periodically.
 
-[Tues., June 1, 2021](https://github.com/districtr/districtr/commit/6da65021cdbcf76022c0d8603e67111a3455b25f)
-
+[Tues., June 1, 2021]: https://github.com/districtr/districtr/commit/6da65021cdbcf76022c0d8603e67111a3455b25f
 
 [@maxhully]: http://github.com/maxhully
 [Mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
