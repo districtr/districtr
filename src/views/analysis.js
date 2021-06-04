@@ -377,8 +377,6 @@ function overview_slide (state, contig, problems) {
             argmax = d;
         }
     }
-    console.log(argmax);
-    console.log(argmin);
     let pop_section = html`<div style="text-align:left"><strong>Population deviation</strong>
     is the percentage difference in population between districts and the ideal population of a district,
     were the population to be split perfectly evenly. 
@@ -387,14 +385,14 @@ function overview_slide (state, contig, problems) {
     <span
         class="part-number"
         style="background:${districtColors[argmax % districtColors.length].hex};
-        display:"inline-flex"
+        display:inline-flex"
     >
         ${Number(argmax) + 1}
     </span> and your plan's least populous district is district  
     <span
-    class="part-number"
-    style="background:${districtColors[argmin % districtColors.length].hex};
-    display:"inline-flex"
+        class="part-number"
+        style="background:${districtColors[argmin % districtColors.length].hex};
+        display:inline-flex"
     >
     ${Number(argmin) + 1}
     </span>.<br/> 
