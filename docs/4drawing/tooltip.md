@@ -59,3 +59,11 @@ sources of population and different 2018/2019 totals.
 
 Finally, to render, it returns an html that combines both the `tooltipHeading(...)` and a
 `HorizontalBarChart(...)`.
+
+# # 
+
+[Return to Main](../README.md)
+- [Hovering over the Map](./4drawing/hover.md)
+- [Painting and Erasing with Brush and Community Brush](./4drawing/brush.md)
+- Previous: [Undo and Redo](./4drawing/undoredo.md)
+- Next: [Checking for Contiguity](./4drawing/contiguity.md)

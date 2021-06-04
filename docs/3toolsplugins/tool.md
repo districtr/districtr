@@ -105,3 +105,18 @@ So far, only five tools have been defined.
 
 ### Suggestions
 Should we set a default `hide-me` value `false` in the `Tool` constructor to be clear?
+
+# #
+
+[Return to Main](../README.md)
+- [Making space for the Toolbar](./toolbar.md)
+- [The Tools-Plugin prevails](./toolsplugin.md)
+  - Next: [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- [Popups a la Modal](./modal.md)
+- [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

@@ -11,7 +11,7 @@ the template that implements [`views/edit.js`].
 Within `view/edit.js`, the default function `renderEditView()` calls
 `getPlanContext()` and `loadContext(context)`.
 
-<img src="./pics/edit.png" width=75%>
+<img src="../pics/edit.png" width=75%>
 
 ## The Three Ways
 
@@ -93,44 +93,56 @@ and loads the standard set of tools for editing the map, namely the
 Other plugins are loaded depending on whether the we're in communities
 mode.
 
-[`src/models/State.js`]: ../src/models/State.js
-[`edit.js`]: ../src/views/edit.js
-[`views/edit.js`]: ../src/views/edit.js
-[`State.js`]: ../src/models/State.js
-[`map/index.js`]: ../src/map/index.js
-[`index.js`]: ../src/map/index.js
-[`src/map/index.js`]: ../src/map/index.js
-[`routes.js`]: ../src/routes.js
-[`models/editor.js`]: ../src/models/editor.js
+# # 
 
-[plan/context]: ./plancontext.md
+[Return to Main](../README.md)
+- Next: [edit.js and the Editor Object](./2editormap/editor.md)
+- [The Map Object](./2editormap/map.md)
+- [Adding Layers](./2editormap/layer.md)
+- [Number Markers](./2editormap/numbermarkers.md)
+
+[plan/context]: ../1contextplan/plancontext.md
+[`State`]: ../1contextplan/state.md
+
+[`Editor`]: ./editor.md
 [`Map`]: ./map.md
 [`MapState`]: ./map.md
 [`MapState.map`]: ./map.md#map
 [`mapbox instance`]: ./map.md#map
-[`Toolbar`]: ./toolbar.md
-[`addLayers`]: ./layers.md
-[`Editor`]: ./editor.md
-[`State`]: ./state.md
-[`UIStateStore`]: ./uistatestore.md
-[`OptionsContainer`]: ./optionscontainer.md
-[`reducers`]: ./reducers.md
-[`plugins`]: ./plugins.md
 [`Layers`]: ./layer.md
+[`map/Layer`]: ./layer.md
+[`addLayers`]: ./layer.md
 
-[`BrushTool`]: /BrushEraseTools.md
-[`EraserTool`]: /BrushEraseTools.md
-[`InspectTool`]: /inspecttool.md
-[`PanTool`]: /tool.md
+[`Toolbar`]: ../3toolsplugins/toolbar.md
+[`UIStateStore`]: ../3toolsplugins/uistatestore.md
+[`OptionsContainer`]: ../3toolsplugins/optionscontainer.md
+[dropdown menu]: ../3toolsplugins/topmenu.md
+
+[`reducers`]: ../3toolsplugins/actionsreducers.md
+[`plugins`]: ../3toolsplugins/plugins.md
+[`BrushTool`]: ../3toolsplugins/BrushEraseTools.md
+[`EraserTool`]: ../3toolsplugins/BrushEraseTools.md
+[`InspectTool`]: ../3toolsplugins/inspecttool.md
+[`PanTool`]: ../3toolsplugins/tool.md
 
 [`IdColumn`]: ./idcolumn.md
+
 [`utils`]: ./utils.md
 [`./lib/column-set`]: ./columnset.md
-[`map/Layer`]: ./layer.md
-[dropdown menu]: ./topmenu.md
 
 [`deploy/_redirects`]: ../deploy/_redirects
 
-[`package.json`]: ../package.json
-[`edit.html`]: ../html/edit.html
-[`/src/map`]: ../src/map
+[`package.json`]: ../package.md
+
+[`/src/map`]: ../../src/map
+[`edit.html`]: ../../html/edit.html
+
+[`src/models/State.js`]: ../../src/models/State.js
+[`edit.js`]: ../../src/views/edit.js
+[`views/edit.js`]: ../../src/views/edit.js
+[`State.js`]: ../../src/models/State.js
+[`map/index.js`]: ../../src/map/index.js
+[`index.js`]: ../../src/map/index.js
+[`src/map/index.js`]: ../../src/map/index.js
+[`routes.js`]: ../../src/routes.js
+[`models/editor.js`]: ../../src/models/editor.js

@@ -103,3 +103,11 @@ consistently would be less confusing.
   - The State political unit?
   - The UIState `state` object?
   - The FeatureState, as in the condition properties of a feature?  
+
+# # 
+
+[Return to Main](../README.md)
+- Next: [Painting and Erasing with Brush and Community Brush](./4drawing/brush.md)
+- [Undo and Redo](./4drawing/undoredo.md)
+- [The Tooltip Brush](./4drawing/tooltip.md)
+- [Checking for Contiguity](./4drawing/contiguity.md)

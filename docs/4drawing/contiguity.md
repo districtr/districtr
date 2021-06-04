@@ -40,3 +40,11 @@ loaded, it used `ContiguitySection.js` to render a checkbox with label for each 
 `hidden`. `setContiguityStatus(...)` takes a list of non-contiguous districts and reveals to the
 user their appropriate checkbox. If any of these boxes are checked, then subfunction `updateIslandBorders(...)`
 alters the paint properties in `state.unitsBorders` for each unit in each checked district.  
+
+# # 
+
+[Return to Main](../README.md)
+- [Hovering over the Map](./4drawing/hover.md)
+- [Painting and Erasing with Brush and Community Brush](./4drawing/brush.md)
+- [Undo and Redo](./4drawing/undoredo.md)
+- Previous: [The Tooltip Brush](./4drawing/tooltip.md)

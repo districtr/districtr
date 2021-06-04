@@ -127,3 +127,17 @@ between these calls and can this function be rewritten to reduce this redundancy
 - Tabs are only effectively called here, yet is passed in `this.tabs`, `this.store.state`, etc.
 Could tabs just be passed in `this,` the `Toolbar` and handle the rest?
 
+# #
+
+[Return to Main](../README.md)
+- Next: [The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- [Popups a la Modal](./modal.md)
+- [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

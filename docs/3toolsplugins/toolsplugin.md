@@ -118,3 +118,19 @@ the code. Is there a way to consolidate this logic?
    - The`showVRA` option is defined twice. The `VRAEffectiveness` module is loaded if `vra` mode is applied. 
 - Since the `Toolbar` is created in `Editor` after the `State` object is created and `Menu` only relies on problem/context
 `State` to provide a list of menu options, should Menu functionality be separated out into a different file?
+
+# #
+
+[Return to Main](../README.md)
+- Previous: [Making space for the Toolbar](./toolbar.md)
+- Here: [The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- Next: [Popups a la Modal](./modal.md)
+- [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

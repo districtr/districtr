@@ -53,3 +53,20 @@ instance variable or passed around as a parameter between classes?
 as a parameter between structures?
 - In the `dispatch` function, each subscriber is passed a pair of parameters that are ultimately not
 used by the subscribed function (which is only ever `editor.render`) 
+
+
+## Display Components
+
+Modal is an example
+
+In addition to user elements, under the `Toolbar` there are nested 
+Tabs... doesn't use Tab.
+
+LayerTab extends Tab.
+
+## 
+districtr/src/components/Tab.js
+districtr/src/components/RevealSection.js
+districtr/src/components/Parameter.js
+
+/src/components/LayerTab.js, elsewhere?

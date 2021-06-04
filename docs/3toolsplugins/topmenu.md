@@ -41,3 +41,18 @@ links.
 
 `Menu` does so much by itself, I think it deserve a separate file from both the `Toolbar`, `tools-plugin.js`. The
 menu and its options are loaded only once and the options change little from context to context.
+
+# #
+
+[Return to Main](../README.md)
+- [Making space for the Toolbar](./toolbar.md)
+- [The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- Previous: [Popups a la Modal](./modal.md)
+- Next: [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

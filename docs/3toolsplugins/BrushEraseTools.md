@@ -145,3 +145,18 @@ undo and redo buttons are rendered by `UndoRedo`.
 ### Suggestions 
 Undo and Redo buttons handle recent erasing operations, but hot keys are still bound only
 to recent brushing operations. 
+
+# #
+
+[Return to Main](../README.md)
+- [Making space for the Toolbar](./toolbar.md)
+- [The Tools-Plugin prevails](./toolsplugin.md)
+  - Previous: [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - Next: [Inspect Tool](./inspecttool.md)
+- [Popups a la Modal](./modal.md)
+- [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

@@ -73,3 +73,18 @@ is implementing a similar About Modal for this information.
 say, a JSON, for simplicity?
 - `savePlanToDB1` is passed into the `renderSaveModal(...)` by `Toolbar`, but this is the same 
 function as in `routes`. Could this be made into a global method?
+
+# #
+
+[Return to Main](../README.md)
+- [Making space for the Toolbar](./toolbar.md)
+- Previous: [The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- Next: [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- [UIStateStore](./uistatestore.md)
+- [Actions and Reducers](./actionsreducers.md)
+- [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

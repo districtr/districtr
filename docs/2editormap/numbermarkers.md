@@ -185,6 +185,16 @@ but is very simple.
 district at a time. This implies that the selection of 100 random
 districts should occur before and outside the function. 
 
+# #
+
+[Return to Main](../README.md)
+- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
+- [edit.js and the Editor Object](./editor.md)
+- [The Map Object](./map.md)
+- Previous: [Adding Layers](./layer.md)
+
+
+
 
 
 [@gomotopia]: http://github.com/gomotopia
@@ -193,50 +203,59 @@ districts should occur before and outside the function.
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
 [@jenni-niels]: http://github.com/jenni-niels
 
-[`src/models/State.js`]: ../src/models/State.js
-[`edit.js`]: ../src/views/edit.js
-[`views/edit.js`]: ../src/views/edit.js
-[`State.js`]: ../src/models/State.js
-[`map/index.js`]: ../src/map/index.js
-[`index.js`]: ../src/map/index.js
-[`src/map/index.js`]: ../src/map/index.js
-[`routes.js`]: ../src/routes.js
-[`models/editor.js`]: ../src/models/editor.js
-[`tools-plugin.js`]: ../src/plugins/tools-plugin.js
-[`NumberMarkers.js`]: ../src/map/NumberMarkers.js
+[plan/context]: ../1contextplan/plancontext.md
+[`State`]: ../1contextplan/state.md
+[`state`]: ../1contextplan/state.md
 
-[plan/context]: ./plancontext.md
+[`Editor`]: ./editor.md
 [`Map`]: ./map.md
 [`MapState`]: ./map.md
 [`MapState.map`]: ./map.md#map
 [`mapbox instance`]: ./map.md#map
-[`Toolbar`]: ./toolbar.md
-[`addLayers`]: ./layers.md
-[`Editor`]: ./editor.md
-[`State`]: ./state.md
-[`state`]: ./state.md
-[`UIStateStore`]: ./uistatestore.md
-[`OptionsContainer`]: ./optionscontainer.md
-[`reducers`]: ./reducers.md
-[`plugins`]: ./plugins.md
 [`Layers`]: ./layer.md
-[`ToolsPlugin`]: ./toolsplugin.md
+[`map/Layer`]: ./layer.md
+[`addLayers`]: ./layer.md
+[`map/Layer`]: ./layer.md
 
-[`BrushTool`]: /BrushEraseTools.md
-[`EraserTool`]: /BrushEraseTools.md
-[`InspectTool`]: /inspecttool.md
-[`PanTool`]: /tool.md
 
-[`brush`]: ./brush.md]
+[`Toolbar`]: ../3toolsplugins/toolbar.md
+[`UIStateStore`]: ../3toolsplugins/uistatestore.md
+[`OptionsContainer`]: ../3toolsplugins/optionscontainer.md
+[dropdown menu]: ../3toolsplugins/topmenu.md
+
+
+[`reducers`]: ../3toolsplugins/reducers.md
+[`plugins`]: ../3toolsplugins/plugins.md
+[`ToolsPlugin`]: ./3toolsplugins/toolsplugin.md
+
+[`BrushTool`]: ../3toolsplugins/BrushEraseTools.md
+[`EraserTool`]: ../3toolsplugins/BrushEraseTools.md
+[`InspectTool`]: ../3toolsplugins/inspecttool.md
+[`PanTool`]: ../3toolsplugins/tool.md
+
+[`brush`]: ../4drawing/brush.md]
 
 [`IdColumn`]: ./idcolumn.md
 [`utils`]: ./utils.md
 [`./lib/column-set`]: ./columnset.md
-[`map/Layer`]: ./layer.md
-[dropdown menu]: ./topmenu.md
 
-[`deploy/_redirects`]: ../deploy/_redirects
 
-[`package.json`]: ../package.json
-[`edit.html`]: ../html/edit.html
-[`/src/map`]: ../src/map
+[`src/models/State.js`]: ../../src/models/State.js
+[`edit.js`]: ../../src/views/edit.js
+[`views/edit.js`]: ../../src/views/edit.js
+[`State.js`]: ../../src/models/State.js
+[`map/index.js`]: ../../src/map/index.js
+[`index.js`]: ../../src/map/index.js
+[`src/map/index.js`]: ../../src/map/index.js
+[`routes.js`]: ../../src/routes.js
+[`models/editor.js`]: ../../src/models/editor.js
+[`tools-plugin.js`]: ../../src/plugins/tools-plugin.js
+[`NumberMarkers.js`]: ../../src/map/NumberMarkers.js
+
+
+
+[`deploy/_redirects`]: ../../deploy/_redirects
+
+[`package.json`]: ../../package.json
+[`edit.html`]: ../../html/edit.html
+[`/src/map`]: ../../src/map

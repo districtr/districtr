@@ -39,3 +39,11 @@ the undo and redo arrows. Each button is given a map `Brush` specific id and
 is tied to that Brush's `undo()` or `redo()` functions. 
 
 ### In Use
+
+# # 
+
+[Return to Main](../README.md)
+- [Hovering over the Map](./4drawing/hover.md)
+- Previous: [Painting and Erasing with Brush and Community Brush](./4drawing/brush.md)
+- Next: [The Tooltip Brush](./4drawing/tooltip.md)
+- [Checking for Contiguity](./4drawing/contiguity.md)

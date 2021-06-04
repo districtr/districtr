@@ -216,3 +216,11 @@ _no off?_
 [//]: # (_separate out colorFeatures and colorCounties?_)
 [//]: # (_does the code reimplement hoverON! in colorFeatures?_ )
 [//]: # (_this.changedColors twice_)
+
+# # 
+
+[Return to Main](../README.md)
+- Previous: [Hovering over the Map](./4drawing/hover.md)
+- Next: [Undo and Redo](./4drawing/undoredo.md)
+- [The Tooltip Brush](./4drawing/tooltip.md)
+- [Checking for Contiguity](./4drawing/contiguity.md)

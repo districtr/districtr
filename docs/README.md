@@ -28,82 +28,81 @@ Distirctr keeps track of a specific problem or assignment of a certain
 region, its districts and units used in a model described in the
 following model.
 
-- [The Plan/Model JSON](./plancontext.md)
-- [The State Object](./state.md)
+- [The Plan/Model JSON](./1contextplan/plancontext.md)
+- [The State Object](./1contextplan/state.md)
 
 ## 2. Initializing: the Editor and its Map
 
 <img src="./pics/initializesimple.png" width=75%>
 
-- [How is the Districtr Editor page loaded?](./initialization.md)
-- [edit.js and the Editor Object](./editor.md)
-- [The Map Object](./map.md)
-- [Adding Layers](./layer.md)
-- [Number Markers](./numbermarkers.md)
+- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
+- [edit.js and the Editor Object](./2editormap/editor.md)
+- [The Map Object](./2editormap/map.md)
+- [Adding Layers](./2editormap/layer.md)
+- [Number Markers](./2editormap/numbermarkers.md)
 
 
 ## 3. User Interace: Tools and Plugins 
 
 <img src="./pics/toolbarbasics.png" width=50%>
 
-[Making space for the Toolbar](./toolbar.md)
+[Making space for the Toolbar](./3toolsplugins/toolbar.md)
 
-[The Tools-Plugin prevails](./toolsplugin.md)
-  - [The `Tool` Class and The `Pan` Tool](./tool.md)
-  - [Brush and Erase Tools](./BrushEraseTools.md)
-  - [Inspect Tool](./inspecttool.md)
+[The Tools-Plugin prevails](./3toolsplugins/toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./3toolsplugins/tool.md)
+  - [Brush and Erase Tools](./3toolsplugins/BrushEraseTools.md)
+  - [Inspect Tool](./3toolsplugins/inspecttool.md)
 
-[Popups a la Modal](./modal.md)
+[Popups a la Modal](./3toolsplugins/modal.md)
 
-[The top-bar Menu](./topmenu.md)
+[The top-bar Menu](./3toolsplugins/topmenu.md)
 
-[Rendering in Action: OptionsContainer](./optionscontainer.md)
+[Rendering in Action: OptionsContainer](./3toolsplugins/optionscontainer.md)
 
-[UIStateStore](./uistatestore.md)
+[UIStateStore](./3toolsplugins/uistatestore.md)
 
-[Actions and Reducers](./actionsreducers.md)
+[Actions and Reducers](./3toolsplugins/actionsreducers.md)
 
-[A List of UI and Display Components](./uicomponents.md)
+[A List of UI and Display Components](./3toolsplugins/uicomponents.md)
 
-Tabs and Reveal Sections 
+[Tabs and Reveal Sections](./3toolsplugins/sections.md)
 
 ## 4. User Interaction: Drawing Districts
 
 <img src="./pics/drawingbasics.png" width=50%>
 
-[Hovering over the Map](./brush.md)
+[Hovering over the Map](./4drawing/brush.md)
 
-[Painting and Erasing with Brush and Community Brush](./mapbrush.md)
+[Painting and Erasing with Brush and Community Brush](./4drawing/mapbrush.md)
 
-[Undo and Redo](./undoredo.md)
+[Undo and Redo](./4drawing/undoredo.md)
 
-[The Tooltip Brush](./tooltip.md)
+[The Tooltip Brush](./4drawing/tooltip.md)
 
-[Checking for Contiguity](./contiguity.md)
+[Checking for Contiguity](./4drawing/contiguity.md)
 
 ## 5. Interesting Communities and Landmarks
 
-  - COI and landmarks in use
-  - Landmark Tool
-  - Landmark Class
-  - community-plugin.js
-  - multi-layers-plugin.js
-  - data-layers-plugin.js
+  - [Communities of Interests in Use](./5landmarks/coi.md)
+  - [The Landmark Class](./5landmarks/landmarkclass.md)
+  - [Landmark Tool](./5landmarks/landmarktool.md)
+  - [The Community Plugin]((./5landmarks/communityplugin.md)
+  - [The Multi Layers Plugin](./5landmarks/multilayersplugin.md)
+  - [The Data Layers Plugin](./5landmarks/datalayersplugin.md)
   
 Layer Overlay 
 
-
 ## 6. Charts and Analysis
 
-Horizontal Bar Chart
+[Horizontal Bar Chart](./6charts/horizontalbarchart.md)
 - Population Bar Chart
 
-Election Results
+[Election Results](./6charts/electionresults.md)
 
-DataTable
+[DataTable](./6charts/datatable.md)
   - Demographics
   - Racial Balance Table
-Pivot Table
+[Pivot Table](./6charts/pivottable.md)
   - Coalition Pivot Table
 
 datasetInfo 
@@ -114,19 +113,19 @@ datasetInfo
 
 Index.html
 
-[Districtr State Portals](./districtrstateportals.md)
+[Districtr State Portals](./7portals/districtrstateportals.md)
 
-PlaceMap
+[PlaceMap]
 
-Parameter
+[Parameter](./7portals/parameter.md)
 
-Select 
+[Select](./7portals/select.md)
 
 ## 8. Routes and Server Operations
 
-[Routes](./routes.md)
+[Routes](./8routes/routes.md)
 
-districtr-eda
+[Intro to districtr-eda]](./8routes/districtreda.md)
 
 netlift lambda?
 

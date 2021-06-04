@@ -1,6 +1,6 @@
 # The Districtr Model for Plans, Contexts, Assignment etc..
  
-<img src="./pics/plancontext.png" width=50%>
+<img src="../pics/plancontext.png" width=50%>
 
 Districtr keeps track of data regarding a specific area in a JSON format
 that's shared internally as a context. The seeds of this format date
@@ -79,7 +79,13 @@ Districts, 105 State House Districts and 35 State Senate seats.
 
 [//]: # (## Saving and Retrieving)
 
+# #
+
+[Return to Main](../README.md)
+- Next: [The State Object](./state.md)
+
+
 [`State`]: ./state.md
 [@maxhully]: http://github.com/maxhully
-[`Alabama.json`]: ../assets/data/modules/Alabama.json
+[`Alabama.json`]: ../../assets/data/modules/Alabama.json
 [`MGGG/district-process`]: https://github.com/districtr/districtr-process

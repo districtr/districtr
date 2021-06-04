@@ -103,54 +103,61 @@ predictable form.
 - `Layer` objects and a `layer` specification object are titled in such
 a way that it is easy to confuse
 
+# #
+
+[Return to Main](../README.md)
+- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
+- [edit.js and the Editor Object](./editor.md)
+- Previous: [The Map Object](./map.md)
+- Next: [Number Markers](./numbermarkers.md)
+
 [@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
 [@jenni-niels]: http://github.com/jenni-niels
 
-[`src/models/State.js`]: ../src/models/State.js
+[plan/context]: ../1contextplan/plancontext.md
+[`State`]: ../1contextplan/state.md
 
-[plan/context]: ./plancontext.md
+[`Editor`]: ./editor.md
 [`Map`]: ./map.md
 [`MapState`]: ./map.md
 [`MapState.map`]: ./map.md#map
-[`Toolbar`]: ./toolbar.md
-[`addLayers`]: ./layers.md
-[`Editor`]: ./editor.md
-[`State`]: ./state.md
+[`mapbox instance`]: ./map.md#map
+[`Layers`]: ./layer.md
+[`map/Layer`]: ./layer.md
+[`addLayers`]: ./layer.md
+[`map/Layer`]: ./layer.md
 
-[Layers]: ./layers.md
+[`Toolbar`]: ../3toolsplugins/toolbar.md
+
+[`reducers`]: ../3toolsplugins/actionsreducers.md
 
 [`mapboxgl`]: https://docs.mapbox.com/mapbox-gl-js/api/
 [mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
 
 [`IdColumn`]: ./idcolumn.md
+
 [`utils`]: ./utils.md
 [`./lib/column-set`]: ./columnset.md
-[`map/Layer`]: ./layer.md
 
-[`edit.js`]: ../src/views/edit.js
-[`views/edit.js`]: ../src/views/edit.js
-[`State.js`]: ../src/models/State.js
-[`map/index.js`]: ../src/map/index.js
-[`index.js`]: ../src/map/index.js
-[`src/map/index.js`]: ../src/map/index.js
 
-[dropdown menu]: ./topmenu.md
+[`edit.js`]: ../../src/views/edit.js
+[`views/edit.js`]: ../../src/views/edit.js
+[`src/models/State.js`]: ../../src/models/State.js
+[`State.js`]: ../../src/models/State.js
+[`map/index.js`]: ../../src/map/index.js
+[`index.js`]: ../../src/map/index.js
+[`src/map/index.js`]: ../../src/map/index.js
 
-[`deploy/_redirects`]: ../deploy/_redirects
-[`routes.js`]: ../src/routes.js
-[`package.json`]: ../package.json
-[`edit.html`]: ../html/edit.html
-[`mapbox instance`]: ./map.md#map
-[`plugins`]: ./plugins.md
-[`models/editor.js`]: ../src/models/editor.js
-[`UIStateStore`]: ./uistatestore.md
-[`OptionsContainer`]: ./optionscontainer.md
+[`deploy/_redirects`]: ../../deploy/_redirects
+[`routes.js`]: ../../src/routes.js
+[`package.json`]: ../../package.json
+[`edit.html`]: ../../html/edit.html
+[`models/editor.js`]: ../../src/models/ed
 
 [`/src/map`]: ../src/map
 [`Layers`]: ./layer.md
-[`reducers`]: ./reducers.md
 
 [pull #68]: https://github.com/districtr/districtr/pull/68

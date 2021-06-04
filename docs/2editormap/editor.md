@@ -137,6 +137,15 @@ should be written in a different function or dropped.
 - When rendering edit.js, div `#comparison-container` may be
 experimental
 
+
+# # 
+
+[Return to Main](../README.md)
+- Previous: [How is the Districtr Editor page loaded?](./initialization.md)
+- Next: [The Map Object](./map.md)
+- [Adding Layers](./layer.md)
+- [Number Markers](./numbermarkers.md)
+
 [1]: http://www.github.com/gomotopia
 [2]: ../deploy/_redirects
 [3]: ../html/edit.html

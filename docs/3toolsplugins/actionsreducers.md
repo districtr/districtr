@@ -52,3 +52,19 @@ to dispatch functions, but isn't used anywhere.
 ### Suggestion
 Many reducer functions are listed in `utils`. They're relatively simple. Can they be
 listed in the `reducers/` folder for clarity instead?
+
+
+# #
+
+[Return to Main](../README.md)
+- [Making space for the Toolbar](./toolbar.md)
+- [The Tools-Plugin prevails](./toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./tool.md)
+  - [Brush and Erase Tools](./BrushEraseTools.md)
+  - [Inspect Tool](./inspecttool.md)
+- [Popups a la Modal](./modal.md)
+- [The top-bar Menu](./topmenu.md)
+- [Rendering in Action: OptionsContainer](./optionscontainer.md)
+- Previous: [UIStateStore](./uistatestore.md)
+- Next: [A List of UI and Display Components](./uicomponents.md)
+- [Tabs and Reveal Sections](./sections.md)

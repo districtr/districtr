@@ -6,7 +6,7 @@ prescribed in the districtr-json [plan/context]. These contexts are read
 into [`edit.js`] and stored as a [`State`] object which interacts with
 the [`Toolbar`] and [`Map`].
 
-<img src="./pics/state.png" width=50%>
+<img src="../pics/state.png" width=50%>
 
 ## [`src/models/State.js`]
 The State object is kept as a model in its own [`State.js`] file. This
@@ -116,6 +116,11 @@ one
 Finally, `State.initializeMapState(...)` calls and returns from only one
 function. Is it needed?
 
+# # 
+
+[Return to Main](../README.md)
+- Previous: [The Plan/Model JSON](./plancontext.md)
+
 [@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
@@ -124,15 +129,17 @@ function. Is it needed?
 [`State.js`]: ../src/models/State.js
 
 [plan/context]: ./plancontext.md
-[`Map`]: ./map.md
-[`MapState`]: ./map.md
-[`MapState.map`]: ./map.md#map
-[`Toolbar`]: ./toolbar.md
-[`addLayers`]: ./layer.md
-[`Editor`]: ./editor.md
 [`State`]: ./state.md
-[`IdColumn`]: ./idcolumn.md
 
-[`src/models/State.js`]
-[`State.js`]: ../src/models/State.js
-[`map/index.js`]: ../src/map/index.js
+[`Map`]: ../2editormap/map.md
+[`MapState`]: ../2editormap/map.md
+[`MapState.map`]: ../2editormap/map.md#map
+[`addLayers`]: ../2editormap/layer.md
+
+[`Toolbar`]: ../3toolsplugins/toolbar.md
+
+[`IdColumn`]: ../idcolumn.md
+
+[`src/models/State.js`]: ../../src/models/State.js
+[`State.js`]: ../../src/models/State.js
+[`map/index.js`]: ../../src/map/index.js
