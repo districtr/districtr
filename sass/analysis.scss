@@ -118,3 +118,24 @@ label {
     margin-bottom: 1em;
   }
 }
+
+// Plan loader
+input[type="file"] {
+  display: none;
+}
+
+.plan-loader {
+  display: flex;
+  cursor: pointer;
+  background-color: #0099cd;
+  color: white;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+.plan-loader:hover {
+  background-color: #006b9c;
+}
+#uploader {
+  display: flex;
+}
