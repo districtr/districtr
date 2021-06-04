@@ -478,7 +478,7 @@ function compactness_slide(state, cut_edges) {
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
     if (enacted) {
-        headers = ["Your Plan", "Enacted Plan"];
+        headers = ["Your Plan (TMP)", "Enacted Plan"];
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -500,7 +500,7 @@ function compactness_slide(state, cut_edges) {
             comparison = "significantly more compact than"
     }
     else {
-        headers = ["Enacted Plan"];
+        headers = ["Your Plan (TMP)"];
         for (let c of columns) {
             rows.push({
                 label: c,
