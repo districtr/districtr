@@ -25,7 +25,7 @@ import { districtColors } from "../colors";
  * @returns {Promise}
  */
 function loadPlan(url) {
-    if (_isDev()) return loadPlanFromURL("/assets/nc-plans/congress_2011.json");
+    if (_isDev()) return loadPlanFromURL("/assets/mi-plans/state_house.json");
     return loadPlanFromURL(url);
 }
 
@@ -140,9 +140,9 @@ function renderRight(pane, context, state) {
             let slides = [
                 new Slide(overview_slide(state, data.contiguity, data.split), "Overview"),
                 // overview (show 1)
-                new Slide(election_slide(state, uiState, dispatch), "Election Results"),
+                new Slide(election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
-                new Slide(compactness_slide(state, data.cut_edges), "Compactness")
+                new Slide(compactness_slide(state, data.cut_edges, "congress"), "Compactness")
                 // counties split and county splits
                 
                     /** ANTHONY'S SLIDES */
@@ -377,6 +377,8 @@ function overview_slide (state, contig, problems) {
             argmax = d;
         }
     }
+    console.log(argmax);
+    console.log(argmin);
     let pop_section = html`<div style="text-align:left"><strong>Population deviation</strong>
     is the percentage difference in population between districts and the ideal population of a district,
     were the population to be split perfectly evenly. 
@@ -385,27 +387,23 @@ function overview_slide (state, contig, problems) {
     <span
         class="part-number"
         style="background:${districtColors[argmax % districtColors.length].hex};
-        display:${problems.includes(argmax)
-            ? "inline-flex"
-            : "none"}"
+        display:"inline-flex"
     >
         ${Number(argmax) + 1}
     </span> and your plan's least populous district is district  
     <span
     class="part-number"
     style="background:${districtColors[argmin % districtColors.length].hex};
-    display:${problems.includes(argmin)
-        ? "inline-flex"
-        : "none"}"
+    display:"inline-flex"
     >
     ${Number(argmin) + 1}
     </span>.<br/> 
-    The population deviation of your plan is ${max}`;
+    The maxiumum population deviation of your plan is ${Math.abs(roundToDecimal(max * 100, 2))}%.`;
     return html`${contig_section}${pop_section}</div>`;
 }
 
 // Election Results Slide
-function election_slide(state, uiState, dispatch) {
+function election_slide(state) {
     let elections = state.elections;
     let rows = [];
 
@@ -470,9 +468,9 @@ function compactness_slide(state, cut_edges) {
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
     console.log(state);
     let rows = [], headers, comparison;
-    if (state.plan.problem.pluralNoun.includes("Congressional Districts")) {
+    let enacted = polsby_popper(state.place.name, state.plan.problem.name);
+    if (enacted) {
         headers = ["Your Plan", "Enacted Plan"];
-        let enacted = cong_polsby_popper(state.place.name);
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -484,9 +482,9 @@ function compactness_slide(state, cut_edges) {
         let mean_diff = enacted.mean - plan.mean;
         if (mean_diff > 0.2)
             comparison = "significantly less compact than"
-        else if (mean_diff > 0.5)
+        else if (mean_diff > 0.05)
             comparison = "slightly less compact than"
-        else if (mean_diff > -0.5)
+        else if (mean_diff > -0.05)
             comparison = "about as compact as"
         else if (mean_diff > 0.2)
             comparison = "slightly more compact than"
@@ -519,10 +517,11 @@ function compactness_slide(state, cut_edges) {
         <div style='text-align: left'>
         Another measure of compactness is the <strong>Polsby Popper score</strong>, which is a ratio
         of the area of a district to it's perimeter. When calculating Polsby Popper scores, one
-        must take care to choose a proper map projection. Ours are calculated in PROJ TODO. A higher
-        Polsby Popper score means a more compact district.<br/><br/>
-        According to Polsby Popper scores, your average district is 
-        <strong>${comparison}</strong> the average enacted district.
+        must take care to choose a proper map projection. Ours are calculated with the EPSG 4326 projection. 
+        A higher Polsby Popper score means a more compact district.<br/><br/>
+        ${enacted ? html`According to Polsby Popper scores, your average district is 
+        <strong>${comparison}</strong> the average enacted district.` 
+        : html`Enacted Polsby Popper Scores are not available for this districting problem.`}
         <div>
         ${polsbypopper_table}
         `;
@@ -534,7 +533,7 @@ function county_slide(state) {
 }
 
 /** LOOKUP FUNCTIONS */
-function cong_polsby_popper(st, districts) {
+function polsby_popper(st, districts) {
     let state_name_to_postal = {
         'Alabama': 'AL',
         'Alaska': 'AK',
@@ -1060,7 +1059,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.2532480377178616,
             variance: 0.011315140287976259
         },
-        MP: "Enacted Polsby Popper Scores Not Available.",
+        MP: false,
         PA:
         {
             max: 0.7552462028054057,
@@ -1093,7 +1092,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.365545569231826,
             variance: 0.012187540751792117
         },
-        DC: "Enacted Polsby Popper Scores Not Available.",
+        DC: false,
         IL:
         {
             max: 0.6196984281117189,
@@ -1134,7 +1133,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.23279167647080445,
             variance: 0.0042198562705025085
         },
-        AS: "Enacted Polsby Popper Scores Not Available.",
+        AS: false,
         MT:
         {
             max: 0.6120157372907311,
@@ -1159,8 +1158,8 @@ function cong_polsby_popper(st, districts) {
             median: 0.4645932188489821,
             variance: 0.021602010086424726
         },
-        VI: "Enacted Polsby Popper Scores Not Available.",
-        NE: "Enacted Polsby Popper Scores Not Available.",
+        VI: false,
+        NE: false,
         MN:
         {
             max: 0.6481763642434983,
@@ -1337,7 +1336,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.22146967295586728,
             variance: 0.010138476602393299
         },
-        GU: "Enacted Polsby Popper Scores Not Available.",
+        GU: false,
         IN:
         {
             max: 0.6844178595404465,
@@ -1468,7 +1467,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.2532480377178616,
             variance: 0.011315140287976259
         },
-        MP: "Enacted Polsby Popper Scores Not Available.",
+        MP: false,
         PA:
         {
             max: 0.7552462028054057,
@@ -1501,7 +1500,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.365545569231826,
             variance: 0.012187540751792117
         },
-        DC: "Enacted Polsby Popper Scores Not Available.",
+        DC: false,
         IL:
         {
             max: 0.6196984281117189,
@@ -1542,7 +1541,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.23279167647080445,
             variance: 0.0042198562705025085
         },
-        AS: "Enacted Polsby Popper Scores Not Available.",
+        AS: false,
         MT:
         {
             max: 0.6120157372907311,
@@ -1567,8 +1566,8 @@ function cong_polsby_popper(st, districts) {
             median: 0.4645932188489821,
             variance: 0.021602010086424726
         },
-        VI: "Enacted Polsby Popper Scores Not Available.",
-        NE: "Enacted Polsby Popper Scores Not Available.",
+        VI: false,
+        NE: false,
         MN:
         {
             max: 0.6481763642434983,
@@ -1745,7 +1744,7 @@ function cong_polsby_popper(st, districts) {
             median: 0.22146967295586728,
             variance: 0.010138476602393299
         },
-        GU: "Enacted Polsby Popper Scores Not Available.",
+        GU: false,
         IN:
         {
             max: 0.6844178595404465,
@@ -1844,12 +1843,14 @@ function cong_polsby_popper(st, districts) {
         }
     };
     switch(districts) {
-        case "congress": 
+        case "Congress": 
             return cong[state_name_to_postal[st]];
-        case "upper":
+        case "State Senate":
             return sl_upper[state_name_to_postal[st]];
-        case "lower":
+        case "State House":
+        case "State Assembly":
+        case "House of Delegates":
             return sl_lower[state_name_to_postal[st]];
     }
-    return "Enacted Pollsby Popper Scores Not Available.";
+    return false;
 }
