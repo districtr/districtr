@@ -94,8 +94,8 @@ Layer Overlay
 
 ## 6. Charts and Analysis
 
-[Horizontal Bar Chart](./6charts/horizontalbarchart.md)
-- Population Bar Chart
+[Population Balance Plugin](./6charts/popbalanceplugin.md)
+- [Population Bar Chart](./6charts/populationbarchart.md)
 
 [Election Results](./6charts/electionresults.md)
 
@@ -104,6 +104,8 @@ Layer Overlay
   - Racial Balance Table
 [Pivot Table](./6charts/pivottable.md)
   - Coalition Pivot Table
+
+Highlight Unassigned
 
 datasetInfo 
 
