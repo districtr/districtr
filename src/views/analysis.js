@@ -3,7 +3,7 @@ import { html, render } from "lit-html";
 import DisplayPane from "../components/DisplayPane";
 import Button from "../components/Button";
 import { renderModal, closeModal } from "../components/Modal";
-import { loadPlanFromURL } from "../routes";
+import { loadPlanFromURL, loadPlanFromJSON } from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
 import { Slide, SlideShow } from "../components/Slides";
@@ -15,6 +15,7 @@ import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
 import { roundToDecimal } from "../utils";
 import { districtColors } from "../colors";
+import PlanUploader from "../components/PlanUploader";
 
 
 
@@ -162,13 +163,13 @@ function renderRight(pane, context, state) {
  * @param {DisplayPane} left Pane where the Map is going to go.
  * @param {DisplayPane} right Pane where the analysis will happen.
  */
-function userOnGo(left) {
+function userOnGo(left, type) {
     // Create a function that does the proper thing when loading.
     return e => {
         // Get the URL, JSON file, or enacted plan provided by the user.
         // TODO do the last two things.
-        let url = document.getElementById("shareable-url").value,
-            plan = loadPlan(url);
+        let url = document.getElementById("shareable-url").value;
+        let plan = loadPlan(url);
     
         // Disable the Go button.
         e.target.disabled = true;
@@ -191,8 +192,15 @@ function userOnGo(left) {
  */
 function userSelectsMode(left) {
     // Create a new Button.
-    let go = new Button(userOnGo(left), { label: "Go.", hoverText: "Evaluate the selected plan." }),
+    let go = new Button(userOnGo(left, "load"), { label: "Go.", hoverText: "Evaluate the selected plan." }),
+        upload = new PlanUploader(fileContent => {
+            loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
+                renderLeft(left, context);
+                closeModal();
+            });
+        }),
         target = document.getElementById("modal"),
+    
         
         // Create the internal HTMLTemplate for the modal, including the
         // Button.
@@ -205,28 +213,29 @@ function userSelectsMode(left) {
                         plan.
                     </p>
                     <input type="url" id="shareable-url">
+                    <div class="bottom-bar">${go}</div>
                 </div>
                 <div class="modal-item" id="upload">
                     <h3>Upload</h3>
                     <p>
                         Upload a Districtr JSON or CSV file from your computer.
                     </p>
+                    <div id="uploader" class="bottom-bar"></div>
                 </div>
                 <div class="modal-item" id="enacted">
                     <h3>Enacted</h3>
                     <p>
                         Analyze an enacted districting plan.
                     </p>
+                    <div class="bottom-bar"><strong>In progress</strong></div>
                 </div>
-            </div>
-            <div class="modal-bottom-bar">
-                <div class="bottom-bar">${go}</div>
             </div>
         `,
         modal = renderModal(template);
-    
+        
     // Render inner content.
     render(modal, target);
+    render(upload.render(), document.getElementById("uploader"));
 }
 
 /**
