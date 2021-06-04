@@ -150,7 +150,7 @@ export default class State {
         this.map = map;
     }
     update(feature, part) {
-        this.columnSets.forEach(columnSet => columnSet.update(feature, part));
+        this.columnSets.forEach(columnSet => columnSet.update(feature, part, this.divisor));
         this.plan.update(feature, part);
     }
     get parts() {

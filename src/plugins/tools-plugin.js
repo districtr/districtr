@@ -75,7 +75,8 @@ export default function ToolsPlugin(editor) {
             state.columnSets,
             state.nameColumn,
             state.unitsRecord,
-            state.parts
+            state.parts,
+            spatial_abilities(state.place.id).divisor,
         )
     ];
 

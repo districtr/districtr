@@ -1954,5 +1954,132 @@
         "pluralNoun": "Board Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PopEst2020",
+              "name": "Total population",
+              "sum": 1539452.797,
+              "min": 0,
+              "max": 7120.861
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_total",
+              "name": "Total population",
+              "sum": 1035680.231,
+              "min": 0,
+              "max": 3132.084
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_white",
+                "name": "White population",
+                "sum": 540568.716,
+                "min": 0,
+                "max": 1276.146
+              },
+              {
+                "key": "CVAP_black",
+                "name": "Black population",
+                "sum": 116457.223,
+                "min": 0,
+                "max": 812.375
+              },
+              {
+                "key": "CVAP_asian_amer",
+                "name": "Asian population",
+                "sum": 161583.787,
+                "min": 0,
+                "max": 312.302
+              },
+              {
+                "key": "CVAP_latino",
+                "name": "Hispanic population",
+                "sum": 185224.597,
+                "min": 0,
+                "max": 598.375
+              },
+              {
+                "key": "CVAP_native_amer",
+                "name": "Native American population",
+                "sum": 12011.020,
+                "min": 0,
+                "max": 85.002
+              },
+              {
+                "key": "CVAP_pac_isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 10362.002,
+                "min": 0,
+                "max": 147.709
+              },
+              {
+                "key": "CVAP_other",
+                "name": "Other population",
+                "sum": 9473.005,
+                "min": 0,
+                "max": 340.000
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.8626,
+            38.0184
+          ],
+          [
+            -121.0271,
+            38.7364
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sacramento_blocks_points"
+            },
+            "sourceLayer": "sacramento_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sacramento2_blocks"
+            },
+            "sourceLayer": "sacramento2_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "sacramento",
+    "name": "Sacramento",
+    "districtingProblems": [
+      {
+        "name": "County Board",
+        "numberOfParts": 5,
+        "pluralNoun": "Board Districts"
+      }
+    ]
   }
 ]
