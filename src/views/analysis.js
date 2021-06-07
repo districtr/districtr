@@ -130,7 +130,7 @@ function renderLeft(pane, context) {
 function renderRight(pane, context, state) {
     let saveplan = state.serialize();
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-    fetch(GERRYCHAIN_URL + "/", {
+    fetch(GERRYCHAIN_URL + "/eval_page", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -143,12 +143,13 @@ function renderRight(pane, context, state) {
             console.log(data);
             // Create the charts for the Slides.
             let slides = [
+                // overview (show 1st)
                 new Slide(overview_slide(state, data.contiguity, data.split), "Overview"),
-                // overview (show 1)
+                // election results slide
                 new Slide(election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
-                new Slide(compactness_slide(state, data.cut_edges, "congress"), "Compactness")
-                // counties split and county splits
+                new Slide(compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
+                // TODO counties split and county splits
                 
                     /** ANTHONY'S SLIDES */
                     //new Slide(partisan(state), "Partisanship"),
@@ -476,7 +477,7 @@ function election_slide(state) {
 }
 
 // Compactness slide (cut edges, polsby popper)
-function compactness_slide(state, cut_edges) {
+function compactness_slide(state, cut_edges, plan_scores) {
     // Polsby Popper Scores
     // place holders, I c/p'd them from CT
     let tmp_plan_scores = {
@@ -486,7 +487,7 @@ function compactness_slide(state, cut_edges) {
         median: 0.2257907320082957,
         variance: 0.011882525506876837
     };
-    let plan = tmp_plan_scores;
+    //let plan = plan_scores;
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
@@ -496,11 +497,11 @@ function compactness_slide(state, cut_edges) {
             rows.push({
                 label: c,
                 entries: [
-                    {content: roundToDecimal(plan[c.toLowerCase()], 3)},
+                    {content: roundToDecimal(plan_scores[c.toLowerCase()], 3)},
                     {content: roundToDecimal(enacted[c.toLowerCase()], 3)}
             ]})
         }
-        let mean_diff = enacted.mean - plan.mean;
+        let mean_diff = enacted.mean - plan_scores.mean;
         if (mean_diff > 0.2)
             comparison = "significantly less compact than"
         else if (mean_diff > 0.05)
@@ -518,7 +519,7 @@ function compactness_slide(state, cut_edges) {
             rows.push({
                 label: c,
                 entries: [
-                    {content: roundToDecimal(plan[c.toLowerCase()], 3)},
+                    {content: roundToDecimal(plan_scores[c.toLowerCase()], 3)},
             ]})
         }
     }
@@ -1868,6 +1869,7 @@ function polsby_popper(st, districts) {
     };
     switch(districts) {
         case "Congress": 
+        case "2020 Reapportioned Congress":
             return cong[state_name_to_postal[st]];
         case "State Senate":
             return sl_upper[state_name_to_postal[st]];
