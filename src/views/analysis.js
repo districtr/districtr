@@ -128,7 +128,6 @@ function renderLeft(pane, context) {
  * @returns {undefined}
  */
 function renderRight(pane, context, state) {
-
     let saveplan = state.serialize();
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/", {
@@ -140,6 +139,7 @@ function renderRight(pane, context, state) {
     }).then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
+            console.log(state);
             console.log(data);
             // Create the charts for the Slides.
             let slides = [
@@ -171,7 +171,7 @@ function userOnGo(left, type) {
     // Create a function that does the proper thing when loading.
     return e => {
         // Get the URL, JSON file, or enacted plan provided by the user.
-        // TODO do the last two things.
+        // TODO do the last thing.
         let url = document.getElementById("shareable-url").value;
         let plan = loadPlan(url);
     
@@ -180,7 +180,8 @@ function userOnGo(left, type) {
         
         plan.then(context => {
             renderLeft(left, context);
-            // right gets rendered within the left pane, since we need the mapstate            
+            // right gets rendered within the left pane render,
+            // since we need the mapstate first          
             // Close the modal.
             closeModal();
         });
@@ -360,7 +361,9 @@ function partisan(context) {
 // Overview Slide
 function overview_slide (state, contig, problems) {
     // contiguity
-    let contig_section = html`<h4 id="contiguity-status">
+    let contig_section = 
+        problems 
+        ? html`<h4 id="contiguity-status">
         ${contig ? "No contiguity gaps detected" 
             : html`The following districts have contiguity gaps:
         </h4>
@@ -376,6 +379,9 @@ function overview_slide (state, contig, problems) {
                 >
                     ${Number(dnum) + 1}
                 </span>`})}</div>`}`
+        : html`<h4 id="contiguity-status">
+                Contiguity status not available for ${state.place.name}.
+            </h4>`
     
     // population deviation
     let deviations = state.population.deviations();
@@ -416,6 +422,9 @@ function overview_slide (state, contig, problems) {
 // Election Results Slide
 function election_slide(state) {
     let elections = state.elections;
+    console.log(state.elections);
+    if (state.elections.length < 1)
+        return html`No election data available for ${state.place.name}.`
     let rows = [];
 
     let headers = 
@@ -478,7 +487,6 @@ function compactness_slide(state, cut_edges) {
     };
     let plan = tmp_plan_scores;
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
-    console.log(state);
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
     if (enacted) {
