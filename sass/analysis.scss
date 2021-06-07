@@ -125,7 +125,7 @@ input[type="file"] {
 }
 
 .plan-loader {
-  display: flex;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   background-color: #0099cd;
   color: white;
@@ -135,6 +135,9 @@ input[type="file"] {
 }
 .plan-loader:hover {
   background-color: #006b9c;
+}
+.plan-loader text, img {
+  vertical-align: middle;
 }
 #uploader {
   display: flex;
