@@ -530,7 +530,9 @@ function compactness_slide(state, cut_edges) {
         end up in different districts in a plan. A lower number of cut edges means a plan is more compact.
         When comparing the number of cut edges between plans, you must be sure to be using the same
         units when drawing the plans.<br/>
-        Your plan has <strong>${cut_edges}</strong> cut edges.
+        ${cut_edges > 0 ?
+        html`Your plan has <strong>${cut_edges}</strong> cut edges.`
+        : html`Cut Edges count not available for ${state.place.name}`}
         </div>
         <br/>        
         <h3>Polsby Popper Scores</h3>
