@@ -97,7 +97,9 @@ Layer Overlay
 [Population Balance Plugin](./6charts/popbalanceplugin.md)
 - [Population Bar Chart](./6charts/populationbarchart.md)
 
-[Election Results](./6charts/electionresults.md)
+[Column-Sets and Parts](./6charts/columnsetsparts.md)
+- Population Analysis
+- [Two ways to explore election results](./6charts/electionresults.md)
 
 [DataTable](./6charts/datatable.md)
   - Demographics
