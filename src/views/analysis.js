@@ -145,7 +145,7 @@ function renderRight(pane, context, state) {
             // Create the charts for the Slides.
             let slides = [
                 // overview (show 1st)
-                new Slide(overview_slide(state, data.contiguity, data.split), "Overview"),
+                new Slide(overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
                 // election results slide
                 new Slide(election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
@@ -361,7 +361,29 @@ function partisan(context) {
 }
 
 // Overview Slide
-function overview_slide (state, contig, problems) {
+function overview_slide (state, contig, problems, num_tiles) {
+    // plan details
+    let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
+        .reduce((a,b) => a + b, 0),
+        dist_num = state.plan.problem.numberOfParts;
+    console.log(drawn);
+    let details = html`<div style="text-align:left">
+        Your plan is for ${dist_num} ${state.plan.problem.pluralNoun} 
+        in ${state.place.name}. Your plan appears to have 
+        ${drawn} districts drawn. ${drawn == dist_num ? "" : 
+        (drawn > dist_num ? html`You are have ${drawn - distnum} extra district(s).`
+            : html`You are missing ${dist_num - drawn} district(s).`)}
+        </div>`
+
+    // missing units
+    let missing = num_tiles - Object.keys(state.plan.assignment).length;
+    let unassigned_section = 
+        missing == 0 
+        ? html`No ${state.plan.problem.pluralNoun} are unassigned. Your plan is complete`
+        : html`${missing} ${state.unitsRecord.unitType.toLowerCase()} are unassigned, accounting for 
+        ${(state.population.total.sum - state.population.total.data.reduce((a,b) => a + b, 0)).toLocaleString('en')}
+        people.`
+
     // contiguity
     let contig_section = 
         problems 
@@ -418,7 +440,15 @@ function overview_slide (state, contig, problems) {
     ${Number(argmin) + 1}
     </span>.<br/> 
     The maxiumum population deviation of your plan is ${Math.abs(roundToDecimal(max * 100, 2))}%.`;
-    return html`${contig_section}${pop_section}</div>`;
+    
+    // aggregate all the parts
+    return html`
+    <div class="dataset-info">
+                ${populateDatasetInfo(state)}
+            </div>
+    ${details}<br/>
+    ${unassigned_section}<br/>
+    ${contig_section}${pop_section}</div>`;
 }
 
 // Election Results Slide
@@ -528,7 +558,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
         When comparing the number of cut edges between plans, you must be sure to be using the same
         units when drawing the plans.<br/>
         ${cut_edges > 0 ?
-        html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.id.toLowerCase()}.`
+        html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.unitType.toLowerCase()}.`
         : html`Cut Edges count not available for ${state.place.name}.`}
         </div>
         <br/>        
