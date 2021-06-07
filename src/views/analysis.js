@@ -26,8 +26,12 @@ import PlanUploader from "../components/PlanUploader";
  * @returns {Promise}
  */
 function loadPlan(url) {
-    if (_isDev()) return loadPlanFromURL("/assets/mi-plans/state_house.json");
-    return loadPlanFromURL(url);
+    if (_isDev() && url == "") 
+        return loadPlanFromURL("/assets/mi-plans/state_house.json");
+    let districtr_id = url.split('/')[url.split('/').length - 1];
+    return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
+    .then(res => res.json())
+    .then(loadPlanFromJSON);
 }
 
 /**
