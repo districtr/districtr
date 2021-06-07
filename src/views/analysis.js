@@ -479,20 +479,11 @@ function election_slide(state) {
 // Compactness slide (cut edges, polsby popper)
 function compactness_slide(state, cut_edges, plan_scores) {
     // Polsby Popper Scores
-    // place holders, I c/p'd them from CT
-    let tmp_plan_scores = {
-        max: 0.4396800786973772,
-        min: 0.1757496474754079,
-        mean: 0.27257163358251413,
-        median: 0.2257907320082957,
-        variance: 0.011882525506876837
-    };
-    //let plan = plan_scores;
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
     if (enacted) {
-        headers = ["Your Plan (TMP)", "Enacted Plan"];
+        headers = ["Your Plan", "Enacted Plan"];
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -514,7 +505,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
             comparison = "significantly more compact than"
     }
     else {
-        headers = ["Your Plan (TMP)"];
+        headers = ["Your Plan"];
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -533,8 +524,8 @@ function compactness_slide(state, cut_edges, plan_scores) {
         When comparing the number of cut edges between plans, you must be sure to be using the same
         units when drawing the plans.<br/>
         ${cut_edges > 0 ?
-        html`Your plan has <strong>${cut_edges}</strong> cut edges.`
-        : html`Cut Edges count not available for ${state.place.name}`}
+        html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.id.toLowerCase()}.`
+        : html`Cut Edges count not available for ${state.place.name}.`}
         </div>
         <br/>        
         <h3>Polsby Popper Scores</h3>
