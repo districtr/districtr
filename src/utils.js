@@ -379,7 +379,7 @@ export function spatial_abilities(id) {
     },
     sacramento: {
       coalition: false,
-      divisor: 1000,
+      // divisor: 1000,
     },
     ccsanitation: {
       // multiyear: 2018,

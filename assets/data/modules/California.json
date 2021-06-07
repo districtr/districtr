@@ -2056,17 +2056,17 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sacramento_blocks_points"
+              "url": "mapbox://districtr.sacramento3_blocks_points"
             },
-            "sourceLayer": "sacramento_blocks_points"
+            "sourceLayer": "sacramento3_blocks_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sacramento2_blocks"
+              "url": "mapbox://districtr.sacramento3_blocks"
             },
-            "sourceLayer": "sacramento2_blocks"
+            "sourceLayer": "sacramento3_blocks"
           }
         ]
       }

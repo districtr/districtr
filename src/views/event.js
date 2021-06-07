@@ -35,7 +35,8 @@ const stateForEvent = {
   ourmapsne: 'Nebraska',
   prjusd: 'California',
   hia: 'Texas',
-  onelovemi: 'Michigan'
+  onelovemi: 'Michigan',
+  sacramento: 'California',
 };
 
 const validEventCodes = {
@@ -68,7 +69,8 @@ const validEventCodes = {
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
   'hia': ['texas', 'harristx', 'houston'],
-  onelovemi: 'michigan'
+  onelovemi: 'michigan',
+  sacramento: 'sacramento',
 };
 
 const blockPlans = {
@@ -124,6 +126,7 @@ const coi_events = [
 const hybrid_events = [
   // 'mesaaz',
   'hia',
+  'sacramento',
 ];
 
 const portal_events = [
@@ -179,7 +182,8 @@ const eventDescriptions = {
     <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>",
    hia: "Welcome to the event page for Houston in Action!",
    onelovemi: "<p>Welcome to the event page for One Love Michigan! Here is a message from the organization:</p>\
-                <p>We know that historically, maps have been used as a tool for racism and white supremacy, between taking land from indigenous people to redlining and racial gerrymandering, so this is a moment to reclaim maps for empowerment. We need YOU to get involved!!! Join One Love Global in drawing maps of your community to ensure that they are kept intact during the redistricting process.</p>"
+                <p>We know that historically, maps have been used as a tool for racism and white supremacy, between taking land from indigenous people to redlining and racial gerrymandering, so this is a moment to reclaim maps for empowerment. We need YOU to get involved!!! Join One Love Global in drawing maps of your community to ensure that they are kept intact during the redistricting process.</p>",
+   sacramento: "<p>Welcome to the event page for Sacramento!</p>",
   };
 
 const longAbout = {
