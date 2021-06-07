@@ -74,7 +74,8 @@ function renderMap(container, context) {
                     left: 50,
                     bottom: 50
                 }
-            }
+            },
+            dragPan: true
         },
         getMapStyle(context)
     );
@@ -482,7 +483,10 @@ function compactness_slide(state, cut_edges, plan_scores) {
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
-    if (enacted) {
+    
+    // check that polsby popper calculation worked
+    let successful_calc = (plan_scores !== "Polsby Popper unavailable for this geometry.");
+    if (enacted && successful_calc) {
         headers = ["Your Plan", "Enacted Plan"];
         for (let c of columns) {
             rows.push({
@@ -504,7 +508,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
         else
             comparison = "significantly more compact than"
     }
-    else {
+    else if (successful_calc) {
         headers = ["Your Plan"];
         for (let c of columns) {
             rows.push({
@@ -514,7 +518,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
             ]})
         }
     }
-    let polsbypopper_table = DataTable(headers, rows);
+    let polsbypopper_table = successful_calc ? DataTable(headers, rows) : plan_scores;
     return html`
         <h3>Cut Edges</h3>
         <div style='text-align: left'>
