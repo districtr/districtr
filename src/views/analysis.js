@@ -80,10 +80,7 @@ function renderMap(container, context) {
         getMapStyle(context)
     );
     
-    // Set a callback for when the map has loaded from the database; create a
-    // new State object (which will go unused, as the user cannot edit the
-    // plan while it's being analyzed) and render the map to the page. Again
-    // follows the protocol set out in edit.js.
+    // Set a callback for when the map has loaded from the database
     let state;
     mapState.map.on("load", () => {
         state = new State(
@@ -93,7 +90,9 @@ function renderMap(container, context) {
             () => {}
         );
         
-        if (context.assignment) state.plan.assignment = context.assignment;
+        if (context.assignment) 
+            state.plan.assignment = context.assignment;
+        state.units.map.dragPan.enable();
         state.render();
         renderRight(new DisplayPane({ id: "analysis-right" }), context, state);
     });
@@ -366,7 +365,6 @@ function overview_slide (state, contig, problems, num_tiles) {
     let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
         .reduce((a,b) => a + b, 0),
         dist_num = state.plan.problem.numberOfParts;
-    console.log(drawn);
     let details = html`<div style="text-align:left">
         Your plan is for ${dist_num} ${state.plan.problem.pluralNoun} 
         in ${state.place.name}. Your plan appears to have 
@@ -379,7 +377,7 @@ function overview_slide (state, contig, problems, num_tiles) {
     let missing = num_tiles - Object.keys(state.plan.assignment).length;
     let unassigned_section = 
         missing == 0 
-        ? html`No ${state.plan.problem.pluralNoun} are unassigned. Your plan is complete`
+        ? html`No ${state.unitsRecord.unitType.toLowerCase()} are unassigned. Your plan is complete`
         : html`${missing} ${state.unitsRecord.unitType.toLowerCase()} are unassigned, accounting for 
         ${(state.population.total.sum - state.population.total.data.reduce((a,b) => a + b, 0)).toLocaleString('en')}
         people.`
