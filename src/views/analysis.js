@@ -540,7 +540,8 @@ function compactness_slide(state, cut_edges) {
         <div style='text-align: left'>
         Another measure of compactness is the <strong>Polsby Popper score</strong>, which is a ratio
         of the area of a district to it's perimeter. When calculating Polsby Popper scores, one
-        must take care to choose a proper map projection. Ours are calculated with the EPSG 4326 projection. 
+        must take care to choose a proper map projection. Ours are calculated in the appropriate UTM projection
+        for each state (for more info, consult the <a href="https://gerrychain.readthedocs.io/en/latest/api.html">GerryChain documentation</a>). 
         A higher Polsby Popper score means a more compact district.<br/><br/>
         ${enacted ? html`According to Polsby Popper scores, your average district is 
         <strong>${comparison}</strong> the average enacted district.` 
