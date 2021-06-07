@@ -57,7 +57,73 @@ inputs of both class `.slider` and `.slider value.` This callback function is al
 
 ### Select 
 
-`/src/components/Select.js`...
+The `Select` Component, found in `/src/components/Select.js`, is an implementation of an html
+drop-down menu. The full code is listed below. 
+
+```
+import { html } from "lit-html";
+
+export default function Select(items, handler, selectedIndex) {
+    return html`
+        <select @change="${e => handler(parseInt(e.target.value))}">
+            ${items.map(
+                (item, i) => html`
+                    <option value="${i}" ?selected=${selectedIndex === i}
+                        >${item.name}</option
+                    >
+                `
+            )}
+        </select>
+    `;
+}
+```
+
+Simply, the `Select` componenet is a lit-html style function that takes `items`, operates
+upon a `handler` and sets a default `selectedIndex`. Each item is assigned an index
+and its name is listed as an option. On change, the `handler` function is called with
+the selected value derived from event `e`. To demonstrate its typical use, we use an example
+from the `ElectionResultsSection`. 
+
+```
+Select(elections,
+       index => dispatch(actions.changeElection({ index })),
+       uiState.elections.activeElectionIndex)
+```
+
+In this example, an object of `elections`, essentially `state.elections` ,
+is passed as the list of objects. The callback is a dispatch to an `action`
+related to elections and the default active index comes from `uiState`, 
+which we presume is the `UIStateStore` object `editor.state`. 
+
+### Parameter
+
+The `Parameter` function renders a list typically related to assembling
+coaltion of races. The entire code is listed below.
+
+```
+import { html } from "lit-html";
+
+export const Parameter = ({ label, element }) =>
+    html`
+        <div class="parameter">
+            <label class="parameter__label ui-label ui-label--row"
+                >${label}</label
+            >${element}
+        </div>
+    `;
+
+export default Parameter;
+```
+
+While space is made for a `label`, which is sometimes blank, the
+`element` input here is usually more complicated. For instance, in 
+Coalition Builder, the `element` is a complete series of html component
+checkboxes and labels built from `window.coalitiongroups`. In this case,
+`Parameter` is a complex, section-type list element rather than a single
+selected variable.
+
+_confusing name_
+_complex use_
 
 # #
 
