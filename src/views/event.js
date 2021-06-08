@@ -36,7 +36,8 @@ const stateForEvent = {
   prjusd: 'California',
   hia: 'Texas',
   onelovemi: 'Michigan',
-  sacramento: 'California',
+  saccounty: 'California',
+  saccountymap: 'California',
 };
 
 const validEventCodes = {
@@ -70,7 +71,8 @@ const validEventCodes = {
   prjusd: 'pasorobles',
   'hia': ['texas', 'harristx', 'houston'],
   onelovemi: 'michigan',
-  sacramento: 'sacramento',
+  saccounty: 'sacramento',
+  saccountymap: 'sacramento',
 };
 
 const blockPlans = {
@@ -126,7 +128,8 @@ const coi_events = [
 const hybrid_events = [
   // 'mesaaz',
   'hia',
-  'sacramento',
+  'saccounty',
+  'saccountymap',
 ];
 
 const portal_events = [
@@ -183,7 +186,31 @@ const eventDescriptions = {
    hia: "Welcome to the event page for Houston in Action!",
    onelovemi: "<p>Welcome to the event page for One Love Michigan! Here is a message from the organization:</p>\
                 <p>We know that historically, maps have been used as a tool for racism and white supremacy, between taking land from indigenous people to redlining and racial gerrymandering, so this is a moment to reclaim maps for empowerment. We need YOU to get involved!!! Join One Love Global in drawing maps of your community to ensure that they are kept intact during the redistricting process.</p>",
-   sacramento: "<p>Welcome to the event page for Sacramento!</p>",
+   saccounty: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
+      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+      population that shares common social or economic interests that should \
+      be included within a single district for purposes of its effective and fair \
+      representation.”</p>\
+      <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+      <p><strong>To display your map on this page, be sure the tag &quot;SacCounty&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
+<p>To learn more about the County’s redistricting effort, visit \
+  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+  saccountymap: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.</p>\
+     <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;SacCounty&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
+<p>To learn more about the County’s redistricting effort, visit \
+ <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+
   };
 
 const longAbout = {
@@ -198,6 +225,16 @@ const longAbout = {
   ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
+  ],
+  saccounty: [
+    "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
+    For more information, please visit <a href='https://www.saccounty.net/Redistricting/' target='_blank'>www.saccounty.net/Redistricting/</a>",
+  ],
+  saccountymap: [
+    "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
+    For more information, please visit <a href='https://www.saccounty.net/Redistricting/' target='_blank'>www.saccounty.net/Redistricting/</a>",
   ],
 };
 
@@ -227,6 +264,11 @@ export default () => {
             document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
+        } else if (eventCode === "saccounty" || eventCode === "saccountymap") {
+            document.getElementById("partnership-icons").style.display = "block";
+            document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
+            document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
+            document.getElementById("partner-link-b").style.display = "none"; 
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;
