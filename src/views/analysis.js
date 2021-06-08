@@ -85,7 +85,7 @@ function renderMap(container, context) {
     mapState.map.on("load", () => {
         state = new State(
             mapState.map,
-            mapState.swipemap,
+            null,
             context,
             () => {}
         );
@@ -110,7 +110,6 @@ function renderLeft(pane, context) {
     pane.inner = html`
         <div class="mapcontainer">
             <div id="map" class="map"></div>
-            <div id="swipemap" class="map"></div>
         </div>
     `;
 
