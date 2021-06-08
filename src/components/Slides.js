@@ -64,6 +64,7 @@ export class SlideShow {
         let innerTemplate = document.createElement("div");
         innerTemplate.className = "slideshow--inner";
         innerTemplate.id = "slideshow-area"
+        innerTemplate.innerHTML = "Loading."
         this.container.append(innerTemplate);
         this.viewer = innerTemplate;
     

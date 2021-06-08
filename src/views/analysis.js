@@ -128,7 +128,8 @@ function renderLeft(pane, context) {
  * @returns {undefined}
  */
 function renderRight(pane, context, state, mapState) {
-    let saveplan = state.serialize();
+    let saveplan = state.serialize(),
+        slideshow = new SlideShow(pane.pane, []);
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/eval_page", {
       method: "POST",
@@ -160,8 +161,10 @@ function renderRight(pane, context, state, mapState) {
                     /** ANTHONY'S SLIDES */
                     //new Slide(partisan(state), "Partisanship"),
                     //new Slide(cutedges(state), "Cut Edges"),
-                ],
-                slideshow = new SlideShow(pane.pane, slides);
+                ];
+            for (let slide of slides) {
+                slideshow.addSlide(slide);
+            }
         
             let analyzer = new Analyzer(state, mapState, slideshow);
             analyzer.render();
