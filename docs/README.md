@@ -86,7 +86,7 @@ following model.
   - [Communities of Interests in Use](./5landmarks/coi.md)
   - [The Landmark Class](./5landmarks/landmarkclass.md)
   - [Landmark Tool](./5landmarks/landmarktool.md)
-  - [The Community Plugin]((./5landmarks/communityplugin.md)
+  - [The Community Plugin](./5landmarks/communityplugin.md)
   - [The Multi Layers Plugin](./5landmarks/multilayersplugin.md)
   - [The Data Layers Plugin](./5landmarks/datalayersplugin.md)
   
@@ -101,13 +101,12 @@ Layer Overlay
 - Population Analysis
 - [Two ways to explore election results](./6charts/electionresults.md)
 
-[DataTable](./6charts/datatable.md)
+[Data, Pivot and Coalition Pivot Tables](./6charts/datatable.md)
+  - Write CoalitionPivotTable into datatable.md!
   - Demographics
   - Racial Balance Table
-[Pivot Table](./6charts/pivottable.md)
-  - Coalition Pivot Table
 
-Highlight Unassigned
+[Highlighting Unassigned Units: Three Simple Functions](./higlightunassigned.md)
 
 datasetInfo 
 
