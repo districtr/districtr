@@ -63,6 +63,7 @@ export class SlideShow {
         // specified in analysis.css.
         let innerTemplate = document.createElement("div");
         innerTemplate.className = "slideshow--inner";
+        innerTemplate.id = "slideshow-area"
         this.container.append(innerTemplate);
         this.viewer = innerTemplate;
     
@@ -127,7 +128,7 @@ export class SlideShow {
     left(e) {
         this.index = (this.index-1).mod(this.slides.length);
         this.current = this.slides[this.index];
-        this.render();
+        render(this.render(null, null), document.getElementById("slideshow-area"));
     }
     
     /**
@@ -137,7 +138,7 @@ export class SlideShow {
     right(e) {
         this.index = (this.index+1).mod(this.slides.length);
         this.current = this.slides[this.index];
-        this.render();
+        render(this.render(null, null), document.getElementById("slideshow-area"));
     }
     
     /**
@@ -151,8 +152,11 @@ export class SlideShow {
     /**
      * @desc Renders the current slide to the inner template HTML entity.
      */
-    render() {
-        render(this.current.render(), this.viewer);
+    render(uiState, dispatch) {
+        return html`
+            <h2 class="slide--title">${this.current.title}</h2>
+            <div class="slide--body">${this.current.content(uiState, dispatch)}</div>
+        `;
     }
 }
 

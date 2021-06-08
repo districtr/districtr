@@ -16,6 +16,7 @@ import { interpolateRdBu } from "d3-scale-chromatic";
 import { roundToDecimal } from "../utils";
 import { districtColors } from "../colors";
 import PlanUploader from "../components/PlanUploader";
+import Analyzer from "../models/Analyzer";
 
 
 
@@ -94,7 +95,7 @@ function renderMap(container, context) {
             state.plan.assignment = context.assignment;
         state.units.map.dragPan.enable();
         state.render();
-        renderRight(new DisplayPane({ id: "analysis-right" }), context, state);
+        renderRight(new DisplayPane({ id: "analysis-right" }), context, state, mapState);
     });
 }
 
@@ -126,7 +127,7 @@ function renderLeft(pane, context) {
  * @param {Object} context Context object.
  * @returns {undefined}
  */
-function renderRight(pane, context, state) {
+function renderRight(pane, context, state, mapState) {
     let saveplan = state.serialize();
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/eval_page", {
@@ -140,23 +141,30 @@ function renderRight(pane, context, state) {
       .then((data) => {
             console.log(state);
             console.log(data);
+            if (data.error) {
+                render(html`No dual graph available for ${state.place.state} 
+                        on ${state.unitsRecord.unitType.toLowerCase()}.`, 
+                    document.getElementById('analysis-right'));
+                return;
+            }
             // Create the charts for the Slides.
             let slides = [
                 // overview (show 1st)
-                new Slide(overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
+                new Slide((uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
                 // election results slide
-                new Slide(election_slide(state), "Election Results"),
+                new Slide((uiState, dispatch) => election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
-                new Slide(compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
+                new Slide((uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
                 // TODO counties split and county splits
                 
                     /** ANTHONY'S SLIDES */
                     //new Slide(partisan(state), "Partisanship"),
                     //new Slide(cutedges(state), "Cut Edges"),
                 ],
-                s = new SlideShow(pane.pane, slides);
-
-            s.render();
+                slideshow = new SlideShow(pane.pane, slides);
+        
+            let analyzer = new Analyzer(state, mapState, slideshow);
+            analyzer.render();
         });
 }
 
