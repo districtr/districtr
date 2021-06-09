@@ -69,8 +69,10 @@ export class SlideShow {
         this.viewer = innerTemplate;
     
         // Set the starting point and the current Slide.
-        this.index = 0;
-        this.current = this.slides[this.index];
+        if (this.slides.length > 0) {
+            this.index = 0;
+            this.current = this.slides[this.index];
+        }
     
         // Create Buttons which move us to the Left and to the Right.
         this._instantiateButtons();
@@ -148,6 +150,10 @@ export class SlideShow {
      */
     addSlide(slide) {
         this.slides.push(slide);
+        if (this.slides.length == 1) {
+            this.index = 0;
+            this.current = this.slides[0];
+        }
     }
     
     /**
