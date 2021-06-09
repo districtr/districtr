@@ -16,8 +16,6 @@ and `AgeHistogramTable` in the `evaluation-plugin`.
 That `DemographicsTable` can be considered an extension of `DataTable`,
 it is a sibling of the `PivotTable`. 
 
-_Demographics Table imported but not called!_ 
-
 ## src/components/Charts/DemographicsTable.js 
 
 Since the `DemographicsTable(...)` function ultimately returns html
@@ -45,50 +43,86 @@ with `decimal` `true` or `false` setting the number of significant
 figures. If "population" is set instead, a formatted population 
 nubmer is written in each cell. 
 
-_get background color and getCellStyle are redundant! all this and
-popNumber can be collected in utils._ 
-
 ### Rendering 
 
-Each district serves as its own cell 
+`DemographicsTable` is a function that takes `subgroups`, `parts`
+and calls data `DataTable` to generate HTML to be displayed. As such,
+headers and rows must be generated for `DataTable`. The `headers` are
+labels of subgroups, e.g. "White", "Black", "Hispanic", etc. Rows
+correspond to each district, drawn or to be drawn, in the context/problem.
+Each entry is a call to `getCell`, which derives data for a given
+`subgroup` and `part`, formatted with respect to `width` and `decimals`
+option. 
 
-Takes (subgroups, parts, decimals=true)
+Finally, an `Overall` line is created representing data for the entire
+area, which we get by using `null` instead of a district as the part we
+ask `getCell` to render.
 
-decimals couls be 'population' 
-
-Makes headers, labels of subgroups, White, Black, Hispanic, etc...
-
-Rows, renderLabel of part, getCell 
-
-_decimals false true or population? unclear._
-_part !=== null can just be part ?_
-
-Adds overall row, where part is null, thus overall.
-
-_Shows even empty districts, doesnt hide in  histograms and large area._
+Also note, that function variable `width`, the width of each individual
+cell, is related to the total number of subgroups. 
 
 ## The `RacialBalanceTable`
 
+src/components/Charts/RacialBalanceTable.js
 
-One way to extend `DemographicsTable` is by using it to create a
-`Racial alance table.
+One way to extend `DemographicsTable`'s functionality is by writing functions
+that combine UI options with a demographics table. This is done in the `RacialBalanceTable`, called by the `evaluation-plugin` for the Evaluation Tab.
 
-used in evaluation-plugin 
+Whether used for Population, VAP or CVAP in their own respective Reveal Sections,
+`RacialBalanceTable`s takes...
+- a `chartID`, the displayed title,
+- a `population` object like `state.vap`,
+- `parts`, drawn districts like `state.activeParts`,
+- `chartstate`, the charts representation in the `uiState`,
+- and `dispatch`, likely `store.dispatch`
 
-Use of Select boxes, Compare up to three demographic groups
-or coalition. 
+> Per the `evaluation-plugin`, when Population is used, a new column is made
+for user selected coalitions, included in the `mockColumnSet` sent to
+`RacialBalanceTable` as the `population` parameter.
 
-actions.selectSubgroup
+The purpose of the racial balance table is to allow users to select up to 
+three demographic groups using `SelectBoxes`, a labelled series of drop-downs
+with `Parameter`s and dispatchers that modifies reducer `chartState.activeSubgroupIndicies`. 
 
-_special case for includes 2018 and includes 2019_
-
+Upon rendering, selected subgroups are collected from `chartState`, which are
+sent to a `DemographicsTable` that displays only up to three of these demographics.
 
 ## Used in AgeHistogramTable
 
-More complicated. Usually, when we have Block Groups. For instance,
-North and South Dakota.
+src/components/Charts/AgeHistogramTable.js 
 
-Or Histogram 
+The `AgeHistogramTable` is a bit more complicated and relies on the `Histogram`
+object as well as `DemographicsTable`s. Rather than racial categories, the
+subgroups here are now age ranges. Components of this type are only used when 
+there exists `state.ages` population data associated with maps that use Census
+Block Group type units in certain states like North and South Dakota. 
 
-_No overall_
+There are three ways to view age data, by Percentage, by Population and by
+Histogram. The `DemographicTable` is used if Percentage or Population is desired,
+by setting argument `decimals` as `false` or `population` respectively. If
+Histograms are desired, a `DataTable`-derived `Histogram` object is rendered. 
 
+Within this script, hard coded variable `combinedAges` are created with default
+names and census-derived keys. This array of objects are then fleshed out to "mimic"
+the `Subgroup` model by providing `sum`s and `total` objects broken down by drawn
+part. 
+
+# #
+
+### Suggestions
+
+- `DemographicsTable` imported by `data-layers-plugin` but is not called. 
+- Many table types reimplement `getBackgroundColor` and `getCellStyle` identically.
+This, along with the `popNumber` formatter can be collected in its own utils file. 
+- When used by `DemographicsTable` and its "descendents", argument `decimals` can hold three values, `true`, `false` and `"population"`. Since `decimals` is no longer a strict
+boolean, `true` and `false` should be renamed. 
+- Condition `part !=== null` is redundant, as a null `part` is equivalent to `false`.
+While `null` and `undefined` are equivalent, they are used as conditions in their own
+right elsewhere in the code. 
+- `mockColumnSet` can be written as its own helper function in `evaluation-plugin.js`. 
+- `RacialBalanceTable` hard codes a special case for 2018 and 2019 data.
+- In `SelectBoxes`, "Comapare" and "with" are contained in an Array, but "and" is a
+special case. Should they be in one array?
+- `AgeHistogramTable`, makes space all possibly districts in the editor, even if there's
+many dozens and it takes up space. This is pronounced when Histograms are used.   
+_ `AgeHistogramTable` does not create an overall area age breakdown like `RacialBalanceTable`. This may require more involved programming.
