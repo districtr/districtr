@@ -272,7 +272,7 @@ export default () => {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
             document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
-            document.getElementById("partner-link-b").style.display = "none"; 
+            document.getElementById("partner-link-b").style.display = "none";
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;
@@ -450,8 +450,9 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
                   ? html`<p>
-                    Click on any of the maps below to open it in
-                    Districtr.
+                    ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
+                      ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
+                      : "Click on any of the maps below to open it in Districtr."}
                 </p>` : null}
                 ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
