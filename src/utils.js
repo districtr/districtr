@@ -377,6 +377,10 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
     },
+    sacramento: {
+      coalition: false,
+      // divisor: 1000,
+    },
     ccsanitation: {
       // multiyear: 2018,
       shapefile: true,
