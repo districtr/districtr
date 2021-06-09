@@ -1976,6 +1976,75 @@
           },
           {
             "type": "population",
+            "name": "percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 295.60040000000004,
+               "min": 0.0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 361.18690000000004,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 196.79809999999998,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 767.4854,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 273.1738,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 398.4233,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 114.0665,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 81.15039999999999,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 73.4497,
+   "min": 0.0,
+   "max": 1
+ }
+            ]
+          },
+          {
+            "type": "population",
             "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP_total",
@@ -2067,6 +2136,14 @@
               "url": "mapbox://districtr.sacramento3_blocks"
             },
             "sourceLayer": "sacramento3_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sacdata3_blockgroups"
+            },
+            "sourceLayer": "sacdata3_blockgroups"
           }
         ]
       }

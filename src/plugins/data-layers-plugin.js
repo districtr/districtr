@@ -710,5 +710,22 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    if (state.place.id === "sacramento") {
+      const pctOverlay = new OverlayContainer(
+          "pcts",
+          state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
+          state.pcts,
+          "Additional demographics",
+          false,
+          false,
+          null,
+          true,
+      );
+      tab.addSection(() => html`<div class="option-list__item">
+                  ${pctOverlay.render()}
+          </div>`
+      );
+    }
+
     toolbar.addTab(tab);
 }
