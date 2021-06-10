@@ -148,7 +148,7 @@ function renderRight(pane, context, state, mapState) {
                     document.getElementById('analysis-right'));
                 return;
             }
-            let municipalities = false;
+            let municipalities = ['ma'].includes(state.place.id);
             // Create the charts for the Slides.
             let slides = [
                 // overview (show 1st)
@@ -598,6 +598,7 @@ function county_slide(state, data, municipalities) {
         Object.keys(data.population).map(x => 
             forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
         );
+        console.log(forced);
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     let num_split = Object.keys(data.split_list).length;
@@ -617,7 +618,7 @@ function county_slide(state, data, municipalities) {
     <div>`
     : html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
     ${data.num_counties} ${pnoun} a total of ${data.splits} times, of which 
-    ${data.splits - forced_splits} splits are forced by population.
+    ${forced_splits} splits are forced by population.
     <br/><br/>
     A split is "forced by population" if a ${noun} is too large to be contained within one district, 
     and therefore must be split. For example, if the ideal district population was 20,000, and a 
@@ -644,7 +645,6 @@ function county_slide(state, data, municipalities) {
             ]
         })
     }
-    console.log(rows);
     return html`${text}<br/>
     <h4>${noun_cap} Split Details</h4> 
     ${DataTable(headers, rows)}`
