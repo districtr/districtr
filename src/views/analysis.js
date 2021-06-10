@@ -13,7 +13,7 @@ import { getCell, getCellStyle, getCellSeatShare, parseElectionName } from "../c
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
-import { roundToDecimal } from "../utils";
+import { roundToDecimal, county_fips_to_name } from "../utils";
 import { districtColors } from "../colors";
 import PlanUploader from "../components/PlanUploader";
 import Analyzer from "../models/Analyzer";
@@ -608,7 +608,11 @@ function county_slide(state, data, municipalities) {
     ${data.num_counties} ${pnoun} a total of ${data.splits} times.
     The split ${pnoun} are:
     <ul>
-    ${Object.keys(data.split_list).map(x => html`<li>${x}</li>`)}
+    ${Object.keys(data.split_list).map(x => {
+        if (isNaN(x))
+            return html`<li>${x}</li>`
+        return html`<li>${county_fips_to_name(x, state.place.state) + " County"}</li>`
+    })}
     </ul>
     <div>`
     : html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
@@ -631,8 +635,9 @@ function county_slide(state, data, municipalities) {
     let headers = ["Splits", "Forced by Pop."],
         rows = [];
     for (let c of Object.keys(data.split_list)) {
+        let c_name = isNaN(c) ? c : (county_fips_to_name(c, state.place.state) + " County");
         rows.push({
-            label: c,
+            label: c_name,
             entries: [
                 {content: (data.split_list[c].length - 1)},
                 {content: forced[c]}
