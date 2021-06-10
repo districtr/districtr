@@ -2295,9 +2295,9 @@
     "id": "sanluiso",
     "districtingProblems": [
       {
-        "name": "City Council",
-        "numberOfParts": 8,
-        "pluralNoun": "Council Districts"
+        "name": "County Board",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
       }
     ]
   }

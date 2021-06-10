@@ -32,6 +32,7 @@ const stateForEvent = {
   'ourmapsmn': 'Minnesota',
   'micrc': 'Michigan',
   mesaaz: 'Arizona',
+  sanluiso: 'California',
   ourmapsne: 'Nebraska',
   prjusd: 'California',
   hia: 'Texas',
@@ -67,6 +68,7 @@ const validEventCodes = {
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
+  sanluiso: 'sanluiso',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
   'hia': ['texas', 'harristx', 'houston'],
@@ -121,6 +123,7 @@ const coi_events = [
   'ourmapsmn',
   'micrc',
   'mesaaz',
+  'sanluiso',
   'ourmapsne',
   'onelovemi'
 ];
@@ -178,6 +181,11 @@ const eventDescriptions = {
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the Mesa residents charged with redrawing the Mesa City Council District Map. For more information, visit <a href='https://www.mesaaz.gov/government/advisory-boards-committees/redistricting-commission' target='_blank'>Mesa’s Citizen Redistricting Commission</a>.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MesaAZ” (any capitalization) is entered.</p>",
+    sanluiso: "<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “SanLuisO” (any capitalization) is entered.</p>",
    ourmapsne: "Welcome to the event page for Nebraska!",
     prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
     <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
@@ -223,6 +231,9 @@ const longAbout = {
   mesaaz: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  sanluiso: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
   ],
@@ -262,7 +273,7 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
-        if (eventCode === "mesaaz") {
+        if (["mesaaz", "sanluiso"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
             document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
