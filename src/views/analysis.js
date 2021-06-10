@@ -141,13 +141,14 @@ function renderRight(pane, context, state, mapState) {
       .catch((e) => console.error(e))
       .then((data) => {
             console.log(state);
-            console.log(data);
+            //console.log(data);
             if (data.error) {
                 render(html`No dual graph available for ${state.place.state} 
                         on ${state.unitsRecord.unitType.toLowerCase()}.`, 
                     document.getElementById('analysis-right'));
                 return;
             }
+            let municipalities = false;
             // Create the charts for the Slides.
             let slides = [
                 // overview (show 1st)
@@ -156,12 +157,11 @@ function renderRight(pane, context, state, mapState) {
                 new Slide((uiState, dispatch) => election_slide(state), "Election Results"),
                 // compactness (cut edges, polsby popper)
                 new Slide((uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
-                // TODO counties split and county splits
-                
-                    /** ANTHONY'S SLIDES */
-                    //new Slide(partisan(state), "Partisanship"),
-                    //new Slide(cutedges(state), "Cut Edges"),
                 ];
+                (data.counties == -1) 
+                ? slides.push(new Slide((uiState, dispatch) => html`${municipalities ? html`Municipality` : html`County`} Level Data unavailable`,  
+                        html`${municipalities ? html`Municipality` : html`County`} Splits`))
+                : slides.push(new Slide((uiState, dispatch) => county_slide(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
             for (let slide of slides) {
                 slideshow.addSlide(slide);
             }
@@ -586,8 +586,45 @@ function compactness_slide(state, cut_edges, plan_scores) {
 }
 
 // County Splits slide
-function county_slide(state) {
-
+function county_slide(state, data, municipalities) {
+    console.log(data);
+    let pnoun = municipalities ? "municipalities" : "counties",
+        noun = municipalities ? "municipality" : "county";
+    let forced = {};
+    Object.keys(data.population).map(x => 
+        forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
+    );
+    let forced_splits = Object.values(forced).reduce((a,b) => a + b, 0),
+        num_split = Object.keys(data.split_list).length;
+    console.log(forced);
+    let text = html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
+    ${Object.keys(data.population).length} ${pnoun} a total of ${data.splits} times, of which 
+    ${data.splits - forced_splits} splits are forced by population.
+    <br/><br/>
+    A split is "forced by population" if a ${noun} is too large to be contained within one district, 
+    and therefore must be split. For example, if the ideal district population was 20,000, and a 
+    ${noun} had 30,000 people, there would be 1 forced split. If the ${noun} had 50,000 people, 
+    then there would be two forced splits. The total number of splits forced by population 
+    for a districting plan in a state, is the sum of the number of times each ${noun} is forced 
+    to be split. Of course, many other factors could result in a ${noun} being split.</div>`
+    
+    // build the table
+    let noun_cap = municipalities ? "Municipality" : "County";
+    let headers = ["Splits", "Forced by Pop."],
+        rows = [];
+    for (let c of Object.keys(data.split_list)) {
+        rows.push({
+            label: c,
+            entries: [
+                {content: (data.split_list[c].length - 1)},
+                {content: forced[c]}
+            ]
+        })
+    }
+    console.log(rows);
+    return html`${text}<br/>
+    <h4>${noun_cap} Split Details</h4> 
+    ${DataTable(headers, rows)}`
 }
 
 /** LOOKUP FUNCTIONS */
