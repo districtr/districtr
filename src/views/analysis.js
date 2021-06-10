@@ -606,8 +606,10 @@ function county_slide(state, data, municipalities) {
     ? html`<div style="text-align:left">
     Your plan splits ${num_split} of ${state.place.name}'s 
     ${data.num_counties} ${pnoun} a total of ${data.splits} times.
-    For information on how many of these splits are forced by population, try making a plan 
-    on precincts, if available!
+    The split ${pnoun} are:
+    <ul>
+    ${Object.keys(data.split_list).map(x => html`<li>${x}</li>`)}
+    </ul>
     <div>`
     : html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
     ${data.num_counties} ${pnoun} a total of ${data.splits} times, of which 
