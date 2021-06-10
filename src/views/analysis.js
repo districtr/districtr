@@ -605,7 +605,7 @@ function county_slide(state, data, municipalities) {
     let text = (data.population == -1) 
     ? html`<div style="text-align:left">
     Your plan splits ${num_split} of ${state.place.name}'s 
-    ${Object.keys(data.population).length} ${pnoun} a total of ${data.splits} times.
+    ${data.num_counties} ${pnoun} a total of ${data.splits} times.
     For information on how many of these splits are forced by population, try making a plan 
     on precincts, if available!
     <div>`
