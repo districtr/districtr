@@ -141,7 +141,7 @@ function renderRight(pane, context, state, mapState) {
       .catch((e) => console.error(e))
       .then((data) => {
             console.log(state);
-            //console.log(data);
+            console.log(data);
             if (data.error) {
                 render(html`No dual graph available for ${state.place.state} 
                         on ${state.unitsRecord.unitType.toLowerCase()}.`, 
@@ -590,15 +590,27 @@ function county_slide(state, data, municipalities) {
     console.log(data);
     let pnoun = municipalities ? "municipalities" : "counties",
         noun = municipalities ? "municipality" : "county";
+        
     let forced = {};
-    Object.keys(data.population).map(x => 
-        forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
-    );
-    let forced_splits = Object.values(forced).reduce((a,b) => a + b, 0),
-        num_split = Object.keys(data.split_list).length;
-    console.log(forced);
-    let text = html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
-    ${Object.keys(data.population).length} ${pnoun} a total of ${data.splits} times, of which 
+    let forced_splits = 0;
+    // need population info on the python anywhere dual graph for this
+    if (data.population != -1) {
+        Object.keys(data.population).map(x => 
+            forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
+        );
+        forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
+    }
+    let num_split = Object.keys(data.split_list).length;
+
+    let text = (data.population == -1) 
+    ? html`<div style="text-align:left">
+    Your plan splits ${num_split} of ${state.place.name}'s 
+    ${Object.keys(data.population).length} ${pnoun} a total of ${data.splits} times.
+    For information on how many of these splits are forced by population, try making a plan 
+    on precincts, if available!
+    <div>`
+    : html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
+    ${data.num_counties} ${pnoun} a total of ${data.splits} times, of which 
     ${data.splits - forced_splits} splits are forced by population.
     <br/><br/>
     A split is "forced by population" if a ${noun} is too large to be contained within one district, 
@@ -608,6 +620,10 @@ function county_slide(state, data, municipalities) {
     for a districting plan in a state, is the sum of the number of times each ${noun} is forced 
     to be split. Of course, many other factors could result in a ${noun} being split.</div>`
     
+    // if the dg on python anywhere doesn't have population
+    if (data.population == -1)
+        return text;
+
     // build the table
     let noun_cap = municipalities ? "Municipality" : "County";
     let headers = ["Splits", "Forced by Pop."],
