@@ -386,7 +386,7 @@ function overview_slide (state, contig, problems, num_tiles) {
     // missing units
     let missing = num_tiles - Object.keys(state.plan.assignment).length;
     let unassigned_section = 
-        missing == 0 
+        missing <= 0 
         ? html`No ${state.unitsRecord.unitType.toLowerCase()} are unassigned. Your plan is complete`
         : html`${missing} ${state.unitsRecord.unitType.toLowerCase()} are unassigned, accounting for 
         ${(state.population.total.sum - state.population.total.data.reduce((a,b) => a + b, 0)).toLocaleString('en')}
