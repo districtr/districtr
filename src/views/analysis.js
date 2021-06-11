@@ -506,7 +506,7 @@ function election_slide(state) {
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     let var_bias = roundToDecimal(bias_acc.map(b => Math.pow(b-avg_bias, 2)).reduce((a,b) => a + b)/bias_acc.length, 2);
     return html`
-        Your plan has an average bias of ${avg_bias} seats towards 
+        Your plan has an average bias of ${Math.abs(avg_bias)} seats towards 
         <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over
         ${bias_acc.length} ${elections.length > 1 ? html`elections, with a variance of ${var_bias}.`
         : html`election.`}
