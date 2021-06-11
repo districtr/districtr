@@ -143,8 +143,9 @@ function renderRight(pane, context, state, mapState) {
             console.log(state);
             console.log(data);
             if (data.error) {
-                render(html`No dual graph available for ${state.place.state} 
-                        on ${state.unitsRecord.unitType.toLowerCase()}.`, 
+                render(html`Analysis unavailable for ${state.place.state} 
+                        on ${state.unitsRecord.unitType.toLowerCase()}.<br/>
+                        Error text: ${data.error}.`, 
                     document.getElementById('analysis-right'));
                 return;
             }
@@ -393,7 +394,6 @@ function overview_slide (state, contig, problems, num_tiles) {
         people.`
 
     // contiguity
-
     let contig_section = 
         (problems && spatial_abilities(state.place.id).contiguity)
         ? html`<h4 id="contiguity-status">
