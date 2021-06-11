@@ -1029,6 +1029,7 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: true,
     },
     yakima_wa: {
       coalition: false,
