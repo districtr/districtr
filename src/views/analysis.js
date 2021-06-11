@@ -13,7 +13,7 @@ import { getCell, getCellStyle, getCellSeatShare, parseElectionName } from "../c
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
-import { roundToDecimal, county_fips_to_name } from "../utils";
+import { roundToDecimal, county_fips_to_name, spatial_abilities } from "../utils";
 import { districtColors } from "../colors";
 import PlanUploader from "../components/PlanUploader";
 import Analyzer from "../models/Analyzer";
@@ -393,8 +393,9 @@ function overview_slide (state, contig, problems, num_tiles) {
         people.`
 
     // contiguity
+
     let contig_section = 
-        problems 
+        (problems && spatial_abilities(state.place.id).contiguity)
         ? html`<h4 id="contiguity-status">
         ${contig ? "No contiguity gaps detected" 
             : html`The following districts have contiguity gaps:
