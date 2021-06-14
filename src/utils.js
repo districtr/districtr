@@ -381,6 +381,12 @@ export function spatial_abilities(id) {
       coalition: false,
       // divisor: 1000,
     },
+    sanluiso: {
+      coalition: false,
+      // number_markers: true,
+      // border: true,
+      // sideload: true,
+    },
     ccsanitation: {
       // multiyear: 2018,
       shapefile: true,
