@@ -2226,13 +2226,6 @@
                 "max": 1565
               },
               {
-                "key": "CVAP_15-19_AiAn",
-                "name": "American Indian population",
-                "sum": 989,
-                "min": 0,
-                "max": 109
-              },
-              {
                 "key": "CVAP_15-19_Asian",
                 "name": "Asian population",
                 "sum": 6393,
