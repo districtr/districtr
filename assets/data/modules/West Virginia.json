@@ -558,13 +558,8 @@
     "name": "West Virginia",
     "districtingProblems": [
       {
-        "name": "2020 Reapportioned Congress",
-        "numberOfParts": 2,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
         "name": "Congress",
-        "numberOfParts": 3,
+        "numberOfParts": 2,
         "pluralNoun": "Congressional Districts"
       },
       {
