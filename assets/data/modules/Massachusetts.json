@@ -1771,6 +1771,16 @@
         "numberOfParts": 9,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
+      }, 
+      {
+        "numberOfParts": 40,
+        "name": "State Senate",
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "numberOfParts": 160,
+        "name": "State House",
+        "pluralNoun": "State House Districts"
       }
     ],
     "id": "ma",
