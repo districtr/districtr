@@ -49,7 +49,9 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
                 if (checked) {
-                  state.brush.activate();
+                  if (document.getElementById("tool-brush").checked || document.getElementById("tool-eraser").checked) {
+                    state.brush.activate();
+                  }
                 } else {
                   state.brush.deactivate();
                 }
