@@ -5,6 +5,10 @@ submitted plans using event codes. An event code is usually a simple
 piece of metadata attached to plans when they're saved that allows
 them to be queried together in a database.
 
+## Navigation
+
+In general, plugin pages are navigated to using http://districtr.org/event/plugin-name
+
 ## districtr/src/views/event.js 
 
 According to `package.json`, url directed to `tag.html`, `group.html`
