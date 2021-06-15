@@ -109,3 +109,14 @@ Its headers us simply an array of the `part.name` or `part.renderLabel()` and th
 each subgroup is given a row with a `label`, the subGroup abbreviation, and
 entries for each `part`. 
 
+# Coalition Pivot Table
+
+The `CoalitionPivotTable` is another version of a `PivotTable` that is called in 
+`data-layers-plugin.js`. It reimplements much of what is in `PivotTable` with the
+added benefit of calculating district totals, but is always set when created by the
+plugin with `totalonly` set to true. This means that the user is presented a simple table that
+only shows state and coalition totals. 
+
+_What is the relationship between PivotTable and CoalitionPivotTable such that
+inheritance may occure?_
+_Totals Only set to true! It could almost be replaced by PivotTable_
