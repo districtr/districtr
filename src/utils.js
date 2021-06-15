@@ -905,6 +905,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       sideload: true,
       load_coi: false,
+      contiguity: 2
     },
     philadelphia: {
       number_markers: true,
