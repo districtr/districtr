@@ -98,14 +98,12 @@ following model.
   - [The Evaluation Plugin](./06charts/evaluationplugin.md)
 - [Population Bar Chart](./06charts/populationbarchart.md)
 - [Column-Sets and Parts](./06charts/columnsetsparts.md)
-  - [Population Analysis](./06charts/populationanalysis.md)
   - [Two ways to explore election results](./06charts/electionresults.md)
 - [Data, Pivot and Coalition Pivot Tables](./06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](./06charts/demographicstable.md)
   - [Histograms](./06charts/histogram.md)
 - [Highlighting Unassigned Units: Three Simple Functions](./06charts/higlightunassigned.md)
 - [Dataset Info](./06charts/datasetinfo.md)
-- [The IdColumn Model](./06charts/idcolumn.md)
 - [A Full Example: VRA](./06charts/vra.md)
 
 ## 7. Districtr-default State Portals
