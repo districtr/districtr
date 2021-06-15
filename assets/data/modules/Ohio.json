@@ -425,14 +425,9 @@
     ],
     "districtingProblems": [
       {
-        "name": "2020 Reapportioned Congress",
+        "name": "Congress",
         "numberOfParts": 15,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
-        "numberOfParts": 16,
-        "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "pluralNoun": "Congressional Districts"
       },
       {
         "numberOfParts": 33,
