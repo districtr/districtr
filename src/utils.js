@@ -1112,6 +1112,7 @@ export function nested(st) {
 
 // takes a state and county FIPS code and gives you the county name
 export function county_fips_to_name(fips, state) {
+  fips = fips % 1000;
   const codes = {
       ohio:
       {
