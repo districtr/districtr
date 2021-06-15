@@ -71,7 +71,7 @@ we also use `Plan` to query parameters from `event` to connect to
 a server and retrieve a plan. If all goes well, a JSON object is returned
 with a status message and the details of the plan itself. 
 
-_db not used in `planread`
+_db not used in `planread`_
 
 Finally, created plans can be updated using `planUpdate.js`. The function
 checks if the plan has a valid token, when the plan was created and when
@@ -83,35 +83,38 @@ plans results in the creation of a new plan.
 
 ## Other Plan functions
 
-- planContiguity.js
-- planPreview.js
+The original way contiguity was calculated for plans was through
+`planContiguity.js`. Through a hard-coded filter, plans were sent
+to a `https://mggg-states.subzero.cloud` function.
 
+Function `planPreview.js` is similar to `planRead.js` but provides
+a screenshot together with the full plan and the simple id. 
 
+Function `planText.js` returns a text string for community plans
+that describes community and landmark names with their descriptions. 
 
-###
+## Functions that Return Other Objects
 
-- eventRead.js
-- moduleRead.js
+To help organize plans for certain organizations and missions,
+plans have the option of being assigned a plan code. To collect
+these plans in `event.js`, `eventRead.js` is used to query
+the database for plans that share the same event code.
 
+Function `moduleRead.js` is a relatively is a new function from
+May of 2021 for use with Communities of Interest. It returns
+plans whose problem type is `community`, the event code is blank
+matches either the requested module or belongs to the requested
+state and whose units are Block Groups. 
 
+## Utility Models
 
-- planText.js
-- planUpdate.js
-- requetsedModel.js
-- sequenceModel.js
+A pair of models aassist in the completion of Netlify lambdas, by
+providing simple frameworks for common tasks. 
 
+`requestedModel.js` provides object `Requested` to hold information
+on users that request information and their desired distrct type and
+other infromation, used when people use the form to ask for new
+modules. 
 
-
-
-saveplantodb in routes
-
-netlify plan update or plan create
-
-import db from server
-import Plan from planModel
-import Sequence from sequenceModel
-
-
-
-
-
+The `Sequence` object is provided by `sequenceModel.js` and helps
+`planCreate.js` make new id numbers in an incremental fashion.
