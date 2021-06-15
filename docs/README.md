@@ -23,140 +23,132 @@ Mathematics and her dedicated [team].
 
 <img src="./pics/timeline.png" width=75%>
 
+
 ## 1. The Districtr JSON context/plan model
 Distirctr keeps track of a specific problem or assignment of a certain
 region, its districts and units used in a model described in the
 following model.
 
-- [The Plan/Model JSON](./1contextplan/plancontext.md)
-- [The State Object](./1contextplan/state.md)
+- [The Plan/Model JSON](./01contextplan/plancontext.md)
+- [The State Object](./01contextplan/state.md)
 
 ## 2. Initializing: the Editor and its Map
 
 <img src="./pics/initializesimple.png" width=75%>
 
-- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
-- [edit.js and the Editor Object](./2editormap/editor.md)
-- [The Map Object](./2editormap/map.md)
-- [Adding Layers](./2editormap/layer.md)
-- [Number Markers](./2editormap/numbermarkers.md)
 
+- [How is the Districtr Editor page loaded?](./02editormap/initialization.md)
+- [edit.js and the Editor Object](./02editormap/editor.md)
+- [The Map Object](./02editormap/map.md)
+- [Adding Layers](./02editormap/layer.md)
+- [Number Markers](./02editormap/numbermarkers.md)
+- [Layer Overlay](./02editormap/layeroverlay.md)
 
 ## 3. User Interace: Tools and Plugins 
 
 <img src="./pics/toolbarbasics.png" width=50%>
 
-[Making space for the Toolbar](./3toolsplugins/toolbar.md)
+- [Making space for the Toolbar](./03toolsplugins/toolbar.md)
+  - [Tabs and Reveal Sections](./03toolsplugins/sections.md)
+  - [A List of UI and Display Components](./03toolsplugins/uicomponents.md)
+  - [Rendering in Action: OptionsContainer](./03toolsplugins/optionscontainer.md)
+  - [The top-bar Menu](./03toolsplugins/topmenu.md)
+  - [Popups a la Modal](./03toolsplugins/modal.md)
 
-[The Tools-Plugin prevails](./3toolsplugins/toolsplugin.md)
-  - [The `Tool` Class and The `Pan` Tool](./3toolsplugins/tool.md)
-  - [Brush and Erase Tools](./3toolsplugins/BrushEraseTools.md)
-  - [Inspect Tool](./3toolsplugins/inspecttool.md)
+- [UIStateStore](./03toolsplugins/uistatestore.md)
+- [Actions and Reducers](./03toolsplugins/actionsreducers.md)
 
-[Popups a la Modal](./3toolsplugins/modal.md)
+- [The Tools-Plugin prevails](./03toolsplugins/toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](./03toolsplugins/tool.md)
+  - [Brush and Erase Tools](./03toolsplugins/BrushEraseTools.md)
+  - [Inspect Tool](./03toolsplugins/inspecttool.md)
 
-[The top-bar Menu](./3toolsplugins/topmenu.md)
-
-[Rendering in Action: OptionsContainer](./3toolsplugins/optionscontainer.md)
-
-[UIStateStore](./3toolsplugins/uistatestore.md)
-
-[Actions and Reducers](./3toolsplugins/actionsreducers.md)
-
-[A List of UI and Display Components](./3toolsplugins/uicomponents.md)
-
-[Tabs and Reveal Sections](./3toolsplugins/sections.md)
+- [Plugins!](./03toolsplugins/plugins.md)
+  - The Tools Plugin (See Above)
+  - The Data Layers Plugin (See Chapter 06)
+  - The Multi Layers Plugin (See Chapter 06)
+  - The Community Plugin (See Chapter 05)
+  - The Population Balance Plugin (See Chapter 06)
 
 ## 4. User Interaction: Drawing Districts
 
 <img src="./pics/drawingbasics.png" width=50%>
 
-[Hovering over the Map](./4drawing/brush.md)
-
-[Painting and Erasing with Brush and Community Brush](./4drawing/mapbrush.md)
-
-[Undo and Redo](./4drawing/undoredo.md)
-
-[The Tooltip Brush](./4drawing/tooltip.md)
-
-[Checking for Contiguity](./4drawing/contiguity.md)
+- [Hovering over the Map](./04drawing/hover.md)
+- [Painting and Erasing with Brush and Community Brush](./04drawing/mapbrush.md)
+- [Undo and Redo](./04drawing/undoredo.md)
+- [The Tooltip Brush](./04drawing/tooltip.md)
+- [Checking for Contiguity](./04drawing/contiguity.md)
 
 ## 5. Interesting Communities and Landmarks
 
-  - [Communities of Interests in Use](./5landmarks/coi.md)
-  - [The Landmark Class](./5landmarks/landmarkclass.md)
-  - [Landmark Tool](./5landmarks/landmarktool.md)
-  - [The Community Plugin](./5landmarks/communityplugin.md)
-  - [The Multi Layers Plugin](./5landmarks/multilayersplugin.md)
-  - [The Data Layers Plugin](./5landmarks/datalayersplugin.md)
-  
-Layer Overlay 
+- [Communities of Interests in Use](./05landmarks/coi.md)
+- [The Landmark Class](./05landmarks/landmarkclass.md)
+- [The Community Plugin](./05landmarks/communityplugin.md)
+- [The Old Landmark Tool](./05landmarks/landmarktool.md)
+- [My COI](./05landmarks/mycoi.md)
+- [Finding Places](./05landmarks/findplaces.md)
 
 ## 6. Charts and Analysis
 
-[Population Balance Plugin](./6charts/popbalanceplugin.md)
-- [Population Bar Chart](./6charts/populationbarchart.md)
-
-[Column-Sets and Parts](./6charts/columnsetsparts.md)
-- Population Analysis
-- [Two ways to explore election results](./6charts/electionresults.md)
-
-[Data, Pivot and Coalition Pivot Tables](./6charts/datatable.md)
-  - Write CoalitionPivotTable into datatable.md!
-  - Demographics
-  - Racial Balance Table
-
-[Highlighting Unassigned Units: Three Simple Functions](./higlightunassigned.md)
-
-datasetInfo 
+- Plugins for Data
+  - [The Data Layers Plugin](./06charts/datalayersplugin.md)
+  - [The Multi Layers Plugin](./06charts/multilayersplugin.md)
+  - [Population Balance Plugin](./06charts/popbalanceplugin.md)
+  - [The Evaluation Plugin](./06charts/evaluationplugin.md)
+- [Population Bar Chart](./06charts/populationbarchart.md)
+- [Column-Sets and Parts](./06charts/columnsetsparts.md)
+  - [Population Analysis](./06charts/populationanalysis.md)
+  - [Two ways to explore election results](./06charts/electionresults.md)
+- [Data, Pivot and Coalition Pivot Tables](./06charts/datatable.md)
+  - [Demographics, Racial Balance and Age Histogram Tables](./06charts/demographicstable.md)
+  - [Histograms](./06charts/histogram.md)
+- [Highlighting Unassigned Units: Three Simple Functions](./06charts/higlightunassigned.md)
+- [Dataset Info](./06charts/datasetinfo.md)
+- [The IdColumn Model](./06charts/idcolumn.md)
+- [A Full Example: VRA](./06charts/vra.md)
 
 ## 7. Districtr-default State Portals
 
 <img src="./pics/portalsbasics.png" width=75%>
 
-Index.html
 
-[Districtr State Portals](./7portals/districtrstateportals.md)
+- [The Index Landing Page](./07portals/index.md)
+- [Districtr State Portals](./07portals/districtrstateportals.md)
+- [PlaceMap](./07portals/placemap.md)
 
-[PlaceMap]
+## 8. Events and Tags
 
-[Parameter](./7portals/parameter.md)
+- [Event Tags and Pages](./08events/event.md)
 
-[Select](./7portals/select.md)
+## 9. Routes, Servers and Deployment
 
-## 8. Routes and Server Operations
+- [Routes](./09deployment/routes.md)
+- [Intro to districtr-eda](./09deployment/districtreda.md)
+- [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
+- [Headers and Redirects](./09deployment/headersredirects.md)
+- [package.json and npm](./09deployment/package.md)
+- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
 
-[Routes](./8routes/routes.md)
+## 10. Spatial Abilities and Exceptions
 
-[Intro to districtr-eda]](./8routes/districtreda.md)
+- [Spatial Abilites](./10spatialabilities/spatialabilities.md)
+- [Inventory of Place Based Exceptions](./10spatialabilities/placeexceptions.md)
 
-netlift lambda?
+## 11. Grand Suggestions
 
-## 10. Deployment and Navigation
-
-package.json
-
-`_headers`
-
-`_redirects`
-
-npm, netlify, 
-
-## 11. Spatial Abilities and Exceptions
-
-Spatial Abilities in Utils
-
-## 12. Events and Tags
-
-src/views/event.js, Toolbar.js, modal, state landing page
-
-## 13. Grand Suggestions
+- [Deprecations and Experimental Features](./11suggestions/deprecations.md)
+- [Logical Consistency](./11suggestions/logic.md)
+- [Organizing Plugins](./11suggestions/organizing.md)
+- [The Heavy Lift: Global Objects](./11suggestions/globalobjects.md)
+- [Other Notes](./11suggestions/other.md)
 
 <a name="team"></a>
+## 12. The Team
+- [The Team](./12team/theteam.md)
+- [Inventory of Contributions](./11suggestions/contributions.md)
 
-## 14. The Team
-
-## 15. Colophon
+## Colophon
 This documentation covers the state of districtr on [Tues., June 1, 2021]. 
 Further changes will be noted periodically.
 
