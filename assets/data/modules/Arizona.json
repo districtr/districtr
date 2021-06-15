@@ -1650,11 +1650,6 @@
         "pluralNoun": "Congressional Districts"
       },
       {
-        "name": "Congress",
-        "numberOfParts": 10,
-        "pluralNoun": "Congressional Districts"
-      },
-      {
         "name": "State Legislature",
         "numberOfParts": 30,
         "pluralNoun": "Legislative Districts"
