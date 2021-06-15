@@ -74,7 +74,8 @@ export function TooltipContent(
     nameColumn,
     pluralNoun,
     parts,
-    columnSetIndex
+    columnSetIndex,
+    divisor
 ) {
     // console.log(features);
     // console.log(columnSet);
@@ -120,6 +121,8 @@ export function TooltipContent(
                 ...columnSet,
             };
         }
+    } else if (divisor) {
+        values = values.map(v => v / divisor);
     }
 
 

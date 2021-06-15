@@ -29,7 +29,7 @@ class DistrictingPlan {
         this.parts = getParts(problem);
         if (parts) {
             for (let i = 0; i < parts.length; i++) {
-                this.parts[i].updateDescription(parts[i]);
+                this.parts.find(p => p.displayNumber === parts[i].displayNumber).updateDescription(parts[i]);
             }
         }
         if (problem.type === "multimember" || problem.type === "community") {
@@ -150,7 +150,7 @@ export default class State {
         this.map = map;
     }
     update(feature, part) {
-        this.columnSets.forEach(columnSet => columnSet.update(feature, part));
+        this.columnSets.forEach(columnSet => columnSet.update(feature, part, this.divisor));
         this.plan.update(feature, part);
     }
     get parts() {

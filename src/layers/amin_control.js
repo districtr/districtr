@@ -65,6 +65,7 @@ export function addAmerIndianLayer(tab, state) {
         .then((geojson) => {
 
         let knownNames = new Set(), r, g, b;
+        shadeNames.splice(1);
         geojson.features.forEach((space, index) => {
             if (index % 20 === 0) {
                 r = 50,

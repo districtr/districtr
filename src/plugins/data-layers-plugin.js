@@ -24,6 +24,17 @@ export default function DataLayersPlugin(editor) {
 
     const demoLayers = state.layers;
 
+    // uploading a float is expensive so sometimes we x1000 to round to nearest 1000
+    if (spatial_abilities(state.place.id).divisor) {
+      state.divisor = spatial_abilities(state.place.id).divisor;
+      if (state.population) {
+        state.population.columns.forEach(sg => sg.divisor = state.divisor);
+      }
+      if (state.cvap) {
+        state.cvap.columns.forEach(sg => sg.divisor = state.divisor);
+      }
+    }
+
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "My Painted Districts";
     const districtMessage =
@@ -38,7 +49,9 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
                 if (checked) {
-                  state.brush.activate();
+                  if (document.getElementById("tool-brush").checked || document.getElementById("tool-eraser").checked) {
+                    state.brush.activate();
+                  }
                 } else {
                   state.brush.deactivate();
                 }
@@ -655,10 +668,9 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            html`"Socioeconomic data" + ${spatial_abilities(state.place.id).multiyear
-              ? spatial_abilities(state.place.id).multiyear
-              : ""}
-            )`,
+            html`Socioeconomic data ${spatial_abilities(state.place.id).multiyear
+              ? `(${spatial_abilities(state.place.id).multiyear})`
+              : ""}`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
               ${state.rent ?
@@ -698,6 +710,23 @@ export default function DataLayersPlugin(editor) {
                     ${partisanOverlays.render()}
             </div>`
         );
+    }
+
+    if (state.place.id === "sacramento") {
+      const pctOverlay = new OverlayContainer(
+          "pcts",
+          state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
+          state.pcts,
+          "Additional demographics",
+          false,
+          false,
+          null,
+          true,
+      );
+      tab.addSection(() => html`<div class="option-list__item">
+                  ${pctOverlay.render()}
+          </div>`
+      );
     }
 
     toolbar.addTab(tab);

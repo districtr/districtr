@@ -119,8 +119,9 @@ export default class PartisanOverlayContainer {
             return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`
         });
         return html`
-            ${Parameter(
-                this.bipolarText ? null : {
+            ${this.bipolarText
+                ? null 
+                : Parameter({
                     label: "Election:",
                     element: Select(
                         this.elections,

@@ -39,7 +39,7 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["alaska"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["alaska", "alaska_blocks"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -204,7 +204,7 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
+      {"name": "Counties", "ids": ["lax", "sacramento"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
@@ -2942,9 +2942,10 @@
   {
     "state": "VRA - Dashboard",
     "code": "VRA",
-    "states": ["Louisiana", "Texas"],
+    "states": ["Louisiana", "Texas", "Massachusetts"],
     "modules": [
       {"name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la"},
+      {"name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts"},
       {"name": "Texas", "ids": ["tx_vra"], "id": "tx"}],
     "sections": [
       {
@@ -2966,6 +2967,15 @@
         "type": "text",
         "pages": ["la"],
         "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Massachusetts: VRA effectiveness precomputation",
+        "nav": "Precomputation  (MA)",
+        "type": "text",
+        "pages": ["massachusetts"],
+        "content_source": "/assets/about/vra/precomputation_mass.html" ,
         "subsections": [
         ]
       },
@@ -2999,6 +3009,33 @@
               },
               {
                 "id": "la-state-house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Explore the enacted plans",
+        "nav": "Examples (MA)",
+        "type": "plans",
+        "ref": "vra",
+        "pages": ["massachusetts"],
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans in Massachusetts",
+            "plans": [
+              {
+                "id": "ma-congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "ma-state-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "ma-state-house",
                 "name": "State House Plan"
               }
             ]
