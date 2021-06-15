@@ -1094,13 +1094,8 @@
     "state": "California",
     "districtingProblems": [
       {
-        "name": "2020 Reapportioned Congress",
-        "numberOfParts": 52,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
         "name": "Congress",
-        "numberOfParts": 53,
+        "numberOfParts": 52,
         "pluralNoun": "Congressional Districts"
       },
       {
