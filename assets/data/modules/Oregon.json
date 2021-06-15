@@ -914,14 +914,9 @@
     "state": "Oregon",
     "districtingProblems": [
       {
-        "name": "2020 Reapportioned Congress",
-        "numberOfParts": 6,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
         "name": "Congress",
-        "pluralNoun": "Congressional Districts",
-        "numberOfParts": 5
+        "numberOfParts": 6,
+        "pluralNoun": "Congressional Districts"
       },
       {
         "name": "State Senate",
