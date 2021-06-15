@@ -2,6 +2,162 @@
   {
     "units": [
       {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 672591,
+              "min": 16,
+              "max": 14301
+            },
+            "subgroups": [
+              {
+                "key": "WPOP",
+                "name": "White population",
+                "sum": 583690,
+                "min": 15,
+                "max": 12968
+              },
+              {
+                "key": "BPOP",
+                "name": "Black population",
+                "sum": 18329,
+                "min": 0,
+                "max": 1059
+              },
+              {
+                "key": "ASIANPOP",
+                "name": "Asian population",
+                "sum": 9509,
+                "min": 0,
+                "max": 689
+              },
+              {
+                "key": "AMINPOP",
+                "name": "American Indian population",
+                "sum": 36998,
+                "min": 0,
+                "max": 5892
+              },
+              {
+                "key": "NHPIPOP",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 788,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "2MOREPOP",
+                "name": "Two or more races",
+                "sum": 16890,
+                "min": 0,
+                "max": 900
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Voting age population",
+              "sum": 507710,
+              "min": 12,
+              "max": 10968
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White voting age population",
+                "sum": 450956,
+                "min": 11,
+                "max": 9700
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black voting age population",
+                "sum": 9073,
+                "min": 0,
+                "max": 509
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic voting age population",
+                "sum": 13629,
+                "min": 0,
+                "max": 646
+              },
+              {
+                "key": "AMINCVAP",
+                "name": "Native American voting age population",
+                "sum": 22780,
+                "min": 0,
+                "max": 3884
+              },
+              {
+                "key": "NHPICVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 569,
+                "min": 0,
+                "max": 105
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian voting age population",
+                "sum": 3150,
+                "min": 0,
+                "max": 140
+              },
+              {
+                "key": "2MORECVAP",
+                "name": "Two or more races voting age population",
+                "sum": 7752,
+                "min": 0,
+                "max": 327
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -104.049,
+            45.9351
+          ],
+          [
+            -96.5544,
+            49.0006
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.northdakota_precincts_points"
+            },
+            "sourceLayer": "northdakota_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.northdakota_precincts"
+            },
+            "sourceLayer": "northdakota_precincts"
+          }
+        ]
+      },
+      {
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
