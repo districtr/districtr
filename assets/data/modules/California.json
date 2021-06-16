@@ -1976,7 +1976,7 @@
           },
           {
             "type": "population",
-            "name": "percentages",
+            "name": "Percentages",
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
