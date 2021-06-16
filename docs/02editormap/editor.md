@@ -124,6 +124,26 @@ The Editor object assigns itself to each of the plugins and the render
 function calls on its own Toolbar to render. The editor's render
 function is subscribed to (waits for) this.store and this.state.
 
+
+# IDColumn Class
+
+Only in State.js
+
+```
+export default class IdColumn {
+    constructor({ key, name }) {
+        this.key = key;
+        this.name = name;
+    }
+    getValue(feature) {
+        if (feature.properties === undefined) {
+            return undefined;
+        }
+        return feature.properties[this.key];
+    }
+}
+```
+
 ### Observations
 
 - Similar to the MapState and Toolbar objects, only one Editor is
