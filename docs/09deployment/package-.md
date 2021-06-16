@@ -1,167 +1,161 @@
 # package.json
 
-Package.json is for npm
+Building and deploying districtr.org requires Node Package Manager to
+external javascript libraries that the webapp depends on. In this way,
+districtr becomes its own javascript package. Typical `pacakage.json`s
+include a `name`, `version`, `description`, `repository` location, 
+`keywords`, `author`, `license`, list of `bugs` location and `homepage`.
 
-"scripts
-The "scripts" property is a dictionary containing script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point."
+Of vital importance are `dependencies`, required to run the package,
+`devDependencies`, used internally as a test and documentation framework,
+and `scripts` commands used to built, develop and start the app.
+
+## Dependencies
+
+According to npm, "Dependencies are specified in a simple object that maps
+a package name to a version range." These dependencies are meant for run-time
+operation, whereas test and documentation packages are listed in
+`devDependencies`.
+
+The following dependencies are used directly in districtr code.
+
+### The Site Framework
+
+The most vital packages districtr is built upon is as follows.
+- `"lit-html": "^1.1.2"`, our templating scheme for html
+- `"mapbox-gl": "^2.2.0"`, the library for vector maps with which we display and use for editing
+- `"netlify-lambda": "^1.6.3"`, the utility we use to write netlify functions.
+        
+### Babel and Rollup
+
+We use Babel to create a website that works for browsers with
+older versions of javascript. We then use rollup to combine this
+code into a single package. Caniuse-lite also helps us determine
+whether certain web elements are compatible with certain browsers.
+
+"@babel/plugin-transform-runtime": "^7.8.3",
+"@babel/runtime": "^7.8.3",
+"@rollup/plugin-json": "^4.1.0",
+"caniuse-lite": "^1.0.30001165",
+
+_not used caniuse-lite?_
+
+### Other Utilities
+
+D3 is a javascript library that helps us visualize and interact
+with data. We use it to help with colors, transitions and for
+plotting the vector `PlaceMap`. Towards that end, we use
+the geo-albers package to help us plot using the proper
+projection.
+ 
+- `"d3-geo": "^2.0.1",`
+- `"d3-scale-chromatic": "^1.5.0",`
+- `"d3-selection": "^1.4.0",`
+- `"d3-transition": "^1.2.0",`
+- `"geo-albers-usa-territories": "0.0.2"`
+
+Finally, we use...
+
+- `"encoding": "^0.1.12"` to help us with String formats and
+- `"hotkeys-js": "^3.7.6"` to read keystroke input. 
+        
+_encoding not used?_
+
+## devDependencies
+
+Development dependencies are packages that are used for local development and not distribution,
+like those related to testing and documentation. Gulp helps us automate tasks like compilation and
+npm run all helps us run npm scripts. 
+
+- `"gulp": "^4.0.2",
+- `"gulp-dart-sass": "^0.9.1",
+- `"npm-run-all": "^4.1.5"`
+
+The following also helps us load modules and environment variables easily. 
+
+- `"dotenv": "^8.1.0"`
+- `"esm": "^3.2.25"`
+- `"node-fetch": "^2.6.1"`
+
+### Backwards Compatibility
+
+Again, to ensure that our code works with older browsers, we use the Babel compiler
+while using rollup to compile this code into a bundle. Browsersync also helps us
+work with different browsers.
+
+- `"@babel/core": "^7.6.2"`
+- `"@babel/preset-env": "^7.6.2"`
+- `"@babel/register": "^7.6.2"`
+- `"@rollup/plugin-babel": "^5.0.2"`
+- `"@rollup/plugin-commonjs": "^12.0.0"`
+- `"@rollup/plugin-node-resolve": "^8.0.0"`
+- `"rollup": "^2.10.9"`
+- `"rollup-plugin-terser": "^6.1.0"`
+- `"babel-polyfill": "^6.26.0"`
+- `"browser-sync": "^2.26.14"`
+           
+### Testing           
+
+We use various tools to test our script. Chai is an assertion library that works with
+Mocha, which performs browser tests. Karma helps us test modules quickly without bundling
+and eslint helps us find patterns in our code to help us script more efficiently. Sinon
+is another way to test javascript tidbits.
+
+- `"mocha": "^6.2.0",
+- `"mocha-junit-reporter": "^1.23.1",
+- `"chai": "^4.2.0",
+- `"@open-wc/karma-esm": "^2.10.6"`
+- `"@open-wc/testing": "^2.3.4"`
+- `"@open-wc/testing-karma": "^4.0.9"`
+- `"@open-wc/testing-karma-bs": "^1.3.90"`
+- `"karma-firefox-launcher": "^1.2.0"`
+- `"sinon": "^7.5.0"`
 
 
+### Working Website
 
-{
-    "name": "districtr",
-    "version": "0.0.1",
-    "description": "A tool for drawing districting plans",
-    "scripts": {
-        "test": "node validate.js && karma start --coverage",
-        "build": "npm run build:aliases && npm run build:lambda && npm run build:app",
-        "build:aliases": "cp html/edit.html html/COI.html && cp html/edit.html html/plan.html && cp html/event.html html/tag.html && cp html/event.html html/group.html",
-        "build:app": "gulp build",
-        "build:lambda": "netlify-lambda build src/lambda",
-        "develop": "gulp develop",
-        "lint": "eslint src",
-        "start": "run-p start:**",
-        "start:app": "gulp develop",
-        "start:lambda": "netlify-lambda serve src/lambda",
-        "test:watch": "karma start --auto-watch=true --single-run=false",
-        "test-ci": "node validate.js && karma start --single-run --browsers Firefox",
-        "validate": "node validate.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/districtr/districtr.git"
-    },
-    "keywords": [
-        "gis",
-        "voting-rights",
-        "redistricting"
-    ],
-    "author": "Metric Geometry and Gerrymandering Group",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/districtr/districtr/issues"
-    },
-    "homepage": "https://github.com/districtr/districtr#readme",
+MongoDB is the way we store written plans in a database and Mongoose allows us to
+interact with the database asynchronously. Sass helps us write css code.
 
-devDependencies
-If someone is planning on downloading and using your module in their program, then they probably don't want or need to download and build the external test or documentation framework that you use.
+- `"mongodb-client-encryption": "^1.2.3"`
+- `"mongoose": "^5.12.7"`
+- `"sass": "^1.22.12"`
 
-In this case, it's best to map these additional items in a devDependencies object.
+## Scripts 
 
+According to npm, the "'scripts' property is a dictionary containing script commands
+that are run at various times in the lifecycle of your package. The key is the lifecycle
+event, and the value is the command to run at that point." THat means, we can use the
+following within the npm framework to build, test and start our website. 
 
+### Building and Deploying
 
-    "devDependencies": {
-        // Backwards Compatibility
-        "@babel/core": "^7.6.2",
-        "@babel/preset-env": "^7.6.2",
-        "@babel/register": "^7.6.2",
+Creating a local test server for districtr requires the following commands. Using
+gulp, we build the app. Netlify lambda functions are collected and aliases help
+direct certain html addresses to other html files. Develop turns on the local
+development server. 
 
-        // "Karma plugin for testing with real es modules without any bundling."
-        "@open-wc/karma-esm": "^2.10.6",
-        "@open-wc/testing": "^2.3.4",
-        "@open-wc/testing-karma": "^4.0.9",
-        "@open-wc/testing-karma-bs": "^1.3.90",
+- `"build": "npm run build:aliases && npm run build:lambda && npm run build:app"`
+- `"build:aliases": "cp html/edit.html html/COI.html &&...`
+- `"build:app": "gulp build"`
+- `"build:lambda": "netlify-lambda build src/lambda"`
+- `"develop": "gulp develop"`
 
-        Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application
+Start similarly develops and starts the app. 
 
-        "@rollup/plugin-babel": "^5.0.2",
-        "@rollup/plugin-commonjs": "^12.0.0",
-        "@rollup/plugin-node-resolve": "^8.0.0",
+- `"start": "run-p start:**"`
+- `"start:app": "gulp develop"`
+- `"start:lambda": "netlify-lambda serve src/lambda"`
 
-        Provides polyfills necessary for a full ES2015+ environment
-        "babel-polyfill": "^6.26.0",
+### Testing 
 
-        eep multiple browsers & devices in sync when building websites.
-        "browser-sync": "^2.26.14",
+Local testing requires validation and Karma takes care of the rest.
 
-        Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
-        "chai": "^4.2.0",
+- `"validate": "node validate.js"`
+- `"test": "node validate.js && karma start --coverage"`
+- `"test:watch": "karma start --auto-watch=true --single-run=false"`
+- `"test-ci": "node validate.js && karma start --single-run --browsers Firefox"`
 
-        Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
-        "dotenv": "^8.1.0",
+Lint helps us refactor the code. 
 
-        ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-        "eslint": "^6.4.0",
-
-        The brilliantly simple, babel-less, bundle-less ECMAScript module loader.
-
-esm is the world’s most advanced ECMAScript module loader. This fast, production ready, zero dependency loader is all you need to support ECMAScript modules in Node 6+.
-        "esm": "^3.2.25",
-
-        Automation - gulp is a toolkit that helps you automate painful or time-consuming tasks in your development workflow.
-        "gulp": "^4.0.2",
-        "gulp-dart-sass": "^0.9.1",
-
-        The main goal for Karma is to bring a productive testing environment to developer
-        "karma-firefox-launcher": "^1.2.0",
-
-        Simple, flexible, fun JavaScript test framework for Node.js & The Browser ☕️
-        "mocha": "^6.2.0",
-        "mocha-junit-reporter": "^1.23.1",
-
-        MongoDB: The most popular database for modern apps
-        "mongodb-client-encryption": "^1.2.3",
-
-        Mongoose. Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.
-        "mongoose": "^5.12.7",
-
-        A light-weight module that brings window.fetch to Node.js
-        The Fetch API provides an interface for fetching resources (including across the network). It will seem familiar to anyone who has used XMLHttpRequest, but the new API provides a more powerful and flexible feature set.
-        "node-fetch": "^2.6.1",
-
-        A CLI tool to run multiple npm-scripts in parallel or sequential.
-        "npm-run-all": "^4.1.5",
-
-        ---
-        "rollup": "^2.10.9",
-        "rollup-plugin-terser": "^6.1.0",
-
-        Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
-        "sass": "^1.22.12",
-
-Standalone and test framework agnostic JavaScript test spies, stubs and mocks
-        "sinon": "^7.5.0",
-
-webpack-merge provides a merge function that concatenates arrays and merges objects creating a new object. 
-        "webpack-merge": "^4.2.2"
-    },
-
-Dependencies are specified in a simple object that maps a package name to a version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL.
-
-Please do not put test harnesses or transpilers or other "development" time tools in your dependencies object. See devDependencies, below.
-
-    "dependencies": {
-        "@babel/plugin-transform-runtime": "^7.8.3",
-        "@babel/runtime": "^7.8.3",
-        "@rollup/plugin-json": "^4.1.0",
-
-        A javascript filter for badwords
-        "bad-words": "^3.0.4",
-
-        CanIUse is an extremely useful tool for quickly visualizing which frontend technologies are compatible with which browsers.
-        "caniuse-lite": "^1.0.30001165",
-
-        d3 
-        "d3-geo": "^2.0.1",
-        "d3-scale-chromatic": "^1.5.0",
-        "d3-selection": "^1.4.0",
-        "d3-transition": "^1.2.0",
-
-        encoding is a simple wrapper around iconv-lite to convert strings from one encoding to another.
-        "encoding": "^0.1.12",
-
-        A map projection including all US overseas territories.
-        "geo-albers-usa-territories": "0.0.2",
-
-        HotKeys.js is an input capture library
-        "hotkeys-js": "^3.7.6",
-
-        Efficient, Expressive, Extensible HTML templates in JavaScript
-        "lit-html": "^1.1.2",
-
-        Mapbox GL JS is a JavaScript library for interactive, customizable vector maps on the web.
-        "mapbox-gl": "^2.2.0",
-
-        This is an optional tool that helps with building or locally developing Netlify Functions with a simple webpack/babel build step
-        "netlify-lambda": "^1.6.3"
-    }
-}
+- `"lint": "eslint src"`
