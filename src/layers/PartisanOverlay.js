@@ -2,13 +2,13 @@ import Overlay from "./Overlay";
 import { voteShareRule } from "./color-rules";
 
 export default class PartisanOverlay {
-    constructor(layers, election) {
+    constructor(layers, election, countyFilter) {
         // Overlays are identified by party.key
         // console.log(election.parties.length);
         this._overlays = election.parties.reduce(
             (overlays, party) => ({
                 ...overlays,
-                [party.key]: new Overlay(layers, party, voteShareRule(election.parties.length))
+                [party.key]: new Overlay(layers, party, voteShareRule(election.parties.length, countyFilter))
             }),
             {}
         );
@@ -20,7 +20,7 @@ export default class PartisanOverlay {
             this._altover = election.alternate.parties.reduce(
                 (overlays, party) => ({
                     ...overlays,
-                    [party.key]: new Overlay(layers, party, voteShareRule(election.parties.length))
+                    [party.key]: new Overlay(layers, party, voteShareRule(election.parties.length, countyFilter))
                 }),
                 {}
             );

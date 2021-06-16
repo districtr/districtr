@@ -9,12 +9,12 @@ import { getCell } from "../components/Charts/PartisanSummary"
 
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections, toolbar, bipolarText) {
+    constructor(id, layers, elections, toolbar, bipolarText, countyFilter) {
         this._id = id;
         this.elections = elections;
         this.layers = layers;
         this.electionOverlays = elections.map(
-            election => new PartisanOverlay(layers, election)
+            election => new PartisanOverlay(layers, election, countyFilter)
         );
         this._currentElectionIndex = 0;
         this._inspection = toolbar.toolsById.inspect;

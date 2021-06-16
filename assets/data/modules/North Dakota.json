@@ -859,5 +859,323 @@
         "pluralNoun": "State Legislative Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6660,
+              "min": 0,
+              "max": 348
+            },
+            "subgroups": [
+              {
+                "key": "WPOP",
+                "name": "White population",
+                "sum": 2788,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "BPOP",
+                "name": "Black population",
+                "sum": 2,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "ASIANPOP",
+                "name": "Asian population",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "AMINPOP",
+                "name": "American Indian population",
+                "sum": 3601,
+                "min": 0,
+                "max": 337
+              },
+              {
+                "key": "NHPIPOP",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "2MOREPOP",
+                "name": "Two or more races",
+                "sum": 244,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Voting age population",
+              "sum": 4354,
+              "min": 0,
+              "max": 213
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White voting age population",
+                "sum": 2316,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black voting age population",
+                "sum": 7,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic voting age population",
+                "sum": 34,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "AMINCVAP",
+                "name": "Native American voting age population",
+                "sum": 1868,
+                "min": 0,
+                "max": 164
+              },
+              {
+                "key": "NHPICVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian voting age population",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "2MORECVAP",
+                "name": "Two or more races voting age population",
+                "sum": 134,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US Senate",
+            "subgroups": [
+              {
+                "key": "G18USSRCRA",
+                "name": "Republican",
+                "sum": 179719,
+                "min": 3,
+                "max": 4636
+              },
+              {
+                "key": "G18USSDHEI",
+                "name": "Democratic",
+                "sum": 144376,
+                "min": 1,
+                "max": 2718
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "G18HALRARM",
+                "name": "Republican",
+                "sum": 193568,
+                "min": 5,
+                "max": 5138
+              },
+              {
+                "key": "G18HALDSCH",
+                "name": "Democratic",
+                "sum": 114376,
+                "min": 1,
+                "max": 2299
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "G18ATGRSTE",
+                "name": "Republican",
+                "sum": 215633,
+                "min": 4,
+                "max": 5060
+              },
+              {
+                "key": "G18ATGDTHO",
+                "name": "Democratic",
+                "sum": 102868,
+                "min": 1,
+                "max": 2111
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "G16PRERTRU",
+                "name": "Republican",
+                "sum": 216793,
+                "min": 4,
+                "max": 5059
+              },
+              {
+                "key": "G16PREDCLI",
+                "name": "Democratic",
+                "sum": 93757,
+                "min": 0,
+                "max": 2026
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US Senate",
+            "subgroups": [
+              {
+                "key": "G16USSRHOE",
+                "name": "Republican",
+                "sum": 268787,
+                "min": 6,
+                "max": 5618
+              },
+              {
+                "key": "G16USSDGLA",
+                "name": "Democratic",
+                "sum": 58115,
+                "min": 0,
+                "max": 1389
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "G16HALRCRA",
+                "name": "Republican",
+                "sum": 233979,
+                "min": 3,
+                "max": 5256
+              },
+              {
+                "key": "G16HALDIRO",
+                "name": "Democratic",
+                "sum": 80376,
+                "min": 0,
+                "max": 1789
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor",
+            "subgroups": [
+              {
+                "key": "G16GOVRBUR",
+                "name": "Republican",
+                "sum": 259863,
+                "min": 5,
+                "max": 5424
+              },
+              {
+                "key": "G16GOVDNEL",
+                "name": "Democratic",
+                "sum": 65854,
+                "min": 0,
+                "max": 1407
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -99.8482,
+            47.8462
+          ],
+          [
+            -98.5255,
+            48.3713
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nd_benson_blocks_points"
+            },
+            "sourceLayer": "nd_benson_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nd_benson_blocks"
+            },
+            "sourceLayer": "nd_benson_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.northdakota_precincts"
+            },
+            "sourceLayer": "northdakota_precincts"
+          }
+        ]
+      }
+    ],
+    "state": "North Dakota",
+    "id": "nd_benson",
+    "name": "Benson County",
+    "districtingProblems": [
+      {
+        "name": "Commission",
+        "numberOfParts": 5,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
   }
 ]

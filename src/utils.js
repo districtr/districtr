@@ -832,6 +832,13 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
     },
+      nd_benson: {
+        native_american: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38005"],
+            ["<", ["get", "GEOID20"], "38006"]
+          ],
+      },
     ohio: {
       number_markers: true,
       county_brush: true,

@@ -711,11 +711,16 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
+        let partisanLayers = (state.place.id === "nd_benson")
+          ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
+          : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
-            demoLayers,
+            partisanLayers,
             state.elections,
-            toolbar
+            toolbar,
+            null, // bipolar / rent text
+            spatial_abilities(state.place.id).county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">
