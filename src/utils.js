@@ -834,6 +834,8 @@ export function spatial_abilities(id) {
     },
       nd_benson: {
         native_american: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38005"],
             ["<", ["get", "GEOID20"], "38006"]
