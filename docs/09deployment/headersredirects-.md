@@ -1,66 +1,61 @@
 # Deploy Folder
 
+Under the Deploy Folder, there are a pair of files, `_headers`
+and `_redirects`, which helps us deploy districtr through Netlify
+just the way we like. These files were first written on Mon., Jul.
+22, 2019 by [@maxhully]. 
 
-Jul 22, 2019
+## Headers
 
-Headers
+The header file is a simple list of folders whose files are given
+the custom response header `Access-Control-Allow-Origin`, which allows
+the response to be shared with code of any origin. 
 
-Access-Control-Allow-Origin: *
-/assets/data/*
-/assets/plans/*
-/es6/embedded.js*
-/es5/embedded.js
-/css/*
+- `/assets/data/*`
+- `/assets/plans/*`
+- `/es6/embedded.js*`
+- `/es5/embedded.js`
+- `/css/*`
 
-Redirects
+## Redirects
 
-Netlify Redirects!
+The redirects file is essentially a long list of aliases that help
+certain urls navigate to the correct html file. They come in various
+parts. All are set to return an HTTP 200 OK response.
 
-/edit/* /edit.html 200
-/plan/* /plan.html 200
-/Plan/* /plan.html 200
-/coi/* /COI.html 200
-/COI/* /COI.html 200
-/edit/* /edit.html 200
-/event/* /event.html 200
-/tag/* /tag.html 200
-/group/* /group.html 200
-/user_guide /guide
+### Cleaning up simple files
+
+One category directs folder urls to htmls, e.g. `/edit/*` to `edit.html`. 
+This is true for `/edit/*`, `/plan/*` , `/coi/*`, `/edit/*`, `/event/*`,
+`/tag/*`, and `/group/*`, `/new/*` and `/community/*` (with `/communities/*`). Separately, `/user_guide` redirects to `/guide`. 
+
+> Remember, according to package.json, `COI.html` and `plan.html` are aliases
+for `edit.html`. Both `tag.html` and `group.html` are aliases for `event.html`.
 
 ## Landing Pages
-/alabama/*          /alabama.html 200
-/alaska/*           /alaska.html 200
 
-/new/al/*          /alabama
-/new/ak/*           /alaska
-/new/az/*          /arizona
+Various url formats for state landing pages are sent to their corresponding
+state html pages. For instance, each of the following urls are sent to
+`alabama.html`. 
 
-/new/AL/*          /alabama
-/new/AK/*           /alaska
-/new/AZ/*          /arizona
-/new/AR/*         /arkansas
-/new/CA/*       /california
+- `/alabama/*`
+- `/new/al/*`
+- `/new/AL/*`
 
-/community/al/*          /alabama?mode=coi
-/community/ak/*           /alaska?mode=coi
-/community/az/*          /arizona?mode=coi
-/community/ar/*         /arkansas?mode=coi
+URL type `/community/al/*` directs to `/alabama?mode=coi` which informs
+`alabama.html` through `StateLandingPages.js` to display community of
+interest options.
 
-/community/AL/*          /alabama?mode=coi
-/community/AK/*           /alaska?mode=coi
-/community/AZ/*          /arizona?mode=coi
+## Various Portals
 
-/new/:state/*       /:state
-/community/:state/*       /:state?mode=coi
+We can also pass stored plans to `edit.html`/`edit.js` through the URL.
+For instance, varieties of `/lowell-districts` and `/plans/lowell-districts`
+are sent to `/edit?url=/assets/plans/lowell-districts.json#plan`. 
 
-/new/* /new.html
-/community/* /community.html
-/communities/* /community.html
+# Typos
 
-## Plan Redirects
-/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
+Finally, the following are set to be redirected.
 
-# last failed typos
-/new/*        /new
-/community/*  /community
-/*            /
+- `/new/*` to `/new`
+- `/community/*` to `/community`
+- `/*`  to `/`
