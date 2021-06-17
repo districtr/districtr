@@ -1,11 +1,10 @@
-# addMYCOI
+# My COI
 
-From datalayers tab
+File `my_coi.js` creates a special set of layers which the
+`data-layers-plugin` loads for states with the `load_coi` 
+permission in `spatial_abilities`.
 
-export function addMyCOI (state, tab)
+Within `utils.js`, this appears never to be set true and is
+only set false for states CO, CT, IN, LA, MD, MO, NE, PA and VA.
 
-tab "View Contributed COIs"
-
-if enabled by load_coi
-
-False for co, ct, in, la, md, mo, ne, pa, va
+_deprecated!_
