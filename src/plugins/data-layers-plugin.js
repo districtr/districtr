@@ -621,7 +621,7 @@ export default function DataLayersPlugin(editor) {
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition citizen voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);

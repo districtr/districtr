@@ -375,7 +375,11 @@ export default () => {
           });
         }
 
-        document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+        if (hybrid_events.includes(eventCode)) {
+          document.getElementById("draw-goal").innerText = 'drawing';
+        } else {
+          document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+        }
 
         const target = document.getElementById("districting-options");
         if (typeof validEventCodes[eventCode] === 'string') {
