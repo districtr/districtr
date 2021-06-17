@@ -19,16 +19,40 @@ which collects features from `/assets/simple_states.json`  and are sent to `Feat
 
 ## `Features(features, onHover, selectedId)`
 
-Many for local communities, no more. Also category for available, no more.
+Unique among distrctr, the `Features(...)` function returns an svg object with
+links and listners rather than an html object. When we once used `selectedId`,
+the map would be transform around the selected feature, but this is no more.
+A hover callback function `noHover(...)` is applied to the entire svg group
+for `mouseLeave` events. 
 
-One by one each feature, using geoAlbersUsaTerritories path
+### Fetch Features
 
-DC gets annotation and altpath
+Typically, the features plotted by `Features` is provided by the function
+`fetchFeatures(...)` whose task is to read the features kept in
+`assets/simple_states.json`.
 
-PR gets alt path
+> Originally, features were filtered here depending
+on availability and whether we were in community mode, but this is mostly
+deprecated. 
 
-Colored thanks to css state-available on hover
+Back in the `Features` function, a path is generated with the following propeties...
+- `class`, provided by function `featureClasses(...)`
+- `stroke`,`stroke-width` and `stroke-linecap`, hard coded values for a black line
+- `style`, usually set to `"cursor:default"`
+- `d`, the actual point coordinates of the borders of a state. This is generated
+by submitting the feature to a `geoPath(...)` helper function that generate
+points based on map projection, scale and translation. We adopt this form from the
+D3 javascript library.
+- the applicaion of the `onHover(feature)` callback for `mouseover` events
+- the application of `selectLandingPage(feature)` callback for `mouseClick` events.
 
+A special case is applied to DC. Already having been plotted as an inset using the
+`altpath` geo function, a path of class `.dc-annotation` plots a line between the
+main map and the inset. 
+
+> Communities and local areas were once plotted together with states and
+territories. This is no more. Points were once filtered out to prevent their
+display, but this is no longer necessary.
 
 # #
 
