@@ -2158,5 +2158,140 @@
         "pluralNoun": "Board Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 280196,
+              "min": 0,
+              "max": 3604
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 4165,
+                "min": 0,
+                "max": 1451
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 8583,
+                "min": 0,
+                "max": 632
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 61365,
+                "min": 0,
+                "max": 695
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 212661,
+              "min": 0,
+              "max": 3555
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 167550,
+                "min": 0,
+                "max": 2293
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 3545,
+                "min": 0,
+                "max": 1565
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 6393,
+                "min": 0,
+                "max": 657
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 164,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 31456,
+                "min": 0,
+                "max": 547
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -121.4382,
+            34.8975
+          ],
+          [
+            -119.4726,
+            35.7967
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanluiso_blocks_points"
+            },
+            "sourceLayer": "sanluiso_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanluiso_blocks"
+            },
+            "sourceLayer": "sanluiso_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "San Luis Obispo",
+    "id": "sanluiso",
+    "districtingProblems": [
+      {
+        "name": "County Board",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
