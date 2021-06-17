@@ -213,7 +213,7 @@ share your map and your story using this tool now.</p>\
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
-  'ks-fairmaps': 'Welcome to the event page for Fair Maps Texas!',
+  'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
 
   };
 
