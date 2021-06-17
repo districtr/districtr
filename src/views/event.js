@@ -38,6 +38,7 @@ const stateForEvent = {
   onelovemi: 'Michigan',
   saccounty: 'California',
   saccountymap: 'California',
+  'ks-fairmaps': 'Kansas',
 };
 
 const validEventCodes = {
@@ -73,6 +74,7 @@ const validEventCodes = {
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
+  'ks-fairmaps': 'kansas',
 };
 
 const blockPlans = {
@@ -122,7 +124,8 @@ const coi_events = [
   'micrc',
   'mesaaz',
   'ourmapsne',
-  'onelovemi'
+  'onelovemi',
+  'ks-fairmaps'
 ];
 
 const hybrid_events = [
@@ -210,6 +213,7 @@ share your map and your story using this tool now.</p>\
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+  'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
 
   };
 
