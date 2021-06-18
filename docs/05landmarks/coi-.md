@@ -11,18 +11,13 @@ the number of communities you draw might be dynamic vs static, the
 communities you create can be named or described and landmarks can
 be drawn, named and described. 
 
-_Important Places doesn't cancel itself, must create before deleting._
+Conversely, Data Layers and Evaluation tabs in Community use often
+feature similar functionality to the Districting mode. 
 
-Conversely, Data Layers and Evaluation tabs often feature similar
-functionality to the Districting mode. 
-
-communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
-
-= ToolsPlugin
-- PopulationBalancePlugin
-= DataLayersPlugin
-+ CommunityPlugin 
-- Evaluation Plugin
+Simply, the `ToolsPlugin` and the `PopulationBalancePlugin` are the same
+for both modes. The `PopulationBalancePlugin` and the `EvaluationPlugin`
+is reserved only for districting mode and the `CommunityBalancePlugin`
+is reserved for COI use. 
 
 ## Loading through the State Portal
 
@@ -30,6 +25,8 @@ Just as every state or place have certain modules that allow districts
 of specific numbers to be drawn out of units like block groups or
 precincts, statewide, city or regional communities can also be built
 out of the same unis. 
+
+
 
 Within state portal, onlycommunitymode if places == 0, a vestige. 
 
@@ -120,6 +117,7 @@ Only Label, asks "districtview"!!!
 
 src/components/Toolbar/LandmarkTool.js community
 
+_Important Places doesn't cancel itself, must create before deleting._
 _!!! pop-balance-plugin (showvra), evaluation plugin has community detail but not ever called by community!!!_
 coi2??? 
 
