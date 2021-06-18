@@ -25,4 +25,4 @@ functions return JSONs that Districtr can use for all kinds of purposes.
 - /unassigned
 - /debug...
 
-//mggg.pythonanywhere.com/
+The current URL for this server is http://mggg.pythonanywhere.com/

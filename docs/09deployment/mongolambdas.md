@@ -20,7 +20,6 @@ or processes more complex jobs in the background." Districtr usually uses `route
 to navigate to plans using the url `/.netlify/functions/...` with appropriate queries
 for the following functions...
 
-
 - server.js
 - planModel.js
 - planCreate.js
@@ -71,8 +70,6 @@ we also use `Plan` to query parameters from `event` to connect to
 a server and retrieve a plan. If all goes well, a JSON object is returned
 with a status message and the details of the plan itself. 
 
-_db not used in `planread`_
-
 Finally, created plans can be updated using `planUpdate.js`. The function
 checks if the plan has a valid token, when the plan was created and when
 the plan was created. Other `plan` details are carried over with a new
@@ -118,3 +115,17 @@ modules.
 
 The `Sequence` object is provided by `sequenceModel.js` and helps
 `planCreate.js` make new id numbers in an incremental fashion.
+
+# #
+
+### Suggestions
+
+`db` from `server.js` is imported but not used in the following files.
+Perhaps it is important in creating a connection, so no explicit use indeed, it is never used in any case it is imported.
+is necessary. 
+- `eventRead.js`
+- `planCreate.js`
+- `planPreview.js`
+- `planRead.js`
+- `planText.js`
+- `planUpdate.js`

@@ -16,8 +16,6 @@ display of numbers.
 - `divideOrZeroIfNaN(x, y)` divides two numbers and returns zero if division by zero error arises
 - `asPercent(value, total)` returns a string that represents the proportion of `value` over `total` as a percent. 
 
-_summarize not used!_
-
 ## Functions for Reducers
 
 Reducers takes a current state and a change and produces a new state. The following
@@ -33,8 +31,6 @@ any `action` that affects any of the `reducers` produces a new `state`.
 each element in `handlers`. 
 - `bindDispatchToActions(actions, dispatch)` binds actions to an event dispatch, but this
 function is not used. 
-
-_bind dispatchToActions not used!_
 
 ## HTTP Response Utilities 
 
@@ -63,9 +59,6 @@ zip files are downloaded by the user into their browser.
 not used.
 - `generateId(len)` creates a random number array of length `len` to create ids for
 `CoalitionPivotTable.js`. `Overlay.js` and `State.js`. 
-
-
-_dec2hex not used_
 
 ## Bind All
 - Functions attached to specific object instances allow them to be called externally,
@@ -104,3 +97,5 @@ senate districts.
 # # 
 
 ### Suggestions
+- Functions `summarize(...)`, `dispatchToActions(...)` and `dec2hex(...)`
+are defined but not used anywhere

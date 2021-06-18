@@ -44,9 +44,6 @@ in-person or absentee ballots if permitted by the properties of each `election`
 and a `Select` list that allows a user to display a tint or colored circle
 representation on the main `map`. 
 
-
-_Why not use toggle object?_
-
 ## Evaluation Election Details
 Sepearate from the displaying election results on the map, one can evaluate
 the performance of their drawn districts based on historical results.
@@ -98,3 +95,10 @@ which...
 seats to help with determining proportionality. 
 
 [`data-layers-plugin`](5landmarks/datalayersplugin.md)
+
+# # 
+
+### Suggestions
+
+In `PartisanOverlayContainer`, a checkbox element is hard coded. Could
+we use the `Toggle` object instead?

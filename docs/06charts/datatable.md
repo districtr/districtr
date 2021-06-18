@@ -117,6 +117,17 @@ added benefit of calculating district totals, but is always set when created by 
 plugin with `totalonly` set to true. This means that the user is presented a simple table that
 only shows state and coalition totals. 
 
-_What is the relationship between PivotTable and CoalitionPivotTable such that
-inheritance may occure?_
-_Totals Only set to true! It could almost be replaced by PivotTable_
+# #
+
+### Suggesstions
+
+The `PivotTable` and the `CoalitionPivotTable` are both very similar
+implementations of `DataTable`. Is there a way that `CoalitionPivotTable`
+could inherit from `PivotTable` or extend `PivotTable` to include
+coalition properties?
+
+- `CoalitionPivotTable` is called in `CommunityPlugin` and
+`EvaluationPlugin` but is not used. It is created only once in
+`DataLayersPlugin`
+- Thus, `totals_only` in `CoalitionPivotTable` is only set to true, 
+making `CoalitionPivotTable` even more similar to `PivotTable`

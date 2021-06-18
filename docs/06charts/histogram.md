@@ -14,8 +14,6 @@ the `Histogram`.
 This scheme was first developed my [@mapmeld] for a "histogram on ages"
 on Wednesday, Apr. 20, 2020.
 
-_age called but not used in muti-layers-plugin_
-
 ## `src/components/Charts/Histogram.js` 
 
 The `Histogram`, a bar chart of frequencies, is a novel 
@@ -28,8 +26,6 @@ typical, the `label` of each row is the `renderLabel()` of each
 drawn part. Every `entry` is a drawn column derived from `getColumn(...)`.
 The median is also written out in text and given special formatting
 as a column. 
-
-_if (isAge) could be abstracted higher_
 
 ### Subgroups
 
@@ -49,6 +45,21 @@ proportion of population located within that group.
 Median, calculated in the default function, is represented by a change
 of div background color for the relevant histogram subgroup.
 
-_width multiplier is only used by income, at 1.5 and is redundant, as
-it is hard coded in get_column and seems to be written for income alone._
-_isAge is there up to 10 different times_
+# #
+
+### Suggestions
+
+There are only two kinds of Histograms, one for age and one for income.
+They are used in separate plugins through two complete separate functions.
+Thus, for clarity sake, logic around `isAge` could be abstracted to
+the separate functions alone, leaving Histogram a more generic object.
+
+There are eight places where `isAge` is tested in Histogram. 
+
+- The `AgeHistogram` is called but not used in muti-layers-plugin
+
+- The `widthMultiplier` is practically redundant as it modifies hard
+coded values for income and age histograms. It is always 1.5 and 1
+respectively and modifies widths 44 and 2 respectively. Thus these
+values could be hard coded 66 and 2 without `widthMultiplier`.
+

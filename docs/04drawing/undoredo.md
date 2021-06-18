@@ -38,8 +38,6 @@ A legend is included and a pair of buttons, tied with buttons, indicate
 the undo and redo arrows. Each button is given a map `Brush` specific id and
 is tied to that Brush's `undo()` or `redo()` functions. 
 
-### In Use
-
 # # 
 
 [Return to Main](../README.md)

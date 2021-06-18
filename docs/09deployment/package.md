@@ -38,8 +38,6 @@ whether certain web elements are compatible with certain browsers.
 "@rollup/plugin-json": "^4.1.0",
 "caniuse-lite": "^1.0.30001165",
 
-_not used caniuse-lite?_
-
 ### Other Utilities
 
 D3 is a javascript library that helps us visualize and interact
@@ -58,8 +56,6 @@ Finally, we use...
 
 - `"encoding": "^0.1.12"` to help us with String formats and
 - `"hotkeys-js": "^3.7.6"` to read keystroke input. 
-        
-_encoding not used?_
 
 ## devDependencies
 
@@ -159,3 +155,11 @@ Local testing requires validation and Karma takes care of the rest.
 Lint helps us refactor the code. 
 
 - `"lint": "eslint src"`
+
+# #
+
+### Suggestions
+
+Wrangling packages for npm is its own specialty. While reviewing the code,
+it appears that `caniuse-lite?` and `encoding` don't appear to be used
+but may serve some other function, like as prerequisites. 

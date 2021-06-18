@@ -46,34 +46,19 @@ on the mapboxgl `editor.map` to set `settlement-label` and `settlement-subdivisi
   
 ## Optional Sections
   
- Optional sections are contingent on hard-coded logic that generally sources  
- a new `Layer` from `/assets/` and includes a toggle button for display in the
- map with display characteristics like line color and width. Sometimes,
- a labels layer is loaded in parallel. 
+Optional sections are contingent on hard-coded logic that generally sources  
+a new `Layer` from `/assets/` and includes a toggle button for display in the
+map with display characteristics like line color and width. Sometimes,
+a labels layer is loaded in parallel. For more information, check out
+the full inventory of Spatial Exceptions. Loadable layers include...
   
 - "Show Boundary", from `/assets/city_border/`
-  - Miami, Miami-Date County, FL
-  - Rochester, Olmsted County, MN
-  - Asheville, Buncome Bounty, NC
-  - St. Louis, Duluth County, MN
 - "Show Boundary", from `/assets/current_districts/`
-  - Winston-Salem, Forsythe County, NC 
 - "Voter Precincts", from `/assets/current_districts/`
-  - Baltimore, MD
 - "School Districts", from `/assets/current_districts/`
-  - Akron, Cincinnati, Cleveleland, Toldeo, southeast and central Ohio
-  - Indiana
-  - Missiouri
-  - New Hampshire
-  - Wisonsin for all types
-  - Michicagn 
 -  "Cities and Towns" from `/assets/current_districts/`
-  - Indiana
-  - Central Ohio 
 - Enacted Plans from `assets/current_districts/`
-  - State Assembly, State Senate and U.S. House for Los Angeles, CA
 - "Boundaries" from `/assets/current_districts/`
-  - El Paso, TX when base units aren't precincts.
   
 Finally, the following when permited by `spatial_abilities(state.place.id)`
 - American Indian Districts from `addAmerIndianLayer(tab, state)`

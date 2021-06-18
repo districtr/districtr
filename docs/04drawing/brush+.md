@@ -202,8 +202,6 @@ Deactivation applies the above in reverse.
 Finally, an `on(event, listener)` function registers callback functions to
 events in `this.listeners`. 
 
-_no off?_
-
 # Community Brush
 
 # # 
@@ -211,7 +209,7 @@ _no off?_
 ## Suggestions
 [//]: # (_please define!_)
 [//]: # (_ later, erase only one color at a time? _)
-[//]: # (color type guarantees_ )
+[//]: # (_color type guarantees_ )
 [//]: # (_rename colorfeatures as helper to _colorfeatures_)
 [//]: # (_separate out colorFeatures and colorCounties?_)
 [//]: # (_does the code reimplement hoverON! in colorFeatures?_ )

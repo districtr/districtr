@@ -29,17 +29,10 @@ are returned.
 > The function in `mockApi.js` replaces the `listPlaces()` function provided
 in `src/api/places.js`. 
 
-_places.js is deprecated._
-_rather than API, can we just have a master list of modules like
-spatial_abilities?_
-_lookupOldState.js may not be updated after new modules are added_
-
 ## Class `PlacesList` and function `PlacesListForState(...)`
 
 These were both once used in the more full featured version of
 `PlacesMap` but have since been deprecated. 
-
-_placesList deprecated_
 
 ## Helper and Communities Functions
 
@@ -48,8 +41,6 @@ what appears to be a global variable `justCommunities` to true. This
 variable is used by function `communitiesFilter(place)` to select
 places where their `districtingProblems` indicate that it is coi
 oriented.
-
-_couldn't this be done by spatial abilities?_
 
 Similar functons that check module feature are `getUnits(...)`.
 
@@ -62,6 +53,38 @@ which is deprecated.
 Function `placeItems(...)`, once used more heavily in the deprecated
 Class `PlaceList`, is used in `event.js` to generate event cards.
 
-_is this the same as the cards used in the state landing pages?_
-_getProblemInfo deprecated_
-_places.json deprecated_
+# #
+
+### Suggestions
+
+Currently, the role of `findPlaces.js` is to find
+and match modules. This requires traversing the
+entire folder of modules. This takes a lot of effort
+but is done only once, so we live it. 
+
+Object `spatial_abilities` is the next closest thing
+to a master list of modules. Instead of using an 
+API, could we extend `spatial_abilities` such that it is a master list of modules?
+
+For instance, we expend effort trying to extract modules related to
+communities and localities, though in other parts of the code, this is
+handled by `spatial_exceptions`.
+
+We see the benefits of this when considering the
+function `lookupState` from `lookupOldState.js`, used
+by `listPlaces.js`, where modules are matched up to the 
+state they belong to, but this function is not updated 
+when new modules are added. 
+
+In addition...
+
+- Originally, in folder `/src/api`, `places.js` was
+used to traverse modules. That has since been
+replaced by `mockApi.js`. 
+- Class `PlacesList`, with its html rendering, was
+once used in a more full featured version of 
+`PlacesMap` which has since been deprecated.
+- Function `placeItems(...)` was once used in `PlacesList` but is now
+only used when view `event.js` produces cards for plans. Could this be
+similar to the cards already generated in landing pages elsewhere?
+- `getProblemInfo(...)` also doesn't appear to be used anymore

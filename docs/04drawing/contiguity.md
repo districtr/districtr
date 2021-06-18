@@ -4,7 +4,6 @@ Contiguity is a great example of a feature that ties together many parts of dist
 originally written by @mapmeld between March and December 2020 with contributions from Zhenghong Lieu
 and was lightly patterend off of `NumberMarkers`.
 
-
 As a user contends with units large and small, they may find that they are drawing
 disconinuous units. To check if this is so, a button is provided in the 'Contiguity'
 reveal section of the 'Evaluation' tab of the 'Toolbar'. When units are drawn, the

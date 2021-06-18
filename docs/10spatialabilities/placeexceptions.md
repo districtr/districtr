@@ -57,11 +57,6 @@ The bulk of the `DataLayersPlugin` concerns itself with selecting
   - State Assembly, State Senate and U.S. House for Los Angeles, CA
 - "Boundaries" from `/assets/current_districts/`
   - El Paso, TX when base units aren't precincts.
-  
-_could an extra layers spatial_ability be added?_
-_could a map style spatial_ability be added?_
-_altcounties by state rather than place_
-
 
 ## Exceptions Among the Plugins
 
@@ -100,4 +95,19 @@ commas. Thus, separator `;` is used instead. This occurs with...
 - `PopulationBalancePlugin`
 - `Contiguity`
 - and `routes.js`.
+
+# #
+
+### Suggestions
+
+Much of districtr's features and displays are dependent on the `place`
+of the current module. As such...
+- extra layers like "School Districts" can be stored as an object
+- and map style, like `streets-v11`
+... can be stored in `spatial_utilties`
+
+Finally, `altcounties`, where Louisiana Parishes and Alaska Boroughs
+serve as Counties, should be set by State rather than `place` because
+`place` could refer to alternative datasets or local municipalities.
+
 

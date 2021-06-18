@@ -36,11 +36,6 @@ the server to collect information on `unassigned` units. This data is then sent 
 to the server to `/findBBox` which is then parsed. `Editor.state.map` is then told
 to fit within those bounds.
 
-_those that talk to server should be in one place_
-
-_editor.state.map is the same is as editor.mapState.map and maybe even editor.map`
-
-
 ## `/src/components/Charts/UnassignedPopulation.js`
 
 Finally, we can see the number of assigned and unassigned population in
@@ -49,3 +44,20 @@ which compares the sum `state.population.total.data` with `state.population.tota
 and prints the value as an "Unassigned population".
 
 _`State` should be a global variable!_
+
+# #
+
+### Suggestions
+
+- The `PopBalancePlugin` creates a function, `zoomToUnassigned` that is
+always used with `HighlightUnassigned`. Thus, it makes more sense to have
+that function written in that file. 
+
+- `zoomToUnassigned` is the only function outside of `routes.js` that
+talks to the PythonAnywhere. For clarity sake, this call should be
+collected in one file. 
+
+- Finally, that function makes references to the mapbox-gl map, which
+can alternatively be called from `edtior.state.map`, `editor.mapState.map`
+and is probably even `editor.map`. For clarity, there should be one way
+to reach this map, which suggests that global variables might be useful.
