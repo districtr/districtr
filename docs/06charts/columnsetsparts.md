@@ -78,20 +78,15 @@ values and demographic abbreviations.
 The `update` function is vital here. It takes a `feature` and
 replaces its `color` with multi-assignment functionality.
 
-_global abbreviations should be stored in one place_
-
 `SumOfColumns` takes `columns`, `columnSet` and `parts` and 
 mimics the functions of `Subgroup`, with an initialized `this.data`
 while performing `min` and `max` calculations itself.
 
-_SUmOfCoulumns should descend or be rolled into any of the other classes_
-
-> Remember: the two descendents of 
-
+> Remember: there are two classes of `NumericalColumns`, `Subgroup` which
+descends from it and `SumOfColumns` which does not, but is defined in the
+same file.
 
 ### The functions of `column-sets.js`
-
-_Everything here is hard coded, reducing flexibility!_
 
 Returning to `column-sets.js` we notice that only two export functions
 are listed, which, as we described, are both used by `State` in its
@@ -122,17 +117,9 @@ categories are added to `state.columns`.
 `columnsets` is then created the same way and ultimately returned back
 to `state`. 
 
-_if statements repeat twice. better way to write this?_ 
-
-_Should State handle the creation of its own instance variables. addColumn()?_
-
-_is `columnsets` and `state.columns` the same thing?_
-
-_why is lib its own folder?_ 
-
 ## The `Part` class
 
-Within `column-set.js`, the `getParts(problem)` is used to populate the
+Within `column-sets.js`, the `getParts(problem)` is used to populate the
 parts in a `State`. For every district in a sequential list, a new
 `Part` object must be created. This object is relatively simple, with 
 the following parameters and instance variables.
@@ -148,11 +135,28 @@ In addition `updateDescription({...})` updates instance variables `this.name` an
 `displayNumber`, `name` and `description` and `renderLabel` returns an html
 span class `.part-number` which returns a colored icon. 
 
-_this is a css value, but the map icons are canvas rendered._
+> Remember, there are two ways the part icons are rendered, through css when created
+using `part.renderLabel()` and using canvas when adding them to the mapbox-gl `map`.
 
-_instance variables not intialized._ 
+# # 
 
+### Suggestions
 
+- Constant `ABBREVIATIONS` is kept by the `Subgroup` class, but abbreviations
+and other utilities should be kept together in a utils file. 
+- Class `SumOfColumns` is so similar to `NumericalColumn` and `Subgroup` that it
+could extend or be rolled into one of these classes
+- It's natural for `column-sets.js` to list all possible columns, but since each
+possible columnset is hard coded, lots of work is necesssary if we were to add a
+new data type. This is alluded to in the original documentation.
+- In function `getColumnSets(...)`, if statements check each type of columnset,
+like `if (state.vap)` twice. Could this condition be folded into itself so that
+it is called once?
+   - Actually, within this function, what's the difference between `state.columns` and
+the `columnsets` array? 
+- Philosophically, I think `State` should be responsible for the addition of its
+own columnsets with a function like `addColumnSet(...)`. I also think that state should
+initialize blank versions of any of its instance variables at the onset for clarity's
+sake.
 
-
-
+- Why is `src/models/lib` its own folder
