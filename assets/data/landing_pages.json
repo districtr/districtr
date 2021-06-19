@@ -3039,6 +3039,19 @@
                 "name": "State House Plan"
               }
             ]
+          },
+          {
+            "title": "Proposed Plans in Massachusetts",
+            "plans": [
+              {
+                "id": "new-boston-proposed",
+                "name": "New Boston District Proposed Plan"
+              },
+              {
+                "id": "north-proposed",
+                "name": "Boston North Reconfigured Proposed Plan"
+              }
+            ]
           }
         ]
       },
