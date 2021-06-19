@@ -32,43 +32,46 @@ style landmark lists.
 
 If there is no `state.map.landmarks`, then we create a new `Landmarks`
 object passing in `state.map`, `lm` and an anonymous `addFeature` function.
+We describe this function below.
 
 A new `LandmarkOptions` object is also created with landmarks, features
 and the `State` map. 
 
-### The Add New Feature Function for Landmarks
+> The `State` object keeps track of landmarks using both `state.place` and
+the `state.map` mapbox object.
 
-When a new landmark feature is created, this anonymous function is called
-that saves the current state to storage. If any number of `lm.data.feature`
-exist, element of id `#landmark-instruction` is ensured visibility.
+### The Add New Feature function when Initializing Landmarks
 
-If a new feature is indeed created, `window.selectLandmarkFeature` is set
-to the last in the `lm.data.features` list and element of classes `.landmark-select`
-and `.marker-form` are set to defaults based on the sequential number of the new
-feature and a blank description is set to save the new feature.
+When a new `Landmark` object is created, we pass an anonymous function to
+serve as its `updateLandmarkList` function. Thus, what follows is what
+happens when we wish to update the landmark list, when we create or
+update features.
 
+When we update the Landmarks list we...
+- save the whole plan to local storage
+- if there are any number of landmarks, we populate html element of id `#landmark-instructions`
+- if this is a new landmark...
+   - The `window.selectLandmarkFeature` is set to the last index of `lm.data.features`
+   - Values for html documents of class `.landmark-select .label`, and `.marker-form` are
+populated with generic New Point values based on sequential values. 
+   - The description for `lmo` is set to blank, triggering a save.
+ - ...otheriwse...
+   - We use `window.selectLandmarkFeature` to select the relevent landmark by updating
+ html the landmark select text, class `.landmark-select .label`.
+ 
+ Finally, if there are features of any length, we update display settings and
+ re-render the whole `state`, that is, all subscribers of `state` are called. 
+ 
 Otherwise, last feature in the list is set as the selected feature. After this,
-the whole `state` is rerendered, that is, all subscribers of `state` are called. 
-
-_loc_array[loc_array.length - 1] keeps you from having to create window.selectLandmarkFeature?_
-
-_ Only ever called as new_
+the whole `state` is rerendered, 
 
 ## A Custom Evaluation Tab
-
-_ OMG WHY????_ 
 
 While there exists clean ways to write custom tabs, unusual among all plugins, 
 the `CommunityPlugin` implements to `Tab`s in the `Toolbar`, the `Drawing` tab
 and a custom `Evaluation` tab that implements a Population `PivotTable`, a 
 VAP `PivotTable` if `state.vap` is available, a `MedianIncomeTable` if `state.incomes`
 is available and likewise, a `DemographicsTable` on renters.
-
-_hard coding for Arizona, gahh!_
-
-_ state.map is the same as mapState.map_
-
-_ addFeatureFunction should be a helper!_
 
 ### Adding Location Search
 
@@ -87,16 +90,12 @@ create instance variables `this.points`, `this.drawTool`, `this.features`,
 `this.map` and `this.updateLandmarksList`. All of the following helper functions
 are bound to this instance.
 
-_Garrrrh! What's the deal with Landmark Options twice?_
-
 ## Instance Functions
 
 For every feature, one can `setName(name)`, `setDescription(description)` and
 save or delete a feature. Additional callback `onDelete()` is written so that
 together with `deleteFeature(delete_id)`, the feature is removed from both area and
 point `Layer`'s geometries.
-
-_onDelete and DeleteFeature, can it be combined?_
 
 ## Rendering
 
@@ -117,10 +116,36 @@ list of landmarks
 - Landmark instructions are shown
 - The mapbox drawpoint is used as the mouse by intracting with the `LandmarkTool`
 
-_Cannot cancel the creation of new landmark, only create and delete_
-
 ### Selecting Landmarks
+
+When editing landmarks, we can either create it using the button described 
+above or by selecting the landmark in the dropdown of class `.option-list .landmark-list`. 
 
 ### Place Name and Description
 
-_Callbacks and Helpers please!_
+When the landmark is selected, its properties/options load in the drop down menu.
+This affects elements of `.marker-form` class, `.input` and `extarea`. When the
+save button is pressed, then we `updateLandmarkList(...)`.
+
+> A delete button is also offered to the user that uses the `onDelete(...)`
+callback function.
+
+# #
+
+### Suggestions
+
+- Within this file, many functions are nested within each other. Callbacks and helpers
+would help increase clarity for this file.
+- Inside the `Landmarks` object, an `updateLandmarksList` is passed into each new
+instance. However, when it is called, it is only sent in the parameter `true`. It appears
+that passing an empty parameter to this function means that `isNew` is false, but this
+is not clear.
+- Usually, a plugin makes a single tab. This is not always so, but it should. Community
+creates both a `Drawing` tab and a custom `Evaluation` tab.
+- Hard coding excepts Arizona municipalities, whereas it could be controlled by 
+`spatial_abilities`
+- `mapState.map` is used, but remember, the mapbox-gl map is the same object in
+`editor.map` and so on.
+- Both the `LandmarkTool` and the `CommunityPlugin` define class `LandmarkOptions`. They're
+very different from each other despite the name. 
+- A dropdown menu of Landmarks does not use the `Parameter` object.
