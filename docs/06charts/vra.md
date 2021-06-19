@@ -1,6 +1,6 @@
 # VRA
 
-Since early 2021, [#jenni-niels] has been developing a corner of the website 
+Since early 2021, [@jenni-niels] has been developing a corner of the website 
 concerning Voting Rights Act information in the states of Louisiana, Texas
 and Massachusetts. Their work is a good example of how new features are
 currently built across the sprawling codebase of Districtr. 
@@ -37,10 +37,6 @@ is skipped
 - Custom function `toggleViz` seelcts the showing and hiding of
 different state sections, and is only called when `vraPage` is true
 
-_why show_just_communities true?_
-_onlyCommunities is deprecated_
-
-
 ## The Map, Editor and Toolbar
 
 Rather than sourcing vra status from the window url, `edit.js` now
@@ -53,10 +49,6 @@ Here, `showVRA` is set to `true` if the plan type is not community and
 if it is allowed in `spatial_abilities`. This permits the creation
 of `VRAEffectiveness(...)`. Helper function `getMenuItems(...)` also
 generates a `showVRA`, but it is not used.
-
-_coi2 is deprecated_
-_vra not used in getMenuItems_
-
 
 ### VRA Effectiveness
 
@@ -84,8 +76,6 @@ response...
 then `newer_changes` is made true and the original request
 is superceded with a new call to `vraupdater(state)`.
 
-_placeID is not used in VRAEffectiveness_
-
 ## Updating Toolbar Functions
 
 When the `Toolbar` is called to render by `VRAEffectiveness`,
@@ -95,10 +85,6 @@ VRA mode...
 - in `DataLayersPlugin`, its title is abbreviated and the
 County Layer is always plotted, 
 - in `PopBalancePlugin`, its title is abbreviated
-
-_way to abbreviate names based on number of tabs or physical
-properties?_
-_showVRA only belongs to states and must show counties._
 
 ## The `EvaluationPlugin`
 
@@ -120,9 +106,6 @@ with a select bar for each minority group, covering historical,
 statewide primary and general elections, with vote, rank and
 CVAP share for each painted district. 
 
-_why ma_towns, should never be ma_towns_ 
-_should be its own plug in!_
-
 ## Other Areas
 
 - When `la_vra` or `tx_vra` is the place for `NumberMarkers`,
@@ -130,5 +113,40 @@ its data source must be redirected
 - In `modal.js`, a custom modal is written to provide information
 on VRA. This is imported by `tools-plugin.js` but never used.
 
-_VRA modal never called._
+# #
 
+### Suggestions
+
+- In `StateLandingPage.js`, vra mode is unique in calling multiple
+states. Places for each state are generated using `listPlacesForState(...)`,
+and in this function, `show_just_communities` is set against its default
+to `true`. This suggests that we always use the `communitiesFilter` in
+`PlacesList.js`. This filter, however, only applies when `renderNewPlanView()`
+in deprecated `community.js` is called. Thus, it is not needed. 
+
+- Reminder for later, in `PlacesList`, isn't it redundant to filter again
+by state in `_placesCache`? 
+- Reminder for later, it seems that `onlyCommunityMode` in `StateLandingPage.js`
+is deprecated
+- Reminder that `coi2` is practically deprecated
+
+- In `tools-plugin.js`, `showVRA` is determined but not used by function `getMenuItems(...)`
+
+- In `VRAEffectiveness`, argument `brush` is not used and `placeID` and therefore `place`
+and `extra_source` is not used.
+
+- Names are abbreviated based on VRA. Could they be abbreviated by a toolbar value, 
+number-of-tabs, to make this more universal?
+
+- In `DataLayersPlugin`, `showVRA` is guaranteed to add a County Layer to the map.
+However, VRA data is only available for states, making this addition redundant.
+
+- The Reveal Section on "VRA Effectiveness" conditions against using `ma_towns`, 
+yet there should be no case where `ma_towns` is used with showVRA as it is not
+included in the portal. Thus, this is redundant logic.
+
+- The biggest note is the fact that `EvaluationPlugin` is now responsible for
+creating __two__ tabs. If `VRA` makes a second tab, it should be made into its
+own plugin.
+
+- A special modal is written for VRA but is never used 
