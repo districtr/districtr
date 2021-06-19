@@ -171,12 +171,13 @@ an "All About Redistricting" to the relevant state Loyola Law Redistricting http
 
 ### Suggestions 
 
-[//]: # (_helper function for html?_) 
-[//]: # (_drawtitle used anywhere?_)
-[//]: # (_community mode needed?_)
-[//]: # (_draw districting options and community options inside drawpage for chronological clarity?_)
-[//]: # (_get problems not used_)
-[//]: # (_custom selection is esoteric_) 
+- So many anonymous functions are used to render `html`. Perhaps a few longer ones can
+be separated out as helper functions
+- Functions `drawTitles(...)` and `getProblems(place)` are no longer used anywhere
+- Since every state has a statewide plan, `onlyCommunityMode` is no longer needed
+- The population of districting and community cards occurs later than when it
+is given structure in the HTML. Maybe they should be placed closer together for
+clarity.
 
 [@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
