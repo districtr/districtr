@@ -841,6 +841,60 @@ export function spatial_abilities(id) {
             ["<", ["get", "GEOID20"], "38006"]
           ],
       },
+      nd_dunn: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38025"],
+            ["<", ["get", "GEOID20"], "38026"]
+          ],
+      },
+      nd_mckenzie: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38053"],
+            ["<", ["get", "GEOID20"], "38054"]
+          ],
+      },
+      nd_mountrail: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38061"],
+            ["<", ["get", "GEOID20"], "38062"]
+          ],
+      },
+      nd_ramsey: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38071"],
+            ["<", ["get", "GEOID20"], "38072"]
+          ],
+      },
+      nd_rollette: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38079"],
+            ["<", ["get", "GEOID20"], "38080"]
+          ],
+      },
+      nd_sioux: {
+        native_american: true,
+        // number_markers: true,
+        // shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38085"],
+            ["<", ["get", "GEOID20"], "38086"]
+          ],
+      },
     ohio: {
       number_markers: true,
       county_brush: true,

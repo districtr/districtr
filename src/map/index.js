@@ -223,7 +223,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
             layerAdder
         );
-    } else if (borderId === "nd_benson") {
+    } else if (spatial_abilities(borderId).county_filter) {
         tracts = addTracts(
             map,
             tilesets.find(tileset => tileset.source.url.includes("precincts")),

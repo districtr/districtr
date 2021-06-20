@@ -711,7 +711,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
-        let partisanLayers = (state.place.id === "nd_benson")
+        let partisanLayers = spatial_abilities(state.place.id).county_filter
           ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
           : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
