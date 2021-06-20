@@ -1,157 +1,31 @@
 # Notes
 
-## 01
 
-state.md
 
-### Observations and Suggestions
 
-On Mon., Apr. 22, 2019, [@maxhully] suggested that this State class be
-broken up, as mentioned above.
 
-```
-// We should break this up. Maybe like this:
-// [ ] MapState (map, layers)
-// [ ] DistrictData (column sets) ?
-// [x] DistrictingPlan (assignment, problem, export()) ?
-// [ ] Units (unitsRecord, reference to layer?) ? <--- really need this
-one
-// "place" is mostly split up into these categories now.
-```
 
-Finally, `State.initializeMapState(...)` calls and returns from only one
-function. Is it needed?
 
-## 02
 
-### Layer
-
-- Given the nearly two dozen ways layers are created, there's surely a
-way to categorize and standardize the creation of layers with a more
-predictable form.
-- `Layer` objects and a `layer` specification object are titled in such
-a way that it is easy to confuse
-
-### Map
-- `this.mapboxgl` instance variable not used
-- "Units" is used in many ways. Perhaps the units layer could be renamed
-for clarity, e.g., `return(units_layer...` instead of
-`return (units...`
--`borderId` could be renamed given that it corresponds to `place.id`. 
-
-### Number Markers
-
-- `brush` is a parameter passed into the `NumberMarkers` function but
-isn't used. 
-- Having `window.planNumbers` in `tools-plugin.js` reveals to us a
-method by which we can assign global variables. It may be useful to do
-this with more objects, like `State`, `Toolbar`, etc. A great candidate
-is the canvas `map` contained within `MapState`.
-- This function has line `map = state.units.map`, which is equivalent to
-`editor.mapState.map` and each `Layer`'s `map`. 
-- Encouraging global variables may also help with clarity, by reducing
-the need to nest functions.
-- The `NumberMarkers` function generates a new instance variable for
-`Editor`. It would be nice to see all `Editor` instance variables
-defined at once so that `Editor` is easier to conceptualize. In fact, we
-may also be able to generate number-icons at 'Editor' initialization
-here. 
-- Note that exceptions for Louisiana, Mass. Towns, Indian Precincts and
-El Paso, TX is hard coded in the code. Perhaps a global 'placeID'
-function could consolidate or correction of Louisiana data could
-consolidate this. 
-- Icons are generated using Javscript Canvas. Could these also be
-generated SVG or even CSS to simplify the code? 
-- `colorsAffected` is a parameter sent to the `updated` but doesn't
-appear passed when into the function when it is called. Is
-`colorsAffected` also equivalent to `brush.changedColors`?
-- `Layer` is used to describe its specification object as a parameter to
-new  objects of `Layer` class. Would it be clearer to call this
-parameter `layerspecs`? 
-- GET functions can only process up to 100 district when generating
-district centroids.
-- A simple way to select 100 random objects in a list is through taking
-a slice of `[...array].sort(() => 0.5 - Math.random());`. For the
-largest numbers, this method is not terribly fast or evenly distributed
-but is very simple.
-- Meanwhile, it appears that `check_district(d_index)` only checks one
-district at a time. This implies that the selection of 100 random
-districts should occur before and outside the function. 
-
-## 03
-
-### Actions Reducers
-Many reducer functions are listed in `utils`. They're relatively simple. Can they be
-listed in the `reducers/` folder for clarity instead?
-
-### BrushEraseTools
-- The const that stores the `BrushTool` icon is a function that takes in parameters, but
-whose output is never changed. This must be vestigial from an experiment where we changed
-the rendered tool icon based on state.
-- We should go ahead and set a default value for the `renderToolbar` parameter in `BrushToolOptions`,
-as it is always set to `undefined` when it is called. In fact, it is called in each of the `BrushToolOptions`'
-instance methods and is ultimately set to re-render the Editor when the `BrushTool` is added by to the
-`Toolbar` by the `addTool(...)` function. 
-
-### Modal
-
-- Small snippets of code is saved in a multitude of html files and folders. Could this be combined as
-say, a JSON, for simplicity?
-- `savePlanToDB1` is passed into the `renderSaveModal(...)` by `Toolbar`, but this is the same 
-function as in `routes`. Could this be made into a global method?
-
-### Tool
-Should we set a default `hide-me` value `false` in the `Tool` constructor to be clear?
-
-### Toolbar
-
-May, 2021. @gomotopia
-- If there is only one`Toolbar` object made and maintained, couldn't it be a global variable?
-- Toolbar's `this.state`, is not initialized in the constructor.
-- `setMenuItems(...)` is passed a copy of information from the `State` object by the plugins.
-Couldn't it just render from its own reference to the single `State` object? 
-- In `savePlan()`, `btn` is retrieved and defined three times near identically. Is there a difference
-between these calls and can this function be rewritten to reduce this redundancy?
-- Could `OptionsContainer` be renamed `ToolOptionsContainer` for clarity?
-- Tabs are only effectively called here, yet is passed in `this.tabs`, `this.store.state`, etc.
-Could tabs just be passed in `this,` the `Toolbar` and handle the rest?
-
-### Tools Plugin
-
-- The logic for selecting which tools to plug in, based on `state.problem`, `spatial_abilities` and more, are scattered throughout
-the code. Is there a way to consolidate this logic?
-  - In `view/edit.js`, before the `State` is created, `context.problem.type` determines the list of plugins to load. No matter the
- logic, `tools-plugin` is always loaded, while other plugins are swapped in and out.
-  - Within ` tools-plugin`, different kinds of `Brush` are created whether the `state.problem.type` is community or not. 
-  - If `state.problem.type` is communtiy, the `LandmarkTool` is created.
-  - `state.problem.type` is passed in as a `brushOption` even if the Brush is already of `CommunityBrush` or regular `Brush` type.
-  - Contiguity Check and VRA does not apply in `community` mode
-  - Menu words are chosen on `community` type
-  For VRA
-   - The`showVRA` option is defined twice. The `VRAEffectiveness` module is loaded if `vra` mode is applied. 
-- Since the `Toolbar` is created in `Editor` after the `State` object is created and `Menu` only relies on problem/context
-`State` to provide a list of menu options, should Menu functionality be separated out into a different file?
-
-### Top Menu
-
-`Menu` does so much by itself, I think it deserve a separate file from both the `Toolbar`, `tools-plugin.js`. The
-menu and its options are loaded only once and the options change little from context to context.
-
-### UI Componenets
-
-### UI State Store
-
-- If we use a series of dispatch events to rerender different pieces of the document, do we
-need to call `renderToolbar` in the methods of `brushTool`? 
-- Only the one, unchanging and  defined `reducer` is ever used. Does this ever need to be an
-instance variable or passed around as a parameter between classes?
-as a parameter between structures?
-- In the `dispatch` function, each subscriber is passed a pair of parameters that are ultimately not
-used by the subscribed function (which is only ever `editor.render`) 
 
 ## 04
 
 ### Brush
+
+- Functions `colorfeatures(...)` works in service to the heftier function
+`_colorfeatures(...)`. Could we just rename these two such that the
+first function, which selects the appropriate filter, is a helper
+instead of a gateway?
+
+- The sprawling function `_colorFeatures(...)` investigates both
+individual units and whole counties. Could we separate these two into
+separate functions?
+
+- Every time `this.changedColors` is cleared, it is pointed to a 
+`new Set()` javascript object, which starts out empty. This creates
+many `Set` objects with each you. Though the memory savings on reusing
+the same object are miniscule, wouldn't it be clearer to use function 
+`clear(...)` on the original object?
 
 ### Hover
 
@@ -218,10 +92,27 @@ only used when view `event.js` produces cards for plans. Could this be
 similar to the cards already generated in landing pages elsewhere?
 - `getProblemInfo(...)` also doesn't appear to be used anymore
 
+### COI
+
+### Suggestions
+
+- The `PopBalancePlugin` and the `EvaluationPlugin` both have conditions on `community`
+but is not part of the plugins created in Community mode
+- Within State Portals, `onlyCommunityMode` used to exist for places where we didn't have
+state-wide maps. This is now vestigial. 
+- While it's good to have `CommuntityBrush` extends `Brush`, `Brush` still has a few
+conditions that rest upon `community`, which are now never called.
+- Most ways COI mode is conditioned upon is for simple labels. Maybe we could create a
+simple labels object and condition only once. 
+- When one pushes the Important Places "Create" button, its mode cannot be cancelled until
+a new landmark is added, which can be deleted right after. 
+- `coi2` is a form of Community of Interest mode that is used very rarely and may not
+be needed. 
+-`PlacesList.js` and `PlaceMap.js` are vesitigial
+
 ## 06
 
 ### Data Layers Plugin
-
 - Since `edit.js` lists plugins to load by `problem.type`, it is redundant to
 have so many use cases depend on the difference between `districting` and `community`
 modes. With the proper management of helper functions, it's probably easier to just
@@ -244,13 +135,11 @@ into vap codes. Could this constant be kept above or folded into
 `../components/Charts/CoalitionPivotTable`?
 
 ### Data Set Info
-
 - Is there a way we can handle these special cases and special language in `spatial_abiliies`?
 - Directives come from AngularJS, whereas we use lit-html throughout Districtr for templating.
 Can't we just use lit-html to populate this text?
 
 ### Demographics Table
-
 - `DemographicsTable` imported by `data-layers-plugin` but is not called. 
 - Many table types reimplement `getBackgroundColor` and `getCellStyle` identically.
 This, along with the `popNumber` formatter can be collected in its own utils file. 
@@ -268,7 +157,6 @@ many dozens and it takes up space. This is pronounced when Histograms are used.
 _ `AgeHistogramTable` does not create an overall area age breakdown like `RacialBalanceTable`. This may require more involved programming.
 
 ### Evaluation Plugin
-
 - Two equivalent if statements `state.elections.length > 0` should be
 combined.
 - Initial `isOpen` states can be delegated to a helper function.
@@ -277,7 +165,6 @@ called if `problem.type` is "community"
 - Separate out VRAtab as new plugin. 
 
 ### Pop Balance Plugin 
-
 - So much is similar with single and multimember districts, we could use in-line if statements_
 - Both Population Deviation and Unassigned Population are short and can be combined in the pop-balance-plugin file_
 - ZoomToUnassigned should be moved to Unassigned.js 
@@ -288,6 +175,24 @@ Both `indiciesOfMajorSubgroups()` and `RacialBalanceTable` filter out 2018 and 2
 data. Could this be consolidated?
 
 ### ColumnSet Parts
+- Constant `ABBREVIATIONS` is kept by the `Subgroup` class, but abbreviations
+and other utilities should be kept together in a utils file. 
+- Class `SumOfColumns` is so similar to `NumericalColumn` and `Subgroup` that it
+could extend or be rolled into one of these classes
+- It's natural for `column-sets.js` to list all possible columns, but since each
+possible columnset is hard coded, lots of work is necesssary if we were to add a
+new data type. This is alluded to in the original documentation.
+- In function `getColumnSets(...)`, if statements check each type of columnset,
+like `if (state.vap)` twice. Could this condition be folded into itself so that
+it is called once?
+   - Actually, within this function, what's the difference between `state.columns` and
+the `columnsets` array? 
+- Philosophically, I think `State` should be responsible for the addition of its
+own columnsets with a function like `addColumnSet(...)`. I also think that state should
+initialize blank versions of any of its instance variables at the onset for clarity's
+sake.
+
+- Why is `src/models/lib` its own folder
 
 ### DataTable
 
@@ -338,11 +243,31 @@ coded values for income and age histograms. It is always 1.5 and 1
 respectively and modifies widths 44 and 2 respectively. Thus these
 values could be hard coded 66 and 2 without `widthMultiplier`.
 
+### Suggestions
+
+- A reminder that `state.population` is not initialized in the initial creation
+of the `state` object.
+- Another reminder that svg can be modified by css, if global formatting is needed.
+- Consts, hard-coded display settings, are defined as global variables, which could
+live in utils as an object.
+
+
 ## 07
 
 ### State Portals
 
+- So many anonymous functions are used to render `html`. Perhaps a few longer ones can
+be separated out as helper functions
+- Functions `drawTitles(...)` and `getProblems(place)` are no longer used anywhere
+- Since every state has a statewide plan, `onlyCommunityMode` is no longer needed
+- The population of districting and community cards occurs later than when it
+is given structure in the HTML. Maybe they should be placed closer together for
+clarity.
+
 ### Index
+
+It is vestigial to have a sign in header or `initializeAuthContext`, which makes
+`clearQueriesFromURL()` less important.
 
 ### Place Map
 
@@ -359,7 +284,6 @@ different fields for many events.
 ## 09
 
 ### Mongo Lambdas
-
 `db` from `server.js` is imported but not used in the following files.
 Perhaps it is important in creating a connection, so no explicit use indeed, it is never used in any case it is imported.
 is necessary. 
@@ -371,15 +295,15 @@ is necessary.
 - `planUpdate.js`
 
 ### Package
-
 Wrangling packages for npm is its own specialty. While reviewing the code,
 it appears that `caniuse-lite?` and `encoding` don't appear to be used
 but may serve some other function, like as prerequisites. 
 
+
+
 ###
 
 ### Routes
-
 - The `routes` object has identical keys and values making it redundant.
 What is the advantage of this structure?
 - So much occurs when `loadPlanFromJSON(...)` and `loadPlanFromCSV(...)`
@@ -402,10 +326,7 @@ or used anywhere
 
 ## 10
 
-### Place Exceptions
-
 ### Spatial Abilities
-
 - This special object should be made into its own file to highlight
 its importance.
 - A comprehensive listing of available features could also live in that new
@@ -416,7 +337,6 @@ file.
 are defined but not used anywhere
 
 ### Place Exceptions
-
 Much of districtr's features and displays are dependent on the `place`
 of the current module. As such...
 - extra layers like "School Districts" can be stored as an object

@@ -47,9 +47,6 @@ with active listeners ultimately tied back to the `BrushTool`, that calls this
 function. Within this file, the default function uses helper function `addNewColorButton(...)`
 that allows for adding new colors, when used with communities of interest.
 
-_how does this really work if colors is passed in only up to the number of parts? Aha,
-it's different when its coi_
-
 The `districtr/src/components/Toolbar/BrushSlider.js` is even simpler. Also created with
 `BrushTool`, it takes a default `radius`, a callback function and other options to render
 inputs of both class `.slider` and `.slider value.` This callback function is always
@@ -124,6 +121,14 @@ selected variable.
 
 _confusing name_
 _complex use_
+
+
+# #
+### Suggestions
+
+- `Parameter` has a confusing name. It behaves like a "DropdownItem".
+- It also has a complicated use as it can be sent anything as its 
+display object.
 
 # #
 

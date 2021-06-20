@@ -121,8 +121,9 @@ The `Sequence` object is provided by `sequenceModel.js` and helps
 ### Suggestions
 
 `db` from `server.js` is imported but not used in the following files.
-Perhaps it is important in creating a connection, so no explicit use indeed, it is never used in any case it is imported.
-is necessary. 
+Perhaps it is important in creating a connection, so no explicit use
+is needed. However, it is never used excplicitly in any case it is
+imported including... 
 - `eventRead.js`
 - `planCreate.js`
 - `planPreview.js`

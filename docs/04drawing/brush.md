@@ -56,7 +56,7 @@ instance and clear the undo/redo stack with `this.clearUndo()`.
 The primary responsibility of the `Brush`, indeed, of the entire
 districtr system, is the ability to select precinct or census units and
 collecting them together. We do this by coloring them. A brush carries a
-color one at a time. Thus, after intialization, abrush's `this.color`
+color one at a time. Thus, after intialization, a brush's `this.color`
 can be set anew by `setColor(...)`.
 
 When erasing is desired, we call `startErasing()` which stores the
@@ -83,7 +83,7 @@ The main action occurs in `_colorFeatures` once it is given a filter. Here,
 work. 
 
 First, we add the brush's color to `this.changedColors` to signal that we
-have made changes with this color. _which is for undoredo?_ Then, we iterate
+have made changes with this color. Then, we iterate
 through all filtered counties. If we happened to select counties, we color
 these counties through `layer.setCountyState(fips)` using the county's fips
 codes and trigger the `colorop` listeners. Finally, we trigger the `colorend` 
@@ -204,16 +204,38 @@ events in `this.listeners`.
 
 # Community Brush
 
+The `CommunityBrush`, found in `CommunityBrush.js` is mostly the same as regular `Brush` but takes into account that coi's can overlap. For
+instance, when a unit belongs to multiple communities, `CommunityBrush`
+tries a strategy to blend the colors together.
+
 # # 
 
 ## Suggestions
-[//]: # (_please define!_)
-[//]: # (_ later, erase only one color at a time? _)
-[//]: # (_color type guarantees_ )
-[//]: # (_rename colorfeatures as helper to _colorfeatures_)
-[//]: # (_separate out colorFeatures and colorCounties?_)
-[//]: # (_does the code reimplement hoverON! in colorFeatures?_ )
-[//]: # (_this.changedColors twice_)
+
+- It's easier to get one's mind around an object when its instance variables
+are defined at the start. This is so for `this._previousColor`,
+`this.erasing`, `this.cursorUndo` and `this.trackRedo`.
+
+- Checking if `feature.state.color` is null or undefined or
+`isNan(...)` is redundant, they are equivalent statements
+- Much effort is done to ensure that the color type is `Number`.
+What is the reason it would ever be passed around as a string? We could
+guarantee that the color is a Number throughout.
+
+- Functions `colorfeatures(...)` works in service to the heftier function
+`_colorfeatures(...)`. Could we just rename these two such that the
+first function, which selects the appropriate filter, is a helper
+instead of a gateway?
+
+- The sprawling function `_colorFeatures(...)` investigates both
+individual units and whole counties. Could we separate these two into
+separate functions?
+
+- Every time `this.changedColors` is cleared, it is pointed to a 
+`new Set()` javascript object, which starts out empty. This creates
+many `Set` objects with each you. Though the memory savings on reusing
+the same object are miniscule, wouldn't it be clearer to use function 
+`clear(...)` on the original object?
 
 # # 
 

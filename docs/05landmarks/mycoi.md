@@ -7,4 +7,4 @@ permission in `spatial_abilities`.
 Within `utils.js`, this appears never to be set true and is
 only set false for states CO, CT, IN, LA, MD, MO, NE, PA and VA.
 
-_deprecated!_
+Since it is never used, it appears to be deprecated.
