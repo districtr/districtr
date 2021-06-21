@@ -27,7 +27,7 @@ export default () => {
             
             let from_link = html`<div class="modal-item" id="url">
                     <p>
-                        Paste the shareable URL for an existing Districtr
+                        Paste the shareable URL or plan code for an existing Districtr
                         plan.
                     </p>
                     <input type="url" id="shareable-url">
@@ -61,7 +61,7 @@ const loadablePlans = (plans, place) =>
 
 
 const loadablePlan = (plan, place) => html`
-        <li class="plan-thumbs__thumb" @click="${e => console.log(plan.id)}">
+        <li class="plan-thumbs__thumb" @click="eval?url=${place}/${plan.id}">
             <img
                 class="thumb__img"
                 src="/assets/${place}-plans/${plan.id}.png"
