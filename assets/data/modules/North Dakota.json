@@ -893,6 +893,13 @@
                 "max": 0
               },
               {
+                "key": "HPOP",
+                "name": "Hispanic population",
+                "sum": 59,
+                "min": 0,
+                "max": 6
+              },
+              {
                 "key": "ASIANPOP",
                 "name": "Asian population",
                 "sum": 3,
