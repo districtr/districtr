@@ -13,6 +13,7 @@ export default () => {
         .then(response => response.json()).then(data => {
             // Build Go Button and Plan Uploader
             let go = new Button(() =>{
+                    let url = document.getElementById("shareable-url").value;
                     let plan = loadPlan(url);
                     // TODO do somethign with the plan!
                     plan.then(context => console.log(context));
@@ -42,6 +43,17 @@ export default () => {
         });
 }
 
+/** Plan Loading */
+function loadPlan(url) {
+    // load a test plan if developing
+    if (window.location.href.includes("localhost:") && url == "") 
+        return loadPlanFromURL("/assets/mi-plans/state_house.json");
+    let districtr_id = url.split('/')[url.split('/').length - 1];
+    return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
+    .then(res => res.json())
+    .then(loadPlanFromJSON);
+}
+
 /** Helper functions */
 const plansSection = (plans, place) =>
     plans.map(
@@ -61,16 +73,18 @@ const loadablePlans = (plans, place) =>
 
 
 const loadablePlan = (plan, place) => html`
-        <li class="plan-thumbs__thumb" @click="eval?url=${place}/${plan.id}">
-            <img
-                class="thumb__img"
-                src="/assets/${place}-plans/${plan.id}.png"
-                alt="Districting Plan ${plan.id}"
-            />
-            <figcaption class="thumb__caption">
-                <h6 class="thumb__heading">${plan.name || plan.id}</h6>
-            </figcaption>
-        </li>
+        <a href="eval?url=${place}-plans/${plan.id}">
+            <li class="plan-thumbs__thumb">
+                <img
+                    class="thumb__img"
+                    src="/assets/${place}-plans/${plan.id}.png"
+                    alt="Districting Plan ${plan.id}"
+                />
+                <figcaption class="thumb__caption">
+                    <h6 class="thumb__heading">${plan.name || plan.id}</h6>
+                </figcaption>
+            </li>
+        </a>
 `;
 
 function showPlans(feature, data, tgt) {
@@ -81,13 +95,15 @@ function showPlans(feature, data, tgt) {
         curState = "Washington, DC";
     var stateData = data.filter(st => st.state === curState)[0];
     let plans = [], ref = uspost[curState];
+    console.log(ref);
     for (let section of stateData.sections)
         if (section.type == 'plans' && section.ref == ref)
             plans = plans.concat(section.plans)
+    console.log(plans);
     if (plans.length > 0)
         render(plansSection(plans, ref), tgt);
     else
-        render(html`No example/enacted plans available for ${curState}`, tgt);
+        render("", tgt);
 }
 
 const uspost = {
