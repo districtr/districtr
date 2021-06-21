@@ -11,7 +11,8 @@ const routes = {
     "/request": "/request",
     "/signin": "/signin",
     "/signout": "/signout",
-    "/analysis": "/analysis"
+    "/analysis": "/analysis",
+    "/evaluation": "/evaluation"
 };
 
 export function navigateTo(route) {
