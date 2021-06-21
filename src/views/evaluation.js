@@ -14,11 +14,13 @@ export default () => {
             // Build Go Button and Plan Uploader
             let go = new Button(() =>{
                     let plan = loadPlan(url);
+                    // TODO do somethign with the plan!
                     plan.then(context => console.log(context));
                 }, 
                 { label: "Go.", hoverText: "Evaluate the selected plan." });
             let upload = new PlanUploader(fileContent => {
                 loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
+                    // TODO Do something with the plan!
                     console.log(context);
                 });
             });
@@ -77,9 +79,7 @@ function showPlans(feature, data, tgt) {
         return;
     if (curState == "DC")
         curState = "Washington, DC";
-    console.log(curState);
     var stateData = data.filter(st => st.state === curState)[0];
-    // TODO
     let plans = [], ref = uspost[curState];
     for (let section of stateData.sections)
         if (section.type == 'plans' && section.ref == ref)

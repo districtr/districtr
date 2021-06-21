@@ -362,7 +362,9 @@ export function Features(features, onHover, selectedId, callback) {
                                                         class="dc-annotation"
                                                         d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + altpath["DC"](dcpoint).split(",")[0].substr(1) + "," + altpath["DC"](dcpoint).split(",")[1].slice(0,-2)}"
                                                         @mouseover=${() => onHover(dcpoint)}
-                                                        onclick=${callback ? () => callback(dcpoint) : selectLandingPage(dcpoint)}></path>` : svg``}
+                                                        @click="${callback ? () => callback(dcpoint) : ""}"
+                                                        onclick=${callback ? "" : selectLandingPage(dcpoint)}></path>` 
+                                                : svg``}
             <path id="${featureId}" class="${featureClasses(
             feature,
             featureId,
@@ -370,7 +372,8 @@ export function Features(features, onHover, selectedId, callback) {
         )}" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
             d="${(altpath[feature.properties.STUSPS] || path)(feature)}" @mouseover=${() => onHover(feature)}
-            onclick=${callback ? callback(feature) : selectLandingPage(feature)}></path>`;
+            @click="${callback ? () => callback(feature) : ""}"
+            onclick=${callback ? "" : selectLandingPage(feature)}></path>`;
     })}
     </g>
   </svg>`;
