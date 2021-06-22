@@ -57,6 +57,8 @@ function getPlanURLFromQueryParam() {
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
+    console.log(planURL);
+    console.log(finalURLpage);
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
