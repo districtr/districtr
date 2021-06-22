@@ -159,9 +159,6 @@ turn into its own folder down the line.
 
 ## Max on a Roll
 
-## Merge pull request #58 from maxhully/plan-from-url July 11
-
-
 As the Spring and Summer of 2019 unfolded, real data and new features
 were added at a rapid pace, together with maintaining and fixing bugs on
 districtr's core features. Thanks to our partnerships we began to add

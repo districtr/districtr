@@ -75,7 +75,7 @@ following model.
 <img src="./pics/drawingbasics.png" width=50%>
 
 - [Hovering over the Map](./04drawing/hover.md)
-- [Painting and Erasing with Brush and Community Brush](./04drawing/mapbrush.md)
+- [Painting and Erasing with Brush and Community Brush](./04drawing/brush.md)
 - [Undo and Redo](./04drawing/undoredo.md)
 - [The Tooltip Brush](./04drawing/tooltip.md)
 - [Checking for Contiguity](./04drawing/contiguity.md)
@@ -96,6 +96,7 @@ following model.
   - [The Multi Layers Plugin](./06charts/multilayersplugin.md)
   - [Population Balance Plugin](./06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](./06charts/evaluationplugin.md)
+- [The Population Model](../06charts/population.md)
 - [Population Bar Chart](./06charts/populationbarchart.md)
 - [Column-Sets and Parts](./06charts/columnsetsparts.md)
   - [Two ways to explore election results](./06charts/electionresults.md)
@@ -132,6 +133,8 @@ following model.
 
 - [Spatial Abilites](./10spatialabilities/spatialabilities.md)
 - [Inventory of Place Based Exceptions](./10spatialabilities/placeexceptions.md)
+- [Utilities](./10spatialabilities/utils.md)
+
 
 ## 11. Grand Suggestions
 

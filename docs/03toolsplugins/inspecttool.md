@@ -1,15 +1,15 @@
 # Working on Tooltip! The Inspect Tool
 
-The Inspect Tool was added between Tue. Jan. 15 and Wed. Jan. 16, 2019 by
-[@maxhully]. [@mapmeld] has continued maintenance of this file, with additions
-by [@jenni-niels] in the realm of displaaying VRA data.
+The Inspect Tool was added between Tue. Jan. 15 and Wed. Jan. 16, 2019
+by [@maxhully]. [@mapmeld] has continued maintenance of this file, with
+additions by [@jenni-niels] in the realm of displaying VRA data.
 
 ## default class `InspectTool`
 
-As an extension of the base `Tool` class, `InspectTool` has similar construction,
-activation, deactivation and rendering functions. However, it is a very
-different tool than the brushes as it must display tabular data. This is reflected
-in its construction.
+As an extension of the base [`Tool`] class, `InspectTool` has similar
+construction, activation, deactivation and rendering functions. However,
+it is a very different tool than the brushes as it must display tabular
+data. This is reflected in its construction.
 
 ### Construction
 
@@ -31,24 +31,25 @@ passing features to the map `TooltipContent` renderer.
 
 Instance variable `this.layer` is assigned the parameter `units`, a
 new `ToolTip` is created with `units` and the `renderTootipContent`
-function and is set as the instance `this.tooltip`. Finally, `this.options`
-is assigned a new `InspectToolOptions` class and the`this.changeColumnSetByIndex`
-function is bound to the instance. 
+function and is set as the instance `this.tooltip`. Finally,
+`this.options` is assigned a new `InspectToolOptions` class and the
+`this.changeColumnSetByIndex` function is bound to the instance. 
 
 ### Activation and Deactivation 
 
 This tool is activated and deactivated in a similar way using its base
 object `Tool`. In addition, the `inspect-tool` class is added to the 
-canvas of the `map` and the `this.tooltip` is also activated. 
+canvas of the [`map`] and the `this.tooltip` is also activated. 
 
 When deactivated, each of the three pieces above are either deactivated
 or removed from the canvas class list. 
 
 ### Column Indexes
 
-Different column sets can be loaded into the tooltip by changing `this.activeColumnSetIndex`
-with the `changeColumnSetByIndex(i)` setter. All data in the active column set can be
-returned by `getActiveColumnSet()`. 
+Different column sets can be loaded into the tooltip by changing
+`this.activeColumnSetIndex` with the `changeColumnSetByIndex(i)` setter.
+All data in the active column set can be returned by
+`getActiveColumnSet()`. 
 
 }
     changeColumnSetByIndex(i) {
@@ -61,31 +62,54 @@ returned by `getActiveColumnSet()`.
 
 ## The `InspectToolOptions` class 
 
-An options class for the inspectTool can be created by passing itself into
-the `InspectToolOptions` constructor. This object carries two instance
-methods, `this.inspectTool` and `this.changeRadius`, a bound function.
+An options class for the inspectTool can be created by passing itself
+into the `InspectToolOptions` constructor. This object carries two
+instance methods, `this.inspectTool` and `this.changeRadius`, a bound
+function.
 
 Triggered by the UI, `changeRadius(e)` stops the event's propagation, 
-retrieves the slider value and applies this to the `inspectTool.tooltip.radius`
-and rerenders the Toolbar. 
+retrieves the slider value and applies this to the
+`inspectTool.tooltip.radius` and rerenders the Toolbar. 
 
-Within the toolbar, the `render` function creates a div class `.ui-option`
-with a legend that displays "Tooltip Data." A `Select` class UI component 
-is called to render a selection of various columnSets available. Finally,
-a `BrushSlider` element titled "Spotlight Size" is created to render the
-UI for changing the tooltip radius. 
+Within the [toolbar], the `render` function creates a div class
+`.ui-option` with a legend that displays "Tooltip Data." A `Select`
+class UI component  is called to render a selection of various
+columnSets available. Finally, a `BrushSlider` element titled
+"Spotlight Size" is created to render the UI for changing the tooltip
+radius. This is all described as part of the [Options Container].
 
 # #
 
 [Return to Main](../README.md)
-- [Making space for the Toolbar](./toolbar.md)
-- [The Tools-Plugin prevails](./toolsplugin.md)
-  - [The `Tool` Class and The `Pan` Tool](./tool.md)
-  - Previous: [Brush and Erase Tools](./BrushEraseTools.md)
-- [Popups a la Modal](./modal.md)
-- [The top-bar Menu](./topmenu.md)
-- [Rendering in Action: OptionsContainer](./optionscontainer.md)
-- [UIStateStore](./uistatestore.md)
-- [Actions and Reducers](./actionsreducers.md)
-- [A List of UI and Display Components](./uicomponents.md)
-- [Tabs and Reveal Sections](./sections.md)
+
+- [Making space for the Toolbar](../03toolsplugins/toolbar.md)
+  - [Tabs and Reveal Sections](../03toolsplugins/sections.md)
+  - [A List of UI and Display Components](../03toolsplugins/uicomponents.md)
+  - [Rendering in Action: OptionsContainer](../03toolsplugins/optionscontainer.md)
+  - [The top-bar Menu](../03toolsplugins/topmenu.md)
+  - [Popups a la Modal](../03toolsplugins/modal.md)
+
+- [UIStateStore](../03toolsplugins/uistatestore.md)
+- [Actions and Reducers](../03toolsplugins/actionsreducers.md)
+
+- [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
+  - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
+  - Previous: [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+
+- [Plugins!](../03toolsplugins/plugins.md)
+  - The Tools Plugin (See Above)
+  - The Data Layers Plugin (See Chapter 06)
+  - The Multi Layers Plugin (See Chapter 06)
+  - The Community Plugin (See Chapter 05)
+  - The Population Balance Plugin (See Chapter 06)
+
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
+[@jenni-niels]: http://github.com/jenni-niels
+
+[`map`]: ../02editormap/map.md
+
+[`Tool`]: ../03toolsplugins/tool.md
+[toolbar]: ../03toolsplugins/toolbar.md
+[Options Container]: ../03toolsplugins/optionscontainer.md
+

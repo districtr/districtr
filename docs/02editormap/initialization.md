@@ -96,10 +96,11 @@ mode.
 # # 
 
 [Return to Main](../README.md)
-- Next: [edit.js and the Editor Object](./2editormap/editor.md)
-- [The Map Object](./2editormap/map.md)
-- [Adding Layers](./2editormap/layer.md)
-- [Number Markers](./2editormap/numbermarkers.md)
+- Next: [edit.js and the Editor Object](../02editormap/editor.md)
+- [The Map Object](../02editormap/map.md)
+- [Adding Layers](../02editormap/layer.md)
+- [Number Markers](../02editormap/numbermarkers.md)
+- [Layer Overlay](./02editormap/layeroverlay.md)
 
 [plan/context]: ../1contextplan/plancontext.md
 [`State`]: ../1contextplan/state.md
@@ -124,13 +125,13 @@ mode.
 [`EraserTool`]: ../3toolsplugins/BrushEraseTools.md
 [`InspectTool`]: ../3toolsplugins/inspecttool.md
 [`PanTool`]: ../3toolsplugins/tool.md
-
-[`IdColumn`]: ./idcolumn.md
+[`ToolsPlugin`]: ../03toolsplugins/toolsplugin.md
 
 [`utils`]: ./utils.md
 [`./lib/column-set`]: ./columnset.md
 
-[`deploy/_redirects`]: ../deploy/_redirects
+[`deploy/_redirects`]: ../09deployment/headersredirects.md
+[`routes.js`]: ../09deployment/routes.md
 
 [`package.json`]: ../package.md
 
@@ -144,5 +145,4 @@ mode.
 [`map/index.js`]: ../../src/map/index.js
 [`index.js`]: ../../src/map/index.js
 [`src/map/index.js`]: ../../src/map/index.js
-[`routes.js`]: ../../src/routes.js
 [`models/editor.js`]: ../../src/models/editor.js

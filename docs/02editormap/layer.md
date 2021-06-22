@@ -6,7 +6,7 @@ moved into the `/src/map/` folder in anticiption of the big [pull #68]
 that merged [@maxhully]'s work into [@districtr]'s repository. It has
 been maintained by [@mapmeld] since December of 2019.
 
-<img src="./pics/layer.png" width=75%>
+<img src="../pics/layer.png" width=75%>
 
 ## Use
 
@@ -27,17 +27,19 @@ If you've been paying attention, the [`map/index.js`] script has up to
     - `city_border_poly` for city holes.
 
 Elsewhere, new Layers are created...
-- In `src/plugins/data-layers-plugin.js` and `multi-layers-plugin.js`
+- In [`src/plugins/data-layers-plugin.js`] and
+[`multi-layers-plugin.js`]
     - For many. many excpetional local municipal boundaries 
-- In `src/components/Landmark.js`as an instance variable of `Landmarks`
-- In `src/map/NumberMarkers.js`, which adds number markers to the map. 
+- In [`src/components/Landmark.js`] as an instance variable of
+`Landmarks`
+- In [`src/map/NumberMarkers.js`], which adds number markers to the map. 
 - In various ways in the `districtr/src/layers/` folder
-    - `Overlay.js`
+    - [`Overlay.js`]
     - `OverlayContainer.js`
     - `PartisanOverlayContainer.js`
     - `amin_control.js`
     - `colleges_hospitals.js`
-    - `counties.js` _similar to map/index.js?_
+    - `counties.js`
     - `current_districts.js`
 
 ## Back to `src/map/Layer.js`
@@ -74,8 +76,6 @@ Instances of this class are then given getter and setter methods...
 - `untilSourceLoaded(callback)`
 - finally, a `handler` function
 
-[//]: # (### Using the Layer functions)
-
 ### Mapbox Layer Style Spec 
 
 A styled layer object is a simple object with...
@@ -106,58 +106,25 @@ a way that it is easy to confuse
 # #
 
 [Return to Main](../README.md)
-- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
+- [How is the Districtr Editor page loaded?](../02editormap/initialization.md)
 - [edit.js and the Editor Object](./editor.md)
 - Previous: [The Map Object](./map.md)
 - Next: [Number Markers](./numbermarkers.md)
+- [Layer Overlay](../02editormap/layeroverlay.md)
 
-[@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
-[@AtlasCommaJ]: http://github.com/AtlasCommaJ
-[@jenni-niels]: http://github.com/jenni-niels
+[@districtr]: http://github.com/districtr
 
-[plan/context]: ../1contextplan/plancontext.md
-[`State`]: ../1contextplan/state.md
-
-[`Editor`]: ./editor.md
-[`Map`]: ./map.md
 [`MapState`]: ./map.md
 [`MapState.map`]: ./map.md#map
-[`mapbox instance`]: ./map.md#map
-[`Layers`]: ./layer.md
-[`map/Layer`]: ./layer.md
-[`addLayers`]: ./layer.md
-[`map/Layer`]: ./layer.md
 
-[`Toolbar`]: ../3toolsplugins/toolbar.md
+[`Overlay.js`]: ../02editormap/layeroverlay-.md
+[`src/plugins/data-layers-plugin.js`]: ../06charts/datalayersplugin.md
+[`multi-layers-plugin.js`]: ../06charts/multilayersplugin.md
+[`src/components/Landmark.js`]: ../05landmarks/landmarksclass.md
+[`src/map/NumberMarkers.js`]: ../02editormap/numbermarkers.md
 
-[`reducers`]: ../3toolsplugins/actionsreducers.md
-
-[`mapboxgl`]: https://docs.mapbox.com/mapbox-gl-js/api/
-[mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
-
-[`IdColumn`]: ./idcolumn.md
-
-[`utils`]: ./utils.md
-[`./lib/column-set`]: ./columnset.md
-
-
-[`edit.js`]: ../../src/views/edit.js
-[`views/edit.js`]: ../../src/views/edit.js
-[`src/models/State.js`]: ../../src/models/State.js
-[`State.js`]: ../../src/models/State.js
 [`map/index.js`]: ../../src/map/index.js
-[`index.js`]: ../../src/map/index.js
-[`src/map/index.js`]: ../../src/map/index.js
-
-[`deploy/_redirects`]: ../../deploy/_redirects
-[`routes.js`]: ../../src/routes.js
-[`package.json`]: ../../package.json
-[`edit.html`]: ../../html/edit.html
-[`models/editor.js`]: ../../src/models/ed
-
-[`/src/map`]: ../src/map
-[`Layers`]: ./layer.md
 
 [pull #68]: https://github.com/districtr/districtr/pull/68

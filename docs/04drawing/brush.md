@@ -5,20 +5,20 @@ features on a map. It is responsible for hovering over a feature and
 communicating with mapbox about coloring or de-coloring these features,
 the principal way we assign units to destricts.
 
-Loaded by `tools-plugin.js`, a `Brush` is turned on and off by the
-`Toolbar`. In order to hover over features, it inherits from
-`HoverWithRadius` and `Hover`. Finally, the brush object keeps track of
-these actions so that users can undo or redo their changes.
+Loaded by [`tools-plugin.js`], a [`Brush`] is turned on and off by the
+[`Toolbar`]. In order to hover over features, it inherits from
+[`HoverWithRadius`] and `Hover`. Finally, the brush object keeps track
+of these actions so that users can undo or redo their changes.
 
-## The `Brush` class in `src/map/brush.js`
-The `Brush` made its debut on Tues., Oct. 23, 2018, written into districtr
-by [@maxhully]. The next week, on Oct. 29, erasing with the brush was
-enabled. 
+## The `Brush` class in [`src/map/brush.js`]
+The `Brush` made its debut on Tues., Oct. 23, 2018, written into
+districtr by [@maxhully]. The next week, on Oct. 29, erasing with the
+brush was enabled. 
 
 ### Construction
 
-A `Brush` object is constructed with a `Layer`, `radius` and `color`.
-The `Layer` is the relevant map layer the Brush acts upon, the `radius`
+A `Brush` object is constructed with a [`Layer`], `radius` and `color`.
+The `Layer` is the relevant [map] layer the Brush acts upon, the `radius`
 is the initalized value of a parameter related to selecting features in
 batches. A brush, like in real life, paints one `color` at a time.
 
@@ -38,13 +38,14 @@ painted
 
 Though not defined on construction, `this._previousColor`,
 `this.erasing`, `this.cursorUndo` and `this.trackRedo` are also instance
-variables created later.
+variables created later. [Undo and Redo] operations are detailed in 
+this article and later in this chapter.
 
 As a user-interface, each `Brush` instance keeps a collection of
 `this.listeners` tied to specific actions...
 - `colorend` signals when we're done coloring 
 - `colorfeature` signals when we've colored a feature
-- `colorop` related to mouse actions, undoing and redoing  _colorop?_
+- `colorop` related to mouse actions, undoing and redoing  
 - `undo` and `redo` signals when actions were undone or redone. 
 
 Finally, we bind instance methods `onMouseDown`, `onMouseUp`, `onClick`,
@@ -78,16 +79,15 @@ null or a different color than the current brush to be reassigned.
 Features under unlocked-mode can be both recolored and erased. 
  
 
-The main action occurs in `_colorFeatures` once it is given a filter. Here,
-`seenFeatures` and `seenCounties` are a vital sets that keep track of our
-work. 
+The main action occurs in `_colorFeatures` once it is given a filter.
+Here, `seenFeatures` and `seenCounties` are a vital sets that keep track
+of our work. 
 
-First, we add the brush's color to `this.changedColors` to signal that we
-have made changes with this color. Then, we iterate
-through all filtered counties. If we happened to select counties, we color
-these counties through `layer.setCountyState(fips)` using the county's fips
-codes and trigger the `colorop` listeners. Finally, we trigger the `colorend` 
-listeners.
+First, we add the brush's color to `this.changedColors` to signal that
+we have made changes with this color. Then, we iterate through all
+filtered counties. If we happened to select counties, we color
+these counties through `layer.setCountyState(fips)` using the county's
+fips codes and trigger the `colorop` listeners. Finally, we trigger the `colorend` listeners.
 
 As we iterate through features, we consider whether they're eligible for
 painting using the filters described above. An individual feature
@@ -103,13 +103,15 @@ The change is then registered to the undo/redo stack, `this.trackUndo`,
 `brush.color` is added to `this.changedColors`, again, and finally, the
 color change is sent to Mapbox using `layer.setFeatureState(...)`.
 
-If the brush is set to paint by county, the feature's county is recorded in `seenCounties`.
+If the brush is set to paint by county, the feature's county is recorded
+in `seenCounties`.
 
 ### User Interaction
 
-Just as its ultimate base class `Hover` handles user events, `Brush` must extend
-this tool to include the possibility of coloring in features. Method `hoverOn(features)`
-sends the features to `colorFeatures()` if the Brush is on. 
+Just as its ultimate base class `Hover` handles user events, `Brush`
+must extend this tool to include the possibility of coloring in
+features. Method `hoverOn(features)` sends the features to
+`colorFeatures()` if the Brush is on. 
 
 As the mouse hovers over the features, it waits for a user's click. This
 triggers a new `onClick(e)` sequence which resets `this.changedColors`,
@@ -133,7 +135,10 @@ to determine whether to paint features that are hovered on.
 ### Undoing and Redoing
 
 The ability to undo and redo functions was introduced in December of
-2019 by [@mapmeld]. For now, it is the responsibility of the brush
+2019 by [@mapmeld]. More details on the [Undo and Redo] UI button can be
+found later in the chapter.
+
+For now, it is the responsibility of the brush
 object to keep track of user actions through instance
 variables `this.cursorUndo` and `this.trackUndo`. These variables
 are initialized in class method `this.clearUndo` such that...
@@ -182,7 +187,6 @@ and listeners subscribed to `undo` are alerted to the cursor position.
 
 If there are actions available for redoing, then the `redo()` function can
 be triggered, which will perform the actions above in reverse.
-    
     
 ### Activation and Deactivation
 
@@ -240,7 +244,19 @@ the same object are miniscule, wouldn't it be clearer to use function
 # # 
 
 [Return to Main](../README.md)
-- Previous: [Hovering over the Map](./4drawing/hover.md)
-- Next: [Undo and Redo](./4drawing/undoredo.md)
-- [The Tooltip Brush](./4drawing/tooltip.md)
-- [Checking for Contiguity](./4drawing/contiguity.md)
+- Previous: [Hovering over the Map](../04drawing/hover.md)
+- Next: [Undo and Redo](../04drawing/undoredo.md)
+- [The Tooltip Brush](../04drawing/tooltip.md)
+- [Checking for Contiguity](../04drawing/contiguity.md)
+
+[map]: ../02editormap/map.md
+[`Layer`]: ../02editormap/layer.md
+
+[`tools-plugin.js`]: ../03toolsplugins/toolsplugin.md
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+
+[`Brush`]: ../04drawing/brush.md
+[`HoverWithRadius`]: ../04drawing/hover.md
+[Undo and Redo]: ../04drawing/undoredo.md
+
+[`src/map/brush.js`]: ../../src/map/brush.js`

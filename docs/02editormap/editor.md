@@ -1,31 +1,30 @@
 # The Editor
-_Commentary by [@gomotopia][1], May 2021_
 
-<img src="./pics/edit.png" width=50%>
+<img src="../pics/edit.png" width=50%>
 
 Districtr's primary tool for engaging with district maps is known as the
-Editor. According to the [deployment][2], requests to address /edit/ are
-sent to [edit.html][3], which loads  a compiled version of edit.js that
-corresponds to [src/views/edit.js][4]. One can arrive here by including
+Editor. According to the [deployment], requests to address /edit/ are
+sent to [edit.html], which loads a compiled version of edit.js that
+corresponds to [src/views/edit.js]. One can arrive here by including
 a saved plan link or by navigating in from the state portals.
 
-[lit-html][5] is the framework we use to connect javascript to html
+[lit-html] is the framework we use to connect javascript to html
 templates for rendering. 
 
-> [Context][6] is another name for map-plan or saved-state, the
+> [Context] is another name for map-plan or saved-state, the
 structure behind the JSON object that keeps units and assignments for
 each plan. 
 
-## [src/views/edit.js][4]
-First written by [@maxhully][7], betwen January and August 2019.
-Maintained by [@mapmeld][8] since September of 2019. VRA functionality
-added by [@jenni-niels][9]. 
+## [src/views/edit.js]
+First written by [@maxhully], betwen January and August 2019.
+Maintained by [@mapmeld] since September of 2019. VRA functionality
+added by [@jenni-niels]. 
 
 ### Imports
 Important imports include...
 - MapState
 - State
-- External plan functions from [routes.js][10]
+- External plan functions from [routes.js]
 - Editor
 - various plugins
 - various utilities. 
@@ -54,7 +53,7 @@ storage, loadContext renders in html...
 
 Within the HTML, these divs form the foundation of the HTML editor GUI.
 
-Using the context, a new const [`mapState` of class `MapState`][11] is
+Using the context, a new const [`mapState` of class `MapState`] is
 created. The Districtr window title now officially reports as loading. 
 
 If the context was loaded through a saved plan, a shortened URL is
@@ -62,8 +61,8 @@ displayed. Other functionality is included in case a plan file is
 dragged onto the map. 
 
 When the mapbox area held by the `mapState` is complete, a **new
-[Editor][13] object is ready to be created**, with `mapState`,
-[`State`][12] and a list of [plugins][14]. 
+[Editor] object is ready to be created**, with `mapState`,
+[`State`] and a list of [plugins]. 
 
 The `State` object stores properties of the local `mapState` and signals
 to the browser that loading is complete. Any assignments that remain
@@ -91,15 +90,15 @@ different plugins. Map styles are also hard coded in
 if context units are `coi2` or `vra`. Map default settings are also
 governed by `coi2` and `vra`.
 
-<a name="Editor"></a># The Editor Object
+# The Editor Object
 
-<img src="./pics/EditorObject.png" width=50%>
+<img src="../pics/EditorObject.png" width=50%>
 
-## [src/models/edit.js][17]
+## [src/models/editor.js]
 
-The `Editor` model class was written by [@maxhully][7] in April of 2019.
-It is currently maintained by [@mapmeld][8]. This model class contains
-the `render` function needed by [lit-html][5] to display editing tools. 
+The `Editor` model class was written by [@maxhully] in April of 2019.
+It is currently maintained by [@mapmeld]. This model class contains
+the `render` function needed by [lit-html] to display editing tools. 
 
 ### Imports
 
@@ -112,11 +111,11 @@ Important imports include...
 
 Kept as a model, the editor object contains...
 - `this.render` which keeps the render functions for external use.
-- [`this.mapState`][11] and [`this.state`][12] which stores passed in
+- [`this.mapState`] and [`this.state`] which stores passed in
 parameters.
-- `this.store`, a [`UIStateStore`][15] which keeps track of which menus
-or toolbars are in use and requires a [reducer][15]. 
-- `this.toolbar`, which stores a [`Toolbar`][16] object that keeps this
+- `this.store`, a [`UIStateStore`] which keeps track of which menus
+or toolbars are in use and requires a [reducer]. 
+- `this.toolbar`, which stores a [`Toolbar`] object that keeps this
 Editor and its store in mind. Editor depends on its toolbar property to
 render the each of the contents of the toolset in html.
 
@@ -127,7 +126,9 @@ function is subscribed to (waits for) this.store and this.state.
 
 # IDColumn Class
 
-Only in State.js
+Only exits in State.js and the full code is presented below. It carries
+only a `key` and `name` as instance variables and a getter as an
+instance method.
 
 ```
 export default class IdColumn {
@@ -144,7 +145,9 @@ export default class IdColumn {
 }
 ```
 
-### Observations
+# # 
+
+### Suggestions
 
 - Similar to the MapState and Toolbar objects, only one Editor is
 created per window. Could this be a global variable?
@@ -157,7 +160,6 @@ should be written in a different function or dropped.
 - When rendering edit.js, div `#comparison-container` may be
 experimental
 
-
 # # 
 
 [Return to Main](../README.md)
@@ -165,21 +167,31 @@ experimental
 - Next: [The Map Object](./map.md)
 - [Adding Layers](./layer.md)
 - [Number Markers](./numbermarkers.md)
+- [Layer Overlay](../02editormap/layeroverlay.md)
 
-[1]: http://www.github.com/gomotopia
-[2]: ../deploy/_redirects
-[3]: ../html/edit.html
-[4]: ../src/views/edit.js
-[5]: https://lit-html.polymer-project.org/
-[6]: ./plancontext.md
-[7]: http://www.github.com/maxhully
-[8]: http://www.github.com/mapmeld
-[9]: http://www.github.com/jenni-niels
-[10]: ./routes.md
-[11]: ./map.md
-[12]: ./state.md
-[13]: #Editor
-[14]: ./plugins.md
-[15]: ./store.md
-[16]: ./toolbar.md
-[17]: ../src/models/editor.js
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
+[@jenni-niels]: http://github.com/jenni-niels
+
+[`this.state`]: ../01contextplan/state.md
+[`State`]: ../01contextplan/state.md
+[Context]: ../01contextplan/plancontext.md
+
+[`this.mapState`]: ../02editormap/map.md
+[`mapState` of class `MapState`]: ../02editormap/map.md
+[Editor]: ../02editormap/editor.md
+
+[edit.html]: ../../html/edit.html
+[src/views/edit.js]: ../../src/views/edit.js
+[src/models/editor.js]: ../../src/models/editor.js
+
+[`UIStateStore`]: ../03toolsplugins/uicomponents.md
+[plugins]: ../03toolsplugins/plugins.md
+[reducer]: ../03toolsplugins/actionsreducers.md
+[Toolbar]: ../03toolsplugins/toolbar.md
+
+[deployment]: ../09deployment/headersredirects.md
+[routes.js]: ../09deployment/routes.md
+
+[lit-html]: https://lit-html.polymer-project.org/
+

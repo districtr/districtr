@@ -1,20 +1,21 @@
 # Population Balance Plugin
 
-The `PopulationBalancePlugin` is loaded by `edit.js` and is included in the list
-of default plugins, i.e., when painting districts and not communities. A `Tab`
-of id `criteria` titled "Pop." or "Population" is loaded in the `Toolbar` using
-the default function, requiring only the main `editor` as an argument. 
+The `PopulationBalancePlugin` is loaded by [`edit.js`] and is included
+in the list of default plugins, i.e. when painting districts and not
+communities, by [`ToolsPlugin`]. A [`Tab`] of id `criteria` titled
+"Pop." or "Population" is loaded in the [`Toolbar`] using the default
+function, requiring only the main `editor` as an argument.
 
 Its typical function is to 
-- report [information about the dataset],
+- report information about the dataset,
 - produce a [PopulationBarChart]
 - cause the calculation and display of the unassigned population
 - cause the calculation and display of the population deviation. 
 
 In the rare case we are working with multimember districts as we do only 
-in the Chicago, IL or Santa Clara, CA City Council and the Vermont State Senate,
-a MultiMemberPopBalanceChart is used instead and no Population Deviation is
-calculated. 
+in the Chicago, IL or Santa Clara, CA City Council and the Vermont State
+Senate, a `MultiMemberPopBalanceChart` is used instead and no Population
+Deviation is calculated. 
 
 > The zoomToUnassigned function also lives here. 
 
@@ -38,12 +39,13 @@ export default population => {
 };
 ```
 
-The sum of the districts and the total sum of population is calculated from `state.population`
-and displayed.
+The sum of the districts and the total sum of population is calculated
+from `state.population`, in the `State` object, and displayed.
 
 ## Population Deviation
 
-With the same imports as above, the entire `PopulationDeviation.js` code is listed below.
+With the same imports as above, the entire `PopulationDeviation.js` code
+is listed below.
 
 ```
 export default population => {
@@ -63,13 +65,45 @@ export default population => {
     `;
 };
 ```
-This function uses `Population`'s instance variable to produce deviations for each district.
-The maximum absolute deviation across all districts is represented as a percentage.
+This function uses `Population`'s instance variable to produce
+deviations for each district. The maximum absolute deviation across all
+districts is represented as a percentage.
 
 # #
 
 ### Suggestions 
 
-- So much is similar with single and multimember districts, we could use in-line if statements_
-- Both Population Deviation and Unassigned Population are short and can be combined in the pop-balance-plugin file_
+- So much is similar with single and multimember districts, we could use
+in-line if statements
+- Both Population Deviation and Unassigned Population are short and can
+be combined in the pop-balance-plugin file
 - ZoomToUnassigned should be moved to Unassigned.js 
+
+# #
+
+[Return to Main](../README.md)
+- Plugins for Data
+  - [The Data Layers Plugin](../06charts/datalayersplugin.md)
+  - Previous: [The Multi Layers Plugin](../06charts/multilayersplugin.md)
+  - Next: [The Evaluation Plugin](../06charts/evaluationplugin.md)
+- [The Population Model](../06charts/population.md)
+- [Population Bar Chart](../06charts/populationbarchart.md)
+- [Column-Sets and Parts](./06charts/columnsetsparts.md)
+  - [Two ways to explore election results](../06charts/electionresults.md)
+- [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
+  - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
+  - [Histograms](../06charts/histogram.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Dataset Info](../06charts/datasetinfo.md)
+- [A Full Example: VRA](../06charts/vra.md)
+
+
+[`State`]: ../01contextplan/state.md
+
+[`edit.js`]: ../02editormap/editor.md
+
+[`ToolsPlugin`]: ../03toolsplugins/toolsplugin.md
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+[`Tab`]: ../03toolsplugins/uicomponents.md
+
+[PopulationBarChart]: ../06charts/populationbarchart.md

@@ -214,3 +214,17 @@ but may serve some other function, like as prerequisites.
 ### Routes
 - The `routes` object has identical keys and values making it redundant.
 What is the advantage of this structure?
+
+
+### Suggestions 
+- The const that stores the `BrushTool` icon is a function that takes in
+parameters, but whose output is never changed. This must be vestigial
+from an experiment where we changed the rendered tool icon based on
+state.
+- We should go ahead and set a default value for the `renderToolbar`
+parameter in `BrushToolOptions`, as it is always set to `undefined` when
+it is called. In fact, it is called in each of the `BrushToolOptions`'
+instance methods and is ultimately set to re-render the Editor when the `BrushTool` is added by to the
+`Toolbar` by the `addTool(...)` function. 
+- Undo and Redo buttons handle recent erasing operations, but hot keys are still bound only
+to recent brushing operations. 

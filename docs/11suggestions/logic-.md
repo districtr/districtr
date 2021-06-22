@@ -115,3 +115,6 @@ There are eight places where `isAge` is tested in Histogram.
 - The Reveal Section on "VRA Effectiveness" conditions against using `ma_towns`, 
 yet there should be no case where `ma_towns` is used with showVRA as it is not
 included in the portal. Thus, this is redundant logic.
+
+## Tooltip
+_this.render() occurs twice if this happens._

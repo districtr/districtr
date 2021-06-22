@@ -204,3 +204,5 @@ clarity.
 returns the response from `listPlaces`, that helper functions could be 
 written to help clarity
 
+### DataTable
+_why is coalitionSubgroup not created with a subgroup model?_ 

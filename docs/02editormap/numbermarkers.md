@@ -10,7 +10,7 @@ Number Markers primeired on Mon., Feb. 10, 2020 by [@mapmeld] with
 additional updates by [@jenni-niels]. To this day, it is maintained by
 both.
 
-<img src="./pics/numbermarkers.png" width=75%>
+<img src="../pics/numbermarkers.png" width=75%>
 
 ## Activation
 
@@ -36,17 +36,17 @@ belonging to the browser `window` is assigned the the 'updater' object
 returned by 'NumberMarkers'.
 
 To generate this object, `NumberMarkers` requires a pair of parameters:
-Object `state`, a copy of the current details of the context/plan and
+Object `state`, a copy of the current details of the [context/plan] and
 its assignment and [`brush`],  the interface used upon a specific
 [`layer`] in the map canas that it is tied to. 
 
-## districtr/src/map/NumberMarkers.js
+## [districtr/src/map/NumberMarkers.js]
 
 Number Markers is responsible for initializing and updating District
 Numbers when set to display. To initialize, it must
 - Create an icon using a javascript canvas
 - Load this icon together with new layers and sources in the mapbox
-`map`
+[`map`]
 - Initialize the source of each district-number-layer as a geojson
 with an empty featureset.
 
@@ -188,74 +188,33 @@ districts should occur before and outside the function.
 # #
 
 [Return to Main](../README.md)
-- [How is the Districtr Editor page loaded?](./2editormap/initialization.md)
+- [How is the Districtr Editor page loaded?](../2editormap/initialization.md)
 - [edit.js and the Editor Object](./editor.md)
 - [The Map Object](./map.md)
 - Previous: [Adding Layers](./layer.md)
+- Next: [Layer Overlay](../02editormap/layeroverlay.md)
 
-
-
-
-
-[@gomotopia]: http://github.com/gomotopia
-[@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
-[@AtlasCommaJ]: http://github.com/AtlasCommaJ
 [@jenni-niels]: http://github.com/jenni-niels
 
-[plan/context]: ../1contextplan/plancontext.md
-[`State`]: ../1contextplan/state.md
-[`state`]: ../1contextplan/state.md
+[context/plan]: ../1contextplan/plancontext.md
 
+[`state`]: ../01contextplan/state.md
+
+[`layer`]: ../02editormap/layer.md
+[`map`]: ../02editormap/map.md
+
+[`tools-plugin.js`]: ../03toolsplugins/toolsplugin.md
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+[`ToolsPlugin`]: ../03toolsplugins/toolsplugin.md
+
+[`views/edit.js`]: ../../src/views/edit.js
+[`edit.js`]: ../../src/views/edit.js
 [`Editor`]: ./editor.md
-[`Map`]: ./map.md
-[`MapState`]: ./map.md
-[`MapState.map`]: ./map.md#map
-[`mapbox instance`]: ./map.md#map
-[`Layers`]: ./layer.md
-[`map/Layer`]: ./layer.md
-[`addLayers`]: ./layer.md
-[`map/Layer`]: ./layer.md
 
-
-[`Toolbar`]: ../3toolsplugins/toolbar.md
-[`UIStateStore`]: ../3toolsplugins/uistatestore.md
-[`OptionsContainer`]: ../3toolsplugins/optionscontainer.md
-[dropdown menu]: ../3toolsplugins/topmenu.md
-
-
-[`reducers`]: ../3toolsplugins/reducers.md
-[`plugins`]: ../3toolsplugins/plugins.md
-[`ToolsPlugin`]: ./3toolsplugins/toolsplugin.md
-
-[`BrushTool`]: ../3toolsplugins/BrushEraseTools.md
-[`EraserTool`]: ../3toolsplugins/BrushEraseTools.md
-[`InspectTool`]: ../3toolsplugins/inspecttool.md
-[`PanTool`]: ../3toolsplugins/tool.md
+[districtr/src/map/NumberMarkers.js]: ../../src/map/NumberMarkers.js 
+[`NumberMarkers.js`]: ../../src/map/NumberMarkers.js
 
 [`brush`]: ../4drawing/brush.md]
 
-[`IdColumn`]: ./idcolumn.md
-[`utils`]: ./utils.md
-[`./lib/column-set`]: ./columnset.md
-
-
-[`src/models/State.js`]: ../../src/models/State.js
-[`edit.js`]: ../../src/views/edit.js
-[`views/edit.js`]: ../../src/views/edit.js
-[`State.js`]: ../../src/models/State.js
-[`map/index.js`]: ../../src/map/index.js
-[`index.js`]: ../../src/map/index.js
-[`src/map/index.js`]: ../../src/map/index.js
-[`routes.js`]: ../../src/routes.js
-[`models/editor.js`]: ../../src/models/editor.js
-[`tools-plugin.js`]: ../../src/plugins/tools-plugin.js
-[`NumberMarkers.js`]: ../../src/map/NumberMarkers.js
-
-
-
-[`deploy/_redirects`]: ../../deploy/_redirects
-
-[`package.json`]: ../../package.json
-[`edit.html`]: ../../html/edit.html
-[`/src/map`]: ../../src/map
+[`map`]: ../02editormap/map.md

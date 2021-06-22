@@ -1,7 +1,8 @@
 # The Population Class
 
-The `Population` Class is a descendent of the `ColunSet` class, which
-makes it a simpler sibling of the `Election` class. 
+The `Population` Class is a descendent of the [`ColumnSet`] class, which
+makes it a simpler sibling of the [`Election`] class. It is found in
+[`src/models/Population.js`].
 
 ## Constructor
 
@@ -39,6 +40,25 @@ groups are always returned.
 # #
 
 ### Suggestion
+Both `indiciesOfMajorSubgroups()` and `RacialBalanceTable` filter out
+2018 and 2019 data. Could this be consolidated?
 
-Both `indiciesOfMajorSubgroups()` and `RacialBalanceTable` filter out 2018 and 2019
-data. Could this be consolidated?
+[Return to Main](../README.md)
+- Plugins for Data
+  - [The Data Layers Plugin](../06charts/datalayersplugin.md)
+  - [The Multi Layers Plugin](../06charts/multilayersplugin.md)
+  - [Population Balance Plugin](../06charts/popbalanceplugin.md)
+  - [The Evaluation Plugin](../06charts/evaluationplugin.md)
+- Next: [Population Bar Chart](../06charts/populationbarchart.md)
+- [Column-Sets and Parts](./06charts/columnsetsparts.md)
+  - [Two ways to explore election results](../06charts/electionresults.md)
+- [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
+  - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
+  - [Histograms](../06charts/histogram.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Dataset Info](../06charts/datasetinfo.md)
+- [A Full Example: VRA](../06charts/vra.md)
+
+[`src/models/Population.js`]: ../../src/models/Population.js
+[`ColumnSet`]: ../06charts/columnsetsparts.md
+[`Election`]: ../06charts/electionresults.md

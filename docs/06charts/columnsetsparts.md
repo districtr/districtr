@@ -1,13 +1,15 @@
 # Column Sets
 
-Column Sets are the principal way that tabular information is stored by districtr.
-This elementary status is set so from the loading of each `plan/context`. When a 
-`State` object is created, `state.columnsets` is populated by `getColumnSets(this, units)`
-and `state.parts` is populated by `getParts(problem)`, both of which are populated by
-`/src/models/lib/column-sets.js`. This function creates `Population` and `Election`
-objects that both descend from the `ColumnSet` model class. 
+Column Sets are the principal way that tabular information is stored by
+districtr. This principal element is set all the way from the loading of
+a [`plan/context`]. When a  [`State`] object is created,
+`state.columnsets` is populated by `getColumnSets(this, units)` and
+`state.parts` is populated by `getParts(problem)`, both of which are
+populated by [`/src/models/lib/column-sets.js`]. This function creates
+[`Population`] and [`Election`] objects that both descend from the
+`ColumnSet` model class. 
 
-The original documentation written by @maxhully is as follows. 
+The original documentation written by [@maxhully] is as follows. 
 
 ```
 // This module provides functions that creates Part and ColumnSet (Election
@@ -51,40 +53,41 @@ There's an additional helper function `sortSubgroups` applied if `sort`
 is permitted. Another helper `sortable` determines if a `ColumnSet` is
 sortable if each `subgroup` is of numerical type.
 
-If `total` and `total_alt` are neither undefined or null, they are created
-as their own `Subgroup` and assigned to `this.total` and `this.total_alt`
-respectively. If `total` is null, then a new `SumOfColumns` object is
-created and assigned to the instanc `this.total`.
+If `total` and `total_alt` are neither undefined or null, they are
+created as their own `Subgroup` and assigned to `this.total` and
+`this.total_alt` respectively. If `total` is null, then a new
+`SumOfColumns` object is created and assigned to the instance's
+`this.total`.
 
-Finally, the `this.update` function is bound to the object, which
-calls `.update(...)` for each type of `subgroup` and `total`.
+Finally, the `this.update` function is bound to the object, which calls
+`.update(...)` for each type of `subgroup` and `total`.
 
 ### The `Subgroup` and `SumofColumns` models
 
-`Subgroup` is the sole descendent of `NumericalColumn` found
-in `/src/models/NumericalColumn.js`, where `SumofColumns` also lives.
+`Subgroup` is the sole descendent of `NumericalColumn` found in
+[`/src/models/NumericalColumn.js`], where `SumofColumns` also lives.
 
-`NumericalColumn` is constructed with a `columnrecord` that keeps
-track of its own `name`, `key`, `sum`, `min` and `max` to create
-instance variables for the `NumericalColumn`. The object then also
-provides a `getValue(feature)` function and other formatters.
+`NumericalColumn` is constructed with a `columnrecord` that keeps track
+of its own `name`, `key`, `sum`, `min` and `max` to create instance
+variables for the `NumericalColumn`. The object then also provides a
+`getValue(feature)` function and other formatters.
 
 `Subgroup` extends this by adding a `this.columnSet`, and
-`this.total_alt` from its own construction parameters and a 
-`this.data` instance variable initialized to zeroes. A variety
-of other getters are available related to `total()`, fractional
-values and demographic abbreviations. 
+`this.total_alt` from its own construction parameters and a `this.data`
+instance variable initialized to zeroes. A variety of other getters are
+available related to `total()`, fractional values and demographic
+abbreviations. 
 
-The `update` function is vital here. It takes a `feature` and
-replaces its `color` with multi-assignment functionality.
+The `update` function is vital here. It takes a `feature` and replaces
+its `color` with multi-assignment functionality.
 
-`SumOfColumns` takes `columns`, `columnSet` and `parts` and 
-mimics the functions of `Subgroup`, with an initialized `this.data`
-while performing `min` and `max` calculations itself.
+`SumOfColumns` takes `columns`, `columnSet` and `parts` and  mimics the
+functions of `Subgroup`, with an initialized `this.data` while
+performing `min` and `max` calculations itself.
 
-> Remember: there are two classes of `NumericalColumns`, `Subgroup` which
-descends from it and `SumOfColumns` which does not, but is defined in the
-same file.
+> Remember: there are two classes of `NumericalColumns`, `Subgroup`
+which descends from it and `SumOfColumns` which does not, but is defined
+in the same file.
 
 ### The functions of `column-sets.js`
 
@@ -109,10 +112,11 @@ corresponding functions.
 - `state.education`
 - `state.voters`
 
-Whereas `state.coumns` is an array that inlcudes `state.population.total`,
-`state.population.subgroups` and `state.elections.reduce`. Then in a long
-series of if statements, columns and subgroups within each of the above
-categories are added to `state.columns`. 
+Whereas `state.coumns` is an array that inlcudes
+`state.population.total`, `state.population.subgroups` and
+`state.elections.reduce`. Then in a long series of if statements,
+columns and subgroups within each of the above categories are added to
+`state.columns`. 
 
 `columnsets` is then created the same way and ultimately returned back
 to `state`. 
@@ -130,33 +134,67 @@ the following parameters and instance variables.
 - `this.hoverColor`, from color.hoverhex
 - `this.visible`, default true. 
 
-In addition `updateDescription({...})` updates instance variables `this.name` and
-`this.description`. Function `serialize()` returns a JSON object with `id`,
-`displayNumber`, `name` and `description` and `renderLabel` returns an html
-span class `.part-number` which returns a colored icon. 
+In addition `updateDescription({...})` updates instance variables
+`this.name` and `this.description`. Function `serialize()` returns a
+JSON object with `id`, `displayNumber`, `name` and `description` and
+`renderLabel` returns an html span class `.part-number` which returns a
+colored icon. 
 
-> Remember, there are two ways the part icons are rendered, through css when created
-using `part.renderLabel()` and using canvas when adding them to the mapbox-gl `map`.
+> Remember, there are two ways the part icons are rendered, through css
+when created using `part.renderLabel()` and using canvas when adding
+them to the mapbox-gl `map`.
 
 # # 
 
 ### Suggestions
 
-- Constant `ABBREVIATIONS` is kept by the `Subgroup` class, but abbreviations
-and other utilities should be kept together in a utils file. 
-- Class `SumOfColumns` is so similar to `NumericalColumn` and `Subgroup` that it
-could extend or be rolled into one of these classes
-- It's natural for `column-sets.js` to list all possible columns, but since each
-possible columnset is hard coded, lots of work is necesssary if we were to add a
-new data type. This is alluded to in the original documentation.
-- In function `getColumnSets(...)`, if statements check each type of columnset,
-like `if (state.vap)` twice. Could this condition be folded into itself so that
-it is called once?
-   - Actually, within this function, what's the difference between `state.columns` and
-the `columnsets` array? 
-- Philosophically, I think `State` should be responsible for the addition of its
-own columnsets with a function like `addColumnSet(...)`. I also think that state should
-initialize blank versions of any of its instance variables at the onset for clarity's
-sake.
+- Constant `ABBREVIATIONS` is kept by the `Subgroup` class, but
+abbreviations and other utilities should be kept together in a utils
+file. 
+- Class `SumOfColumns` is so similar to `NumericalColumn` and `Subgroup`
+that it could extend or be rolled into one of these classes
+- It's natural for `column-sets.js` to list all possible columns, but
+since each possible columnset is hard coded, lots of work is necesssary
+if we were to add a new data type. This is alluded to in the original
+documentation.
+- In function `getColumnSets(...)`, if statements check each type of
+columnset, like `if (state.vap)` twice. Could this condition be folded
+into itself so that it is called once?
+   - Actually, within this function, what's the difference between
+   `state.columns` and the `columnsets` array? 
+- Philosophically, I think `State` should be responsible for the
+addition of its own columnsets with a function like `addColumnSet(...)`.
+I also think that state should initialize blank versions of any of its
+instance variables at the onset for clarity's sake.
 
 - Why is `src/models/lib` its own folder
+
+# # 
+
+[Return to Main](../README.md)
+- Plugins for Data
+  - [The Data Layers Plugin](../06charts/datalayersplugin.md)
+  - [The Multi Layers Plugin](../06charts/multilayersplugin.md)
+  - [Population Balance Plugin](../06charts/popbalanceplugin.md)
+  - [The Evaluation Plugin](../06charts/evaluationplugin.md)
+- [Population Bar Chart](../06charts/populationbarchart.md)
+- Here: [Column-Sets and Parts](./06charts/columnsetsparts.md)
+  - [Two ways to explore election results](../06charts/electionresults.md)
+- [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
+  - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
+  - [Histograms](../06charts/histogram.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Dataset Info](../06charts/datasetinfo.md)
+- [A Full Example: VRA](../06charts/vra.md)
+
+[@maxhully]: http://github.com/maxhully
+
+[`plan/context`]: ../01contextplan/plancontext.md
+[`State`]: ../01contextplan/state.md
+
+[`Election`]: ../06charts/electionresults.md
+[`Population`]: ../06charts/population.md
+
+
+[`/src/models/lib/column-sets.js`]: ../../src/models/lib/column-sets.js
+[`/src/models/NumericalColumn.js`]: ../../src/models/NumericalColumn.js

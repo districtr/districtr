@@ -1,16 +1,17 @@
 # VRA
 
-Since early 2021, [@jenni-niels] has been developing a corner of the website 
-concerning Voting Rights Act information in the states of Louisiana, Texas
-and Massachusetts. Their work is a good example of how new features are
-currently built across the sprawling codebase of Districtr. 
+Since early 2021, [@jenni-niels] has been developing a corner of the
+website concerning Voting Rights Act information in the states of
+Louisiana, Texas and Massachusetts. Their work is a good example of how
+new features are currently built across the sprawling codebase of
+Districtr. 
 
 ## Portal
 
-VRA has its own landing page, `districtr.org/vra`, which loads `vra.html`. 
-This file is nearly identical to other state html pages except for its
-head `id`, which helps `stateLandingPage.js` render the VRA Dashboard
-properly.
+VRA has its own landing page, [`districtr.org/vra`], which loads
+`vra.html`. This file is nearly identical to other state html pages
+except for its head `id`, which helps [`stateLandingPage.js`] render the
+VRA Dashboard properly.
 
 ### `StateLandingPage.js`
 
@@ -39,12 +40,12 @@ different state sections, and is only called when `vraPage` is true
 
 ## The Map, Editor and Toolbar
 
-Rather than sourcing vra status from the window url, `edit.js` now
-sources this information from `spatial_abilities`. This is only
-relevant in the rare case of `coi2` units, which affects `map`
+Rather than sourcing vra status from the window url, [`edit.js`] now
+sources this information from [`spatial_abilities`]. This is only
+relevant in the rare case of `coi2` units, which affects [`map`]
 padding, and the class name of the body, `.vra`. 
 
-Next, the `Toolbar` is created and populated by the `tools-plugin.js`. 
+Next, the `Toolbar` is created and populated by the [`tools-plugin.js`]. 
 Here, `showVRA` is set to `true` if the plan type is not community and
 if it is allowed in `spatial_abilities`. This permits the creation
 of `VRAEffectiveness(...)`. Helper function `getMenuItems(...)` also
@@ -53,13 +54,14 @@ generates a `showVRA`, but it is not used.
 ### VRA Effectiveness
 
 Function VRAEffectiveness is called as part of a callback function
-that `tools-plugin` attaches to `brush` that listens for a `colorop`
-event, that is, when a unit is painted or erased from a district.
+that `tools-plugin` attaches to [`brush`] that listens for a `colorop`
+event, that is, when a unit is painted or erased from a district. This
+is found in [`src/map/vra_effectiveness.js`].
 
 Its main responsibility is to call an AWS function to check whether
 Black and Hispanic Voters in Texas and Black voters in Louisiana
 have effective opportunities to elect candidates of their choice.
-This is done by initializing `state` variables `vra_effectiveness` and 
+This is done by initializing [`state`] variables `vra_effectiveness` and 
 `waiting`, function variables `awaiting_response`, `cur_request_id`
 and `newer_changes`, related to querying the AWS and providing a
 function known as `vraupdater` that...
@@ -68,85 +70,105 @@ function known as `vraupdater` that...
 - If there is an assignment plan and there is no current pending
 response...
   - refreshes the toolbar
-  - Queries the AWS `/vra` function with a JSON object
- carrying `assignment`, `state` and other information.
+  - Queries the AWS `/vra` function with a JSON object carrying
+`assignment`, `state` and other information.
   - Parses the response, resets AWS variables, updates
 `state.vra_effectiveness` and re-renders the `Toolbar`.
-- If newer changes were made since the first request was made,
-then `newer_changes` is made true and the original request
-is superceded with a new call to `vraupdater(state)`.
+- If newer changes were made since the first request was made, then
+`newer_changes` is made true and the original request is superceded with
+a new call to `vraupdater(state)`.
 
 ## Updating Toolbar Functions
 
-When the `Toolbar` is called to render by `VRAEffectiveness`,
-each plugin is affected in large and small ways. When in
-VRA mode...
+When the `Toolbar` is called to render by `VRAEffectiveness`, each
+plugin is affected in large and small ways. When in VRA mode...
 
-- in `DataLayersPlugin`, its title is abbreviated and the
-County Layer is always plotted, 
+- in `DataLayersPlugin`, its title is abbreviated and the County Layer
+is always plotted, 
 - in `PopBalancePlugin`, its title is abbreviated
 
 ## The `EvaluationPlugin`
 
-The most significant departure VRA introduces is in the
-Evaluation Plugin. Like the other Tabs, its name is
-abbreviated but it is here that fourth tab is made, 
-the `VRATab`.
+The most significant departure VRA introduces is in the Evaluation
+Plugin. Like the other Tabs, its name is abbreviated but it is here that
+fourth tab is made,  the `VRATab`.
 
 The VRA tab adds two Reveal Sections which includes a
-`VRAEffectivenessTable` and `VRAResultsSection`. Both
-use `state.vra_effectiveness` which is updated by `vra_updater`
-desribed above. 
+`VRAEffectivenessTable` and `VRAResultsSection`. Both use
+`state.vra_effectiveness` which is updated by `vra_updater` desribed
+above. 
 
-`VRAEffectivenessTable` provides a `DataTable` based on the
-state's VRA-relevant subgroups, together with a description.
+`VRAEffectivenessTable` provides a [`DataTable`] based on the state's
+VRA-relevant subgroups, together with a description.
 
-The `VRAResultsSection` provides an even more detailed table,
-with a select bar for each minority group, covering historical,
-statewide primary and general elections, with vote, rank and
-CVAP share for each painted district. 
+The `VRAResultsSection` provides an even more detailed table, with a
+select bar for each minority group, covering historical, statewide
+primary and general elections, with vote, rank and CVAP share for each
+painted district. 
 
 ## Other Areas
 
-- When `la_vra` or `tx_vra` is the place for `NumberMarkers`,
-its data source must be redirected
-- In `modal.js`, a custom modal is written to provide information
-on VRA. This is imported by `tools-plugin.js` but never used.
+- When `la_vra` or `tx_vra` is the place for `NumberMarkers`, its data
+source must be redirected
+- In `modal.js`, a custom modal is written to provide information on
+VRA. This is imported by `tools-plugin.js` but never used.
 
 # #
 
 ### Suggestions
 
 - In `StateLandingPage.js`, vra mode is unique in calling multiple
-states. Places for each state are generated using `listPlacesForState(...)`,
-and in this function, `show_just_communities` is set against its default
-to `true`. This suggests that we always use the `communitiesFilter` in
-`PlacesList.js`. This filter, however, only applies when `renderNewPlanView()`
-in deprecated `community.js` is called. Thus, it is not needed. 
+states. Places for each state are generated using 
+listPlacesForState(...)`, and in this function, `show_just_communities`
+is set against its default to `true`. This suggests that we always use
+the `communitiesFilter` in `PlacesList.js`. This filter, however, only
+applies when `renderNewPlanView()` in deprecated `community.js` is
+called. Thus, it is not needed. 
 
-- Reminder for later, in `PlacesList`, isn't it redundant to filter again
-by state in `_placesCache`? 
-- Reminder for later, it seems that `onlyCommunityMode` in `StateLandingPage.js`
-is deprecated
+- Reminder for later, in `PlacesList`, isn't it redundant to filter
+again by state in `_placesCache`? 
+- Reminder for later, it seems that `onlyCommunityMode` in
+`StateLandingPage.js` is deprecated
 - Reminder that `coi2` is practically deprecated
 
-- In `tools-plugin.js`, `showVRA` is determined but not used by function `getMenuItems(...)`
+- In `tools-plugin.js`, `showVRA` is determined but not used by function
+`getMenuItems(...)`
+- In `VRAEffectiveness`, argument `brush` is not used and `placeID` and
+therefore `place` and `extra_source` is not used.
+- Names are abbreviated based on VRA. Could they be abbreviated by a
+toolbar value,  number-of-tabs, to make this more universal?
+- In `DataLayersPlugin`, `showVRA` is guaranteed to add a County Layer
+to the map. However, VRA data is only available for states, making this
+addition redundant.
+- The Reveal Section on "VRA Effectiveness" conditions against using
+`ma_towns`,  yet there should be no case where `ma_towns` is used with
+showVRA as it is not included in the portal. Thus, this is redundant
+logic.
 
-- In `VRAEffectiveness`, argument `brush` is not used and `placeID` and therefore `place`
-and `extra_source` is not used.
-
-- Names are abbreviated based on VRA. Could they be abbreviated by a toolbar value, 
-number-of-tabs, to make this more universal?
-
-- In `DataLayersPlugin`, `showVRA` is guaranteed to add a County Layer to the map.
-However, VRA data is only available for states, making this addition redundant.
-
-- The Reveal Section on "VRA Effectiveness" conditions against using `ma_towns`, 
-yet there should be no case where `ma_towns` is used with showVRA as it is not
-included in the portal. Thus, this is redundant logic.
-
-- The biggest note is the fact that `EvaluationPlugin` is now responsible for
-creating __two__ tabs. If `VRA` makes a second tab, it should be made into its
-own plugin.
+- The biggest note is the fact that `EvaluationPlugin` is now
+responsible for creating __two__ tabs. If `VRA` makes a second tab, it
+should be made into its own plugin.
 
 - A special modal is written for VRA but is never used 
+
+[@jenni-niels]: http://github.com/jenni-niels
+
+[`state`]: ../01contextplan/state.md
+
+[`map`]: ../02editormap/map.md
+[`edit.js`]: ../02editormap/editor.md
+[`NumberMarkers`]: ../02editormap/numbermarkers.md
+
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+[`tools-plugin.js`]: ../03toolsplugins/toolsplugin.md
+
+[`brush`]: ../04drawing/brush.md
+
+[`DataTable`]: ../06charts/datatable.md
+[`stateLandingPage.js`]: ../07portals/districtrstateportals.md
+
+[`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
+
+[`src/map/vra_effectiveness.js`]: ../../src/map/vra_effectiveness.js
+
+[`districtr.org/vra`]: http://districtr.org/vra

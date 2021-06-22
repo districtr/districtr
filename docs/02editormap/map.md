@@ -2,9 +2,8 @@
 
 <img src="../pics/map.png" width=50%>
 
-Districtr's main editing screen contains both a Toolbar and a Map. In
-the HTML, the Map is contained within nested divs 
-`#comparison-container` of class `.mapcontainer` and `#swipemap` of
+Districtr's main editing screen contains both a [`Toolbar`] and a Map.
+In the HTML, the Map is contained within nested divs `#comparison-container` of class `.mapcontainer` and `#swipemap` of
 class `.map` created when [`edit.js`] calls function `loadContext()`.
 A `MapState` object is created upon the genesis of an [`Editor`] model
 object, updated as a context is loaded and rendered as part of the
@@ -23,13 +22,13 @@ Maintained by [@mapmeld] since October of 2019 with contributions by
 Important imports include...
 - `mapboxgl` and `MapboxCompare` provided to us from [mapbox]
 - `colors` paint properties
-- the `Layer` object
-- other `utils`
+- the [`Layer`] object
+- other [`utils`]
 
 ### The `MapState` class 
 <a name="map"></a>
 The `MapState` class is based on the `Map` provided by Mapbox and its
-[`mapboxgl`]. We define `this.mapboxgl`as a mapbox-type map with options
+`mapboxgl`. We define `this.mapboxgl`as a mapbox-type map with options
 such as...
 - `container`, its home in the HTML DOM
 - `mapStyle`, a settings parameter provided on construction
@@ -124,14 +123,7 @@ Maps that deal with communities of interest additionally use
 `addPrecincts`  and `addTracts`. If city borders are used in a coi map,
 this city's boundaries will be rendered thick. 
 
-Finally, vesitages of the experimental _swipe maps_, are retained in
-certain parameters.
-
-* * *
- 
 ### Other Features and Exceptions
-- In June of 2020, a pilot of swipe functionality was committed to
-pertain only to Georgia. 
 - `coi2` is only in use with North Carolina and local Arizona places are
 granted special dispensation. 
 
@@ -152,55 +144,24 @@ for clarity, e.g., `return(units_layer...` instead of
 - Next: [Adding Layers](./layer.md)
 - [Number Markers](./numbermarkers.md)
 
-[@gomotopia]: http://github.com/gomotopia
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
-[@jenni-niels]: http://github.com/jenni-niels
-
-[plan/context]: ../1contextplan/plancontext.md
-[`State`]: ../1contextplan/state.md
-
-[`Editor`]: ./editor.md
-[`Map`]: ./map.md
-[`MapState`]: ./map.md
-[`MapState.map`]: ./map.md#map
-[`mapbox instance`]: ./map.md#map
-[`Layers`]: ./layer.md
-[`map/Layer`]: ./layer.md
-[`addLayers`]: ./layer.md
-[`map/Layer`]: ./layer.md
-
-[`Toolbar`]: ../3toolsplugins/toolbar.md
-[`UIStateStore`]: ../3toolsplugins/uistatestore.md
-[`OptionsContainer`]: ../3toolsplugins/optionscontainer.md
-[dropdown menu]: ../3toolsplugins/topmenu.md
-
-[`reducers`]: ../3toolsplugins/actionsreducers.md
-
-[`mapboxgl`]: https://docs.mapbox.com/mapbox-gl-js/api/
-[mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
-
-[`IdColumn`]: ./idcolumn.md
-
-[`utils`]: ./utils.md
-[`./lib/column-set`]: ./columnset.md
 
 [`edit.js`]: ../../src/views/edit.js
-[`views/edit.js`]: ../../src/views/edit.js
-[`src/models/State.js`]: ../../src/models/State.js
-[`State.js`]: ../../src/models/State.js
-[`map/index.js`]: ../../src/map/index.js
-[`index.js`]: ../../src/map/index.js
+[`Editor`]: ./editor.md
+[`State`]: ../1contextplan/state.md
 [`src/map/index.js`]: ../../src/map/index.js
 
-[`deploy/_redirects`]: ../../deploy/_redirects
-[`routes.js`]: ../../src/routes.js
-[`package.json`]: ../../package.json
-[`edit.html`]: ../../html/edit.html
-[`models/editor.js`]: ../../src/models/editor.js
-
-[`/src/map`]: ../../src/map
-
 [pull #68]: https://github.com/districtr/districtr/pull/68
+
+[mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
+
+[`Layer`]: ./layer.md
+[Layers]: ./layer.md
+[`utils`]: ../10spatialabilities/utils.md
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+
+
+
 

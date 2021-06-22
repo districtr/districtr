@@ -30,11 +30,11 @@ rough chronological order, from...
 - Amy Becker, [@amybecker]
 - Jack Deschler, [@jackdeschler]
 - Oliver Nguyen, [@nerdgear]
-- Ryan Gomez, [@gomotopia].
+- Ryan Gomez, [@gomotopia] and
+- Robbie Veglahn, [@robbie-veglahn]
 
 New and Additional coders involved with the project include...
 - Max Fan, [@InnovativeInventor]
-- Robbie Veglahn, [@robbie-veglahn]
 - Todd Hendricks, [@tahentx]
 - Mai Nguyen, [@nguyenm2151]
 - P. Horva, [@phorva01]
