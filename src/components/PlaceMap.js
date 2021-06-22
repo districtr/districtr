@@ -524,11 +524,11 @@ export function PlaceMap(features, selectedId, callback) {
     `;
 }
 
-export function PlaceMapWithData(callback=null) {
+export function PlaceMapWithData(callback=null, state_list=null) {
     // empty string or state postal code
     const selectedId = (location.pathname.split("/")[2] || "").toLowerCase();
-
-    return fetchFeatures().then(features =>
+    state_list = (state_list || available);
+    return fetchFeatures(state_list).then(features =>
         PlaceMap(
             features,
             (selectedId && !["new", "community"].includes(selectedId))
