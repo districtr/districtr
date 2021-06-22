@@ -433,6 +433,15 @@ export function spatial_abilities(id) {
     redwood: {
       border: true,
     },
+    ca_ventura: {
+      border: true,
+    },
+    ca_yolo: {
+      border: true,
+    },
+    ca_siskiyou: {
+      border: true,
+    },
     napaschools: {
       number_markers: true,
       coalition: false,
