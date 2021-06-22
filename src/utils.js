@@ -421,6 +421,12 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    napa2021: {
+      border: true,
+    },
+    napacounty2021: {
+      border: true,
+    },
     napaschools: {
       number_markers: true,
       coalition: false,
