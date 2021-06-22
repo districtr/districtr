@@ -1,21 +1,24 @@
 
 import { html, render } from "lit-html";
 import DisplayPane from "../components/DisplayPane";
-import Button from "../components/Button";
-import { renderModal, closeModal } from "../components/Modal";
-import { loadPlanFromURL, loadPlanFromJSON, navigateTo } from "../routes";
+import {
+    loadPlanFromURL,
+    loadPlanFromJSON,
+    loadPlanFromCSV,
+    getContextFromStorage,
+    navigateTo,
+    savePlanToStorage
+} from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
 import { Slide, SlideShow } from "../components/Slides";
-import AbstractBarChart from "../components/Charts/AbstractBarChart";
 import populateDatasetInfo from "../components/Charts/DatasetInfo";
-import { getCell, getCellStyle, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
+import { getCell, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
 import { roundToDecimal, county_fips_to_name, spatial_abilities } from "../utils";
 import { districtColors } from "../colors";
-import PlanUploader from "../components/PlanUploader";
 import Analyzer from "../models/Analyzer";
 
 
@@ -27,9 +30,6 @@ import Analyzer from "../models/Analyzer";
  * @returns {Promise}
  */
 function loadPlan(districtr_id) {
-    //if (_isDev() && url == "") 
-        //return loadPlanFromURL("/assets/mi-plans/state_house.json");
-    //let districtr_id = url.split('/')[url.split('/').length - 1];
     return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
     .then(res => res.json())
     .then(loadPlanFromJSON);
@@ -42,15 +42,6 @@ function loadPlan(districtr_id) {
  */
 function getMapStyle(context) {
     return "mapbox://styles/mapbox/light-v10";
-}
-
-/**
- * @desc Is this program being run in development mode?
- * @returns {boolean} See above.
- * @private
- */
-function _isDev() {
-    return window.location.href.includes("localhost:");
 }
 
 /**
