@@ -7,10 +7,24 @@ import Button from "../components/Button";
 import PlanUploader from "../components/PlanUploader";
 import { PlaceMapWithData } from "../components/PlaceMap";
 
+let available_plans = []
 
 export default () => {
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
+            // build list of available plans
+            for (let st of data) {
+                console.log(st);
+                let ref = uspost[st.state];
+                console.log(ref);
+                for (let sec of st.sections) {
+                    if (sec.type == 'plans' && sec.ref == ref) {
+                        available_plans.push(st.state);
+                        break;
+                    }
+                }
+            }
+            console.log(available_plans);
             // Build Go Button and Plan Uploader
             let go = new Button(() =>{
                     let url = document.getElementById("shareable-url").value;
@@ -39,7 +53,7 @@ export default () => {
 
             // Build map for clicking for loadable plans
             let plans_tgt = document.getElementById('loadable-plans');
-            render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt)), ""), document.getElementById('map-div'));
+            render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
         });
 }
 
@@ -100,10 +114,8 @@ function showPlans(feature, data, tgt) {
         if (section.type == 'plans' && section.ref == ref)
             plans = plans.concat(section.plans)
     console.log(plans);
-    if (plans.length > 0)
+    if (plans.length > 0 && available_plans.includes(curState))
         render(plansSection(plans, ref), tgt);
-    else
-        render("", tgt);
 }
 
 const uspost = {
