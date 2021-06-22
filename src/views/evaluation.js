@@ -73,7 +73,7 @@ const loadablePlans = (plans, place) =>
 
 
 const loadablePlan = (plan, place) => html`
-        <a href="eval?url=${place}-plans/${plan.id}">
+        <a href="eval?url=/assets/${place}-plans/${plan.id}">
             <li class="plan-thumbs__thumb">
                 <img
                     class="thumb__img"
