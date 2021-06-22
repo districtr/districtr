@@ -843,8 +843,8 @@ export function spatial_abilities(id) {
       },
       nd_dunn: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38025"],
             ["<", ["get", "GEOID20"], "38026"]
@@ -852,8 +852,8 @@ export function spatial_abilities(id) {
       },
       nd_mckenzie: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38053"],
             ["<", ["get", "GEOID20"], "38054"]
@@ -861,8 +861,8 @@ export function spatial_abilities(id) {
       },
       nd_mountrail: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38061"],
             ["<", ["get", "GEOID20"], "38062"]
@@ -870,8 +870,8 @@ export function spatial_abilities(id) {
       },
       nd_ramsey: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38071"],
             ["<", ["get", "GEOID20"], "38072"]
@@ -879,8 +879,8 @@ export function spatial_abilities(id) {
       },
       nd_rollette: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38079"],
             ["<", ["get", "GEOID20"], "38080"]
@@ -888,8 +888,8 @@ export function spatial_abilities(id) {
       },
       nd_sioux: {
         native_american: true,
-        // number_markers: true,
-        // shapefile: true,
+        number_markers: true,
+        shapefile: true,
         county_filter: ["all",
             [">", ["get", "GEOID20"], "38085"],
             ["<", ["get", "GEOID20"], "38086"]
