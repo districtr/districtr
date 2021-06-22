@@ -24,7 +24,7 @@ function datasetInfo(state) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
-    } else if (["sacramento"].includes(place.id)) {
+    } else if (["sacramento", "ca_sonoma"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
@@ -42,7 +42,7 @@ export default function populateDatasetInfo(state) {
             // Retrieve the proper HTML elements.
             let elements = document.getElementsByClassName("dataset-info"),
                 infoBoxes = Array.from(elements);
-            
+
             // For each of the info boxes, retrieve and add the correct
             // description.
             infoBoxes.forEach(box => {

@@ -381,6 +381,10 @@ export function spatial_abilities(id) {
       coalition: false,
       // divisor: 1000,
     },
+    ca_sonoma: {
+      coalition: false,
+      border: true,
+    },
     sanluiso: {
       coalition: false,
       // number_markers: true,
