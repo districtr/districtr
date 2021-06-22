@@ -190,7 +190,7 @@ function getPlanContext() {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
             console.error(`Could not load plan from ${planURL}`);
-            navigateTo("/evaluate");
+            navigateTo("/evaluation");
             // eslint-disable-next-line no-console
             console.error(e);
         });
