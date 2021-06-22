@@ -3555,5 +3555,289 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 1083281,
+              "min": 0,
+              "max": 3554
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 27838,
+                "min": 0,
+                "max": 437
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 378968,
+                "min": 0,
+                "max": 1809
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 338979,
+                "min": 0,
+                "max": 1804
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 661760,
+              "min": 0,
+              "max": 2342
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 247515,
+                "min": 0,
+                "max": 1106
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 19564,
+                "min": 0,
+                "max": 253
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 1403,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 218987,
+                "min": 0,
+                "max": 975
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 3189,
+                "min": 0,
+                "max": 104
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 163832,
+                "min": 0,
+                "max": 670
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.0461,
+            37.1227
+          ],
+          [
+            -121.5496,
+            37.4692
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanjoseca_blocks_points"
+            },
+            "sourceLayer": "sanjoseca_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanjoseca_blocks"
+            },
+            "sourceLayer": "sanjoseca_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "sanjoseca",
+    "name": "San Jose",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 9,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "name": "Redwood City",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 91976,
+              "min": 0,
+              "max": 1562
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1090,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 12091,
+                "min": 0,
+                "max": 498
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 32003,
+                "min": 0,
+                "max": 518
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 53847,
+              "min": 0,
+              "max": 840
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 31999,
+                "min": 0,
+                "max": 448
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1028,
+                "min": 0,
+                "max": 90
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 85,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 6738,
+                "min": 0,
+                "max": 277
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 315,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 12849,
+                "min": 0,
+                "max": 357
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.2908,
+            37.4472
+          ],
+          [
+            -122.1375,
+            37.5704
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.redwood_blocks_points"
+            },
+            "sourceLayer": "redwood_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.redwood_blocks"
+            },
+            "sourceLayer": "redwood_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "redwood",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 7,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]

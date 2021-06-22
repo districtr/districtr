@@ -427,6 +427,12 @@ export function spatial_abilities(id) {
     napacounty2021: {
       border: true,
     },
+    sanjoseca: {
+      border: true,
+    },
+    redwood: {
+      border: true,
+    },
     napaschools: {
       number_markers: true,
       coalition: false,
