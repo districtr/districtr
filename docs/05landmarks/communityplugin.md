@@ -1,5 +1,7 @@
 # Community Plugin
 
+<img src="../pics/communityplugin.png" width=50%>
+
 The `CommunityPlugin`, found in [`/src/plugins/community-plugin.js`],
 is vital to the drawing and editing of landmarks and replaces the
 [`PopBalancePlugin`] used when drawing districts as the first tab in the

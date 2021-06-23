@@ -9,6 +9,8 @@ we're in paint and erase mode, so it is [`BrushTool.js`] and
 is rendering its tool options. These buttons are rendered for the user
 in the [`OptionsContainer`].
 
+<img src="../pics/undoredo.png" width=50%>
+
 ## /src/components/Toolbar/UndoRedo.js
 
 A single function governs the rendering of the undo-redo button in the

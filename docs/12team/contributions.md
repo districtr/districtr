@@ -9,6 +9,8 @@ By exploring the contributions and philosophies of each
 contributor, we get a full picture of how the parts of districtr fit
 together with themselves and the philosophy of their creators.
 
+<img src="../pics/timeline.png" width=75%>
+
 ## Genesis
 
 Districtr began on Sun., Aug. 22, 2018, in the runup to the midterm

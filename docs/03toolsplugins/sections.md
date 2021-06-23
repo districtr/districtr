@@ -1,15 +1,18 @@
 ## Display Components
 
+<img src="../pics/ui.png" width=50%>
+
 What the users see on the screen is a nesting of different UI elements.
 
-The [`Editor`] rednders the structure which holds that which both
+The [`Editor`] renders the structure which holds that which both
 [`Toolbar`] and the [`MapState`] renders.
 
 The `Toolbar`, inflated by [`toolsplugin.js`] has areas for the tools
 list, the top menu and tool options followed by many tabs.
 
-`Tab`s hold information and UI provided by the plugins. Each `Tab`
-might have several `RevealSection`s. Typically, `Tab`s are created, 
+Functon `Tabs` is a simple function that renders `Tab`s, that holds
+information and UI provided by the plugins. Each `Tab` might have
+several `RevealSection`s. Typically, `Tab`s are created, 
 subelements are applied to it, and once done, it is loaded into
 `Toolbar`. The `LayerTab` is an example where the `Tab` is implemented
 as an inheritor class rather than an instance object. 
@@ -38,7 +41,6 @@ drop-down menus with [`Parameter`s or checkboxes].
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 

@@ -55,6 +55,8 @@ following model.
   - [The top-bar Menu](./03toolsplugins/topmenu.md)
   - [Popups a la Modal](./03toolsplugins/modal.md)
 
+<img src="./pics/ui.png" width=50%>
+
 - [UIStateStore](./03toolsplugins/uistatestore.md)
 - [Actions and Reducers](./03toolsplugins/actionsreducers.md)
 
@@ -63,10 +65,11 @@ following model.
   - [Brush and Erase Tools](./03toolsplugins/BrushEraseTools.md)
   - [Inspect Tool](./03toolsplugins/inspecttool.md)
 
+<img src="./pics/plugins.png" width=50%>
+
 - [Plugins!](./03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 
@@ -93,7 +96,6 @@ following model.
 
 - Plugins for Data
   - [The Data Layers Plugin](./06charts/datalayersplugin.md)
-  - [The Multi Layers Plugin](./06charts/multilayersplugin.md)
   - [Population Balance Plugin](./06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](./06charts/evaluationplugin.md)
 - [The Population Model](../06charts/population.md)
@@ -107,7 +109,7 @@ following model.
 - [Dataset Info](./06charts/datasetinfo.md)
 - [A Full Example: VRA](./06charts/vra.md)
 
-## 7. Districtr-default State Portals
+## 7. Index and State Portals
 
 <img src="./pics/portalsbasics.png" width=75%>
 

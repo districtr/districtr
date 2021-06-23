@@ -11,6 +11,8 @@ of 2018 and has been continously maintained by [@mapmeld] and
 
 ## Listing Places
 
+<img src="../pics/listingplaces.png" width=50%>
+
 The common way to collect modules, for landing pages, events and such,
 is the function `listPlacesForState(...)` that is called to reutrn an
 objects of objects. In essence, this function returns the result of

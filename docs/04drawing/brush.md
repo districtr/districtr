@@ -10,6 +10,8 @@ Loaded by [`tools-plugin.js`], a [`Brush`] is turned on and off by the
 [`HoverWithRadius`] and `Hover`. Finally, the brush object keeps track
 of these actions so that users can undo or redo their changes.
 
+<img src="../pics/drawingbasics.png" width=50%>
+
 ## The `Brush` class in [`src/map/brush.js`]
 The `Brush` made its debut on Tues., Oct. 23, 2018, written into
 districtr by [@maxhully]. The next week, on Oct. 29, erasing with the
@@ -18,9 +20,10 @@ brush was enabled.
 ### Construction
 
 A `Brush` object is constructed with a [`Layer`], `radius` and `color`.
-The `Layer` is the relevant [map] layer the Brush acts upon, the `radius`
-is the initalized value of a parameter related to selecting features in
-batches. A brush, like in real life, paints one `color` at a time.
+The `Layer` is the relevant [map] layer the Brush acts upon, the
+`radius` is the initalized value of a parameter related to selecting
+features in batches. A brush, like in real life, paints one `color` at a
+time.
 
 > Remember: We interact with features through their physical properties.
 Thus, when we assign a unit to a district, we're simply coloring that
@@ -87,7 +90,8 @@ First, we add the brush's color to `this.changedColors` to signal that
 we have made changes with this color. Then, we iterate through all
 filtered counties. If we happened to select counties, we color
 these counties through `layer.setCountyState(fips)` using the county's
-fips codes and trigger the `colorop` listeners. Finally, we trigger the `colorend` listeners.
+fips codes and trigger the `colorop` listeners. Finally, we trigger the
+`colorend` listeners.
 
 As we iterate through features, we consider whether they're eligible for
 painting using the filters described above. An individual feature
@@ -134,6 +138,8 @@ to determine whether to paint features that are hovered on.
 
 ### Undoing and Redoing
 
+<img src="../pics/undoredo.png" width=50%>
+
 The ability to undo and redo functions was introduced in December of
 2019 by [@mapmeld]. More details on the [Undo and Redo] UI button can be
 found later in the chapter.
@@ -142,7 +148,8 @@ For now, it is the responsibility of the brush
 object to keep track of user actions through instance
 variables `this.cursorUndo` and `this.trackUndo`. These variables
 are initialized in class method `this.clearUndo` such that...
-- array `this.trackUndo` is initialized with a single two-value object...
+- array `this.trackUndo` is initialized with a single two-value
+object...
  - `color: "test"`
  - `initial: true`
 - ...and that integer `this.cursorUndo` is set to 0.
@@ -152,41 +159,43 @@ feature within a user's action such that value at key `feature.id` is
 an object with...
 - `properties: feature.properties`, to keep track of population, etc
 - `color: String(feature.state.color)` to keep track of new color. The
-addition of objects in `this.trackUndo` occurs in `this._colorFeatures()`,
-using either a list of hovered features or `Layer.setCountyState(...)`.
+addition of objects in `this.trackUndo` occurs in
+`this._colorFeatures()`, using either a list of hovered features or
+`Layer.setCountyState(...)`.
 
 Triggered together with `this.colorFeatures()` when one performs a
 click or mousedown is `prepToUndo()` whose responsibility is to fine
 tune undo/redo behavior. First, if we've undone several times and
 perform new actions, then `this.trackUndo` discards subsequent actions. 
 We also ensure that this array functions as a queue, removing older
-actions as new actions are added limiting the depth of undo actions to 20. 
-Finally, a placeholder object, `{color: this.color}` is added and 
+actions as new actions are added limiting the depth of undo actions to
+20. Finally, a placeholder object, `{color: this.color}` is added and 
 `this.cursorUndo` is reset.
 
 Finally, we're ready to recieve calls made by `Toolbar/UndoRedo.js`,
 which serves to trigger `this.undo()` or `this.redo()`.
 
 Within these functions, the `this.trackUndo` object at a specific
-`this.cursorUndo` is known as an `atomicAction`. There are two kinds: one 
-that has one object containing only a single key-value pair `color` and
-another that has multiple `key-value` pairs for each `feature.id` changed
-during a user's action.
+`this.cursorUndo` is known as an `atomicAction`. There are two kinds:
+one  that has one object containing only a single key-value pair `color`
+and another that has multiple `key-value` pairs for each `feature.id`
+changed during a user's action.
 
 In the first case where only a single `color` object is stored, if this
 color is non-null, it is added to the `this.colorsChanged` and the undo
 step has finished. 
 
 If there are multiple `featureId` key-pair objects in an `atomicAction`,
-each `featureId` is colored or erased based on its color during that `atomicAction`.
-and the color is added to `this.changedColors`.
+each `featureId` is colored or erased based on its color during that
+`atomicAction`. and the color is added to `this.changedColors`.
 
-Finally, the cursor position is reset, listeners subscribed to `colorend` or `colorop`
-are updated with the list of changed colors, the changed colors list is reset
-and listeners subscribed to `undo` are alerted to the cursor position. 
+Finally, the cursor position is reset, listeners subscribed to
+`colorend` or `colorop` are updated with the list of changed colors, the
+changed colors list is reset and listeners subscribed to `undo` are
+alerted to the cursor position. 
 
-If there are actions available for redoing, then the `redo()` function can
-be triggered, which will perform the actions above in reverse.
+If there are actions available for redoing, then the `redo()` function
+can be triggered, which will perform the actions above in reverse.
     
 ### Activation and Deactivation
 
@@ -197,18 +206,20 @@ say, when it clicks on the Toolbar, certain map behaviors are toggled.
 
 When activated...
 - `brush-tool` is added to the map canvas class list
-- Map properties `dragPan`, `touchZoomRotate` and `doubleClickZoom` are disabled
+- Map properties `dragPan`, `touchZoomRotate` and `doubleClickZoom` are
+disabled
 - `this.onClick` is bound to its layer
 - `this.touchstart` and `this.mousedown` are bound to the map.
 
 Deactivation applies the above in reverse.
 
-Finally, an `on(event, listener)` function registers callback functions to
-events in `this.listeners`. 
+Finally, an `on(event, listener)` function registers callback functions
+to events in `this.listeners`. 
 
 # Community Brush
 
-The `CommunityBrush`, found in `CommunityBrush.js` is mostly the same as regular `Brush` but takes into account that coi's can overlap. For
+The `CommunityBrush`, found in `CommunityBrush.js` is mostly the same as
+regular `Brush` but takes into account that coi's can overlap. For
 instance, when a unit belongs to multiple communities, `CommunityBrush`
 tries a strategy to blend the colors together.
 
@@ -216,9 +227,10 @@ tries a strategy to blend the colors together.
 
 ## Suggestions
 
-- It's easier to get one's mind around an object when its instance variables
-are defined at the start. This is so for `this._previousColor`,
-`this.erasing`, `this.cursorUndo` and `this.trackRedo`.
+- It's easier to get one's mind around an object when its instance 
+variables are defined at the start. This is so for
+`this._previousColor`, `this.erasing`, `this.cursorUndo` and
+`this.trackRedo`.
 
 - Checking if `feature.state.color` is null or undefined or
 `isNan(...)` is redundant, they are equivalent statements
@@ -226,10 +238,10 @@ are defined at the start. This is so for `this._previousColor`,
 What is the reason it would ever be passed around as a string? We could
 guarantee that the color is a Number throughout.
 
-- Functions `colorfeatures(...)` works in service to the heftier function
-`_colorfeatures(...)`. Could we just rename these two such that the
-first function, which selects the appropriate filter, is a helper
-instead of a gateway?
+- Functions `colorfeatures(...)` works in service to the heftier
+function `_colorfeatures(...)`. Could we just rename these two such
+that the first function, which selects the appropriate filter, is a
+helper instead of a gateway?
 
 - The sprawling function `_colorFeatures(...)` investigates both
 individual units and whole counties. Could we separate these two into
@@ -248,6 +260,9 @@ the same object are miniscule, wouldn't it be clearer to use function
 - Next: [Undo and Redo](../04drawing/undoredo.md)
 - [The Tooltip Brush](../04drawing/tooltip.md)
 - [Checking for Contiguity](../04drawing/contiguity.md)
+
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
 
 [map]: ../02editormap/map.md
 [`Layer`]: ../02editormap/layer.md

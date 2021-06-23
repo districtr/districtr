@@ -42,7 +42,7 @@ controlling the Mapbox object we use in our display.
 Users interact with the layers loaded in the [`mapbox instance`] 
 within `MapState`. Once that loads, we’re ready to create a new `State`
 object and `Editor` object, which we render. It is also here that select
-the toolbar [`plugins`] we’ll use based on the loaded context.  
+the toolbar `plugins` we’ll use based on the loaded context.  
 
 
 ## Rendering the Editor object

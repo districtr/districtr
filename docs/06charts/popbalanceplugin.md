@@ -1,5 +1,7 @@
 # Population Balance Plugin
 
+<img src="../pics/popbalanceplugin.png" width=50%>
+
 The `PopulationBalancePlugin` is loaded by [`edit.js`] and is included
 in the list of default plugins, i.e. when painting districts and not
 communities, by [`ToolsPlugin`]. A [`Tab`] of id `criteria` titled
@@ -83,8 +85,7 @@ be combined in the pop-balance-plugin file
 
 [Return to Main](../README.md)
 - Plugins for Data
-  - [The Data Layers Plugin](../06charts/datalayersplugin.md)
-  - Previous: [The Multi Layers Plugin](../06charts/multilayersplugin.md)
+  - Previous: [The Data Layers Plugin](../06charts/datalayersplugin.md)
   - Next: [The Evaluation Plugin](../06charts/evaluationplugin.md)
 - [The Population Model](../06charts/population.md)
 - [Population Bar Chart](../06charts/populationbarchart.md)

@@ -42,7 +42,6 @@ sliders] that allow the user to control their tools.
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 

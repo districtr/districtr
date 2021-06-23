@@ -56,7 +56,6 @@ which could live in utils as an object.
 [Return to Main](../README.md)
 - Plugins for Data
   - [The Data Layers Plugin](../06charts/datalayersplugin.md)
-  - [The Multi Layers Plugin](../06charts/multilayersplugin.md)
   - [Population Balance Plugin](../06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](../06charts/evaluationplugin.md)
 - Previous: [The Population Model](../06charts/population.md)

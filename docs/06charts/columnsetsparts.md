@@ -174,7 +174,6 @@ instance variables at the onset for clarity's sake.
 [Return to Main](../README.md)
 - Plugins for Data
   - [The Data Layers Plugin](../06charts/datalayersplugin.md)
-  - [The Multi Layers Plugin](../06charts/multilayersplugin.md)
   - [Population Balance Plugin](../06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](../06charts/evaluationplugin.md)
 - [Population Bar Chart](../06charts/populationbarchart.md)

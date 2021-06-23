@@ -84,7 +84,6 @@ Can they be listed in the `reducers/` folder for clarity instead?
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 

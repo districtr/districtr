@@ -10,6 +10,8 @@ This documentation covers portals that navigate to different states on
 the districtr website as opposed to custom portals for state commissions
 and other partners. 
 
+<img src="../pics/portalsbasics.png" width=75%>
+
 ## state.html
 
 The link provided in the US state map helps users navigate to a url of

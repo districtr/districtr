@@ -18,6 +18,8 @@ These plugins have been heavily maintained since, with the addition of
 [@mapmeld]'s  starting in Sept. 2019, healthy maintenance by
 [@jenni-niels] and recent updates by [@jdeschler].
 
+<img src="../pics/datalayersplugin.png" width=50%>
+
 ## districtr/src/plugins/data-layers-plugin.js 
 
 The `data-layers-plugin.js` file holds a single default plugin
@@ -118,7 +120,7 @@ a new `Election` object is created from rental precentage data and a
 `PartisanOverlayLayer` is used to depict this data. When rendered in the
 document, a green-orange bar indicating percent functions as a legend. 
   
-### Eletions
+### Elections
   
 Finally, if there exists `state.elections`, a new reveal section is
 created titled "Previous Elections." The contents of `state.elections`
@@ -159,8 +161,7 @@ folded into `../components/Charts/CoalitionPivotTable`?
 
 [Return to Main](../README.md)
 - Plugins for Data
-  - Next: [The Multi Layers Plugin](../06charts/multilayersplugin.md)
-  - [Population Balance Plugin](../06charts/popbalanceplugin.md)
+  - Next: [Population Balance Plugin](../06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](../06charts/evaluationplugin.md)
   - [The Population Model](../06charts/population.md)
 - [Population Bar Chart](../06charts/populationbarchart.md)
@@ -173,11 +174,10 @@ folded into `../components/Charts/CoalitionPivotTable`?
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
-
-[@maxhully]
-[@mapmeld]
-[@jenni-niels]
-[@jdeschler]
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
+[@jenni-niels]: http://github.com/jenni-niels
+[@jdeschler]: http://github.com/jdeschler
 
 [`Editor`]: ../02editormap/editor.md
 [`map`]: ../02editormap/map.md

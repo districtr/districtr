@@ -8,6 +8,8 @@ sets of tools which must be loaded into the `Toolbar` section of the
  
 The first plugins were written by [@maxhully] on Tues., Apr. 23, 2019.
 
+<img src="../pics/toolbarbasics.png" width=50%>
+
 ## Loading Plugins
 
 Specifications on which plugins to include are defined by 
@@ -163,9 +165,9 @@ different file?
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
+
 [@maxhully]: http://github.com/maxhully
 [Jamie]: http://github.com/AtlasCommaJ
 [Nick]: http://github.com/mapmeld
@@ -191,6 +193,7 @@ different file?
 [`HoverWithRadius`]: ../04drawing/hover.md
 [`ContiguityChecker`]: ../04drawing/contiguity.md
 
+[`community`]: ../05landmarks/coi.md
 [community]: ../05landmarks/coi.md
 [`LandMarkTool`]: ../05landmarks/landmarktool.md
 

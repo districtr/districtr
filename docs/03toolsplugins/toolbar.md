@@ -9,6 +9,8 @@ the entire Toolbar folder was moved into src/Components on Fri., Jan.
 
 Currently, it is maintained by [Jamie], [Nick], [Jack] and [JN].
 
+<img src="../pics/toolbardetails.png" width=50%>
+
 ## [src/Components/toolbar.js]
 
 An object of default class Toolbar is created by [Editor] upon
@@ -70,14 +72,13 @@ functions tied to this instance.
 
 Since menu items and tools are state and problem dependent, the Toolbar
 must be informed of which tools, tabs and menu items must be loaded. The
-following instance methods are used by `tools-plugin.js` and more to
+following instance methods are used by [`tools-plugin.js`] and more to
 wake up the tool bar. (Written out of order...)
 
 - `this.state`, _which is not initialized in the constructor_, stores
 information about the current [plan/context]. 
 - Since menu items are state specific, `setMenuItems(menuItems)` is used
-by `tools-plugin.js` to load relevant menu items, _even though Toolbar
-has its own copy of state?`
+by `tools-plugin.js` to load relevant menu items
 - `addTool()` adds tool by informing tool of `this.renderCallback`, and
 adds tool to both this.toolsById and this.tools.
 - `activeTool()` Asks `this.store` which tool is selected and returns
@@ -133,8 +134,6 @@ options and more.
 
 ### Suggestions
 
-- If there is only one`Toolbar` object made and maintained, couldn't it
-be a global variable?
 - Toolbar's `this.state`, is not initialized in the constructor.
 - `setMenuItems(...)` is passed a copy of information from the `State`
 object by the plugins. Couldn't it just render from its own reference to
@@ -169,7 +168,6 @@ clarity?
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
-  - The Multi Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 

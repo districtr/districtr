@@ -11,6 +11,8 @@ by [@mapmeld] since March, 2020, who added contiguity check in March and
 Age Table in April. [@jenni-niels] adds [VRA] functionality in the
 Spring of 2021 and both maintain with help from [@jdeschler] ever since.
 
+<img src="../pics/evaluationplugin.png" width=75%>
+
 ## [/src/plugins/evaluation-plugin.js]
 
 The evaluation tab runs through an [`editor`]'s [`state`] [context/plan]
@@ -48,7 +50,6 @@ called if `problem.type` is "community"
 [Return to Main](../README.md)
 - Plugins for Data
   - [The Data Layers Plugin](../06charts/datalayersplugin.md)
-  - [The Multi Layers Plugin](../06charts/multilayersplugin.md)
   - Previous: [Population Balance Plugin](../06charts/popbalanceplugin.md)
 - [The Population Model](../06charts/population.md)
 - [Population Bar Chart](../06charts/populationbarchart.md)

@@ -7,7 +7,9 @@ had rich data display features but much of that is vestigial. Currently,
 it only allows users to highlight a state and on click, navigate to that
 state's landing page. 
 
-The `PlaceMap` is stored in [`src/components/PlaceMap.js`].
+The `PlaceMap` is stored in [`src/components/PlaceMap.js`]
+
+<img src="../pics/placemap.png" width=75%>
 
 ## `PlaceMapWithData` and `PlaceMap` 
 
