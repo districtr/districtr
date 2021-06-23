@@ -213,7 +213,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax"].includes(state.place.id)) {
+    if (["virginia", "lax", "ca_sonoma"].includes(state.place.id)) {
         fetch(`/assets/boundaries/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -499,6 +499,18 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
+    } else if (state.place.id === "ca_sonoma") {
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("Supervisorial Districts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
     } else if (state.place.id === "elpasotx" && !state.units.sourceId.includes("precinct")) {
         tab.addRevealSection(
             'Boundaries',
@@ -531,9 +543,9 @@ export default function DataLayersPlugin(editor) {
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>
-        <p class="italic-note">Use the coalition builder to define a collection 
-        of racial and ethnic groups from the Census. In the other data layers below, 
-        you'll be able to select the coalition you have defined.</p>    
+        <p class="italic-note">Use the coalition builder to define a collection
+        of racial and ethnic groups from the Census. In the other data layers below,
+        you'll be able to select the coalition you have defined.</p>
     `)
 
     let coalitionOverlays = [];
@@ -712,7 +724,7 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    if (state.pcts) {
+    if (state.place.id === "sacramento") {
       const pctOverlay = new OverlayContainer(
           "pcts",
           state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
