@@ -616,7 +616,7 @@ export function spatial_abilities(id) {
       },
     },
     ma_vra: {
-      // number_markers: true,
+      number_markers: true,
       vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
