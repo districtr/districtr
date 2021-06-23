@@ -383,6 +383,7 @@ export function spatial_abilities(id) {
     },
     sanluiso: {
       coalition: false,
+      municipalities: true,
       // number_markers: true,
       // border: true,
       // sideload: true,
