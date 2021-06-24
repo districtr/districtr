@@ -163,10 +163,10 @@ experimental
 # # 
 
 [Return to Main](../README.md)
-- Previous: [How is the Districtr Editor page loaded?](./initialization.md)
-- Next: [The Map Object](./map.md)
-- [Adding Layers](./layer.md)
-- [Number Markers](./numbermarkers.md)
+- Previous: [How is the Districtr Editor page loaded?](../02editormap/initialization.md)
+- Next: [The Map Object](../02editormap/map.md)
+- [Adding Layers](../02editormap/layer.md)
+- [Number Markers](../02editormap/numbermarkers.md)
 - [Layer Overlay](../02editormap/layeroverlay.md)
 
 [@maxhully]: http://github.com/maxhully

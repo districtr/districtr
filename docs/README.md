@@ -140,10 +140,12 @@ following model.
 
 ## 11. Grand Suggestions
 
+- [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
 - [Deprecations and Experimental Features](./11suggestions/deprecations.md)
-- [Logical Consistency](./11suggestions/logic.md)
-- [Organizing Plugins](./11suggestions/organizing.md)
-- [The Heavy Lift: Global Objects](./11suggestions/globalobjects.md)
+- [Clarifying Operations](./11suggestions/clarity.md)
+- [Logical Redundancies](./11suggestions/logic.md)
+- [Organization](./11suggestions/organizing.md)
+- [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
 - [Other Notes](./11suggestions/other.md)
 
 <a name="team"></a>

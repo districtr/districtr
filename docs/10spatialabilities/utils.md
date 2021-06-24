@@ -125,7 +125,7 @@ are defined but not used anywhere
 [`State.js`]: ../01contextplan/state.md
 
 [`Overlay.js`]: ../02editormap/layeroverlay.md
-[`src/layers/PartisanOverlayContainer.js`]: ../02editormap/layeroverlay-.md
+[`src/layers/PartisanOverlayContainer.js`]: ../02editormap/layeroverlay.md
 [`src/layers/Overlay.js`]: ../02editormap/layeroverlay.md
 [`Overlay.js`]: ../02editormap/layeroverlay.md
 

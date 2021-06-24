@@ -139,10 +139,10 @@ for clarity, e.g., `return(units_layer...` instead of
 # #
 
 [Return to Main](../README.md)
-- [How is the Districtr Editor page loaded?](./initialization.md)
-- Previous: [edit.js and the Editor Object](./editor.md)
-- Next: [Adding Layers](./layer.md)
-- [Number Markers](./numbermarkers.md)
+- [How is the Districtr Editor page loaded?](../02editormap/initialization.md)
+- Previous: [edit.js and the Editor Object](../02editormap/editor.md)
+- Next: [Adding Layers](../02editormap/layer.md)
+- [Number Markers](../02editormap/numbermarkers.md)
 
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld

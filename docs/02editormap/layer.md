@@ -107,9 +107,9 @@ a way that it is easy to confuse
 
 [Return to Main](../README.md)
 - [How is the Districtr Editor page loaded?](../02editormap/initialization.md)
-- [edit.js and the Editor Object](./editor.md)
-- Previous: [The Map Object](./map.md)
-- Next: [Number Markers](./numbermarkers.md)
+- [edit.js and the Editor Object](../02editormap/editor.md)
+- Previous: [The Map Object](../02editormap/map.md)
+- Next: [Number Markers](../02editormap/numbermarkers.md)
 - [Layer Overlay](../02editormap/layeroverlay.md)
 
 [@maxhully]: http://github.com/maxhully
@@ -119,7 +119,7 @@ a way that it is easy to confuse
 [`MapState`]: ./map.md
 [`MapState.map`]: ./map.md#map
 
-[`Overlay.js`]: ../02editormap/layeroverlay-.md
+[`Overlay.js`]: ../02editormap/layeroverlay.md
 [`src/plugins/data-layers-plugin.js`]: ../06charts/datalayersplugin.md
 [`multi-layers-plugin.js`]: ../06charts/multilayersplugin.md
 [`src/components/Landmark.js`]: ../05landmarks/landmarksclass.md

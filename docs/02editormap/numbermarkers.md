@@ -188,10 +188,10 @@ districts should occur before and outside the function.
 # #
 
 [Return to Main](../README.md)
-- [How is the Districtr Editor page loaded?](../2editormap/initialization.md)
-- [edit.js and the Editor Object](./editor.md)
-- [The Map Object](./map.md)
-- Previous: [Adding Layers](./layer.md)
+- [How is the Districtr Editor page loaded?](../02editormap/initialization.md)
+- [edit.js and the Editor Object](../02editormap/editor.md)
+- [The Map Object](../02editormap/map.md)
+- Previous: [Adding Layers](../02editormap/layer.md)
 - Next: [Layer Overlay](../02editormap/layeroverlay.md)
 
 [@mapmeld]: http://github.com/mapmeld

@@ -1,1 +1,0 @@
-# My Philosopgy on Code

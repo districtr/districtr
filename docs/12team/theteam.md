@@ -13,7 +13,7 @@ then, __Nick Doiron__, [@mapmeld] leads development with __JN Matthews__
 
 To fulfill our aim to provide geographic data of the highest quality
 and integriy, we followed the lead of lead geographers __Ruth Buck__,
-[@RKBuck1] and afterwards, __Heather Rosenfeld__. 
+[@RKBuck1] and afterwards, __Heather Rosenfeld__, [@heatrose]. 
 
 As the project has grown, we have relied on project managers
 __Liz Kopecky__ and __Jamie Atlas__, [@AtlasCommaJ], to deploy districtr
@@ -33,11 +33,11 @@ rough chronological order, from...
 - Ryan Gomez, [@gomotopia] and
 - Robbie Veglahn, [@robbie-veglahn]
 
-New and Additional coders involved with the project include...
+Newer coders involved with the project include...
 - Max Fan, [@InnovativeInventor]
 - Todd Hendricks, [@tahentx]
 - Mai Nguyen, [@nguyenm2151]
-- P. Horva, [@phorva01]
+- Peter Horvath, [@phorva01]
 
 Early contributers include...
 - Eion Blanchard
@@ -56,7 +56,10 @@ and other members of the MGGG lab past and present include...
 - Dara Gold
 - Brad Souders
 - Thomas Weighill
-- ... and many more new recruits 
+- Rachel Herman
+- Cyrus Kirby
+- Quinn Molloy
+- ... and many more 
 
 and key collaborators past and present include...
 
@@ -79,3 +82,23 @@ and key collaborators past and present include...
 
 Districtr is thanks to many more than those listed above. To everyone,
 Thank You!
+
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]:http://github.com/mapmeld
+[@jenni-niels]: http://github.com/jenni-niels
+[@RKBuck1]: http://github.com/RKBuck1
+[@heatrose]: http://github.com/heatrose
+[@AtlasCommaJ]: http://github.com/AtlasCommaJ
+[@apizzimenti]: http://github.com/apizzimenti
+[@ChrisKGernon]: http://github.com/ChrisKGernon
+[@lieuzhengong]: http://github.com/lieuzhengong
+[@bsuwal]: http://github.com/bsuwal
+[@amybecker]: http://github.com/amybecker
+[@jackdeschler]: http://github.com/jackdeschler
+[@nerdgear]: http://github.com/nerdgear
+[@gomotopia]: http://github.com/gomotopia
+[@robbie-veglahn]: http://github.com/robbie-veglahn
+[@InnovativeInventor]: http://github.com/InnovativeInventor
+[@tahentx]: http://github.com/tahentx
+[@nguyenm2151]: http://github.com/nguyenm2151
+[@phorva01]: http://github.com/phorva01

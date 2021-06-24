@@ -2,7 +2,7 @@
 
 Contiguity is a great example of a feature that ties together many parts
 of districtr. It was originally written by [@mapmeld] between March and
-December 2020 with contributions from [Zhenghong Lieu] and was lightly
+December 2020 with contributions from [@lieuzhenghong] and was lightly
 patterend off of [`NumberMarkers`].
 
 As a user contends with units large and small, they may find that they
@@ -12,6 +12,8 @@ the ['Toolbar']. When units are drawn, the plan is sent to a server
 function that calculates for islands, through [`routes.js`]. Districts
 with islands are listed in the toolbar with checkboxes toggling the
 border highlighting of non-contiguous units.
+
+<img src="../pics/contiguity.png" width=75%>
 
 ## Loading with [`tools-plugin`] and `Contiguity Checker`
 
