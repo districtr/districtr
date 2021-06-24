@@ -390,6 +390,10 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_pasadena: {
+      coalition: false,
+      border: true,
+    },
     sanluiso: {
       coalition: false,
       number_markers: true,

@@ -24,7 +24,7 @@ function datasetInfo(state) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
-    } else if (["sacramento", "ca_sonoma"].includes(place.id)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;

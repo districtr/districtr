@@ -724,7 +724,7 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
-    if (state.place.id === "sacramento") {
+    if (state.pcts) {
       const pctOverlay = new OverlayContainer(
           "pcts",
           state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
