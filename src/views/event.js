@@ -40,6 +40,7 @@ const stateForEvent = {
   saccounty: 'California',
   saccountymap: 'California',
   sonomaco: 'California',
+  pasadena2021: 'California',
   'ks-fairmaps': 'Kansas',
 };
 
@@ -77,6 +78,7 @@ const validEventCodes = {
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
+  pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
 };
@@ -139,6 +141,7 @@ const hybrid_events = [
   'saccounty',
   'saccountymap',
   'sonomaco',
+  'pasadena2021',
 ];
 
 const portal_events = [
@@ -222,6 +225,16 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SonomaCo&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+pasadena2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Pasadena's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Pasadena2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   saccountymap: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -267,6 +280,12 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  pasadena2021: [
+    "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   saccountymap: [
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
@@ -307,13 +326,17 @@ export default () => {
             }
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
             if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-sonoma.png";
+            } else if (eventCode === "pasadena2021") {
+              document.getElementById("partner-link-a").href = "https://www.cityofpasadena.net/";
+              document.getElementById("partnership-a").src = "/assets/partners-pasadena.png";
+              document.getElementById("partnership-a").style.background = "#00275d";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
