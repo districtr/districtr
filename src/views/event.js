@@ -309,9 +309,10 @@ export default () => {
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         } else if (["saccounty", "saccountymap", "sonomaco"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
-            document.getElementById("partner-link-b").style.display = "none";
+            document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
+            document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
             if (eventCode === "sonomaco") {
-              document.getElementById("partner-link-a").href = "#";
+              document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-sonoma.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
