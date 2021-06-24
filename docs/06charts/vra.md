@@ -87,7 +87,7 @@ plugin is affected in large and small ways. When in VRA mode...
 is always plotted, 
 - in `PopBalancePlugin`, its title is abbreviated
 
-## The `EvaluationPlugin`
+## The [`EvaluationPlugin`]
 
 The most significant departure VRA introduces is in the Evaluation
 Plugin. Like the other Tabs, its name is abbreviated but it is here that
@@ -119,17 +119,11 @@ VRA. This is imported by `tools-plugin.js` but never used.
 
 - In `StateLandingPage.js`, vra mode is unique in calling multiple
 states. Places for each state are generated using 
-listPlacesForState(...)`, and in this function, `show_just_communities`
+`listPlacesForState(...)`, and in this function, `show_just_communities`
 is set against its default to `true`. This suggests that we always use
 the `communitiesFilter` in `PlacesList.js`. This filter, however, only
-applies when `renderNewPlanView()` in deprecated `community.js` is
+applies when `renderNewPlanView()`, in deprecated `community.js`, is
 called. Thus, it is not needed. 
-
-- Reminder for later, in `PlacesList`, isn't it redundant to filter
-again by state in `_placesCache`? 
-- Reminder for later, it seems that `onlyCommunityMode` in
-`StateLandingPage.js` is deprecated
-- Reminder that `coi2` is practically deprecated
 
 - In `tools-plugin.js`, `showVRA` is determined but not used by function
 `getMenuItems(...)`
@@ -139,17 +133,34 @@ therefore `place` and `extra_source` is not used.
 toolbar value,  number-of-tabs, to make this more universal?
 - In `DataLayersPlugin`, `showVRA` is guaranteed to add a County Layer
 to the map. However, VRA data is only available for states, making this
-addition redundant.
+conidition redundant.
 - The Reveal Section on "VRA Effectiveness" conditions against using
 `ma_towns`,  yet there should be no case where `ma_towns` is used with
-showVRA as it is not included in the portal. Thus, this is redundant
-logic.
+showVRA as it is not included in the portal. Mass. vra plans are made
+with precincts. Thus, this is redundant logic.
 
 - The biggest note is the fact that `EvaluationPlugin` is now
 responsible for creating __two__ tabs. If `VRA` makes a second tab, it
 should be made into its own plugin.
 
 - A special modal is written for VRA but is never used 
+
+# # 
+
+[Return to Main](../README.md)
+- Plugins for Data
+  - [The Data Layers Plugin](../06charts/datalayersplugin.md)
+  - [Population Balance Plugin](../06charts/popbalanceplugin.md)
+  - [The Evaluation Plugin](../06charts/evaluationplugin.md)
+- [The Population Model](../06charts/population.md)
+- [Population Bar Chart](./06charts/populationbarchart.md)
+- [Column-Sets and Parts](./06charts/columnsetsparts.md)
+  - [Two ways to explore election results](../06charts/electionresults.md)
+- [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
+  - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
+  - [Histograms](../06charts/histogram.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
+- Previous: [Dataset Info](../06charts/datasetinfo.md)
 
 [@jenni-niels]: http://github.com/jenni-niels
 
@@ -161,6 +172,7 @@ should be made into its own plugin.
 
 [`Toolbar`]: ../03toolsplugins/toolbar.md
 [`tools-plugin.js`]: ../03toolsplugins/toolsplugin.md
+[`EvaluationPlugin`]: ../06charts/evaluation.md
 
 [`brush`]: ../04drawing/brush.md
 
@@ -172,3 +184,11 @@ should be made into its own plugin.
 [`src/map/vra_effectiveness.js`]: ../../src/map/vra_effectiveness.js
 
 [`districtr.org/vra`]: http://districtr.org/vra
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

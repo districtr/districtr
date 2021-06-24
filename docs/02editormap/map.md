@@ -3,10 +3,11 @@
 <img src="../pics/map.png" width=50%>
 
 Districtr's main editing screen contains both a [`Toolbar`] and a Map.
-In the HTML, the Map is contained within nested divs `#comparison-container` of class `.mapcontainer` and `#swipemap` of
+In the HTML, the Map is contained within nested divs
+`#comparison-container` of class `.mapcontainer` and `#swipemap` of
 class `.map` created when [`edit.js`] calls function `loadContext()`.
 A `MapState` object is created upon the genesis of an [`Editor`] model
-object, updated as a context is loaded and rendered as part of the
+object, updated as a [plan/context] is loaded and rendered as part of the
 `Editor` after a [`State`] object is created.
 
 ## [`src/map/index.js`]
@@ -44,14 +45,15 @@ Control, as provided by `mapboxgl`.
 
 After the default `Map` class is defined, helper method `addUnits` is
 defined, which takes in the following parameters...
--`map`, `Map` object to be acted upon
--`parts`, object containing directory of plan parts, for use when
+- `map`, `Map` object to be acted upon
+- `parts`, object containing directory of plan parts, for use when
 determining color properties.
--`tileset`, a Mapbox tileset object stored in the cloud
--`layerAdder`, a utility function that describes the front-back order of
+- `tileset`, a Mapbox tileset object stored in the cloud
+- `layerAdder`, a utility function that describes the front-back order of
 added layers.
 
-This function returns a collection of four [`Layer`] objects as follows. 
+This function returns a collection of two, up to four, [`Layer`] objects
+as follows. 
 
 - `units`, a layer of standard, paintable precinct/census units, set to
 specifications from `colors`
@@ -65,16 +67,14 @@ The following are currently disabled by `if (false)`
 - `coiunits2`, either null, or a layer of invisible units if the source
 layer doesn't contain block groups.
 
-A description of the [`Layer`] object.
-
 ### Additional helper functions
 
 - `addPoints(map, tileset, layerAdder)`, a `Layer` of circles
 corresponding perhaps to landmarks, whose default opacity is 0. 
 - `addPrecincts(map, tileset, layerAdder)`, a `Layer` of new state
 voting precincts, whose default opacity is 0. 
-- `addCounties(map, tileset, layerAdder)`, a `Layer` of extra census
-based tracts, whose default opacity is 0. 
+- `addTracts(map, tileset, layerAdder)`, a `Layer` of extra census based
+tracts, whose default opacity is 0. 
 - `addCounties(map, tileset, layerAdder)`, a `Layer` of state counties,
 that have the ability to be hoverable in the map editor. We source these 
 - `addBGs(map, tileset, layerAdder)`, a `Layer` of state counties, that
@@ -134,7 +134,7 @@ granted special dispensation.
 - "Units" is used in many ways. Perhaps the units layer could be renamed
 for clarity, e.g., `return(units_layer...` instead of
 `return (units...`
--`borderId` could be renamed given that it corresponds to `place.id`. 
+- `borderId` could be renamed given that it corresponds to `place.id`. 
 
 # #
 
@@ -149,19 +149,28 @@ for clarity, e.g., `return(units_layer...` instead of
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
 
 [`edit.js`]: ../../src/views/edit.js
-[`Editor`]: ./editor.md
-[`State`]: ../1contextplan/state.md
+[`Editor`]: ../editormap/editor.md
+[`State`]: ../01contextplan/state.md
 [`src/map/index.js`]: ../../src/map/index.js
 
 [pull #68]: https://github.com/districtr/districtr/pull/68
 
 [mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
 
-[`Layer`]: ./layer.md
-[Layers]: ./layer.md
+[plan/context]: ../01contextplan/plancontext.md
+
+[`Layer`]: ../02editormap/layer.md
+[Layers]: ../02editormap/layer.md
 [`utils`]: ../10spatialabilities/utils.md
 [`Toolbar`]: ../03toolsplugins/toolbar.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
 
 
 

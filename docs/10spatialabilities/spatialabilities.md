@@ -18,7 +18,7 @@ ability, but are now standard features.
 for over 90% of modules.
 - [`load_coi`], which defaults to true, is set to false for only about
 nine modules.
-- `coalition`, the ability to create coalitions of different races for
+- [`coalition`], the ability to create coalitions of different races for
 analysis and defaults to true, is disallowed for about four modules.
 
 ## Common features
@@ -32,11 +32,11 @@ available to about 30 modules.
 - `portal` provides an endpoint to the districtr app different from
 districtr.org itself. It is provided when we partner with organizations.
 This is the case for about two-dozen modules. 
+- [`contiguity`], which permits the user to check for discontiguous areas,
+is available for only about two dozen modules. 
 
 ## Rare Features
 
-- `contiguity`, which permits the user to check for discontiguous areas,
-is available for only about two dozen modules. 
 - `current_districts`, which permits the display of current district
 boundaries is only available for about eight modules
 - `school_districts`, which permits the ability to display special
@@ -54,9 +54,8 @@ for about five lrge states.
 ### Suggestions
 
 - This special object should be made into its own file to highlight
-its importance.
-- A comprehensive listing of available features coul also live in that new
-file.
+its importance. A comprehensive listing of available features could also
+live in that new file.
 
 # #
 
@@ -76,3 +75,13 @@ file.
 [`coalition`]: ../06charts/datalayersplugin.md
 [`county_brush`]: ../04drawing/brush.md
 [`contiguity`]: ../04drawing/contiguity.md
+
+[districtr.org/html/features.html]: http://districtr.org/html/features.html
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

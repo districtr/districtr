@@ -24,12 +24,11 @@ mode and if this is permitted by `spatial_abilities`. This
 `colorop` events signaled by the [`brush`]. The responsibilities of
 `Contiguity Checker` is to... 
 - Submit a state plan to the external Contiguity checker
-- Takes this response and updates the `state.contiguity` object, which
-keeps track of non contiguous
-islands.
+- Use this response to update the `state.contiguity` object, which
+tracks a plan's non contiguous islands.
 - Checkboxes for each district with islands is rendered in the `Toolbar`
 to allow users to select district boundaries for highlighting
-- The borders of units in selected districts are then hihglighted. 
+- The borders of units in selected districts are then highlighted. 
 
 This is acheived by `Contiguity Checker` returning an internal function
 `updater` that sends the current [`state`] to server function
@@ -42,11 +41,12 @@ list of units is discarded, as it is considered the main unit.
 
 Finally, subfunction `setContiguityStatus(issues)` is called which
 controls checkboxes that allow each user to select a non-contiguous
-district to highlight. Originally, when `evaluation-plugin` was loaded,
-it used `ContiguitySection.js` to render a checkbox with label for each
-section, all set to `hidden`. `setContiguityStatus(...)` takes a list of
-non-contiguous districts and reveals to the user their appropriate
-checkbox. If any of these boxes are checked, then subfunction
+district to highlight. Initially, when `evaluation-plugin` loads, it
+uses `ContiguitySection.js` to render a checkbox with label for each
+section, all set to `hidden`. Eventually, as a user edits the map,
+`setContiguityStatus(...)` takes a list of non-contiguous districts and
+unhides their checkbox, granting the user to highlight any islands. If
+any of these boxes are checked, then subfunction
 `updateIslandBorders(...)` alters the paint properties in
 `state.unitsBorders` for each unit in each checked district.  
 
@@ -74,3 +74,10 @@ checkbox. If any of these boxes are checked, then subfunction
 
 [`routes.js`]: ../09deployment/routes.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

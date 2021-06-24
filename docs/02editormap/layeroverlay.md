@@ -56,7 +56,6 @@ in a related `Layer`.
 - [The Map Object](../02editormap/map.md)
 - [Adding Layers](../02editormap/layer.md)
 - Previous: [Number Markers](../numbermarkers.md)
-- [Layer Overlay](../02editormap/layeroverlay.md)
 
 [`src/layers/OverlayContainer.js`]: ../../src/layers/OverlayContainer.js
 [`/Layers`]: ../../src/layers/OverlayContainer.js
@@ -64,3 +63,11 @@ in a related `Layer`.
 [`DataLayersPlugin`]: ../06charts/datalayersplugin.md
 [`Layers`]: ../02editormap/layer.md
 [`map`]: ../02editormap/map.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -3,18 +3,21 @@
 When partnering with state and local organizations, we often organize
 submitted plans using event codes. An event code is usually a simple
 piece of metadata attached to plans when they're saved that allows them
-to be queried together in a database.
+to be queried together in a database. These were originally created
+by [@jenni-niels] and are currently the purview of [@mapmeld] and
+[@AtlasCommaJ] with help from the whole team.
 
 ## Navigation
 
-In general, plugin pages are navigated to using
+In general, event pages are navigated to using
 http://districtr.org/event/plugin-name
 
 ## [`districtr/src/views/event.js`]
 
 According to [`package.json`], url directed to `tag.html`, `group.html`
 and `event.html` are sent to `event.html` which is populated by
-`event.js`. This file contains event specific settings and event codes.
+`event.js`. This javascript file contains event specific settings and
+event codes.
 
 - `stateForEvent`, ties together event code and their relevant state
 - `validEventCodes`, a full list of event codes in use
@@ -63,5 +66,19 @@ and materials rather than hard coding different fields for many events.
 
 [Return to Main](../README.md)
 
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
+[@AtlasCommaJ]: http://github.com/AtlasCommaJ
+[@jenni-niels]: http://github.com/jenni-niels
+
+
 [`package.json`]: ../09deployment/package.md
 [`districtr/src/views/event.js`]: ../../districtr/src/views/event.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -1,15 +1,15 @@
 # The Tooltip Brush
 
-The Tooltip Brush is a special brush used with the [`InspectTool`] or in
-community mode where information on the hovered units is displayed. Like
-[`Brush`], it extends [`HoverWithRadius`] and extends its parent class
-functions. 
+The Tooltip Brush is a special brush used with the [`InspectTool`], or
+in community mode, where information on the hovered units is displayed.
+Like [`Brush`], it extends [`HoverWithRadius`] and extends its parent
+class functions. 
 
 ## Construction
 
 A `Tooltip` requires the relevant [`layer`], `content` for display and
 `radius`, which defaults to 1. The `layer` and `radius` is sent to the
-base class as part of the `super` construction. Parameter `content` is
+base class as part of the `super` construction. Argument `content` is
 applied to instance variable `this.content`, an object of
 `ToolTipContent` type. Finally, unique for `Tooltip`, a `this.container`
 instance variable is created set to a new document div element. This is
@@ -53,8 +53,8 @@ Originally written by [@maxhully] on Mon. Apr. 29, 2019,
 a graphic box used for display.
 
 When a `Tooltip` is created by `InspectTool`, a `ToolTipContent` object,
-the recepient within `Tooltip` of `this.hoveredFeatures`. It is
-constructed with the following parameters.
+the recepient within `Tooltip` of `this.hoveredFeatures`, is also
+created. It is constructed with the following parameters.
 - `features`,
 - `columnSet`,
 - `nameColumn`,
@@ -89,3 +89,11 @@ Finally, to render, it returns an html that combines both the
 [`HoverWithRadius`]: ../04drawing/hover.md
 
 [`HorizontalBarChart(...)`]: ../06charts/populationbarchart.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

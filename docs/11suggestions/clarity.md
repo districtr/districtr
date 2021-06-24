@@ -2,17 +2,14 @@
 
 There are many places where concepts, variables and functions share
 similar or identical names. Thus, it's harder to trace for development.
-
 Conversely, many of the same objects serve as arguments or instance
 variables in different places and thus goes by different aliases, again,
 making development cumbersome. 
 
 I'm a proponent of initializing all possible instance variables at the
 construction of an object, so we know what we're dealing with in advance
-and eliminate the prospect of `undefined` variables.
-
-Finally, we should continue to eliminate `underfined` variables by
-taking most advantage of defaults.
+and eliminate the prospect of `undefined` variables. Adding defaults
+could will help further this aim.
 
 ## Similar Names, Different Things
 
@@ -22,23 +19,18 @@ The title "Units" is used in a pair of ways.
 
 - Conceptually, is is the base units of a module, whether precincts or
 census geometries. 
-
 - When initializing, `units` is an object specification representation
 of these base units saved and loaded by the [context/plan]. This is
 saved as `context.units` and `state.unitsRecord`
-
 - Finally, in the [Map index.js], there's also a [`Layer`] titled units
 returned by function `addUnits(...)`. This kept in `state.units`
-Maybe we should rename it "unitsLayer" instead. 
-
+  - Maybe we should rename it "unitsLayer" instead. 
 - `.map(...)` is also a common elementary Array function in javascript.
 
 ### Options
 
 There are so many different kinds of options, some acting as a
-collection of UI for the user, some acting as properies.
-
-There's the...
+collection of UI for the user, some acting as properties. There's the...
 - [`OptionsContainer`], better named `ToolOptionsContainer`
   - [`InspectToolOptions`] and more for each tool
   - [`brushOptions`]
@@ -61,7 +53,7 @@ are...
 a "Dropdown Item" but can really be sent any kind of html to render. In
 my head, parameter is synonymous to the argument of functions.
 
-## One thing, Different Names
+## One Thing, Different Names
 
 ### The Mapbox-Gl Map
 
@@ -72,12 +64,13 @@ Mapbox server. Various times it is identified as...
 - `mapState.map`
   - Thus also, `editor.mapState.map`
 - `State.map` upon construction 
-- Every [`Layer`] is created tied to its map.
-  - Thus the units `Layer` (See above), contains `state.units.map`.
+- When any [`Layer`] is created, it is tied to its map.
+  - One example: the units `Layer` contains `state.units.map`
 
-See [Global Objects] for more thoughts on this.  
+The same map is everywhere! See [Global Objects] for more thoughts on
+this.
 
-Also in [`Map`], notice that `borderId` is usually matched by
+Finally, in [`Map`], notice that `borderId` is usually matched by
 `place.id`. A name change could make this clearer. 
 
 ### Layers
@@ -85,7 +78,7 @@ Also in [`Map`], notice that `borderId` is usually matched by
 Speaking of layers, Layer is used typically to describe `Layer` object,
 however, upon its construction, it is sent an object also called
 `layer`, a json object that serves as a specification argument. Would it
-be clearer to call this parameter `layerspecs`? 
+be clearer to call this parameter say, "layerspecs"? 
 
 ### ColorsAffected
 
@@ -105,30 +98,28 @@ convert it into a string object. Other times, like in routes, what is
 the difference between using `serialized` and the `state` object
 directly?
 
+### HorizontalBarChart
+
+The one in `PopulationChart` is svg based, the one in
+`HorizontalBarChart.js` used in `Tooltips` is html based.
+
 ## Post Construction Instance Variables 
 
-### `Editor`
-
-[`NumberMarkers`] creates new instance variables for `Editor` that are
-only dependent on the number of parts. We could not only initialize this
-at the construction of [`Editor`], but complete the generation of the
-layer and its icons at the start.
-
-### `State`
-
-A reminder that `state.population` is not initialized in the initial
-creation of the `state` object.
-
-### `Toolbar`
-- Toolbar's `this.state`, is not initialized in the constructor.
-
-### Brush
-It's easier to understand the function of the `Brush` object when its
+- [`NumberMarkers`] creates new instance variables for [`Editor`] that
+are only dependent on the number of parts. We could not only initialize
+this at the construction of [`Editor`], but complete the generation of
+the layer and its icons at the start.
+- A reminder that `state.population` is not initialized in the initial
+creation of the [`State`] object.
+- [`Toolbar`]'s `this.state`, is not initialized in the constructor.
+-It's easier to understand the function of the [`Brush`] object when its
 instance variables are defined at the start. This is so for its...
-- `this._previousColor`
-- `this.erasing`
-- `this.cursorUndo`
-- `this.trackRedo`.
+  - `this._previousColor`
+  - `this.erasing`
+  - `this.cursorUndo`
+  - `this.trackRedo`.
+- This is also true of Brush's sibling [Tooltip], where `this.visible`,
+`this.x`, `this.y` and more are not initialized in the constructor.
 
 ## Default Values
 
@@ -139,10 +130,9 @@ The [`DemographicsTable`] and related functions rely on argument
 strict bool but now it can hold three values, `true`, `false` and
 `"population"`! `True` and `false` should be renamed. 
 
-### Suggestions
+### Other Suggestions
 - Should we set a default `hide-me` value `false` in the `Tool`
 constructor to be clear?
-
 - We should go ahead and set a default value for the `renderToolbar`
 parameter in `BrushToolOptions`, as it is always set to `undefined` when
 it is called. In fact, it is called in each of the `BrushToolOptions`'
@@ -152,31 +142,24 @@ function. It could almost be hard coded.
 
 ## Odds and Ends
 
-### Dataset Info
-
-In `DatasetInfo` Directives come from AngularJS, whereas we use lit-html
+- In `DatasetInfo` Directives come from AngularJS, whereas we use lit-html
 throughout Districtr for templating. Can't we just use lit-html to
 populate this text?
-
-### [Demographics Table]
-
-- In `SelectBoxes`, "Comapare" and "with" are contained in an Array, but
-"and" is a special case. Should they just be in one array?
-
-### [State Portals]
-
-In the State Portals, the population of districting and community
+- In `SelectBoxes`, defined in [Demographics Table], "Comapare" and
+"with" are contained in an Array, but "and" is a special case. Should
+they just be in one array?
+- In the [State Portals], the population of districting and community
 cards occurs later than when it is given structure in the HTML. Maybe
 they should be placed closer together for clarity.
 
 # #
 [Return to Main](../README.md)
-- [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
-- Previous: [Deprecations and Experimental Features](./11suggestions/deprecations.md)
-- Next: [Logical Redundancies](./11suggestions/logic.md)
-- [Organization](./11suggestions/organizing.md)
-- [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
-- [Other Notes](./11suggestions/other.md)
+- [My Personal Philosophy on Functions](../11suggestions/philosophy.md)
+- Previous: [Deprecations and Experimental Features](../11suggestions/deprecations.md)
+- Next: [Logical Redundancies](../11suggestions/logic.md)
+- [Organization](../11suggestions/organizing.md)
+- [The Heavy Lift: (Not) Global Objects](../11suggestions/globalobjects.md)
+- [Other Notes](../11suggestions/other.md)
 
 [context/plan]: ../01contextplan/plancontext.md
 [`State`]: ../01contextplan/state.md
@@ -189,6 +172,7 @@ they should be placed closer together for clarity.
 [`Layer`]: ../02editormap/layer.md
 [`Map`]: ../02editormap/map.md
 [NumberMarkers]: ../02editormap/numbermarkers.md
+[`NumberMarkers`]: ../02editormap/numbermarkers.md
 
 [UIStateStore]: ../03toolsplugins/uistatestore.md
 [`InspectToolOptions`]: ../03toolsplugins/inspecttool.md
@@ -201,6 +185,7 @@ they should be placed closer together for clarity.
 [FeatureState]: ../04drawing/brush.md
 [ContiguityChecker]: ../04drawing/contiguity.md
 [`Brush`]: ../04drawing/brush.md
+[Tooltip]: ../04drawing/tooltip.md
 
 [`LandmarkOptions`]: ../05landmarks/landmarksclass.md
 
@@ -215,3 +200,11 @@ they should be placed closer together for clarity.
 
 [Global Objects]: ../09deployment/globals.md
 [Routes]: ../09deployment/routes.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

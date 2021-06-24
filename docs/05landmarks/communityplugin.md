@@ -62,7 +62,7 @@ When we update the Landmarks list we...
 `.marker-form` are populated with generic New Point values based on
 sequential values. 
    - The description for `lmo` is set to blank, triggering a save.
- - ...otheriwse...
+ - ...otherwise...
    - We use `window.selectLandmarkFeature` to select the relevent
 landmark by updating html the landmark select text, class
 `.landmark-select .label`.
@@ -72,16 +72,17 @@ and re-render the whole `state`, that is, all subscribers of `state` are
 called. 
  
 Otherwise, last feature in the list is set as the selected feature.
-After this, the whole `state` is rerendered, 
+After this, the `state` is again rerendered.
 
 ## A Custom Evaluation Tab
 
-While there exists clean ways to write custom tabs, unusual among all
-plugins, the `CommunityPlugin` implements to `Tab`s in the `Toolbar`,
-the `Drawing` tab and a custom `Evaluation` tab that implements a
-Population `PivotTable`, a  VAP `PivotTable` if `state.vap` is
-available, a `MedianIncomeTable` if `state.incomes` is available and
-likewise, a `DemographicsTable` on renters.
+While there exists clean ways to write custom tabs, unusual among most
+plugins, the `CommunityPlugin` implements __two__ `Tab`s in the
+`Toolbar`, the `Drawing` tab and a custom `Evaluation` tab that...
+- implements a Population `PivotTable`
+- makes a  VAP `PivotTable` if `state.vap` is activated
+- a `MedianIncomeTable` if `state.incomes` is available and likewise,
+- a `DemographicsTable` on renters if available.
 
 ### Adding Location Search
 
@@ -159,14 +160,23 @@ function means that `isNew` is false, but this is not clear.
 - Usually, a plugin makes a single tab. This is not always so, but it
 should. Community creates both a `Drawing` tab and a custom `Evaluation`
 tab.
-- Hard coding excepts Arizona municipalities, whereas it could be
-controlled by  `spatial_abilities`
+- Hard coding excepts Arizona municipalities, could we do this using
+`spatial_abilities` instead?
 - `mapState.map` is used, but remember, the mapbox-gl map is the same
 object in `editor.map` and so on.
 - Both the `LandmarkTool` and the `CommunityPlugin` define class
 `LandmarkOptions`. They're very different from each other despite the
 name. 
 - A dropdown menu of Landmarks does not use the `Parameter` object.
+
+# # 
+
+[Return to Main](../README.md)
+- [Communities of Interests in Use](./05landmarks/coi.md)
+- Previous: [The Landmark Class](../05landmarks/landmarksclass.md)
+- Next: [The Old Landmark Tool](../05landmarks/landmarktool.md)
+- [My COI](../05landmarks/mycoi.md)
+- [Finding Places](../05landmarks/findplaces.md)
 
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
@@ -189,3 +199,11 @@ name.
 [`LandmarkTool`]: ../05landmarks/landmarktool.md
 
 [`PopBalancePlugin`]: ../06charts/popbalanceplugin.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -6,21 +6,21 @@ Much of the top-bar Menu is contained within the [`Toolbar`] and
 ## Opening and Closing
 
 When a [`UIStateStore`] is created by the [`Editor`], the initial state
-includes the default for `dropdownMenuOpen`, which is `false`. The work
-of revealing and hiding the menu is performed by `Toolbar`, when the
-`DropDownMenuButton` is rendered. This button makes dispatches which
-ultimately report to the UI state store. 
+includes the default for `dropdownMenuOpen` variable, which is `false`.
+The work of revealing and hiding the menu is performed by `Toolbar`,
+when the `DropDownMenuButton` is rendered. This button makes dispatches
+which ultimately report to the UI state store. 
 
 The actual rendering and hiding of the html element is acheived when the
-`DropDownMenu`'s class is update. An designation of class
-`.reveal-hidden` tells the Menu to hide.
+`DropDownMenu`'s class updates. An designation of class `.reveal-hidden`
+tells the Menu to hide.
 
 ## Loading Options
 
 Remember, the `Toolbar` only creates the space for tools and functions.
 It is the `tools-plugin.js` that breathe life into the space by
 populating the appropriate tools. This includes responsibility for
-calling `toolbar.setMenuItems` and defining `getMenuItems`. 
+calling `toolbar.setMenuItems` and defining `getMenuItems(...)`. 
 
 Menu items for all cases are relatively the same, differing little
 except for [state] or [problem/context]-specific links. Many call out to
@@ -68,7 +68,7 @@ loaded only once and the options change little from context to context.
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -90,3 +90,11 @@ loaded only once and the options change little from context to context.
 [`Toolbar`]: ../03toolsplugins/toolbar.md
 
 [routes.js]: ../09deployment/routes.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

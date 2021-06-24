@@ -1,36 +1,36 @@
 # The Data Layers Plugin
 
 As the [`ToolsPlugin`] serves as the function that displays a list of
-map tools and a [user interface] radio button, checkboxes and sliders
+map tools and [user interface] radio buttons, checkboxes and sliders
 that allow users to control their properties, the `DataLayersPlugin`
 loads information and UI related to data including toggles and tables.
-In the districtr document, we see this in the "Data Layers" [tab] that
+In the [`Toolbar`], these are collected in the "Data Layers" [tab] that
 has sections for map display options, tables related to race and
-demographics  and overlays related to population, coalition and
+demographics and overlays related to population, coalition and
 elections. 
 
 The Data Layers Plugin is listed in `views/edit.js` as applicable when
-in editing default and communityId mode, but not when we're in `coi2`
-mode.
+in we edit in the `"default"` and `"communityId mode"`, but not when
+we're in the "`coi2`" mode.
 
 [@maxhully] innaugrated plugins with a commit on Tues., Apr. 23, 2019.
-These plugins have been heavily maintained since, with the addition of
-[@mapmeld]'s  starting in Sept. 2019, healthy maintenance by
-[@jenni-niels] and recent updates by [@jdeschler].
+These plugins have been heavily maintained since, with [@mapmeld]'s
+additions and [@jenni-niels]'s healthy maintenance starting in Sept.
+2019. More recent updates have been applied by [@jdeschler].
 
 <img src="../pics/datalayersplugin.png" width=50%>
 
-## districtr/src/plugins/data-layers-plugin.js 
+## [/src/plugins/data-layers-plugin.js]
 
 The `data-layers-plugin.js` file holds a single default plugin
 `DataLayersPlugin(editor)` that is created when the [`Editor`] is
 initialized. Having taken a list of plugins from `edit.js`, the `Editor`
 calls each plugin one by one using itself as the parameter. 
 
-The foundation for this plugin is the new  `LayerTab(...)` created to
-hold each [`Section`] in described below. We add elements to this local
-variable `tab` until we apply `toolbar.addTab(tab)` to have it render
-inside the document right-hand panel. 
+The foundation for this plugin is a `LayerTab(...)` created to hold each
+[`Section`] described below. We add elements to this local `tab` until
+and apply `toolbar.addTab(tab)` to have it render inside the document
+right-hand panel Toolbar.
 
 ### Communities/District Section
   
@@ -38,8 +38,9 @@ Data Layers Plugin is responsible for creating a tab and adding sections
 using `tab.addSection(...)`, each of which are fed render functions.
 This first section concerns the basics of toggling [`map`] [layers]. Its
 heading, messages and labels are dependent on whether we're working with
-Communities or Districts are being used.
+Communities or Districts are being painted.
 Elements include... 
+
 - The Heading, either "Communities" or "Districts"
 - Show Communities/Districts `toggle` that sets state.units opacity.
 Remember, `state.units` is of type `Layer`
@@ -71,11 +72,13 @@ Loadable layers include...
 - "Show Boundary", from `/assets/current_districts/`
 - "Voter Precincts", from `/assets/current_districts/`
 - "School Districts", from `/assets/current_districts/`
--  "Cities and Towns" from `/assets/current_districts/`
-- Enacted Plans from `assets/current_districts/`
+- "Cities and Towns" from `/assets/current_districts/`
+- "Enacted Plans" from `assets/current_districts/`
 - "Boundaries" from `/assets/current_districts/`
   
-Finally, the following when permitted by `spatial_abilities(state.place.id)`
+Finally, the following layers are loaded when permitted by
+`spatial_abilities(state.place.id)`.
+
 - American Indian Districts from `addAmerIndianLayer(tab, state)`
 - Current Districts from `addCurrentDistricts(tab, state)`
 - Communities of Interest, in coi mode, from  `addMyCOI(state, tab)`
@@ -83,26 +86,29 @@ Finally, the following when permitted by `spatial_abilities(state.place.id)`
 ###  Demographics
   
 Districtr allows for the overlay and tabulation of demographic
-information in a series of four potential [Reveal Sections], the
-`Coalition Builder`- a combination of races, 'Race',
-`Socioeconomic data` and [`Previous Elections`]. The [`Demographics`]
-section is created when we call `tab.createSection(...)`.  
+information. The [`Demographics`] section is created when we call
+`tab.createSection(...)` and contains four potential Reveal Sections...
+
+- the `Coalition Builder`, a combination of races
+- 'Race'
+- `Socioeconomic data` and
+- [`Previous Elections`].
 
 ### Coalition Groups
   
 The combination of races that comprise a Coalition is kept as a global
 object variable known as `window.coalitionGroups`. After the
-Demographics section is created, we first  create a
-`"../components/Charts/CoalitionPivotTable` object as a local variable. 
+Demographics section is created, we first create a
+`CoalitionPivotTable` object as a local variable. 
 
 We then create `tab.addRevealSection("Coalition Builder"...)`. Inside a
 [`Parameter`], for each subgroup in non-total
 `state.population.subgroups`, we create a `toggle` element that adds
 each race to the global object of `coalitionGroups` and render the
 `coalitionPivotTable` object we created earlier. In the document, this
-table is kept in a div id `#coalition-table`. Finally, this reveal
-section is by default closed upon load.  
-  
+table is kept in a div id `#coalition-table`. This reveal is initially
+closed by default.
+
 ### Overlay Containers
 
 An Overlay Container provides the user the option to plot information
@@ -149,7 +155,7 @@ source data loads and where it is added as a layer and toggle button is
 separated. This makes it hard to see that, say, the ids `lax`'s current
 2013 districts' source in the map is titled, with `va` instead of `lax.`
 - When rendering the rent overlay legend bars, the notches are rendered
-inside a  div class '.vap' and not say `,rent`.
+inside a  div class '.vap' and not say "rent".
 - When loading early city example Lowell, MA, is loaded a hard coded
 coalition is written as default. Maybe this can be removed or moved to
 `spatial_abilities.` 
@@ -170,7 +176,7 @@ folded into `../components/Charts/CoalitionPivotTable`?
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higglightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -184,6 +190,8 @@ folded into `../components/Charts/CoalitionPivotTable`?
 [layers]: ../02editormap/layer.md
 [`Layer`]: ../02editormap/layer.md
 
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+
 [`ToolsPlugin`]: ../03toolsplugins/toolsplugin.md
 [user interface]: ../03toolsplugins/uicomponents.md
 [tab]: ../03toolsplugins/uicomponents.md
@@ -196,5 +204,12 @@ folded into `../components/Charts/CoalitionPivotTable`?
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 [Spatial Exceptions]: ../10spatialabilities/placeexceptions.md
 
+[/src/plugins/data-layers-plugin.js]: ../../src/plugins/data-layers-plugin.js
 
+# #
 
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

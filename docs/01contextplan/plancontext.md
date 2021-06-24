@@ -3,11 +3,11 @@
 <img src="../pics/plancontext.png" width=50%>
 
 Districtr keeps track of data regarding a specific area in a JSON format
-that's shared internally as a context. The seeds of this format date
-back to [@maxhully]'s  initial November 2018 attempts to load into our
-Mapbox server. This story is detailed in the commits of repository
+that's shared internally as a context. The sees of this format date back
+to [@maxhully]'s  initial November 2018 attempts to load into our Mapbox
+server. This story is detailed in the commits of repository
 [`MGGG/districtr-process`], which is responsible for helping us upload
-geographic data.
+geographic data to Mapbox.
 
 The structure of our plans are as follows...
  
@@ -66,27 +66,30 @@ on which areas a user can paint over.
 
 ## Districting Problems
 - Back at the top level, we have `districtingProblems,`an array of
-various "problem" objects, typically for `"Congress",
-"State House", and "State Senate". Each problem has a `"name"`,
-`numberOfParts` and a `pluralNoun` for display. For instance,
-[`Alabama.json`] has three "problems," one each for its 7 Congressional
-Districts, 105 State House Districts and 35 State Senate seats. 
+various "problem" objects, typically for "Congress", "State House", and
+"State Senate". Each problem has a `"name"`, `numberOfParts` and a
+`pluralNoun` for display. For instance, [`Alabama.json`] has three
+"problems," one each for its 7 Congressional Districts, 105 State House
+Districts and 35 State Senate seats. 
 
-[//]: # (## Additional properties for Communities of Interest)
-
-[//]: # ( - Additional)
-  
-[//]: # (## Use, in State)
-
-[//]: # (## Saving and Retrieving)
+A problem type might also be `community` reserved for when a user wishes
+to plot [communities of interest] rather than districts.
 
 # #
 
 [Return to Main](../README.md)
 - Next: [The State Object](./state.md)
 
-
 [`State`]: ./state.md
 [@maxhully]: http://github.com/maxhully
 [`Alabama.json`]: ../../assets/data/modules/Alabama.json
-[`MGGG/district-process`]: https://github.com/districtr/districtr-process
+[`MGGG/districtr-process`]: https://github.com/districtr/districtr-process
+[communities of interest]: ../05landmarks/coi.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

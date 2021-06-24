@@ -86,11 +86,10 @@ repositories in anticipation of updates.
 
 [Return to Main](../README.md)
 - [Routes](./09deployment/routes.md)
-- Previous: [Intro to districtr-eda](./09deployment/districtreda.md)
-- Next: [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- [Headers and Redirects](./09deployment/headersredirects.md)
-- [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
+- Previous: [Intro to districtr-eda](../09deployment/districtreda.md)
+- Next: [Netlify Lambda Functions and MongoDB](../09deployment/mongolambdas.md)
+- [Headers and Redirects](../09deployment/headersredirects.md)
+- [package.json and npm](../09deployment/package.md)
 
 [@maxhully]: http://github.com/maxhully
 [@InnovativeInventor]: http://github.com/InnovativeInventor
@@ -99,3 +98,11 @@ repositories in anticipation of updates.
 [@heatrose]: http://github.com/heatrose
 [@JDeschler]: http://github.com/JDeschler
 [@nerdgear]: http://github.com/nerdgear
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

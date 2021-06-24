@@ -3,7 +3,7 @@
 When a user paints districts, a user can use past election results to
 help inform their selections. There are two ways that election data is
 reported in default districr: through the [`EvaluationPlugin`] tabs and
-the [`DataLayersPlugin`] or [`MultiLayersPlugin`] plugin tab.
+the [`DataLayersPlugin`] (or `MultiLayersPlugin`) plugin tab.
 
 ## Election Results Overlay 
 
@@ -27,13 +27,13 @@ The `PartisanOverlayContainer` is responsible for rendering...
 The list of available elections is stored in the [`State`] object,
 specifically `state.elections`, passed in from `data-layers-plugin`. A
 `PartisanOverlay` is created with each election which in practice
-extends `Overlay`, which creates a series of [`Layer`]s, which does the
-work of rendering themselves in the `map`.
+extends [`Overlay`], which creates a series of [`Layer`]s, which does
+the work of rendering themselves in the `map`.
 
 To choose the relevant `this._currentElectionIndex`, a [`Parameter`] is
 created labelled "Election:". Its `element` is a [`Select`] list of
 available elections whose callback is both `this.setElection` and the
-rerendering of a [`DataTable`] that updates the well-formatted overall
+rerendering of a [`DataTable`] that updates the well-formatted "overall"
 election table located in element id `#election-vote-share`. 
 
 A hard coded `toolbar-checkbox` triggers `this.toggleVisibility(...)`
@@ -125,7 +125,7 @@ we use the `Toggle` object instead?
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -133,6 +133,8 @@ we use the `Toggle` object instead?
 
 [`Layer`]: ../02editormap/layer.md
 [`map`]: ../02editormap/map.md
+[`Overlay`]: ../02editormap/layeroverlay.md
+
 
 [`Parameter`]: ../03toolsplugins/uicomponents.md
 [`Select`]: ../03toolsplugins/uicomponents.md
@@ -148,3 +150,11 @@ we use the `Toggle` object instead?
 [`src/layers/PartisanOverlayContainer.js`]: ../../src/layers/PartisanOverlayContainer.js
 [`src/components/Charts/ElectionResultsSection.js`]: ../../src/components/Charts/ElectionResultsSection.js
 [`src/components/Charts/ElectionResults.js`]: ../../src/components/Charts/ElectionResults.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

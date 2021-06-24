@@ -3,7 +3,7 @@
 [Mongo DB] is the way we save plans that users create such that we can
 load them later. [Netlify], our website's cloud server and is
 responsible for coordinating between districtr and the database using
-custom functions written for Netlify stored in the github /lambdas
+custom functions written for Netlify stored in the github [/lambdas]
 folder.
 
 [@maxhully] first helped deploy districtr on Netlify between April
@@ -49,7 +49,7 @@ fields and types.
 - `eventCode`, String up to 50 chars,
 - `planName`, String up to 50 chars,
 - `hostname`, String up to 100 chars,
-- `simple_id: Number,
+- `simple_id`: Number,
 - `token`, a random String of numbers,
 - `startDate`, a Date,
 - `screenshot`, a String,
@@ -130,20 +130,29 @@ imported including...
 # #
 
 [Return to Main](../README.md)
-- [Routes](./09deployment/routes.md)
-- [Intro to districtr-eda](./09deployment/districtreda.md)
-- [Intro to mggg-states](./09deployment/districtreda.md)
-- [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- [Headers and Redirects](./09deployment/headersredirects.md)
-- [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
+- [Routes](../09deployment/routes.md)
+- [Intro to districtr-eda](../09deployment/districtreda.md)
+- Previous: [Intro to mggg-states](../09deployment/mggg-states.md)
+- Next: [Headers and Redirects](../09deployment/headersredirects.md)
+- [package.json and npm](../09deployment/package.md)
 
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
+
+[`routes.js`]: ../09deployment/routes.md
 
 [plan/context]: ../01contextplan/plancontext.md
 [Communities of Interest]: ../05landmarks/coi.md
 [`event.js`]: ../08events/event.md
 
+[/lambdas]: ../../lambdas
 [Netlify]: https://www.netlify.com/
 [Mongo DB]: https://www.mongodb.com/
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

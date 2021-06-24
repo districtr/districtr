@@ -49,9 +49,23 @@ text?
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- Previous: [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- Previous: [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - Next: [A Full Example: VRA](../06charts/vra.md)
 
 [Population Balance Plugin]: ./6charts/popbalanceplugin.md
 [`src/components/Charts/DatasetInfo.js`]: ../../src/components/Charts/DatasetInfo.js
 [`State`]: ../01contextplan/state.md
+
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]: http://github.com/mapmeld
+[@AtlasCommaJ]: http://github.com/AtlasCommaJ
+[@jenni-niels]: http://github.com/jenni-niels
+[@apizzimenti]: http://github.com/apizzimenti
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

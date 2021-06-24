@@ -29,7 +29,7 @@ the actions that trigger their change. Specific actions may trigger
 specific handlers within a reducer. In districtr, reducers, actions and
 states are related to UI settings. 
 
--`createReducer(handlers)` creates a function that, given a `state` and
+- `createReducer(handlers)` creates a function that, given a `state` and
 `action`, triggers `handlers` or returns the original `state`.
 - `combineReducers(reducers)` creates a function that combines the
 reducers such that any `action` that affects any of the `reducers`
@@ -41,7 +41,7 @@ dispatch, but this function is not used.
 
 ## HTTP Response Utilities 
 
-- `handleResponse(handlers)` does the following described by the
+`handleResponse(handlers)` does the following described by the
 original code and is used in the following files. 
 ```
 * Handle HTTP responses by providing handlers for HTTP status codes.
@@ -96,7 +96,7 @@ These files bind more than three functions at a time but do not use
 
 ## Utilities for Mapping and Geodata
 
-- `boundsOfGJ(gj)` used in `edit.js` when loading a plan, finds the
+- `boundsOfGJ(gj)`, used in `edit.js` when loading a plan, finds the
 boundary coordinates for a geojson, extracting coordinate information
 from `getCoordinatesDump(gj` 
 - `COUNTIES_TILESET`, used in `counties.js` and `index.js`, provides
@@ -111,7 +111,7 @@ fits coterminously inside state senate districts.
 
 ### Suggestions
 - Functions `summarize(...)`, `dispatchToActions(...)` and `dec2hex(...)`
-are defined but not used anywhere
+are defined but not used anywhere.
 
 # #
 
@@ -153,3 +153,11 @@ are defined but not used anywhere
 
 [here]: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript#2901298
 [this site]: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

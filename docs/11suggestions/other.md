@@ -1,4 +1,4 @@
-# Things that remain left unsaid
+# Things Left unsaid
 
 - Districtr thanks its look to the sass and css back end. There's also
 a variety of functions related to color.
@@ -23,13 +23,21 @@ end.
 # # 
 
 [Return to Main](../README.md)
-- [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
-- [Deprecations and Experimental Features](./11suggestions/deprecations.md)
-- [Clarifying Operations](./11suggestions/clarity.md)
-- [Logical Redundancies](./11suggestions/logic.md)
-- [Organization](./11suggestions/organizing.md)
-- Previous: [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
+- [My Personal Philosophy on Functions](../11suggestions/philosophy.md)
+- [Deprecations and Experimental Features](../11suggestions/deprecations.md)
+- [Clarifying Operations](../11suggestions/clarity.md)
+- [Logical Redundancies](../11suggestions/logic.md)
+- [Organization](../11suggestions/organizing.md)
+- Previous: [The Heavy Lift: (Not) Global Objects](../11suggestions/globalobjects.md)
 
 [district-process]: https://github.com/districtr/districtr-process
 [@AtlasCommaJ]: https://github.com/AtlasCommaJ
-[mocha and chai]: 
+[mocha and chai]:  ../09deployment/package.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

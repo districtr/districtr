@@ -39,15 +39,15 @@ instance,  metadata related to `place.id` of 'Arkansas' and
 
 > These data were obtained from the US Census Bureau. The block and
 blockgroup shapefiles for Arkansas was downloaded from the Census
-<a href="https://www.census.gov/geo/maps-data/data/tiger-line.html">
-TIGER/Line Shapefiles</a>. Demographic information from the 2010
+<a href="https://www.census.gov/geo/maps-data/data/tiger-line.html">TIGER/Line Shapefiles</a>.
+Demographic information from the 2010
 Decennial Census was downloaded at the block level from
-<a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">
-American FactFinder</a>.</p>
+<a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">American FactFinder</a>.</p>
 
-Which is stored in `/assets/about/arkansas/data.html`, written together
-with most entries by [@jenni-niels] in October of 2020. This render
-modal is called by `tools-plugin.js` and is currently disabled. 
+...which is stored in `/assets/about/arkansas/data.html`, written
+together with most entries by [@jenni-niels] in October of 2020.
+This render modal is called by `tools-plugin.js` and is currently
+disabled. 
 
 ### `renderSaveModal(state, savePlanToDB)`
 
@@ -62,9 +62,9 @@ information.
 
 ### `renderVRAAboutModal(place)`
 
-Finally, as of June, 2021, [@jenni-niels] is currently building out VRA 
-functionality. Part of this is implementing a similar About Modal for
-this information.
+Finally, as of June, 2021, [@jenni-niels] is currently building out
+[VRA]  functionality. Part of this is implementing a similar About Modal
+for this information.
 
 # # 
 
@@ -90,7 +90,7 @@ made into a global method?
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -99,6 +99,7 @@ made into a global method?
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
 
+[@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
 [@jenni-niels]: http://github.com/jenni-niels
 
@@ -109,3 +110,12 @@ made into a global method?
 [`Toolbar.savePlan(...)`]: ../03toolsplugins/toolbar.md
 [routes]: ../09deployment/routes.md
 
+[VRA]: ../06charts/vra.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

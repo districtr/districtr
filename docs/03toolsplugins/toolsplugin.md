@@ -19,18 +19,18 @@ requires a reference to the Editor object.
 
 # [src/plugins/tools-plugin.js]
 
-The basic slate of tool plugins, always loaded no matter whether
-we work with painting districts or communities of interest, is 
-loaded by `tools-plugin.js`. Created with the first batch of 
-plugins in the Spring of 2019, this file is actively maintained
-and expanded by [Jamie], [Nick], [Jack], [Anthony] and [JN].
+The basic slate of tool plugins is loaded by `tools-plugin.js`, no
+matter whether we're painting districts or identifying communities of
+interest.  Created with the first batch of plugins in the Spring of
+2019, this file is actively maintained and expanded by [Jamie], [Nick],
+[Jack], [Anthony] and [JN].
 
 ## The tools-plugin function
 Tools-plugin is responsible for rendering certain tools in the `Toolbar`
-navigation [menu], creating [Brushes], handling contiguity checks and
-district numbers and some [`community`] and [`vra`] mode functionality.
-This file also happens to defines a list of `Menu` functions for the
-`Toolbar`. 
+navigation [menu], creating [Brushes], handling [contiguity checks] and
+[district numbers] and some [`community`] and [`vra`] mode
+functionality. This file also happens to defines a list of `Menu`
+functions for the `Toolbar`. 
 
 ### Important Imports
 
@@ -52,8 +52,9 @@ Thus, nearly all tools must be imported here.
 
 Users encounter the full functionality of districtr tools in the
 `Toolbar`, known to this function as `editor.toolbar` or simply
-`toolbar`. This basic set of tools, imported from elsewhere, then
-instantiated and stored in a list, is as follows...
+`toolbar`. This basic set of tools, imported from elsewhere, are then
+instantiated by the `ToolsPlugin` and are stored in a list. Those
+`Tools` are as follows...
 
 - `PanTool()`, for simple map panning
 - `BrushTool(brush, state.parts, brushOptions)`, which colors the map
@@ -77,20 +78,19 @@ also tied together...
 - On "colorfeature", we call back `state.update`
 - On "colorend", we call back `state.render` and `toolbar.unsave`
 
-Brush options are also set, informing the Brush if the problem type is
-a `community`, whether we're `spatial_abilities` permits us to paint
-with counties, and thus supplying `HoverWithRadius(...)` functionality
-and the special case in Louisiana where our counties are known as
-parishes.
+Brush options are also set, informing the brush if the problem type is
+a `community`, whether `spatial_abilities` permits us to paint with
+counties (applying `HoverWithRadius(...)` functionality) and the special
+case in Louisiana where our counties are known as parishes.
 
 Finally, if `community` is selected, we create a new
-`LandmarkTook(state)`.
+[`LandmarkTool(state)`].
 
 ### Additional Functionality
 
 New functions are implemented when they are tied to the brush's on
 `"colorop"` callbacks.
-- First, we always `savePlanToStorage`.
+- First, we always `savePlanToStorage()`.
 - For district numbers display on a screen, we create `NumberMarkers`,
 saved directly to the window, and toggle their operations to checkbox id 
 `toggle-district-numbers`. 
@@ -98,13 +98,13 @@ saved directly to the window, and toggle their operations to checkbox id
 is created which specifies knowledge of the current UI`state` and 
 `colorsAffected` by the discontinuity such that a list is diplayed in
 the toolbar. 
-- If we're in vra mode, the `VRAEffetiveness(state, colorsAffected)`
+- If we're in [vra] mode, the `VRAEffetiveness(state, colorsAffected)`
 function is loaded. 
 
 ### Other Functions
 
-This `tools-pugin` also contain other helper functions which are used in
-Menu Options.
+This `tools-plugin` also contain other helper functions which are used
+in Menu Options.
 
 - `exportPlanAsJSON(state)` serializes the current plan into text and
 directs the browser to download this as a .json file
@@ -137,12 +137,11 @@ Brush is already of `CommunityBrush` or regular `Brush` type.
   - Contiguity Check and VRA does not apply in `community` mode
   - Menu words are chosen on `community` type
   For VRA
-   - The`showVRA` option is defined twice. The `VRAEffectiveness` module
+   - The `VRAEffectiveness` module
    is loaded if `vra` mode is applied. 
-- Since the `Toolbar` is created in `Editor` after the `State` object is
-created and `Menu` only relies on problem/context `State` to provide a
-list of menu options, should Menu functionality be separated out into a
-different file?
+- `Menu` and its functions does so much, it should have its own
+dedicated file. It only relies on problem/context `State` to provide a
+list of menu options.
 
 # #
 
@@ -159,7 +158,7 @@ different file?
 
 - Here: [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -178,6 +177,7 @@ different file?
 [`Editor`]: ../02editormap/editor.md
 [`Map`]: ../02editormap/map.md
 [`NumberMarkers`]: ../02editormap/numbermarkers.md
+[district numbers]: ../02editormap/numbermarkers.md
 
 [menu]: ../03toolsplugins/topmenu.md
 [`Toolbar`]: ../03toolsplugins/toolbar.md
@@ -192,11 +192,14 @@ different file?
 [`CommunityBrush`]: ../04drawing/brush.md
 [`HoverWithRadius`]: ../04drawing/hover.md
 [`ContiguityChecker`]: ../04drawing/contiguity.md
+[contiguity checks]: ../04drawing/contiguity.md
 
 [`community`]: ../05landmarks/coi.md
 [community]: ../05landmarks/coi.md
 [`LandMarkTool`]: ../05landmarks/landmarktool.md
+[`LandmarkTool(state)`]: ../05landmarks/landmarktool.md
 
+[vra]: ../06charts/vra.md
 [`vra`]: ../06charts/vra.md
 [`VRAEffectiveness`]: ../06charts/vra.md
 
@@ -205,3 +208,11 @@ different file?
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 
 [src/plugins/tools-plugin.js]: ../../src/plugins/tools-plugin.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

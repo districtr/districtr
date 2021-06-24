@@ -1,4 +1,4 @@
-## Display Components
+## Display Components: Tabs, Reveal sections and more
 
 <img src="../pics/ui.png" width=50%>
 
@@ -15,7 +15,8 @@ information and UI provided by the plugins. Each `Tab` might have
 several `RevealSection`s. Typically, `Tab`s are created, 
 subelements are applied to it, and once done, it is loaded into
 `Toolbar`. The `LayerTab` is an example where the `Tab` is implemented
-as an inheritor class rather than an instance object. 
+as an inheritor class rather than an instance object and automates the
+generation of sections. 
 
 The Reveal Sections themselves may have different charts, tables, 
 drop-down menus with [`Parameter`s or checkboxes].
@@ -35,7 +36,7 @@ drop-down menus with [`Parameter`s or checkboxes].
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -51,3 +52,11 @@ drop-down menus with [`Parameter`s or checkboxes].
 [`toolsplugin.js`]: ../03toolsplugins/toolsplugin.md
 
 [`Parameter`s or checkboxes]: ../03toolsplugins/uicomponents.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

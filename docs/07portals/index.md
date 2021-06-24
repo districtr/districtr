@@ -11,7 +11,7 @@ compelted by [@mapmeld] with help from [@jenni-niels] whereas
 `index.html` is currently extended by the same and maintained by
 [@AtlasCommaJ] with help from [@jdeschler] and [@robbie-veglahn].
 
-## index.html
+## [index.html]
 
 When users navigate to districtr.org, they are in essence navigating to
 the site's root "/" folder, which defaults by convention to
@@ -100,4 +100,12 @@ which makes `clearQueriesFromURL()` less important.
 [`PlaceMap`]: ../07portals/placemap.md
 [state landing pages]: ../07portals/districtrstateportals.md
 
+[index.html]: ../../html/index.html
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

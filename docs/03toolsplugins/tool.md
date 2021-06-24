@@ -3,11 +3,11 @@
 Users interact and edit maps and communities using tools. These
 tools are listed at the top of the [`Toolbar`] and are loaded according
 to the current [problem/context]. This occurs when the `edit.js` view
-is loaded. A list of [plugins], functions which each create a collection
-of tools, is called by the [`Editor`]. When a plugin is called,
-instances of each tool is created and is responsible for rendering
-themselves in the tool menu and proceed with different functionality
-allowing the user to edit the [map]. 
+is loaded. A list of [plugins], functions which interact with tools (and
+provides the user information and Ui), is called by the [`Editor`].
+When a plugin is called, instances of each tool is created and is
+responsible for rendering themselves in the tool menu and proceed with
+different functionality allowing the user to edit the [map]. 
 
 Every tool extends the `Tool` class and take in a variety of parameters
 depending on their complexity. For instance, a [`Brush`] instance is
@@ -125,7 +125,7 @@ constructor to be clear?
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -150,3 +150,11 @@ constructor to be clear?
 [`EraserTool`]: ../03toolsplugins/brusherasetools.md
 [`InspectTool`]: ../03toolsplugins/inspecttool.md
 [`LandmarkTool`]: ../05landmarks/landmarktool.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

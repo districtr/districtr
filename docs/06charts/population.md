@@ -7,7 +7,7 @@ makes it a simpler sibling of the [`Election`] class. It is found in
 ## Constructor
 
 Just as `ColumnSet` does, `Population` takes `subgroups`, a `total`,
-a `total_alt` and `parts` usually found in the original context/plan.
+a `total_alt` and `parts` usually found in the original [context/plan].
 In addition, it takes a `name` and the name for its alternative, 
 `name_alt`, used for specific absentee-total interpretations. These
 final two are set as instance variables.
@@ -54,10 +54,19 @@ Both `indiciesOfMajorSubgroups()` and `RacialBalanceTable` filter out
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
 [`src/models/Population.js`]: ../../src/models/Population.js
 [`ColumnSet`]: ../06charts/columnsetsparts.md
 [`Election`]: ../06charts/electionresults.md
+[context/plan]: ../01contextplan/plancontext.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

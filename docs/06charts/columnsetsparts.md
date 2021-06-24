@@ -1,8 +1,8 @@
 # Column Sets
 
 Column Sets are the principal way that tabular information is stored by
-districtr. This principal element is set all the way from the loading of
-a [`plan/context`]. When a  [`State`] object is created,
+districtr. The root of each principal Column Sets is planted as early as
+the loading of a [`plan/context`]. When a  [`State`] object is created,
 `state.columnsets` is populated by `getColumnSets(this, units)` and
 `state.parts` is populated by `getParts(problem)`, both of which are
 populated by [`/src/models/lib/column-sets.js`]. This function creates
@@ -50,8 +50,8 @@ counted
 - `type`, whether election or otherwise
 
 There's an additional helper function `sortSubgroups` applied if `sort`
-is permitted. Another helper `sortable` determines if a `ColumnSet` is
-sortable if each `subgroup` is of numerical type.
+is permitted. Another helper `sortable` determines whether a `ColumnSet`
+is sortable by checking if each `subgroup` is of numerical type.
 
 If `total` and `total_alt` are neither undefined or null, they are
 created as their own `Subgroup` and assigned to `this.total` and
@@ -93,10 +93,10 @@ in the same file.
 
 Returning to `column-sets.js` we notice that only two export functions
 are listed, which, as we described, are both used by `State` in its
-construction. 
+construction: `getParts(...)` and `getColumnSets(...)`
 
-Function `getColumnSets` creates the following instance variables from
-corresponding functions.
+Function `getColumnSets(...)` creates the following instance variables
+from corresponding functions.
 
 - `state.elections`
 - `state.population`
@@ -112,9 +112,9 @@ corresponding functions.
 - `state.education`
 - `state.voters`
 
-Whereas `state.coumns` is an array that inlcudes
+Whereas `state.columns` is an array that first inlcudes
 `state.population.total`, `state.population.subgroups` and
-`state.elections.reduce`. Then in a long series of if statements,
+`state.elections.reduce`. In a long series of if statements,
 columns and subgroups within each of the above categories are added to
 `state.columns`. 
 
@@ -182,7 +182,7 @@ instance variables at the onset for clarity's sake.
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higglightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -197,3 +197,11 @@ instance variables at the onset for clarity's sake.
 
 [`/src/models/lib/column-sets.js`]: ../../src/models/lib/column-sets.js
 [`/src/models/NumericalColumn.js`]: ../../src/models/NumericalColumn.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

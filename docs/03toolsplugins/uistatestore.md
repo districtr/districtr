@@ -1,6 +1,6 @@
-# The UIStateStore and other Reducers
+# The UIStateStore
 
-The UIStateStore is a simple function that keeps track of a user's 
+The `UIStateStore` is a simple class that keeps track of a user's 
 interaction with districtr's interface. It was written by [@maxhully]
 on Mon., Jan. 19, 2019, who edited this only once more a few months
 later on Wed., May 1.
@@ -37,7 +37,7 @@ many places, with one of many `actions` passed in. It is also often
 passed in as a parameter in many [UI classes]. (Other UI classes issue
 the js standard `dispatchEvent`). 
 
-# What is a reducer?
+## What is a reducer?
 
 In general, reducers simply take the current state and an action and
 returns a new state. Our reducer, defined in `src/reducer` is merely a
@@ -51,9 +51,6 @@ For more information, refer to our page on [reducers].
 - If we use a series of dispatch events to rerender different pieces of
 the document, do we need to call `renderToolbar` in the methods of
 `brushTool`? 
-- Only the one, unchanging and  defined `reducer` is ever used. Does
-this ever need to be an instance variable or passed around as a
-parameter between classes? as a parameter between structures?
 - In the `dispatch` function, each subscriber is passed a pair of
 parameters that are ultimately not used by the subscribed function
 (which is only ever `editor.render`) 
@@ -71,7 +68,7 @@ parameters that are ultimately not used by the subscribed function
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -86,3 +83,11 @@ parameters that are ultimately not used by the subscribed function
 [reducers]: ../03toolsplugins/actionsreducers.md
 [`this.state`]: ../01contextplan/state.md
 [UI classes]: ../03toolsplugins/uicomponents.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

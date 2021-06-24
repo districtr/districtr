@@ -75,12 +75,11 @@ Finally, the following are set to be redirected.
 # #
 
 [Return to Main](../README.md)
-- [Routes](./09deployment/routes.md)
-- [Intro to districtr-eda](./09deployment/districtreda.md)
-- [Intro to mggg-states](./09deployment/districtreda.md)
-- Previous: [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- Next: [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
+- [Routes](../09deployment/routes.md)
+- [Intro to districtr-eda](../09deployment/districtreda.md)
+- [Intro to mggg-states](../09deployment/mggg-states.md)
+- Previous: [Netlify Lambda Functions and MongoDB](../09deployment/mongolambdas.md)
+- Next: [package.json and npm](../09deployment/package.md)
 
 # #
 
@@ -89,3 +88,11 @@ Finally, the following are set to be redirected.
 [`edit.html`]: ../02editormap/editor.md
 [`/community/*`]: ../05landmarks/coi.md
 [lambdas]: ../09deployment/mongolambdas.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

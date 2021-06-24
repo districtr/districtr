@@ -11,8 +11,8 @@ places and contexts. Plugins are functions that...
 
 ## Loading
 
-The responsibility for checking a context/plan's problem and loading the
-appropriate plugin rests with edit.js when it is called on
+The responsibility for checking a [context/plan]'s problem and loading
+the appropriate plugin rests with edit.js when it is called on
 initialization. Currently, this list is being sent to Editor which calls
 each function for creating, sending itself as an argument.
 
@@ -30,7 +30,7 @@ When identifying communities of interests and landmarks, we load...
 An experimental mode, known as "coi2" only applies for a few modules in
 North Carolina. This loads... 
 - [ToolsPlugin]
-- [MultiLayersPlugin]
+- MultiLayersPlugin
 - [CommunityPlugin]
 
 ## [The Tools Plugin]
@@ -76,6 +76,8 @@ display on the map.
 
 # # 
 
+[Return to Main](../README.md)
+
 - [Making space for the Toolbar](../03toolsplugins/toolbar.md)
   - [Tabs and Reveal Sections](../03toolsplugins/sections.md)
   - [A List of UI and Display Components](../03toolsplugins/uicomponents.md)
@@ -86,13 +88,15 @@ display on the map.
 - [Actions and Reducers](../03toolsplugins/actionsreducers.md)
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 - Here: [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
   - The Data Layers Plugin (See Chapter 06)
   - The Community Plugin (See Chapter 05)
   - The Population Balance Plugin (See Chapter 06)
+
+[context/plan]: ../01contextplan/plancontext.md
 
 [Toolbar]: ../03toolsplugins/toolbar.md
 [ToolsPlugin]: ../03toolsplugins/toolsplugin.md
@@ -125,6 +129,14 @@ display on the map.
 [Contiguity]: ../04drawing/contiguity.md
 
 [Landmarks]: ../05landmarks/landmarksclass.md
-[Landmarks]: ../05landmarks/coi.md
+[communities of interest]: ../05landmarks/coi.md
 
 [`routes.js`]: ../09deployment/routes.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

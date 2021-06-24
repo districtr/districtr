@@ -62,8 +62,8 @@ projection.
 
 Finally, we use...
 
-- `"[encoding]": "^0.1.12"` to help us with String formats and
-- `"[hotkeys-js]": "^3.7.6"` to read keystroke input. 
+- `"encoding": "^0.1.12"`, [encoding] to help us with String formats and
+- `"hotkeys-js": "^3.7.6"`, [hotkeys-js] to read keystroke input. 
 
 ## devDependencies
 
@@ -79,9 +79,9 @@ documentation. [Gulp] helps us automate tasks like compilation and
 The following also helps us load modules and environment variables
 easily. 
 
-- `"[dotenv]": "^8.1.0"`
-- `"[esm]": "^3.2.25"`
-- `"[node-fetch]": "^2.6.1"`
+- `"dotenv": "^8.1.0"`, [dotenv]
+- `"esm": "^3.2.25"`, [esm]
+- `"node-fetch": "^2.6.1"`, node-fetch
 
 ### Backwards Compatibility
 
@@ -179,12 +179,11 @@ but may serve some other function, like as prerequisites.
 # #
 
 [Return to Main](../README.md)
-- [Routes](./09deployment/routes.md)
-- [Intro to districtr-eda](./09deployment/districtreda.md)
-- [Intro to mggg-states](./09deployment/districtreda.md)
-- [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- Previous: [Headers and Redirects](./09deployment/headersredirects.md)
-- Next: [Local Testing and Deployment Preview](./09deployment/localpreview.md)
+- [Routes](../09deployment/routes.md)
+- [Intro to districtr-eda](../09deployment/districtreda.md)
+- [Intro to mggg-states](../09deployment/mggg-states.md)
+- [Netlify Lambda Functions and MongoDB](../09deployment/mongolambdas.md)
+- Previous: [Headers and Redirects](../09deployment/headersredirects.md)
 
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
@@ -213,3 +212,12 @@ but may serve some other function, like as prerequisites.
 [Mocha]: https://mochajs.org/
 [Sinon]: https://sinonjs.org/
 [Mongoose]: https://mongoosejs.com/
+[MongoDB]: https://www.mongodb.com/
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -150,7 +150,7 @@ making `CoalitionPivotTable` even more similar to `PivotTable`
 - Here: [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -171,3 +171,10 @@ making `CoalitionPivotTable` even more similar to `PivotTable`
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

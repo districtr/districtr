@@ -17,20 +17,20 @@ An object of default class Toolbar is created by [Editor] upon
 [initialization]. It is responsible for rendering a space for the
 right-hand panel and keep track of available user interaction tools. 
 
-In fact, it Editor's own render function relies upon Toolbar's render
+In fact, the `Editor`'s own render function relies upon Toolbar's render
 function to do most of the work. ([Map] object is created before the
 Editor object and is responsible for rendering and managing the
 displayed Mapbox canvas.)
 
-**Note**, Toolbar itself is only the **framework** for tools and must be
-waken up by [`tools-plugin.js`] to load the right tools, tabs and menu
-items.
+**Note**, `Toolbar` itself is only the **framework** for tools and must
+be waken up by [`tools-plugin.js`] to load the right tools, tabs and
+menu items.
 
 ## Important Imports
 - [`actions`], in `reducers/toolbar` is a reducer that watches for user
 interaction with the toolbar
 - As `savePlanToDB` speaks with an external server, it is imported from
-`routes`
+[`routes`]
 - `renderSaveModal` is a type of [Modal] popup
 - [`spatial_abilities`] contains place-specific instructions 
 - [`Tab`] and [`OptionsContainer`] are sub-units of user interface
@@ -38,9 +38,9 @@ rendered within the Toolbar.
 
 ## `default class Toolbar`
 
-The single Toolbar created bt Edtior.js is responsible for keeping track
-of tools like [`Brush`], [`Eraser`] and more. Thus, it must render the
-toolbar information panel, render a menu of tools and keep track of
+The single `Toolbar` created by Edtior.js is responsible for keeping
+track of tools like [`Brush`], [`Eraser`] and more. Thus, it must render
+the toolbar information panel, render a menu of tools and keep track of
 which tool is selected at a time. 
 
 ### Construction
@@ -81,7 +81,7 @@ information about the current [plan/context].
 by `tools-plugin.js` to load relevant menu items
 - `addTool()` adds tool by informing tool of `this.renderCallback`, and
 adds tool to both this.toolsById and this.tools.
-- `activeTool()` Asks `this.store` which tool is selected and returns
+- `activeTool()` asks `this.store` which tool is selected and returns
 its ID        
 - `selectTool(toolId)`, deactivates the current tool, activates the new
 tool and informs `this.store`. Plugins initialize the active tool for
@@ -92,7 +92,7 @@ respectively.
 ### Saving Plans
 
 In `savePlan(e)`, Toolbar provides buttons for saving plans with special
-case for non-districtr state portals. If the save is meant for an
+cases for non-districtr state portals. If the save is meant for an
 external portal, `renderSaveModal()` is called, otherwise,
 `savePlantoDB()` is called, the target button is updated and the user is
 given the saved plan URL.
@@ -123,8 +123,8 @@ sometimes hidden or revealed.
   - and the rendering of `DropdownMenuButton(...)` included as a helper
 function in this file
 - Afterwards, the rest of the toolbar is rendered...
-  - if the DropdownMenu(...) is set to be revealed, it renders a list of
-links sourced from the `this.menuItems` list.
+  - if the` DropdownMenu(...)` is set to be revealed, it renders a list
+of links sourced from the `this.menuItems` list.
   - Separate class `OptionsContainer` renders options for the specific
 `this.activeTool`
   - Separate class `Tabs` are called underneath to display charts,
@@ -145,7 +145,7 @@ function be rewritten to reduce this redundancy?
 clarity?
 - Tabs are only effectively called here, yet is passed in `this.tabs`,
 `this.store.state`, etc. Could tabs just be passed in `this,` the
-`Toolbar` and handle the rest?
+`Toolbar`, and handle the rest?
 
 # #
 
@@ -162,7 +162,7 @@ clarity?
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -183,7 +183,7 @@ clarity?
 [initialization]: ../02editormap/initialization.md
 [Map]: ../02editormap/map.md
 
-[src/Components/toolbar.js]: ../../src/Components/toolbar.js
+[src/Components/toolbar.js]: ../../src/components/Toolbar/Toolbar.js
 [`tools-plugin.js`]: ../03toolsplugins/toolsplugin.md
 [`actions`]: ../03toolsplugins/actionsreducers.md
 [Modal]: ../03toolsplugins/modal.md
@@ -198,3 +198,11 @@ clarity?
 [`routes`]: ../09deployment/routes.md
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

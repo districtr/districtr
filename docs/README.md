@@ -62,7 +62,7 @@ following model.
 
 - [The Tools-Plugin prevails](./03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](./03toolsplugins/tool.md)
-  - [Brush and Erase Tools](./03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](./03toolsplugins/brusherasetools.md)
   - [Inspect Tool](./03toolsplugins/inspecttool.md)
 
 <img src="./pics/plugins.png" width=50%>
@@ -86,7 +86,7 @@ following model.
 ## 5. Interesting Communities and Landmarks
 
 - [Communities of Interests in Use](./05landmarks/coi.md)
-- [The Landmark Class](./05landmarks/landmarkclass.md)
+- [The Landmark Class](./05landmarks/landmarksclass.md)
 - [The Community Plugin](./05landmarks/communityplugin.md)
 - [The Old Landmark Tool](./05landmarks/landmarktool.md)
 - [My COI](./05landmarks/mycoi.md)
@@ -98,14 +98,14 @@ following model.
   - [The Data Layers Plugin](./06charts/datalayersplugin.md)
   - [Population Balance Plugin](./06charts/popbalanceplugin.md)
   - [The Evaluation Plugin](./06charts/evaluationplugin.md)
-- [The Population Model](../06charts/population.md)
+- [The Population Model](./06charts/population.md)
 - [Population Bar Chart](./06charts/populationbarchart.md)
 - [Column-Sets and Parts](./06charts/columnsetsparts.md)
   - [Two ways to explore election results](./06charts/electionresults.md)
 - [Data, Pivot and Coalition Pivot Tables](./06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](./06charts/demographicstable.md)
   - [Histograms](./06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](./06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](./06charts/highlightunassigned.md)
 - [Dataset Info](./06charts/datasetinfo.md)
 - [A Full Example: VRA](./06charts/vra.md)
 
@@ -126,10 +126,10 @@ following model.
 
 - [Routes](./09deployment/routes.md)
 - [Intro to districtr-eda](./09deployment/districtreda.md)
+- [Intro to mggg-states](./09deployment/mggg-states.md)
 - [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
 - [Headers and Redirects](./09deployment/headersredirects.md)
 - [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
 
 ## 10. Spatial Abilities and Exceptions
 
@@ -148,7 +148,6 @@ following model.
 - [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
 - [Other Notes](./11suggestions/other.md)
 
-<a name="team"></a>
 ## 12. The Team
 - [The Team](./12team/theteam.md)
 - [Inventory of Contributions](./11suggestions/contributions.md)
@@ -157,10 +156,18 @@ following model.
 This documentation covers the state of districtr on [Tues., June 1, 2021]. 
 Further changes will be noted periodically.
 
+# #
+
+<img src="../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
+
 [Tues., June 1, 2021]: https://github.com/districtr/districtr/commit/6da65021cdbcf76022c0d8603e67111a3455b25f
 
 [@maxhully]: http://github.com/maxhully
 [Mapbox]: https://docs.mapbox.com/mapbox-gl-js/api/
 [districtr]: http://districtr.org
 [MGGG Redistricting Lab]: http://https://mggg.org/
-[team]: #team
+[team]: ./12team/theteam.md

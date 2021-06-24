@@ -2,21 +2,21 @@
 
 The Inspect Tool was added between Tue. Jan. 15 and Wed. Jan. 16, 2019
 by [@maxhully]. [@mapmeld] has continued maintenance of this file, with
-additions by [@jenni-niels] in the realm of displaying VRA data.
+additions by [@jenni-niels] in the realm of displaying [VRA] data.
 
 ## default class `InspectTool`
 
 As an extension of the base [`Tool`] class, `InspectTool` has similar
 construction, activation, deactivation and rendering functions. However,
 it is a very different tool than the brushes as it must display tabular
-data. This is reflected in its construction.
+data using a [`Tooltip`]. This is reflected in its construction.
 
 ### Construction
 
 Known as `inspect` and `Inspect` in its ID and name, base class `Tool`
 is invoked in the typical way, with an img-tag string indicating the 
 location of its icon. However, its constructor has many new requirements
-that stem from the `State` plan.context.
+that stem from the [`State`] plan/context.
 - `state.units`
 - `state.columnSets`
 - `state.nameColumn`
@@ -30,7 +30,7 @@ a new `renderTooltipContent` function is created with the objective of
 passing features to the map `TooltipContent` renderer.
 
 Instance variable `this.layer` is assigned the parameter `units`, a
-new `ToolTip` is created with `units` and the `renderTootipContent`
+new [`ToolTip`] is created with `units` and the `renderTootipContent`
 function and is set as the instance `this.tooltip`. Finally,
 `this.options` is assigned a new `InspectToolOptions` class and the
 `this.changeColumnSetByIndex` function is bound to the instance. 
@@ -51,15 +51,6 @@ Different column sets can be loaded into the tooltip by changing
 All data in the active column set can be returned by
 `getActiveColumnSet()`. 
 
-}
-    changeColumnSetByIndex(i) {
-        this.activeColumnSetIndex = i;
-    }
-    get activeColumnSet() {
-        return this.columnSets[this.activeColumnSetIndex];
-    }
-}
-
 ## The `InspectToolOptions` class 
 
 An options class for the inspectTool can be created by passing itself
@@ -68,13 +59,13 @@ instance methods, `this.inspectTool` and `this.changeRadius`, a bound
 function.
 
 Triggered by the UI, `changeRadius(e)` stops the event's propagation, 
-retrieves the slider value and applies this to the
+retrieves the slider value, applies this to the
 `inspectTool.tooltip.radius` and rerenders the Toolbar. 
 
-Within the [toolbar], the `render` function creates a div class
+Within the [toolbar], the `render()` function creates a div class
 `.ui-option` with a legend that displays "Tooltip Data." A `Select`
 class UI component  is called to render a selection of various
-columnSets available. Finally, a `BrushSlider` element titled
+`columnSet`s available. Finally, a `BrushSlider` element titled
 "Spotlight Size" is created to render the UI for changing the tooltip
 radius. This is all described as part of the [Options Container].
 
@@ -94,7 +85,7 @@ radius. This is all described as part of the [Options Container].
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - Previous: [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - Previous: [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
   - The Tools Plugin (See Above)
@@ -106,9 +97,22 @@ radius. This is all described as part of the [Options Container].
 [@mapmeld]: http://github.com/mapmeld
 [@jenni-niels]: http://github.com/jenni-niels
 
+[`State`]: ../01contextplan/state.md
+
 [`map`]: ../02editormap/map.md
 
 [`Tool`]: ../03toolsplugins/tool.md
 [toolbar]: ../03toolsplugins/toolbar.md
 [Options Container]: ../03toolsplugins/optionscontainer.md
 
+[VRA]: ../../06charts/vra.md
+
+[`Tooltip`]: ../04tooltip/tooltip.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

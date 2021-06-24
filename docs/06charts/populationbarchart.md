@@ -1,12 +1,11 @@
 # Population Bar Chart
 
-The `PopulationBarChart` found in 
-[`/src/components/Charts/PopulationBarChart.js`]
-was originally written by [@maxhully] on Jan. 11, 2019 and is the main
-svg-style chart found in the "Population" tab. It is updated as users
-paint districts on a map. Function `populationBarChart` produces a
-section class `.toolbar-section` that implements a
-`horizontalBarChart(...)`.
+Originally written by [@maxhully] on Jan. 11, 2019, the
+`PopulationBarChart`, found in
+[`/src/components/Charts/PopulationBarChart.js`], is the main svg-style
+chart found in the "Population" tab. It is updated as users paint
+districts on a map. Function `populationBarChart` produces a section
+class `.toolbar-section` that implements a `horizontalBarChart(...)`.
 
 ## horizontalBarChart(population, parts)
 
@@ -32,8 +31,8 @@ population divided by number of parts, is also printed in the svg.
 - Function `barLength(d, maxValue)` takes a datapoint's proportion of
 its `maxValue` and scales it to global constant `width`. 
 - The max display value is not necessarily the max data value. According
-to function `maxDisplayValue(population)` may be the max data value or
-twice the ideal population value. 
+to function the `maxDisplayValue(population)` may be the max data value
+or twice the ideal population value. 
 - The following global consts are defined as display parameters
    - `defaultHeight`, standard height of the chart
    - `width`, standard width of the chart
@@ -46,10 +45,8 @@ twice the ideal population value.
 
 - A reminder that `state.population` is not initialized in the initial
 creation of the `state` object.
-- Another reminder that svg can be modified by css, if global formatting 
-is needed.
 - Consts, hard-coded display settings, are defined as global variables,
-which could live in utils as an object.
+could live instead in its own utils file..
 
 # #
 
@@ -64,7 +61,7 @@ which could live in utils as an object.
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -74,3 +71,11 @@ which could live in utils as an object.
 [`Tooltips`]: ../04drawing/tooltip.md
 
 [`/src/components/Charts/PopulationBarChart.js`]: ../../src/components/Charts/PopulationBarChart.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

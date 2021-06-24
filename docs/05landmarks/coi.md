@@ -1,7 +1,7 @@
 # Communities of Interest
 
-Districtr has two primary modes, one sometimes known as "districtview"
-where districts are painted and calculated and "community" mode, where
+Districtr has two primary modes, one sometimes known as `"districtview"`
+where districts are painted and calculated and `"community"` mode, where
 an unspecified number communities and landmarks can be identified. This
 functionality was introduced because some states have laws that seek
 to consider communities of interest while redistricting. 
@@ -9,10 +9,8 @@ to consider communities of interest while redistricting.
 The Communities mode differs from the plain Districting mode because
 the number of communities you draw might be dynamic vs static, the
 communities you create can be named or described and [landmarks] can
-be drawn, named and described. 
-
-Conversely, Data Layers and Evaluation tabs in Community use often
-feature similar functionality to the Districting mode. 
+be drawn, named and described. Thus, districtr dons a different outfit
+when in `"community"` mode by deploying different plugins.
 
 Simply, the [`ToolsPlugin`] and the [`DataLayersPlugin`] are the same
 for both modes. The [`PopulationBalancePlugin`] and the
@@ -21,14 +19,14 @@ for both modes. The [`PopulationBalancePlugin`] and the
 
 [@maxhully] first built out a protype `Landmarks` feature in February of
 2019. By late April, the painting of communities of interest was
-achieved. It is thanks to [@jenni-niels] that state portal for marking
-communities of interest were generated later that year, through 2020,
-who together maintains this page with [@mapmeld].
+achieved. It is thanks to [@jenni-niels] that state portals for marking
+communities of interest were generated later that year. They have
+maintained this page with [@mapmeld] through 2020 up to the present day.
 
-## Loading through the State Portal
+## Loading through the [State Portal]
 
 Just as every state or place have certain modules that allow districts
-of specific numbers to be drawn out of units, (like block groups or
+of specific numbers to be drawn out of units, (i.e. block groups or
 precincts), statewide, city or regional communities can also be built
 out of the same unis. 
 
@@ -112,8 +110,8 @@ mode
 The [`DataLayersPlugin`] is used for both regular districting mode and
 COI mode. Thus, `community` must be conditioned upon throughout the
 plugin. The `DataLatersPlugin` is also a behemoth that selects different
-layers based on different places. This is done in more detail in
-[Chapter 10].
+layers based on different places. [Chapter 10] explains this in more
+detail.
 
 - First, labels must be switched to display "community" or 
 communities." 
@@ -168,12 +166,12 @@ be cancelled until a new landmark is added, which can be deleted right
 after. 
 - `coi2` is a form of Community of Interest mode that is used very
 rarely and may not be needed. 
--`PlacesList.js` and `PlaceMap.js` are vesitigial
+- `PlacesList.js` and `PlaceMap.js` are mostly vesitigial
 
 # # 
 
 [Return to Main](../README.md)
-- Next: [The Landmark Class](../05landmarks/landmarkclass.md)
+- Next: [The Landmark Class](../05landmarks/landmarksclass.md)
 - [The Community Plugin](../05landmarks/communityplugin.md)
 - [The Old Landmark Tool](../05landmarks/landmarktool.md)
 - [My COI](../05landmarks/mycoi.md)
@@ -207,6 +205,7 @@ rarely and may not be needed.
 [`CoalitionPivotTable`]: ../06charts/datatable.md
 [`Subgroup`]: ../06charts/columnsetsparts.md
 
+[State Portal]: ../07portals/districtrstateportals.md
 [`PlacesList.js`]: ../07portals/placemap.md
 [`PlaceMap.js`]: ../07portals/placemap.md
 
@@ -214,3 +213,10 @@ rarely and may not be needed.
 [netlify lambda functions]: ../09deployment/mongolambdas.md
 [Chapter 10]: ../10spatialabilities/placeexceptions.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

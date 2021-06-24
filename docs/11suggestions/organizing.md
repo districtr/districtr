@@ -30,8 +30,8 @@ one
 // "place" is mostly split up into these categories now.
 ```
 Currently one (maybe two) of these four items have been implemented.
-One day soon, perhaps the [`State`] an be seen as a Man-o-war collection of different sub class
-instances.
+One day soon, perhaps the [`State`] an be seen as a man-o-war collection
+of different sub class instances.
 
 Finally, `State.initializeMapState(...)` calls and returns from only one
 function. This strikes to the heart of an important questions we'll ask
@@ -64,8 +64,8 @@ way to categorize and standardize the creation of layers with a more
 predictable form. Perhaps, since layers are stored in `editor.layers`,
 we can create an `addLayer(...)` function here. 
 
-In reality, `MapState` should really hold the `Layers` to absolve 
-the `State` and the `Editor` from keeping track of it. 
+In reality, `MapState` should really hold all `Layers` to absolve 
+the `State` and the `Editor` from keeping track of them. 
 
 ## Misplaced Efforts
 
@@ -92,23 +92,22 @@ Other times, functions seem to go the long way when they don't need to.
 the document, do we need to call `renderToolbar` in the methods of
 `brushTool`? 
 - Long vs. Short Tab titles are based on `VRA`. Could we uncouple this
-from `VRA` and instead condition this on the number of tas?
-- `ColumnSets` hard code every possible column. 
+from `VRA` and instead condition this on the number of tabs?
+- `ColumnSets` hard codes every possible column. 
 
 Philosophically, I think `State` should be responsible for the
-addition of its own columnsets with a function like `addColumnSet(...)`.
-I also think that state should initialize blank versions of any of its
+addition of its own columnsets with a function like `addColumnSet(...)`
+rather than having other functions intialize instance variables upon it.
+I also think that state should initialize blank versions of any possible
 instance variables at the onset for clarity's sake.
 
-## Server and Files
+### Server and Files
 
 Districtr relies on souricing data from its internal assets folder and
-external databases and server functions. 
-
-- Small snippets of content is saved in a multitude of html files and
-folders for [landing pages], [`DataSetInfo`] and [`Modal`]s. Could short
-pieces of content for each state be combined as say, a JSON, for
-simplicity?
+external databases and server functions.  Small snippets of content is
+saved in a multitude of html files and folders for [landing pages],
+[`DataSetInfo`] and [`Modal`]s. Could short pieces of content for each
+state be combined as say, a JSON, for simplicity?
 
 Meanwhile, there should only be one way we talk to the server.
 Originally, the [`routes.js`] file was for navigating between pages in
@@ -121,6 +120,7 @@ services like...
 - and [NumberMarkers].
 
 Let's consolidate them in one file, `routes.js` or othewise.
+
 ## Consolidating Parts
 
 Sometimes similiar pieces of code are cut and pasted rather than
@@ -129,14 +129,14 @@ abstracted out into helper functions.
 - In `savePlan()`, located in the [`Toolbar`], `btn` is retrieved and
 defined three times near identically. Is there a difference between
 these calls and can this function be consolidated?
-
 - Function `placeItems(...)` was once used in [`PlacesList`] but is now
 only used when view `event.js` produces html cards for plans. Could this
 be similar to the cards already generated in landing pages elsewhere?
-
 - Many table types reimplement `getBackgroundColor` and `getCellStyle`
 identically. This, along with the `popNumber` formatter can be collected
-in its own utils file. 
+in its own [`utils.js`] file. 
+- Described in [`utils.js`], some functions may benefit from using 
+`bindAll(...)`
 
 ### Looking at colorfeatures(...)
 
@@ -169,16 +169,12 @@ components.
 
 - In the [DataTable], should the `coalitionSubgroup` inherit from the
 `Subgroup` as a base class?
-
 - In the [Pop Balance Plugin], single and multimember districts are
 similar. Perhaps we could save some code by using in-line if statements.
-
 - Regarding [ColumnSet]s, class `SumOfColumns` is already in the same
 file as `NumericalColumn`, an inheritor of `Subgroup`. Could this extend
 or be rolled into one of these classes?
-
 - Why is `src/models/lib` its own folder?
-
 - [`PivotTable`] and the [`CoalitionPivotTable`] are both very similar
 functions that call [`DataTable`]. Is there a way they could be made
 more similar by having `CoalitionPivotTable` "inherit" `PivotTable` or
@@ -188,7 +184,7 @@ coalition properties?
   true, making `CoalitionPivotTable` even more similar to `PivotTable`.
 
 Sometimes, pieces of code have been written that look similar to
-elements that already exist. These hard-coded functions could predate
+elements that already exist. These hard-coded functions probably predate
 the generic objects. 
 
 - In [`PartisanOverlayContainer`], a checkbox element is hard coded.
@@ -197,7 +193,8 @@ Could we use the [`Toggle`] object instead?
 ## Big Fish
 
 Somtimes, small features in some classes grow with such functionality
-that it is better to make them their own file or entity. 
+that it is better to make them their own file or entity- big fishes in
+small ponds.
 
 ### [Top Menu]
 
@@ -205,7 +202,7 @@ that it is better to make them their own file or entity.
 both the `Toolbar`, `tools-plugin.js`. The menu and its options are
 loaded only once and the options change little from context to context.
 
-## [Histogram]
+### [Histogram]
 
 There are only two kinds of Histograms, one for age and one for income.
 They are used in separate plugins through two complete separate
@@ -234,12 +231,12 @@ helper functions could be  written to help clarity.
 # #
 
 [Return to Main](../README.md)
-- [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
-- [Deprecations and Experimental Features](./11suggestions/deprecations.md)
-- [Clarifying Operations](./11suggestions/clarity.md)
-- Previous: [Logical Redundancies](./11suggestions/logic.md)
-- Next: [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
-- [Other Notes](./11suggestions/other.md)
+- [My Personal Philosophy on Functions](../11suggestions/philosophy.md)
+- [Deprecations and Experimental Features](../11suggestions/deprecations.md)
+- [Clarifying Operations](../11suggestions/clarity.md)
+- Previous: [Logical Redundancies](../11suggestions/logic.md)
+- Next: [The Heavy Lift: (Not) Global Objects](../11suggestions/globalobjects.md)
+- [Other Notes](../11suggestions/other.md)
 
 [@maxhully]: http://github.com/maxhully
 
@@ -283,6 +280,7 @@ helper functions could be  written to help clarity.
 [Histogram]: ../06charts/histogram.md
 [`Demographics Table`]: ../06charts/demographicstable.md
 [EvaluationPlugin]: ../06charts/evaluationplugin.md
+[`Evaluation Plugin`]: ../06charts/evaluationplugin.md
 [`DataSetInfo`]: ../06charts/datasetinfo.md
 
 [landing pages]: ../07portals/districtrstateportals.md
@@ -294,3 +292,10 @@ helper functions could be  written to help clarity.
 
 [Philosophy]: ../11suggestions/philosophy.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

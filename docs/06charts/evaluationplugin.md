@@ -6,10 +6,12 @@ aim is to draw a plan with districts, as opposed to drawing
 that calculate population or partisanship across drawn districts.
 Controls for displaying contiguity is also found here. 
 
-Began as part of plugins pack, April 23, 2019 by [@maxhully]. Maintained
-by [@mapmeld] since March, 2020, who added contiguity check in March and
-Age Table in April. [@jenni-niels] adds [VRA] functionality in the
-Spring of 2021 and both maintain with help from [@jdeschler] ever since.
+Originally part of a plugins pack on April 23, 2019 by [@maxhully], it
+has been maintained by [@mapmeld] since March, 2020, who added
+contiguity check in March and Age Table in April.
+
+[@jenni-niels] adds [VRA] functionality in the Spring of 2021. The both
+mentioned above maintain this with recent help from [@jdeschler].
 
 <img src="../pics/evaluationplugin.png" width=75%>
 
@@ -19,20 +21,22 @@ The evaluation tab runs through an [`editor`]'s [`state`] [context/plan]
 through series of case conditions that determine what components to load
 in the "Evaluation" tab of the `Toolbar`. 
 
-First, a `mockColumnSet` is cretaed to include a user-specified
+First, a `mockColumnSet` is created to include a user-specified
 coalition in the columns of a population. Then each component is loaded
 by condition. 
 
 - Default Reveal Section "Population by Race" featuring
 [`RacialBalanceTable`] including `mockColumnSet` 
 - "Voting Age Population by Race" `RacialBalanceTable` if `state.vap`
-- "Citizen Voting Age Population by Race" `RacialBalanceTable` if `state.cvap`
-- "Partisan Balance Summary" `PartisanSummarysection` if any `state.elections`
+- "Citizen Voting Age Population by Race" `RacialBalanceTable` if
+`state.cvap`
+- "Partisan Balance Summary" `PartisanSummarysection` if any
+`state.elections`
   - "Election Details" `ElectionResultsSection` if any `state.elections`
   - "Age Histograms" [`AgeHistogramTable`] if `state.ages`
 - [`ContiguitySection`] if permitted by [`spatial_abilities`] and is not
 `ma_towns`. 
-- Other Tabs Related to [VRA]
+- A second tab related to [VRA]
 
 # #
 
@@ -58,7 +62,7 @@ called if `problem.type` is "community"
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
   - [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -83,3 +87,11 @@ called if `problem.type` is "community"
 [`AgeHistogramTable`]: ../06charts/demographicstable.md
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

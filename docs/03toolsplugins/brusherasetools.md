@@ -18,7 +18,7 @@ Remember, there's a difference between the map [`Brush`] object and this
 upon creation.
 
 Finally, this file also defines the `BrushToolOptions`, `CountyBrush`
-and `BrushLock` classes and the html code leading to the `BrushTool`
+and `BrushLock` classes and the html code that carries the `BrushTool`
 svg icon. 
 
 ## The `BrushTool` Class
@@ -54,9 +54,8 @@ option in `this.options` must also be toggled. Finally, `this.brush`
 must be deactivated just as `this.tool` must deactivate. 
 
 Since this tool is only responsible for nothing more complicated than
-the rendering of itself in the toolbar, it functions largely the same as
-the same function in `Tool`. 
-
+the rendering of itself in the toolbar, its renders largely the same as
+the `Tool` would. 
 
 ## The `BrushToolOptions` class
 
@@ -70,7 +69,7 @@ class is created as an instance variable.
 First, each `BrushToolOptions` requires a map `Brush`, a list of `colors`
 and `options`, parameters from `BrushTool` that are passed in to create
 `this.brush`, `this.colors` and `this.options` within this Options
-class. `RenderToolbar` is also passed in alway defined as `undefined`.
+class. `RenderToolbar` is also passed is defined always as `undefined`.
 
 Currently, the `options` object contains keys like `community`,
 `county_brush`, and `alt_counties` provided by `tools-plugin.js`.
@@ -138,7 +137,7 @@ variable `this.brush` is set to the brush parameter and a new
 instance variable. 
 
 When activating and deactivating, not only must the underlying `Tool` be
-activated and deactivated, so must `this.brush`, which must also be told
+activated and deactivated, so must `this.brush`, which is told
 explicitly to `startErasing()` and `stopErasing()`. 
 
 ## The `EraserToolOptions` Class
@@ -158,9 +157,10 @@ from an experiment where we changed the rendered tool icon based on
 state.
 - We should go ahead and set a default value for the `renderToolbar`
 parameter in `BrushToolOptions`, as it is always set to `undefined` when
-it is called. In fact, it is called in each of the `BrushToolOptions`'
-instance methods and is ultimately set to re-render the Editor when the
-`BrushTool` is added by to the `Toolbar` by the `addTool(...)` function. 
+it is called. In fact, it is called in each of the `BrushToolOptions`
+instance methods and is ultimately set to re-render the `Editor` when
+the `BrushTool` is added by to the `Toolbar` by the `addTool(...)`
+function. 
 - Undo and Redo buttons handle recent erasing operations, but hot keys
 are still bound only to recent brushing operations. 
 
@@ -202,3 +202,11 @@ are still bound only to recent brushing operations.
 [undos]: ../04drawing/undoredo.md
 
 [Options Container]: ../03toolsplugins/optionscontainer.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -31,14 +31,14 @@ window.planNumbers = NumberMarkers(state, brush);
 file and returns an object with a single pair, `update` assigned to a
 function `updater` that takes [`state`] and `colorsAffected`. 
 
-Inside the `ToolsPlugin` function, global object `planNumbers`,
-belonging to the browser `window` is assigned the the 'updater' object
-returned by 'NumberMarkers'.
+Inside the `ToolsPlugin` function, global object `window.planNumbers`,
+belonging to the browser, assigned the the 'updater' object returned by
+'NumberMarkers'.
 
 To generate this object, `NumberMarkers` requires a pair of parameters:
 Object `state`, a copy of the current details of the [context/plan] and
-its assignment and [`brush`],  the interface used upon a specific
-[`layer`] in the map canas that it is tied to. 
+its assignments and [`brush`],  the interface used upon a specific
+[`layer`] in the map canvas that it is tied to. 
 
 ## [districtr/src/map/NumberMarkers.js]
 
@@ -64,9 +64,9 @@ doc does its best to follow the main points of the process.
 ### The Updater Function
 
 At its essence, `NumberMarkers` is a function that creates a new
-function `updater` that it calls once upon its creation and provides
-as a global function for districtr to use. If all goes well, `updater`
-talks to the canvas `map` and retrieves a "source" and sets its "data"
+function `updater` that it calls once upon its creation and serves as a
+global function for districtr to use. If all goes well, `updater` talks
+to the canvas `map` and retrieves a "source" and sets its "data"
 for every district that requires a number. Essentially...
 
 ```
@@ -98,6 +98,8 @@ layer adder that ensures the Number Markers remain on top.
 
 When we update, we select each map layer source and reset its Feature
 Collection `data` to one we generated in local variable `numberMarkers`. 
+
+> Every number marker gets a layer!
 
 ### Number Markers Data
 
@@ -150,14 +152,8 @@ opacity for each `state.numbers` is set from 0 to 1.
 
 - `brush` is a parameter passed into the `NumberMarkers` function but
 isn't used. 
-- Having `window.planNumbers` in `tools-plugin.js` reveals to us a
-method by which we can assign global variables. It may be useful to do
-this with more objects, like `State`, `Toolbar`, etc. A great candidate
-is the canvas `map` contained within `MapState`.
-- This function has line `map = state.units.map`, which is equivalent to
-`editor.mapState.map` and each `Layer`'s `map`. 
-- Encouraging global variables may also help with clarity, by reducing
-the need to nest functions.
+- This function has line `map = state.units.map`, whose assignment is
+equivalent to the `editor.mapState.map` and each `Layer`'s `map`. 
 - The `NumberMarkers` function generates a new instance variable for
 `Editor`. It would be nice to see all `Editor` instance variables
 defined at once so that `Editor` is easier to conceptualize. In fact, we
@@ -168,7 +164,7 @@ El Paso, TX is hard coded in the code. Perhaps a global 'placeID'
 function could consolidate or correction of Louisiana data could
 consolidate this. 
 - Icons are generated using Javscript Canvas. Could these also be
-generated SVG or even CSS to simplify the code? 
+generated SVG or even CSS to simplify the code? Probably not.
 - `colorsAffected` is a parameter sent to the `updated` but doesn't
 appear passed when into the function when it is called. Is
 `colorsAffected` also equivalent to `brush.changedColors`?
@@ -177,11 +173,11 @@ new  objects of `Layer` class. Would it be clearer to call this
 parameter `layerspecs`? 
 - GET functions can only process up to 100 district when generating
 district centroids.
-- A simple way to select 100 random objects in a list is through taking
-a slice of `[...array].sort(() => 0.5 - Math.random());`. For the
+  - A simple way to select 100 random objects in a list is through
+taking a slice of `[...array].sort(() => 0.5 - Math.random());`. For the
 largest numbers, this method is not terribly fast or evenly distributed
 but is very simple.
-- Meanwhile, it appears that `check_district(d_index)` only checks one
+  - Meanwhile, it appears that `check_district(d_index)` only checks one
 district at a time. This implies that the selection of 100 random
 districts should occur before and outside the function. 
 
@@ -197,7 +193,7 @@ districts should occur before and outside the function.
 [@mapmeld]: http://github.com/mapmeld
 [@jenni-niels]: http://github.com/jenni-niels
 
-[context/plan]: ../1contextplan/plancontext.md
+[context/plan]: ../01contextplan/plancontext.md
 
 [`state`]: ../01contextplan/state.md
 
@@ -210,11 +206,19 @@ districts should occur before and outside the function.
 
 [`views/edit.js`]: ../../src/views/edit.js
 [`edit.js`]: ../../src/views/edit.js
-[`Editor`]: ./editor.md
+[`Editor`]: ../02editormap/editor.md
 
 [districtr/src/map/NumberMarkers.js]: ../../src/map/NumberMarkers.js 
 [`NumberMarkers.js`]: ../../src/map/NumberMarkers.js
 
-[`brush`]: ../4drawing/brush.md]
+[`brush`]: ../04drawing/brush.md]
 
 [`map`]: ../02editormap/map.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

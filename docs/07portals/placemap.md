@@ -88,3 +88,11 @@ displayed, then listed, then sent straight to state landing page.
 
 [`PopulationBarChart`]: ../06charts/populationbarchart.md
 [D3 javascript library]: http://d3js.org
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

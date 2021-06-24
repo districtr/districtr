@@ -14,8 +14,8 @@ evident in the code, making it harder to read.
 A classic example of a more ambitious feature that was scaled back was
 [`PlaceMap`], where the map once displayed more data on available
 communities and modules and where zooms and transitions once took place.
-
-The result is that a much simpler vector map can be written.
+The result is that a much simpler vector map can be written to replace
+the original.
 
 ### PlacesListForState and PlacesList
 
@@ -114,7 +114,7 @@ variables and imports that are passed but not used.
 ### Unused Functions
 
 In `StateLandingPage`,...
-- drawTitles(...) and
+- `drawTitles(...)` and
 - `getProblems(place)`
 ...are no longer used anywhere.
  
@@ -124,6 +124,9 @@ In `utils.js`,...
 - `dec2hex(...)`
 ... are defined and not used. They may be helpful in the
 future, but now now.
+
+In reducers, there's a function `bindDispatchToActions(...)` that isn't
+used anywhere.
 
 Finally, for [VRA], a special [modal] is written for VRA but is no
 longer used.
@@ -141,15 +144,13 @@ subscribers are sent `this.state` and `this.dispatch`, but only two
 subscribers are ever assigned to `store`, in `editor.render`, and
 neither use any arguments. This is not the case in the parallel track
 taken by `State` objects.
-
 - In [`Histogram`] The `widthMultiplier` is practically redundant as it
 modifies hard coded values for income and age histograms. It is always
 1.5 and 1 respectively and modifies widths 44 and 2 respectively. Thus
 these values could be hard coded 66 and 2 without `widthMultiplier`.
-
 - In [`VRAEffectiveness`], argument `brush` is not used. Furthermore,
-generated variable `placeID` is not used. Thus, variables `place` and
-`extra_source` used in its construction is also not used.
+generated variable `placeID` is not used. Thus, precident variables
+`place` and `extra_source` used aren't needed.
 
 ### Unused Imports
 
@@ -188,12 +189,12 @@ In [`VRAEffectiveness`], argument `brush` is not used.
 # #
 
 [Return to Main](../README.md)
-- Previous: [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
-- Next: [Clarifying Operations](./11suggestions/clarity.md)
-- [Logical Redundancies](./11suggestions/logic.md)
-- [Organization](./11suggestions/organizing.md)
-- [The Heavy Lift: (Not) Global Objects](./11suggestions/globalobjects.md)
-- [Other Notes](./11suggestions/other.md)
+- Previous: [My Personal Philosophy on Functions](../11suggestions/philosophy.md)
+- Next: [Clarifying Operations](../11suggestions/clarity.md)
+- [Logical Redundancies](../11suggestions/logic.md)
+- [Organization](../11suggestions/organizing.md)
+- [The Heavy Lift: (Not) Global Objects](../11suggestions/globalobjects.md)
+- [Other Notes](../11suggestions/other.md)
 
 ## Special Cases
 
@@ -223,6 +224,9 @@ redundant. What is the advantage of this structure?
 [`EvaluationPlugin`]: ../06charts/evaluationplugin.md
 [`DemographicsTable`]: ../06charts/datatable.md
 [VRA]: ../06charts/vra.md
+[`Histogram`]: ../06charts/histogram.md
+[`VRAEffectiveness`]: ../06charts/vra.md
+[`AgeHistogramTable`]: ../06charts/demographicstable.md
 
 [packages]: ../09deployment/package.md
 [`package.json`]: ../09deployment/package.md
@@ -231,5 +235,11 @@ redundant. What is the advantage of this structure?
 [`utils.js`]: ../10spatialabilities/utils.md
 
 
+# #
 
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
 

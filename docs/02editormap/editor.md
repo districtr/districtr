@@ -22,10 +22,10 @@ added by [@jenni-niels].
 
 ### Imports
 Important imports include...
-- MapState
-- State
+- [MapState]
+- [State]
 - External plan functions from [routes.js]
-- Editor
+- Editor, the class
 - various plugins
 - various utilities. 
 
@@ -33,23 +33,23 @@ Important imports include...
 The default renderer function, `renderEditView()`, simply calls
 `getPlanContext(...)` and passes this context to `loadContext(context)`.
 
-### function getPlanContext()
-Before an editor is loaded, getPlanContext retrieves any potential
-context a variety of ways. First, `getPlanURLFromQueryParameter()` is
-called in case a context is provided by the URL. This URL could either
-be a saved plan with a URL, often marked by marked by `edit`, `coi"`, or
-`plan`. These are retrieved by function `routes/loadPlanFromURL()`. If
-no old plan or new context is found, a default
-`routes/getContextFromStorage()` is loaded.
+### Function `getPlanContext()`
+Before an `Editor` object is loaded, `getPlanContext(...)` retrieves any
+potential context a variety of ways. First,
+`getPlanURLFromQueryParameter()` is called in case a context is provided
+by the URL. This URL could either be a saved plan with a URL, often
+marked by marked by `edit`, `coi`, or `plan`. These are retrieved by
+function `routes/loadPlanFromURL()`. If no old plan or new context is
+found, a default `routes/getContextFromStorage()` is loaded.
 
-### function loadContext(context)
+### Function `loadContext(context)`
 
 Once a context is gathered from the URL, local context or default
-storage, loadContext renders in html...
-- div `comparison-container` of class `mapcontainer`
-    - divs `map` and `swipemap` of class `map`
-- div `toolbar`
-- div `print-only summary`.
+storage, `loadContext(...)` renders in html...
+- div `#comparison-container` of class `.mapcontainer`
+    - divs `#map` of class `.map`
+- div `.toolbar`
+- div `.print-only summary`.
 
 Within the HTML, these divs form the foundation of the HTML editor GUI.
 
@@ -61,8 +61,8 @@ displayed. Other functionality is included in case a plan file is
 dragged onto the map. 
 
 When the mapbox area held by the `mapState` is complete, a **new
-[Editor] object is ready to be created**, with `mapState`,
-[`State`] and a list of [plugins]. 
+Editor object is ready to be created**, with `mapState`, [`State`] and a
+list of [plugins]. 
 
 The `State` object stores properties of the local `mapState` and signals
 to the browser that loading is complete. Any assignments that remain
@@ -79,7 +79,7 @@ Other helper functions include `getPlugins(context)` which provides a
 list of relevant plugins listed in constants `defaultPlugins` and 
 `communityIdPlugins`. When a new MapState is created, helper function
 `getMapStyle(context)` is used to provide style defaults. When the plan
-URL is nee`d by `getPlanContext()` or `loadContext()`'s short URL
+URL is needed by `getPlanContext()` or `loadContext()`'s short URL
 display, it is retrieved by `getPlanURLFromQueryParam()`. 
 
 ### Special Cases
@@ -103,9 +103,9 @@ the `render` function needed by [lit-html] to display editing tools.
 ### Imports
 
 Important imports include... 
-- `UIStateStore`
-- a reducer
-- `Toolbar` 
+- [`UIStateStore`]
+- a [`reducer`]
+- [`Toolbar`] 
 
 ## default class Editor
 
@@ -115,13 +115,13 @@ Kept as a model, the editor object contains...
 parameters.
 - `this.store`, a [`UIStateStore`] which keeps track of which menus
 or toolbars are in use and requires a [reducer]. 
-- `this.toolbar`, which stores a [`Toolbar`] object that keeps this
-Editor and its store in mind. Editor depends on its toolbar property to
-render the each of the contents of the toolset in html.
+- `this.toolbar`, which stores a `Toolbar` object that keeps this Editor
+and its store in mind. Editor depends on its toolbar property to render
+the each of the contents of the toolset in html.
 
 The Editor object assigns itself to each of the plugins and the render
 function calls on its own Toolbar to render. The editor's render
-function is subscribed to (waits for) this.store and this.state.
+function is subscribed to (waits for) `this.store` and `this.state`.
 
 
 # IDColumn Class
@@ -149,8 +149,6 @@ export default class IdColumn {
 
 ### Suggestions
 
-- Similar to the MapState and Toolbar objects, only one Editor is
-created per window. Could this be a global variable?
 - Plugins require but are independently created from the Editor. Could
 these be created in views/edit.js instead?
 - UIStateStore is only created once, here. Couldn't reducer be imported
@@ -174,12 +172,13 @@ experimental
 [@jenni-niels]: http://github.com/jenni-niels
 
 [`this.state`]: ../01contextplan/state.md
+[State]: ../01contextplan/state.md
 [`State`]: ../01contextplan/state.md
 [Context]: ../01contextplan/plancontext.md
 
+[MapState]: ../02editormap/map.md
 [`this.mapState`]: ../02editormap/map.md
 [`mapState` of class `MapState`]: ../02editormap/map.md
-[Editor]: ../02editormap/editor.md
 
 [edit.html]: ../../html/edit.html
 [src/views/edit.js]: ../../src/views/edit.js
@@ -189,9 +188,18 @@ experimental
 [plugins]: ../03toolsplugins/plugins.md
 [reducer]: ../03toolsplugins/actionsreducers.md
 [Toolbar]: ../03toolsplugins/toolbar.md
+[`Toolbar`]: ../03toolsplugins/toolbar.md
+
 
 [deployment]: ../09deployment/headersredirects.md
 [routes.js]: ../09deployment/routes.md
 
 [lit-html]: https://lit-html.polymer-project.org/
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

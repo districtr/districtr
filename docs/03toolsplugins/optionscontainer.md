@@ -1,6 +1,9 @@
 # Options Container
 
-The Options Container is very simple. It's a function, `OptionsContainer(activeTool)` called every time the [`Toolbar`] is rendered. The `OptionsContainer.js` is diplayed in its entirety below.
+The Options Container is very simple. It's a function,
+`OptionsContainer(activeTool)` called every time the [`Toolbar`] is
+rendered. The `OptionsContainer.js` file is displayed in its entirety
+below.
 ```
 import { html } from "lit-html";
 
@@ -12,14 +15,15 @@ export default activeTool => html`
 `;
 ```
 
-When `Toolbar` is rendering, it passes its `this.activeTool` to `OptionsContainer` such that it renders in the document under the nav
-section of inside the div class `.toolbar`. 
+When `Toolbar` is rendering, it passes its `this.activeTool` to
+`OptionsContainer` such that it renders in the document under the nav
+section inside the div class `.toolbar`. 
 
 `OptionsContainer`'s only function is to render a section of class
 `tool-options` that also keeps track whether it's active or inactive by
 assigning a class `.active`. Then, if the [tool]'s options exist, that
-options object is told to render, dislpaying the various [buttons and
-sliders] that allow the user to control their tools.
+options object is told to render, displaying various [buttons and
+sliders] that allow the user to control their chosen tool.
 
 # #
 
@@ -36,7 +40,7 @@ sliders] that allow the user to control their tools.
 
 - [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -48,3 +52,11 @@ sliders] that allow the user to control their tools.
 [`Toolbar`]: ../03toolsplugins/toolbar.md
 [tool]: ../03toolsplugins/tool.md
 [buttons and sliders]: ../03toolsplugins/uicomponents.md
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

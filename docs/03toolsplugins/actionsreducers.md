@@ -12,8 +12,8 @@ of reducers found in `charts`, `elections` and `toolbar`, which checks
 each of the reducers to either return a new state or the old the one
 unchanged. The reducers in each class are as follows. These were mostly
 written by [@maxhully] in early 2019 and maintained by [@mapmeld] since
-early 2020 and in essence describe the complete UI listing the website
-uses to render the information toolbar/panel. 
+early 2020 and in essence describe the complete UI parameters the
+website uses to render the information toolbar/panel. 
 
 ### `toolbar` reducers 
 Like in each of the reducer files, `toolbar` has a list of handlers that
@@ -25,25 +25,25 @@ are converted into a actions and reducers. For toolbar, they are...
 
 ### The `election` reducer
 Only contains one action, `changeElection` which changes the
-`activeElectionIndex`.'
+`activeElectionIndex`.
 
 ### `chart` reducers
 Chart has many more reducers than the others. 
-- `toggleOpen`, switches the property `isOpen` for the chart in the UI
+- `toggleOpen`, switches the property `isOpen` for a chart in the UI
 `state`
-- `openChart`, ensures property `isOpen` is true for chart in the UI
+- `openChart`, ensures property `isOpen` is true for a chart in the UI
 `state`
 - `addChart`, sets a chart's `isOpen`, `activeSubgroupIndicies` and
 `activePartIndex` for a given chart
 - `selectSubgroup`, within a given chart, sets `activesubgroupIndicies`,
 with a new `subgroupPoistion` and `subgroupIndex` 
 - `selectPart`, changes a chart's `activePartIndex`
-- `selectAgeView`,changes a chart's `ageView Property`.
+- `selectAgeView`, changes a chart's `ageView Property`.
 
 ## Creating Reducers and Actions
 
 To be combined by `combineReducers`, these handlers must be converted
-into reducers. `createReducer` in the `utils` does when a new `action`
+into reducers. `createReducer` in the [`utils`] does when a new `action`
 is triggered. This function will run through each of the handlers to see
 if the `action` apply to any of their handlers. If so, a new `state` is
 returned. 
@@ -52,14 +52,15 @@ In parallel, actions are also created by simply registering the handler
 keys in an object `action` with keys that list `actionTypes` determined
 by the list of handlers.
 
-Finally, there's a function `bindDispatchToActions` that's suppose to
-bind actions to dispatch functions, but isn't used anywhere.
+Finally, there's a function `bindDispatchToActions(...)` that's suppose
+to bind actions to dispatch functions, but isn't used anywhere.
 
 # #
 
 ### Suggestion
-Many reducer functions are listed in `utils`. They're relatively simple.
-Can they be listed in the `reducers/` folder for clarity instead?
+Many reducer functions are listed in [`utils`]. They're relatively
+simple. Can they be listed in the `reducers/` folder for clarity
+instead?
 
 
 # #
@@ -78,7 +79,7 @@ Can they be listed in the `reducers/` folder for clarity instead?
 
 - Next: [The Tools-Plugin prevails](../03toolsplugins/toolsplugin.md)
   - [The `Tool` Class and The `Pan` Tool](../03toolsplugins/tool.md)
-  - [Brush and Erase Tools](../03toolsplugins/BrushEraseTools.md)
+  - [Brush and Erase Tools](../03toolsplugins/brusherasetools.md)
   - [Inspect Tool](../03toolsplugins/inspecttool.md)
 
 - [Plugins!](../03toolsplugins/plugins.md)
@@ -94,3 +95,5 @@ Can they be listed in the `reducers/` folder for clarity instead?
 
 [`UIStateStore`]: ../03toolsplugins/uistatestore.md
 [`Editor`]: ../02editormap/editor.md
+
+[`utils`]:../10spatialabilities/utils.md

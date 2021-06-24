@@ -11,14 +11,14 @@ the important buckets each topic and renders additional user options and
 traditional tabular data tables around
 the `Histogram`. 
 
-This scheme was first developed my [@mapmeld] for a "histogram on ages"
-on Wednesday, Apr. 20, 2020.
+This clever scheme, to make a chart with css style, was first developed
+by [@mapmeld] for a "histogram on ages" on Wednesday, Apr. 20, 2020.
 
 ## [`src/components/Charts/Histogram.js`] 
 
 The `Histogram`, a bar chart of frequencies, is a novel 
 implementation fo the [`DataTable`]. As with each `DataTable`,
-is has `headers`, an Array of `null` values of the length
+it has `headers`, an Array of `null` values of the length
 of `subgroups` and different `rows`. 
 
 Every `DataTable` `row` has a `label` and `entries`. As is
@@ -52,7 +52,7 @@ of div background color for the relevant histogram subgroup.
 There are only two kinds of Histograms, one for age and one for income.
 They are used in separate plugins through two complete separate
 functions. Thus, for clarity sake, logic around `isAge` could be
-abstracted to the separate functions alone, leaving Histogram a more
+abstracted to the descendent function alone, leaving Histogram a more
 generic object.
 
 There are eight places where `isAge` is tested in Histogram. 
@@ -76,9 +76,8 @@ values could be hard coded 66 and 2 without `widthMultiplier`.
 - [Column-Sets and Parts](./06charts/columnsetsparts.md)
   - [Two ways to explore election results](../06charts/electionresults.md)
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
-  - [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
-
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+  - Previous: [Demographics, Racial Balance and Age Histogram Tables](../06charts/demographicstable.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -92,3 +91,11 @@ values could be hard coded 66 and 2 without `widthMultiplier`.
 [`DataTable`]: ../06charts/datatable.md
 
 [`src/components/Charts/Histogram.js`]: ../../src/components/Charts/Histogram.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

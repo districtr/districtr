@@ -19,7 +19,7 @@ determine if it is in this list.
 Checks routes to see if it's in the allowed list. This route may even
 have the `?event` query string. Ultimately, the function should navigate
 to the document provided by the route as determined by [`deploy`] or
-throws an error. 
+throw an error. 
 
 ### Local storage and starting a New Plan
 
@@ -45,7 +45,7 @@ This update is then replaced in local storage. Then, an action must be
 determined based on whether this is in local host development and
 whether the problem type is [`COI`] or a `plan.` Standard new
 districting plans are typically saved in local storage and the user is
-navigated to [`edit/`], with any event codes passed along. 
+navigated to `/edit`, with any event codes passed along. 
 
 To `getContextFromStorage()` is much easier. The current state is
 fetched from the local storage and checked for JSON validity. If it
@@ -125,18 +125,15 @@ seems to turn an object into a string and back into an object again.
 What is the advantage of this process?
 - The `serialized` variable is used in different ways. What is the
 difference between using `serialized` and the `state` object directly?
-- The `history` variable is not initialized or used anywhere
 
 # # 
 
 [Return to Main](../README.md)
-- [Routes](./09deployment/routes.md)
-- [Intro to districtr-eda](./09deployment/districtreda.md)
-- [Intro to mggg-states](./09deployment/districtreda.md)
-- [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- [Headers and Redirects](./09deployment/headersredirects.md)
-- [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
+- Next: [Intro to districtr-eda](../09deployment/districtreda.md)
+- [Intro to mggg-states](../09deployment/mggg-states.md)
+- [Netlify Lambda Functions and MongoDB](../09deployment/mongolambdas.md)
+- [Headers and Redirects](../09deployment/headersredirects.md)
+- [package.json and npm](../09deployment/package.md)
 
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
@@ -147,6 +144,7 @@ difference between using `serialized` and the `state` object directly?
 [`state`]: ../01contextplan/state.md
 [plan/context]: ../01contextplan/plancontext.md
 
+[`/edit`]: ../02editormap/editor.md
 [`/new`]: ../02editormap/initialization.md
 
 [`mockApi`]: ../05landmarks/findplaces.md
@@ -162,3 +160,11 @@ difference between using `serialized` and the `state` object directly?
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 
 [`src/routes.js`]: ../../src/routes.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

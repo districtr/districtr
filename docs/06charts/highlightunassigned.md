@@ -1,6 +1,6 @@
 # Highliting Unassigned Units
 
-A simpler version of the Contiguity functionality of districtr is the
+A simpler version of the [Contiguity] functionality of districtr is the
 `HighlightUnassigned` capability offered by the [`pop-balance-plugin`].
 It is another good example of how plugins can depict information in the
 [`map`] canvas and is embodied in three relatively simple pieces of
@@ -55,9 +55,9 @@ prints the value as an "Unassigned population".
 always used with `HighlightUnassigned`. Thus, it makes more sense to
 have that function written in that file. 
 
-- `zoomToUnassigned` is the only function outside of `routes.js` that
-talks to the PythonAnywhere. For clarity sake, this call should be
-collected in one file. 
+- `zoomToUnassigned` is one of only a few functions outside of
+`routes.js` that talks to the PythonAnywhere. For clarity sake, these
+calls should be collected in one file. 
 
 - Finally, that function makes references to the mapbox-gl map, which
 can alternatively be called from `edtior.state.map`,
@@ -85,9 +85,21 @@ variables might be useful.
 [`map`]: ../02editormap/map.md
 [`layer`]: ../02editormap/layer.md
 
+[routes]: ../09deployment/routes.md
+
 [`pop-balance-plugin`]: ../06charts/popbalanceplugin.md
+
+[Contiguity]: ../04drawing/contiguity.md
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 
 [`/src/components/Charts/UnassignedPopulation.js`]: ../../src/components/Charts/UnassignedPopulation.js
 [`src/components/Charts/HighlightUnassigned.js`]: ../../src/components/Charts/HighlightUnassigned.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

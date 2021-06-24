@@ -19,15 +19,13 @@ his efforts.
 
 It took two weeks after its genesis in github for Max to start his
 initial experiments. The first `index.js` was created on Thu., Sept. 6
-when districtr was made a node package. From around then, he wrote the
-following documentation.
+when districtr was made a node package. It took another few weeks for
+the first components of districtr to congeal.
 
-It took another few weeks for the first components of districtr to
-congeal. Mon., Oct. 22 is a big day as it led to the filling out of
-`index.html`, his first experiments with mapbox-gl and marked the start
-of a productive week. By Halloween, Max had begun working on the
-following ideas. First, mapbox-gl components such as...
-
+Mon., Oct. 22 is a big day as it led to the filling out of `index.html`,
+his first experiments with mapbox-gl and marked the start of a
+productive week. By Halloween, Max had begun working on the following
+ideas. First, mapbox-gl components such as...
 - `map.js`
 - `Layer`
 - `Brush`
@@ -36,17 +34,13 @@ following ideas. First, mapbox-gl components such as...
 - Sass for display
 
 These map elements would eventually move to the `/map` folder by
-mid-November as these elements grew in power.
-
-The first elements of the `Toolbar` were also created later this week,
-including the first instances of `Tool`, `Toolbar` and tools...
-
+mid-November as these elements grew in power. The first elements of the
+ `Toolbar` were also created later this week, including the first
+ instances of `Tool`, `Toolbar` and tools...
 - `BrushTool`
 - `EraserTool`
 - `PanTool` ,
-
 and chart and info features...
-
 - `PopulationBarChart`, with initial `Tooltip`
 - `ChartList`
 - `ElectionResults` 
@@ -58,7 +52,6 @@ Work continued on various UI options an overlay containers that we're
 familiar with throughout November culminating in the creation of the
 `/components` folder that was created the day after Thanksgiving. This
 includes...
-
 - `PartisanOverlay`
 - `OptionsContainer` 
 - `PartisanOverlayContainer`
@@ -68,20 +61,18 @@ includes...
 Vital models were also created during this time that we used today to
 analyze data in preparation for the first big addition of state and
 election data.
-
 - `Election`
 - `Part`
 - `Population`
 - `State`
 - `Tally`
 
-## Arriving at and Extending the First Demo
+## Arriving at and extending the First Demo
 
 The next big sign post in the history of Districtr a commit titled
-"Everything's ready for the demo!", late in the day Mon. Feb. 4, 2019.
+["Everything's ready for the demo!"], late in the day Mon. Feb. 4, 2019.
 All winter, real data was added and after the demo, features were
 refined.
-https://github.com/districtr/districtr/commit/6752d49f808e2197b55940a900ff2dfac48af211
 
 In the wintertime, real data was added in the `src/data` folder that
 would turn into the `assets` folder, created on Tues. Dec. 4, 2018.
@@ -137,16 +128,15 @@ all `Toolbar` elements, the `ElectionResultsSection` and the
 At this point, districtr, filled with real data and rich with features,
 was ready to demo. 
 
-### [@apizzimenti]
-
-Around this time, Anthony appears to help Max prepare for the first
-districtr demo. On Tue. Jan. 15, he writes the api that allows users
-to log in and out of the app. The next week, he loads test populations.
-His big contribution here is the creation of the `InspectTool` on Sat.,
-Jan. 25. He continued to help work on the api through February.
+Around this time, Anthony, [@apizzimenti] appears to help Max prepare
+for the first districtr demo. On Tue. Jan. 15, he writes the api that
+allows users to log in and out of the app. The next week, he loads test
+populations. His big contribution here is the creation of the
+`InspectTool` on Sat., Jan. 25. He continued to help work on the api
+through February.
 
 Typically involved with the more research and Gerrychain side of the 
-MGGG laboratory, he has returned to help in the Spring of 2021
+MGGG laboratory, Anthony has returned to help in the Spring of 2021
 processing data for Wisconsin, Minnesota and the contribution of
 language for public-facing portals.
 
@@ -219,7 +209,7 @@ today.
 
 Max's last commit to the `latest` branch occured on Tue., Sept. 3, 2019.
 In preparation for this, he performed a repo clean up submitted as
-pull #68. In his own commit note, Max describes the changes...
+[pull #68]. In his own commit note, Max describes the changes...
 ```
 * Clean up repo.
 Use consistent file-naming conventions.
@@ -252,7 +242,7 @@ By then, through the summer...
 - Modules were added for North Carolina and Litlte Rock, AR
 - Control Access Headers were created
 
-## Dawn of the Nick and JN Era
+## Spreading and Strengthening 
 
 Quickly, with support from [@RKBuck1] in the fall of 2019, Nick and JN
 would split responsibilities where JN would load and update data and
@@ -263,7 +253,7 @@ In the Fall of that year...
 - [@jenni-niels] and [@mapmeld] worked together to add data and create a
 custom page for Lowell, MA 
 
-We credit Nick for...
+We credit Nick, [@mapmeld], for...
 - creating a way to drag and drop JSON files and accept the reading
 of CSV and JSON files,
 - Drawing landmark points and polygons
@@ -274,13 +264,13 @@ updated in the same session and allow multiple maps in multiple windows
 - save current progress in browser and save plans to database using 
 mongodb
 - and print maps to pdf
-- 
 
-While JN created the prototype local community page with landing page
-sections and content for Lowell, MA and Colorado. We would use their
-work during this time as the model for the portals we use today.
+While JN, [@jenni-niels],  created the prototype local community page
+with landing page sections and content for Lowell, MA and Colorado. We
+would use their work during this time as the model for the default and
+custom portals we use today.
 
-## Expanding Nationwide
+### Expanding Nationwide
 
 Throughout 2020, Nick worked on adding features and JN worked on
 modifying and updating state portals and pages. A rough timeline for
@@ -350,10 +340,11 @@ calculated using our future AWS server.
 
 ### Geographies 
 
-Researcher Heather Rosenfeld has served as lead geographer for both the
-research and districtr sides of the MGGG laboratory. It is thanks to them
-that well considered demographic, electoral and geographic census and 
-precinct data was in use. 
+Researcher Heather Rosenfeld, [@heatrose] has served as lead geographer
+for both the research and districtr sides of the MGGG laboratory.
+Together with Ruth Buck, [@RKBuck1], they are due credit for developing
+the methods we use to generate well considered demographic, electoral,
+geographic census and precinct data we use. 
 
 ## Today's Redistricting Wave
 
@@ -367,11 +358,10 @@ released instead in August and September. This effectively compresses
 the time for new districts to be proposed, commented on, revised and
 enacted for hundreds of statewide, state legislature and county, local
 and school districts. The Elections of 2022 are under 18 months way.
-Despite this, 
 
-Jack Descshler, [@jackdeschler], has hit the ground running starting
-with his composition of a page that shows which of our modules carry
-which features based on
+Despite this, Jack Descshler, [@jackdeschler], has hit the ground
+running starting with his composition of a page that shows which of our
+modules carry which features based on
 `spatial_abilities`. In just a few months, he has...
 -  added fine grain to  UI elements
 - quickly revised our modules to reflect new 2020-2030
@@ -395,3 +385,38 @@ updating features for partners in...
 Finally, yours truly, [@gomotopia], completed this Story of Districtr
 throughout June of 2021, with great joy.
 
+# # 
+
+[Return to Main](../README.md)
+- Previous: [The Team](./12team/theteam.md)
+
+[@maxhully]: http://github.com/maxhully
+[@mapmeld]:http://github.com/mapmeld
+[@jenni-niels]: http://github.com/jenni-niels
+[@RKBuck1]: http://github.com/RKBuck1
+[@heatrose]: http://github.com/heatrose
+[@AtlasCommaJ]: http://github.com/AtlasCommaJ
+[@apizzimenti]: http://github.com/apizzimenti
+[@ChrisKGernon]: http://github.com/ChrisKGernon
+[@lieuzhengong]: http://github.com/lieuzhengong
+[@bsuwal]: http://github.com/bsuwal
+[@amybecker]: http://github.com/amybecker
+[@jackdeschler]: http://github.com/jackdeschler
+[@nerdgear]: http://github.com/nerdgear
+[@gomotopia]: http://github.com/gomotopia
+[@robbie-veglahn]: http://github.com/robbie-veglahn
+[@InnovativeInventor]: http://github.com/InnovativeInventor
+[@tahentx]: http://github.com/tahentx
+[@nguyenm2151]: http://github.com/nguyenm2151
+[@phorva01]: http://github.com/phorva01
+
+["Everything's ready for the demo!"]: https://github.com/districtr/districtr/commit/6752d49f808e2197b55940a900ff2dfac48af211
+[pull #68]: https://github.com/districtr/districtr/commit/cf1874eeaaa1b2bfc5fed776ce50648aeca5217f
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -4,7 +4,7 @@ having been first written by [@maxhully] as `src/Layer.js` on Tues.,
 Oct. 23, 2018. By Halloween, it was moved to `src/Layers/Layer.js` and
 moved into the `/src/map/` folder in anticiption of the big [pull #68]
 that merged [@maxhully]'s work into [@districtr]'s repository. It has
-been maintained by [@mapmeld] since December of 2019.
+been maintained by [@mapmeld] since the Fall of 2019.
 
 <img src="../pics/layer.png" width=75%>
 
@@ -28,8 +28,8 @@ If you've been paying attention, the [`map/index.js`] script has up to
 
 Elsewhere, new Layers are created...
 - In [`src/plugins/data-layers-plugin.js`] and
-[`multi-layers-plugin.js`]
-    - For many. many excpetional local municipal boundaries 
+`multi-layers-plugin.js`
+    - For the many, many module-based layer combinations 
 - In [`src/components/Landmark.js`] as an instance variable of
 `Landmarks`
 - In [`src/map/NumberMarkers.js`], which adds number markers to the map. 
@@ -112,6 +112,14 @@ a way that it is easy to confuse
 - Next: [Number Markers](../02editormap/numbermarkers.md)
 - [Layer Overlay](../02editormap/layeroverlay.md)
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
+
 [@maxhully]: http://github.com/maxhully
 [@mapmeld]: http://github.com/mapmeld
 [@districtr]: http://github.com/districtr
@@ -128,3 +136,10 @@ a way that it is easy to confuse
 [`map/index.js`]: ../../src/map/index.js
 
 [pull #68]: https://github.com/districtr/districtr/pull/68
+
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

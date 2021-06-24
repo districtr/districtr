@@ -2,22 +2,20 @@
 
 Originally, it was exhausing tracing through all the arguments in the
 chain of nested functions that renders districtr. My original thought
-was that since the [`Editor`] and its possesions [`MapState`] and its
-map, ['Toolbar'] and [`UIStateStore`] were used often and created only
+was that since the [`Editor`] and its possesions [`MapState`] (with its
+map), ['Toolbar'] and [`UIStateStore`] were used often and created only
 once that these were great candidates to make into global objects.
 
 Turns out, this is an **awful idea.** Since we're a Node package, node
-discourages global variables and that programmers are often discouraged
+discourages global variables. Programmers are routinely discouraged
 against creating strictly global variables. This warning is particularly
 strong because two functions may be acting upon a function
 simultaneously, which would create indeterminable results. 
 
 Instead, we can investigate the variables that are pseudo-global and
 investigate ways we can make the common objects used above easier to
-handle. 
-
-There are also a class of settings and tables that we can import into
-functions like [`utils.js`].
+handle. A good example of this are the many settings and reference
+tables that we can import into functions like [`utils.js`].
 
 ## Window variables
 
@@ -39,12 +37,14 @@ the browser is typically very full, but we use this form for...
 
 ## Consistent Arguments
 
-As described in [this chapter], the mapbox-gl [map] is used many ways.
-You've got `mapState.map`, `editor.mapState.map`, `layer.map` and so on.
+Since not everything can be a global variable, we pass them down a tree
+of functions. However, as described in [this chapter], we notice that, 
+say, the mapbox-gl [map] is used many ways. You've got `mapState.map`,
+`editor.mapState.map`, `layer.map` and so on.
 
 This multiple ways of addressing the same object is all over districtr.
 Thus, I propose that we should pass in [`Editor`] as much as we can, 
-knowing that it contains `editor.mapState`, maybe even `editor.map`, 
+knowing that it contains `editor.mapState` (maybe even `editor.map`), 
 `editor.toolbar`, `editor.store` and `editor.state`. All sub units
 contain its own `this.editor` and derive what it needs through this
 single object.  
@@ -81,9 +81,10 @@ serve as Counties, should be set by State rather than `place` because
 
 ### Census Codes
 
-- `vapEquivalents` is a reference table in `DataLayersPlugin` that
+`vapEquivalents` is a reference table in `DataLayersPlugin` that
 converts standard census population codes into vap codes. Could this be
 parsed out to a reference file?
+    - This is the classic "Total Population" as `"TOTPOP"`
 
 ### Display Settings
 
@@ -102,12 +103,12 @@ content and other fields.
 # # 
 
 [Return to Main](../README.md)
-- [My Personal Philosophy on Functions](./11suggestions/philosophy.md)
-- [Deprecations and Experimental Features](./11suggestions/deprecations.md)
-- [Clarifying Operations](./11suggestions/clarity.md)
-- [Logical Redundancies](./11suggestions/logic.md)
-- Previous: [Organization](./11suggestions/organizing.md)
-- Next: [Other Notes](./11suggestions/other.md)
+- [My Personal Philosophy on Functions](../11suggestions/philosophy.md)
+- [Deprecations and Experimental Features](../11suggestions/deprecations.md)
+- [Clarifying Operations](../11suggestions/clarity.md)
+- [Logical Redundancies](../11suggestions/logic.md)
+- Previous: [Organization](../11suggestions/organizing.md)
+- Next: [Other Notes](../11suggestions/other.md)
 
 
 [Plan/Context]: ../01contextplan/plancontext.md
@@ -136,5 +137,12 @@ content and other fields.
 [this chapter]: ../11suggestions/clarity.md
 [later this chapter]: ../11suggestions/logic.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
 
 

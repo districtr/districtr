@@ -7,7 +7,7 @@ the principal way we assign units to destricts.
 
 Loaded by [`tools-plugin.js`], a [`Brush`] is turned on and off by the
 [`Toolbar`]. In order to hover over features, it inherits from
-[`HoverWithRadius`] and `Hover`. Finally, the brush object keeps track
+[`HoverWithRadius` and `Hover`]. Finally, the brush object keeps track
 of these actions so that users can undo or redo their changes.
 
 <img src="../pics/drawingbasics.png" width=50%>
@@ -57,7 +57,7 @@ instance and clear the undo/redo stack with `this.clearUndo()`.
 
 ### Coloring and Erasing
 
-The primary responsibility of the `Brush`, indeed, of the entire
+The primary responsibility of the `Brush` and, indeed, the entire
 districtr system, is the ability to select precinct or census units and
 collecting them together. We do this by coloring them. A brush carries a
 color one at a time. Thus, after intialization, a brush's `this.color`
@@ -154,7 +154,7 @@ object...
  - `initial: true`
 - ...and that integer `this.cursorUndo` is set to 0.
 
-Each object in `this.trackUndo` contains an object for each ammended
+Each object in `this.trackUndo` contains an object for each amended
 feature within a user's action such that value at key `feature.id` is
 an object with...
 - `properties: feature.properties`, to keep track of population, etc
@@ -197,7 +197,7 @@ alerted to the cursor position.
 If there are actions available for redoing, then the `redo()` function
 can be triggered, which will perform the actions above in reverse.
     
-### Activation and Deactivation
+### Brush Activation and Deactivation
 
 If the mouse sits upon the map, then activating and deactivating
 the `Brush` is as simple as activating and deactivating the object
@@ -244,8 +244,8 @@ that the first function, which selects the appropriate filter, is a
 helper instead of a gateway?
 
 - The sprawling function `_colorFeatures(...)` investigates both
-individual units and whole counties. Could we separate these two into
-separate functions?
+individual units and whole counties. Could we separate painting features
+and painting counties into separate functions?
 
 - Every time `this.changedColors` is cleared, it is pointed to a 
 `new Set()` javascript object, which starts out empty. This creates
@@ -272,6 +272,17 @@ the same object are miniscule, wouldn't it be clearer to use function
 
 [`Brush`]: ../04drawing/brush.md
 [`HoverWithRadius`]: ../04drawing/hover.md
+[`HoverWithRadius` and `Hover`]: ../04drawing/hover.md
+
+[`Toolbar/UndoRedo.js`]: ../04drawing/undoredo.md
 [Undo and Redo]: ../04drawing/undoredo.md
 
 [`src/map/brush.js`]: ../../src/map/brush.js`
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -7,7 +7,7 @@ on its own and sometimes extended further with more user options.
 
 By itself, the `DemographicsTable` is called in [`community-plugin`]
 and [`multi-layers-plugin`] where it represents "Homeowner or Renter"
-or "Education: data in a table. While it is imported in the
+or "Education" data in a table. While it is imported in the
 `data-layers-plugin`, it is never called.
 
 Instead, it is used more often, extended by `RacialBalanceTable`
@@ -88,13 +88,13 @@ made for user selected coalitions, included in the `mockColumnSet` sent
 to `RacialBalanceTable` as the `population` parameter.
 
 The purpose of the racial balance table is to allow users to select up
-to  three demographic groups using `SelectBoxes`, a labelled series of
+to three demographic subgroups using `SelectBoxes`, a labelled series of
 drop-downs with `Parameter`s and dispatchers that modifies [reducer]
 `chartState.activeSubgroupIndicies`. 
 
 Upon rendering, selected subgroups are collected from `chartState`,
-which are sent to a `DemographicsTable` that displays only up to three
-of these demographics.
+which are sent to a `DemographicsTable` that displays the seleted
+subgroups.
 
 ## Use in AgeHistogramTable
 
@@ -121,7 +121,7 @@ fleshed out to "mimic" the `Subgroup` model by providing `sum`s and
 
 ### Suggestions
 
-- `DemographicsTable` imported by `data-layers-plugin` but is not
+- `DemographicsTable` is imported by `data-layers-plugin` but is not
 called. 
 - Many table types reimplement `getBackgroundColor` and `getCellStyle`
 identically. This, along with the `popNumber` formatter can be collected
@@ -141,8 +141,9 @@ are used as conditions in their own right elsewhere in the code.
 - `AgeHistogramTable`, makes space all possibly districts in the editor,
 even if there's many dozens and it takes up space. This is pronounced
 when Histograms are used.   
-- `AgeHistogramTable` does not create an overall area age breakdown like
-`RacialBalanceTable`. This may require more involved programming.
+- `AgeHistogramTable` does not create an overall area age breakdown for
+the whole population like `RacialBalanceTable`. This may require more
+involved programming.
 
 # #
 
@@ -157,7 +158,7 @@ when Histograms are used.
   - [Two ways to explore election results](../06charts/electionresults.md)
 - [Data, Pivot and Coalition Pivot Tables](../06charts/datatable.md)
   - Next: [Histograms](../06charts/histogram.md)
-- [Highlighting Unassigned Units: Three Simple Functions](../06charts/higlightunassigned.md)
+- [Highlighting Unassigned Units: Three Simple Functions](../06charts/highlightunassigned.md)
 - [Dataset Info](../06charts/datasetinfo.md)
 - [A Full Example: VRA](../06charts/vra.md)
 
@@ -183,3 +184,10 @@ when Histograms are used.
 
 [`utils.js`]: ../10spatialabilities/utils.md
 
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -35,7 +35,7 @@ responsibility of the linked [`stateLandingPage.js`] to provide content.
 It is thanks to [@jenni-niels] that landing pages for all states
 premiered on, Wed. Sept 16, 2020. With their help, district and custom
 state portals are maintained by [@AtlasCommaJ] with help from
-[@mapmeld] and [@apizzamenti].
+[@mapmeld] and [@apizzimenti].
 
 The `stateLandingPage.js` provides a single function for rendering
 a page related to the `document.head.id` mentioned above. First, the
@@ -218,6 +218,7 @@ clarity.
 [@mapmeld]: http://github.com/mapmeld
 [@AtlasCommaJ]: http://github.com/AtlasCommaJ
 [@jenni-niels]: http://github.com/jenni-niels
+[@apizzimenti]: http://github.com/apizzimenti
 
 [`PlaceMap.js`]: ../07portals/placemap.md
 [`deploy/_redirects`]: ../09deployment/headersredirects.md
@@ -228,3 +229,11 @@ clarity.
 [communities]: ../05landmarks/coi.md
 
 [Loyola Law Redistricting]: https://redistricting.lls.edu
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

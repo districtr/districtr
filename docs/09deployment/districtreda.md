@@ -6,7 +6,9 @@ at MGGG from the Summer of 2020. Much of the functions beyond
 congiguity and cut edges were written by [@mapmeld] who maintains it
 with [@AtlasCommaJ] and [@jenni-niels]. This is hosted as a [flask]
 application (lightweight Python webframework), on [Python Anywhere].
-This will soon migrate to [Amazon-AWS].
+
+These functions are currently stored in sister repository
+[`districtr/districtr-eda`] and will soon migrate to [Amazon-AWS].
 
 ## Routes
 
@@ -32,13 +34,11 @@ The current URL for this server is [http://mggg.pythonanywhere.com]
 # # 
 
 [Return to Main](../README.md)
-- Previous: [Routes](./09deployment/routes.md)
-- Next: [Intro to mggg-states](./09deployment/districtreda.md)
-- [Netlify Lambda Functions and MongoDB](./09deployment/mongolambdas.md)
-- [Headers and Redirects](./09deployment/headersredirects.md)
-- [package.json and npm](./09deployment/package.md)
-- [Local Testing and Deployment Preview](./09deployment/localpreview.md)
-
+- Previous: [Routes](../09deployment/routes.md)
+- Next: [Intro to mggg-states](../09deployment/mggg-states.md)
+- [Netlify Lambda Functions and MongoDB](../09deployment/mongolambdas.md)
+- [Headers and Redirects](../09deployment/headersredirects.md)
+- [package.json and npm](../09deployment/package.md)
 
 [@lieuzhenghong]: http://github.com/lieuzhenghong
 [@maxhully]: http://github.com/maxhully
@@ -51,3 +51,12 @@ The current URL for this server is [http://mggg.pythonanywhere.com]
 [Amazon-AWS]: https://aws.amazon.com/
 
 [http://mggg.pythonanywhere.com]: http://mggg.pythonanywhere.com
+[`districtr/districtr-eda`]: https://github.com/districtr/districtr-eda
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

@@ -14,10 +14,10 @@ of 2018 and has been continously maintained by [@mapmeld] and
 <img src="../pics/listingplaces.png" width=50%>
 
 The common way to collect modules, for landing pages, events and such,
-is the function `listPlacesForState(...)` that is called to reutrn an
+is the function `listPlacesForState(...)` that is called to return an
 objects of objects. In essence, this function returns the result of
-function `listPlaces(...)` in `mockapi.js`, filters the results whether
-only communities are required and by US state. 
+function `listPlaces(...)` in `mockapi.js` and filters that by
+communities-only and/or by US state. 
 
 ### `listPlaces(placeID, stateName)`
 
@@ -29,7 +29,7 @@ files are organized by this name. In fact, if a `placeID` has no
 used to provide one.
 
 Other than `PlacesList.js`, function `listPlaces(...)` is only ever
-called by `routes.js` where it is used to lookup modules by `placeID`
+called by [`routes.js`] where it is used to lookup modules by `placeID`
 that are loaded by JSON or by CSV. If `placeID` is null, then all places
 in a state are returned.
 
@@ -96,7 +96,7 @@ similar to the cards already generated in landing pages elsewhere?
 
 [Return to Main](../README.md)
 - [Communities of Interests in Use](../05landmarks/coi.md)
-- [The Landmark Class](../05landmarks/landmarkclass.md)
+- [The Landmark Class](../05landmarks/landmarksclass.md)
 - [The Community Plugin](../05landmarks/communityplugin.md)
 - [The Old Landmark Tool](../05landmarks/landmarktool.md)
 - Previous: [My COI](../05landmarks/mycoi.md)
@@ -108,3 +108,12 @@ similar to the cards already generated in landing pages elsewhere?
 [`src/components/PlacesList.js`]: ../../src/components/PlacesList.js
 [`/src/api/mockApi.js`]: ../../src/api/mockApi.js
 [`routes.js`]: ../09deployment/routes.md
+[`mockapi.js`]: ../../src/api/mockApi.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA

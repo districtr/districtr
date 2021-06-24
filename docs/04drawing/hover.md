@@ -19,10 +19,10 @@ at a time.
 ## `export class Hover`
 
 A `Hover` object requires a [`layer`]. Common `paint/erase` brush tools
-are tied to layer `state.units`. This layer is created when when
-`edit.js` creates the page's [`State`] derived out of the units in a
-loaded `plan/context.` As part of initializing the `State`,
-`initializeMapState` is called and uses map's `addLayer` to create a
+are tied to layer `state.units`. This layer is created when `edit.js` 
+creates the page's [`State`] derived out of the units in a loaded
+ `plan/context.` As part of initializing the `State`,
+ `initializeMapState` is called and uses map's `addLayer` to create a
 `state.units` layer. This layer is sent to `Brush` when it is created in
 tools-plugin. `Brush` extends `Hover` which requires this layer. 
 
@@ -48,11 +48,11 @@ by manipulating their displaay features, particularly color.** This is
 achieved by using the Mapbox feature `setFeatureState(...)`. 
 
 When we hover on features, we store them in each Hover instances's
-`this.hoveredFeatures`. If this Hover object is activated, the feature's
-layer calls `setFeatureState(...)`, which calls on Mapbox to add
-`hover: true` to the feature's properties. This is how we tell Mapbox
-that certain features are hovered over such that it can apply special
-behaviors.
+`this.hoveredFeatures`. If this `Hover` object is activated, the
+feature's layer calls `setFeatureState(...)`, which calls on Mapbox to
+add `hover: true` to the feature's properties. This is how we tell
+Mapbox that certain features are hovered over such that it can apply
+special behaviors.
 
 `HoverOff` does the reverse, using `setFeatureState(...)` to set a
 feature's `hover` to false and clears the `this.hoveredFeatures` array
@@ -81,11 +81,10 @@ or touch actions.
 
 # The `HoverWithRadius` Class
 
-The brush and tooltip tools we use typically inherit from the
-`HoverWithRadius` class, which extends the `Hover` class to highlight
-multiple features. It does so with the addition of instance variable
-`this.radius` abd function `boxARound(point, radius).` A `point` is
-supplied by event `e`.
+The brush and tooltip tools we use extend the `HoverWithRadius` class,
+which extends the `Hover` class to highlight multiple features. It does
+so with the addition of instance variable `this.radius` and function
+`boxARound(point, radius).` A `point` is supplied by event `e`.
 
 > Throughout districtr, we refer to the size of a brush as a `radius`.
 However, it is more accurate to refer this to a 'half-side', as a box
@@ -100,8 +99,8 @@ from a layer within this box.
 - Within districtr units generally refer to the base precincts or census
 areas that we use to build districts. However, within the code base,
 `units` sometimes refers to these areas in the plan/context and
-sometimes to the mapbox `layer`. Maybe using `units` and `unitsLayer`
-consistently would be less confusing.
+sometimes to the mapbox `layer`. Maybe using `units` and a new title
+"unitsLayer" consistently would be less confusing.
 - What is a State? A dizzying notion. Is it...
   - The State political unit?
   - The UIState `state` object?
@@ -110,10 +109,10 @@ consistently would be less confusing.
 # # 
 
 [Return to Main](../README.md)
-- Next: [Painting and Erasing with Brush and Community Brush](./4drawing/brush.md)
-- [Undo and Redo](./4drawing/undoredo.md)
-- [The Tooltip Brush](./4drawing/tooltip.md)
-- [Checking for Contiguity](./4drawing/contiguity.md)
+- Next: [Painting and Erasing with Brush and Community Brush](../04drawing/brush.md)
+- [Undo and Redo](../04drawing/undoredo.md)
+- [The Tooltip Brush](../04drawing/tooltip.md)
+- [Checking for Contiguity](../04drawing/contiguity.md)
 
 [@maxhully]: http://github.com/maxhully
 
@@ -125,3 +124,11 @@ consistently would be less confusing.
 [`Tooltip`]: ../04drawing/tooltip.md
 
 [`src/map/Hover.js`]: ../../src/map/Hover.js
+
+# #
+
+<img src="../../assets/mggg.svg" width=25%>
+
+[The Metric Geometry and Gerrymandering Group Redistricting Lab](http://mggg.org)
+
+Tufts University, Medford and Somerville, MA
