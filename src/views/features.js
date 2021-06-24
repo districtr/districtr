@@ -11,7 +11,7 @@ export default() => {
     <th>Paint by County</th>
     <th>Tribal Nations</th>
     <th>Zoom to Unassigned Units</th>
-    <th>Blocks</th>
+    <th>Shapefile Export</th>
     <th>Block Groups</th>
     <th>Precincts/Wards</th></tr>
     </thead><tbody>`
@@ -27,7 +27,7 @@ export default() => {
     <th>Paint by County</th>
     <th>Tribal Nations</th>
     <th>Zoom to Unassigned Units</th>
-    <th>Blocks</th>
+    <th>Shapefile Export</th>
     <th>Block Groups</th>
     <th>Precincts/Wards</th></tr>
     </thead><tbody>`
@@ -159,7 +159,7 @@ function recursive_table_builder(state_table, other_table, index) {
 }
 
 const build_table_for_state = (data, state) => {
-    const properties = ['coalition_builder', 'contiguity', 'current_districts', 'county_brush', 'native_american', 'find_unpainted']
+    const properties = ['coalition_builder', 'contiguity', 'current_districts', 'county_brush', 'native_american', 'find_unpainted', 'shapefile']
     var state_html = "";
     var other_html = "";
 
@@ -196,7 +196,7 @@ const build_table_for_state = (data, state) => {
                 row = row + '<td>❌</td>';
         }
 
-        var units = {'blocks': "Not Available", "blockgroups": "Not Available", "precincts": "Not Available"};
+        var units = {/**'blocks': "Not Available",**/ "blockgroups": "Not Available", "precincts": "Not Available"};
         for (const unit of module['units']) {
             var acc = ""
             var elections = []
@@ -226,9 +226,9 @@ const build_table_for_state = (data, state) => {
                 case 'blockgroups':
                     units['blockgroups'] = final;
                     break;
-                case 'blocks':
-                    units['blocks'] = final;
-                    break;
+                //case 'blocks':
+                    //units['blocks'] = final;
+                    //break;
                 case 'wards': // fall to precincts
                 case 'precincts':
                     units['precincts'] = final;
@@ -236,7 +236,7 @@ const build_table_for_state = (data, state) => {
             }
         }
 
-        row = row + '<td>' + units['blocks'] + '</td>' 
+        // row = row + '<td>' + units['blocks'] + '</td>' 
         row = row + '<td>' + units['blockgroups'] + '</td>' 
         row = row + '<td>' + units['precincts'] + '</td>' 
         row = row + '</tr>';

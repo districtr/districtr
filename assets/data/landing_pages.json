@@ -39,7 +39,7 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["alaska"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["alaska", "alaska_blocks"], "default": "true", "id": "state"}],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -204,7 +204,7 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax"], "id": "counties"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso"], "id": "counties"},
       {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
@@ -1822,15 +1822,27 @@
             "plans": [
               {
                 "id": "congress_2011",
-                "name": "2011 Enacted Plan"
+                "name": "2011 Enacted Congressional Plan"
               },
               {
                 "id": "congress_2016",
-                "name": "2016 Enacted Plan"
+                "name": "2016 Enacted Congressional Plan"
               },
               {
                 "id": "congress_judge",
-                "name": "Judges' 2016 Proposed Plan"
+                "name": "Judges' 2016 Proposed Congressional Plan"
+              },
+              {
+                "id": "congress_2019",
+                "name": "2019 Enacted Congressional Plan"
+              },
+              {
+                "id": "state_senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }
@@ -1914,6 +1926,32 @@
         "nav": "Rules",
         "type": "text",
         "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "oh",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "About the data",
@@ -2831,7 +2869,19 @@
             "plans": [
               {
                 "id": "congress",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan (2010 Population)"
+              },
+              {
+                "id": "congress_2020wards",
+                "name": "Congressional Plan (2019 Population)"
+              },
+              {
+                "id": "statesen_2020wards",
+                "name": "State Senate Plan (2019 Population)"
+              },
+              {
+                "id": "assembly_2020wards",
+                "name": "State Assembly Plan (2019 Population)"
               }
             ]
           }
@@ -2892,9 +2942,10 @@
   {
     "state": "VRA - Dashboard",
     "code": "VRA",
-    "states": ["Louisiana", "Texas"],
+    "states": ["Louisiana", "Texas", "Massachusetts"],
     "modules": [
       {"name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la"},
+      {"name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts"},
       {"name": "Texas", "ids": ["tx_vra"], "id": "tx"}],
     "sections": [
       {
@@ -2916,6 +2967,15 @@
         "type": "text",
         "pages": ["la"],
         "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
+        "subsections": [
+        ]
+      },
+      {
+        "name": "Massachusetts: VRA effectiveness precomputation",
+        "nav": "Precomputation  (MA)",
+        "type": "text",
+        "pages": ["massachusetts"],
+        "content_source": "/assets/about/vra/precomputation_mass.html" ,
         "subsections": [
         ]
       },
@@ -2949,6 +3009,33 @@
               },
               {
                 "id": "la-state-house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Explore the enacted plans",
+        "nav": "Examples (MA)",
+        "type": "plans",
+        "ref": "vra",
+        "pages": ["massachusetts"],
+        "disc": "",
+        "plans": [
+          {
+            "title": "Enacted Plans in Massachusetts",
+            "plans": [
+              {
+                "id": "ma-congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "ma-state-senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "ma-state-house",
                 "name": "State House Plan"
               }
             ]

@@ -29,7 +29,7 @@ class DistrictingPlan {
         this.parts = getParts(problem);
         if (parts) {
             for (let i = 0; i < parts.length; i++) {
-                this.parts[i].updateDescription(parts[i]);
+                this.parts.find(p => p.displayNumber === parts[i].displayNumber).updateDescription(parts[i]);
             }
         }
         if (problem.type === "multimember" || problem.type === "community") {
@@ -102,7 +102,8 @@ export default class State {
             swipemap,
             units,
             problem.type === "community" ? addBelowLabels : addBelowSymbols,
-            place.id
+            place.id,
+            place.state
         );
         this.columnSets = getColumnSets(this, units);
 
@@ -120,27 +121,36 @@ export default class State {
     get activeParts() {
         return this.plan.parts.filter(part => part.visible);
     }
-    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId) {
-        const { units, unitsBorders, bg_areas, bg_points, swipeUnits, swipeUnitsBorders, points, swipePoints, counties, precincts, new_precincts, tracts } = addLayers(
-            map,
+    initializeMapState(map, swipemap, unitsRecord, layerAdder, borderId, statename) {
+        const {
+            units, unitsBorders,
+            coiunits, coiunits2,
+            bg_areas, bg_points,
+            swipeUnits, swipeUnitsBorders,
+            points, swipePoints,
+            counties, precincts, new_precincts, tracts
+        } = addLayers(map,
             swipemap,
             this.parts,
             unitsRecord.tilesets,
             layerAdder,
-            borderId
+            borderId,
+            statename
         );
 
         this.units = units;
         this.unitsBorders = unitsBorders;
+        this.coiunits = coiunits;
+        this.coiunits2 = coiunits2;
         this.swipeUnits = swipeUnits;
         // this.swipeUnitsBorders = swipeUnitsBorders;
         this.counties = counties;
         this.layers = [units, points, bg_areas, precincts, new_precincts, tracts].filter(x => !!x);
-        this.swipeLayers = [swipeUnits, swipePoints];
+        this.swipeLayers = [];
         this.map = map;
     }
     update(feature, part) {
-        this.columnSets.forEach(columnSet => columnSet.update(feature, part));
+        this.columnSets.forEach(columnSet => columnSet.update(feature, part, this.divisor));
         this.plan.update(feature, part);
     }
     get parts() {

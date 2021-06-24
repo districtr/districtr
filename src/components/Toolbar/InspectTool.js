@@ -6,14 +6,14 @@ import Select from "../Select";
 import { TooltipContent } from "../Charts/TooltipContent";
 
 export default class InspectTool extends Tool {
-    constructor(units, columnSets, nameColumn, unitsRecord, parts) {
+    constructor(units, columnSets, nameColumn, unitsRecord, parts, divisor) {
         super(
             "inspect",
             "Inspect",
             html`<img src="/assets/Icons_Inspect_grey.svg" alt="Inspect"/>`
         );
 
-        this.columnSets = [].concat(columnSets.filter(lyr => lyr.subgroups.length > 1));
+        this.columnSets = [].concat(columnSets);
         // separate out 2018/2019 pop
         if (this.columnSets.length && this.columnSets[0].name_alt) {
             this.columnSets.splice(1, 0, this.columnSets[0]);
@@ -27,7 +27,8 @@ export default class InspectTool extends Tool {
                 nameColumn,
                 unitsRecord.unitType,
                 parts,
-                this.activeColumnSetIndex
+                this.activeColumnSetIndex,
+                divisor
             );
         this.layer = units;
         this.tooltip = new Tooltip(units, renderTooltipContent);
@@ -67,8 +68,6 @@ class InspectToolOptions {
         this.renderToolbar();
     }
     render() {
-        console.log('rendering');
-        console.log(this.inspectTool.activeColumnSetIndex)
         return html`
             <div class="ui-option">
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>

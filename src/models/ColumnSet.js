@@ -43,9 +43,9 @@ export default class ColumnSet {
 
         this.update = this.update.bind(this);
     }
-    update(feature, part) {
-        this.subgroups.forEach(subgroup => subgroup.update(feature, part));
-        this.total.update(feature, part);
+    update(feature, part, divisor) {
+        this.subgroups.forEach(subgroup => subgroup.update(feature, part, divisor));
+        this.total.update(feature, part, divisor);
     }
     get columns() {
         return [this.total, ...this.subgroups];
