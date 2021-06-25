@@ -399,6 +399,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       border: true,
+      municipalities: true,
       // sideload: true,
     },
     ccsanitation: {
