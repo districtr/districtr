@@ -14,9 +14,7 @@ export default () => {
         .then(response => response.json()).then(data => {    
             // build list of available plans
             for (let st of data) {
-                console.log(st);
                 let ref = uspost[st.state];
-                console.log(ref);
                 for (let sec of st.sections) {
                     if (sec.type == 'plans' && sec.ref == ref) {
                         available_plans.push(st.state);
@@ -24,7 +22,6 @@ export default () => {
                     }
                 }
             }
-            console.log(available_plans);
             // Build Go Button and Plan Uploader
             let go = new Button(() =>{
                     let url = document.getElementById("shareable-url").value;
@@ -87,7 +84,7 @@ const loadablePlans = (plans, place) =>
 
 
 const loadablePlan = (plan, place) => html`
-        <a href="eval?url=/assets/${place}-plans/${plan.id}">
+        <a href="eval?url=/assets/${place}-plans/${plan.id}.json">
             <li class="plan-thumbs__thumb">
                 <img
                     class="thumb__img"
