@@ -42,6 +42,7 @@ const stateForEvent = {
   sonomaco: 'California',
   pasadena2021: 'California',
   'ks-fairmaps': 'Kansas',
+  'commoncausepa': 'Pennsylvania',
 };
 
 const validEventCodes = {
@@ -81,6 +82,7 @@ const validEventCodes = {
   pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
+  'commoncausepa': 'pennsylvania',
 };
 
 const blockPlans = {
@@ -132,7 +134,8 @@ const coi_events = [
   'slo_county',
   'ourmapsne',
   'onelovemi',
-  'ks-fairmaps'
+  'ks-fairmaps',
+  'commoncausepa'
 ];
 
 const hybrid_events = [
@@ -248,7 +251,12 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-
+  commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
+  <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
+  (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
+  state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
+  to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>\
   };
 
 const longAbout = {
@@ -293,6 +301,10 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  commoncausepa: [
+    "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities. Standing as an independent voice for positive change, \
+    a watchdog against corruption, and protector against abuse of power, we work to hold public officials accountable and responsive to citizens. \
+    Common Cause Pennsylvania is a nonpartisan, good government organization.",
 };
 
 const proposals_by_event = {
