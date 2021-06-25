@@ -464,8 +464,7 @@ function county_slide(state, data, municipalities) {
     ${Object.keys(data.split_list).map(x => {
         if (isNaN(x))
             return html`<li>${x}</li>`
-        //return html`<li>${county_fips_to_name(x, state.place.state) + " County"}</li>`
-        return html`<li>${x}</li>`
+        return html`<li>${county_fips_to_name(x, state.place.state) + " County"}</li>`
     })}
     </ul>
     <div>`
