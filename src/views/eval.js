@@ -4,10 +4,7 @@ import DisplayPane from "../components/DisplayPane";
 import {
     loadPlanFromURL,
     loadPlanFromJSON,
-    loadPlanFromCSV,
-    getContextFromStorage,
     navigateTo,
-    savePlanToStorage
 } from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
@@ -228,7 +225,8 @@ function overview_slide (state, contig, problems, num_tiles) {
         .reduce((a,b) => a + b, 0),
         dist_num = state.plan.problem.numberOfParts;
     let details = html`<div style="text-align:left">
-        Your plan is for ${dist_num} ${state.plan.problem.pluralNoun} 
+        Your plan is drawn on <strong>${state.unitsRecord.unitType.toLowerCase()}</strong>, 
+        and is for ${dist_num} ${state.plan.problem.pluralNoun} 
         in ${state.place.name}. Your plan appears to have 
         ${drawn} districts drawn. ${drawn == dist_num ? "" : 
         (drawn > dist_num ? html`You are have ${drawn - distnum} extra district(s).`
