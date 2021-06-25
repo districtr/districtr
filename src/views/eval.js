@@ -199,7 +199,8 @@ function getPlanContext() {
             console.error(e);
         });
     } else {
-        return Promise.resolve(getContextFromStorage());
+        console.error(`Could not find plan.`)
+        return navigateTo("/evaluation");
     }
 }
 
