@@ -7483,7 +7483,7 @@
         "subgroups": [
           {
             "key": "WCVAP",
-            "name": "White citizen voting age population",
+            "name": "White CVAP",
             "sum": 220124,
             "min": 0,
             "max": 1389
@@ -7511,7 +7511,7 @@
           },
           {
             "key": "BHACVAP",
-            "name": "Black & Hispanic & Asian citizen voting age population",
+            "name": "Black & Hisfpanic & Asian cvap",
             "sum": 103635,
             "min": 0,
             "max": 982

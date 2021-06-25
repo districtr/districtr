@@ -18,7 +18,7 @@ function SelectBoxes(chartId, subgroups, activeSubgroupIndices, dispatch) {
         Parameter({
             label: labels[j] || "and",
             element: Select(subgroups.map(sg => {
-                return {...sg, name: sg.name.replace("voting age population", "VAP") }
+                return {...sg, name: sg.name.replace("citizen voting age population", "CVAP") }
             }), onChange(j), index)
         })
     );

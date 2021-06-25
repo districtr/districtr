@@ -18,7 +18,7 @@ const plans = [
                 id: "plan3",
                 name: "3-district plan",
                 numbers: [ 
-                    { number: 3, caption: "50.6% non-White, effectiveness 5, Rouse in here" },
+                    { number: 3, caption: "50.6% non-White, effectiveness 5, Rouse in here" }
                 ]
             },
             {
