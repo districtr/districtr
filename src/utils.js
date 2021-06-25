@@ -379,13 +379,27 @@ export function spatial_abilities(id) {
     },
     sacramento: {
       coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
       // divisor: 1000,
+    },
+    ca_sonoma: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_pasadena: {
+      coalition: false,
+      border: true,
     },
     sanluiso: {
       coalition: false,
+      number_markers: true,
+      shapefile: true,
+      border: true,
       municipalities: true,
-      // number_markers: true,
-      // border: true,
       // sideload: true,
     },
     ccsanitation: {

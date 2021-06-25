@@ -217,7 +217,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
             tilesets.find(tileset => tileset.source.url.includes("tracts")),
             layerAdder
         );
-    } else if (borderId === "sacramento") {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena"].includes(borderId)) {
         tracts = addTracts(
             map,
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
