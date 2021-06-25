@@ -381,6 +381,13 @@ export function spatial_abilities(id) {
       coalition: false,
       // divisor: 1000,
     },
+    sanluiso: {
+      coalition: false,
+      municipalities: true,
+      // number_markers: true,
+      // border: true,
+      // sideload: true,
+    },
     ccsanitation: {
       // multiyear: 2018,
       shapefile: true,
@@ -968,6 +975,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       sideload: true,
       load_coi: false,
+      contiguity: 2,
     },
     philadelphia: {
       number_markers: true,
@@ -1093,6 +1101,7 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: 2,
     },
     yakima_wa: {
       coalition: false,

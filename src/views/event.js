@@ -32,12 +32,14 @@ const stateForEvent = {
   'ourmapsmn': 'Minnesota',
   'micrc': 'Michigan',
   mesaaz: 'Arizona',
+  slo_county: 'California',
   ourmapsne: 'Nebraska',
   prjusd: 'California',
   hia: 'Texas',
   onelovemi: 'Michigan',
   saccounty: 'California',
   saccountymap: 'California',
+  'ks-fairmaps': 'Kansas',
 };
 
 const validEventCodes = {
@@ -67,12 +69,14 @@ const validEventCodes = {
   'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
+  slo_county: 'sanluiso',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
   'hia': ['texas', 'harristx', 'houston'],
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
+  'ks-fairmaps': 'kansas',
 };
 
 const blockPlans = {
@@ -121,8 +125,10 @@ const coi_events = [
   'ourmapsmn',
   'micrc',
   'mesaaz',
+  'slo_county',
   'ourmapsne',
-  'onelovemi'
+  'onelovemi',
+  'ks-fairmaps'
 ];
 
 const hybrid_events = [
@@ -178,6 +184,11 @@ const eventDescriptions = {
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the Mesa residents charged with redrawing the Mesa City Council District Map. For more information, visit <a href='https://www.mesaaz.gov/government/advisory-boards-committees/redistricting-commission' target='_blank'>Mesa’s Citizen Redistricting Commission</a>.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MesaAZ” (any capitalization) is entered.</p>",
+    slo_county: "<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “SLO_County” (any capitalization) is entered.</p>",
    ourmapsne: "Welcome to the event page for Nebraska!",
     prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
     <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
@@ -210,6 +221,7 @@ share your map and your story using this tool now.</p>\
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+  'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
 
   };
 
@@ -221,6 +233,9 @@ const longAbout = {
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
   mesaaz: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  slo_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
@@ -252,7 +267,7 @@ export default () => {
     const og_eventCode = ((window.location.hostname === "localhost")
         ? window.location.search.split("event=")[1].split("&")[0]
         : window.location.pathname.split("/").slice(-1)[0]
-    ).replace(/_/g, '-');
+    );
     const eventCode = og_eventCode.toLowerCase();
 
     if (validEventCodes[eventCode]) {
@@ -262,10 +277,15 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
-        if (eventCode === "mesaaz") {
+        if (["mesaaz", "slo_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
-            document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
-            document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+            if (eventCode === "mesaaz") {
+              document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+            } else if (eventCode === "slo_county") {
+              document.getElementById("partner-link-a").href = "https://www.slocounty.ca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partners-slo.png";
+            }
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         } else if (eventCode === "saccounty" || eventCode === "saccountymap") {
@@ -359,7 +379,11 @@ export default () => {
           });
         }
 
-        document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+        if (hybrid_events.includes(eventCode)) {
+          document.getElementById("draw-goal").innerText = 'drawing';
+        } else {
+          document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+        }
 
         const target = document.getElementById("districting-options");
         if (typeof validEventCodes[eventCode] === 'string') {
@@ -439,6 +463,7 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
     } else {
+        const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
     }
 };
