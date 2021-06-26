@@ -762,7 +762,17 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
+      find_unpainted: true
+    },
+    new_mexico_portal: {
+      number_markers: true,
+      county_brush: true,
+      native_american: true,
+      contiguity: 2,
+      current_districts: true,
+      shapefile: true,
       find_unpainted: true,
+      election_history: false,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
