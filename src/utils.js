@@ -309,10 +309,8 @@ export function spatial_abilities(id) {
     },
     alaska: {
       number_markers: true,
-      // precincts cross county lines
       native_american: true,
       shapefile: true,
-      // find_unpainted: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },

@@ -213,8 +213,8 @@ export default function DataLayersPlugin(editor) {
     }
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax", "ca_sonoma"].includes(state.place.id)) {
-        fetch(`/assets/boundaries/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
+    if (["virginia", "lax", "ca_sonoma", "alaska", "alaska_blocks"].includes(state.place.id)) {
+        fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
                 data: va2010
@@ -504,6 +504,18 @@ export default function DataLayersPlugin(editor) {
             'Enacted Plans',
             (uiState, dispatch) => html`
             ${toggle("Supervisorial Districts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
+    } else if (state.place.id.includes("alaska")) {
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("State House Districts", false, checked => {
                 let opacity = checked ? 1 : 0;
                 plan2010 && plan2010.setOpacity(opacity);
             })}`,
