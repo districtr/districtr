@@ -247,6 +247,23 @@ export default function DataLayersPlugin(editor) {
                         addBelowLabels
                     );
                 });
+            } else if (state.place.id.includes("alaska")) {
+                fetch("/assets/boundaries/alaska_house_2010.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
+
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#f00", "line-width": 0.75, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
             } else if (state.place.id === "lax") {
                 fetch("/assets/boundaries/lax_senate.geojson").then(res => res.json()).then((va2013) => {
                     state.map.addSource('va2013', {
@@ -515,7 +532,11 @@ export default function DataLayersPlugin(editor) {
         tab.addRevealSection(
             'Enacted Plans',
             (uiState, dispatch) => html`
-            ${toggle("State House Districts", false, checked => {
+            ${toggle("State House", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2013 && plan2013.setOpacity(opacity);
+            })}
+            ${toggle("State Senate", false, checked => {
                 let opacity = checked ? 1 : 0;
                 plan2010 && plan2010.setOpacity(opacity);
             })}`,
