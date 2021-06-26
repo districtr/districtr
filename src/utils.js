@@ -311,6 +311,8 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       shapefile: true,
+      school_districts: true,
+      municipalities: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
@@ -318,6 +320,8 @@ export function spatial_abilities(id) {
     alaska_blocks: {
       native_american: true,
       coalition: false,
+      school_districts: true,
+      municipalities: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
