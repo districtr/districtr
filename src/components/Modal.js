@@ -66,7 +66,7 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
                     <div style="text-align:center">
                       <a
                         href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
-                        target="_blank"
+                        target="${(window.top && !window.top.window.location.href.includes("districtr")) ? '_top' : '_blank'}"
                         style="margin-left:auto;margin-right:auto;padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
                       >
                         Proceed to Submit Map
