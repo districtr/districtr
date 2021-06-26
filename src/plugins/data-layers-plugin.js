@@ -543,9 +543,9 @@ export default function DataLayersPlugin(editor) {
     }
 
     tab.addSection(() => html`<h4>Demographics</h4>
-        <p class="italic-note">Use the coalition builder to define a collection
+        ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">Use the coalition builder to define a collection
         of racial and ethnic groups from the Census. In the other data layers below,
-        you'll be able to select the coalition you have defined.</p>
+        you'll be able to select the coalition you have defined.</p>`}
     `)
 
     let coalitionOverlays = [];
@@ -642,7 +642,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     tab.addRevealSection(
-        html`<h5>Race</h5>`,
+        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Race"}</h5>`,
         (uiState, dispatch) => html`
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}

@@ -314,13 +314,14 @@ export function spatial_abilities(id) {
       shapefile: true,
       // find_unpainted: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     alaska_blocks: {
       native_american: true,
+      coalition: false,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     arizona: {

@@ -97,7 +97,7 @@ function getCVAP(place, parts) {
 
 function getPcts(place, parts) {
     const pcts = place.columnSets.find(
-        columnSet => columnSet.name.toLowerCase() === "percentages"
+        columnSet => columnSet.name && columnSet.name.toLowerCase() === "percentages"
     );
     if (pcts) {
         return new Population({ ...pcts, parts });
