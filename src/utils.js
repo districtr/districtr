@@ -958,21 +958,21 @@ export function spatial_abilities (id) {
           // find_unpainted: true,
         },
         va_virginiabeach_precincts: {
-          number_markers: true,
+          number_markers: false,
           coalition: false,
           election_history: true,
           coi2: true,
           shapefile: true
         },
         va_virginiabeach_blocks: {
-          number_markers: true,
+          number_markers: false,
           coalition: false,
           election_history: true,
           coi2: true,
           shapefile: true
         },
         va_virginiabeach_blockgroups: {
-          number_markers: true,
+          number_markers: false,
           coalition: false,
           election_history: true,
           coi2: true,
