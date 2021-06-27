@@ -35,7 +35,47 @@ const plans = [
                     { number: 7, caption: "50.3% Coalition, effectiveness 5" },
                     { number: 8, caption: "50.1% Coalition, effectiveness 5, Wooten in here" }
                 ]
-            }
+            },
+            {
+                id: "a1",
+                name: "Remedial Plan A1",
+                numbers: []
+            },
+            {
+                id: "a2",
+                name: "Remedial Plan A2",
+                numbers: []
+            },
+            {
+                id: "a3",
+                name: "Remedial Plan A3",
+                numbers: []
+            },
+            {
+                id: "a4",
+                name: "Remedial Plan A4",
+                numbers: []
+            },
+            {
+                id: "a5",
+                name: "Remedial Plan A5",
+                numbers: []
+            },
+            {
+                id: "a6",
+                name: "Remedial Plan A6",
+                numbers: []
+            },
+            {
+                id: "a7",
+                name: "Remedial Plan A7",
+                numbers: []
+            },
+            {
+                id: "a8",
+                name: "Remedial Plan A8",
+                numbers: []
+            },
         ]
     }
 ];
@@ -71,7 +111,6 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-
     <a href="https://deploy-preview-338--districtr-web.netlify.app/edit?url=/assets/virginiabeach-plans/${plan.id}.json">
         <li class="plan-thumbs__thumb">
             <figcaption class="thumb__caption">
