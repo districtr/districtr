@@ -109,7 +109,7 @@ export const CoalitionPivotTable = (chartId, columnSet, placeName, parts, units,
             return portion;
         },
         sum: Math.round(fullsum),
-        total: columnSet.subgroups[0].total
+        total: 0
     };
 
     let mockColumnSet = {
