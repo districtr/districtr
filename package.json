@@ -7,6 +7,7 @@
         "build": "npm run build:aliases && npm run build:lambda && npm run build:app",
         "build:aliases": "cp html/edit.html html/COI.html && cp html/edit.html html/plan.html && cp html/event.html html/tag.html && cp html/event.html html/group.html",
         "build:app": "gulp build",
+        "devBuild": "gulp devBuild",
         "build:lambda": "netlify-lambda build src/lambda",
         "develop": "gulp develop",
         "lint": "eslint src",
