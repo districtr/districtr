@@ -1,4 +1,5 @@
 import { html, parts, render } from "lit-html";
+
 import { toggle } from "../components/Toggle";
 import { actions } from "../reducers/charts";
 import Parameter from "../components/Parameter";
@@ -12,31 +13,48 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
-import { addCurrentDistricts } from "../layers/current_districts";
+import { addBoundaryLayers } from "../layers/current_districts";
+import { addMyCOI } from "../layers/my_coi";
 import { spatial_abilities } from "../utils";
-
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
-    const demoLayers = window.mapslide ? state.swipeLayers : state.layers;
+    const demoLayers = state.layers;
+
+    // uploading a float is expensive so sometimes we x1000 to round to nearest 1000
+    if (spatial_abilities(state.place.id).divisor) {
+      state.divisor = spatial_abilities(state.place.id).divisor;
+      if (state.population) {
+        state.population.columns.forEach(sg => sg.divisor = state.divisor);
+      }
+      if (state.cvap) {
+        state.cvap.columns.forEach(sg => sg.divisor = state.divisor);
+      }
+    }
 
     const districtsHeading =
-        state.plan.problem.type === "community" ? "Communities" : "Districts";
+        state.plan.problem.type === "community" ? "Communities" : "My Painted Districts";
     const districtMessage =
         state.plan.problem.type === "community"
             ? "Show my communities"
-            : "Show districts";
-    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community" : "district")
-        + " numbers";
+            : "Show painted districts";
+    const districtNumberLabel = "Show " + (state.plan.problem.type === "community" ? "community numbers" : "numbering for painted districts");
     tab.addSection(
         () => html`
             <h4>${districtsHeading}</h4>
             ${toggle(districtMessage, true, checked => {
                 let opacity = checked ? 0.8 : 0;
                 state.units.setOpacity(opacity);
+                if (checked) {
+                  if (document.getElementById("tool-brush").checked || document.getElementById("tool-eraser").checked) {
+                    state.brush.activate();
+                  }
+                } else {
+                  state.brush.deactivate();
+                }
             })}
             ${(["chicago_community_areas", "alaska_blockgroups", "hawaii_blockgroups", "oregon_blockgroups",
                 "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
@@ -63,10 +81,6 @@ export default function DataLayersPlugin(editor) {
     let smatch = (name) => {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
-
-    if (smatch(state.place.state) === smatch(state.place.id) || showVRA || ["wisco2019acs", "ma"].includes(state.place.id)) {
-        addCountyLayer(tab, state);
-    }
 
     if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
         const noNames = "";
@@ -140,7 +154,7 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.id === "forsyth_nc") {
         let fnc_layer;
-        fetch(`/assets/current_districts/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
+        fetch(`/assets/boundaries/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
             state.map.addSource('fnc', {
                 type: 'geojson',
                 data: fnc
@@ -172,7 +186,7 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.id === "baltimore") {
         let fnc_layer;
-        fetch(`/assets/current_districts/baltimore-precincts.geojson`).then(res => res.json()).then((fnc) => {
+        fetch(`/assets/boundaries/baltimore-precincts.geojson`).then(res => res.json()).then((fnc) => {
             state.map.addSource('fnc', {
                 type: 'geojson',
                 data: fnc
@@ -199,8 +213,8 @@ export default function DataLayersPlugin(editor) {
     }
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax"].includes(state.place.id)) {
-        fetch(`/assets/current_districts/${state.place.id}_2010.geojson`).then(res => res.json()).then((va2010) => {
+    if (["virginia", "lax", "ca_sonoma", "alaska", "alaska_blocks"].includes(state.place.id)) {
+        fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
                 data: va2010
@@ -217,7 +231,7 @@ export default function DataLayersPlugin(editor) {
             );
 
             if (state.place.id === "virginia") {
-                fetch("/assets/current_districts/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
+                fetch("/assets/boundaries/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
                     state.map.addSource('va2013', {
                         type: 'geojson',
                         data: va2013
@@ -229,12 +243,29 @@ export default function DataLayersPlugin(editor) {
                             source: 'va2013',
                             type: 'line',
                             paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                        },
+                        addBelowLabels
+                    );
+                });
+            } else if (state.place.id.includes("alaska")) {
+                fetch("/assets/boundaries/alaska_house_2010.geojson").then(res => res.json()).then((va2013) => {
+                    state.map.addSource('va2013', {
+                        type: 'geojson',
+                        data: va2013
+                    });
+
+                    plan2013 = new Layer(state.map,
+                        {
+                            id: 'va2013',
+                            source: 'va2013',
+                            type: 'line',
+                            paint: { "line-color": "#f00", "line-width": 0.75, "line-opacity": 0 }
                         },
                         addBelowLabels
                     );
                 });
             } else if (state.place.id === "lax") {
-                fetch("/assets/current_districts/lax_senate.geojson").then(res => res.json()).then((va2013) => {
+                fetch("/assets/boundaries/lax_senate.geojson").then(res => res.json()).then((va2013) => {
                     state.map.addSource('va2013', {
                         type: 'geojson',
                         data: va2013
@@ -250,7 +281,7 @@ export default function DataLayersPlugin(editor) {
                         addBelowLabels
                     );
                 });
-                fetch("/assets/current_districts/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
+                fetch("/assets/boundaries/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
                     state.map.addSource('lax_ush', {
                         type: 'geojson',
                         data: lax_ush
@@ -270,20 +301,11 @@ export default function DataLayersPlugin(editor) {
         });
     }
 
-    // school zones and towns
+    // school zones and towns for non statewide
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo", "indiana", "missouri", "newhampshire", "wisco2019acs", "wisconsin", "wisconsin2020"].includes(state.place.id)) {
-        let st = "oh";
-        if (state.place.id === "indiana") {
-          st = "in";
-        } else if (state.place.id === "missouri") {
-          st = "mo";
-        } else if (state.place.id === "newhampshire") {
-          st = "nh";
-        } else if (["wisconsin", "wisc2020", "wisco2019acs"].includes(state.place.id)) {
-          st = "wi";
-        }
-        fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
+        let st = state.place.state.toLowerCase().replace(" ","");
+        fetch(`/assets/boundaries/school_districts/${st}/${st}_schools.geojson`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
                 data: school_gj
@@ -298,7 +320,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            fetch(`/assets/current_districts/${st}schools/${state.place.id}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+            fetch(`/assets/boundaries/school_districts/${st}/${st}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
                 state.map.addSource('school_centroids', {
                     type: 'geojson',
                     data: school_centroids
@@ -329,7 +351,7 @@ export default function DataLayersPlugin(editor) {
                 if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
-                fetch(`/assets/current_districts/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
+                fetch(`/assets/boundaries/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
                     state.map.addSource('places_gj', {
                         type: 'geojson',
                         data: places_gj
@@ -344,7 +366,7 @@ export default function DataLayersPlugin(editor) {
                         },
                         addBelowLabels
                     );
-                    fetch(`/assets/current_districts/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((places_centroids) => {
+                    fetch(`/assets/boundaries/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((places_centroids) => {
                         state.map.addSource('places_centroids', {
                             type: 'geojson',
                             data: places_centroids
@@ -376,7 +398,7 @@ export default function DataLayersPlugin(editor) {
             });
         });
     } else if (["elpasotx"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
-      fetch(`/assets/current_districts/${state.place.id}_precincts.geojson`).then(res => res.json()).then((precinct_gj) => {
+      fetch(`/assets/boundaries/${state.place.id}_precincts.geojson`).then(res => res.json()).then((precinct_gj) => {
           state.map.addSource('precinct_gj', {
               type: 'geojson',
               data: precinct_gj
@@ -391,7 +413,7 @@ export default function DataLayersPlugin(editor) {
               addBelowLabels
           );
 
-          fetch(`/assets/current_districts/${state.place.id}_precincts_centroids.geojson`).then(res => res.json()).then((precinct_centroids) => {
+          fetch(`/assets/boundaries/${state.place.id}_precincts_centroids.geojson`).then(res => res.json()).then((precinct_centroids) => {
               state.map.addSource('precinct_centroids', {
                   type: 'geojson',
                   data: precinct_centroids
@@ -447,28 +469,28 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin", "indiana", "missouri", "newhampshire", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
-        const toggleOHlayer = () => {
+    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
+        const toggleSchoolsTownslayer = () => {
             // console.log(document.getElementsByName("enacted"));
-            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("ohschools").checked ? 1 : 0);
-            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("ohschools").checked ? 1 : 0);
-            placesLayer && placesLayer.setOpacity(document.getElementById("ohplaces").checked ? 1 : 0);
-            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("ohplaces").checked ? 1 : 0);
+            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("schools").checked ? 1 : 0);
+            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("schools").checked ? 1 : 0);
+            placesLayer && placesLayer.setOpacity(document.getElementById("towns").checked ? 1 : 0);
+            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("towns").checked ? 1 : 0);
         };
         tab.addRevealSection(
             'Boundaries',
             (uiState, dispatch) => html`
               <label style="display:block;margin-bottom:8px;">
-                <input type="radio" name="enacted" @change="${toggleOHlayer}" checked/>
+                <input type="radio" name="enacted" @change="${toggleSchoolsTownslayer}" checked/>
                 Hidden
               </label>
               ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
-                <input id="ohplaces" type="radio" name="enacted" @change="${toggleOHlayer}"/>
+                <input id="towns" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
                 Cities and Towns
               </label>` : ""}
               <label style="display:block;margin-bottom:8px;">
-                <input id="ohschools" type="radio" name="enacted" @change="${toggleOHlayer}"/>
-                Unified School Districts
+                <input id="schools" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
+                School Districts
               </label>`,
             {
                 isOpen: true
@@ -494,6 +516,34 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
+    } else if (state.place.id === "ca_sonoma") {
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("Supervisorial Districts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
+    } else if (state.place.id.includes("alaska")) {
+        tab.addRevealSection(
+            'Enacted Plans',
+            (uiState, dispatch) => html`
+            ${toggle("State House", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2013 && plan2013.setOpacity(opacity);
+            })}
+            ${toggle("State Senate", false, checked => {
+                let opacity = checked ? 1 : 0;
+                plan2010 && plan2010.setOpacity(opacity);
+            })}`,
+            {
+                isOpen: false
+            }
+        );
     } else if (state.place.id === "elpasotx" && !state.units.sourceId.includes("precinct")) {
         tab.addRevealSection(
             'Boundaries',
@@ -509,15 +559,27 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    tab.addSection(() => html`<h4>Boundaries</h4>`)
+
+    if (smatch(state.place.state) === smatch(state.place.name) || showVRA) {
+        addCountyLayer(tab, state);
+    }
+
     if (spatial_abilities(state.place.id).native_american) {
         addAmerIndianLayer(tab, state);
     }
 
-    if (spatial_abilities(state.place.id).current_districts) {
-        addCurrentDistricts(tab, state);
+    addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
+
+    if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
+        addMyCOI(state, tab);
     }
 
-    tab.addSection(() => html`<h4>Demographics</h4>`)
+    tab.addSection(() => html`<h4>Demographics</h4>
+        ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">Use the coalition builder to define a collection
+        of racial and ethnic groups from the Census. In the other data layers below,
+        you'll be able to select the coalition you have defined.</p>`}
+    `)
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition !== false) {
@@ -543,7 +605,7 @@ export default function DataLayersPlugin(editor) {
         );
 
         tab.addRevealSection(
-            "Coalition Builder",
+            html`<h5>Coalition Builder</h5>`,
             (uiState, dispatch) => html`
               ${Parameter({
                   label: "",
@@ -606,21 +668,21 @@ export default function DataLayersPlugin(editor) {
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
+            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition citizen voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
     }
 
     tab.addRevealSection(
-        "Race",
+        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Race"}</h5>`,
         (uiState, dispatch) => html`
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,
         {
-            isOpen: true
+            isOpen: false
         }
     );
 
@@ -651,10 +713,9 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            "Socioeconomic data" + (spatial_abilities(state.place.id).multiyear
-              ? ` (${spatial_abilities(state.place.id).multiyear})`
-              : ""
-            ),
+            html`Socioeconomic data ${spatial_abilities(state.place.id).multiyear
+              ? `(${spatial_abilities(state.place.id).multiyear})`
+              : ""}`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
               ${state.rent ?
@@ -678,7 +739,7 @@ export default function DataLayersPlugin(editor) {
                       <span class="square">80%</span>
                       <span class="square">100%</span>
                   </div>` : null}
-            `, {}
+            `, {isOpen: false}
         );
     }
 
@@ -689,17 +750,28 @@ export default function DataLayersPlugin(editor) {
             state.elections,
             toolbar
         );
-        tab.addRevealSection('Previous Elections',
-            () => html`
-
-                <div class="option-list__item">
+        tab.addSection(() => html`<h4>Statewide Elections</h4>
+            <div class="option-list__item">
                     ${partisanOverlays.render()}
-                </div>
-            `,
-            {
-              isOpen: true
-            }
+            </div>`
         );
+    }
+
+    if (state.pcts) {
+      const pctOverlay = new OverlayContainer(
+          "pcts",
+          state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
+          state.pcts,
+          "Additional demographics",
+          false,
+          false,
+          null,
+          true,
+      );
+      tab.addSection(() => html`<div class="option-list__item">
+                  ${pctOverlay.render()}
+          </div>`
+      );
     }
 
     toolbar.addTab(tab);

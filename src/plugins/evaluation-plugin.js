@@ -9,6 +9,7 @@ import VRAResultsSection from "../components/Charts/VRAResultsSection"
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
+import PartisanSummarySection from "../components/Charts/PartisanSummary";
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -59,7 +60,7 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: true,
+                isOpen: false,
                 activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
             }
         );
@@ -151,11 +152,12 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.contiguity,
                     spatial_abilities(state.place.id).contiguity,
+                    state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
     }
@@ -170,11 +172,12 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.vra_effectiveness,
                     state.waiting,
+                    state.place.id,
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: true
+                isOpen: false
             }
         );
         
