@@ -53,8 +53,10 @@ export default function bundleViews(production = true, caches) {
             return resolve(files.map(filename => filename.split(".")[0]));
         })
     ).then(views =>
-	async.mapSeries(views, function (view) {
+	async.map(views, function (view) {
+	    console.time(view);
             bundleView(view, production, caches ? caches[view] : null)
+	    console.timeEnd(view);
 	})
     );
 }
