@@ -24,19 +24,19 @@ export function bundleView(view, production = true, cache) {
             }
         }).then(bundle =>
 		{
+		bundle.write({
+		    file: `./dist/es6/${view}.js`,
+		    format: "umd",
+		    name: "bundle",
+		    sourcemap: production
+		});
+		    if (production) {
 		    bundle.write({
 			file: `./dist/es5/${view}.js`,
 			format: "umd",
 			name: "ieBundle",
 			sourcemap: production
 		    });
-		    if (production) {
-		        bundle.write({
-		            file: `./dist/es6/${view}.js`,
-			    format: "umd",
-			    name: "bundle",
-			    sourcemap: production
-		        });
 		    }
 		}
         )
