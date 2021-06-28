@@ -9,18 +9,15 @@ import {
     serve
 } from "./build/dev-server";
 
-var exec = require('child_process').exec;
-
 const sources = {
     js: "./src/**/*.js",
     css: "./sass/**/*.scss",
     html: "./html/*.html",
-    assets: "./assets",
+    assets: "./assets/**",
     deployFiles: "./deploy/**"
 };
 
 export const clean = () => new Promise(resolve => fs.rmdir("./dist", resolve));
-export const mkdir = () => new Promise(resolve => fs.mkdir("./dist", resolve));
 
 export const deployFiles = () =>
     gulp.src(sources.deployFiles).pipe(gulp.dest("./dist"));
@@ -34,40 +31,18 @@ export const css = () =>
         .pipe(gulp.dest("./dist/css"))
         .pipe(browserSync.stream());
 
-// export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
-export const html = () =>
-	exec('cp -r ' + sources.html + ' ./dist/', function (err, stdout, stderr) {
-		if (stdout) {
-			console.log(stdout);
-		}
-		if (stderr) {
-			console.log(stderr);
-		}
-	});
+export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
 
-/*
 export const assets = () =>
     gulp.src(sources.assets).pipe(gulp.dest("./dist/assets"));
-*/
-export const assets = () =>
-	exec('cp -r ' + sources.assets + ' ./dist/', function (err, stdout, stderr) {
-		if (stdout) {
-			console.log(stdout);
-		}
-		if (stderr) {
-			console.log(stderr);
-		}
-	});
 
 export const build = gulp.series(
     clean,
-    mkdir,
     gulp.parallel(js, css, html, assets, deployFiles)
 );
 
 export const devBuild = gulp.series(
     clean,
-    mkdir,
     gulp.parallel(bundleWithCacheForDevelopment, css, html, assets)
 );
 
