@@ -19,11 +19,10 @@ const sources = {
     deployFiles: "./deploy/**"
 };
 
-export const clean = () => new Promise(resolve => fs.rmdir("./dist", resolve));
+// export const clean = () => new Promise(resolve => fs.rmdir("./dist", resolve));
 export const mkdir = () => new Promise(resolve => fs.mkdir("./dist", resolve));
 
-export const deployFiles = () =>
-    gulp.src(sources.deployFiles).pipe(gulp.dest("./dist"));
+export const deployFiles = () => gulp.src(sources.deployFiles).pipe(gulp.dest("./dist"));
 
 export const js = () => bundleViews();
 
@@ -44,40 +43,25 @@ export const css = () => exec("sass sass:dist/css/", errLog);
         .pipe(sass())
         .pipe(gulp.dest("./dist/css"))
         .pipe(browserSync.stream());
+*/
 
 // export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
-export const html = () =>
-	exec('cp -r ' + sources.html + ' ./dist/', function (err, stdout, stderr) {
-		if (stdout) {
-			console.log(stdout);
-		}
-		if (stderr) {
-			console.log(stderr);
-		}
-	});
+export const html = () => exec('rsync --update ' + sources.html + ' ./dist/', errLog);
 
 /*
 export const assets = () =>
     gulp.src(sources.assets).pipe(gulp.dest("./dist/assets"));
 */
-export const assets = () =>
-	exec('cp -r ' + sources.assets + ' ./dist/', function (err, stdout, stderr) {
-		if (stdout) {
-			console.log(stdout);
-		}
-		if (stderr) {
-			console.log(stderr);
-		}
-	});
+export const assets = () => exec('rsync --update ' + sources.assets + ' ./dist/', errLog);
 
 export const build = gulp.series(
-    clean,
+    // clean,
     mkdir,
     gulp.parallel(js, css, html, assets, deployFiles)
 );
 
 export const devBuild = gulp.series(
-    clean,
+    // clean,
     mkdir,
     gulp.parallel(bundleWithCacheForDevelopment, css, html, assets)
 );
