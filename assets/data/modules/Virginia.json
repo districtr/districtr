@@ -201,58 +201,64 @@
               {
                 "key": "rous_18",
                 "name": "Aaron R. Rouse",
-                "sum": 51409,
-                "min": 185,
-                "max": 1251
+                "sum": 51411,
+                "min": 0,
+                "max": 705
               },
               {
                 "key": "moss_18",
                 "name": "John D. Moss",
-                "sum": 51628,
-                "min": 174,
-                "max": 1024
+                "sum": 51631,
+                "min": 0,
+                "max": 852
               },
               {
                 "key": "olvr_18",
                 "name": "Dee B. Oliver",
-                "sum": 60264,
-                "min": 177,
-                "max": 1163
+                "sum": 60267,
+                "min": 0,
+                "max": 861
               },
               {
                 "key": "whit_18",
                 "name": "Allison M. White",
-                "sum": 30650,
-                "min": 69,
-                "max": 620
+                "sum": 30649,
+                "min": 0,
+                "max": 383
               },
               {
                 "key": "bght_18",
                 "name": "Linda M. Bright",
-                "sum": 19520,
-                "min": 54,
-                "max": 313
+                "sum": 19522,
+                "min": 0,
+                "max": 258
               },
               {
                 "key": "hubb_18",
                 "name": "Garry B. Hubbard",
-                "sum": 17315,
-                "min": 36,
-                "max": 1562
-              },
+                "sum": 17320,
+                "min": 0,
+                "max": 1048
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
               {
                 "key": "wooten_18",
                 "name": "Sabrina Wooten",
                 "sum": 75894,
-                "min": 219,
-                "max": 1374
+                "min": 0,
+                "max": 910
               },
               {
                 "key": "wray_18",
                 "name": "Eric Wray II",
-                "sum": 39255,
-                "min": 165,
-                "max": 731
+                "sum": 39257,
+                "min": 0,
+                "max": 615
               }
             ]
           },
@@ -971,58 +977,64 @@
               {
                 "key": "rous_18",
                 "name": "Aaron R. Rouse",
-                "sum": 51408,
+                "sum": 51411,
                 "min": 0,
-                "max": 375
+                "max": 705
               },
               {
                 "key": "moss_18",
                 "name": "John D. Moss",
-                "sum": 51623,
+                "sum": 51631,
                 "min": 0,
-                "max": 486
+                "max": 852
               },
               {
                 "key": "olvr_18",
                 "name": "Dee B. Oliver",
-                "sum": 60212,
+                "sum": 60267,
                 "min": 0,
-                "max": 382
+                "max": 861
               },
               {
                 "key": "whit_18",
                 "name": "Allison M. White",
-                "sum": 30596,
+                "sum": 30649,
                 "min": 0,
-                "max": 243
+                "max": 383
               },
               {
                 "key": "bght_18",
                 "name": "Linda M. Bright",
-                "sum": 19487,
+                "sum": 19522,
                 "min": 0,
-                "max": 165
+                "max": 258
               },
               {
                 "key": "hubb_18",
                 "name": "Garry B. Hubbard",
-                "sum": 17259,
+                "sum": 17320,
                 "min": 0,
-                "max": 355
-              },
+                "max": 1048
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
               {
                 "key": "wooten_18",
                 "name": "Sabrina Wooten",
-                "sum": 75898,
+                "sum": 75894,
                 "min": 0,
-                "max": 527
+                "max": 910
               },
               {
                 "key": "wray_18",
                 "name": "Eric Wray II",
-                "sum": 39260,
+                "sum": 39257,
                 "min": 0,
-                "max": 330
+                "max": 615
               }
             ]
           },
@@ -1783,7 +1795,13 @@
                 "sum": 17320,
                 "min": 0,
                 "max": 1048
-              },
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
               {
                 "key": "wooten_18",
                 "name": "Sabrina Wooten",
