@@ -871,61 +871,61 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "TOTPOP",
+              "key": "TOTPOP19",
               "name": "Total population",
-              "sum": 6660,
+              "sum": 6873,
               "min": 0,
-              "max": 348
+              "max": 362
             },
             "subgroups": [
               {
-                "key": "WPOP",
+                "key": "WPOP19",
                 "name": "White population",
-                "sum": 2788,
+                "sum": 2792,
                 "min": 0,
-                "max": 44
+                "max": 37
               },
               {
-                "key": "BPOP",
+                "key": "BPOP19",
                 "name": "Black population",
-                "sum": 2,
+                "sum": 1,
                 "min": 0,
-                "max": 0
+                "max": 1
               },
               {
-                "key": "HPOP",
+                "key": "HPOP19",
                 "name": "Hispanic population",
-                "sum": 59,
+                "sum": 63,
                 "min": 0,
-                "max": 6
+                "max": 14
               },
               {
-                "key": "ASIANPOP",
+                "key": "ASIANPOP19",
                 "name": "Asian population",
-                "sum": 3,
+                "sum": 0,
                 "min": 0,
                 "max": 0
               },
               {
-                "key": "AMINPOP",
+                "key": "AMINPOP19",
                 "name": "American Indian population",
-                "sum": 3601,
+                "sum": 3800,
                 "min": 0,
-                "max": 337
+                "max": 349
               },
               {
-                "key": "NHPIPOP",
+                "key": "NHPIPOP19",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 3,
+                "sum": 4,
                 "min": 0,
                 "max": 0
               },
               {
-                "key": "2MOREPOP",
+                "key": "2MOREPOP19",
                 "name": "Two or more races",
-                "sum": 244,
+                "sum": 254,
                 "min": 0,
-                "max": 18
+                "max": 30
               }
             ]
           },
@@ -933,61 +933,61 @@
             "type": "population",
             "name": "Citizen Voting Age Population",
             "total": {
-              "key": "CVAP",
+              "key": "CVAP19",
               "name": "Voting age population",
-              "sum": 4354,
+              "sum": 4472,
               "min": 0,
-              "max": 213
+              "max": 229
             },
             "subgroups": [
               {
-                "key": "WCVAP",
+                "key": "WCVAP19",
                 "name": "White voting age population",
-                "sum": 2316,
+                "sum": 2319,
                 "min": 0,
-                "max": 42
+                "max": 29
               },
               {
-                "key": "BCVAP",
+                "key": "BCVAP19",
                 "name": "Black voting age population",
-                "sum": 7,
+                "sum": 4,
                 "min": 0,
-                "max": 1
+                "max": 4
               },
               {
-                "key": "HCVAP",
+                "key": "HCVAP19",
                 "name": "Hispanic voting age population",
-                "sum": 34,
-                "min": 0,
-                "max": 5
-              },
-              {
-                "key": "AMINCVAP",
-                "name": "Native American voting age population",
-                "sum": 1868,
-                "min": 0,
-                "max": 164
-              },
-              {
-                "key": "NHPICVAP",
-                "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 3,
-                "min": 0,
-                "max": 0
-              },
-              {
-                "key": "ASIANCVAP",
-                "name": "Asian voting age population",
-                "sum": 3,
-                "min": 0,
-                "max": 0
-              },
-              {
-                "key": "2MORECVAP",
-                "name": "Two or more races voting age population",
-                "sum": 134,
+                "sum": 37,
                 "min": 0,
                 "max": 11
+              },
+              {
+                "key": "AMINCVAP19",
+                "name": "Native American voting age population",
+                "sum": 1972,
+                "min": 0,
+                "max": 197
+              },
+              {
+                "key": "NHPICVAP19",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 4,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "ASIANCVAP19",
+                "name": "Asian voting age population",
+                "sum": 0,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "2MORECVAP19",
+                "name": "Two or more races voting age population",
+                "sum": 139,
+                "min": 0,
+                "max": 16
               }
             ]
           },
@@ -1159,7 +1159,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.nd_benson_blocks"
+              "url": "mapbox://districtr.nd_benson_blocks?v=2"
             },
             "sourceLayer": "nd_benson_blocks"
           },
