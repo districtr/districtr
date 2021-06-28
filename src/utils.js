@@ -319,7 +319,6 @@ export function spatial_abilities(id) {
       },
     },
     alaska_blocks: {
-      native_american: true,
       coalition: false,
       school_districts: true,
       municipalities: true,
