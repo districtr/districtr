@@ -27,7 +27,18 @@ export const deployFiles = () =>
 
 export const js = () => bundleViews();
 
-export const css = () =>
+
+function errLog(err, stdout, stderr) {
+	if (stdout) {
+		console.log(stdout);
+	}
+	if (stderr) {
+		console.log(stderr);
+	}
+}
+
+export const css = () => exec("sass sass:dist/css/", errLog);
+/*
     gulp
         .src(sources.css)
         .pipe(sass())
