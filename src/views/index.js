@@ -57,7 +57,7 @@ export default () => {
         //         html`
         //             <a href="/signin" class="sign-in__link">Sign in</a>
         //             <a href="/register" class="button sign-in__link">
-        //                 Create your account</a
+        //                 operate asdfyoasdfur account</a
         //             >
         //         `,
         //         signInHeader
