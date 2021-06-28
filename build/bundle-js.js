@@ -58,22 +58,3 @@ export default function bundleViews(production = true, caches) {
 	})
     );
 }
-
-/*
-export default function bundleViews(production = true, caches) {
-    return new Promise((resolve, reject) =>
-        fs.readdir("./src/views/", (err, files) => {
-            if (err) {
-                reject(err);
-            }
-            return resolve(files.map(filename => filename.split(".")[0]));
-        })
-    ).then(views =>
-        Promise.all(
-            views.map(view =>
-                bundleView(view, production, caches ? caches[view] : null)
-            )
-        )
-    );
-}
-*/
