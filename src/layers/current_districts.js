@@ -192,8 +192,8 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     // create radio buttons depending on what exists
     tab.addSection(() =>
         html`
-        <div id='district-overlay'>    
-            <h4>Boundary Overlays</h4>
+        <div id='district-overlay'>
+            <h5>Additional Boundaries</h5>
             <li>
                 <label style="cursor: pointer;">
                     <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
@@ -201,45 +201,45 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 </label>
             </li>
             ${current_districts ?
-                (nested(placeID) ? 
+                (nested(placeID) ?
                 html`<li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        US Congress
+                        Current US Congress
                     </label>
                 </li>
                 <li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Legislature (Nested)
+                        Current State Legislature (Nested)
                     </label>
-                </li>` : 
+                </li>` :
                 html`<li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        US Congress
+                        Current US Congress
                     </label>
                 </li>
                 <li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Senate
+                        Current State Senate
                     </label>
                 </li>
                 <li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                        State House
+                        Current State House
                     </label>
                 </li>`): ""}
-                ${school_districts ? 
+                ${school_districts ?
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                            Schools
+                            School Districts
                         </label>
                     </li>` : ""}
-                ${municipalities ? 
+                ${municipalities ?
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>

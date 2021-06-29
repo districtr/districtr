@@ -23,7 +23,7 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, id, setParts, eventCode) {
+export function startNewPlan(place, problem, units, id, setParts, eventCode, portalOn) {
     if (setParts) {
         problem.numberOfParts = setParts;
     }
@@ -31,6 +31,9 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     let action = (window.location.hostname === "localhost" ? "edit" : (
       problem.type === "community" ? "COI" : "plan"
     ));
+    if (portalOn) {
+      eventCode += "&portal";
+    }
     navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
 
@@ -93,12 +96,17 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             let action = (window.location.hostname === "localhost" ? "edit" : (
               serialized.problem.type === "community" ? "COI" : "plan"
             ));
-            let extras = window.location.href.includes("portal") ? "?portal" : "";
+            let extras = "";
+            if (window.location.href.includes("portal")) {
+                extras = "?portal";
+            } else if (window.location.href.includes("qa-portal")) {
+                extras = "?qa-portal"
+            }
             history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-            if ((eventCode || ["Michigan", "Ohio", "Missouri", "Utah"].includes(state.place.state)) && spatial_abilities(state.place.id).shapefile) {
+            if (spatial_abilities(state.place.id).shapefile) {
                 fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
             }
             callback(info.simple_id, action);

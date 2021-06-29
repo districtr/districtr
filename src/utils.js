@@ -309,12 +309,21 @@ export function spatial_abilities(id) {
     },
     alaska: {
       number_markers: true,
-      // precincts cross county lines
       native_american: true,
       shapefile: true,
-      // find_unpainted: true,
+      school_districts: true,
+      municipalities: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
+      },
+    },
+    alaska_blocks: {
+      native_american: true,
+      coalition: false,
+      school_districts: true,
+      municipalities: true,
+      portal: {
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     arizona: {
@@ -370,6 +379,31 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+    },
+    sacramento: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      // divisor: 1000,
+    },
+    ca_sonoma: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_pasadena: {
+      coalition: false,
+      border: true,
+    },
+    sanluiso: {
+      coalition: false,
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      municipalities: true,
+      // sideload: true,
     },
     ccsanitation: {
       // multiyear: 2018,
@@ -598,7 +632,12 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.massachusetts-mapping.org',
       },
-
+    },
+    ma_vra: {
+      // number_markers: true,
+      vra_effectiveness: true,
+      // shapefile: true,
+      // find_unpainted: true,
     },
     lowell: {
       neighborhoods: true,
@@ -726,7 +765,17 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
+      find_unpainted: true
+    },
+    new_mexico_portal: {
+      number_markers: true,
+      county_brush: true,
+      native_american: true,
+      contiguity: 2,
+      current_districts: true,
+      shapefile: true,
       find_unpainted: true,
+      election_history: false,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
@@ -797,81 +846,129 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohakron: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohcin: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohcle: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohse: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     ohtoledo: {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     akroncanton: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     cincinnati: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     clevelandeuclid: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     columbus: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     dayton: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     limaoh: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     mansfield: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     portsmouthoh: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     toledo: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     youngstown: {
       number_markers: true,
       shapefile: true,
       border: true,
+      portal: {
+        endpoint: 'https://portal.ohio-mapping.org',
+      },
     },
     oklahoma: {
       number_markers: true,
@@ -905,7 +1002,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       sideload: true,
       load_coi: false,
-      contiguity: 2
+      contiguity: 2,
     },
     philadelphia: {
       number_markers: true,
@@ -999,6 +1096,7 @@ export function spatial_abilities(id) {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },
+        shapefile: true,
       },
     vermont: {
       number_markers: true,
@@ -1030,7 +1128,7 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       find_unpainted: true,
-      contiguity: true,
+      contiguity: 2,
     },
     yakima_wa: {
       coalition: false,

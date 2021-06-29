@@ -25,7 +25,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins;
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -37,12 +37,13 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
     EvaluationPlugin,
     AnalysisPlugin
+    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
@@ -126,7 +127,7 @@ function loadContext(context) {
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
         && window.location.hostname !== 'localhost'
-        && window.location.hash && (["#plan", "#portal"].includes(window.location.hash))) {
+        && window.location.hash && (["#plan", "#portal", "#qa-portal"].includes(window.location.hash))) {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
         shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
@@ -137,6 +138,9 @@ function loadContext(context) {
         }
         if (window.location.hash === "#portal") {
             shortPlanName += "?portal";
+        }
+        if (window.location.hash === "#qa-portal") {
+            shortPlanName += "?qa-portal";
         }
         window.history.replaceState({}, "Districtr", shortPlanName);
     }

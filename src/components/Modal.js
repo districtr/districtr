@@ -38,7 +38,7 @@ export function renderModal(innerContent) {
     return template;
 }
 
-export function renderSaveModal(state, savePlanToDB) {
+export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
     const target = document.getElementById("modal");
 
     savePlanToDB(state, undefined, null, (_id, action) => {
@@ -46,6 +46,11 @@ export function renderSaveModal(state, savePlanToDB) {
         if (window.location.href.includes("event=")) {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
         }
+        let portalLink = spatial_abilities(state.place.id).portal.endpoint;
+        if (isFromQAPortal) {
+            portalLink = portalLink.replace('portal','qa-portal')
+        }
+
         let withUrl = (_id) => {
             render(renderModal(
                 html`
@@ -71,7 +76,7 @@ export function renderSaveModal(state, savePlanToDB) {
                     <p>When you are ready, you can bring this map back to the submission form on the ${state.place.state} Redistricting Public Comment Portal.</p>
                     <div style="text-align:center">
                       <a
-                        href="${spatial_abilities(state.place.id).portal.endpoint}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
+                        href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
                         target="_blank"
                         style="margin-left:auto;margin-right:auto;padding:6px;background-color:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
                       >
