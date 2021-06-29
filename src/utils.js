@@ -309,18 +309,21 @@ export function spatial_abilities(id) {
     },
     alaska: {
       number_markers: true,
-      // precincts cross county lines
       native_american: true,
       shapefile: true,
-      // find_unpainted: true,
+      school_districts: true,
+      municipalities: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     alaska_blocks: {
       native_american: true,
+      coalition: false,
+      school_districts: true,
+      municipalities: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     arizona: {
@@ -762,7 +765,17 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
+      find_unpainted: true
+    },
+    new_mexico_portal: {
+      number_markers: true,
+      county_brush: true,
+      native_american: true,
+      contiguity: 2,
+      current_districts: true,
+      shapefile: true,
       find_unpainted: true,
+      election_history: false,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
