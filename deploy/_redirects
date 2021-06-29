@@ -278,6 +278,7 @@
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
+/eval/:place/:plan /eval/edit?url=/assets/:place-plans/:plan.json
 
 # last failed typos
 /new/*        /new
