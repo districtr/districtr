@@ -5,6 +5,7 @@
 /COI/* /COI.html 200
 /edit/* /edit.html 200
 /event/* /event.html 200
+/eval/* eval.html 200
 /tag/* /tag.html 200
 /group/* /group.html 200
 /user_guide /guide
@@ -278,7 +279,6 @@
 /qa-portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#qa-portal
 
 /eval/:place/:plan /eval?url=/assets/:place-plans/:plan.json
-/eval/* eval.html 200
 
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
