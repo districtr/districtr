@@ -374,8 +374,9 @@ function compactness_slide(state, cut_edges, plan_scores) {
     
     // check that polsby popper calculation worked
     let successful_calc = (plan_scores !== "Polsby Popper unavailable for this geometry.");
+    let year = enacted_year(state.place.name, state.plan.problem.name);
     if (enacted && successful_calc) {
-        headers = ["Your Plan", "Enacted Plan"];
+        headers = ["Your Plan", `${year} Enacted Plan`];
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -500,7 +501,17 @@ function county_slide(state, data, municipalities) {
     ${DataTable(headers, rows)}`
 }
 
-/** LOOKUP FUNCTIONS */
+/** HELPER FUNCTIONS */
+function enacted_year(st, districts) {
+    return 2010;
+}
+/** Changes since 2010
+ * Texas - all?
+ * NC - all
+ * Virginia - HoD, Congress?
+ * Pennsylvania - 
+ * 
+ */
 function polsby_popper(st, districts) {
     let state_name_to_postal = {
         'Alabama': 'AL',
