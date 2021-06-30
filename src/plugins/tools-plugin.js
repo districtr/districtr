@@ -71,7 +71,7 @@ export default function ToolsPlugin(editor) {
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
-            state.units,
+            state.layers,
             state.columnSets,
             state.nameColumn,
             state.unitsRecord,

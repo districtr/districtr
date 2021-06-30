@@ -489,65 +489,9 @@
               "name": "Total population",
               "sum": 710226,
               "min": 0,
-              "max": 1698
+              "max": 600
             },
             "subgroups": [
-              {
-                "key": "NH_WHITE",
-                "name": "White population",
-                "sum": 455315,
-                "min": 0,
-                "max": 1142
-              },
-              {
-                "key": "NH_BLACK",
-                "name": "Black population",
-                "sum": 21949,
-                "min": 0,
-                "max": 192
-              },
-              {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 39249,
-                "min": 0,
-                "max": 310
-              },
-              {
-                "key": "NH_ASIAN",
-                "name": "Asian population",
-                "sum": 37459,
-                "min": 0,
-                "max": 430
-              },
-              {
-                "key": "NH_AMIN",
-                "name": "American Indian population",
-                "sum": 102556,
-                "min": 0,
-                "max": 574
-              },
-              {
-                "key": "NH_NHPI",
-                "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 7219,
-                "min": 0,
-                "max": 157
-              },
-              {
-                "key": "NH_2MORE",
-                "name": "Two or more races",
-                "sum": 45368,
-                "min": 0,
-                "max": 177
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 1111,
-                "min": 0,
-                "max": 11
-              }
             ]
           },
           {
@@ -558,65 +502,9 @@
               "name": "Voting age population",
               "sum": 522849,
               "min": 0,
-              "max": 1295
+              "max": 600
             },
             "subgroups": [
-              {
-                "key": "WVAP",
-                "name": "White voting age population",
-                "sum": 356983,
-                "min": 0,
-                "max": 746
-              },
-              {
-                "key": "BVAP",
-                "name": "Black voting age population",
-                "sum": 16129,
-                "min": 0,
-                "max": 174
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 24437,
-                "min": 0,
-                "max": 289
-              },
-              {
-                "key": "AMINVAP",
-                "name": "Native American voting age population",
-                "sum": 69383,
-                "min": 0,
-                "max": 330
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 4496,
-                "min": 0,
-                "max": 74
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian voting age population",
-                "sum": 27883,
-                "min": 0,
-                "max": 429
-              },
-              {
-                "key": "OTHERVAP",
-                "name": "Other races voting age population",
-                "sum": 718,
-                "min": 0,
-                "max": 7
-              },
-              {
-                "key": "2MOREVAP",
-                "name": "Two or more races voting age population",
-                "sum": 22820,
-                "min": 0,
-                "max": 79
-              }
             ]
           }
         ],
@@ -655,23 +543,17 @@
       }
     ],
     "state": "Alaska",
-    "limit": "community",
     "id": "alaska_blocks",
     "name": "Alaska",
     "districtingProblems": [
       {
-        "name": "Congress",
-        "numberOfParts": 8,
-        "pluralNoun": "Congressional Districts"
-      },
-      {
         "name": "State Senate",
-        "numberOfParts": 34,
+        "numberOfParts": 20,
         "pluralNoun": "State Senate Districts"
       },
       {
         "name": "State House",
-        "numberOfParts": 165,
+        "numberOfParts": 40,
         "pluralNoun": "State House Districts"
       }
     ]

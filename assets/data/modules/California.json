@@ -1976,7 +1976,7 @@
           },
           {
             "type": "population",
-            "name": "percentages",
+            "name": "Percentages",
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
@@ -2156,6 +2156,549 @@
         "name": "County Board",
         "numberOfParts": 5,
         "pluralNoun": "Board Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 280196,
+              "min": 0,
+              "max": 3604
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 4165,
+                "min": 0,
+                "max": 1451
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 8583,
+                "min": 0,
+                "max": 632
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 61365,
+                "min": 0,
+                "max": 695
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 212661,
+              "min": 0,
+              "max": 3555
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 167550,
+                "min": 0,
+                "max": 2293
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 3545,
+                "min": 0,
+                "max": 1565
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 6393,
+                "min": 0,
+                "max": 657
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 164,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 31456,
+                "min": 0,
+                "max": 547
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -121.4382,
+            34.8975
+          ],
+          [
+            -119.4726,
+            35.7967
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanluiso_blocks_points"
+            },
+            "sourceLayer": "sanluiso_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanluiso_blocks"
+            },
+            "sourceLayer": "sanluiso_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "San Luis Obispo",
+    "id": "sanluiso",
+    "districtingProblems": [
+      {
+        "name": "County Board",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "id": "ca_sonoma",
+    "name": "Sonoma County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 499774,
+              "min": 0,
+              "max": 1620
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 356468,
+              "min": 0,
+              "max": 1322
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 268350,
+                "min": 0,
+                "max": 1062
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 6402,
+                "min": 0,
+                "max": 134
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 16067,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 58213,
+                "min": 0,
+                "max": 368
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 5327,
+                "min": 0,
+                "max": 70
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 706,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 1365,
+                "min": 0,
+                "max": 55
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 92,
+               "min": 0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 124,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 57,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 306,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 125,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 188,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 59,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 8,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 9,
+   "min": 0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -123.6325,
+            38.0733
+          ],
+          [
+            -122.3474,
+            38.8529
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sonoma_blocks_points"
+            },
+            "sourceLayer": "ca_sonoma_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sonoma_blocks"
+            },
+            "sourceLayer": "ca_sonoma_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sonomadata_blockgroups"
+            },
+            "sourceLayer": "sonomadata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "state": "California",
+    "id": "ca_pasadena",
+    "name": "Pasadena",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 141865,
+              "min": 0,
+              "max": 776
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 95833,
+              "min": 0,
+              "max": 625
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 42387,
+                "min": 0,
+                "max": 403
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 10551,
+                "min": 0,
+                "max": 164
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 15805,
+                "min": 0,
+                "max": 232
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 25820,
+                "min": 0,
+                "max": 227
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 541,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 165,
+                "min": 0,
+                "max": 105
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 561,
+                "min": 0,
+                "max": 32
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHom",
+               "name": "Children at home",
+               "sum": 20,
+               "min": 0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 41,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 30,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 71,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGra",
+   "name": "College graduate",
+   "sum": 42,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Inc75k",
+   "name": ">$75k income",
+   "sum": 43,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtH",
+   "name": "Spanish spoken at home",
+   "sum": 19,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtH",
+   "name": "Asian languages spoken at home",
+   "sum": 8,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtH",
+   "name": "Other languages spoken at home",
+   "sum": 6,
+   "min": 0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -118.1982,
+            34.1173
+          ],
+          [
+            -118.0656,
+            34.2515
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_pasadena_blocks_points"
+            },
+            "sourceLayer": "ca_pasadena_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_pasadena_blocks"
+            },
+            "sourceLayer": "ca_pasadena_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pasadenadasta_blockgroups"
+            },
+            "sourceLayer": "pasadenadasta_blockgroups"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
       }
     ]
   }

@@ -24,7 +24,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins;
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -36,11 +36,11 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    EvaluationPlugin
+    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 

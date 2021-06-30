@@ -20,11 +20,11 @@ function datasetInfo(state) {
         acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs"];
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
-    } else if (["mesaaz"].includes(place.id)) {
+    } else if (["mesaaz", "sanluiso"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
-    } else if (["sacramento"].includes(place.id)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
@@ -42,7 +42,7 @@ export default function populateDatasetInfo(state) {
             // Retrieve the proper HTML elements.
             let elements = document.getElementsByClassName("dataset-info"),
                 infoBoxes = Array.from(elements);
-            
+
             // For each of the info boxes, retrieve and add the correct
             // description.
             infoBoxes.forEach(box => {

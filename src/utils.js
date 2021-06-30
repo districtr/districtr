@@ -309,18 +309,21 @@ export function spatial_abilities(id) {
     },
     alaska: {
       number_markers: true,
-      // precincts cross county lines
       native_american: true,
       shapefile: true,
-      // find_unpainted: true,
+      school_districts: true,
+      municipalities: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     alaska_blocks: {
       native_american: true,
+      coalition: false,
+      school_districts: true,
+      municipalities: true,
       portal: {
-        endpoint: 'https://portal.alaska-mapping.org',
+        endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     arizona: {
@@ -379,7 +382,28 @@ export function spatial_abilities(id) {
     },
     sacramento: {
       coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
       // divisor: 1000,
+    },
+    ca_sonoma: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_pasadena: {
+      coalition: false,
+      border: true,
+    },
+    sanluiso: {
+      coalition: false,
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      municipalities: true,
+      // sideload: true,
     },
     ccsanitation: {
       // multiyear: 2018,
@@ -741,7 +765,17 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
+      find_unpainted: true
+    },
+    new_mexico_portal: {
+      number_markers: true,
+      county_brush: true,
+      native_american: true,
+      contiguity: 2,
+      current_districts: true,
+      shapefile: true,
       find_unpainted: true,
+      election_history: false,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
@@ -968,6 +1002,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       sideload: true,
       load_coi: false,
+      contiguity: 2,
     },
     philadelphia: {
       number_markers: true,
@@ -1093,6 +1128,7 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: 2,
     },
     yakima_wa: {
       coalition: false,
