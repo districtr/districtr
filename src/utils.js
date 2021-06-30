@@ -318,7 +318,6 @@ export function spatial_abilities(id) {
       },
     },
     alaska_blocks: {
-      native_american: true,
       coalition: false,
       school_districts: true,
       municipalities: true,
@@ -392,6 +391,12 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+    },
+    ca_marin: {
+      coalition: false,
+      border: true,
+      // shapefile: true,
+      // number_markers: true,
     },
     ca_pasadena: {
       coalition: false,
