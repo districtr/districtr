@@ -42,6 +42,7 @@ const stateForEvent = {
   sonomaco: 'California',
   pasadena2021: 'California',
   'ks-fairmaps': 'Kansas',
+  'galeo': 'Georgia',
 };
 
 const validEventCodes = {
@@ -81,6 +82,7 @@ const validEventCodes = {
   pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
+  'galeo': 'hall_ga',
 };
 
 const blockPlans = {
@@ -248,8 +250,8 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-
-  };
+  'galeo': 'Welcome to the event page for GALEO!',
+};
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
