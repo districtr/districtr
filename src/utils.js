@@ -392,6 +392,12 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_marin: {
+      coalition: false,
+      border: true,
+      // shapefile: true,
+      // number_markers: true,
+    },
     ca_pasadena: {
       coalition: false,
       border: true,

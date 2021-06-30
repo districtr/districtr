@@ -217,7 +217,8 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
             tilesets.find(tileset => tileset.source.url.includes("tracts")),
             layerAdder
         );
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena"].includes(borderId)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_marin"].includes(borderId)) {
+        // backup for California block maps to have blockgroup-level stats background layer 
         tracts = addTracts(
             map,
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
