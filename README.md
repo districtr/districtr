@@ -5,7 +5,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/districtr/districtr.svg)](https://greenkeeper.io/)
 
 Districtr is the open-source web app that empowers all people to draw
-districting plans.
+districting plans. 
 
 ## Project values
 
