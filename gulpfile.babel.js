@@ -19,7 +19,6 @@ const sources = {
     deployFiles: "./deploy/**"
 };
 
-// export const clean = () => new Promise(resolve => fs.rmdir("./dist", resolve));
 export const mkdir = () => new Promise(resolve => fs.mkdir("./dist", resolve));
 
 export const deployFiles = () => gulp.src(sources.deployFiles).pipe(gulp.dest("./dist"));
@@ -27,43 +26,31 @@ export const deployFiles = () => gulp.src(sources.deployFiles).pipe(gulp.dest(".
 export const js = () => bundleViews();
 
 
-function errLog(err, stdout, stderr) {
-	if (stdout) {
-		console.log(stdout);
-	}
-	if (stderr) {
-		console.log(stderr);
-	}
-}
-
-export const css = () => exec("sass sass:dist/css/", errLog);
-/*
+export const cssExec = () => new Promise(resolve => exec("sass sass:dist/css/", resolve));
+export const cssPipe = () =>
     gulp
         .src(sources.css)
         .pipe(sass())
         .pipe(gulp.dest("./dist/css"))
         .pipe(browserSync.stream());
-*/
 
 // export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
-export const html = () => exec('rsync --update ' + sources.html + ' ./dist/', errLog);
+export const html = () => new Promise(resolve => exec('rsync --update ' + sources.html + ' ./dist/', resolve));
 
 /*
 export const assets = () =>
     gulp.src(sources.assets).pipe(gulp.dest("./dist/assets"));
 */
-export const assets = () => exec('rsync --update ' + sources.assets + ' ./dist/', errLog);
+export const assets = () => new Promise(resolve => exec('rsync --update ' + sources.assets + ' ./dist/', resolve));
 
 export const build = gulp.series(
-    // clean,
     mkdir,
-    gulp.parallel(js, css, html, assets, deployFiles)
+    gulp.parallel(js, cssPipe, html, assets, deployFiles)
 );
 
 export const devBuild = gulp.series(
-    // clean,
     mkdir,
-    gulp.parallel(bundleWithCacheForDevelopment, css, html, assets)
+    gulp.parallel(bundleWithCacheForDevelopment, cssExec, html, assets)
 );
 
 export const watch = () => {
