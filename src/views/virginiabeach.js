@@ -80,7 +80,7 @@ const plans = [
                 id: "a9",
                 name: "Remedial Plan A9",
                 numbers: []
-            
+            } 
         ]
     }
 ];
