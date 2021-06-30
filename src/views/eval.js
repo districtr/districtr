@@ -374,7 +374,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
     
     // check that polsby popper calculation worked
     let successful_calc = (plan_scores !== "Polsby Popper unavailable for this geometry.");
-    let year = enacted_year(state.place.name, state.plan.problem.name);
+    let year = enacted_year(state_name_to_postal(state.place.name), state.plan.problem.name);
     if (enacted && successful_calc) {
         headers = ["Your Plan", `${year} Enacted Plan`];
         for (let c of columns) {
@@ -503,71 +503,99 @@ function county_slide(state, data, municipalities) {
 
 /** HELPER FUNCTIONS */
 function enacted_year(st, districts) {
+    if (['Congress', '2020 Reapportioned Congress'].includes(districts)) {
+        switch (st) {
+            case "AL": return 2011
+            break;
+            case "FL": return 2015
+            break;
+            case "NC": return 2019
+            break;
+            case "OH": return 2011
+            break;
+            case "PA": return 2018
+            break;
+            case "TX": return 2012
+            break;
+            default: return 2010;
+        }
+    }
+    if (districts == 'State Senate') {
+        switch(st) {
+            case "AK": return 2013
+            break;
+            case "AL": return 2017
+            break;
+            case "CO": return 2011
+            break;
+            case "FL": return 2016
+            break;
+            case "GA": return 2014
+            break;
+            case "HI": return 2012
+            break;
+            case "ID": return 2012
+            break;
+            case "KY": return 2013
+            break;
+            case "ME": return 2013
+            break;
+            case "MO": return 2012
+            break;
+            case "MS": return 2019
+            break;
+            case "MT": return 2013
+            break;
+            case "NC": return 2019
+            break;
+            case "PA": return 2013
+            break;
+            case "TX": return 2012
+            break;
+            case "UT": return 2012
+            break;
+            default: return 2010;
+        }
+    }
+    if (['State House', 'State Assembly', 'House of Delegates'].includes(districts)) {
+        switch(st) {
+            case "AK": return 2013
+            break;
+            case "AL": return 2017
+            break;
+            case "CO": return 2011
+            break;
+            case "GA": return 2015
+            break;
+            case "HI": return 2012
+            break;
+            case "ID": return 2012
+            break;
+            case "KY": return 2013
+            break;
+            case "ME": return 2013
+            break;
+            case "MS": return 2012
+            break;
+            case "MT": return 2013
+            break;
+            case "NC": return 2019
+            break;
+            case "PA": return 2013
+            break;
+            case "TX": return 2019
+            break;
+            case "UT": return 2012
+            break;
+            case "WI": return  2012
+            break;
+            default: return 2010;
+        }
+    }
     return 2010;
 }
-/** Changes since 2010
- * Texas - all?
- * NC - all
- * Virginia - HoD, Congress?
- * Pennsylvania - 
- * 
- */
+
 function polsby_popper(st, districts) {
-    let state_name_to_postal = {
-        'Alabama': 'AL',
-        'Alaska': 'AK',
-        'Arizona': 'AZ',
-        'Arkansas': 'AR',
-        'California': 'CA',
-        'Colorado': 'CO',
-        'Connecticut': 'CT',
-        'Delaware': 'DE',
-        'District of Columbia': 'DC',
-        'Florida': 'FL',
-        'Georgia': 'GA',
-        'Hawaii': 'HI',
-        'Idaho': 'ID',
-        'Illinois': 'IL',
-        'Indiana': 'IN',
-        'Iowa': 'IA',
-        'Kansas': 'KS',
-        'Kentucky': 'KY',
-        'Louisiana': 'LA',
-        'Maine': 'ME',
-        'Maryland': 'MD',
-        'Massachusetts': 'MA',
-        'Michigan': 'MI',
-        'Minnesota': 'MN',
-        'Mississippi': 'MS',
-        'Missouri': 'MO',
-        'Montana': 'MT',
-        'Nebraska': 'NE',
-        'Nevada': 'NV',
-        'New Hampshire': 'NH',
-        'New Jersey': 'NJ',
-        'New Mexico': 'NM',
-        'New York': 'NY',
-        'North Carolina': 'NC',
-        'North Dakota': 'ND',
-        'Ohio': 'OH',
-        'Oklahoma': 'OK',
-        'Oregon': 'OR',
-        'Pennsylvania': 'PA',
-        'Rhode Island': 'RI',
-        'South Carolina': 'SC',
-        'South Dakota': 'SD',
-        'Tennessee': 'TN',
-        'Texas': 'TX',
-        'Utah': 'UT',
-        'Vermont': 'VT',
-        'Virginia': 'VA',
-        'Washington': 'WA',
-        'West Virginia': 'WV',
-        'Wisconsin': 'WI',
-        'Wyoming': 'WY',
-        'Washington, DC': 'DC',
-        'Puerto Rico': 'PR'
-    };
     let cong = {
         VA:
         {
@@ -1824,13 +1852,72 @@ function polsby_popper(st, districts) {
     switch(districts) {
         case "Congress": 
         case "2020 Reapportioned Congress":
-            return cong[state_name_to_postal[st]];
+            return cong[state_name_to_postal(st)];
         case "State Senate":
-            return sl_upper[state_name_to_postal[st]];
+            return sl_upper[state_name_to_postal(st)];
         case "State House":
         case "State Assembly":
         case "House of Delegates":
-            return sl_lower[state_name_to_postal[st]];
+            return sl_lower[state_name_to_postal(st)];
     }
     return false;
+}
+
+function state_name_to_postal(st) {
+    let results = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Pennsylvania': 'PA',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY',
+    'Washington, DC': 'DC',
+    'Puerto Rico': 'PR'
+    }
+    return results[st];
 }
