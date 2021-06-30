@@ -278,6 +278,8 @@
 /qa-portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#qa-portal
 
 /eval/:place/:plan /eval?url=/assets/:place-plans/:plan.json
+/eval/* eval.html 200
+
 /:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
 /:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
 /:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
