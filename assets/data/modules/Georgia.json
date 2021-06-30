@@ -553,12 +553,6 @@
         "name": "County Commissioners",
         "numberOfParts": 4,
         "pluralNoun": "Districts"
-      },
-      {
-        "type": "multimember",
-        "name": "County Commissioners",
-        "numberOfParts": 4,
-        "pluralNoun": "Districts"
       }
     ]
   }
