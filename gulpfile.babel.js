@@ -35,13 +35,13 @@ export const cssPipe = () =>
         .pipe(browserSync.stream());
 
 // export const html = () => gulp.src(sources.html).pipe(gulp.dest("./dist"));
-export const html = () => new Promise(resolve => exec('rsync --update ' + sources.html + ' ./dist/', resolve));
+export const html = () => new Promise(resolve => exec('rsync -a --update html/ ./dist/', resolve));
 
 /*
 export const assets = () =>
     gulp.src(sources.assets).pipe(gulp.dest("./dist/assets"));
 */
-export const assets = () => new Promise(resolve => exec('rsync --update ' + sources.assets + ' ./dist/', resolve));
+export const assets = () => new Promise(resolve => exec('rsync -a --update assets ./dist/', resolve));
 
 export const build = gulp.series(
     mkdir,
@@ -54,7 +54,7 @@ export const devBuild = gulp.series(
 );
 
 export const watch = () => {
-    gulp.watch(sources.css, gulp.series(css, reload));
+    gulp.watch(sources.css, gulp.series(cssExec, reload));
     gulp.watch(sources.html, gulp.series(html, reload));
     gulp.watch(sources.js, gulp.series(bundleWithCacheForDevelopment, reload));
     gulp.watch(sources.assets, gulp.series(assets));
