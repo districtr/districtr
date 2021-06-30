@@ -6,7 +6,7 @@ export default function Select(items, handler, selectedIndex) {
             ${items.map(
                 (item, i) => html`
                     <option value="${i}" ?selected=${selectedIndex === i}
-                        >${item.name}</option
+                        >${item.name.replace("citizen voting age population", "CVAP")}</option
                     >
                 `
             )}

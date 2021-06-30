@@ -3,8 +3,7 @@ import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 
 export default () => {
-    listPlacesForState("Massachusetts").then(places => {
-        console.dir(places)
+    listPlacesForState("Virginia").then(places => {
         const target = document.getElementById("districting-options");
         render(districtingOptions(places), target);
     });
@@ -12,66 +11,78 @@ export default () => {
 };
 
 const plans = [
-        {
-        title: "Sample valid 3-district plans",
-        plans: [
-            {
-                id: "plan3a",
-                name: "Random Plan 3A (3-districts)",
-                numbers: []
-            },
-            {
-                id: "plan3b",
-                name: "Random Plan 3B (3-districts)",
-                numbers: []
-            }
-        ]
-    },
     {
-        title: "Sample valid 7-district plans",
+        title: "Sample valid plans",
         plans: [
             {
-                id: "plan7a",
-                name: "Random Plan 7A (7-districts)",
+                id: "plan3",
+                name: "3-district plan",
+                numbers: [{ number: 3, caption: "50.6% non-White, effectiveness 5, Rouse in here" }]
+            },
+            {
+                id: "plan7",
+                name: "7-district plan",
+                numbers: [
+                    { number: 4, caption: "50.2% Coalition, effectiveness 5" },
+                    { number: 5, caption: "50.8% Coalition, effectiveness 8, with Wooten inside" }
+                ]
+            },
+            {
+                id: "plan10",
+                name: "10-district plan",
+                numbers: [
+                    { number: 4, caption: "50.2% Coalition, effectiveness 8, both plaintiffs in here" },
+                    { number: 7, caption: "50.3% Coalition, effectiveness 5" },
+                    { number: 8, caption: "50.1% Coalition, effectiveness 5, Wooten in here" }
+                ]
+            },
+            {
+                id: "a1",
+                name: "Remedial Plan A1",
                 numbers: []
             },
             {
-                id: "plan7b",
-                name: "Random Plan 7B (7-districts)",
-                numbers: []
-            }
-        ]
-    },
-    {
-        title: "Sample valid 8-district plans (Option on the Ballot)",
-        plans: [
-            {
-                id: "plan8a",
-                name: "Random Plan 8A (8-districts)",
+                id: "a2",
+                name: "Remedial Plan A2",
                 numbers: []
             },
             {
-                id: "plan8b",
-                name: "Random Plan 8B (8-districts)",
-                numbers: []
-            }
-        ]
-    },
-    {
-        title: "Sample valid 9-district plans",
-        plans: [
-            {
-                id: "plan9a",
-                name: "Random Plan 9A (9-districts)",
+                id: "a3",
+                name: "Remedial Plan A3",
                 numbers: []
             },
             {
-                id: "plan9b",
-                name: "Random Plan 9B (9-districts)",
+                id: "a4",
+                name: "Remedial Plan A4",
                 numbers: []
-            }
+            },
+            {
+                id: "a5",
+                name: "Remedial Plan A5",
+                numbers: []
+            },
+            {
+                id: "a6",
+                name: "Remedial Plan A6",
+                numbers: []
+            },
+            {
+                id: "a7",
+                name: "Remedial Plan A7",
+                numbers: []
+            },
+            {
+                id: "a8",
+                name: "Remedial Plan A8",
+                numbers: []
+            },
+            {
+                id: "a9",
+                name: "Remedial Plan A9",
+                numbers: []
+            } 
         ]
-    },
+    }
 ];
 
 const plansSection = () =>
@@ -94,24 +105,19 @@ const loadablePlans = plans =>
 const numberList = numbers => html`
     <dl class="number-list">
         ${numbers.map(
-            ({ number, caption }) => html`
+    ({ number, caption }) => html`
                 <div class="number-list__row">
                     <dt class="number-list__number">${number}</dt>
                     <dd class="number-list__caption">${caption}</dd>
                 </div>
             `
-        )}
+)}
     </dl>
 `;
 
 const loadablePlan = plan => html`
-    <a href="/lowell/${plan.id}">
+    <a href="https://deploy-preview-338--districtr-web.netlify.app/edit?url=/assets/virginiabeach-plans/${plan.id}.json">
         <li class="plan-thumbs__thumb">
-            <img
-                class="thumb__img"
-                src="/assets/lowell-plans/${plan.id}.png"
-                alt="Districting Plan ${plan.id}"
-            />
             <figcaption class="thumb__caption">
                 <h6 class="thumb__heading">${plan.name || plan.id}</h6>
                 ${plan.description ? plan.description : ""}
@@ -125,6 +131,8 @@ const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplate(places[0], startNewPlan)}
+            ${placeItemsTemplate(places[1], startNewPlan)}
+            ${placeItemsTemplate(places[2], startNewPlan)}
         </ul>
     `;
 

@@ -46,13 +46,13 @@ function tooltipHeading(features, nameColumn, pluralNoun, parts) {
     let title = `${features.length} ${
         features.length == 1 ? pluralNoun.slice(0, -1) : pluralNoun
     }`;
-    if (
-        nameColumn !== undefined &&
-        nameColumn !== null &&
-        features.length === 1
-    ) {
-        title = nameColumn.getValue(features[0]);
-    }
+    // if (
+    //     nameColumn !== undefined &&
+    //     nameColumn !== null &&
+    //     features.length === 1
+    // ) {
+    //     title = nameColumn.getValue(features[0]);
+    // }
     return html`
         <div class="tooltip__text">
             <h4 class="tooltip__title">

@@ -1,5 +1,2344 @@
 [
   {
+    "name": "Virginia",
+    "id": "va_virginiabeach_precincts",
+    "state": "Virginia",
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17666, 36.83571]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.10035, 36.83385]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17079, 36.78893]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.99631, 36.69845]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.11477, 36.86878]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.117853, 36.872605]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.98392, 36.87132]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.12802, 36.81766]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.9719, 36.83841]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13056, 36.77833]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17656, 36.86912]
+              },
+              "properties": {
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13891, 36.8593]
+              },
+              "properties": {
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 450202,
+              "min": 1180,
+              "max": 7919
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 335264,
+              "min": 890,
+              "max": 6163
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 220555,
+                "min": 560,
+                "max": 4255
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 62922,
+                "min": 0,
+                "max": 2661
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 21342,
+                "min": 0,
+                "max": 755
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 19536,
+                "min": 0,
+                "max": 624
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 51411,
+                "min": 0,
+                "max": 705
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51631,
+                "min": 0,
+                "max": 852
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 60267,
+                "min": 0,
+                "max": 861
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30649,
+                "min": 0,
+                "max": 383
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19522,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17320,
+                "min": 0,
+                "max": 1048
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
+              {
+                "key": "wooten_18",
+                "name": "Sabrina Wooten",
+                "sum": 75894,
+                "min": 0,
+                "max": 910
+              },
+              {
+                "key": "wray_18",
+                "name": "Eric Wray II",
+                "sum": 39257,
+                "min": 0,
+                "max": 615
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abbott_16",
+                "name": "Jessica P. Abbott",
+                "sum": 81426,
+                "min": 330,
+                "max": 1311
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 55814,
+                "min": 138,
+                "max": 1175
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12869,
+                "min": 48,
+                "max": 215
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12507,
+                "min": 16,
+                "max": 509
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12909,
+                "min": 32,
+                "max": 263
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 36012,
+                "min": 74,
+                "max": 668
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16318,
+                "min": 18,
+                "max": 456
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14719,
+                "min": 12,
+                "max": 315
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1488,
+                "min": 4,
+                "max": 38
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11489,
+                "min": 25,
+                "max": 311
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "bel_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42806,
+                "min": 99,
+                "max": 810
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9745,
+                "min": 22,
+                "max": 333
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38682,
+                "min": 75,
+                "max": 1019
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19572,
+                "min": 32,
+                "max": 428
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17579,
+                "min": 28,
+                "max": 565
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25773,
+                "min": 54,
+                "max": 642
+              },
+              {
+                "key": "red_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18540,
+                "min": 28,
+                "max": 616
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43629,
+                "min": 118,
+                "max": 797
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51431,
+                "min": 140,
+                "max": 1089
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "all_08",
+                "name": "Georgia F. Allen",
+                "sum": 49014,
+                "min": 96,
+                "max": 1123
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10751,
+                "min": 25,
+                "max": 243
+              },
+              {
+                "key": "straus_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13301,
+                "min": 50,
+                "max": 518
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5849,
+                "min": 15,
+                "max": 117
+              },
+              {
+                "key": "wil_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62479,
+                "min": 175,
+                "max": 1303
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Sheriff",
+            "subgroups": [
+              {
+                "key": "stolle_17",
+                "name": "Kenneth William Stolle",
+                "sum": 67228,
+                "min": 227,
+                "max": 1362
+              },
+              {
+                "key": "bell_17",
+                "name": "John Lensey Bell, Jr",
+                "sum": 44734,
+                "min": 94,
+                "max": 1052
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "trump_16",
+                "name": "Donald J. Trump",
+                "sum": 84134,
+                "min": 222,
+                "max": 1392
+              },
+              {
+                "key": "clinton_16",
+                "name": "Hillary Clinton",
+                "sum": 76734,
+                "min": 146,
+                "max": 1599
+              },
+              {
+                "key": "johnson_16",
+                "name": "Gary Johnson",
+                "sum": 7289,
+                "min": 22,
+                "max": 132
+              },
+              {
+                "key": "mcmul_16",
+                "name": "Evan McMullin",
+                "sum": 1969,
+                "min": 3,
+                "max": 37
+              },
+              {
+                "key": "stein_16",
+                "name": "Jill Stein",
+                "sum": 1565,
+                "min": 1,
+                "max": 32
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 President",
+            "subgroups": [
+              {
+                "key": "obama_12",
+                "name": "Barack Obama",
+                "sum": 84076,
+                "min": 189,
+                "max": 1963
+              },
+              {
+                "key": "romney_12",
+                "name": "Willard M. Romney",
+                "sum": 88912,
+                "min": 121,
+                "max": 1639
+              },
+              {
+                "key": "john_12",
+                "name": "Gary Johnson",
+                "sum": 1712,
+                "min": 3,
+                "max": 41
+              },
+              {
+                "key": "goode_12",
+                "name": "Virgil Hamlin Goode, Jr.",
+                "sum": 340,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "stein_12",
+                "name": "Jill Stein",
+                "sum": 337,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "kaine_18",
+                "name": "Timothy M. Kaine",
+                "sum": 83037,
+                "min": 147,
+                "max": 1642
+              },
+              {
+                "key": "waters_18",
+                "name": "Matt J. Waters",
+                "sum": 3601,
+                "min": 10,
+                "max": 62
+              },
+              {
+                "key": "stewart_18",
+                "name": "Corey A. Stewart",
+                "sum": 67491,
+                "min": 147,
+                "max": 1225
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "warner_14",
+                "name": "Mark Robert Warner",
+                "sum": 46959,
+                "min": 130,
+                "max": 977
+              },
+              {
+                "key": "gilles_14",
+                "name": "Edward Walter Gillespie",
+                "sum": 52095,
+                "min": 59,
+                "max": 1086
+              },
+              {
+                "key": "sarvis_14",
+                "name": "Robert Christopher Sarvis",
+                "sum": 2783,
+                "min": 9,
+                "max": 66
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 House",
+            "subgroups": [
+              {
+                "key": "luria_18",
+                "name": "Elaine Luria",
+                "sum": 78496,
+                "min": 136,
+                "max": 1633
+              },
+              {
+                "key": "taylor_18",
+                "name": "Scott Taylor",
+                "sum": 75777,
+                "min": 175,
+                "max": 1400
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 House",
+            "subgroups": [
+              {
+                "key": "taylor_16",
+                "name": "Scott Taylor",
+                "sum": 102895,
+                "min": 342,
+                "max": 1745
+              },
+              {
+                "key": "brown_16",
+                "name": "Shaun Brown",
+                "sum": 60700,
+                "min": 111,
+                "max": 1393
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Governor",
+            "subgroups": [
+              {
+                "key": "northam_17",
+                "name": "Ralph Northam",
+                "sum": 62712,
+                "min": 118,
+                "max": 1294
+              },
+              {
+                "key": "gilles_17",
+                "name": "Ed Gillespie",
+                "sum": 56323,
+                "min": 115,
+                "max": 1102
+              },
+              {
+                "key": "hyra_17",
+                "name": "Clifford Hyra",
+                "sum": 1481,
+                "min": 3,
+                "max": 36
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Lieutenant Governor",
+            "subgroups": [
+              {
+                "key": "fairfax_17",
+                "name": "Justin Fairfax",
+                "sum": 58588,
+                "min": 112,
+                "max": 1275
+              },
+              {
+                "key": "vogel_17",
+                "name": "Jill Vogel",
+                "sum": 61197,
+                "min": 126,
+                "max": 1211
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Attorney General",
+            "subgroups": [
+              {
+                "key": "herring_17",
+                "name": "Mark R. Herring",
+                "sum": 60107,
+                "min": 112,
+                "max": 1274
+              },
+              {
+                "key": "adams_17",
+                "name": "John Adams",
+                "sum": 59514,
+                "min": 124,
+                "max": 1169
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct ID",
+          "key": "PRECINCT_N"
+        },
+        "bounds": [
+          [-76.2281, 36.5504],
+          [-75.8676, 36.9326]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts"
+            },
+            "sourceLayer": "virginiabeach_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_precincts_points"
+            },
+            "sourceLayer": "virginiabeach_precincts_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 10,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "state": "Virginia",
+    "id": "va_virginiabeach_blocks",
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17666, 36.83571]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.10035, 36.83385]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17079, 36.78893]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.99631, 36.69845]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.11477, 36.86878]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.117853, 36.872605]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.98392, 36.87132]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.12802, 36.81766]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.9719, 36.83841]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13056, 36.77833]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17656, 36.86912]
+              },
+              "properties": {
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13891, 36.8593]
+              },
+              "properties": {
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 450186,
+              "min": 0,
+              "max": 2665
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 335267,
+              "min": 0,
+              "max": 2229
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 220584,
+                "min": 0,
+                "max": 1389
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 62899,
+                "min": 0,
+                "max": 881
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 21257,
+                "min": 0,
+                "max": 254
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 19466,
+                "min": 0,
+                "max": 191
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 51411,
+                "min": 0,
+                "max": 705
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51631,
+                "min": 0,
+                "max": 852
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 60267,
+                "min": 0,
+                "max": 861
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30649,
+                "min": 0,
+                "max": 383
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19522,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17320,
+                "min": 0,
+                "max": 1048
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
+              {
+                "key": "wooten_18",
+                "name": "Sabrina Wooten",
+                "sum": 75894,
+                "min": 0,
+                "max": 910
+              },
+              {
+                "key": "wray_18",
+                "name": "Eric Wray II",
+                "sum": 39257,
+                "min": 0,
+                "max": 615
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abbott_16",
+                "name": "Jessica P. Abbott",
+                "sum": 81427,
+                "min": 0,
+                "max": 569
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 55776,
+                "min": 0,
+                "max": 347
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12829,
+                "min": 0,
+                "max": 85
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12445,
+                "min": 0,
+                "max": 121
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12866,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 35973,
+                "min": 0,
+                "max": 279
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16244,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14662,
+                "min": 0,
+                "max": 115
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1037,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11447,
+                "min": 0,
+                "max": 86
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "bel_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42775,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9664,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38661,
+                "min": 0,
+                "max": 295
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19548,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17504,
+                "min": 0,
+                "max": 163
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25752,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "red_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18451,
+                "min": 0,
+                "max": 171
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43578,
+                "min": 0,
+                "max": 312
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51414,
+                "min": 0,
+                "max": 397
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "all_08",
+                "name": "Georgia F. Allen",
+                "sum": 49005,
+                "min": 0,
+                "max": 352
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10697,
+                "min": 0,
+                "max": 75
+              },
+              {
+                "key": "straus_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13274,
+                "min": 0,
+                "max": 133
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5715,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "wil_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62473,
+                "min": 0,
+                "max": 440
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Sheriff",
+            "subgroups": [
+              {
+                "key": "stolle_17",
+                "name": "Kenneth William Stolle",
+                "sum": 67166,
+                "min": 0,
+                "max": 565
+              },
+              {
+                "key": "bell_17",
+                "name": "John Lensey Bell, Jr",
+                "sum": 44684,
+                "min": 0,
+                "max": 320
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "trump_16",
+                "name": "Donald J. Trump",
+                "sum": 84142,
+                "min": 0,
+                "max": 626
+              },
+              {
+                "key": "clinton_16",
+                "name": "Hillary Clinton",
+                "sum": 76726,
+                "min": 0,
+                "max": 541
+              },
+              {
+                "key": "johnson_16",
+                "name": "Gary Johnson",
+                "sum": 7213,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "mcmul_16",
+                "name": "Evan McMullin",
+                "sum": 1507,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "stein_16",
+                "name": "Jill Stein",
+                "sum": 1090,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 President",
+            "subgroups": [
+              {
+                "key": "obama_12",
+                "name": "Barack Obama",
+                "sum": 84042,
+                "min": 0,
+                "max": 589
+              },
+              {
+                "key": "romney_12",
+                "name": "Willard M. Romney",
+                "sum": 88938,
+                "min": 0,
+                "max": 704
+              },
+              {
+                "key": "john_12",
+                "name": "Gary Johnson",
+                "sum": 1229,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "goode_12",
+                "name": "Virgil Hamlin Goode, Jr.",
+                "sum": 102,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "stein_12",
+                "name": "Jill Stein",
+                "sum": 101,
+                "min": 0,
+                "max": 3
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "kaine_18",
+                "name": "Timothy M. Kaine",
+                "sum": 83024,
+                "min": 0,
+                "max": 624
+              },
+              {
+                "key": "waters_18",
+                "name": "Matt J. Waters",
+                "sum": 3330,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "stewart_18",
+                "name": "Corey A. Stewart",
+                "sum": 67477,
+                "min": 0,
+                "max": 529
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "warner_14",
+                "name": "Mark Robert Warner",
+                "sum": 46904,
+                "min": 0,
+                "max": 361
+              },
+              {
+                "key": "gilles_14",
+                "name": "Edward Walter Gillespie",
+                "sum": 52040,
+                "min": 0,
+                "max": 434
+              },
+              {
+                "key": "sarvis_14",
+                "name": "Robert Christopher Sarvis",
+                "sum": 2388,
+                "min": 0,
+                "max": 16
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 House",
+            "subgroups": [
+              {
+                "key": "luria_18",
+                "name": "Elaine Luria",
+                "sum": 78472,
+                "min": 0,
+                "max": 576
+              },
+              {
+                "key": "taylor_18",
+                "name": "Scott Taylor",
+                "sum": 75777,
+                "min": 0,
+                "max": 586
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 House",
+            "subgroups": [
+              {
+                "key": "taylor_16",
+                "name": "Scott Taylor",
+                "sum": 102848,
+                "min": 0,
+                "max": 759
+              },
+              {
+                "key": "brown_16",
+                "name": "Shaun Brown",
+                "sum": 60691,
+                "min": 0,
+                "max": 443
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Governor",
+            "subgroups": [
+              {
+                "key": "northam_17",
+                "name": "Ralph Northam",
+                "sum": 62681,
+                "min": 0,
+                "max": 472
+              },
+              {
+                "key": "gilles_17",
+                "name": "Ed Gillespie",
+                "sum": 56292,
+                "min": 0,
+                "max": 470
+              },
+              {
+                "key": "hyra_17",
+                "name": "Clifford Hyra",
+                "sum": 1019,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Lieutenant Governor",
+            "subgroups": [
+              {
+                "key": "fairfax_17",
+                "name": "Justin Fairfax",
+                "sum": 58544,
+                "min": 0,
+                "max": 434
+              },
+              {
+                "key": "vogel_17",
+                "name": "Jill Vogel",
+                "sum": 61134,
+                "min": 0,
+                "max": 513
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Attorney General",
+            "subgroups": [
+              {
+                "key": "herring_17",
+                "name": "Mark R. Herring",
+                "sum": 60063,
+                "min": 0,
+                "max": 458
+              },
+              {
+                "key": "adams_17",
+                "name": "John Adams",
+                "sum": 59460,
+                "min": 0,
+                "max": 485
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block ID",
+          "key": "GEOID10"
+        },
+        "nameColumn": {
+          "name": "Block Name",
+          "key": "NAME10"
+        },
+        "bounds": [
+          [-76.2278, 36.5504],
+          [-75.8675, 36.9321]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_blocks"
+            },
+            "sourceLayer": "virginiabeach_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.virginiabeach_blocks_points"
+            },
+            "sourceLayer": "virginiabeach_blocks_points"
+          }
+        ]
+      }
+    ],
+    "name": "Virginia",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 10,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "name": "Virginia",
+    "landmarks": {
+      "id": "landmarks",
+      "type": "fill",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17666, 36.83571]
+              },
+              "properties": {
+                "name": "Jessica P. Abbott",
+                "short_description": "213 Green Kemp Road, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.10035, 36.83385]
+              },
+              "properties": {
+                "name": "Michael F. Berlucchi",
+                "short_description": "3717 Bentley Gate Way, Virginia Beach, VA 23452"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17079, 36.78893]
+              },
+              "properties": {
+                "name": "Robert M. Dyer",
+                "short_description": "1668 Lake Christopher Drive, Virginia Beach, VA 23464"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.99631, 36.69845]
+              },
+              "properties": {
+                "name": "Barbara M. Henley",
+                "short_description": "3513 Charity Neck Road, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.11477, 36.86878]
+              },
+              "properties": {
+                "name": "Louis R. Jones",
+                "short_description": "1008 Witch Point Trail, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.117853, 36.872605]
+              },
+              "properties": {
+                "name": "John Moss",
+                "short_description": "4109 Richardson Road, Virginia Beach, VA 23455"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.98392, 36.87132]
+              },
+              "properties": {
+                "name": "Guy Tower",
+                "short_description": "211 43rd Street, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.12802, 36.81766]
+              },
+              "properties": {
+                "name": "Aaron Rouse",
+                "short_description": "4464 Silverleaf Dr, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-75.9719, 36.83841]
+              },
+              "properties": {
+                "name": "Rosemary Wilson",
+                "short_description": "921 Atlantic Avenue, Unit 502, Virginia Beach, VA 23451"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13056, 36.77833]
+              },
+              "properties": {
+                "name": "Sabrina D. Wooten",
+                "short_description": "5081 Glenwood Way, Virginia Beach, VA 23456"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.17656, 36.86912]
+              },
+              "properties": {
+                "name": "Holloway (Plaintiff)",
+                "short_description": "826 Tuition Court, Virginia Beach, VA 23462"
+              }
+            },
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-76.13891, 36.8593]
+              },
+              "properties": {
+                "name": "Allen (Plaintiff)",
+                "short_description": "4649 Merrimac Lane, Virginia Beach, VA 23455"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_TOTPOP",
+              "name": "Total population",
+              "sum": 450201,
+              "min": 0,
+              "max": 4728
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen Voting age population",
+              "sum": 335265,
+              "min": 0,
+              "max": 3745
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White citizen voting age population",
+                "sum": 220555,
+                "min": 0,
+                "max": 3195
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black citizen voting age population",
+                "sum": 62921,
+                "min": 0,
+                "max": 1220
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic citizen voting age population",
+                "sum": 21339,
+                "min": 0,
+                "max": 455
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian citizen voting age population",
+                "sum": 19536,
+                "min": 0,
+                "max": 545
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council",
+            "subgroups": [
+              {
+                "key": "rous_18",
+                "name": "Aaron R. Rouse",
+                "sum": 51411,
+                "min": 0,
+                "max": 705
+              },
+              {
+                "key": "moss_18",
+                "name": "John D. Moss",
+                "sum": 51631,
+                "min": 0,
+                "max": 852
+              },
+              {
+                "key": "olvr_18",
+                "name": "Dee B. Oliver",
+                "sum": 60267,
+                "min": 0,
+                "max": 861
+              },
+              {
+                "key": "whit_18",
+                "name": "Allison M. White",
+                "sum": 30649,
+                "min": 0,
+                "max": 383
+              },
+              {
+                "key": "bght_18",
+                "name": "Linda M. Bright",
+                "sum": 19522,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "hubb_18",
+                "name": "Garry B. Hubbard",
+                "sum": 17320,
+                "min": 0,
+                "max": 1048
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 City Council (Centerville)",
+            "subgroups": [
+              {
+                "key": "wooten_18",
+                "name": "Sabrina Wooten",
+                "sum": 75894,
+                "min": 0,
+                "max": 910
+              },
+              {
+                "key": "wray_18",
+                "name": "Eric Wray II",
+                "sum": 39257,
+                "min": 0,
+                "max": 615
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 City Council",
+            "subgroups": [
+              {
+                "key": "abbott_16",
+                "name": "Jessica P. Abbott",
+                "sum": 81425,
+                "min": 0,
+                "max": 1119
+              },
+              {
+                "key": "rh_16",
+                "name": "Amelia N. Ross-Hammond",
+                "sum": 55809,
+                "min": 0,
+                "max": 1005
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 City Council",
+            "subgroups": [
+              {
+                "key": "brow_14",
+                "name": "Beatrice R. \u201cPetey\u201d Browder",
+                "sum": 12870,
+                "min": 0,
+                "max": 168
+              },
+              {
+                "key": "cab_14",
+                "name": "James D. Cabiness II",
+                "sum": 12512,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "john_14",
+                "name": "Stephen A. Johnston",
+                "sum": 12909,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "kane_14",
+                "name": "Shannon Kane",
+                "sum": 36018,
+                "min": 0,
+                "max": 507
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2011 City Council",
+            "subgroups": [
+              {
+                "key": "moss_11",
+                "name": "John Darrell Moss",
+                "sum": 16311,
+                "min": 0,
+                "max": 305
+              },
+              {
+                "key": "free_11",
+                "name": "Dennis Edward Free",
+                "sum": 14721,
+                "min": 0,
+                "max": 250
+              },
+              {
+                "key": "mak_11",
+                "name": "Michael Paul Makela",
+                "sum": 1484,
+                "min": 0,
+                "max": 31
+              },
+              {
+                "key": "sher_11",
+                "name": "Prescott Sherrod",
+                "sum": 11484,
+                "min": 0,
+                "max": 207
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council",
+            "subgroups": [
+              {
+                "key": "bel_10",
+                "name": "Rita Sweet Bellitto",
+                "sum": 42797,
+                "min": 0,
+                "max": 577
+              },
+              {
+                "key": "cab_10",
+                "name": "James D. Cabiness, II",
+                "sum": 9744,
+                "min": 0,
+                "max": 282
+              },
+              {
+                "key": "dest_10",
+                "name": "Bill R. Desteph, Jr",
+                "sum": 38682,
+                "min": 0,
+                "max": 591
+              },
+              {
+                "key": "erb_10",
+                "name": "W. W. Wally Erb",
+                "sum": 19567,
+                "min": 0,
+                "max": 270
+              },
+              {
+                "key": "jack_10",
+                "name": "Andrew R. Jackson",
+                "sum": 17586,
+                "min": 0,
+                "max": 457
+              },
+              {
+                "key": "moss_10",
+                "name": "John D. Moss",
+                "sum": 25770,
+                "min": 0,
+                "max": 316
+              },
+              {
+                "key": "red_10",
+                "name": "David Dave S. Redmond",
+                "sum": 18544,
+                "min": 0,
+                "max": 270
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2010 City Council (Princess Anne)",
+            "subgroups": [
+              {
+                "key": "pabu_10",
+                "name": "Tanya J. Bullock",
+                "sum": 43620,
+                "min": 0,
+                "max": 523
+              },
+              {
+                "key": "pahe_10",
+                "name": "Barbara M. Henley",
+                "sum": 51434,
+                "min": 0,
+                "max": 712
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2008 City Council",
+            "subgroups": [
+              {
+                "key": "all_08",
+                "name": "Georgia F. Allen",
+                "sum": 49012,
+                "min": 0,
+                "max": 878
+              },
+              {
+                "key": "shul_08",
+                "name": "Leona Lee M. Shuler",
+                "sum": 10754,
+                "min": 0,
+                "max": 147
+              },
+              {
+                "key": "straus_08",
+                "name": "Keith Justin Strausbaugh",
+                "sum": 13289,
+                "min": 0,
+                "max": 289
+              },
+              {
+                "key": "teat_08",
+                "name": "Lawrence J. Teator",
+                "sum": 5850,
+                "min": 0,
+                "max": 60
+              },
+              {
+                "key": "wil_08",
+                "name": "Rosemary A. Wilson",
+                "sum": 62477,
+                "min": 0,
+                "max": 753
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Sheriff",
+            "subgroups": [
+              {
+                "key": "stolle_17",
+                "name": "Kenneth William Stolle",
+                "sum": 67228,
+                "min": 0,
+                "max": 1038
+              },
+              {
+                "key": "bell_17",
+                "name": "John Lensey Bell, Jr",
+                "sum": 44739,
+                "min": 0,
+                "max": 756
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "trump_16",
+                "name": "Donald J. Trump",
+                "sum": 84137,
+                "min": 0,
+                "max": 1362
+              },
+              {
+                "key": "clinton_16",
+                "name": "Hillary Clinton",
+                "sum": 76731,
+                "min": 0,
+                "max": 1315
+              },
+              {
+                "key": "johnson_16",
+                "name": "Gary Johnson",
+                "sum": 7291,
+                "min": 0,
+                "max": 80
+              },
+              {
+                "key": "mcmul_16",
+                "name": "Evan McMullin",
+                "sum": 1981,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "stein_16",
+                "name": "Jill Stein",
+                "sum": 1564,
+                "min": 0,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 President",
+            "subgroups": [
+              {
+                "key": "obama_12",
+                "name": "Barack Obama",
+                "sum": 84082,
+                "min": 0,
+                "max": 1963
+              },
+              {
+                "key": "romney_12",
+                "name": "Willard M. Romney",
+                "sum": 88913,
+                "min": 0,
+                "max": 1344
+              },
+              {
+                "key": "john_12",
+                "name": "Gary Johnson",
+                "sum": 1714,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "goode_12",
+                "name": "Virgil Hamlin Goode, Jr.",
+                "sum": 340,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "stein_12",
+                "name": "Jill Stein",
+                "sum": 332,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "kaine_18",
+                "name": "Timothy M. Kaine",
+                "sum": 83036,
+                "min": 0,
+                "max": 1184
+              },
+              {
+                "key": "waters_18",
+                "name": "Matt J. Waters",
+                "sum": 3599,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "stewart_18",
+                "name": "Corey A. Stewart",
+                "sum": 67487,
+                "min": 0,
+                "max": 1151
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "warner_14",
+                "name": "Mark Robert Warner",
+                "sum": 46964,
+                "min": 0,
+                "max": 884
+              },
+              {
+                "key": "gilles_14",
+                "name": "Edward Walter Gillespie",
+                "sum": 52094,
+                "min": 0,
+                "max": 879
+              },
+              {
+                "key": "sarvis_14",
+                "name": "Robert Christopher Sarvis",
+                "sum": 2780,
+                "min": 0,
+                "max": 34
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 House",
+            "subgroups": [
+              {
+                "key": "luria_18",
+                "name": "Elaine Luria",
+                "sum": 78486,
+                "min": 0,
+                "max": 1167
+              },
+              {
+                "key": "taylor_18",
+                "name": "Scott Taylor",
+                "sum": 75775,
+                "min": 0,
+                "max": 1255
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 House",
+            "subgroups": [
+              {
+                "key": "taylor_16",
+                "name": "Scott Taylor",
+                "sum": 102897,
+                "min": 0,
+                "max": 1585
+              },
+              {
+                "key": "brown_16",
+                "name": "Shaun Brown",
+                "sum": 60707,
+                "min": 0,
+                "max": 1164
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Governor",
+            "subgroups": [
+              {
+                "key": "northam_17",
+                "name": "Ralph Northam",
+                "sum": 62709,
+                "min": 0,
+                "max": 917
+              },
+              {
+                "key": "gilles_17",
+                "name": "Ed Gillespie",
+                "sum": 56326,
+                "min": 0,
+                "max": 928
+              },
+              {
+                "key": "hyra_17",
+                "name": "Clifford Hyra",
+                "sum": 1482,
+                "min": 0,
+                "max": 16
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Lieutenant Governor",
+            "subgroups": [
+              {
+                "key": "fairfax_17",
+                "name": "Justin Fairfax",
+                "sum": 58596,
+                "min": 0,
+                "max": 898
+              },
+              {
+                "key": "vogel_17",
+                "name": "Jill Vogel",
+                "sum": 61205,
+                "min": 0,
+                "max": 986
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Attorney General",
+            "subgroups": [
+              {
+                "key": "herring_17",
+                "name": "Mark R. Herring",
+                "sum": 60113,
+                "min": 0,
+                "max": 893
+              },
+              {
+                "key": "adams_17",
+                "name": "John Adams",
+                "sum": 59511,
+                "min": 0,
+                "max": 959
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block Group ID",
+          "key": "GEOID"
+        },
+        "nameColumn": {
+          "name": "Block Group Name",
+          "key": "NAMELSAD"
+        },
+        "bounds": [
+          [-76.2281, 36.5504],
+          [-75.8675, 36.9321]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.va_vb_block_groups"
+            },
+            "sourceLayer": "va_vb_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.va_vb_block_groups_points"
+            },
+            "sourceLayer": "va_vb_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "id": "va_virginiabeach_blockgroups",
+    "state": "Virginia",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
+        "numberOfParts": 10,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
     "districtingProblems": [
       {
         "pluralNoun": "Congressional Districts",
@@ -170,14 +2509,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -83.6754,
-            36.5408
-          ],
-          [
-            -75.2421,
-            39.466
-          ]
+          [-83.6754, 36.5408],
+          [-75.2421, 39.466]
         ],
         "tilesets": [
           {
@@ -453,14 +2786,8 @@
           "key": "loc_prec"
         },
         "bounds": [
-          [
-            -83.6754,
-            36.5408
-          ],
-          [
-            -75.1664,
-            39.466
-          ]
+          [-83.6754, 36.5408],
+          [-75.1664, 39.466]
         ],
         "tilesets": [
           {
@@ -843,14 +3170,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -76.2278,
-            36.5505
-          ],
-          [
-            -75.7975,
-            37.0409
-          ]
+          [-76.2278, 36.5505],
+          [-75.7975, 37.0409]
         ],
         "tilesets": [
           {

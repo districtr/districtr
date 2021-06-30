@@ -102,31 +102,7 @@ export default function EvaluationPlugin(editor) {
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance Summary",
-            (uiState, dispatch) => html`
-                ${spatial_abilities(state.place.id).absentee
-                    ? html`<div style="text-align:center">Election results include absentee votes</div>`
-                    : null
-                }
-                ${PartisanSummarySection(
-                    state.elections,
-                    state.activeParts,
-                    uiState,
-                    dispatch
-                )}`,
-            {
-                isOpen:
-                    state.population.subgroups.length <= 1 &&
-                    state.vap === undefined
-                        ? true
-                        : false
-            }
-        );
-    }
-
-    if (state.elections.length > 0) {
-        tab.addRevealSection(
-            "Election Details",
+            spatial_abilities(state.place.id).election_history ? "Election History" : "Partisan Balance",
             (uiState, dispatch) => html`
                 ${spatial_abilities(state.place.id).absentee
                     ? html`<div style="text-align:center">Election results include absentee votes</div>`

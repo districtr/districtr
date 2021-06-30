@@ -17,8 +17,8 @@ function datasetInfo(state) {
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies.",
             sacramento: "Uses <strong>projected 2020 population</strong> based on the American Community Survey by National Demographics Corporation",
         },
-        acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs"];
-    if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
+        acsLocations = ["wisco2019acs", "grand_county_2", "mn2020acs", "va_virginiabeach_blocks","va_virginiabeach_precincts"];
+    if (acsLocations.includes(place.id.toLowerCase()) || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
     } else if (["mesaaz", "sanluiso"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;

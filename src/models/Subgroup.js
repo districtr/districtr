@@ -74,12 +74,13 @@ export class Subgroup extends NumericalColumn {
         if (ABBREVIATIONS.hasOwnProperty(this.key)) {
             return ABBREVIATIONS[this.key];
         } else {
-            return this.name.split(" ")[0];
+            return this.name.split(" citizen voting age population")[0];
         }
     }
 }
 
 const ABBREVIATIONS = {
+    "Black & Hispanic & Asian CVAP": "B & H & A",
     NH_WHITE: "White",
     NH_BLACK: "Black",
     HISP: "Hispanic",

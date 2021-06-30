@@ -1156,19 +1156,39 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
-    },
-    wisconsin2020: {
-      number_markers: true,
-      county_brush: true,
-      native_american: true,
-      shapefile: true,
-      find_unpainted: true,
-      current_districts: true,
-      school_districts: true,
-      municipalities: true,
-      contiguity: 2,
-      portal: {
-        endpoint: 'https://portal.wisconsin-mapping.org',
+        vabeach: {
+          multiyear: 2018,
+          number_markers: true,
+          border: true,
+          // find_unpainted: true,
+        },
+        va_virginiabeach_precincts: {
+          number_markers: false,
+          coalition: false,
+          election_history: true,
+          coi2: true,
+          shapefile: true
+        },
+        va_virginiabeach_blocks: {
+          number_markers: false,
+          coalition: false,
+          election_history: true,
+          coi2: true,
+          shapefile: true
+        },
+        va_virginiabeach_blockgroups: {
+          number_markers: false,
+          coalition: false,
+          election_history: true,
+          coi2: true,
+          shapefile: true
+        },
+      washington: {
+        number_markers: true,
+        county_brush: true,
+        native_american: true,
+        shapefile: true,
+        find_unpainted: true,
       },
     },
     wisco2019acs: {
