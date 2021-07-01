@@ -2,7 +2,7 @@ import { html, render, directive, nothing } from "lit-html";
 import { listPlacesForState, getUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
-import { loadPlanFromURL, loadPlanFromJSON } from "../routes";
+import { loadPlanFromURL, loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
 import Button from "../components/Button";
 import PlanUploader from "../components/PlanUploader";
 import { PlaceMapWithData } from "../components/PlaceMap";
@@ -32,10 +32,10 @@ export default () => {
                 { label: "Go.", hoverText: "Evaluate the selected plan." });
             let upload = new PlanUploader(fileContent => {
                 loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
-                    // TODO Do something with the plan!
-                    console.log(context);
-                });
-            });
+                        savePlanToStorage(context);
+                        navigateTo("/eval");
+                    });
+                })
             
             let from_link = html`<div class="modal-item" id="url">
                     <p>

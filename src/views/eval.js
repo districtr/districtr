@@ -5,6 +5,7 @@ import {
     loadPlanFromURL,
     loadPlanFromJSON,
     navigateTo,
+    getContextFromStorage
 } from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
@@ -196,8 +197,7 @@ function getPlanContext() {
             console.error(e);
         });
     } else {
-        console.error(`Could not find plan.`)
-        return navigateTo("/evaluation");
+        return Promise.resolve(getContextFromStorage());
     }
 }
 
