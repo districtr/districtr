@@ -3,31 +3,32 @@
 @import "../mixins";
 
 .toolbar {
-    z-index: 10000;
-    position: fixed;
-    right: 0;
-    // background: rgba(255, 255, 255, 0.8);
-    background: white;
-    padding: 0;
-    margin: 0;
-    min-width: 300px;
-    height: 100vh;
-    overflow-y: auto;
-    // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
-    // 0 2px 4px rgba(0, 0, 0, 0.24);
-    // box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
-    box-shadow: $raised;
-    width: 25%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
+  z-index: 10000;
+  position: fixed;
+  right: 0;
+  // background: rgba(255, 255, 255, 0.8);
+  background: white;
+  padding: 0;
+  margin: 0;
+  min-width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  // box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+  // 0 2px 4px rgba(0, 0, 0, 0.24);
+  // box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
+  box-shadow: $raised;
+  overflow-x: scroll;
+  width: 40%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
 }
 
 .toolbar-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .toolbar-inner {
@@ -46,110 +47,110 @@
 }
 
 .district-row {
-    display: block;
+  display: block;
 }
 
 fieldset {
-    margin: 0.5rem 0;
-    padding: 0;
-    border: 0;
+  margin: 0.5rem 0;
+  padding: 0;
+  border: 0;
 }
 
 .color-list {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: flex-end;
-    flex: 1;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .color-list__item {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem;
 }
 
 .tool-options {
-    background: $districtr-light-grey;
-    box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
-        0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
-    max-height: 0px;
-    overflow: hidden;
-    transition: all 200ms ease;
-    opacity: 0;
-    padding: 0 0.5rem;
+  background: $districtr-light-grey;
+  box-shadow: 0px -10px 15px -20px rgba(0, 0, 0, 0.3) inset,
+    0px 10px 15px -20px rgba(0, 0, 0, 0.3) inset;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 200ms ease;
+  opacity: 0;
+  padding: 0 0.5rem;
 }
 
 .tool-options.active {
-    opacity: 1;
-    max-height: 100%;
-    border-bottom: solid 1px $outline-grey;
+  opacity: 1;
+  max-height: 100%;
+  border-bottom: solid 1px $outline-grey;
 }
 
 .tool-option-container {
-    display: flex;
-    align-items: center;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .toolbar-checkbox {
-    display: block;
-    margin: 0;
-    @include user-select(none);
-    cursor: pointer;
-    line-height: 1.5;
-    padding: 0;
-    align-self: flex-start;
-    padding-right: 0.25rem;
+  display: block;
+  margin: 0;
+  @include user-select(none);
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 0;
+  align-self: flex-start;
+  padding-right: 0.25rem;
 }
 
 .toolbar-checkbox:hover {
-    background: $districtr-grey-hover;
+  background: $districtr-grey-hover;
 }
 
 .toolbar-checkbox:active {
-    background: $districtr-grey-active;
+  background: $districtr-grey-active;
 }
 
 @media (max-width: 450px) {
-    .toolbar {
-        top: 0;
-        overflow-y: auto;
-        width: 100%;
-    }
+  .toolbar {
+    top: 0;
+    overflow-y: auto;
+    width: 100%;
+  }
 }
 
 .tabs {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    justify-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-items: center;
 }
 
 .tabs__tab {
-    color: #444;
-    padding: 0.5rem 0;
-    border-bottom: solid $outline-grey 1px;
-    border-left: none;
-    border-right: none;
+  color: #444;
+  padding: 0.5rem 0;
+  border-bottom: solid $outline-grey 1px;
+  border-left: none;
+  border-right: none;
 
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    @include user-select(none);
-    background-color: $districtr-light-grey;
-    transition: all ease 100ms;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  @include user-select(none);
+  background-color: $districtr-light-grey;
+  transition: all ease 100ms;
 }
 
 input:hover ~ .tabs__tab {
-    background: $districtr-grey-hover;
+  background: $districtr-grey-hover;
 }
 
 input:active ~ .tabs__tab {
-    background: $districtr-grey-active;
+  background: $districtr-grey-active;
 }
 
 // li:last-child > .tabs__tab {
@@ -157,358 +158,360 @@ input:active ~ .tabs__tab {
 // }
 
 .tabs li {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .tabs input {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    position: absolute;
+  position: absolute;
 
-    opacity: 0;
+  opacity: 0;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 
-    z-index: 1000;
+  z-index: 1000;
 }
 
 input:checked ~ .tabs__tab {
-    border-bottom: solid rgba(255, 255, 255, 0) 1px;
-    border-left: solid $outline-grey 1px;
-    border-right: solid $outline-grey 1px;
-    font-weight: 600;
-    background: #fff;
-    box-shadow: none;
-    color: black;
+  border-bottom: solid rgba(255, 255, 255, 0) 1px;
+  border-left: solid $outline-grey 1px;
+  border-right: solid $outline-grey 1px;
+  font-weight: 600;
+  background: #fff;
+  box-shadow: none;
+  color: black;
 }
 
 li:last-child > input:checked ~ .tabs__tab {
-    border-right: none;
+  border-right: none;
 }
 
 li:first-child > input:checked ~ .tabs__tab {
-    border-left: none;
+  border-left: none;
 }
 
 .tab__body.active {
-    display: block;
+  display: block;
 }
 
 .tab__body {
-    overflow-y: auto;
-    margin: 0;
-    padding: 0.5rem 0;
-    flex-shrink: 10;
-    display: none;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.5rem 0;
+  flex-shrink: 10;
+  display: none;
 }
 
 .part-number {
-    // override this with style attribute to match
-    // district color
-    background: #aaa;
+  // override this with style attribute to match
+  // district color
+  background: #aaa;
 
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0 0.2rem;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 0.2rem;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    // Should adjust depending on color to make sure
-    // contrast ratio is OK
-    color: white;
-    margin: 0 auto;
+  // Should adjust depending on color to make sure
+  // contrast ratio is OK
+  color: white;
+  margin: 0 auto;
 
-    text-shadow: $text-shadow;
+  text-shadow: $text-shadow;
 }
 
 .tool-options {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .tab__body h3 {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .tab__body h4 {
-    margin: 0.2rem 0;
-    font-size: 1.2rem;
+  margin: 0.2rem 0;
+  font-size: 1.2rem;
 }
 
 .data-table {
-    border: none;
-    width: 100%;
-    margin: 0 0 1rem;
-    padding: 0 1rem;
-    border-spacing: 0.2rem;
-    text-align: left;
+  border: none;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0 1rem;
+  border-spacing: 0.2rem;
+  text-align: left;
 
-    .age-histogram & {
-        text-align: center;
-        border-spacing: 0;
+  .age-histogram & {
+    text-align: center;
+    border-spacing: 0;
 
-        .data-table__row-heading {
-          vertical-align: bottom;
-          padding-top: 0;
-          padding-bottom: 1rem;
-          padding-right: 0.5rem;
-        }
-
-        tbody tr {
-          height: 50px;
-        }
-
-        tbody td {
-            vertical-align: bottom;
-            padding: 0;
-
-            &:last-child {
-                font-size: 80%;
-                vertical-align: middle;
-                border-bottom: 1px solid #444;
-            }
-        }
+    .data-table__row-heading {
+      vertical-align: bottom;
+      padding-top: 0;
+      padding-bottom: 1rem;
+      padding-right: 0.5rem;
     }
+
+    tbody tr {
+      height: 50px;
+    }
+
+    tbody td {
+      vertical-align: bottom;
+      padding: 0;
+
+      &:last-child {
+        font-size: 80%;
+        vertical-align: middle;
+        border-bottom: 1px solid #444;
+      }
+    }
+  }
 }
 
 .data-table__cell {
-    text-align: right;
-    background-color: $districtr-light-grey;
+  text-align: right;
+  background-color: $districtr-light-grey;
 }
 
 .data-table__column-heading,
 .data-table__row-heading,
 .data-table__cell {
-    padding: 0.1rem;
+  padding: 0.1rem;
 }
 .data-table__column-heading {
-    text-align: center;
+  text-align: center;
 }
 .data-table__row-heading {
-    text-align: left;
+  text-align: left;
 }
 
 .toolbar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25rem;
-    margin: 0;
-    border-bottom: 1px solid $outline-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 0;
+  border-bottom: 1px solid $outline-grey;
 }
 
 .ui-label {
-    @include user-select(none);
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: #444;
+  @include user-select(none);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #444;
 }
 
 .ui-label--row {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .ui-option {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
 
-    &.undoredo-option {
-        padding-top: 8px;
-        border-top:1px solid silver;
-    }
+  &.undoredo-option {
+    padding-top: 8px;
+    border-top: 1px solid silver;
+  }
 }
 
 .ui-option--slim {
-    margin: 0.25rem 0;
+  margin: 0.25rem 0;
 }
 
 .ui-data {
-    // background-color: #111;
-    // color: white;
+  // background-color: #111;
+  // color: white;
 
-    letter-spacing: 0.025rem;
-    font-weight: normal;
+  letter-spacing: 0.025rem;
+  font-weight: normal;
 
-    // padding: 0.25rem 0.5rem;
-    // border-radius: 0.25rem;
+  // padding: 0.25rem 0.5rem;
+  // border-radius: 0.25rem;
 }
 
 .dropdown {
-    position: absolute;
-    z-index: 100000;
-    box-shadow: $raised-bottom;
+  position: absolute;
+  z-index: 100000;
+  box-shadow: $raised-bottom;
 }
 
 .ui-list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    list-style: none;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .ui-list__item {
-    background-color: white;
-    padding: 0.5rem;
-    margin: 0;
-    border-bottom: $outline-grey 1px solid;
-    cursor: pointer;
-    @include grey-hovers;
-    @include user-select(none);
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0;
+  border-bottom: $outline-grey 1px solid;
+  cursor: pointer;
+  @include grey-hovers;
+  @include user-select(none);
 }
 
-.mapbox-gl-draw_point, .mapboxgl-ctrl-top-right {
-    visibility: hidden;
+.mapbox-gl-draw_point,
+.mapboxgl-ctrl-top-right {
+  visibility: hidden;
 }
 
 .custom-select-wrapper {
-     position: relative;
-     user-select: none;
-     width: 100%;
+  position: relative;
+  user-select: none;
+  width: 100%;
 }
 .custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-width: 0 2px 0 2px;
+  border-style: solid;
+  border-color: #394a6d;
+
+  .part-number {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+    float: left;
+  }
+
+  .arrow {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    border-width: 0 2px 0 2px;
-    border-style: solid;
-    border-color: #394a6d;
-
-    .part-number {
-        margin-top: 8px;
-        margin-right: 8px;
-        margin-left: 8px;
-        float: left;
-    }
-
-    .arrow {
-         position: relative;
-         height: 15px;
-         width: 15px;
-    }
-    .arrow::before, .arrow::after {
-         content: "";
-         position: absolute;
-         bottom: 0px;
-         width: 0.15rem;
-         height: 100%;
-    }
-    .arrow::before {
-         left: -5px;
-         transform: rotate(-45deg);
-         background-color: #394a6d;
-    }
-    .arrow::after {
-         left: 5px;
-         transform: rotate(45deg);
-         background-color: #394a6d;
-    }
-    &.open .arrow::before {
-         left: -5px;
-         transform: rotate(45deg);
-    }
-    &.open .arrow::after {
-         left: 5px;
-         transform: rotate(-45deg);
-    }
+    height: 15px;
+    width: 15px;
+  }
+  .arrow::before,
+  .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+  }
+  .arrow::before {
+    left: -5px;
+    transform: rotate(-45deg);
+    background-color: #394a6d;
+  }
+  .arrow::after {
+    left: 5px;
+    transform: rotate(45deg);
+    background-color: #394a6d;
+  }
+  &.open .arrow::before {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+  &.open .arrow::after {
+    left: 5px;
+    transform: rotate(-45deg);
+  }
 }
 .custom-select__trigger {
-     position: relative;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 0 22px;
-     color: #3b3b3b;
-     height: 40px;
-     line-height: 40px;
-     background: #ffffff;
-     cursor: pointer;
-     border-width: 2px 0 2px 0;
-     border-style: solid;
-     border-color: #394a6d;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  color: #3b3b3b;
+  height: 40px;
+  line-height: 40px;
+  background: #ffffff;
+  cursor: pointer;
+  border-width: 2px 0 2px 0;
+  border-style: solid;
+  border-color: #394a6d;
 
-     .label {
-       text-overflow: ellipsis;
-       max-width: fit-content;
-       white-space: nowrap;
-       max-width: 180px;
-       overflow: hidden;
-     }
-
-    .part-number {
-       margin-top: 0;
-    }
-}
- .custom-options {
-     position: absolute;
-     display: block;
-     top: 100%;
-     left: 0;
-     right: 0;
-     border: 2px solid #394a6d;
-     border-top: 0;
-     background: #fff;
-     transition: all 0.5s;
-     opacity: 0;
-     visibility: hidden;
-     pointer-events: none;
-     z-index: 2;
-     overflow-y: scroll;
-     max-height: 250px;
-}
- .custom-select.open .custom-options {
-     opacity: 1;
-     visibility: visible;
-     pointer-events: all;
-}
- .custom-option {
-     position: relative;
-     display: block;
-     padding: 0 22px 0 22px;
-     font-size: 18px;
-     font-weight: 300;
-     color: #3b3b3b;
-     line-height: 39px;
-     cursor: pointer;
-     white-space: nowrap;
-    overflow: hidden;
+  .label {
     text-overflow: ellipsis;
+    max-width: fit-content;
+    white-space: nowrap;
+    max-width: 180px;
+    overflow: hidden;
+  }
+
+  .part-number {
+    margin-top: 0;
+  }
 }
- .custom-option:hover {
-     cursor: pointer;
-     // background-color: #b2b2b2;
+.custom-options {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid #394a6d;
+  border-top: 0;
+  background: #fff;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+  overflow-y: scroll;
+  max-height: 250px;
 }
- .custom-option.selected {
-     color: #ffffff;
-     background-color: #305c91;
+.custom-select.open .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.custom-option {
+  position: relative;
+  display: block;
+  padding: 0 22px 0 22px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #3b3b3b;
+  line-height: 39px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.custom-option:hover {
+  cursor: pointer;
+  // background-color: #b2b2b2;
+}
+.custom-option.selected {
+  color: #ffffff;
+  background-color: #305c91;
 }
 
 .coalition-table {
-    td:first-of-type {
-      background: rgba(0, 0, 0, 0.1) !important;
-      color: #000 !important;
-    }
+  td:first-of-type {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: #000 !important;
+  }
 }
 
 .landmark-list {
@@ -533,35 +536,35 @@ li:first-child > input:checked ~ .tabs__tab {
   }
 }
 .elect_tooltip {
-    position: relative;
-    // display: inline-block;
-  }
-  
+  position: relative;
+  // display: inline-block;
+}
+
 /* Tooltip text */
 .elect_tooltip .elect_tooltiptext {
-    visibility: hidden;
-    width: auto;
-    height: auto;
-    min-width: 8rem;
-    min-height: 2rem;
-    background-color: #111;
-    color:#eee;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 0.9rem;
+  visibility: hidden;
+  width: auto;
+  height: auto;
+  min-width: 8rem;
+  min-height: 2rem;
+  background-color: #111;
+  color: #eee;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-    transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
-    pointer-events: none;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  transition: opacity 100ms ease-out, height 100ms ease, width 100ms ease;
+  pointer-events: none;
 }
 .elect_tooltip_right_edge {
-    margin-left: -100%;
+  margin-left: -100%;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .elect_tooltip:hover .elect_tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }

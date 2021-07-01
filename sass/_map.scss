@@ -1,78 +1,84 @@
-html, body, #root, .mapcontainer, .map {
-    height: 100%;
+html,
+body,
+#root,
+.mapcontainer,
+.map {
+  height: 100%;
 }
 body * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #comparison-container {
-    display: inline;
+  display: inline;
 }
 .mapcontainer {
-    width: 100%;
-    width: calc(75%);
-    overflow: hidden;
+  width: 100%;
+  width: calc(60%);
+  overflow: hidden;
 }
 .map {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  width: calc(60%);
+}
+.mapboxgl-compare {
+  display: none;
+}
+
+.brush-tool {
+  cursor: pointer;
+}
+
+.inspect-tool {
+  cursor: pointer;
+}
+
+.geocoder {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 50px;
+}
+.mapboxgl-ctrl-geocoder {
+  max-width: 24rem;
+  min-width: 16rem;
+}
+
+.mapbox-gl-draw_ctrl-draw-btn {
+  zoom: 1.2;
+}
+
+@media (max-width: 1200px) {
+  .mapcontainer,
+  .map {
+    width: calc(100% - 300px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .mapcontainer,
+  .map {
+    width: calc(100% - 350px);
+  }
+}
+
+.coi2 {
+  .mapcontainer {
+    width: 100%;
+    width: calc(60%);
+    overflow: hidden;
+  }
+  .map {
     position: absolute !important;
     top: 0;
     bottom: 0;
     width: 100%;
-    width: calc(75%);
-}
-.mapboxgl-compare {
-    display: none;
-}
-
-.brush-tool {
-    cursor: pointer;
-}
-
-.inspect-tool {
-    cursor: pointer;
-}
-
-.geocoder {
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    left: 50px;
-}
-.mapboxgl-ctrl-geocoder {
-    max-width: 24rem;
-    min-width: 16rem;
-}
-
-.mapbox-gl-draw_ctrl-draw-btn {
-    zoom: 1.2;
-}
-
-@media (max-width: 1200px) {
-    .mapcontainer, .map {
-        width: calc(100% - 300px);
-    }
-}
-
-@media (min-width: 1400px) {
-    .mapcontainer, .map {
-        width: calc(100% - 350px);
-    }
-}
-
-.coi2 {
-    .mapcontainer {
-        width: 100%;
-        width: calc(60%);
-        overflow: hidden;
-    }
-    .map {
-        position: absolute !important;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        width: calc(60%);
-    }
+    width: calc(60%);
+  }
 }
