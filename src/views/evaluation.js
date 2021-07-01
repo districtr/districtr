@@ -26,8 +26,10 @@ export default () => {
             let go = new Button(() =>{
                     let url = document.getElementById("shareable-url").value;
                     let plan = loadPlan(url);
-                    // TODO do somethign with the plan!
-                    plan.then(context => console.log(context));
+                    plan.then(context => {
+                        savePlanToStorage(context);
+                        navigateTo("/eval");
+                    });
                 }, 
                 { label: "Go.", hoverText: "Evaluate the selected plan." });
             let upload = new PlanUploader(fileContent => {
