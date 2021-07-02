@@ -1,27 +1,20 @@
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
-import { spatial_abilities, nested } from "../utils";
+import { spatial_abilities, nested, one_cd} from "../utils";
 import Layer, { addBelowLabels } from "../map/Layer";
 
 export function addBoundaryLayers(tab, state, current_districts, school_districts, municipalities) {
     // check if we have to draw anything, if not, just leave
     if (!current_districts && !school_districts && !municipalities)
         return;
-
     let borders = {},
         placeID = state.place.state.toLowerCase().replace(" ","");
-    
     // current districts should be stored in assets/boundaries/current_districts/[state]/
     // if the state name is two words, it should be just have the space removed
     if (current_districts) {
-        fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
         fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
         fetch(`/assets/boundaries/current_districts/${placeID}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
 
-            state.map.addSource('fed_districts', {
-                type: 'geojson',
-                data: fed
-            });
             state.map.addSource('state_house', {
                 type: 'geojson',
                 data: state_house
@@ -31,20 +24,6 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 data: state_senate
             });
 
-            borders.federal = new Layer(
-                state.map,
-                {
-                    id: 'fed_districts',
-                    type: 'line',
-                    source: 'fed_districts',
-                    paint: {
-                        'line-color': '#000',
-                        'line-opacity': 0,
-                        'line-width': 2
-                    }
-                },
-                addBelowLabels
-            );
             borders.senate = new Layer(
                 state.map,
                 {
@@ -79,8 +58,34 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 },
                 addBelowLabels
             );
-        })})});
+            if (!one_cd(placeID)) {
+                fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => { 
+
+                    state.map.addSource('fed_districts', {
+                        type: 'geojson',
+                        data: fed
+                    });
+
+                    borders.federal = new Layer(
+                        state.map,
+                        {
+                            id: 'fed_districts',
+                            type: 'line',
+                            source: 'fed_districts',
+                            paint: {
+                                'line-color': '#000',
+                                'line-opacity': 0,
+                                'line-width': 2
+                            }
+                        },
+                        addBelowLabels
+                    );
+
+                })
+            }
+        })});
     }
+
     // school districts should be stored in /assets/boundaries/school_districts/[state]/
     if (school_districts) {
         fetch(`/assets/boundaries/school_districts/${placeID}/${placeID}_schools.geojson`).then(res => res.json()).then((schools) => {
@@ -200,46 +205,64 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     Hidden
                 </label>
             </li>
-            ${current_districts ?
-                (nested(placeID) ?
+
+            ${current_districts ? ((nested(placeID) && one_cd(placeID)) ? 
                 html`<li>
                     <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        Current US Congress
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        Current State Legislature (Nested)
+                        State Legislature (Nested)
                     </label>
-                </li>` :
-                html`<li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        Current US Congress
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        Current State Senate
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                        Current State House
-                    </label>
-                </li>`): ""}
-                ${school_districts ?
+                </li>` : (!nested(placeID) && one_cd(placeID)) ?
+                    html`<li>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                            State Senate
+                        </label>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
+                            State House
+                        </label>
+                    </li>` : nested(placeID) ? 
+                        html`<li>
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
+                                US Congress
+                            </label>
+                        </li>
+                        <li>
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                                State Legislature (Nested)
+                            </label>
+                        </li>` : 
+                        html`<li>
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
+                                US Congress
+                            </label>
+                        </li>
+                        <li>
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
+                                State Senate
+                            </label>
+                        </li>
+                        <li>
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
+                                State House
+                            </label>
+                        </li>`) : ""}
+                ${school_districts ? 
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
                             School Districts
                         </label>
                     </li>` : ""}
-                ${municipalities ?
+                ${municipalities ? 
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
