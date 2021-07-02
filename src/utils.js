@@ -430,6 +430,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      municipalities: true,
     },
     sanjoseca: {
       border: true,
