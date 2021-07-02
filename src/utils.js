@@ -313,6 +313,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       school_districts: true,
       municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
@@ -322,6 +323,7 @@ export function spatial_abilities(id) {
       coalition: false,
       school_districts: true,
       municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
@@ -1206,4 +1208,15 @@ export function nested(st) {
     'southdakota',
     'washington',
     'wisconsin'].includes(st);
+}
+
+export function one_cd(st) {
+  return [
+    'alaska',
+    'delaware',
+    'montana',
+    'northdakota',
+    'southdakota',
+    'vermont',
+    'wyoming'].includes(st)
 }
