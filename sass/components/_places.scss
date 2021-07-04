@@ -121,9 +121,9 @@
     }
 }
 
-.moreoptions-input {
+.custom-input {
     @include user-select(none);
-    margin: 0.5rem 0.5rem;
+    margin: 1rem 1rem;
     padding: 0.5rem;
     font-weight: bold;
     // background: #eee;
@@ -152,7 +152,7 @@
             cursor: pointer;
             background-color: #fff;
             color: $districtr-purple;
-            padding: 0.2rem 0.6rem;
+            padding: 0.9rem 0.9rem;
             margin: 0.2rem 0.5rem;
             border-radius: 0.2rem;
             font-size: 100%;
