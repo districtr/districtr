@@ -305,6 +305,7 @@ const longAbout = {
     "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities. Standing as an independent voice for positive change, \
     a watchdog against corruption, and protector against abuse of power, we work to hold public officials accountable and responsive to citizens. \
     Common Cause Pennsylvania is a nonpartisan, good government organization.",
+  ],
 };
 
 const proposals_by_event = {
