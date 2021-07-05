@@ -85,7 +85,22 @@ const plans = [
                 id: "b1",
                 name: "Remedial Plan B1",
                 numbers: []
-            }  
+            },
+            {
+                id: "d-3",
+                name: "D Proposal: 3 District Plan",
+                numbers: []
+            },
+            {
+                id: "d-7",
+                name: "D Proposal: 7 District Plan",
+                numbers: []
+            },
+            {
+                id: "d-10",
+                name: "D Proposal: 10 District Plan",
+                numbers: []
+            }   
         ]
     }
 ];
