@@ -398,6 +398,10 @@ export function spatial_abilities(id) {
       coalition: false,
       border: true,
     },
+    ca_goleta: {
+      coalition: false,
+      border: true,
+    },
     sanluiso: {
       coalition: false,
       number_markers: true,
