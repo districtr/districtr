@@ -112,7 +112,7 @@
               {
                 "key": "NH18_DOJ_I",
                 "name": "Native American voting age population",
-                "sum": 1352,
+                "sum": 13,
                 "min": 0,
                 "max": 9
               },
@@ -1096,11 +1096,6 @@
       {
         "name": "2020 Reapportioned Congress",
         "numberOfParts": 52,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
-        "name": "Congress",
-        "numberOfParts": 53,
         "pluralNoun": "Congressional Districts"
       },
       {
