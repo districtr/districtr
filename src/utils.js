@@ -402,6 +402,10 @@ export function spatial_abilities(id) {
       coalition: false,
       border: true,
     },
+    ca_santabarbara: {
+      coalition: false,
+      border: true,
+    },
     sanluiso: {
       coalition: false,
       number_markers: true,

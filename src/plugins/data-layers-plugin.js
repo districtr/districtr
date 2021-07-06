@@ -213,7 +213,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax", "ca_sonoma"].includes(state.place.id)) {
+    if (["virginia", "lax", "ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
         fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -499,7 +499,7 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (state.place.id === "ca_sonoma") {
+    } else if (["ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
         tab.addRevealSection(
             'Enacted Plans',
             (uiState, dispatch) => html`
