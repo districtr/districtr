@@ -429,5 +429,131 @@
         "name": "State House"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 198667,
+              "min": 427,
+              "max": 6927
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 120829,
+                "min": 47,
+                "max": 6444
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 14059,
+                "min": 0,
+                "max": 1194
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 56409,
+                "min": 0,
+                "max": 3177
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 3538,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 304,
+                "min": 0,
+                "max": 118
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 12,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 3278,
+                "min": 0,
+                "max": 377
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 238,
+                "min": 0,
+                "max": 52
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2019 ACS GEOID",
+          "key": "GEOID"
+        },
+        "nameColumn": {
+          "name": "Block Group Name",
+          "key": "NAME"
+        },
+        "bounds": [
+          [
+            -84.0628,
+            34.0983
+          ],
+          [
+            -83.6153,
+            34.5141
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.hall_ga_block_groups"
+            },
+            "sourceLayer": "hall_ga_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.hall_ga_block_groups_points"
+            },
+            "sourceLayer": "hall_ga_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "state": "Georgia",
+    "id": "hall_ga",
+    "name": "Hall County",
+    "districtingProblems": [
+      {
+        "name": "County Commissioners",
+        "numberOfParts": 4,
+        "pluralNoun": "Districts"
+      }
+    ]
   }
 ]
