@@ -36,7 +36,7 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
         }
         let portalLink = spatial_abilities(state.place.id).portal.endpoint;
         let shareLink = "";
-        if (spatial_abilities(state.place.id).portal.saveredirect) {
+        if (spatial_abilities(state.place.id).portal && spatial_abilities(state.place.id).portal.saveredirect) {
             shareLink = `${spatial_abilities(state.place.id).portal.saveredirect}?p=${_id}`;
         } else {
             shareLink = `${window.location.host}/${action}/${_id}`;
