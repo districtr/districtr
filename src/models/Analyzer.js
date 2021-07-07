@@ -1,10 +1,11 @@
 import UIStateStore from "./UIStateStore";
 import reducer from "../reducers";
-import Toolbar from "../components/Toolbar/Toolbar";
-import { render } from "lit-html";
+import { actions } from "../reducers/charts";
+import { render, html } from "lit-html";
+import RevealSection from "../components/RevealSection";
 
 export default class Analyzer {
-    constructor(state, mapState, slideshow) {
+    constructor(state, mapState) {
         this.render = this.render.bind(this);
         this.mapState = mapState;
 
@@ -24,14 +25,37 @@ export default class Analyzer {
             charts: {}
         });
 
-        //this.toolbar = new Toolbar(this.store, this);
-        this.slideshow = slideshow;
+        this.sections = [];
         
         this.store.subscribe(this.render);
         this.state.subscribe(this.render);
     }
+    
+    addRevealSection(name, element, options) {
+        console.log(element);
+        if (options === undefined || options === null) {
+            options = {}; 
+        }
+        this.store.dispatch(
+            // default to closed
+            actions.addChart({ chart: name, isOpen: false, ...options })
+        );
+        this.sections.push(
+            (uiState, dispatch) => html`
+                <section class="analyzer-section">
+                    ${RevealSection(
+                        name,
+                        element(uiState, dispatch),
+                        uiState.charts[name].isOpen,
+                        () => dispatch(actions.toggleOpen({ chart: name }))
+                    )}
+                </section>
+            `
+        );
+    }
+
     render() {
-        render(this.slideshow.render(this.store.state, this.store.dispatch)
-            , document.getElementById('slideshow-area'));
+        render(this.sections.map(section => section(this.store.state, this.store.dispatch)), 
+            document.getElementById("slideshow-area"));
     }
 }
