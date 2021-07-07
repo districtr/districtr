@@ -117,8 +117,8 @@ function renderLeft(pane, context) {
  * @returns {undefined}
  */
 function renderRight(pane, context, state, mapState) {
-    let saveplan = state.serialize(),
-        slideshow = new SlideShow(pane.pane, []);
+    let saveplan = state.serialize();
+    // let slideshow = new SlideShow(pane.pane, []);
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/eval_page", {
       method: "POST",
@@ -129,8 +129,8 @@ function renderRight(pane, context, state, mapState) {
     }).then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
-            console.log(state);
-            console.log(data);
+            //console.log(state);
+            //console.log(data);
             if (data.error) {
                 render(html`Analysis unavailable for ${state.place.state} 
                         on ${state.unitsRecord.unitType.toLowerCase()}.<br/>
@@ -140,23 +140,51 @@ function renderRight(pane, context, state, mapState) {
             }
             let municipalities = ['ma'].includes(state.place.id);
             // Create the charts for the Slides.
-            let slides = [
-                // overview (show 1st)
-                new Slide((uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
-                // election results slide
-                new Slide((uiState, dispatch) => election_slide(state), "Election Results"),
-                // compactness (cut edges, polsby popper)
-                new Slide((uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
-                ];
-                (data.counties == -1) 
-                ? slides.push(new Slide((uiState, dispatch) => html`${municipalities ? html`Municipality` : html`County`} Level Data unavailable`,  
-                        html`${municipalities ? html`Municipality` : html`County`} Splits`))
-                : slides.push(new Slide((uiState, dispatch) => county_slide(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
-            for (let slide of slides) {
-                slideshow.addSlide(slide);
-            }
-        
-            let analyzer = new Analyzer(state, mapState, slideshow);
+            // let slides = [
+            //     // overview (show 1st)
+            //     new Slide((uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
+            //     // election results slide
+            //     new Slide((uiState, dispatch) => election_slide(state), "Election Results"),
+            //     // compactness (cut edges, polsby popper)
+            //     new Slide((uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
+            //     ];
+            //     (data.counties == -1) 
+            //     ? slides.push(new Slide((uiState, dispatch) => html`${municipalities ? html`Municipality` : html`County`} Level Data unavailable`,  
+            //             html`${municipalities ? html`Municipality` : html`County`} Splits`))
+            //     : slides.push(new Slide((uiState, dispatch) => county_slide(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
+            // for (let slide of slides) {
+            //     slideshow.addSlide(slide);
+            // }
+
+            // one big slide
+            // let bigslide = new Slide((uiState, dispatch) => html`
+            // <h2 id="overview">Overview</h2>
+            // ${overview_slide(state, data.contiguity, data.split, data.num_units)}
+            // <br>
+            // <h2 id="elections">Election Results</h2>
+            // ${election_slide(state)}
+            // <br>
+            // <h2 id="compactness">Compactness</h2>
+            // ${compactness_slide(state, data.cut_edges, data.polsbypopper)}
+            // <h2>${municipalities? "Municipality Splits" : "County Splits"}</h2>
+            // ${data.counties == -1 ? "<h3>County level data unavailable</h3>": 
+            // county_slide(state, data.counties, municipalities)}
+            // `);
+            // slideshow.addSlide(bigslide);
+
+            let innerTemplate = document.createElement("div");
+            innerTemplate.className = "analysis--inner";
+            innerTemplate.id = "analysis-area"
+            innerTemplate.innerHTML = "Loading."
+            pane.pane.append(innerTemplate);
+
+            let analyzer = new Analyzer(state, mapState, innerTemplate);
+            analyzer.addRevealSection("Overview", (uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units))
+            analyzer.addRevealSection("Election Results", (uiState, dispatch) => election_slide(state))
+            analyzer.addRevealSection("Compactness", (uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper))
+            data.counties == -1 ? "" : 
+                analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
+                    (uiState, dispatch) => county_slide(state, data.counties, municipalities))
             analyzer.render();
         });
 }
@@ -172,9 +200,9 @@ function getPlanURLFromQueryParam() {
 
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
-    console.log(planURL);
+    //console.log(planURL);
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
-    console.log(finalURLpage);
+    //console.log(finalURLpage);
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
@@ -312,7 +340,7 @@ function overview_slide (state, contig, problems, num_tiles) {
 // Election Results Slide
 function election_slide(state) {
     let elections = state.elections;
-    console.log(state.elections);
+    //console.log(state.elections);
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
     let rows = [];
@@ -324,7 +352,7 @@ function election_slide(state) {
         elections[0].parties.map(party => {
             const rgb = getPartyRGBColors(party.name + party.key);
             return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`})).concat(
-                [html`<div>Biased To</div>`]
+                [html`<div>Disproportionality</div>`]
             );
         
     let bias_acc = []
@@ -335,7 +363,7 @@ function election_slide(state) {
             d_seats = election.getSeatsWonParty(election.parties[0]);
         let d_seat_share = d_seats/election.total.data.length;
         let bias_to = (d_votes > d_seat_share) ? "R" : "D";
-        console.log(d_seats);
+        //console.log(d_seats);
 
 
         // > 0 if biased towards Rs, < 0 if toward Ds
@@ -343,8 +371,8 @@ function election_slide(state) {
         bias_acc.push(bias_by);
         
         let biases = [
-            (bias_to == "R") ? {content: `Republicans by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.2)}`}
-                             : {content: `Democrats by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.8)}`}    
+            (bias_to == "R") ? {content: `Leans Republican by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.2)}`}
+                             : {content: `Leans Democrat by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.8)}`}    
         ]
 
         rows.push({
@@ -353,11 +381,10 @@ function election_slide(state) {
         });
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
-    let var_bias = roundToDecimal(bias_acc.map(b => Math.pow(b-avg_bias, 2)).reduce((a,b) => a + b)/bias_acc.length, 2);
     return html`
-        Your plan has an average bias of ${Math.abs(avg_bias)} seats towards 
+        Your plan has an average disproportional lean of ${Math.abs(avg_bias)} seats towards 
         <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over
-        ${bias_acc.length} ${elections.length > 1 ? html`elections, with a variance of ${var_bias}.`
+        ${bias_acc.length} ${elections.length > 1 ? html`elections.`
         : html`election.`}
         <br/>
         ${elections[0].parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
@@ -424,7 +451,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
         <h3>Polsby Popper Scores</h3>
         <div style='text-align: left'>
         Another measure of compactness is the <strong>Polsby Popper score</strong>, which is a ratio
-        of the area of a district to it's perimeter. When calculating Polsby Popper scores, one
+        of the area of a district to its perimeter. When calculating Polsby Popper scores, one
         must take care to choose a proper map projection. Ours are calculated in the appropriate UTM projection
         for each state (for more info, consult the <a href="https://gerrychain.readthedocs.io/en/latest/api.html">GerryChain documentation</a>). 
         A higher Polsby Popper score means a more compact district.<br/><br/>
@@ -438,7 +465,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
 
 // County Splits slide
 function county_slide(state, data, municipalities) {
-    console.log(data);
+    //console.log(data);
     let pnoun = municipalities ? "municipalities" : "counties",
         noun = municipalities ? "municipality" : "county";
         
@@ -449,7 +476,7 @@ function county_slide(state, data, municipalities) {
         Object.keys(data.population).map(x => 
             forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
         );
-        console.log(forced);
+        //console.log(forced);
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     let num_split = Object.keys(data.split_list).length;
@@ -1921,3 +1948,4 @@ function state_name_to_postal(st) {
     }
     return results[st];
 }
+

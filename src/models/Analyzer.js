@@ -5,10 +5,10 @@ import { render, html } from "lit-html";
 import RevealSection from "../components/RevealSection";
 
 export default class Analyzer {
-    constructor(state, mapState) {
+    constructor(state, mapState, container) {
         this.render = this.render.bind(this);
         this.mapState = mapState;
-
+        this.container = container;
         this.state = state;
 
         let activeTab = "criteria";
@@ -56,6 +56,6 @@ export default class Analyzer {
 
     render() {
         render(this.sections.map(section => section(this.store.state, this.store.dispatch)), 
-            document.getElementById("slideshow-area"));
+            this.container);
     }
 }
