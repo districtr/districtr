@@ -487,6 +487,9 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
+      portal: {
+        endpoint: "https://portal.florida-mapping.org",
+      },
     },
     miamifl: {
       number_markers: true,
@@ -1013,6 +1016,9 @@ export function spatial_abilities(id) {
       sideload: true,
       load_coi: false,
       contiguity: 2,
+      portal: {
+        endpoint: "https://portal.pennsylvania-mapping.org",
+      },
     },
     philadelphia: {
       number_markers: true,
