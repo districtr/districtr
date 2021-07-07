@@ -32,7 +32,6 @@ export default class Analyzer {
     }
     
     addRevealSection(name, element, options) {
-        console.log(element);
         if (options === undefined || options === null) {
             options = {}; 
         }
