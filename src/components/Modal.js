@@ -122,7 +122,7 @@ export function renderEventModal(state, savePlanToDB, eventCode) {
                     <p>Would you like to Share Now, or save the map as a Work in Progress?</p>
 
                     <div class="tab-carrier">
-                      <div
+                      <div id="event-share-now"
                         class="tab tab-selected"
                         @click="${tabClick}"
                       >
@@ -162,7 +162,8 @@ export function renderEventModal(state, savePlanToDB, eventCode) {
                               () => {
                                   console.log("added event code");
                                   document.querySelectorAll(".media__close").forEach((c) => c.click());
-                              }
+                              },
+                              document.getElementById("event-share-now").className.includes("selected"),
                           )
                         }}"
                       >

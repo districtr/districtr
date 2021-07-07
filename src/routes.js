@@ -58,7 +58,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback) {
+export function savePlanToDB(state, eventCode, planName, callback, forceNotScratch) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -73,7 +73,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             token: token.split("_")[0],
             eventCode: eventCode,
             planName: planName,
-            isScratch: (document.getElementById("is-scratch") || {}).checked,
+            isScratch: (document.getElementById("is-scratch") || {}).checked || (eventCode && !forceNotScratch),
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
