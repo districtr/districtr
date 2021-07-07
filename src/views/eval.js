@@ -269,10 +269,10 @@ function overview_section (state, contig, problems, num_tiles) {
     // contiguity
     let contig_section = 
         (problems && spatial_abilities(state.place.id).contiguity)
-        ? html`<h4 id="contiguity-status">
+        ? html`<h5 id="contiguity-status">
         ${contig ? "No contiguity gaps detected" 
             : html`The following districts have contiguity gaps:
-        </h4>
+        </h5>
         <div class="district-row" style="display:block">
             ${state.parts.map((part, dnum) => {
             return html`
@@ -285,9 +285,9 @@ function overview_section (state, contig, problems, num_tiles) {
                 >
                     ${Number(dnum) + 1}
                 </span>`})}</div>`}`
-        : html`<h4 id="contiguity-status">
+        : html`<h5 id="contiguity-status">
                 Contiguity status not available for ${state.place.name}.
-            </h4>`
+            </h5>`
     
     // population deviation
     let deviations = state.population.deviations();
@@ -313,24 +313,27 @@ function overview_section (state, contig, problems, num_tiles) {
         display:inline-flex"
     >
         ${Number(argmax) + 1}
-    </span> and your plan's least populous district is district  
+    </span> (${roundToDecimal(max * 100, 2)}%) and your plan's least populous district is district  
     <span
         class="part-number"
         style="background:${districtColors[argmin % districtColors.length].hex};
         display:inline-flex"
     >
     ${Number(argmin) + 1}
-    </span>.<br/> 
-    The maxiumum population deviation of your plan is ${Math.abs(roundToDecimal(max * 100, 2))}%.`;
+    </span> (${roundToDecimal(min * 100, 2)}%).<br/>`
     
     // aggregate all the parts
     return html`
+    <h4 text-align="center">Basic Information</h4>
     <div class="dataset-info">
                 ${populateDatasetInfo(state)}
             </div>
     ${details}<br/>
+    <h4 text-align="center">Contiguity and Completeness</h4>
     ${unassigned_section}<br/>
-    ${contig_section}${pop_section}</div>`;
+    ${contig_section}
+    <h4 text-align="center">Population Deviation</h4>
+    ${pop_section}</div>`;
 }
 
 // Election Results Section
@@ -376,12 +379,22 @@ function election_section(state) {
             entries: votes.concat(seats).concat(biases)
         });
     }
+    let favor = bias_acc.map(x => x > 0 ? 1 : -1).reduce((a,b) => a + b, 0);
+    let favorstr = "";
+    switch (favor) {
+        case elections.length: favorstr = html`<strong>Republicans</strong> in every election`
+        break;
+        case elections.length: favorstr = html`<strong>Democrats</strong> in every election`
+        break;
+        default: favorstr = "favored different parties in different elections";
+    }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     return html`
         Your plan has an average disproportional lean of ${Math.abs(avg_bias)} seats towards 
         <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over
         ${bias_acc.length} ${elections.length > 1 ? html`elections.`
-        : html`election.`}
+        : html`election.`} The disproportionality ${favorstr}.
+        <br/>
         <br/>
         ${elections[0].parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
         ${DataTable(headers, rows)}
@@ -451,10 +464,8 @@ function compactness_section(state, cut_edges, plan_scores) {
         must take care to choose a proper map projection. Ours are calculated in the appropriate UTM projection
         for each state (for more info, consult the <a href="https://gerrychain.readthedocs.io/en/latest/api.html">GerryChain documentation</a>). 
         A higher Polsby Popper score means a more compact district.<br/><br/>
-        ${enacted ? html`According to Polsby Popper scores, your average district is 
-        <strong>${comparison}</strong> the average enacted district.` 
-        : html`Enacted Polsby Popper Scores are not available for this districting problem.`}
-        <div>
+
+        <text class="italic-note">TODO FROM MOON</text>
         ${polsbypopper_table}
         `;
 }
@@ -540,7 +551,7 @@ function enacted_year(st, districts) {
             break;
             case "TX": return 2012
             break;
-            default: return 2010;
+            default: return 2011;
         }
     }
     if (districts == 'State Senate') {
@@ -577,7 +588,7 @@ function enacted_year(st, districts) {
             break;
             case "UT": return 2012
             break;
-            default: return 2010;
+            default: return 2011;
         }
     }
     if (['State House', 'State Assembly', 'House of Delegates'].includes(districts)) {
@@ -612,10 +623,10 @@ function enacted_year(st, districts) {
             break;
             case "WI": return  2012
             break;
-            default: return 2010;
+            default: return 2011;
         }
     }
-    return 2010;
+    return 2011;
 }
 
 function polsby_popper(st, districts) {
