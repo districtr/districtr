@@ -3,6 +3,7 @@
 @import "_colors";
 @import "_base";
 @import "components/_button";
+@import "components/header-with-toggle";
 
 $full-width: calc(100vw - 1em);
 $half-width: calc(50vw - 0.5em);
@@ -68,7 +69,7 @@ $half-width: calc(50vw - 0.5em);
 }
 
 // Styles for the SlideShow.
-.slideshow--inner {
+.analysis--inner {
   width: calc(80% - 0.5em);
   height: 100%
 }
@@ -147,6 +148,15 @@ input[type="file"] {
 }
 
 // toolbar sections in right pane
-.analyzer-section {
+.analyzer-section h2 {
+  text-align: left;
+}
+
+.analyzer-section h4 {
+  font-size: larger;
+}
+
+.header-with-toggle h4{
+  font-size: x-large;
   text-align: left;
 }

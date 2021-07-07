@@ -234,9 +234,6 @@ function getPlanContext() {
  * @returns {undefined}
  */
 export default function renderAnalysisView() {
-    // look for a plan number in the URL
-    
-
     // Create left display pane.    
     // hold on creating the right one, bc we need the mapstate first
     let left = new DisplayPane({ id: "analysis-left" });
@@ -436,7 +433,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
     }
     let polsbypopper_table = successful_calc ? DataTable(headers, rows) : plan_scores;
     return html`
-        <h3>Cut Edges</h3>
+        <h4>Cut Edges</h4>
         <div style='text-align: left'>
         One measure of compactness is the number of <strong>cut edges</strong> in a districting plan.
         You can think of the number of cut edges as the number of adjacent building blocks that
@@ -448,7 +445,7 @@ function compactness_slide(state, cut_edges, plan_scores) {
         : html`Cut Edges count not available for ${state.place.name}.`}
         </div>
         <br/>        
-        <h3>Polsby Popper Scores</h3>
+        <h4>Polsby Popper Scores</h4>
         <div style='text-align: left'>
         Another measure of compactness is the <strong>Polsby Popper score</strong>, which is a ratio
         of the area of a district to its perimeter. When calculating Polsby Popper scores, one
@@ -524,7 +521,7 @@ function county_slide(state, data, municipalities) {
         })
     }
     return html`${text}<br/>
-    <h4>${noun_cap} Split Details</h4> 
+    <h4 text-align:"center">${noun_cap} Split Details</h4> 
     ${DataTable(headers, rows)}`
 }
 
