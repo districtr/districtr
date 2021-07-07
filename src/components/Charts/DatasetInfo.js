@@ -25,7 +25,7 @@ function datasetInfo(state) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena"].includes(place.id)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_goleta", "ca_santabarbara"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
     } else if (["chicago"].includes(place.id) && state.units.id.includes("blocks")) {
         return `<p><span>&#9432;</span> ${populations.HaystaqDNA}</p>`;
