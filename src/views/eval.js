@@ -110,8 +110,7 @@ function renderLeft(pane, context) {
 }
 
 /**
- * @desc Renders the right Pane to the desired content, which is the SlideShow
- * of analysis things.
+ * @desc Renders the right Pane
  * @param {DisplayPane} pane The DisplayPane on the right.
  * @param {Object} context Context object.
  * @returns {undefined}
@@ -142,16 +141,16 @@ function renderRight(pane, context, state, mapState) {
             // Create the charts for the Slides.
             // let slides = [
             //     // overview (show 1st)
-            //     new Slide((uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units), "Overview"),
+            //     new Slide((uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units), "Overview"),
             //     // election results slide
-            //     new Slide((uiState, dispatch) => election_slide(state), "Election Results"),
+            //     new Slide((uiState, dispatch) => election_section(state), "Election Results"),
             //     // compactness (cut edges, polsby popper)
-            //     new Slide((uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper), "Compactness")
+            //     new Slide((uiState, dispatch) => compactness_section(state, data.cut_edges, data.polsbypopper), "Compactness")
             //     ];
             //     (data.counties == -1) 
             //     ? slides.push(new Slide((uiState, dispatch) => html`${municipalities ? html`Municipality` : html`County`} Level Data unavailable`,  
             //             html`${municipalities ? html`Municipality` : html`County`} Splits`))
-            //     : slides.push(new Slide((uiState, dispatch) => county_slide(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
+            //     : slides.push(new Slide((uiState, dispatch) => county_section(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
             // for (let slide of slides) {
             //     slideshow.addSlide(slide);
             // }
@@ -159,16 +158,16 @@ function renderRight(pane, context, state, mapState) {
             // one big slide
             // let bigslide = new Slide((uiState, dispatch) => html`
             // <h2 id="overview">Overview</h2>
-            // ${overview_slide(state, data.contiguity, data.split, data.num_units)}
+            // ${overview_section(state, data.contiguity, data.split, data.num_units)}
             // <br>
             // <h2 id="elections">Election Results</h2>
-            // ${election_slide(state)}
+            // ${election_section(state)}
             // <br>
             // <h2 id="compactness">Compactness</h2>
-            // ${compactness_slide(state, data.cut_edges, data.polsbypopper)}
+            // ${compactness_section(state, data.cut_edges, data.polsbypopper)}
             // <h2>${municipalities? "Municipality Splits" : "County Splits"}</h2>
             // ${data.counties == -1 ? "<h3>County level data unavailable</h3>": 
-            // county_slide(state, data.counties, municipalities)}
+            // county_section(state, data.counties, municipalities)}
             // `);
             // slideshow.addSlide(bigslide);
 
@@ -179,12 +178,12 @@ function renderRight(pane, context, state, mapState) {
             pane.pane.append(innerTemplate);
 
             let analyzer = new Analyzer(state, mapState, innerTemplate);
-            analyzer.addRevealSection("Overview", (uiState, dispatch) => overview_slide(state, data.contiguity, data.split, data.num_units))
-            analyzer.addRevealSection("Election Results", (uiState, dispatch) => election_slide(state))
-            analyzer.addRevealSection("Compactness", (uiState, dispatch) => compactness_slide(state, data.cut_edges, data.polsbypopper))
+            analyzer.addRevealSection("Overview", (uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units))
+            analyzer.addRevealSection("Election Results", (uiState, dispatch) => election_section(state))
+            analyzer.addRevealSection("Compactness", (uiState, dispatch) => compactness_section(state, data.cut_edges, data.polsbypopper))
             data.counties == -1 ? "" : 
                 analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
-                    (uiState, dispatch) => county_slide(state, data.counties, municipalities))
+                    (uiState, dispatch) => county_section(state, data.counties, municipalities))
             analyzer.render();
         });
 }
@@ -242,9 +241,9 @@ export default function renderAnalysisView() {
 
 
 
-/***** SLIDES ******/
-// Overview Slide
-function overview_slide (state, contig, problems, num_tiles) {
+/***** ANALYSIS SECTIONS ******/
+// Overview Section
+function overview_section (state, contig, problems, num_tiles) {
     // plan details
     let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
         .reduce((a,b) => a + b, 0),
@@ -334,8 +333,8 @@ function overview_slide (state, contig, problems, num_tiles) {
     ${contig_section}${pop_section}</div>`;
 }
 
-// Election Results Slide
-function election_slide(state) {
+// Election Results Section
+function election_section(state) {
     let elections = state.elections;
     //console.log(state.elections);
     if (state.elections.length < 1)
@@ -389,8 +388,8 @@ function election_slide(state) {
         `;
 }
 
-// Compactness slide (cut edges, polsby popper)
-function compactness_slide(state, cut_edges, plan_scores) {
+// Compactness Section (cut edges, polsby popper)
+function compactness_section(state, cut_edges, plan_scores) {
     // Polsby Popper Scores
     let columns = ["Max", "Min", "Mean", "Median", "Variance"]
     let rows = [], headers, comparison;
@@ -460,8 +459,8 @@ function compactness_slide(state, cut_edges, plan_scores) {
         `;
 }
 
-// County Splits slide
-function county_slide(state, data, municipalities) {
+// County Splits Section
+function county_section(state, data, municipalities) {
     //console.log(data);
     let pnoun = municipalities ? "municipalities" : "counties",
         noun = municipalities ? "municipality" : "county";
