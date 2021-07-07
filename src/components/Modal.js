@@ -86,6 +86,98 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
     });
 }
 
+export function renderEventModal(state, savePlanToDB, eventCode) {
+    const target = document.getElementById("modal");
+    savePlanToDB(state, undefined, null, (_id, action) => {
+        const shareLink = `${window.location.host}/${action}/${_id}`;
+        const tabClick = (e) => {
+            document.querySelectorAll(".tab-carrier .tab").forEach((tab) => {
+              tab.className = "tab";
+            });
+            e.target.className = "tab tab-selected";
+        };
+        let withUrl = (_id) => {
+            render(renderModal(
+                html`
+                    <h3>Plan has been saved</h3>
+                    <label>Use this URL to share your plan!</label>
+                    <code>https://${shareLink}</code>
+                    <button
+                        id="copy-button"
+                        @click="${() => {
+                            var dummy = document.createElement("textarea");
+                            document.body.appendChild(dummy);
+                            console.log(shareLink);
+                            dummy.value = `https://${shareLink}`;
+                            dummy.focus();
+                            dummy.select();
+                            dummy.setSelectionRange(0, 99999); /* For mobile devices */
+                            document.execCommand("copy");
+                            document.body.removeChild(dummy);
+                            document.getElementById("copy-button").innerHTML = "Copied";
+                        }}"
+                    > Copy to Clipboard </button>
+                    <br/>
+                    <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—other people’s changes will save to a new link.</p>
+                    <p>Would you like to Share Now, or save the map as a Work in Progress?</p>
+
+                    <div class="tab-carrier">
+                      <div
+                        class="tab tab-selected"
+                        @click="${tabClick}"
+                      >
+                        Share Now
+                      </div>
+                      <div
+                        class="tab"
+                        @click="${tabClick}"
+                      >
+                        Work in Progress
+                      </div>
+                    </div>
+                    <div class="tab-content">
+                      <div class="col">
+                        <label>Team or Plan Name</label>
+                        <input
+                            id="event-plan-name-extra"
+                            type="text"
+                            class="text-input"
+                            autofill="off"
+                            value=""
+                            // eslint-disable-next-line no-return-assign
+                        />
+                      </div>
+                      <div class="col">
+                        <label>Tag or Event Code</label>
+                        <label style="margin-top:8px">#${eventCode}</label>
+                      </div>
+                      <button
+                        style="margin-left:auto;margin-right:auto;padding:6px;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:block;text-select:none;"
+                        @click="${() => {
+                          savePlanToDB(
+                              state,
+                              eventCode,
+                              document.getElementById("event-plan-name-extra").value,
+                              // eslint-disable-next-line brace-style
+                              () => {
+                                  console.log("added event code");
+                                  document.querySelectorAll(".media__close").forEach((c) => c.click());
+                              }
+                          )
+                        }}"
+                      >
+                        Add to Event Page
+                      </button>
+                    </div>
+                `
+            ), target);
+        };
+        if (_id || window.location.hostname === "localhost") {
+            withUrl(_id);
+        }
+    });
+}
+
 export function renderAboutModal({ place, unitsRecord }, userRequested) {
     const target = document.getElementById("modal");
     const template = until(

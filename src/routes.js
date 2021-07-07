@@ -98,7 +98,10 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             if (window.location.href.includes("portal")) {
                 extras = "?portal";
             } else if (window.location.href.includes("qa-portal")) {
-                extras = "?qa-portal"
+                extras = "?qa-portal";
+            } else if (window.location.href.includes("event")) {
+                const eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
+                extras = "?event=" + eventdefault;
             }
             history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
