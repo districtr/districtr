@@ -29,29 +29,34 @@ export function renderModal(innerContent) {
 
 export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
     const target = document.getElementById("modal");
-
     savePlanToDB(state, undefined, null, (_id, action) => {
         let eventdefault = "";
         if (window.location.href.includes("event=")) {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
         }
         let portalLink = spatial_abilities(state.place.id).portal.endpoint;
+        let shareLink = "";
+        if (spatial_abilities(state.place.id).portal && spatial_abilities(state.place.id).portal.saveredirect) {
+            shareLink = `${spatial_abilities(state.place.id).portal.saveredirect}?p=${_id}`;
+        } else {
+            shareLink = `${window.location.host}/${action}/${_id}`;
+        }
         if (isFromQAPortal) {
             portalLink = portalLink.replace('portal','qa-portal')
         }
-
         let withUrl = (_id) => {
             render(renderModal(
                 html`
                     <h3>Plan has been saved</h3>
                     <label>Use this URL to share your plan!</label>
-                    <code>https://${window.location.host}/${action}/${_id}</code>
+                    <code>https://${shareLink}</code>
                     <button
                         id="copy-button"
                         @click="${() => {
                             var dummy = document.createElement("textarea");
                             document.body.appendChild(dummy);
-                            dummy.value = `https://${window.location.host}/${action}/${_id}`;
+                            console.log(shareLink);
+                            dummy.value = `https://${shareLink}`;
                             dummy.focus();
                             dummy.select();
                             dummy.setSelectionRange(0, 99999); /* For mobile devices */

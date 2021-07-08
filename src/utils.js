@@ -325,6 +325,7 @@ export function spatial_abilities(id) {
       current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
+        saveredirect: 'www.akredistrict.org/create/edit.html',
       },
     },
     arizona: {
@@ -395,6 +396,14 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     ca_pasadena: {
+      coalition: false,
+      border: true,
+    },
+    ca_goleta: {
+      coalition: false,
+      border: true,
+    },
+    ca_santabarbara: {
       coalition: false,
       border: true,
     },
@@ -478,6 +487,9 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
+      portal: {
+        endpoint: "https://portal.florida-mapping.org",
+      },
     },
     miamifl: {
       number_markers: true,
@@ -1004,6 +1016,9 @@ export function spatial_abilities(id) {
       sideload: true,
       load_coi: false,
       contiguity: 2,
+      portal: {
+        endpoint: "https://portal.pennsylvania-mapping.org",
+      },
     },
     philadelphia: {
       number_markers: true,
