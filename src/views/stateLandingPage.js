@@ -370,7 +370,7 @@ const problemTypeInfo = {
     `
 };
 
-const placeItemsTemplate = (places, onClick) =>
+const placeItemsTemplate = (places, onClick, showAll) =>
     places.map(place =>
         place.districtingProblems
         .sort((a, b) => {
@@ -388,6 +388,13 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
+        .filter(problem => 
+               problem.pluralNoun.includes("Reapportioned") ? 
+      document.getElementById(custom).style.display = 'block' : document.getElementById(custom).style.display = 'none'
+                ${placeItemsTemplate(places,startNewPlan)), 
+                document.getElementById('custom').check})
+}
+                                  
         .map(problem =>
             getUnits(place, problem).map(
                 units => 
