@@ -2332,12 +2332,13 @@
     ]
   },
   {
-    "id": "ma_vra2",
     "state": "Massachusetts",
+    "name": "Massachusetts",
+    "id": "ma_vra2",
     "units": [
       {
         "id": "precincts",
-        "name": "Precincts, 2012-2016",
+        "name": "Precincts",
         "unitType": "Precincts",
         "columnSets": [
           {
@@ -2412,7 +2413,64 @@
               "min": 64,
               "max": 8064
             },
-            "subgroups": []
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4029458,
+                "min": 3,
+                "max": 6633
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 288523,
+                "min": 0,
+                "max": 2031
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 416775,
+                "min": 0,
+                "max": 2098
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 8219,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1189,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 269089,
+                "min": 0,
+                "max": 3594
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 45871,
+                "min": 0,
+                "max": 563
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 69582,
+                "min": 0,
+                "max": 311
+              }
+            ]
           },
           {
             "type": "election",
@@ -2649,7 +2707,6 @@
         ]
       }
     ],
-    "name": "Massachusetts",
     "districtingProblems": [
       {
         "name": "Congress",
