@@ -51,8 +51,6 @@ function getMapStyle(context) {
 function renderMap(container, context) {
     // Create a MapState object from the context retrieved from the database and
     // provide it with the correct arguments to render.
-    // TODO can we use the cool street-based map for this one? I *love* that
-    //  style.
     const mapState = new MapState(
         "map",
         {
