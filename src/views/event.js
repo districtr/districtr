@@ -43,6 +43,14 @@ const stateForEvent = {
   pasadena2021: 'California',
   'ks-fairmaps': 'Kansas',
   napa_county: 'California',
+  san_jose: 'California',
+  siskiyou: 'California',
+  redwood: 'California',
+  ventura_county: 'California',
+  yolo_county: 'California',
+  // kern_county: 'California',
+  // solano_county: 'California',
+  // san_joaquin_county: 'California',
 };
 
 const validEventCodes = {
@@ -83,6 +91,14 @@ const validEventCodes = {
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
   napa_county: 'napacounty2021',
+  san_jose: 'sanjoseca',
+  siskiyou: 'ca_siskiyou',
+  redwood: 'redwood',
+  ventura_county: 'ca_ventura',
+  yolo_county: 'ca_yolo',
+  // kern_county: '',
+  // solano_county: '',
+  // san_joaquin_county: '',
 };
 
 const blockPlans = {
@@ -136,6 +152,11 @@ const coi_events = [
   'onelovemi',
   'ks-fairmaps',
   'napa_county',
+  'san_jose',
+  'siskiyou',
+  'redwood',
+  'ventura_county',
+  'yolo_county',
 ];
 
 const hybrid_events = [
@@ -256,6 +277,32 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
+   san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Jose” (any capitalization) is entered.</p>',
+   siskiyou: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Siskiyou” (any capitalization) is entered.</p>',
+   redwood: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Redwood” (any capitalization) is entered.</p>',
+   ventura_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Ventura_County” (any capitalization) is entered.</p>',
+   yolo_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+      <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Yolo_County” (any capitalization) is entered.</p>',
+
   };
 
 const longAbout = {
@@ -272,6 +319,21 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  san_jose: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  siskiyou: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  redwood: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  ventura_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  yolo_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
@@ -325,7 +387,7 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
-        if (["mesaaz", "slo_county", "napa_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -337,7 +399,25 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.countyofnapa.org/";
               document.getElementById("partnership-a").src = "/assets/partners-napa.png";
               document.getElementById("partnership-a").style.background = '#252532';
+            } else if (eventCode === "san_jose") {
+              document.getElementById("partner-link-a").href = "https://www.sanjoseca.gov/your-government/departments";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png";
+              document.getElementById("partnership-a").style.background = '#043c4b';
+            } else if (eventCode === "siskiyou") {
+              document.getElementById("partner-link-a").href = "https://www.co.siskiyou.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png";
+            } else if (eventCode === "redwood") {
+              document.getElementById("partner-link-a").href = "https://www.redwoodcity.org/home";
+              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg";
+            } else if (eventCode === "ventura_county") {
+              document.getElementById("partner-link-a").href = "https://www.ventura.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-ventura.png";
+            } else if (eventCode === "yolo_county") {
+              document.getElementById("partner-link-a").href = "https://www.yolocounty.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-yolo.png";
+              document.getElementById("partnership-a").style.background = '#375e97';
             }
+
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021"].includes(eventCode)) {

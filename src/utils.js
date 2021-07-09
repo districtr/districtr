@@ -454,6 +454,8 @@ export function spatial_abilities(id) {
     },
     ca_siskiyou: {
       border: true,
+      shapefile: true,
+      number_markers: true,
     },
     napaschools: {
       number_markers: true,
