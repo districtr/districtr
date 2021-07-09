@@ -371,9 +371,9 @@ export default () => {
         }
       
      if (["commoncausepa"].includes(eventCode)) {
-       document.getElementById("partnership-icons").style.display = "block";
-         document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
-         document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
+       document.getElementById("single-partnership-icons").style.display = "block";
+         document.getElementById("partner-link").href = "https://www.commoncause.org/pennsylvania/";
+         document.getElementById("partnership").src = "/assets/CC_Share_PA.png";
           }
        
         if (["mesaaz", "slo_county"].includes(eventCode)) {
