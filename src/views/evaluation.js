@@ -113,7 +113,7 @@ function showPlans(feature, data, tgt) {
             plans = plans.concat(section.plans)
     if (plans.length > 0 && available_plans.includes(curState))
         render(plansSection(plans, ref), tgt);
-        window.location.hash = "#loadable-plans"
+        window.location.hash = "#loadable-plans-header"
 }
 
 const uspost = {
