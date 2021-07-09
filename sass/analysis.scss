@@ -153,10 +153,16 @@ input[type="file"] {
 }
 
 .analyzer-section h4 {
-  font-size: larger;
+  font-size: large;
+  margin-bottom: auto;
+  margin-top: auto;
 }
 
 .header-with-toggle h4{
   font-size: x-large;
   text-align: left;
+}
+
+.header-with-toggle {
+  margin-top: 0.8em;
 }
