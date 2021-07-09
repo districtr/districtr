@@ -281,12 +281,12 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-  'commoncausepa':"<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
+  commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
   (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
   state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
   to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
-  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>\"
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>"
 };
 
 const longAbout = {
