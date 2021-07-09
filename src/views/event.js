@@ -368,11 +368,6 @@ export default () => {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
         }
-      
-        if (["commoncausepa"].includes(eventCode)) {
-          document.getElementbyId("partnership-icons").href = "https://www.commoncause.org/pennsylvania";
-          document.getElementbyId("partnership-a").src = "/assets/CC_Share_PA.png";
-
         if (["mesaaz", "slo_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
