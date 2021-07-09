@@ -370,7 +370,8 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
       
-     if (eventCode === "commoncausepa") {
+     if (["commoncausepa"].includes(eventCode)) {
+       document.getElementById("partnership-icons").style.display = "block";
          document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
          document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
           }
