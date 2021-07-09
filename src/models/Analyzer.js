@@ -54,7 +54,9 @@ export default class Analyzer {
     }
 
     render() {
-        render(this.sections.map(section => section(this.store.state, this.store.dispatch)), 
-            this.container);
+        let result = html`
+        <h2>Open a section for details</h2>
+        ${this.sections.map(section => section(this.store.state, this.store.dispatch))}`
+        render(result, this.container);
     }
 }
