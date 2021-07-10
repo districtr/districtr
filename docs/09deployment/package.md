@@ -197,7 +197,7 @@ but may serve some other function, like as prerequisites.
 [rollup]: https://rollupjs.org/
 [Caniuse-lite]: https://www.npmjs.com/package/caniuse-lite
 [D3]: https://d3js.org/
-[`PlaceMap`]: ../07portals/placemap.md
+[`PlaceMap`]: ../07pages/placemap.md
 [geo-albers]: https://github.com/stamen/geo-albers-usa-territories
 [encoding]: https://www.npmjs.com/package/encoding
 [hotkeys-js]: https://www.npmjs.com/package/hotkeys-js

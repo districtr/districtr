@@ -147,7 +147,7 @@ are defined but not used anywhere.
 [`src/models/Subgroup.js` ]: ../06charts/columnsetsparts.md
 [`CoalitionPivotTable.js`]: ../06charts/datatable.md
 
-[`src/components/AboutSection.js`]: ../07portals/index.md
+[`src/components/AboutSection.js`]: ../07pages/index.md
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 

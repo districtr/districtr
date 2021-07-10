@@ -83,8 +83,8 @@ which makes `clearQueriesFromURL()` less important.
 # #
 
 [Return to Main](../README.md)
-- Next: [Districtr State Portals](../07portals/districtrstateportals.md)
-- [PlaceMap](../07portals/placemap.md)
+- Next: [Districtr State Pages](../07pages/districtrstatepages.md)
+- [PlaceMap](../07pages/placemap.md)
 
 
 [@maxhully]: http://github.com/maxhully
@@ -97,8 +97,8 @@ which makes `clearQueriesFromURL()` less important.
 [districtr.org]: http://districtr.org
 [`/src/views/index.js`]: ../../src/views/index.js
 
-[`PlaceMap`]: ../07portals/placemap.md
-[state landing pages]: ../07portals/districtrstateportals.md
+[`PlaceMap`]: ../07pages/placemap.md
+[state landing pages]: ../07pages/districtrstatepages.md
 
 [index.html]: ../../html/index.html
 

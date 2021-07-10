@@ -79,7 +79,7 @@ older plans results in the creation of a new plan.
 
 The original way contiguity was calculated for plans was through
 `planContiguity.js`. Through a hard-coded filter, plans were sent to a
-`https://mggg-states.subzero.cloud` function.
+`https://mggg-states.subzero.cloud` function. This is deprecated.
 
 Function `planPreview.js` is similar to `planRead.js` but provides a
 screenshot together with the full plan and the simple id. 
@@ -116,16 +116,9 @@ The `Sequence` object is provided by `sequenceModel.js` and helps
 
 ### Suggestions
 
-`db` from `server.js` is imported but not used in the following files.
-Perhaps it is important in creating a connection, so no explicit use is
-needed. However, it is never used excplicitly in any case it is
-imported including... 
-- `eventRead.js`
-- `planCreate.js`
-- `planPreview.js`
-- `planRead.js`
-- `planText.js`
-- `planUpdate.js`
+- `db` from `server.js` is imported but not used in the following files
+but is required for creating a MongoDB connection.
+- planContiguity.js is deprecated. 
 
 # #
 

@@ -125,10 +125,6 @@ random objects in a list is through taking a slice of
 
 - This was once important because we would batch collect centroids
 
-- We do so no longer, as `check_district(d_index)` appears to check only
-one district at a time. Thus, the selection of 100 districts is
-vestigial. 
-
 > This collection of centroids should be placed `routes.js` for
 consistency's sake.
 

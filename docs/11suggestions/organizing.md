@@ -221,7 +221,7 @@ deanonymized and turned into helper functions?
 own helper function in `evaluation-plugin.js`. 
 - In the [EvaluationPlugin], initial `isOpen` states can be delegated to
 a helper function.
-- When rendering [State Portals], so many anonymous functions are used
+- When rendering [state pages], so many anonymous functions are used
 to render `html`. Perhaps a few longer ones can be separated out as
 helper functions
 - In [routes.js], so much occurs when `loadPlanFromJSON(...)` and
@@ -283,8 +283,8 @@ helper functions could be  written to help clarity.
 [`Evaluation Plugin`]: ../06charts/evaluationplugin.md
 [`DataSetInfo`]: ../06charts/datasetinfo.md
 
-[landing pages]: ../07portals/districtrstateportals.md
-[State Portals]: ../07portals/districtrstateportals.md
+[landing pages]: ../07pages/districtrstatepages.md
+[state pages]: ../07pages/districtrstatepages.md
 
 [`routes.js`]: ../09deployment/routes.md
 

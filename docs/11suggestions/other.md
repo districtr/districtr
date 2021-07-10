@@ -17,9 +17,6 @@ own which can be gleamed from [district-process]
 -  Sign-In forms and authentication was originally planned for the site
 but has since been deprecated.
 
-- Many state portals have been constructed over time using this back
-end.
-
 # # 
 
 [Return to Main](../README.md)

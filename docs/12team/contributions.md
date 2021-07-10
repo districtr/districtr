@@ -138,7 +138,7 @@ through February.
 Typically involved with the more research and Gerrychain side of the 
 MGGG laboratory, Anthony has returned to help in the Spring of 2021
 processing data for Wisconsin, Minnesota and the contribution of
-language for public-facing portals.
+language for public-facing custom portals.
 
 ### Lessons From the Demo
 
@@ -267,15 +267,15 @@ mongodb
 
 While JN, [@jenni-niels],  created the prototype local community page
 with landing page sections and content for Lowell, MA and Colorado. We
-would use their work during this time as the model for the default and
-custom portals we use today.
+would use their work during this time as the model for the default pages
+and custom portals we use today.
 
 ### Expanding Nationwide
 
 Throughout 2020, Nick worked on adding features and JN worked on
-modifying and updating state portals and pages. A rough timeline for
-the genesis of current features are as follows, with the knowledge that
-they are all being perfected over time.
+modifying and updating state pages. A rough timeline for the genesis of
+current features are as follows, with the knowledge that they are all
+being perfected over time.
 
 - January 2020
    - A legend for Demographic Overlays
@@ -332,7 +332,7 @@ assurance and testing.
 
 ### VRA
 
-Separate from their responsibilies creating state portals and assisting
+Separate from their responsibilies creating custom portals and assisting
 on the MGGG research side, [@jenni-niels] has been spearheading the
 ability to analyze districts using Voting Rights Act effectiveness. This
 began late December, 2020. To date, VRA is the first server function

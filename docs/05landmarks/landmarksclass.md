@@ -88,8 +88,6 @@ landmarks.
 # #
 
 ### Suggestions
-- Do we draw Polygon landmarks anymore? Mapbox Drawtool comments out all
-controls but for points. Maybe this is vestigial. 
 - Should the listeners in the constructor be deanonymized and turned
 into helper functions?
 - Properties across the whole system should be collected together

@@ -11,7 +11,9 @@ mapbox-gl [`map`].
 - If the `borderId`, essentially `place`, is in Arizona, i.e., `yuma`,
 `nwaz`, `seaz`, `maricopa` and `phoenix`, a layer of Block Group is
 added.
-- If the `borderId` is `sacramento`, then a layer of Tracts are added. 
+- If the `borderId` is `sacramento`, then a layer of Tracts are added
+and is used to display block groups as a background to blocks in the
+editor. 
 
 In [`edit.js`], an extra function `getMapStyle(...)` is passed when
 creating the [`MapState`]. District maps are plotted in map style
@@ -72,15 +74,6 @@ not used anywhere for any place as the PythonAnywhere interface was
 rewritten later
 - A custom warning is shown in `ContiguitySection` for Ohio and 
 Wisconsin
-
-## Exceptions in Netlify Lambdas and the Server
-
-Certain states "are not included in PostGIS, according to
-planContiguity.js". Thus, in `planContiguity.js`, these exceptions are
-for...
-- states AK, CO, GA, HI, IA, MA, MD, MI, MN, MS, NC, NM, OH, OK,
-OR, PA, RI, TX, UT, VA, VT and WI
-- places Chicago, `ma_02` towns, and Providence, RI. 
 
 Any time PythonAnywhere is queried or CSV plans are saved or retrieved,
 an exception must be made from the default separator `,` when working

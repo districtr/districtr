@@ -45,7 +45,7 @@ Each `ColumnSet` object takes the following parameters...
 - `subgroups`, parties or demographics
 - `total`, totals given from the `context/plan` specification
 - `total-alt`, totals related to how absentee ballots are decided to be
-counted
+counted and some 2018/2019 toggling.
 - `parts`, different drawn districts
 - `type`, whether election or otherwise
 

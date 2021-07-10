@@ -60,6 +60,9 @@ same one in [routes]. Once the server saves the plan and a plan url is
 provided, `renderModal` is then called with the save link and other
 information. 
 
+According to [@mapmeld], `renderSaveModal` is now used when someone
+joins from a Portal and we give them a modal returning to their Portal.
+
 ### `renderVRAAboutModal(place)`
 
 Finally, as of June, 2021, [@jenni-niels] is currently building out

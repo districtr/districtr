@@ -15,7 +15,7 @@ The structure of our plans are as follows...
  
 - `id`, Alphanumeric id individual plan
 - `name`, Display name of City, County or State, loaded into the State
-Portals
+Pages
 - `state`, State where area is located.
 - `idColumn`, An object with `key`, `name` pair that identifies the id
 column for base unit identifiers.

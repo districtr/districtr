@@ -105,6 +105,11 @@ While most of the experimental swipemap features have been removed from
 production level districtr, there are still features of swiping in
 [`Map`] functions.
 
+### PlanContiguity.js
+
+planContiguity.js is no longer used for determining contiguity and
+should be removed.
+
 ## The Unused
 
 Somtimes, functions are written based off of older functions, patterns
@@ -215,10 +220,10 @@ redundant. What is the advantage of this structure?
 [`CommunityPlugin`]: ../05landmarks/communityplugin.md
 [`Landmarks`]: ../05landmarks/landmarksclass.md
 
-[`PlaceMap`]: ../07portals/placemap.md
-[`PlacesList`]: ../07portals/placemap.md
-[`StateLandingPage.js`]: ../07portals/districtrstateportals.md
-[`StateLandingPage`]: ../07portals/districtrstateportals.md
+[`PlaceMap`]: ../07pages/placemap.md
+[`PlacesList`]: ../07pages/placemap.md
+[`StateLandingPage.js`]: ../07pages/districtrstatepages.md
+[`StateLandingPage`]: ../07pages/districtrstatepages.md
 
 [`CoalitionPivotTable`]: ../06charts/datatable.md
 [`EvaluationPlugin`]: ../06charts/evaluationplugin.md

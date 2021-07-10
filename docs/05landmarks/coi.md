@@ -19,7 +19,7 @@ for both modes. The [`PopulationBalancePlugin`] and the
 
 [@maxhully] first built out a protype `Landmarks` feature in February of
 2019. By late April, the painting of communities of interest was
-achieved. It is thanks to [@jenni-niels] that state portals for marking
+achieved. It is thanks to [@jenni-niels] that state pages for marking
 communities of interest were generated later that year. They have
 maintained this page with [@mapmeld] through 2020 up to the present day.
 
@@ -154,7 +154,7 @@ draw overlapping communities.
 
 - The `PopBalancePlugin` and the `EvaluationPlugin` both have conditions
 on `community` but is not part of the plugins created in Community mode
-- Within State Portals, `onlyCommunityMode` used to exist for places
+- Within State Pages, `onlyCommunityMode` used to exist for places
 where we didn't have state-wide maps. This is now vestigial. 
 - While it's good to have `CommuntityBrush` extends `Brush`, `Brush`
 still has a few conditions that rest upon `community`, which are now
@@ -205,9 +205,9 @@ rarely and may not be needed.
 [`CoalitionPivotTable`]: ../06charts/datatable.md
 [`Subgroup`]: ../06charts/columnsetsparts.md
 
-[State Portal]: ../07portals/districtrstateportals.md
-[`PlacesList.js`]: ../07portals/placemap.md
-[`PlaceMap.js`]: ../07portals/placemap.md
+[State Portal]: ../07pages/districtrstatepages.md
+[`PlacesList.js`]: ../07pages/placemap.md
+[`PlaceMap.js`]: ../07pages/placemap.md
 
 [`routes.js`]: ../09deployment/routes.md
 [netlify lambda functions]: ../09deployment/mongolambdas.md

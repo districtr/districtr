@@ -109,14 +109,14 @@ following model.
 - [Dataset Info](./06charts/datasetinfo.md)
 - [A Full Example: VRA](./06charts/vra.md)
 
-## 7. Index and State Portals
+## 7. Index and State Pages
 
 <img src="./pics/portalsbasics.png" width=75%>
 
 
-- [The Index Landing Page](./07portals/index.md)
-- [Districtr State Portals](./07portals/districtrstateportals.md)
-- [PlaceMap](./07portals/placemap.md)
+- [The Index Landing Page](./07pages/index.md)
+- [Districtr State Pages](./07pages/districtrstatepages.md)
+- [PlaceMap](./07pages/placemap.md)
 
 ## 8. Events and Tags
 

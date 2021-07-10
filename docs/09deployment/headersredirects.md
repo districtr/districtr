@@ -57,7 +57,7 @@ URL type `/community/al/*` directs to `/alabama?mode=coi` which informs
 `alabama.html` through `StateLandingPages.js` to display community of
 interest options.
 
-## Various Portals
+## Specific Places
 
 We can also pass stored plans to `edit.html`/`edit.js` through the URL.
 For instance, varieties of `/lowell-districts` and
@@ -66,7 +66,8 @@ For instance, varieties of `/lowell-districts` and
 
 # Typos
 
-Finally, the following are set to be redirected.
+Finally, the following are set to be redirected. They exist to provide
+backwards compatibility with old state URLs. 
 
 - `/new/*` to `/new`
 - `/community/*` to `/community`

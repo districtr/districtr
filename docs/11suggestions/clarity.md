@@ -148,7 +148,7 @@ populate this text?
 - In `SelectBoxes`, defined in [Demographics Table], "Comapare" and
 "with" are contained in an Array, but "and" is a special case. Should
 they just be in one array?
-- In the [State Portals], the population of districting and community
+- In the [state pages], the population of districting and community
 cards occurs later than when it is given structure in the HTML. Maybe
 they should be placed closer together for clarity.
 
@@ -194,9 +194,9 @@ they should be placed closer together for clarity.
 [`DemographicsTable`]: ../06charts/demographicstable.md
 [`DatasetInfo`]: ../06charts/datasetinfo.md
 
-[`districtingOptions`]: ../07portals/districtrstateportals.md
-[State political unit]: ../07portals/districtrstateportals.md
-[State Portals]: ../07portals/districtrstateportals.md
+[`districtingOptions`]: ../07pages/districtrstatepages.md
+[State political unit]: ../07pages/districtrstatepages.md
+[state pages]: ../07pages/districtrstatepages.md
 
 [Global Objects]: ../09deployment/globals.md
 [Routes]: ../09deployment/routes.md

@@ -76,8 +76,8 @@ displayed, then listed, then sent straight to state landing page.
 # # 
 
 [Return to Main](../README.md)
-- [The Index Landing Page](../07portals/index.md)
-- Previous: [Districtr State Portals](../07portals/districtrstateportals.md)
+- [The Index Landing Page](../07pages/index.md)
+- Previous: [Districtr State Pages](../07pages/districtrstatepages.md)
 
 [`community.js`]: ../05landmarks/coi.md
 [`new.js`]: ../02editormap/initialization.md

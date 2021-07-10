@@ -23,7 +23,7 @@ throw an error.
 
 ### Local storage and starting a New Plan
 
-New plan are often loaded from the [state portals], which collects the
+New plan are often loaded from the [state pages], which collects the
 following information and saves them for use with
 `savePlanToStorage(...)`. This information, saved in local storage is
 loaded within the parameters of `startNewPlan(...)` all eventually 
@@ -150,7 +150,7 @@ difference between using `serialized` and the `state` object directly?
 [`mockApi`]: ../05landmarks/findplaces.md
 [`COI`]: ../05landmarks/coi.md
 
-[state portals]: ../07portals/districtrstateportals.md
+[state pages]: ../07pages/districtrstatepages.md
 
 [`deploy`]: ../09deployment/headersredirects.md
 [`lambda`]: ../09deployment/mongolambdas.md

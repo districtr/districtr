@@ -177,7 +177,7 @@ should be made into its own plugin.
 [`brush`]: ../04drawing/brush.md
 
 [`DataTable`]: ../06charts/datatable.md
-[`stateLandingPage.js`]: ../07portals/districtrstateportals.md
+[`stateLandingPage.js`]: ../07pages/districtrstatepages.md
 
 [`spatial_abilities`]: ../10spatialabilities/spatialabilities.md
 

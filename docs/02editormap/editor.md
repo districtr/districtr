@@ -6,7 +6,7 @@ Districtr's primary tool for engaging with district maps is known as the
 Editor. According to the [deployment], requests to address /edit/ are
 sent to [edit.html], which loads a compiled version of edit.js that
 corresponds to [src/views/edit.js]. One can arrive here by including
-a saved plan link or by navigating in from the state portals.
+a saved plan link or by navigating in from the state pages.
 
 [lit-html] is the framework we use to connect javascript to html
 templates for rendering. 

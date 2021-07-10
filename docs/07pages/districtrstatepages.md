@@ -1,4 +1,4 @@
-# Districtr State Portals
+# Districtr State Pages
 
 On the splash page, `index.html` users can use the US map rendered by
 the [`PlaceMap.js`] component to the many state pages districtr provides
@@ -6,11 +6,11 @@ as a portal for editing. Originally, MGGG only provided state
 information for those states where we had partners before rolling it out
 to all states in the nation. 
 
-This documentation covers portals that navigate to different states on
+This documentation covers pages that navigate to different states on
 the districtr website as opposed to custom portals for state commissions
 and other partners. 
 
-<img src="../pics/portalsbasics.png" width=75%>
+<img src="../pics/pagesbasics.png" width=75%>
 
 ## state.html
 
@@ -210,8 +210,8 @@ is given structure in the HTML. Maybe they should be placed closer together for
 clarity.
 
 [Return to Main](../README.md)
-- Previous: [The Index Landing Page](../07portals/index.md)
-- Next: [PlaceMap](../07portals/placemap.md)
+- Previous: [The Index Landing Page](../07pages/index.md)
+- Next: [PlaceMap](../07pages/placemap.md)
 
 
 [@jdeschler]: http://github.com/jdeschler
@@ -220,9 +220,9 @@ clarity.
 [@jenni-niels]: http://github.com/jenni-niels
 [@apizzimenti]: http://github.com/apizzimenti
 
-[`PlaceMap.js`]: ../07portals/placemap.md
+[`PlaceMap.js`]: ../07pages/placemap.md
 [`deploy/_redirects`]: ../09deployment/headersredirects.md
-[`stateLandingPage.js`]: ../07portals/districtrstateportals.md
+[`stateLandingPage.js`]: ../07pages/districtrstatepages.md
 
 [`src/views/stateLandingPage.js`]: ../../src/views/stateLandingPage.js
 [`/assets/data/landing_pages.json`]: ../../assets/data/landing_pages.json

@@ -22,7 +22,7 @@ way is to take a URL akin to https://districtr.org/plan/20402, extract
 `planId` 20402 and use `loadPlanFromURL(...)` in `routes` to return a
 context. 
 
-The second way is by using **locally stored** data. State portals
+The second way is by using **locally stored** data. State pages
 provide various options for creating new maps. The selected problem is
 then saved in `LocalStorage.savedState` to be read by
 `getPlanContext()`.
