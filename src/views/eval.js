@@ -329,7 +329,7 @@ function overview_section (state, contig, problems, num_tiles) {
     ${details}<br/>
     <h4 text-align="center">Contiguity and Completeness</h4>
     ${unassigned_section}<br/>
-    ${contig_section}
+    ${contig_section}<br/>
     <h4 text-align="center">Population Deviation</h4>
     ${pop_section}</div>`;
 }
@@ -402,7 +402,7 @@ function election_section(state) {
 // Compactness Section (cut edges, polsby popper)
 function compactness_section(state, cut_edges, plan_scores) {
     // Polsby Popper Scores
-    let columns = ["Max", "Min", "Mean", "Median", "Variance"]
+    let columns = ["Max", "Min", "Mean"]
     let rows = [], headers, comparison;
     let enacted = polsby_popper(state.place.name, state.plan.problem.name);
     
@@ -445,11 +445,12 @@ function compactness_section(state, cut_edges, plan_scores) {
     return html`
         <h4>Cut Edges</h4>
         <div style='text-align: left'>
-        One measure of compactness is the number of <strong>cut edges</strong> in a districting plan.
-        You can think of the number of cut edges as the number of adjacent building blocks that
-        end up in different districts in a plan. A lower number of cut edges means a plan is more compact.
-        When comparing the number of cut edges between plans, you must be sure to be using the same
-        units when drawing the plans.<br/>
+        One measurement of compactness is the number of <strong>cut edges</strong> in a districting plan. 
+        This counts the number of adjacent units that are separated into different 
+        districts in the plan - you can think of this as the "scissors complexity," 
+        or how much work you'd need to do to cut out the plan. You should only compare 
+        the cut edges count when you're looking at two plans for the same state using the 
+        same units. Then, a lower number of cut edges means a plan is more compact.<br/>
         ${cut_edges > 0 ?
         html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.unitType.toLowerCase()}.`
         : html`Cut Edges count not available for ${state.place.name}.`}
@@ -457,13 +458,16 @@ function compactness_section(state, cut_edges, plan_scores) {
         <br/>        
         <h4>Polsby Popper Scores</h4>
         <div style='text-align: left'>
-        Another measure of compactness is the <strong>Polsby Popper score</strong>, which is a ratio
-        of the area of a district to its perimeter. When calculating Polsby Popper scores, one
-        must take care to choose a proper map projection. Ours are calculated in the appropriate UTM projection
-        for each state (for more info, consult the <a href="https://gerrychain.readthedocs.io/en/latest/api.html">GerryChain documentation</a>). 
-        A higher Polsby Popper score means a more compact district.<br/><br/>
-
-        <text class="italic-note">TODO FROM MOON</text>
+        A classic measurement of compactness is the <strong>Polsby Popper score</strong>, which 
+        is a comparison of the area of a district to its perimeter. Instead of depending 
+        on the units, this depends on mapping choices like the map projection and the 
+        resolution of the boundaries. A higher Polsby Popper score is regarded as a more compact 
+        district; the highest possible score of an individual district is 1, which is only achieved 
+        by perfect circles.<br/><br/>
+        <div class="italic-note">Here's a comparison of your plan to the 
+        official census definition of the last enacted plan. 
+        The inclusion of water and other issues of resolution might make 
+        the Census plan score differently than its Districtr rendering.</div>
         ${polsbypopper_table}
         `;
 }
