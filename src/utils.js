@@ -1172,6 +1172,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisconsin2020: {
       number_markers: true,
@@ -1186,6 +1187,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisco2019acs: {
       number_markers: true,
@@ -1200,6 +1202,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wyoming: {
       multiyear: 2018,
