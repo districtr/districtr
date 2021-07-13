@@ -2330,5 +2330,168 @@
         "pluralNoun": "State House Districts"
       }
     ]
+  },
+  {
+    "name": "Revere City Test",
+    "units": [
+      {
+        "id": "block_groups",
+        "name": "Block Groups (2019)",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP19",
+              "name": "Total population",
+              "sum": 53692,
+              "min": 0,
+              "max": 2930
+            },
+            "subgroups": [
+              {
+                "key": "WPOP19",
+                "name": "White population",
+                "sum": 41933,
+                "min": 0,
+                "max": 2374
+              },
+              {
+                "key": "BPOP19",
+                "name": "Black population",
+                "sum": 2942,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "HPOP19",
+                "name": "Hispanic population",
+                "sum": 18042,
+                "min": 0,
+                "max": 1619
+              },
+              {
+                "key": "ASIANPOP19",
+                "name": "Asian population",
+                "sum": 2609,
+                "min": 0,
+                "max": 290
+              },
+              {
+                "key": "AMINPOP19",
+                "name": "American Indian population",
+                "sum": 140,
+                "min": 0,
+                "max": 108
+              },
+              {
+                "key": "2MOREPOP19",
+                "name": "Two or more races",
+                "sum": 2859,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "OTHERPOP19",
+                "name": "Other races",
+                "sum": 3209,
+                "min": 0,
+                "max": 296
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP19",
+              "name": "Citizen voting age population",
+              "sum": 32305,
+              "min": 0,
+              "max": 1545
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP19",
+                "name": "White citizen voting age population",
+                "sum": 21815,
+                "min": 0,
+                "max": 1320
+              },
+              {
+                "key": "BCVAP19",
+                "name": "Black citizen voting age population",
+                "sum": 1784,
+                "min": 0,
+                "max": 285
+              },
+              {
+                "key": "HCVAP19",
+                "name": "Hispanic citizen voting age population",
+                "sum": 6945,
+                "min": 0,
+                "max": 495
+              },
+              {
+                "key": "AMINCVAP19",
+                "name": "Native American citizen voting age population",
+                "sum": 35,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "ASIANCVAP1",
+                "name": "Asian voting citizen age population",
+                "sum": 1238,
+                "min": 0,
+                "max": 175
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2019 Census GEOID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -71.0332,
+            42.3885
+          ],
+          [
+            -70.9584,
+            42.4501
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.revere_test_block_groups"
+            },
+            "sourceLayer": "revere_test_block_groups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.revere_test_block_groups_points"
+            },
+            "sourceLayer": "revere_test_block_groups_points"
+          }
+        ]
+      }
+    ],
+    "state": "Massachusetts",
+    "id": "revere_test",
+    "districtingProblems": [
+      {
+        "name": "City Ward Counselor",
+        "numberOfParts": 6,
+        "pluralNoun": "Districts"
+      }
+    ]
   }
 ]
