@@ -2330,5 +2330,134 @@
         "pluralNoun": "State House Districts"
       }
     ]
+  },
+    {
+    "units": [
+      {
+        "id": "block_group",
+        "name": "Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 53692,
+              "min": 0,
+              "max": 2930
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 28634,
+                "min": 0,
+                "max": 1572
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 2673,
+                "min": 0,
+                "max": 344
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 32,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2596,
+                "min": 0,
+                "max": 290
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 18042,
+                "min": 0,
+                "max": 1619
+              },
+              {
+                "key": "H_WHITE",
+                "name": "Hispanic White population",
+                "sum": 13299,
+                "min": 0,
+                "max": 1356
+              },
+              {
+                "key": "H_BLACK",
+                "name": "Hispanic Black population",
+                "sum": 269,
+                "min": 0,
+                "max": 93
+              },
+              {
+                "key": "H_AMIN",
+                "name": "Hispanic American Indian population",
+                "sum": 108,
+                "min": 0,
+                "max": 108
+              },
+              {
+                "key": "H_ASIAN",
+                "name": "Hispanic Asian population",
+                "sum": 13,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block Group Unique Identifier",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -71.0332,
+            42.3881
+          ],
+          [
+            -70.9601,
+            42.4501
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.revere_block_group"
+            },
+            "sourceLayer": "revere_block_group"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.revere_block_group_points"
+            },
+            "sourceLayer": "revere_block_group_points"
+          }
+        ]
+      }
+    ],
+    "state": "Massachusetts",
+    "id": "revere",
+    "name": "Revere",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
