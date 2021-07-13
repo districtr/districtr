@@ -74,7 +74,13 @@ export class Subgroup extends NumericalColumn {
         if (ABBREVIATIONS.hasOwnProperty(this.key)) {
             return ABBREVIATIONS[this.key];
         } else {
-            return this.name.split(" ")[0];
+            let prelim = this.name.split(" ")[0];
+            if (prelim === "American" || this.key.includes("native")) {
+              return "Native Am.";
+            } else if (prelim === "Native") {
+              return "NH/PI";
+            }
+            return prelim;
         }
     }
 }
@@ -85,8 +91,11 @@ const ABBREVIATIONS = {
     HISP: "Hispanic",
     NH_ASIAN: "Asian",
     NH_AMIN: "Native",
-    NH_NHPI: "NHPI",
+    AMIN: "AmIn/Alaskan",
+    NH_NHPI: "NH/PI",
+    NHPI: "NH/PI",
     NH_2MORE: "2+",
+    "2MORE": "2+",
     NH_OTHER: "Other",
     WVAP: "WVAP",
     BVAP: "BVAP",

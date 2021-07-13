@@ -489,20 +489,7 @@
               "name": "Total population",
               "sum": 710226,
               "min": 0,
-              "max": 1698
-            },
-            "subgroups": [
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "VAP",
-              "name": "Voting age population",
-              "sum": 522849,
-              "min": 0,
-              "max": 1295
+              "max": 600
             },
             "subgroups": [
             ]

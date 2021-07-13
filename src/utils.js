@@ -311,15 +311,21 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       shapefile: true,
+      school_districts: true,
+      municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     alaska_blocks: {
-      native_american: true,
       coalition: false,
+      school_districts: true,
+      municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
+        saveredirect: 'www.akredistrict.org/create/edit.html',
       },
     },
     arizona: {
@@ -390,6 +396,14 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     ca_pasadena: {
+      coalition: false,
+      border: true,
+    },
+    ca_goleta: {
+      coalition: false,
+      border: true,
+    },
+    ca_santabarbara: {
       coalition: false,
       border: true,
     },
@@ -473,6 +487,9 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
+      portal: {
+        endpoint: "https://portal.florida-mapping.org",
+      },
     },
     miamifl: {
       number_markers: true,
@@ -999,6 +1016,9 @@ export function spatial_abilities(id) {
       sideload: true,
       load_coi: false,
       contiguity: 2,
+      portal: {
+        endpoint: "https://portal.pennsylvania-mapping.org",
+      },
     },
     philadelphia: {
       number_markers: true,
@@ -1152,6 +1172,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisconsin2020: {
       number_markers: true,
@@ -1166,6 +1187,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisco2019acs: {
       number_markers: true,
@@ -1180,6 +1202,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wyoming: {
       multiyear: 2018,
@@ -1202,4 +1225,16 @@ export function nested(st) {
     'southdakota',
     'washington',
     'wisconsin'].includes(st);
+}
+
+export function one_cd(st) {
+  return [
+    'alaska',
+    'alaska_blocks',
+    'delaware',
+    'montana',
+    'northdakota',
+    'southdakota',
+    'vermont',
+    'wyoming'].includes(st)
 }
