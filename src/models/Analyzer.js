@@ -55,7 +55,7 @@ export default class Analyzer {
 
     render() {
         let result = html`
-        <h2>Open a section for details</h2>
+        <h2>Districting Plan Metrics</h2>
         ${this.sections.map(section => section(this.store.state, this.store.dispatch))}`
         render(result, this.container);
     }
