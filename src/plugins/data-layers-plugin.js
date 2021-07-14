@@ -542,11 +542,22 @@ export default function DataLayersPlugin(editor) {
         addMyCOI(state, tab);
     }
 
-    tab.addSection(() => html`<h4>Demographics</h4>
-        ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">Use the coalition builder to define a collection
-        of racial and ethnic groups from the Census. In the other data layers below,
-        you'll be able to select the coalition you have defined.</p>`}
-    `)
+    tab.addSection(() => html`<h4>Demographics</h4>`)
+
+    tab.addRevealSection(
+        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Population by Race"}</h5>`,
+        (uiState, dispatch) => html`
+            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
+            ${demographicsOverlay.render()}
+            ${vapOverlay ? vapOverlay.render() : null}
+            ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
+            of racial and ethnic groups from the Census. In the other data layers below,
+            you'll be able to select the coalition you have defined.</p>`}
+        `,
+        {
+            isOpen: false
+        }
+    );
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition !== false) {
@@ -610,7 +621,7 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population", // coalition subgroup
+        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population*", // coalition subgroup
         (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
@@ -640,18 +651,6 @@ export default function DataLayersPlugin(editor) {
         );
         coalitionOverlays.push(vapOverlay);
     }
-
-    tab.addRevealSection(
-        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Race"}</h5>`,
-        (uiState, dispatch) => html`
-            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
-            ${demographicsOverlay.render()}
-            ${vapOverlay ? vapOverlay.render() : null}
-        `,
-        {
-            isOpen: false
-        }
-    );
 
     if (state.median_income || state.rent) {
         let incomeOverlay, rentOverlay;
