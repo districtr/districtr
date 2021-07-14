@@ -187,6 +187,6 @@ export default function NumberMarkers(state, brush) {
             });
         }
     };
-    updater(state);
+    // updater(state);
     return { update: updater };
 }
