@@ -4,9 +4,9 @@
     "name": "Pennsylvania",
     "districtingProblems": [
       {
+        "name": "2020 Reapportioned Congress",
         "numberOfParts": 17,
-        "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "pluralNoun": "Reapportioned Congressional Districts"
       },
       {
         "numberOfParts": 18,

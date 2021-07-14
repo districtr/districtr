@@ -8,6 +8,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+		    "limit": "hide",
         "columnSets": [
           {
             "type": "population",
@@ -552,6 +553,114 @@
               "url": "mapbox://districtr.alabama_blockgroups_points"
             },
             "sourceLayer": "alabama_blockgroups_points"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups_2019",
+        "name": "2019 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 4876250,
+              "min": 0,
+              "max": 10767
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 3194929,
+                "min": 0,
+                "max": 9519
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1291524,
+                "min": 0,
+                "max": 3497
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 208626,
+                "min": 0,
+                "max": 2170
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 65410,
+                "min": 0,
+                "max": 1314
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 22740,
+                "min": 0,
+                "max": 992
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1603,
+                "min": 0,
+                "max": 90
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 83335,
+                "min": 0,
+                "max": 417
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 8083,
+                "min": 0,
+                "max": 323
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2019 Census GEOID",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -88.4732,
+            30.1905
+          ],
+          [
+            -84.8882,
+            35.008
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.alabama2019_blockgroups"
+            },
+            "sourceLayer": "alabama2019_blockgroups"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.alabama2019_blockgroups_points"
+            },
+            "sourceLayer": "alabama2019_blockgroups_points"
           }
         ]
       }
