@@ -95,8 +95,8 @@ export class EmbeddedDistrictr {
                         const paint_ids = Object.keys(context.assignment);
                         if (paint_ids.length <= 250) {
                           let placeID = this.state.place.id;
-                          if (placeID === "michigan" && this.state.units.id.includes("block")) {
-                            placeID = "michigan_bg";
+                          if (["michigan", "ohio", "utah", "pennsylvania", "virginia", "texas", "wisconsin"].includes(placeID) && this.state.units.id.includes("block")) {
+                            placeID += "_bg";
                           }
                           const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
                           fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
