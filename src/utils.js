@@ -728,6 +728,7 @@ export function spatial_abilities(id) {
       load_coi: false,
       // find_unpainted: true,
       school_districts: true,
+      contiguity: 2,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
