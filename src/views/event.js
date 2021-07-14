@@ -45,6 +45,7 @@ const stateForEvent = {
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
   'galeo': 'Georgia',
+  'commoncausepa': 'Pennsylvania',
 };
 
 const validEventCodes = {
@@ -87,6 +88,7 @@ const validEventCodes = {
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
+  'commoncausepa': 'pennsylvania'
 };
 
 const blockPlans = {
@@ -138,7 +140,8 @@ const coi_events = [
   'slo_county',
   'ourmapsne',
   'onelovemi',
-  'ks-fairmaps'
+  'ks-fairmaps',
+  'commoncausepa'
 ];
 
 const hybrid_events = [
@@ -278,7 +281,12 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-
+  commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
+  <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
+  (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
+  state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
+  to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>"
 };
 
 const longAbout = {
@@ -335,6 +343,11 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  commoncausepa: [
+    "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
+     Standing as an independent voice for positive change, a watchdog against corruption, and protector against abuse of power, \
+     we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization."
+    ],
 };
 
 const proposals_by_event = {
@@ -356,7 +369,15 @@ export default () => {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
         }
-
+      
+     if (["commoncausepa"].includes(eventCode)) {
+       document.getElementById("partnership-icons").style.display = "block";
+         document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
+         document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
+         document.getElementById("partner-link-b").href = "https://www.commoncause.org/pennsylvania/";
+         document.getElementById("partnership-b").src = "/assets/CC_Share_PA.png";       
+          }
+       
         if (["mesaaz", "slo_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
