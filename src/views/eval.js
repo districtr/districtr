@@ -379,7 +379,7 @@ function election_section(state) {
     switch (favor) {
         case elections.length: favorstr = html`favors <strong>Republicans</strong> in every election`
         break;
-        case elections.length: favorstr = html`favors <strong>Democrats</strong> in every election`
+        case -elections.length: favorstr = html`favors <strong>Democrats</strong> in every election`
         break;
         default: favorstr = "favored different parties in different elections";
     }
