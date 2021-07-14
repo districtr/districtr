@@ -176,8 +176,8 @@ function renderRight(pane, context, state, mapState) {
             pane.pane.append(innerTemplate);
 
             let analyzer = new Analyzer(state, mapState, innerTemplate);
-            analyzer.addRevealSection("Overview", (uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units))
-            analyzer.addRevealSection("Election Results", (uiState, dispatch) => election_section(state))
+            analyzer.addRevealSection("Basics", (uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units))
+            analyzer.addRevealSection("Election Results and Proportionality", (uiState, dispatch) => election_section(state))
             analyzer.addRevealSection("Compactness", (uiState, dispatch) => compactness_section(state, data.cut_edges, data.polsbypopper))
             data.counties == -1 ? "" : 
                 analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
@@ -247,28 +247,25 @@ function overview_section (state, contig, problems, num_tiles) {
         .reduce((a,b) => a + b, 0),
         dist_num = state.plan.problem.numberOfParts;
     let details = html`<div style="text-align:left">
-        Your plan is drawn on <strong>${state.unitsRecord.unitType.toLowerCase()}</strong>, 
-        and is for ${dist_num} ${state.plan.problem.pluralNoun} 
-        in ${state.place.name}. Your plan appears to have 
-        ${drawn} districts drawn. ${drawn == dist_num ? "" : 
-        (drawn > dist_num ? html`You are have ${drawn - distnum} extra district(s).`
-            : html`You are missing ${dist_num - drawn} district(s).`)}
-        </div>`
+        This plan features ${state.plan.problem.pluralNoun} for ${state.place.name} (${dist_num} districts).
+        The units are ${state.unitsRecord.unitType.toLowerCase()}.
+        ${dist_num == drawn ? "All" : ""} ${drawn} districts are present.`
 
     // missing units
     let missing = num_tiles - Object.keys(state.plan.assignment).length;
     let unassigned_section = 
-        missing <= 0 
-        ? html`No ${state.unitsRecord.unitType.toLowerCase()} are unassigned. Your plan is complete`
-        : html`${missing} ${state.unitsRecord.unitType.toLowerCase()} are unassigned, accounting for 
-        ${(state.population.total.sum - state.population.total.data.reduce((a,b) => a + b, 0)).toLocaleString('en')}
-        people.`
+        html`
+        ${missing == 0 ? html`All ${num_tiles} ${state.unitsRecord.unitType.toLowerCase()} are assigned, making the plan complete.`
+            : html`${Object.keys(state.plan.assignment).length} of ${num_tiles} are assigned, making the plan incomplete.`}
+        `
 
     // contiguity
     let contig_section = 
         (problems && spatial_abilities(state.place.id).contiguity)
-        ? html`<h5 id="contiguity-status">
-        ${contig ? "No contiguity gaps detected" 
+        ? html`
+        A plan is called contiguous if every district is internally connected.
+        <h5 id="contiguity-status">
+        ${contig ? "By our adjacency definition, your plan is contiguous." 
             : html`The following districts have contiguity gaps:
         </h5>
         <div class="district-row" style="display:block">
@@ -301,9 +298,9 @@ function overview_section (state, contig, problems, num_tiles) {
         }
     }
     let pop_section = html`<div style="text-align:left"><strong>Population deviation</strong>
-    is the percentage difference in population between districts and the ideal population of a district,
-    were the population to be split perfectly evenly. 
-    The population deviation of a district plan should always be less than 5%, though some states require it to be smaller.<br/>
+    is the percentage difference in population between districts and the ideal population of a district
+    (if the population were split perfectly evenly). 
+    Legislative plans should typically have deviations under ± 5%. Congressional plans are typically more tightly balanced.<br/>
     Your plan's most populous district is district  
     <span
         class="part-number"
@@ -311,7 +308,7 @@ function overview_section (state, contig, problems, num_tiles) {
         display:inline-flex"
     >
         ${Number(argmax) + 1}
-    </span> (${roundToDecimal(max * 100, 2)}%) and your plan's least populous district is district  
+    </span> (+${roundToDecimal(max * 100, 2)}%) and your plan's least populous district is district  
     <span
         class="part-number"
         style="background:${districtColors[argmin % districtColors.length].hex};
@@ -322,13 +319,13 @@ function overview_section (state, contig, problems, num_tiles) {
     
     // aggregate all the parts
     return html`
-    <h4 text-align="center">Basic Information</h4>
+    <h4 text-align="center">Type, Data, and Units</h4>
     <div class="dataset-info">
                 ${populateDatasetInfo(state)}
             </div>
     ${details}<br/>
-    <h4 text-align="center">Contiguity and Completeness</h4>
-    ${unassigned_section}<br/>
+    <h4 text-align="center">Completeness and Contiguity</h4>
+    ${unassigned_section}<br/><br/>
     ${contig_section}<br/>
     <h4 text-align="center">Population Deviation</h4>
     ${pop_section}</div>`;
@@ -342,10 +339,10 @@ function election_section(state) {
         return html`No election data available for ${state.place.name}.`
     let rows = [];
 
-    let headers = 
+    let headers = ['Election'].concat(
         elections[0].parties.map(party => {
         const rgb = getPartyRGBColors(party.name + party.key);
-        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`}).concat(
+        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`})).concat(
         elections[0].parties.map(party => {
             const rgb = getPartyRGBColors(party.name + party.key);
             return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`})).concat(
@@ -380,22 +377,24 @@ function election_section(state) {
     let favor = bias_acc.map(x => x > 0 ? 1 : -1).reduce((a,b) => a + b, 0);
     let favorstr = "";
     switch (favor) {
-        case elections.length: favorstr = html`<strong>Republicans</strong> in every election`
+        case elections.length: favorstr = html`favors <strong>Republicans</strong> in every election`
         break;
-        case elections.length: favorstr = html`<strong>Democrats</strong> in every election`
+        case elections.length: favorstr = html`favors <strong>Democrats</strong> in every election`
         break;
         default: favorstr = "favored different parties in different elections";
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     return html`
-        Your plan has an average disproportional lean of ${Math.abs(avg_bias)} seats towards 
-        <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over
-        ${bias_acc.length} ${elections.length > 1 ? html`elections.`
-        : html`election.`} The disproportionality ${favorstr}.
+        Our dataset contains ${bias_acc.length} recent statewide ${elections.length > 1 ? html`elections`
+        : html`election`} for ${state.place.name}.
+        Relative to proportionality, your plan has an average lean of ${Math.abs(avg_bias)} seats towards 
+        <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over these elections.<br/>
+        The disproportionality ${favorstr}.
         <br/>
         <br/>
-        ${elections[0].parties.length === 2 ? html`<strong>two-way vote share</strong>` : ""}
-        ${DataTable(headers, rows)}
+        ${elections[0].parties.length === 2 ? html`<strong>Votes vs. Seats by Election (among the two major parties)</strong>` 
+            : `<strong>Votes vs. Seats by Election</strong>`}
+        ${DataTable(headers, rows, true)}
         `;
 }
 
@@ -410,7 +409,7 @@ function compactness_section(state, cut_edges, plan_scores) {
     let successful_calc = (plan_scores !== "Polsby Popper unavailable for this geometry.");
     let year = enacted_year(state_name_to_postal(state.place.name), state.plan.problem.name);
     if (enacted && successful_calc) {
-        headers = ["Your Plan", `${year} Enacted Plan`];
+        headers = [html`Your Plan (${state.unitsRecord.unitType.toLowerCase()})`, `${year} Enacted Plan (Census Definition)`];
         for (let c of columns) {
             rows.push({
                 label: c,
@@ -464,7 +463,7 @@ function compactness_section(state, cut_edges, plan_scores) {
         resolution of the boundaries. A higher Polsby Popper score is regarded as a more compact 
         district; the highest possible score of an individual district is 1, which is only achieved 
         by perfect circles.<br/><br/>
-        <div class="italic-note">Here's a comparison of your plan to the 
+        <div class="italic-note">This table compares your plan to the 
         official census definition of the last enacted plan. 
         The inclusion of water and other issues of resolution might make 
         the Census plan score differently than its Districtr rendering.</div>
@@ -488,6 +487,9 @@ function county_section(state, data, municipalities) {
         //console.log(forced);
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
+    // get number of splits to be forced
+    let c_forced = Object.values(forced).reduce((a,b) => b > 0 ? a : a + 1, 0)
+
     let num_split = Object.keys(data.split_list).length;
 
     let text = (data.population == -1) 
@@ -503,24 +505,27 @@ function county_section(state, data, municipalities) {
     })}
     </ul>
     <div>`
-    : html`<div style="text-align:left">Your plan splits ${num_split} of ${state.place.name}'s 
-    ${data.num_counties} ${pnoun} a total of ${data.splits} times, of which 
-    ${forced_splits} splits are forced by population.
+    : html`<div style="text-align:left">
+    ${state.place.name} has ${data.num_counties} ${pnoun}. 
+    Your plan splits ${num_split} ${pnoun} a total of ${data.splits} times.<br/>
+    The population in ${c_forced} of the ${state.place.name}'s ${pnoun} is larger than a district. <br/>
+    In total, ${forced_splits} of the splits ${forced_splits == 1 ? "is" : "are"} forced by population size.
     <br/><br/>
     A split is "forced by population" if a ${noun} is too large to be contained within one district, 
     and therefore must be split. For example, if the ideal district population was 20,000, and a 
     ${noun} had 30,000 people, there would be 1 forced split. If the ${noun} had 50,000 people, 
-    then there would be two forced splits. The total number of splits forced by population 
-    for a districting plan in a state, is the sum of the number of times each ${noun} is forced 
-    to be split. Of course, many other factors could result in a ${noun} being split.</div>`
+    then there would be 2 forced splits.<br/><br/>
+    Note that it may be necessary to split some counties even if no particular county has a forced split.
+    For example, picture a state with three counties of equal population, being split into 2 districts.
+    No particular split is forced, but some splitting must take place.</div>`
     
-    // if the dg on python anywhere doesn't have population
+    // if the dual graph on python anywhere doesn't have population
     if (data.population == -1)
         return text;
 
     // build the table
     let noun_cap = municipalities ? "Municipality" : "County";
-    let headers = ["Splits", "Forced by Pop."],
+    let headers = ["Splits in your plan", "Splits forced by Pop."],
         rows = [];
     for (let c of Object.keys(data.split_list)) {
         let c_name = isNaN(c) ? c : (county_fips_to_name(c, state.place.state) + " County");
