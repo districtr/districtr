@@ -488,14 +488,14 @@ function county_section(state, data, municipalities) {
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     // get number of splits to be forced
-    let c_forced = Object.values(forced).reduce((a,b) => b > 0 ? a : a + 1, 0)
+    let c_forced = Object.values(forced).reduce((a,b) => b > 0 ? a + 1 : a, 0);
 
     let num_split = Object.keys(data.split_list).length;
 
     let text = (data.population == -1) 
     ? html`<div style="text-align:left">
-    Your plan splits ${num_split} of ${state.place.name}'s 
-    ${data.num_counties} ${pnoun} a total of ${data.splits} times.
+    ${state.place.name} has ${data.num_counties} ${pnoun}
+    Your plan splits ${num_split} ${pnoun} a total of ${data.splits} times.<br/>
     The split ${pnoun} are:
     <ul>
     ${Object.keys(data.split_list).map(x => {
