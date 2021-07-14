@@ -508,8 +508,10 @@ function county_section(state, data, municipalities) {
     : html`<div style="text-align:left">
     ${state.place.name} has ${data.num_counties} ${pnoun}. 
     Your plan splits ${num_split} ${pnoun} a total of ${data.splits} times.<br/>
-    The population in ${c_forced} of the ${state.place.name}'s ${pnoun} is larger than a district. <br/>
-    In total, ${forced_splits} of the splits ${forced_splits == 1 ? "is" : "are"} forced by population size.
+    The population in ${c_forced} of ${state.place.name}'s ${pnoun} is larger than a district. <br/>
+    ${num_split > 0 ? html`
+        In total, ${forced_splits} of the splits ${forced_splits == 1 ? "is" : "are"} forced by population size.`
+        : ""}
     <br/><br/>
     A split is "forced by population" if a ${noun} is too large to be contained within one district, 
     and therefore must be split. For example, if the ideal district population was 20,000, and a 
@@ -538,8 +540,9 @@ function county_section(state, data, municipalities) {
         })
     }
     return html`${text}<br/>
-    <h4 text-align:"center">${noun_cap} Split Details</h4> 
-    ${DataTable(headers, rows)}`
+    ${num_split > 0 ? html`
+        <h4 text-align:"center">${noun_cap} Split Details</h4> 
+        ${DataTable(headers, rows)}` : ""}`
 }
 
 /** HELPER FUNCTIONS */
