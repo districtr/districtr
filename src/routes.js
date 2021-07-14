@@ -120,6 +120,9 @@ export function getContextFromStorage() {
     let state;
     try {
         state = JSON.parse(savedState);
+        if (state.place && state.units && state.units.columnSets && (state.place.id === "new_mexico") && window.location.href.includes("portal")) {
+            state.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
+        }
     } catch (e) {
         localStorage.removeItem("savedState");
         navigateTo("/new");
@@ -137,6 +140,9 @@ export function loadPlanFromJSON(planRecord) {
         // retrieved from database
         console.log(planRecord.msg);
         planRecord = planRecord.plan;
+    }
+    if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
+        planRecord.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
     }
     Object.keys(planRecord.assignment || {}).forEach((key) => {
         if (String(key).includes('÷')) {
