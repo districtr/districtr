@@ -142,7 +142,7 @@ export function loadPlanFromJSON(planRecord) {
         planRecord = planRecord.plan;
     }
     if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
-        planRecord.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
+        planRecord.units.columnSets = planRecord.units.columnSets.filter(c => c.type !== "election");
     }
     Object.keys(planRecord.assignment || {}).forEach((key) => {
         if (String(key).includes('÷')) {
