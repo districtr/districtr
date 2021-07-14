@@ -93,11 +93,17 @@ export class EmbeddedDistrictr {
                         this.state.plan.assignment = context.assignment; // know loaded district assignments
 
                         const paint_ids = Object.keys(context.assignment);
-                        if (this.state.place.id === "michigan" && paint_ids.length <= 250) {
-                          const placeID = this.state.units.id.includes("block") ? "michigan_bg" : "michigan";
+                        if (paint_ids.length <= 250) {
+                          let placeID = this.state.place.id;
+                          if (placeID === "michigan" && this.state.units.id.includes("block")) {
+                            placeID = "michigan_bg";
+                          }
                           const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
                           fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
                             let bbox = resp[0];
+                            if (!this.state.place) {
+                              return;
+                            }
                             if (bbox.includes(null)) {
                                 if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features && this.state.place.landmarks.data.features.length > 1) {
                                     // landmarks, no districts
@@ -123,7 +129,7 @@ export class EmbeddedDistrictr {
                         }
                     }
 
-                    if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
+                    if (this.state.place && this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
                         new CommunityPlugin({ state: this.state, mapState: this.mapState });
                     }
 
