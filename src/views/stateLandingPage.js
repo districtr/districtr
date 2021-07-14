@@ -389,7 +389,7 @@ const placeItemsTemplate = (places, onClick, showAll) =>
             return a.numberOfParts - b.numberOfParts;
         })
         .filter(problem => 
-               problem.pluralNoun.includes("Reapportioned") ? 
+               problem.name.includes("Default") ? 
       document.getElementById(custom).style.display = 'block' : document.getElementById(custom).style.display = 'none'
                 ${placeItemsTemplate(places,startNewPlan)), 
                 document.getElementById('custom').check})
