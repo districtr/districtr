@@ -79,11 +79,11 @@ export default class Toolbar {
     unsave() {
         let btn = document.getElementById("desktop-upload");
         // only need to update the button if user previously saved state
-        // and we now need to allow an update
+        // and we now need to allow a new plan to be saved.
         btn.disabled = false;
         if (btn.innerText === "Saved") {
-            btn.innerText = "Update";
-            btn.className = "updated";
+            btn.innerText = "Save";
+            btn.className = "unsaved";
         }
     }
     setMenuItems(menuItems) {
