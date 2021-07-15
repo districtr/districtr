@@ -370,7 +370,7 @@ const problemTypeInfo = {
     `
 };
 
-const placeItemsTemplate = (places, onClick, showAll) =>
+const placeItemsTemplate = (places, onClick) =>
     places.map(place =>
         place.districtingProblems
         .sort((a, b) => {
@@ -387,14 +387,7 @@ const placeItemsTemplate = (places, onClick, showAll) =>
                 return 1;
             }
             return a.numberOfParts - b.numberOfParts;
-        })
-        .filter(problem => 
-               problem.name.includes("Default") ? 
-      document.getElementById(custom).style.display = 'block' : document.getElementById(custom).style.display = 'none'
-                ${placeItemsTemplate(places,startNewPlan)), 
-                document.getElementById('custom').check})
-}
-                                  
+        })                          
         .map(problem =>
             getUnits(place, problem).map(
                 units => 
