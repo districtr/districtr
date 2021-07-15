@@ -62,12 +62,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
-        createdAfter = (new Date() * 1) - 24 * 60 * 60 * 1000,
-        tokenValid = (token && (token !== "null")
-            && (token.split("_")[1] * 1 > createdAfter)),
-        saveURL = tokenValid
-            ? ("/.netlify/functions/planUpdate?id=" + mapID)
-            : "/.netlify/functions/planCreate",
+        saveURL = "/.netlify/functions/planCreate",
         requestBody = {
             plan: JSON.parse(JSON.stringify(serialized)),
             token: token.split("_")[0],
