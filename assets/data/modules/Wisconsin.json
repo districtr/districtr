@@ -451,7 +451,8 @@
     "units": [
       {
         "id": "wards",
-        "name": "Default Wards",
+        "name": "2020 Wards",
+        "default": true
         "unitType": "Wards",
         "columnSets": [
           {
