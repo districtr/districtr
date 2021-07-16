@@ -388,6 +388,7 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
+        .filter(problem => !(problem.hide_on_default))
         .map(problem =>
             getUnits(place, problem)
             .filter(unit => unit.default)
