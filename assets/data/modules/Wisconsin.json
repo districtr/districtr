@@ -800,6 +800,7 @@
         "id": "wards",
         "name": "2020 Wards",
         "unitType": "Wards",
+        "default": true,
         "columnSets": [
           {
             "type": "population",
