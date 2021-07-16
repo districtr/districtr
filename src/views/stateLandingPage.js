@@ -389,7 +389,9 @@ const placeItemsTemplate = (places, onClick) =>
             return a.numberOfParts - b.numberOfParts;
         })                          
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem)
+            .filter (units => units.default)
+             .map(
                 units => 
                 // this ternary can be removed if we don't want to deal with the new 
                 // district numbers separately
