@@ -69,17 +69,18 @@ export default () => {
                 
                 
                 // config toggle buttons
-                $('input[name="place-selection"]:radio').click(function(){
+                $('input[name="place-selection"]:radio').click(function() {
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
-
 
                     $(".places-list__item").hide();
                     if (vraPage) {
                         toggleViz(targetBox);
                     }
                     selected.ids.map(id => $("." + id).show());
+
+                    document.getElementById("custom").checked = false;
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
@@ -310,10 +311,7 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${(document.getElementById("custom") && document.getElementById("custom").checked)
-              ? customPlaceItemsTemplate(places, startNewPlan)
-              : placeItemsTemplate(places, startNewPlan)
-            }
+              ${placeItemsTemplate(places, startNewPlan)}
         </ul>
     `;
 
@@ -370,8 +368,9 @@ const problemTypeInfo = {
     `
 };
 
-const placeItemsTemplate = (places, onClick) =>
-    places.map(place =>
+const placeItemsTemplate = (places, onClick) => {
+    const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
+    return places.map(place =>
         place.districtingProblems
         .sort((a, b) => {
             // change so Reapportioned always comes first
@@ -388,8 +387,10 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
+        .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem)
+            .map(
                 units => 
                 // this ternary can be removed if we don't want to deal with the new 
                 // district numbers separately
@@ -430,14 +431,18 @@ const placeItemsTemplate = (places, onClick) =>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
+        .reduce((items, item) => [...items, ...item], [])
+        .concat([
+          places.filter(p => ["california", "colorado", "illinois", "newyork", "northcarolina", "ohio", "oregon", "pennsylvania", "wisconsin", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length && !showAll  
+          ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Customize</label>
+                <label for="custom">Show All</label>
             </div>
-          </li>` : ""
+          </li>` 
+          : ""
         ]);
+    };
 
 const customPlaceItemsTemplate = (places, onClick) =>
     places.map(place =>
