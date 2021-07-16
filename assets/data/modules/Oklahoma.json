@@ -36,6 +36,7 @@
         ],
         "id": "precincts",
         "name": "Precincts",
+        "default": true,
         "unitType": "Precincts",
         "columnSets": [
           {

@@ -558,7 +558,8 @@
       },
       {
         "id": "blockgroups_2019",
-        "name": "2019 Block Groups",
+        "name": "Block Groups",
+	"default": true,
         "unitType": "Block Groups",
         "columnSets": [
           {

@@ -9,11 +9,6 @@
         "pluralNoun": "Reapportioned Congressional Districts"
       },
       {
-        "numberOfParts": 18,
-        "pluralNoun": "Congressional Districts",
-        "name": "Congress"
-      },
-      {
         "numberOfParts": 50,
         "name": "State Senate",
         "pluralNoun": "State Senate Districts"
@@ -205,6 +200,7 @@
       },
       {
         "name": "Precincts",
+        "default": true,
         "unitType": "Precincts",
         "columnSets": [
           {

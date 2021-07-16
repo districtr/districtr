@@ -387,9 +387,11 @@ const placeItemsTemplate = (places, onClick) =>
                 return 1;
             }
             return a.numberOfParts - b.numberOfParts;
-        })
+        }))                          
         .map(problem =>
-            getUnits(place, problem).map(
+            getUnits(place, problem)
+            .filter (units => units.default)
+             .map(
                 units => 
                 // this ternary can be removed if we don't want to deal with the new 
                 // district numbers separately
@@ -429,7 +431,7 @@ const placeItemsTemplate = (places, onClick) =>
                     </li>
                 `
             )
-        ))
+        )
         .reduce((items, item) => [...items, ...item], []).concat([
           places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
             <div style="padding-top:30px">

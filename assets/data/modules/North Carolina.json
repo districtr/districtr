@@ -751,6 +751,7 @@
       {
         "id": "precincts",
         "name": "Precincts",
+        "default": true,
         "unitType": "Precincts",
         "columnSets": [
           {
@@ -1817,12 +1818,7 @@
       {
         "name": "2020 Reapportioned Congress",
         "numberOfParts": 14,
-        "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
-        "numberOfParts": 13,
-        "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "pluralNoun": "Congressional Districts"
       },
       {
         "numberOfParts": 50,

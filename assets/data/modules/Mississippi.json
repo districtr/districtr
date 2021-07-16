@@ -4,6 +4,7 @@
       {
         "id": "block_groups",
         "name": "Block Groups",
+        "default": true,
         "unitType": "Block Groups",
         "columnSets": [
           {

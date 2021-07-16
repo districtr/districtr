@@ -2,6 +2,7 @@
   {
     "name": "Louisiana",
     "id": "louisiana",
+    "default": true,
     "state": "Louisiana",
     "units": [
       {
