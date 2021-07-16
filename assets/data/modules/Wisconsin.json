@@ -246,6 +246,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -783,6 +784,7 @@
         "id": "wards",
         "name": "2020 Wards",
         "unitType": "Wards",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
