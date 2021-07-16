@@ -529,7 +529,7 @@ export default () => {
             });
         });
 
-        let limitNum = 16;
+        let limitNum = 20;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);

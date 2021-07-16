@@ -417,29 +417,7 @@ iframe {
   font-style: italic;
 }
 
-.tab-carrier {
-  .tab {
-    display: inline-block;
-    background: #ccc;
-    border: 1px solid #000;
-    padding: 4px 10px;
-    cursor: pointer;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
-    border-bottom: 1px solid #777;
-
-    &.tab-selected {
-      background: #eee;
-      border-bottom: 1px solid #eee;
-    }
-  }
-}
-.tab-content {
-  background: #eee;
-  padding: 10px;
-  border: 1px solid #777;
-  border-top: none;
-
+.modal-content {
   .col {
     display: inline-block;
     width: 45%;
@@ -448,6 +426,11 @@ iframe {
 
   label {
     font-weight: bold;
+  }
+
+  label.wrap {
+    cursor: pointer;
+    font-weight: normal;
   }
 
   input {
