@@ -136,38 +136,6 @@ function renderRight(pane, context, state, mapState) {
                 return;
             }
             let municipalities = ['ma'].includes(state.place.id);
-            // Create the charts for the Slides.
-            // let slides = [
-            //     // overview (show 1st)
-            //     new Slide((uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units), "Overview"),
-            //     // election results slide
-            //     new Slide((uiState, dispatch) => election_section(state), "Election Results"),
-            //     // compactness (cut edges, polsby popper)
-            //     new Slide((uiState, dispatch) => compactness_section(state, data.cut_edges, data.polsbypopper), "Compactness")
-            //     ];
-            //     (data.counties == -1) 
-            //     ? slides.push(new Slide((uiState, dispatch) => html`${municipalities ? html`Municipality` : html`County`} Level Data unavailable`,  
-            //             html`${municipalities ? html`Municipality` : html`County`} Splits`))
-            //     : slides.push(new Slide((uiState, dispatch) => county_section(state, data.counties, municipalities), html`${municipalities ? html`Municipality` : html`County`} Splits`));
-            // for (let slide of slides) {
-            //     slideshow.addSlide(slide);
-            // }
-
-            // one big slide
-            // let bigslide = new Slide((uiState, dispatch) => html`
-            // <h2 id="overview">Overview</h2>
-            // ${overview_section(state, data.contiguity, data.split, data.num_units)}
-            // <br>
-            // <h2 id="elections">Election Results</h2>
-            // ${election_section(state)}
-            // <br>
-            // <h2 id="compactness">Compactness</h2>
-            // ${compactness_section(state, data.cut_edges, data.polsbypopper)}
-            // <h2>${municipalities? "Municipality Splits" : "County Splits"}</h2>
-            // ${data.counties == -1 ? "<h3>County level data unavailable</h3>": 
-            // county_section(state, data.counties, municipalities)}
-            // `);
-            // slideshow.addSlide(bigslide);
 
             let innerTemplate = document.createElement("div");
             innerTemplate.className = "analysis--inner";
