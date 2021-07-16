@@ -58,7 +58,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback) {
+export function savePlanToDB(state, eventCode, planName, callback, forceNotScratch) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -73,7 +73,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             token: token.split("_")[0],
             eventCode: eventCode,
             planName: planName,
-            isScratch: (document.getElementById("is-scratch") || {}).checked,
+            isScratch: (document.getElementById("is-scratch") || {}).checked || (eventCode && !forceNotScratch),
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
@@ -98,7 +98,10 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             if (window.location.href.includes("portal")) {
                 extras = "?portal";
             } else if (window.location.href.includes("qa-portal")) {
-                extras = "?qa-portal"
+                extras = "?qa-portal";
+            } else if (window.location.href.includes("event")) {
+                const eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
+                extras = "?event=" + eventdefault;
             }
             history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
