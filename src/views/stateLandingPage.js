@@ -388,10 +388,10 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
-        .filter(problem => !(problem.hide_on_default))
+        .filter(problem => !problem.hideOnDefault)
         .map(problem =>
             getUnits(place, problem)
-            .filter(unit => unit.default)
+            //.filter(unit => unit.default)
             .map(
                 units => 
                 // this ternary can be removed if we don't want to deal with the new 
