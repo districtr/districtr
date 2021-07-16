@@ -784,7 +784,6 @@
         "id": "wards",
         "name": "2020 Wards",
         "unitType": "Wards",
-        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
