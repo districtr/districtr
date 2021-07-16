@@ -728,6 +728,7 @@ export function spatial_abilities(id) {
       load_coi: false,
       // find_unpainted: true,
       school_districts: true,
+      contiguity: 2,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
@@ -1172,6 +1173,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisconsin2020: {
       number_markers: true,
@@ -1186,6 +1188,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisco2019acs: {
       number_markers: true,
@@ -1200,6 +1203,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wyoming: {
       multiyear: 2018,
