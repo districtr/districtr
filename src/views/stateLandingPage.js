@@ -399,7 +399,7 @@ const placeItemsTemplate = (places, onClick) =>
                 problem.pluralNoun.includes("Reapportioned") ?
                 html`
                 <li
-                    class="${place.id} places-list__item places-list__item--small reapportioned"
+                    class="${place.id} places-list__item places-list__item--small reapportioned ${(problem.hideOnDefault || units.hideOnDefault) ? "old-card": ""}"
                     @click="${() => onClick(place, problem, units)}"
                 >
                     <div class="place-name">
@@ -416,7 +416,7 @@ const placeItemsTemplate = (places, onClick) =>
             `
                 : html`
                     <li
-                        class="${place.id} places-list__item places-list__item--small"
+                        class="${place.id} places-list__item places-list__item--small ${(problem.hideOnDefault || units.hideOnDefault) ? "old-card": ""}"
                         @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">
