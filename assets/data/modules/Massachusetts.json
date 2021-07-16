@@ -504,6 +504,7 @@
         "id": "towns",
         "name": "Towns",
         "unitType": "Towns",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -918,6 +919,7 @@
         "id": "precincts_02_10",
         "name": "Precincts, 2002-2010",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1591,6 +1593,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

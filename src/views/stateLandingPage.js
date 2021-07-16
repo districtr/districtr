@@ -390,6 +390,7 @@ const placeItemsTemplate = (places, onClick) => {
         .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
             getUnits(place, problem)
+            .filter(unit => showAll || !unit.hideOnDefault)
             .map(
                 units => 
                 // this ternary can be removed if we don't want to deal with the new 
