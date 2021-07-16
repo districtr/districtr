@@ -501,6 +501,7 @@
       {
         "id": "blockgroups",
         "name": "Block Groups",
+        "default": true,
         "unitType": "Block Groups",
         "columnSets": [
           {
@@ -820,11 +821,6 @@
         "name": "2020 Reapportioned Congress",
         "numberOfParts": 17,
         "pluralNoun": "Reapportioned Congressional Districts"
-      },
-      {
-        "name": "Congress",
-        "numberOfParts": 18,
-        "pluralNoun": "Congressional Districts"
       },
       {
         "name": "State House",
