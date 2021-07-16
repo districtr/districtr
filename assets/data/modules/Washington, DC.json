@@ -6,6 +6,7 @@
       {
         "id": "blockgroups",
         "name": "Block Groups",
+        "default": true,
         "unitType": "Block Groups",
         "columnSets": [
           {
