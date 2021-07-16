@@ -11,7 +11,8 @@
       {
         "numberOfParts": 18,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 50,

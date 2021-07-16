@@ -824,7 +824,8 @@
       {
         "name": "Congress",
         "numberOfParts": 18,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State House",

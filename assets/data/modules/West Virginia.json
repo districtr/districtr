@@ -565,7 +565,8 @@
       {
         "name": "Congress",
         "numberOfParts": 3,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "House of Delegates",

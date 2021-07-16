@@ -921,7 +921,8 @@
       {
         "name": "Congress",
         "pluralNoun": "Congressional Districts",
-        "numberOfParts": 5
+        "numberOfParts": 5,
+        "hideOnDefault": true
       },
       {
         "name": "State Senate",
