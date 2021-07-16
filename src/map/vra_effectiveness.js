@@ -11,7 +11,15 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const placeID = extra_source || place;
   const sep = (state.place.id === "louisiana") ? ";" : ",";
 
-  const groups = state.place.id === "tx_vra" ? ["Hispanic", "Black"] : ["Black"];
+  const group_map = {
+                        "tx_vra": ["Black", "Hispanic"],
+                        "la_vra": ["Black"],
+                        "ma_vra": ["Asian", "Black","Hispanic"]
+                    };
+
+  const groups = group_map[state.place.id];
+  const alignmentType = state.place.state === "Massachusetts" ? "None" : "CVAP";
+
 
 //   console.log(state);
   if (!state.vra_effectiveness) {
@@ -58,7 +66,8 @@ export default function VRAEffectiveness(state, brush, toolbar) {
                 "assignment": assign,
                 "state": state.place.state,
                 "precID": state.plan.idColumn.key,
-                "SeqID": cur_request_id
+                "SeqID": cur_request_id,
+                "alignmentType": alignmentType
             }),
           })
             .then((res) => res.json())

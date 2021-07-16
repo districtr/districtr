@@ -74,14 +74,17 @@ export function TooltipContent(
     nameColumn,
     pluralNoun,
     parts,
-    columnSetIndex
+    columnSetIndex,
+    divisor
 ) {
-    // console.log(features);
-    // console.log(columnSet);
     if (features === null || features === undefined) {
         return "";
     }
     let total = sum(features.map(f => columnSet.total.getValue(f)));
+    if (columnSet.name.toLowerCase() === "percentages") {
+        features = features.slice(0, 1);
+        total = 1;
+    }
     let values = columnSet.columns.map(column =>
         sum(features.map(f => column.getValue(f)))
     );
@@ -120,6 +123,8 @@ export function TooltipContent(
                 ...columnSet,
             };
         }
+    } else if (divisor) {
+        values = values.map(v => v / divisor);
     }
 
 

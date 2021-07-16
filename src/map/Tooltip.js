@@ -10,10 +10,11 @@ import { HoverWithRadius } from "./Hover";
  * @param {function} content - function that returns the tooltip content
  */
 export default class Tooltip extends HoverWithRadius {
-    constructor(layer, content, radius = 1) {
+    constructor(layer, content, radius = 1, index) {
         super(layer, radius);
 
         this.content = content;
+        this.index = index;
 
         this.container = document.createElement("div");
         layer.map.getContainer().appendChild(this.container);
@@ -52,19 +53,20 @@ export default class Tooltip extends HoverWithRadius {
         this.render();
     }
     render() {
+        const insert = this.content(this.hoveredFeatures, this.index);
         render(
             html`
                 <aside
                     class=${classMap({
                         tooltip: true,
-                        "tooltip--hidden": !this.visible
+                        "tooltip--hidden": (!this.visible || !insert)
                     })}
                     style=${styleMap({
                         left: `${this.x + 4}px`,
                         top: `${this.y + 8}px`
                     })}
                 >
-                    ${this.content(this.hoveredFeatures)}
+                    ${insert}
                 </aside>
             `,
             this.container

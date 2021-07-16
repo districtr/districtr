@@ -16,6 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import AnalysisPlugin from "../plugins/analysis-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -24,7 +25,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins;
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -36,11 +37,13 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    EvaluationPlugin
+    EvaluationPlugin,
+    AnalysisPlugin
+    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
@@ -55,6 +58,8 @@ function getPlanURLFromQueryParam() {
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
+    console.log(planURL);
+    console.log(finalURLpage);
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
@@ -89,7 +94,6 @@ function loadContext(context) {
         html`
             <div id="comparison-container" class="mapcontainer">
               <div id="map" class="map"></div>
-              <div id="swipemap" class="map"></div>
             </div>
             <div id="toolbar"></div>
             <div class="print-only print-summary"></div>
@@ -123,7 +127,7 @@ function loadContext(context) {
     if (window.history && window.history.replaceState
         && getPlanURLFromQueryParam()
         && window.location.hostname !== 'localhost'
-        && window.location.hash && (["#plan", "#portal"].includes(window.location.hash))) {
+        && window.location.hash && (["#plan", "#portal", "#qa-portal"].includes(window.location.hash))) {
 
         let shortPlanName = getPlanURLFromQueryParam().split("/");
         shortPlanName = shortPlanName[2].replace("-plans", "") + "/"
@@ -134,6 +138,9 @@ function loadContext(context) {
         }
         if (window.location.hash === "#portal") {
             shortPlanName += "?portal";
+        }
+        if (window.location.hash === "#qa-portal") {
+            shortPlanName += "?qa-portal";
         }
         window.history.replaceState({}, "Districtr", shortPlanName);
     }
@@ -237,7 +244,7 @@ function loadContext(context) {
 
     let state;
     mapState.map.on("load", () => {
-        state = new State(mapState.map, mapState.swipemap, context, () => {
+        state = new State(mapState.map, null, context, () => {
             window.document.title = "Districtr";
         });
         if (context.assignment) {
