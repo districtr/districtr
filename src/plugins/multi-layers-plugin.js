@@ -8,7 +8,7 @@ import DemographicsTable from "../components/Charts/DemographicsTable";
 
 import LayerTab from "../components/LayerTab";
 import { addAmerIndianLayer } from "../layers/amin_control";
-import { addBoundaryLayers } from "../layers/current_districts";
+import { addCurrentDistricts } from "../layers/current_districts";
 import { addCountyLayer } from "../layers/counties";
 import { addPOILayers } from "../layers/colleges_hospitals";
 
@@ -35,7 +35,9 @@ export default function MultiLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
-    addBoundaryLayers(tab, state, state.place.id.current_districts, state.place.id.school_districts);
+    if (spatial_abilities(state.place.id).current_districts) {
+        addCurrentDistricts(tab, state);
+    }
 
     let emitters, coal;
     addPOILayers(tab, state);
@@ -53,9 +55,7 @@ export default function MultiLayersPlugin(editor) {
                 "registered_voters",
                 state.layers.filter(lyr => lyr.id === "extra-precincts_new"),
                 state.voters,
-                "Registered Voters",
-                false,
-                // toolbar
+                toolbar
             );
         }
         tab.addSection(

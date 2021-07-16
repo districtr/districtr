@@ -7,7 +7,6 @@ export class Subgroup extends NumericalColumn {
         this.columnSet = columnSet;
         this.data = zeros(parts.length);
         this.total_alt = args.total_alt;
-        this.divisor = args.divisor; // for turning a x1000 int back into decimal
 
         this.update = this.update.bind(this);
         this.fractionAsMapboxExpression = this.fractionAsMapboxExpression.bind(
@@ -41,7 +40,7 @@ export class Subgroup extends NumericalColumn {
             this.total.asMapboxExpression()
         );
     }
-    update(feature, color, divisor=1) {
+    update(feature, color) {
         let oldColors = String(feature.state ?
             (feature.state.color === undefined ? "" : feature.state.color)
             : "").split(",").filter(c => c !== "");
@@ -56,7 +55,7 @@ export class Subgroup extends NumericalColumn {
                 newColors.filter(c => (c || (c === 0)) && (!oldColors.includes(c)))
                     .forEach((c) => {
                         // console.log("add to " + Number(c));
-                        this.data[Number(c)] += this.getValue(feature) / divisor;
+                        this.data[Number(c)] += this.getValue(feature);
                     });
             }
         }
@@ -66,7 +65,7 @@ export class Subgroup extends NumericalColumn {
         oldColors.filter(c => (c || (c === 0))).forEach((oldColor) => {
             if (!newColors.includes(oldColor)) {
                 // console.log("subtract from " + Number(oldColor));
-                this.data[Number(oldColor)] -= this.getValue(feature) / divisor;
+                this.data[Number(oldColor)] -= this.getValue(feature);
             }
         });
     }

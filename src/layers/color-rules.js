@@ -91,7 +91,7 @@ export function colorByCount(subgroup) {
             subgroup.asMapboxExpression(),
             0,
             0,
-            (subgroup.divisor || 1) * Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0),
+            Math.max(subgroup.total.max, subgroup.columnSet.total_alt ? subgroup.columnSet.total_alt.max : 0),
             1
         ]
     ];

@@ -9,16 +9,11 @@ const electDescriptions = {
     // 2012
     "PRES12":"2012 President",
     "SEN12": "2012 US Senate",
-    // 2013
-    "SEN13": "2013 US Senate",
     // 2014
     "SEN14": "2014 US Senate",
     "RRC14": "2014 Railroad Commissioner",
     "AGC14": "2014 Agriculture Commissioner",
     "GOV14": "2014 Governor",
-    "LTG14": "2014 Lt. Governor",
-    "AG14": "2014 Attorney General",
-    "TRES14": "2014 Treasurer",
     // 2015
     "GOV15": "2015 Governor",
     "SOS15": "2015 Secretary of State",
@@ -37,26 +32,14 @@ const electDescriptions = {
     "COMP18": "2018 Comptroller",
     "SEN18": "2018 US Senate",
     "PLC18": "2018 Public Lands Commissioner",
-    "SOC18": "2018 Secretary of the Commonwealth",
     // 2019
     "GOV19": "2019 Governor",
     "LTG19": "2019 Lt. Governor",
     "TRES19": "2019 Treasurer",
     "AGC19": "2019 Commissioner of Agriculture and Forestry",
-    // 2020
-    "SEN20": "2020 US Senate",
-    "PRES20": "2020 US President",
 };
 
-//"":"",
-
-const candNames = { 
-                    // 2020
-                    "SEN20PEMARKEY": "E. Markey (W)", "SEN20GEMARKEY": "E. Markey (W)", 
-                    "SEN20PJKENNEDY": "J. Kennedy (W)",
-                    "PRES20PBSANDERS": "B. Sanders (W)",
-                    "PRES20PJBIDEN": "J. Biden (W)", "PRES20GJBIDEN": "J. Biden (W)", 
-                    // 2019
+const candNames = { // 2019
                     "EdwardsD_19G_Governor": "J. Edwards (W)","EdwardsD_19P_Governor": "J. Edwards (W)",
                     "JonesD_19P_Lt_Governor": "W. Jones (B)", "EdwardsD_19P_Treasurer": "D. Edwards (B)",
                     "GreenD_19P_Ag_Comm": "M. Green (W)",
@@ -72,16 +55,11 @@ const candNames = {
                     "McAllenD_18P_RR_Comm_1": "R. McAllen (H)", "McAllenD_18G_RR_Comm_1": "R. McAllen (H)",
                     "CollierD_18P_Lt_Governor": "M. Collier (W)", "CollierD_18G_Lt_Governor": "M. Collier (W)",
                     "ChevalierD_18P_Comptroller": "J. Chevalier (B)", "ChevalierD_18G_Comptroller": "J. Chevalier (B)",
-                    "SOC18PWGALVIN": "W. Galvin (W)", "SOC18GWGALVIN": "W. Galvin (W)",
-                    "SOC18PJZAKIM": "J. Zakim",
-                    "LTGOV18PQPALFREY":"Q. Palfrey (W)",
-                    "LTGOV18PJTINGLE":"J. Tingle (W)", 
-                    "GOV18PJGONZALEZ":"J. Gonzalez (H)", "GOV18GJGONZALEZ":"J. Gonzalez (H)",
                     // 2017
                     "EdwardsD_17G_Treasurer": "D. Edwards (B)", "EdwardsD_17P_Treasurer": "D. Edwards (B)",
                     // 2016
                     "CampbellD_16G_US_Sen": "F. Campbell (W)", "CampbellD_16P_US_Sen": "F. Campbell (W)",
-                    "ClintonD_16G_President": "H. Clinton (W)", "ClintonD_16P_President": "H. Clinton (W)","PRES16PHCLINTON":"H. Clinton (W)","PRES16GHCLINTON":"H. Clinton (W)",
+                    "ClintonD_16G_President": "H. Clinton (W)", "ClintonD_16P_President": "H. Clinton (W)",
                     "YarbroughD_16P_RR_Comm_1": "G. Yarbrough (B)",  "YarbroughD_16R_RR_Comm_1": "G. Yarbrough (B)","YarbroughD_16G_RR_Comm_1": "G. Yarbrough (B)",
                     // 2015
                     "EdwardsD_15P_Governor": "J. Edwards (W)", "EdwardsD_15G_Governor": "J. Edwards (W)",
@@ -92,16 +70,6 @@ const candNames = {
                     "DavisD_14P_Governor": "W. Davis (W)", "DavisD_14G_Governor": "W. Davis (W)", 
                     "BrownD_14P_RR_Comm_3": "S. Brown (B)", "BrownD_14G_RR_Comm_3": "S. Brown (B)",
                     "FriedmanD_14P_Ag_Comm": "R. Friedman (W)",
-                    "TRE14PDGOLDBERG":"D. Goldberg (W)","TRE14GDGOLDBERG":"D. Goldberg (W)",
-                    "TRE14PBFINEGOLD":"B. Finegold (W)",
-                    "AG14PWTOLMAN":"W. Tolman (W)",
-                    "AG14GMHEALEY":"M. Healey (W)",
-                    "LTGOV14PSKERRIGAN":"S. Kerrigan (W)",
-                    "LTGOV14PLCHEUNG":"L. Cheung (A)",
-                    "GOV14PMCOAKLEY":"M. Coakley (W)","GOV14GMCOAKLEY":"M. Coakley (W)",
-                    "GOV14PSGROSSMAN":"S. Grossman (W)",
-                    // 2013
-                    "SEN13PEMARKEY":"E. Markey (W)","SEN13GEMARKEY":"E. Markey (W)",
                     // 2012
                     "ObamaD_12P_President": "B. Obama (B)", "ObamaD_12G_President": "B. Obama (B)",
                     "SadlerD_12P_US_Sen": "P. Sadler (W)", "SadlerD_12R_US_Sen": "P. Sadler (W)", "SadlerD_12G_US_Sen": "P. Sadler (W)",
@@ -132,15 +100,6 @@ function getTextCell(value, width) {
     return {
         content: candNames[value] ? candNames[value] : value, //`${value.split("D_")[0]}`,
         style: `background: white; color: black; width: ${width}; text-align: center;`
-    };
-}
-
-function getPluralityCell(elect, width) {
-    const place = elect.CoCPlace;
-    const success = place === 1;
-    return {
-        content: `${success ? `✔` : `✘`}`,
-        style: `color: ${success ? "limegreen" : "red"}; width: ${width}; text-align: center;`
     };
 }
 
@@ -193,17 +152,17 @@ function sortElects(elects) {
     return elects;
 }
 
-function getPrimTable(dist, elects, group, pluralityPrim, decimals=true) {
+function getPrimTable(dist, elects, group, decimals=true) {
     const groupControlHeader = html`<div class="elect_tooltip">CVAP Share
                                             <div class="elect_tooltiptext elect_tooltip_right_edge">Estimated ${group} share of CVAP</div>
                                     </div>`;
-    const headers = [dist.renderLabel(), cocHeader(group), "District Vote %", pluralityPrim ? "Success" : "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
+    const headers = [dist.renderLabel(),cocHeader(group), "District Vote %", "Rank", "Out Of", groupControlHeader]; //subgroups.map(subgroup => subgroup.name);
     const width = `${Math.round(81 / headers.length)}%`;
     let rows = sortElects(elects).map(elect => ({
         label: getElectLabel(elect),
         entries: [getTextCell(elect.CoC, width*1.75), 
                   getCell(elect.CoCPerc, width, decimals),
-                  pluralityPrim ? getPluralityCell(elect, width) : getRankCell(elect, width), 
+                  getRankCell(elect, width), 
                   getTextCell(elect.NumCands, width/2), 
                   getCell(elect.GroupControl, width, decimals),
                 ]
@@ -247,7 +206,6 @@ function DistrictResults(effectiveness, dist, group, place) {
     // const group = groups[group_index];
     const runoffs = ["tx_vra"].includes(place);
     const proxy = ! ["la_vra"].includes(place);
-    const pluralityPrim = ! ["la_vra", "tx_vra"].includes(place);
     // console.log(dist.id);
     // console.log(group);
     return html`
@@ -255,7 +213,7 @@ function DistrictResults(effectiveness, dist, group, place) {
             <h5> Primary Elections Breakdown</h5>
         </div>
         <section class="toolbar-section">
-            ${effectiveness[group] && effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].ElectionDetails, group, pluralityPrim) : ""}
+            ${effectiveness[group] && effectiveness[group][dist.id] ? getPrimTable(dist, effectiveness[group][dist.id].ElectionDetails, group) : ""}
         </section>
         ${runoffs ? html`<div class="ui-option ui-option--slim">
                             <h5> Runoff Elections Breakdown</h5>

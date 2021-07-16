@@ -10,10 +10,7 @@ const routes = {
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
-    "/signout": "/signout",
-    "/analysis": "/analysis",
-    "/evaluation": "/evaluation",
-    "/eval": "/eval"
+    "/signout": "/signout"
 };
 
 export function navigateTo(route) {
@@ -24,7 +21,7 @@ export function navigateTo(route) {
     }
 }
 
-export function startNewPlan(place, problem, units, id, setParts, eventCode, portalOn) {
+export function startNewPlan(place, problem, units, id, setParts, eventCode) {
     if (setParts) {
         problem.numberOfParts = setParts;
     }
@@ -32,9 +29,6 @@ export function startNewPlan(place, problem, units, id, setParts, eventCode, por
     let action = (window.location.hostname === "localhost" ? "edit" : (
       problem.type === "community" ? "COI" : "plan"
     ));
-    if (portalOn) {
-      eventCode += "&portal";
-    }
     navigateTo(eventCode ? (`/${action}?event=${eventCode}`) : `/${action}`);
 }
 
@@ -97,17 +91,12 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             let action = (window.location.hostname === "localhost" ? "edit" : (
               serialized.problem.type === "community" ? "COI" : "plan"
             ));
-            let extras = "";
-            if (window.location.href.includes("portal")) {
-                extras = "?portal";
-            } else if (window.location.href.includes("qa-portal")) {
-                extras = "?qa-portal"
-            }
+            let extras = window.location.href.includes("portal") ? "?portal" : "";
             history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
-            if (spatial_abilities(state.place.id).shapefile) {
+            if ((eventCode || (state.place.id === "michigan")) && spatial_abilities(state.place.id).shapefile) {
                 fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
             }
             callback(info.simple_id, action);
@@ -148,9 +137,6 @@ export function loadPlanFromJSON(planRecord) {
             delete planRecord.assignment[key];
         }
     });
-    if (planRecord.placeId === "nc") {
-        planRecord.placeId = "northcarolina";
-    }
     return listPlaces(planRecord.placeId, (planRecord.state || (planRecord.place ? planRecord.place.state : null))).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
@@ -208,9 +194,7 @@ export function loadPlanFromCSV(assignmentList, state) {
     // if we didn't set numberOfParts in CSV, find max here
     state.problem.numberOfParts =  Math.max(state.problem.numberOfParts, distMap.length)
 
-    if (state.place.id === "nc") {
-        state.place.id = "northcarolina";
-    }
+
     return listPlaces(state.place.id, state.place.state).then(places => {
         rows.forEach((row, index) => {
             if (index > 0 || !headers) {

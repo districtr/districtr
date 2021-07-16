@@ -4,7 +4,7 @@ import BrushTool from "../components/Toolbar/BrushTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
-import LandmarkTool from "../components/Toolbar/LandmarkTool";
+// import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
@@ -25,24 +25,13 @@ export default function ToolsPlugin(editor) {
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
-    state.brush = brush;
 
-    if (state.plan.problem.type !== "community") {
-        // show drop-in geojson and built-in landmarks
-        new LandmarkTool(state);
-    }
-
-    let alt_counties = {
-      alaska: 'boroughs',
-      alaska_blocks: 'boroughs',
-      louisiana: 'parishes',
-    }[state.place.id];
     let brushOptions = {
         community: (state.problem.type === "community"),
         county_brush: ((spatial_abilities(state.place.id).county_brush)
             ? new HoverWithRadius(state.counties, 20)
             : null),
-        alt_counties: alt_counties,
+        alt_counties: (state.place.id === "louisiana") ? "parishes" : null,
     };
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
@@ -71,12 +60,11 @@ export default function ToolsPlugin(editor) {
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
-            state.layers,
+            state.units,
             state.columnSets,
             state.nameColumn,
             state.unitsRecord,
-            state.parts,
-            spatial_abilities(state.place.id).divisor,
+            state.parts
         )
     ];
 
@@ -92,7 +80,7 @@ export default function ToolsPlugin(editor) {
     hotkeys.filter = ({ target }) => {
         return (
             !["INPUT", "TEXTAREA"].includes(target.tagName) ||
-            (target.tagName === "INPUT" && target.type.toLowerCase() !== "text" && target.type.toLowerCase() !== "search")
+            (target.tagName === "INPUT" && target.type.toLowerCase() !== "text")
         );
     };
     hotkeys("h", (evt, handler) => {
@@ -197,14 +185,14 @@ function scrollToSection(state, section) {
     return () => {
         let url = "/" + state.place.state.replace(/,/g, "").replace(/\s+/g, '-'),
             adjacent = window.open(url);
-
+    
         // Attach a listener to the adjacent Window so that, when the
         // page-load-complete event fires, it's caught and the page is
         // scrolled to the correct location.
         adjacent.addEventListener("page-load-complete", e => {
             let adjacent = e.target,
                 anchorElement = adjacent.document.getElementById(section);
-
+        
             // Scrolls the desired anchor element to the top of the page, should
             // it exist.
             if (anchorElement) anchorElement.scrollIntoView(true);

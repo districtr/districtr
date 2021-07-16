@@ -98,7 +98,6 @@ export default class Brush extends HoverWithRadius {
                             return name.join(" ");
                         };
                     [countyProp, countyFIPS] = idSearch("GEOID10", 5)
-                        || idSearch("GEOID", 5)
                         || idSearch("county_nam") // Michigan
                         || idSearch("VTD", 5)
                         || idSearch("VTDID", 5)

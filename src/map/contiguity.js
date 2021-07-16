@@ -57,28 +57,25 @@ export default function ContiguityChecker(state, brush) {
   }
 
   function setContiguityStatus(contiguity_breaks) {
-    let cont_status = document.querySelector("#contiguity-status");
-    if (cont_status) {
-      cont_status.innerText =
+    document.querySelector("#contiguity-status").innerText =
         contiguity_breaks.length
             ? "Districts may have contiguity gaps"
             : "No contiguity gaps detected";
-    
-      let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
-      for (let d = 0; d < myDistricts.length; d++) {
-        // show-hide label altogether
-        myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
+    let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
+    for (let d = 0; d < myDistricts.length; d++) {
+      // show-hide label altogether
+      myDistricts[d].style.display = contiguity_breaks.includes(d) ? "flex" : "none";
 
-        // checkbox
-        let box = myDistricts[d].querySelector('input');
-        if (box) {
-          myDistricts[d].querySelector('input').onchange = () => {
-            document.querySelector('#unassigned-checker input').checked = false;
-            updateIslandBorders(true);
-          };
-        }
+      // checkbox
+      let box = myDistricts[d].querySelector('input');
+      if (box) {
+        myDistricts[d].querySelector('input').onchange = () => {
+          document.querySelector('#unassigned-checker input').checked = false;
+          updateIslandBorders(true);
+        };
       }
     }
+
     updateIslandBorders();
   }
 

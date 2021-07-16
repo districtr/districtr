@@ -95,17 +95,6 @@ function getCVAP(place, parts) {
     }
 }
 
-function getPcts(place, parts) {
-    const pcts = place.columnSets.find(
-        columnSet => columnSet.name && columnSet.name.toLowerCase() === "percentages"
-    );
-    if (pcts) {
-        return new Population({ ...pcts, parts });
-    } else {
-        return null;
-    }
-}
-
 function getAges(place, parts) {
     const ages = place.columnSets.find(
         columnSet => columnSet.name === "Age of Population"
@@ -242,7 +231,6 @@ export function getColumnSets(state, unitsRecord) {
     state.population = getPopulation(unitsRecord, state.parts);
     state.vap = getVAP(unitsRecord, state.parts);
     state.cvap = getCVAP(unitsRecord, state.parts);
-    state.pcts = getPcts(unitsRecord, state.parts);
     state.ages = getAges(unitsRecord, state.parts);
     state.incomes = getIncomes(unitsRecord, state.parts);
     state.median_income = getMedIncome(unitsRecord, state.parts);
@@ -273,12 +261,6 @@ export function getColumnSets(state, unitsRecord) {
             ...state.columns,
             ...state.cvap.subgroups,
             state.cvap.total
-        ];
-    }
-    if (state.pcts) {
-        state.columns = [
-            ...state.columns,
-            ...state.pcts.subgroups,
         ];
     }
     if (state.ages) {
@@ -351,9 +333,6 @@ export function getColumnSets(state, unitsRecord) {
     }
     if (state.cvap) {
         columnSets.push(state.cvap);
-    }
-    if (state.pcts) {
-        columnSets.push(state.pcts);
     }
     if (state.ages) {
         columnSets.push(state.ages);
