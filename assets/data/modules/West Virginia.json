@@ -525,14 +525,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -82.6446,
-            37.2015
-          ],
-          [
-            -77.7195,
-            40.6388
-          ]
+          [-82.6446, 37.2015],
+          [-77.7195, 40.6388]
         ],
         "tilesets": [
           {
@@ -565,7 +559,8 @@
       {
         "name": "Congress",
         "numberOfParts": 3,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "House of Delegates",

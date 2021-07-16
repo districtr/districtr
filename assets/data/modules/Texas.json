@@ -67,14 +67,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -97.9715,
-            30.0927
-          ],
-          [
-            -97.5138,
-            30.5188
-          ]
+          [-97.9715, 30.0927],
+          [-97.5138, 30.5188]
         ],
         "tilesets": [
           {
@@ -323,14 +317,8 @@
           "key": "CNTYVTD"
         },
         "bounds": [
-          [
-            -106.623445,
-            25.840378
-          ],
-          [
-            -93.530936,
-            36.500439
-          ]
+          [-106.623445, 25.840378],
+          [-93.530936, 36.500439]
         ],
         "tilesets": [
           {
@@ -500,14 +488,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -106.6456,
-            25.8372
-          ],
-          [
-            -93.508,
-            36.5007
-          ]
+          [-106.6456, 25.8372],
+          [-93.508, 36.5007]
         ],
         "tilesets": [
           {
@@ -542,7 +524,8 @@
       {
         "numberOfParts": 36,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 150,
@@ -772,14 +755,8 @@
           "key": "CNTYVTD"
         },
         "bounds": [
-          [
-            -106.623445,
-            25.840378
-          ],
-          [
-            -93.530936,
-            36.500439
-          ]
+          [-106.623445, 25.840378],
+          [-93.530936, 36.500439]
         ],
         "tilesets": [
           {
@@ -975,14 +952,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -96.0889,
-            29.2626
-          ],
-          [
-            -95.4241,
-            29.7883
-          ]
+          [-96.0889, 29.2626],
+          [-95.4241, 29.7883]
         ],
         "tilesets": [
           {
@@ -1095,14 +1066,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -97.5506,
-            32.5487
-          ],
-          [
-            -97.0323,
-            32.9942
-          ]
+          [-97.5506, 32.5487],
+          [-97.0323, 32.9942]
         ],
         "tilesets": [
           {
@@ -1218,14 +1183,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -95.9607,
-            29.4973
-          ],
-          [
-            -94.9085,
-            30.1706
-          ]
+          [-95.9607, 29.4973],
+          [-94.9085, 30.1706]
         ],
         "tilesets": [
           {
@@ -1344,14 +1303,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -97.6061,
-            32.5523
-          ],
-          [
-            -97.0338,
-            33.0785
-          ]
+          [-97.6061, 32.5523],
+          [-97.0338, 33.0785]
         ],
         "tilesets": [
           {
@@ -1757,14 +1710,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -95.9898,
-            29.4973
-          ],
-          [
-            -94.9788,
-            30.1706
-          ]
+          [-95.9898, 29.4973],
+          [-94.9788, 30.1706]
         ],
         "tilesets": [
           {
@@ -1994,14 +1941,8 @@
           "key": "COUNTY"
         },
         "bounds": [
-          [
-            -106.6456,
-            31.3872
-          ],
-          [
-            -105.9543,
-            32.0025
-          ]
+          [-106.6456, 31.3872],
+          [-105.9543, 32.0025]
         ],
         "tilesets": [
           {
@@ -2023,183 +1964,177 @@
         ]
       },
       {
-         "id": "blocks",
-         "name": "Blocks",
-         "unitType": "Blocks",
-         "limit": "community",
-         "columnSets": [
-           {
-             "type": "population",
-             "name": "Population",
-             "total": {
-               "key": "TOTPOP",
-               "name": "Total population",
-               "sum": 800647.0,
-               "min": 0.0,
-               "max": 1927.0
-             },
-             "subgroups": [
-               {
-                 "key": "NH_WHITE",
-                 "name": "White population",
-                 "sum": 105246.0,
-                 "min": 0.0,
-                 "max": 1100.0
-               },
-               {
-                 "key": "NH_BLACK",
-                 "name": "Black population",
-                 "sum": 20649.0,
-                 "min": 0.0,
-                 "max": 364.0
-               },
-               {
-                 "key": "HISP",
-                 "name": "Hispanic population",
-                 "sum": 658134.0,
-                 "min": 0.0,
-                 "max": 1724.0
-               },
-               {
-                 "key": "NH_ASIAN",
-                 "name": "Asian population",
-                 "sum": 7551.0,
-                 "min": 0.0,
-                 "max": 83.0
-               },
-               {
-                 "key": "NH_AMIN",
-                 "name": "American Indian population",
-                 "sum": 2269.0,
-                 "min": 0.0,
-                 "max": 107.0
-               },
-               {
-                 "key": "NH_NHPI",
-                 "name": "Native Hawaiian and Pacific Islander population",
-                 "sum": 805.0,
-                 "min": 0.0,
-                 "max": 30.0
-               },
-               {
-                 "key": "NH_2MORE",
-                 "name": "Two or more races",
-                 "sum": 5391.0,
-                 "min": 0.0,
-                 "max": 99.0
-               },
-               {
-                 "key": "NH_OTHER",
-                 "name": "Other races",
-                 "sum": 602.0,
-                 "min": 0.0,
-                 "max": 9.0
-               }
-             ]
-           },
-           {
-             "type": "population",
-             "name": "Voting Age Population",
-             "total": {
-               "key": "VAP",
-               "name": "Voting age population",
-               "sum": 559834.0,
-               "min": 0.0,
-               "max": 1901.0
-             },
-             "subgroups": [
-               {
-                 "key": "WVAP",
-                 "name": "White voting age population",
-                 "sum": 86084.0,
-                 "min": 0.0,
-                 "max": 1100.0
-               },
-               {
-                 "key": "BVAP",
-                 "name": "Black voting age population",
-                 "sum": 15229.0,
-                 "min": 0.0,
-                 "max": 364.0
-               },
-               {
-                 "key": "HVAP",
-                 "name": "Hispanic voting age population",
-                 "sum": 446692.0,
-                 "min": 0.0,
-                 "max": 1631.0
-               },
-               {
-                 "key": "AMINVAP",
-                 "name": "Native American voting age population",
-                 "sum": 1666.0,
-                 "min": 0.0,
-                 "max": 81.0
-               },
-               {
-                 "key": "NHPIVAP",
-                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                 "sum": 574.0,
-                 "min": 0.0,
-                 "max": 15.0
-               },
-               {
-                 "key": "ASIANVAP",
-                 "name": "Asian voting age population",
-                 "sum": 6152.0,
-                 "min": 0.0,
-                 "max": 74.0
-               },
-               {
-                 "key": "OTHERVAP",
-                 "name": "Other races voting age population",
-                 "sum": 382.0,
-                 "min": 0.0,
-                 "max": 6.0
-               },
-               {
-                 "key": "2MOREVAP",
-                 "name": "Two or more races voting age population",
-                 "sum": 3055.0,
-                 "min": 0.0,
-                 "max": 71.0
-               }
-             ]
-           }
-         ],
-         "idColumn": {
-           "name": "Geo ID",
-           "key": "GEOID10"
-         },
-         "bounds": [
-           [
-             -106.6456,
-             31.3872
-           ],
-           [
-             -105.9543,
-             32.0025
-           ]
-         ],
-         "tilesets": [
-           {
-             "type": "circle",
-             "source": {
-               "type": "vector",
-               "url": "mapbox://districtr.elpasotx_blocks_points"
-             },
-             "sourceLayer": "elpasotx_blocks_points"
-           },
-           {
-             "type": "fill",
-             "source": {
-               "type": "vector",
-               "url": "mapbox://districtr.elpasotx_blocks"
-             },
-             "sourceLayer": "elpasotx_blocks"
-           }
-         ]
-       }
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "limit": "community",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 800647.0,
+              "min": 0.0,
+              "max": 1927.0
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 105246.0,
+                "min": 0.0,
+                "max": 1100.0
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 20649.0,
+                "min": 0.0,
+                "max": 364.0
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 658134.0,
+                "min": 0.0,
+                "max": 1724.0
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 7551.0,
+                "min": 0.0,
+                "max": 83.0
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2269.0,
+                "min": 0.0,
+                "max": 107.0
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 805.0,
+                "min": 0.0,
+                "max": 30.0
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 5391.0,
+                "min": 0.0,
+                "max": 99.0
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 602.0,
+                "min": 0.0,
+                "max": 9.0
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 559834.0,
+              "min": 0.0,
+              "max": 1901.0
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 86084.0,
+                "min": 0.0,
+                "max": 1100.0
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 15229.0,
+                "min": 0.0,
+                "max": 364.0
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 446692.0,
+                "min": 0.0,
+                "max": 1631.0
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 1666.0,
+                "min": 0.0,
+                "max": 81.0
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 574.0,
+                "min": 0.0,
+                "max": 15.0
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 6152.0,
+                "min": 0.0,
+                "max": 74.0
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 382.0,
+                "min": 0.0,
+                "max": 6.0
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 3055.0,
+                "min": 0.0,
+                "max": 71.0
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [-106.6456, 31.3872],
+          [-105.9543, 32.0025]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elpasotx_blocks_points"
+            },
+            "sourceLayer": "elpasotx_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elpasotx_blocks"
+            },
+            "sourceLayer": "elpasotx_blocks"
+          }
+        ]
+      }
     ],
     "state": "Texas",
     "name": "El Paso County",
