@@ -5,6 +5,9 @@ import { startNewPlan } from "../routes";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 
+let skip = 0,
+    prevPlans = [];
+
 const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
@@ -529,23 +532,32 @@ export default () => {
         let limitNum = 16;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
-                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
+                    : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data, unlimited) => {
-            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
+        let showPlans = (data) => {
+            let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
+            if (loadExtraPlans) {
+                data.plans.pop();
+            }
+            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
+                plans: prevPlans,
             }];
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="loadMorePlans" @click="${(e) => {
                       document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").style.display = "none";
-                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
-                  }}">Load All Plans</button>
-                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                      document.getElementById("loadMorePlans").disabled = true;
+                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
+                        skip += limitNum;
+                        document.getElementById("event-pinwheel").style.display = "none";
+                        document.getElementById("loadMorePlans").disabled = false;
+                        showPlans(d);
+                      });
+                  }}">Load More Plans</button>
+                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, document.getElementById("plans"));
 
