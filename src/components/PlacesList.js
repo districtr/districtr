@@ -109,14 +109,14 @@ function getProblemInfo(place, problem, units, onClick) {
     `;
 }
 
-export function placeItems(place, onClick, eventCode, portalCode) {
+export function placeItems(place, onClick, eventCode) {
     return [html`${place.districtingProblems
         .map(problem =>
             getUnits(place, problem, false, eventCode).sort((a, b) => a.unitType < b.unitType ? 1 : -1).map(
                 units => html`
                     <li
                         class="${place.id + " p" + problem.type} places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units, null, null, eventCode, portalCode)}"
+                        @click="${() => onClick(place, problem, units, null, null, eventCode)}"
                     >
                         <div class="place-name">
                             ${place.name}

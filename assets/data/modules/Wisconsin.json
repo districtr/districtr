@@ -795,6 +795,8 @@
     ]
   },
   {
+    "state": "Wisconsin",
+    "id": "wisco2019acs",
     "units": [
       {
         "id": "wards",
@@ -1035,10 +1037,6 @@
           "name": "Ward Unique Identifier",
           "key": "Code-2"
         },
-        "nameColumn": {
-          "name": "County FIPS",
-          "key": "COUNTYFP"
-        },
         "bounds": [
           [
             -92.886697,
@@ -1069,9 +1067,7 @@
         ]
       }
     ],
-    "id": "wisco2019acs",
     "name": "Wisconsin",
-    "state": "Wisconsin",
     "districtingProblems": [
       {
         "name": "Congress",

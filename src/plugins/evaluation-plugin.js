@@ -1,50 +1,14 @@
-import { html, render } from "lit-html";
+import { html } from "lit-html";
 import ElectionResultsSection from "../components/Charts/ElectionResultsSection";
 import RacialBalanceTable from "../components/Charts/RacialBalanceTable";
 import AgeHistogramTable from "../components/Charts/AgeHistogramTable";
 import OverlayContainer from "../layers/OverlayContainer";
 import ContiguitySection from "../components/Charts/ContiguitySection";
 import VRAEffectivenessTable from "../components/Charts/VRATable";
-import VRAResultsSection from "../components/Charts/VRAResultsSection";
-import { renderModal } from "../components/Modal";
-import Button from "../components/Button";
-import AbstractBarChart from "../components/Charts/AbstractBarChart";
+import VRAResultsSection from "../components/Charts/VRAResultsSection"
 import { Tab } from "../components/Tab";
 import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { spatial_abilities } from "../utils";
-import PartisanSummarySection from "../components/Charts/PartisanSummary";
-
-/**
- * @desc Creates a button which, when clicked, opens up a modal for charts.
- * @param {Tab} tab Tab object.
- * @returns {undefined}
- */
-//
-// function createAnalysisModal(tab) {
-//     let target = document.getElementById("modal"),
-//         chart = AbstractBarChart([0.3, 0.4], [0.3, 0.4],
-//             {
-//                 hlabels: ["30%", "40%"],
-//                 vlabels: ["30%", "40%"],
-//                 bins: [[0.3, 0.4]],
-//                 heights: [0.35],
-//                 title: "Partisan Bias",
-//                 description: "This chart tells us about partisan bias scores."
-//             }
-//         ),
-//         modal = renderModal(chart);
-//
-//     const onChange = (e) => render(modal, target);
-//
-//     tab.addSection(
-//         () => html`
-//             <div style="text-align: center;">
-//                 ${Button("Analyze", "Analyze your complete plan.", onChange)}
-//             </div>
-//         `
-//     );
-// }
-//
 
 export default function EvaluationPlugin(editor) {
     const { state, toolbar } = editor;
@@ -95,12 +59,11 @@ export default function EvaluationPlugin(editor) {
                     dispatch
                 ),
             {
-                isOpen: false,
+                isOpen: true,
                 activeSubgroupIndices: state.population.indicesOfMajorSubgroups()
             }
         );
     }
-    
     if (state.vap) {
         tab.addRevealSection(
             "Voting Age Population by Race",
@@ -138,31 +101,7 @@ export default function EvaluationPlugin(editor) {
 
     if (state.elections.length > 0) {
         tab.addRevealSection(
-            "Partisan Balance Summary",
-            (uiState, dispatch) => html`
-                ${spatial_abilities(state.place.id).absentee
-                    ? html`<div style="text-align:center">Election results include absentee votes</div>`
-                    : null
-                }
-                ${PartisanSummarySection(
-                    state.elections,
-                    state.activeParts,
-                    uiState,
-                    dispatch
-                )}`,
-            {
-                isOpen:
-                    state.population.subgroups.length <= 1 &&
-                    state.vap === undefined
-                        ? true
-                        : false
-            }
-        );
-    }
-
-    if (state.elections.length > 0) {
-        tab.addRevealSection(
-            "Election Details",
+            "Partisan Balance",
             (uiState, dispatch) => html`
                 ${spatial_abilities(state.place.id).absentee
                     ? html`<div style="text-align:center">Election results include absentee votes</div>`
@@ -212,18 +151,18 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.contiguity,
                     spatial_abilities(state.place.id).contiguity,
-                    state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: false
+                isOpen: true
             }
         );
     }
 
     // console.log(state);
-    if (showVRA && (state.units.sourceId !== "ma_towns")) {
+    if (showVRA && (state.units.sourceId !== "ma_towns")) 
+    {
         VRAtab.addRevealSection(
             "VRA Effectiveness Overview",
             (uiState, dispatch) =>
@@ -231,15 +170,14 @@ export default function EvaluationPlugin(editor) {
                     state.parts,
                     state.vra_effectiveness,
                     state.waiting,
-                    state.place.id,
                     uiState,
                     dispatch
                 ),
             {
-                isOpen: false
+                isOpen: true
             }
         );
-    
+        
         // VRAtab.addRevealSection(
         //     "VRA Alignment",
         //     (uiState, dispatch) =>
@@ -254,9 +192,7 @@ export default function EvaluationPlugin(editor) {
         //         isOpen: false
         //     }
         // );
-    }
-    
-    if (showVRA && (state.units.sourceId !== "ma_towns")) {
+
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>

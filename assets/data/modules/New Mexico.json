@@ -151,8 +151,14 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [-106.214, 35.5497],
-          [-105.8095, 35.8324]
+          [
+            -106.214,
+            35.5497
+          ],
+          [
+            -105.8095,
+            35.8324
+          ]
         ],
         "tilesets": [
           {
@@ -455,8 +461,14 @@
           "key": "NAME10"
         },
         "bounds": [
-          [-109.0502, 31.3322],
-          [-103.002, 37.0003]
+          [
+            -109.0502,
+            31.3322
+          ],
+          [
+            -103.002,
+            37.0003
+          ]
         ],
         "tilesets": [
           {
@@ -650,8 +662,14 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [-109.0502, 31.3322],
-          [-103.002, 37.0003]
+          [
+            -109.0502,
+            31.3322
+          ],
+          [
+            -103.002,
+            37.0003
+          ]
         ],
         "tilesets": [
           {
@@ -677,201 +695,6 @@
     "id": "new_mexico_bg",
     "state": "New Mexico",
     "name": "New Mexico ",
-    "districtingProblems": [
-      {
-        "pluralNoun": "Congressional Districts",
-        "numberOfParts": 3,
-        "name": "Congress"
-      },
-      {
-        "pluralNoun": "State Senate Districts",
-        "numberOfParts": 42,
-        "name": "State Senate"
-      },
-      {
-        "pluralNoun": "State House Districts",
-        "numberOfParts": 70,
-        "name": "State House"
-      }
-    ]
-  },
-  {
-    "units": [
-      {
-        "id": "precincts",
-        "name": "Precincts",
-        "unitType": "Precincts",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "TOTPOP",
-              "name": "Total population",
-              "sum": 2059179,
-              "min": 0,
-              "max": 8135
-            },
-            "subgroups": [
-              {
-                "key": "NH_WHITE",
-                "name": "White population",
-                "sum": 833810,
-                "min": 0,
-                "max": 3165
-              },
-              {
-                "key": "NH_BLACK",
-                "name": "Black population",
-                "sum": 35462,
-                "min": 0,
-                "max": 460
-              },
-              {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 953403,
-                "min": 0,
-                "max": 8026
-              },
-              {
-                "key": "NH_ASIAN",
-                "name": "Asian population",
-                "sum": 26305,
-                "min": 0,
-                "max": 371
-              },
-              {
-                "key": "NH_AMIN",
-                "name": "American Indian population",
-                "sum": 175368,
-                "min": 0,
-                "max": 3205
-              },
-              {
-                "key": "NH_NHPI",
-                "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 1246,
-                "min": 0,
-                "max": 36
-              },
-              {
-                "key": "NH_2MORE",
-                "name": "Two or more races",
-                "sum": 29835,
-                "min": 0,
-                "max": 220
-              },
-              {
-                "key": "NH_OTHER",
-                "name": "Other races",
-                "sum": 3750,
-                "min": 0,
-                "max": 66
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "VAP",
-              "name": "Voting age population",
-              "sum": 1540507,
-              "min": 0,
-              "max": 5265
-            },
-            "subgroups": [
-              {
-                "key": "WVAP",
-                "name": "White voting age population",
-                "sum": 697848,
-                "min": 0,
-                "max": 2517
-              },
-              {
-                "key": "BVAP",
-                "name": "Black voting age population",
-                "sum": 27453,
-                "min": 0,
-                "max": 314
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 651326,
-                "min": 0,
-                "max": 5196
-              },
-              {
-                "key": "AMINVAP",
-                "name": "Native American voting age population",
-                "sum": 121962,
-                "min": 0,
-                "max": 2125
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 987,
-                "min": 0,
-                "max": 23
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian voting age population",
-                "sum": 20956,
-                "min": 0,
-                "max": 250
-              },
-              {
-                "key": "OTHERVAP",
-                "name": "Other races voting age population",
-                "sum": 2633,
-                "min": 0,
-                "max": 47
-              },
-              {
-                "key": "2MOREVAP",
-                "name": "Two or more races voting age population",
-                "sum": 17342,
-                "min": 0,
-                "max": 83
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Precinct unique identifier",
-          "key": "NAME10"
-        },
-        "bounds": [
-          [-109.0502, 31.3322],
-          [-103.002, 37.0003]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.new_mexico_precincts"
-            },
-            "sourceLayer": "new_mexico_precincts"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.new_mexico_precincts_points"
-            },
-            "sourceLayer": "new_mexico_precincts_points"
-          }
-        ]
-      }
-    ],
-    "id": "new_mexico_portal",
-    "state": "New Mexico",
-    "name": "New Mexico",
     "districtingProblems": [
       {
         "pluralNoun": "Congressional Districts",

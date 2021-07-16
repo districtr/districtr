@@ -6,46 +6,31 @@ import Select from "../Select";
 import { TooltipContent } from "../Charts/TooltipContent";
 
 export default class InspectTool extends Tool {
-    constructor(layers, columnSets, nameColumn, unitsRecord, parts, divisor) {
+    constructor(units, columnSets, nameColumn, unitsRecord, parts) {
         super(
             "inspect",
             "Inspect",
             html`<img src="/assets/Icons_Inspect_grey.svg" alt="Inspect"/>`
         );
 
-        this.columnSets = [].concat(columnSets);
+        this.columnSets = [].concat(columnSets.filter(lyr => lyr.subgroups.length > 1));
         // separate out 2018/2019 pop
         if (this.columnSets.length && this.columnSets[0].name_alt) {
             this.columnSets.splice(1, 0, this.columnSets[0]);
         }
         this.activeColumnSetIndex = 0;
 
-        const renderTooltipContent = (features, layerIdx) => {
-            // precincts / bg layer which should surface on inspect tool
-            // for elections or percentages only
-            if (this.activeColumnSet.type === "election" || this.activeColumnSet.name.toLowerCase() === "percentages") {
-                if ((this.tooltips.length > 1) && !layerIdx) {
-                  return;
-                }
-            } else if (layerIdx) {
-                return;
-            }
-
-            return TooltipContent(
+        const renderTooltipContent = features =>
+            TooltipContent(
                 features,
                 this.activeColumnSet,
                 nameColumn,
                 unitsRecord.unitType,
                 parts,
-                this.activeColumnSetIndex,
-                divisor
+                this.activeColumnSetIndex
             );
-        }
-        this.layer = layers[0];
-        this.tooltips = [];
-        layers.filter(lyr => lyr.type === "fill").forEach((layer, idx) => {
-          this.tooltips.push(new Tooltip(layer, renderTooltipContent, 1, idx));
-        });
+        this.layer = units;
+        this.tooltip = new Tooltip(units, renderTooltipContent);
         this.options = new InspectToolOptions(this);
 
         this.changeColumnSetByIndex = this.changeColumnSetByIndex.bind(this);
@@ -59,12 +44,12 @@ export default class InspectTool extends Tool {
     activate() {
         super.activate();
         this.layer.map.getCanvas().classList.add("inspect-tool");
-        this.tooltips.forEach(tt => tt.activate());
+        this.tooltip.activate();
     }
     deactivate() {
         super.deactivate();
         this.layer.map.getCanvas().classList.remove("inspect-tool");
-        this.tooltips.forEach(tt => tt.deactivate());
+        this.tooltip.deactivate();
     }
 }
 
@@ -76,12 +61,14 @@ class InspectToolOptions {
     changeRadius(e) {
         e.stopPropagation();
         let value = parseInt(e.target.value);
-        if (this.inspectTool.tooltips[0].radius != value) {
-            this.inspectTool.tooltips[0].radius = value;
+        if (this.inspectTool.tooltip.radius != value) {
+            this.inspectTool.tooltip.radius = value;
         }
         this.renderToolbar();
     }
     render() {
+        console.log('rendering');
+        console.log(this.inspectTool.activeColumnSetIndex)
         return html`
             <div class="ui-option">
                 <legend class="ui-label ui-label--row">Tooltip Data</legend>
@@ -93,7 +80,7 @@ class InspectToolOptions {
                     this.inspectTool.activeColumnSetIndex
                 )}
             </div>
-            ${BrushSlider(this.inspectTool.tooltips[0].radius, this.changeRadius, {
+            ${BrushSlider(this.inspectTool.tooltip.radius, this.changeRadius, {
                 title: "Spotlight Size"
             })}
         `;

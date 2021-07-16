@@ -49,10 +49,7 @@ export default function NumberMarkers(state, brush) {
         } else {
             ctx.font = '500 32px Source Sans Pro';
         }
-        let numtxt = String(dnum + 1).split("").join(spacer);
-        if (state.place.id === "alaska" && state.problem && state.problem.name === "State Senate") {
-          numtxt = 'ABCDEFGHIJKLMNOPQRST'.charAt(dnum);
-        }
+        let numtxt = String(dnum + 1).split("").join(spacer)
         let numwidth = Math.round(ctx.measureText(numtxt).width / 2);
         // ctx.shadowColor = "#000";
         // ctx.shadowBlur = 5;

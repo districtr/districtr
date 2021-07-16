@@ -25,47 +25,53 @@ export function addAmerIndianLayer(tab, state) {
         nativeamerican_labels = null,
         startFill = (window.location.search.includes("native=true") || window.location.search.includes("amin=")) ? 0.15 : 0;
 
-        let native_am_type = "Pueblos, Tribes, and Nations"; // NM
-    if (state.place.state === "Alaska") {
-        native_am_type = "Alaska Native Communities";
-    } else if (["California"].includes(state.place.state)) {
+    let native_am_type = "Pueblos, Tribes, and Nations"; // NM
+    if (state.place.id === "alaska") {
+        native_am_type = "Alaskan Native Communities";
+    } else if (["california"].includes(state.place.id)) {
         native_am_type = "Indian Communities";
-    } else if (["Alabama", "Colorado", "Florida", "Georgia", "Idaho", "Iowa", "Kansas", "Louisiana", "Nebraska", "South Carolina", "South Dakota", "Wyoming"].includes(state.place.state)) {
+    } else if (["alabama", "colorado", "florida", "georgia", "idaho", "iowa", "kansas", "louisiana", "la_vra", "nebraska", "southcarolina", "southdakota", "wyoming"].includes(state.place.id)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (["Connecticut", "Delaware", "Montana", "Oregon", "Virginia", "Wisconsin"].includes(state.place.state)) {
+    } else if (["connecticut", "delaware", "montana", "oregon", "virginia", "wisconsin", "wisconsin2020", "wisco2019acs"].includes(state.place.id)) {
         native_am_type = "Tribal Nations";
-    } else if (state.place.state === "Hawaii") {
+    } else if (state.place.id === "hawaii") {
         native_am_type = "Hawaiian Home Lands";
-    } else if (state.place.state === "Oklahoma") {
+    } else if (state.place.id === "oklahoma") {
         native_am_type = "Indian Country";
-    } else if (state.place.state === "Maine") {
+    } else if (state.place.id === "maine") {
         native_am_type = "Tribes in Maine";
-    } else if (["New York", "Utah"].includes(state.place.state)) {
+    } else if (["newyork", "utah"].includes(state.place.id)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (state.place.state === "Texas") {
+    } else if (state.place.id === "texas") {
         native_am_type = "Indian Nations";
-    } else if (state.place.state === "Nevada") {
+    } else if (state.place.id === "nevada") {
         native_am_type = "Indian Territory";
-    } else if (["Michigan", "Minnesota"].includes(state.place.state)) {
+    } else if (["michigan", "minnesota"].includes(state.place.id)) {
         native_am_type = "Tribal Governments";
-    } else if (["Massachusetts", "Rhode Island", "Washington", "Arizona"].includes(state.place.state)) {
+    } else if (["ma", "rhode_island", "washington", "arizona", "maricopa", "yuma", "nwaz", "seaz", "phoenix", "mesaaz"].includes(state.place.id)) {
         native_am_type = "Nations and Tribes";
-    } else if (["North Carolina", "New Jersey"].includes(state.place.state)) {
+    } else if (["nc", "newjersey"].includes(state.place.id)) {
         native_am_type = "Tribal Communities";
-    } else if (state.place.state === "North Dakota") {
+    } else if (state.place.id === "northdakota") {
         native_am_type = "Tribes and Communities";
-    } else if (state.place.state === "Mississippi") {
+    } else if (state.place.id === "mississippi") {
         native_am_type = "Mississippi Band of Choctaw Indians";
     }
 
-    let stateSource = state.place.state.toLowerCase().replace(" ", "");
+    let stateSource = state.place.id.replace("_bg", "").replace("2020", "");
+    if (["nwaz", "seaz", "phoenix", "maricopa", "yuma", "mesaaz"].includes(state.place.id)) {
+      stateSource = "arizona";
+    } else if (state.place.id.indexOf("ca_") === 0) {
+      stateSource = "california";
+    } else if (state.place.id === "wisco2019acs") {
+      stateSource = "wisconsin";
+    }
 
     fetch(`/assets/native_official/${stateSource}.geojson`)
         .then(res => res.json())
         .then((geojson) => {
 
         let knownNames = new Set(), r, g, b;
-        shadeNames.splice(1);
         geojson.features.forEach((space, index) => {
             if (index % 20 === 0) {
                 r = 50,

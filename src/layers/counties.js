@@ -44,16 +44,9 @@ export function addCountyLayer(tab, state) {
         },
         addBelowLabels
     );
-
-    let alt_counties = {
-      alaska: 'Borough',
-      alaska_blocks: 'Borough',
-      louisiana: 'Parish',
-    }[state.place.id];
-
     tab.addSection(
         () => html`
-            ${toggle(`Show ${alt_counties || "County"} Boundaries`, false, checked =>
+            ${toggle(`Show ${state.place.id === "louisiana" || state.place.state === "Louisiana" ? "Parish" : "County"} Boundaries`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 ),

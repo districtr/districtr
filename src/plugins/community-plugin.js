@@ -106,19 +106,6 @@ export default function CommunityPlugin(editor) {
             activePartIndex: 0
         });
     }
-    if (state.cvap) {
-      const cvapPivot = PivotTable(
-          "Citizen Voting Age Population",
-          state.cvap,
-          state.place.name,
-          state.parts,
-          (spatial_abilities(state.place.id).coalition === false) ? false : "Coalition CVAP"
-      );
-      evaluationTab.addRevealSection("Citizen Voting Age Population", cvapPivot, {
-        isOpen: false,
-        activePartIndex: 0
-      });
-    }
 
     if (state.incomes && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
         evaluationTab.addRevealSection(
