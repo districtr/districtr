@@ -652,7 +652,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                 ? null
                 : html`
                   <span style="margin:10px">
-                      ${coi_events.includes(eventCode) ? "" : (districtCount + "/" + districtGoal + " districts")}
+                      ${(coi_events.includes(eventCode) || districtGoal == 250) ? "" : (districtCount + "/" + districtGoal + " districts")}
                       ${unitOff ? html`<br/>` : null }
                       ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
                   </span>
