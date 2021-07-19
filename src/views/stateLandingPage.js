@@ -434,13 +434,13 @@ const placeItemsTemplate = (places, onClick) => {
         ))
         .reduce((items, item) => [...items, ...item], [])
         .concat([
-          places.filter(p => ["california", "colorado", "illinois", "newyork", "northcarolina", "ohio", "oregon", "pennsylvania", "wisconsin", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length && !showAll  
+          places.filter(p => ["california", "colorado", "illinois", "newyork", "northcarolina", "ohio", "oregon", "pennsylvania", "wisconsin", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length  
           ? html`<li>
-            <div style="padding-top:30px">
-                <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Show All</label>
-            </div>
-          </li>` 
+                <div style="padding-top:30px">
+                    <input type="checkbox" id="custom" name="custom-selection">
+                    <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
+                </div>
+            </li>`
           : ""
         ]);
     };
