@@ -48,6 +48,7 @@ const stateForEvent = {
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
   'galeo': 'Georgia',
+  ourmaps: 'Nebraska',
 };
 
 const validEventCodes = {
@@ -90,6 +91,7 @@ const validEventCodes = {
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
+  ourmaps: 'nebraska',
 };
 
 const blockPlans = {
@@ -141,7 +143,7 @@ const coi_events = [
   'slo_county',
   'ourmapsne',
   'onelovemi',
-  'ks-fairmaps'
+  'ks-fairmaps',
 ];
 
 const hybrid_events = [
@@ -153,6 +155,7 @@ const hybrid_events = [
   'pasadena2021',
   'goleta',
   'sbcounty',
+  'ourmaps',
 ];
 
 const portal_events = [
@@ -281,7 +284,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-
+  ourmaps: 'Welcome to the event page for OurMaps!',
 };
 
 const longAbout = {
