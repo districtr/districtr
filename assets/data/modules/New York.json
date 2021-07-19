@@ -1,196 +1,190 @@
 [
   {
-   "units": [
-     {
-       "id": "blocks",
-       "name": "Blocks",
-       "unitType": "Blocks",
-       "columnSets": [
-         {
-           "type": "population",
-           "name": "Population",
-           "total": {
-             "key": "TOTPOP",
-             "name": "Total population",
-             "sum": 30014,
-             "min": 0,
-             "max": 1998
-           },
-           "subgroups": [
-             {
-               "key": "NH_WHITE",
-               "name": "White population",
-               "sum": 20023,
-               "min": 0,
-               "max": 1106
-             },
-             {
-               "key": "NH_BLACK",
-               "name": "Black population",
-               "sum": 1842,
-               "min": 0,
-               "max": 210
-             },
-             {
-               "key": "HISP",
-               "name": "Hispanic population",
-               "sum": 2057,
-               "min": 0,
-               "max": 190
-             },
-             {
-               "key": "NH_ASIAN",
-               "name": "Asian population",
-               "sum": 4820,
-               "min": 0,
-               "max": 507
-             },
-             {
-               "key": "NH_AMIN",
-               "name": "American Indian population",
-               "sum": 91,
-               "min": 0,
-               "max": 11
-             },
-             {
-               "key": "NH_NHPI",
-               "name": "Native Hawaiian and Pacific Islander population",
-               "sum": 11,
-               "min": 0,
-               "max": 3
-             },
-             {
-               "key": "NH_2MORE",
-               "name": "Two or more races",
-               "sum": 1073,
-               "min": 0,
-               "max": 65
-             },
-             {
-               "key": "NH_OTHER",
-               "name": "Other races",
-               "sum": 97,
-               "min": 0,
-               "max": 7
-             }
-           ]
-         },
-         {
-           "type": "population",
-           "name": "Voting Age Population",
-           "total": {
-             "key": "VAP",
-             "name": "Voting age population",
-             "sum": 27555,
-             "min": 0,
-             "max": 1980
-           },
-           "subgroups": [
-             {
-               "key": "WVAP",
-               "name": "White voting age population",
-               "sum": 18558,
-               "min": 0,
-               "max": 1100
-             },
-             {
-               "key": "BVAP",
-               "name": "Black voting age population",
-               "sum": 1558,
-               "min": 0,
-               "max": 144
-             },
-             {
-               "key": "HVAP",
-               "name": "Hispanic voting age population",
-               "sum": 1777,
-               "min": 0,
-               "max": 187
-             },
-             {
-               "key": "AMINVAP",
-               "name": "Native American voting age population",
-               "sum": 80,
-               "min": 0,
-               "max": 7
-             },
-             {
-               "key": "NHPIVAP",
-               "name": "Native Hawaiian and Pacific Islander voting age population",
-               "sum": 9,
-               "min": 0,
-               "max": 1
-             },
-             {
-               "key": "ASIANVAP",
-               "name": "Asian voting age population",
-               "sum": 4683,
-               "min": 0,
-               "max": 501
-             },
-             {
-               "key": "OTHERVAP",
-               "name": "Other races voting age population",
-               "sum": 85,
-               "min": 0,
-               "max": 7
-             },
-             {
-               "key": "2MOREVAP",
-               "name": "Two or more races voting age population",
-               "sum": 805,
-               "min": 0,
-               "max": 65
-             }
-           ]
-         }
-       ],
-       "idColumn": {
-         "name": "Block FIPS code",
-         "key": "GEOID10"
-       },
-       "bounds": [
-         [
-           -76.5269,
-           42.4183
-         ],
-         [
-           -76.4698,
-           42.4671
-         ]
-       ],
-       "tilesets": [
-         {
-           "type": "circle",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ithacany_blocks_points"
-           },
-           "sourceLayer": "ithacany_blocks_points"
-         },
-         {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ithacany_blocks"
-           },
-           "sourceLayer": "ithacany_blocks"
-         }
-       ]
-     }
-   ],
-   "state": "New York",
-   "name": "Ithaca",
-   "id": "ithacany",
-   "limit": "community",
-   "districtingProblems": [
-     {
-       "name": "City Council",
-       "numberOfParts": 7,
-       "pluralNoun": "City Council Districts"
-     }
-   ]
- },
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 30014,
+              "min": 0,
+              "max": 1998
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 20023,
+                "min": 0,
+                "max": 1106
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1842,
+                "min": 0,
+                "max": 210
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 2057,
+                "min": 0,
+                "max": 190
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 4820,
+                "min": 0,
+                "max": 507
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 91,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 11,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 1073,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 97,
+                "min": 0,
+                "max": 7
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 27555,
+              "min": 0,
+              "max": 1980
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 18558,
+                "min": 0,
+                "max": 1100
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1558,
+                "min": 0,
+                "max": 144
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 1777,
+                "min": 0,
+                "max": 187
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 80,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 9,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 4683,
+                "min": 0,
+                "max": 501
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 85,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 805,
+                "min": 0,
+                "max": 65
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [-76.5269, 42.4183],
+          [-76.4698, 42.4671]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ithacany_blocks_points"
+            },
+            "sourceLayer": "ithacany_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ithacany_blocks"
+            },
+            "sourceLayer": "ithacany_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "New York",
+    "name": "Ithaca",
+    "id": "ithacany",
+    "limit": "community",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
   {
     "units": [
       {
@@ -259,14 +253,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -73.3183,
-            40.5557
-          ],
-          [
-            -73.0379,
-            40.833
-          ]
+          [-73.3183, 40.5557],
+          [-73.0379, 40.833]
         ],
         "tilesets": [
           {
@@ -367,14 +355,8 @@
           "key": "TC_ED"
         },
         "bounds": [
-          [
-            -73.3183,
-            40.5557
-          ],
-          [
-            -73.0379,
-            40.833
-          ]
+          [-73.3183, 40.5557],
+          [-73.0379, 40.833]
         ],
         "tilesets": [
           {
@@ -563,14 +545,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -79.7626,
-            40.4774
-          ],
-          [
-            -71.7775,
-            45.0159
-          ]
+          [-79.7626, 40.4774],
+          [-71.7775, 45.0159]
         ],
         "tilesets": [
           {
@@ -604,7 +580,8 @@
       {
         "name": "Congress",
         "numberOfParts": 27,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State Assembly",

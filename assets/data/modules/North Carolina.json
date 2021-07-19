@@ -333,14 +333,8 @@
           "key": "VTD"
         },
         "bounds": [
-          [
-            -82.8878,
-            35.4166
-          ],
-          [
-            -82.169,
-            35.8241
-          ]
+          [-82.8878, 35.4166],
+          [-82.169, 35.8241]
         ],
         "tilesets": [
           {
@@ -701,14 +695,8 @@
           "key": "VTD"
         },
         "bounds": [
-          [
-            -80.5164,
-            35.9732
-          ],
-          [
-            -80.0355,
-            36.2616
-          ]
+          [-80.5164, 35.9732],
+          [-80.0355, 36.2616]
         ],
         "tilesets": [
           {
@@ -1104,14 +1092,8 @@
           "key": "VTD"
         },
         "bounds": [
-          [
-            -84.321869,
-            33.851112
-          ],
-          [
-            -75.458659,
-            36.588117
-          ]
+          [-84.321869, 33.851112],
+          [-75.458659, 36.588117]
         ],
         "tilesets": [
           {
@@ -1138,6 +1120,7 @@
         "limit": "community",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1756,14 +1739,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -84.321869,
-            33.851112
-          ],
-          [
-            -75.458659,
-            36.588117
-          ]
+          [-84.321869, 33.851112],
+          [-75.458659, 36.588117]
         ],
         "tilesets": [
           {
@@ -1822,7 +1799,8 @@
       {
         "numberOfParts": 13,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 50,

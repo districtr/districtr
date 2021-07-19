@@ -259,14 +259,8 @@
           "key": "JOINID"
         },
         "bounds": [
-          [
-            -87.9401,
-            41.6445
-          ],
-          [
-            -87.5241,
-            42.023
-          ]
+          [-87.9401, 41.6445],
+          [-87.5241, 42.023]
         ],
         "tilesets": [
           {
@@ -440,14 +434,8 @@
           "key": "ca_name"
         },
         "bounds": [
-          [
-            -87.9401,
-            41.6445
-          ],
-          [
-            -87.5241,
-            42.023
-          ]
+          [-87.9401, 41.6445],
+          [-87.5241, 42.023]
         ],
         "tilesets": [
           {
@@ -476,9 +464,7 @@
       {
         "numberOfParts": 50,
         "pluralNoun": "Wards",
-        "units": [
-          "precincts"
-        ],
+        "units": ["precincts"],
         "name": "City Council"
       },
       {
@@ -785,14 +771,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -91.5131,
-            36.9703
-          ],
-          [
-            -87.0199,
-            42.5083
-          ]
+          [-91.5131, 36.9703],
+          [-87.0199, 42.5083]
         ],
         "tilesets": [
           {
@@ -824,7 +804,8 @@
       {
         "name": "Congress",
         "numberOfParts": 18,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State House",

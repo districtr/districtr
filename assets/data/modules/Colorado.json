@@ -6,6 +6,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -151,14 +152,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -109.0603,
-            36.9924
-          ],
-          [
-            -102.0409,
-            41.0034
-          ]
+          [-109.0603, 36.9924],
+          [-102.0409, 41.0034]
         ],
         "tilesets": [
           {
@@ -429,14 +424,8 @@
           "key": "NAME"
         },
         "bounds": [
-          [
-            -109.0602,
-            36.9924
-          ],
-          [
-            -102.0415,
-            41.0034
-          ]
+          [-109.0602, 36.9924],
+          [-102.0415, 41.0034]
         ],
         "tilesets": [
           {
@@ -468,7 +457,8 @@
       {
         "numberOfParts": 7,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 35,

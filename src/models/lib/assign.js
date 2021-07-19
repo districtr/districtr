@@ -34,12 +34,18 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
             .then(res => res.json())
             .then(data => {
                 data.forEach((row) => {
-                    let unitId = row[state.idColumn.key];
+                    if (["wisco2019acs"].includes(state.place.id)) {
+                      // round values (as was done pre-MapBox upload) to avoid mismatch count
+                      Object.keys(row).forEach(n => typeof row[n] === 'number'
+                        ? row[n] = Math.round(row[n])
+                        : null);
+                    }
+                    let unitId = String(row[state.idColumn.key]);
                     if (populationUnloaded.has(unitId)) {
                         populationUnloaded.delete(unitId);
                         assign(state, {
                             type: 'Feature',
-                            id: unitId,
+                            id: 'xw' + unitId,
                             properties: row,
                         }, assignment[unitId], true);
                     }
