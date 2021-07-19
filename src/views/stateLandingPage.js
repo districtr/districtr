@@ -434,7 +434,7 @@ const placeItemsTemplate = (places, onClick) => {
         ))
         .reduce((items, item) => [...items, ...item], [])
         .concat([
-          places.filter(p => ["alaska", "alabama", "arizona", "arkansas", "california",  "colorado", "conneticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "newhampshire", "newjersey", "newmexico", "newyork", "northcarolina", "northdakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhodeisland", "southcarolina", "southdakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "wisconsin", "wyoming", "dc", "puertorico", "olmsted", "rochestermn", "westvirginia", "ma_vra2"].includes(p.id)).length && !showAll  
+          places.filter(p => ["alaska", "alabama", "arizona", "arkansas", "california",  "colorado", "conneticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "newhampshire", "newjersey", "newmexico", "newyork", "northcarolina", "northdakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhodeisland", "southcarolina", "southdakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "wisconsin", "wyoming", "dc", "puertorico", "olmsted", "rochestermn", "westvirginia", "ma_vra2", "ma"].includes(p.id)).length && !showAll  
           ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
