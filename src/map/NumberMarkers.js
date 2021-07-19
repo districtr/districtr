@@ -152,28 +152,37 @@ export default function NumberMarkers(state, brush) {
                 if (filterOdds < 1) {
                     markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
                 }
-                const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
-                    // : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
-                fetch(`${serverurl}ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
-                    while (centroid.length === 1) {
-                        centroid = centroid[0];
-                    }
-                    if (typeof centroid === "object" && centroid[`merged_${placeID}`]) {
-                        centroid = centroid[`merged_${placeID}`];
-                    }
-                    let latlng = centroid.split(" "),
-                        lat = latlng[1].split(")")[0] * 1,
-                        lng = latlng[0].split("(")[1] * 1;
+                
+                const units = state.unitsRecord.unitType;
+                const stateName = state.place.state;
+                const assign = markers[district_num];
+                console.log("test");
+                fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_center", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "state": stateName,
+                        "units": units,
+                        "dist_id": district_num,
+                        "assignment": assign})
+                })
+                .then((res) => res.json())
+                .catch((e) => console.error(e))
+                .then((data) => {
+                    console.log(data);
                     if (numberMarkers[district_num]) {
-                        numberMarkers[district_num].geometry.coordinates = [lng, lat];
+                        numberMarkers[district_num].geometry.coordinates = data["coord"];
                     } else {
                         numberMarkers[district_num] = {
                             type: "Feature",
-                            geometry: { type: "Point", coordinates: [lng, lat] }
+                            geometry: { type: "Point", coordinates: data["coord"] }
                         };
                     }
                     map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
-                }).catch(() => {console.log("Fetch failed")});
+                    
+                })
             }
             for (let d_index = 0; d_index < moveMarkers.length; d_index++) {
                 check_district(d_index);
