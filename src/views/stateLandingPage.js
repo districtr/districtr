@@ -370,7 +370,10 @@ const problemTypeInfo = {
 
 const placeItemsTemplate = (places, onClick) => {
     const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
-    return places.map(place =>
+    let num_hidden = places.map(place => place.districtingProblems).length - 
+                        places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)
+                        .map(p => getUnits(place, p).filter(u => u.hideOnDefault))).length;
+    return places.map(place => 
         place.districtingProblems
         .sort((a, b) => {
             // change so Reapportioned always comes first
@@ -478,10 +481,10 @@ const customPlaceItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          html`<li>
+            num_hidden > 0 ? html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>
             </div>
-          </li>`
+          </li>` : ""
         ]);
