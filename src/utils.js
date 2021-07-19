@@ -445,7 +445,8 @@ export function spatial_abilities(id) {
         "Jesus \u201cChuy\u201d Garc\u00eda",
         "Lori Lightfoot",
         "Toni Preckwinkle",
-      ]
+      ],
+      school_districts: true
     },
     colorado: {
       number_markers: true,
