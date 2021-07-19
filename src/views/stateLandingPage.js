@@ -370,9 +370,16 @@ const problemTypeInfo = {
 
 const placeItemsTemplate = (places, onClick) => {
     const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
-    let num_hidden = places.map(place => place.districtingProblems).length - 
-                        places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)
-                        .map(p => getUnits(place, p).filter(u => u.hideOnDefault))).length;
+    
+    let num_hidden = places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)).reduce((items, item) => [...items, ...item], []).length ||
+                        places.map(place => place.districtingProblems.filter(problem => !problem.hideOnDefault)
+                        .map(problem => getUnits(place, problem).filter(u => u.hideOnDefault)))
+                        .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
+                        .reduce((items, item) => [...items, ...item], []).length;
+    
+    console.log(showAll);
+    console.log(num_hidden);
+
     return places.map(place => 
         place.districtingProblems
         .sort((a, b) => {
@@ -437,8 +444,7 @@ const placeItemsTemplate = (places, onClick) => {
         ))
         .reduce((items, item) => [...items, ...item], [])
         .concat([
-          places.filter(p => ["california", "colorado", "illinois", "newyork", "northcarolina", "ohio", "oregon", "pennsylvania", "wisconsin", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length  
-          ? html`<li>
+            num_hidden ? html`<li>
                 <div style="padding-top:30px">
                     <input type="checkbox" id="custom" name="custom-selection">
                     <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
@@ -481,10 +487,10 @@ const customPlaceItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-            num_hidden > 0 ? html`<li>
+            html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>
             </div>
-          </li>` : ""
+          </li>`
         ]);
