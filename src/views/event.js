@@ -5,6 +5,9 @@ import { startNewPlan } from "../routes";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 
+let skip = 0,
+    prevPlans = [];
+
 const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
@@ -45,6 +48,7 @@ const stateForEvent = {
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
   'galeo': 'Georgia',
+  ourmaps: 'Nebraska',
 };
 
 const validEventCodes = {
@@ -87,6 +91,7 @@ const validEventCodes = {
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
+  ourmaps: 'nebraska',
 };
 
 const blockPlans = {
@@ -138,7 +143,7 @@ const coi_events = [
   'slo_county',
   'ourmapsne',
   'onelovemi',
-  'ks-fairmaps'
+  'ks-fairmaps',
 ];
 
 const hybrid_events = [
@@ -150,6 +155,7 @@ const hybrid_events = [
   'pasadena2021',
   'goleta',
   'sbcounty',
+  'ourmaps',
 ];
 
 const portal_events = [
@@ -278,7 +284,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-
+  ourmaps: 'Welcome to the event page for OurMaps!',
 };
 
 const longAbout = {
@@ -526,26 +532,35 @@ export default () => {
             });
         });
 
-        let limitNum = 16;
+        let limitNum = 20;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
-                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
+                    : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data, unlimited) => {
-            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
+        let showPlans = (data) => {
+            let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
+            if (loadExtraPlans) {
+                data.plans.pop();
+            }
+            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
+                plans: prevPlans,
             }];
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="loadMorePlans" @click="${(e) => {
                       document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").style.display = "none";
-                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
-                  }}">Load All Plans</button>
-                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                      document.getElementById("loadMorePlans").disabled = true;
+                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
+                        skip += limitNum;
+                        document.getElementById("event-pinwheel").style.display = "none";
+                        document.getElementById("loadMorePlans").disabled = false;
+                        showPlans(d);
+                      });
+                  }}">Load More Plans</button>
+                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, document.getElementById("plans"));
 
@@ -637,7 +652,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                 ? null
                 : html`
                   <span style="margin:10px">
-                      ${coi_events.includes(eventCode) ? "" : (districtCount + "/" + districtGoal + " districts")}
+                      ${(coi_events.includes(eventCode) || districtGoal == 250) ? "" : (districtCount + "/" + districtGoal + " districts")}
                       ${unitOff ? html`<br/>` : null }
                       ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
                   </span>

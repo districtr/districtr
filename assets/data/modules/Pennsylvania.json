@@ -11,7 +11,8 @@
       {
         "numberOfParts": 18,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 50,
@@ -29,6 +30,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -174,14 +176,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -80.5195,
-            39.7198
-          ],
-          [
-            -74.6895,
-            42.2777
-          ]
+          [-80.5195, 39.7198],
+          [-74.6895, 42.2777]
         ],
         "tilesets": [
           {
@@ -511,14 +507,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -80.5195,
-            39.7198
-          ],
-          [
-            -74.6895,
-            42.2693
-          ]
+          [-80.5195, 39.7198],
+          [-74.6895, 42.2693]
         ],
         "tilesets": [
           {
@@ -611,14 +601,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -75.2803,
-            39.867
-          ],
-          [
-            -74.9558,
-            40.138
-          ]
+          [-75.2803, 39.867],
+          [-74.9558, 40.138]
         ],
         "tilesets": [
           {
