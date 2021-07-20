@@ -9,7 +9,6 @@ import {
 } from "../routes";
 import { MapState } from "../map";
 import State from "../models/State";
-import { Slide, SlideShow } from "../components/Slides";
 import populateDatasetInfo from "../components/Charts/DatasetInfo";
 import { getCell, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
 import { getPartyRGBColors } from "../layers/color-rules"
