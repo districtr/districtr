@@ -338,7 +338,7 @@ function featureClasses(feature, featureId, selectedId) {
         .join(" ");
 }
 
-export function Features(features, onHover, selectedId) {
+export function Features(features, onHover, selectedId, callback) {
     return svg`<svg viewBox="0 0 1280 600" style="width:100%; height:auto;">
     <g id="states-group" transform="${
         selectedId
@@ -362,7 +362,9 @@ export function Features(features, onHover, selectedId) {
                                                         class="dc-annotation"
                                                         d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + altpath["DC"](dcpoint).split(",")[0].substr(1) + "," + altpath["DC"](dcpoint).split(",")[1].slice(0,-2)}"
                                                         @mouseover=${() => onHover(dcpoint)}
-                                                        onclick=${selectLandingPage(dcpoint)}></path>` : svg``}
+                                                        @click="${callback ? () => callback(dcpoint) : ""}"
+                                                        onclick=${callback ? "" : selectLandingPage(dcpoint)}></path>` 
+                                                : svg``}
             <path id="${featureId}" class="${featureClasses(
             feature,
             featureId,
@@ -370,7 +372,8 @@ export function Features(features, onHover, selectedId) {
         )}" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
             style="${feature.properties.isAvailable ? "" : "cursor:default"} ${feature.geometry.type === "Point" ? "display:none" : ""}"
             d="${(altpath[feature.properties.STUSPS] || path)(feature)}" @mouseover=${() => onHover(feature)}
-            onclick=${selectLandingPage(feature)}></path>`;
+            @click="${callback ? () => callback(feature) : ""}"
+            onclick=${callback ? "" : selectLandingPage(feature)}></path>`;
     })}
     </g>
   </svg>`;
@@ -465,7 +468,7 @@ window.onpopstate = () => {
 let defaultHistoryState = location.pathname;
 let currentHistoryState = `/${window.location.pathname.split("/")[1]}`;
 
-export function PlaceMap(features, selectedId) {
+export function PlaceMap(features, selectedId, callback) {
     document.addEventListener("keyup", (e) => {
         let selectedState = window.location.pathname.split("/").slice(-1)[0];
         if (selectedState.length === 2 && e.keyCode === 27) {
@@ -516,21 +519,22 @@ export function PlaceMap(features, selectedId) {
                 : ""}
         </div>
         <figure class="place-map">
-            ${Features(features, setSearchText, selectedId)}
+            ${Features(features, setSearchText, selectedId, callback)}
         </figure>
     `;
 }
 
-export function PlaceMapWithData() {
+export function PlaceMapWithData(callback=null, state_list=null) {
     // empty string or state postal code
     const selectedId = (location.pathname.split("/")[2] || "").toLowerCase();
-
-    return fetchFeatures().then(features =>
+    state_list = (state_list || available);
+    return fetchFeatures(state_list).then(features =>
         PlaceMap(
             features,
             (selectedId && !["new", "community"].includes(selectedId))
                 ? selectedId
-                : null
+                : null,
+            callback
         )
     );
 }
