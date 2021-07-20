@@ -1,6 +1,4 @@
-import { html, render, directive, nothing } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
-import { startNewPlan } from "../routes";
+import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 import { loadPlanFromURL, loadPlanFromJSON, navigateTo, savePlanToStorage } from "../routes";
 import Button from "../components/Button";

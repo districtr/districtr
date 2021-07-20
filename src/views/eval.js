@@ -3,7 +3,6 @@ import { html, render } from "lit-html";
 import DisplayPane from "../components/DisplayPane";
 import {
     loadPlanFromURL,
-    loadPlanFromJSON,
     navigateTo,
     getContextFromStorage
 } from "../routes";
@@ -17,20 +16,6 @@ import { interpolateRdBu } from "d3-scale-chromatic";
 import { roundToDecimal, county_fips_to_name, spatial_abilities } from "../utils";
 import { districtColors } from "../colors";
 import Analyzer from "../models/Analyzer";
-
-
-
-/**
- * @desc Retrieves a test plan if we're doing dev work, the real deal if we
- * aren't.
- * @param {String} url URL from which we load the plan.
- * @returns {Promise}
- */
-function loadPlan(districtr_id) {
-    return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
-    .then(res => res.json())
-    .then(loadPlanFromJSON);
-}
 
 /**
  * @desc Retrieves the proper map style; uses the same rules as the Editor.
@@ -114,7 +99,6 @@ function renderLeft(pane, context) {
  */
 function renderRight(pane, context, state, mapState) {
     let saveplan = state.serialize();
-    // let slideshow = new SlideShow(pane.pane, []);
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/eval_page", {
       method: "POST",
@@ -125,8 +109,6 @@ function renderRight(pane, context, state, mapState) {
     }).then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
-            //console.log(state);
-            //console.log(data);
             if (data.error) {
                 render(html`Analysis unavailable for ${state.place.state} 
                         on ${state.unitsRecord.unitType.toLowerCase()}.<br/>
@@ -299,7 +281,7 @@ function overview_section (state, contig, problems, num_tiles) {
 // Election Results Section
 function election_section(state) {
     let elections = state.elections;
-    //console.log(state.elections);
+
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
     let rows = [];
@@ -322,7 +304,6 @@ function election_section(state) {
             d_seats = election.getSeatsWonParty(election.parties[0]);
         let d_seat_share = d_seats/election.total.data.length;
         let bias_to = (d_votes > d_seat_share) ? "R" : "D";
-        //console.log(d_seats);
 
 
         // > 0 if biased towards Rs, < 0 if toward Ds
@@ -438,7 +419,6 @@ function compactness_section(state, cut_edges, plan_scores) {
 
 // County Splits Section
 function county_section(state, data, municipalities) {
-    //console.log(data);
     let pnoun = municipalities ? "municipalities" : "counties",
         noun = municipalities ? "municipality" : "county";
         
@@ -449,7 +429,7 @@ function county_section(state, data, municipalities) {
         Object.keys(data.population).map(x => 
             forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
         );
-        //console.log(forced);
+
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     // get number of splits to be forced
