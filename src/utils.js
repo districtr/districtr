@@ -413,6 +413,42 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
     },
+    napa2021: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  napacounty2021: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  sanjoseca: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  redwood: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_ventura: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_yolo: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_siskiyou: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
     sanluiso: {
       coalition: false,
       number_markers: true,
