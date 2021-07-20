@@ -602,7 +602,8 @@ export function spatial_abilities(id) {
     louisiana: {
       native_american: true,
       county_brush: true, // lakes
-      number_markers: true,
+      // number_markers: true, // fetch is failing?
+      // number_markers_lambda: true,
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
@@ -612,7 +613,7 @@ export function spatial_abilities(id) {
       native_american: true,
       vra_effectiveness: true,
       county_brush: true, // lakes
-      number_markers: true, // need different ids that louisiana precincts need to update server
+      number_markers: true, 
       number_markers_lambda: true,
     },
     batonrouge: {
