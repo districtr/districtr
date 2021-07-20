@@ -313,17 +313,19 @@ export function spatial_abilities(id) {
       shapefile: true,
       school_districts: true,
       municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
     },
     alaska_blocks: {
-      native_american: true,
       coalition: false,
       school_districts: true,
       municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
+        saveredirect: 'www.akredistrict.org/create/edit.html',
       },
     },
     arizona: {
@@ -396,7 +398,62 @@ export function spatial_abilities(id) {
     ca_pasadena: {
       coalition: false,
       border: true,
+      shapefile: true,
     },
+    ca_goleta: {
+      coalition: false,
+      border: true,
+    },
+    ca_santabarbara: {
+      coalition: false,
+      border: true,
+    },
+    ca_marin: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+    },
+    napa2021: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  napacounty2021: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  sanjoseca: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  redwood: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_ventura: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_yolo: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_solano: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_siskiyou: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
     sanluiso: {
       coalition: false,
       number_markers: true,
@@ -477,6 +534,9 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
+      portal: {
+        endpoint: "https://portal.florida-mapping.org",
+      },
     },
     miamifl: {
       number_markers: true,
@@ -634,7 +694,7 @@ export function spatial_abilities(id) {
       },
     },
     ma_vra: {
-      // number_markers: true,
+      number_markers: true,
       vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
@@ -715,6 +775,7 @@ export function spatial_abilities(id) {
       load_coi: false,
       // find_unpainted: true,
       school_districts: true,
+      contiguity: 2,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
@@ -831,6 +892,69 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
     },
+      nd_benson: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38005"],
+            ["<", ["get", "GEOID20"], "38006"]
+          ],
+      },
+      nd_dunn: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38025"],
+            ["<", ["get", "GEOID20"], "38026"]
+          ],
+      },
+      nd_mckenzie: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38053"],
+            ["<", ["get", "GEOID20"], "38054"]
+          ],
+      },
+      nd_mountrail: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38061"],
+            ["<", ["get", "GEOID20"], "38062"]
+          ],
+      },
+      nd_ramsey: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38071"],
+            ["<", ["get", "GEOID20"], "38072"]
+          ],
+      },
+      nd_rollette: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38079"],
+            ["<", ["get", "GEOID20"], "38080"]
+          ],
+      },
+      nd_sioux: {
+        native_american: true,
+        number_markers: true,
+        shapefile: true,
+        county_filter: ["all",
+            [">", ["get", "GEOID20"], "38085"],
+            ["<", ["get", "GEOID20"], "38086"]
+          ],
+      },
     ohio: {
       number_markers: true,
       county_brush: true,
@@ -1003,6 +1127,9 @@ export function spatial_abilities(id) {
       sideload: true,
       load_coi: false,
       contiguity: 2,
+      portal: {
+        endpoint: "https://portal.pennsylvania-mapping.org",
+      },
     },
     philadelphia: {
       number_markers: true,
@@ -1156,6 +1283,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisconsin2020: {
       number_markers: true,
@@ -1170,6 +1298,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wisco2019acs: {
       number_markers: true,
@@ -1184,6 +1313,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
+      sideload: true,
     },
     wyoming: {
       multiyear: 2018,
@@ -1206,6 +1336,18 @@ export function nested(st) {
     'southdakota',
     'washington',
     'wisconsin'].includes(st);
+}
+
+export function one_cd(st) {
+  return [
+    'alaska',
+    'alaska_blocks',
+    'delaware',
+    'montana',
+    'northdakota',
+    'southdakota',
+    'vermont',
+    'wyoming'].includes(st)
 }
 
 // takes a state and county FIPS code and gives you the county name

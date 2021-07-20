@@ -213,7 +213,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax", "ca_sonoma", "alaska", "alaska_blocks"].includes(state.place.id)) {
+    if (["virginia", "lax", "ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
         fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
@@ -243,23 +243,6 @@ export default function DataLayersPlugin(editor) {
                             source: 'va2013',
                             type: 'line',
                             paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                        },
-                        addBelowLabels
-                    );
-                });
-            } else if (state.place.id.includes("alaska")) {
-                fetch("/assets/boundaries/alaska_house_2010.geojson").then(res => res.json()).then((va2013) => {
-                    state.map.addSource('va2013', {
-                        type: 'geojson',
-                        data: va2013
-                    });
-
-                    plan2013 = new Layer(state.map,
-                        {
-                            id: 'va2013',
-                            source: 'va2013',
-                            type: 'line',
-                            paint: { "line-color": "#f00", "line-width": 0.75, "line-opacity": 0 }
                         },
                         addBelowLabels
                     );
@@ -516,27 +499,11 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
-    } else if (state.place.id === "ca_sonoma") {
+    } else if (["ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
         tab.addRevealSection(
             'Enacted Plans',
             (uiState, dispatch) => html`
             ${toggle("Supervisorial Districts", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2010 && plan2010.setOpacity(opacity);
-            })}`,
-            {
-                isOpen: false
-            }
-        );
-    } else if (state.place.id.includes("alaska")) {
-        tab.addRevealSection(
-            'Enacted Plans',
-            (uiState, dispatch) => html`
-            ${toggle("State House", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2013 && plan2013.setOpacity(opacity);
-            })}
-            ${toggle("State Senate", false, checked => {
                 let opacity = checked ? 1 : 0;
                 plan2010 && plan2010.setOpacity(opacity);
             })}`,
@@ -575,11 +542,22 @@ export default function DataLayersPlugin(editor) {
         addMyCOI(state, tab);
     }
 
-    tab.addSection(() => html`<h4>Demographics</h4>
-        ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">Use the coalition builder to define a collection
-        of racial and ethnic groups from the Census. In the other data layers below,
-        you'll be able to select the coalition you have defined.</p>`}
-    `)
+    tab.addSection(() => html`<h4>Demographics</h4>`)
+
+    tab.addRevealSection(
+        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Population by Race"}</h5>`,
+        (uiState, dispatch) => html`
+            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
+            ${demographicsOverlay.render()}
+            ${vapOverlay ? vapOverlay.render() : null}
+            ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
+            of racial and ethnic groups from the Census. In the other data layers below,
+            you'll be able to select the coalition you have defined.</p>`}
+        `,
+        {
+            isOpen: false
+        }
+    );
 
     let coalitionOverlays = [];
     if (spatial_abilities(state.place.id).coalition !== false) {
@@ -643,7 +621,7 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population", // coalition subgroup
+        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population*", // coalition subgroup
         (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
@@ -673,18 +651,6 @@ export default function DataLayersPlugin(editor) {
         );
         coalitionOverlays.push(vapOverlay);
     }
-
-    tab.addRevealSection(
-        html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Race"}</h5>`,
-        (uiState, dispatch) => html`
-            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
-            ${demographicsOverlay.render()}
-            ${vapOverlay ? vapOverlay.render() : null}
-        `,
-        {
-            isOpen: false
-        }
-    );
 
     if (state.median_income || state.rent) {
         let incomeOverlay, rentOverlay;
@@ -744,11 +710,16 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
+        let partisanLayers = spatial_abilities(state.place.id).county_filter
+          ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
+          : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
-            demoLayers,
+            partisanLayers,
             state.elections,
-            toolbar
+            toolbar,
+            null, // bipolar / rent text
+            spatial_abilities(state.place.id).county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">

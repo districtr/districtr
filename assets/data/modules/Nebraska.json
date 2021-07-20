@@ -308,6 +308,7 @@
         "name": "Block Groups",
         "unitType": "Block Groups",
         "limit": "community",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

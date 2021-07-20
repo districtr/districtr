@@ -9,6 +9,7 @@
         "name": "Block Groups",
         "unitType": "Block Groups",
 		    "limit": "hide",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

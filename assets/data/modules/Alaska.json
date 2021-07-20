@@ -283,6 +283,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -480,6 +481,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -488,19 +490,6 @@
               "key": "TOTPOP",
               "name": "Total population",
               "sum": 710226,
-              "min": 0,
-              "max": 600
-            },
-            "subgroups": [
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "VAP",
-              "name": "Voting age population",
-              "sum": 522849,
               "min": 0,
               "max": 600
             },

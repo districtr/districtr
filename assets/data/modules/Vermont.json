@@ -5,6 +5,7 @@
         "id": "towns",
         "name": "Towns",
         "unitType": "Towns",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

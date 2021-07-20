@@ -505,6 +505,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -887,6 +888,11 @@
         "pluralNoun": "State House Districts",
         "numberOfParts": 70,
         "name": "State House"
+      },
+      {
+        "pluralNoun": "Public Education Commission Districts",
+        "numberOfParts": 10,
+        "name": "Public Education Commission"
       }
     ]
   }
