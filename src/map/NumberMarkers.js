@@ -156,7 +156,7 @@ export default function NumberMarkers(state, brush) {
                 const units = state.unitsRecord.unitType;
                 const stateName = state.place.state;
                 const assign = markers[district_num];
-                console.log("test");
+                console.log(assign);
                 fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_center", {
                     method: "POST",
                     headers: {
@@ -171,7 +171,6 @@ export default function NumberMarkers(state, brush) {
                 .then((res) => res.json())
                 .catch((e) => console.error(e))
                 .then((data) => {
-                    console.log(data);
                     if (numberMarkers[district_num]) {
                         numberMarkers[district_num].geometry.coordinates = data["coord"];
                     } else {
