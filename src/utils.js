@@ -444,6 +444,11 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
   },
+  ca_solano: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   ca_siskiyou: {
     border: true,
     shapefile: true,

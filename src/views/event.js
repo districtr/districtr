@@ -53,6 +53,7 @@ siskiyou: 'California',
 redwood: 'California',
 ventura_county: 'California',
 yolo_county: 'California',
+solano_county: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
@@ -101,6 +102,7 @@ const validEventCodes = {
   redwood: 'redwood',
   ventura_county: 'ca_ventura',
   yolo_county: 'ca_yolo',
+  solano_county: 'ca_solano',
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
@@ -164,6 +166,7 @@ const coi_events = [
   'redwood',
   'ventura_county',
   'yolo_county',
+  'solano_county',
 ];
 
 const hybrid_events = [
@@ -323,6 +326,11 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Yolo_County” (any capitalization) is entered.</p>',
+    solano_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
   galeo: 'Welcome to the event page for GALEO!',
 
   goleta: "<p>Welcome to the Districtr Community of Interest public mapping tool for Goleta's 2021 city council redistricting.<p>\
@@ -377,6 +385,9 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   yolo_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
@@ -448,7 +459,7 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -477,6 +488,9 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.yolocounty.org/";
               document.getElementById("partnership-a").src = "/assets/partners-yolo.png";
               document.getElementById("partnership-a").style.background = '#375e97';
+            } else if (eventCode === "solano_county") {
+              document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
+              document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";

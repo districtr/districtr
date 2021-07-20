@@ -4310,5 +4310,147 @@
        "pluralNoun": "Supervisorial Districts"
      }
    ]
- }
+ },
+   {
+    "name": "Solano County",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 445936,
+              "min": 0,
+              "max": 4401
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 57704,
+                "min": 0,
+                "max": 1934
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 65888,
+                "min": 0,
+                "max": 681
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 116262,
+                "min": 0,
+                "max": 1350
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 305666,
+              "min": 0,
+              "max": 3840
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 152633,
+                "min": 0,
+                "max": 992
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 45170,
+                "min": 0,
+                "max": 1896
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 1179,
+                "min": 0,
+                "max": 81
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 43999,
+                "min": 0,
+                "max": 411
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 2311,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 54985,
+                "min": 0,
+                "max": 726
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.407,
+            38.0317
+          ],
+          [
+            -121.5933,
+            38.5391
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_solano_blocks_points"
+            },
+            "sourceLayer": "ca_solano_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_solano_blocks"
+            },
+            "sourceLayer": "ca_solano_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ca_solano",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  }
 ]
