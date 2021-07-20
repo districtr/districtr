@@ -398,6 +398,7 @@ export function spatial_abilities(id) {
     ca_pasadena: {
       coalition: false,
       border: true,
+      shapefile: true,
     },
     ca_goleta: {
       coalition: false,
@@ -406,6 +407,11 @@ export function spatial_abilities(id) {
     ca_santabarbara: {
       coalition: false,
       border: true,
+    },
+    ca_marin: {
+      coalition: false,
+      border: true,
+      shapefile: true,
     },
     sanluiso: {
       coalition: false,
