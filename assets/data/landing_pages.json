@@ -204,8 +204,8 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma"], "id": "counties"},
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_pasadena"], "id": "loc"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara"], "id": "counties"},
+      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_pasadena", "ca_goleta"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -523,10 +523,6 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
-              },
-              {
-                "id": "state_house",
-                "name": "State House Plan"
               }
             ]
           }
@@ -1146,7 +1142,7 @@
     "state": "Massachusetts",
     "code": "MA",
     "modules": [
-      {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["ma_vra2"], "default": "true", "id": "state"},
       {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
     "sections": [
       {
@@ -2453,6 +2449,14 @@
               {
                 "id": "congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "state_senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }

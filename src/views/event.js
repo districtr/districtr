@@ -5,6 +5,9 @@ import { startNewPlan } from "../routes";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 
+let skip = 0,
+    prevPlans = [];
+
 const stateForEvent = {
   test: 'Pennsylvania',
   fyi: 'North Carolina',
@@ -41,7 +44,12 @@ const stateForEvent = {
   saccountymap: 'California',
   sonomaco: 'California',
   pasadena2021: 'California',
+  goleta: 'California',
+  sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
+  'galeo': 'Georgia',
+  ourmaps: 'Nebraska',
+  marinco: 'California',
 };
 
 const validEventCodes = {
@@ -81,6 +89,11 @@ const validEventCodes = {
   pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
+  'galeo': 'hall_ga',
+  goleta: 'ca_goleta',
+  sbcounty: 'ca_santabarbara',
+  ourmaps: 'nebraska',
+  marinco: 'ca_marin',
 };
 
 const blockPlans = {
@@ -132,7 +145,7 @@ const coi_events = [
   'slo_county',
   'ourmapsne',
   'onelovemi',
-  'ks-fairmaps'
+  'ks-fairmaps',
 ];
 
 const hybrid_events = [
@@ -142,6 +155,10 @@ const hybrid_events = [
   'saccountymap',
   'sonomaco',
   'pasadena2021',
+  'ca_marin',
+  'goleta',
+  'sbcounty',
+  'ourmaps',
 ];
 
 const portal_events = [
@@ -235,6 +252,16 @@ pasadena2021: "<p>Welcome to the Districtr Community of Interest public mapping 
 share your map and your story using this tool now.</p>\
    <p><strong>To display your map on this page, be sure the tag &quot;Pasadena2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+marinco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marin County's 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;MarinCo&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   saccountymap: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -248,8 +275,30 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
+  'galeo': 'Welcome to the event page for GALEO!',
 
-  };
+  goleta: "<p>Welcome to the Districtr Community of Interest public mapping tool for Goleta's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Goleta&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  sbcounty: "<p>Welcome to the Districtr Community of Interest public mapping tool for Santa Barbara's 2021 county supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  ourmaps: 'Welcome to the event page for OurMaps!',
+};
 
 const longAbout = {
   'cc-nm-abq': ["MGGG has partnered with Common Cause, a nonprofit good-government organization championing voting rights and redistricting reform, to collect Communities of Interest in Albuquerque, New Mexico. Participants in Albuquerque will join the event virtually to engage in a discussion about community led by National Redistricting Manager, Dan Vicuña, and Census and Mass Incarceration Project Manager, Keshia Morris.",
@@ -281,8 +330,14 @@ const longAbout = {
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   pasadena2021: [
-    "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full seven-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  marinco: [
+    "Marin County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -290,6 +345,18 @@ const longAbout = {
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
     For more information, please visit <a href='https://www.saccounty.net/Redistricting/' target='_blank'>www.saccounty.net/Redistricting/</a>",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  goleta: [
+    "City of Goleta City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  sbcounty: [
+    "Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -326,7 +393,7 @@ export default () => {
             }
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -337,6 +404,16 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.cityofpasadena.net/";
               document.getElementById("partnership-a").src = "/assets/partners-pasadena.png";
               document.getElementById("partnership-a").style.background = "#00275d";
+            } else if (eventCode === "sbcounty") {
+              document.getElementById("partner-link-a").href = "https://www.countyofsb.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-santabarbara.png";
+              document.getElementById("partnership-a").style.background = "#22a8c4";
+            } else if (eventCode === "goleta") {
+              document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-goleta.png";
+            } else if (eventCode === "marinco") {
+              document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-marin.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
@@ -477,26 +554,35 @@ export default () => {
             });
         });
 
-        let limitNum = 16;
+        let limitNum = 20;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
-                    : (`/.netlify/functions/eventRead?limit=${limitNum + 1}&event=${eventCode}`);
+                    : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data, unlimited) => {
-            let loadExtraPlans = !unlimited && ((data.plans.length > limitNum) || (window.location.hostname.includes("localhost")));
+        let showPlans = (data) => {
+            let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
+            if (loadExtraPlans) {
+                data.plans.pop();
+            }
+            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
-                plans: data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))).slice(0, unlimited ? 1000 : limitNum)
+                plans: prevPlans,
             }];
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="loadMorePlans" @click="${(e) => {
                       document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").style.display = "none";
-                      fetch(eventurl.replace(`limit=${limitNum + 1}`, "limit=1000")).then(res => res.json()).then(d => showPlans(d, true));
-                  }}">Load All Plans</button>
-                  ${unlimited ? "" : html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>`}`
+                      document.getElementById("loadMorePlans").disabled = true;
+                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
+                        skip += limitNum;
+                        document.getElementById("event-pinwheel").style.display = "none";
+                        document.getElementById("loadMorePlans").disabled = false;
+                        showPlans(d);
+                      });
+                  }}">Load More Plans</button>
+                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, document.getElementById("plans"));
 
@@ -588,7 +674,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                 ? null
                 : html`
                   <span style="margin:10px">
-                      ${coi_events.includes(eventCode) ? "" : (districtCount + "/" + districtGoal + " districts")}
+                      ${(coi_events.includes(eventCode) || districtGoal == 250) ? "" : (districtCount + "/" + districtGoal + " districts")}
                       ${unitOff ? html`<br/>` : null }
                       ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
                   </span>

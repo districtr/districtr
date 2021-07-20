@@ -147,9 +147,6 @@ export default function NumberMarkers(state, brush) {
             function check_district(d_index) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
-                if (d_index >= moveMarkers.length) {
-                    return;
-                }
                 let district_num = moveMarkers[d_index];
                 let filterOdds = 100 / markers[district_num].length;
                 if (filterOdds < 1) {
@@ -176,12 +173,11 @@ export default function NumberMarkers(state, brush) {
                         };
                     }
                     map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
-                    check_district(d_index + 1);
-                }).catch(() => {
-                    check_district(d_index + 1);
-                });
+                }).catch(() => {console.log("Fetch failed")});
             }
-            check_district(0);
+            for (let d_index = 0; d_index < moveMarkers.length; d_index++) {
+                check_district(d_index);
+            }
 
             // remove a number marker if the district has no units left on the map
             Object.keys(numberMarkers).forEach((previous_dnum) => {
@@ -191,6 +187,6 @@ export default function NumberMarkers(state, brush) {
             });
         }
     };
-    updater(state);
+    // updater(state);
     return { update: updater };
 }

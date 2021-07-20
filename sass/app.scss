@@ -416,3 +416,24 @@ iframe {
   font-size: small;
   font-style: italic;
 }
+
+.modal-content {
+  .col {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  label.wrap {
+    cursor: pointer;
+    font-weight: normal;
+  }
+
+  input {
+    background: #fff;
+  }
+}
