@@ -41,9 +41,8 @@ const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    EvaluationPlugin,
+    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin,
     AnalysisPlugin
-    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
