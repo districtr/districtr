@@ -1,0 +1,28 @@
+{
+"type": "FeatureCollection",
+"name": "ca_siskiyou_municipalities_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Dorris" }, "geometry": { "type": "Point", "coordinates": [ -121.920550373445508, 41.964386246631115 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mount Shasta" }, "geometry": { "type": "Point", "coordinates": [ -122.315039366567078, 41.320692444286863 ] } },
+{ "type": "Feature", "properties": { "NAME": "Yreka" }, "geometry": { "type": "Point", "coordinates": [ -122.631148077035547, 41.72925569393098 ] } },
+{ "type": "Feature", "properties": { "NAME": "Dunsmuir" }, "geometry": { "type": "Point", "coordinates": [ -122.271495860041441, 41.231627036584733 ] } },
+{ "type": "Feature", "properties": { "NAME": "Etna" }, "geometry": { "type": "Point", "coordinates": [ -122.894480147535091, 41.458199792678286 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tulelake" }, "geometry": { "type": "Point", "coordinates": [ -121.47522064136524, 41.953293776663131 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fort Jones" }, "geometry": { "type": "Point", "coordinates": [ -122.841064865779884, 41.608452359579161 ] } },
+{ "type": "Feature", "properties": { "NAME": "Montague" }, "geometry": { "type": "Point", "coordinates": [ -122.530320789802914, 41.727543336533486 ] } },
+{ "type": "Feature", "properties": { "NAME": "Weed" }, "geometry": { "type": "Point", "coordinates": [ -122.381622519681031, 41.412759099719167 ] } },
+{ "type": "Feature", "properties": { "NAME": "Carrick" }, "geometry": { "type": "Point", "coordinates": [ -122.363457198428875, 41.44674649999088 ] } },
+{ "type": "Feature", "properties": { "NAME": "Edgewood" }, "geometry": { "type": "Point", "coordinates": [ -122.426134666461323, 41.462132023726994 ] } },
+{ "type": "Feature", "properties": { "NAME": "Gazelle" }, "geometry": { "type": "Point", "coordinates": [ -122.521647033946195, 41.514875819604477 ] } },
+{ "type": "Feature", "properties": { "NAME": "Greenview" }, "geometry": { "type": "Point", "coordinates": [ -122.918561281296249, 41.547018049982384 ] } },
+{ "type": "Feature", "properties": { "NAME": "Grenada" }, "geometry": { "type": "Point", "coordinates": [ -122.52601283099763, 41.640584582597349 ] } },
+{ "type": "Feature", "properties": { "NAME": "Happy Camp" }, "geometry": { "type": "Point", "coordinates": [ -123.389163681619394, 41.810369012094611 ] } },
+{ "type": "Feature", "properties": { "NAME": "Hornbrook" }, "geometry": { "type": "Point", "coordinates": [ -122.559621614926229, 41.90795391582796 ] } },
+{ "type": "Feature", "properties": { "NAME": "Lake Shastina" }, "geometry": { "type": "Point", "coordinates": [ -122.375568304264036, 41.521315953239409 ] } },
+{ "type": "Feature", "properties": { "NAME": "McCloud" }, "geometry": { "type": "Point", "coordinates": [ -122.136070847364394, 41.254061528554942 ] } },
+{ "type": "Feature", "properties": { "NAME": "Macdoel" }, "geometry": { "type": "Point", "coordinates": [ -122.005884922592159, 41.82617348720192 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mount Hebron" }, "geometry": { "type": "Point", "coordinates": [ -122.00797955920055, 41.785628237573633 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tennant" }, "geometry": { "type": "Point", "coordinates": [ -121.913092116946174, 41.582250976070611 ] } }
+]
+}

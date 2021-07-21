@@ -204,8 +204,8 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_santabarbara"], "id": "counties"},
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_pasadena", "ca_goleta"], "id": "loc"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano"], "id": "counties"},
+      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "sanjoseca", "redwood", "napa2021"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -1864,7 +1864,9 @@
     "state": "North Dakota",
     "code": "ND",
     "modules": [
-      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["nd_benson", "nd_dunn", "nd_mckenzie", "nd_mountrail", "nd_ramsey", "nd_rollette", "nd_sioux"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head id="Evaluation">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Evaluate a Plan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/state_landing.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/landing_page.css"
+        />
+        <link
+        rel="stylesheet"
+        type="text/css"
+        href="/css/analysis.css"
+        />
+        <link
+        rel="stylesheet"
+        type="text/css"
+        href="/css/evaluation.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <header class="site-header">
+            <nav class="site-nav">
+                <div class="site-nav__logo">
+                    <a href="/">
+                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home"/>
+                    </a>
+                    <script>
+                        function openNav() {
+                          var links = document.getElementById("nav-links");
+                          var openClass = "site-nav__contents--show";
+                          if (links.classList.contains(openClass)) {
+                            links.classList.remove(openClass);
+                          } else {
+                            links.classList.add(openClass);
+                          }
+                        }
+                    </script>
+                    <button class="site-nav__open-btn" onclick="openNav();">
+                        <img src="/assets/baseline-menu-24px.svg" class="icon" alt="Menu">
+                    </button>
+                </div>
+                <ul id="nav-links" class="nav-links site-nav__contents"></ul>
+            </nav>
+        </header>
+        <main id="root" class="place">
+            <article class="place__content">
+                <h1 class="heading place__name">Upload a plan for evaluation.</h1>
+                <section id="drawn-upload" class='l-content l-major-section'>
+                    <div>
+                        <h3>Enter Districtr Link</h3>
+                        <div id="link-upload"></div>
+                    </div>
+                    <div>
+                        <h3>Upload Districtr JSON</h3>
+                        <div id="json-upload"></div>
+                    </div>
+                </section>
+                <section id="enacted-upload" class='l-content l-major-section'>
+                    <h3>Enacted and Example Plans</h3>
+                    <p>Click a state to show the enacted plans available.</p>
+                    <div id="map-div"></div>
+                    <div id="loadable-plans-header"></div>
+                    <div id="loadable-plans"</div>
+                </section>
+            </article>
+        </main>
+        <script src="//code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script src="/es6/evaluation.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.write(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.write(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                document.write('<script src="/es5/evaluation.js"><\/script>');
+                document.write("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>

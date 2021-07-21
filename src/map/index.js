@@ -217,10 +217,16 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
             tilesets.find(tileset => tileset.source.url.includes("tracts")),
             layerAdder
         );
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta"].includes(borderId)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta", "ca_marin"].includes(borderId)) {
         tracts = addTracts(
             map,
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
+            layerAdder
+        );
+    } else if (spatial_abilities(borderId).county_filter) {
+        tracts = addTracts(
+            map,
+            tilesets.find(tileset => tileset.source.url.includes("precincts")),
             layerAdder
         );
     }

@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"name": "ca_yolo_municipalities_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Davis" }, "geometry": { "type": "Point", "coordinates": [ -121.73704974306726, 38.555275844249422 ] } },
+{ "type": "Feature", "properties": { "NAME": "West Sacramento" }, "geometry": { "type": "Point", "coordinates": [ -121.550439121557062, 38.555669449957684 ] } },
+{ "type": "Feature", "properties": { "NAME": "Winters" }, "geometry": { "type": "Point", "coordinates": [ -121.973549009990549, 38.527632809650932 ] } },
+{ "type": "Feature", "properties": { "NAME": "Winters" }, "geometry": { "type": "Point", "coordinates": [ -121.992933818356377, 38.545984637151555 ] } },
+{ "type": "Feature", "properties": { "NAME": "Woodland" }, "geometry": { "type": "Point", "coordinates": [ -121.692431, 38.662161 ] } },
+{ "type": "Feature", "properties": { "NAME": "Woodland" }, "geometry": { "type": "Point", "coordinates": [ -121.757172616895616, 38.672271693240013 ] } },
+{ "type": "Feature", "properties": { "NAME": "Brooks" }, "geometry": { "type": "Point", "coordinates": [ -122.146806679620624, 38.736880700642743 ] } },
+{ "type": "Feature", "properties": { "NAME": "Clarksburg" }, "geometry": { "type": "Point", "coordinates": [ -121.541617534057025, 38.419335613988707 ] } },
+{ "type": "Feature", "properties": { "NAME": "Dunnigan" }, "geometry": { "type": "Point", "coordinates": [ -121.974185968951389, 38.89264299082469 ] } },
+{ "type": "Feature", "properties": { "NAME": "El Macero" }, "geometry": { "type": "Point", "coordinates": [ -121.685168106912855, 38.544018894165198 ] } },
+{ "type": "Feature", "properties": { "NAME": "Esparto" }, "geometry": { "type": "Point", "coordinates": [ -122.024046744205023, 38.693410820133309 ] } },
+{ "type": "Feature", "properties": { "NAME": "Guinda" }, "geometry": { "type": "Point", "coordinates": [ -122.198359591662779, 38.82737443751185 ] } },
+{ "type": "Feature", "properties": { "NAME": "Knights Landing" }, "geometry": { "type": "Point", "coordinates": [ -121.717447363840535, 38.797971777973132 ] } },
+{ "type": "Feature", "properties": { "NAME": "Madison" }, "geometry": { "type": "Point", "coordinates": [ -121.970253427140804, 38.674988220908709 ] } },
+{ "type": "Feature", "properties": { "NAME": "Monument Hills" }, "geometry": { "type": "Point", "coordinates": [ -121.875389217631721, 38.664105963606183 ] } },
+{ "type": "Feature", "properties": { "NAME": "Rumsey" }, "geometry": { "type": "Point", "coordinates": [ -122.240450542708331, 38.890206639806237 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tancred" }, "geometry": { "type": "Point", "coordinates": [ -122.154695958872225, 38.761859118655998 ] } },
+{ "type": "Feature", "properties": { "NAME": "University of California-Davis" }, "geometry": { "type": "Point", "coordinates": [ -121.757899544525429, 38.537703834596755 ] } },
+{ "type": "Feature", "properties": { "NAME": "Yolo" }, "geometry": { "type": "Point", "coordinates": [ -121.809324632042888, 38.740463514039298 ] } }
+]
+}

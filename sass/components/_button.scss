@@ -1,143 +1,174 @@
+
 @import "../mixins";
+@import "../_shadows";
 
 .button,
 .button:visited {
-    background: $districtr-red;
-    color: white;
+  background: $districtr-red;
+  color: white;
 
-    border-radius: 0.25rem;
-    // padding: 0.2rem 0.4rem;
-    padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  // padding: 0.2rem 0.4rem;
+  padding: 0.1rem 0.4rem;
 
-    font-weight: 400;
-    font-family: $font-family;
+  font-weight: 400;
+  font-family: $font-family;
 
-    margin: 0;
-    outline: 0;
-    border: none;
+  margin: 0;
+  outline: 0;
+  border: none;
 }
 
 .button:hover,
 .button:active {
-    cursor: pointer;
-    color: white;
-    background: $districtr-red-dark;
+  cursor: pointer;
+  color: white;
+  background: $districtr-red-dark;
 }
 
 .button:active {
-    outline: 0;
+  outline: 0;
 }
 
 .button:focus {
-    box-shadow: $focus-shadow;
-    outline: 0;
+  box-shadow: $focus-shadow;
+  outline: 0;
+}
+
+@mixin button {
+  border-radius: 0.25rem;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  cursor: pointer;
+
+  // Disallow highlighting.
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .button--alternate {
-    background-color: $mggg-blue;
+  border: 2px solid #ffffff;
+  background: $mggg-blue;
+  @include button;
+
+  &:hover {
+    background-color: $mggg-dark_blue;
+    border: 2px solid #ff4f49;
+  }
 }
 
-.button--alternate:hover,
-.button--alternate:active {
-    background: $mggg-dark-blue;
+.button--alternate--clicked {
+  background-color: $mggg-dark_blue;
+  border: 2px solid #ff4f49;
+  @include button;
 }
 
 .button--blank {
-    background: #f9f9f9;
-    border: 1px solid #666;
+  background: #f9f9f9;
+  border: 1px solid #666;
 }
 .button--blank[disabled] i {
-    color: #ccc !important;
+  color: #ccc !important;
 }
 .button--blank:hover,
 .button--blank:active {
-    background: #aaa;
+  background: #aaa;
 }
 
 .button--transparent {
-    background: none;
+  background: none;
+  color: $mggg-blue;
+  &:hover {
+    background-color: $districtr-grey-hover;
     color: $mggg-blue;
-    &:hover {
-        background-color: $districtr-grey-hover;
-        color: $mggg-blue;
-    }
-    &:active {
-        background-color: $districtr-grey-active;
-        color: $mggg-blue;
-        box-shadow: none;
-    }
+  }
+  &:active {
+    background-color: $districtr-grey-active;
+    color: $mggg-blue;
+    box-shadow: none;
+  }
 }
 
 .button--subtle {
-    background: white;
-    @include grey-hovers;
+  background: white;
+  @include grey-hovers;
+  color: #444;
+  &:hover,
+  &:active,
+  &focus {
     color: #444;
-    &:hover,
-    &:active,
-    &focus {
-        color: #444;
-    }
+  }
 }
 
 .button--no-shadow:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .button[disabled] {
+  background: $districtr-light-grey;
+  color: #444;
+  cursor: auto;
+  &:hover {
     background: $districtr-light-grey;
     color: #444;
-    cursor: auto;
-    &:hover {
-        background: $districtr-light-grey;
-        color: #444;
-    }
-    &:active {
-        background: $districtr-light-grey;
-        color: #444;
-        box-shadow: none;
-    }
+  }
+  &:active {
+    background: $districtr-light-grey;
+    color: #444;
+    box-shadow: none;
+  }
 }
 
 .button--icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  line-height: 1;
 }
 
 .button--submit {
-    line-height: 2;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.1rem;
+  line-height: 2;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
 }
 
 .square-button {
-    @include user-select(none);
-    // background-color: black;
-    background-color: $districtr-light-grey;
-    color: #444;
-    font-weight: normal;
+  @include user-select(none);
+  // background-color: black;
+  background-color: $districtr-light-grey;
+  color: #444;
+  font-weight: normal;
 
-    outline: none;
-    border: none;
-    border-radius: 0.25rem;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
 
-    width: 2.5rem;
-    height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-    padding: 0;
-    margin: 0.1rem;
+  padding: 0;
+  margin: 0.1rem;
 
-    transition: all ease 100ms;
-    cursor: pointer;
+  transition: all ease 100ms;
+  cursor: pointer;
 
-    @include grey-hovers;
+  @include grey-hovers;
 }

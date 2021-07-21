@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Plan Evaluation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+                rel="stylesheet"
+                type="text/css"
+                href="/css/app.css"
+        />
+        <link
+                rel="stylesheet"
+                type="text/css"
+                href="/css/analysis.css"
+        />
+        <link
+                href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+                rel="stylesheet"
+        />
+        <link
+                rel="stylesheet"
+                href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
+                type="text/css"/>
+        <link
+                rel="stylesheet"
+                href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
+                type="text/css"
+        />
+        <link
+                href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+                rel="stylesheet"
+        />
+        <link
+                href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                rel="stylesheet"
+        />
+        <link
+                rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+                integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+                crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <main id="root">
+            <div class="pane-contain"></div>
+        </main>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+        <script src="/es6/eval.js"></script>
+        <script>
+            if (Object.assign === undefined || fetch === undefined) {
+                document.writeln(
+                    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default,es5,es6,es7,fetch"><\/script>'
+                );
+                document.writeln(
+                    '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
+                );
+                // document.write("<script src=\"https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/custom-elements-es5-adapter.js\"><\/script>");
+                document.writeln('<script src="/es5/eval.js"><\/script>');
+                document.writeln("<script>ieBundle();<\/script>");
+            } else {
+                bundle();
+            }
+        </script>
+    </body>
+</html>

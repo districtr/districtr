@@ -16,6 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import AnalysisPlugin from "../plugins/analysis-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -40,7 +41,8 @@ const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin
+    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin,
+    AnalysisPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
@@ -55,6 +57,8 @@ function getPlanURLFromQueryParam() {
 function getPlanContext() {
     const planURL = getPlanURLFromQueryParam();
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
+    console.log(planURL);
+    console.log(finalURLpage);
     if (planURL.length > 0) {
         return loadPlanFromURL(planURL).catch(e => {
             // eslint-disable-next-line no-console
