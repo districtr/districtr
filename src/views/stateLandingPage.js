@@ -1,5 +1,5 @@
 import { html, render, directive } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
+import { listPlacesForState, getUnits, getAllUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
 
@@ -373,7 +373,7 @@ const placeItemsTemplate = (places, onClick) => {
     
     let num_hidden = places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)).reduce((items, item) => [...items, ...item], []).length ||
                         places.map(place => place.districtingProblems.filter(problem => !problem.hideOnDefault)
-                        .map(problem => getUnits(place, problem).filter(u => u.hideOnDefault)))
+                        .map(problem => getAllUnits(place, problem).filter(u => u.hideOnDefault)))
                         .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
                         .reduce((items, item) => [...items, ...item], []).length;
     
@@ -399,7 +399,7 @@ const placeItemsTemplate = (places, onClick) => {
         })
         .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
-            getUnits(place, problem)
+            getAllUnits(place, problem)
             .filter(unit => showAll || !unit.hideOnDefault)
             .map(
                 units => 
