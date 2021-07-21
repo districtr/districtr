@@ -4,7 +4,7 @@ import Layer from "./Layer";
 import { stateNameToFips, COUNTIES_TILESET, spatial_abilities } from "../utils";
 
 mapboxgl.accessToken =
-    "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
+    "pk.eyJ1Ijoia2F5dHdvIiwiYSI6ImNqc3Q5eDBrNDIxbng0M3BkMnQwdHNyMHoifQ.Kpm6uWxZ-8b0Q4WQWZ0ISg";
 
 export class MapState {
     constructor(mapContainer, options, mapStyle) {

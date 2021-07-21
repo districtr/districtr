@@ -206,11 +206,11 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 </label>
             </li>
 
-            ${current_districts ? ((nested(placeID) && one_cd(placeID)) ? 
+            ${current_districts ? ((nested(placeID) && (state.place.id === "chicago" || one_cd(placeID))) ? 
                 html`<li>
                     <label style="cursor: pointer;">
                         <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Legislature (Nested)
+                        ${ state.place.id === "chicago" ? "Police Districts" : "State Legislature (Nested)"}
                     </label>
                 </li>` : (!nested(placeID) && one_cd(placeID)) ?
                     html`<li>
@@ -266,7 +266,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
-                            Municipalities
+                            ${ state.place.id === "chicago" ? "Community Areas" : "Municipalities"}
                         </label>
                     </li>`: ""}
                 </div>

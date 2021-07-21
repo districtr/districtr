@@ -437,7 +437,7 @@ export function spatial_abilities(id) {
       border: true,
     },
     chicago: {
-      number_markers: true,
+      number_markers: false,
       multiyear: 2019,
       border: true,
       parties: [
@@ -446,7 +446,9 @@ export function spatial_abilities(id) {
         "Lori Lightfoot",
         "Toni Preckwinkle",
       ],
-      school_districts: true
+      school_districts: true,
+      municipalities: true,
+      current_districts: true
     },
     colorado: {
       number_markers: true,
