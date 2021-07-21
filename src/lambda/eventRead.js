@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
       .skip(skipNum)
       .limit(Number(event.queryStringParameters.limit || 16));
     } else {
-      await Plan.find({
+      plans = await Plan.find({
           eventCode: eventCode
       })
       .select("_id simple_id startDate plan screenshot2 planName isScratch")
