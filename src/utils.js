@@ -438,21 +438,25 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    municipalities: true,
   },
   ca_yolo: {
     border: true,
     shapefile: true,
     number_markers: true,
+    municipalities: true,
   },
   ca_solano: {
     border: true,
     shapefile: true,
     number_markers: true,
+    municipalities: true,
   },
   ca_siskiyou: {
     border: true,
     shapefile: true,
     number_markers: true,
+    municipalities: true,
   },
     sanluiso: {
       coalition: false,
