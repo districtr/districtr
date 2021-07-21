@@ -4641,9 +4641,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.kingsdata_blockgroups"
+              "url": "mapbox://districtr.kingsdata3_blockgroups"
             },
-            "sourceLayer": "kingsdata_blockgroups"
+            "sourceLayer": "kingsdata3_blockgroups"
           }
         ]
       }
@@ -4843,9 +4843,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.merceddata_blockgroups"
+              "url": "mapbox://districtr.merceddata2_blockgroups"
             },
-            "sourceLayer": "merceddata_blockgroups"
+            "sourceLayer": "merceddata2_blockgroups"
           }
         ]
       }
