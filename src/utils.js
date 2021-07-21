@@ -403,17 +403,29 @@ export function spatial_abilities(id) {
     ca_goleta: {
       coalition: false,
       border: true,
+      shapefile: true,
     },
     ca_santabarbara: {
       coalition: false,
       border: true,
+      shapefile: true,
+    },
+    ca_merced: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+    },
+    ca_kings: {
+      coalition: false,
+      border: true,
+      shapefile: true,
     },
     ca_marin: {
       coalition: false,
       border: true,
       shapefile: true,
     },
-    napa2021: {
+  napa2021: {
     border: true,
     shapefile: true,
     number_markers: true,
