@@ -6,7 +6,7 @@
     "districtingProblems": [
       {
         "name": "Congress",
-        "numberOfParts": 8,
+        "numberOfParts": 7,
         "pluralNoun": "Congressional Districts"
       },
       {
@@ -1633,7 +1633,7 @@
     "districtingProblems": [
       {
         "name": "Congress",
-        "numberOfParts": 7,
+        "numberOfParts": 8,
         "pluralNoun": "Congressional Districts"
       },
       {
