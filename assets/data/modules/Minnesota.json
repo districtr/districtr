@@ -26,6 +26,7 @@
         "name": "Precincts",
         "hideOnDefault": true,
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

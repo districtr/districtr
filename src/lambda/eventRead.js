@@ -18,13 +18,26 @@ exports.handler = async (event, context) => {
         };
     }
 
-    const plans = await Plan.find({
-        eventCode: eventCode
-    })
-    .select("_id simple_id startDate plan screenshot2 planName isScratch")
-    .sort([["simple_id", -1]])
-    .skip(Number(event.queryStringParameters.skip) || 0)
-    .limit((event.queryStringParameters.limit || 24) * 1);
+    const skipNum = Number(event.queryStringParameters.skip) || 0;
+
+    let plans;
+    if (skipNum) {
+      plans = await Plan.find({
+          eventCode: eventCode
+      })
+      .select("_id simple_id startDate plan screenshot2 planName isScratch")
+      .sort([["simple_id", -1]])
+      .skip(skipNum)
+      .limit(Number(event.queryStringParameters.limit || 16));
+    } else {
+      plans = await Plan.find({
+          eventCode: eventCode
+      })
+      .select("_id simple_id startDate plan screenshot2 planName isScratch")
+      .sort([["simple_id", -1]])
+      .limit(Number(event.queryStringParameters.limit || 16));
+    }
+
     // be careful not to share token here
     return {
         statusCode: 200,
