@@ -1263,6 +1263,7 @@
         "id": "precincts_12_16",
         "name": "Precincts, 2012-2016",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
