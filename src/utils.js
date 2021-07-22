@@ -413,6 +413,12 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_fresno: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_merced: {
       coalition: false,
       border: true,
