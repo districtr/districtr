@@ -4628,5 +4628,209 @@
         "pluralNoun": "City Council Districts"
       }
     ]
+  },
+  {
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 18132,
+              "min": 0,
+              "max": 540
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 14084,
+              "min": 0,
+              "max": 362
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 11160,
+                "min": 0,
+                "max": 304
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 167,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 647,
+                "min": 0,
+                "max": 55
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 1807,
+                "min": 0,
+                "max": 78
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 212,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 60,
+                "min": 0,
+                "max": 60
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 30,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 92,
+               "min": 0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 124,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 57,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 306,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 125,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 188,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 59,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 8,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 9,
+   "min": 0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -120.6095,
+            35.1018
+          ],
+          [
+            -120.5513,
+            35.1468
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_arroyo_blocks_points"
+            },
+            "sourceLayer": "ca_arroyo_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_arroyo_blocks"
+            },
+            "sourceLayer": "ca_arroyo_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.arroyodata_blockgroups"
+            },
+            "sourceLayer": "arroyodata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "name": "Arroyo Grande",
+    "id": "ca_arroyo",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 3,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
