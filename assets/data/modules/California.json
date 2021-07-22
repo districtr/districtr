@@ -2588,7 +2588,7 @@
             "type": "population",
             "name": "Percentages",
             "total": {
-               "key": "ChildAtHom",
+               "key": "ChildAtHome",
                "name": "Children at home",
                "sum": 20,
                "min": 0,
@@ -2617,35 +2617,35 @@
    "max": 1
  },
  {
-   "key": "CollegeGra",
+   "key": "CollegeGrads",
    "name": "College graduate",
    "sum": 42,
    "min": 0,
    "max": 1
  },
  {
-   "key": "Inc75k",
+   "key": "Inc75",
    "name": ">$75k income",
    "sum": 43,
    "min": 0,
    "max": 1
  },
  {
-   "key": "SpanishAtH",
+   "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
    "sum": 19,
    "min": 0,
    "max": 1
  },
  {
-   "key": "AsnLangAtH",
+   "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
    "sum": 8,
    "min": 0,
    "max": 1
  },
  {
-   "key": "OthLangAtH",
+   "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
    "sum": 6,
    "min": 0,
