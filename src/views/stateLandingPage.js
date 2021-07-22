@@ -444,7 +444,7 @@ const placeItemsTemplate = (places, onClick) => {
         ))
         .reduce((items, item) => [...items, ...item], [])
         .concat([
-            num_hidden ? html`<li>
+            (!showAll && num_hidden) ? html`<li>
                 <div style="padding-top:30px">
                     <input type="checkbox" id="custom" name="custom-selection">
                     <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
