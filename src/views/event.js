@@ -57,6 +57,7 @@ solano_county: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
+  marinaca: 'California',
 };
 
 const validEventCodes = {
@@ -108,6 +109,7 @@ const validEventCodes = {
   sbcounty: 'ca_santabarbara',
   ourmaps: 'nebraska',
   marinco: 'ca_marin',
+  marinaca: 'ca_marina',
 };
 
 const blockPlans = {
@@ -177,6 +179,7 @@ const hybrid_events = [
   'sonomaco',
   'pasadena2021',
   'ca_marin',
+  'ca_marina',
   'goleta',
   'sbcounty',
   'ourmaps',
@@ -283,6 +286,7 @@ marinco: "<p>Welcome to the Districtr Community of Interest public mapping tool 
 share your map and your story using this tool now.</p>\
    <p><strong>To display your map on this page, be sure the tag &quot;MarinCo&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
   saccountymap: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -332,7 +336,16 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
   galeo: 'Welcome to the event page for GALEO!',
-
+  marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;MarinaCA&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   goleta: "<p>Welcome to the Districtr Community of Interest public mapping tool for Goleta's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -431,6 +444,12 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  marinaca: [
+    "City of Marina City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   sbcounty: [
     "Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
@@ -495,7 +514,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "marinaca"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -516,6 +535,9 @@ export default () => {
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
               document.getElementById("partnership-a").src = "/assets/partners-marin.png";
+            } else if (eventCode === "marinaca") {
+              document.getElementById("partner-link-a").href = "https://cityofmarina.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-marina.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";

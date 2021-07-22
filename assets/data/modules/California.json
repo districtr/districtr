@@ -4452,5 +4452,181 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "name": "Marina",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Pop_EST2019_v1",
+              "name": "Total population",
+              "sum": 22371,
+              "min": 0,
+              "max": 1631
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "subgroups": [
+              {
+                "key": "WhtCVAP",
+                "name": "White population",
+                "sum": 43,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "BlkCVAP",
+                "name": "Black population",
+                "sum": 7,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "AsnCVAP",
+                "name": "Asian population",
+                "sum": 17,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "LatinoCVAP",
+                "name": "Hispanic population",
+                "sum": 16,
+                "min": 0,
+                "max": 0
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 92,
+               "min": 0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 124,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 57,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 306,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 125,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 188,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 59,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 8,
+   "min": 0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 9,
+   "min": 0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.8208,
+            36.6523
+          ],
+          [
+            -121.7451,
+            36.7285
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_marina_blocks_points"
+            },
+            "sourceLayer": "ca_marina_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_marina_blocks"
+            },
+            "sourceLayer": "ca_marina_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.marinadata_blockgroups"
+            },
+            "sourceLayer": "marinadata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "id": "ca_marina",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
