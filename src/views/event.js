@@ -74,7 +74,7 @@ const validEventCodes = {
   'cc-nm-abq': 'new_mexico',
   centralsan: 'ccsanitation2',
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
-  'pmc-demo': ['wisconsin2020', 'wisconsin'],
+  'pmc-demo': ['wisco2019acs_wards'],
   pmc: ['wisconsin2020', 'wisconsin'],
   'pmc-districts': [],
   powercoalition: 'batonrouge',
