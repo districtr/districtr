@@ -5064,5 +5064,140 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "id": "ca_nevada",
+    "state": "California",
+    "name": "Nevada County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 99244,
+              "min": 0,
+              "max": 1097
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 80049,
+              "min": 0,
+              "max": 643
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 70855,
+                "min": 0,
+                "max": 528
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 593,
+                "min": 0,
+                "max": 99
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 1218,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 5612,
+                "min": 0,
+                "max": 281
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 1447,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 109,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 212,
+                "min": 0,
+                "max": 35
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.2798,
+            39.0052
+          ],
+          [
+            -120.0038,
+            39.5269
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_nevada_blocks_points"
+            },
+            "sourceLayer": "ca_nevada_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_nevada_blocks"
+            },
+            "sourceLayer": "ca_nevada_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.canvdata_blockgroups"
+            },
+            "sourceLayer": "canvdata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
