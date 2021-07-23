@@ -59,10 +59,9 @@ solano_county: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
-'commoncausepa': 'Pennsylvania',
+commoncausepa: 'Pennsylvania',
   kingsco: 'California',
   mercedco: 'California',
- latest
 };
 
 const validEventCodes = {
@@ -116,7 +115,7 @@ const validEventCodes = {
   sbcounty: 'ca_santabarbara',
   ourmaps: 'nebraska',
   marinco: 'ca_marin',
-'commoncausepa': 'pennsylvania',
+commoncausepa: 'pennsylvania',
   kingsco: 'ca_kings',
   mercedco: 'ca_merced',
 };
