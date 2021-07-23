@@ -474,9 +474,9 @@ export default () => {
         }
         
     if (["commoncausepa"].includes(eventCode)) {
-       document.getElementById("single-partnership-icon").style.display = "block";
-         document.getElementById("partner-link").href = "https://www.commoncause.org/pennsylvania/";
-         document.getElementById("partnership").src = "/assets/CC_Share_PA.png";  
+       document.getElementById("partnership-icons").style.display = "block";
+         document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
+         document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";  
           }
         
         if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
