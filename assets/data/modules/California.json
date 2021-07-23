@@ -4477,34 +4477,62 @@
           {
             "type": "population",
             "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total population",
+              "sum": 14586,
+              "min": 0,
+              "max": 1017
+            },
             "subgroups": [
               {
-                "key": "WhtCVAP",
+                "key": "st1519_m2_nhw",
                 "name": "White population",
-                "sum": 43,
+                "sum": 6539,
                 "min": 0,
-                "max": 1
+                "max": 590
               },
               {
-                "key": "BlkCVAP",
+                "key": "st1519_m2_nhb",
                 "name": "Black population",
-                "sum": 7,
+                "sum": 1140,
                 "min": 0,
-                "max": 0
+                "max": 119
               },
               {
-                "key": "AsnCVAP",
+                "key": "st1519_m2_nha",
                 "name": "Asian population",
-                "sum": 17,
+                "sum": 2950,
                 "min": 0,
-                "max": 0
+                "max": 224
               },
               {
-                "key": "LatinoCVAP",
+                "key": "st1519_m2_h",
                 "name": "Hispanic population",
-                "sum": 16,
+                "sum": 2917,
                 "min": 0,
-                "max": 0
+                "max": 204
+              },
+              {
+                "key": "st1519_m2_nhpi",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 283,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "American Indian population",
+                "sum": 179,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other population",
+                "sum": 575,
+                "min": 0,
+                "max": 93
               }
             ]
           },
@@ -4828,7 +4856,7 @@
     "districtingProblems": [
       {
         "name": "City Council",
-        "numberOfParts": 3,
+        "numberOfParts": 4,
         "pluralNoun": "City Council Districts"
       }
     ]
