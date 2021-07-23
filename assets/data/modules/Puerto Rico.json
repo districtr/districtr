@@ -3,7 +3,7 @@
     "units": [
       {
         "id": "blockgroups",
-        "name": "Block Groups",
+        "name": "2010 Block Groups",
         "unitType": "Block Groups",
         "hideOnDefault": true,
         "columnSets": [
@@ -445,49 +445,49 @@
               },
               {
                 "key": "H_WHITE",
-                "name": "Hispanic/ White population",
+                "name": "Hispanic/\u2009White population",
                 "sum": 2798154,
                 "min": 895,
                 "max": 75842
               },
               {
                 "key": "H_BLACK",
-                "name": "Hispanic/ Black population",
+                "name": "Hispanic/\u2009Black population",
                 "sum": 456835,
                 "min": 166,
                 "max": 22066
               },
               {
                 "key": "H_ASIAN",
-                "name": "Hispanic/ Asian population",
+                "name": "Hispanic/\u2009Asian population",
                 "sum": 3901,
                 "min": 0,
                 "max": 382
               },
               {
                 "key": "H_AMIN",
-                "name": "Hispanic/ American Indian population",
+                "name": "Hispanic/\u2009American Indian population",
                 "sum": 19510,
                 "min": 8,
                 "max": 953
               },
               {
                 "key": "H_NHPI",
-                "name": "Hispanic/ Native Hawaiian and Pacific Islander population",
+                "name": "Hispanic/\u2009Native Hawaiian and Pacific Islander population",
                 "sum": 293,
                 "min": 0,
                 "max": 12
               },
               {
                 "key": "H_2MORE",
-                "name": "Hispanic/ Two or more races",
+                "name": "Hispanic/\u2009Two or more races",
                 "sum": 120883,
                 "min": 86,
                 "max": 4055
               },
               {
                 "key": "H_OTHER",
-                "name": "Hispanic/ Other races",
+                "name": "Hispanic/\u2009Other races",
                 "sum": 288879,
                 "min": 68,
                 "max": 8480
@@ -569,7 +569,7 @@
             "subgroups": [
               {
                 "key": "GOV16PPD",
-                "name": "Popular Democrático",
+                "name": "Popular Democr\u00e1tico",
                 "sum": 614190,
                 "min": 478,
                 "max": 15089
@@ -603,7 +603,7 @@
               },
               {
                 "key": "RC16PPD",
-                "name": "Popular Democrático",
+                "name": "Popular Democr\u00e1tico",
                 "sum": 695073,
                 "min": 489,
                 "max": 18699
