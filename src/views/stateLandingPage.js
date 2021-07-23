@@ -377,9 +377,6 @@ const placeItemsTemplate = (places, onClick) => {
                         .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
                         .reduce((items, item) => [...items, ...item], []).length;
     
-    console.log(showAll);
-    console.log(num_hidden);
-
     return places.map(place => 
         place.districtingProblems
         .sort((a, b) => {
