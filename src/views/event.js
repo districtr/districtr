@@ -41,6 +41,8 @@ const stateForEvent = {
   hia: 'Texas',
   onelovemi: 'Michigan',
   saccounty: 'California',
+  fresno: 'California',
+  nevadaco: 'California',
   saccountymap: 'California',
   sonomaco: 'California',
   pasadena2021: 'California',
@@ -58,6 +60,9 @@ solano_county: 'California',
   ourmaps: 'Nebraska',
   marinco: 'California',
 'commoncausepa': 'Pennsylvania',
+  kingsco: 'California',
+  mercedco: 'California',
+ latest
 };
 
 const validEventCodes = {
@@ -94,6 +99,8 @@ const validEventCodes = {
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
+  fresno: 'ca_fresno',
+  nevadaco: 'ca_nevada',
   pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
@@ -109,7 +116,9 @@ const validEventCodes = {
   sbcounty: 'ca_santabarbara',
   ourmaps: 'nebraska',
   marinco: 'ca_marin',
-'commoncausepa': 'pennsylvania'
+'commoncausepa': 'pennsylvania',
+  kingsco: 'ca_kings',
+  mercedco: 'ca_merced',
 };
 
 const blockPlans = {
@@ -177,9 +186,13 @@ const hybrid_events = [
   'hia',
   'saccounty',
   'saccountymap',
+  'fresno',
+  'nevadaco',
   'sonomaco',
   'pasadena2021',
-  'ca_marin',
+  'marinco',
+  'kingsco',
+  'mercedco',
   'goleta',
   'sbcounty',
   'ourmaps',
@@ -256,6 +269,26 @@ share your map and your story using this tool now.</p>\
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
   <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+  fresno: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fresno County’s 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Fresno&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+nevadaco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Nevada County’s 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;NevadaCo&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   sonomaco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sonoma County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -299,11 +332,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-  napa_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
-     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
+  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data. \
+Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
+    <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
+    <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
+    Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps. For more information, visit link.</p>\
+    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
+
    san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -355,6 +390,26 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
      <p>To let the County know about your community and what brings it together, \
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  kingsco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Kings County's 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;KingsCO&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  mercedco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Merced County's 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;MercedCo&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
@@ -427,10 +482,34 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  mercedco: [
+    "Merced County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  kingsco: [
+    "Kings County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   saccountymap: [
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
     For more information, please visit <a href='https://www.saccounty.net/Redistricting/' target='_blank'>www.saccounty.net/Redistricting/</a>",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  fresno: [
+    "Fresno County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  nevadaco: [
+    "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -517,7 +596,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -538,6 +617,13 @@ export default () => {
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
               document.getElementById("partnership-a").src = "/assets/partners-marin.png";
+            } else if (eventCode === "fresno") {
+              document.getElementById("partner-link-a").href = "https://www.co.fresno.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno.png";
+              document.getElementById("partnership-a").style.background = "#1C385A";
+            } else if (eventCode === "nevadaco") {
+              document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
+              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
