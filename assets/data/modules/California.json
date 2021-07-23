@@ -4874,9 +4874,9 @@
             "total": {
               "key": "Est_Population",
               "name": "Total population",
-              "sum": 1002274,
+              "sum": 1002250,
               "min": 0,
-              "max": 3012
+              "max": 3013
             },
             "subgroups": []
           },
@@ -4886,7 +4886,7 @@
             "total": {
               "key": "CVAP_Total",
               "name": "Total population",
-              "sum": 585027,
+              "sum": 584941,
               "min": 0,
               "max": 2654
             },
@@ -4894,49 +4894,49 @@
               {
                 "key": "CVAP_White",
                 "name": "White population",
-                "sum": 233824,
+                "sum": 233833,
                 "min": 0,
-                "max": 596
+                "max": 597
               },
               {
                 "key": "CVAP_Black",
                 "name": "Black population",
-                "sum": 33717,
+                "sum": 33676,
                 "min": 0,
                 "max": 370
               },
               {
                 "key": "CVAP_Asian_Amer",
                 "name": "Asian population",
-                "sum": 60877,
+                "sum": 60803,
                 "min": 0,
                 "max": 399
               },
               {
                 "key": "CVAP_Latino",
                 "name": "Hispanic population",
-                "sum": 247289,
+                "sum": 247196,
                 "min": 0,
                 "max": 1599
               },
               {
                 "key": "CVAP_Native_Amer",
                 "name": "Native American population",
-                "sum": 6941,
+                "sum": 6871,
                 "min": 0,
                 "max": 144
               },
               {
                 "key": "CVAP_Pacific_Isl",
                 "name": "Native Hawaiian Pacific Islander population",
-                "sum": 505,
+                "sum": 503,
                 "min": 0,
                 "max": 60
               },
               {
                 "key": "CVAP_Other",
                 "name": "Other population",
-                "sum": 1874,
+                "sum": 1864,
                 "min": 0,
                 "max": 45
               }
