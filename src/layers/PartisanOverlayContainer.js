@@ -111,7 +111,28 @@ export default class PartisanOverlayContainer {
                                     <span>${c.name}</span>
                                 </li>`);
     }
-
+// ${this.bipolarText
+//                 ? null 
+//                 : Parameter({
+//                     label: "Election:",
+//                     element: Select(
+//                         this.elections,
+//                         ((i) => {
+//                             this.setElection(i); 
+//                                 render(html`${DataTable(headers, 
+//                                         [{label: "Overall", 
+//                                         entries: this.elections[this._currentElectionIndex].parties.map(
+//                                             party => getCell(party, null))}])}`,
+//                                     document.getElementById('election-vote-share'));
+                            
+//                         }),
+//                         this._currentElectionIndex
+//                     )
+//                 })
+//             }
+//             <div id="election-vote-share">
+//                 ${DataTable(headers, [{label: "Overall", entries: this.elections[this._currentElectionIndex].parties.map(party => getCell(party, null))}])}
+//             </div>
     render() {
         const overlay = this.currentElectionOverlay;
         let headers = this.elections[this._currentElectionIndex].parties.map(party => {
@@ -119,29 +140,21 @@ export default class PartisanOverlayContainer {
             return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`
         });
         return html`
-            ${this.bipolarText
-                ? null 
-                : Parameter({
-                    label: "Election:",
-                    element: Select(
-                        this.elections,
-                        ((i) => {
-                            this.setElection(i); 
-                                render(html`${DataTable(headers, 
-                                        [{label: "Overall", 
-                                        entries: this.elections[this._currentElectionIndex].parties.map(
-                                            party => getCell(party, null))}])}`,
-                                    document.getElementById('election-vote-share'));
-                            
-                        }),
-                        this._currentElectionIndex
-                    )
-                })
-            }
-            <div id="election-vote-share">
-                ${DataTable(headers, [{label: "Overall", entries: this.elections[this._currentElectionIndex].parties.map(party => getCell(party, null))}])}
-            </div>
-            <div class="ui-option ui-option--slim">
+        ${this.bipolarText
+            ? null 
+            : Parameter({
+                label: "Election:",
+                element: Select(
+                    this.elections,
+                    ((i) => {
+                        this.setElection(i); 
+                       
+                    }),
+                    this._currentElectionIndex
+                )
+            })
+        }
+           <div class="ui-option ui-option--slim">
             <h5>
               <label class="toolbar-checkbox">
                   <input
