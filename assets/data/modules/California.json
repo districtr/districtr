@@ -3738,7 +3738,7 @@
    "districtingProblems": [
      {
        "name": "County",
-       "numberOfParts": 9,
+       "numberOfParts": 10,
        "pluralNoun": "Council Districts"
      }
    ]
