@@ -4,7 +4,7 @@
     "units": [
       {
         "id": "blockgroups",
-        "name": "Block Groups",
+        "name": "2010 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
           {
@@ -525,8 +525,14 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [-82.6446, 37.2015],
-          [-77.7195, 40.6388]
+          [
+            -82.6446,
+            37.2015
+          ],
+          [
+            -77.7195,
+            40.6388
+          ]
         ],
         "tilesets": [
           {

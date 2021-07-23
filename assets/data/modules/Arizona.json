@@ -49,7 +49,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -269,7 +269,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -493,7 +493,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -714,7 +714,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -932,7 +932,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -1145,7 +1145,7 @@
     "units": [
       {
         "id": "blockgroups",
-        "name": "Block Groups",
+        "name": "2010 Block Groups",
         "unitType": "Block Groups",
         "hideOnDefault": true,
         "columnSets": [
@@ -1666,7 +1666,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2010 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {

@@ -173,8 +173,14 @@
           "key": "name"
         },
         "bounds": [
-          [-90.4183, 41.6961],
-          [-82.4187, 48.2627]
+          [
+            -90.4183,
+            41.6961
+          ],
+          [
+            -82.4187,
+            48.2627
+          ]
         ],
         "tilesets": [
           {
@@ -197,7 +203,7 @@
       },
       {
         "id": "blockgroups",
-        "name": "Block Groups",
+        "name": "2010 Block Groups",
         "unitType": "Block Groups",
         "hideOnDefault": true,
         "columnSets": [
@@ -345,8 +351,14 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [-90.4184, 41.6961],
-          [-82.41, 48.3061]
+          [
+            -90.4184,
+            41.6961
+          ],
+          [
+            -82.41,
+            48.3061
+          ]
         ],
         "tilesets": [
           {
