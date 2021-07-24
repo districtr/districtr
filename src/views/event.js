@@ -550,15 +550,15 @@ export default () => {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
         }
-        
+
     if (["commoncausepa"].includes(eventCode)) {
        document.getElementById("partnership-icons").style.display = "block";
        document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
        document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
        document.getElementById("partner-link-b").href = "https://www.commoncause.org/";
-       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png"; 
+       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
-        
+
         if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
@@ -595,7 +595,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -623,6 +623,13 @@ export default () => {
             } else if (eventCode === "nevadaco") {
               document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
               document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
+            } else if (eventCode === "kingsco") {
+              document.getElementById("partner-link-a").href = "https://www.countyofkings.com/";
+              document.getElementById("partnership-a").src = "/assets/partners-kings.svg";
+              document.getElementById("partnership-a").style.background = "#142942";
+            } else if (eventCode === "mercedco") {
+              document.getElementById("partner-link-a").href = "https://www.co.merced.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-merced.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
