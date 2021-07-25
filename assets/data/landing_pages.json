@@ -204,7 +204,7 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada"], "id": "counties"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_sm_county", "ca_sanbenito"], "id": "counties"},
       {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
