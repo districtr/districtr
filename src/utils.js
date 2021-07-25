@@ -443,6 +443,18 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+  ca_marina: {
+    coalition: false,
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_arroyo: {
+    coalition: false,
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   napa2021: {
     border: true,
     shapefile: true,
