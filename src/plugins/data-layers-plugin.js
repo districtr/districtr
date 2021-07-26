@@ -410,7 +410,7 @@ export default function DataLayersPlugin(editor) {
                     layout: {
                       'text-field': [
                           'format',
-                          ['get', 'VTD'],
+                          ['get', 'CURRENT_PC'],
                           {},
                       ],
                       'text-anchor': 'center',
@@ -420,8 +420,7 @@ export default function DataLayersPlugin(editor) {
                     paint: {
                       'text-opacity': 0
                     }
-                  },
-                  addBelowLabels
+                  }
               );
           });
        });
