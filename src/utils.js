@@ -1261,6 +1261,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
     },
+    elpaso2: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+    },
     utah: {
       number_markers: true,
       county_brush: true,
