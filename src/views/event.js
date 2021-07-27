@@ -1,9 +1,11 @@
 import { svg, html, render } from "lit-html";
 import { listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
-
+import { PlaceMapWithData } from "../components/PlaceMap";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
+import { until } from "lit-html/directives/until";
+
 
 let skip = 0,
     prevPlans = [];
@@ -690,6 +692,13 @@ export default () => {
             document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
+        if(eventCode === "ttt") {
+            let title = document.getElementById("districting-options-title");
+            render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.  
+            You can start in any state and use the tag "TTT" to post here.</text>`, title);
+            // let map_section = document.getElementById("districting-options");
+            // render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt)), ""), map_section);
+        }
 
         if (eventCode === "open-maps") {
           // ohio mini-map
@@ -945,4 +954,9 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
             }
         </li>
     </a>`;
+}
+
+function toStateCommunities(s) {
+    const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
+    window.location.assign(url);
 }
