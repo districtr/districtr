@@ -957,6 +957,6 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
 }
 
 function toStateCommunities(s) {
-    const url = s.properties.NAME.toLowerCase() + "?mode=coi";
-    location.assign(url);
+    const url = window.location.origin + '/' + s.properties.NAME.toLowerCase() + "?mode=coi";
+    window.location.assign(url);
 }
