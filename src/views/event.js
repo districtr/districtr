@@ -696,8 +696,8 @@ export default () => {
             let title = document.getElementById("districting-options-title");
             render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.  
             You can start in any state and use the tag "TTT" to post here.</text>`, title);
-            let map_section = document.getElementById("districting-options");
-            render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt)), ""), map_section);
+            // let map_section = document.getElementById("districting-options");
+            // render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt)), ""), map_section);
         }
 
         if (eventCode === "open-maps") {
