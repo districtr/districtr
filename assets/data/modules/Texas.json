@@ -2135,6 +2135,169 @@
             "sourceLayer": "elpasotx_blocks"
           }
         ]
+      },
+      {
+        "id": "precincts",
+        "name": "2021 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP19",
+              "name": "Total population",
+              "sum": 836062,
+              "min": 0,
+              "max": 17139
+            },
+            "subgroups": [
+              {
+                "key": "WPOP19",
+                "name": "White population",
+                "sum": 666059,
+                "min": 0,
+                "max": 13674
+              },
+              {
+                "key": "BPOP19",
+                "name": "Black population",
+                "sum": 27799,
+                "min": 0,
+                "max": 1380
+              },
+              {
+                "key": "HPOP19",
+                "name": "Hispanic population",
+                "sum": 690272,
+                "min": 0,
+                "max": 12915
+              },
+              {
+                "key": "NHPIPOP19",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 1133,
+                "min": 0,
+                "max": 315
+              },
+              {
+                "key": "2MOREPOP19",
+                "name": "Two or more races population",
+                "sum": 22207,
+                "min": 0,
+                "max": 1051
+              },
+              {
+                "key": "ASIANPOP19",
+                "name": "Asian population",
+                "sum": 10275,
+                "min": 0,
+                "max": 455
+              },
+              {
+                "key": "AMINPOP19",
+                "name": "American Indian population",
+                "sum": 5197,
+                "min": 0,
+                "max": 509
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP19",
+              "name": "Citizen voting age population",
+              "sum": 506404,
+              "min": 0,
+              "max": 8652
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP19",
+                "name": "White citizen voting age population",
+                "sum": 79083,
+                "min": 0,
+                "max": 3014
+              },
+              {
+                "key": "BCVAP19",
+                "name": "Black citizen voting age population",
+                "sum": 18859,
+                "min": 0,
+                "max": 1080
+              },
+              {
+                "key": "HCVAP19",
+                "name": "Hispanic citizen voting age population",
+                "sum": 396774,
+                "min": 0,
+                "max": 6291
+              },
+              {
+                "key": "NHPICVAP19",
+                "name": "Native Hawaiian Pacific Islander citizen voting age population",
+                "sum": 658,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "2MORECVAP1",
+                "name": "Two or more races citizen voting age population",
+                "sum": 3898,
+                "min": 0,
+                "max": 324
+              },
+              {
+                "key": "ASIANCVAP1",
+                "name": "Asian citizen voting age population",
+                "sum": 5217,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "AMINCVAP19",
+                "name": "American Indian citizen voting age population",
+                "sum": 1754,
+                "min": 0,
+                "max": 144
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "ID",
+          "key": "CURRENT_PC"
+        },
+        "bounds": [
+          [
+            -106.646,
+            31.3873
+          ],
+          [
+            -105.9542,
+            32.0017
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elpaso2_precincts_points"
+            },
+            "sourceLayer": "elpaso2_precincts_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elpaso2_precincts"
+            },
+            "sourceLayer": "elpaso2_precincts"
+          }
+        ]
       }
     ],
     "state": "Texas",
