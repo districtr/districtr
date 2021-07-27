@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
     } else if (planType === 'draft') {
       query['isScratch'] = true;
     } else {
-      query['isScratch'] = false;
+      query['isScratch'] = { '$ne': true };
     }
     if (skipNum) {
       plans = await Plan.find(query)
