@@ -2413,7 +2413,7 @@
     "code": "TX",
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx"], "id": "cty"},
+      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx", "elpaso2"], "id": "cty"},
       {"name": "Cities", "ids": ["austin", "fortworth", "houston"], "id": "loc"}
     ],
     "sections": [

@@ -110,11 +110,7 @@ export default function NumberMarkers(state, brush) {
             extra_source = "texas";
         }
         if (state.place.id === "elpasotx" && state.units.sourceId.includes("precincts")) {
-            if (state.units.sourceId.includes("2")) {
-                extra_source = "elpaso2";
-            } else {
-                extra_source = "texas";
-            }
+            extra_source = "texas";
         }
 
         let placeID = extra_source || place;

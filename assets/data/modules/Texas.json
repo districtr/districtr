@@ -1962,7 +1962,8 @@
             },
             "sourceLayer": "elpasotx_precincts"
           }
-        ]
+        ],
+        "limit": 2020
       },
       {
         "id": "blocks",
@@ -2135,7 +2136,21 @@
             "sourceLayer": "elpasotx_blocks"
           }
         ]
-      },
+      }
+    ],
+    "state": "Texas",
+    "name": "El Paso County",
+    "id": "elpasotx",
+    "districtingProblems": [
+      {
+        "name": "Various Jurisdiction",
+        "numberOfParts": 5,
+        "pluralNoun": "Jurisdiction Districts"
+      }
+    ]
+  },
+  {
+    "units": [
       {
         "id": "precincts",
         "name": "2021 Precincts",
@@ -2302,7 +2317,7 @@
     ],
     "state": "Texas",
     "name": "El Paso County",
-    "id": "elpasotx",
+    "id": "elpaso2",
     "districtingProblems": [
       {
         "name": "Various Jurisdiction",
