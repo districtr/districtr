@@ -5610,7 +5610,6 @@
   },
   {
     "name": "Contra Costa",
-    "state": "California",
     "units": [
       {
         "id": "blockgroups",
@@ -5722,6 +5721,7 @@
       }
     ],
     "id": "contracosta",
+    "state": "California",
     "districtingProblems": [
       {
         "name": "Supervisoral",
