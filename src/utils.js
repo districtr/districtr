@@ -377,6 +377,12 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    contracosta: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+      municipalities: true,
+    },
     pasorobles: {
       number_markers: true,
       border: true,
