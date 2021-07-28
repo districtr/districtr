@@ -6020,7 +6020,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -6225,7 +6225,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -6420,7 +6420,7 @@
       {
         "name": "City Council",
         "numberOfParts": 5,
-        "pluralNoun": "Supervisorial Districts"
+        "pluralNoun": "Council Districts"
       }
     ]
   },
@@ -6431,7 +6431,7 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -6624,7 +6624,7 @@
       {
         "name": "City Council",
         "numberOfParts": 5,
-        "pluralNoun": "Supervisorial Districts"
+        "pluralNoun": "Council Districts"
       }
     ]
   }
