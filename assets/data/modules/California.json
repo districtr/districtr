@@ -5607,5 +5607,413 @@
         "pluralNoun": "City Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 768535,
+              "min": 0,
+              "max": 2363
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 500930,
+              "min": 0,
+              "max": 1754
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 236376,
+                "min": 0,
+                "max": 861
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 15549,
+                "min": 0,
+                "max": 174
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 147170,
+                "min": 0,
+                "max": 895
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 89368,
+                "min": 0,
+                "max": 323
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 2197,
+                "min": 0,
+                "max": 113
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 6696,
+                "min": 0,
+                "max": 234
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 3573,
+                "min": 0,
+                "max": 90
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 5,
+               "min": 0.0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 8,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 7,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 17,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 9,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 11,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 4,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 1,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 1,
+   "min": 0.0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.5882,
+            37.0539
+          ],
+          [
+            -122.0815,
+            37.7086
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sm_county_blocks_points"
+            },
+            "sourceLayer": "ca_sm_county_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sm_county_blocks"
+            },
+            "sourceLayer": "ca_sm_county_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanmcodata_blockgroups"
+            },
+            "sourceLayer": "sanmcodata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "ca_sm_county",
+    "name": "San Mateo County",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "id": "ca_sanbenito",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 60375,
+              "min": 0,
+              "max": 961
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 38168,
+              "min": 0,
+              "max": 746
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 16754,
+                "min": 0,
+                "max": 481
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 437,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 1422,
+                "min": 0,
+                "max": 53
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 19095,
+                "min": 0,
+                "max": 427
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 283,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 34,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 141,
+                "min": 0,
+                "max": 37
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 5,
+               "min": 0.0,
+               "max": 1
+            },
+            "subgroups": [
+ {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 8,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 7,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 17,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 9,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 11,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 4,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 1,
+   "min": 0.0,
+   "max": 1
+ },
+ {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 1,
+   "min": 0.0,
+   "max": 1
+ }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.644,
+            36.1968
+          ],
+          [
+            -120.5966,
+            36.9889
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sanbenito_blocks_points"
+            },
+            "sourceLayer": "ca_sanbenito_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sanbenito_blocks"
+            },
+            "sourceLayer": "ca_sanbenito_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sbenitodata_blockgroups"
+            },
+            "sourceLayer": "sbenitodata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "name": "San Benito County",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
