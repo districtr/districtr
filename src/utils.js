@@ -382,6 +382,9 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       municipalities: true,
+      portal: {
+        endpoint: 'https://portal.contracosta-mapping.org'
+      }
     },
     pasorobles: {
       number_markers: true,
