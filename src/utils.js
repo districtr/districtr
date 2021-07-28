@@ -443,6 +443,18 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_sm_county: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_sanbenito: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_marin: {
       coalition: false,
       border: true,
