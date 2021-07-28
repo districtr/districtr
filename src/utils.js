@@ -467,6 +467,24 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
   },
+  ca_cvista: {
+    coalition: false,
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_camarillo: {
+    coalition: false,
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_bellflower: {
+    coalition: false,
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   napa2021: {
     border: true,
     shapefile: true,
