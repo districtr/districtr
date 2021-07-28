@@ -3448,7 +3448,7 @@
      }
    ],
    "id": "napa2021",
-   "name": "City of Napa (2021)",
+   "name": "Napa (City, 2021)",
    "state": "California",
    "districtingProblems": [
      {
@@ -6624,6 +6624,210 @@
       {
         "name": "City Council",
         "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "id": "ca_fresno_ci",
+    "name": "Fresno (City)",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Popula",
+              "name": "Total population",
+              "sum": 534602,
+              "min": 0,
+              "max": 3012
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 321153,
+              "min": 0,
+              "max": 2654
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 115545,
+                "min": 0,
+                "max": 596
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 28007,
+                "min": 0,
+                "max": 370
+              },
+              {
+                "key": "CVAP_Asian",
+                "name": "Asian population",
+                "sum": 41166,
+                "min": 0,
+                "max": 399
+              },
+              {
+                "key": "CVAP_Latin",
+                "name": "Hispanic population",
+                "sum": 131613,
+                "min": 0,
+                "max": 1599
+              },
+              {
+                "key": "CVAP_Nativ",
+                "name": "Native American population",
+                "sum": 3415,
+                "min": 0,
+                "max": 90
+              },
+              {
+                "key": "CVAP_Pacif",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 298,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 1108,
+                "min": 0,
+                "max": 45
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 92,
+               "min": 0,
+               "max": 1
+            },
+            "subgroups": [
+  {
+   "key": "Renters",
+   "name": "Renter percent",
+   "sum": 124,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "Apts",
+   "name": "Multi-family residents",
+   "sum": 57,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "HSGrads",
+   "name": "High school graduate",
+   "sum": 306,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "CollegeGrads",
+   "name": "College graduate",
+   "sum": 125,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "Inc75",
+   "name": ">$75k income",
+   "sum": 188,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "SpanishAtHome",
+   "name": "Spanish spoken at home",
+   "sum": 59,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "AsnLangAtHome",
+   "name": "Asian languages spoken at home",
+   "sum": 8,
+   "min": 0,
+   "max": 1
+  },
+  {
+   "key": "OthLangAtHome",
+   "name": "Other languages spoken at home",
+   "sum": 9,
+   "min": 0,
+   "max": 1
+  }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -119.9344,
+            36.6628
+          ],
+          [
+            -119.6505,
+            36.9112
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fresno_ci_blocks_points"
+            },
+            "sourceLayer": "ca_fresno_ci_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fresno_ci_blocks"
+            },
+            "sourceLayer": "ca_fresno_ci_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fresnocidata_blockgroups"
+            },
+            "sourceLayer": "fresnocidata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
         "pluralNoun": "Council Districts"
       }
     ]

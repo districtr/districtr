@@ -419,6 +419,12 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_fresno_ci: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_nevada: {
       coalition: false,
       border: true,

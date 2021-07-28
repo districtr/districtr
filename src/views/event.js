@@ -44,6 +44,7 @@ const stateForEvent = {
   onelovemi: 'Michigan',
   saccounty: 'California',
   fresno: 'California',
+  fresnocity: 'California',
   nevadaco: 'California',
   sanmateoco: 'California',
   sanbenito: 'California',
@@ -108,6 +109,7 @@ const validEventCodes = {
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
   fresno: 'ca_fresno',
+  fresnocity: 'ca_fresno_ci',
   nevadaco: 'ca_nevada',
   sanmateoco: 'ca_sm_county',
   sanbenito: 'ca_sanbenito',
@@ -202,6 +204,7 @@ const hybrid_events = [
   'saccounty',
   'saccountymap',
   'fresno',
+  'fresnocity',
   'nevadaco',
   'sanmateoco',
   'sanbenito',
@@ -422,6 +425,16 @@ Redistricting is based on population and communities of interest.  A community o
      <p>To let the City know about your community and what brings it together, \
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;MarinaCA&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  fresnocity: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fresno's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;FresnoCity&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   arroyog: "<p>Welcome to the Districtr Community of Interest public mapping tool for Arroyo Grande's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -730,7 +743,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -761,6 +774,9 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.co.fresno.ca.us/";
               document.getElementById("partnership-a").src = "/assets/partners-fresno.png";
               document.getElementById("partnership-a").style.background = "#1C385A";
+            } else if (eventCode === "fresnocity") {
+              document.getElementById("partner-link-a").href = "https://fresno.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg";
             } else if (eventCode === "nevadaco") {
               document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
               document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
@@ -827,7 +843,6 @@ export default () => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
                 ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                    // console.log(feature);
                     return svg`<path id="x" stroke-width="0"
                         d="${path(feature)}"
                         @click=${(e) => {
@@ -841,7 +856,6 @@ export default () => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
                 ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                    // console.log(feature);
                     return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
                         d="${path(feature)}"
                         @click=${(e) => {
@@ -855,7 +869,6 @@ export default () => {
               render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
                 <g id="states-group" @mouseleave=${() => {}}>
                   ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                      // console.log(feature);
                       return svg`<path id="x" fill="#ccc" stroke-width="0"
                           d="${path(feature)}"
                       ></path>`;
