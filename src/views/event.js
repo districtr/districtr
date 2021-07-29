@@ -883,7 +883,7 @@ export default () => {
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" :
-                (drafts ? "Works in Progress" : "Community-submitted maps")),
+                (drafts ? "Works in Progress" : "Public Gallery")),
                 plans: drafts ? prevDrafts : prevPlans,
             }];
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
