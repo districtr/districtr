@@ -1,14 +1,17 @@
 import { svg, html, render } from "lit-html";
-import { listPlacesForState, placeItems } from "../components/PlacesList";
+import { communitiesFilter, listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { PlaceMapWithData } from "../components/PlaceMap";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 import { until } from "lit-html/directives/until";
+import { listPlaces } from "../api/mockApi";
 
 
-let skip = 0,
-    prevPlans = [];
+
+let skip = 0, draftskip = 0,
+    prevPlans = [],
+    prevDrafts = [];
 
 const stateForEvent = {
   test: 'Pennsylvania',
@@ -823,8 +826,8 @@ export default () => {
             let title = document.getElementById("districting-options-title");
             render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.
             You can start in any state and use the tag "TTT" to post here.</text>`, title);
-            // let map_section = document.getElementById("districting-options");
-            // render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt)), ""), map_section);
+            let map_section = document.getElementById("districting-options");
+            render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt, 'ttt')), ""), map_section);
         }
 
         if (eventCode === "open-maps") {
@@ -951,32 +954,44 @@ export default () => {
                     ? "/assets/sample_event.json"
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data) => {
+        let showPlans = (data, drafts = false) => {
             let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
             if (loadExtraPlans) {
                 data.plans.pop();
             }
-            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
+            // hide at start
+            if (drafts && draftskip == 0)
+              data.plans = [];
+            drafts 
+              ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
+              : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
-                title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
-                plans: prevPlans,
+                title: (eventCode === "missouri-mapping" ? "What community maps can look like" :
+                (drafts ? "Works in Progress" : "Public Gallery")),
+                plans: drafts ? prevDrafts : prevPlans,
             }];
+            let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
+            let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
+            let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
+            if (drafts) // once clicked once no longer hide them!
+              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
+
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
-                  html`<button id="loadMorePlans" @click="${(e) => {
-                      document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").disabled = true;
-                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
-                        skip += limitNum;
-                        document.getElementById("event-pinwheel").style.display = "none";
-                        document.getElementById("loadMorePlans").disabled = false;
-                        showPlans(d);
+                  html`<button id="${button}" @click="${(e) => {
+                      document.getElementById(pinwheel).style.display = "block";
+                      document.getElementById(button).disabled = true;
+                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                        drafts ? draftskip += limitNum : skip += limitNum;
+                        document.getElementById(pinwheel).style.display = "none";
+                        document.getElementById(button).disabled = false;
+                        showPlans(d, drafts);
                       });
-                  }}">Load More Plans</button>
-                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
+                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                  ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
-            `, document.getElementById("plans"));
+            `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -988,6 +1003,8 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
+        console.log(eventurl)
+        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
@@ -1080,7 +1097,30 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     </a>`;
 }
 
-function toStateCommunities(s) {
-    const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
-    window.location.assign(url);
+function toStateCommunities(s, eventCode) {
+    //const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
+    //window.location.assign(url);
+    // let place;
+    // place.districtingProblems = [
+    //   { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+    // ];
+    let show_just_communities = true;
+    let tgt = document.getElementById('districting-options');
+    console.log(listPlaces(null, s.properties.NAME))
+    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
+    render("", tgt)
+    listPlaces(null, s.properties.NAME).then(items => {
+      let placesList = items.filter(place => !place.limit || show_just_communities)
+          .map(communitiesFilter)
+      let lstdiv = document.createElement('div');
+      tgt.append(lstdiv)
+      placesList.forEach(place => {
+        place.districtingProblems = [
+            { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+          ]
+          const mydiv = document.createElement('li');
+          lstdiv.append(mydiv);
+          render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+      })
+    });
 }

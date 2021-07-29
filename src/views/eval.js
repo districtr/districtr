@@ -17,6 +17,9 @@ import { roundToDecimal, county_fips_to_name, spatial_abilities } from "../utils
 import { districtColors } from "../colors";
 import Analyzer from "../models/Analyzer";
 
+// global for the election slides
+let two_party = -1;
+
 /**
  * @desc Retrieves the proper map style; uses the same rules as the Editor.
  * @param {Object} context Context object retrieved from the database.
@@ -281,11 +284,14 @@ function overview_section (state, contig, problems, num_tiles) {
 // Election Results Section
 function election_section(state) {
     let elections = state.elections;
-
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
     let rows = [];
 
+    // filters to only two parties, but only sets the global once
+    two_party = two_party == -1 ? elections.map(e => e.subgroups.length == 2).reduce((a,b) => a + b, 0) == elections.length : two_party;
+    elections.forEach(e => e.subgroups = e.subgroups.length == 1 ? e.subgroups : e.subgroups.filter(p => ['Democratic', 'Republican'].includes(p.name)));
+    
     let headers = ['Election'].concat(
         elections[0].parties.map(party => {
         const rgb = getPartyRGBColors(party.name + party.key);
@@ -338,8 +344,8 @@ function election_section(state) {
         The disproportionality ${favorstr}.
         <br/>
         <br/>
-        ${elections[0].parties.length === 2 ? html`<strong>Votes vs. Seats by Election (among the two major parties)</strong>` 
-            : `<strong>Votes vs. Seats by Election</strong>`}
+        ${two_party ? html`<strong>Votes vs. Seats by Election (among the two major parties)</strong>` 
+            : html`<strong>Votes vs. Seats by Election</strong>`}
         ${DataTable(headers, rows, true)}
         `;
 }

@@ -12,7 +12,7 @@ export function onlyCommunities() {
     justCommunities = true;
 }
 
-function communitiesFilter(place) {
+export function communitiesFilter(place) {
     if (justCommunities) {
         place.districtingProblems = [
             { type: "community", numberOfParts: 250, pluralNoun: "Community" }
