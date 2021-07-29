@@ -7,7 +7,7 @@ import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 import { until } from "lit-html/directives/until";
 
 
-let skip = 0,
+let skip = 0, draftskip = 0,
     prevPlans = [],
     prevDrafts = [];
 
@@ -889,14 +889,17 @@ export default () => {
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
+            if (drafts) // hide drafts at start
+              fetchurl.replace("limit=17", "limit=0");
+
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="${button}" @click="${(e) => {
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
-                      fetch(fetchurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
-                        skip += limitNum;
+                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                        drafts ? draftskip += limitnum : skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
                         document.getElementById(button).disabled = false;
                         showPlans(d, drafts);
