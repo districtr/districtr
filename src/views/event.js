@@ -1,10 +1,12 @@
 import { svg, html, render } from "lit-html";
-import { listPlacesForState, placeItems } from "../components/PlacesList";
+import { communitiesFilter, listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { PlaceMapWithData } from "../components/PlaceMap";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
 import { until } from "lit-html/directives/until";
+import { listPlaces } from "../api/mockApi";
+
 
 
 let skip = 0,
@@ -741,8 +743,8 @@ export default () => {
             let title = document.getElementById("districting-options-title");
             render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.  
             You can start in any state and use the tag "TTT" to post here.</text>`, title);
-            // let map_section = document.getElementById("districting-options");
-            // render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt)), ""), map_section);
+            let map_section = document.getElementById("districting-options");
+            render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt, 'ttt')), ""), map_section);
         }
 
         if (eventCode === "open-maps") {
@@ -1001,7 +1003,30 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     </a>`;
 }
 
-function toStateCommunities(s) {
-    const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
-    window.location.assign(url);
+function toStateCommunities(s, eventCode) {
+    //const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
+    //window.location.assign(url);
+    // let place;
+    // place.districtingProblems = [
+    //   { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+    // ];
+    let show_just_communities = true;
+    let tgt = document.getElementById('districting-options');
+    console.log(listPlaces(null, s.properties.NAME))
+    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
+    render("", tgt)
+    listPlaces(null, s.properties.NAME).then(items => {
+      let placesList = items.filter(place => !place.limit || show_just_communities)
+          .map(communitiesFilter)
+      let lstdiv = document.createElement('div');
+      tgt.append(lstdiv)
+      placesList.forEach(place => {
+        place.districtingProblems = [
+            { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+          ]
+          const mydiv = document.createElement('li');
+          lstdiv.append(mydiv);
+          render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+      })
+    });
 }
