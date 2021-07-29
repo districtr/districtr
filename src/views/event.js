@@ -872,7 +872,7 @@ export default () => {
                     ? "/assets/sample_event.json"
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data) => {
+        let showPlans = (data, drafts = false) => {
             let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
             if (loadExtraPlans) {
                 data.plans.pop();
@@ -882,22 +882,25 @@ export default () => {
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
                 plans: prevPlans,
             }];
+            let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
+            let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
+            let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
-                  html`<button id="loadMorePlans" @click="${(e) => {
-                      document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").disabled = true;
-                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
+                  html`<button id="${button}" @click="${(e) => {
+                      document.getElementById(pinwheel).style.display = "block";
+                      document.getElementById(button).disabled = true;
+                      fetch(fetchurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
                         skip += limitNum;
-                        document.getElementById("event-pinwheel").style.display = "none";
-                        document.getElementById("loadMorePlans").disabled = false;
+                        document.getElementById(pinwheel).style.display = "none";
+                        document.getElementById(button).disabled = false;
                         showPlans(d);
                       });
                   }}">Load More Plans</button>
-                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
+                  ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
-            `, document.getElementById("plans"));
+            `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -909,6 +912,8 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
+        console.log(eventurl)
+        fetch(eventurl + "&type=draft").then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
