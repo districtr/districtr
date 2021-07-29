@@ -904,7 +904,7 @@ export default () => {
                         document.getElementById(button).disabled = false;
                         showPlans(d, drafts);
                       });
-                  }}">Load More ${drafts ? "Drafts" : "Plans"}</button>
+                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
                   ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
