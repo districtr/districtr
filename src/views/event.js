@@ -8,7 +8,8 @@ import { until } from "lit-html/directives/until";
 
 
 let skip = 0,
-    prevPlans = [];
+    prevPlans = [],
+    prevDrafts = [];
 
 const stateForEvent = {
   test: 'Pennsylvania',
@@ -877,11 +878,13 @@ export default () => {
             if (loadExtraPlans) {
                 data.plans.pop();
             }
-            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
+            drafts 
+              ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
+              : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
                 title: (eventCode === "missouri-mapping" ? "What community maps can look like" :
                 (drafts ? "Works in Progress" : "Community-submitted maps")),
-                plans: prevPlans,
+                plans: drafts ? prevDrafts : prevPlans,
             }];
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
