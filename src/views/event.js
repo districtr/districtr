@@ -878,6 +878,9 @@ export default () => {
             if (loadExtraPlans) {
                 data.plans.pop();
             }
+            // hide at start
+            if (drafts && draftskip == 0)
+              data.plans = [];
             drafts 
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
@@ -899,7 +902,7 @@ export default () => {
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
                       fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
-                        drafts ? draftskip += limitnum : skip += limitNum;
+                        drafts ? draftskip += limitNum : skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
                         document.getElementById(button).disabled = false;
                         showPlans(d, drafts);
