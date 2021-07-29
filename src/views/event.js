@@ -896,7 +896,7 @@ export default () => {
                         skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
                         document.getElementById(button).disabled = false;
-                        showPlans(d);
+                        showPlans(d, drafts);
                       });
                   }}">Load More ${drafts ? "Drafts" : "Plans"}</button>
                   ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
