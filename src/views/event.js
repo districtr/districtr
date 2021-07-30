@@ -107,7 +107,7 @@ const validEventCodes = {
   slo_county: 'sanluiso',
   ourmapsne: 'nebraska',
   prjusd: 'pasorobles',
-  'hia': ['texas', 'harristx', 'houston'],
+  'hia': ['tx_vra', 'harristx', 'houston'],
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
@@ -157,9 +157,6 @@ const unitTypes = {
   'hia': {no: 'Precincts'},
 };
 
-const numberOfParts = {
-   'hia': {no: 36}
-};
 
 const unitCounts = {
   'unca-forsyth': 101,
