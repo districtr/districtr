@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "A tool for drawing districting plans",
     "scripts": {
-        "test": "node validate.js && karma start --coverage",
+        "test": "node validate-modules.js && node validate-events.js && karma start --coverage",
         "build": "npm run build:aliases && npm run build:lambda && npm run build:app",
         "build:aliases": "cp html/edit.html html/COI.html && cp html/edit.html html/plan.html && cp html/event.html html/tag.html && cp html/event.html html/group.html",
         "build:app": "gulp build",
@@ -14,8 +14,8 @@
         "start:app": "gulp develop",
         "start:lambda": "netlify-lambda serve src/lambda",
         "test:watch": "karma start --auto-watch=true --single-run=false",
-        "test-ci": "node validate.js && karma start --single-run --browsers Firefox",
-        "validate": "node validate.js"
+        "test-ci": "node validate-modules.js && node validate-events.js",
+        "validate": "node validate-modules.js && node validate-events.js"
     },
     "repository": {
         "type": "git",

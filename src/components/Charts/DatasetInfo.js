@@ -1,4 +1,5 @@
 import { directive } from "lit-html";
+import { spatial_abilities } from "../../utils";
 
 /**
  * Creates an HTML entity which provides some supplementary information about
@@ -13,19 +14,19 @@ function datasetInfo(state) {
         populations = {
             census: "Uses <strong>2010 Decennial Census</strong> data.",
             acs: "Uses <strong>2019 American Community Survey</strong> data.",
-            mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners.",
+            repa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners.",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies.",
-            sacramento: "Uses <strong>projected 2020 population</strong> based on the American Community Survey by National Demographics Corporation",
+            ndc: "Uses <strong>projected 2020 population</strong> based on the American Community Survey by National Demographics Corporation",
         },
         acsLocations = ["wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson", "nd_dunn", "nd_mckenzie", "nd_mountrail", "nd_ramsey", "nd_rollette", "nd_sioux", "contracosta"];
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
-    } else if (["mesaaz", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano"].includes(place.id)) {
-        return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
+    } else if (spatial_abilities(place.id).src === "RePa") {
+        return `<p><span>&#9432;</span> ${populations.repa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci"].includes(place.id)) {
-        return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
+    } else if (spatial_abilities(place.id).src === "NDC") {
+        return `<p><span>&#9432;</span> ${populations.ndc}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
 }

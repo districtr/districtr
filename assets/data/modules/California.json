@@ -1982,65 +1982,56 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 295.60040000000004,
-               "min": 0.0,
+               "min": 0,
                "max": 1
             },
             "subgroups": [
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 361.18690000000004,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 196.79809999999998,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 767.4854,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 273.1738,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 398.4233,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 114.0665,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 81.15039999999999,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 73.4497,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  }
             ]
@@ -2385,7 +2376,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -2393,56 +2383,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -2590,7 +2572,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 20,
                "min": 0,
                "max": 1
             },
@@ -2598,56 +2579,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 41,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 30,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 71,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 42,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 43,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 19,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 6,
    "min": 0,
    "max": 1
  }
@@ -2793,65 +2766,56 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 5,
-               "min": 0.0,
+               "min": 0,
                "max": 1
             },
             "subgroups": [
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 8,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 7,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 17,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 9,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 11,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 4,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  }
             ]
@@ -2998,65 +2962,56 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 78,
-               "min": 0.0,
+               "min": 0,
                "max": 1
             },
             "subgroups": [
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 106,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 62,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 196,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 86,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 120,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 73,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 7,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 7,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  }
             ]
@@ -3201,7 +3156,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 40,
                "min": 0,
                "max": 1
             },
@@ -3209,56 +3163,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 47,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 36,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 129,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 86,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 91,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 14,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 3,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  }
@@ -4542,7 +4488,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -4550,56 +4495,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -4744,7 +4681,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -4752,56 +4688,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -4948,7 +4876,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -4956,56 +4883,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -5289,7 +5208,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -5297,56 +5215,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -5492,7 +5402,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -5500,56 +5409,48 @@
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
  }
@@ -5817,65 +5718,56 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 5,
-               "min": 0.0,
+               "min": 0,
                "max": 1
             },
             "subgroups": [
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 8,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 7,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 17,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 9,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 11,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 4,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  }
             ]
@@ -6022,65 +5914,56 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 5,
-               "min": 0.0,
+               "min": 0,
                "max": 1
             },
             "subgroups": [
  {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 8,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 7,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 17,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 9,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 11,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 4,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  },
  {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 1,
-   "min": 0.0,
+   "min": 0,
    "max": 1
  }
             ]
@@ -6225,7 +6108,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -6233,56 +6115,48 @@
   {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
   },
   {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
   },
   {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
   },
   {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
   },
   {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
   },
   {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
   },
   {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
   },
   {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
   }
@@ -6430,7 +6304,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -6438,56 +6311,48 @@
   {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
   },
   {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
   },
   {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
   },
   {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
   },
   {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
   },
   {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
   },
   {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
   },
   {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
   }
@@ -6636,7 +6501,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -6644,56 +6508,48 @@
   {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
   },
   {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
   },
   {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
   },
   {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
   },
   {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
   },
   {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
   },
   {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
   },
   {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
   }
@@ -6839,7 +6695,6 @@
             "total": {
                "key": "ChildAtHome",
                "name": "Children at home",
-               "sum": 92,
                "min": 0,
                "max": 1
             },
@@ -6847,56 +6702,48 @@
   {
    "key": "Renters",
    "name": "Renter percent",
-   "sum": 124,
    "min": 0,
    "max": 1
   },
   {
    "key": "Apts",
    "name": "Multi-family residents",
-   "sum": 57,
    "min": 0,
    "max": 1
   },
   {
    "key": "HSGrads",
    "name": "High school graduate",
-   "sum": 306,
    "min": 0,
    "max": 1
   },
   {
    "key": "CollegeGrads",
    "name": "College graduate",
-   "sum": 125,
    "min": 0,
    "max": 1
   },
   {
    "key": "Inc75",
    "name": ">$75k income",
-   "sum": 188,
    "min": 0,
    "max": 1
   },
   {
    "key": "SpanishAtHome",
    "name": "Spanish spoken at home",
-   "sum": 59,
    "min": 0,
    "max": 1
   },
   {
    "key": "AsnLangAtHome",
    "name": "Asian languages spoken at home",
-   "sum": 8,
    "min": 0,
    "max": 1
   },
   {
    "key": "OthLangAtHome",
    "name": "Other languages spoken at home",
-   "sum": 9,
    "min": 0,
    "max": 1
   }

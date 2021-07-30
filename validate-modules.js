@@ -4,8 +4,71 @@ const fs = require("fs"),
 const mbPublicKey = "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 let seenPlanIds = [];
 
-function validateFile() {
-    fs.readFile("./assets/data/response.json", (err, data) => {
+function validateStates() {
+  const states = [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Puerto Rico",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington, DC",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"
+  ];
+  let processState = (i) => {
+    if (i < states.length) {
+      validateState(states[i]);
+      processState(i + 1);
+    }
+  };
+  processState(0);
+}
+function validateState(st) {
+    fs.readFile(`./assets/data/modules/${st}.json`, (err, data) => {
         if (err) {
             throw err;
         }
@@ -19,7 +82,7 @@ function validateFile() {
             if (Array.isArray(data) && data.length > 0) {
                 async function checkPlan(p) {
                     if (p >= data.length) {
-                        return console.log("Success! response.json is valid");
+                        return; // console.log(`Success! ${st}.json is valid`);
                     }
                     await validatePlan(data[p]);
                     checkPlan(p + 1);
@@ -27,11 +90,11 @@ function validateFile() {
                 checkPlan(0);
 
             } else {
-                console.error("response.json was not an Array with content");
+                console.error("state json was not an Array with content");
                 process.exit(1);
             }
         } else {
-            console.error("response.json was blank");
+            console.error("state json was blank");
             process.exit(1);
         }
     });
@@ -108,12 +171,12 @@ async function validateUnits(unit, index, plan) {
             process.exit(1);
         }
     });
-    if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
-        console.error(plan.id + " has no about section for its units (" + unit.id + ")");
-        if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock", "kingcountywa"].includes(plan.id)) {
-            process.exit(1);
-        }
-    }
+    // if (!fs.existsSync("assets/about/" + plan.id + "/" + unit.id + ".html")) {
+    //     console.error(plan.id + " has no about section for its units (" + unit.id + ")");
+    //     if (!["minnesota", "providence_ri", "adams_wa", "yakima_wa", "little_rock", "kingcountywa"].includes(plan.id)) {
+    //         process.exit(1);
+    //     }
+    // }
     if (!unit.columnSets || !Array.isArray(unit.columnSets)) {
         console.error(plan.id + " is missing columnSets array on its "
             + (index + 1) + "-th unit entry");
@@ -168,7 +231,7 @@ async function validateUnits(unit, index, plan) {
             }
         });
 
-    } else {
+    } else if (!["northcarolina"].includes(plan.id)) {
         console.error(plan.id + " is missing one of fill + circle tilesets on its "
             + (index + 1) + "-th unit entry");
         process.exit(1);
@@ -187,7 +250,7 @@ async function validateUnits(unit, index, plan) {
             }
         });
 
-        let tset = tileset.source.url.split("mapbox://")[1] + ".json";
+        let tset = tileset.source.url.split("mapbox://")[1].split("?")[0] + ".json";
 
         let res;
         try {
@@ -201,7 +264,7 @@ async function validateUnits(unit, index, plan) {
             console.error("Error from MapBox Layer " + tset + ":\n" + content.message);
             process.exit(1);
         } else {
-            console.log(tset + " modified " + new Date(content.modified));
+            // console.log(tset + " modified " + new Date(content.modified));
             // bounds are frequently different
             if (content.filesize < 1000) {
                 console.error("MapBox layer " + tset + " was surprisingly small file");
@@ -214,7 +277,7 @@ async function validateUnits(unit, index, plan) {
             let fields = Object.keys(content.vector_layers[0].fields);
 
             // check ID and name column present
-            if (!fields.includes(unit.idColumn.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+            if ((p < 2) && !fields.includes(unit.idColumn.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma", "northcarolina", "ma_vra2"].includes(plan.id)) {
                 console.error("MapBox layer " + tset + " is missing ID column (" + unit.idColumn.key + ")");
                 process.exit(1);
             }
@@ -224,21 +287,45 @@ async function validateUnits(unit, index, plan) {
             }
 
             unit.columnSets.forEach(cs => {
+                if (cs.name === "Percentages") {
+                    if (cs.total) {
+                      if (cs.total.min !== 0 || cs.total.max !== 1) {
+                        console.error("JSON for Percentages layer missing min=0/max=1 in 'total' of " + plan.id);
+                        process.exit(1);
+                      }
+                    }
+                    cs.subgroups.forEach(sg => {
+                      if (sg.min !== 0 || sg.max !== 1) {
+                        console.error("JSON for Percentages layer missing min=0/max=1 in " + plan.id);
+                        process.exit(1);
+                      }
+                    });
+                    return;
+                }
+
                 if (cs.total) {
-                    if (!fields.includes(cs.total.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+                    if ((p < 2) && !fields.includes(cs.total.key) && !["maricopa", "phoenix", "nwaz", "seaz", "yuma", "northcarolina", "ma_vra2"].includes(plan.id)) {
                         console.error("MapBox layer " + tset + " missing total field from response.json (" + cs.total.key + ")");
                         process.exit(1);
                     }
                     fields.splice(fields.indexOf(cs.total.key), 1);
                 }
 
-                if (!["minnesota", "maricopa", "phoenix", "nwaz", "seaz", "yuma"].includes(plan.id)) {
+                if (cs.key) {
+                    fields.splice(fields.indexOf(cs.key), 1);
+                }
+
+                if (!["minnesota", "maricopa", "phoenix", "nwaz", "seaz", "yuma", "ma_vra2"].includes(plan.id)) {
                     cs.subgroups.forEach(subgroup => {
-                        if (!fields.includes(subgroup.key)) {
-                            console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
-                            process.exit(1);
+                        if (subgroup.name === "Percentages") {
+                            return;
                         }
-                        if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
+                        if (!fields.includes(subgroup.key)) {
+                            if (unit.tilesets.length < 3) {
+                                console.error("MapBox layer " + tset + " missing field from response.json (" + subgroup.key + ")");
+                                process.exit(1);
+                            }
+                        } else if (content.vector_layers[0].fields[subgroup.key] !== "Number") {
                             console.error("MapBox layer " + tset + " has non-numeric data on " + subgroup.key);
                             process.exit(1);
                         }
@@ -251,6 +338,9 @@ async function validateUnits(unit, index, plan) {
             if (fields.length) {
                 console.log("response.json not reading fields from MapBox layer " + tset + ": "
                     + JSON.stringify(fields));
+                if (unit.tilesets.length > 2) {
+                  console.log("^^ has extra tileset so may be OK");
+                }
             }
         }
         await checkTileset(p + 1);
@@ -314,6 +404,9 @@ function validateCSentry(columnSet, field, columnSetIndex, unitIndex, planId) {
         }
     });
     ["sum", "min", "max"].forEach((check) => {
+        if (check === "sum" && columnSet.name === "Percentages") {
+          return;
+        }
         if (typeof columnData[check] !== "number") {
             console.error(planId + " is missing a numeric " + check + " on its "
                 + (unitIndex + 1) + "-th unit entry, "
@@ -323,4 +416,4 @@ function validateCSentry(columnSet, field, columnSetIndex, unitIndex, planId) {
     });
 }
 
-validateFile();
+validateStates();
