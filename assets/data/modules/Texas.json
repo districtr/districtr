@@ -784,7 +784,7 @@
     "id": "tx_vra",
     "districtingProblems": [
       {
-        "numberOfParts": 36,
+        "numberOfParts": 38,
         "pluralNoun": "Congressional Districts",
         "name": "Congress"
       },
