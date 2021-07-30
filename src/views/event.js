@@ -75,6 +75,9 @@ commoncausepa: 'Pennsylvania',
   chulavista: 'California',
   camarillo: 'California',
   bellflower: 'California',
+  kern_county: 'California',
+  san_joaquin_county: 'California',
+  san_mateo_city: 'California',
 };
 
 const validEventCodes = {
@@ -139,6 +142,9 @@ commoncausepa: 'pennsylvania',
   chulavista: 'ca_cvista',
   bellflower: 'ca_bellflower',
   camarillo: 'ca_camarillo',
+  kern_county: 'ca_kern',
+  san_joaquin_county: 'ca_sanjoaquin',
+  san_mateo_city: 'ca_sanmateo',
 };
 
 const blockPlans = {
@@ -198,7 +204,10 @@ const coi_events = [
   'ventura_county',
   'yolo_county',
   'solano_county',
-  'commoncausepa'
+  'kern_county',
+  'san_joaquin_county',
+  'san_mateo_city',
+  'commoncausepa',
 ];
 
 const hybrid_events = [
@@ -418,7 +427,24 @@ Redistricting is based on population and communities of interest.  A community o
        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
        <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
+       kern_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+          <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Kern_County” (any capitalization) is entered.</p>',
+       san_joaquin_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+          <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Joaquin_County” (any capitalization) is entered.</p>',
+
   galeo: 'Welcome to the event page for GALEO!',
+  san_mateo_city: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Mateo_City” (any capitalization) is entered.</p>',
+
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -545,6 +571,15 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   san_jose: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  kern_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  san_joaquin_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  san_mateo_city: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   siskiyou: [
@@ -710,7 +745,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin_county", "san_mateo_city"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -742,6 +777,17 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
+            } else if (eventCode === "san_mateo_city") {
+              document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
+              document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
+            } else if (eventCode === "kern_county") {
+              document.getElementById("partner-link-a").href = "https://www.kerncounty.com";
+              document.getElementById("partnership-a").src = "/assets/partners-kern.png";
+            } else if (eventCode === "san_joaquin_county") {
+              document.getElementById("partner-link-a").href = "https://www.sjgov.org";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg";
+              document.getElementById("partnership-a").background.style = "#315470";
+
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
@@ -962,7 +1008,7 @@ export default () => {
             // hide at start
             if (drafts && draftskip == 0)
               data.plans = [];
-            drafts 
+            drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
