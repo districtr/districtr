@@ -901,13 +901,6 @@
                 "max": 14
               },
               {
-                "key": "ASIANPOP19",
-                "name": "Asian population",
-                "sum": 0,
-                "min": 0,
-                "max": 0
-              },
-              {
                 "key": "AMINPOP19",
                 "name": "American Indian population",
                 "sum": 3800,
@@ -975,20 +968,6 @@
                 "sum": 4,
                 "min": 0,
                 "max": 0
-              },
-              {
-                "key": "ASIANCVAP19",
-                "name": "Asian voting age population",
-                "sum": 0,
-                "min": 0,
-                "max": 0
-              },
-              {
-                "key": "2MORECVAP19",
-                "name": "Two or more races voting age population",
-                "sum": 139,
-                "min": 0,
-                "max": 16
               }
             ]
           },
