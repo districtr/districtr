@@ -511,6 +511,22 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  ca_sanmateo: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
+  ca_kern: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    native_american: true,
+  },
+  ca_sanjoaquin: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
   sanjoseca: {
     border: true,
     shapefile: true,
