@@ -786,8 +786,7 @@ export default () => {
             } else if (eventCode === "san_joaquin_county") {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg";
-              document.getElementById("partnership-a").background.style = "#315470";
-
+              document.getElementById("partnership-a").style.background = "#315470";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
