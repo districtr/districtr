@@ -521,11 +521,13 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     native_american: true,
+    municipalities: true,
   },
   ca_sanjoaquin: {
     number_markers: true,
     border: true,
     shapefile: true,
+    municipalities: true,
   },
   sanjoseca: {
     border: true,

@@ -424,6 +424,93 @@ export default function DataLayersPlugin(editor) {
               );
           });
        });
+    } else if (["ca_kern"].includes(state.place.id)) {
+      fetch(`/assets/boundaries/${state.place.id}_bg.geojson`).then(res => res.json()).then((bg_gj) => {
+          state.map.addSource('bg_gj', {
+              type: 'geojson',
+              data: bg_gj
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'bg_gj',
+                  source: 'bg_gj',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((bg_centroids) => {
+              state.map.addSource('bg_centroids', {
+                  type: 'geojson',
+                  data: bg_centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'bg_centroids',
+                    source: 'bg_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'GEOID20'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
+       fetch(`/assets/boundaries/${state.place.id}_tract.geojson`).then(res => res.json()).then((tract_gj) => {
+           state.map.addSource('tract_gj', {
+               type: 'geojson',
+               data: tract_gj
+           });
+           schoolsLayer = new Layer(state.map,
+               {
+                   id: 'tract_gj',
+                   source: 'tract_gj',
+                   type: 'line',
+                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+               },
+               addBelowLabels
+           );
+
+           fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
+               state.map.addSource('tract_centroids', {
+                   type: 'geojson',
+                   data: tract_centroids
+               });
+
+               school_labels = new Layer(state.map,
+                   {
+                     id: 'tract_centroids',
+                     source: 'tract_centroids',
+                     type: 'symbol',
+                     layout: {
+                       'text-field': [
+                           'format',
+                           ['get', 'GEOID'],
+                           {},
+                       ],
+                       'text-anchor': 'center',
+                       'text-radial-offset': 0,
+                       'text-justify': 'center'
+                     },
+                     paint: {
+                       'text-opacity': 0
+                     }
+                   }
+               );
+           });
+        });
     }
 
     if (state.place.id === "virginia") {
@@ -518,6 +605,24 @@ export default function DataLayersPlugin(editor) {
                 let opacity = checked ? 1 : 0;
                 precinctsLayer && precinctsLayer.setOpacity(opacity);
                 precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+            })}`,
+            {
+                isOpen: true
+            }
+        );
+    } else if (state.place.id === "ca_kern") {
+        tab.addRevealSection(
+            'Census Boundaries',
+            (uiState, dispatch) => html`
+            ${toggle("Block Groups", false, checked => {
+                let opacity = checked ? 1 : 0;
+                precinctsLayer && precinctsLayer.setOpacity(opacity);
+                precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+            })}
+            ${toggle("Tracts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                schoolsLayer && schoolsLayer.setOpacity(opacity);
+                school_labels && school_labels.setPaintProperty('text-opacity', opacity);
             })}`,
             {
                 isOpen: true
