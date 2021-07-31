@@ -76,7 +76,7 @@ export default function EvaluationPlugin(editor) {
                     return portion;
                 },
                 sum: 0,
-                total: mockColumnSet.subgroups[0].total
+                total: mockColumnSet.subgroups.length > 0 ? mockColumnSet.subgroups[0].total : 0
             };
             mockColumnSet = {
                 ...mockColumnSet,
