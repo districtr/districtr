@@ -1124,6 +1124,10 @@
               {
                 "id": "congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"             
               }
             ]
           }
