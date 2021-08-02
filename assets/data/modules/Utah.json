@@ -600,8 +600,8 @@
         ]
       }
     ],
-    "id": "grand_county_2",
-    "name": "Grand County",
+    "id": "grandcounty2019acs",
+    "name": "Grand County 2010",
     "state": "Utah",
     "districtingProblems": [
       {
@@ -610,5 +610,52 @@
         "pluralNoun": "County Commission Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "hideOnDefault": true,
+        "columnSets": [],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -110.1793,
+            38.4999
+          ],
+          [
+            -109.0507,
+            39.4999
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.grand_ut_blocks"
+            },
+            "sourceLayer": "grand_ut_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.grand_ut_blocks_points"
+            },
+            "sourceLayer": "grand_ut_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "Utah",
+    "name": "Grand County 2020",
+    "id": "grandcounty2020",
+    "districtingProblems": []
   }
   ]
