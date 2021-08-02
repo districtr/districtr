@@ -5,9 +5,8 @@
 @import "place";
 @import "components/places";
 
-
 ol {
-    padding: 0;
+  padding: 0;
 }
 
 iframe {
@@ -17,104 +16,104 @@ iframe {
 }
 
 .screenshot {
-    box-shadow: $raised;
-    width: 150%;
-    margin: 2rem -25%;
-    overflow: auto;
-    border: 1px solid $outline-grey;
+  box-shadow: $raised;
+  width: 150%;
+  margin: 2rem -25%;
+  overflow: auto;
+  border: 1px solid $outline-grey;
 }
 
 p {
-    line-height: 1.75;
+  line-height: 1.75;
 
-    div {
-      display: inline;
-    }
+  div {
+    display: inline;
+  }
 }
 
 h2 {
-   background: $districtr-grey-active;
-   margin: 2rem 0;
-   margin-bottom: 1rem;
-   padding: 0.5rem 1.5rem;
-   margin-left: -5%;
-   display: inline-flex;
-   border-radius: 0.25rem;
+  background: $districtr-grey-active;
+  margin: 2rem 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  margin-left: -5%;
+  display: inline-flex;
+  border-radius: 0.25rem;
 }
 
 h3 {
-    margin: 2rem 0;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
+  margin: 2rem 0;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
 .question {
-    font-style: italic;
-    line-height: 2;
-    margin: 1rem 0 0.5rem;
+  font-style: italic;
+  line-height: 2;
+  margin: 1rem 0 0.5rem;
 }
 
 .q-and-a {
-    margin: 0 0 3rem;
+  margin: 0 0 3rem;
 }
 
 .place__subheading {
-    margin: 3rem 0;
-    font-size: 2.5rem;
-    border-bottom: none;
-    background-color: $districtr-grey-active;
+  margin: 3rem 0;
+  font-size: 2.5rem;
+  border-bottom: none;
+  background-color: $districtr-grey-active;
 }
 
 h4 {
-    font-size: 1.25rem;
-    margin: 2rem 0;
-    margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin: 2rem 0;
+  margin-bottom: 1rem;
 }
 
 figure {
-    margin: 0;
-    width: 150%;
-    margin: 2rem -25%;
-    overflow: auto;
+  margin: 0;
+  width: 150%;
+  margin: 2rem -25%;
+  overflow: auto;
 }
 
 .figure_screenshot {
-    width: 100%;
-    border: 1px solid $outline-grey;
-    box-shadow: $raised;
+  width: 100%;
+  border: 1px solid $outline-grey;
+  box-shadow: $raised;
 }
 
 figcaption {
-    margin: 0 0 1rem;
-    font-weight: lighter;
-    font-size: 1.5rem;
+  margin: 0 0 1rem;
+  font-weight: lighter;
+  font-size: 1.5rem;
 }
 
 .place__name__local {
-    //font-family: "Playfair Display";
-    font-weight: 500;
-    line-height: 1.5;
+  //font-family: "Playfair Display";
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .place__name {
-    //font-family: "Source Sans Pro";
-    font-weight: 700;
-    line-height: 1.5;
-    text-align: center;
-    margin-top: 1rem;
+  //font-family: "Source Sans Pro";
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .place__content {
-    width: 80%;
-    max-width: 75rem;
-    margin-top: 4rem;
+  width: 80%;
+  max-width: 75rem;
+  margin-top: 4rem;
 }
 
 .place-options {
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .locals {
@@ -125,12 +124,12 @@ figcaption {
   max-width: none;
 }
 
-.places-list__item--small.reapportioned {
-  background-color: $districtr-purple;
+.places-list__item--small.old-card {
+  background-color: #aaa;
 }
 
-.places-list__item--small.reapportioned:hover {
-  background-color: $districtr-dark-purple;
+.places-list__item--small.old-card:hover {
+  background-color: #888;
 }
 
 .places-list--columns {
@@ -140,72 +139,62 @@ figcaption {
 
 /* Statewide vs Local Selection */
 
-label
-{
-    background-color: #aaa;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    line-height: 1.5rem;
-    color: white;
-    border-width: 1px;
-    border-style: hidden solid;
-    border-color: white;
-    font-size: 1.125rem;
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+label {
+  background-color: #aaa;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+  color: white;
+  border-width: 1px;
+  border-style: hidden solid;
+  border-color: white;
+  font-size: 1.125rem;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 label:hover {
-    background-color: #888;
-    //color: #92e3ff;
+  background-color: #888;
+  //color: #92e3ff;
 }
 
-input[type=checkbox]
-{
-    display:none;
+input[type="checkbox"] {
+  display: none;
 }
 
-input[type=radio]
-{
-    display:none;
+input[type="radio"] {
+  display: none;
 }
-input[type=radio]:checked + label
-{
-    background-color:$districtr-dark-purple;
+input[type="radio"]:checked + label {
+  background-color: $districtr-dark-purple;
 }
 
-input[type=radio]:checked + label:hover
-{
-    background-color:$districtr-very-dark-purple;
+input[type="radio"]:checked + label:hover {
+  background-color: $districtr-very-dark-purple;
 }
 
-input[type=radio].comm:checked + label
-{
-    background-color:$districtr-red-dark;
+input[type="radio"].comm:checked + label {
+  background-color: $districtr-red-dark;
 }
 
-input[type=radio].comm:checked + label:hover
-{
-    background-color:$districtr-red-very-dark;
+input[type="radio"].comm:checked + label:hover {
+  background-color: $districtr-red-very-dark;
 }
 
-.mode-selection
-{
+.mode-selection {
   flex-basis: 11.5rem;
   flex-grow: 0;
 }
 
-
-
 /* Header */
 
 .jump {
-    margin-top: -3rem;
-    padding-top: 3rem;
-    //background-color: #red;
+  margin-top: -3rem;
+  padding-top: 3rem;
+  //background-color: #red;
 }
 
 .banner__title {
@@ -271,11 +260,12 @@ input[type=radio].comm:checked + label:hover
   flex-wrap: nowrap;
   align-items: center;
 
-  a, a:visited {
-        color: $mggg-dark-blue;
+  a,
+  a:visited {
+    color: $mggg-dark-blue;
   }
   a:hover {
-        color: $mggg-very-dark-blue;
+    color: $mggg-very-dark-blue;
   }
 }
 
@@ -403,65 +393,65 @@ input[type=radio].comm:checked + label:hover
 }
 
 .plan-thumbs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 1rem;
-    padding: 0;
-    justify-content: center;
-    align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 1rem;
+  padding: 0;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .plan-thumbs__thumb {
-    box-shadow: $raised;
-    margin: 0.5rem;
-    transition: 100ms all ease;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: stretch;
-    flex-wrap: wrap;
-    //min-width: 250px;
-    width: auto;
-    border: 1px solid $districtr-grey-active;
+  box-shadow: $raised;
+  margin: 0.5rem;
+  transition: 100ms all ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  //min-width: 250px;
+  width: auto;
+  border: 1px solid $districtr-grey-active;
 }
 
 .plan-thumbs__thumb:hover,
 .plan-thumbs__thumb:active {
-    box-shadow: $focus-shadow;
+  box-shadow: $focus-shadow;
 }
 
 .thumb__img {
-    min-height: 12rem;
-    width: 12rem;
-    object-fit: contain;
-    align-self: center;
-    border-right: none;
-    border-bottom: 1px solid $districtr-grey-active;
+  min-height: 12rem;
+  width: 12rem;
+  object-fit: contain;
+  align-self: center;
+  border-right: none;
+  border-bottom: 1px solid $districtr-grey-active;
 }
 
-
 .thumb__caption {
-    color: #666;
-    padding: 1rem;
-    flex: 1;
-    font-weight: normal;
-    font-size: 1rem;
+  color: #666;
+  padding: 1rem;
+  flex: 1;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .thumb__heading {
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem;
-    line-height: 1;
-    color: #444;
-    text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  line-height: 1;
+  color: #444;
+  text-align: center;
 }
 
 table {
   width: 100%;
-  margin: 0 0 1rem;}
+  margin: 0 0 1rem;
+}
 
 td:first-child {
   text-align: left;
@@ -493,12 +483,19 @@ caption {
 
 .rules {
   td:nth-child(even) {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
   }
 }
 
 .data {
   tr:nth-child(even) {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
   }
+}
+
+.italic-note {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: small;
+  font-style: italic;
 }

@@ -152,14 +152,8 @@
           "key": "Precinct"
         },
         "bounds": [
-          [
-            -122.8367,
-            45.4325
-          ],
-          [
-            -122.472,
-            45.6564
-          ]
+          [-122.8367, 45.4325],
+          [-122.472, 45.6564]
         ],
         "tilesets": [
           {
@@ -354,14 +348,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -123.1638,
-            44.8021
-          ],
-          [
-            -122.8448,
-            45.0751
-          ]
+          [-123.1638, 44.8021],
+          [-122.8448, 45.0751]
         ],
         "tilesets": [
           {
@@ -398,6 +386,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -543,14 +532,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -124.6195,
-            41.9918
-          ],
-          [
-            -116.4633,
-            46.2991
-          ]
+          [-124.6195, 41.9918],
+          [-116.4633, 46.2991]
         ],
         "tilesets": [
           {
@@ -881,14 +864,8 @@
           "key": "Precinct"
         },
         "bounds": [
-          [
-            -124.5666,
-            41.9918
-          ],
-          [
-            -116.4635,
-            46.2706
-          ]
+          [-124.5666, 41.9918],
+          [-116.4635, 46.2706]
         ],
         "tilesets": [
           {
@@ -921,7 +898,8 @@
       {
         "name": "Congress",
         "pluralNoun": "Congressional Districts",
-        "numberOfParts": 5
+        "numberOfParts": 5,
+        "hideOnDefault": true
       },
       {
         "name": "State Senate",

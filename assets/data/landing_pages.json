@@ -204,8 +204,8 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_santabarbara"], "id": "counties"},
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "menlo_park"], "id": "loc"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "contracosta", "ca_sm_county", "ca_sanbenito"], "id": "counties"},
+      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -523,10 +523,6 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
-              },
-              {
-                "id": "state_house",
-                "name": "State House Plan"
               }
             ]
           }
@@ -1146,7 +1142,7 @@
     "state": "Massachusetts",
     "code": "MA",
     "modules": [
-      {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
+      {"name": "Statewide", "ids": ["ma_vra2", "ma"], "default": "true", "id": "state"},
       {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
     "sections": [
       {
@@ -1623,6 +1619,28 @@
         ]
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "nh",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1868,7 +1886,9 @@
     "state": "North Dakota",
     "code": "ND",
     "modules": [
-      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"}],
+      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"},
+      {"name": "Counties", "ids": ["nd_benson", "nd_dunn", "nd_mckenzie", "nd_mountrail", "nd_ramsey", "nd_rollette", "nd_sioux"], "id": "loc"}
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2235,7 +2255,7 @@
     "code": "RI",
     "modules": [
       {"name": "Statewide", "ids": ["rhode_island"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["providence_ri"], "id": "loc"}
+      {"name": "Cities", "ids": ["providence_ri", "cranston_ri"], "id": "loc"}
     ],
     "sections": [
       {
@@ -2415,7 +2435,7 @@
     "code": "TX",
     "modules": [
       {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx"], "id": "cty"},
+      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx", "elpaso2"], "id": "cty"},
       {"name": "Cities", "ids": ["austin", "fortworth", "houston"], "id": "loc"}
     ],
     "sections": [

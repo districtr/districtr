@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "ca_solano_municipalities_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Fairfield" }, "geometry": { "type": "Point", "coordinates": [ -122.033456777008965, 38.258285035145896 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vacaville" }, "geometry": { "type": "Point", "coordinates": [ -121.90207081026027, 38.341459697019012 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vacaville" }, "geometry": { "type": "Point", "coordinates": [ -121.9942354239938, 38.376291606094767 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vacaville" }, "geometry": { "type": "Point", "coordinates": [ -121.967923221329443, 38.358824457827204 ] } },
+{ "type": "Feature", "properties": { "NAME": "Benicia" }, "geometry": { "type": "Point", "coordinates": [ -122.152542946026244, 38.072498407843753 ] } },
+{ "type": "Feature", "properties": { "NAME": "Dixon" }, "geometry": { "type": "Point", "coordinates": [ -121.79433104740022, 38.385532013710119 ] } },
+{ "type": "Feature", "properties": { "NAME": "Dixon" }, "geometry": { "type": "Point", "coordinates": [ -121.809000738711603, 38.394766609210706 ] } },
+{ "type": "Feature", "properties": { "NAME": "Dixon" }, "geometry": { "type": "Point", "coordinates": [ -121.827604235412338, 38.452933944182305 ] } },
+{ "type": "Feature", "properties": { "NAME": "Rio Vista" }, "geometry": { "type": "Point", "coordinates": [ -121.702425489486217, 38.176484000408017 ] } },
+{ "type": "Feature", "properties": { "NAME": "Suisun City" }, "geometry": { "type": "Point", "coordinates": [ -121.972197377088179, 38.24691904351473 ] } },
+{ "type": "Feature", "properties": { "NAME": "Suisun City" }, "geometry": { "type": "Point", "coordinates": [ -122.01028938342148, 38.247277706071159 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vallejo" }, "geometry": { "type": "Point", "coordinates": [ -122.198657585372956, 38.170232636600737 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vallejo" }, "geometry": { "type": "Point", "coordinates": [ -122.262787872390632, 38.107031275427225 ] } },
+{ "type": "Feature", "properties": { "NAME": "Allendale" }, "geometry": { "type": "Point", "coordinates": [ -121.981411178341972, 38.442658861701211 ] } },
+{ "type": "Feature", "properties": { "NAME": "Elmira" }, "geometry": { "type": "Point", "coordinates": [ -121.907719093310604, 38.352328735479034 ] } },
+{ "type": "Feature", "properties": { "NAME": "Green Valley" }, "geometry": { "type": "Point", "coordinates": [ -122.162209497614, 38.260666334286263 ] } },
+{ "type": "Feature", "properties": { "NAME": "Hartley" }, "geometry": { "type": "Point", "coordinates": [ -121.952222697240657, 38.420270138406075 ] } }
+]
+}

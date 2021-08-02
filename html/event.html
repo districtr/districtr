@@ -11,6 +11,11 @@
             href="/css/state_landing.css"
         />
         <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/landing_page.css"
+        />
+        <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
             rel="stylesheet"
         />
@@ -78,6 +83,12 @@
             cursor: pointer;
             padding: 15px;
           }
+          button#loadMoreDrafts, img#event-pinwheel-drafts {
+            margin-left: 45%;
+            min-width: 10%;
+            cursor: pointer;
+            padding: 15px;
+          }
           figure, #mini-maps .label {
             width: 320px;
             margin: 0;
@@ -129,6 +140,11 @@
                 Shared Maps
             </a>
         </li>
+        <li class="nav">
+          <a class="nav-links__link nav-links__link--major" href="#drafts">
+               Works in Progress
+          </a>
+      </li>
         <li class="about-section" class="nav" style="display: none">
             <a class="nav-links__link nav-links__link--major" href="#about-section">
                 About
@@ -175,6 +191,7 @@
                 <div id="proposals"></div>
                 <div id="examples"></div>
                 <div id="plans"></div>
+                <div id="drafts"></div>
                 <div id="about-section">
                   <h2>About</h2>
                   <div id="about-section-text">
@@ -182,10 +199,10 @@
                   <div id="partnership-icons">
                     <div>
                       <a id='partner-link-a' href='#' target='_blank'>
-                        <img id="partnership-a" height='65' alt='Logo for Mesa Arizona' style='margin-right:30px'/>
+                        <img id="partnership-a" height='65' alt='Logo for government partner' style='margin-right:30px'/>
                       </a>
                       <a id='partner-link-b' href='#' target='_blank'>
-                        <img id="partnership-b" height='60' alt='Logo for Redistricting Partners'/>
+                        <img id="partnership-b" height='60' alt='Logo for company partner'/>
                       </a>
                     </div>
                   </div>

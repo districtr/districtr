@@ -9,6 +9,7 @@ exports.handler = async (event, context) => {
   try {
     const eventCode = (event.queryStringParameters.event || "").toLowerCase().replace(/_/g, '-');
     const myHost = event.queryStringParameters.hostname;
+    const planType = event.queryStringParameters.type;
     if (!eventCode.trim().length) {
         return {
             statusCode: 301,
@@ -18,12 +19,34 @@ exports.handler = async (event, context) => {
         };
     }
 
-    const plans = await Plan.find({
-        eventCode: eventCode
-    })
-    .select("_id simple_id startDate plan screenshot2 planName isScratch")
-    .sort([["simple_id", -1]])
-    .limit((event.queryStringParameters.limit || 24) * 1);
+    const skipNum = Number(event.queryStringParameters.skip) || 0;
+
+    let plans,
+        query = {
+          eventCode: eventCode,
+        };
+    if (planType === "coi") {
+      query['plan.problem.pluralNoun'] = 'Community';
+    } else if (planType === "plan") {
+      query['plan.problem.pluralNoun'] = { '$ne': 'Community' };
+    } else if (planType === 'draft') {
+      query['isScratch'] = true;
+    } else {
+      query['isScratch'] = { '$ne': true };
+    }
+    if (skipNum) {
+      plans = await Plan.find(query)
+      .select("_id simple_id startDate plan screenshot2 planName isScratch")
+      .sort([["simple_id", -1]])
+      .skip(skipNum)
+      .limit(Number(event.queryStringParameters.limit || 16));
+    } else {
+      plans = await Plan.find(query)
+      .select("_id simple_id startDate plan screenshot2 planName isScratch")
+      .sort([["simple_id", -1]])
+      .limit(Number(event.queryStringParameters.limit || 16));
+    }
+
     // be careful not to share token here
     return {
         statusCode: 200,

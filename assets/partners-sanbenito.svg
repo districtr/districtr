@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="349" height="111" viewBox="0 0 349 111">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_407" data-name="Rectangle 407" width="349" height="111" fill="#fff"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="0.816" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f1a878"/>
+      <stop offset="0.167" stop-color="#efbb88"/>
+      <stop offset="0.875" stop-color="#f3e0b9" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#f5e7c0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="Path_151" x="16.794" y="4.645" width="132.32" height="74.378" filterUnits="userSpaceOnUse">
+      <feOffset dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#fff" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0.259" x2="0.5" y2="0.816" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f1a878"/>
+      <stop offset="0.2" stop-color="#e9b68a"/>
+      <stop offset="0.875" stop-color="#f3e0b9" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#f5e7c0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="Path_152" x="88.5" y="-11" width="197.283" height="90.515" filterUnits="userSpaceOnUse">
+      <feOffset dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#fff" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <radialGradient id="radial-gradient" cx="0.276" cy="1" r="5.998" gradientTransform="translate(0.263 0.816) scale(0.046 0.184)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#79b195"/>
+      <stop offset="0.527" stop-color="#a0bcb1" stop-opacity="0.851"/>
+      <stop offset="0.895" stop-color="#869aaa" stop-opacity="0.051"/>
+      <stop offset="1" stop-color="#8492ab" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.485" cy="0.409" r="3.971" gradientTransform="translate(0.413 0.366) scale(0.149 0.105)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.6"/>
+      <stop offset="0.284" stop-color="#fff" stop-opacity="0.4"/>
+      <stop offset="0.628" stop-color="#fff" stop-opacity="0.094"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="OF" x="164.997" y="9.442" width="42" height="39" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="COUNTY" x="99.638" y="7.021" width="90" height="43" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-4"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="OF-2" x="164.997" y="9.441" width="42" height="39" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-5"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="COUNTY-2" x="99.638" y="7.021" width="90" height="43" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-6"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Logo" clip-path="url(#clip-path)">
+    <g id="Group_146" data-name="Group 146" transform="translate(0.188 7)">
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#Path_151)">
+        <path id="Path_151-2" data-name="Path 151" d="M662.274,231.787v0c-.005-.077-.013-.154-.023-.231l0-.011q-.015-.111-.036-.224l-.006-.026q-.021-.106-.047-.212l-.013-.049c-.017-.064-.035-.129-.055-.194-.008-.025-.018-.052-.026-.077-.018-.056-.037-.112-.058-.169-.015-.04-.032-.081-.048-.121s-.034-.086-.053-.129q-.051-.119-.11-.238l-.008-.018c-3.942-6.446-10.783-7.014-17.69-8.526-8.88-1.954-12.173-9.162-15.765-13.227-.28-.28-1.6-2.486-1.915-2.838a10.106,10.106,0,0,0-5.807-3.226c-6.771-1.3-11.108.271-21,6.586s-13.364,8.969-35.773,25.391,59.674,11.185,59.674,11.185,38.846-3.561,38.771-13.408C662.283,231.942,662.28,231.865,662.274,231.787Z" transform="translate(-528.17 -179.2)" fill="url(#linear-gradient)"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#Path_152)">
+        <path id="Path_152-2" data-name="Path 152" d="M907.489,158.67a25.088,25.088,0,0,0-3.189-1.7,22.335,22.335,0,0,0-3.214-1.168,13.793,13.793,0,0,0-3.607-.531,7.706,7.706,0,0,0-3.774.894c-2.032,1.126-3.353,1.846-4.537,2.359a8.125,8.125,0,0,1-3.277.8,6.384,6.384,0,0,1-1.412-.163,10.252,10.252,0,0,1-1.552-.494c-3.556-1.417-24.424-10.994-24.635-11.09a13.144,13.144,0,0,0-1.936-.789,16.347,16.347,0,0,0-2.133-.543,14.806,14.806,0,0,0-2.655-.247,12.213,12.213,0,0,0-6.108,1.579c-4.24,2.408-29.554,18.432-29.554,18.432,4.642,8.193,9.062,9.666,14.113,9.877s15.359.738,18.474,1.389a41.294,41.294,0,0,1,6.827,2.049,17.187,17.187,0,0,1,7.415,5.17,8.625,8.625,0,0,1,1.6,3.446,7.01,7.01,0,0,1,.043,2.686,23.238,23.238,0,0,0,8.426,5.522c2.8.84,35.3,10.366,42.585,10.366,4.583,0,64.42-7.564,67.8-7.564Z" transform="translate(-712.41 -139)" fill="url(#linear-gradient-2)"/>
+      </g>
+      <path id="Subtraction_6" data-name="Subtraction 6" d="M630,28.842H611.014L272.407.586a.284.284,0,0,1-.269-.3A.284.284,0,0,1,272.432,0h.046L630.021,28.255a.294.294,0,0,1-.024.587Zm-33.738,0H576.82L260.208.586a.284.284,0,0,1-.267-.306A.284.284,0,0,1,260.234,0h.492L596.284,28.255a.294.294,0,0,1-.024.587Zm-33.739,0h-19.9L248.009.586a.284.284,0,0,1-.266-.307.284.284,0,0,1,.294-.28h.95l313.56,28.254a.294.294,0,0,1-.027.587Zm-33.739,0H508.424L235.81.586a.285.285,0,0,1-.263-.308A.284.284,0,0,1,235.84,0h1.408L528.81,28.255a.294.294,0,0,1-.028.586Zm-33.739,0H474.26l-.033,0L223.61.586a.284.284,0,0,1-.26-.308A.284.284,0,0,1,223.643,0h1.865L495.073,28.255a.294.294,0,0,1-.03.586Zm-33.656,0H440.152l-.036,0L211.328.586a.285.285,0,0,1-.257-.31A.285.285,0,0,1,211.364,0h2.319L461.42,28.256a.294.294,0,0,1-.033.586Zm-33.739,0H405.959l-.039,0L199.128.585a.285.285,0,0,1-.253-.311A.285.285,0,0,1,199.168,0h2.74l.037,0,225.74,28.254a.294.294,0,0,1-.036.586Zm-33.74,0H371.766a.309.309,0,0,1-.044,0L186.928.584a.286.286,0,0,1-.249-.313A.285.285,0,0,1,186.972,0h3.193a.277.277,0,0,1,.041,0L393.948,28.257a.294.294,0,0,1-.041.585Zm-33.74,0H337.573a.243.243,0,0,1-.05,0L174.726.584a.286.286,0,0,1-.243-.315A.286.286,0,0,1,174.776,0h3.646a.242.242,0,0,1,.045,0L360.213,28.257a.294.294,0,0,1-.045.584Zm-33.741,0H303.382a.276.276,0,0,1-.058-.006L162.524.582a.283.283,0,0,1-.235-.317A.283.283,0,0,1,162.583,0h4.1a.331.331,0,0,1,.051,0L326.478,28.258a.294.294,0,0,1-.051.584Zm-33.742,0H269.191a.29.29,0,0,1-.068-.008L150.322.58A.284.284,0,0,1,150.1.26a.284.284,0,0,1,.292-.26h4.545a.291.291,0,0,1,.059.006L292.744,28.26a.294.294,0,0,1-.059.582Zm-33.743,0H235a.3.3,0,0,1-.082-.011L138.116.576a.285.285,0,0,1-.208-.323A.285.285,0,0,1,138.2,0h4.989a.3.3,0,0,1,.07.008L259.011,28.262a.294.294,0,0,1-.07.58Zm-35.156,0H199.409a.3.3,0,0,1-.1-.019L124.555.569a.287.287,0,0,1-.185-.328A.287.287,0,0,1,124.66,0h5.429a.3.3,0,0,1,.085.012l93.7,28.254a.294.294,0,0,1-.085.576Zm-33.523,0h-24.8a.3.3,0,0,1-.138-.035L112.461.553a.286.286,0,0,1-.147-.33A.287.287,0,0,1,112.6,0h5.852a.3.3,0,0,1,.108.02l71.811,28.254a.294.294,0,0,1-.108.567Zm-32.579,0h-25.2a.294.294,0,0,1-.2-.077L101.481.511a.289.289,0,0,1-.075-.323A.288.288,0,0,1,101.68,0h6.248a.293.293,0,0,1,.145.038l49.756,28.254a.294.294,0,0,1-.145.55Zm-32.86,0H99.315a.3.3,0,0,1-.281-.209L90.452.379A.294.294,0,0,1,90.733,0h6.561a.293.293,0,0,1,.21.089l27.531,28.254a.294.294,0,0,1-.211.5Zm-31.5,0h-25.6a.294.294,0,0,1-.266-.419L80.76.169A.294.294,0,0,1,81.026,0h6.653a.3.3,0,0,1,.289.236L93.612,28.49a.294.294,0,0,1-.288.351Zm-31.845,0H36.062a.287.287,0,0,1-.277-.2.291.291,0,0,1,.094-.327L71.238.064A.29.29,0,0,1,71.422,0h6.467a.29.29,0,0,1,.254.147.291.291,0,0,1,0,.294L61.733,28.7A.3.3,0,0,1,61.479,28.842Zm-36.188,0h-25a.294.294,0,0,1-.123-.561L61.416.027A.286.286,0,0,1,61.54,0h6.047a.289.289,0,0,1,.281.208.289.289,0,0,1-.118.33l-42.3,28.254A.3.3,0,0,1,25.29,28.842Z" transform="translate(0 68.671)" stroke="rgba(0,0,0,0)" stroke-width="1" fill="url(#radial-gradient)"/>
+      <path id="Path_154" data-name="Path 154" d="M86.01-3.172c47.5,0,86.01,6.433,86.01,10.456S133.512,22.517,86.01,22.517,0,11.307,0,7.284,38.508-3.172,86.01-3.172Z" transform="translate(49.866 58.714)" fill="url(#radial-gradient-2)"/>
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#OF)">
+        <text id="OF-3" data-name="OF" transform="translate(180 31.44)" fill="#464c4f" font-size="7" font-family="Raleway-Bold, Raleway" font-weight="700" letter-spacing="0.246em"><tspan x="0" y="0">OF</tspan></text>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#COUNTY)">
+        <text id="COUNTY-3" data-name="COUNTY" transform="translate(114.64 32.02)" fill="#464c4f" font-size="11" font-family="Raleway-SemiBold, Raleway" font-weight="600" letter-spacing="0.246em"><tspan x="0" y="0">COUNTY</tspan></text>
+      </g>
+      <text id="CALIFORNIA" transform="translate(71.818 68.448)" fill="#c15f38" font-size="11" font-family="Raleway-Regular, Raleway" letter-spacing="0.406em"><tspan x="0" y="0">CALIFORNIA</tspan></text>
+      <text id="BENITO" transform="translate(126.764 52.657)" fill="#464c4f" font-size="27" font-family="Raleway-Bold, Raleway" font-weight="700"><tspan x="0" y="0">BENITO</tspan></text>
+      <text id="SAN" transform="translate(61.136 52.657)" fill="#464c4f" font-size="27" font-family="Raleway-Bold, Raleway" font-weight="700"><tspan x="0" y="0">SAN</tspan></text>
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#OF-2)">
+        <text id="OF-4" data-name="OF" transform="translate(180 31.44)" fill="#464c4f" font-size="7" font-family="Raleway-Bold, Raleway" font-weight="700" letter-spacing="0.246em"><tspan x="0" y="0">OF</tspan></text>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -0.19, -7)" filter="url(#COUNTY-2)">
+        <text id="COUNTY-4" data-name="COUNTY" transform="translate(114.64 32.02)" fill="#464c4f" font-size="11" font-family="Raleway-SemiBold, Raleway" font-weight="600" letter-spacing="0.246em"><tspan x="0" y="0">COUNTY</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
