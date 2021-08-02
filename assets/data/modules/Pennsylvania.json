@@ -6,6 +6,7 @@
       {
         "name": "2020 Reapportioned Congress",
         "numberOfParts": 17,
+        "hideOnDefault": true,
         "pluralNoun": "Reapportioned Congressional Districts"
       },
       {
@@ -17,11 +18,13 @@
       {
         "numberOfParts": 50,
         "name": "State Senate",
+        "hideOnDefault": true,
         "pluralNoun": "State Senate Districts"
       },
       {
         "numberOfParts": 203,
         "name": "State House",
+        "hideOnDefault": true,
         "pluralNoun": "State House Districts"
       }
     ],
@@ -632,6 +635,355 @@
         "numberOfParts": 10,
         "pluralNoun": "City Council Districts",
         "name": "City Council"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP19",
+              "name": "Total population",
+              "sum": 12791523,
+              "min": 0,
+              "max": 11459
+            },
+            "subgroups": [
+              {
+                "key": "WPOP19",
+                "name": "White population",
+                "sum": 10300579,
+                "min": 0,
+                "max": 9151
+              },
+              {
+                "key": "BPOP19",
+                "name": "Black population",
+                "sum": 1429683,
+                "min": 0,
+                "max": 2744
+              },
+              {
+                "key": "HPOP19",
+                "name": "Hispanic population",
+                "sum": 934673,
+                "min": 0,
+                "max": 3138
+              },
+              {
+                "key": "ASIANPOP19",
+                "name": "Asian population",
+                "sum": 434581,
+                "min": 0,
+                "max": 2242
+              },
+              {
+                "key": "AMINPOP19",
+                "name": "American Indian population",
+                "sum": 20978,
+                "min": 0,
+                "max": 341
+              },
+              {
+                "key": "NHPIPOP19",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4190,
+                "min": 0,
+                "max": 128
+              },
+              {
+                "key": "2MOREPOP19",
+                "name": "Two or more races",
+                "sum": 319499,
+                "min": 0,
+                "max": 804
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "G18USSDCAS",
+                "name": "Democratic",
+                "sum": 2792687,
+                "min": 0,
+                "max": 2681
+              },
+              {
+                "key": "G18USSLKER",
+                "name": "Libertarian",
+                "sum": 50926,
+                "min": 0,
+                "max": 80
+              },
+              {
+                "key": "G18USSGGAL",
+                "name": "Green",
+                "sum": 31219,
+                "min": 0,
+                "max": 73
+              },
+              {
+                "key": "G18USSRBAR",
+                "name": "Republican",
+                "sum": 2135231,
+                "min": 0,
+                "max": 1858
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Auditor",
+            "subgroups": [
+              {
+                "key": "G16AUDGSWE",
+                "name": "Green",
+                "sum": 158942,
+                "min": 0,
+                "max": 262
+              },
+              {
+                "key": "G16AUDRBRO",
+                "name": "Republican",
+                "sum": 2667219,
+                "min": 0,
+                "max": 2254
+              },
+              {
+                "key": "G16AUDDDEP",
+                "name": "Democratic",
+                "sum": 2958764,
+                "min": 0,
+                "max": 3153
+              },
+              {
+                "key": "G16AUDLMIN",
+                "name": "Libertarian",
+                "sum": 131845,
+                "min": 0,
+                "max": 290
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "G16USSRTOO",
+                "name": "Republican",
+                "sum": 2951591,
+                "min": 0,
+                "max": 2460
+              },
+              {
+                "key": "G16USSLCLI",
+                "name": "Libertarian",
+                "sum": 235126,
+                "min": 0,
+                "max": 302
+              },
+              {
+                "key": "G16USSDMCG",
+                "name": "Democratic",
+                "sum": 2864967,
+                "min": 0,
+                "max": 3444
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Treasurer",
+            "subgroups": [
+              {
+                "key": "G16TRERVOI",
+                "name": "Republican",
+                "sum": 2610706,
+                "min": 0,
+                "max": 2277
+              },
+              {
+                "key": "G16TRELBAB",
+                "name": "Libertarian",
+                "sum": 135118,
+                "min": 0,
+                "max": 276
+              },
+              {
+                "key": "G16TREGCOM",
+                "name": "Green",
+                "sum": 170268,
+                "min": 0,
+                "max": 261
+              },
+              {
+                "key": "G16TREDTOR",
+                "name": "Democratic",
+                "sum": 2991357,
+                "min": 0,
+                "max": 3152
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "G16PRERTRU",
+                "name": "Republican",
+                "sum": 2971090,
+                "min": 0,
+                "max": 2264
+              },
+              {
+                "key": "G16PREDCLI",
+                "name": "Democratic",
+                "sum": 2926393,
+                "min": 0,
+                "max": 3896
+              },
+              {
+                "key": "G16PRECCAS",
+                "name": "Constitution",
+                "sum": 21562,
+                "min": 0,
+                "max": 27
+              },
+              {
+                "key": "G16PREGSTE",
+                "name": "Green",
+                "sum": 49923,
+                "min": 0,
+                "max": 84
+              },
+              {
+                "key": "G16PRELJOH",
+                "name": "Libertarian",
+                "sum": 146702,
+                "min": 0,
+                "max": 277
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Govenor",
+            "subgroups": [
+              {
+                "key": "G18GOVRWAG",
+                "name": "Republican",
+                "sum": 2040226,
+                "min": 0,
+                "max": 1726
+              },
+              {
+                "key": "G18GOVDWOL",
+                "name": "Democratic",
+                "sum": 2895937,
+                "min": 0,
+                "max": 2745
+              },
+              {
+                "key": "G18GOVGGLO",
+                "name": "Green",
+                "sum": 27792,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "G18GOVLKRA",
+                "name": "Libertarian",
+                "sum": 49229,
+                "min": 0,
+                "max": 67
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Attorney General",
+            "subgroups": [
+              {
+                "key": "G16ATGRRAF",
+                "name": "Republican",
+                "sum": 2891216,
+                "min": 0,
+                "max": 2389
+              },
+              {
+                "key": "G16ATGDSHA",
+                "name": "Democratic",
+                "sum": 3056953,
+                "min": 0,
+                "max": 3698
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -80.5199,
+            39.7198
+          ],
+          [
+            -74.6896,
+            42.5161
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pa2020_precincts"
+            },
+            "sourceLayer": "pa2020_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pa2020_precincts_points"
+            },
+            "sourceLayer": "pa2020_precincts_points"
+          }
+        ]
+      }
+    ],
+    "name": "2020 Pennsylvania Precincts",
+    "id": "pa2020_precincts",
+    "state": "Pennsylvania",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 17,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "numberOfParts": 50,
+        "name": "State Senate",
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "numberOfParts": 203,
+        "name": "State House",
+        "pluralNoun": "State House Districts"
       }
     ]
   }
