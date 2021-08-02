@@ -424,7 +424,7 @@ export default function DataLayersPlugin(editor) {
               );
           });
        });
-    } else if (["ca_kern"].includes(state.place.id)) {
+    } else if (["ca_sanjoaquin"].includes(state.place.id)) {
       fetch(`/assets/boundaries/${state.place.id}_bg.geojson`).then(res => res.json()).then((bg_gj) => {
           state.map.addSource('bg_gj', {
               type: 'geojson',
@@ -454,7 +454,8 @@ export default function DataLayersPlugin(editor) {
                     layout: {
                       'text-field': [
                           'format',
-                          ['get', 'GEOID20'],
+                          ['get', 'TRACTCE'],
+                          ['get', 'BLKGRPCE'],
                           {},
                       ],
                       'text-anchor': 'center',
@@ -483,7 +484,7 @@ export default function DataLayersPlugin(editor) {
                addBelowLabels
            );
 
-           fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
+           fetch(`/assets/boundaries/${state.place.id}_tract_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
                state.map.addSource('tract_centroids', {
                    type: 'geojson',
                    data: tract_centroids
@@ -497,7 +498,7 @@ export default function DataLayersPlugin(editor) {
                      layout: {
                        'text-field': [
                            'format',
-                           ['get', 'GEOID'],
+                           ['get', 'NAME'],
                            {},
                        ],
                        'text-anchor': 'center',
@@ -610,9 +611,9 @@ export default function DataLayersPlugin(editor) {
                 isOpen: true
             }
         );
-    } else if (state.place.id === "ca_kern") {
+    } else if (state.place.id === "ca_sanjoaquin") {
         tab.addRevealSection(
-            'Census Boundaries',
+            'Census',
             (uiState, dispatch) => html`
             ${toggle("Block Groups", false, checked => {
                 let opacity = checked ? 1 : 0;
