@@ -7359,5 +7359,118 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 1924101,
+              "min": 0,
+              "max": 2977
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 1159180,
+              "min": 0,
+              "max": 2342
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 28747,
+                "min": 0,
+                "max": 266
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 366426,
+                "min": 0,
+                "max": 862
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 234784,
+                "min": 0,
+                "max": 670
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "Native American population",
+                "sum": 2013,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 4152,
+                "min": 0,
+                "max": 159
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.2027,
+            36.893
+          ],
+          [
+            -121.2082,
+            37.4846
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sc_county_blocks_points"
+            },
+            "sourceLayer": "ca_sc_county_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sc_county_blocks"
+            },
+            "sourceLayer": "ca_sc_county_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ca_sc_county",
+    "name": "Santa Clara County",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]

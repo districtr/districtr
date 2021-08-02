@@ -458,6 +458,13 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_sc_county: {
+      border: true,
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      municipalities: true,
+    },
     ca_sanbenito: {
       coalition: false,
       border: true,
