@@ -6986,5 +6986,821 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "name": "Lake Elsinore",
+    "state": "California",
+    "id": "lake_el",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+             "type": "population",
+             "name": "Population",
+             "total": {
+               "key": "Est_Population",
+               "name": "Total population",
+               "sum": 66870,
+               "min": 0,
+               "max": 1758
+             },
+             "subgroups": []
+           },
+           {
+             "type": "population",
+             "name": "Citizen Voting Age Population",
+             "total": {
+               "key": "CVAP_Total",
+               "name": "Total population",
+               "sum": 36616,
+               "min": 0,
+               "max": 903
+             },
+             "subgroups": [
+               {
+                 "key": "CVAP_White",
+                 "name": "White population",
+                 "sum": 14562,
+                 "min": 0,
+                 "max": 447
+               },
+               {
+                 "key": "CVAP_Black",
+                 "name": "Black population",
+                 "sum": 3206,
+                 "min": 0,
+                 "max": 252
+               },
+               {
+                 "key": "CVAP_Asian_Amer",
+                 "name": "Asian population",
+                 "sum": 2782,
+                 "min": 0,
+                 "max": 123
+               },
+               {
+                 "key": "CVAP_Latino",
+                 "name": "Hispanic population",
+                 "sum": 15414,
+                 "min": 0,
+                 "max": 405
+               },
+               {
+                 "key": "CVAP_Native_Amer",
+                 "name": "Native American population",
+                 "sum": 310,
+                 "min": 0,
+                 "max": 23
+               },
+               {
+                 "key": "CVAP_Pacific_Isl",
+                 "name": "Native Hawaiian Pacific Islander population",
+                 "sum": 120,
+                 "min": 0,
+                 "max": 12
+               },
+               {
+                 "key": "CVAP_Other",
+                 "name": "Other population",
+                 "sum": 220,
+                 "min": 0,
+                 "max": 58
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Percentages",
+             "total": {
+               "key": "ChildAtHome",
+               "name": "Children at home",
+               "sum": 92,
+               "min": 0,
+               "max": 1
+             },
+             "subgroups": [
+               {
+                 "key": "Renters",
+                 "name": "Renter percent",
+                 "sum": 124,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "Apts",
+                 "name": "Multi-family residents",
+                 "sum": 57,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "HSGrads",
+                 "name": "High school graduate",
+                 "sum": 306,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "CollegeGrads",
+                 "name": "College graduate",
+                 "sum": 125,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "Inc75",
+                 "name": ">$75k income",
+                 "sum": 188,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "SpanishAtHome",
+                 "name": "Spanish spoken at home",
+                 "sum": 59,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "AsnLangAtHome",
+                 "name": "Asian languages spoken at home",
+                 "sum": 8,
+                 "min": 0,
+                 "max": 1
+               },
+               {
+                 "key": "OthLangAtHome",
+                 "name": "Other languages spoken at home",
+                 "sum": 9,
+                 "min": 0,
+                 "max": 1
+               }
+             ]
+           }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.4201,
+            33.6185
+          ],
+          [
+            -117.2168,
+            33.7568
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lake_el_blocks_points"
+            },
+            "sourceLayer": "lake_el_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lake_el_blocks"
+            },
+            "sourceLayer": "lake_el_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lakeeldata_blockgroups"
+            },
+            "sourceLayer": "lakeeldata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 237590,
+              "min": 0,
+              "max": 1839
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 134698,
+              "min": 0,
+              "max": 946
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 38727,
+                "min": 0,
+                "max": 413
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 6158,
+                "min": 0,
+                "max": 140
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 69367,
+                "min": 0,
+                "max": 671
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 17751,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 982,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 1146,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 565,
+                "min": 0,
+                "max": 50
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 92,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 124,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 57,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 306,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 125,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 188,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 59,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 8,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 9,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.1492,
+            37.4542
+          ],
+          [
+            -121.8701,
+            37.6067
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fremont_blocks_points"
+            },
+            "sourceLayer": "ca_fremont_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fremont_blocks"
+            },
+            "sourceLayer": "ca_fremont_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fremontdata_blockgroups"
+            },
+            "sourceLayer": "fremontdata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "id": "ca_fremont",
+    "name": "Fremont",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Est_Population",
+              "name": "Total population",
+              "sum": 85549,
+              "min": 0,
+              "max": 2030
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_Total",
+              "name": "Total population",
+              "sum": 54782,
+              "min": 0,
+              "max": 1558
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_White",
+                "name": "White population",
+                "sum": 16271,
+                "min": 0,
+                "max": 513
+              },
+              {
+                "key": "CVAP_Black",
+                "name": "Black population",
+                "sum": 3468,
+                "min": 0,
+                "max": 344
+              },
+              {
+                "key": "CVAP_Asian_Amer",
+                "name": "Asian population",
+                "sum": 8356,
+                "min": 0,
+                "max": 395
+              },
+              {
+                "key": "CVAP_Latino",
+                "name": "Hispanic population",
+                "sum": 25536,
+                "min": 0,
+                "max": 553
+              },
+              {
+                "key": "CVAP_Native_Amer",
+                "name": "Native American population",
+                "sum": 554,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP_Pacific_Isl",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 71,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "CVAP_Other",
+                "name": "Other population",
+                "sum": 524,
+                "min": 0,
+                "max": 67
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 92,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 124,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 57,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 306,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 125,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 188,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 59,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 8,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 9,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.7353,
+            33.8849
+          ],
+          [
+            -117.6001,
+            34.0484
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_chino_blocks_points"
+            },
+            "sourceLayer": "ca_chino_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_chino_blocks"
+            },
+            "sourceLayer": "ca_chino_blocks"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.chinodata_blockgroups"
+            },
+            "sourceLayer": "chinodata_blockgroups"
+          }
+        ]
+      }
+    ],
+    "name": "Chino",
+    "state": "California",
+    "id": "ca_chino",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+     {
+       "id": "blocks",
+       "name": "Blocks",
+       "unitType": "Blocks",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "Est_Population",
+             "name": "Total population",
+             "sum": 41727,
+             "min": 0,
+             "max": 1491
+           },
+           "subgroups": []
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "CVAP_Total",
+             "name": "Total population",
+             "sum": 28311,
+             "min": 0,
+             "max": 875
+           },
+           "subgroups": [
+             {
+               "key": "CVAP_White",
+               "name": "White population",
+               "sum": 17393,
+               "min": 0,
+               "max": 437
+             },
+             {
+               "key": "CVAP_Black",
+               "name": "Black population",
+               "sum": 811,
+               "min": 0,
+               "max": 84
+             },
+             {
+               "key": "CVAP_Asian_Amer",
+               "name": "Asian population",
+               "sum": 5539,
+               "min": 0,
+               "max": 216
+             },
+             {
+               "key": "CVAP_Latino",
+               "name": "Hispanic population",
+               "sum": 4149,
+               "min": 0,
+               "max": 159
+             },
+             {
+               "key": "CVAP_Native_Amer",
+               "name": "Native American population",
+               "sum": 214,
+               "min": 0,
+               "max": 20
+             },
+             {
+               "key": "CVAP_Pacific_Isl",
+               "name": "Native Hawaiian Pacific Islander population",
+               "sum": 13,
+               "min": 0,
+               "max": 4
+             },
+             {
+               "key": "CVAP_Other",
+               "name": "Other population",
+               "sum": 189,
+               "min": 0,
+               "max": 70
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Percentages",
+           "total": {
+             "key": "ChildAtHome",
+             "name": "Children at home",
+             "sum": 92,
+             "min": 0,
+             "max": 1
+           },
+           "subgroups": [
+             {
+               "key": "Renters",
+               "name": "Renter percent",
+               "sum": 124,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "Apts",
+               "name": "Multi-family residents",
+               "sum": 57,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "HSGrads",
+               "name": "High school graduate",
+               "sum": 306,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "CollegeGrads",
+               "name": "College graduate",
+               "sum": 125,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "Inc75",
+               "name": ">$75k income",
+               "sum": 188,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "SpanishAtHome",
+               "name": "Spanish spoken at home",
+               "sum": 59,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "AsnLangAtHome",
+               "name": "Asian languages spoken at home",
+               "sum": 8,
+               "min": 0,
+               "max": 1
+             },
+             {
+               "key": "OthLangAtHome",
+               "name": "Other languages spoken at home",
+               "sum": 9,
+               "min": 0,
+               "max": 1
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Geo ID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -121.9921,
+           37.2544
+         ],
+         [
+           -121.918,
+           37.307
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.ca_campbell_blocks_points"
+           },
+           "sourceLayer": "ca_campbell_blocks_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.ca_campbell_blocks"
+           },
+           "sourceLayer": "ca_campbell_blocks"
+         },
+         {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.campbelldata_blockgroups"
+            },
+            "sourceLayer": "campbelldata_blockgroups"
+          }
+       ]
+     }
+    ],
+    "name": "Campbell",
+    "id": "ca_campbell",
+    "state": "California",
+    "districtingProblems": [
+     {
+       "name": "City Council",
+       "numberOfParts": 5,
+       "pluralNoun": "Council Districts"
+     }
+    ]
   }
 ]
