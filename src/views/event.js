@@ -980,6 +980,7 @@ export default () => {
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="${button}" @click="${(e) => {
+                      console.log(fetchurl);
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
                       fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
@@ -1004,10 +1005,7 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
         console.log(eventurl)
-        if (draftskip == -1)
-            draftskip = 0;
-        else
-            fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
+        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
