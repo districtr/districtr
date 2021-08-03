@@ -79,6 +79,10 @@ commoncausepa: 'Pennsylvania',
   chino2021: 'California',
   fremont2021: 'California',
   campbellcity: 'California',
+  buellton: 'California',
+  ocsd: 'California',
+  groverbeach: 'California',
+  vallejo: 'California',
 };
 
 const validEventCodes = {
@@ -147,6 +151,10 @@ commoncausepa: 'pennsylvania',
   chino2021: 'ca_chino',
   fremont2021: 'ca_fremont',
   campbellcity: 'ca_campbell',
+  buellton: 'ca_buellton',
+  ocsd: 'ca_oceano',
+  groverbeach: 'ca_grover',
+  vallejo: 'ca_vallejo',
 };
 
 const blockPlans = {
@@ -237,6 +245,10 @@ const hybrid_events = [
   'chino2021',
   'fremont2021',
   'campbellcity',
+  'buellton',
+  'ocsd',
+  'groverbeach',
+  'vallejo',
 ];
 
 const portal_events = [
@@ -561,6 +573,48 @@ Redistricting is based on population and communities of interest.  A community o
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;CampbellCity&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
+  ocsd: "<p>Welcome to the Districtr Community of Interest public mapping tool for Oceano Community Service District's 2021 division redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the CSD know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;OCSD&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  buellton: "<p>Welcome to the Districtr Community of Interest public mapping tool for Buellton's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Buellton&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  vallejo: "<p>Welcome to the Districtr Community of Interest public mapping tool for Vallejo's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Vallejo&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  groverbeach: "<p>Welcome to the Districtr Community of Interest public mapping tool for Grover Beach's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;GroverBeach&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
   fremont2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fremont's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -663,6 +717,30 @@ const longAbout = {
   campbellcity: [
     "City of Campell District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  ocsd: [
+    "Oceano Community Services District's boundaries must be redrawn every 10 years using U.S. Census data in order to make the five divisions as equal in population as possible and that each member represents about the same number of constituents. \
+    The CSD encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  buellton: [
+    "City of Buellton District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  groverbeach: [
+    "City of Grover Beach District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  vallejo: [
+    "City of Vallejo District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -822,7 +900,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -894,6 +972,18 @@ export default () => {
             } else if (eventCode === "fremont2021") {
               document.getElementById("partner-link-a").href = "https://www.fremont.gov";
               document.getElementById("partnership-a").src = "/assets/partners-fremont.png";
+            } else if (eventCode === "buellton") {
+              document.getElementById("partner-link-a").href = "https://cityofbuellton.com";
+              document.getElementById("partnership-a").src = "/assets/partners-buellton.webp";
+            } else if (eventCode === "groverbeach") {
+              document.getElementById("partner-link-a").href = "https://www.grover.org";
+              document.getElementById("partnership-a").src = "/assets/partners-grover.png";
+            } else if (eventCode === "ocsd") {
+              document.getElementById("partner-link-a").href = "https://oceanocsd.org";
+              document.getElementById("partnership-a").src = "/assets/partners-oceano.png";
+            } else if (eventCode === "vallejo") {
+              document.getElementById("partner-link-a").href = "https://www.cityofvallejo.net";
+              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
