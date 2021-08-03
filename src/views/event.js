@@ -522,7 +522,7 @@ Redistricting is based on population and communities of interest.  A community o
      share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;MercedCo&quot; is filled \
      out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-'mp-maps': "<p>Welcome to the public mapping page for Menlo Park!.<p>\
+'mp-maps': "<p>Welcome to the public mapping page for Menlo Park!<p>\
   <p>You are encouraged to draw and describing Menlo Park Districts using Districtr.org.</p>\
   <p><strong>To share your map, enter the tag &quot;MP-maps&quot;</strong></p>\
   <p>To view current Districts, click <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>here</a>.</p>",
