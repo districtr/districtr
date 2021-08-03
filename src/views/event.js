@@ -522,10 +522,14 @@ Redistricting is based on population and communities of interest.  A community o
      share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;MercedCo&quot; is filled \
      out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-'mp-maps': "<p>Welcome to the public mapping page for Menlo Park!<p>\
-  <p>You are encouraged to draw and describing Menlo Park Districts using Districtr.org.</p>\
-  <p><strong>To share your map, enter the tag &quot;MP-maps&quot;</strong></p>\
-  <p>To view current Districts, click <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>here</a>.</p>",
+'mp-maps': "<p>Welcome to the Districtr public mapping tool to support the City of Menlo Park's 2021 City Council redistricting effort.<p>\
+    <p>As part of the City's effort to provide transparency and meet requirements of the California FAIR MAPS Act, we encourage residents to \
+    submit their draft city council districts and “Communities of Interest” (COI) using the <a href='https://districtr.org/' target='_blank'>Districtr.org</a> mapping tool. A “Community of Interest” \
+    is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
+    for purposes of its effective and fair representation.”</p>\
+    <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
+    <p><strong>Once you have drawn your map, be sure to use the tag &quot;MP-maps&quot;</strong></p>\
+    <p>Click the following link to view <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>Current Districts</a>.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
