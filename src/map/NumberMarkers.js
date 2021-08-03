@@ -1,6 +1,7 @@
 import Layer from "./Layer";
 import { colorScheme } from "../colors";
 import { spatial_abilities } from "../utils";
+import { Chance } from "chance";
 
 export default function NumberMarkers(state, brush, old=false) {
     const spacer = String.fromCharCode(8202) + String.fromCharCode(8202);
@@ -148,10 +149,10 @@ export default function NumberMarkers(state, brush, old=false) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
                 let district_num = moveMarkers[d_index];
-                let filterOdds = 100 / markers[district_num].length;
-                if (filterOdds < 1) {
-                    markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
-                }
+                // var random = new Chance(markers[district_num]);
+                // if (markers[district_num].length > 100) {
+                //     markers[district_num] = random.pickset(markers[district_num], 100);
+                // }
                 
                 const units = state.unitsRecord.unitType;
                 const stateName = state.place.state;
@@ -190,9 +191,9 @@ export default function NumberMarkers(state, brush, old=false) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
                 let district_num = moveMarkers[d_index];
-                let filterOdds = 100 / markers[district_num].length;
-                if (filterOdds < 1) {
-                    markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
+                var random = new Chance(markers[district_num]);
+                if (markers[district_num].length > 100) {
+                    markers[district_num] = random.pickset(markers[district_num], 100);
                 }
                 const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
                     // : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
