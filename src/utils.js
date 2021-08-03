@@ -377,6 +377,15 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    ca_contracosta: {
+      number_markers: false,
+      border: true,
+      shapefile: true,
+      coalition: false,
+      portal: {
+        endpoint: 'https://portal.contracosta-mapping.org'
+      }
+    },
     contracosta: {
       number_markers: true,
       border: true,
