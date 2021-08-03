@@ -2403,5 +2403,74 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1547,
+              "min": 1,
+              "max": 1
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Census GEOID",
+          "key": "GEOID10"
+        },
+        "nameColumn": {
+          "name": "Block Name",
+          "key": "NAME10"
+        },
+        "bounds": [
+          [
+            -81.9008,
+            26.5482
+          ],
+          [
+            -81.7508,
+            26.6795
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fort_myers_fl_blocks"
+            },
+            "sourceLayer": "fort_myers_fl_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fort_myers_fl_blocks_points"
+            },
+            "sourceLayer": "fort_myers_fl_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "Florida",
+    "name": "Fort Myers",
+    "id": "fort_myers_fl",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "City Council Wards"
+      }
+    ]
   }
 ]
