@@ -9,7 +9,7 @@ import { listPlaces } from "../api/mockApi";
 
 
 
-let skip = 0, draftskip = 0,
+let skip = 0, draftskip = -1,
     prevPlans = [],
     prevDrafts = [];
 
@@ -960,7 +960,7 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip == 0)
+            if (drafts && draftskip == -1)
               data.plans = [];
             drafts 
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
@@ -1004,7 +1004,10 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
         console.log(eventurl)
-        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
+        if (draftSkip == -1)
+            draftSkip = 0;
+        else
+            fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
