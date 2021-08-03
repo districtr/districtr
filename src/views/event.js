@@ -1004,8 +1004,8 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
         console.log(eventurl)
-        if (draftSkip == -1)
-            draftSkip = 0;
+        if (draftskip == -1)
+            draftskip = 0;
         else
             fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
