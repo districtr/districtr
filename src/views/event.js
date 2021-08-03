@@ -973,8 +973,6 @@ export default () => {
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
-            if (drafts) // once clicked once no longer hide them!
-              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
 
             render(html`
                 ${plansSection(plans, eventCode)}
@@ -983,7 +981,8 @@ export default () => {
                       console.log(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
-                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                      fetch((drafts && draftskip == -1) ? fetchurl 
+                        : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
                         drafts ? draftskip += limitNum : skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
                         document.getElementById(button).disabled = false;
@@ -1004,7 +1003,7 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        console.log(eventurl)
+        //console.log(eventurl)
         fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
