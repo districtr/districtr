@@ -76,6 +76,10 @@ commoncausepa: 'Pennsylvania',
   camarillo: 'California',
   bellflower: 'California',
   'mp-maps': 'California',
+  lakee: 'California',
+  chino2021: 'California',
+  fremont2021: 'California',
+  campbellcity: 'California',
 };
 
 const validEventCodes = {
@@ -141,6 +145,10 @@ commoncausepa: 'pennsylvania',
   bellflower: 'ca_bellflower',
   camarillo: 'ca_camarillo',
   'mp-maps': 'menlo_park',
+  lakee: 'lake_el',
+  chino2021: 'ca_chino',
+  fremont2021: 'ca_fremont',
+  campbellcity: 'ca_campbell',
 };
 
 const blockPlans = {
@@ -228,6 +236,10 @@ const hybrid_events = [
   'ca_sm_county',
   'ourmaps',
   'mp-maps',
+  'lakee',
+  'chino2021',
+  'fremont2021',
+  'campbellcity',
 ];
 
 const portal_events = [
@@ -530,6 +542,46 @@ Redistricting is based on population and communities of interest.  A community o
     <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
     <p><strong>Once you have drawn your map, be sure to use the tag &quot;MP-maps&quot;</strong></p>\
     <p>Click the following link to view <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>Current Districts</a>.</p>",
+  lakee: "<p>Welcome to the Districtr Community of Interest public mapping tool for Lake Elsinore's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;LakeE&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  chino2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Chino's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Chino2021&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  campbellcity: "<p>Welcome to the Districtr Community of Interest public mapping tool for Campbell's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;CampbellCity&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  fremont2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fremont's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Fremont2021&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
@@ -610,6 +662,30 @@ const longAbout = {
   kingsco: [
     "Kings County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  fremont2021: [
+    "City of Fremont District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  campbellcity: [
+    "City of Campell District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  lakee: [
+    "City of Lake Elsinore District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  chino2021: [
+    "City of Chino District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -757,7 +833,7 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -816,6 +892,19 @@ export default () => {
             } else if (eventCode === "bellflower") {
               document.getElementById("partner-link-a").href = "https://www.bellflower.org/";
               document.getElementById("partnership-a").src = "/assets/partners-bellflower.png";
+            } else if (eventCode === "lakee") {
+              document.getElementById("partner-link-a").href = "http://www.lake-elsinore.org";
+              document.getElementById("partnership-a").src = "/assets/partners-lake_el.png";
+            } else if (eventCode === "chino2021") {
+              document.getElementById("partner-link-a").href = "https://www.cityofchino.org";
+              document.getElementById("partnership-a").src = "/assets/partners-chino.png";
+            } else if (eventCode === "campbellcity") {
+              document.getElementById("partner-link-a").href = "https://www.ci.campbell.ca.us";
+              document.getElementById("partnership-a").src = "/assets/partners-campbell.png";
+              document.getElementById("partnership-a").style.background = "#143e5d";
+            } else if (eventCode === "fremont2021") {
+              document.getElementById("partner-link-a").href = "https://www.fremont.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-fremont.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
@@ -973,7 +1062,7 @@ export default () => {
             // hide at start
             if (drafts && draftskip == 0)
               data.plans = [];
-            drafts 
+            drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{

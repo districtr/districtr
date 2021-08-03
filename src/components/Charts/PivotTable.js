@@ -101,7 +101,7 @@ export const PivotTable = (chartId, columnSet, placeName, parts, coalitionEnable
                 return portion;
             },
             sum: fullsum,
-            total: columnSet.subgroups[0].total
+            total: columnSet.subgroups.length > 0 ? columnSet.subgroups[0].total : 0
         };
 
         mockColumnSet = {
