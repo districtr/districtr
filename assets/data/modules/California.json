@@ -8009,7 +8009,7 @@
   },
   {
     "id": "ca_oceano",
-    "name": "Oceano",
+    "name": "Oceano CSD",
     "state": "California",
     "units": [
       {
@@ -8184,9 +8184,9 @@
     ],
     "districtingProblems": [
       {
-        "name": "City Council",
+        "name": "CSD",
         "numberOfParts": 5,
-        "pluralNoun": "Council Districts"
+        "pluralNoun": "Divisions"
       }
     ]
   },
@@ -8389,7 +8389,7 @@
     "districtingProblems": [
       {
         "name": "City Council",
-        "numberOfParts": 3,
+        "numberOfParts": 4,
         "pluralNoun": "Council Districts"
       }
     ]
@@ -8586,7 +8586,7 @@
     "districtingProblems": [
       {
         "name": "City Council",
-        "numberOfParts": 3,
+        "numberOfParts": 4,
         "pluralNoun": "Council Districts"
       }
     ]

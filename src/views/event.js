@@ -574,13 +574,13 @@ Redistricting is based on population and communities of interest.  A community o
      <p><strong>To display your map on this page, be sure the tag &quot;CampbellCity&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
 
-  ocsd: "<p>Welcome to the Districtr Community of Interest public mapping tool for Oceano Community Service District's 2021 redistricting.<p>\
+  ocsd: "<p>Welcome to the Districtr Community of Interest public mapping tool for Oceano Community Service District's 2021 division redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
      population that shares common social or economic interests that should \
      be included within a single district for purposes of its effective and fair \
      representation.”</p>\
-     <p>To let the City know about your community and what brings it together, \
+     <p>To let the CSD know about your community and what brings it together, \
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;OCSD&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
@@ -721,8 +721,8 @@ const longAbout = {
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   ocsd: [
-    "Oceano Community Services District's Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The District encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "Oceano Community Services District's boundaries must be redrawn every 10 years using U.S. Census data in order to make the five divisions as equal in population as possible and that each member represents about the same number of constituents. \
+    The CSD encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
