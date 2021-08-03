@@ -461,6 +461,30 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    lake_el: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_chino: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_campbell: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_fremont: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_sm_county: {
       coalition: false,
       border: true,
