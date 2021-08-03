@@ -56,6 +56,10 @@ export function parseElectionName(election) {
         return yr + " SEN"
     if (election.includes('Governor'))
         return yr + " GOV"
+    if (election.includes('Secretary of State'))
+        return yr + " SoS"
+    if (election.includes("Attorney General"))
+        return yr + " AG"
     return election
 }
 
