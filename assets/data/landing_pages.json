@@ -1126,8 +1126,8 @@
                 "name": "Congressional Plan"
               },
               {
-                "id": "state_sen",
-                "name": "State Senate Plan"             
+                "id": "leg_dist",
+                "name": "Legislative Districts"             
               }
             ]
           }
