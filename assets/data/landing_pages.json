@@ -1120,6 +1120,10 @@
               {
                 "id": "congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "leg_dist",
+                "name": "Legislative Districts"             
               }
             ]
           }
