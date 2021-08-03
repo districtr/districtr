@@ -381,6 +381,7 @@ export function spatial_abilities(id) {
       number_markers: false,
       border: true,
       shapefile: true,
+      coalition: false,
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
@@ -389,7 +390,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
-      coalition: false,
       municipalities: true,
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
