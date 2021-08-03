@@ -217,7 +217,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
             tilesets.find(tileset => tileset.source.url.includes("tracts")),
             layerAdder
         );
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont", "lake_el"].includes(borderId)) {
+    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont", "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover"].includes(borderId)) {
         tracts = addTracts(
             map,
             tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
