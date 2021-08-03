@@ -6732,6 +6732,7 @@
       {
         "id": "blocks",
         "name": "Blocks",
+        "hideOnDefault": true
         "unitType": "Blocks",
         "columnSets": [
           {
