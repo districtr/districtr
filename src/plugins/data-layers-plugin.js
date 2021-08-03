@@ -410,7 +410,7 @@ export default function DataLayersPlugin(editor) {
                     layout: {
                       'text-field': [
                           'format',
-                          ['get', 'VTD'],
+                          ['get', 'CURRENT_PC'],
                           {},
                       ],
                       'text-anchor': 'center',
@@ -420,8 +420,7 @@ export default function DataLayersPlugin(editor) {
                     paint: {
                       'text-opacity': 0
                     }
-                  },
-                  addBelowLabels
+                  }
               );
           });
        });
@@ -710,11 +709,16 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
+        let partisanLayers = spatial_abilities(state.place.id).county_filter
+          ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
+          : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
-            demoLayers,
+            partisanLayers,
             state.elections,
-            toolbar
+            toolbar,
+            null, // bipolar / rent text
+            spatial_abilities(state.place.id).county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">

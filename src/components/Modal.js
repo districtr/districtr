@@ -2,9 +2,18 @@ import { html, render } from "lit-html";
 import { until } from "lit-html/directives/until";
 import { spatial_abilities } from "../utils";
 
+
+/**
+ * @desc Closes a modal.
+ */
+export function closeModal() {
+    let modal = document.getElementById("modal");
+    render("", modal);
+}
+
 export function renderModal(innerContent) {
     const target = document.getElementById("modal");
-    return html`
+    const template = html`
         <div
             class="modal-wrapper"
             @click="${() => render("", target)}"
@@ -25,6 +34,8 @@ export function renderModal(innerContent) {
             </div>
         </div>
     `;
+    
+    return template;
 }
 
 export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {

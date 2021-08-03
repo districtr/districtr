@@ -1,12 +1,17 @@
 import { svg, html, render } from "lit-html";
-import { listPlacesForState, placeItems } from "../components/PlacesList";
+import { communitiesFilter, listPlacesForState, placeItems } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
-
+import { PlaceMapWithData } from "../components/PlaceMap";
 import { geoPath } from "d3-geo";
 import { geoAlbersUsaTerritories } from "geo-albers-usa-territories";
+import { until } from "lit-html/directives/until";
+import { listPlaces } from "../api/mockApi";
 
-let skip = 0,
-    prevPlans = [];
+
+
+let skip = 0, draftskip = 0,
+    prevPlans = [],
+    prevDrafts = [];
 
 const stateForEvent = {
   test: 'Pennsylvania',
@@ -41,14 +46,35 @@ const stateForEvent = {
   hia: 'Texas',
   onelovemi: 'Michigan',
   saccounty: 'California',
+  fresno: 'California',
+  fresnocity: 'California',
+  nevadaco: 'California',
+  sanmateoco: 'California',
+  sanbenito: 'California',
   saccountymap: 'California',
   sonomaco: 'California',
   pasadena2021: 'California',
   goleta: 'California',
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
+  napa_county: 'California',
+san_jose: 'California',
+siskiyou: 'California',
+redwood: 'California',
+ventura_county: 'California',
+yolo_county: 'California',
+solano_county: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
+  marinco: 'California',
+commoncausepa: 'Pennsylvania',
+  kingsco: 'California',
+  mercedco: 'California',
+  marinaca: 'California',
+  arroyog: 'California',
+  chulavista: 'California',
+  camarillo: 'California',
+  bellflower: 'California',
 };
 
 const validEventCodes = {
@@ -85,13 +111,34 @@ const validEventCodes = {
   onelovemi: 'michigan',
   saccounty: 'sacramento',
   saccountymap: 'sacramento',
+  fresno: 'ca_fresno',
+  fresnocity: 'ca_fresno_ci',
+  nevadaco: 'ca_nevada',
+  sanmateoco: 'ca_sm_county',
+  sanbenito: 'ca_sanbenito',
   pasadena2021: 'ca_pasadena',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
+  napa_county: 'napacounty2021',
+  san_jose: 'sanjoseca',
+  siskiyou: 'ca_siskiyou',
+  redwood: 'redwood',
+  ventura_county: 'ca_ventura',
+  yolo_county: 'ca_yolo',
+  solano_county: 'ca_solano',
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
   ourmaps: 'nebraska',
+  marinco: 'ca_marin',
+commoncausepa: 'pennsylvania',
+  kingsco: 'ca_kings',
+  mercedco: 'ca_merced',
+  marinaca: 'ca_marina',
+  arroyog: 'ca_arroyo',
+  chulavista: 'ca_cvista',
+  bellflower: 'ca_bellflower',
+  camarillo: 'ca_camarillo',
 };
 
 const blockPlans = {
@@ -144,6 +191,14 @@ const coi_events = [
   'ourmapsne',
   'onelovemi',
   'ks-fairmaps',
+  'napa_county',
+  'san_jose',
+  'siskiyou',
+  'redwood',
+  'ventura_county',
+  'yolo_county',
+  'solano_county',
+  'commoncausepa'
 ];
 
 const hybrid_events = [
@@ -151,10 +206,24 @@ const hybrid_events = [
   'hia',
   'saccounty',
   'saccountymap',
+  'fresno',
+  'fresnocity',
+  'nevadaco',
+  'sanmateoco',
+  'sanbenito',
   'sonomaco',
   'pasadena2021',
+  'kingsco',
+  'mercedco',
   'goleta',
   'sbcounty',
+  'marinco',
+  'marinaca',
+  'arroyog',
+  'camarillo',
+  'chulavista',
+  'bellflower',
+  'ca_sm_county',
   'ourmaps',
 ];
 
@@ -207,7 +276,7 @@ const eventDescriptions = {
     slo_county: "<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
        <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit <a href='https://www.slocounty.ca.gov/redistricting' target='_blank'>this link</a>.</p>\
        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “SLO_County” (any capitalization) is entered.</p>",
    ourmapsne: "Welcome to the event page for Nebraska!",
     prjusd: "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
@@ -229,6 +298,46 @@ share your map and your story using this tool now.</p>\
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
   <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
+  fresno: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fresno County’s 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Fresno&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+nevadaco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Nevada County’s 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;NevadaCo&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+sanmateoco: "<p>Welcome to the Districtr Community of Interest public mapping tool for San Mateo County’s 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;SanMateoCo&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+sanbenito: "<p>Welcome to the Districtr Community of Interest public mapping tool for San Benito County’s 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;SanBenito&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   sonomaco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sonoma County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -249,6 +358,16 @@ pasadena2021: "<p>Welcome to the Districtr Community of Interest public mapping 
 share your map and your story using this tool now.</p>\
    <p><strong>To display your map on this page, be sure the tag &quot;Pasadena2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+marinco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marin County's 2021 supervisorial redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the County know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;MarinCo&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   saccountymap: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sacramento County’s 2021 supervisorial redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -262,8 +381,104 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-  'galeo': 'Welcome to the event page for GALEO!',
+  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data. \
+Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
+    <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
+    <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
+    Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps. For more information, visit link.</p>\
+    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
 
+   san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Jose” (any capitalization) is entered.</p>',
+   siskiyou: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Siskiyou” (any capitalization) is entered.</p>',
+   redwood: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Redwood” (any capitalization) is entered.</p>',
+   ventura_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Ventura_County” (any capitalization) is entered.</p>',
+   yolo_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Yolo_County” (any capitalization) is entered.</p>',
+    solano_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
+       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
+  galeo: 'Welcome to the event page for GALEO!',
+  marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;MarinaCA&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  fresnocity: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fresno's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;FresnoCity&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  arroyog: "<p>Welcome to the Districtr Community of Interest public mapping tool for Arroyo Grande's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;ArroyoG&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  chulavista: "<p>Welcome to the Districtr Community of Interest public mapping tool for Chula Vista's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;ChulaVista&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  camarillo: "<p>Welcome to the Districtr Community of Interest public mapping tool for Camarillo's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Camarillo&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  bellflower: "<p>Welcome to the Districtr Community of Interest public mapping tool for Bellflower's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Bellflower&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   goleta: "<p>Welcome to the Districtr Community of Interest public mapping tool for Goleta's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -284,7 +499,33 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;SBCounty&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  kingsco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Kings County's 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;KingsCO&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  mercedco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Merced County's 2021 supervisorial redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;MercedCo&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
+  commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
+  <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
+  (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
+  state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
+  to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>"
 };
 
 const longAbout = {
@@ -298,6 +539,27 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   slo_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  napa_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  san_jose: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  siskiyou: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  redwood: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  ventura_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  yolo_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
@@ -318,7 +580,25 @@ const longAbout = {
   ],
   pasadena2021: [
     "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full seven-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  marinco: [
+    "Marin County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  mercedco: [
+    "Merced County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  kingsco: [
+    "Kings County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -329,9 +609,63 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  fresno: [
+    "Fresno County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  nevadaco: [
+    "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  sanmateoco: [
+    "San Mateo County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  sanbenito: [
+    "San Benito County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   goleta: [
     "City of Goleta City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  marinaca: [
+    "City of Marina City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  arroyog: [
+    "Arroyo Grande City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  camarillo: [
+    "Camarillo City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  bellflower: [
+    "Bellflower City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  chulavista: [
+    "Chula Vista City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -340,6 +674,11 @@ const longAbout = {
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  commoncausepa: [
+    "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
+     Standing as an independent voice for positive change, a watchdog against corruption, and protector against abuse of power, \
+     we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization."
   ],
 };
 
@@ -363,7 +702,15 @@ export default () => {
             document.getElementById("introExplain").style.display = "block";
         }
 
-        if (["mesaaz", "slo_county"].includes(eventCode)) {
+    if (["commoncausepa"].includes(eventCode)) {
+       document.getElementById("partnership-icons").style.display = "block";
+       document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
+       document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
+       document.getElementById("partner-link-b").href = "https://www.commoncause.org/";
+       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
+          }
+
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -371,10 +718,35 @@ export default () => {
             } else if (eventCode === "slo_county") {
               document.getElementById("partner-link-a").href = "https://www.slocounty.ca.gov/";
               document.getElementById("partnership-a").src = "/assets/partners-slo.png";
+            } else if (eventCode === "napa_county") {
+              document.getElementById("partner-link-a").href = "https://www.countyofnapa.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-napa.png";
+              document.getElementById("partnership-a").style.background = '#252532';
+            } else if (eventCode === "san_jose") {
+              document.getElementById("partner-link-a").href = "https://www.sanjoseca.gov/your-government/departments";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png";
+              document.getElementById("partnership-a").style.background = '#043c4b';
+            } else if (eventCode === "siskiyou") {
+              document.getElementById("partner-link-a").href = "https://www.co.siskiyou.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png";
+            } else if (eventCode === "redwood") {
+              document.getElementById("partner-link-a").href = "https://www.redwoodcity.org/home";
+              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg";
+            } else if (eventCode === "ventura_county") {
+              document.getElementById("partner-link-a").href = "https://www.ventura.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-ventura.png";
+            } else if (eventCode === "yolo_county") {
+              document.getElementById("partner-link-a").href = "https://www.yolocounty.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-yolo.png";
+              document.getElementById("partnership-a").style.background = '#375e97';
+            } else if (eventCode === "solano_county") {
+              document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
+              document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
             }
+
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -392,6 +764,47 @@ export default () => {
             } else if (eventCode === "goleta") {
               document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
               document.getElementById("partnership-a").src = "/assets/partners-goleta.png";
+            } else if (eventCode === "marinco") {
+              document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-marin.png";
+            } else if (eventCode === "marinaca") {
+              document.getElementById("partner-link-a").href = "https://cityofmarina.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-marina.png";
+            } else if (eventCode === "arroyog") {
+              document.getElementById("partner-link-a").href = "http://www.arroyogrande.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-arroyo.png";
+            } else if (eventCode === "fresno") {
+              document.getElementById("partner-link-a").href = "https://www.co.fresno.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno.png";
+              document.getElementById("partnership-a").style.background = "#1C385A";
+            } else if (eventCode === "fresnocity") {
+              document.getElementById("partner-link-a").href = "https://fresno.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg";
+            } else if (eventCode === "nevadaco") {
+              document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
+              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
+            } else if (eventCode === "sanmateoco") {
+              document.getElementById("partner-link-a").href = "https://www.smcgov.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-sanmateoco.png";
+            } else if (eventCode === "kingsco") {
+              document.getElementById("partner-link-a").href = "https://www.countyofkings.com/";
+              document.getElementById("partnership-a").src = "/assets/partners-kings.svg";
+              document.getElementById("partnership-a").style.background = "#142942";
+            } else if (eventCode === "mercedco") {
+              document.getElementById("partner-link-a").href = "https://www.co.merced.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-merced.png";
+            } else if (eventCode === "sanbenito") {
+              document.getElementById("partner-link-a").href = "https://www.cosb.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-sanbenito.svg";
+            } else if (eventCode === "camarillo") {
+              document.getElementById("partner-link-a").href = "https://www.ci.camarillo.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partners-camarillo.png";
+            } else if (eventCode === "chulavista") {
+              document.getElementById("partner-link-a").href = "https://www.chulavistaca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partners-chulavista.png";
+            } else if (eventCode === "bellflower") {
+              document.getElementById("partner-link-a").href = "https://www.bellflower.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-bellflower.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
@@ -408,6 +821,13 @@ export default () => {
             document.getElementById("about-section").style.display = "block";
             document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
+        }
+        if(eventCode === "ttt") {
+            let title = document.getElementById("districting-options-title");
+            render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.
+            You can start in any state and use the tag "TTT" to post here.</text>`, title);
+            let map_section = document.getElementById("districting-options");
+            render(until(PlaceMapWithData((tgt) => toStateCommunities(tgt, 'ttt')), ""), map_section);
         }
 
         if (eventCode === "open-maps") {
@@ -426,7 +846,6 @@ export default () => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
                 ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                    // console.log(feature);
                     return svg`<path id="x" stroke-width="0"
                         d="${path(feature)}"
                         @click=${(e) => {
@@ -440,7 +859,6 @@ export default () => {
             render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
               <g id="states-group" @mouseleave=${() => {}}>
                 ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                    // console.log(feature);
                     return svg`<path id="x" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
                         d="${path(feature)}"
                         @click=${(e) => {
@@ -454,7 +872,6 @@ export default () => {
               render(svg`<svg viewBox="0 0 300 300" style="width:300px; height:300px;">
                 <g id="states-group" @mouseleave=${() => {}}>
                   ${gj.features.filter(f => f.geometry.type !== "Point").map((feature, idx) => {
-                      // console.log(feature);
                       return svg`<path id="x" fill="#ccc" stroke-width="0"
                           d="${path(feature)}"
                       ></path>`;
@@ -532,37 +949,49 @@ export default () => {
             });
         });
 
-        let limitNum = 20;
+        let limitNum = 16;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
-        let showPlans = (data) => {
+        let showPlans = (data, drafts = false) => {
             let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
             if (loadExtraPlans) {
                 data.plans.pop();
             }
-            prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
+            // hide at start
+            if (drafts && draftskip == 0)
+              data.plans = [];
+            drafts 
+              ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
+              : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
             const plans = [{
-                title: (eventCode === "missouri-mapping" ? "What community maps can look like" : "Community-submitted maps"),
-                plans: prevPlans,
+                title: (eventCode === "missouri-mapping" ? "What community maps can look like" :
+                (drafts ? "Works in Progress" : "Public Gallery")),
+                plans: drafts ? prevDrafts : prevPlans,
             }];
+            let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
+            let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
+            let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
+            if (drafts) // once clicked once no longer hide them!
+              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
+
             render(html`
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
-                  html`<button id="loadMorePlans" @click="${(e) => {
-                      document.getElementById("event-pinwheel").style.display = "block";
-                      document.getElementById("loadMorePlans").disabled = true;
-                      fetch(eventurl.replace("skip=0", `skip=${skip+limitNum}`)).then(res => res.json()).then(d => {
-                        skip += limitNum;
-                        document.getElementById("event-pinwheel").style.display = "none";
-                        document.getElementById("loadMorePlans").disabled = false;
-                        showPlans(d);
+                  html`<button id="${button}" @click="${(e) => {
+                      document.getElementById(pinwheel).style.display = "block";
+                      document.getElementById(button).disabled = true;
+                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                        drafts ? draftskip += limitNum : skip += limitNum;
+                        document.getElementById(pinwheel).style.display = "none";
+                        document.getElementById(button).disabled = false;
+                        showPlans(d, drafts);
                       });
-                  }}">Load More Plans</button>
-                  ${loadExtraPlans ? html`<img id="event-pinwheel" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
+                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                  ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
-            `, document.getElementById("plans"));
+            `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
 
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
@@ -574,6 +1003,8 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
+        console.log(eventurl)
+        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
@@ -664,4 +1095,32 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
             }
         </li>
     </a>`;
+}
+
+function toStateCommunities(s, eventCode) {
+    //const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
+    //window.location.assign(url);
+    // let place;
+    // place.districtingProblems = [
+    //   { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+    // ];
+    let show_just_communities = true;
+    let tgt = document.getElementById('districting-options');
+    console.log(listPlaces(null, s.properties.NAME))
+    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
+    render("", tgt)
+    listPlaces(null, s.properties.NAME).then(items => {
+      let placesList = items.filter(place => !place.limit || show_just_communities)
+          .map(communitiesFilter)
+      let lstdiv = document.createElement('div');
+      tgt.append(lstdiv)
+      placesList.forEach(place => {
+        place.districtingProblems = [
+            { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+          ]
+          const mydiv = document.createElement('li');
+          lstdiv.append(mydiv);
+          render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+      })
+    });
 }
