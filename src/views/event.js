@@ -980,7 +980,7 @@ export default () => {
                 ${plansSection(plans, eventCode)}
                 ${loadExtraPlans ?
                   html`<button id="${button}" @click="${(e) => {
-                      console.log(fetchurl);
+                      console.log(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
                       fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
