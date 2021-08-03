@@ -519,13 +519,13 @@ Redistricting is based on population and communities of interest.  A community o
      be included within a single district for purposes of its effective and fair \
      representation.”</p>\
      <p>To let the County know about your community and what brings it together, \
-  share your map and your story using this tool now.</p>\
+     share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;MercedCo&quot; is filled \
-  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-  'mp-maps': "<p>Welcome to the public mapping page for Menlo Park!.<p>\
-  <p>You are encouraged to draw and describing Menlo Park Districts using Districtr.org. </p>\
+     out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+'mp-maps': "<p>Welcome to the public mapping page for Menlo Park!.<p>\
+  <p>You are encouraged to draw and describing Menlo Park Districts using Districtr.org.</p>\
   <p><strong>To share your map, enter the tag &quot;MP-maps&quot;</strong></p>\
-  <p>To view current Districts, click <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>here</a>.</p>"
+  <p>To view current Districts, click <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>here</a>.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
