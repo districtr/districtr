@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"name": "ca_tuolumne_municipalities_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Sonora" }, "geometry": { "type": "Point", "coordinates": [ -120.382808406138082, 37.981887616648841 ] } },
+{ "type": "Feature", "properties": { "NAME": "Cedar Ridge" }, "geometry": { "type": "Point", "coordinates": [ -120.273743951592053, 38.066108273360044 ] } },
+{ "type": "Feature", "properties": { "NAME": "Chinese Camp" }, "geometry": { "type": "Point", "coordinates": [ -120.444290225931113, 37.870243698037989 ] } },
+{ "type": "Feature", "properties": { "NAME": "Columbia" }, "geometry": { "type": "Point", "coordinates": [ -120.409654292853986, 38.033330526198135 ] } },
+{ "type": "Feature", "properties": { "NAME": "East Sonora" }, "geometry": { "type": "Point", "coordinates": [ -120.341113127907477, 37.977677669004969 ] } },
+{ "type": "Feature", "properties": { "NAME": "Cold Springs" }, "geometry": { "type": "Point", "coordinates": [ -120.053526896738958, 38.161335359056288 ] } },
+{ "type": "Feature", "properties": { "NAME": "Groveland" }, "geometry": { "type": "Point", "coordinates": [ -120.239417505199626, 37.832540697193188 ] } },
+{ "type": "Feature", "properties": { "NAME": "Jamestown" }, "geometry": { "type": "Point", "coordinates": [ -120.410986730983296, 37.957367209528464 ] } },
+{ "type": "Feature", "properties": { "NAME": "Long Barn" }, "geometry": { "type": "Point", "coordinates": [ -120.128542660639653, 38.095685104699697 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mi-Wuk Village" }, "geometry": { "type": "Point", "coordinates": [ -120.178977378448536, 38.056976035850603 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mono Vista" }, "geometry": { "type": "Point", "coordinates": [ -120.269775630959487, 38.012315644650691 ] } },
+{ "type": "Feature", "properties": { "NAME": "Phoenix Lake" }, "geometry": { "type": "Point", "coordinates": [ -120.308970686001942, 38.007431557760512 ] } },
+{ "type": "Feature", "properties": { "NAME": "Pine Mountain Lake" }, "geometry": { "type": "Point", "coordinates": [ -120.184357356334758, 37.859873753053961 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sierra Village" }, "geometry": { "type": "Point", "coordinates": [ -120.16234753857978, 38.076759925663353 ] } },
+{ "type": "Feature", "properties": { "NAME": "Soulsbyville" }, "geometry": { "type": "Point", "coordinates": [ -120.261658429647127, 37.991768076504677 ] } },
+{ "type": "Feature", "properties": { "NAME": "Strawberry" }, "geometry": { "type": "Point", "coordinates": [ -120.010524553775923, 38.198662826652814 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tuolumne City" }, "geometry": { "type": "Point", "coordinates": [ -120.242744806690851, 37.961511823799164 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tuttletown" }, "geometry": { "type": "Point", "coordinates": [ -120.450290551548107, 38.000343583750322 ] } },
+{ "type": "Feature", "properties": { "NAME": "Twain Harte" }, "geometry": { "type": "Point", "coordinates": [ -120.233945379976461, 38.038397740539757 ] } }
+]
+}

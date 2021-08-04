@@ -460,7 +460,6 @@ export function spatial_abilities(id) {
     },
     ca_sc_county: {
       border: true,
-      coalition: false,
       shapefile: true,
       number_markers: true,
       municipalities: true,

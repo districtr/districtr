@@ -7377,7 +7377,29 @@
               "min": 0,
               "max": 2977
             },
-            "subgroups": []
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 41157,
+                "min": 0,
+                "max": 437
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 692288,
+                "min": 0,
+                "max": 1845
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 485480,
+                "min": 0,
+                "max": 1826
+              }
+            ]
           },
           {
             "type": "population",
@@ -7455,7 +7477,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sc_county_blocks"
+              "url": "mapbox://districtr.ca_sc_county_blocks?v=2"
             },
             "sourceLayer": "ca_sc_county_blocks"
           }
@@ -7470,6 +7492,425 @@
         "name": "County",
         "numberOfParts": 5,
         "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "name": "Tuolumne County",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 54021,
+              "min": 0,
+              "max": 2509
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 860,
+                "min": 0,
+                "max": 679
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 537,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 6076,
+                "min": 0,
+                "max": 802
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 43287,
+              "min": 0,
+              "max": 2390
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 755,
+                "min": 0,
+                "max": 650
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 204,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 3953,
+                "min": 0,
+                "max": 765
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "Native American population",
+                "sum": 411,
+                "min": 0,
+                "max": 70
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 67,
+                "min": 0,
+                "max": 35
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -120.6531,
+            37.6335
+          ],
+          [
+            -119.1995,
+            38.4358
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_tuolumne_blocks_points"
+            },
+            "sourceLayer": "ca_tuolumne_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_tuolumne_blocks?v=2"
+            },
+            "sourceLayer": "ca_tuolumne_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "ca_tuolumne",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisor Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 141248,
+              "min": 0,
+              "max": 1448
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 2544,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 10973,
+                "min": 0,
+                "max": 551
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 46982,
+                "min": 0,
+                "max": 739
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 95095,
+              "min": 0,
+              "max": 979
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 65554,
+                "min": 0,
+                "max": 573
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1961,
+                "min": 0,
+                "max": 120
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 226,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 7000,
+                "min": 0,
+                "max": 372
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 163,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 19100,
+                "min": 0,
+                "max": 313
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.6469,
+            38.1537
+          ],
+          [
+            -122.1033,
+            38.8643
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_boe_blocks_points"
+            },
+            "sourceLayer": "napa_boe_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_boe_blocks"
+            },
+            "sourceLayer": "napa_boe_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "napa_boe",
+    "state": "California",
+    "name": "Napa BOE",
+    "districtingProblems": [
+      {
+        "name": "BOE",
+        "numberOfParts": 5,
+        "pluralNoun": "BOE Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 141248,
+              "min": 0,
+              "max": 1448
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 2544,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 10973,
+                "min": 0,
+                "max": 551
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 46982,
+                "min": 0,
+                "max": 739
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 95095,
+              "min": 0,
+              "max": 979
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_NH_White",
+                "name": "White population",
+                "sum": 65554,
+                "min": 0,
+                "max": 573
+              },
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1961,
+                "min": 0,
+                "max": 120
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 226,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 7000,
+                "min": 0,
+                "max": 372
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 163,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 19100,
+                "min": 0,
+                "max": 313
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -122.6469,
+            38.1537
+          ],
+          [
+            -122.1033,
+            38.8643
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_boe_blocks_points"
+            },
+            "sourceLayer": "napa_boe_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa_boe_blocks"
+            },
+            "sourceLayer": "napa_boe_blocks"
+          }
+        ]
+      }
+    ],
+    "id": "napa_college",
+    "state": "California",
+    "name": "Napa College",
+    "districtingProblems": [
+      {
+        "name": "College",
+        "numberOfParts": 5,
+        "pluralNoun": "College Districts"
       }
     ]
   }
