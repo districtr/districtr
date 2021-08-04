@@ -8,7 +8,7 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 
 
-
+// start draftskip at -16 so that we hide the drafts on initial load
 let skip = 0, draftskip = -16,
     prevPlans = [],
     prevDrafts = [];
@@ -980,8 +980,6 @@ export default () => {
                   html`<button id="${button}" @click="${(e) => {
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
-                      console.log((drafts && draftskip < -1) ? fetchurl 
-                      : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
                       fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
                         drafts ? draftskip += limitNum : skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
@@ -1003,7 +1001,6 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        //console.log(eventurl)
         fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
@@ -1106,8 +1103,6 @@ function toStateCommunities(s, eventCode) {
     // ];
     let show_just_communities = true;
     let tgt = document.getElementById('districting-options');
-    console.log(listPlaces(null, s.properties.NAME))
-    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
     render("", tgt)
     listPlaces(null, s.properties.NAME).then(items => {
       let placesList = items.filter(place => !place.limit || show_just_communities)
