@@ -9,7 +9,7 @@ import { listPlaces } from "../api/mockApi";
 
 
 
-let skip = 0, draftskip = -1,
+let skip = 0, draftskip = -16,
     prevPlans = [],
     prevDrafts = [];
 
@@ -960,7 +960,7 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip == -1)
+            if (drafts && draftskip < 0)
               data.plans = [];
             drafts 
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
@@ -980,7 +980,7 @@ export default () => {
                   html`<button id="${button}" @click="${(e) => {
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
-                      console.log((drafts && draftskip == -1) ? fetchurl 
+                      console.log((drafts && draftskip < -1) ? fetchurl 
                       : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
                       fetch((drafts && draftskip == -1) ? fetchurl 
                         : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
@@ -989,7 +989,7 @@ export default () => {
                         document.getElementById(button).disabled = false;
                         showPlans(d, drafts);
                       });
-                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                  }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
                   ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
