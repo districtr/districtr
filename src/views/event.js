@@ -1214,7 +1214,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
                       : ((eventCode == 'pmc-districts')
                         ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
-                            it with the tag "pmc", it will be added to the gallery <a href='event/pmc' target='_blank'>here</a>.
+                            it with the tag "pmc", it will be added to the gallery <a href='/pmc' target='_blank'>here</a>.
                             <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
                              They are intended for use as starting points for exploration. You can read more about their properties
                              in <a href='https://www.dropbox.com/s/o3654c9gkunfy6l/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
