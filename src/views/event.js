@@ -83,6 +83,7 @@ commoncausepa: 'Pennsylvania',
   san_joaquin: 'California',
   san_mateo_city: 'California',
   santa_clara_county: 'California',
+  santa_clara_water: 'California',
 };
 
 const validEventCodes = {
