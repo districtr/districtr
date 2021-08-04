@@ -274,8 +274,8 @@ const eventDescriptions = {
   pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
   <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
   <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Save\" to share the map.</b></p>",
-  'pmc-districts': "<p>Welcome to the District-Drawing public mapping tag page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
-  <p><b>To display your map on this page, be sure the tag \ “PMC-districts\” is filled out after you’ve clicked \ “Save\” to share the map.</b></p>",
+  'pmc-districts': "<p>Welcome to the PMC-Districts event page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p><b>The purpose of this page is to show some sample maps that have been generated in the preliminary work of the PMC.  These are part of the Commission's process as they work towards draft maps that take the districting criteria into account.  These will later be combined with \"communities of interest\" input gathered from the <a href='https://portal.wisconsin-mapping.org' target='_blank'>PMC Public Feedback Portal</a>, as well as updated demographic data from the 2020 Census, to produce proposed maps.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -1128,7 +1128,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
-                render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+                until(render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv), "Loading...");
 
                 if (hybrid_events.includes(eventCode)) {
                     const mydiv2 = document.createElement('li');
@@ -1142,6 +1142,13 @@ export default () => {
                 }
             });
         });
+
+        // hide Start Drawing section for pmc-districts
+        if (eventCode == 'pmc-districts') {
+          document.getElementById("communities").style.display = 'none';
+          document.getElementById("districting-options-title").style.display = 'none';
+          target.style.display = 'none';
+        }
 
         let limitNum = 16;
         let eventurl = (window.location.hostname === "localhost")
@@ -1168,23 +1175,29 @@ export default () => {
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
 
-            render(html`
-                ${plansSection(plans, eventCode)}
-                ${loadExtraPlans ?
-                  html`<button id="${button}" @click="${(e) => {
-                      document.getElementById(pinwheel).style.display = "block";
-                      document.getElementById(button).disabled = true;
-                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
-                        drafts ? draftskip += limitNum : skip += limitNum;
-                        document.getElementById(pinwheel).style.display = "none";
-                        document.getElementById(button).disabled = false;
-                        showPlans(d, drafts);
-                      });
-                  }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
-                  ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
-                : ""}
-            `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
-
+            if (eventCode != 'pmc-districts') {  // do not show for PMC Districts
+              render(html`
+                  ${plansSection(plans, eventCode)}
+                  ${loadExtraPlans ?
+                    html`<button id="${button}" @click="${(e) => {
+                        document.getElementById(pinwheel).style.display = "block";
+                        document.getElementById(button).disabled = true;
+                        fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                          drafts ? draftskip += limitNum : skip += limitNum;
+                          document.getElementById(pinwheel).style.display = "none";
+                          document.getElementById(button).disabled = false;
+                          showPlans(d, drafts);
+                        });
+                    }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                    ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
+                  : ""}
+              `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
+            }
+            // While we are here, remove the nav bar links
+            else {
+              document.getElementById('shared-nav').style.display = "none";
+              document.getElementById('drafts-nav').style.display = "none";
+            }
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
                     render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
@@ -1211,11 +1224,19 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                   ? html`<p>
                     ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
-                      : "Click on any of the maps below to open it in Districtr."}
+                      : ((eventCode == 'pmc-districts')
+                        ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
+                            it with the tag "pmc", it will be added to the gallery <a href='/event/pmc' target='_blank'>here</a>.
+                            <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
+                             They are intended for use as starting points for exploration. You can read more about their properties
+                             in <a href='https://www.dropbox.com/s/o3654c9gkunfy6l/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
+                             which includes data on the plans.</b>`
+                        : "Click on any of the maps below to open it in Districtr.")
+                      }
                 </p>` : null}
                 ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
-                    ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
+                    ${plans.map((p, i) => loadablePlan(p, (eventCode == 'pmc-districts') ? 'pmc' : eventCode, isProfessionalSamples))}
                 </ul>
             </section>
         `
@@ -1289,12 +1310,6 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
 }
 
 function toStateCommunities(s, eventCode) {
-    //const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
-    //window.location.assign(url);
-    // let place;
-    // place.districtingProblems = [
-    //   { type: "community", numberOfParts: 250, pluralNoun: "Community" }
-    // ];
     let show_just_communities = true;
     let tgt = document.getElementById('districting-options');
     render("", tgt)
