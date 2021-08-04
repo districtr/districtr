@@ -1,0 +1,31 @@
+{
+"type": "FeatureCollection",
+"name": "california_municipalities_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.224198492930469, 38.223518055227018 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.264914367285698, 38.210291973742684 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.27002375761802, 38.28215503465082 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.276438141298357, 38.32619179396611 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.284399044763532, 38.328381666265685 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.304004854224956, 38.263065843728114 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.306423087518979, 38.273958974143021 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.308499406134757, 38.270872155938541 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.312584384566776, 38.312556007531711 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.347559213860492, 38.317864147928972 ] } },
+{ "type": "Feature", "properties": { "NAME": "Napa" }, "geometry": { "type": "Point", "coordinates": [ -122.301525860029301, 38.298064186386412 ] } },
+{ "type": "Feature", "properties": { "NAME": "St. Helena" }, "geometry": { "type": "Point", "coordinates": [ -122.484777953755398, 38.556661357072898 ] } },
+{ "type": "Feature", "properties": { "NAME": "St. Helena" }, "geometry": { "type": "Point", "coordinates": [ -122.46760516951602, 38.50457555678129 ] } },
+{ "type": "Feature", "properties": { "NAME": "Yountville" }, "geometry": { "type": "Point", "coordinates": [ -122.367065956991951, 38.396377444665092 ] } },
+{ "type": "Feature", "properties": { "NAME": "American Canyon" }, "geometry": { "type": "Point", "coordinates": [ -122.226972520533394, 38.223626551647712 ] } },
+{ "type": "Feature", "properties": { "NAME": "American Canyon" }, "geometry": { "type": "Point", "coordinates": [ -122.258477165926749, 38.179471347782041 ] } },
+{ "type": "Feature", "properties": { "NAME": "Calistoga" }, "geometry": { "type": "Point", "coordinates": [ -122.582421087784596, 38.581794757227669 ] } },
+{ "type": "Feature", "properties": { "NAME": "Angwin" }, "geometry": { "type": "Point", "coordinates": [ -122.451246050141279, 38.577612220421805 ] } },
+{ "type": "Feature", "properties": { "NAME": "Deer Park" }, "geometry": { "type": "Point", "coordinates": [ -122.467923526870734, 38.53605271704879 ] } },
+{ "type": "Feature", "properties": { "NAME": "Moskowite Corner" }, "geometry": { "type": "Point", "coordinates": [ -122.194511537542112, 38.446317384504972 ] } },
+{ "type": "Feature", "properties": { "NAME": "Oakville" }, "geometry": { "type": "Point", "coordinates": [ -122.406772867268813, 38.438372632777551 ] } },
+{ "type": "Feature", "properties": { "NAME": "Rutherford" }, "geometry": { "type": "Point", "coordinates": [ -122.423136358396931, 38.456785298671768 ] } },
+{ "type": "Feature", "properties": { "NAME": "Silverado Resort" }, "geometry": { "type": "Point", "coordinates": [ -122.255539821118703, 38.353637345475569 ] } }
+
+]
+}

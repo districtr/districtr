@@ -523,6 +523,12 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  napa_college: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
   santa_clara_h2o: {
     border: true,
     shapefile: true,

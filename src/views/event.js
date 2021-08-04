@@ -155,6 +155,7 @@ commoncausepa: 'pennsylvania',
   san_joaquin: 'ca_sanjoaquin',
   san_mateo_city: 'ca_sanmateo',
   santa_clara_county: 'ca_sc_county',
+  santa_clara_water: 'santa_clara_h2o',
 };
 
 const blockPlans = {
@@ -222,6 +223,7 @@ const coi_events = [
   'san_joaquin',
   'san_mateo_city',
   'santa_clara_county',
+  'santa_clara_water',
   'commoncausepa',
 ];
 
@@ -478,6 +480,10 @@ Redistricting is based on population and communities of interest.  A community o
          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
          <p>Community of Interest submissions completed from August through September will be presented to the 2021 Advisory Redistricting Commission to inform the mapping process, which will occur in October. To learn more about the Santa Clara County process, please visit the website at <a href="http://www.sccgov.org/2021redistricting">http://www.sccgov.org/2021redistricting</a>.</p>\
          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_County” (any capitalization) is entered.</p>',
+      santa_clara_water: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+     <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+            <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+            <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_Water” (any capitalization) is entered.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   san_mateo_city: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
@@ -635,6 +641,9 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   santa_clara_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  santa_clara_water: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   siskiyou: [
@@ -800,7 +809,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "santa_clara_county", "tuolumne", "napa_college", "napa_boe"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -842,6 +851,9 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
               document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
               document.getElementById("partnership-a").style.background = "#000";
+            } else if (eventCode === "santa_clara_water") {
+              document.getElementById("partner-link-a").href = "https://www.valleywater.org";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-water.png";
             } else if (eventCode === "kern_county") {
               document.getElementById("partner-link-a").href = "https://www.kerncounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-kern.png";
