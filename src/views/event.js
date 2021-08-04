@@ -8,8 +8,8 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 
 
-
-let skip = 0, draftskip = 0,
+// start draftskip at -16 so that we hide the drafts on initial load
+let skip = 0, draftskip = -16,
     prevPlans = [],
     prevDrafts = [];
 
@@ -1139,7 +1139,7 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip == 0)
+            if (drafts && draftskip < 0)
               data.plans = [];
             drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
@@ -1152,8 +1152,6 @@ export default () => {
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
-            if (drafts) // once clicked once no longer hide them!
-              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
 
             render(html`
                 ${plansSection(plans, eventCode)}
@@ -1167,7 +1165,7 @@ export default () => {
                         document.getElementById(button).disabled = false;
                         showPlans(d, drafts);
                       });
-                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                  }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
                   ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                 : ""}
             `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
@@ -1182,7 +1180,6 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        console.log(eventurl)
         fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
@@ -1285,8 +1282,6 @@ function toStateCommunities(s, eventCode) {
     // ];
     let show_just_communities = true;
     let tgt = document.getElementById('districting-options');
-    console.log(listPlaces(null, s.properties.NAME))
-    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
     render("", tgt)
     listPlaces(null, s.properties.NAME).then(items => {
       let placesList = items.filter(place => !place.limit || show_just_communities)
