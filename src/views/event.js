@@ -8,8 +8,8 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 
 
-
-let skip = 0, draftskip = 0,
+// start draftskip at -16 so that we hide the drafts on initial load
+let skip = 0, draftskip = -16,
     prevPlans = [],
     prevDrafts = [];
 
@@ -83,6 +83,7 @@ commoncausepa: 'Pennsylvania',
   ocsd: 'California',
   groverbeach: 'California',
   vallejo: 'California',
+  santa_clara_county: 'California',
 };
 
 const validEventCodes = {
@@ -155,6 +156,7 @@ commoncausepa: 'pennsylvania',
   ocsd: 'ca_oceano',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
+  santa_clara_county: 'ca_sc_county',
 };
 
 const blockPlans = {
@@ -214,7 +216,8 @@ const coi_events = [
   'ventura_county',
   'yolo_county',
   'solano_county',
-  'commoncausepa'
+  'commoncausepa',
+  'santa_clara_county',
 ];
 
 const hybrid_events = [
@@ -442,6 +445,11 @@ Redistricting is based on population and communities of interest.  A community o
        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
        <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
+ santa_clara_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+          <p>Community of Interest submissions completed from August through September will be presented to the 2021 Advisory Redistricting Commission to inform the mapping process, which will occur in October. To learn more about the Santa Clara County process, please visit the website at <a href="http://www.sccgov.org/2021redistricting">http://www.sccgov.org/2021redistricting</a>.</p>\
+          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_County” (any capitalization) is entered.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -668,6 +676,9 @@ const longAbout = {
   solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  santa_clara_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
   ],
@@ -864,7 +875,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "santa_clara_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -896,6 +907,10 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
+            } else if (eventCode === "santa_clara_county") {
+              document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
+              document.getElementById("partnership-a").style.background = "#000";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
@@ -1146,7 +1161,7 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip == 0)
+            if (drafts && draftskip < 0)
               data.plans = [];
             drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
@@ -1159,8 +1174,6 @@ export default () => {
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
-            if (drafts) // once clicked once no longer hide them!
-              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
 
             if (eventCode != 'pmc-districts') {  // do not show for PMC Districts
               render(html`
@@ -1175,7 +1188,7 @@ export default () => {
                           document.getElementById(button).disabled = false;
                           showPlans(d, drafts);
                         });
-                    }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                    }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
                     ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
                   : ""}
               `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
@@ -1195,7 +1208,6 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        console.log(eventurl)
         fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
@@ -1300,8 +1312,6 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
 function toStateCommunities(s, eventCode) {
     let show_just_communities = true;
     let tgt = document.getElementById('districting-options');
-    console.log(listPlaces(null, s.properties.NAME))
-    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
     render("", tgt)
     listPlaces(null, s.properties.NAME).then(items => {
       let placesList = items.filter(place => !place.limit || show_just_communities)
