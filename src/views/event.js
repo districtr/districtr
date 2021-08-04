@@ -1113,7 +1113,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
-                render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+                until(render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv), "Loading...");
 
                 if (hybrid_events.includes(eventCode)) {
                     const mydiv2 = document.createElement('li');
