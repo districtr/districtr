@@ -982,8 +982,7 @@ export default () => {
                       document.getElementById(button).disabled = true;
                       console.log((drafts && draftskip < -1) ? fetchurl 
                       : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
-                      fetch((drafts && draftskip == -1) ? fetchurl 
-                        : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
                         drafts ? draftskip += limitNum : skip += limitNum;
                         document.getElementById(pinwheel).style.display = "none";
                         document.getElementById(button).disabled = false;
