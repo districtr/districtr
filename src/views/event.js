@@ -1131,7 +1131,7 @@ export default () => {
         // hide Start Drawing section for pmc-districts
         if (eventCode == 'pmc-districts') {
           document.getElementById("communities").style.display = 'none';
-          document.getElementById("mini-maps").style.display = 'none';
+          document.getElementById("districting-options-title").style.display = 'none';
           target.style.display = 'none';
         }
 
@@ -1213,7 +1213,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                     ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
                       : ((eventCode == 'pmc-districts')
-                        ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save,
+                        ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
                             it with the tag "pmc", it will be added to the gallery <a href='event/pmc' target='_blank'>here</a>.
                             <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
                              They are intended for use as starting points for exploration. You can read more about their properties
