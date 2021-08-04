@@ -512,6 +512,24 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
   },
+  ca_tuolumne: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  napa_boe: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  santa_clara_h2o: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
   napacounty2021: {
     border: true,
     shapefile: true,
