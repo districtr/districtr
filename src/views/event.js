@@ -980,6 +980,8 @@ export default () => {
                   html`<button id="${button}" @click="${(e) => {
                       document.getElementById(pinwheel).style.display = "block";
                       document.getElementById(button).disabled = true;
+                      console.log((drafts && draftskip == -1) ? fetchurl 
+                      : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`));
                       fetch((drafts && draftskip == -1) ? fetchurl 
                         : fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
                         drafts ? draftskip += limitNum : skip += limitNum;
