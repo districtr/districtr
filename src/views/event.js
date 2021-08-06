@@ -8,8 +8,8 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 
 
-
-let skip = 0, draftskip = 0,
+// start draftskip at -16 so that we hide the drafts on initial load
+let skip = 0, draftskip = -16,
     prevPlans = [],
     prevDrafts = [];
 
@@ -80,6 +80,11 @@ commoncausepa: 'Pennsylvania',
   chino2021: 'California',
   fremont2021: 'California',
   campbellcity: 'California',
+  buellton: 'California',
+  ocsd: 'California',
+  groverbeach: 'California',
+  vallejo: 'California',
+  santa_clara_county: 'California',
 };
 
 const validEventCodes = {
@@ -149,6 +154,11 @@ commoncausepa: 'pennsylvania',
   chino2021: 'ca_chino',
   fremont2021: 'ca_fremont',
   campbellcity: 'ca_campbell',
+  buellton: 'ca_buellton',
+  ocsd: 'ca_oceano',
+  groverbeach: 'ca_grover',
+  vallejo: 'ca_vallejo',
+  santa_clara_county: 'ca_sc_county',
 };
 
 const blockPlans = {
@@ -208,7 +218,8 @@ const coi_events = [
   'ventura_county',
   'yolo_county',
   'solano_county',
-  'commoncausepa'
+  'commoncausepa',
+  'santa_clara_county',
 ];
 
 const hybrid_events = [
@@ -240,6 +251,10 @@ const hybrid_events = [
   'chino2021',
   'fremont2021',
   'campbellcity',
+  'buellton',
+  'ocsd',
+  'groverbeach',
+  'vallejo',
 ];
 
 const portal_events = [
@@ -262,8 +277,8 @@ const eventDescriptions = {
   pmc: "<p>Welcome to the Community of Interest public mapping page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
   <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal <a href='https://govstatus.egov.com/peoplesmaps/contact-commission' target='_blank'>here</a>.</p>\
   <p><b>To display your map on this page, be sure the tag \"PMC\" is filled out after you've clicked \"Save\" to share the map.</b></p>",
-  'pmc-districts': "<p>Welcome to the District-Drawing public mapping tag page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
-  <p><b>To display your map on this page, be sure the tag \ “PMC-districts\” is filled out after you’ve clicked \ “Save\” to share the map.</b></p>",
+  'pmc-districts': "<p>Welcome to the PMC-Districts event page for the People’s Maps Commission (PMC) of Wisconsin. The Commission is a group of people that will hear directly from folks across the state and draw fair, impartial maps for the Legislature to take up in 2021. Click <a href='https://govstatus.egov.com/peoplesmaps' target='_blank'>here</a> to learn more about their work.</p>\
+  <p><b>The purpose of this page is to show some sample maps that have been generated in the preliminary work of the PMC.  These are part of the Commission's process as they work towards draft maps that take the districting criteria into account.  These will later be combined with \"communities of interest\" input gathered from the <a href='https://portal.wisconsin-mapping.org' target='_blank'>PMC Public Feedback Portal</a>, as well as updated demographic data from the 2020 Census, to produce proposed maps.</b></p>",
   powercoalition: 'Welcome to the greater Baton Rouge event page for the <a href="https://powercoalition.org/">Power Coalition</a>. This page is set up to let you identify your communities of interest.<br/><br/>Show us the important places and tell us the stories that you want the mapmakers to see when they draw the lines!',
   'open-maps': "<p>Welcome to the public mapping page for OPEN Maps!</p>\
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
@@ -433,6 +448,11 @@ Redistricting is based on population and communities of interest.  A community o
        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
        <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Solano_County” (any capitalization) is entered.</p>',
+ santa_clara_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+          <p>Community of Interest submissions completed from August through September will be presented to the 2021 Advisory Redistricting Commission to inform the mapping process, which will occur in October. To learn more about the Santa Clara County process, please visit the website at <a href="http://www.sccgov.org/2021redistricting">http://www.sccgov.org/2021redistricting</a>.</p>\
+          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_County” (any capitalization) is entered.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -572,6 +592,48 @@ Redistricting is based on population and communities of interest.  A community o
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;CampbellCity&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
+  ocsd: "<p>Welcome to the Districtr Community of Interest public mapping tool for Oceano Community Service District's 2021 division redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the CSD know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;OCSD&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  buellton: "<p>Welcome to the Districtr Community of Interest public mapping tool for Buellton's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Buellton&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  vallejo: "<p>Welcome to the Districtr Community of Interest public mapping tool for Vallejo's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Vallejo&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  groverbeach: "<p>Welcome to the Districtr Community of Interest public mapping tool for Grover Beach's 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the City know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;GroverBeach&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
   fremont2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Fremont's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -625,6 +687,9 @@ const longAbout = {
   solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  santa_clara_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
   ],
@@ -674,6 +739,30 @@ const longAbout = {
   campbellcity: [
     "City of Campell District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  ocsd: [
+    "Oceano Community Services District's boundaries must be redrawn every 10 years using U.S. Census data in order to make the five divisions as equal in population as possible and that each member represents about the same number of constituents. \
+    The CSD encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  buellton: [
+    "City of Buellton District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  groverbeach: [
+    "City of Grover Beach District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  vallejo: [
+    "City of Vallejo District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole county.",
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
@@ -797,7 +886,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "santa_clara_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -829,11 +918,15 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
+            } else if (eventCode === "santa_clara_county") {
+              document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
+              document.getElementById("partnership-a").style.background = "#000";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -905,6 +998,18 @@ export default () => {
             } else if (eventCode === "fremont2021") {
               document.getElementById("partner-link-a").href = "https://www.fremont.gov";
               document.getElementById("partnership-a").src = "/assets/partners-fremont.png";
+            } else if (eventCode === "buellton") {
+              document.getElementById("partner-link-a").href = "https://cityofbuellton.com";
+              document.getElementById("partnership-a").src = "/assets/partners-buellton.webp";
+            } else if (eventCode === "groverbeach") {
+              document.getElementById("partner-link-a").href = "https://www.grover.org";
+              document.getElementById("partnership-a").src = "/assets/partners-grover.png";
+            } else if (eventCode === "ocsd") {
+              document.getElementById("partner-link-a").href = "https://oceanocsd.org";
+              document.getElementById("partnership-a").src = "/assets/partners-oceano.png";
+            } else if (eventCode === "vallejo") {
+              document.getElementById("partner-link-a").href = "https://www.cityofvallejo.net";
+              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
@@ -1034,7 +1139,7 @@ export default () => {
                 }
                 const mydiv = document.createElement('li');
                 target.append(mydiv);
-                render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv);
+                until(render(placeItems(place, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv), "Loading...");
 
                 if (hybrid_events.includes(eventCode)) {
                     const mydiv2 = document.createElement('li');
@@ -1049,6 +1154,13 @@ export default () => {
             });
         });
 
+        // hide Start Drawing section for pmc-districts
+        if (eventCode == 'pmc-districts') {
+          document.getElementById("communities").style.display = 'none';
+          document.getElementById("districting-options-title").style.display = 'none';
+          target.style.display = 'none';
+        }
+
         let limitNum = 16;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
@@ -1060,7 +1172,7 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip == 0)
+            if (drafts && draftskip < 0)
               data.plans = [];
             drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
@@ -1073,26 +1185,30 @@ export default () => {
             let pinwheel = drafts ? "event-pinwheel-drafts" : "event-pinwheel";
             let button = drafts ? "loadMoreDrafts" : "loadMorePlans";
             let fetchurl = drafts ? eventurl + "&type=draft" : eventurl;
-            if (drafts) // once clicked once no longer hide them!
-              fetchurl.replace("limit=0", `limit=${limitNum + 1}`);
 
-            render(html`
-                ${plansSection(plans, eventCode)}
-                ${loadExtraPlans ?
-                  html`<button id="${button}" @click="${(e) => {
-                      document.getElementById(pinwheel).style.display = "block";
-                      document.getElementById(button).disabled = true;
-                      fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
-                        drafts ? draftskip += limitNum : skip += limitNum;
-                        document.getElementById(pinwheel).style.display = "none";
-                        document.getElementById(button).disabled = false;
-                        showPlans(d, drafts);
-                      });
-                  }}">Load ${drafts ? (draftskip == 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
-                  ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
-                : ""}
-            `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
-
+            if (eventCode != 'pmc-districts') {  // do not show for PMC Districts
+              render(html`
+                  ${plansSection(plans, eventCode)}
+                  ${loadExtraPlans ?
+                    html`<button id="${button}" @click="${(e) => {
+                        document.getElementById(pinwheel).style.display = "block";
+                        document.getElementById(button).disabled = true;
+                        fetch(fetchurl.replace("skip=0", `skip=${drafts ? draftskip+limitNum : skip+limitNum}`)).then(res => res.json()).then(d => {
+                          drafts ? draftskip += limitNum : skip += limitNum;
+                          document.getElementById(pinwheel).style.display = "none";
+                          document.getElementById(button).disabled = false;
+                          showPlans(d, drafts);
+                        });
+                    }}">Load ${drafts ? (draftskip < 0 ? "Drafts" : "More Drafts" ) : "More Plans"}</button>
+                    ${loadExtraPlans ? html`<img id="${pinwheel}" src="/assets/pinwheel2.gif" style="display:none"/>` : ""}`
+                  : ""}
+              `, drafts ? document.getElementById("drafts") : document.getElementById("plans"));
+            }
+            // While we are here, remove the nav bar links
+            else {
+              document.getElementById('shared-nav').style.display = "none";
+              document.getElementById('drafts-nav').style.display = "none";
+            }
             if (proposals_by_event[eventCode]) {
                 fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
                     render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
@@ -1103,7 +1219,6 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        console.log(eventurl)
         fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
@@ -1120,11 +1235,19 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                   ? html`<p>
                     ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
-                      : "Click on any of the maps below to open it in Districtr."}
+                      : ((eventCode == 'pmc-districts')
+                        ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
+                            it with the tag "pmc", it will be added to the gallery <a href='/event/pmc' target='_blank'>here</a>.
+                            <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
+                             They are intended for use as starting points for exploration. You can read more about their properties
+                             in <a href='https://www.dropbox.com/s/o3654c9gkunfy6l/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
+                             which includes data on the plans.</b>`
+                        : "Click on any of the maps below to open it in Districtr.")
+                      }
                 </p>` : null}
                 ${desc ? html`<h4>${desc}</h4>` : ""}
                 <ul class="plan-thumbs">
-                    ${plans.map((p, i) => loadablePlan(p, eventCode, isProfessionalSamples))}
+                    ${plans.map((p, i) => loadablePlan(p, (eventCode == 'pmc-districts') ? 'pmc' : eventCode, isProfessionalSamples))}
                 </ul>
             </section>
         `
@@ -1198,16 +1321,8 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
 }
 
 function toStateCommunities(s, eventCode) {
-    //const url = window.location.origin + '/' + s.properties.NAME.toLowerCase().replace(" ", "-") + "?mode=coi";
-    //window.location.assign(url);
-    // let place;
-    // place.districtingProblems = [
-    //   { type: "community", numberOfParts: 250, pluralNoun: "Community" }
-    // ];
     let show_just_communities = true;
     let tgt = document.getElementById('districting-options');
-    console.log(listPlaces(null, s.properties.NAME))
-    //render(html`<div style="display:block"><h4 @click="${() => console.log("Hello")/**render(PlaceMapWithData((t) => toStateCommunities(t, 'ttt')), tgt)**/}">Back to the map</h4></div>`, tgt)
     render("", tgt)
     listPlaces(null, s.properties.NAME).then(items => {
       let placesList = items.filter(place => !place.limit || show_just_communities)

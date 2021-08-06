@@ -405,6 +405,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       border: true,
+      sideload: true,
       // divisor: 1000,
     },
     ca_sonoma: {
@@ -480,6 +481,30 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     ca_fremont: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_buellton: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_vallejo: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_grover: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_oceano: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -567,6 +592,12 @@ export function spatial_abilities(id) {
     municipalities: true,
   },
   ca_solano: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  ca_sc_county: {
     border: true,
     shapefile: true,
     number_markers: true,
