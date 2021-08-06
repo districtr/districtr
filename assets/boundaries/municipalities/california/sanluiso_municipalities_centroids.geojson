@@ -35,5 +35,4 @@
 { "type": "Feature", "properties": { "NAME": "Templeton" }, "geometry": { "type": "Point", "coordinates": [ -120.718164022172843, 35.556024850269431 ] } },
 { "type": "Feature", "properties": { "NAME": "Whitley Gardens" }, "geometry": { "type": "Point", "coordinates": [ -120.507018512007505, 35.657432884906626 ] } },
 { "type": "Feature", "properties": { "NAME": "Woodlands" }, "geometry": { "type": "Point", "coordinates": [ -120.552393492779785, 35.028873334622951 ] } }
-]
-}
+]}

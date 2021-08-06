@@ -1,5 +1,5 @@
 import { html, render, directive } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
+import { listPlacesForState, getUnits, getAllUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
 
@@ -20,7 +20,7 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
-            
+
             const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
             const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
@@ -66,20 +66,21 @@ export default () => {
                     toggleViz($("." + def.id));
                     selected.ids.map(id => $("." + id).show());
                 }
-                
-                
+
+
                 // config toggle buttons
-                $('input[name="place-selection"]:radio').click(function(){
+                $('input[name="place-selection"]:radio').click(function() {
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
-
 
                     $(".places-list__item").hide();
                     if (vraPage) {
                         toggleViz(targetBox);
                     }
                     selected.ids.map(id => $("." + id).show());
+
+                    document.getElementById("custom").checked = false;
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
@@ -310,10 +311,7 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${(document.getElementById("custom") && document.getElementById("custom").checked)
-              ? customPlaceItemsTemplate(places, startNewPlan)
-              : placeItemsTemplate(places, startNewPlan)
-            }
+              ${placeItemsTemplate(places, startNewPlan)}
         </ul>
     `;
 
@@ -341,24 +339,6 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             `)
     }).reduce((items, item) => [...items, ...item], []);
 
-function getProblems(place) {
-    let districtingProblems = [],
-        seenIds = new Set();
-    place.districtingProblems.forEach((problem) => {
-        let problemID = problem.name + problem.pluralNoun;
-        if (seenIds.has(problemID)) {
-            districtingProblems[districtingProblems.length - 1].partCounts.push(
-                problem.numberOfParts
-            );
-        } else {
-            seenIds.add(problemID);
-            problem.partCounts = [problem.numberOfParts];
-            districtingProblems.push(problem);
-        }
-    });
-    return districtingProblems;
-}
-
 const problemTypeInfo = {
     multimember: html`
         <div class="place-info">
@@ -370,8 +350,16 @@ const problemTypeInfo = {
     `
 };
 
-const placeItemsTemplate = (places, onClick) =>
-    places.map(place =>
+const placeItemsTemplate = (places, onClick) => {
+    const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
+
+    let num_hidden = places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)).reduce((items, item) => [...items, ...item], []).length ||
+                        places.map(place => place.districtingProblems.filter(problem => !problem.hideOnDefault)
+                        .map(problem => getAllUnits(place, problem).filter(u => u.hideOnDefault)))
+                        .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
+                        .reduce((items, item) => [...items, ...item], []).length;
+
+    return places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place =>
         place.districtingProblems
         .sort((a, b) => {
             // change so Reapportioned always comes first
@@ -388,16 +376,19 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
+        .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
-            getUnits(place, problem).map(
-                units => 
-                // this ternary can be removed if we don't want to deal with the new 
+            getAllUnits(place, problem)
+            .filter(unit => showAll || !unit.hideOnDefault)
+            .map(
+                units =>
+                // this ternary can be removed if we don't want to deal with the new
                 // district numbers separately
                 problem.pluralNoun.includes("Reapportioned") ?
                 html`
                 <li
-                    class="${place.id} places-list__item places-list__item--small reapportioned"
-                    @click="${() => onClick(place, problem, units)}"
+                class="${place.id} places-list__item places-list__item--small reapportioned ${(problem.hideOnDefault || units.hideOnDefault) && "old-card"}"
+                @click="${() => onClick(place, problem, units)}"
                 >
                     <div class="place-name">
                         ${place.name}
@@ -413,8 +404,8 @@ const placeItemsTemplate = (places, onClick) =>
             `
                 : html`
                     <li
-                        class="${place.id} places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units)}"
+                    class="${place.id} places-list__item places-list__item--small ${(problem.hideOnDefault || units.hideOnDefault) && "old-card"}"
+                    @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">
                             ${place.name}
@@ -430,14 +421,17 @@ const placeItemsTemplate = (places, onClick) =>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
-            <div style="padding-top:30px">
-                <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Customize</label>
-            </div>
-          </li>` : ""
+        .reduce((items, item) => [...items, ...item], [])
+        .concat([
+            (!showAll && num_hidden) ? html`<li>
+                <div style="padding-top:30px">
+                    <input type="checkbox" id="custom" name="custom-selection">
+                    <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
+                </div>
+            </li>`
+          : ""
         ]);
+    };
 
 const customPlaceItemsTemplate = (places, onClick) =>
     places.map(place =>
@@ -472,7 +466,7 @@ const customPlaceItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          html`<li>
+            html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>

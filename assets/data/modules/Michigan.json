@@ -27,6 +27,86 @@
             ]
           },
           {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 2265869,
+                "min": 0,
+                "max": 1698
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1858468,
+                "min": 0,
+                "max": 1494
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 2213489,
+                "min": 0,
+                "max": 1681
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 1938199,
+                "min": 0,
+                "max": 1558
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 2212107,
+                "min": 0,
+                "max": 1686
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 1838514,
+                "min": 0,
+                "max": 1493
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 2030417,
+                "min": 0,
+                "max": 1626
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 1915331,
+                "min": 0,
+                "max": 1522
+              }
+            ]
+          },
+          {
             "type": "population",
             "name": "Population",
             "total": {
@@ -170,34 +250,28 @@
         },
         "nameColumn": {
           "name": "Precinct Name",
-          "key": "name"
+          "key": "precinct"
         },
         "bounds": [
-          [
-            -90.4183,
-            41.6961
-          ],
-          [
-            -82.4187,
-            48.2627
-          ]
+          [-90.4183, 41.6961],
+          [-82.4187, 48.2627]
         ],
         "tilesets": [
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.michigan_precincts2_points"
+              "url": "mapbox://districtr.michigan_precincts3_points"
             },
-            "sourceLayer": "michigan_precincts2_points"
+            "sourceLayer": "michigan_precincts3_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.michigan_precincts2"
+              "url": "mapbox://districtr.michigan_precincts3"
             },
-            "sourceLayer": "michigan_precincts2"
+            "sourceLayer": "michigan_precincts3"
           }
         ]
       },
@@ -205,6 +279,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -350,14 +425,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -90.4184,
-            41.6961
-          ],
-          [
-            -82.41,
-            48.3061
-          ]
+          [-90.4184, 41.6961],
+          [-82.41, 48.3061]
         ],
         "tilesets": [
           {
@@ -390,7 +459,8 @@
       {
         "numberOfParts": 14,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 38,

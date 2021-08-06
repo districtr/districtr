@@ -25,6 +25,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -588,6 +589,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1631,7 +1633,7 @@
     "districtingProblems": [
       {
         "name": "Congress",
-        "numberOfParts": 7,
+        "numberOfParts": 8,
         "pluralNoun": "Congressional Districts"
       },
       {

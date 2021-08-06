@@ -10,7 +10,10 @@ const routes = {
     "/register": "/register",
     "/request": "/request",
     "/signin": "/signin",
-    "/signout": "/signout"
+    "/signout": "/signout",
+    "/analysis": "/analysis",
+    "/evaluation": "/evaluation",
+    "/eval": "/eval"
 };
 
 export function navigateTo(route) {
@@ -58,7 +61,7 @@ export function savePlanToStorage({
     localStorage.setItem("savedState", JSON.stringify(state));
 }
 
-export function savePlanToDB(state, eventCode, planName, callback) {
+export function savePlanToDB(state, eventCode, planName, callback, forceNotScratch) {
     const serialized = state.serialize(),
         mapID = window.location.pathname.split("/").slice(-1)[0],
         token = localStorage.getItem("districtr_token_" + mapID) || "",
@@ -68,7 +71,7 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             token: token.split("_")[0],
             eventCode: eventCode,
             planName: planName,
-            isScratch: (document.getElementById("is-scratch") || {}).checked,
+            isScratch: (document.getElementById("is-scratch") || {}).checked || (eventCode && !forceNotScratch),
             hostname: window.location.hostname
         };
     // VA fix - if precinct IDs are strings, escape any "."
@@ -93,7 +96,10 @@ export function savePlanToDB(state, eventCode, planName, callback) {
             if (window.location.href.includes("portal")) {
                 extras = "?portal";
             } else if (window.location.href.includes("qa-portal")) {
-                extras = "?qa-portal"
+                extras = "?qa-portal";
+            } else if (window.location.href.includes("event")) {
+                const eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
+                extras = "?event=" + eventdefault;
             }
             history.pushState({}, "Districtr", `/${action}/${info.simple_id}${extras}`);
             if (info.token && localStorage) {
@@ -115,6 +121,9 @@ export function getContextFromStorage() {
     let state;
     try {
         state = JSON.parse(savedState);
+        if (state.place && state.units && state.units.columnSets && (state.place.id === "new_mexico") && window.location.href.includes("portal")) {
+            state.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
+        }
     } catch (e) {
         localStorage.removeItem("savedState");
         navigateTo("/new");
@@ -147,6 +156,9 @@ export function loadPlanFromJSON(planRecord) {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
         place.landmarks = (planRecord.place || {}).landmarks;
         planRecord.units = place.units.find(u => (u.name === planRecord.units.name) || (u.name === "Wards" && planRecord.units.name === "2011 Wards") || (u.name === "2011 Wards" && planRecord.units.name === "Wards"));
+        if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
+            planRecord.units.columnSets = planRecord.units.columnSets.filter(c => c.type !== "election");
+        }
         return {
             ...planRecord,
             place

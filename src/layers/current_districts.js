@@ -8,7 +8,11 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     if (!current_districts && !school_districts && !municipalities)
         return;
     let borders = {},
-        placeID = state.place.state.toLowerCase().replace(" ","");
+        stateID = state.place.state.toLowerCase().replace(" ",""),
+        placeID = stateID;
+    if (stateID === "california") {
+        placeID = state.place.id;
+    }
     // current districts should be stored in assets/boundaries/current_districts/[state]/
     // if the state name is two words, it should be just have the space removed
     if (current_districts) {
@@ -34,7 +38,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                         'line-color': '#000',
                         'line-opacity': 0,
                         'line-width': nested(placeID) ? 2 : 1.5
-                    } 
+                    }
                 },
                 addBelowLabels
             );
@@ -44,7 +48,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                     id: 'state_house',
                     type: 'line',
                     source: 'state_house',
-                    paint: nested(placeID) ? 
+                    paint: nested(placeID) ?
                     {
                         'line-color': '#ff0000',
                         'line-opacity': 0,
@@ -59,7 +63,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 addBelowLabels
             );
             if (!one_cd(placeID)) {
-                fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => { 
+                fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
 
                     state.map.addSource('fed_districts', {
                         type: 'geojson',
@@ -90,7 +94,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     if (school_districts) {
         fetch(`/assets/boundaries/school_districts/${placeID}/${placeID}_schools.geojson`).then(res => res.json()).then((schools) => {
         fetch(`/assets/boundaries/school_districts/${placeID}/${placeID}_schools_centroids.geojson`).then(res => res.json()).then((centroids) => {
-        
+
             state.map.addSource('schools', {
                 type: 'geojson',
                 data: schools
@@ -104,7 +108,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 },
                 addBelowLabels
             );
-    
+
             state.map.addSource('centroids', {
                 type: 'geojson',
                 data: centroids
@@ -134,9 +138,9 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     }
     // municipal boundaries should be stored in /assets/boundaries/municipalities/[state]/
     if (municipalities) {
-        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities.geojson`).then(res => res.json()).then((muni) => {
-        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
-        
+        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities.geojson`).then(res => res.json()).then((muni) => {
+        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
+
             state.map.addSource('muni', {
                 type: 'geojson',
                 data: muni
@@ -150,7 +154,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 },
                 addBelowLabels
             );
-    
+
             state.map.addSource('muni_centroids', {
                 type: 'geojson',
                 data: centroids
@@ -183,7 +187,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     let showBorder = (e, lyr) => {
         Object.keys(borders).forEach(lvl => {
             // have to link the labels to the schools
-            if (lvl === 'school_labels') 
+            if (lvl === 'school_labels')
                 borders[lvl].setPaintProperty('text-opacity', (lyr === 'schools') ? 1 : 0);
             else if (lvl === 'muni_labels')
                 borders[lvl].setPaintProperty('text-opacity', (lyr === 'municipalities') ? 1 : 0);
@@ -224,7 +228,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                             <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
                             State House
                         </label>
-                    </li>` : nested(placeID) ? 
+                    </li>` : nested(placeID) ?
                         html`<li>
                             <label style="cursor: pointer;">
                                 <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
@@ -236,7 +240,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                                 <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
                                 State Legislature (Nested)
                             </label>
-                        </li>` : 
+                        </li>` :
                         html`<li>
                             <label style="cursor: pointer;">
                                 <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
@@ -255,7 +259,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                                 State House
                             </label>
                         </li>`) : ""}
-                ${school_districts ? 
+                ${school_districts ?
                     html`<li>
                         <label style="cursor: pointer;">
                             <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>

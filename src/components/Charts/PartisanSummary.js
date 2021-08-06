@@ -15,11 +15,11 @@ import { getPartyRGBColors } from "../../layers/color-rules"
  * @param {number} percent
  * @param {Subgroup} party
  */
-function getCellStyle(percent, party) {
+export function getCellStyle(percent, party) {
     if ((party.name === "Democratic" || party.name.includes("(Dem)")) && percent > 0.5) {
-        return `background: ${interpolateRdBu(percent)}`;
+        return `background: ${interpolateRdBu(percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
     } else if ((party.name === "Republican" || party.name.includes("(Rep)")) && percent > 0.5) {
-        return `background: ${interpolateRdBu(1 - percent)}`;
+        return `background: ${interpolateRdBu(1 - percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
     }
     return `background: #f9f9f9`;
 }
@@ -46,7 +46,7 @@ export function getCellSeatShare(party, election) {
     };
 }
 
-function parseElectionName(election) {
+export function parseElectionName(election) {
     let yr = election.substring(0,4);
     if (isNaN(yr))
         return election
@@ -56,6 +56,10 @@ function parseElectionName(election) {
         return yr + " SEN"
     if (election.includes('Governor'))
         return yr + " GOV"
+    if (election.includes('Secretary of State'))
+        return yr + " SoS"
+    if (election.includes("Attorney General"))
+        return yr + " AG"
     return election
 }
 

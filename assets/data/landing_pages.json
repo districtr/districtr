@@ -3,7 +3,13 @@
     "state": "Alabama",
     "code": "AL",
     "modules": [
-      {"name": "Statewide", "ids": ["alabama"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["alabama"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -14,9 +20,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -30,8 +35,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -39,7 +47,13 @@
     "state": "Alaska",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["alaska", "alaska_blocks"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["alaska", "alaska_blocks"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -50,9 +64,12 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
-          {"name": "Research", "content_source": "/assets/about/alaska/research.html"}
+          {
+            "name": "Research",
+            "content_source": "/assets/about/alaska/research.html"
+          }
         ]
       },
       {
@@ -85,10 +102,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Alaska Precincts",
-           "content_source": "/assets/about/alaska/data.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Alaska Precincts",
+            "content_source": "/assets/about/alaska/data.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -96,10 +118,21 @@
     "state": "Arizona",
     "code": "AZ",
     "modules": [
-      {"name": "Statewide", "ids": ["arizona"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties"},
-      {"name": "Cities", "ids": ["phoenix", "mesaaz"], "id": "loc"},
-      {"name": "Zones", "ids": ["nwaz", "seaz"], "id": "zone", "mode": "communities"}],
+      {
+        "name": "Statewide",
+        "ids": ["arizona"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties" },
+      { "name": "Cities", "ids": ["phoenix", "mesaaz"], "id": "loc" },
+      {
+        "name": "Zones",
+        "ids": ["nwaz", "seaz"],
+        "id": "zone",
+        "mode": "communities"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -110,7 +143,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -147,14 +180,18 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Arizona Precincts",
-           "content_source": "/assets/about/arizona/precincts.html"
+          {
+            "name": "Arizona Precincts",
+            "content_source": "/assets/about/arizona/precincts.html"
           },
-          {"name": "Arizona Census blocks",
-           "content_source": "/assets/about/arizona/blocks.html"
+          {
+            "name": "Arizona Census blocks",
+            "content_source": "/assets/about/arizona/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -163,8 +200,14 @@
     "state": "Arkansas",
     "code": "AK",
     "modules": [
-      {"name": "Statewide", "ids": ["arkansas"],  "id": "state", "default": "true"},
-      {"name": "Cities", "ids": ["little_rock"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["arkansas"],
+        "id": "state",
+        "default": "true"
+      },
+      { "name": "Cities", "ids": ["little_rock"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -175,7 +218,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -195,7 +238,6 @@
             "content_source": "/assets/about/arkansas/data.html"
           }
         ]
-
       }
     ]
   },
@@ -204,8 +246,8 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_santabarbara"], "id": "counties"},
-      {"name": "Cities", "ids": ["napa", "santa_clara", "ontarioca", "ca_pasadena", "ca_goleta"], "id": "loc"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_contracosta", "ca_sm_county", "ca_sanbenito", "ca_sc_county"], "id": "counties"},
+      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_buellton", "ca_grover"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -218,7 +260,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "Election reform in Napa",
@@ -227,8 +269,8 @@
           {
             "name": "Election reform in Santa Clara",
             "content_source": "/assets/about/california/santa-clara-reform.html"
-
-          }]
+          }
+        ]
       },
       {
         "name": "Redistricting rules",
@@ -242,11 +284,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "California Census Blocks and Block groups",
-          "content_source": "/assets/about/california/data.html"
+          {
+            "name": "California Census Blocks and Block groups",
+            "content_source": "/assets/about/california/data.html"
           }
         ]
-
       }
     ]
   },
@@ -254,18 +296,24 @@
     "state": "Colorado",
     "code": "CO",
     "modules": [
-      {"name": "Statewide", "ids": ["colorado"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["colorado"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
       },
-       {
+      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -306,11 +354,14 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Colorado Precincts",
-          "content_source": "/assets/about/colorado/precincts.html"
+          {
+            "name": "Colorado Precincts",
+            "content_source": "/assets/about/colorado/precincts.html"
           },
-          {"name": "Census Block Groups",
-             "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -319,18 +370,24 @@
     "state": "Connecticut",
     "code": "CT",
     "modules": [
-      {"name": "Statewide", "ids": ["connecticut"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["connecticut"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
         "nav": "Draw",
         "type": "draw"
       },
-       {
+      {
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -371,13 +428,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Connecticut Precincts",
-          "content_source": "/assets/about/connecticut/precincts.html"
+          {
+            "name": "Connecticut Precincts",
+            "content_source": "/assets/about/connecticut/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
-
       }
     ]
   },
@@ -385,7 +444,13 @@
     "state": "Delaware",
     "code": "DE",
     "modules": [
-      {"name": "Statewide", "ids": ["delaware"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["delaware"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -396,7 +461,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -433,13 +498,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Delaware Precincts",
-          "content_source": "/assets/about/delaware/precincts.html"
+          {
+            "name": "Delaware Precincts",
+            "content_source": "/assets/about/delaware/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
-
       }
     ]
   },
@@ -447,9 +514,19 @@
     "state": "Florida",
     "code": "FL",
     "modules": [
-      {"name": "Statewide", "ids": ["florida"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"], "id": "counties"},
-      {"name": "Cities", "ids": ["miamifl", "orlando", "tampa"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["florida"],
+        "id": "state",
+        "default": "true"
+      },
+      {
+        "name": "Counties",
+        "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"],
+        "id": "counties"
+      },
+      { "name": "Cities", "ids": ["miamifl", "orlando", "tampa"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -460,7 +537,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -474,11 +551,12 @@
         "nav": "Data",
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
-        "subsections": [{
-          "name": "Florida Census blocks and block groups",
-          "content_source": "/assets/about/florida/data.html"
-        }]
-
+        "subsections": [
+          {
+            "name": "Florida Census blocks and block groups",
+            "content_source": "/assets/about/florida/data.html"
+          }
+        ]
       }
     ]
   },
@@ -486,7 +564,13 @@
     "state": "Georgia",
     "code": "GA",
     "modules": [
-      {"name": "Statewide", "ids": ["georgia"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["georgia"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -497,8 +581,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{"name": "Research", "content": ""}]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": [{ "name": "Research", "content": "" }]
       },
       {
         "name": "Redistricting rules",
@@ -523,10 +607,6 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
-              },
-              {
-                "id": "state_house",
-                "name": "State House Plan"
               }
             ]
           }
@@ -538,11 +618,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Georgia Precincts",
-           "content_source": "/assets/about/georgia/precincts.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-
+          {
+            "name": "Georgia Precincts",
+            "content_source": "/assets/about/georgia/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -550,7 +634,13 @@
     "state": "Hawaii",
     "code": "HI",
     "modules": [
-      {"name": "Statewide", "ids": ["hawaii"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["hawaii"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -561,7 +651,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -602,10 +692,14 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Hawaii Precincts",
-           "content_source": "/assets/about/hawaii/precincts.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Hawaii Precincts",
+            "content_source": "/assets/about/hawaii/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -614,7 +708,13 @@
     "state": "Idaho",
     "code": "ID",
     "modules": [
-      {"name": "Statewide", "ids": ["idaho"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["idaho"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -625,9 +725,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -641,8 +740,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -650,8 +752,14 @@
     "state": "Illinois",
     "code": "IL",
     "modules": [
-      {"name": "Statewide", "ids": ["illinois"], "id": "state", "default": "true"},
-      {"name": "Cities", "ids": ["chicago"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["illinois"],
+        "id": "state",
+        "default": "true"
+      },
+      { "name": "Cities", "ids": ["chicago"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -662,14 +770,16 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "City Council Districts in Chicago",
             "content_source": "/assets/about/illinois/chicago-city-council.html"
           },
-          {"name": "Research",
-           "content_source": "/assets/about/illinois/research.html"}
+          {
+            "name": "Research",
+            "content_source": "/assets/about/illinois/research.html"
+          }
         ]
       },
       {
@@ -692,11 +802,14 @@
                 "id": "current-wards",
                 "name": "Current Enacted Plan",
                 "numbers": [
-                    { "number": 46, "caption": "wards with a majority race" },
-                    { "number": 38, "caption": "segregated wards" },
-                    { "number": 19, "caption": "hypersegregated wards" },
-                    { "number": 19, "caption": "wards with concentrated poverty" },
-                    { "number": 13, "caption": "wards with concentrated wealth" }
+                  { "number": 46, "caption": "wards with a majority race" },
+                  { "number": 38, "caption": "segregated wards" },
+                  { "number": 19, "caption": "hypersegregated wards" },
+                  {
+                    "number": 19,
+                    "caption": "wards with concentrated poverty"
+                  },
+                  { "number": 13, "caption": "wards with concentrated wealth" }
                 ]
               }
             ]
@@ -837,10 +950,14 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Chicago Community Areas and Precincts",
-           "content_source": "/assets/about/illinois/chicago-data.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Chicago Community Areas and Precincts",
+            "content_source": "/assets/about/illinois/chicago-data.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -849,7 +966,13 @@
     "state": "Indiana",
     "code": "IN",
     "modules": [
-      {"name": "Statewide", "ids": ["indiana"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["indiana"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -860,9 +983,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -871,13 +993,42 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "in",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_senate",
+                "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -885,7 +1036,8 @@
     "state": "Iowa",
     "code": "IA",
     "modules": [
-      {"name": "Statewide", "ids": ["iowa"], "default": "true", "id": "state"}],
+      { "name": "Statewide", "ids": ["iowa"], "default": "true", "id": "state" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -896,7 +1048,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -927,13 +1079,16 @@
         "name": "About the data",
         "nav": "Data",
         "type": "text",
-        "content_source": "/assets/about/landing/data.html" ,
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Iowa Counties",
-           "content_source": "/assets/about/iowa/counties.html"
+          {
+            "name": "Iowa Counties",
+            "content_source": "/assets/about/iowa/counties.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -942,80 +1097,12 @@
     "state": "Kansas",
     "code": "KS",
     "modules": [
-      {"name": "Statewide", "ids": ["kansas"], "default": "true", "id": "state"}],
-    "sections": [
       {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+        "name": "Statewide",
+        "ids": ["kansas"],
+        "default": "true",
+        "id": "state"
       }
-    ]
-  },
-  {
-    "state": "Kentucky",
-    "code": "KY",
-    "modules": [
-      {"name": "Statewide", "ids": ["kentucky"], "default": "true", "id": "state"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Louisiana",
-    "code": "LA",
-    "modules": [
-      {"name": "Statewide", "ids": ["louisiana"], "default": "true", "id": "state"},
-      {"name": "Region", "ids": ["batonrouge"], "id": "region"}
     ],
     "sections": [
       {
@@ -1027,43 +1114,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Maine",
-    "code": "ME",
-    "modules": [
-      {"name": "Statewide", "ids": ["maine"], "default": "true", "id": "state"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1078,19 +1129,25 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Maine Precincts",
-           "content_source": "/assets/about/maine/precincts.html"},
-        {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
   {
-    "state": "Maryland",
-    "code": "MD",
+    "state": "Kentucky",
+    "code": "KY",
     "modules": [
-      {"name": "Statewide", "ids": ["maryland"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["baltimore"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["kentucky"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1101,7 +1158,145 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Louisiana",
+    "code": "LA",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["louisiana"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Region", "ids": ["batonrouge"], "id": "region" }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Maine",
+    "code": "ME",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["maine"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Maine Precincts",
+            "content_source": "/assets/about/maine/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Maryland",
+    "code": "MD",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["maryland"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["baltimore"], "id": "loc" }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1124,6 +1319,10 @@
               {
                 "id": "congress",
                 "name": "Congressional Plan"
+              },
+              {
+                "id": "leg_dist",
+                "name": "Legislative Districts"
               }
             ]
           }
@@ -1135,10 +1334,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Maryland Precincts",
-           "content_source": "/assets/about/maryland/precincts.html"},
-        {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Maryland Precincts",
+            "content_source": "/assets/about/maryland/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -1146,8 +1350,14 @@
     "state": "Massachusetts",
     "code": "MA",
     "modules": [
-      {"name": "Statewide", "ids": ["ma"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["lowell"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["ma_vra2", "ma"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["lowell"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1158,7 +1368,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "Research",
@@ -1167,7 +1377,7 @@
           {
             "name": "Election reform in Lowell",
             "content_source": "/assets/about/massachusetts/lowell-reform.html"
-           }
+          }
         ]
       },
       {
@@ -1205,14 +1415,15 @@
           {
             "title": "Lowell | Sample valid 3-district plans",
             "plans": [
-                {
-                  "id": "plan3a",
-                  "name": "Random Plan 3A"
-                },
-                {
-                  "id": "plan3b",
-                  "name": "Random Plan 3B"
-                }]
+              {
+                "id": "plan3a",
+                "name": "Random Plan 3A"
+              },
+              {
+                "id": "plan3b",
+                "name": "Random Plan 3B"
+              }
+            ]
           },
           {
             "title": "Lowell | Sample valid 7-district plans",
@@ -1224,7 +1435,8 @@
               {
                 "id": "plan7b",
                 "name": "Random Plan 7B"
-              }]
+              }
+            ]
           },
           {
             "title": "Lowell | Sample valid 8-district plans (Option on the Ballot)",
@@ -1236,7 +1448,8 @@
               {
                 "id": "plan8b",
                 "name": "Random Plan 8B"
-              }]
+              }
+            ]
           },
           {
             "title": "Lowell | Sample valid 9-district plans",
@@ -1248,7 +1461,8 @@
               {
                 "id": "plan9b",
                 "name": "Random Plan 9B"
-              }]
+              }
+            ]
           }
         ]
       },
@@ -1270,8 +1484,10 @@
             "name": "Massachusetts Census Blocks",
             "content_source": "/assets/about/massachusetts/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1280,7 +1496,13 @@
     "state": "Michigan",
     "code": "MI",
     "modules": [
-      {"name": "Statewide", "ids": ["michigan"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["michigan"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1291,7 +1513,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1336,8 +1558,10 @@
             "name": "Michigan Precincts",
             "content_source": "/assets/about/michigan/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1346,9 +1570,18 @@
     "state": "Minnesota",
     "code": "MN",
     "modules": [
-      {"name": "Statewide", "ids": ["minnesota", "mn2020acs"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["olmsted","washington_mn","stlouis_mn"], "id": "county"},
-      {"name": "Cities", "ids": ["rochestermn"], "id": "city"}
+      {
+        "name": "Statewide",
+        "ids": ["minnesota", "mn2020acs"],
+        "default": "true",
+        "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": ["olmsted", "washington_mn", "stlouis_mn"],
+        "id": "county"
+      },
+      { "name": "Cities", "ids": ["rochestermn"], "id": "city" }
     ],
     "sections": [
       {
@@ -1360,7 +1593,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1401,8 +1634,10 @@
             "name": "Minnesota Precincts",
             "content_source": "/assets/about/minnesota/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1411,7 +1646,13 @@
     "state": "Mississippi",
     "code": "MS",
     "modules": [
-      {"name": "Statewide", "ids": ["mississippi"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["mississippi"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1422,9 +1663,13 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{"name": "Research",
-        "content_source": "/assets/about/mississippi/research.html"}]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": [
+          {
+            "name": "Research",
+            "content_source": "/assets/about/mississippi/research.html"
+          }
+        ]
       },
       {
         "name": "Redistricting rules",
@@ -1450,43 +1695,13 @@
     "state": "Missouri",
     "code": "MO",
     "modules": [
-      {"name": "Statewide", "ids": ["missouri"], "default": "true", "id": "state"}],
-    "sections": [
       {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+        "name": "Statewide",
+        "ids": ["missouri"],
+        "default": "true",
+        "id": "state"
       }
-    ]
-  },
-  {
-    "state": "Montana",
-    "code": "MT",
-    "modules": [
-      {"name": "Statewide", "ids": ["montana"], "default": "true", "id": "state"}],
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1497,81 +1712,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Nebraska",
-    "code": "NE",
-    "modules": [
-      {"name": "Statewide", "ids": ["nebraska"], "default": "true", "id": "state"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Nebraska Precincts",
-           "content_source": "/assets/about/nebraska/precincts.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Nevada",
-    "code": "NV",
-    "modules": [
-      {"name": "Statewide", "ids": ["nevada"], "id": "state", "default": "true"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1586,16 +1727,25 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
   {
-    "state": "New Hampshire",
-    "code": "NH",
+    "state": "Montana",
+    "code": "MT",
     "modules": [
-      {"name": "Statewide", "ids": ["newhampshire"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["montana"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1606,9 +1756,144 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
         "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
+      }
+    ]
+  },
+  {
+    "state": "Nebraska",
+    "code": "NE",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["nebraska"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Nebraska Precincts",
+            "content_source": "/assets/about/nebraska/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Nevada",
+    "code": "NV",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["nevada"],
+        "id": "state",
+        "default": "true"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "New Hampshire",
+    "code": "NH",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["newhampshire"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -1623,15 +1908,42 @@
         ]
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "nh",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "New Hampshire Precincts",
-           "content_source": "/assets/about/new-hampshire/precincts.html"},
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "New Hampshire Precincts",
+            "content_source": "/assets/about/new-hampshire/precincts.html"
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -1639,7 +1951,13 @@
     "state": "New Jersey",
     "code": "NJ",
     "modules": [
-      {"name": "Statewide", "ids": ["newjersey"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["newjersey"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1650,9 +1968,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -1666,8 +1983,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -1675,8 +1995,13 @@
     "state": "New Mexico",
     "code": "NM",
     "modules": [
-      {"name": "Statewide", "ids": ["new_mexico", "new_mexico_bg"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["santafe"], "id": "loc"}
+      {
+        "name": "Statewide",
+        "ids": ["new_mexico", "new_mexico_bg"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["santafe"], "id": "loc" }
     ],
     "sections": [
       {
@@ -1688,7 +2013,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1729,8 +2054,10 @@
             "name": "New Mexico Precincts",
             "content_source": "/assets/about/new-mexico/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1739,8 +2066,14 @@
     "state": "New York",
     "code": "NY",
     "modules": [
-      {"name": "Statewide", "ids": ["newyork"], "id": "state", "default": "true"},
-      {"name": "Cities", "ids": ["islip", "ithacany"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["newyork"],
+        "id": "state",
+        "default": "true"
+      },
+      { "name": "Cities", "ids": ["islip", "ithacany"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1751,7 +2084,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1774,8 +2107,10 @@
             "name": "Islip Election Districts",
             "content_source": "/assets/about/new-york/election-districts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1784,8 +2119,14 @@
     "state": "North Carolina",
     "code": "NC",
     "modules": [
-      {"name": "Statewide", "ids": ["northcarolina"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc"}],
+      {
+        "name": "Statewide",
+        "ids": ["northcarolina"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Counties", "ids": ["buncombe", "forsyth_nc"], "id": "loc" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1796,7 +2137,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "Rucho v. Common Cause",
@@ -1857,9 +2198,11 @@
           {
             "name": "North Carolina voting tabulation districts (VTDs)",
             "content_source": "/assets/about/north-carolina/vtds.html"
-         },
-         {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          },
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1868,7 +2211,26 @@
     "state": "North Dakota",
     "code": "ND",
     "modules": [
-      {"name": "Statewide", "ids": ["northdakota"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["northdakota"],
+        "default": "true",
+        "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": [
+          "nd_benson",
+          "nd_dunn",
+          "nd_mckenzie",
+          "nd_mountrail",
+          "nd_ramsey",
+          "nd_rollette",
+          "nd_sioux"
+        ],
+        "id": "loc"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1879,9 +2241,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -1895,8 +2256,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -1904,9 +2268,33 @@
     "state": "Ohio",
     "code": "OH",
     "modules": [
-      {"name": "Statewide", "ids": ["ohio"], "default": "true", "id": "state"},
-      {"name": "Zones", "ids": ["ohcentral", "ohse", "ohtoledo", "ohakron", "ohcle", "ohcin"], "id": "region"},
-      {"name": "Cities", "ids": ["akroncanton", "cincinnati", "clevelandeuclid", "columbus", "dayton", "limaoh", "mansfield", "portsmouthoh", "toledo", "youngstown"], "id": "loc"}
+      {
+        "name": "Statewide",
+        "ids": ["ohio"],
+        "default": "true",
+        "id": "state"
+      },
+      {
+        "name": "Zones",
+        "ids": ["ohcentral", "ohse", "ohtoledo", "ohakron", "ohcle", "ohcin"],
+        "id": "region"
+      },
+      {
+        "name": "Cities",
+        "ids": [
+          "akroncanton",
+          "cincinnati",
+          "clevelandeuclid",
+          "columbus",
+          "dayton",
+          "limaoh",
+          "mansfield",
+          "portsmouthoh",
+          "toledo",
+          "youngstown"
+        ],
+        "id": "loc"
+      }
     ],
     "sections": [
       {
@@ -1918,7 +2306,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -1963,8 +2351,10 @@
             "name": "Ohio Precincts",
             "content_source": "/assets/about/ohio/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -1973,7 +2363,13 @@
     "state": "Oklahoma",
     "code": "OK",
     "modules": [
-      {"name": "Statewide", "ids": ["oklahoma"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["oklahoma"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -1984,7 +2380,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -2029,8 +2425,10 @@
             "name": "Oklahoma Precincts",
             "content_source": "/assets/about/oklahoma/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2039,9 +2437,14 @@
     "state": "Oregon",
     "code": "OR",
     "modules": [
-      {"name": "Statewide", "ids": ["oregon"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["portlandor"], "id": "loc"},
-      {"name": "School Districts", "ids": ["salem_keizer"], "id": "schools"}
+      {
+        "name": "Statewide",
+        "ids": ["oregon"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["portlandor"], "id": "loc" },
+      { "name": "School Districts", "ids": ["salem_keizer"], "id": "schools" }
     ],
     "sections": [
       {
@@ -2053,10 +2456,12 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
-          {"name": "Election reform in Oregon",
-           "content_source": "/assets/about/oregon/reform.html"}
+          {
+            "name": "Election reform in Oregon",
+            "content_source": "/assets/about/oregon/reform.html"
+          }
         ]
       },
       {
@@ -2097,14 +2502,18 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Oregon Precincts",
-           "content_source": "/assets/about/oregon/precincts.html"
+          {
+            "name": "Oregon Precincts",
+            "content_source": "/assets/about/oregon/precincts.html"
           },
-          {"name": "Oregon Census blocks",
-           "content_source": "/assets/about/oregon/blocks.html"
+          {
+            "name": "Oregon Census blocks",
+            "content_source": "/assets/about/oregon/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2113,8 +2522,13 @@
     "state": "Pennsylvania",
     "code": "PA",
     "modules": [
-      {"name": "Statewide", "ids": ["pennsylvania"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["philadelphia"], "id": "loc"}
+      {
+        "name": "Statewide",
+        "ids": ["pennsylvania"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["philadelphia"], "id": "loc" }
     ],
     "sections": [
       {
@@ -2126,10 +2540,12 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
-          {"name": "Redistricting in the court",
-          "content_source": "/assets/about/pennsylvania/courts.html"}
+          {
+            "name": "Redistricting in the court",
+            "content_source": "/assets/about/pennsylvania/courts.html"
+          }
         ]
       },
       {
@@ -2179,14 +2595,18 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Pennsylvania voting tabulation districts (VTDs)",
-           "content_source": "/assets/about/pennsylvania/vtds.html"
+          {
+            "name": "Pennsylvania voting tabulation districts (VTDs)",
+            "content_source": "/assets/about/pennsylvania/vtds.html"
           },
-          {"name": "Pennsylvania Census blocks",
-           "content_source": "/assets/about/pennsylvania/blocks.html"
+          {
+            "name": "Pennsylvania Census blocks",
+            "content_source": "/assets/about/pennsylvania/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2195,7 +2615,13 @@
     "state": "Puerto Rico",
     "code": "PR",
     "modules": [
-      {"name": "Statewide", "ids": ["puertorico", "puertorico_prec"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["puertorico", "puertorico_prec"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2206,9 +2632,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -2222,11 +2647,15 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"},
-          {"name": "Precincts",
-           "content_source": "/assets/about/puerto-rico/precincts.html"}
-         ]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          },
+          {
+            "name": "Precincts",
+            "content_source": "/assets/about/puerto-rico/precincts.html"
+          }
+        ]
       }
     ]
   },
@@ -2234,8 +2663,13 @@
     "state": "Rhode Island",
     "code": "RI",
     "modules": [
-      {"name": "Statewide", "ids": ["rhode_island"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["providence_ri"], "id": "loc"}
+      {
+        "name": "Statewide",
+        "ids": ["rhode_island"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["providence_ri", "cranston_ri"], "id": "loc" }
     ],
     "sections": [
       {
@@ -2247,7 +2681,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -2296,8 +2730,10 @@
             "name": "Rhode Island Census Blocks",
             "content_source": "/assets/about/rhode-island/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2306,117 +2742,12 @@
     "state": "South Carolina",
     "code": "SC",
     "modules": [
-      {"name": "Statewide", "ids": ["southcarolina"], "default": "true", "id": "state"}],
-    "sections": [
       {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+        "name": "Statewide",
+        "ids": ["southcarolina"],
+        "default": "true",
+        "id": "state"
       }
-    ]
-  },
-  {
-    "state": "South Dakota",
-    "code": "SD",
-    "modules": [
-      {"name": "Statewide", "ids": ["southdakota"], "default": "true", "id": "state"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Tennessee",
-    "code": "TN",
-    "modules": [
-      {"name": "Statewide", "ids": ["tennessee"], "default": "true", "id": "state"}],
-    "sections": [
-      {
-        "name": "Draw a plan from scratch",
-        "nav": "Draw",
-        "type": "draw"
-      },
-      {
-        "name": "Why?",
-        "nav": "Why?",
-        "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
-      },
-      {
-        "name": "Redistricting rules",
-        "nav": "Rules",
-        "type": "text",
-        "content_source": "/assets/about/landing/rules.html"
-      },
-      {
-        "name": "About the data",
-        "nav": "Data",
-        "type": "text",
-        "content_source": "/assets/about/landing/data.html",
-        "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
-      }
-    ]
-  },
-  {
-    "state": "Texas",
-    "code": "TX",
-    "modules": [
-      {"name": "Statewide", "ids": ["texas"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx"], "id": "cty"},
-      {"name": "Cities", "ids": ["austin", "fortworth", "houston"], "id": "loc"}
     ],
     "sections": [
       {
@@ -2428,7 +2759,149 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "South Dakota",
+    "code": "SD",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["southdakota"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Tennessee",
+    "code": "TN",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["tennessee"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
+      },
+      {
+        "name": "Redistricting rules",
+        "nav": "Rules",
+        "type": "text",
+        "content_source": "/assets/about/landing/rules.html"
+      },
+      {
+        "name": "About the data",
+        "nav": "Data",
+        "type": "text",
+        "content_source": "/assets/about/landing/data.html",
+        "subsections": [
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Texas",
+    "code": "TX",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["texas"],
+        "default": "true",
+        "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": ["fortbendtx", "tarranttx", "harristx", "elpasotx", "elpaso2"],
+        "id": "cty"
+      },
+      {
+        "name": "Cities",
+        "ids": ["austin", "fortworth", "houston"],
+        "id": "loc"
+      }
+    ],
+    "sections": [
+      {
+        "name": "Draw a plan from scratch",
+        "nav": "Draw",
+        "type": "draw"
+      },
+      {
+        "name": "Why?",
+        "nav": "Why?",
+        "type": "text",
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -2478,8 +2951,10 @@
             "name": "Texas Census Blocks",
             "content_source": "/assets/about/texas/blocks.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2488,8 +2963,14 @@
     "state": "Utah",
     "code": "UT",
     "modules": [
-      {"name": "Statewide", "ids": ["utah"], "default": "true", "id": "state"},
-      {"name": "Counties", "ids": ["grand_county_2"], "id": "county"}],
+      {
+        "name": "Statewide",
+        "ids": ["utah"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Counties", "ids": ["grand_county_2"], "id": "county" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2500,11 +2981,13 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [{
-          "name": "Independent Commission",
-          "content_source": "assets/about/utah/reform.html"
-        }]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": [
+          {
+            "name": "Independent Commission",
+            "content_source": "assets/about/utah/reform.html"
+          }
+        ]
       },
       {
         "name": "Redistricting rules",
@@ -2545,8 +3028,10 @@
             "name": "Utah Precincts",
             "content_source": "/assets/about/utah/precincts.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2555,7 +3040,13 @@
     "state": "Vermont",
     "code": "VT",
     "modules": [
-      {"name": "Statewide", "ids": ["vermont"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["vermont"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2566,7 +3057,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": []
       },
       {
@@ -2585,7 +3076,7 @@
             "name": "Vermont Towns",
             "content_source": "/assets/about/vermont/towns.html"
           },
-           {
+          {
             "name": "Vermont Census Block groups",
             "content_sourcet": "/assets/about/vermont/blockgroups.html"
           }
@@ -2597,8 +3088,13 @@
     "state": "Virginia",
     "code": "VA",
     "modules": [
-      {"name": "Statewide", "ids": ["virginia"], "default": "true", "id": "state"},
-      {"name": "Cities", "ids": ["vabeach"], "id": "loc"}
+      {
+        "name": "Statewide",
+        "ids": ["virginia"],
+        "default": "true",
+        "id": "state"
+      },
+      { "name": "Cities", "ids": ["vabeach"], "id": "loc" }
     ],
     "sections": [
       {
@@ -2610,7 +3106,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "Research",
@@ -2680,10 +3176,11 @@
           {
             "name": "Virginia Precincts",
             "content_source": "/assets/about/virginia/precincts.html"
-
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2692,8 +3189,17 @@
     "state": "Washington",
     "code": "WA",
     "modules": [
-      {"name": "Statewide", "ids": ["washington"], "default": "true", "id":"state"},
-      {"name": "Counties", "ids": ["yakima_wa", "kingcountywa"], "id":"counties"}
+      {
+        "name": "Statewide",
+        "ids": ["washington"],
+        "default": "true",
+        "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": ["yakima_wa", "kingcountywa"],
+        "id": "counties"
+      }
     ],
     "sections": [
       {
@@ -2705,7 +3211,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "The electoral system in Yakima County",
@@ -2725,8 +3231,7 @@
         "type": "plans",
         "ref": "yakima",
         "disc": "",
-        "plans":
-        [
+        "plans": [
           {
             "title": "Yakima County | Sample valid 3-district plans",
             "plans": [
@@ -2768,7 +3273,13 @@
     "state": "Washington, DC",
     "code": "DC",
     "modules": [
-      {"name": "District-wide", "ids": ["dc"], "default": "true", "id": "state"}],
+      {
+        "name": "District-wide",
+        "ids": ["dc"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2779,9 +3290,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -2795,8 +3305,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -2804,7 +3317,13 @@
     "state": "West Virginia",
     "code": "WV",
     "modules": [
-      {"name": "Statewide", "ids": ["westvirginia"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["westvirginia"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2815,9 +3334,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -2831,8 +3349,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -2840,7 +3361,13 @@
     "state": "Wisconsin",
     "code": "WI",
     "modules": [
-      {"name": "Statewide", "ids": ["wisconsin","wisco2019acs"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["wisconsin", "wisco2019acs"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2851,7 +3378,7 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
+        "content_source": "/assets/about/landing/why.html",
         "subsections": [
           {
             "name": "Redistricting in the court | Gill v. Whitford",
@@ -2905,8 +3432,10 @@
             "name": "Wisconsin Wards",
             "content_source": "/assets/about/wisconsin/wards.html"
           },
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
         ]
       }
     ]
@@ -2915,7 +3444,13 @@
     "state": "Wyoming",
     "code": "WY",
     "modules": [
-      {"name": "Statewide", "ids": ["wyoming"], "default": "true", "id": "state"}],
+      {
+        "name": "Statewide",
+        "ids": ["wyoming"],
+        "default": "true",
+        "id": "state"
+      }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2926,9 +3461,8 @@
         "name": "Why?",
         "nav": "Why?",
         "type": "text",
-        "content_source": "/assets/about/landing/why.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/landing/why.html",
+        "subsections": []
       },
       {
         "name": "Redistricting rules",
@@ -2942,8 +3476,11 @@
         "type": "text",
         "content_source": "/assets/about/landing/data.html",
         "subsections": [
-          {"name": "Census Block Groups",
-           "content_source": "/assets/about/landing/community_blockgroups.html"}]
+          {
+            "name": "Census Block Groups",
+            "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
       }
     ]
   },
@@ -2952,9 +3489,10 @@
     "code": "VRA",
     "states": ["Louisiana", "Texas", "Massachusetts"],
     "modules": [
-      {"name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la"},
-      {"name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts"},
-      {"name": "Texas", "ids": ["tx_vra"], "id": "tx"}],
+      { "name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la" },
+      { "name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts" },
+      { "name": "Texas", "ids": ["tx_vra"], "id": "tx" }
+    ],
     "sections": [
       {
         "name": "Draw a plan from scratch",
@@ -2965,36 +3503,32 @@
         "name": "What is the VRA effectiveness dashboard?",
         "nav": "Overview",
         "type": "text",
-        "content_source": "/assets/about/vra/overview.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/vra/overview.html",
+        "subsections": []
       },
       {
         "name": "Louisiana: VRA effectiveness precomputation",
         "nav": "Precomputation  (LA)",
         "type": "text",
         "pages": ["la"],
-        "content_source": "/assets/about/vra/precomputation_louisiana.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/vra/precomputation_louisiana.html",
+        "subsections": []
       },
       {
         "name": "Massachusetts: VRA effectiveness precomputation",
         "nav": "Precomputation  (MA)",
         "type": "text",
         "pages": ["massachusetts"],
-        "content_source": "/assets/about/vra/precomputation_mass.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/vra/precomputation_mass.html",
+        "subsections": []
       },
       {
         "name": "Texas: VRA effectiveness precomputation",
         "nav": "Precomputation (TX)",
         "type": "text",
         "pages": ["tx"],
-        "content_source": "/assets/about/vra/precomputation_texas.html" ,
-        "subsections": [
-        ]
+        "content_source": "/assets/about/vra/precomputation_texas.html",
+        "subsections": []
       },
       {
         "name": "Explore the enacted plans",
