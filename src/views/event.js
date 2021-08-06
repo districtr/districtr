@@ -84,6 +84,7 @@ commoncausepa: 'Pennsylvania',
   san_mateo_city: 'California',
   santa_clara_county: 'California',
   santa_clara_water: 'California',
+  oakland: 'California',
 };
 
 const validEventCodes = {
@@ -155,6 +156,7 @@ commoncausepa: 'pennsylvania',
   kern_county: 'ca_kern',
   san_joaquin: 'ca_sanjoaquin',
   san_mateo_city: 'ca_sanmateo',
+  oakland: 'ca_oakland',
   santa_clara_county: 'ca_sc_county',
   santa_clara_water: 'santa_clara_h2o',
 };
@@ -223,6 +225,7 @@ const coi_events = [
   'kern_county',
   'san_joaquin',
   'san_mateo_city',
+  'oakland',
   'santa_clara_county',
   'santa_clara_water',
   'commoncausepa',
@@ -491,6 +494,11 @@ Redistricting is based on population and communities of interest.  A community o
      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Mateo_City” (any capitalization) is entered.</p>',
+  oakland: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Oakland” (any capitalization) is entered.</p>',
 
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -639,6 +647,9 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   san_mateo_city: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  oakland: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   santa_clara_county: [
@@ -810,7 +821,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -848,6 +859,9 @@ export default () => {
             } else if (eventCode === "san_mateo_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
               document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
+            } else if (eventCode === "oakland") {
+              document.getElementById("partner-link-a").href = "https://www.oaklandca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-oakland.png";
             } else if (eventCode === "santa_clara_county") {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
               document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";

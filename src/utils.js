@@ -587,6 +587,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  ca_oakland: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   ca_siskiyou: {
     border: true,
     shapefile: true,

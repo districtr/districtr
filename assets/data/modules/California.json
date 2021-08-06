@@ -8048,5 +8048,140 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "state": "California",
+    "id": "ca_oakland",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 433211,
+              "min": 0,
+              "max": 1883
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 97869,
+                "min": 0,
+                "max": 1216
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 65095,
+                "min": 0,
+                "max": 519
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 114460,
+                "min": 0,
+                "max": 852
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 284387,
+              "min": 0,
+              "max": 940
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 74559,
+                "min": 0,
+                "max": 455
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 1663,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 45494,
+                "min": 0,
+                "max": 341
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 1390,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 42194,
+                "min": 0,
+                "max": 287
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.3467,
+            37.6954
+          ],
+          [
+            -122.1148,
+            37.8854
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_oakland_blocks_points"
+            },
+            "sourceLayer": "ca_oakland_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_oakland_blocks"
+            },
+            "sourceLayer": "ca_oakland_blocks"
+          }
+        ]
+      }
+    ],
+    "name": "Oakland",
+    "districtingProblems": [
+      {
+        "name": "City",
+        "numberOfParts": 7,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
