@@ -84,7 +84,7 @@ commoncausepa: 'Pennsylvania',
   groverbeach: 'California',
   vallejo: 'California',
   santa_clara_county: 'California',
-  'mp-maps': 'California,
+  'mp-maps': 'California',
 };
 
 const validEventCodes = {
