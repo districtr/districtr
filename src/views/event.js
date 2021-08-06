@@ -880,7 +880,7 @@ export default () => {
         
      if (["mp-maps"].includes(eventCode)) {
         document.getElementById("eventHeadline").innerText = og_eventCode;
-        if (coi_events.includes(eventCode)) {
+        if (eventCode === "mp-maps") {
             document.getElementById("introExplain").innerText = "City of Menlo Park Redistricting";
             document.getElementById("introExplain").style.display = "block";
         }
