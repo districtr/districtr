@@ -220,7 +220,6 @@ const coi_events = [
   'solano_county',
   'commoncausepa',
   'santa_clara_county',
-  'mp-maps',
 ];
 
 const hybrid_events = [
@@ -871,12 +870,18 @@ export default () => {
         : window.location.pathname.split("/").slice(-1)[0]
     );
     const eventCode = og_eventCode.toLowerCase();
-
+        
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = og_eventCode;
         if (coi_events.includes(eventCode)) {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
+        }
+    
+    if (["mp-maps"].includes(eventCode)) {
+        document.getElementById("eventHeadline").innerText = og_eventCode;
+        document.getElementById("introExplain").innerText = "City of Menlo Park Redistricting";
+        document.getElementById("introExplain").style.display = "block";
         }
 
     if (["commoncausepa"].includes(eventCode)) {
