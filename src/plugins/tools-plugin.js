@@ -225,7 +225,7 @@ function getMenuItems(state) {
             {
                 name: "Districtr homepage (leave portal)",
                 onClick: () => {
-                    if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                    if (window.confirm("Would you like to leave the portal?")) {
                         window.location.href = "/";
                     }
                 }
@@ -284,7 +284,7 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
         {
-            name: "About import/export options",
+            name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
             onClick: () => window.open("/import-export", "_blank")
         }
     ];
