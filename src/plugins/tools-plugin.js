@@ -214,32 +214,51 @@ function scrollToSection(state, section) {
 
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
-    let items = [
-        {
-            name: "About redistricting",
-            onClick: scrollToSection(state, "why?")
-        },
-        {
-            name: "About the data",
-            onClick: scrollToSection(state, "data")
-        },
-        {
-            id: "mobile-upload",
-            name: "Save plan",
-            onClick: () => renderSaveModal(state, savePlanToDB)
-        },
-        {
-            name: "Districtr homepage",
-            onClick: () => {
-                if (window.confirm("Would you like to return to the Districtr homepage?")) {
-                    window.location.href = "/";
+    const fromPortal = window.location.search.includes("portal");
+    let items = fromPortal ? // display a different set of options if the user came from a portal
+        [
+            {
+                id: "mobile-upload",
+                name: "Save plan",
+                onClick: () => renderSaveModal(state, savePlanToDB)
+            },
+            {
+                name: "Districtr homepage (leave portal)",
+                onClick: () => {
+                    if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                        window.location.href = "/";
+                    }
                 }
             }
-        },
-        {
-            name: "New plan",
-            onClick: () => navigateTo("/new")
-        },
+        ] : [
+            {
+                name: "About redistricting",
+                onClick: scrollToSection(state, "why?")
+            },
+            {
+                name: "About the data",
+                onClick: scrollToSection(state, "data")
+            },
+            {
+                id: "mobile-upload",
+                name: "Save plan",
+                onClick: () => renderSaveModal(state, savePlanToDB)
+            },
+            {
+                name: "Districtr homepage",
+                onClick: () => {
+                    if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                        window.location.href = "/";
+                    }
+                }
+            },
+            {
+                name: "New plan",
+                onClick: () => navigateTo("/new")
+            }
+        ];
+
+    let exportItems = [
         {
             name: "Print / PDF",
             onClick: () => window.print()
@@ -269,5 +288,6 @@ function getMenuItems(state) {
             onClick: () => window.open("/import-export", "_blank")
         }
     ];
-    return items;
+
+    return items.concat(exportItems);
 }
