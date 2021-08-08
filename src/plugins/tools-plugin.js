@@ -220,8 +220,7 @@ function getMenuItems(state) {
     let items = [];
 
     if (fromPortal) { // display a different set of options if the user came from a portal
-        items.extend(
-            [
+        items.push(
                 {
                     id: "mobile-upload",
                     name: "Save plan",
@@ -235,10 +234,9 @@ function getMenuItems(state) {
                         }
                     }
                 }
-            ]);
+            );
     } else {
-        items.extend(
-            [
+        items.push(
                 {
                     name: "About redistricting",
                     onClick: scrollToSection(state, "why?")
@@ -264,11 +262,10 @@ function getMenuItems(state) {
                     name: "New plan",
                     onClick: () => navigateTo("/new")
                 }
-            ]);
+            );
     }
 
-    items.extend(
-        [
+    items.push(
             {
                 name: "Print / PDF",
                 onClick: () => window.print()
@@ -306,7 +303,7 @@ function getMenuItems(state) {
                 name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
                 onClick: () => window.open("/import-export", "_blank")
             }
-        ]);
+        );
 
     let enactedPlanURI = "";
     if (blankfromPortal && pathname.length == 3) {
