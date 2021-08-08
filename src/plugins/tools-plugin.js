@@ -216,99 +216,103 @@ function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const fromPortal = window.location.search.includes("portal");
     const blankfromPortal = fromPortal && window.location.pathname.includes("blank");
-    let pathname = window.location.pathname.split("/");
+    const pathname = window.location.pathname.split("/");
+    let items = [];
 
-    let items = fromPortal ? // display a different set of options if the user came from a portal
-        [
-            {
-                id: "mobile-upload",
-                name: "Save plan",
-                onClick: () => renderSaveModal(state, savePlanToDB)
-            },
-            {
-                name: "Districtr homepage (leave portal)",
-                onClick: () => {
-                    if (window.confirm("Would you like to leave the portal?")) {
-                        window.location.href = "/";
+    if (fromPortal) { // display a different set of options if the user came from a portal
+        items.extend(
+            [
+                {
+                    id: "mobile-upload",
+                    name: "Save plan",
+                    onClick: () => renderSaveModal(state, savePlanToDB)
+                },
+                {
+                    name: "Districtr homepage (leave portal)",
+                    onClick: () => {
+                        if (window.confirm("Would you like to leave the portal?")) {
+                            window.location.href = "/";
+                        }
                     }
                 }
-            }
-        ]
-        :
+            ]);
+    } else {
+        items.extend(
+            [
+                {
+                    name: "About redistricting",
+                    onClick: scrollToSection(state, "why?")
+                },
+                {
+                    name: "About the data",
+                    onClick: scrollToSection(state, "data")
+                },
+                {
+                    id: "mobile-upload",
+                    name: "Save plan",
+                    onClick: () => renderSaveModal(state, savePlanToDB)
+                },
+                {
+                    name: "Districtr homepage",
+                    onClick: () => {
+                        if (window.confirm("Would you like to return to the Districtr homepage?")) {
+                            window.location.href = "/";
+                        }
+                    }
+                },
+                {
+                    name: "New plan",
+                    onClick: () => navigateTo("/new")
+                }
+            ]);
+    }
+
+    items.extend(
         [
             {
-                name: "About redistricting",
-                onClick: scrollToSection(state, "why?")
+                name: "Print / PDF",
+                onClick: () => window.print()
             },
             {
-                name: "About the data",
-                onClick: scrollToSection(state, "data")
+                name: `Export Districtr-JSON`,
+                onClick: () => exportPlanAsJSON(state)
             },
-            {
-                id: "mobile-upload",
-                name: "Save plan",
-                onClick: () => renderSaveModal(state, savePlanToDB)
-            },
-            {
-                name: "Districtr homepage",
-                onClick: () => {
-                    if (window.confirm("Would you like to return to the Districtr homepage?")) {
-                        window.location.href = "/";
-                    }
+            spatial_abilities(state.place.id).shapefile ?
+                {
+                    name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
+                    onClick: () => exportPlanAsSHP(state)
                 }
+                :
+                null,
+            spatial_abilities(state.place.id).shapefile ?
+                {
+                    name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
+                    onClick: () => exportPlanAsSHP(state, true)
+                }
+                :
+                null,
+            {
+                name: "Export assignment as CSV",
+                onClick: () => exportPlanAsAssignmentFile(state)
             },
+            state.unitsRecord.unitType === "Block Groups" ?
+                {
+                name: "Export block assignment file",
+                onClick: () => exportPlanAsBlockAssignment(state)
+                }
+                :
+                null,
             {
-                name: "New plan",
-                onClick: () => navigateTo("/new")
+                name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
+                onClick: () => window.open("/import-export", "_blank")
             }
-        ];
-    return items;
-
-    let exportItems = [
-        {
-            name: "Print / PDF",
-            onClick: () => window.print()
-        },
-        {
-            name: `Export Districtr-JSON`,
-            onClick: () => exportPlanAsJSON(state)
-        },
-        spatial_abilities(state.place.id).shapefile ?
-            {
-                name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
-                onClick: () => exportPlanAsSHP(state)
-            }
-            :
-            null,
-        spatial_abilities(state.place.id).shapefile ?
-            {
-                name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
-                onClick: () => exportPlanAsSHP(state, true)
-            }
-            :
-            null,
-        {
-            name: "Export assignment as CSV",
-            onClick: () => exportPlanAsAssignmentFile(state)
-        },
-        state.unitsRecord.unitType === "Block Groups" ?
-            {
-            name: "Export block assignment file",
-            onClick: () => exportPlanAsBlockAssignment(state)
-            }
-            :
-            null,
-        {
-            name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
-            onClick: () => window.open("/import-export", "_blank")
-        }
-    ];
+        ]);
 
     let enactedPlanURI = "";
     if (blankfromPortal && pathname.length == 3) {
-        let blank_type = pathname.pop();
+        const blank_type = pathname.pop();
 
-        let potentialEnactedBlankTypes = {
+        const potentialEnactedBlankTypes = {
             "congress": "congress",
             "senate": "state_sen",
             "house": "state_house"
@@ -337,8 +341,8 @@ function getMenuItems(state) {
                 onClick: () => window.open(enactedPlanURI)
             }
         ];
-        return items.concat(exportItems).concat(enactedPlan);
+        return items.concat(enactedPlan);
     } else {
-        return items.concat(exportItems);
+        return items;
     }
 }
