@@ -15,7 +15,6 @@ import { renderVRAAboutModal, renderAboutModal, renderSaveModal, renderModal } f
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
 import { html, render } from "lit-html";
-import urlExist from "url-exist";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -233,8 +232,10 @@ function getMenuItems(state) {
                         window.location.href = "/";
                     }
                 }
-            },
-        ] : [
+            }
+        ]
+        :
+        [
             {
                 name: "About redistricting",
                 onClick: scrollToSection(state, "why?")
@@ -261,6 +262,7 @@ function getMenuItems(state) {
                 onClick: () => navigateTo("/new")
             }
         ];
+    return items;
 
     let exportItems = [
         {
@@ -271,22 +273,31 @@ function getMenuItems(state) {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
-        (spatial_abilities(state.place.id).shapefile ?  {
-            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
-            onClick: () => exportPlanAsSHP(state)
-        } : null),
-        (spatial_abilities(state.place.id).shapefile ?  {
-            name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
-            onClick: () => exportPlanAsSHP(state, true)
-        } : null),
+        spatial_abilities(state.place.id).shapefile ?
+            {
+                name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
+                onClick: () => exportPlanAsSHP(state)
+            }
+            :
+            null,
+        spatial_abilities(state.place.id).shapefile ?
+            {
+                name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
+                onClick: () => exportPlanAsSHP(state, true)
+            }
+            :
+            null,
         {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        (state.unitsRecord.unitType === "Block Groups" ? {
+        state.unitsRecord.unitType === "Block Groups" ?
+            {
             name: "Export block assignment file",
             onClick: () => exportPlanAsBlockAssignment(state)
-        }: null),
+            }
+            :
+            null,
         {
             name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
             onClick: () => window.open("/import-export", "_blank")
@@ -295,39 +306,39 @@ function getMenuItems(state) {
 
     let enactedPlanURI = "";
     if (blankfromPortal && pathname.length == 3) {
-        blank_type = pathname.pop();
+        let blank_type = pathname.pop();
 
-        potentialEnactedBlankTypes = {
-            "congress": ["congress"],
-            "senate": ["state_sen"],
-            "house": ["state_house"]
-        }
+        let potentialEnactedBlankTypes = {
+            "congress": "congress",
+            "senate": "state_sen",
+            "house": "state_house"
+        };
 
-        for (const [expression, potentialURIs] of Object.entries(object)) {
-            if (blank_type.includes(expression) && ! Boolean(enactedPlanURI)) {
-                for (let i = 0; i < potentialURIs.length; i++) {
-                    let potentialEnactedPlanURI = pathname.concat([potentialPlans[i]]).join("/");
-                    const exists = await urlExist(potentialEnactedPlanURI);
-                    if (exists) {
-                        enactedPlanURI = potentialEnactedPlanURI;
-                        break;
-                    }
+        for (const [expression, potentialURI] of Object.entries(potentialEnactedBlankTypes)) {
+            if (blank_type.includes(expression) && enactedPlanURI == 0) {
+                let potentialEnactedPlanURI = pathname.concat([potentialURI]).join("/");
+
+                var http = new XMLHttpRequest();
+                http.open('HEAD', potentialEnactedPlanURI, false);
+                http.send();
+
+                if (http.status == 200) {
+                    enactedPlanURI = potentialEnactedPlanURI;
+                    break;
                 }
             }
         }
     }
 
-    if Boolean(enactedPlanURI) {
+    if (enactedPlanURI.length != 0) {
         let enactedPlan = [
             {
                 name: "Print / PDF",
                 onClick: () => window.open(enactedPlanURI)
-
             }
         ];
         return items.concat(exportItems).concat(enactedPlan);
     } else {
         return items.concat(exportItems);
     }
-
 }
