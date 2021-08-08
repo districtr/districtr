@@ -215,7 +215,6 @@ function scrollToSection(state, section) {
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const fromPortal = window.location.search.includes("portal");
-    const blankfromPortal = fromPortal && window.location.pathname.includes("blank");
     const pathname = window.location.pathname.split("/");
     let items = [];
 
@@ -306,7 +305,7 @@ function getMenuItems(state) {
         );
 
     let enactedPlanURI = "";
-    if (blankfromPortal && pathname.length == 3) {
+    if (pathname.length == 3) { // make more strict in the future
         const blank_type = pathname.pop();
 
         const potentialEnactedBlankTypes = {
@@ -318,6 +317,7 @@ function getMenuItems(state) {
         for (const [expression, potentialURI] of Object.entries(potentialEnactedBlankTypes)) {
             if (blank_type.includes(expression) && enactedPlanURI == 0) {
                 let potentialEnactedPlanURI = "https://" + window.location.hostname + pathname.concat([potentialURI]).join("/");
+                console.log(potentialEnactedPlanURI);
 
                 var http = new XMLHttpRequest();
                 http.open('HEAD', potentialEnactedPlanURI, false);
@@ -334,7 +334,7 @@ function getMenuItems(state) {
     if (enactedPlanURI.length != 0) {
         let enactedPlan = [
             {
-                name: "Print / PDF",
+                name: "See enacted plan",
                 onClick: () => window.open(enactedPlanURI)
             }
         ];
