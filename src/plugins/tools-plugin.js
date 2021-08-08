@@ -10,7 +10,7 @@ import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
 import ContiguityChecker from "../map/contiguity";
-import VRAEffectiveness from "../map/vra_effectiveness"
+import VRAEffectiveness from "../map/vra_effectiveness";
 import { renderVRAAboutModal, renderAboutModal, renderSaveModal, renderModal } from "../components/Modal";
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
@@ -317,7 +317,7 @@ function getMenuItems(state) {
 
         for (const [expression, potentialURI] of Object.entries(potentialEnactedBlankTypes)) {
             if (blank_type.includes(expression) && enactedPlanURI == 0) {
-                let potentialEnactedPlanURI = pathname.concat([potentialURI]).join("/");
+                let potentialEnactedPlanURI = "https://" + window.location.hostname + pathname.concat([potentialURI]).join("/");
 
                 var http = new XMLHttpRequest();
                 http.open('HEAD', potentialEnactedPlanURI, false);
