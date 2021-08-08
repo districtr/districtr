@@ -15,6 +15,7 @@ import { renderVRAAboutModal, renderAboutModal, renderSaveModal, renderModal } f
 import { navigateTo, savePlanToStorage, savePlanToDB } from "../routes";
 import { download, spatial_abilities } from "../utils";
 import { html, render } from "lit-html";
+import urlExist from "url-exist";
 
 export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
@@ -215,6 +216,9 @@ function scrollToSection(state, section) {
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const fromPortal = window.location.search.includes("portal");
+    const blankfromPortal = fromPortal && window.location.pathname.includes("blank");
+    let pathname = window.location.pathname.split("/");
+
     let items = fromPortal ? // display a different set of options if the user came from a portal
         [
             {
@@ -229,7 +233,7 @@ function getMenuItems(state) {
                         window.location.href = "/";
                     }
                 }
-            }
+            },
         ] : [
             {
                 name: "About redistricting",
@@ -289,5 +293,41 @@ function getMenuItems(state) {
         }
     ];
 
-    return items.concat(exportItems);
+    let enactedPlanURI = "";
+    if (blankfromPortal && pathname.length == 3) {
+        blank_type = pathname.pop();
+
+        potentialEnactedBlankTypes = {
+            "congress": ["congress"],
+            "senate": ["state_sen"],
+            "house": ["state_house"]
+        }
+
+        for (const [expression, potentialURIs] of Object.entries(object)) {
+            if (blank_type.includes(expression) && ! Boolean(enactedPlanURI)) {
+                for (let i = 0; i < potentialURIs.length; i++) {
+                    let potentialEnactedPlanURI = pathname.concat([potentialPlans[i]]).join("/");
+                    const exists = await urlExist(potentialEnactedPlanURI);
+                    if (exists) {
+                        enactedPlanURI = potentialEnactedPlanURI;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    if Boolean(enactedPlanURI) {
+        let enactedPlan = [
+            {
+                name: "Print / PDF",
+                onClick: () => window.open(enactedPlanURI)
+
+            }
+        ];
+        return items.concat(exportItems).concat(enactedPlan);
+    } else {
+        return items.concat(exportItems);
+    }
+
 }
