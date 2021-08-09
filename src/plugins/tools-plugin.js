@@ -213,7 +213,7 @@ function scrollToSection(state, section) {
 }
 
 function getMenuItems(state) {
-    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const showVRA = state.plan.problem.type !== "community" && spatial_abilities(state.place.id).vra_effectiveness;
     const fromPortal = window.location.search.includes("portal");
     const pathname = window.location.pathname.split("/");
     let items = [];
@@ -273,31 +273,25 @@ function getMenuItems(state) {
                 name: `Export Districtr-JSON`,
                 onClick: () => exportPlanAsJSON(state)
             },
-            spatial_abilities(state.place.id).shapefile ?
+            spatial_abilities(state.place.id).shapefile &&
                 {
                     name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
                     onClick: () => exportPlanAsSHP(state)
-                }
-                :
-                null,
-            spatial_abilities(state.place.id).shapefile ?
+                },
+            spatial_abilities(state.place.id).shapefile &&
                 {
                     name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
                     onClick: () => exportPlanAsSHP(state, true)
-                }
-                :
-                null,
+                },
             {
                 name: "Export assignment as CSV",
                 onClick: () => exportPlanAsAssignmentFile(state)
             },
-            state.unitsRecord.unitType === "Block Groups" ?
+            state.unitsRecord.unitType === "Block Groups" &&
                 {
                 name: "Export block assignment file",
                 onClick: () => exportPlanAsBlockAssignment(state)
-                }
-                :
-                null,
+                },
             {
                 name: fromPortal ? "About import/export options (leave portal)" : "About import/export options",
                 onClick: () => window.open("/import-export", "_blank")
@@ -332,14 +326,12 @@ function getMenuItems(state) {
     }
 
     if (enactedPlanURI.length != 0) {
-        let enactedPlan = [
+        items.push(
             {
                 name: "See enacted plan",
                 onClick: () => window.open(enactedPlanURI)
             }
-        ];
-        return items.concat(enactedPlan);
-    } else {
-        return items;
+        );
     }
+    return items;
 }
