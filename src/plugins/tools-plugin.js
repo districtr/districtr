@@ -135,24 +135,28 @@ function exportPlanAsJSON(state) {
 }
 function exportPlanAsSHP(state, geojson) {
     const serialized = state.serialize();
-    Object.keys(serialized.assignment).forEach((assign) => {
+    Object.keys(serialized.assignment).forEach(assign => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
     render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
-    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
+    fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(serialized),
+        body: JSON.stringify(serialized)
     })
-    .then((res) => res.arrayBuffer())
-    .catch((e) => console.error(e))
-    .then((data) => {
-        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
-    });
+        .then(res => res.text())
+        // .then(resBuffer => String.fromCharCode(resBuffer))
+        .then(shpURI => fetch(shpURI)
+            .catch(e => console.log(e))
+            .then(shp => shp.arrayBuffer())
+            .then(data => {
+                download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
+            }))
+        .catch(e => console.log(e));
 }
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
