@@ -83,8 +83,12 @@ commoncausepa: 'Pennsylvania',
   san_joaquin: 'California',
   san_mateo_city: 'California',
   santa_clara_county: 'California',
+  butte_county: 'California',
+  humboldt_county: 'California',
   santa_clara_water: 'California',
   oakland: 'California',
+  martinez: 'California',
+  carpinteria: 'California',
 };
 
 const validEventCodes = {
@@ -157,7 +161,11 @@ commoncausepa: 'pennsylvania',
   san_joaquin: 'ca_sanjoaquin',
   san_mateo_city: 'ca_sanmateo',
   oakland: 'ca_oakland',
+  martinez: 'ca_martinez',
+  carpinteria: 'carpinteria',
   santa_clara_county: 'ca_sc_county',
+  butte_county: 'ca_butte',
+  humboldt_county: 'ca_humboldt',
   santa_clara_water: 'santa_clara_h2o',
 };
 
@@ -226,8 +234,12 @@ const coi_events = [
   'san_joaquin',
   'san_mateo_city',
   'oakland',
+  'martinez',
+  'carpinteria',
   'santa_clara_county',
   'santa_clara_water',
+  'butte_county',
+  'humboldt_county',
   'commoncausepa',
 ];
 
@@ -484,6 +496,16 @@ Get started by clicking the orange button. To share your map, click “Save” i
          <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
          <p>Community of Interest submissions completed from August through September will be presented to the 2021 Advisory Redistricting Commission to inform the mapping process, which will occur in October. To learn more about the Santa Clara County process, please visit the website at <a href="http://www.sccgov.org/2021redistricting">http://www.sccgov.org/2021redistricting</a>.</p>\
          <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_County” (any capitalization) is entered.</p>',
+     butte_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+ <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+        <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+        <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
+      humboldt_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Humboldt_County” (any capitalization) is entered.</p>',
       santa_clara_water: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
      <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
             <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -499,7 +521,16 @@ Get started by clicking the orange button. To share your map, click “Save” i
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Oakland” (any capitalization) is entered.</p>',
-
+  martinez: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Martinez” (any capitalization) is entered.</p>',
+  carpinteria: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+   <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Carpinteria” (any capitalization) is entered.</p>',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -652,7 +683,19 @@ const longAbout = {
   oakland: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  martinez: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  carpinteria: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
   santa_clara_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  butte_county: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  humboldt_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   santa_clara_water: [
@@ -821,7 +864,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -862,6 +905,12 @@ export default () => {
             } else if (eventCode === "oakland") {
               document.getElementById("partner-link-a").href = "https://www.oaklandca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-oakland.png";
+            } else if (eventCode === "martinez") {
+              document.getElementById("partner-link-a").href = "https://www.cityofmartinez.org";
+              document.getElementById("partnership-a").src = "/assets/partners-martinez.png";
+            } else if (eventCode === "carpinteria") {
+              document.getElementById("partner-link-a").href = "https://carpinteriaca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-carpinteria.png";
             } else if (eventCode === "santa_clara_county") {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
               document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
@@ -878,6 +927,13 @@ export default () => {
             } else if (eventCode === "napa_boe") {
               document.getElementById("partner-link-a").href = "https://napacoe.org/board-of-education/";
               document.getElementById("partnership-a").src = "/assets/partners-napa-boe.png";
+            } else if (eventCode === "butte_county") {
+              document.getElementById("partner-link-a").href = "https://www.buttecounty.net";
+              document.getElementById("partnership-a").src = "/assets/partners-butte.png";
+            } else if (eventCode === "humboldt_county") {
+              document.getElementById("partner-link-a").href = "https://humboldtgov.org";
+              document.getElementById("partnership-a").src = "/assets/partners-humboldt.png";
+              document.getElementById("partnership-a").style.background = "#46798b";
             } else if (eventCode === "napa_college") {
               document.getElementById("partner-link-a").href = "https://napavalley.edu/AboutNVC/Trustees/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-napa-college.png";

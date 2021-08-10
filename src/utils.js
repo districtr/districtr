@@ -550,7 +550,6 @@ export function spatial_abilities(id) {
     number_markers: true,
     border: true,
     shapefile: true,
-    native_american: true,
     municipalities: true,
   },
   ca_sanjoaquin: {
@@ -590,7 +589,32 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  ca_butte: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+    native_american: true,
+  },
+  ca_humboldt: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+    sideload: true,
+    native_american: true,
+  },
   ca_oakland: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_martinez: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  carpinteria: {
     border: true,
     shapefile: true,
     number_markers: true,
