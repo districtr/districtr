@@ -149,9 +149,10 @@ function exportPlanAsSHP(state, geojson) {
         body: JSON.stringify(serialized)
     })
         .then(res => res.text())
-        // .then(resBuffer => String.fromCharCode(resBuffer))
+        .catch(e => console.error(e))
         .then(shpURI => fetch(shpURI)
             .then(shp => shp.arrayBuffer())
+            .catch(e => console.error(e))
             .then(data => {
                 download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
             }));
