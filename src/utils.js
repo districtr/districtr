@@ -579,6 +579,9 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    current_districts: true,
+    school_districts: true,
+    neighborhood_borders: true,
   },
   ca_ventura: {
     border: true,
@@ -815,7 +818,7 @@ export function spatial_abilities(id) {
       native_american: true,
       vra_effectiveness: true,
       county_brush: true, // lakes
-      number_markers: true, 
+      number_markers: true,
       number_markers_lambda: true,
     },
     batonrouge: {
