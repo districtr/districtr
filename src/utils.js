@@ -309,6 +309,7 @@ export function spatial_abilities(id) {
     },
     alaska: {
       number_markers: true,
+      number_markers_lambda: true,
       native_american: true,
       shapefile: true,
       school_districts: true,
@@ -772,6 +773,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       contiguity: 2,
       shapefile: true,
+      number_markers_lambda: true,
       // find_unpainted: true,
     },
     kansas: {
@@ -802,7 +804,8 @@ export function spatial_abilities(id) {
     louisiana: {
       native_american: true,
       county_brush: true, // lakes
-      number_markers: true,
+      // number_markers: true, // fetch is failing?
+      // number_markers_lambda: true,
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
@@ -812,7 +815,8 @@ export function spatial_abilities(id) {
       native_american: true,
       vra_effectiveness: true,
       county_brush: true, // lakes
-      number_markers: false, // need different ids that louisiana precincts need to update server
+      number_markers: true, 
+      number_markers_lambda: true,
     },
     batonrouge: {
       number_markers: true,
@@ -842,6 +846,7 @@ export function spatial_abilities(id) {
     },
     ma: {
       number_markers: true,
+      number_markers_lambda: true,
       shapefile: true,
       // find_unpainted: true,
       portal: {
@@ -850,6 +855,7 @@ export function spatial_abilities(id) {
     },
     ma_vra: {
       number_markers: true,
+      number_markers_lambda: true,
       vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
@@ -870,6 +876,7 @@ export function spatial_abilities(id) {
     },
     michigan: {
       number_markers: true,
+      number_markers_lambda: true,
       native_american: true,
       county_brush: true,
       shapefile: true,
@@ -891,6 +898,7 @@ export function spatial_abilities(id) {
     },
     mn2020acs: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
@@ -976,6 +984,7 @@ export function spatial_abilities(id) {
     },
     new_mexico: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,
@@ -1112,6 +1121,7 @@ export function spatial_abilities(id) {
       },
     ohio: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       // find_unpainted: true - needs contiguity
@@ -1276,6 +1286,7 @@ export function spatial_abilities(id) {
     },
     pennsylvania: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -1333,6 +1344,7 @@ export function spatial_abilities(id) {
     },
     texas: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       contiguity: 2,
       shapefile: true,
@@ -1346,6 +1358,7 @@ export function spatial_abilities(id) {
       vra_effectiveness: true,
       county_brush: true,
       number_markers: true,
+      number_markers_lambda: true,
     },
     austin: {
       border: true,
@@ -1462,6 +1475,7 @@ export function spatial_abilities(id) {
     },
     wisco2019acs: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
