@@ -93,7 +93,7 @@ export default class Toolbar {
         }
     }
     setMenuItems(menuItems) {
-        this.menuItems = menuItems.filter(m => m !== false);
+        this.menuItems = menuItems.filter(m => m !== false && m !== null);
     }
     setState(state) {
         this.state = state;
