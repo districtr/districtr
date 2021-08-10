@@ -1100,6 +1100,33 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "pages": ["maine"],
+        "type": "plans",
+        "ref": "me",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen",
+                "name": "State Senate Plan"             
+              },
+              {
+                 "id": "state_house",
+                "name": "State House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
