@@ -134,6 +134,8 @@ function renderRight(pane, context, state, mapState) {
             data.counties == -1 ? "" : 
                 analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
                     (uiState, dispatch) => county_section(state, data.counties, municipalities))
+            state.place.name == 'Indiana' ? 
+                analyzer.addRevealSection('Incumbency Considerations', (uiState, dispatch) => incumbent_section(state)) : "";
             analyzer.render();
         });
 }
@@ -494,6 +496,11 @@ function county_section(state, data, municipalities) {
     ${num_split > 0 ? html`
         <h4 text-align:"center">${noun_cap} Split Details</h4> 
         ${DataTable(headers, rows)}` : ""}`
+}
+
+function incumbent_section(state) {
+    console.log(state);
+    console.log(incumbent_locations(state.place.name, state.unitsRecord.id, state.plan.problem.name));
 }
 
 /** HELPER FUNCTIONS */
@@ -1917,3 +1924,17 @@ function state_name_to_postal(st) {
     return results[st];
 }
 
+function incumbent_locations(st, units, problem) {
+    switch (st) {
+        case "Indiana":
+            switch (units) {
+                case 'precincts': 
+                    switch (problem) {
+                        case "Congress": return [4191, 4367, 4805, 3357, 3202, 2624, 2540, 1949, 1437];
+                        default: return -1;
+                    }
+                default: return -1;
+            }
+        default: return -1;
+    }
+}
