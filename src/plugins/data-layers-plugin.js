@@ -535,7 +535,12 @@ export default function DataLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
-    addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
+    addBoundaryLayers(tab, state,
+      spatial_abilities(state.place.id).current_districts,
+      spatial_abilities(state.place.id).school_districts,
+      spatial_abilities(state.place.id).municipalities,
+      spatial_abilities(state.place.id).neighborhood_borders,
+    );
 
     if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
         addMyCOI(state, tab);
