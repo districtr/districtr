@@ -60,7 +60,7 @@ const stateForEvent = {
   napa_county: 'California',
 san_jose: 'California',
 siskiyou: 'California',
-redwood: 'California',
+redwood_city: 'California',
 ventura_county: 'California',
 yolo_county: 'California',
 solano_county: 'California',
@@ -131,7 +131,7 @@ const validEventCodes = {
   napa_county: 'napacounty2021',
   san_jose: 'sanjoseca',
   siskiyou: 'ca_siskiyou',
-  redwood: 'redwood',
+  redwood_city: 'redwood',
   ventura_county: 'ca_ventura',
   yolo_county: 'ca_yolo',
   solano_county: 'ca_solano',
@@ -212,7 +212,7 @@ const coi_events = [
   'napa_county',
   'san_jose',
   'siskiyou',
-  'redwood',
+  'redwood_city',
   'ventura_county',
   'yolo_county',
   'solano_county',
@@ -425,11 +425,11 @@ Redistricting is based on population and communities of interest.  A community o
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Siskiyou” (any capitalization) is entered.</p>',
-   redwood: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-      <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map. For more information, visit link.</p>\
-      <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Redwood” (any capitalization) is entered.</p>',
+  redwood_city: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities.  People who have common interests that need a voice in government define their own communities.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Every map submitted to the City will be carefully reviewed and included as part of the public record. For more information, <a href="https://www.redwoodcity.org/departments/city-clerk/redistricting-process" target="_blank">visit this link</a>.<br/>\
+  Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Redwood City”.</p>',
    ventura_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -664,7 +664,7 @@ const longAbout = {
   siskiyou: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
-  redwood: [
+  redwood_city: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   ventura_county: [
@@ -875,7 +875,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood", "ventura_county", "yolo_county", "solano_county", "santa_clara_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -894,7 +894,7 @@ export default () => {
             } else if (eventCode === "siskiyou") {
               document.getElementById("partner-link-a").href = "https://www.co.siskiyou.ca.us/";
               document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png";
-            } else if (eventCode === "redwood") {
+            } else if (eventCode === "redwood_city") {
               document.getElementById("partner-link-a").href = "https://www.redwoodcity.org/home";
               document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg";
             } else if (eventCode === "ventura_county") {

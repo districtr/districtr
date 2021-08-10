@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "redwood_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "1" }, "geometry": { "type": "Point", "coordinates": [ -122.245785859533243, 37.536047851258274 ] } },
+{ "type": "Feature", "properties": { "NAME": "4" }, "geometry": { "type": "Point", "coordinates": [ -122.224835990972949, 37.477326259662519 ] } },
+{ "type": "Feature", "properties": { "NAME": "5" }, "geometry": { "type": "Point", "coordinates": [ -122.226297526625672, 37.469461158173949 ] } },
+{ "type": "Feature", "properties": { "NAME": "6" }, "geometry": { "type": "Point", "coordinates": [ -122.238434555059996, 37.466329939698142 ] } },
+{ "type": "Feature", "properties": { "NAME": "7" }, "geometry": { "type": "Point", "coordinates": [ -122.256906305415171, 37.465331268667228 ] } },
+{ "type": "Feature", "properties": { "NAME": "7" }, "geometry": { "type": "Point", "coordinates": [ -122.260272102058408, 37.465310416909098 ] } },
+{ "type": "Feature", "properties": { "NAME": "2" }, "geometry": { "type": "Point", "coordinates": [ -122.200402480625385, 37.527346526210231 ] } },
+{ "type": "Feature", "properties": { "NAME": "3" }, "geometry": { "type": "Point", "coordinates": [ -122.203249639615521, 37.484092107117554 ] } }
+]
+}
