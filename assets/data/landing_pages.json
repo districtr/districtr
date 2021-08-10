@@ -1794,6 +1794,10 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }
@@ -2602,6 +2606,10 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }
