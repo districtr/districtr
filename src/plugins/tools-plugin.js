@@ -148,11 +148,11 @@ function exportPlanAsSHP(state, geojson) {
         },
         body: JSON.stringify(serialized),
     })
-    .then((res) => res.arrayBuffer())
-    .catch((e) => console.error(e))
-    .then((data) => {
-        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
-    });
+        .then(shp => shp.arrayBuffer())
+        .catch(e => console.error(e))
+        .then(data => {
+            download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
+        });
 }
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
