@@ -337,6 +337,7 @@ function election_section(state) {
         break;
         default: favorstr = "favored different parties in different elections";
     }
+    console.log(rows);
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     return html`
         Our dataset contains ${bias_acc.length} recent statewide ${elections.length > 1 ? html`elections`
@@ -500,7 +501,35 @@ function county_section(state, data, municipalities) {
 
 function incumbent_section(state) {
     console.log(state);
-    console.log(incumbent_locations(state.place.name, state.unitsRecord.id, state.plan.problem.name));
+    let locations = incumbent_locations(state.place.name, state.unitsRecord.id, state.plan.problem.name);
+    console.log(locations);
+    let dists = locations.map((x) => state.plan.assignment[x]).flat();
+    console.log(dists);
+    let parts = state.plan.problem.numberOfParts,
+        headers = ["District", "Incumbents"], rows = [], bunked = []
+
+    for (let i = 0; i < parts; i++) {
+        let num_inc = dists.reduce((a, v) => (v == i ? a + 1 : a), 0);
+        rows.push({
+        label: html`<span
+        class="part-number"
+        style="background:${districtColors[i % districtColors.length].hex};
+        display:table-flex"
+        >${i+1}</span>`,
+        entries: [{content: html`<text style:"text-align:center">${num_inc}<text>`}]
+        })
+        if (num_inc > 1) {
+            bunked.push(i);
+        }
+    }
+    return html`<div id="incumbent-table">${DataTable(headers, rows, true)}<div>
+    Double bunked districts are: <br/>
+    ${bunked.map(i => html`<span
+        class="part-number"
+        style="background:${districtColors[i % districtColors.length].hex};
+        display:inline-flex"
+        >${i+1}</span>`)}
+    `
 }
 
 /** HELPER FUNCTIONS */
