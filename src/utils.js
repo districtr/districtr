@@ -583,6 +583,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  rp_lax: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   ca_solano: {
     border: true,
     shapefile: true,

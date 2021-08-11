@@ -7103,7 +7103,7 @@
             "total": {
               "key": "ACS_15-19_Total",
               "name": "Total population",
-              "sum": 739936,
+              "sum": 738505,
               "min": 0,
               "max": 2340
             },
@@ -7111,21 +7111,21 @@
               {
                 "key": "ACS_15-19_AfAm",
                 "name": "Black population",
-                "sum": 47256,
+                "sum": 47251,
                 "min": 0,
                 "max": 557
               },
               {
                 "key": "ACS_15-19_Asian",
                 "name": "Asian population",
-                "sum": 109631,
+                "sum": 109546,
                 "min": 0,
                 "max": 536
               },
               {
                 "key": "ACS_15-19_Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 303893,
+                "sum": 303394,
                 "min": 0,
                 "max": 941
               }
@@ -7137,7 +7137,7 @@
             "total": {
               "key": "CVAP_15-19_Total",
               "name": "Total population",
-              "sum": 441615,
+              "sum": 440849,
               "min": 0,
               "max": 2164
             },
@@ -7145,7 +7145,7 @@
               {
                 "key": "CVAP_15-19_AfAm",
                 "name": "Black population",
-                "sum": 33823,
+                "sum": 33821,
                 "min": 0,
                 "max": 453
               },
@@ -7159,21 +7159,21 @@
               {
                 "key": "CVAP_15-19_Asian",
                 "name": "Asian population",
-                "sum": 60374,
+                "sum": 60294,
                 "min": 0,
                 "max": 282
               },
               {
                 "key": "CVAP_15-19_Hawaiian_API",
                 "name": "Native Hawaiian Pacific Islander population",
-                "sum": 1907,
+                "sum": 1905,
                 "min": 0,
                 "max": 43
               },
               {
                 "key": "CVAP_15-19_Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 134853,
+                "sum": 134705,
                 "min": 0,
                 "max": 641
               }
@@ -7199,7 +7199,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sanjoaquin_blocks_points"
+              "url": "mapbox://districtr.ca_sanjoaquin_blocks_points?v=2"
             },
             "sourceLayer": "ca_sanjoaquin_blocks_points"
           },
@@ -7207,7 +7207,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sanjoaquin_blocks"
+              "url": "mapbox://districtr.ca_sanjoaquin_blocks?v=2"
             },
             "sourceLayer": "ca_sanjoaquin_blocks"
           }
@@ -8720,6 +8720,133 @@
       {
         "name": "County",
         "numberOfParts": 3,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "id": "rp_lax",
+    "name": "Los Angeles (City)",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 3950639,
+              "min": 0,
+              "max": 7589
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 332423,
+                "min": 0,
+                "max": 1454
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 444181,
+                "min": 0,
+                "max": 3046
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 1910948,
+                "min": 0,
+                "max": 2438
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 2360823,
+              "min": 0,
+              "max": 5751
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 266333,
+                "min": 0,
+                "max": 1533
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 6263,
+                "min": 0,
+                "max": 109
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 276996,
+                "min": 0,
+                "max": 1929
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 3401,
+                "min": 0,
+                "max": 64
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 838897,
+                "min": 0,
+                "max": 1591
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -118.6682,
+            33.7037
+          ],
+          [
+            -118.1553,
+            34.3373
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rp_lax_blocks"
+            },
+            "sourceLayer": "rp_lax_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 15,
         "pluralNoun": "Council Districts"
       }
     ]
