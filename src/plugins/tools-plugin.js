@@ -133,14 +133,16 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state, geojson) {
+function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
     const serialized = state.serialize();
     Object.keys(serialized.assignment).forEach(assign => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
+    if (retry == 0) {
+        render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
+    }
     fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
@@ -149,7 +151,13 @@ function exportPlanAsSHP(state, geojson) {
         body: JSON.stringify(serialized)
     })
         .then(shp => shp.arrayBuffer())
-        .catch(e => console.error(e))
+        .catch(e => {
+            if (retry < 3) {
+                setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 1000 + 1000*retry);
+            } else {
+                console.error(e);
+            }
+        })
         .then(data => {
             download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
         });
