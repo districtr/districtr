@@ -153,8 +153,9 @@ function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
     .then(response => {
         let status = response.status;
         if (status == 200) {
-            let data = response.arrayBuffer();
-            download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
+            response.arrayBuffer().then(
+                data => download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true)
+            );
         } else {
             console.error("Download failed; retrying . . .");
             throw 'Download failed'
