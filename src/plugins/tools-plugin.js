@@ -150,17 +150,24 @@ function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
         },
         body: JSON.stringify(serialized)
     })
-        .then(shp => shp.arrayBuffer())
-        .catch(e => {
-            if (retry < 3) {
-                setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 1000 + 1000*retry);
-            } else {
-                console.error(e);
-            }
-        })
-        .then(data => {
+    .then(response => {
+        let status = response.status;
+        if (status == 200) {
+            let data = response.arrayBuffer();
             download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true);
-        });
+        } else {
+            console.error("Download failed; retrying . . .");
+            throw 'Download failed'
+        }
+    })
+    .catch(e => {
+        if (retry < 3) {
+            setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 2000 + 2000 * retry);
+        } else {
+            console.error(e);
+            render(renderModal(`Download failed! Please try again.`), document.getElementById("modal"));
+        }
+    });
 }
 
 function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
