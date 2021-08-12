@@ -803,23 +803,27 @@ export function spatial_abilities(id) {
       border: true,
     },
     miamidade: {
-      multiyear: 2018,
+      // multiyear: 2018,
+      census20: true,
       number_markers: true,
       neighborhoods: true,
     },
     fl_hills: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      census20: true,
     },
     fl_orange: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      census20: true,
     },
     fl_osceola: {
       number_markers: true,
       shapefile: true,
+      census20: true,
     },
     orlando: {
       number_markers: true,
