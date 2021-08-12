@@ -54,6 +54,17 @@ const stateForEvent = {
   saccountymap: 'California',
   sonomaco: 'California',
   pasadena2021: 'California',
+  sunnyvale2021: 'California',
+  laverne: 'California',
+  pomonaca: 'California',
+  richmondca: 'California',
+  elcajon: 'California',
+  carlsbad2021: 'California',
+  encinitas2021: 'California',
+  bp2021: 'California',
+  hmb2021: 'California',
+  stockton2021: 'California',
+  lodi2021: 'California',
   goleta: 'California',
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
@@ -126,6 +137,17 @@ const validEventCodes = {
   sanmateoco: 'ca_sm_county',
   sanbenito: 'ca_sanbenito',
   pasadena2021: 'ca_pasadena',
+  sunnyvale2021: 'sunnyvale',
+  laverne: 'laverne',
+  pomonaca: 'pomona',
+  richmondca: 'ca_richmond',
+  elcajon: 'elcajon',
+  carlsbad2021: 'ca_carlsbad',
+  encinitas2021: 'encinitas',
+  bp2021: 'buenapark',
+  hmb2021: 'halfmoon',
+  stockton2021: 'ca_stockton',
+  lodi2021: 'lodi',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
   napa_county: 'napacounty2021',
@@ -232,6 +254,17 @@ const hybrid_events = [
   'sanbenito',
   'sonomaco',
   'pasadena2021',
+  'sunnyvale2021',
+  'laverne',
+  'pomonaca',
+  'richmondca',
+  'elcajon',
+  'carlsbad2021',
+  'encinitas2021',
+  'bp2021',
+  'hmb2021',
+  'stockton2021',
+  'lodi2021',
   'kingsco',
   'mercedco',
   'goleta',
@@ -384,6 +417,117 @@ pasadena2021: "<p>Welcome to the Districtr Community of Interest public mapping 
    <p>To let the City know about your community and what brings it together, \
 share your map and your story using this tool now.</p>\
    <p><strong>To display your map on this page, be sure the tag &quot;Pasadena2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
+sunnyvale2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Sunnyvale's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Sunnyvale2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+laverne: "<p>Welcome to the Districtr Community of Interest public mapping tool for La Verne's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;LaVerne&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+pomonaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Ponoma's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;PonomaCA&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+richmondca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Richmond's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;RichmondCA&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+elcajon: "<p>Welcome to the Districtr Community of Interest public mapping tool for El Cajon's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;ElCajon&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+carlsbad2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Carlsbad's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Carlsbad2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+encinitas2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Encinitas's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Encinitas2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+bp2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Buena Park's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;BP2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+hmb2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Half Moon Bay's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;HMB2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+stockton2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Stockton's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Stockton2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+lodi2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Lodi's 2021 city council redistricting.<p>\
+   <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+   population that shares common social or economic interests that should \
+   be included within a single district for purposes of its effective and fair \
+   representation.”</p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Lodi2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
 marinco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marin County's 2021 supervisorial redistricting.<p>\
    <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -701,6 +845,72 @@ const longAbout = {
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  sunnyvale2021: [
+    "City of Sunnyvale City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  laverne: [
+    "City of La Verne City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  pomonaca: [
+    "City of Pomona City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  richmondca: [
+    "City of Richmond City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  elcajon: [
+    "City of El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  carlsbad2021: [
+    "City of Carlsbad City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  encinitas2021: [
+    "City of Encinitas City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  bp2021: [
+    "City of Buena Park City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  hmb2021: [
+    "City of Half Moon Bay City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  stockton2021: [
+    "City of Stockton City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole county.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  lodi2021: [
+    "City of Lodi City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
+    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   marinco: [
     "Marin County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
@@ -915,7 +1125,8 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach"].includes(eventCode)) {
+        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
+          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -999,6 +1210,43 @@ export default () => {
             } else if (eventCode === "vallejo") {
               document.getElementById("partner-link-a").href = "https://www.cityofvallejo.net";
               document.getElementById("partnership-a").src = "/assets/partners-vallejo.png";
+            } else if (eventCode === "sunnyvale2021") {
+              document.getElementById("partner-link-a").href = "https://sunnyvale.ca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-sunnyvale.svg";
+            } else if (eventCode === "laverne") {
+              document.getElementById("partner-link-a").href = "https://www.cityoflaverne.org";
+              document.getElementById("partnership-a").src = "/assets/partners-laverne.gif";
+            } else if (eventCode === "pomonaca") {
+              document.getElementById("partner-link-a").href = "https://www.pomonaca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-pomona.png";
+            } else if (eventCode === "richmondca") {
+              document.getElementById("partner-link-a").href = "https://www.ci.richmond.ca.us";
+              document.getElementById("partnership-a").src = "/assets/partners-richmond.png";
+            } else if (eventCode === "elcajon") {
+              document.getElementById("partner-link-a").href = "https://www.elcajon.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-elcajon.png";
+            } else if (eventCode === "carlsbad2021") {
+              document.getElementById("partner-link-a").href = "https://www.carlsbadca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-carlsbad.png";
+            } else if (eventCode === "encinitas2021") {
+              document.getElementById("partner-link-a").href = "https://encinitasca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-encinitas.png";
+              document.getElementById("partnership-a").style.background = "#000";
+            } else if (eventCode === "bp2021") {
+              document.getElementById("partner-link-a").href = "http://www.buenapark.com";
+              document.getElementById("partnership-a").src = "/assets/partners-buenapark.png";
+              document.getElementById("partnership-a").style.background = "#263f55";
+            } else if (eventCode === "hmb2021") {
+              document.getElementById("partner-link-a").href = "https://www.half-moon-bay.ca.us";
+              document.getElementById("partnership-a").src = "/assets/partners-halfmoon.png";
+              document.getElementById("partnership-a").style.background = "#00457e";
+            } else if (eventCode === "stockton2021") {
+              document.getElementById("partner-link-a").href = "http://www.stocktonca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-stockton.png";
+            } else if (eventCode === "lodi2021") {
+              document.getElementById("partner-link-a").href = "https://www.lodi.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-lodi.png";
+              document.getElementById("partnership-a").style.background = "#000";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
