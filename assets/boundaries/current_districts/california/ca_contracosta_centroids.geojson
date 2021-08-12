@@ -1,0 +1,115 @@
+{
+  "type": "FeatureCollection",
+  "name": "ca_contracosta_centroids",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "John Gioia",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": "clampToGround",
+        "tessellate": 1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "snippet": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.301923782835402, 37.947382973986016]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Candace Andersen",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": "clampToGround",
+        "tessellate": 1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "snippet": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.059013133206207, 37.843190779279873]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Mary N. Piepho",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": "clampToGround",
+        "tessellate": 1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "snippet": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-121.722875262779752, 37.912222809608544]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Karen Mitchoff",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": "clampToGround",
+        "tessellate": 1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "snippet": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-121.99509784458985, 37.93519812653377]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Federal D. Glover",
+        "description": null,
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": "clampToGround",
+        "tessellate": 1,
+        "extrude": 0,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null,
+        "snippet": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.067045533251218, 38.006408118242497]
+      }
+    }
+  ]
+}
