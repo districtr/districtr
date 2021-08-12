@@ -787,11 +787,12 @@ export function spatial_abilities(id) {
     florida: {
       native_american: true,
       number_markers: true,
-      multiyear: 2018,
+      // multiyear: 2018,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
       sideload: true,
+      census20: true,
       portal: {
         endpoint: "https://portal.florida-mapping.org",
       },
