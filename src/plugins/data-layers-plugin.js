@@ -568,13 +568,20 @@ export default function DataLayersPlugin(editor) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
+          WHITE: 'WVAP',
           NH_BLACK: 'BVAP',
+          BLACK: 'BVAP',
           HISP: 'HVAP',
           NH_ASIAN: 'ASIANVAP',
+          ASIAN: 'ASIANVAP',
           NH_AMIN: 'AMINVAP',
+          AMIN: 'AMINVAP',
           NH_NHPI: 'NHPIVAP',
+          NHPI: 'NHPIVAP',
           'NH_2MORE': '2MOREVAP',
-          NH_OTHER: 'OTHERVAP'
+          '2MORE': '2MOREVAP',
+          NH_OTHER: 'OTHERVAP',
+          OTHER: 'OTHERVAP',
         };
 
         const coalitionPivot = CoalitionPivotTable(
