@@ -1041,7 +1041,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     missouri: {
-      multiyear: 2018,
+      // multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1049,6 +1049,7 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
       school_districts: true,
       contiguity: 2,
+      census20: true,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
