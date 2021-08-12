@@ -512,6 +512,94 @@ export default function DataLayersPlugin(editor) {
                );
            });
         });
+    } else if (state.place.id === "rp_lax") {
+      fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood.geojson`).then(res => res.json()).then((places) => {
+          state.map.addSource('latimes_places', {
+              type: 'geojson',
+              data: places
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'latimes_places',
+                  source: 'latimes_places',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood_centroids.geojson`).then(res => res.json()).then((centroids) => {
+              state.map.addSource('latimes_centroids', {
+                  type: 'geojson',
+                  data: centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'latimes_centroids',
+                    source: 'latimes_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'NAME'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
+
+       fetch(`/assets/boundaries/neighborhoods/lax_neighborhood_council.geojson`).then(res => res.json()).then((nplaces) => {
+           state.map.addSource('ncouncil_places', {
+               type: 'geojson',
+               data: nplaces
+           });
+           schoolsLayer = new Layer(state.map,
+               {
+                   id: 'ncouncil_places',
+                   source: 'ncouncil_places',
+                   type: 'line',
+                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+               },
+               addBelowLabels
+           );
+
+           fetch(`/assets/boundaries/neighborhoods/lax_Neighborhood_Councils_centroids.geojson`).then(res => res.json()).then((ncentroids) => {
+               state.map.addSource('ncouncil_centroids', {
+                   type: 'geojson',
+                   data: ncentroids
+               });
+
+               school_labels = new Layer(state.map,
+                   {
+                     id: 'ncouncil_centroids',
+                     source: 'ncouncil_centroids',
+                     type: 'symbol',
+                     layout: {
+                       'text-field': [
+                           'format',
+                           ['get', 'NAME'],
+                           {},
+                       ],
+                       'text-anchor': 'center',
+                       'text-radial-offset': 0,
+                       'text-justify': 'center'
+                     },
+                     paint: {
+                       'text-opacity': 0
+                     }
+                   }
+               );
+           });
+        });
     }
 
     if (state.place.id === "virginia") {
@@ -586,6 +674,24 @@ export default function DataLayersPlugin(editor) {
                 isOpen: false
             }
         );
+    } else if (state.place.id === "rp_lax") {
+      tab.addRevealSection(
+          'Neighborhoods',
+          (uiState, dispatch) => html`
+          ${toggle("LA Times Neighborhoods", false, checked => {
+              let opacity = checked ? 1 : 0;
+              precinctsLayer && precinctsLayer.setOpacity(opacity);
+              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+          })}
+          ${toggle("Neighborhood Councils", false, checked => {
+              let opacity = checked ? 1 : 0;
+              schoolsLayer && schoolsLayer.setOpacity(opacity);
+              school_labels && school_labels.setPaintProperty('text-opacity', opacity);
+          })}`,
+          {
+              isOpen: false
+          }
+      );
     } else if (["ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
         tab.addRevealSection(
             'Enacted Plans',
