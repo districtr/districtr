@@ -315,6 +315,7 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       current_districts: true,
+      census20: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
@@ -324,6 +325,7 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       current_districts: true,
+      census20: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
         saveredirect: 'www.akredistrict.org/create/edit.html',
