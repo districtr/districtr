@@ -182,8 +182,155 @@
       },
       {
         "id": "counties",
+        "name": "2020 Counties",
+        "unitType": "Counties",
+        "columnSets": [
+           {
+             "type": "population",
+             "name": "Population",
+             "total": {
+               "key": "TOTPOP",
+               "name": "Total population",
+               "sum": 3190369,
+               "min": 3704,
+               "max": 492401
+             },
+             "subgroups": [
+               {
+                 "key": "WHITE",
+                 "name": "White population",
+                 "sum": 2638201,
+                 "min": 3518,
+                 "max": 362260
+               },
+               {
+                 "key": "BLACK",
+                 "name": "Black population",
+                 "sum": 129321,
+                 "min": 1,
+                 "max": 34990
+               },
+               {
+                 "key": "HISP",
+                 "name": "Hispanic population",
+                 "sum": 215986,
+                 "min": 42,
+                 "max": 48055
+               },
+               {
+                 "key": "ASIAN",
+                 "name": "Asian population",
+                 "sum": 75017,
+                 "min": 4,
+                 "max": 24313
+               },
+               {
+                 "key": "AMIN",
+                 "name": "American Indian population",
+                 "sum": 9079,
+                 "min": 0,
+                 "max": 1893
+               },
+               {
+                 "key": "NHPI",
+                 "name": "Native Hawaiian and Pacific Islander population",
+                 "sum": 5605,
+                 "min": 0,
+                 "max": 848
+               },
+               {
+                 "key": "2MORE",
+                 "name": "Two or more races",
+                 "sum": 108673,
+                 "min": 89,
+                 "max": 19709
+               },
+               {
+                 "key": "OTHER",
+                 "name": "Other races",
+                 "sum": 8487,
+                 "min": 3,
+                 "max": 1713
+               }
+             ]
+         },
+         {
+           "type": "population",
+           "name": "Voting Age Population",
+           "total": {
+             "key": "VAP",
+             "name": "Voting age population",
+             "sum": 2450103,
+             "min": 2891,
+             "max": 371655
+           },
+           "subgroups": [
+             {
+               "key": "WVAP",
+               "name": "White voting age population",
+               "sum": 2093769,
+               "min": 2772,
+               "max": 288392
+             },
+             {
+               "key": "BVAP",
+               "name": "Black voting age population",
+               "sum": 86796,
+               "min": 0,
+               "max": 22959
+             },
+             {
+               "key": "HVAP",
+               "name": "Hispanic voting age population",
+               "sum": 134104,
+               "min": 21,
+               "max": 29626
+             },
+             {
+               "key": "AMINVAP",
+               "name": "Native American voting age population",
+               "sum": 6662,
+               "min": 0,
+               "max": 1261
+             },
+             {
+               "key": "NHPIVAP",
+               "name": "Native Hawaiian and Pacific Islander voting age population",
+               "sum": 3447,
+               "min": 0,
+               "max": 492
+             },
+             {
+               "key": "ASIANVAP",
+               "name": "Asian voting age population",
+               "sum": 56772,
+               "min": 4,
+               "max": 17508
+             },
+             {
+               "key": "OTHERVAP",
+               "name": "Other races voting age population",
+               "sum": 5779,
+               "min": 0,
+               "max": 1209
+             },
+             {
+               "key": "2MOREVAP",
+               "name": "Two or more races voting age population",
+               "sum": 62774,
+               "min": 62,
+               "max": 10909
+             }
+           ]
+         }
+        ]
+      },
+      {
+        "id": "counties",
         "name": "Counties",
         "unitType": "Counties",
+        "hideOnDefault": true,
+        "limit": "hidden",
         "columnSets": [
           {
             "type": "election",
