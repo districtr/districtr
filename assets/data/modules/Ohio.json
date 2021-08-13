@@ -2,7 +2,7 @@
   {
     "units": [
       {
-        "limit": "community",
+        "limit": "hide",
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
