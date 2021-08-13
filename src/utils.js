@@ -306,6 +306,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      census20: true,
     },
     alaska: {
       number_markers: true,
