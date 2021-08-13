@@ -832,7 +832,7 @@
           }
         ],
         "idColumn": {
-          "name": "Block group FIPS code",
+          "name": "VTD FIPS code",
           "key": "GEOID20"
         },
         "bounds": [
@@ -875,7 +875,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 733058,
+              "sum": 733391,
               "min": 0,
               "max": 1637
             },
@@ -883,49 +883,49 @@
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 421621,
+                "sum": 421758,
                 "min": 0,
                 "max": 1155
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
-                "sum": 20721,
+                "sum": 20731,
                 "min": 0,
                 "max": 266
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 49780,
+                "sum": 49824,
                 "min": 0,
                 "max": 561
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
-                "sum": 43416,
+                "sum": 43449,
                 "min": 0,
                 "max": 662
               },
               {
                 "key": "AMIN",
                 "name": "American Indian population",
-                "sum": 108781,
+                "sum": 108838,
                 "min": 0,
                 "max": 694
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 12454,
+                "sum": 12455,
                 "min": 0,
                 "max": 151
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
-                "sum": 71710,
+                "sum": 71761,
                 "min": 0,
                 "max": 209
               },
@@ -944,7 +944,7 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 553728,
+              "sum": 554003,
               "min": 0,
               "max": 1543
             },
@@ -952,28 +952,28 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 340451,
+                "sum": 340580,
                 "min": 0,
                 "max": 854
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 16557,
+                "sum": 16566,
                 "min": 0,
                 "max": 266
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 33408,
+                "sum": 33441,
                 "min": 0,
                 "max": 558
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 74971,
+                "sum": 75017,
                 "min": 0,
                 "max": 597
               },
@@ -987,7 +987,7 @@
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 34259,
+                "sum": 34290,
                 "min": 0,
                 "max": 522
               },
@@ -1001,7 +1001,7 @@
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 42652,
+                "sum": 42679,
                 "min": 0,
                 "max": 144
               }
@@ -1027,7 +1027,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.alaska_blocks20_points"
+              "url": "mapbox://districtr.alaska_blocks20_points?v=2"
             },
             "sourceLayer": "alaska_blocks20_points"
           },
@@ -1035,7 +1035,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.alaska_blocks20"
+              "url": "mapbox://districtr.alaska_blocks20?v=2"
             },
             "sourceLayer": "alaska_blocks20"
           }
