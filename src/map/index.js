@@ -64,7 +64,7 @@ function addUnits(map, parts, tileset, layerAdder, coibg) {
                 source: coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
                 "source-layer": coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
                 type: "fill",
-                paint: { "fill-opacity": 0.8, "fill-color": "rgba(0, 0, 0, 0)" }
+                paint: { "fill-opacity": 1/2, "fill-pattern": "transparent" }
             },
             layerAdder
         );
@@ -248,7 +248,8 @@ function cities(map, border) {
 }
 
 /**
- * 
+ * @description Adds the desired layers -- each of the tilesets in `tilesets` and
+ * the extras we add for COIs if the module is flagged that way -- to mapbox.
  * @param {mapboxgl.Map} map Map rendered to the view.
  * @param {mapboxgl.Map|null} swipemap Typically null.
  * @param {Object[]} parts Objects for each district in the plan.
