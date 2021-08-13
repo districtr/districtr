@@ -8,8 +8,8 @@ import { until } from "lit-html/directives/until";
 import { listPlaces } from "../api/mockApi";
 
 
-// start draftskip at -16 so that we hide the drafts on initial load
-let skip = 0, draftskip = -16,
+// start draftskip at -8 so that we hide the drafts on initial load
+let skip = 0, draftskip = -8,
     prevPlans = [],
     prevDrafts = [];
 
@@ -1398,7 +1398,7 @@ export default () => {
           target.style.display = 'none';
         }
 
-        let limitNum = 16;
+        let limitNum = 8;
         let eventurl = (window.location.hostname === "localhost")
                     ? "/assets/sample_event.json"
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
