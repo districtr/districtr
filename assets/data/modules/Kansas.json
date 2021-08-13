@@ -6,8 +6,187 @@
     "units": [
       {
         "id": "blockgroups",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 2937880,
+              "min": 0,
+              "max": 4920
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 2122575,
+                "min": 0,
+                "max": 3693
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 163352,
+                "min": 0,
+                "max": 1027
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 382603,
+                "min": 0,
+                "max": 1595
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 85225,
+                "min": 0,
+                "max": 1247
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 21921,
+                "min": 0,
+                "max": 782
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 3115,
+                "min": 0,
+                "max": 73
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 149025,
+                "min": 0,
+                "max": 304
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 10064,
+                "min": 0,
+                "max": 80
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2229316,
+              "min": 0,
+              "max": 4515
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1683982,
+                "min": 0,
+                "max": 3270
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 122508,
+                "min": 0,
+                "max": 978
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 241586,
+                "min": 0,
+                "max": 1036
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 16995,
+                "min": 0,
+                "max": 588
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 2173,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 65780,
+                "min": 0,
+                "max": 942
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 6978,
+                "min": 0,
+                "max": 79
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 89314,
+                "min": 0,
+                "max": 195
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -102.0518,
+            36.993
+          ],
+          [
+            -94.5884,
+            40.0032
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.kansas_20_blockgroups_points"
+            },
+            "sourceLayer": "kansas_20_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.kansas_20_blockgroups"
+            },
+            "sourceLayer": "kansas_20_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "limit": "hidden",
         "columnSets": [
           {
             "type": "population",
