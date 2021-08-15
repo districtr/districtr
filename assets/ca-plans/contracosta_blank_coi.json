@@ -1,0 +1,65 @@
+{
+  "assignment": {},
+  "id": "f7c0de46",
+  "idColumn": { "key": "GEOID20", "name": "Block ID" },
+  "problem": {
+    "type": "community",
+    "numberOfParts": 50,
+    "pluralNoun": "Community"
+  },
+  "parts": [{ "id": 0, "displayNumber": 1, "name": "Community 1" }],
+  "place": {
+    "id": "ca_contracosta",
+    "landmarks": {
+      "type": "geojson",
+      "data": { "type": "FeatureCollection", "features": [] }
+    },
+    "state": "California",
+    "name": "Contra Costa"
+  },
+  "placeId": "ca_contracosta",
+  "units": {
+    "id": "blocks",
+    "name": "Blocks",
+    "hideOnDefault": true,
+    "unitType": "Blocks",
+    "columnSets": [
+      {
+        "type": "population",
+        "name": "Population",
+        "total": {
+          "key": "POPULATION",
+          "name": "Placeholder for Population",
+          "sum": 11772,
+          "min": 1,
+          "max": 1
+        },
+        "subgroups": []
+      }
+    ],
+    "idColumn": { "name": "Block ID", "key": "GEOID20" },
+    "nameColumn": { "name": "Block Name", "key": "NAME20" },
+    "bounds": [
+      [-122.4416, 37.7185],
+      [-121.5341, 38.0999]
+    ],
+    "tilesets": [
+      {
+        "type": "fill",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.ca_contracosta_blocks"
+        },
+        "sourceLayer": "ca_contracosta_blocks"
+      },
+      {
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.ca_contracosta_blocks_points"
+        },
+        "sourceLayer": "ca_contracosta_blocks_points"
+      }
+    ]
+  }
+}

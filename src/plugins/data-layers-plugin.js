@@ -410,7 +410,7 @@ export default function DataLayersPlugin(editor) {
                     layout: {
                       'text-field': [
                           'format',
-                          ['get', 'VTD'],
+                          ['get', 'CURRENT_PC'],
                           {},
                       ],
                       'text-anchor': 'center',
@@ -420,8 +420,7 @@ export default function DataLayersPlugin(editor) {
                     paint: {
                       'text-opacity': 0
                     }
-                  },
-                  addBelowLabels
+                  }
               );
           });
        });
@@ -536,7 +535,12 @@ export default function DataLayersPlugin(editor) {
         addAmerIndianLayer(tab, state);
     }
 
-    addBoundaryLayers(tab, state, spatial_abilities(state.place.id).current_districts, spatial_abilities(state.place.id).school_districts, spatial_abilities(state.place.id).municipalities);
+    addBoundaryLayers(tab, state,
+      spatial_abilities(state.place.id).current_districts,
+      spatial_abilities(state.place.id).school_districts,
+      spatial_abilities(state.place.id).municipalities,
+      spatial_abilities(state.place.id).neighborhood_borders,
+    );
 
     if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
         addMyCOI(state, tab);
@@ -564,13 +568,20 @@ export default function DataLayersPlugin(editor) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
+          WHITE: 'WVAP',
           NH_BLACK: 'BVAP',
+          BLACK: 'BVAP',
           HISP: 'HVAP',
           NH_ASIAN: 'ASIANVAP',
+          ASIAN: 'ASIANVAP',
           NH_AMIN: 'AMINVAP',
+          AMIN: 'AMINVAP',
           NH_NHPI: 'NHPIVAP',
+          NHPI: 'NHPIVAP',
           'NH_2MORE': '2MOREVAP',
-          NH_OTHER: 'OTHERVAP'
+          '2MORE': '2MOREVAP',
+          NH_OTHER: 'OTHERVAP',
+          OTHER: 'OTHERVAP',
         };
 
         const coalitionPivot = CoalitionPivotTable(
@@ -710,11 +721,16 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
+        let partisanLayers = spatial_abilities(state.place.id).county_filter
+          ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
+          : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
             "partisan",
-            demoLayers,
+            partisanLayers,
             state.elections,
-            toolbar
+            toolbar,
+            null, // bipolar / rent text
+            spatial_abilities(state.place.id).county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">

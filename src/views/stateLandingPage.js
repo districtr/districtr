@@ -1,5 +1,5 @@
 import { html, render, directive } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
+import { listPlacesForState, getUnits, getAllUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
 
@@ -20,7 +20,7 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
-            
+
             const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
             const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
@@ -66,8 +66,8 @@ export default () => {
                     toggleViz($("." + def.id));
                     selected.ids.map(id => $("." + id).show());
                 }
-                
-                
+
+
                 // config toggle buttons
                 $('input[name="place-selection"]:radio').click(function() {
                     var inputValue = $(this).attr("value");
@@ -339,24 +339,6 @@ const placeItemsTemplateCommunities = (places, onClick) =>
             `)
     }).reduce((items, item) => [...items, ...item], []);
 
-function getProblems(place) {
-    let districtingProblems = [],
-        seenIds = new Set();
-    place.districtingProblems.forEach((problem) => {
-        let problemID = problem.name + problem.pluralNoun;
-        if (seenIds.has(problemID)) {
-            districtingProblems[districtingProblems.length - 1].partCounts.push(
-                problem.numberOfParts
-            );
-        } else {
-            seenIds.add(problemID);
-            problem.partCounts = [problem.numberOfParts];
-            districtingProblems.push(problem);
-        }
-    });
-    return districtingProblems;
-}
-
 const problemTypeInfo = {
     multimember: html`
         <div class="place-info">
@@ -370,7 +352,14 @@ const problemTypeInfo = {
 
 const placeItemsTemplate = (places, onClick) => {
     const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
-    return places.map(place =>
+
+    let num_hidden = places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)).reduce((items, item) => [...items, ...item], []).length ||
+                        places.map(place => place.districtingProblems.filter(problem => !problem.hideOnDefault)
+                        .map(problem => getAllUnits(place, problem).filter(u => u.hideOnDefault)))
+                        .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
+                        .reduce((items, item) => [...items, ...item], []).length;
+
+    return places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place =>
         place.districtingProblems
         .sort((a, b) => {
             // change so Reapportioned always comes first
@@ -389,11 +378,11 @@ const placeItemsTemplate = (places, onClick) => {
         })
         .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
-            getUnits(place, problem)
+            getAllUnits(place, problem)
             .filter(unit => showAll || !unit.hideOnDefault)
             .map(
-                units => 
-                // this ternary can be removed if we don't want to deal with the new 
+                units =>
+                // this ternary can be removed if we don't want to deal with the new
                 // district numbers separately
                 problem.pluralNoun.includes("Reapportioned") ?
                 html`
@@ -434,13 +423,12 @@ const placeItemsTemplate = (places, onClick) => {
         ))
         .reduce((items, item) => [...items, ...item], [])
         .concat([
-          places.filter(p => ["california", "colorado", "illinois", "newyork", "northcarolina", "ohio", "oregon", "pennsylvania", "wisconsin", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length && !showAll  
-          ? html`<li>
-            <div style="padding-top:30px">
-                <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Show All</label>
-            </div>
-          </li>` 
+            (!showAll && num_hidden) ? html`<li>
+                <div style="padding-top:30px">
+                    <input type="checkbox" id="custom" name="custom-selection">
+                    <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
+                </div>
+            </li>`
           : ""
         ]);
     };
@@ -478,7 +466,7 @@ const customPlaceItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          html`<li>
+            html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>
