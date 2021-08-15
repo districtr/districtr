@@ -1,5 +1,4 @@
 import { directive } from "lit-html";
-import { spatial_abilities } from "../../utils";
 
 /**
  * Creates an HTML entity which provides some supplementary information about
@@ -22,8 +21,6 @@ function datasetInfo(state) {
         acsLocations = ["wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson", "nd_dunn", "nd_mckenzie", "nd_mountrail", "nd_ramsey", "nd_rollette", "nd_sioux", "contracosta"];
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         return `<p><span>&#9432;</span> ${populations.acs}</p>`;
-    } else if (spatial_abilities(place.id).census20) {
-        return `<p><span>&#9432;</span> ${populations.census20}</p>`;      
     } else if (["mesaaz", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.mesa}</p>`;
     } else if (["pasorobles"].includes(place.id)) {

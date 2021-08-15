@@ -306,7 +306,6 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
     },
     alaska: {
       number_markers: true,
@@ -316,7 +315,6 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       current_districts: true,
-      census20: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
@@ -326,7 +324,6 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       current_districts: true,
-      census20: true,
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
         saveredirect: 'www.akredistrict.org/create/edit.html',
@@ -793,7 +790,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       sideload: true,
-      census20: true,
       portal: {
         endpoint: "https://portal.florida-mapping.org",
       },
@@ -805,7 +801,6 @@ export function spatial_abilities(id) {
     },
     miamidade: {
       // multiyear: 2018,
-      census20: true,
       number_markers: true,
       neighborhoods: true,
     },
@@ -813,18 +808,15 @@ export function spatial_abilities(id) {
       // multiyear: 2019,
       number_markers: true,
       shapefile: true,
-      census20: true,
     },
     fl_orange: {
       // multiyear: 2019,
       number_markers: true,
       shapefile: true,
-      census20: true,
     },
     fl_osceola: {
       number_markers: true,
       shapefile: true,
-      census20: true,
     },
     orlando: {
       number_markers: true,
@@ -1050,7 +1042,6 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
       school_districts: true,
       contiguity: 2,
-      census20: true,
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
