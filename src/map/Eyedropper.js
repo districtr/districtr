@@ -25,7 +25,10 @@ export default class Eyedropper extends Hover {
         }];
     }
     onClick() {
-        this.setColor(this.hoveredFeature.state.color);
+        if (typeof this.hoveredFeature.state.color == "number") {
+            this.setColor(this.hoveredFeature.state.color);
+            document.getElementById('tool-brush').click();
+        }
     }
     setColor(color) {
         this.brush.color = parseInt(color);

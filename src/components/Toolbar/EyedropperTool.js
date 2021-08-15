@@ -7,7 +7,7 @@ import UndoRedo from "./UndoRedo";
 import Tool from "./Tool";
 
 const icon = (active, colorId, colors) => {
-    return html`<img src="/assets/Icons_Paint_grey.svg" alt="Brush"/>`
+    return html`<img src="/assets/eyedropper.svg" alt="Brush"/>`
 };
 
 export default class EyedropperTool extends Tool {
