@@ -323,7 +323,39 @@
              }
            ]
          }
-        ]
+       ],
+       "tilesets": [
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.iacty20_counties"
+           },
+           "sourceLayer": "iacty20_counties"
+         },
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.iacty20_counties_points"
+           },
+           "sourceLayer": "iacty20_counties_points"
+         }
+       ],
+       "idColumn": {
+         "name": "2020 Census GEOID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -96.6395,
+           40.3754
+         ],
+         [
+           -90.1401,
+           43.5012
+         ]
+       ]
       },
       {
         "id": "counties",
