@@ -164,7 +164,7 @@ function addCOISources(map, tilesets, border) {
         rightUnits = !tilesets[0].sourceLayer.includes("blockgroups"),
         baseUnits = tilesets.find(t => t.type === "fill"),
         bgName, bgURL;
-
+    
     if (border && flagged && numLoaded && rightUnits) {
         // Now, we've identified our filled tileset -- that is, the set of units
         // we're using to redistrict. Then, we want to load the block group

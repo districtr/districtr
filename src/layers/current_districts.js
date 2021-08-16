@@ -19,25 +19,26 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
       if (stateID !== placeID) {
           // city council or county
           fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}.geojson`).then(res => res.json()).then((districts) => {
+            state.map.addSource('current_districts', {
+                type: 'geojson',
+                data: districts
+            });
+            borders.current = new Layer(
+                state.map,
+                {
+                    id: 'current_districts',
+                    type: 'line',
+                    source: 'current_districts',
+                    paint: {
+                        'line-color': '#000',
+                        'line-opacity': 0,
+                        'line-width': 1.5
+                    }
+                },
+                addBelowLabels
+            );
+            try {
             fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}_centroids.geojson`).then(res => res.json()).then((centroids) => {
-              state.map.addSource('current_districts', {
-                  type: 'geojson',
-                  data: districts
-              });
-              borders.current = new Layer(
-                  state.map,
-                  {
-                      id: 'current_districts',
-                      type: 'line',
-                      source: 'current_districts',
-                      paint: {
-                          'line-color': '#000',
-                          'line-opacity': 0,
-                          'line-width': 1.5
-                      }
-                  },
-                  addBelowLabels
-              );
               state.map.addSource('district_centroids', {
                   type: 'geojson',
                   data: centroids
@@ -64,6 +65,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
               );
 
             });
+          } catch (e) {}
           });
       } else {
         fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
