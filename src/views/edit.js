@@ -16,7 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
-import AnalysisPlugin from "../plugins/analysis-plugin";
+import CoiVisualizationPlugin from "../plugins/coi-visualization-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -42,7 +42,7 @@ const defaultPlugins = (context) => [
     PopulationBalancePlugin,
     DataLayersPlugin,
     (context.place.id === "alaska_blocks") ? null : EvaluationPlugin,
-    AnalysisPlugin
+    (context.units.load_coi) ? null : CoiVisualizationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 

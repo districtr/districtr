@@ -14,7 +14,6 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addBoundaryLayers } from "../layers/current_districts";
-import { addCOIs } from "../layers/my_coi";
 import { spatial_abilities } from "../utils";
 
 export default function DataLayersPlugin(editor) {
@@ -541,10 +540,6 @@ export default function DataLayersPlugin(editor) {
       spatial_abilities(state.place.id).municipalities,
       spatial_abilities(state.place.id).neighborhood_borders,
     );
-
-    if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
-        addCOIs(state, tab);
-    }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
