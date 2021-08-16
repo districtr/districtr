@@ -1055,40 +1055,9 @@
             "sourceLayer": "california_blockgroups_points"
           }
         ]
-      }
-    ],
-    "state": "California",
-    "districtingProblems": [
-      {
-        "name": "2020 Reapportioned Congress",
-        "numberOfParts": 52,
-        "pluralNoun": "Reapportioned Congressional Districts"
       },
       {
-        "name": "Congress",
-        "numberOfParts": 53,
-        "pluralNoun": "Congressional Districts",
-        "hideOnDefault": true
-      },
-      {
-        "name": "State Senate",
-        "numberOfParts": 40,
-        "pluralNoun": "State Senate Districts"
-      },
-      {
-        "name": "State Assembly",
-        "numberOfParts": 80,
-        "pluralNoun": "State Assembly Districts"
-      }
-    ]
-  },
-  {
-    "state": "California",
-    "name": "California",
-    "id": "ca_20",
-    "units": [
-      {
-        "id": "blockgroups",
+        "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
@@ -1265,11 +1234,18 @@
         ]
       }
     ],
+    "state": "California",
     "districtingProblems": [
       {
-        "name": "Congress",
+        "name": "2020 Reapportioned Congress",
         "numberOfParts": 52,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Reapportioned Congressional Districts"
+      },
+      {
+        "name": "Congress",
+        "numberOfParts": 53,
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State Senate",
