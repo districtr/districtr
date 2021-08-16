@@ -1127,6 +1127,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
+      census2020: true,
       // find_unpainted: true,
     },
     northcarolina: {
