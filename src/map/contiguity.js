@@ -95,6 +95,7 @@ export default function ContiguityChecker(state, brush) {
       .then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
+        console.log(data);
         state.contiguity = {};
         let issues = [];
         Object.keys(data).forEach((district) => {
