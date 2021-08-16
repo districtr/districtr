@@ -1069,6 +1069,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       census2020: true,
+      contiguity: 2,
     },
     newhampshire: {
       number_markers: true,
