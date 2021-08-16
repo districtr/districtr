@@ -1068,6 +1068,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      census2020: true,
     },
     newhampshire: {
       number_markers: true,
