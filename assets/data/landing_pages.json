@@ -49,7 +49,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["alaska", "alaska_blocks"],
+        "ids": ["alaska", "alaska_blocks", "ak_vtd20"],
         "default": "true",
         "id": "state"
       }
@@ -245,10 +245,77 @@
     "state": "California",
     "code": "CA",
     "modules": [
-      {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_contracosta", "ca_sm_county", "ca_sanbenito", "ca_sc_county"], "id": "counties"},
-      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_buellton", "ca_grover", "laverne", "sunnyvale", "pomona", "ca_richmond", "elcajon", "ca_carlsbad", "encinitas", "buenapark", "halfmoon", "ca_stockton", "lodi"], "id": "loc"},
-      {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
+      {
+        "name": "Statewide",
+        "ids": ["california"],
+        "id": "state",
+        "default": "true"
+      },
+      {
+        "name": "Counties",
+        "ids": [
+          "lax",
+          "sacramento",
+          "sanluiso",
+          "ca_sonoma",
+          "ca_marin",
+          "ca_santabarbara",
+          "napacounty2021",
+          "ca_siskiyou",
+          "ca_yolo",
+          "ca_ventura",
+          "ca_solano",
+          "ca_merced",
+          "ca_kings",
+          "ca_fresno",
+          "ca_nevada",
+          "ca_contracosta",
+          "ca_sm_county",
+          "ca_sanbenito",
+          "ca_sc_county"
+        ],
+        "id": "counties"
+      },
+      {
+        "name": "Cities",
+        "ids": [
+          "santa_clara",
+          "ontarioca",
+          "ca_pasadena",
+          "ca_goleta",
+          "menlo_park",
+          "sanjoseca",
+          "redwood",
+          "napa2021",
+          "ca_marina",
+          "ca_arroyo",
+          "ca_cvista",
+          "ca_bellflower",
+          "ca_camarillo",
+          "ca_fresno_ci",
+          "lake_el",
+          "ca_chino",
+          "ca_campbell",
+          "ca_fremont",
+          "ca_vallejo",
+          "ca_oceano",
+          "ca_buellton",
+          "ca_grover",
+          "laverne",
+          "sunnyvale",
+          "pomona",
+          "ca_richmond",
+          "elcajon",
+          "ca_carlsbad",
+          "encinitas",
+          "buenapark",
+          "halfmoon",
+          "ca_stockton",
+          "lodi"
+        ],
+        "id": "loc"
+      },
+      { "name": "School Districts", "ids": ["napaschools"], "id": "schools" }
     ],
     "sections": [
       {
@@ -1232,7 +1299,7 @@
                 "name": "State Senate Plan"
               },
               {
-                 "id": "state_house",
+                "id": "state_house",
                 "name": "State House Plan"
               }
             ]
