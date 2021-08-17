@@ -144,6 +144,38 @@
               }
             ]
           }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -91.655,
+            30.1398
+          ],
+          [
+            -88.0979,
+            34.9961
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mississ_20_blockgroups_points"
+            },
+            "sourceLayer": "mississ_20_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mississ_20_blockgroups"
+            },
+            "sourceLayer": "mississ_20_blockgroups"
+          }
         ]
       },
       {
