@@ -844,6 +844,7 @@ export function spatial_abilities(id) {
       native_american: true,
       county_brush: true,
       shapefile: true,
+      census20: true,
     },
     idaho: {
       multiyear: 2018,
@@ -1068,6 +1069,8 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      census20: true,
+      contiguity: 2,
     },
     newhampshire: {
       number_markers: true,
@@ -1081,6 +1084,8 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: 2,
+      census20: true,
     },
     new_mexico: {
       number_markers: true,
@@ -1126,6 +1131,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
+      census20: true,
       // find_unpainted: true,
     },
     northcarolina: {
@@ -1378,6 +1384,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
+      census20: true
     },
     portlandor: {
       number_markers: true,
