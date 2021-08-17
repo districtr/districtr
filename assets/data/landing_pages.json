@@ -120,7 +120,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["arizona"],
+        "ids": ["arizona", "az_vtd20"],
         "default": "true",
         "id": "state"
       },
