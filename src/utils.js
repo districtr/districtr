@@ -844,6 +844,7 @@ export function spatial_abilities(id) {
       native_american: true,
       county_brush: true,
       shapefile: true,
+      census20: true,
     },
     idaho: {
       multiyear: 2018,
