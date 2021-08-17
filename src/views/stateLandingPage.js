@@ -398,7 +398,7 @@ const placeItemsTemplate = (places, onClick) => {
                         ${problem.numberOfParts} Congressional Districts
                     </div>
                     <div class="place-info">
-                        Built out of ${units.name.toLowerCase()}
+                        Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                     </div>
                 </li>
             `
@@ -415,7 +415,7 @@ const placeItemsTemplate = (places, onClick) => {
                             ${problem.numberOfParts} ${problem.pluralNoun}
                         </div>
                         <div class="place-info">
-                            Built out of ${units.name.toLowerCase()}
+                            Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                         </div>
                     </li>
                 `
