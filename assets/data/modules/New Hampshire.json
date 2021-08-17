@@ -3,9 +3,181 @@
     "name": "New Hampshire",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 1377529,
+              "min": 0,
+              "max": 30089
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 1200649,
+                "min": 0,
+                "max": 25721
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 18655,
+                "min": 0,
+                "max": 857
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 2299,
+                "min": 0,
+                "max": 51
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 35604,
+                "min": 0,
+                "max": 1910
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 388,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 5916,
+                "min": 0,
+                "max": 168
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 54564,
+                "min": 0,
+                "max": 1043
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 59454,
+                "min": 0,
+                "max": 3414
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1120680,
+              "min": 0,
+              "max": 24811
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 995751,
+                "min": 0,
+                "max": 21666
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 13858,
+                "min": 0,
+                "max": 585
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 1930,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 27989,
+                "min": 0,
+                "max": 1433
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 303,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 4443,
+                "min": 0,
+                "max": 113
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 36606,
+                "min": 0,
+                "max": 715
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 39800,
+                "min": 0,
+                "max": 2309
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-72.5571, 42.697],
+          [-70.5751, 45.3058]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nh_vtds20"
+            },
+            "sourceLayer": "nh_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nh_vtds20_points"
+            },
+            "sourceLayer": "nh_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -351,14 +523,8 @@
           "key": "Precinct"
         },
         "bounds": [
-          [
-            -72.5571,
-            42.697
-          ],
-          [
-            -70.7022,
-            45.3057
-          ]
+          [-72.5571, 42.697],
+          [-70.7022, 45.3057]
         ],
         "tilesets": [
           {
@@ -737,14 +903,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -72.5571,
-            42.697
-          ],
-          [
-            -70.7022,
-            45.3057
-          ]
+          [-72.5571, 42.697],
+          [-70.7022, 45.3057]
         ],
         "tilesets": [
           {
