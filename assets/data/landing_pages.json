@@ -2312,11 +2312,11 @@
             "plans": [
               {
                 "id": "state_sen",
-                "name": "State Senate Plan"
+                "name": "Senate Plan"
               },
               {
                 "id": "state_house",
-                "name": "State House Plan"
+                "name": "House Plan"
               }
             ]
           }
