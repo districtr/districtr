@@ -6,6 +6,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -275,14 +276,8 @@
           "key": "unique"
         },
         "bounds": [
-          [
-            -104.0535,
-            39.9999
-          ],
-          [
-            -95.3083,
-            43.0017
-          ]
+          [-104.0535, 39.9999],
+          [-95.3083, 43.0017]
         ],
         "tilesets": [
           {
@@ -828,14 +823,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -104.0535,
-            39.9999
-          ],
-          [
-            -95.3083,
-            43.0017
-          ]
+          [-104.0535, 39.9999],
+          [-95.3083, 43.0017]
         ],
         "tilesets": [
           {

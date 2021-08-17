@@ -351,6 +351,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
