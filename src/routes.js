@@ -5,6 +5,7 @@ const routes = {
     "/": "/",
     "/new": "/new",
     "/edit": "/edit",
+    "/embedded": "/embedded",
     "/COI": "/COI",
     "/plan": "/plan",
     "/register": "/register",
@@ -58,7 +59,9 @@ export function savePlanToStorage({
         description,
         parts
     };
-    localStorage.setItem("savedState", JSON.stringify(state));
+    if (!window.location.href.includes("embed")) {
+        localStorage.setItem("savedState", JSON.stringify(state));
+    }
 }
 
 export function savePlanToDB(state, eventCode, planName, callback, forceNotScratch) {
@@ -122,7 +125,9 @@ export function savePlanToDB(state, eventCode, planName, callback, forceNotScrat
 }
 
 export function getContextFromStorage() {
-    const savedState = localStorage.getItem("savedState");
+    const savedState = window.location.href.includes("embed")
+        ? null
+        : localStorage.getItem("savedState");
     let state;
     try {
         state = JSON.parse(savedState);
@@ -159,9 +164,12 @@ export function loadPlanFromJSON(planRecord) {
     }
     return listPlaces(planRecord.placeId, (planRecord.state || (planRecord.place ? planRecord.place.state : null))).then(places => {
         const place = places.find(p => String(p.id).replace(/÷/g, ".") === String(planRecord.placeId));
-        place.landmarks = (planRecord.place || {}).landmarks;
-        planRecord.units = place.units.find(u => (u.name === planRecord.units.name) || (u.name === "Wards" && planRecord.units.name === "2011 Wards") || (u.name === "2011 Wards" && planRecord.units.name === "Wards"));
+        if (place) {
+            place.landmarks = (planRecord.place || {}).landmarks;
+            planRecord.units = place.units.find(u => (u.name === planRecord.units.name) || (u.name === "Wards" && planRecord.units.name === "2011 Wards") || (u.name === "2011 Wards" && planRecord.units.name === "Wards"));
+        }
         if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
+            // hide election data on New Mexico portal maps
             planRecord.units.columnSets = planRecord.units.columnSets.filter(c => c.type !== "election");
         }
         return {

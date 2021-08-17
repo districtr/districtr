@@ -88,7 +88,9 @@ export default function ToolsPlugin(editor) {
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
-    toolbar.setState(state);
+    if (!window.location.href.includes("embed")) {
+        toolbar.setState(state);
+    }
 
     hotkeys.filter = ({ target }) => {
         return (

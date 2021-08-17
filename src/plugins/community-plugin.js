@@ -16,11 +16,14 @@ import { savePlanToStorage } from "../routes";
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
 
-    addLocationSearch(mapState);
-
-    const tab = new Tab("community", "Drawing", editor.store);
-    const about = new AboutSection(editor);
-    tab.addRevealSection("Areas of Interest", about.render);
+    let tab, about;
+    if (editor.store) {
+        // non-embed
+        addLocationSearch(mapState);
+        tab = new Tab("community", "Drawing", editor.store);
+        about = new AboutSection(editor);
+        tab.addRevealSection("Areas of Interest", about.render);
+    }
 
     let lm = state.place.landmarks;
     if (!lm.source && !lm.type) {
@@ -63,6 +66,12 @@ export default function CommunityPlugin(editor) {
           state.render();
         });
     }
+
+    if (!editor.store) {
+        // embed
+        return;
+    }
+
     lmo = new LandmarkOptions(
         state.map.landmarks,
         lm.data.features,
