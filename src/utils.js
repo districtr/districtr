@@ -1384,6 +1384,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
+      census20: true
     },
     portlandor: {
       number_markers: true,
