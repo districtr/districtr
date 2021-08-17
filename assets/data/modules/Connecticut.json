@@ -5,6 +5,177 @@
     "name": "Connecticut",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 3605944,
+              "min": 0,
+              "max": 16164
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 2279232,
+                "min": 0,
+                "max": 12583
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 360937,
+                "min": 0,
+                "max": 5590
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 6404,
+                "min": 0,
+                "max": 432
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 170459,
+                "min": 0,
+                "max": 2718
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 974,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 27076,
+                "min": 0,
+                "max": 655
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 137569,
+                "min": 0,
+                "max": 764
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 623293,
+                "min": 0,
+                "max": 8253
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2869227,
+              "min": 0,
+              "max": 15718
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1913793,
+                "min": 0,
+                "max": 10264
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 279080,
+                "min": 0,
+                "max": 4268
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 4967,
+                "min": 0,
+                "max": 300
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 132859,
+                "min": 0,
+                "max": 2484
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 757,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 19450,
+                "min": 0,
+                "max": 476
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 87626,
+                "min": 0,
+                "max": 582
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 430695,
+                "min": 0,
+                "max": 5696
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-73.7278, 40.9509],
+          [-71.7872, 42.0505]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ct_vtds20"
+            },
+            "sourceLayer": "ct_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ct_vtds20_points"
+            },
+            "sourceLayer": "ct_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
@@ -297,14 +468,8 @@
           "key": "COUNTYFP10"
         },
         "bounds": [
-          [
-            -73.7278,
-            40.9509
-          ],
-          [
-            -71.7872,
-            42.0506
-          ]
+          [-73.7278, 40.9509],
+          [-71.7872, 42.0506]
         ],
         "tilesets": [
           {
@@ -475,14 +640,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -73.7278,
-            40.9767
-          ],
-          [
-            -71.7872,
-            42.0506
-          ]
+          [-73.7278, 40.9767],
+          [-71.7872, 42.0506]
         ],
         "tilesets": [
           {
