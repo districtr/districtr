@@ -1068,7 +1068,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      census2020: true,
+      census20: true,
       contiguity: 2,
     },
     newhampshire: {
@@ -1083,7 +1083,8 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      census2020: true,
+      contiguity: 2,
+      census20: true,
     },
     new_mexico: {
       number_markers: true,
@@ -1129,7 +1130,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
-      census2020: true,
+      census20: true,
       // find_unpainted: true,
     },
     northcarolina: {
