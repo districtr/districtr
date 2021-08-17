@@ -445,6 +445,177 @@
             "sourceLayer": "colorado_precincts_points"
           }
         ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 5773714,
+              "min": 0,
+              "max": 16148
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 3760663,
+                "min": 0,
+                "max": 8583
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 221310,
+                "min": 0,
+                "max": 2069
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 33768,
+                "min": 0,
+                "max": 1399
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 195220,
+                "min": 0,
+                "max": 1262
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 9005,
+                "min": 0,
+                "max": 164
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 29560,
+                "min": 0,
+                "max": 146
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 260798,
+                "min": 0,
+                "max": 1061
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1263390,
+                "min": 0,
+                "max": 4161
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 4509576,
+              "min": 0,
+              "max": 11809
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3095664,
+                "min": 0,
+                "max": 6413
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 168127,
+                "min": 0,
+                "max": 1671
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 26942,
+                "min": 0,
+                "max": 928
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 155965,
+                "min": 0,
+                "max": 822
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 6646,
+                "min": 0,
+                "max": 108
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 21838,
+                "min": 0,
+                "max": 110
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 170198,
+                "min": 0,
+                "max": 646
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 864196,
+                "min": 0,
+                "max": 2513
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-109.0602, 36.9924],
+          [-102.0415, 41.0034]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.co_vtds20"
+            },
+            "sourceLayer": "co_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.co_vtds20_points"
+            },
+            "sourceLayer": "co_vtds20_points"
+          }
+        ]
       }
     ],
     "id": "colorado",
