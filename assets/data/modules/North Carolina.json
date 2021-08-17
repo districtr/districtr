@@ -1785,6 +1785,177 @@
             "sourceLayer": "nc_bg_blockgroups_points"
           }
         ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 10439388,
+              "min": 52,
+              "max": 37964
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 6312148,
+                "min": 30,
+                "max": 22194
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 2107526,
+                "min": 0,
+                "max": 9805
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 100886,
+                "min": 0,
+                "max": 4761
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 340059,
+                "min": 0,
+                "max": 7465
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 6980,
+                "min": 0,
+                "max": 335
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 46340,
+                "min": 0,
+                "max": 272
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 406853,
+                "min": 1,
+                "max": 1700
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1118596,
+                "min": 0,
+                "max": 8771
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 8155099,
+              "min": 32,
+              "max": 33170
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 5189633,
+                "min": 24,
+                "max": 19614
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1620569,
+                "min": 0,
+                "max": 7592
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 77335,
+                "min": 0,
+                "max": 3537
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 257602,
+                "min": 0,
+                "max": 5029
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 5144,
+                "min": 0,
+                "max": 296
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 30113,
+                "min": 0,
+                "max": 218
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 250392,
+                "min": 0,
+                "max": 1041
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 724311,
+                "min": 0,
+                "max": 7761
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-84.3218, 33.7529],
+          [-75.4001, 36.5881]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nc_vtds20"
+            },
+            "sourceLayer": "nc_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nc_vtds20_points"
+            },
+            "sourceLayer": "nc_vtds20_points"
+          }
+        ]
       }
     ],
     "name": "North Carolina",
