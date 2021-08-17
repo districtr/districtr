@@ -251,14 +251,8 @@
           "key": "ID"
         },
         "bounds": [
-          [
-            -179.228,
-            51.1753
-          ],
-          [
-            -129.98,
-            71.4411
-          ]
+          [-179.228, 51.1753],
+          [-129.98, 71.4411]
         ],
         "tilesets": [
           {
@@ -429,14 +423,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -179.2311,
-            51.1751
-          ],
-          [
-            -130,
-            71.4411
-          ]
+          [-179.2311, 51.1751],
+          [-130, 71.4411]
         ],
         "tilesets": [
           {
@@ -457,6 +445,177 @@
           }
         ],
         "limit": "community"
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 733391,
+              "min": 0,
+              "max": 8752
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 421758,
+                "min": 0,
+                "max": 4868
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 20731,
+                "min": 0,
+                "max": 927
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 108838,
+                "min": 0,
+                "max": 2495
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 43449,
+                "min": 0,
+                "max": 1483
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 12455,
+                "min": 0,
+                "max": 613
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 4575,
+                "min": 0,
+                "max": 73
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 71761,
+                "min": 0,
+                "max": 606
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 49824,
+                "min": 0,
+                "max": 1791
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 554003,
+              "min": 0,
+              "max": 6516
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 340580,
+                "min": 0,
+                "max": 3650
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 16566,
+                "min": 0,
+                "max": 724
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 75017,
+                "min": 0,
+                "max": 1573
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 34290,
+                "min": 0,
+                "max": 1347
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 8122,
+                "min": 0,
+                "max": 360
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 3308,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 42679,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 33441,
+                "min": 0,
+                "max": 1303
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-179.2311, 51.1751],
+          [-130, 71.4411]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ak_vtds20"
+            },
+            "sourceLayer": "ak_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ak_vtds20_points"
+            },
+            "sourceLayer": "ak_vtds20_points"
+          }
+        ]
       }
     ],
     "name": "Alaska",
@@ -493,8 +652,7 @@
               "min": 0,
               "max": 600
             },
-            "subgroups": [
-            ]
+            "subgroups": []
           }
         ],
         "idColumn": {
@@ -502,14 +660,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -179.2311,
-            51.1751
-          ],
-          [
-            -130,
-            71.4411
-          ]
+          [-179.2311, 51.1751],
+          [-130, 71.4411]
         ],
         "tilesets": [
           {
