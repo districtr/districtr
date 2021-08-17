@@ -2,6 +2,177 @@
   {
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 10077331,
+              "min": 0,
+              "max": 10752
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 7295651,
+                "min": 0,
+                "max": 8530
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1358458,
+                "min": 0,
+                "max": 3020
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 47406,
+                "min": 0,
+                "max": 967
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 332288,
+                "min": 0,
+                "max": 3666
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 2603,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 37183,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 439320,
+                "min": 0,
+                "max": 477
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 564422,
+                "min": 0,
+                "max": 4467
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7914602,
+              "min": 0,
+              "max": 10315
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 5928796,
+                "min": 0,
+                "max": 8236
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1021516,
+                "min": 0,
+                "max": 2958
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 36450,
+                "min": 0,
+                "max": 663
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 258756,
+                "min": 0,
+                "max": 2881
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1985,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 25724,
+                "min": 0,
+                "max": 193
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 273730,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 367645,
+                "min": 0,
+                "max": 2700
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-90.4184, 41.6961],
+          [-82.123, 48.3061]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mi_vtds20"
+            },
+            "sourceLayer": "mi_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mi_vtds20_points"
+            },
+            "sourceLayer": "mi_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
