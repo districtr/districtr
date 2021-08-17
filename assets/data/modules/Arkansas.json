@@ -205,6 +205,8 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "limit": "hide",
         "columnSets": [
           {
             "type": "population",
