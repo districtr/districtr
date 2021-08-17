@@ -68,6 +68,7 @@ redwood_city: 'California',
 ventura_county: 'California',
 yolo_county: 'California',
 solano_county: 'California',
+city_of_la: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
@@ -144,6 +145,7 @@ const validEventCodes = {
   ventura_county: 'ca_ventura',
   yolo_county: 'ca_yolo',
   solano_county: 'ca_solano',
+  city_of_la: 'rp_lax',
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
@@ -230,6 +232,7 @@ const coi_events = [
   'ventura_county',
   'yolo_county',
   'solano_county',
+  'city_of_la',
   'kern_county',
   'san_joaquin',
   'san_mateo_city',
@@ -451,6 +454,11 @@ Redistricting is based on population and communities of interest.  A community o
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council District Map.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Jose” (any capitalization) is entered.</p>',
+  city_of_la: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council District Map.</p>\
+     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “City_of_LA” (any capitalization) is entered.</p>',
    siskiyou: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -716,6 +724,9 @@ const longAbout = {
   solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  city_of_la: [
+    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
   ],
@@ -864,7 +875,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "city_of_la"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -899,6 +910,11 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
+            } else if (eventCode === "city_of_la") {
+              document.getElementById("partner-link-a").href = "https://www.lacity.org";
+              document.getElementById("partnership-a").src = "/assets/partners-lax.svg";
+              document.getElementById("partnership-a").style.zoom = '1.75';
+              document.getElementById("partnership-a").style.marginTop = '-16px';
             } else if (eventCode === "san_mateo_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
               document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
