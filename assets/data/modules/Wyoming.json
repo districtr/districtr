@@ -5,7 +5,7 @@
     "name": "Wyoming",
     "units": [
       {
-        "id": "blockgroups",
+        "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
@@ -182,7 +182,7 @@
         ]
       },
       {
-        "id": "blocks",
+        "id": "blocks20",
         "name": "2020 Blocks",
         "limit": "community",
         "hideOnDefault": true,

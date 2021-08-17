@@ -3,7 +3,7 @@
     "name": "Idaho",
     "units": [
       {
-        "id": "blockgroups",
+        "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [

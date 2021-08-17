@@ -4,7 +4,7 @@
     "id": "iowa",
     "units": [
       {
-        "id": "blockgroups",
+        "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
         "columnSets": [
@@ -181,7 +181,7 @@
         ]
       },
       {
-        "id": "counties",
+        "id": "counties20",
         "name": "2020 Counties",
         "unitType": "Counties",
         "columnSets": [
