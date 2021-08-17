@@ -988,6 +988,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.michigan-mapping.org',
       },
+      census20: true,
     },
     minnesota: {
       number_markers: true,
