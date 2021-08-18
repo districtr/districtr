@@ -13,7 +13,7 @@
     { "id": 2, "displayNumber": 3, "name": "District 3" }
   ],
   "place": {
-    "id": "new_mexico",
+    "id": "new_mexico_portal",
     "landmarks": {
       "type": "geojson",
       "data": { "type": "FeatureCollection", "features": [] }
@@ -21,7 +21,7 @@
     "state": "New Mexico",
     "name": "New Mexico"
   },
-  "placeId": "new_mexico",
+  "placeId": "new_mexico_portal",
   "units": {
     "id": "precincts",
     "name": "2020 Precincts",
