@@ -1047,7 +1047,7 @@ export function spatial_abilities(id) {
       },
     },
     montana: {
-      multiyear: 2018,
+      // multiyear: 2018,
       native_american: true,
       number_markers: true,
       shapefile: true,
