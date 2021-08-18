@@ -930,6 +930,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
+      census20: true,
     },
     maryland: {
       number_markers: true,
