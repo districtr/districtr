@@ -607,7 +607,7 @@
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 3416922,
+                  "sum": 3416922,
                 "min": 0,
                 "max": 3779
               },

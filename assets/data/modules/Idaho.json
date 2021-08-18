@@ -3,9 +3,188 @@
     "name": "Idaho",
     "units": [
       {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1839106,
+              "min": 0,
+              "max": 7796
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 1450523,
+                "min": 0,
+                "max": 6076
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 14785,
+                "min": 0,
+                "max": 270
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 239407,
+                "min": 0,
+                "max": 1727
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 26036,
+                "min": 0,
+                "max": 250
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18903,
+                "min": 0,
+                "max": 1178
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 3401,
+                "min": 0,
+                "max": 32
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 77808,
+                "min": 0,
+                "max": 230
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 8243,
+                "min": 0,
+                "max": 159
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1376400,
+              "min": 0,
+              "max": 7219
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1121466,
+                "min": 0,
+                "max": 5614
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 9946,
+                "min": 0,
+                "max": 216
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 151700,
+                "min": 0,
+                "max": 1031
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 13935,
+                "min": 0,
+                "max": 830
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 2442,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 21008,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 5927,
+                "min": 0,
+                "max": 157
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 49976,
+                "min": 0,
+                "max": 160
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.243,
+            41.9882
+          ],
+          [
+            -111.0435,
+            49.0008
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.idaho_20_blockgroups_points"
+            },
+            "sourceLayer": "idaho_20_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.idaho_20_blockgroups"
+            },
+            "sourceLayer": "idaho_20_blockgroups"
+          }
+        ]
+      },
+      {
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "limit": "hidden",
         "columnSets": [
           {
             "type": "population",

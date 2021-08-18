@@ -785,7 +785,7 @@ export function spatial_abilities(id) {
     florida: {
       native_american: true,
       number_markers: true,
-      multiyear: 2018,
+      // multiyear: 2018,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -800,17 +800,17 @@ export function spatial_abilities(id) {
       border: true,
     },
     miamidade: {
-      multiyear: 2018,
+      // multiyear: 2018,
       number_markers: true,
       neighborhoods: true,
     },
     fl_hills: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
     fl_orange: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
@@ -1034,7 +1034,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     missouri: {
-      multiyear: 2018,
+      // multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,

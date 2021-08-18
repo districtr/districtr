@@ -319,7 +319,6 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-
         </ul>
     `;
 
@@ -333,7 +332,7 @@ const placeItemsTemplateCommunities = (places, onClick) =>
                 <div class="place-name">${place.name}</div>
                 ${problemTypeInfo[problem.type] || ""}
                 <div class="place-info">
-                    Built out of ${units.name.toLowerCase()}
+                    Built out of ${units.name}
                 </div>
             </li>
             `)
