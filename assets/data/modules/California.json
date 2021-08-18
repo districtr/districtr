@@ -8730,88 +8730,61 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
+        "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "ACS_15-19_Total",
+              "key": "LF_20_Total",
               "name": "Total population",
-              "sum": 3950639,
+              "sum": 3898747,
               "min": 0,
-              "max": 7589
+              "max": 8727
             },
             "subgroups": [
               {
-                "key": "ACS_15-19_AfAm",
+                "key": "LF_20_AfAm",
                 "name": "Black population",
-                "sum": 332423,
+                "sum": 322553,
                 "min": 0,
-                "max": 1454
+                "max": 1316
               },
               {
-                "key": "ACS_15-19_Asian",
+                "key": "LF_20_Asian",
                 "name": "Asian population",
-                "sum": 444181,
+                "sum": 454585,
                 "min": 0,
-                "max": 3046
+                "max": 3867
               },
               {
-                "key": "ACS_15-19_Hispanic_or_Latino",
+                "key": "LF_20_Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 1910948,
+                "sum": 1829991,
                 "min": 0,
-                "max": 2438
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Citizen Voting Age Population",
-            "total": {
-              "key": "CVAP_15-19_Total",
-              "name": "Total population",
-              "sum": 2360823,
-              "min": 0,
-              "max": 5751
-            },
-            "subgroups": [
-              {
-                "key": "CVAP_15-19_AfAm",
-                "name": "Black population",
-                "sum": 266333,
-                "min": 0,
-                "max": 1533
+                "max": 2444
               },
               {
-                "key": "CVAP_15-19_AiAn",
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 1126052,
+                "min": 0,
+                "max": 2208
+              },
+              {
+                "key": "LF_20_AiAn",
                 "name": "American Indian population",
-                "sum": 6263,
+                "sum": 6614,
                 "min": 0,
-                "max": 109
+                "max": 42
               },
               {
-                "key": "CVAP_15-19_Asian",
-                "name": "Asian population",
-                "sum": 276996,
+                "key": "LF_20_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 4573,
                 "min": 0,
-                "max": 1929
-              },
-              {
-                "key": "CVAP_15-19_Hawaiian_API",
-                "name": "Native Hawaiian Pacific Islander population",
-                "sum": 3401,
-                "min": 0,
-                "max": 64
-              },
-              {
-                "key": "CVAP_15-19_Hispanic_or_Latino",
-                "name": "Hispanic population",
-                "sum": 838897,
-                "min": 0,
-                "max": 1591
+                "max": 32
               }
             ]
           }
@@ -8832,12 +8805,20 @@
         ],
         "tilesets": [
           {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rp_lax20_blocks_points"
+            },
+            "sourceLayer": "rp_lax20_blocks_points"
+          },
+          {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.rp_lax_blocks"
+              "url": "mapbox://districtr.rp_lax20_blocks"
             },
-            "sourceLayer": "rp_lax_blocks"
+            "sourceLayer": "rp_lax20_blocks"
           }
         ]
       }
