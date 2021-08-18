@@ -1217,6 +1217,7 @@
         "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
