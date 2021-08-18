@@ -232,7 +232,6 @@ const coi_events = [
   'ventura_county',
   'yolo_county',
   'solano_county',
-  'city_of_la',
   'kern_county',
   'san_joaquin',
   'san_mateo_city',
@@ -270,6 +269,7 @@ const hybrid_events = [
   'bellflower',
   'ca_sm_county',
   'ourmaps',
+  'city_of_la',
 ];
 
 const portal_events = [
