@@ -21,6 +21,8 @@ import Analyzer from "../models/Analyzer";
 
 // global for the election slides
 let two_party = -1;
+// global for tracking if we have made the counties layer
+let counties = false;
 
 /**
  * @desc Retrieves the proper map style; uses the same rules as the Editor.
@@ -471,7 +473,7 @@ function county_section(state, data, municipalities) {
     };
 
     let statecode = String(stateNameToFips[(state.place.state || state.place.id).toLowerCase().replace("2020", "").replace("_bg", "")]);
-    const counties = new Layer(
+    counties = counties ? counties : new Layer(
         state.map,
         {
             ...COUNTIES_LAYER,
