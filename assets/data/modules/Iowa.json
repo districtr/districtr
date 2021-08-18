@@ -362,7 +362,6 @@
         "name": "Counties",
         "unitType": "Counties",
         "hideOnDefault": true,
-        "limit": "hidden",
         "columnSets": [
           {
             "type": "election",
@@ -653,7 +652,6 @@
         "name": "Block Groups",
         "unitType": "Block Groups",
         "hideOnDefault": true,
-        "limit": "hidden",
         "columnSets": [
           {
             "type": "population",
@@ -1208,7 +1206,7 @@
         "name": "Congress",
         "pluralNoun": "Congressional Districts",
         "units": [
-          "counties"
+          "counties20"
         ]
       },
       {
@@ -1216,7 +1214,7 @@
         "name": "State Senate",
         "pluralNoun": "State Senate Districts",
         "units": [
-          "blockgroups"
+          "blockgroups20"
         ]
       },
       {
@@ -1224,7 +1222,7 @@
         "name": "State House",
         "pluralNoun": "State House Districts",
         "units": [
-          "blockgroups"
+          "blockgroups20"
         ]
       }
     ],
