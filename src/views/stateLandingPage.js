@@ -326,7 +326,7 @@ const communityOptions = places =>
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem, true).map(
+        return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
