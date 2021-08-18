@@ -153,7 +153,7 @@ export default function NumberMarkers(state, brush, old=false) {
                 // if (markers[district_num].length > 100) {
                 //     markers[district_num] = random.pickset(markers[district_num], 100);
                 // }
-                
+
                 const units = state.unitsRecord.unitType;
                 const stateName = state.place.state;
                 const assign = markers[district_num];
@@ -183,10 +183,10 @@ export default function NumberMarkers(state, brush, old=false) {
                         };
                     }
                     map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
-                    
+
                 })
-            } 
-            
+            }
+
             function check_district_old(d_index) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
@@ -194,6 +194,9 @@ export default function NumberMarkers(state, brush, old=false) {
                 var random = new Chance(markers[district_num]);
                 if (markers[district_num].length > 100) {
                     markers[district_num] = random.pickset(markers[district_num], 100);
+                }
+                if (!placeID.includes("2020") && state.unitsRecord.name.includes("2020") && state.unitsRecord.name !== "2020 Wards") {
+                    placeID += "_20";
                 }
                 const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
                     // : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`

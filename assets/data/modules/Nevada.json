@@ -4,9 +4,187 @@
     "name": "Nevada",
     "units": [
       {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 3104614,
+              "min": 0,
+              "max": 11099
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 1425952,
+                "min": 0,
+                "max": 4840
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 291960,
+                "min": 0,
+                "max": 2008
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 890257,
+                "min": 0,
+                "max": 2705
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 265991,
+                "min": 0,
+                "max": 2310
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 23392,
+                "min": 0,
+                "max": 1335
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 22970,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 166921,
+                "min": 0,
+                "max": 870
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 17171,
+                "min": 0,
+                "max": 138
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2413326,
+              "min": 0,
+              "max": 8213
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1205651,
+                "min": 0,
+                "max": 3811
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 219333,
+                "min": 0,
+                "max": 2008
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 609396,
+                "min": 0,
+                "max": 1824
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 18317,
+                "min": 0,
+                "max": 900
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 17118,
+                "min": 0,
+                "max": 108
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 224400,
+                "min": 0,
+                "max": 1859
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 12441,
+                "min": 0,
+                "max": 136
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 106670,
+                "min": 0,
+                "max": 468
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -120.0065,
+            35.0019
+          ],
+          [
+            -114.0395,
+            42.0018
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nv_bg20_blockgroups20"
+            },
+            "sourceLayer": "nv_bg20_blockgroups20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nv_bg20_blockgroups20_points"
+            },
+            "sourceLayer": "nv_bg20_blockgroups20_points"
+          }
+        ]
+      },
+      {
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

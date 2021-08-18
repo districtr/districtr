@@ -95,6 +95,7 @@ commoncausepa: 'Pennsylvania',
   groverbeach: 'California',
   vallejo: 'California',
   santa_clara_county: 'California',
+  'mp-maps': 'California',
 };
 
 const validEventCodes = {
@@ -179,6 +180,7 @@ commoncausepa: 'pennsylvania',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
   santa_clara_county: 'ca_sc_county',
+  'mp-maps': 'menlo_park',
 };
 
 const blockPlans = {
@@ -193,7 +195,8 @@ const unitTypes = {
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
-  'missouri-mapping': {no: 'Precincts'}
+  'missouri-mapping': {no: 'Precincts'},
+  'hia': {no: 'Precincts'}
 };
 
 const unitCounts = {
@@ -285,6 +288,7 @@ const hybrid_events = [
   'ocsd',
   'groverbeach',
   'vallejo',
+  'mp-maps'
 ];
 
 const portal_events = [
@@ -774,9 +778,17 @@ Redistricting is based on population and communities of interest.  A community o
      be included within a single district for purposes of its effective and fair \
      representation.”</p>\
      <p>To let the City know about your community and what brings it together, \
-  share your map and your story using this tool now.</p>\
+     share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Fremont2021&quot; is filled \
-  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+     out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+ 'mp-maps': "<p>Welcome to the Districtr public mapping tool to support the City of Menlo Park's 2021 City Council redistricting effort.<p>\
+     <p>As part of the City's effort to provide transparency and meet requirements of the California FAIR MAPS Act, we encourage residents to \
+     submit their draft city council districts and “Communities of Interest” (COI) using the <a href='https://districtr.org/' target='_blank'>Districtr.org</a> mapping tool. A “Community of Interest” \
+     is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
+     for purposes of its effective and fair representation.”</p>\
+     <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
+     <p><strong>Once you have drawn your map, be sure to use the tag &quot;MP-maps&quot;</strong></p>\
+     <p>Click the following link to view <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>Current Districts</a>.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
@@ -1076,7 +1088,13 @@ export default () => {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
         }
-
+    
+    if (["mp-maps"].includes(eventCode)) {
+        document.getElementById("eventHeadline").innerText = og_eventCode;
+        document.getElementById("introExplain").innerText = "City of Menlo Park Redistricting";
+        document.getElementById("introExplain").style.display = "block";
+        }
+        
     if (["commoncausepa"].includes(eventCode)) {
        document.getElementById("partnership-icons").style.display = "block";
        document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";

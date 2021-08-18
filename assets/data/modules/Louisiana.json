@@ -5,9 +5,181 @@
     "state": "Louisiana",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 4657757,
+              "min": 0,
+              "max": 6622
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 2596702,
+                "min": 0,
+                "max": 4479
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1452420,
+                "min": 0,
+                "max": 3276
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 25994,
+                "min": 0,
+                "max": 708
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 85336,
+                "min": 0,
+                "max": 846
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 1706,
+                "min": 0,
+                "max": 94
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 16954,
+                "min": 0,
+                "max": 60
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 156096,
+                "min": 0,
+                "max": 299
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 322549,
+                "min": 0,
+                "max": 1562
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3570548,
+              "min": 0,
+              "max": 5926
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2082110,
+                "min": 0,
+                "max": 4326
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1066511,
+                "min": 0,
+                "max": 2579
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 19531,
+                "min": 0,
+                "max": 513
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 67983,
+                "min": 0,
+                "max": 680
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1322,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 11524,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 97905,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 223662,
+                "min": 0,
+                "max": 1551
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0196]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.la_vtds20"
+            },
+            "sourceLayer": "la_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.la_vtds20_points"
+            },
+            "sourceLayer": "la_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -407,14 +579,8 @@
           "key": "Code"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.8551
-          ],
-          [
-            -88.7584,
-            33.0195
-          ]
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0195]
         ],
         "tilesets": [
           {
@@ -586,14 +752,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.9186
-          ],
-          [
-            -88.9472,
-            33.0195
-          ]
+          [-94.0434, 28.9186],
+          [-88.9472, 33.0195]
         ],
         "tilesets": [
           {
@@ -1219,14 +1379,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.8551
-          ],
-          [
-            -88.7584,
-            33.0195
-          ]
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0195]
         ],
         "tilesets": [
           {
@@ -1438,14 +1592,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -91.8231,
-            30.0253
-          ],
-          [
-            -90.4013,
-            31.0448
-          ]
+          [-91.8231, 30.0253],
+          [-90.4013, 31.0448]
         ],
         "tilesets": [
           {

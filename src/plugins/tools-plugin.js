@@ -47,7 +47,7 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let old_number_markers = state.unitsRecord.unitType !== "Block Groups" && (! spatial_abilities(state.place.id).number_markers_lambda) ;
+    let old_number_markers = (state.unitsRecord.name === "2020 Block Groups") || (state.unitsRecord.unitType !== "Block Groups" && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
@@ -88,7 +88,9 @@ export default function ToolsPlugin(editor) {
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
-    toolbar.setState(state);
+    if (!window.location.href.includes("embed")) {
+        toolbar.setState(state);
+    }
 
     hotkeys.filter = ({ target }) => {
         return (
@@ -249,11 +251,11 @@ function getMenuItems(state) {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
         } : null),
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
             onClick: () => exportPlanAsSHP(state, true)
         } : null),

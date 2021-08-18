@@ -319,21 +319,20 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-
         </ul>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
     places.map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem, true).map(
+        return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
                 <div class="place-name">${place.name}</div>
                 ${problemTypeInfo[problem.type] || ""}
                 <div class="place-info">
-                    Built out of ${units.name.toLowerCase()}
+                    Built out of ${units.name}
                 </div>
             </li>
             `)
@@ -398,7 +397,7 @@ const placeItemsTemplate = (places, onClick) => {
                         ${problem.numberOfParts} Congressional Districts
                     </div>
                     <div class="place-info">
-                        Built out of ${units.name.toLowerCase()}
+                        Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                     </div>
                 </li>
             `
@@ -415,7 +414,7 @@ const placeItemsTemplate = (places, onClick) => {
                             ${problem.numberOfParts} ${problem.pluralNoun}
                         </div>
                         <div class="place-info">
-                            Built out of ${units.name.toLowerCase()}
+                            Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                         </div>
                     </li>
                 `

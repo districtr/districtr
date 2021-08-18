@@ -850,7 +850,7 @@ export function spatial_abilities(id) {
     florida: {
       native_american: true,
       number_markers: true,
-      multiyear: 2018,
+      // multiyear: 2018,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -865,17 +865,17 @@ export function spatial_abilities(id) {
       border: true,
     },
     miamidade: {
-      multiyear: 2018,
+      // multiyear: 2018,
       number_markers: true,
       neighborhoods: true,
     },
     fl_hills: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
     fl_orange: {
-      multiyear: 2019,
+      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
@@ -909,6 +909,7 @@ export function spatial_abilities(id) {
       native_american: true,
       county_brush: true,
       shapefile: true,
+      census20: true,
     },
     idaho: {
       multiyear: 2018,
@@ -994,6 +995,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
+      census20: true,
     },
     maryland: {
       number_markers: true,
@@ -1053,6 +1055,7 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.michigan-mapping.org',
       },
+      census20: true,
     },
     minnesota: {
       number_markers: true,
@@ -1096,7 +1099,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     missouri: {
-      multiyear: 2018,
+      // multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1109,7 +1112,7 @@ export function spatial_abilities(id) {
       },
     },
     montana: {
-      multiyear: 2018,
+      // multiyear: 2018,
       native_american: true,
       number_markers: true,
       shapefile: true,
@@ -1133,6 +1136,8 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      census20: true,
+      contiguity: 2,
     },
     newhampshire: {
       number_markers: true,
@@ -1146,6 +1151,8 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: 2,
+      census20: true,
     },
     new_mexico: {
       number_markers: true,
@@ -1191,6 +1198,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
+      census20: true,
       // find_unpainted: true,
     },
     northcarolina: {
@@ -1443,6 +1451,7 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
+      census20: true
     },
     portlandor: {
       number_markers: true,

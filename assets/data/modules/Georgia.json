@@ -2,9 +2,181 @@
   {
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 10711908,
+              "min": 0,
+              "max": 45590
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 5362156,
+                "min": 0,
+                "max": 29241
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 3278119,
+                "min": 0,
+                "max": 22706
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 20375,
+                "min": 0,
+                "max": 151
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 475680,
+                "min": 0,
+                "max": 8183
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 6101,
+                "min": 0,
+                "max": 73
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 55887,
+                "min": 0,
+                "max": 399
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 390133,
+                "min": 0,
+                "max": 1713
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1123457,
+                "min": 0,
+                "max": 9161
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 8220274,
+              "min": 0,
+              "max": 35040
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4342333,
+                "min": 0,
+                "max": 24419
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 2462933,
+                "min": 0,
+                "max": 16544
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 16155,
+                "min": 0,
+                "max": 135
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 367605,
+                "min": 0,
+                "max": 5112
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 4556,
+                "min": 0,
+                "max": 48
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 37161,
+                "min": 0,
+                "max": 302
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 246613,
+                "min": 0,
+                "max": 1155
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 742918,
+                "min": 0,
+                "max": 5728
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-85.6052, 30.3558],
+          [-80.783, 35.0013]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ga_vtds20"
+            },
+            "sourceLayer": "ga_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ga_vtds20_points"
+            },
+            "sourceLayer": "ga_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -202,14 +374,8 @@
           "key": "ID"
         },
         "bounds": [
-          [
-            -85.6052,
-            30.3558
-          ],
-          [
-            -80.7514,
-            35.0007
-          ]
+          [-85.6052, 30.3558],
+          [-80.7514, 35.0007]
         ],
         "tilesets": [
           {
@@ -380,14 +546,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -85.6052,
-            30.3558
-          ],
-          [
-            -80.8398,
-            35.0007
-          ]
+          [-85.6052, 30.3558],
+          [-80.8398, 35.0007]
         ],
         "tilesets": [
           {
@@ -517,14 +677,8 @@
           "key": "NAME"
         },
         "bounds": [
-          [
-            -84.0628,
-            34.0983
-          ],
-          [
-            -83.6153,
-            34.5141
-          ]
+          [-84.0628, 34.0983],
+          [-83.6153, 34.5141]
         ],
         "tilesets": [
           {
