@@ -193,7 +193,8 @@ const unitTypes = {
   "open-maps": {no: 'Precincts'},
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
-  'missouri-mapping': {no: 'Precincts'}
+  'missouri-mapping': {no: 'Precincts'},
+  'hia': {no: 'Precincts'}
 };
 
 const unitCounts = {
