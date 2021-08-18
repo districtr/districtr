@@ -246,7 +246,7 @@
           }
         ],
         "idColumn": {
-          "name": "VTD GEOID code",
+          "name": "2020 Census GEOID",
           "key": "GEOID20"
         },
         "bounds": [
