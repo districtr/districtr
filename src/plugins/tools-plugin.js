@@ -251,11 +251,11 @@ function getMenuItems(state) {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
         } : null),
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
             onClick: () => exportPlanAsSHP(state, true)
         } : null),
