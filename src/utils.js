@@ -1049,7 +1049,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
       county_brush: true,
     },
     nebraska: {
