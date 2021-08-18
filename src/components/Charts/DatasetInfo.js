@@ -27,7 +27,7 @@ function datasetInfo(state) {
         return `<p><span>&#9432;</span> ${populations.pasorobles}</p>`;
     } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) {
         return `<p><span>&#9432;</span> ${populations.sacramento}</p>`;
-    } else if (state.units.id.includes('blockgroups20') || state.units.id.includes('vtds20')) {
+    } else if (["2020 Block Groups", "2020 Blocks", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name)) {
         return `<p><span>&#9432;</span> ${populations.census20}</p>`;
     }
     return `<p><span>&#9432;</span> ${populations.census}</p>`;
