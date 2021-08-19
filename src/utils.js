@@ -1097,7 +1097,8 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
-      find_unpainted: true
+      find_unpainted: true,
+      census20: true
     },
     new_mexico_portal: {
       number_markers: true,
@@ -1108,6 +1109,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       election_history: false,
+      census20: true,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
