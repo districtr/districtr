@@ -85,6 +85,9 @@ function addUnits(map, parts, tileset, layerAdder) {
 }
 
 function addPoints(map, tileset, layerAdder) {
+    if (!tileset) {
+        return null;
+    }
     return new Layer(
         map,
         {
