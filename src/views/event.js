@@ -68,7 +68,7 @@ redwood_city: 'California',
 ventura_county: 'California',
 yolo_county: 'California',
 solano_county: 'California',
-city_of_la: 'California',
+mapsofla: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
@@ -145,7 +145,7 @@ const validEventCodes = {
   ventura_county: 'ca_ventura',
   yolo_county: 'ca_yolo',
   solano_county: 'ca_solano',
-  city_of_la: 'rp_lax',
+  mapsofla: 'rp_lax',
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
@@ -269,7 +269,7 @@ const hybrid_events = [
   'bellflower',
   'ca_sm_county',
   'ourmaps',
-  'city_of_la',
+  'mapsofla',
 ];
 
 const portal_events = [
@@ -454,11 +454,11 @@ Redistricting is based on population and communities of interest.  A community o
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council District Map.</p>\
       <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Jose” (any capitalization) is entered.</p>',
-  city_of_la: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  mapsofla: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
 <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
 <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
 <p>Every map submitted to the City Redistricting Commission will be carefully reviewed and included as part of the public record. For more information, visit <a href="https://laccrc2021.org" target="_blank">this link</a>.</p>\
-<p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “City_of_LA”.</p>',
+<p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MapsofLA”.</p>',
     siskiyou: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -724,8 +724,8 @@ const longAbout = {
   solano_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
-  city_of_la: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  mapsofla: [
+    "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
@@ -865,6 +865,9 @@ export default () => {
         if (coi_events.includes(eventCode)) {
             document.getElementById("introExplain").innerText = "Map Your Community";
             document.getElementById("introExplain").style.display = "block";
+        } else if (eventCode === "mapsofla") {
+            document.getElementById("introExplain").innerText = "";
+            document.getElementById("eventHeadline").innerText = "#MapsofLA";
         }
 
     if (["commoncausepa"].includes(eventCode)) {
@@ -875,7 +878,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "city_of_la"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "napa_city", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -910,11 +913,11 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
-            } else if (eventCode === "city_of_la") {
+            } else if (eventCode === "mapsofla") {
               document.getElementById("partner-link-a").href = "https://www.lacity.org";
               document.getElementById("partnership-a").src = "/assets/partners-lax.svg";
-              document.getElementById("partnership-a").style.zoom = '1.75';
-              document.getElementById("partnership-a").style.marginTop = '-16px';
+              document.getElementById("partnership-a").style.height = '160px';
+              document.getElementById("partnership-a").style.marginTop = '-45px';
             } else if (eventCode === "san_mateo_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
               document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
@@ -1137,6 +1140,11 @@ export default () => {
                     place.districtingProblems = [
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }
                     ];
+                } else if (eventCode === "mapsofla") {
+                    place.districtingProblems = place.districtingProblems.map(p => ({
+                      ...p,
+                      number_intro: 'Draw the ',
+                    }))
                 }
                 if (unitTypes[eventCode]) {
                     if (unitTypes[eventCode].no) {
@@ -1157,7 +1165,9 @@ export default () => {
                     render(placeItems({
                       ...place,
                       districtingProblems: [
-                          { type: "community", numberOfParts: 250, pluralNoun: "Community" }
+                          { type: 'community', numberOfParts: 250, pluralNoun: "Community",
+                            custom_intro: (eventCode === "mapsofla") ? "Draw your community" : "",
+                          }
                       ]
                     }, startNewPlan, eventCode, portal_events.includes(eventCode)), mydiv2);
                 }
