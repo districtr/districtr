@@ -600,6 +600,50 @@ export default function DataLayersPlugin(editor) {
                );
            });
         });
+    } else if (state.place.id === "sanjoseca") {
+      fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods.geojson`).then(res => res.json()).then((places) => {
+          state.map.addSource('sj_places', {
+              type: 'geojson',
+              data: places
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'sj_places',
+                  source: 'sj_places',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods_centroids.geojson`).then(res => res.json()).then((centroids) => {
+              state.map.addSource('sj_centroids', {
+                  type: 'geojson',
+                  data: centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'sj_centroids',
+                    source: 'sj_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'NAME'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
     }
 
     if (state.place.id === "virginia") {
@@ -687,6 +731,19 @@ export default function DataLayersPlugin(editor) {
               let opacity = checked ? 1 : 0;
               schoolsLayer && schoolsLayer.setOpacity(opacity);
               school_labels && school_labels.setPaintProperty('text-opacity', opacity);
+          })}`,
+          {
+              isOpen: false
+          }
+      );
+    } else if (state.place.id === "sanjoseca") {
+      tab.addRevealSection(
+          'Neighborhoods',
+          (uiState, dispatch) => html`
+          ${toggle("Neighborhood lines", false, checked => {
+              let opacity = checked ? 1 : 0;
+              precinctsLayer && precinctsLayer.setOpacity(opacity);
+              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
           })}`,
           {
               isOpen: false
