@@ -86,10 +86,10 @@ export default function NumberMarkers(state, brush, old=false) {
                         "icon-size": 0.75
                     }
                 },
-                (map, layer) => {
-                    const layers = map.getStyle().layers;
-                    map.addLayer(layer, layers[layers.length - 1].id);
-                }
+                // (map, layer) => {
+                //     const layers = map.getStyle().layers;
+                //     map.addLayer(layer, layers[layers.length - 1].id);
+                // }
             ));
         });
     });
