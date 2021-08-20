@@ -50,7 +50,7 @@ export function parseElectionName(election) {
     let yr = election.substring(0,4);
     if (isNaN(yr))
         return election
-    if (election.includes('Presidential'))
+    if (election.includes('Presidential') || election.includes('President'))
         return yr + " PRES"
     if (election.includes('Senate'))
         return yr + " SEN"
@@ -60,6 +60,8 @@ export function parseElectionName(election) {
         return yr + " SoS"
     if (election.includes("Attorney General"))
         return yr + " AG"
+    if (election.includes('Treasurer'))
+        return yr + " TRE"
     return election
 }
 
