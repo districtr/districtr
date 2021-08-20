@@ -423,6 +423,226 @@ export default function DataLayersPlugin(editor) {
               );
           });
        });
+    } else if (["ca_sanjoaquin"].includes(state.place.id)) {
+      fetch(`/assets/boundaries/${state.place.id}_bg.geojson`).then(res => res.json()).then((bg_gj) => {
+          state.map.addSource('bg_gj', {
+              type: 'geojson',
+              data: bg_gj
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'bg_gj',
+                  source: 'bg_gj',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((bg_centroids) => {
+              state.map.addSource('bg_centroids', {
+                  type: 'geojson',
+                  data: bg_centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'bg_centroids',
+                    source: 'bg_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'TRACTCE'],
+                          ['get', 'BLKGRPCE'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
+       fetch(`/assets/boundaries/${state.place.id}_tract.geojson`).then(res => res.json()).then((tract_gj) => {
+           state.map.addSource('tract_gj', {
+               type: 'geojson',
+               data: tract_gj
+           });
+           schoolsLayer = new Layer(state.map,
+               {
+                   id: 'tract_gj',
+                   source: 'tract_gj',
+                   type: 'line',
+                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+               },
+               addBelowLabels
+           );
+
+           fetch(`/assets/boundaries/${state.place.id}_tract_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
+               state.map.addSource('tract_centroids', {
+                   type: 'geojson',
+                   data: tract_centroids
+               });
+
+               school_labels = new Layer(state.map,
+                   {
+                     id: 'tract_centroids',
+                     source: 'tract_centroids',
+                     type: 'symbol',
+                     layout: {
+                       'text-field': [
+                           'format',
+                           ['get', 'NAME'],
+                           {},
+                       ],
+                       'text-anchor': 'center',
+                       'text-radial-offset': 0,
+                       'text-justify': 'center'
+                     },
+                     paint: {
+                       'text-opacity': 0
+                     }
+                   }
+               );
+           });
+        });
+    } else if (state.place.id === "rp_lax") {
+      fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood.geojson`).then(res => res.json()).then((places) => {
+          state.map.addSource('latimes_places', {
+              type: 'geojson',
+              data: places
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'latimes_places',
+                  source: 'latimes_places',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood_centroids.geojson`).then(res => res.json()).then((centroids) => {
+              state.map.addSource('latimes_centroids', {
+                  type: 'geojson',
+                  data: centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'latimes_centroids',
+                    source: 'latimes_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'NAME'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
+
+       fetch(`/assets/boundaries/neighborhoods/lax_neighborhood_council.geojson`).then(res => res.json()).then((nplaces) => {
+           state.map.addSource('ncouncil_places', {
+               type: 'geojson',
+               data: nplaces
+           });
+           schoolsLayer = new Layer(state.map,
+               {
+                   id: 'ncouncil_places',
+                   source: 'ncouncil_places',
+                   type: 'line',
+                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+               },
+               addBelowLabels
+           );
+
+           fetch(`/assets/boundaries/neighborhoods/lax_Neighborhood_Councils_centroids.geojson`).then(res => res.json()).then((ncentroids) => {
+               state.map.addSource('ncouncil_centroids', {
+                   type: 'geojson',
+                   data: ncentroids
+               });
+
+               school_labels = new Layer(state.map,
+                   {
+                     id: 'ncouncil_centroids',
+                     source: 'ncouncil_centroids',
+                     type: 'symbol',
+                     layout: {
+                       'text-field': [
+                           'format',
+                           ['get', 'NAME'],
+                           {},
+                       ],
+                       'text-anchor': 'center',
+                       'text-radial-offset': 0,
+                       'text-justify': 'center'
+                     },
+                     paint: {
+                       'text-opacity': 0
+                     }
+                   }
+               );
+           });
+        });
+    } else if (state.place.id === "sanjoseca") {
+      fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods.geojson`).then(res => res.json()).then((places) => {
+          state.map.addSource('sj_places', {
+              type: 'geojson',
+              data: places
+          });
+          precinctsLayer = new Layer(state.map,
+              {
+                  id: 'sj_places',
+                  source: 'sj_places',
+                  type: 'line',
+                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
+              },
+              addBelowLabels
+          );
+
+          fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods_centroids.geojson`).then(res => res.json()).then((centroids) => {
+              state.map.addSource('sj_centroids', {
+                  type: 'geojson',
+                  data: centroids
+              });
+
+              precinct_labels = new Layer(state.map,
+                  {
+                    id: 'sj_centroids',
+                    source: 'sj_centroids',
+                    type: 'symbol',
+                    layout: {
+                      'text-field': [
+                          'format',
+                          ['get', 'NAME'],
+                          {},
+                      ],
+                      'text-anchor': 'center',
+                      'text-radial-offset': 0,
+                      'text-justify': 'center'
+                    },
+                    paint: {
+                      'text-opacity': 0
+                    }
+                  }
+              );
+          });
+       });
     }
 
     if (state.place.id === "virginia") {
@@ -495,6 +715,55 @@ export default function DataLayersPlugin(editor) {
             })}`,
             {
                 isOpen: false
+            }
+        );
+    } else if (state.place.id === "rp_lax") {
+      tab.addRevealSection(
+          'Neighborhoods',
+          (uiState, dispatch) => html`
+          ${toggle("LA Times Neighborhoods", false, checked => {
+              let opacity = checked ? 1 : 0;
+              precinctsLayer && precinctsLayer.setOpacity(opacity);
+              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+          })}
+          ${toggle("Neighborhood Councils", false, checked => {
+              let opacity = checked ? 1 : 0;
+              schoolsLayer && schoolsLayer.setOpacity(opacity);
+              school_labels && school_labels.setPaintProperty('text-opacity', opacity);
+          })}`,
+          {
+              isOpen: false
+          }
+      );
+    } else if (state.place.id === "sanjoseca") {
+      tab.addRevealSection(
+          'Neighborhoods',
+          (uiState, dispatch) => html`
+          ${toggle("Neighborhood lines", false, checked => {
+              let opacity = checked ? 1 : 0;
+              precinctsLayer && precinctsLayer.setOpacity(opacity);
+              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+          })}`,
+          {
+              isOpen: false
+          }
+      );
+    } else if (state.place.id === "ca_sanjoaquin") {
+        tab.addRevealSection(
+            'Census',
+            (uiState, dispatch) => html`
+            ${toggle("Block Groups", false, checked => {
+                let opacity = checked ? 1 : 0;
+                precinctsLayer && precinctsLayer.setOpacity(opacity);
+                precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+            })}
+            ${toggle("Tracts", false, checked => {
+                let opacity = checked ? 1 : 0;
+                schoolsLayer && schoolsLayer.setOpacity(opacity);
+                school_labels && school_labels.setPaintProperty('text-opacity', opacity);
+            })}`,
+            {
+                isOpen: true
             }
         );
     } else if (["ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {

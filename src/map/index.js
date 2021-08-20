@@ -74,6 +74,9 @@ function addUnits(map, parts, tileset, layerAdder, coibg) {
 }
 
 function addPoints(map, tileset, layerAdder) {
+    if (!tileset) {
+        return null;
+    }
     return new Layer(
         map,
         {

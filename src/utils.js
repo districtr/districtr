@@ -667,6 +667,82 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  ca_tuolumne: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  napa_boe: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  napa_college: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  santa_clara_h2o: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
+  ca_sanmateo: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
+  ca_kern: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    municipalities: true,
+  },
+  ca_sanjoaquin: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    municipalities: true,
+  },
+  rp_lax: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_butte: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+    native_american: true,
+  },
+  ca_humboldt: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+    sideload: true,
+    native_american: true,
+  },
+  ca_oakland: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_martinez: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  carpinteria: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   sanjoseca: {
     border: true,
     shapefile: true,
@@ -1097,7 +1173,8 @@ export function spatial_abilities(id) {
       contiguity: 2,
       current_districts: true,
       shapefile: true,
-      find_unpainted: true
+      find_unpainted: true,
+      census20: true
     },
     new_mexico_portal: {
       number_markers: true,
@@ -1108,6 +1185,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       election_history: false,
+      census20: true,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },

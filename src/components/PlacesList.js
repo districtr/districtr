@@ -105,7 +105,9 @@ const problemTypeInfo = {
 
 function getProblemInfo(place, problem, units, onClick) {
     return html`
-        ${problemTypeInfo[problem.type] || ""}
+        <div class="place-info">
+          ${problem.custom_intro || problemTypeInfo[problem.type] || ""}
+        </div>
         ${problem.type !== "community"
             ? html`
                   ${problem.partCounts.length > 1
@@ -116,12 +118,12 @@ function getProblemInfo(place, problem, units, onClick) {
                                 html`<button
                                     @click=${() => onClick(place, problem, units, null, num)}
                                 >
-                                    ${num}
+                                    ${problem.number_intro || ""}${num}
                                 </button>`
                             )}
                         </div>`
                       : html`<div class="place-info">
-                          ${problem.numberOfParts} ${problem.pluralNoun}
+                          ${problem.number_intro || ""}${problem.numberOfParts} ${problem.pluralNoun}
                         </div>`
                   }
               `
@@ -141,9 +143,11 @@ export function placeItems(place, onClick, eventCode, portalCode) {
                         <div class="place-name">
                             ${place.name}
                         </div>
-                        ${problemTypeInfo[problem.type] || ""}
+                        <div class="place-info">
+                            ${problem.custom_intro || problemTypeInfo[problem.type] || ""}
+                        </div>
                         ${problem.type === "community" ? "" : html`<div class="place-info">
-                            ${problem.numberOfParts} ${problem.pluralNoun}
+                            ${problem.number_intro || ""}${problem.numberOfParts} ${problem.pluralNoun}
                         </div>`}
                         <div class="place-info">
                             Built out of ${units.name.toLowerCase()}
