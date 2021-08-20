@@ -8,11 +8,51 @@
         "unitType": "VTDs",
         "columnSets": [
           {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 286270,
+                "min": 0,
+                "max": 1038
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 412429,
+                "min": 0,
+                "max": 1769
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 264045,
+                "min": 0,
+                "max": 1004
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 407224,
+                "min": 0,
+                "max": 1756
+              }
+            ]
+          },
+          {
             "type": "population",
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total Population",
+              "name": "Total population",
               "sum": 1961504,
               "min": 0,
               "max": 7442
@@ -33,11 +73,11 @@
                 "max": 2228
               },
               {
-                "key": "AMIN",
-                "name": "American Indian population",
-                "sum": 15051,
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 234715,
                 "min": 0,
-                "max": 1712
+                "max": 3268
               },
               {
                 "key": "ASIAN",
@@ -47,18 +87,18 @@
                 "max": 1307
               },
               {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 15051,
+                "min": 0,
+                "max": 1712
+              },
+              {
                 "key": "NHPI",
-                "name": "Native Hawaiian and Pacific Islanders population",
+                "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 1318,
                 "min": 0,
                 "max": 76
-              },
-              {
-                "key": "OTHER",
-                "name": "Other races",
-                "sum": 6335,
-                "min": 0,
-                "max": 251
               },
               {
                 "key": "2MORE",
@@ -68,11 +108,11 @@
                 "max": 446
               },
               {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 234715,
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 6335,
                 "min": 0,
-                "max": 3268
+                "max": 251
               }
             ]
           },
@@ -102,11 +142,25 @@
                 "max": 1571
               },
               {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 145297,
+                "min": 0,
+                "max": 2007
+              },
+              {
                 "key": "AMINVAP",
-                "name": "American Indian voting age population",
+                "name": "Native American voting age population",
                 "sum": 10112,
                 "min": 0,
                 "max": 1000
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 942,
+                "min": 0,
+                "max": 45
               },
               {
                 "key": "ASIANVAP",
@@ -114,13 +168,6 @@
                 "sum": 38794,
                 "min": 0,
                 "max": 742
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islanders voting age population",
-                "sum": 942,
-                "min": 0,
-                "max": 45
               },
               {
                 "key": "OTHERVAP",
@@ -135,13 +182,6 @@
                 "sum": 41325,
                 "min": 0,
                 "max": 227
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 145297,
-                "min": 0,
-                "max": 2007
               }
             ]
           }
