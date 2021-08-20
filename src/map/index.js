@@ -156,20 +156,19 @@ function addCOISources(map, tilesets, border) {
     //      1. we are actually performing a redistricting,
     //      2. that the proper `load_coi` flag is set for the jurisdiction we're
     //         redistricting,
-    //      3. that the number of tilesets we've loaded is 2 (we don't want to load
-    //         any more than we can afford),
-    //      4. that none of the layers are block groups.
+    //      3. and that the number of tilesets we've loaded is 2 (we don't want
+    //         to load any more than we can afford).
     let flagged = spatial_abilities(border).load_coi,
         numLoaded = tilesets.length === 2,
-        rightUnits = !tilesets[0].sourceLayer.includes("blockgroups"),
         baseUnits = tilesets.find(t => t.type === "fill"),
+        blockGroups = false,
         bgName, bgURL;
     
-    if (border && flagged && numLoaded && rightUnits) {
+    if (border && flagged && numLoaded && blockGroups) {
         // Now, we've identified our filled tileset -- that is, the set of units
-        // we're using to redistrict. Then, we want to load the block group
-        // tileset for the same jurisdiction, and we'll fill in those block
-        // groups according to their membership in communities of interest.
+        // we're using to redistrict. Next, we want to load the tileset we'll be
+        // using to display our COIs; this is typically the same tileset, but
+        // since we need to modify 
         bgName = baseUnits.sourceLayer
             .replace("precincts", "blockgroups")
             .replace("counties", "blockgroups");
@@ -181,6 +180,9 @@ function addCOISources(map, tilesets, border) {
         // group layer on top of our base units -- we add the block groups
         // as a source.
         if (baseUnits) map.addSource(bgName, { type: "vector", url: bgURL });
+    } else if (border && flagged && numLoaded) {
+        // Otherwise, if we want to just use the existing tileset, we may have
+        // to add another. Not sure yet.
     }
 
     return baseUnits;

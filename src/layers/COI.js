@@ -8,15 +8,17 @@ const wordfilter = new Filter();
 /**
  * @description Filters user-generated COIs according to specified rules.
  * @param {Object[]} cois Array of COI tilesets/assignments/whatever they are.
+ * @param {String} [units="vtds"] units Name of the units we're using.
  * @returns {Object[]} Filtered COIs.
  */
-function filterCOIs(cois) {
+function filterCOIs(cois, units="vtds") {
     // Set a list of rules (anonymous functions) each COI must abide by to be
     // displayed. Cast things to Booleans for consistency.
     let rules = [
             coi => Boolean(coi.plan),
             coi => Boolean(coi.plan.assignment),
-            coi => coi.plan.units.id === "blockgroups"
+            // Removing the below constraint because then nothing shows up!
+            // coi => coi.plan.units.id === "blockgroups"
         ],
         filterer = coi => {
             for (let rule of rules) if (!rule(coi)) return false;
@@ -30,33 +32,43 @@ function filterCOIs(cois) {
 
 /**
  * @description For each of the COIs, get the units they cover.
- * @param {Object[]} objects List of COI objects.
+ * @param {Object[]} plans List of COIs, defined as Plans.
  * @returns [Object, Array] COIs and the units they cover ; a Set containing
  * unique COI names.
  */
-function summation(objects) {
+function summation(plans) {
     let sum = {},
-        unique = new Set();
+        unique = new Set(),
+        _identifiers = {};
 
-    for (let object of objects) {
-        // First, obtain the identifier mapping for each of the COIs in each
-        // plan. This lets us look up names at the next step.
-        let identifiers = {};
-        for (let part of object.plan.parts) {
-            identifiers[part.id] = part.name;
+    // For each of the Plans, retrieve the names of the COIs and the GEOIDs they
+    // map to.
+    for (let _plan of plans) {
+        // TODO: this is stupid and should be refactored.
+        let plan = _plan.plan;
+
+        // First, get the internal IDs for each of the Parts. 
+        for (let part of plan.parts){
+            _identifiers[part.id] = part.name;
             unique.add(part.name);
         }
 
-        // Now, for each of the units identified in the assignment, add or modify
-        // the exisitng key in `sum` to include the provided community. This
-        // gives us a simple object which maps each key to the COIs that cover it.
-        for (let [unit, coiid] of Object.entries(object.plan.assignment)) {
-            let name = identifiers[coiid];
-            if (sum.hasOwnProperty(name)) sum[name].push(unit);
-            else sum[name] = [unit];
+        // Next, look in the Plan's assignment and determine to which COIs each
+        // unit is assigned.
+        for (let [unit, coiids] of Object.entries(plan.assignment)) {
+            for (let coid of coiids) {
+                // First, get the name of the COI according to its identifier.
+                let coiname = _identifiers[coid];
+
+                // Then, conditionally add it to the `sum` object, pushing the
+                // units belonging to the COI.
+                if (sum[coiname]) sum[coiname].push(unit);
+                else sum[coiname] = [unit];
+            }
         }
     }
 
+    // Return the summed object and the unique names accompanying it.
     return [sum, Array.from(unique)]
 }
 
@@ -123,7 +135,8 @@ function patternsToCOIs(names, patterns) {
  */
 function include(object, included) {
     return Object.fromEntries(
-        Object.entries(object)
+        Object
+            .entries(object)
             .filter(([key]) => included.includes(key))
     );
 }
@@ -167,6 +180,8 @@ export function addCOIs(state, tab) {
                     chosenPatterns = include(patterns, names),
                     patternMatch = patternsToCOIs(uniqueNames, chosenPatterns);
 
+                console.log(names, chosenPatterns, patternMatch);
+
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
                 loadPatterns(map, chosenPatterns)
@@ -178,9 +193,10 @@ export function addCOIs(state, tab) {
                         for (let [coi, geoids] of Object.entries(unitMap)) {
                             let subexpression = [
                                 "in",
-                                ["get", "GEOID10"],
+                                ["get", "GEOID20"],
                                 ["literal", geoids]
                             ];
+                            console.dir(patternMatch);
                             expression.push(subexpression, patternMatch[coi]);
                         }
                         // For the remainder of the tiles in the layer, we don't

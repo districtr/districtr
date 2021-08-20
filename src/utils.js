@@ -384,6 +384,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       coalition: false,
       municipalities: true,
+      current_districts: true,
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
@@ -491,72 +492,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       current_districts: true,
-    },
-    sunnyvale: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    laverne: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    pomona: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    ca_richmond: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    elcajon: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    ca_carlsbad: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    encinitas: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    buenapark: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    halfmoon: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    ca_stockton: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    lodi: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
     },
     ca_pasadena: {
       coalition: false,
@@ -1585,7 +1520,7 @@ export function spatial_abilities(id) {
       // native_american: true,
       shapefile: true,
       // find_unpainted: true,
-      load_coi: true,
+      load_coi: false,
       portal: {
         endpoint: 'https://portal.virginia-mapping.org',
       },

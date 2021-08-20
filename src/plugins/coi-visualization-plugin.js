@@ -4,7 +4,8 @@ import { addCOIs } from "../layers/COI";
 
 
 function CoiVisualizationPlugin(editor) {
-    console.dir(editor);
+    let state = editor.state;
+    addCOIs(state, null);
 }
 
 export default CoiVisualizationPlugin;
