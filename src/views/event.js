@@ -282,7 +282,6 @@ const coi_events = [
   'martinez',
   'carpinteria',
   'santa_clara_water',
-  'butte_county',
   'humboldt_county',
 ];
 
@@ -331,6 +330,7 @@ const hybrid_events = [
   'vallejo',
   'mp-maps',
   'mapsofla',
+  'butte_county',
 ];
 
 const portal_events = [

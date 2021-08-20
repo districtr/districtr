@@ -12118,40 +12118,61 @@
    "units": [
      {
        "id": "blocks",
-       "name": "Blocks",
+       "name": "2020 Blocks",
        "unitType": "Blocks",
        "columnSets": [
          {
            "type": "population",
            "name": "Population",
            "total": {
-             "key": "ACS_15-19_Total",
+             "key": "LF_20_Total",
              "name": "Total population",
-             "sum": 223964,
+             "sum": 211632,
              "min": 0,
-             "max": 1340
+             "max": 1411
            },
            "subgroups": [
              {
-               "key": "ACS_15-19_AfAm",
+               "key": "LF_20_AfAm",
                "name": "Black population",
-               "sum": 2831,
+               "sum": 3320,
                "min": 0,
-               "max": 86
+               "max": 76
              },
              {
-               "key": "ACS_15-19_Asian",
+               "key": "LF_20_Asian",
                "name": "Asian population",
-               "sum": 9114,
+               "sum": 10333,
                "min": 0,
-               "max": 302
+               "max": 202
              },
              {
-               "key": "ACS_15-19_Hispanic_or_Latino",
+               "key": "LF_20_Hispanic_or_Latino",
                "name": "Hispanic population",
-               "sum": 35214,
+               "sum": 40112,
                "min": 0,
-               "max": 420
+               "max": 488
+             },
+             {
+               "key": "LF_20_White",
+               "name": "White population",
+               "sum": 139651,
+               "min": 0,
+               "max": 702
+             },
+             {
+               "key": "LF_20_AiAn",
+               "name": "American Indian / Alaska Native population",
+               "sum": 3050,
+               "min": 0,
+               "max": 44
+             },
+             {
+               "key": "LF_20_HoPI",
+               "name": "Native Hawaiian / Pacific Islander population",
+               "sum": 508,
+               "min": 0,
+               "max": 28
              }
            ]
          },
