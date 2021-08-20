@@ -554,11 +554,91 @@
         "unitType": "VTDs",
         "columnSets": [
           {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 1036473,
+                "min": 0,
+                "max": 918
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1557941,
+                "min": 0,
+                "max": 1624
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor",
+            "subgroups": [
+              {
+                "key": "GOV16D",
+                "name": "Democratic",
+                "sum": 1233661,
+                "min": 0,
+                "max": 935
+              },
+              {
+                "key": "GOV16R",
+                "name": "Republican",
+                "sum": 1386597,
+                "min": 0,
+                "max": 1611
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 1163777,
+                "min": 0,
+                "max": 1836
+              },
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 1424526,
+                "min": 0,
+                "max": 1583
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG16D",
+                "name": "Democratic",
+                "sum": 998071,
+                "min": 0,
+                "max": 918
+              },
+              {
+                "key": "AG16R",
+                "name": "Republican",
+                "sum": 1644132,
+                "min": 0,
+                "max": 1672
+              }
+            ]
+          },
+          {
             "type": "population",
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total Population",
+              "name": "Total population",
               "sum": 6785528,
               "min": 0,
               "max": 10532
@@ -579,11 +659,11 @@
                 "max": 2250
               },
               {
-                "key": "AMIN",
-                "name": "American Indian population",
-                "sum": 12938,
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 554191,
                 "min": 0,
-                "max": 85
+                "max": 1985
               },
               {
                 "key": "ASIAN",
@@ -593,18 +673,18 @@
                 "max": 1755
               },
               {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 12938,
+                "min": 0,
+                "max": 85
+              },
+              {
                 "key": "NHPI",
-                "name": "Native Hawaiian and Pacific Islanders population",
+                "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 2761,
                 "min": 0,
                 "max": 84
-              },
-              {
-                "key": "OTHER",
-                "name": "Other races",
-                "sum": 25139,
-                "min": 0,
-                "max": 129
               },
               {
                 "key": "2MORE",
@@ -614,11 +694,11 @@
                 "max": 2154
               },
               {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 554191,
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 25139,
                 "min": 0,
-                "max": 1985
+                "max": 129
               }
             ]
           },
@@ -648,11 +728,25 @@
                 "max": 1489
               },
               {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 350929,
+                "min": 0,
+                "max": 1255
+              },
+              {
                 "key": "AMINVAP",
-                "name": "American Indian voting age population",
+                "name": "Native American voting age population",
                 "sum": 10490,
                 "min": 0,
                 "max": 85
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1961,
+                "min": 0,
+                "max": 41
               },
               {
                 "key": "ASIANVAP",
@@ -660,13 +754,6 @@
                 "sum": 124975,
                 "min": 0,
                 "max": 1665
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islanders voting age population",
-                "sum": 1961,
-                "min": 0,
-                "max": 41
               },
               {
                 "key": "OTHERVAP",
@@ -681,24 +768,23 @@
                 "sum": 160476,
                 "min": 0,
                 "max": 2144
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 350929,
-                "min": 0,
-                "max": 1255
               }
             ]
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-88.0979, 37.7717],
-          [-84.7845, 41.7614]
+          [
+            -88.0979,
+            37.7717
+          ],
+          [
+            -84.7845,
+            41.7614
+          ]
         ],
         "tilesets": [
           {
