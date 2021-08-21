@@ -1,6 +1,7 @@
 [
   {
     "msg": "Plan successfully found",
+    "name": "Test Cluster 1",
     "plan": {
       "assignment": {
         "18097001060": [
