@@ -10,11 +10,111 @@
         "unitType": "VTDs",
         "columnSets": [
           {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 735739,
+                "min": 0,
+                "max": 3335
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 557619,
+                "min": 0,
+                "max": 3986
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 691495,
+                "min": 0,
+                "max": 3228
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 605509,
+                "min": 0,
+                "max": 4272
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 787683,
+                "min": 0,
+                "max": 3600
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 545721,
+                "min": 0,
+                "max": 3942
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 676656,
+                "min": 0,
+                "max": 3248
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 624747,
+                "min": 0,
+                "max": 4467
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18D",
+                "name": "Democratic",
+                "sum": 717000,
+                "min": 0,
+                "max": 3250
+              },
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 569736,
+                "min": 0,
+                "max": 4019
+              }
+            ]
+          },
+          {
             "type": "population",
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total Population",
+              "name": "Total population",
               "sum": 3605944,
               "min": 0,
               "max": 16164
@@ -35,11 +135,11 @@
                 "max": 5590
               },
               {
-                "key": "AMIN",
-                "name": "American Indian population",
-                "sum": 6404,
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 623293,
                 "min": 0,
-                "max": 432
+                "max": 8253
               },
               {
                 "key": "ASIAN",
@@ -49,18 +149,18 @@
                 "max": 2718
               },
               {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 6404,
+                "min": 0,
+                "max": 432
+              },
+              {
                 "key": "NHPI",
-                "name": "Native Hawaiian and Pacific Islanders population",
+                "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 974,
                 "min": 0,
                 "max": 28
-              },
-              {
-                "key": "OTHER",
-                "name": "Other races",
-                "sum": 27076,
-                "min": 0,
-                "max": 655
               },
               {
                 "key": "2MORE",
@@ -70,11 +170,11 @@
                 "max": 764
               },
               {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 623293,
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 27076,
                 "min": 0,
-                "max": 8253
+                "max": 655
               }
             ]
           },
@@ -104,11 +204,25 @@
                 "max": 4268
               },
               {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 430695,
+                "min": 0,
+                "max": 5696
+              },
+              {
                 "key": "AMINVAP",
-                "name": "American Indian voting age population",
+                "name": "Native American voting age population",
                 "sum": 4967,
                 "min": 0,
                 "max": 300
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 757,
+                "min": 0,
+                "max": 20
               },
               {
                 "key": "ASIANVAP",
@@ -116,13 +230,6 @@
                 "sum": 132859,
                 "min": 0,
                 "max": 2484
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islanders voting age population",
-                "sum": 757,
-                "min": 0,
-                "max": 20
               },
               {
                 "key": "OTHERVAP",
@@ -137,13 +244,6 @@
                 "sum": 87626,
                 "min": 0,
                 "max": 582
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 430695,
-                "min": 0,
-                "max": 5696
               }
             ]
           }
