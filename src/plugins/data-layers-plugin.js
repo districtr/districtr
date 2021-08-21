@@ -643,6 +643,79 @@ export default function DataLayersPlugin(editor) {
               );
           });
        });
+     } else if (state.place.id === "ca_butte") {
+        fetch(`/assets/boundaries/current_districts/california/ca_butte.geojson`).then(res => res.json()).then((places) => {
+           state.map.addSource('bt_districts', {
+               type: 'geojson',
+               data: places
+           });
+           precinctsLayer = new Layer(state.map,
+               {
+                   id: 'bt_districts',
+                   source: 'bt_districts',
+                   type: 'line',
+                   paint: { "line-color": "#000", "line-width": 1.2, "line-opacity": 0 }
+               },
+               addBelowLabels
+           );
+        });
+        fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities.geojson`).then(res => res.json()).then((places) => {
+            state.map.addSource('bt_places', {
+                type: 'geojson',
+                data: places
+            });
+            placesLayer = new Layer(state.map,
+                {
+                    id: 'bt_places',
+                    source: 'bt_places',
+                    type: 'line',
+                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
+                },
+                addBelowLabels
+            );
+         });
+         fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
+           state.map.addSource('bt_centroids', {
+               type: 'geojson',
+               data: centroids
+           });
+
+           place_labels = new Layer(state.map,
+               {
+                 id: 'bt_centroids',
+                 source: 'bt_centroids',
+                 type: 'symbol',
+                 layout: {
+                   'text-field': [
+                       'format',
+                       ['get', 'NAME'],
+                       {},
+                   ],
+                   'text-anchor': 'center',
+                   'text-radial-offset': 0,
+                   'text-justify': 'center'
+                 },
+                 paint: {
+                   'text-opacity': 0
+                 }
+               }
+           );
+         });
+         fetch(`/assets/boundaries/ca_butte_greenline.geojson`).then(res => res.json()).then((greenline) => {
+             state.map.addSource('greenline', {
+                 type: 'geojson',
+                 data: greenline
+             });
+              schoolsLayer = new Layer(state.map,
+                 {
+                     id: 'greenline',
+                     source: 'greenline',
+                     type: 'line',
+                     paint: { "line-color": "#070", "line-width": 2.5, "line-opacity": 0 }
+                 },
+                 addBelowLabels
+             );
+          });
     }
 
     if (state.place.id === "virginia") {
@@ -743,6 +816,27 @@ export default function DataLayersPlugin(editor) {
               let opacity = checked ? 1 : 0;
               precinctsLayer && precinctsLayer.setOpacity(opacity);
               precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
+          })}`,
+          {
+              isOpen: false
+          }
+      );
+    } else if (state.place.id === "ca_butte") {
+      tab.addRevealSection(
+          'Boundaries',
+          (uiState, dispatch) => html`
+          ${toggle("Current Supervisorial Districts", false, checked => {
+              let opacity = checked ? 1 : 0;
+              precinctsLayer && precinctsLayer.setOpacity(opacity);
+          })}
+          ${toggle("Census Designated Places", false, checked => {
+              let opacity = checked ? 1 : 0;
+              placesLayer && placesLayer.setOpacity(opacity);
+              place_labels && place_labels.setPaintProperty('text-opacity', opacity);
+          })}
+          ${toggle("Greenline", false, checked => {
+              let opacity = checked ? 1 : 0;
+              schoolsLayer && schoolsLayer.setOpacity(opacity);
           })}`,
           {
               isOpen: false

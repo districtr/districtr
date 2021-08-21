@@ -454,11 +454,166 @@
         "unitType": "VTDs",
         "columnSets": [
           {
+            "type": "election",
+            "name": "2014 US House",
+            "subgroups": [
+              {
+                "key": "USH14D",
+                "name": "Democratic",
+                "sum": 77004,
+                "min": 0,
+                "max": 887
+              },
+              {
+                "key": "USH14R",
+                "name": "Republican",
+                "sum": 102464,
+                "min": 0,
+                "max": 988
+              },
+              {
+                "key": "USH14L",
+                "name": "Libertarian",
+                "sum": 14715,
+                "min": 0,
+                "max": 199
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 69097,
+                "min": 0,
+                "max": 798
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 103457,
+                "min": 0,
+                "max": 1044
+              },
+              {
+                "key": "PRES16L",
+                "name": "Libertarian",
+                "sum": 12004,
+                "min": 0,
+                "max": 119
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 19602,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 87854,
+                "min": 0,
+                "max": 915
+              },
+              {
+                "key": "SEN16L",
+                "name": "Libertarian",
+                "sum": 60768,
+                "min": 0,
+                "max": 600
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 67274,
+                "min": 0,
+                "max": 839
+              },
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 100702,
+                "min": 0,
+                "max": 865
+              },
+              {
+                "key": "USH16L",
+                "name": "Libertarian",
+                "sum": 20100,
+                "min": 0,
+                "max": 195
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 80954,
+                "min": 0,
+                "max": 997
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 100372,
+                "min": 0,
+                "max": 981
+              },
+              {
+                "key": "GOV18L",
+                "name": "Libertarian",
+                "sum": 3970,
+                "min": 0,
+                "max": 44
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 83855,
+                "min": 0,
+                "max": 1027
+              },
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 103385,
+                "min": 0,
+                "max": 966
+              }
+            ]
+          },
+          {
             "type": "population",
             "name": "Population",
             "total": {
               "key": "TOTPOP",
-              "name": "Total Population",
+              "name": "Total population",
               "sum": 733391,
               "min": 0,
               "max": 8752
@@ -479,11 +634,11 @@
                 "max": 927
               },
               {
-                "key": "AMIN",
-                "name": "American Indian population",
-                "sum": 108838,
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 49824,
                 "min": 0,
-                "max": 2495
+                "max": 1791
               },
               {
                 "key": "ASIAN",
@@ -493,18 +648,18 @@
                 "max": 1483
               },
               {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 108838,
+                "min": 0,
+                "max": 2495
+              },
+              {
                 "key": "NHPI",
-                "name": "Native Hawaiian and Pacific Islanders population",
+                "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 12455,
                 "min": 0,
                 "max": 613
-              },
-              {
-                "key": "OTHER",
-                "name": "Other races",
-                "sum": 4575,
-                "min": 0,
-                "max": 73
               },
               {
                 "key": "2MORE",
@@ -514,11 +669,11 @@
                 "max": 606
               },
               {
-                "key": "HISP",
-                "name": "Hispanic population",
-                "sum": 49824,
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 4575,
                 "min": 0,
-                "max": 1791
+                "max": 73
               }
             ]
           },
@@ -548,11 +703,25 @@
                 "max": 724
               },
               {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 33441,
+                "min": 0,
+                "max": 1303
+              },
+              {
                 "key": "AMINVAP",
-                "name": "American Indian voting age population",
+                "name": "Native American voting age population",
                 "sum": 75017,
                 "min": 0,
                 "max": 1573
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 8122,
+                "min": 0,
+                "max": 360
               },
               {
                 "key": "ASIANVAP",
@@ -560,13 +729,6 @@
                 "sum": 34290,
                 "min": 0,
                 "max": 1347
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian and Pacific Islanders voting age population",
-                "sum": 8122,
-                "min": 0,
-                "max": 360
               },
               {
                 "key": "OTHERVAP",
@@ -581,13 +743,6 @@
                 "sum": 42679,
                 "min": 0,
                 "max": 401
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic voting age population",
-                "sum": 33441,
-                "min": 0,
-                "max": 1303
               }
             ]
           }

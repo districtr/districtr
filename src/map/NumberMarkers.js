@@ -86,10 +86,10 @@ export default function NumberMarkers(state, brush, old=false) {
                         "icon-size": 0.75
                     }
                 },
-                (map, layer) => {
-                    const layers = map.getStyle().layers;
-                    map.addLayer(layer, layers[layers.length - 1].id);
-                }
+                // (map, layer) => {
+                //     const layers = map.getStyle().layers;
+                //     map.addLayer(layer, layers[layers.length - 1].id);
+                // }
             ));
         });
     });
@@ -195,7 +195,7 @@ export default function NumberMarkers(state, brush, old=false) {
                 if (markers[district_num].length > 100) {
                     markers[district_num] = random.pickset(markers[district_num], 100);
                 }
-                if (!placeID.includes("2020") && state.unitsRecord.name.includes("2020") && state.unitsRecord.name !== "2020 Wards") {
+                if (!placeID.includes("20") && state.unitsRecord.name.includes("2020") && state.unitsRecord.name !== "2020 Wards") {
                     placeID += "_20";
                 }
                 const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
