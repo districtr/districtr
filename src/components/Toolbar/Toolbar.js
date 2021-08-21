@@ -105,7 +105,7 @@ export default class Toolbar {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
         }
         return html`
-        <div class="toolbar">
+        <div class="toolbar toolbar-animated">
             <nav>
                 <div class="toolbar-top">
                     <div class="icon-list">

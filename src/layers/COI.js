@@ -1,7 +1,7 @@
+
 import { html, render } from "lit-html";
 import { toggle } from "../components/Toggle";
 import Filter from "bad-words";
-
 import Tooltip from "../map/Tooltip";
 const wordfilter = new Filter();
 
@@ -44,7 +44,7 @@ function summation(plans) {
     // For each of the Plans, retrieve the names of the COIs and the GEOIDs they
     // map to.
     for (let _plan of plans) {
-        // TODO: this is stupid and should be refactored.
+        // TODO: this is stupid naming and should be refactored.
         let plan = _plan.plan;
 
         // First, get the internal IDs for each of the Parts. 
@@ -78,7 +78,7 @@ function summation(plans) {
  * @returns Promise
  */
 function loadPatternMapping() {
-    return fetch(`/assets/patterns/patterns.json`).then(res => res.json());
+    return fetch("/assets/patterns/patterns.json").then(res => res.json());
 }
 
 /**
@@ -130,7 +130,7 @@ function patternsToCOIs(names, patterns) {
 /**
  * @description Removes properties from `object` not specified in `included`.
  * @param {Object} object Object to have properties removed.
- * @param {[]]} included Properties retained.
+ * @param {Array} included Properties retained.
  * @returns Object
  */
 function include(object, included) {
@@ -154,9 +154,38 @@ function resolvesToArray(results) {
 }
 
 /**
+ * @description Creates a style expression for the units.
+ * @param {Object} units Units we're coloring.
+ * @param {Object} unitMap Maps COI names to the units they cover.
+ * @param {Object} patternMap Maps COI names to the patterns they're covered with.
+ * @returns {Array[]} Array of expressions.
+ */
+export function styleExpression(units, unitMap, patternMap) {
+    let expression = ["case"];
+
+    // For each of the COI names and GEOIDs they map they map to, create a style
+    // expression based on the patterns they map to.
+    for (let [coi, geoids] of Object.entries(unitMap)) {
+        let subexpression = [
+            "in",
+            ["get", "GEOID20"],
+            ["literal", geoids]
+        ];
+        expression.push(subexpression, patternMap[coi]);
+    }
+
+    // For the remaining units, set their paint properties to "transparent".
+    expression.push("transparent");
+    units.setPaintProperty("fill-pattern", expression);
+
+    return expression;
+}
+
+/**
  * @description Configures COI-related functionality in districting mode.
  * @param {State} state Holds state for the application.
  * @param {Tab} tab Tab object we're adding items to.
+ * @returns {Promise} Promise which resolves to the necessary objects for visualizing COIs.
  */
 export function addCOIs(state, tab) {
     let { map, coiunits, place } = state,
@@ -164,48 +193,47 @@ export function addCOIs(state, tab) {
         remoteURL = `/.netlify/functions/moduleRead?module=${place.id}&state=${place.state}&page=1`,
         URL = window.location.hostname == "localhost" ? localURL : remoteURL;
 
-    // Fetch COI data from the provided URL.
-    fetch(URL)
+    // Fetch COI data from the provided URL. Note that in order to return the
+    // required data to the caller, we have to return *all* the Promises and
+    // their resolutions, not just the first or last ones. This is important, as
+    // we don't want to have to recalculate COI-related stuff later.
+    return fetch(URL)
         .then(res => res.json())
-        .then(cois => {
-            // Filter COIs and create a mapping from names to patterns.
-            let filtered = filterCOIs(cois),
+        .then(clusters => {
+            // Filter COI clusters and create a mapping from names to patterns.
+            let filtered = filterCOIs(clusters),
                 [ unitMap, uniqueNames ] = summation(filtered),
                 expression = ["case"];
 
-            loadPatternMapping().then(patterns => {
+            return loadPatternMapping().then(patterns => {
                 // Now that we've loaded the names of the patterns, choose the
-                // right number of patterns, assign them to 
+                // right number of patterns, load the patterns we've selected,
+                // and match them to COIs.
                 let names = Object.keys(patterns).slice(0, uniqueNames.length),
                     chosenPatterns = include(patterns, names),
                     patternMatch = patternsToCOIs(uniqueNames, chosenPatterns);
 
-                console.log(names, chosenPatterns, patternMatch);
-
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
-                loadPatterns(map, chosenPatterns)
+                return loadPatterns(map, chosenPatterns)
                     .then(loadedPatterns => resolvesToArray(loadedPatterns))
                     .then(_ => {
                         // For each of the COIs, get the block groups that it
                         // covers and create a mapbox style expression assigning
                         // a pattern overlay to the units.
-                        for (let [coi, geoids] of Object.entries(unitMap)) {
-                            let subexpression = [
-                                "in",
-                                ["get", "GEOID20"],
-                                ["literal", geoids]
-                            ];
-                            console.dir(patternMatch);
-                            expression.push(subexpression, patternMatch[coi]);
+                        styleExpression(coiunits, unitMap, patternMatch);
+                        coiunits.setOpacity(0);
+
+                        // From here, we want to return all the necessary items
+                        // for properly rendering the COIs in the tool pane. We
+                        // should return the style expression, the unit mapping,
+                        // the pattern mapping, and the COIs themselves.
+                        return {
+                            clusters: clusters,
+                            unitMap: unitMap,
+                            patternMatch: patternMatch,
+                            units: coiunits
                         }
-                        // For the remainder of the tiles in the layer, we don't
-                        // want any fill. Set the paint property -- the expression
-                        // we just created -- and set the opacity to 1/3, so the
-                        // patterns aren't overwhelming to the viewer.
-                        expression.push("transparent");
-                        coiunits.setPaintProperty("fill-pattern", expression);
-                        coiunits.setOpacity(1/3);
                     });
             });
         });

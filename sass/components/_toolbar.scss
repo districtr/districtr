@@ -23,11 +23,23 @@
     flex-direction: column;
 }
 
+.toolbar-animated {
+    transition-property: width;
+    transition-duration: 1s;
+}
+
 .toolbar-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+.toolbar-inner-large {
+    font-weight: bold;
+    display: flex;
+    padding: 0 1rem 1rem 1rem;
+    text-align: justify;
 }
 
 .toolbar-inner {
