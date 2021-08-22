@@ -154,7 +154,7 @@ export default function NumberMarkers(state, brush, old=false) {
                 //     markers[district_num] = random.pickset(markers[district_num], 100);
                 // }
 
-                const units = state.unitsRecord.unitType;
+                const units = state.unitsRecord.id;
                 const stateName = state.place.state;
                 const assign = markers[district_num];
                 // console.log(assign);

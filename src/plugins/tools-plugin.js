@@ -47,7 +47,10 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let old_number_markers = (state.unitsRecord.name === "2020 Block Groups") || (state.unitsRecord.unitType !== "Block Groups" && (! spatial_abilities(state.place.id).number_markers_lambda));
+    let old_number_markers =  (state.unitsRecord.id !== "blockgroups"
+                                && state.unitsRecord.id !== "blockgroups20"
+                                && state.unitsRecord.id !== "vtds20"
+                                && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
