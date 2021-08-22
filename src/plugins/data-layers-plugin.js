@@ -911,6 +911,11 @@ export default function DataLayersPlugin(editor) {
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
+    if (state.place.id === "alaska_blocks") {
+        state.population.subgroups = [];
+        state.vap.subgroups = [];
+    }
+
     tab.addRevealSection(
         html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Population by Race"}</h5>`,
         (uiState, dispatch) => html`
