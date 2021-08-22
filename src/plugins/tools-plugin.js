@@ -149,6 +149,16 @@ function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
     if (retry == 0) {
         render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
     }
+    if (state.unitsRecord.name.includes("Block Groups") && !serialized.placeId.includes("_bg")) {
+        serialized.place.id += '_bg';
+        serialized.placeId += '_bg';
+    }
+    if (["2020 VTDs", "2020 Block Groups", "2020 Precincts"].includes(state.unitsRecord.name) && !serialized.placeId.includes("_20")) {
+        serialized.place.id += '_20';
+        serialized.placeId += '_20';
+    } else {
+        console.log(state.unitsRecord.name);
+    }
     fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
