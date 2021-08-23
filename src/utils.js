@@ -1178,6 +1178,7 @@ export function spatial_abilities(id) {
     },
     new_mexico_portal: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,

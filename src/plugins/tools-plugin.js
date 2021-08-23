@@ -47,7 +47,10 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let old_number_markers = (state.unitsRecord.name === "2020 Block Groups") || (state.unitsRecord.unitType !== "Block Groups" && (! spatial_abilities(state.place.id).number_markers_lambda));
+    let old_number_markers =  (state.unitsRecord.id !== "blockgroups"
+                                && state.unitsRecord.id !== "blockgroups20"
+                                && state.unitsRecord.id !== "vtds20"
+                                && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
     const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
         ? ContiguityChecker(state, brush)
@@ -136,25 +139,51 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state, geojson) {
+function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
     const serialized = state.serialize();
-    Object.keys(serialized.assignment).forEach((assign) => {
+    Object.keys(serialized.assignment).forEach(assign => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
-    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
+    if (retry == 0) {
+        render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
+    }
+    if (state.unitsRecord.name.includes("Block Groups") && !serialized.placeId.includes("_bg")) {
+        serialized.place.id += '_bg';
+        serialized.placeId += '_bg';
+    }
+    if (["2020 VTDs", "2020 Block Groups", "2020 Precincts"].includes(state.unitsRecord.name) && !serialized.placeId.includes("_20")) {
+        serialized.place.id += '_20';
+        serialized.placeId += '_20';
+    } else {
+        console.log(state.unitsRecord.name);
+    }
+    fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(serialized),
+        body: JSON.stringify(serialized)
     })
-    .then((res) => res.arrayBuffer())
-    .catch((e) => console.error(e))
-    .then((data) => {
-        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
+    .then(response => {
+        let status = response.status;
+        if (status == 200) {
+            response.arrayBuffer().then(
+                data => download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true)
+            );
+        } else {
+            console.error("Download failed; retrying . . .");
+            throw 'Download failed'
+        }
+    })
+    .catch(e => {
+        if (retry < 3) {
+            setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 2000 + 2000 * retry);
+        } else {
+            console.error(e);
+            render(renderModal(`Download failed! Please try again.`), document.getElementById("modal"));
+        }
     });
 }
 

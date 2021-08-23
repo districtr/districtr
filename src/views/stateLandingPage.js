@@ -8,6 +8,7 @@ export default () => {
     var curState = document.head.id;
     const vraPage = curState === "VRA - Dashboard";
     // document.title = curState.concat(" | Districtr");
+    //comment to trigger a build, remove if you see this
     fetch("/assets/data/landing_pages.json")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
