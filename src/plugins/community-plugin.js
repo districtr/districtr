@@ -296,7 +296,7 @@ class LandmarkOptions {
                 title="New Marker"
                 style="border: 2px solid #aaa;margin-left:auto;margin-right:auto;"
               >
-                <img src="/assets/new_landmark.svg"/>
+                <img src="/assets/new_landmark.svg?v=2"/>
                 New
               </button>
           </div>

@@ -119,7 +119,7 @@ export default function DataLayersPlugin(editor) {
               stlouis_mn: "Duluth",
             };
 
-        fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
+        fetch(`/assets/city_border/${cityid[state.place.id]}.geojson?v=2`).then(res => res.json()).then((border) => {
             state.map.addSource('togglecity_border', {
                 type: 'geojson',
                 data: border
@@ -154,7 +154,7 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.id === "forsyth_nc") {
         let fnc_layer;
-        fetch(`/assets/boundaries/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
+        fetch(`/assets/boundaries/forsyth_nc_muni.geojson?v=2`).then(res => res.json()).then((fnc) => {
             state.map.addSource('fnc', {
                 type: 'geojson',
                 data: fnc
@@ -186,7 +186,7 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.id === "baltimore") {
         let fnc_layer;
-        fetch(`/assets/boundaries/baltimore-precincts.geojson`).then(res => res.json()).then((fnc) => {
+        fetch(`/assets/boundaries/baltimore-precincts.geojson?v=2`).then(res => res.json()).then((fnc) => {
             state.map.addSource('fnc', {
                 type: 'geojson',
                 data: fnc
@@ -214,7 +214,7 @@ export default function DataLayersPlugin(editor) {
 
     let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
     if (["virginia", "lax", "ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
-        fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
+        fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson?v=2`).then(res => res.json()).then((va2010) => {
             state.map.addSource('va2010', {
                 type: 'geojson',
                 data: va2010
@@ -231,7 +231,7 @@ export default function DataLayersPlugin(editor) {
             );
 
             if (state.place.id === "virginia") {
-                fetch("/assets/boundaries/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
+                fetch("/assets/boundaries/virginia_2013.geojson?v=2").then(res => res.json()).then((va2013) => {
                     state.map.addSource('va2013', {
                         type: 'geojson',
                         data: va2013
@@ -248,7 +248,7 @@ export default function DataLayersPlugin(editor) {
                     );
                 });
             } else if (state.place.id === "lax") {
-                fetch("/assets/boundaries/lax_senate.geojson").then(res => res.json()).then((va2013) => {
+                fetch("/assets/boundaries/lax_senate.geojson?v=2").then(res => res.json()).then((va2013) => {
                     state.map.addSource('va2013', {
                         type: 'geojson',
                         data: va2013
@@ -264,7 +264,7 @@ export default function DataLayersPlugin(editor) {
                         addBelowLabels
                     );
                 });
-                fetch("/assets/boundaries/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
+                fetch("/assets/boundaries/lax_congress.geojson?v=2").then(res => res.json()).then((lax_ush) => {
                     state.map.addSource('lax_ush', {
                         type: 'geojson',
                         data: lax_ush
@@ -288,7 +288,7 @@ export default function DataLayersPlugin(editor) {
     let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
     if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
         let st = state.place.state.toLowerCase().replace(" ","");
-        fetch(`/assets/boundaries/school_districts/${st}/${st}_schools.geojson`).then(res => res.json()).then((school_gj) => {
+        fetch(`/assets/boundaries/school_districts/${st}/${st}_schools.geojson?v=2`).then(res => res.json()).then((school_gj) => {
             state.map.addSource('school_gj', {
                 type: 'geojson',
                 data: school_gj
@@ -303,7 +303,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
 
-            fetch(`/assets/boundaries/school_districts/${st}/${st}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
+            fetch(`/assets/boundaries/school_districts/${st}/${st}_schools_centroids.geojson?v=2`).then(res => res.json()).then((school_centroids) => {
                 state.map.addSource('school_centroids', {
                     type: 'geojson',
                     data: school_centroids
@@ -334,7 +334,7 @@ export default function DataLayersPlugin(editor) {
                 if (!["ohcentral", "indiana"].includes(state.place.id)) {
                   return;
                 }
-                fetch(`/assets/boundaries/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
+                fetch(`/assets/boundaries/${state.place.id}_places.geojson?v=2`).then(res => res.json()).then((places_gj) => {
                     state.map.addSource('places_gj', {
                         type: 'geojson',
                         data: places_gj
@@ -349,7 +349,7 @@ export default function DataLayersPlugin(editor) {
                         },
                         addBelowLabels
                     );
-                    fetch(`/assets/boundaries/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((places_centroids) => {
+                    fetch(`/assets/boundaries/${state.place.id}_places_centroids.geojson?v=2`).then(res => res.json()).then((places_centroids) => {
                         state.map.addSource('places_centroids', {
                             type: 'geojson',
                             data: places_centroids
@@ -381,7 +381,7 @@ export default function DataLayersPlugin(editor) {
             });
         });
     } else if (["elpasotx"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
-      fetch(`/assets/boundaries/${state.place.id}_precincts.geojson`).then(res => res.json()).then((precinct_gj) => {
+      fetch(`/assets/boundaries/${state.place.id}_precincts.geojson?v=2`).then(res => res.json()).then((precinct_gj) => {
           state.map.addSource('precinct_gj', {
               type: 'geojson',
               data: precinct_gj
@@ -396,7 +396,7 @@ export default function DataLayersPlugin(editor) {
               addBelowLabels
           );
 
-          fetch(`/assets/boundaries/${state.place.id}_precincts_centroids.geojson`).then(res => res.json()).then((precinct_centroids) => {
+          fetch(`/assets/boundaries/${state.place.id}_precincts_centroids.geojson?v=2`).then(res => res.json()).then((precinct_centroids) => {
               state.map.addSource('precinct_centroids', {
                   type: 'geojson',
                   data: precinct_centroids
@@ -425,7 +425,7 @@ export default function DataLayersPlugin(editor) {
           });
        });
     } else if (["ca_sanjoaquin"].includes(state.place.id)) {
-      fetch(`/assets/boundaries/${state.place.id}_bg.geojson`).then(res => res.json()).then((bg_gj) => {
+      fetch(`/assets/boundaries/${state.place.id}_bg.geojson?v=2`).then(res => res.json()).then((bg_gj) => {
           state.map.addSource('bg_gj', {
               type: 'geojson',
               data: bg_gj
@@ -440,7 +440,7 @@ export default function DataLayersPlugin(editor) {
               addBelowLabels
           );
 
-          fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((bg_centroids) => {
+          fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson?v=2`).then(res => res.json()).then((bg_centroids) => {
               state.map.addSource('bg_centroids', {
                   type: 'geojson',
                   data: bg_centroids
@@ -469,7 +469,7 @@ export default function DataLayersPlugin(editor) {
               );
           });
        });
-       fetch(`/assets/boundaries/${state.place.id}_tract.geojson`).then(res => res.json()).then((tract_gj) => {
+       fetch(`/assets/boundaries/${state.place.id}_tract.geojson?v=2`).then(res => res.json()).then((tract_gj) => {
            state.map.addSource('tract_gj', {
                type: 'geojson',
                data: tract_gj
@@ -484,7 +484,7 @@ export default function DataLayersPlugin(editor) {
                addBelowLabels
            );
 
-           fetch(`/assets/boundaries/${state.place.id}_tract_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
+           fetch(`/assets/boundaries/${state.place.id}_tract_centroids.geojson?v=2`).then(res => res.json()).then((tract_centroids) => {
                state.map.addSource('tract_centroids', {
                    type: 'geojson',
                    data: tract_centroids
@@ -513,7 +513,7 @@ export default function DataLayersPlugin(editor) {
            });
         });
     } else if (state.place.id === "rp_lax") {
-      fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood.geojson`).then(res => res.json()).then((places) => {
+      fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood.geojson?v=2`).then(res => res.json()).then((places) => {
           state.map.addSource('latimes_places', {
               type: 'geojson',
               data: places
@@ -528,7 +528,7 @@ export default function DataLayersPlugin(editor) {
               addBelowLabels
           );
 
-          fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood_centroids.geojson`).then(res => res.json()).then((centroids) => {
+          fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
               state.map.addSource('latimes_centroids', {
                   type: 'geojson',
                   data: centroids
@@ -557,7 +557,7 @@ export default function DataLayersPlugin(editor) {
           });
        });
 
-       fetch(`/assets/boundaries/neighborhoods/lax_neighborhood_council.geojson`).then(res => res.json()).then((nplaces) => {
+       fetch(`/assets/boundaries/neighborhoods/lax_neighborhood_council.geojson?v=2`).then(res => res.json()).then((nplaces) => {
            state.map.addSource('ncouncil_places', {
                type: 'geojson',
                data: nplaces
@@ -572,7 +572,7 @@ export default function DataLayersPlugin(editor) {
                addBelowLabels
            );
 
-           fetch(`/assets/boundaries/neighborhoods/lax_Neighborhood_Councils_centroids.geojson`).then(res => res.json()).then((ncentroids) => {
+           fetch(`/assets/boundaries/neighborhoods/lax_Neighborhood_Councils_centroids.geojson?v=2`).then(res => res.json()).then((ncentroids) => {
                state.map.addSource('ncouncil_centroids', {
                    type: 'geojson',
                    data: ncentroids
@@ -601,7 +601,7 @@ export default function DataLayersPlugin(editor) {
            });
         });
     } else if (state.place.id === "sanjoseca") {
-      fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods.geojson`).then(res => res.json()).then((places) => {
+      fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods.geojson?v=2`).then(res => res.json()).then((places) => {
           state.map.addSource('sj_places', {
               type: 'geojson',
               data: places
@@ -616,7 +616,7 @@ export default function DataLayersPlugin(editor) {
               addBelowLabels
           );
 
-          fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods_centroids.geojson`).then(res => res.json()).then((centroids) => {
+          fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
               state.map.addSource('sj_centroids', {
                   type: 'geojson',
                   data: centroids
@@ -645,7 +645,7 @@ export default function DataLayersPlugin(editor) {
           });
        });
      } else if (state.place.id === "ca_butte") {
-        fetch(`/assets/boundaries/current_districts/california/ca_butte.geojson`).then(res => res.json()).then((places) => {
+        fetch(`/assets/boundaries/current_districts/california/ca_butte.geojson?v=2`).then(res => res.json()).then((places) => {
            state.map.addSource('bt_districts', {
                type: 'geojson',
                data: places
@@ -660,7 +660,7 @@ export default function DataLayersPlugin(editor) {
                addBelowLabels
            );
         });
-        fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities.geojson`).then(res => res.json()).then((places) => {
+        fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities.geojson?v=2`).then(res => res.json()).then((places) => {
             state.map.addSource('bt_places', {
                 type: 'geojson',
                 data: places
@@ -675,7 +675,7 @@ export default function DataLayersPlugin(editor) {
                 addBelowLabels
             );
          });
-         fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
+         fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
            state.map.addSource('bt_centroids', {
                type: 'geojson',
                data: centroids
@@ -702,7 +702,7 @@ export default function DataLayersPlugin(editor) {
                }
            );
          });
-         fetch(`/assets/boundaries/ca_butte_greenline.geojson`).then(res => res.json()).then((greenline) => {
+         fetch(`/assets/boundaries/ca_butte_greenline.geojson?v=2`).then(res => res.json()).then((greenline) => {
              state.map.addSource('greenline', {
                  type: 'geojson',
                  data: greenline

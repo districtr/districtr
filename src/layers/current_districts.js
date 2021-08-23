@@ -18,7 +18,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     if (current_districts) {
       if (stateID !== placeID) {
           // city council or county
-          fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}.geojson`).then(res => res.json()).then((districts) => {
+          fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}.geojson?v=2`).then(res => res.json()).then((districts) => {
             state.map.addSource('current_districts', {
                 type: 'geojson',
                 data: districts
@@ -38,7 +38,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 addBelowLabels
             );
             try {
-            fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}_centroids.geojson`).then(res => res.json()).then((centroids) => {
+            fetch(`/assets/boundaries/current_districts/${stateID}/${placeID}_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
               state.map.addSource('district_centroids', {
                   type: 'geojson',
                   data: centroids
@@ -68,8 +68,8 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
           } catch (e) {}
           });
       } else {
-        fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
-        fetch(`/assets/boundaries/current_districts/${placeID}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
+        fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson?v=2`).then(res => res.json()).then((state_house) => {
+        fetch(`/assets/boundaries/current_districts/${placeID}/state_senate.geojson?v=2`).then(res => res.json()).then((state_senate) => {
 
             state.map.addSource('state_house', {
                 type: 'geojson',
@@ -115,7 +115,7 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
                 addBelowLabels
             );
             if (!one_cd(placeID)) {
-                fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
+                fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson?v=2`).then(res => res.json()).then((fed) => {
 
                     state.map.addSource('fed_districts', {
                         type: 'geojson',
@@ -145,8 +145,8 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
 
     // school districts should be stored in /assets/boundaries/school_districts/[state]/
     if (school_districts) {
-        fetch(`/assets/boundaries/school_districts/${stateID}/${placeID}_schools.geojson`).then(res => res.json()).then((schools) => {
-        fetch(`/assets/boundaries/school_districts/${stateID}/${placeID}_schools_centroids.geojson`).then(res => res.json()).then((centroids) => {
+        fetch(`/assets/boundaries/school_districts/${stateID}/${placeID}_schools.geojson?v=2`).then(res => res.json()).then((schools) => {
+        fetch(`/assets/boundaries/school_districts/${stateID}/${placeID}_schools_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
 
             state.map.addSource('schools', {
                 type: 'geojson',
@@ -191,8 +191,8 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     }
     // municipal boundaries should be stored in /assets/boundaries/municipalities/[state]/
     if (municipalities) {
-        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities.geojson`).then(res => res.json()).then((muni) => {
-        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
+        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities.geojson?v=2`).then(res => res.json()).then((muni) => {
+        fetch(`/assets/boundaries/municipalities/${stateID}/${placeID}_municipalities_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
 
             state.map.addSource('muni', {
                 type: 'geojson',
@@ -237,8 +237,8 @@ export function addBoundaryLayers(tab, state, current_districts, school_district
     }
 
     if (neighborhoods) {
-      fetch(`/assets/boundaries/neighborhoods/${stateID}/${placeID}.geojson`).then(res => res.json()).then((neighborhoods) => {
-        fetch(`/assets/boundaries/neighborhoods/${stateID}/${placeID}_centroids.geojson`).then(res => res.json()).then((centroids) => {
+      fetch(`/assets/boundaries/neighborhoods/${stateID}/${placeID}.geojson?v=2`).then(res => res.json()).then((neighborhoods) => {
+        fetch(`/assets/boundaries/neighborhoods/${stateID}/${placeID}_centroids.geojson?v=2`).then(res => res.json()).then((centroids) => {
           state.map.addSource('neighborhoods', {
               type: 'geojson',
               data: neighborhoods
