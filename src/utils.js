@@ -744,6 +744,8 @@ export function spatial_abilities(id) {
       id: 'greenline',
       label: 'Greenline',
       path: 'ca_butte_greenline',
+      lineColor: '#070',
+      lineWidth: 2.5,
     }]
   },
   ca_humboldt: {

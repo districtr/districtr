@@ -159,12 +159,15 @@ export default function DataLayersPlugin(editor) {
               id: 'cur_district_ssen',
               centroids: false,
               label: 'State Senate',
+              lineWidth: nested(placeID) ? 2 : 1.5,
           });
           selectBoundaries.push({
               path: `current_districts/${stateID}/state_house`,
               id: 'cur_district_sho',
               centroids: false,
               label: 'State House',
+              lineColor: nested(placeID) ? '#f00' : '#000',
+              lineWidth: nested(placeID) ? 0.75 : 1.5,
           });
       }
     }

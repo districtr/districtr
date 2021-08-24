@@ -22,9 +22,9 @@ export function addBoundaryLayer(config, map) {
                 type: 'line',
                 source: config.id,
                 paint: {
-                    'line-color': '#000',
+                    'line-color': config.lineColor || '#000',
                     'line-opacity': 0,
-                    'line-width': 1.5
+                    'line-width': config.lineWidth || 1.5,
                 }
             },
             addBelowLabels
