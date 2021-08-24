@@ -1625,7 +1625,7 @@ export function spatial_abilities(id) {
         label: 'Current Precincts',
         path: 'elpasotx_precincts',
         namefield: 'CURRENT_PC',
-        unitType: 'blockgroup',
+        unitType: 'block',
         centroids: true,
       }]
     },
