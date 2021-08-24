@@ -57,7 +57,7 @@ export default function DataLayersPlugin(editor) {
                 }
             })}
             ${(["chicago_community_areas", "montana_blocks", "wyoming_blocks"].includes(state.units.sourceId)
-              || !spatial_abilities(state.place.id).number_markers
+                || ! spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
                     if (checked) {
