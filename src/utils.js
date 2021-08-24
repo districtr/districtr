@@ -364,7 +364,6 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     arkansas: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -416,7 +415,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: true,
+      current_districts: 'Supervisorial Districts',
     },
     sunnyvale: {
       coalition: false,
@@ -511,7 +510,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: true,
+      current_districts: 'Supervisorial Districts',
     },
     ca_fresno: {
       coalition: false,
@@ -707,18 +706,47 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     municipalities: true,
+    boundaries: [{
+      id: 'bg_gj',
+      label: 'Block Groups',
+      path: 'ca_sanjoaquin_bg',
+    }, {
+      id: 'tract_gj',
+      label: 'Tracts',
+      path: 'ca_sanjoaquin_tract',
+      centroids: true,
+    }]
   },
   rp_lax: {
     border: true,
     shapefile: true,
     number_markers: true,
+    boundaries: [{
+      id: 'latimes_places',
+      label: 'LA Times Neighborhoods',
+      path: 'neighborhoods/lax_LATimes_Neighborhood',
+      centroids: true,
+    }, {
+      id: 'ncouncil_places',
+      label: 'Neighborhood Councils',
+      path: 'neighborhoods/lax_neighborhood_council',
+      centroids: true,
+    }]
   },
   ca_butte: {
     border: true,
     shapefile: true,
     number_markers: true,
-    // municipalities: true,
+    municipalities: 'Census Designated Places',
+    current_districts: true,
     native_american: true,
+    boundaries: [{
+      id: 'greenline',
+      label: 'Greenline',
+      path: 'ca_butte_greenline',
+      lineColor: '#070',
+      lineWidth: 2.5,
+    }]
   },
   ca_humboldt: {
     border: true,
@@ -747,6 +775,12 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    boundaries: [{
+      id: 'sj_places',
+      label: 'Neighborhoods',
+      path: 'neighborhoods/sanjose_neighborhoods',
+      centroids: true,
+    }]
   },
   redwood: {
     border: true,
@@ -845,7 +879,6 @@ export function spatial_abilities(id) {
       load_coi: false,
     },
     dc: {
-      multiyear: 2018,
       number_markers: true,
       contiguity: 2,
       shapefile: true,
@@ -861,7 +894,6 @@ export function spatial_abilities(id) {
     florida: {
       native_american: true,
       number_markers: true,
-      // multiyear: 2018,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -876,17 +908,19 @@ export function spatial_abilities(id) {
       border: true,
     },
     miamidade: {
-      // multiyear: 2018,
       number_markers: true,
       neighborhoods: true,
+      boundaries: [{
+        path: 'city_border/miamifl',
+        id: 'citybor',
+        label: 'Show City Border',
+      }]
     },
     fl_hills: {
-      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
     fl_orange: {
-      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
@@ -920,10 +954,8 @@ export function spatial_abilities(id) {
       native_american: true,
       county_brush: true,
       shapefile: true,
-      census20: true,
     },
     idaho: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -938,13 +970,13 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     indiana: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
       school_districts: true,
+      municipalities: 'Cities and Towns',
     },
     iowa: {
       number_markers: true,
@@ -954,7 +986,6 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     kansas: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -962,7 +993,6 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     kentucky: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -974,6 +1004,19 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
+      boundaries: [{
+        id: 'va2010',
+        label: 'State Assembly',
+        path: 'lax_2010'
+      }, {
+        id: 'va2013',
+        label: 'State Senate',
+        path: 'lax_senate'
+      }, {
+        id: 'lax_ush',
+        label: 'US House',
+        path: 'lax_congress'
+      }]
     },
     little_rock: {
       number_markers: true,
@@ -1006,7 +1049,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
     },
     maryland: {
       number_markers: true,
@@ -1021,6 +1063,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       contiguity: 2,
+      boundaries: [{
+        id: 'cityprec',
+        label: 'Voter Precincts',
+        path: 'baltimore-precincts'
+      }]
     },
     ma: {
       number_markers: true,
@@ -1066,7 +1113,6 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.michigan-mapping.org',
       },
-      census20: true,
     },
     minnesota: {
       number_markers: true,
@@ -1086,6 +1132,11 @@ export function spatial_abilities(id) {
     olmsted: {
       number_markers: true,
       border: true,
+      boundaries: [{
+          path: 'city_border/rochestermn',
+          id: 'citybor',
+          label: 'Show Rochester Border',
+      }]
     },
     rochestermn: {
       number_markers: true,
@@ -1100,6 +1151,11 @@ export function spatial_abilities(id) {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+          path: 'city_border/duluth',
+          id: 'citybor',
+          label: 'Show Duluth Border',
+      }]
     },
     mississippi: {
       number_markers: true,
@@ -1110,7 +1166,6 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     missouri: {
-      // multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1123,7 +1178,6 @@ export function spatial_abilities(id) {
       },
     },
     montana: {
-      // multiyear: 2018,
       native_american: true,
       number_markers: true,
       shapefile: true,
@@ -1131,8 +1185,7 @@ export function spatial_abilities(id) {
       county_brush: true,
     },
     nebraska: {
-      // multiyear: 2018,
-      // number_markers: true,
+      number_markers: true,
       native_american: true,
       county_brush: true,
       absentee: true,
@@ -1141,19 +1194,16 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     nevada: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
       contiguity: 2,
     },
     newhampshire: {
       number_markers: true,
       shapefile: true,
-      multiyear: 2018,
       // find_unpainted: true,
       school_districts: true
     },
@@ -1163,7 +1213,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       contiguity: 2,
-      census20: true,
     },
     new_mexico: {
       number_markers: true,
@@ -1174,7 +1223,6 @@ export function spatial_abilities(id) {
       current_districts: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true
     },
     new_mexico_portal: {
       number_markers: true,
@@ -1186,7 +1234,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       election_history: false,
-      census20: true,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
@@ -1212,7 +1259,6 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
-      census20: true,
       // find_unpainted: true,
     },
     northcarolina: {
@@ -1228,15 +1274,24 @@ export function spatial_abilities(id) {
     forsyth_nc: {
       contiguity: 2,
       shapefile: true,
+      boundaries: [{
+        id: 'citybor',
+        label: 'Show Winston-Salem Border',
+        path: 'forsyth_nc_muni'
+      }]
     },
     buncombe: {
       contiguity: 2,
       shapefile: true,
       number_markers: true,
       border: true,
+      boundaries: [{
+          path: 'city_border/asheville',
+          id: 'citybor',
+          label: 'Show Asheville Border',
+      }]
     },
     northdakota: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -1322,6 +1377,8 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
+      municipalities: 'Cities and Towns',
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1330,6 +1387,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1338,6 +1396,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1346,6 +1405,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1354,6 +1414,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1362,6 +1423,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1465,7 +1527,6 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
-      census20: true
     },
     portlandor: {
       number_markers: true,
@@ -1511,21 +1572,18 @@ export function spatial_abilities(id) {
       border: true,
     },
     southcarolina: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
     },
     southdakota: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
     },
     tennessee: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1564,11 +1622,27 @@ export function spatial_abilities(id) {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+        id: 'precinct_gj',
+        label: 'Current Precincts',
+        path: 'elpasotx_precincts',
+        namefield: 'CURRENT_PC',
+        unitType: 'block',
+        centroids: true,
+      }]
     },
     elpaso2: {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+        id: 'precinct_gj',
+        label: 'Current Precincts',
+        path: 'elpasotx_precincts',
+        namefield: 'CURRENT_PC',
+        unitType: 'blockgroup',
+        centroids: true,
+      }]
     },
     utah: {
       number_markers: true,
@@ -1589,7 +1663,6 @@ export function spatial_abilities(id) {
     vermont: {
       number_markers: true,
       county_brush: true,
-      multiyear: 2018,
       shapefile: true,
       // find_unpainted: true,
     },
@@ -1603,6 +1676,16 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.virginia-mapping.org',
       },
+      boundaries: [{
+        id: 'va2010',
+        label: '2003-2013 Congressional Plan',
+        path: 'virginia_2010'
+      },
+      {
+        id: 'va2013',
+        label: '2013-2017 Congressional Plan',
+        path: 'virginia_2013'
+      }]
     },
     vabeach: {
       multiyear: 2018,
@@ -1625,7 +1708,6 @@ export function spatial_abilities(id) {
       border: true,
     },
     westvirginia: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1678,7 +1760,6 @@ export function spatial_abilities(id) {
       sideload: true,
     },
     wyoming: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
     }
