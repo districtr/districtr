@@ -74,7 +74,7 @@ export default class Toolbar {
             if (_id || (window.location.hostname === 'localhost')) {
                 document.getElementById("save-popup").className = "show";
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/${action}/${_id}`;
-
+                document.getElementById("eval-button").onclick = () => window.location.href = `/eval/${_id}`
                 saved();
             } else {
                 console.error("Failed to save map");
@@ -150,6 +150,9 @@ export default class Toolbar {
                             }}"
                         > Copy </button>
                         <br/>
+                        <button
+                            id="eval-button"
+                        > Evaluate your plan! </button>
                         <br/>
                         <label style="float: right; cursor: pointer;">
                           <input id="is-scratch" type="checkbox"/>
