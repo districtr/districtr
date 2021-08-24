@@ -2641,6 +2641,13 @@
                 "max": 17
               },
               {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 551174,
+                "min": 0,
+                "max": 1845
+              },
+              {
                 "key": "NH_NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 458,
@@ -2752,7 +2759,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.dallastx_blocks_points"
+              "url": "mapbox://districtr.dallastx_blocks_points?v=2"
             },
             "sourceLayer": "dallastx_blocks_points"
           },
@@ -2760,7 +2767,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.dallastx_blocks"
+              "url": "mapbox://districtr.dallastx_blocks?v=2"
             },
             "sourceLayer": "dallastx_blocks"
           }
