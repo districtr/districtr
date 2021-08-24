@@ -106,7 +106,7 @@ export default function DataLayersPlugin(editor) {
     let selectBoundaries = spatial_abilities(state.place.id).boundaries || [];
     const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
-          placeID = (stateID === "california") ? state.place.id : stateID;
+          placeID = ["california", "ohio"].includes(stateID) ? state.place.id : stateID;
 
     if (spatial_abilities(state.place.id).municipalities) {
         selectBoundaries.push({

@@ -5,8 +5,9 @@ import Layer, { addBelowLabels } from "../map/Layer";
 let layers = {};
 
 export function addBoundaryLayer(config, map) {
+  const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
   if (!map.getSource(config.id)) {
-    fetch(`/assets/boundaries/${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
+    fetch(`${prefix}${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
         if (map.getSource(config.id)) {
           return;
         }
@@ -32,7 +33,7 @@ export function addBoundaryLayer(config, map) {
   }
 
   if (config.centroids && !map.getSource(`${config.id}_centroids`)) {
-    fetch(`/assets/boundaries/${config.path}_centroids.geojson?v=2`).then(res => res.json()).then(centroids => {
+    fetch(`${prefix}${config.path}_centroids.geojson?v=2`).then(res => res.json()).then(centroids => {
         if (map.getSource(`${config.id}_centroids`)) {
           return;
         }

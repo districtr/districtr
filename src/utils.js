@@ -707,18 +707,50 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     municipalities: true,
+    boundaries: [{
+      id: 'bg_gj',
+      label: 'Block Groups',
+      path: 'ca_sanjoaquin_bg',
+    }, {
+      id: 'tract_gj',
+      label: 'Tracts',
+      path: 'ca_sanjoaquin_tract',
+      centroids: true,
+    }]
   },
   rp_lax: {
     border: true,
     shapefile: true,
     number_markers: true,
+    boundaries: [{
+      id: 'latimes_places',
+      label: 'LA Times Neighborhoods',
+      path: 'neighborhoods/lax_LATimes_Neighborhood',
+      centroids: true,
+    }, {
+      id: 'ncouncil_places',
+      label: 'Neighborhood Councils',
+      path: 'neighborhoods/lax_neighborhood_council',
+      centroids: true,
+    }]
   },
   ca_butte: {
     border: true,
     shapefile: true,
     number_markers: true,
     // municipalities: true,
+    current_districts: true,
     native_american: true,
+    boundaries: [{
+      id: 'sj_places',
+      label: 'Census Designated Places',
+      path: 'municipalities/california/ca_butte',
+      centroids: true,
+    }, {
+      id: 'greenline',
+      label: 'Greenline',
+      path: 'ca_butte_greenline',
+    }]
   },
   ca_humboldt: {
     border: true,
@@ -747,6 +779,12 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    boundaries: [{
+      id: 'sj_places',
+      label: 'Neighborhoods',
+      path: 'neighborhoods/sanjose_neighborhoods',
+      centroids: true,
+    }]
   },
   redwood: {
     border: true,
@@ -879,6 +917,11 @@ export function spatial_abilities(id) {
       // multiyear: 2018,
       number_markers: true,
       neighborhoods: true,
+      boundaries: [{
+        path: 'city_border/miamifl',
+        id: 'citybor',
+        label: 'Show City Border',
+      }]
     },
     fl_hills: {
       // multiyear: 2019,
@@ -974,6 +1017,19 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
+      boundaries: [{
+        id: 'va2010',
+        label: 'State Assembly',
+        path: 'lax_2010'
+      }, {
+        id: 'va2013',
+        label: 'State Senate',
+        path: 'lax_senate'
+      }, {
+        id: 'lax_ush',
+        label: 'US House',
+        path: 'lax_congress'
+      }]
     },
     little_rock: {
       number_markers: true,
@@ -1021,6 +1077,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       contiguity: 2,
+      boundaries: [{
+        id: 'cityprec',
+        label: 'Voter Precincts',
+        path: 'baltimore-precincts'
+      }]
     },
     ma: {
       number_markers: true,
@@ -1086,6 +1147,11 @@ export function spatial_abilities(id) {
     olmsted: {
       number_markers: true,
       border: true,
+      boundaries: [{
+          path: 'city_border/rochestermn',
+          id: 'citybor',
+          label: 'Show Rochester Border',
+      }]
     },
     rochestermn: {
       number_markers: true,
@@ -1100,6 +1166,11 @@ export function spatial_abilities(id) {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+          path: 'city_border/duluth',
+          id: 'citybor',
+          label: 'Show Duluth Border',
+      }]
     },
     mississippi: {
       number_markers: true,
@@ -1228,12 +1299,22 @@ export function spatial_abilities(id) {
     forsyth_nc: {
       contiguity: 2,
       shapefile: true,
+      boundaries: [{
+        id: 'citybor',
+        label: 'Show Winston-Salem Border',
+        path: 'forsyth_nc_muni'
+      }]
     },
     buncombe: {
       contiguity: 2,
       shapefile: true,
       number_markers: true,
       border: true,
+      boundaries: [{
+          path: 'city_border/asheville',
+          id: 'citybor',
+          label: 'Show Asheville Border',
+      }]
     },
     northdakota: {
       multiyear: 2018,
@@ -1322,6 +1403,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1330,6 +1412,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1338,6 +1421,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1346,6 +1430,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1354,6 +1439,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1362,6 +1448,7 @@ export function spatial_abilities(id) {
       multiyear: 2019,
       number_markers: true,
       shapefile: true,
+      school_districts: true,
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1564,11 +1651,27 @@ export function spatial_abilities(id) {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+        id: 'precinct_gj',
+        label: 'Current Precincts',
+        path: 'elpasotx_precincts',
+        namefield: 'CURRENT_PC',
+        unitType: 'blockgroup',
+        centroids: true,
+      }]
     },
     elpaso2: {
       border: true,
       number_markers: true,
       shapefile: true,
+      boundaries: [{
+        id: 'precinct_gj',
+        label: 'Current Precincts',
+        path: 'elpasotx_precincts',
+        namefield: 'CURRENT_PC',
+        unitType: 'blockgroup',
+        centroids: true,
+      }]
     },
     utah: {
       number_markers: true,
@@ -1603,6 +1706,16 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.virginia-mapping.org',
       },
+      boundaries: [{
+        id: 'va2010',
+        label: '2003-2013 Congressional Plan',
+        path: 'virginia_2010'
+      },
+      {
+        id: 'va2013',
+        label: '2013-2017 Congressional Plan',
+        path: 'virginia_2013'
+      }]
     },
     vabeach: {
       multiyear: 2018,
