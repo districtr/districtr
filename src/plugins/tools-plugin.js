@@ -52,20 +52,27 @@ export default function ToolsPlugin(editor) {
                                 && state.unitsRecord.id !== "vtds20"
                                 && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
-    const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
-        ? ContiguityChecker(state, brush)
-        : null;
+
+    let old_contiguity = (state.unitsRecord.id !== "blockgroups"
+                            && state.unitsRecord.id !== "blockgroups20"
+                            && state.unitsRecord.id !== "vtds20");
+
+    const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
+                            ? ContiguityChecker(state, brush)
+                            : null;
+
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
         if (c_checker) {
-            c_checker(state, colorsAffected);
+            c_checker(state, colorsAffected, old_contiguity);
         }
 
         if (vraEffectiveness) {
             vraEffectiveness(state, colorsAffected);
         }
 
-        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers") 
+                               && document.querySelector("#toggle-district-numbers").checked) {
             window.planNumbers.update(state, colorsAffected);
         }
     });

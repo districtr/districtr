@@ -56,14 +56,7 @@ export default function DataLayersPlugin(editor) {
                   state.brush.deactivate();
                 }
             })}
-            ${(["chicago_community_areas", "alaska_blockgroups", "hawaii_blockgroups", "oregon_blockgroups",
-                "colorado_blockgroups", "iowa_blockgroups", "georgia_blockgroups", "connecticut_blockgroups",
-               "maryland_blockgroups", "ma_blockgroups", "michigan_blockgroups", "minnesota_blockgroups",
-               "montana_blocks", "wyoming_blocks", "newhampshire_blockgroups",
-             "new_mexico_blockgroups", "pennsylvania_blockgroups", "texas_blockgroups", "vermont_bg_blockgroups",
-           "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
-            "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
-              "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
+            ${(["chicago_community_areas", "montana_blocks", "wyoming_blocks"].includes(state.units.sourceId)
               || !spatial_abilities(state.place.id).number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
