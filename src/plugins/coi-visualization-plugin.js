@@ -88,7 +88,12 @@ function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier
             }
 
             // If *any* of the checkboxes are unchecked, we can't view the things.
-            for (let checkbox of filtered) isChecked = isChecked && checkbox.control.checked;
+            for (let checkbox of filtered) {
+                let coi = checkbox.classList[3];
+                console.dir(coi, coiClasses);
+                if (coiClasses.includes(coi)) continue;
+                isChecked = isChecked && checkbox.control.checked;
+            }
 
             if (isChecked) {
                 return html`

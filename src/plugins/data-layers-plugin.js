@@ -14,7 +14,6 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addBoundaryLayer } from "../layers/current_districts";
-import { addMyCOI } from "../layers/my_coi";
 import { spatial_abilities, nested, one_cd } from "../utils";
 
 export default function DataLayersPlugin(editor) {
