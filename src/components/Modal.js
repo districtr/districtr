@@ -34,7 +34,7 @@ export function renderModal(innerContent) {
             </div>
         </div>
     `;
-    
+
     return template;
 }
 
@@ -227,7 +227,7 @@ export function renderEventModal(state, savePlanToDB, eventCode) {
 export function renderAboutModal({ place, unitsRecord }, userRequested) {
     const target = document.getElementById("modal");
     const template = until(
-        fetch(`/assets/about/${place.id}/${unitsRecord.id}.html`)
+        fetch(`/assets/about/${place.id}/${unitsRecord.id}.html?v=2`)
             .then((r) => {
                 if (r.status === 200) {
                     return r.text();
@@ -254,7 +254,7 @@ export function renderAboutModal({ place, unitsRecord }, userRequested) {
 export function renderVRAAboutModal(place) {
     const target = document.getElementById("modal");
     const template = until(
-        fetch(`/assets/about/vra/precomputation_${place.id}.html`)
+        fetch(`/assets/about/vra/precomputation_${place.id}.html?v=2`)
             .then((r) => {
                 if (r.status === 200) {
                     return r.text();

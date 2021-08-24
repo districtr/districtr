@@ -197,7 +197,7 @@ function cities(map, border) {
 
     // Otherwise, retrieve city border data from /assets and plot the borders
     // as a Layer on the Map.
-    fetch(`/assets/city_border/${border}.geojson`)
+    fetch(`/assets/city_border/${border}.geojson?v=2`)
         .then(res => res.json())
         .then(geojson => {
             // Add a Map source for the border itself. TODO: this is a bit messy,

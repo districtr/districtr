@@ -13,19 +13,21 @@ import { CoalitionPivotTable } from "../components/Charts/CoalitionPivotTable";
 
 import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
-import { addBoundaryLayers } from "../layers/current_districts";
-import { spatial_abilities } from "../utils";
+import { addBoundaryLayer } from "../layers/current_districts";
+import { addMyCOI } from "../layers/my_coi";
+import { spatial_abilities, nested, one_cd } from "../utils";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const abilities = spatial_abilities(state.place.id);
+    const showVRA = (state.plan.problem.type !== "community") && (abilities.vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
     const demoLayers = state.layers;
 
     // uploading a float is expensive so sometimes we x1000 to round to nearest 1000
-    if (spatial_abilities(state.place.id).divisor) {
-      state.divisor = spatial_abilities(state.place.id).divisor;
+    if (abilities.divisor) {
+      state.divisor = abilities.divisor;
       if (state.population) {
         state.population.columns.forEach(sg => sg.divisor = state.divisor);
       }
@@ -63,7 +65,7 @@ export default function DataLayersPlugin(editor) {
            "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
             "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
               "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
-              || !spatial_abilities(state.place.id).number_markers
+              || !abilities.number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
                     if (checked) {
@@ -81,7 +83,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
+    if (state.plan.problem.type === "community" && abilities.neighborhoods) {
         const noNames = "";
         state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
         state.map.setLayoutProperty('settlement-label', 'text-field', ["case",
@@ -102,807 +104,101 @@ export default function DataLayersPlugin(editor) {
         }));
     }
 
-    // city border within county
-    if (["miamidade", "olmsted", "buncombe", "stlouis_mn"].includes(state.place.id)) {
-        let miami = null,
-            cityid = {
-              miamidade: "miamifl",
-              olmsted: "rochestermn",
-              buncombe: "asheville",
-              stlouis_mn: "duluth",
-            },
-            cityname = {
-              miamidade: "City of Miami",
-              olmsted: "Rochester",
-              buncombe: "Asheville",
-              stlouis_mn: "Duluth",
-            };
+    let selectBoundaries = abilities.boundaries || [];
+    const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
+          stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
+          placeID = ["california", "ohio"].includes(stateID) ? state.place.id : stateID;
 
-        fetch(`/assets/city_border/${cityid[state.place.id]}.geojson`).then(res => res.json()).then((border) => {
-            state.map.addSource('togglecity_border', {
-                type: 'geojson',
-                data: border
-            });
-
-            miami = new Layer(
-                state.map,
-                {
-                    id: "togglecity_border",
-                    source: "togglecity_border",
-                    type: "line",
-                    paint: {
-                        "line-color": "#000",
-                        "line-opacity": 0.7,
-                        "line-width": 1.5
-                    }
-                }
-            );
-        });
-
-        tab.addSection(
-            () => html`
-                <h4>${cityname[state.place.id]}</h4>
-                ${toggle("Show boundary", true, (checked) => {
-                    miami.setOpacity(
-                        checked ? 0.7 : 0
-                    );
-                })}
-            `
-        );
-    }
-
-    if (state.place.id === "forsyth_nc") {
-        let fnc_layer;
-        fetch(`/assets/boundaries/forsyth_nc_muni.geojson`).then(res => res.json()).then((fnc) => {
-            state.map.addSource('fnc', {
-                type: 'geojson',
-                data: fnc
-            });
-
-            fnc_layer = new Layer(state.map,
-                {
-                    id: 'fnc',
-                    source: 'fnc',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-        });
-        tab.addRevealSection(
-            'Show Boundary',
-            (uiState, dispatch) => html`
-            ${toggle("Winston-Salem", false, checked => {
-                let opacity = checked ? 1 : 0;
-                fnc_layer && fnc_layer.setOpacity(opacity);
-            })}`,
-            {
-                isOpen: false
-            }
-        );
-
-    }
-
-    if (state.place.id === "baltimore") {
-        let fnc_layer;
-        fetch(`/assets/boundaries/baltimore-precincts.geojson`).then(res => res.json()).then((fnc) => {
-            state.map.addSource('fnc', {
-                type: 'geojson',
-                data: fnc
-            });
-
-            fnc_layer = new Layer(state.map,
-                {
-                    id: 'fnc',
-                    source: 'fnc',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-        });
-        tab.addSection(
-            () => html`
-            ${toggle("Voter Precincts", false, checked => {
-                let opacity = checked ? 0.8 : 0;
-                fnc_layer && fnc_layer.setOpacity(opacity);
-            })}`
-        );
-
-    }
-
-    let plan2010, plan2013, ush, plan2010_labels, plan2013_labels;
-    if (["virginia", "lax", "ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
-        fetch(`/assets/boundaries/${state.place.id.replace("_blocks", "")}_2010.geojson`).then(res => res.json()).then((va2010) => {
-            state.map.addSource('va2010', {
-                type: 'geojson',
-                data: va2010
-            });
-
-            plan2010 = new Layer(state.map,
-                {
-                    id: 'va2010',
-                    source: 'va2010',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-
-            if (state.place.id === "virginia") {
-                fetch("/assets/boundaries/virginia_2013.geojson").then(res => res.json()).then((va2013) => {
-                    state.map.addSource('va2013', {
-                        type: 'geojson',
-                        data: va2013
-                    });
-
-                    plan2013 = new Layer(state.map,
-                        {
-                            id: 'va2013',
-                            source: 'va2013',
-                            type: 'line',
-                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                        },
-                        addBelowLabels
-                    );
-                });
-            } else if (state.place.id === "lax") {
-                fetch("/assets/boundaries/lax_senate.geojson").then(res => res.json()).then((va2013) => {
-                    state.map.addSource('va2013', {
-                        type: 'geojson',
-                        data: va2013
-                    });
-
-                    plan2013 = new Layer(state.map,
-                        {
-                            id: 'va2013',
-                            source: 'va2013',
-                            type: 'line',
-                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                        },
-                        addBelowLabels
-                    );
-                });
-                fetch("/assets/boundaries/lax_congress.geojson").then(res => res.json()).then((lax_ush) => {
-                    state.map.addSource('lax_ush', {
-                        type: 'geojson',
-                        data: lax_ush
-                    });
-
-                    ush = new Layer(state.map,
-                        {
-                            id: 'lax_ush',
-                            source: 'lax_ush',
-                            type: 'line',
-                            paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                        },
-                        addBelowLabels
-                    );
-                });
-            }
+    if (abilities.municipalities) {
+        selectBoundaries.push({
+            path: `municipalities/${stateID}/${placeID}`,
+            id: 'census_places',
+            centroids: true,
+            label: (typeof abilities.municipalities === 'string')
+              ? abilities.municipalities : 'Municipalities',
         });
     }
-
-    // school zones and towns for non statewide
-    let schoolsLayer, school_labels, placesLayer, place_labels, precinctsLayer, precinct_labels;
-    if (["ohcentral", "ohakron", "ohcin", "ohcle", "ohse", "ohtoledo"].includes(state.place.id)) {
-        let st = state.place.state.toLowerCase().replace(" ","");
-        fetch(`/assets/boundaries/school_districts/${st}/${st}_schools.geojson`).then(res => res.json()).then((school_gj) => {
-            state.map.addSource('school_gj', {
-                type: 'geojson',
-                data: school_gj
+    if (abilities.school_districts) {
+      selectBoundaries.push({
+          path: `school_districts/${stateID}/${placeID}`,
+          id: 'schools',
+          centroids: true,
+          label: (typeof abilities.school_districts === 'string')
+            ? abilities.school_districts : 'School Districts',
+      });
+    }
+    if (abilities.neighborhood_borders) {
+      selectBoundaries.push({
+          path: `neighborhoods/${stateID}/${placeID}`,
+          id: 'neighborhoods',
+          centroids: true,
+          label: (typeof abilities.neighborhood_borders === 'string')
+            ? abilities.neighborhood_borders : 'Neighborhood Associations',
+      });
+    }
+    if (abilities.current_districts) {
+      if (stateID === "california") {
+          selectBoundaries.push({
+              path: `current_districts/california/${placeID}`,
+              id: 'cur_district',
+              centroids: false,
+              label: (typeof abilities.current_districts === 'string')
+                ? abilities.current_districts : 'Current Districts',
+          });
+      } else {
+          if (!one_cd(placeID)) {
+            selectBoundaries.push({
+                path: `current_districts/${stateID}/us_house`,
+                id: 'cur_district_ush',
+                centroids: false,
+                label: 'US House',
             });
-            schoolsLayer = new Layer(state.map,
-                {
-                    id: 'school_gj',
-                    source: 'school_gj',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-
-            fetch(`/assets/boundaries/school_districts/${st}/${st}_schools_centroids.geojson`).then(res => res.json()).then((school_centroids) => {
-                state.map.addSource('school_centroids', {
-                    type: 'geojson',
-                    data: school_centroids
-                });
-
-                school_labels = new Layer(state.map,
-                    {
-                      id: 'school_centroids',
-                      source: 'school_centroids',
-                      type: 'symbol',
-                      layout: {
-                        'text-field': [
-                            'format',
-                            ['get', 'NAME'],
-                            {'font-scale': 0.75},
-                        ],
-                        'text-anchor': 'center',
-                        'text-radial-offset': 0,
-                        'text-justify': 'center'
-                      },
-                      paint: {
-                        'text-opacity': 0
-                      }
-                    },
-                    addBelowLabels
-                );
-
-                if (!["ohcentral", "indiana"].includes(state.place.id)) {
-                  return;
-                }
-                fetch(`/assets/boundaries/${state.place.id}_places.geojson`).then(res => res.json()).then((places_gj) => {
-                    state.map.addSource('places_gj', {
-                        type: 'geojson',
-                        data: places_gj
-                    });
-
-                    placesLayer = new Layer(state.map,
-                        {
-                          id: 'places_gj',
-                          source: 'places_gj',
-                          type: 'line',
-                          paint: { "line-color": "#000", "line-width": 1.5, "line-opacity": 0 }
-                        },
-                        addBelowLabels
-                    );
-                    fetch(`/assets/boundaries/${state.place.id}_places_centroids.geojson`).then(res => res.json()).then((places_centroids) => {
-                        state.map.addSource('places_centroids', {
-                            type: 'geojson',
-                            data: places_centroids
-                        });
-
-                        place_labels = new Layer(state.map,
-                            {
-                              id: 'places_centroids',
-                              source: 'places_centroids',
-                              type: 'symbol',
-                              layout: {
-                                'text-field': [
-                                    'format',
-                                    ['get', 'NAME'],
-                                    {'font-scale': 0.75},
-                                ],
-                                'text-anchor': 'center',
-                                'text-radial-offset': 0,
-                                'text-justify': 'center'
-                              },
-                              paint: {
-                                'text-opacity': 0
-                              }
-                            },
-                            addBelowLabels
-                        );
-                    });
-                });
-            });
-        });
-    } else if (["elpasotx"].includes(state.place.id) && !state.units.sourceId.includes("precinct")) {
-      fetch(`/assets/boundaries/${state.place.id}_precincts.geojson`).then(res => res.json()).then((precinct_gj) => {
-          state.map.addSource('precinct_gj', {
-              type: 'geojson',
-              data: precinct_gj
+          }
+          selectBoundaries.push({
+              path: `current_districts/${stateID}/state_senate`,
+              id: 'cur_district_ssen',
+              centroids: false,
+              label: 'State Senate',
+              lineWidth: nested(placeID) ? 2 : 1.5,
           });
-          precinctsLayer = new Layer(state.map,
-              {
-                  id: 'precinct_gj',
-                  source: 'precinct_gj',
-                  type: 'line',
-                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-              },
-              addBelowLabels
-          );
-
-          fetch(`/assets/boundaries/${state.place.id}_precincts_centroids.geojson`).then(res => res.json()).then((precinct_centroids) => {
-              state.map.addSource('precinct_centroids', {
-                  type: 'geojson',
-                  data: precinct_centroids
-              });
-
-              precinct_labels = new Layer(state.map,
-                  {
-                    id: 'precinct_centroids',
-                    source: 'precinct_centroids',
-                    type: 'symbol',
-                    layout: {
-                      'text-field': [
-                          'format',
-                          ['get', 'CURRENT_PC'],
-                          {},
-                      ],
-                      'text-anchor': 'center',
-                      'text-radial-offset': 0,
-                      'text-justify': 'center'
-                    },
-                    paint: {
-                      'text-opacity': 0
-                    }
-                  }
-              );
+          selectBoundaries.push({
+              path: `current_districts/${stateID}/state_house`,
+              id: 'cur_district_sho',
+              centroids: false,
+              label: 'State House',
+              lineColor: nested(placeID) ? '#f00' : '#000',
+              lineWidth: nested(placeID) ? 0.75 : 1.5,
           });
-       });
-    } else if (["ca_sanjoaquin"].includes(state.place.id)) {
-      fetch(`/assets/boundaries/${state.place.id}_bg.geojson`).then(res => res.json()).then((bg_gj) => {
-          state.map.addSource('bg_gj', {
-              type: 'geojson',
-              data: bg_gj
-          });
-          precinctsLayer = new Layer(state.map,
-              {
-                  id: 'bg_gj',
-                  source: 'bg_gj',
-                  type: 'line',
-                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-              },
-              addBelowLabels
-          );
-
-          fetch(`/assets/boundaries/${state.place.id}_bg_centroids.geojson`).then(res => res.json()).then((bg_centroids) => {
-              state.map.addSource('bg_centroids', {
-                  type: 'geojson',
-                  data: bg_centroids
-              });
-
-              precinct_labels = new Layer(state.map,
-                  {
-                    id: 'bg_centroids',
-                    source: 'bg_centroids',
-                    type: 'symbol',
-                    layout: {
-                      'text-field': [
-                          'format',
-                          ['get', 'TRACTCE'],
-                          ['get', 'BLKGRPCE'],
-                          {},
-                      ],
-                      'text-anchor': 'center',
-                      'text-radial-offset': 0,
-                      'text-justify': 'center'
-                    },
-                    paint: {
-                      'text-opacity': 0
-                    }
-                  }
-              );
-          });
-       });
-       fetch(`/assets/boundaries/${state.place.id}_tract.geojson`).then(res => res.json()).then((tract_gj) => {
-           state.map.addSource('tract_gj', {
-               type: 'geojson',
-               data: tract_gj
-           });
-           schoolsLayer = new Layer(state.map,
-               {
-                   id: 'tract_gj',
-                   source: 'tract_gj',
-                   type: 'line',
-                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-               },
-               addBelowLabels
-           );
-
-           fetch(`/assets/boundaries/${state.place.id}_tract_centroids.geojson`).then(res => res.json()).then((tract_centroids) => {
-               state.map.addSource('tract_centroids', {
-                   type: 'geojson',
-                   data: tract_centroids
-               });
-
-               school_labels = new Layer(state.map,
-                   {
-                     id: 'tract_centroids',
-                     source: 'tract_centroids',
-                     type: 'symbol',
-                     layout: {
-                       'text-field': [
-                           'format',
-                           ['get', 'NAME'],
-                           {},
-                       ],
-                       'text-anchor': 'center',
-                       'text-radial-offset': 0,
-                       'text-justify': 'center'
-                     },
-                     paint: {
-                       'text-opacity': 0
-                     }
-                   }
-               );
-           });
-        });
-    } else if (state.place.id === "rp_lax") {
-      fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood.geojson`).then(res => res.json()).then((places) => {
-          state.map.addSource('latimes_places', {
-              type: 'geojson',
-              data: places
-          });
-          precinctsLayer = new Layer(state.map,
-              {
-                  id: 'latimes_places',
-                  source: 'latimes_places',
-                  type: 'line',
-                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-              },
-              addBelowLabels
-          );
-
-          fetch(`/assets/boundaries/neighborhoods/lax_LATimes_Neighborhood_centroids.geojson`).then(res => res.json()).then((centroids) => {
-              state.map.addSource('latimes_centroids', {
-                  type: 'geojson',
-                  data: centroids
-              });
-
-              precinct_labels = new Layer(state.map,
-                  {
-                    id: 'latimes_centroids',
-                    source: 'latimes_centroids',
-                    type: 'symbol',
-                    layout: {
-                      'text-field': [
-                          'format',
-                          ['get', 'NAME'],
-                          {},
-                      ],
-                      'text-anchor': 'center',
-                      'text-radial-offset': 0,
-                      'text-justify': 'center'
-                    },
-                    paint: {
-                      'text-opacity': 0
-                    }
-                  }
-              );
-          });
-       });
-
-       fetch(`/assets/boundaries/neighborhoods/lax_neighborhood_council.geojson`).then(res => res.json()).then((nplaces) => {
-           state.map.addSource('ncouncil_places', {
-               type: 'geojson',
-               data: nplaces
-           });
-           schoolsLayer = new Layer(state.map,
-               {
-                   id: 'ncouncil_places',
-                   source: 'ncouncil_places',
-                   type: 'line',
-                   paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-               },
-               addBelowLabels
-           );
-
-           fetch(`/assets/boundaries/neighborhoods/lax_Neighborhood_Councils_centroids.geojson`).then(res => res.json()).then((ncentroids) => {
-               state.map.addSource('ncouncil_centroids', {
-                   type: 'geojson',
-                   data: ncentroids
-               });
-
-               school_labels = new Layer(state.map,
-                   {
-                     id: 'ncouncil_centroids',
-                     source: 'ncouncil_centroids',
-                     type: 'symbol',
-                     layout: {
-                       'text-field': [
-                           'format',
-                           ['get', 'NAME'],
-                           {},
-                       ],
-                       'text-anchor': 'center',
-                       'text-radial-offset': 0,
-                       'text-justify': 'center'
-                     },
-                     paint: {
-                       'text-opacity': 0
-                     }
-                   }
-               );
-           });
-        });
-    } else if (state.place.id === "sanjoseca") {
-      fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods.geojson`).then(res => res.json()).then((places) => {
-          state.map.addSource('sj_places', {
-              type: 'geojson',
-              data: places
-          });
-          precinctsLayer = new Layer(state.map,
-              {
-                  id: 'sj_places',
-                  source: 'sj_places',
-                  type: 'line',
-                  paint: { "line-color": "#555", "line-width": 1.2, "line-opacity": 0 }
-              },
-              addBelowLabels
-          );
-
-          fetch(`/assets/boundaries/neighborhoods/sanjose_neighborhoods_centroids.geojson`).then(res => res.json()).then((centroids) => {
-              state.map.addSource('sj_centroids', {
-                  type: 'geojson',
-                  data: centroids
-              });
-
-              precinct_labels = new Layer(state.map,
-                  {
-                    id: 'sj_centroids',
-                    source: 'sj_centroids',
-                    type: 'symbol',
-                    layout: {
-                      'text-field': [
-                          'format',
-                          ['get', 'NAME'],
-                          {},
-                      ],
-                      'text-anchor': 'center',
-                      'text-radial-offset': 0,
-                      'text-justify': 'center'
-                    },
-                    paint: {
-                      'text-opacity': 0
-                    }
-                  }
-              );
-          });
-       });
-     } else if (state.place.id === "ca_butte") {
-        fetch(`/assets/boundaries/current_districts/california/ca_butte.geojson`).then(res => res.json()).then((places) => {
-           state.map.addSource('bt_districts', {
-               type: 'geojson',
-               data: places
-           });
-           precinctsLayer = new Layer(state.map,
-               {
-                   id: 'bt_districts',
-                   source: 'bt_districts',
-                   type: 'line',
-                   paint: { "line-color": "#000", "line-width": 1.2, "line-opacity": 0 }
-               },
-               addBelowLabels
-           );
-        });
-        fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities.geojson`).then(res => res.json()).then((places) => {
-            state.map.addSource('bt_places', {
-                type: 'geojson',
-                data: places
-            });
-            placesLayer = new Layer(state.map,
-                {
-                    id: 'bt_places',
-                    source: 'bt_places',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-         });
-         fetch(`/assets/boundaries/municipalities/california/ca_butte_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
-           state.map.addSource('bt_centroids', {
-               type: 'geojson',
-               data: centroids
-           });
-
-           place_labels = new Layer(state.map,
-               {
-                 id: 'bt_centroids',
-                 source: 'bt_centroids',
-                 type: 'symbol',
-                 layout: {
-                   'text-field': [
-                       'format',
-                       ['get', 'NAME'],
-                       {},
-                   ],
-                   'text-anchor': 'center',
-                   'text-radial-offset': 0,
-                   'text-justify': 'center'
-                 },
-                 paint: {
-                   'text-opacity': 0
-                 }
-               }
-           );
-         });
-         fetch(`/assets/boundaries/ca_butte_greenline.geojson`).then(res => res.json()).then((greenline) => {
-             state.map.addSource('greenline', {
-                 type: 'geojson',
-                 data: greenline
-             });
-              schoolsLayer = new Layer(state.map,
-                 {
-                     id: 'greenline',
-                     source: 'greenline',
-                     type: 'line',
-                     paint: { "line-color": "#070", "line-width": 2.5, "line-opacity": 0 }
-                 },
-                 addBelowLabels
-             );
-          });
+      }
     }
 
-    if (state.place.id === "virginia") {
-        const checkVAplan = () => {
-            // console.log(document.getElementsByName("enacted"));
-            plan2010 && plan2010.setOpacity(document.getElementById("va2010").checked ? 1 : 0);
-            plan2013 && plan2013.setOpacity(document.getElementById("va2013").checked ? 1 : 0);
-        };
-        tab.addRevealSection(
-            'Enacted Plans',
-            (uiState, dispatch) => html`
-              <label style="display:block;margin-bottom:8px;">
-                <input type="radio" name="enacted" value="hidden" @change="${checkVAplan}" checked/>
-                Hidden
-              </label>
-              <label style="display:block;margin-bottom:8px;">
-                <input id="va2010" type="radio" name="enacted" value="2010" @change="${checkVAplan}"/>
-                2003-2013 Congressional Plan
-              </label>
-              <label style="display:block;margin-bottom:8px;">
-                <input id="va2013" type="radio" name="enacted" value="2013" @change="${checkVAplan}"/>
-                2013-2017 Congressional Plan
-              </label>`,
-            {
-                isOpen: false
-            }
-        );
-    } else if (["ohcentral", "ohtoledo", "ohakron", "ohse", "ohcle", "ohcin"].includes(state.place.id)) {
-        const toggleSchoolsTownslayer = () => {
-            // console.log(document.getElementsByName("enacted"));
-            schoolsLayer && schoolsLayer.setOpacity(document.getElementById("schools").checked ? 1 : 0);
-            school_labels && school_labels.setPaintProperty('text-opacity', document.getElementById("schools").checked ? 1 : 0);
-            placesLayer && placesLayer.setOpacity(document.getElementById("towns").checked ? 1 : 0);
-            place_labels && place_labels.setPaintProperty('text-opacity', document.getElementById("towns").checked ? 1 : 0);
-        };
+    if (selectBoundaries) {
         tab.addRevealSection(
             'Boundaries',
-            (uiState, dispatch) => html`
-              <label style="display:block;margin-bottom:8px;">
-                <input type="radio" name="enacted" @change="${toggleSchoolsTownslayer}" checked/>
-                Hidden
-              </label>
-              ${["ohcentral", "indiana"].includes(state.place.id) ? html`<label style="display:block;margin-bottom:8px;">
-                <input id="towns" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
-                Cities and Towns
-              </label>` : ""}
-              <label style="display:block;margin-bottom:8px;">
-                <input id="schools" type="radio" name="enacted" @change="${toggleSchoolsTownslayer}"/>
-                School Districts
-              </label>`,
+            (uiState, dispatch) => selectBoundaries.map((config, idx) => {
+              if (config.unitType && !state.units.id.includes(config.unitType)) {
+                return "";
+              }
+              return addBoundaryLayer(config, state.map);
+            }),
             {
                 isOpen: true
             }
         );
-    } else if (state.place.id === "lax") {
-        tab.addRevealSection(
-            'Enacted Plans',
-            (uiState, dispatch) => html`
-            ${toggle("State Assembly", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2010 && plan2010.setOpacity(opacity);
-            })}
-            ${toggle("State Senate", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2013 && plan2013.setOpacity(opacity);
-            })}
-            ${toggle("US House", false, checked => {
-                let opacity = checked ? 1 : 0;
-                ush && ush.setOpacity(opacity);
-            })}`,
-            {
-                isOpen: false
-            }
-        );
-    } else if (state.place.id === "rp_lax") {
-      tab.addRevealSection(
-          'Neighborhoods',
-          (uiState, dispatch) => html`
-          ${toggle("LA Times Neighborhoods", false, checked => {
-              let opacity = checked ? 1 : 0;
-              precinctsLayer && precinctsLayer.setOpacity(opacity);
-              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
-          })}
-          ${toggle("Neighborhood Councils", false, checked => {
-              let opacity = checked ? 1 : 0;
-              schoolsLayer && schoolsLayer.setOpacity(opacity);
-              school_labels && school_labels.setPaintProperty('text-opacity', opacity);
-          })}`,
-          {
-              isOpen: false
-          }
-      );
-    } else if (state.place.id === "sanjoseca") {
-      tab.addRevealSection(
-          'Neighborhoods',
-          (uiState, dispatch) => html`
-          ${toggle("Neighborhood lines", false, checked => {
-              let opacity = checked ? 1 : 0;
-              precinctsLayer && precinctsLayer.setOpacity(opacity);
-              precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
-          })}`,
-          {
-              isOpen: false
-          }
-      );
-    } else if (state.place.id === "ca_butte") {
-      tab.addRevealSection(
-          'Boundaries',
-          (uiState, dispatch) => html`
-          ${toggle("Current Supervisorial Districts", false, checked => {
-              let opacity = checked ? 1 : 0;
-              precinctsLayer && precinctsLayer.setOpacity(opacity);
-          })}
-          ${toggle("Census Designated Places", false, checked => {
-              let opacity = checked ? 1 : 0;
-              placesLayer && placesLayer.setOpacity(opacity);
-              place_labels && place_labels.setPaintProperty('text-opacity', opacity);
-          })}
-          ${toggle("Greenline", false, checked => {
-              let opacity = checked ? 1 : 0;
-              schoolsLayer && schoolsLayer.setOpacity(opacity);
-          })}`,
-          {
-              isOpen: false
-          }
-      );
-    } else if (state.place.id === "ca_sanjoaquin") {
-        tab.addRevealSection(
-            'Census',
-            (uiState, dispatch) => html`
-            ${toggle("Block Groups", false, checked => {
-                let opacity = checked ? 1 : 0;
-                precinctsLayer && precinctsLayer.setOpacity(opacity);
-                precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
-            })}
-            ${toggle("Tracts", false, checked => {
-                let opacity = checked ? 1 : 0;
-                schoolsLayer && schoolsLayer.setOpacity(opacity);
-                school_labels && school_labels.setPaintProperty('text-opacity', opacity);
-            })}`,
-            {
-                isOpen: true
-            }
-        );
-    } else if (["ca_sonoma", "ca_santabarbara"].includes(state.place.id)) {
-        tab.addRevealSection(
-            'Enacted Plans',
-            (uiState, dispatch) => html`
-            ${toggle("Supervisorial Districts", false, checked => {
-                let opacity = checked ? 1 : 0;
-                plan2010 && plan2010.setOpacity(opacity);
-            })}`,
-            {
-                isOpen: false
-            }
-        );
-    } else if (state.place.id === "elpasotx" && !state.units.sourceId.includes("precinct")) {
-        tab.addRevealSection(
-            'Boundaries',
-            (uiState, dispatch) => html`
-            ${toggle("Current Precincts", false, checked => {
-                let opacity = checked ? 1 : 0;
-                precinctsLayer && precinctsLayer.setOpacity(opacity);
-                precinct_labels && precinct_labels.setPaintProperty('text-opacity', opacity);
-            })}`,
-            {
-                isOpen: true
-            }
-        );
+    // handle other layers
+    } else if (showingCounties || abilities.native_american) {
+        tab.addSection(() => html`<h4>Boundaries</h4>`)
     }
-
-    tab.addSection(() => html`<h4>Boundaries</h4>`)
-
-    if (smatch(state.place.state) === smatch(state.place.name) || showVRA) {
+    if (showingCounties) {
         addCountyLayer(tab, state);
     }
-
-    if (spatial_abilities(state.place.id).native_american) {
+    if (abilities.native_american) {
         addAmerIndianLayer(tab, state);
     }
 
-    addBoundaryLayers(tab, state,
-      spatial_abilities(state.place.id).current_districts,
-      spatial_abilities(state.place.id).school_districts,
-      spatial_abilities(state.place.id).municipalities,
-      spatial_abilities(state.place.id).neighborhood_borders,
-    );
+    // if (state.problem.type !== "community" && abilities.load_coi) {
+    //     addMyCOI(state, tab);
+    // }
 
     tab.addSection(() => html`<h4>Demographics</h4>`)
 
@@ -917,7 +213,7 @@ export default function DataLayersPlugin(editor) {
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
-            ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
+            ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
             of racial and ethnic groups from the Census. In the other data layers below,
             you'll be able to select the coalition you have defined.</p>`}
         `,
@@ -927,7 +223,7 @@ export default function DataLayersPlugin(editor) {
     );
 
     let coalitionOverlays = [];
-    if (spatial_abilities(state.place.id).coalition !== false) {
+    if (abilities.coalition !== false) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -995,8 +291,8 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population*", // coalition subgroup
-        (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
+        (abilities.coalition === false) ? null : "Coalition population*", // coalition subgroup
+        (supportMultiYear ? abilities.multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 
@@ -1008,7 +304,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show voting age population (VAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
+            (abilities.coalition === false) ? null : "Coalition voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
@@ -1020,7 +316,7 @@ export default function DataLayersPlugin(editor) {
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition citizen voting age population",
+            (abilities.coalition === false) ? null : "Coalition citizen voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
@@ -1053,8 +349,8 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            html`Socioeconomic data ${spatial_abilities(state.place.id).multiyear
-              ? `(${spatial_abilities(state.place.id).multiyear})`
+            html`Socioeconomic data ${abilities.multiyear
+              ? `(${abilities.multiyear})`
               : ""}`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
@@ -1084,7 +380,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
-        let partisanLayers = spatial_abilities(state.place.id).county_filter
+        let partisanLayers = abilities.county_filter
           ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
           : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
@@ -1093,7 +389,7 @@ export default function DataLayersPlugin(editor) {
             state.elections,
             toolbar,
             null, // bipolar / rent text
-            spatial_abilities(state.place.id).county_filter,
+            abilities.county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">
