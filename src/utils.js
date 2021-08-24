@@ -1638,6 +1638,9 @@ export function spatial_abilities(id) {
       number_markers: true,
       number_markers_lambda: true,
     },
+    dallastx: {
+      border: true,
+    },
     austin: {
       border: true,
     },

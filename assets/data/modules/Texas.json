@@ -2591,5 +2591,189 @@
         "pluralNoun": "Jurisdiction Districts"
       }
     ]
+  },
+  {
+    "id": "dallastx",
+    "name": "Dallas",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POP",
+              "name": "Total population",
+              "sum": 1304379,
+              "min": 0,
+              "max": 2688
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 366393,
+                "min": 0,
+                "max": 959
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 298764,
+                "min": 0,
+                "max": 2080
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 47820,
+                "min": 0,
+                "max": 1100
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 2933,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 458,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 31842,
+                "min": 0,
+                "max": 93
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 4995,
+                "min": 0,
+                "max": 90
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 999705,
+              "min": 0,
+              "max": 2543
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 388331,
+                "min": 0,
+                "max": 1175
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 232908,
+                "min": 0,
+                "max": 1352
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 380962,
+                "min": 0,
+                "max": 1174
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 11076,
+                "min": 0,
+                "max": 52
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 513,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 40651,
+                "min": 0,
+                "max": 653
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 176427,
+                "min": 0,
+                "max": 668
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 149799,
+                "min": 0,
+                "max": 499
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -97.0005,
+            32.6132
+          ],
+          [
+            -96.4637,
+            33.0238
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.dallastx_blocks_points"
+            },
+            "sourceLayer": "dallastx_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.dallastx_blocks"
+            },
+            "sourceLayer": "dallastx_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "Texas",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 14,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
