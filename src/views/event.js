@@ -283,6 +283,7 @@ const coi_events = [
   'carpinteria',
   'santa_clara_water',
   'humboldt_county',
+  'pasadena2021',
 ];
 
 const hybrid_events = [
@@ -296,7 +297,6 @@ const hybrid_events = [
   'sanmateoco',
   'sanbenito',
   'sonomaco',
-  'pasadena2021',
   'sunnyvale2021',
   'laverne',
   'pomonaca',
