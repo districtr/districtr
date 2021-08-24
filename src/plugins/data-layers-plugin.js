@@ -19,14 +19,15 @@ import { spatial_abilities, nested, one_cd } from "../utils";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
-    const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const abilities = spatial_abilities(state.place.id);
+    const showVRA = (state.plan.problem.type !== "community") && (abilities.vra_effectiveness);
     const tab = new LayerTab("layers", showVRA ? "Data" : "Data Layers", editor.store);
 
     const demoLayers = state.layers;
 
     // uploading a float is expensive so sometimes we x1000 to round to nearest 1000
-    if (spatial_abilities(state.place.id).divisor) {
-      state.divisor = spatial_abilities(state.place.id).divisor;
+    if (abilities.divisor) {
+      state.divisor = abilities.divisor;
       if (state.population) {
         state.population.columns.forEach(sg => sg.divisor = state.divisor);
       }
@@ -64,7 +65,7 @@ export default function DataLayersPlugin(editor) {
            "wisconsin_blockgroups", "virginia_blockgroups", "rhode_island_blockgroups", "utah_blockgroups",
             "ohio_blockgroups", "oklahoma_blockgroups", "arizona_blockgroups", "delaware_blockgroups",
               "maine_blockgroups", "louisiana_blockgroups"].includes(state.units.sourceId)
-              || !spatial_abilities(state.place.id).number_markers
+              || !abilities.number_markers
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
                     if (checked) {
@@ -82,7 +83,7 @@ export default function DataLayersPlugin(editor) {
       return name.toLowerCase().replace(/\s+/g, '').replace('_bg', '').replace('2020', '').replace('_', '');
     };
 
-    if (state.plan.problem.type === "community" && spatial_abilities(state.place.id).neighborhoods) {
+    if (state.plan.problem.type === "community" && abilities.neighborhoods) {
         const noNames = "";
         state.map.setLayoutProperty('settlement-subdivision-label', 'text-field', noNames);
         state.map.setLayoutProperty('settlement-label', 'text-field', ["case",
@@ -103,42 +104,46 @@ export default function DataLayersPlugin(editor) {
         }));
     }
 
-    let selectBoundaries = spatial_abilities(state.place.id).boundaries || [];
+    let selectBoundaries = abilities.boundaries || [];
     const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
           placeID = ["california", "ohio"].includes(stateID) ? state.place.id : stateID;
 
-    if (spatial_abilities(state.place.id).municipalities) {
+    if (abilities.municipalities) {
         selectBoundaries.push({
             path: `municipalities/${stateID}/${placeID}`,
             id: 'census_places',
             centroids: true,
-            label: 'Municipalities',
+            label: (typeof abilities.municipalities === 'string')
+              ? abilities.municipalities : 'Municipalities',
         });
     }
-    if (spatial_abilities(state.place.id).school_districts) {
+    if (abilities.school_districts) {
       selectBoundaries.push({
           path: `school_districts/${stateID}/${placeID}`,
           id: 'schools',
           centroids: true,
-          label: 'School Districts',
+          label: (typeof abilities.school_districts === 'string')
+            ? abilities.school_districts : 'School Districts',
       });
     }
-    if (spatial_abilities(state.place.id).neighborhood_borders) {
+    if (abilities.neighborhood_borders) {
       selectBoundaries.push({
           path: `neighborhoods/${stateID}/${placeID}`,
           id: 'neighborhoods',
           centroids: true,
-          label: 'Neighborhood Associations',
+          label: (typeof abilities.neighborhood_borders === 'string')
+            ? abilities.neighborhood_borders : 'Neighborhood Associations',
       });
     }
-    if (spatial_abilities(state.place.id).current_districts) {
+    if (abilities.current_districts) {
       if (stateID === "california") {
           selectBoundaries.push({
               path: `current_districts/california/${placeID}`,
               id: 'cur_district',
               centroids: false,
-              label: 'Current Districts',
+              label: (typeof abilities.current_districts === 'string')
+                ? abilities.current_districts : 'Current Districts',
           });
       } else {
           if (!one_cd(placeID)) {
@@ -175,17 +180,17 @@ export default function DataLayersPlugin(editor) {
             }
         );
     // handle other layers
-    } else if (showingCounties || spatial_abilities(state.place.id).native_american) {
+    } else if (showingCounties || abilities.native_american) {
         tab.addSection(() => html`<h4>Boundaries</h4>`)
     }
     if (showingCounties) {
         addCountyLayer(tab, state);
     }
-    if (spatial_abilities(state.place.id).native_american) {
+    if (abilities.native_american) {
         addAmerIndianLayer(tab, state);
     }
 
-    // if (state.problem.type !== "community" && spatial_abilities(state.place.id).load_coi) {
+    // if (state.problem.type !== "community" && abilities.load_coi) {
     //     addMyCOI(state, tab);
     // }
 
@@ -202,7 +207,7 @@ export default function DataLayersPlugin(editor) {
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
-            ${(spatial_abilities(state.place.id).coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
+            ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
             of racial and ethnic groups from the Census. In the other data layers below,
             you'll be able to select the coalition you have defined.</p>`}
         `,
@@ -212,7 +217,7 @@ export default function DataLayersPlugin(editor) {
     );
 
     let coalitionOverlays = [];
-    if (spatial_abilities(state.place.id).coalition !== false) {
+    if (abilities.coalition !== false) {
         window.coalitionGroups = {};
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
@@ -280,8 +285,8 @@ export default function DataLayersPlugin(editor) {
         state.population,
         "Show population",
         false, // first only (one layer)?
-        (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition population*", // coalition subgroup
-        (supportMultiYear ? spatial_abilities(state.place.id).multiyear : null) // multiple years
+        (abilities.coalition === false) ? null : "Coalition population*", // coalition subgroup
+        (supportMultiYear ? abilities.multiyear : null) // multiple years
     );
     coalitionOverlays.push(demographicsOverlay);
 
@@ -293,7 +298,7 @@ export default function DataLayersPlugin(editor) {
             state.vap,
             "Show voting age population (VAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition voting age population",
+            (abilities.coalition === false) ? null : "Coalition voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
@@ -305,7 +310,7 @@ export default function DataLayersPlugin(editor) {
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (spatial_abilities(state.place.id).coalition === false) ? null : "Coalition citizen voting age population",
+            (abilities.coalition === false) ? null : "Coalition citizen voting age population",
             false // multiple years? not on miami-dade
         );
         coalitionOverlays.push(vapOverlay);
@@ -338,8 +343,8 @@ export default function DataLayersPlugin(editor) {
         }
 
         tab.addRevealSection(
-            html`Socioeconomic data ${spatial_abilities(state.place.id).multiyear
-              ? `(${spatial_abilities(state.place.id).multiyear})`
+            html`Socioeconomic data ${abilities.multiyear
+              ? `(${abilities.multiyear})`
               : ""}`,
             (uiState, dispatch) => html`
               ${state.median_income ? incomeOverlay.render() : null}
@@ -369,7 +374,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (state.elections.length > 0) {
-        let partisanLayers = spatial_abilities(state.place.id).county_filter
+        let partisanLayers = abilities.county_filter
           ? demoLayers.filter(lyr => lyr.sourceId.includes("precincts"))
           : demoLayers;
         const partisanOverlays = new PartisanOverlayContainer(
@@ -378,7 +383,7 @@ export default function DataLayersPlugin(editor) {
             state.elections,
             toolbar,
             null, // bipolar / rent text
-            spatial_abilities(state.place.id).county_filter,
+            abilities.county_filter,
         );
         tab.addSection(() => html`<h4>Statewide Elections</h4>
             <div class="option-list__item">

@@ -364,7 +364,6 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     arkansas: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -416,7 +415,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: true,
+      current_districts: 'Supervisorial Districts',
     },
     sunnyvale: {
       coalition: false,
@@ -511,7 +510,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: true,
+      current_districts: 'Supervisorial Districts',
     },
     ca_fresno: {
       coalition: false,
@@ -738,15 +737,10 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
-    // municipalities: true,
+    municipalities: 'Census Designated Places',
     current_districts: true,
     native_american: true,
     boundaries: [{
-      id: 'sj_places',
-      label: 'Census Designated Places',
-      path: 'municipalities/california/ca_butte',
-      centroids: true,
-    }, {
       id: 'greenline',
       label: 'Greenline',
       path: 'ca_butte_greenline',
@@ -883,7 +877,6 @@ export function spatial_abilities(id) {
       load_coi: false,
     },
     dc: {
-      multiyear: 2018,
       number_markers: true,
       contiguity: 2,
       shapefile: true,
@@ -899,7 +892,6 @@ export function spatial_abilities(id) {
     florida: {
       native_american: true,
       number_markers: true,
-      // multiyear: 2018,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -914,7 +906,6 @@ export function spatial_abilities(id) {
       border: true,
     },
     miamidade: {
-      // multiyear: 2018,
       number_markers: true,
       neighborhoods: true,
       boundaries: [{
@@ -924,12 +915,10 @@ export function spatial_abilities(id) {
       }]
     },
     fl_hills: {
-      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
     fl_orange: {
-      // multiyear: 2019,
       number_markers: true,
       shapefile: true,
     },
@@ -963,10 +952,8 @@ export function spatial_abilities(id) {
       native_american: true,
       county_brush: true,
       shapefile: true,
-      census20: true,
     },
     idaho: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -981,13 +968,13 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     indiana: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
       school_districts: true,
+      municipalities: 'Cities and Towns',
     },
     iowa: {
       number_markers: true,
@@ -997,7 +984,6 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     kansas: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -1005,7 +991,6 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     kentucky: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1062,7 +1047,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
     },
     maryland: {
       number_markers: true,
@@ -1127,7 +1111,6 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://www.michigan-mapping.org',
       },
-      census20: true,
     },
     minnesota: {
       number_markers: true,
@@ -1181,7 +1164,6 @@ export function spatial_abilities(id) {
       find_unpainted: true,
     },
     missouri: {
-      // multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1194,7 +1176,6 @@ export function spatial_abilities(id) {
       },
     },
     montana: {
-      // multiyear: 2018,
       native_american: true,
       number_markers: true,
       shapefile: true,
@@ -1202,8 +1183,7 @@ export function spatial_abilities(id) {
       county_brush: true,
     },
     nebraska: {
-      // multiyear: 2018,
-      // number_markers: true,
+      number_markers: true,
       native_american: true,
       county_brush: true,
       absentee: true,
@@ -1212,19 +1192,16 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     nevada: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true,
       contiguity: 2,
     },
     newhampshire: {
       number_markers: true,
       shapefile: true,
-      multiyear: 2018,
       // find_unpainted: true,
       school_districts: true
     },
@@ -1234,7 +1211,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       contiguity: 2,
-      census20: true,
     },
     new_mexico: {
       number_markers: true,
@@ -1245,7 +1221,6 @@ export function spatial_abilities(id) {
       current_districts: true,
       shapefile: true,
       find_unpainted: true,
-      census20: true
     },
     new_mexico_portal: {
       number_markers: true,
@@ -1257,7 +1232,6 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       election_history: false,
-      census20: true,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },
@@ -1283,7 +1257,6 @@ export function spatial_abilities(id) {
       county_brush: true,
       native_american: true,
       shapefile: true,
-      census20: true,
       // find_unpainted: true,
     },
     northcarolina: {
@@ -1317,7 +1290,6 @@ export function spatial_abilities(id) {
       }]
     },
     northdakota: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
@@ -1404,6 +1376,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       school_districts: true,
+      municipalities: 'Cities and Towns',
       portal: {
         endpoint: 'https://portal.ohio-mapping.org',
       },
@@ -1552,7 +1525,6 @@ export function spatial_abilities(id) {
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
-      census20: true
     },
     portlandor: {
       number_markers: true,
@@ -1598,21 +1570,18 @@ export function spatial_abilities(id) {
       border: true,
     },
     southcarolina: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
     },
     southdakota: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
       county_brush: true,
       shapefile: true,
     },
     tennessee: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1692,7 +1661,6 @@ export function spatial_abilities(id) {
     vermont: {
       number_markers: true,
       county_brush: true,
-      multiyear: 2018,
       shapefile: true,
       // find_unpainted: true,
     },
@@ -1738,7 +1706,6 @@ export function spatial_abilities(id) {
       border: true,
     },
     westvirginia: {
-      multiyear: 2018,
       number_markers: true,
       county_brush: true,
       shapefile: true,
@@ -1791,7 +1758,6 @@ export function spatial_abilities(id) {
       sideload: true,
     },
     wyoming: {
-      multiyear: 2018,
       native_american: true,
       number_markers: true,
     }
