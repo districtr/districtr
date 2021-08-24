@@ -123,9 +123,21 @@ dl {
     align-items: center;
 }
 
+.tooltip__text__small {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0.5rem 0.25rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .tooltip__text--column {
     display: block;
     padding: 0.5rem;
+    width: auto;
 }
 
 .tooltip__title {

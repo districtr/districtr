@@ -35,10 +35,28 @@
     align-items: center;
 }
 
+.toolbar-section-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 0 0 0 1rem;
+}
+
+.toolbar-section-left > p {
+    margin-top: 0;
+    font-size: 0.8em;
+}
+
+.cluster-display {
+    border: 1px $districtr-grey-active;
+    border-radius: 5%;
+}
+
 .toolbar-inner-large {
     font-weight: bold;
     display: flex;
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem;
     text-align: justify;
 }
 
