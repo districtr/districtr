@@ -721,6 +721,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    current_districts: 'Current Council Districts',
     boundaries: [{
       id: 'latimes_places',
       label: 'LA Times Neighborhoods',
