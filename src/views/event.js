@@ -283,6 +283,7 @@ const coi_events = [
   'carpinteria',
   'santa_clara_water',
   'humboldt_county',
+  'pasadena2021',
 ];
 
 const hybrid_events = [
@@ -296,7 +297,6 @@ const hybrid_events = [
   'sanmateoco',
   'sanbenito',
   'sonomaco',
-  'pasadena2021',
   'sunnyvale2021',
   'laverne',
   'pomonaca',
@@ -676,7 +676,7 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
  butte_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+    <p>Every map submitted will be carefully reviewed by those charged with redrawing the Supervisorial District Map.</p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
   humboldt_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
@@ -959,7 +959,7 @@ carpinteria: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 butte_county: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  humboldt_county: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1257,222 +1257,222 @@ export default () => {
     if (["commoncausepa"].includes(eventCode)) {
        document.getElementById("partnership-icons").style.display = "block";
        document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
-       document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
+       document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png?v=2";
        document.getElementById("partner-link-b").href = "https://www.commoncause.org/";
-       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
+       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
         if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "napa_city", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg?v=2";
             } else if (eventCode === "slo_county") {
               document.getElementById("partner-link-a").href = "https://www.slocounty.ca.gov/";
-              document.getElementById("partnership-a").src = "/assets/partners-slo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-slo.png?v=2";
             } else if (eventCode === "napa_county") {
               document.getElementById("partner-link-a").href = "https://www.countyofnapa.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-napa.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa.png?v=2";
               document.getElementById("partnership-a").style.background = '#252532';
             } else if (eventCode === "san_jose") {
               document.getElementById("partner-link-a").href = "https://www.sanjoseca.gov/your-government/departments";
-              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png?v=2";
               document.getElementById("partnership-a").style.background = '#043c4b';
             } else if (eventCode === "siskiyou") {
               document.getElementById("partner-link-a").href = "https://www.co.siskiyou.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png";
+              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png?v=2";
             } else if (eventCode === "redwood_city") {
               document.getElementById("partner-link-a").href = "https://www.redwoodcity.org/home";
-              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg?v=2";
             } else if (eventCode === "ventura_county") {
               document.getElementById("partner-link-a").href = "https://www.ventura.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-ventura.png";
+              document.getElementById("partnership-a").src = "/assets/partners-ventura.png?v=2";
             } else if (eventCode === "yolo_county") {
               document.getElementById("partner-link-a").href = "https://www.yolocounty.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-yolo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-yolo.png?v=2";
               document.getElementById("partnership-a").style.background = '#375e97';
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
             } else if (eventCode === "santa_clara_county") {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
-              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else if (eventCode === "mapsofla") {
               document.getElementById("partner-link-a").href = "https://www.lacity.org";
-              document.getElementById("partnership-a").src = "/assets/partners-lax.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-lax.svg?v=2";
               document.getElementById("partnership-a").style.height = '160px';
               document.getElementById("partnership-a").style.marginTop = '-45px';
             } else if (eventCode === "san_mateo_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sm-city.png?v=2";
             } else if (eventCode === "oakland") {
               document.getElementById("partner-link-a").href = "https://www.oaklandca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-oakland.png";
+              document.getElementById("partnership-a").src = "/assets/partners-oakland.png?v=2";
             } else if (eventCode === "martinez") {
               document.getElementById("partner-link-a").href = "https://www.cityofmartinez.org";
-              document.getElementById("partnership-a").src = "/assets/partners-martinez.png";
+              document.getElementById("partnership-a").src = "/assets/partners-martinez.png?v=2";
             } else if (eventCode === "carpinteria") {
               document.getElementById("partner-link-a").href = "https://carpinteriaca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-carpinteria.png";
+              document.getElementById("partnership-a").src = "/assets/partners-carpinteria.png?v=2";
             } else if (eventCode === "santa_clara_water") {
               document.getElementById("partner-link-a").href = "https://www.valleywater.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sc-water.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-water.png?v=2";
             } else if (eventCode === "kern_county") {
               document.getElementById("partner-link-a").href = "https://www.kerncounty.com";
-              document.getElementById("partnership-a").src = "/assets/partners-kern.png";
+              document.getElementById("partnership-a").src = "/assets/partners-kern.png?v=2";
             } else if (eventCode === "tuolumne") {
               document.getElementById("partner-link-a").href = "https://www.tuolumnecounty.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-tuolumne.png";
+              document.getElementById("partnership-a").src = "/assets/partners-tuolumne.png?v=2";
             } else if (eventCode === "napa_boe") {
               document.getElementById("partner-link-a").href = "https://napacoe.org/board-of-education/";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-boe.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-boe.png?v=2";
             } else if (eventCode === "butte_county") {
               document.getElementById("partner-link-a").href = "https://www.buttecounty.net";
-              document.getElementById("partnership-a").src = "/assets/partners-butte.png";
+              document.getElementById("partnership-a").src = "/assets/partners-butte.png?v=2";
             } else if (eventCode === "napa_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofnapa.org";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-city.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-city.png?v=2";
             } else if (eventCode === "humboldt_county") {
               document.getElementById("partner-link-a").href = "https://humboldtgov.org";
-              document.getElementById("partnership-a").src = "/assets/partners-humboldt.png";
+              document.getElementById("partnership-a").src = "/assets/partners-humboldt.png?v=2";
               document.getElementById("partnership-a").style.background = "#46798b";
             } else if (eventCode === "napa_college") {
               document.getElementById("partner-link-a").href = "https://napavalley.edu/AboutNVC/Trustees/Pages/default.aspx";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-college.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-college.png?v=2";
             } else if (eventCode === "san_joaquin") {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
               document.getElementById("partnership-a").style.background = "#315470";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
-            document.getElementById("partnership-b").src = "/assets/partners-rp.png";
+            document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
           "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
-            document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
+            document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
             if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-sonoma.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sonoma.png?v=2";
             } else if (eventCode === "pasadena2021") {
               document.getElementById("partner-link-a").href = "https://www.cityofpasadena.net/";
-              document.getElementById("partnership-a").src = "/assets/partners-pasadena.png";
+              document.getElementById("partnership-a").src = "/assets/partners-pasadena.png?v=2";
               document.getElementById("partnership-a").style.background = "#00275d";
             } else if (eventCode === "sbcounty") {
               document.getElementById("partner-link-a").href = "https://www.countyofsb.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-santabarbara.png";
+              document.getElementById("partnership-a").src = "/assets/partners-santabarbara.png?v=2";
               document.getElementById("partnership-a").style.background = "#22a8c4";
             } else if (eventCode === "goleta") {
               document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-goleta.png";
+              document.getElementById("partnership-a").src = "/assets/partners-goleta.png?v=2";
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-marin.png";
+              document.getElementById("partnership-a").src = "/assets/partners-marin.png?v=2";
             } else if (eventCode === "marinaca") {
               document.getElementById("partner-link-a").href = "https://cityofmarina.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-marina.png";
+              document.getElementById("partnership-a").src = "/assets/partners-marina.png?v=2";
             } else if (eventCode === "arroyog") {
               document.getElementById("partner-link-a").href = "http://www.arroyogrande.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-arroyo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-arroyo.png?v=2";
             } else if (eventCode === "fresno") {
               document.getElementById("partner-link-a").href = "https://www.co.fresno.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-fresno.png";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno.png?v=2";
               document.getElementById("partnership-a").style.background = "#1C385A";
             } else if (eventCode === "fresnocity") {
               document.getElementById("partner-link-a").href = "https://fresno.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg?v=2";
             } else if (eventCode === "nevadaco") {
               document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
-              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
+              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png?v=2";
             } else if (eventCode === "sanmateoco") {
               document.getElementById("partner-link-a").href = "https://www.smcgov.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-sanmateoco.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sanmateoco.png?v=2";
             } else if (eventCode === "kingsco") {
               document.getElementById("partner-link-a").href = "https://www.countyofkings.com/";
-              document.getElementById("partnership-a").src = "/assets/partners-kings.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-kings.svg?v=2";
               document.getElementById("partnership-a").style.background = "#142942";
             } else if (eventCode === "mercedco") {
               document.getElementById("partner-link-a").href = "https://www.co.merced.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-merced.png";
+              document.getElementById("partnership-a").src = "/assets/partners-merced.png?v=2";
             } else if (eventCode === "sanbenito") {
               document.getElementById("partner-link-a").href = "https://www.cosb.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-sanbenito.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sanbenito.svg?v=2";
             } else if (eventCode === "camarillo") {
               document.getElementById("partner-link-a").href = "https://www.ci.camarillo.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-camarillo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-camarillo.png?v=2";
             } else if (eventCode === "chulavista") {
               document.getElementById("partner-link-a").href = "https://www.chulavistaca.gov/";
-              document.getElementById("partnership-a").src = "/assets/partners-chulavista.png";
+              document.getElementById("partnership-a").src = "/assets/partners-chulavista.png?v=2";
             } else if (eventCode === "bellflower") {
               document.getElementById("partner-link-a").href = "https://www.bellflower.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-bellflower.png";
+              document.getElementById("partnership-a").src = "/assets/partners-bellflower.png?v=2";
             } else if (eventCode === "lakee") {
               document.getElementById("partner-link-a").href = "http://www.lake-elsinore.org";
-              document.getElementById("partnership-a").src = "/assets/partners-lake_el.png";
+              document.getElementById("partnership-a").src = "/assets/partners-lake_el.png?v=2";
             } else if (eventCode === "chino2021") {
               document.getElementById("partner-link-a").href = "https://www.cityofchino.org";
-              document.getElementById("partnership-a").src = "/assets/partners-chino.png";
+              document.getElementById("partnership-a").src = "/assets/partners-chino.png?v=2";
             } else if (eventCode === "campbellcity") {
               document.getElementById("partner-link-a").href = "https://www.ci.campbell.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-campbell.png";
+              document.getElementById("partnership-a").src = "/assets/partners-campbell.png?v=2";
               document.getElementById("partnership-a").style.background = "#143e5d";
             } else if (eventCode === "fremont2021") {
               document.getElementById("partner-link-a").href = "https://www.fremont.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-fremont.png";
+              document.getElementById("partnership-a").src = "/assets/partners-fremont.png?v=2";
             } else if (eventCode === "buellton") {
               document.getElementById("partner-link-a").href = "https://cityofbuellton.com";
               document.getElementById("partnership-a").src = "/assets/partners-buellton.webp";
             } else if (eventCode === "groverbeach") {
               document.getElementById("partner-link-a").href = "https://www.grover.org";
-              document.getElementById("partnership-a").src = "/assets/partners-grover.png";
+              document.getElementById("partnership-a").src = "/assets/partners-grover.png?v=2";
             } else if (eventCode === "ocsd") {
               document.getElementById("partner-link-a").href = "https://oceanocsd.org";
-              document.getElementById("partnership-a").src = "/assets/partners-oceano.png";
+              document.getElementById("partnership-a").src = "/assets/partners-oceano.png?v=2";
             } else if (eventCode === "vallejo") {
               document.getElementById("partner-link-a").href = "https://www.cityofvallejo.net";
-              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png?v=2";
             } else if (eventCode === "sunnyvale2021") {
               document.getElementById("partner-link-a").href = "https://sunnyvale.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-sunnyvale.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sunnyvale.svg?v=2";
             } else if (eventCode === "laverne") {
               document.getElementById("partner-link-a").href = "https://www.cityoflaverne.org";
               document.getElementById("partnership-a").src = "/assets/partners-laverne.gif";
             } else if (eventCode === "pomonaca") {
               document.getElementById("partner-link-a").href = "https://www.pomonaca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-pomona.png";
+              document.getElementById("partnership-a").src = "/assets/partners-pomona.png?v=2";
             } else if (eventCode === "richmondca") {
               document.getElementById("partner-link-a").href = "https://www.ci.richmond.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-richmond.png";
+              document.getElementById("partnership-a").src = "/assets/partners-richmond.png?v=2";
             } else if (eventCode === "elcajon") {
               document.getElementById("partner-link-a").href = "https://www.elcajon.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-elcajon.png";
+              document.getElementById("partnership-a").src = "/assets/partners-elcajon.png?v=2";
             } else if (eventCode === "carlsbad2021") {
               document.getElementById("partner-link-a").href = "https://www.carlsbadca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-carlsbad.png";
+              document.getElementById("partnership-a").src = "/assets/partners-carlsbad.png?v=2";
             } else if (eventCode === "encinitas2021") {
               document.getElementById("partner-link-a").href = "https://encinitasca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-encinitas.png";
+              document.getElementById("partnership-a").src = "/assets/partners-encinitas.png?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else if (eventCode === "bp2021") {
               document.getElementById("partner-link-a").href = "http://www.buenapark.com";
-              document.getElementById("partnership-a").src = "/assets/partners-buenapark.png";
+              document.getElementById("partnership-a").src = "/assets/partners-buenapark.png?v=2";
               document.getElementById("partnership-a").style.background = "#263f55";
             } else if (eventCode === "hmb2021") {
               document.getElementById("partner-link-a").href = "https://www.half-moon-bay.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-halfmoon.png";
+              document.getElementById("partnership-a").src = "/assets/partners-halfmoon.png?v=2";
               document.getElementById("partnership-a").style.background = "#00457e";
             } else if (eventCode === "stockton2021") {
               document.getElementById("partner-link-a").href = "http://www.stocktonca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-stockton.png";
+              document.getElementById("partnership-a").src = "/assets/partners-stockton.png?v=2";
             } else if (eventCode === "lodi2021") {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-lodi.png";
+              document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
-              document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
             }
         }
 

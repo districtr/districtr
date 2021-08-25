@@ -243,7 +243,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderId, 
 
     // cities in Communities of Interest will have a thick border
     if (spatial_abilities(borderId).border) {
-        fetch(`/assets/city_border/${borderId}.geojson`)
+        fetch(`/assets/city_border/${borderId}.geojson?v=2`)
             .then(res => res.json())
             .then((geojson) => {
 

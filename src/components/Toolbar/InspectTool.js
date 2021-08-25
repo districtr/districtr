@@ -10,7 +10,7 @@ export default class InspectTool extends Tool {
         super(
             "inspect",
             "Inspect",
-            html`<img src="/assets/Icons_Inspect_grey.svg" alt="Inspect"/>`
+            html`<img src="/assets/Icons_Inspect_grey.svg?v=2" alt="Inspect"/>`
         );
 
         this.columnSets = [].concat(columnSets);
