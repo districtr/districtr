@@ -109,6 +109,8 @@ commoncausepa: 'Pennsylvania',
   ocsd: 'California',
   groverbeach: 'California',
   vallejo: 'California',
+  santa_clara_county: 'California',
+  'ft-myers': 'Florida',
   'mp-maps': 'California',
 };
 
@@ -208,6 +210,8 @@ commoncausepa: 'pennsylvania',
   ocsd: 'ca_oceano',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
+  santa_clara_county: 'ca_sc_county',
+  'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
 };
 
@@ -328,6 +332,7 @@ const hybrid_events = [
   'ocsd',
   'groverbeach',
   'vallejo',
+  'ft-myers',
   'mp-maps',
   'mapsofla',
   'butte_county',
@@ -909,7 +914,15 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
   (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
   state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
   to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
-  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>"
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>",
+  'ft-myers': "<p>Welcome to The City of Fort Myers Online Redistricting Project.<p>\
+       <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
+       <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
+       <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
+
+
+       
 };
 
 const longAbout = {
