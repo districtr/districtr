@@ -13,12 +13,16 @@ import { getCell, getCellSeatShare, parseElectionName } from "../components/Char
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
 import { interpolateRdBu } from "d3-scale-chromatic";
-import { roundToDecimal, county_fips_to_name, spatial_abilities } from "../utils";
+import { roundToDecimal, county_fips_to_name, spatial_abilities, stateNameToFips, COUNTIES_TILESET } from "../utils";
 import { districtColors } from "../colors";
+import Layer, { addBelowLabels } from "../map/Layer";
+import { toggle } from "../components/Toggle";
 import Analyzer from "../models/Analyzer";
 
 // global for the election slides
 let two_party = -1;
+// global for tracking if we have made the counties layer
+let counties = false;
 
 /**
  * @desc Retrieves the proper map style; uses the same rules as the Editor.
@@ -443,6 +447,57 @@ function county_section(state, data, municipalities) {
 
     let num_split = Object.keys(data.split_list).length;
 
+    // county button
+    const COUNTIES_LAYER = {
+        id: "counties",
+        source: COUNTIES_TILESET.sourceLayer,
+        "source-layer": COUNTIES_TILESET.sourceLayer,
+        type: "line",
+        paint: {
+            "line-color": "#444444",
+            "line-width": [
+                "interpolate",
+                ["linear"],
+                ["zoom"],
+                0,
+                0,
+                4,
+                1,
+                6,
+                2,
+                9,
+                3
+            ],
+            "line-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 9, 0.5]
+        }
+    };
+
+    let statecode = String(stateNameToFips[(state.place.state || state.place.id).toLowerCase().replace("2020", "").replace("_bg", "")]);
+    counties = counties ? counties : new Layer(
+        state.map,
+        {
+            ...COUNTIES_LAYER,
+            paint: { ...COUNTIES_LAYER.paint, "line-opacity": 0 },
+            filter: [
+                "==",
+                ["get", "STATEFP"],
+                statecode
+            ]
+        },
+        addBelowLabels
+    );
+    
+    let alt_counties = {
+        alaska: 'Borough',
+        alaska_blocks: 'Borough',
+        louisiana: 'Parish',
+    }[state.place.id];
+    let county_toggle = html`
+            ${toggle(`Show ${alt_counties || "County"} Boundaries`, false, checked =>
+                counties.setOpacity(
+                    checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
+                ))}`
+    
     let text = (data.population == -1) 
     ? html`<div style="text-align:left">
     ${state.place.name} has ${data.num_counties} ${pnoun}
@@ -474,7 +529,7 @@ function county_section(state, data, municipalities) {
     
     // if the dual graph on python anywhere doesn't have population
     if (data.population == -1)
-        return text;
+        return html`${county_toggle}<br/>${text}`;
 
     // build the table
     let noun_cap = municipalities ? "Municipality" : "County";
@@ -490,7 +545,7 @@ function county_section(state, data, municipalities) {
             ]
         })
     }
-    return html`${text}<br/>
+    return html`${county_toggle}<br/>${text}<br/>
     ${num_split > 0 ? html`
         <h4 text-align:"center">${noun_cap} Split Details</h4> 
         ${DataTable(headers, rows)}` : ""}`

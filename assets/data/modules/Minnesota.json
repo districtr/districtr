@@ -22,6 +22,437 @@
     ],
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2012 Senate",
+            "subgroups": [
+              {
+                "key": "SEN12D",
+                "name": "Democratic",
+                "sum": 1854585,
+                "min": 0,
+                "max": 3384
+              },
+              {
+                "key": "SEN12R",
+                "name": "Republican",
+                "sum": 867968,
+                "min": 0,
+                "max": 2293
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 President",
+            "subgroups": [
+              {
+                "key": "PRES12D",
+                "name": "Democratic",
+                "sum": 1546159,
+                "min": 0,
+                "max": 2682
+              },
+              {
+                "key": "PRES12R",
+                "name": "Republican",
+                "sum": 1320220,
+                "min": 0,
+                "max": 3343
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14D",
+                "name": "Democratic",
+                "sum": 1014718,
+                "min": 0,
+                "max": 1649
+              },
+              {
+                "key": "AG14R",
+                "name": "Republican",
+                "sum": 752542,
+                "min": 0,
+                "max": 1871
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Auditor",
+            "subgroups": [
+              {
+                "key": "AUD14D",
+                "name": "Democratic",
+                "sum": 988099,
+                "min": 0,
+                "max": 1654
+              },
+              {
+                "key": "AUD14R",
+                "name": "Republican",
+                "sum": 766813,
+                "min": 0,
+                "max": 1891
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS14D",
+                "name": "Democratic",
+                "sum": 901453,
+                "min": 0,
+                "max": 1647
+              },
+              {
+                "key": "SOS14R",
+                "name": "Republican",
+                "sum": 879018,
+                "min": 0,
+                "max": 2135
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 989107,
+                "min": 0,
+                "max": 1699
+              },
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 879256,
+                "min": 0,
+                "max": 2190
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "SEN14D",
+                "name": "Democratic",
+                "sum": 1053205,
+                "min": 0,
+                "max": 1756
+              },
+              {
+                "key": "SEN14R",
+                "name": "Republican",
+                "sum": 850224,
+                "min": 0,
+                "max": 2147
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 1367701,
+                "min": 0,
+                "max": 2552
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1322937,
+                "min": 0,
+                "max": 3534
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 1249407,
+                "min": 0,
+                "max": 2460
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 1150460,
+                "min": 0,
+                "max": 2812
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18D",
+                "name": "Democratic",
+                "sum": 1250522,
+                "min": 0,
+                "max": 2390
+              },
+              {
+                "key": "AUD18R",
+                "name": "Republican",
+                "sum": 1095308,
+                "min": 0,
+                "max": 2655
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 1328502,
+                "min": 0,
+                "max": 2534
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 1109095,
+                "min": 0,
+                "max": 2693
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 1393098,
+                "min": 0,
+                "max": 2593
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1097704,
+                "min": 0,
+                "max": 2682
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 1566175,
+                "min": 0,
+                "max": 2671
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 940436,
+                "min": 0,
+                "max": 2360
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 5706494,
+              "min": 0,
+              "max": 11212
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4353880,
+                "min": 0,
+                "max": 9570
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 392850,
+                "min": 0,
+                "max": 4357
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 345640,
+                "min": 0,
+                "max": 2095
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 297460,
+                "min": 0,
+                "max": 3113
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 57046,
+                "min": 0,
+                "max": 2303
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2621,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 236034,
+                "min": 0,
+                "max": 533
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 20963,
+                "min": 0,
+                "max": 125
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 4389033,
+              "min": 0,
+              "max": 7265
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3509053,
+                "min": 0,
+                "max": 6460
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 257353,
+                "min": 0,
+                "max": 2888
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 218767,
+                "min": 0,
+                "max": 1298
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 39560,
+                "min": 0,
+                "max": 1453
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1861,
+                "min": 0,
+                "max": 123
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 214681,
+                "min": 0,
+                "max": 2297
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 14680,
+                "min": 0,
+                "max": 122
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 133078,
+                "min": 0,
+                "max": 273
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-97.2391, 43.4994],
+          [-89.4834, 49.3845]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mn_vtds20"
+            },
+            "sourceLayer": "mn_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mn_vtds20_points"
+            },
+            "sourceLayer": "mn_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
@@ -557,14 +988,8 @@
           "key": "VTDID"
         },
         "bounds": [
-          [
-            -97.2391,
-            43.4995
-          ],
-          [
-            -89.4918,
-            49.3838
-          ]
+          [-97.2391, 43.4995],
+          [-89.4918, 49.3838]
         ],
         "tilesets": [
           {
@@ -735,14 +1160,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -97.2392,
-            43.4994
-          ],
-          [
-            -89.4834,
-            49.3844
-          ]
+          [-97.2392, 43.4994],
+          [-89.4834, 49.3844]
         ],
         "tilesets": [
           {
@@ -919,14 +1338,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -92.5734,
-            43.8845
-          ],
-          [
-            -92.368,
-            44.1081
-          ]
+          [-92.5734, 43.8845],
+          [-92.368, 44.1081]
         ],
         "tilesets": [
           {
@@ -1108,14 +1521,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -92.6894,
-            43.8337
-          ],
-          [
-            -92.0785,
-            44.1956
-          ]
+          [-92.6894, 43.8337],
+          [-92.0785, 44.1956]
         ],
         "tilesets": [
           {
@@ -1148,7 +1555,7 @@
       }
     ]
   },
-      {
+  {
     "state": "Minnesota",
     "units": [
       {
@@ -1243,14 +1650,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -93.0215,
-            44.7457
-          ],
-          [
-            -92.7395,
-            45.2969
-          ]
+          [-93.0215, 44.7457],
+          [-92.7395, 45.2969]
         ],
         "tilesets": [
           {
@@ -1282,7 +1683,7 @@
       }
     ]
   },
-      {
+  {
     "state": "Minnesota",
     "name": "St. Louis County",
     "id": "stlouis_mn",
@@ -1379,14 +1780,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -93.0977,
-            46.6492
-          ],
-          [
-            -91.7879,
-            48.6315
-          ]
+          [-93.0977, 46.6492],
+          [-91.7879, 48.6315]
         ],
         "tilesets": [
           {
@@ -1422,6 +1817,7 @@
         "id": "precincts",
         "name": "2020 Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1598,14 +1994,8 @@
           "key": "VTDID"
         },
         "bounds": [
-          [
-            -97.2391,
-            43.4994
-          ],
-          [
-            -89.4918,
-            49.3838
-          ]
+          [-97.2391, 43.4994],
+          [-89.4918, 49.3838]
         ],
         "tilesets": [
           {
@@ -1645,6 +2035,202 @@
         "name": "State House",
         "numberOfParts": 134,
         "pluralNoun": "State House Districts"
+      }
+    ]
+  },
+  {
+    "state": "Minnesota",
+    "name": "Minneapolis",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 429954,
+              "min": 0,
+              "max": 4464
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 249581,
+                "min": 0,
+                "max": 3333
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 81088,
+                "min": 0,
+                "max": 2980
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 44513,
+                "min": 0,
+                "max": 699
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 24743,
+                "min": 0,
+                "max": 1071
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 5184,
+                "min": 0,
+                "max": 659
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 171,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 22538,
+                "min": 0,
+                "max": 184
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 2136,
+                "min": 0,
+                "max": 26
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 349241,
+              "min": 0,
+              "max": 4420
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 221450,
+                "min": 0,
+                "max": 3320
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 55640,
+                "min": 0,
+                "max": 1891
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 30929,
+                "min": 0,
+                "max": 464
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 3887,
+                "min": 0,
+                "max": 390
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 144,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 20810,
+                "min": 0,
+                "max": 1053
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1566,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 14815,
+                "min": 0,
+                "max": 169
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -93.3292,
+            44.8898
+          ],
+          [
+            -93.194,
+            45.0512
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.minneapolis_blocks"
+            },
+            "sourceLayer": "minneapolis_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.minneapolis_blocks_points"
+            },
+            "sourceLayer": "minneapolis_blocks_points"
+          }
+        ]
+      }
+    ],
+    "id": "minneapolis",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 13,
+        "pluralNoun": "City Council Wards"
+      },
+      {
+        "name": "City Park Districts",
+        "numberOfParts": 6,
+        "pluralNoun": "City Park Districts"
       }
     ]
   }

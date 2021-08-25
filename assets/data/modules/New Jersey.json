@@ -5,9 +5,187 @@
     "name": "New Jersey",
     "units": [
       {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 9288994,
+              "min": 0,
+              "max": 7080
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4816381,
+                "min": 0,
+                "max": 6248
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1154142,
+                "min": 0,
+                "max": 3052
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 2002575,
+                "min": 0,
+                "max": 3123
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 942921,
+                "min": 0,
+                "max": 2503
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 11206,
+                "min": 0,
+                "max": 102
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1944,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 289471,
+                "min": 0,
+                "max": 429
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 70354,
+                "min": 0,
+                "max": 371
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 7281310,
+              "min": 0,
+              "max": 5756
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3966396,
+                "min": 0,
+                "max": 3356
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 896947,
+                "min": 0,
+                "max": 3045
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 1435999,
+                "min": 0,
+                "max": 2699
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 8209,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1586,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 740609,
+                "min": 0,
+                "max": 2469
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 48057,
+                "min": 0,
+                "max": 278
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 183507,
+                "min": 0,
+                "max": 342
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -75.5636,
+            38.7887
+          ],
+          [
+            -73.8851,
+            41.3576
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nj_bg20_blockgroups20"
+            },
+            "sourceLayer": "nj_bg20_blockgroups20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nj_bg20_blockgroups20_points"
+            },
+            "sourceLayer": "nj_bg20_blockgroups20_points"
+          }
+        ]
+      },
+      {
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

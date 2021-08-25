@@ -5,9 +5,281 @@
     "name": "Connecticut",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 735739,
+                "min": 0,
+                "max": 3335
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 557619,
+                "min": 0,
+                "max": 3986
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 691495,
+                "min": 0,
+                "max": 3228
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 605509,
+                "min": 0,
+                "max": 4272
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 787683,
+                "min": 0,
+                "max": 3600
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 545721,
+                "min": 0,
+                "max": 3942
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 676656,
+                "min": 0,
+                "max": 3248
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 624747,
+                "min": 0,
+                "max": 4467
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18D",
+                "name": "Democratic",
+                "sum": 717000,
+                "min": 0,
+                "max": 3250
+              },
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 569736,
+                "min": 0,
+                "max": 4019
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 3605944,
+              "min": 0,
+              "max": 16164
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 2279232,
+                "min": 0,
+                "max": 12583
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 360937,
+                "min": 0,
+                "max": 5590
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 623293,
+                "min": 0,
+                "max": 8253
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 170459,
+                "min": 0,
+                "max": 2718
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 6404,
+                "min": 0,
+                "max": 432
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 974,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 137569,
+                "min": 0,
+                "max": 764
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 27076,
+                "min": 0,
+                "max": 655
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 2869227,
+              "min": 0,
+              "max": 15718
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1913793,
+                "min": 0,
+                "max": 10264
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 279080,
+                "min": 0,
+                "max": 4268
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 430695,
+                "min": 0,
+                "max": 5696
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 4967,
+                "min": 0,
+                "max": 300
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 757,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 132859,
+                "min": 0,
+                "max": 2484
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 19450,
+                "min": 0,
+                "max": 476
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 87626,
+                "min": 0,
+                "max": 582
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-73.7278, 40.9509],
+          [-71.7872, 42.0505]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ct_vtds20"
+            },
+            "sourceLayer": "ct_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ct_vtds20_points"
+            },
+            "sourceLayer": "ct_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -297,14 +569,8 @@
           "key": "COUNTYFP10"
         },
         "bounds": [
-          [
-            -73.7278,
-            40.9509
-          ],
-          [
-            -71.7872,
-            42.0506
-          ]
+          [-73.7278, 40.9509],
+          [-71.7872, 42.0506]
         ],
         "tilesets": [
           {
@@ -475,14 +741,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -73.7278,
-            40.9767
-          ],
-          [
-            -71.7872,
-            42.0506
-          ]
+          [-73.7278, 40.9767],
+          [-71.7872, 42.0506]
         ],
         "tilesets": [
           {

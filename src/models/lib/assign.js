@@ -27,6 +27,7 @@ export function assignUnitsAsTheyLoad(state, assignment, readyCallback) {
                 body: JSON.stringify({
                   id: state.place.id,
                   unitType: state.units.id,
+                  unitName: state.unitsRecord.id,
                   keyColumn: state.idColumn.key,
                   units: Array.from(populationUnloaded),
                 })
@@ -96,7 +97,7 @@ function assign(state, feature, partId, updateData) {
     if (updateData) {
         state.update(feature, partId);
     } else {
-        // don't update data; we sideloaded it already 
+        // don't update data; we sideloaded it already
     }
     partId.forEach((p) => {
         if (state.parts[p]) {

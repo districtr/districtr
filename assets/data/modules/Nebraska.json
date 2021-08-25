@@ -3,9 +3,221 @@
     "name": "Nebraska",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 286270,
+                "min": 0,
+                "max": 1038
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 412429,
+                "min": 0,
+                "max": 1769
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 264045,
+                "min": 0,
+                "max": 1004
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 407224,
+                "min": 0,
+                "max": 1756
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1961504,
+              "min": 0,
+              "max": 7442
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 1484687,
+                "min": 0,
+                "max": 6733
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 94405,
+                "min": 0,
+                "max": 2228
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 234715,
+                "min": 0,
+                "max": 3268
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 52359,
+                "min": 0,
+                "max": 1307
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 15051,
+                "min": 0,
+                "max": 1712
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1318,
+                "min": 0,
+                "max": 76
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 72634,
+                "min": 0,
+                "max": 446
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 6335,
+                "min": 0,
+                "max": 251
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1476127,
+              "min": 0,
+              "max": 7375
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 1169255,
+                "min": 0,
+                "max": 5867
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 66088,
+                "min": 0,
+                "max": 1571
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 145297,
+                "min": 0,
+                "max": 2007
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 10112,
+                "min": 0,
+                "max": 1000
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 942,
+                "min": 0,
+                "max": 45
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 38794,
+                "min": 0,
+                "max": 742
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 4314,
+                "min": 0,
+                "max": 251
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 41325,
+                "min": 0,
+                "max": 227
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-104.0535, 39.9999],
+          [-95.3083, 43.0017]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ne_vtds20"
+            },
+            "sourceLayer": "ne_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ne_vtds20_points"
+            },
+            "sourceLayer": "ne_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -275,14 +487,8 @@
           "key": "unique"
         },
         "bounds": [
-          [
-            -104.0535,
-            39.9999
-          ],
-          [
-            -95.3083,
-            43.0017
-          ]
+          [-104.0535, 39.9999],
+          [-95.3083, 43.0017]
         ],
         "tilesets": [
           {
@@ -828,14 +1034,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -104.0535,
-            39.9999
-          ],
-          [
-            -95.3083,
-            43.0017
-          ]
+          [-104.0535, 39.9999],
+          [-95.3083, 43.0017]
         ],
         "tilesets": [
           {

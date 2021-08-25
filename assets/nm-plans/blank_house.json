@@ -1,30 +1,89 @@
 {
   "assignment": {},
-  "id": "4420b1d5",
-  "idColumn": {
-    "key": "NAME10",
-    "name": "Precinct unique identifier"
-  },
+  "id": "24ffd3c9",
+  "idColumn": { "key": "GEOID20", "name": "2020 Census GEOID" },
   "problem": {
     "pluralNoun": "State House Districts",
     "numberOfParts": 70,
     "name": "State House"
   },
   "parts": [
-    {
-      "id": 0,
-      "displayNumber": 1,
-      "name": "District 1"
-    }
+    { "id": 0, "displayNumber": 1, "name": "District 1" },
+    { "id": 1, "displayNumber": 2, "name": "District 2" },
+    { "id": 2, "displayNumber": 3, "name": "District 3" },
+    { "id": 3, "displayNumber": 4, "name": "District 4" },
+    { "id": 4, "displayNumber": 5, "name": "District 5" },
+    { "id": 5, "displayNumber": 6, "name": "District 6" },
+    { "id": 6, "displayNumber": 7, "name": "District 7" },
+    { "id": 7, "displayNumber": 8, "name": "District 8" },
+    { "id": 8, "displayNumber": 9, "name": "District 9" },
+    { "id": 9, "displayNumber": 10, "name": "District 10" },
+    { "id": 10, "displayNumber": 11, "name": "District 11" },
+    { "id": 11, "displayNumber": 12, "name": "District 12" },
+    { "id": 12, "displayNumber": 13, "name": "District 13" },
+    { "id": 13, "displayNumber": 14, "name": "District 14" },
+    { "id": 14, "displayNumber": 15, "name": "District 15" },
+    { "id": 15, "displayNumber": 16, "name": "District 16" },
+    { "id": 16, "displayNumber": 17, "name": "District 17" },
+    { "id": 17, "displayNumber": 18, "name": "District 18" },
+    { "id": 18, "displayNumber": 19, "name": "District 19" },
+    { "id": 19, "displayNumber": 20, "name": "District 20" },
+    { "id": 20, "displayNumber": 21, "name": "District 21" },
+    { "id": 21, "displayNumber": 22, "name": "District 22" },
+    { "id": 22, "displayNumber": 23, "name": "District 23" },
+    { "id": 23, "displayNumber": 24, "name": "District 24" },
+    { "id": 24, "displayNumber": 25, "name": "District 25" },
+    { "id": 25, "displayNumber": 26, "name": "District 26" },
+    { "id": 26, "displayNumber": 27, "name": "District 27" },
+    { "id": 27, "displayNumber": 28, "name": "District 28" },
+    { "id": 28, "displayNumber": 29, "name": "District 29" },
+    { "id": 29, "displayNumber": 30, "name": "District 30" },
+    { "id": 30, "displayNumber": 31, "name": "District 31" },
+    { "id": 31, "displayNumber": 32, "name": "District 32" },
+    { "id": 32, "displayNumber": 33, "name": "District 33" },
+    { "id": 33, "displayNumber": 34, "name": "District 34" },
+    { "id": 34, "displayNumber": 35, "name": "District 35" },
+    { "id": 35, "displayNumber": 36, "name": "District 36" },
+    { "id": 36, "displayNumber": 37, "name": "District 37" },
+    { "id": 37, "displayNumber": 38, "name": "District 38" },
+    { "id": 38, "displayNumber": 39, "name": "District 39" },
+    { "id": 39, "displayNumber": 40, "name": "District 40" },
+    { "id": 40, "displayNumber": 41, "name": "District 41" },
+    { "id": 41, "displayNumber": 42, "name": "District 42" },
+    { "id": 42, "displayNumber": 43, "name": "District 43" },
+    { "id": 43, "displayNumber": 44, "name": "District 44" },
+    { "id": 44, "displayNumber": 45, "name": "District 45" },
+    { "id": 45, "displayNumber": 46, "name": "District 46" },
+    { "id": 46, "displayNumber": 47, "name": "District 47" },
+    { "id": 47, "displayNumber": 48, "name": "District 48" },
+    { "id": 48, "displayNumber": 49, "name": "District 49" },
+    { "id": 49, "displayNumber": 50, "name": "District 50" },
+    { "id": 50, "displayNumber": 51, "name": "District 51" },
+    { "id": 51, "displayNumber": 52, "name": "District 52" },
+    { "id": 52, "displayNumber": 53, "name": "District 53" },
+    { "id": 53, "displayNumber": 54, "name": "District 54" },
+    { "id": 54, "displayNumber": 55, "name": "District 55" },
+    { "id": 55, "displayNumber": 56, "name": "District 56" },
+    { "id": 56, "displayNumber": 57, "name": "District 57" },
+    { "id": 57, "displayNumber": 58, "name": "District 58" },
+    { "id": 58, "displayNumber": 59, "name": "District 59" },
+    { "id": 59, "displayNumber": 60, "name": "District 60" },
+    { "id": 60, "displayNumber": 61, "name": "District 61" },
+    { "id": 61, "displayNumber": 62, "name": "District 62" },
+    { "id": 62, "displayNumber": 63, "name": "District 63" },
+    { "id": 63, "displayNumber": 64, "name": "District 64" },
+    { "id": 64, "displayNumber": 65, "name": "District 65" },
+    { "id": 65, "displayNumber": 66, "name": "District 66" },
+    { "id": 66, "displayNumber": 67, "name": "District 67" },
+    { "id": 67, "displayNumber": 68, "name": "District 68" },
+    { "id": 68, "displayNumber": 69, "name": "District 69" },
+    { "id": 69, "displayNumber": 70, "name": "District 70" }
   ],
   "place": {
     "id": "new_mexico_portal",
     "landmarks": {
       "type": "geojson",
-      "data": {
-        "type": "FeatureCollection",
-        "features": []
-      }
+      "data": { "type": "FeatureCollection", "features": [] }
     },
     "state": "New Mexico",
     "name": "New Mexico"
@@ -32,7 +91,7 @@
   "placeId": "new_mexico_portal",
   "units": {
     "id": "precincts",
-    "name": "Precincts",
+    "name": "2020 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {
@@ -40,67 +99,67 @@
         "name": "Population",
         "total": {
           "key": "TOTPOP",
-          "name": "Total population",
-          "sum": 2059179,
+          "name": "Total Population",
+          "sum": 2117522,
           "min": 0,
-          "max": 8135
+          "max": 2737
         },
         "subgroups": [
           {
-            "key": "NH_WHITE",
+            "key": "WHITE",
             "name": "White population",
-            "sum": 833810,
+            "sum": 772952,
             "min": 0,
-            "max": 3165
+            "max": 1445
           },
           {
-            "key": "NH_BLACK",
+            "key": "BLACK",
             "name": "Black population",
-            "sum": 35462,
+            "sum": 38330,
             "min": 0,
-            "max": 460
+            "max": 260
+          },
+          {
+            "key": "AMIN",
+            "name": "American Indian population",
+            "sum": 188610,
+            "min": 0,
+            "max": 2108
+          },
+          {
+            "key": "ASIAN",
+            "name": "Asian population",
+            "sum": 35261,
+            "min": 0,
+            "max": 280
+          },
+          {
+            "key": "NHPI",
+            "name": "Native Hawaiian and Pacific Islanders population",
+            "sum": 1451,
+            "min": 0,
+            "max": 19
+          },
+          {
+            "key": "OTHER",
+            "name": "Other races",
+            "sum": 10340,
+            "min": 0,
+            "max": 82
+          },
+          {
+            "key": "2MORE",
+            "name": "Two or more races",
+            "sum": 59767,
+            "min": 0,
+            "max": 274
           },
           {
             "key": "HISP",
             "name": "Hispanic population",
-            "sum": 953403,
+            "sum": 1010811,
             "min": 0,
-            "max": 8026
-          },
-          {
-            "key": "NH_ASIAN",
-            "name": "Asian population",
-            "sum": 26305,
-            "min": 0,
-            "max": 371
-          },
-          {
-            "key": "NH_AMIN",
-            "name": "American Indian population",
-            "sum": 175368,
-            "min": 0,
-            "max": 3205
-          },
-          {
-            "key": "NH_NHPI",
-            "name": "Native Hawaiian and Pacific Islander population",
-            "sum": 1246,
-            "min": 0,
-            "max": 36
-          },
-          {
-            "key": "NH_2MORE",
-            "name": "Two or more races",
-            "sum": 29835,
-            "min": 0,
-            "max": 220
-          },
-          {
-            "key": "NH_OTHER",
-            "name": "Other races",
-            "sum": 3750,
-            "min": 0,
-            "max": 66
+            "max": 2291
           }
         ]
       },
@@ -110,220 +169,91 @@
         "total": {
           "key": "VAP",
           "name": "Voting age population",
-          "sum": 1540507,
+          "sum": 1638989,
           "min": 0,
-          "max": 5265
+          "max": 2183
         },
         "subgroups": [
           {
             "key": "WVAP",
             "name": "White voting age population",
-            "sum": 697848,
+            "sum": 664062,
             "min": 0,
-            "max": 2517
+            "max": 1158
           },
           {
             "key": "BVAP",
             "name": "Black voting age population",
-            "sum": 27453,
+            "sum": 30778,
             "min": 0,
-            "max": 314
-          },
-          {
-            "key": "HVAP",
-            "name": "Hispanic voting age population",
-            "sum": 651326,
-            "min": 0,
-            "max": 5196
+            "max": 192
           },
           {
             "key": "AMINVAP",
-            "name": "Native American voting age population",
-            "sum": 121962,
+            "name": "American Indian voting age population",
+            "sum": 137360,
             "min": 0,
-            "max": 2125
-          },
-          {
-            "key": "NHPIVAP",
-            "name": "Native Hawaiian and Pacific Islander voting age population",
-            "sum": 987,
-            "min": 0,
-            "max": 23
+            "max": 1570
           },
           {
             "key": "ASIANVAP",
             "name": "Asian voting age population",
-            "sum": 20956,
+            "sum": 28989,
             "min": 0,
-            "max": 250
+            "max": 202
+          },
+          {
+            "key": "NHPIVAP",
+            "name": "Native Hawaiian and Pacific Islanders voting age population",
+            "sum": 1199,
+            "min": 0,
+            "max": 19
           },
           {
             "key": "OTHERVAP",
             "name": "Other races voting age population",
-            "sum": 2633,
+            "sum": 7925,
             "min": 0,
-            "max": 47
+            "max": 59
           },
           {
             "key": "2MOREVAP",
             "name": "Two or more races voting age population",
-            "sum": 17342,
+            "sum": 41912,
             "min": 0,
-            "max": 83
+            "max": 180
+          },
+          {
+            "key": "HVAP",
+            "name": "Hispanic voting age population",
+            "sum": 726764,
+            "min": 0,
+            "max": 1674
           }
         ]
-      },
-      {
-        "type": "election",
-        "name": "2016 Presidential",
-        "subgroups": [
-          {
-            "key": "PRES16D",
-            "name": "Democratic",
-            "sum": 385234,
-            "min": 0,
-            "max": 1746
-          },
-          {
-            "key": "PRES16R",
-            "name": "Republican",
-            "sum": 319667,
-            "min": 0,
-            "max": 1197
-          }
-        ],
-        "year": "2016"
-      },
-      {
-        "type": "election",
-        "name": "2016 Secretary of State",
-        "subgroups": [
-          {
-            "key": "SOS16D",
-            "name": "Democratic",
-            "sum": 433227,
-            "min": 0,
-            "max": 1827
-          },
-          {
-            "key": "SOS16R",
-            "name": "Republican",
-            "sum": 334733,
-            "min": 0,
-            "max": 1178
-          }
-        ],
-        "year": "2016"
-      },
-      {
-        "type": "election",
-        "name": "2018 Governor",
-        "subgroups": [
-          {
-            "key": "GOV18D",
-            "name": "Democratic",
-            "sum": 398368,
-            "min": 0,
-            "max": 1849
-          },
-          {
-            "key": "GOV18R",
-            "name": "Republican",
-            "sum": 298091,
-            "min": 0,
-            "max": 1079
-          }
-        ],
-        "year": "2018"
-      },
-      {
-        "type": "election",
-        "name": "2018 Senate",
-        "subgroups": [
-          {
-            "key": "SEN18D",
-            "name": "Democratic",
-            "sum": 376998,
-            "min": 0,
-            "max": 1841
-          },
-          {
-            "key": "SEN18R",
-            "name": "Republican",
-            "sum": 212813,
-            "min": 0,
-            "max": 898
-          }
-        ],
-        "year": "2018"
-      },
-      {
-        "type": "election",
-        "name": "2018 Secretary of State",
-        "subgroups": [
-          {
-            "key": "SOS18D",
-            "name": "Democratic",
-            "sum": 399134,
-            "min": 0,
-            "max": 1842
-          },
-          {
-            "key": "SOS18R",
-            "name": "Republican",
-            "sum": 257306,
-            "min": 0,
-            "max": 1009
-          }
-        ],
-        "year": "2018"
-      },
-      {
-        "type": "election",
-        "name": "2018 Attorney General",
-        "subgroups": [
-          {
-            "key": "AG18D",
-            "name": "Democratic",
-            "sum": 427583,
-            "min": 0,
-            "max": 1892
-          },
-          {
-            "key": "AG18R",
-            "name": "Republican",
-            "sum": 231296,
-            "min": 0,
-            "max": 914
-          }
-        ],
-        "year": "2018"
       }
     ],
-    "idColumn": {
-      "name": "Precinct unique identifier",
-      "key": "NAME10"
-    },
+    "idColumn": { "name": "2020 Census GEOID", "key": "GEOID20" },
     "bounds": [
-      [-109.0502, 31.3322],
-      [-103.002, 37.0003]
+      [-109.0504, 31.3322],
+      [-103.002, 37.0002]
     ],
     "tilesets": [
       {
         "type": "fill",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.new_mexico_precincts"
+          "url": "mapbox://districtr.nm_precincts"
         },
-        "sourceLayer": "new_mexico_precincts"
+        "sourceLayer": "nm_precincts"
       },
       {
         "type": "circle",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.new_mexico_precincts_points"
+          "url": "mapbox://districtr.nm_precincts_points"
         },
-        "sourceLayer": "new_mexico_precincts_points"
+        "sourceLayer": "nm_precincts_points"
       }
     ]
   }

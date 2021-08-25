@@ -8,8 +8,8 @@ import { PlaceMapWithData } from "../components/PlaceMap";
 let available_plans = []
 
 export default () => {
-    fetch("/assets/data/landing_pages.json")
-        .then(response => response.json()).then(data => {    
+    fetch("/assets/data/landing_pages.json?v=2")
+        .then(response => response.json()).then(data => {
             // build list of available plans
             for (let st of data) {
                 let ref = uspost[st.state];
@@ -28,7 +28,7 @@ export default () => {
                         savePlanToStorage(context);
                         navigateTo("/eval");
                     });
-                }, 
+                },
                 { label: "Go.", hoverText: "Evaluate the selected plan." });
             let upload = new PlanUploader(fileContent => {
                 loadPlanFromJSON(JSON.parse(fileContent)).then(context => {
@@ -36,7 +36,7 @@ export default () => {
                         navigateTo("/eval");
                     });
                 })
-            
+
             let from_link = html`<div class="modal-item" id="url">
                     <p>
                         Paste the shareable URL or plan code for an existing Districtr
@@ -57,8 +57,8 @@ export default () => {
 /** Plan Loading */
 function loadPlan(url) {
     // load a test plan if developing
-    if (window.location.href.includes("localhost:") && url == "") 
-        return loadPlanFromURL("/assets/mi-plans/state_house.json");
+    if (window.location.href.includes("localhost:") && url == "")
+        return loadPlanFromURL("/assets/mi-plans/state_house.json?v=2");
     let districtr_id = url.split('/')[url.split('/').length - 1];
     return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
     .then(res => res.json())
@@ -84,11 +84,11 @@ const loadablePlans = (plans, place) =>
 
 
 const loadablePlan = (plan, place) => html`
-        <a href="eval?url=/assets/${place}-plans/${plan.id}.json">
+        <a href="eval?url=/assets/${place}-plans/${plan.id}.json?v=2">
             <li class="plan-thumbs__thumb">
                 <img
                     class="thumb__img"
-                    src="/assets/${place}-plans/${plan.id}.png"
+                    src="/assets/${place}-plans/${plan.id}.png?v=2"
                     alt="Districting Plan ${plan.id}"
                 />
                 <figcaption class="thumb__caption">

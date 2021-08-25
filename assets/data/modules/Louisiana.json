@@ -5,9 +5,381 @@
     "state": "Louisiana",
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2015 Governor",
+            "subgroups": [
+              {
+                "key": "GOV15D",
+                "name": "Democratic",
+                "sum": 646073,
+                "min": 0,
+                "max": 1001
+              },
+              {
+                "key": "GOV15R",
+                "name": "Republican",
+                "sum": 505695,
+                "min": 0,
+                "max": 960
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2015 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS15D",
+                "name": "Democratic",
+                "sum": 393926,
+                "min": 0,
+                "max": 717
+              },
+              {
+                "key": "SOS15R",
+                "name": "Republican",
+                "sum": 649227,
+                "min": 0,
+                "max": 1155
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 778870,
+                "min": 0,
+                "max": 1484
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1177983,
+                "min": 0,
+                "max": 1784
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate Runoff",
+            "subgroups": [
+              {
+                "key": "SEN16roD",
+                "name": "Democratic",
+                "sum": 346959,
+                "min": 0,
+                "max": 780
+              },
+              {
+                "key": "SEN16roR",
+                "name": "Republican",
+                "sum": 535751,
+                "min": 0,
+                "max": 1023
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE17D",
+                "name": "Democratic",
+                "sum": 165071,
+                "min": 0,
+                "max": 607
+              },
+              {
+                "key": "TRE17R",
+                "name": "Republican",
+                "sum": 208009,
+                "min": 0,
+                "max": 454
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 209596,
+                "min": 0,
+                "max": 592
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 306309,
+                "min": 0,
+                "max": 800
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Governor",
+            "subgroups": [
+              {
+                "key": "GOV19D",
+                "name": "Democratic",
+                "sum": 774495,
+                "min": 0,
+                "max": 1634
+              },
+              {
+                "key": "GOV19R",
+                "name": "Republican",
+                "sum": 734282,
+                "min": 0,
+                "max": 1300
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE19pD",
+                "name": "Democratic",
+                "sum": 442745,
+                "min": 0,
+                "max": 944
+              },
+              {
+                "key": "TRE19pR",
+                "name": "Republican",
+                "sum": 769477,
+                "min": 0,
+                "max": 1378
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS19D",
+                "name": "Democratic",
+                "sum": 601131,
+                "min": 0,
+                "max": 1264
+              },
+              {
+                "key": "SOS19R",
+                "name": "Republican",
+                "sum": 867610,
+                "min": 0,
+                "max": 1567
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG19D",
+                "name": "Democratic",
+                "sum": 436511,
+                "min": 0,
+                "max": 984
+              },
+              {
+                "key": "AG19R",
+                "name": "Republican",
+                "sum": 855353,
+                "min": 0,
+                "max": 1474
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 4657757,
+              "min": 0,
+              "max": 6622
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 2596702,
+                "min": 0,
+                "max": 4479
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1452420,
+                "min": 0,
+                "max": 3276
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 322549,
+                "min": 0,
+                "max": 1562
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 85336,
+                "min": 0,
+                "max": 846
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 25994,
+                "min": 0,
+                "max": 708
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1706,
+                "min": 0,
+                "max": 94
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 156096,
+                "min": 0,
+                "max": 299
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 16954,
+                "min": 0,
+                "max": 60
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3570548,
+              "min": 0,
+              "max": 5926
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2082110,
+                "min": 0,
+                "max": 4326
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1066511,
+                "min": 0,
+                "max": 2579
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 223662,
+                "min": 0,
+                "max": 1551
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 19531,
+                "min": 0,
+                "max": 513
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1322,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 67983,
+                "min": 0,
+                "max": 680
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 11524,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 97905,
+                "min": 0,
+                "max": 258
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0196]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.la_vtds20"
+            },
+            "sourceLayer": "la_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.la_vtds20_points"
+            },
+            "sourceLayer": "la_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -407,14 +779,8 @@
           "key": "Code"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.8551
-          ],
-          [
-            -88.7584,
-            33.0195
-          ]
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0195]
         ],
         "tilesets": [
           {
@@ -586,14 +952,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.9186
-          ],
-          [
-            -88.9472,
-            33.0195
-          ]
+          [-94.0434, 28.9186],
+          [-88.9472, 33.0195]
         ],
         "tilesets": [
           {
@@ -1219,14 +1579,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -94.0434,
-            28.8551
-          ],
-          [
-            -88.7584,
-            33.0195
-          ]
+          [-94.0434, 28.8551],
+          [-88.7584, 33.0195]
         ],
         "tilesets": [
           {
@@ -1438,14 +1792,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -91.8231,
-            30.0253
-          ],
-          [
-            -90.4013,
-            31.0448
-          ]
+          [-91.8231, 30.0253],
+          [-90.4013, 31.0448]
         ],
         "tilesets": [
           {

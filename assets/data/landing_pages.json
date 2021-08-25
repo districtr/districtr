@@ -246,8 +246,8 @@
     "code": "CA",
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
-      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_contracosta", "ca_sm_county", "ca_sanbenito", "ca_sc_county"], "id": "counties"},
-      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_pasadena", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_buellton", "ca_grover", "laverne", "sunnyvale", "pomona", "ca_richmond", "elcajon", "ca_carlsbad", "encinitas", "buenapark", "halfmoon", "ca_stockton", "lodi"], "id": "loc"},
+      {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_contracosta", "ca_sm_county", "ca_sanbenito", "ca_sc_county", "ca_kern", "ca_sanjoaquin", "ca_tuolumne", "ca_butte", "ca_humboldt"], "id": "counties"},
+      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_buellton", "ca_grover", "laverne", "sunnyvale", "pomona", "ca_richmond", "elcajon", "ca_carlsbad", "encinitas", "buenapark", "halfmoon", "ca_stockton", "lodi", "ca_sanmateo", "ca_oakland", "ca_martinez", "carpinteria", "rp_lax"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -525,7 +525,7 @@
         "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"],
         "id": "counties"
       },
-      { "name": "Cities", "ids": ["miamifl", "orlando", "tampa"], "id": "loc" }
+      { "name": "Cities", "ids": ["miamifl", "orlando", "tampa", "ftmyers"], "id": "loc" }
     ],
     "sections": [
       {
@@ -1284,6 +1284,25 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "pages": ["maine"],
+        "type": "plans",
+        "ref": "me",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress",
+                "name": "Congressional Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -1608,7 +1627,7 @@
         "ids": ["olmsted", "washington_mn", "stlouis_mn"],
         "id": "county"
       },
-      { "name": "Cities", "ids": ["rochestermn"], "id": "city" }
+      { "name": "Cities", "ids": ["rochestermn", "minneapolis"], "id": "city" }
     ],
     "sections": [
       {
@@ -2066,6 +2085,10 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }
@@ -2669,6 +2692,28 @@
         "content_source": "/assets/about/landing/rules.html"
       },
       {
+        "name": "Explore sample plans",
+        "nav": "Examples",
+        "type": "plans",
+        "ref": "pr",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "state_sen",
+                "name": "Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "House Plan"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "About the data",
         "nav": "Data",
         "type": "text",
@@ -3040,6 +3085,10 @@
               {
                 "id": "state_sen",
                 "name": "State Senate Plan"
+              },
+              {
+                "id": "state_house",
+                "name": "State House Plan"
               }
             ]
           }

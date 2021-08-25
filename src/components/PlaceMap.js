@@ -363,7 +363,7 @@ export function Features(features, onHover, selectedId, callback) {
                                                         d="${path(dcpoint).split(",")[0] + "," + path(dcpoint).split(",")[1].slice(0,-2) + "," + altpath["DC"](dcpoint).split(",")[0].substr(1) + "," + altpath["DC"](dcpoint).split(",")[1].slice(0,-2)}"
                                                         @mouseover=${() => onHover(dcpoint)}
                                                         @click="${callback ? () => callback(dcpoint) : ""}"
-                                                        onclick=${callback ? "" : selectLandingPage(dcpoint)}></path>` 
+                                                        onclick=${callback ? "" : selectLandingPage(dcpoint)}></path>`
                                                 : svg``}
             <path id="${featureId}" class="${featureClasses(
             feature,
@@ -544,7 +544,7 @@ export function PlaceMapWithData(callback=null, state_list=null) {
 // =============
 
 function fetchFeatures(availablePlaces = available) {
-    return fetch("/assets/simple_states.json")
+    return fetch("/assets/simple_states.json?v=2")
         .then(r => r.json())
         .then(states => {
             states.features.forEach((feature) => {

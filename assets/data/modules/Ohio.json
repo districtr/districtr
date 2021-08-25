@@ -2,7 +2,7 @@
   {
     "units": [
       {
-        "limit": "community",
+        "limit": "hide",
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
@@ -175,6 +175,531 @@
         ]
       },
       {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 8959
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 6265
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 1377
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 2998
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4493,
+                "min": 0,
+                "max": 155
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 374
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 87
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 7254
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 6101
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 800
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 87
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 1980
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 87
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 260
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block group FIPS code",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            41.9825
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_20_blockgroups_points"
+            },
+            "sourceLayer": "ohio_20_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_20_blockgroups"
+            },
+            "sourceLayer": "ohio_20_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "townships20",
+        "name": "2020 Townships",
+        "unitType": "Townships",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 880329
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 459264
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 250669
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 1575
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 50708
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 4493,
+                "min": 0,
+                "max": 408
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 5203
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 43922
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 68672
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 688777
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 393370
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 176703
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 1264
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 40616
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 260
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 3492
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 27471
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 45601
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            42.3271
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_townships20"
+            },
+            "sourceLayer": "oh_townships20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_townships20_points"
+            },
+            "sourceLayer": "oh_townships20_points"
+          }
+        ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 6495
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 5530
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 2804
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 1198
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 4493,
+                "min": 0,
+                "max": 161
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 272
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 1415
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 6400
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 5485
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 2770
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 1043
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 185
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 881
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-84.8203, 38.4034],
+          [-80.5187, 42.3271]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_vtds20"
+            },
+            "sourceLayer": "oh_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_vtds20_points"
+            },
+            "sourceLayer": "oh_vtds20_points"
+          }
+        ]
+      },
+      {
         "idColumn": {
           "name": "Precinct unique identifier",
           "key": "PRECODE"
@@ -204,6 +729,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

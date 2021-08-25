@@ -8,7 +8,8 @@ export default () => {
     var curState = document.head.id;
     const vraPage = curState === "VRA - Dashboard";
     // document.title = curState.concat(" | Districtr");
-    fetch("/assets/data/landing_pages.json")
+    //comment to trigger a build, remove if you see this
+    fetch("/assets/data/landing_pages.json?v=2")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
@@ -137,7 +138,7 @@ const navLinks = (sections, placeIds) =>
             <a href="/new">
                 <img
                     class="nav-links__link nav-links__link--major nav-links__link--img"
-                    src="/assets/usa_light_blue.png"
+                    src="/assets/usa_light_blue.png?v=2"
                     alt="Back to Map"
                   />
             </a>
@@ -296,7 +297,7 @@ const loadablePlan = (plan, place) => html`
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/${place}-plans/${plan.id}.png"
+                src="/assets/${place}-plans/${plan.id}.png?v=2"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">
@@ -319,21 +320,20 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-
         </ul>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
-    places.map(place => {
+    places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem, true).map(
+        return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
                 <div class="place-name">${place.name}</div>
                 ${problemTypeInfo[problem.type] || ""}
                 <div class="place-info">
-                    Built out of ${units.name.toLowerCase()}
+                    Built out of ${units.name}
                 </div>
             </li>
             `)
@@ -398,7 +398,7 @@ const placeItemsTemplate = (places, onClick) => {
                         ${problem.numberOfParts} Congressional Districts
                     </div>
                     <div class="place-info">
-                        Built out of ${units.name.toLowerCase()}
+                        Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                     </div>
                 </li>
             `
@@ -415,7 +415,7 @@ const placeItemsTemplate = (places, onClick) => {
                             ${problem.numberOfParts} ${problem.pluralNoun}
                         </div>
                         <div class="place-info">
-                            Built out of ${units.name.toLowerCase()}
+                            Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                         </div>
                     </li>
                 `
