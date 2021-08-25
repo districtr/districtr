@@ -324,7 +324,7 @@ const communityOptions = places =>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
-    places.map(place => {
+    places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
         return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`
