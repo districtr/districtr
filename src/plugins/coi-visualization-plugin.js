@@ -18,7 +18,7 @@ function _intersection(B) {
 Set.prototype.intersection = _intersection;
 
 /**
- * 
+ * @description Watches tooltips
  * @param {*} units 
  * @param {*} clusters 
  * @param {*} unitsMap 
@@ -88,10 +88,12 @@ function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier
             }
 
             // If *any* of the checkboxes are unchecked, we can't view the things.
+            // We also skip over any checkboxes whose COI names aren't included
+            // in the list of COIs we're not displaying; this way, when users
+            // mouse over the COIs, invisible ones don't show up.
             for (let checkbox of filtered) {
                 let coi = checkbox.classList[3];
-                console.dir(coi, coiClasses);
-                if (coiClasses.includes(coi)) continue;
+                if (checkbox.classList.length > 3 && !coiClasses.includes(coi)) continue;
                 isChecked = isChecked && checkbox.control.checked;
             }
 
