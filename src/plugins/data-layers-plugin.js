@@ -107,7 +107,7 @@ export default function DataLayersPlugin(editor) {
     let selectBoundaries = abilities.boundaries || [];
     const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
-          placeID = ["california", "ohio"].includes(stateID) ? state.place.id : stateID;
+          placeID = ["california", "ohio", "texas"].includes(stateID) ? state.place.id : stateID;
 
     if (abilities.municipalities) {
         selectBoundaries.push({
@@ -137,9 +137,9 @@ export default function DataLayersPlugin(editor) {
       });
     }
     if (abilities.current_districts) {
-      if (stateID === "california") {
+      if (["california", "texas"].includes(stateID)) {
           selectBoundaries.push({
-              path: `current_districts/california/${placeID}`,
+              path: `current_districts/${stateID}/${placeID}`,
               id: 'cur_district',
               centroids: false,
               label: (typeof abilities.current_districts === 'string')

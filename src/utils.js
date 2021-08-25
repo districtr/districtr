@@ -1640,6 +1640,9 @@ export function spatial_abilities(id) {
     },
     dallastx: {
       border: true,
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
     },
     austin: {
       border: true,
