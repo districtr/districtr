@@ -1260,6 +1260,7 @@ export function spatial_abilities(id) {
       current_districts: true,
       shapefile: true,
       find_unpainted: true,
+      block_assign: true,
     },
     new_mexico_portal: {
       number_markers: true,
@@ -1271,6 +1272,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       find_unpainted: true,
       election_history: false,
+      block_assign: true,
       portal: {
         endpoint: 'https://portal.newmexico-mapping.org',
       },

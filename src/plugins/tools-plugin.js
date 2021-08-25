@@ -47,15 +47,15 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let old_number_markers =  (state.unitsRecord.id !== "blockgroups"
-                                && state.unitsRecord.id !== "blockgroups20"
-                                && state.unitsRecord.id !== "vtds20"
+    const nonCensusUnit = state.unitsRecord.id !== "blockgroups"
+                        && state.unitsRecord.id !== "blockgroups20"
+                        && state.unitsRecord.id !== "vtds20";
+
+    let old_number_markers =  (nonCensusUnit
                                 && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
 
-    let old_contiguity = (state.unitsRecord.id !== "blockgroups"
-                            && state.unitsRecord.id !== "blockgroups20"
-                            && state.unitsRecord.id !== "vtds20"
+    let old_contiguity = (nonCensusUnit
                             && spatial_abilities(state.place.id).contiguity !== 3);
 
     const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
@@ -211,7 +211,7 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 
 function exportPlanAsBlockAssignment(state, delimiter=",", extension="csv") {
     const assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    const units = state.unitsRecord.unitType;
+    const units = state.unitsRecord.id;
     const stateName = state.place.state;
     render(renderModal(`Starting your block assignment file download `), document.getElementById("modal"));
     fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/block_assignment", {
@@ -254,6 +254,9 @@ function scrollToSection(state, section) {
 
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const censusUnit = state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20";
     let items = [
         {
             name: "About redistricting",
@@ -300,7 +303,7 @@ function getMenuItems(state) {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        (state.unitsRecord.unitType === "Block Groups" ? {
+        (censusUnit || spatial_abilities(state.place.id).block_assign ? {
             name: "Export block assignment file",
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
