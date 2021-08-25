@@ -381,12 +381,16 @@ export function spatial_abilities(id) {
       number_markers: false,
       border: true,
       shapefile: true,
-      coalition: false,
       municipalities: true,
       current_districts: true,
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
+    },
+    ftmyers: {
+      number_markers: false,
+      border: true,
+      shapefile: true,
     },
     contracosta: {
       number_markers: true,
@@ -1166,34 +1170,27 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      // border: true,
+      border: 'Show Minneapolis Border',
       number_markers: true,
       shapefile: true,
-      census20: true,
       boundaries: [
         {
           id: 'minn_wards',
           label: 'Current City Council Wards',
           path: 'current_districts/minnesota/city_council/minneapolis',
           centroids: true
-        },        
+        },
         {
           id: 'minn_park_dists',
           label: 'Current Park Districts',
           path: 'current_districts/minnesota/park_districts/minneapolis',
           centroids: true
         },
-
         {
           id: 'minn_neighborhoods',
           label: 'Neighborhoods',
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
-        },
-        {
-          id: 'city_border',
-          path: 'city_border/minneapolis',
-          label: 'Show Minneapolis Border'
         }
       ]
     },

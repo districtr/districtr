@@ -168,7 +168,7 @@ export default function DataLayersPlugin(editor) {
       }
     }
 
-    if (selectBoundaries) {
+    if (selectBoundaries && selectBoundaries.length) {
         tab.addRevealSection(
             'Boundaries',
             (uiState, dispatch) => selectBoundaries.map((config, idx) => {
