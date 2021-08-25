@@ -110,7 +110,7 @@ commoncausepa: 'Pennsylvania',
   groverbeach: 'California',
   vallejo: 'California',
   santa_clara_county: 'California',
-  'ft-myers': 'Florida'
+  'ft-myers': 'Florida',
   'mp-maps': 'California',
 };
 
