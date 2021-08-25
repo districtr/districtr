@@ -55,7 +55,8 @@ export default function ToolsPlugin(editor) {
 
     let old_contiguity = (state.unitsRecord.id !== "blockgroups"
                             && state.unitsRecord.id !== "blockgroups20"
-                            && state.unitsRecord.id !== "vtds20");
+                            && state.unitsRecord.id !== "vtds20"
+                            && spatial_abilities(state.place.id).contiguity !== 3);
 
     const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
                             ? ContiguityChecker(state, brush, old_contiguity)
