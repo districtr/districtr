@@ -1170,10 +1170,9 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      // border: true,
+      border: 'Show Minneapolis Border',
       number_markers: true,
       shapefile: true,
-      census20: true,
       boundaries: [
         {
           id: 'minn_wards',
@@ -1187,17 +1186,11 @@ export function spatial_abilities(id) {
           path: 'current_districts/minnesota/park_districts/minneapolis',
           centroids: true
         },
-
         {
           id: 'minn_neighborhoods',
           label: 'Neighborhoods',
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
-        },
-        {
-          id: 'city_border',
-          path: 'city_border/minneapolis',
-          label: 'Show Minneapolis Border'
         }
       ]
     },

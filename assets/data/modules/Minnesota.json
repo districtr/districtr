@@ -2053,17 +2053,17 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 429954,
+              "sum": 429986,
               "min": 0,
-              "max": 4464
+              "max": 3228
             },
             "subgroups": [
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 249581,
+                "sum": 249611,
                 "min": 0,
-                "max": 3333
+                "max": 2187
               },
               {
                 "key": "BLACK",
@@ -2075,44 +2075,44 @@
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 44513,
+                "sum": 44514,
                 "min": 0,
-                "max": 699
+                "max": 258
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
                 "sum": 24743,
                 "min": 0,
-                "max": 1071
+                "max": 416
               },
               {
                 "key": "AMIN",
                 "name": "American Indian population",
                 "sum": 5184,
                 "min": 0,
-                "max": 659
+                "max": 396
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 171,
                 "min": 0,
-                "max": 6
+                "max": 4
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
                 "sum": 22538,
                 "min": 0,
-                "max": 184
+                "max": 90
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
-                "sum": 2136,
+                "sum": 2137,
                 "min": 0,
-                "max": 26
+                "max": 25
               }
             ]
           },
@@ -2122,17 +2122,17 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 349241,
+              "sum": 349259,
               "min": 0,
-              "max": 4420
+              "max": 2603
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 221450,
+                "sum": 221468,
                 "min": 0,
-                "max": 3320
+                "max": 2185
               },
               {
                 "key": "BVAP",
@@ -2146,42 +2146,42 @@
                 "name": "Hispanic voting age population",
                 "sum": 30929,
                 "min": 0,
-                "max": 464
+                "max": 168
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
                 "sum": 3887,
                 "min": 0,
-                "max": 390
+                "max": 218
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
                 "sum": 144,
                 "min": 0,
-                "max": 5
+                "max": 4
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
                 "sum": 20810,
                 "min": 0,
-                "max": 1053
+                "max": 407
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
                 "sum": 1566,
                 "min": 0,
-                "max": 17
+                "max": 11
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
                 "sum": 14815,
                 "min": 0,
-                "max": 169
+                "max": 90
               }
             ]
           }
@@ -2192,30 +2192,30 @@
         },
         "bounds": [
           [
-            -93.3292,
-            44.8898
+            -93.3303,
+            44.8902
           ],
           [
-            -93.194,
-            45.0512
+            -93.1922,
+            45.0649
           ]
         ],
         "tilesets": [
           {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.minneapolis_blocks"
-            },
-            "sourceLayer": "minneapolis_blocks"
-          },
-          {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.minneapolis_blocks_points"
+              "url": "mapbox://districtr.minneapolis_blocks20_points"
             },
-            "sourceLayer": "minneapolis_blocks_points"
+            "sourceLayer": "minneapolis_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.minneapolis_blocks20"
+            },
+            "sourceLayer": "minneapolis_blocks20"
           }
         ]
       }
