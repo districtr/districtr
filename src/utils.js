@@ -381,12 +381,16 @@ export function spatial_abilities(id) {
       number_markers: false,
       border: true,
       shapefile: true,
-      coalition: false,
       municipalities: true,
       current_districts: true,
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
+    },
+    ftmyers: {
+      number_markers: false,
+      border: true,
+      shapefile: true,
     },
     contracosta: {
       number_markers: true,
@@ -1176,7 +1180,7 @@ export function spatial_abilities(id) {
           label: 'Current City Council Wards',
           path: 'current_districts/minnesota/city_council/minneapolis',
           centroids: true
-        },        
+        },
         {
           id: 'minn_park_dists',
           label: 'Current Park Districts',
