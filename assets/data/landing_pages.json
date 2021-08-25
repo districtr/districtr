@@ -1627,7 +1627,7 @@
         "ids": ["olmsted", "washington_mn", "stlouis_mn"],
         "id": "county"
       },
-      { "name": "Cities", "ids": ["rochestermn"], "id": "city" }
+      { "name": "Cities", "ids": ["rochestermn", "minneapolis"], "id": "city" }
     ],
     "sections": [
       {
