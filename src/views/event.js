@@ -180,7 +180,7 @@ commoncausepa: 'pennsylvania',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
   santa_clara_county: 'ca_sc_county',
-  'ft-myers': 'fort_myers_fl',
+  'ft-myers': 'ftmyers',
 };
 
 const blockPlans = {
