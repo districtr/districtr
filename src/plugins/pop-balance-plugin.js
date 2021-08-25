@@ -72,6 +72,9 @@ export default function PopulationBalancePlugin(editor) {
                 <section class="toolbar-inner dataset-info">
                     ${populateDatasetInfo(state)};
                 </section>
+                <section class="toolbar-inner">
+                  <p><span>&#9432;</span> Units: <strong>${state.unitsRecord.name}</strong></p>
+                </section>
                 ${MultiMemberPopBalanceChart(state.population, state.parts)}
                 <dl class="report-data-list">
                     ${unassignedPopulation(state.population)}
@@ -86,6 +89,9 @@ export default function PopulationBalancePlugin(editor) {
                 html`
                     <section class="toolbar-inner dataset-info">
                         ${populateDatasetInfo(state)};
+                    </section>
+                    <section class="toolbar-inner">
+                      <p><span>&#9432;</span> Units: <strong>${state.unitsRecord.name}</strong></p>
                     </section>
                     ${populationBarChart(state.population, state.activeParts)}
                     <dl class="report-data-list">

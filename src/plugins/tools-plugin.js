@@ -300,11 +300,11 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsSHP(state, true)
         } : null),
         {
-            name: "Export assignment as CSV",
+            name: "Export assignment as CSV (these units)",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
         (censusUnit || spatial_abilities(state.place.id).block_assign ? {
-            name: "Export block assignment file",
+            name: "Export assignment file as CSV (blocks)",
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
         {
