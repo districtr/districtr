@@ -35,6 +35,9 @@ export default function DataLayersPlugin(editor) {
       }
     }
 
+    const nonCensusUnit = state.unitsRecord.id !== "blockgroups"
+                        && state.unitsRecord.id !== "blockgroups20"
+                        && state.unitsRecord.id !== "vtds20";
     const districtsHeading =
         state.plan.problem.type === "community" ? "Communities" : "My Painted Districts";
     const districtMessage =
@@ -57,7 +60,7 @@ export default function DataLayersPlugin(editor) {
                 }
             })}
             ${(["chicago_community_areas", "montana_blocks", "wyoming_blocks"].includes(state.units.sourceId)
-                || ! spatial_abilities(state.place.id).number_markers
+                || (! spatial_abilities(state.place.id).number_markers && nonCensusUnit)
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
                     if (checked) {
