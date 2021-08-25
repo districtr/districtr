@@ -1164,17 +1164,18 @@ export function spatial_abilities(id) {
       census20: true,
       boundaries: [
         {
+          id: 'minn_wards',
+          label: 'Current City Council Wards',
+          path: 'current_districts/minnesota/city_council/minneapolis',
+          centroids: true
+        },        
+        {
           id: 'minn_park_dists',
           label: 'Current Park Districts',
           path: 'current_districts/minnesota/park_districts/minneapolis',
           centroids: true
         },
-        {
-          id: 'minn_wards',
-          label: 'Current City Council Wards',
-          path: 'current_districts/minnesota/city_council/minneapolis',
-          centroids: true
-        },
+
         {
           id: 'minn_neighborhoods',
           label: 'Neighborhoods',
