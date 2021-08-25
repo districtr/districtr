@@ -58,13 +58,13 @@ export default function ToolsPlugin(editor) {
                             && state.unitsRecord.id !== "vtds20");
 
     const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
-                            ? ContiguityChecker(state, brush)
+                            ? ContiguityChecker(state, brush, old_contiguity)
                             : null;
 
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
         if (c_checker) {
-            c_checker(state, colorsAffected, old_contiguity);
+            c_checker(state, colorsAffected);
         }
 
         if (vraEffectiveness) {
