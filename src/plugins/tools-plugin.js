@@ -303,7 +303,7 @@ function getMenuItems(state) {
             name: "Export assignment as CSV",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        (censusUnit ? {
+        (censusUnit || spatial_abilities(state.place.id).block_assign ? {
             name: "Export block assignment file",
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
