@@ -12859,54 +12859,59 @@
            "type": "population",
            "name": "Population",
            "total": {
-             "key": "LF_20_Total",
+             "key": "pTotal",
              "name": "Total population",
              "sum": 3898747,
              "min": 0,
              "max": 8727
            },
+           "subgroups": []
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "cTotal",
+             "name": "Total population",
+             "sum": 2360823,
+             "min": 0,
+             "max": 5751
+           },
            "subgroups": [
              {
-               "key": "LF_20_AfAm",
+               "key": "cAfAm",
                "name": "Black population",
-               "sum": 322553,
+               "sum": 266333,
                "min": 0,
-               "max": 1316
+               "max": 1533
              },
              {
-               "key": "LF_20_Asian",
+               "key": "cAsian",
                "name": "Asian population",
-               "sum": 454585,
+               "sum": 276996,
                "min": 0,
-               "max": 3867
+               "max": 1929
              },
              {
-               "key": "LF_20_Hispanic_or_Latino",
+               "key": "cHisp",
                "name": "Hispanic population",
-               "sum": 1829991,
+               "sum": 838897,
                "min": 0,
-               "max": 2444
+               "max": 1591
              },
              {
-               "key": "LF_20_White",
-               "name": "White population",
-               "sum": 1126052,
+               "key": "cAiAn",
+               "name": "American Indian / Alaska Native population",
+               "sum": 6263,
                "min": 0,
-               "max": 2208
+               "max": 109
              },
              {
-               "key": "LF_20_AiAn",
-               "name": "American Indian population",
-               "sum": 6614,
-               "min": 0,
-               "max": 42
-             },
-             {
-               "key": "LF_20_HoPI",
+               "key": "cHawaiian_API",
                "name": "Native Hawaiian / Pacific Islander population",
-               "sum": 4573,
+               "sum": 3401,
                "min": 0,
-               "max": 32
+               "max": 64
              }
            ]
          }
@@ -12930,17 +12935,17 @@
            "type": "circle",
            "source": {
              "type": "vector",
-             "url": "mapbox://districtr.rp_lax20_blocks_points"
+             "url": "mapbox://districtr.rp_lax20b_blocks_points?v=2"
            },
-           "sourceLayer": "rp_lax20_blocks_points"
+           "sourceLayer": "rp_lax20b_blocks_points"
          },
          {
            "type": "fill",
            "source": {
              "type": "vector",
-             "url": "mapbox://districtr.rp_lax20_blocks"
+             "url": "mapbox://districtr.rp_lax20b_blocks?v=2"
            },
-           "sourceLayer": "rp_lax20_blocks"
+           "sourceLayer": "rp_lax20b_blocks"
          }
        ]
      }
