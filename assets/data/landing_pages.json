@@ -525,7 +525,7 @@
         "ids": ["miamidade", "fl_hills", "fl_orange", "fl_osceola"],
         "id": "counties"
       },
-      { "name": "Cities", "ids": ["miamifl", "orlando", "tampa"], "id": "loc" }
+      { "name": "Cities", "ids": ["miamifl", "orlando", "tampa", "ftmyers"], "id": "loc" }
     ],
     "sections": [
       {
@@ -1627,7 +1627,7 @@
         "ids": ["olmsted", "washington_mn", "stlouis_mn"],
         "id": "county"
       },
-      { "name": "Cities", "ids": ["rochestermn"], "id": "city" }
+      { "name": "Cities", "ids": ["rochestermn", "minneapolis"], "id": "city" }
     ],
     "sections": [
       {
