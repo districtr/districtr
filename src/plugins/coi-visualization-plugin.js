@@ -4,36 +4,104 @@ import { addCOIs, opacityStyleExpression, patternStyleExpression } from "../laye
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
 
+
 /**
- * @description Extends the native Set type with an intersection function.
- * @param {Set} B The set we're intersecting with.
- * @returns {Set} The intersection of the two sets.
+ * @description Gets the right checkboxes based on filtering.
+ * @param {String} cluster Cluster identifier.
+ * @param {String[]} cois Array of COI names to be mapped to COI CSS class tags.
+ * @returns {HTMLElement[]} An array of filtered checkboxes.
  */
-function _intersection(B) {
-    let intersection = new Set();
-    for (let e of B) if (this.has(e)) intersection.add(e);
-    return intersection;
+function retrieveCheckboxes(cluster=null, cois=null) {
+    let checkboxes = Array.from(document.getElementsByClassName("allvisible-checkbox")),
+        filtered = [];
+
+    // If a cluster name is passed, get only the chekboxes corresponding to the
+    // cluster name; otherwise, get all cluster checkboxes.
+    if (cluster) {
+        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName(cluster)));
+    } else {
+        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("cluster-checkbox")));
+    }
+
+    // If a list of specific COIs is passed, we get only the checkboxes whose
+    // COI identifiers belong in the list; otherwise, get all of them.
+    if (cois) {
+        let coiClasses = cois.map((coi) => coi.replaceAll(" ", "-"));
+        for (let coi of coiClasses) checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName(coi)));
+    } else {
+        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("coi-checkbox")));
+    }
+
+    // Filter the checkboxes to ensure we're only getting checkboxes, not anything
+    // else.
+    for (let checkbox of checkboxes) {
+        if (checkbox.localName == "label") filtered = filtered.concat([checkbox]);
+    }
+
+    return filtered;
 }
 
-Set.prototype.intersection = _intersection;
+/**
+ * @description Checks if any of the boxes in the hierarchy are checked.
+ * @param {String} cluster Cluster identifier.
+ * @param {String[]} cois Array of COI names.
+ * @returns {Boolean} Are any of the boxes in the COI's hierarchy checked?
+ */
+function checkIfAllVisible(cluster, cois) {
+    let checkboxes = retrieveCheckboxes(cluster, cois),
+        coiClasses = cois.map((coi) => coi.replaceAll(" ", "-")),
+        isChecked = true;
+
+    // If *any* of the checkboxes are unchecked, we can't view the things.
+    // We also skip over any checkboxes whose COI names aren't included
+    // in the list of COIs we're not displaying; this way, when users
+    // mouse over the COIs, invisible ones don't show up.
+    for (let checkbox of checkboxes) {
+        let coi = checkbox.classList[3];
+        if (checkbox.classList.length > 3 && !coiClasses.includes(coi)) continue;
+        isChecked = isChecked && checkbox.control.checked;
+    }
+
+    return isChecked;
+}
+
+function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID20") {
+    let map = units.map,
+        sourceLayer = units.sourceLayer,
+        reverseMapping = createReverseMapping(unitMap);
+
+    map.on("click", sourceLayer, (e) => {
+        // Get the first selected feature belonging to the right layer, get its
+        // unique identifier, find its cluster and COI name, and check if it's
+        // visible. If it is, then we want to open a new window and pass the
+        // information to it.
+        let _selectedFeatures = map.queryRenderedFeatures(e.point),
+            selectedFeatures = _selectedFeatures.map(f => {
+                if (f.properties.source === sourceLayer) return f;
+            }),
+            feature = selectedFeatures[0],
+            geoid = feature.properties[identifier],
+            cluster = reverseMapping[geoid]["cluster"],
+            cois = reverseMapping[geoid]["coi"],
+            origin = window.location.origin;
+
+        // Check if all the things in the hierarchy are visible. If they are,
+        // and the user's clicked on the thing, we want to 
+        if (checkIfAllVisible(cluster, cois)) {
+            window.open(origin + "/")
+        }
+    });
+}
 
 /**
- * @description Watches tooltips
- * @param {*} units 
- * @param {*} clusters 
- * @param {*} unitsMap 
- * @param {*} activePatternMatch 
- * @param {*} identifier 
+ * @description 
+ * @param {Object} unitMap Mapping from unit names to cluster and COI names.
  * @returns 
  */
-function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier="GEOID20") {
+function createReverseMapping(unitMap) {
     let reverseMapping = {};
 
-    // Create a mapping which takes individual units to the clusters and COIs to
-    // which they belong. This lets us look up any individual unit and see where
-    // its membership lies, and we only have to create it once and it hangs out
-    // in memory.
-    for (let [clusterIdentifier, cluster] of Object.entries(unitsMap)) {
+    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
         for (let [coiid, geoids] of Object.entries(cluster)) {
             for (let geoid of geoids) {
                 let cois = [];
@@ -51,6 +119,18 @@ function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier
             }
         }
     }
+
+    return reverseMapping;
+}
+
+/**
+ * @description Creates a tooltip watcher function.
+ * @param {Object} unitMap Maps cluster names to maps taking COI names to units.
+ * @param {String} identifier Unique identifier for units.
+ * @returns {Function} Function which renders tooltips.
+ */
+function watchTooltips(unitMap, identifier="GEOID20") {
+    let reverseMapping = createReverseMapping(unitMap);
 
     return (features) => {
         // If we have no units we don't have to do anything!
@@ -73,29 +153,7 @@ function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier
             // unchecked, we don't display the tooltip.
             let cluster = reverseMapping[geoid]["cluster"],
                 cois = reverseMapping[geoid]["coi"],
-                coiClasses = cois.map((coi) => coi.replaceAll(" ", "-")),
-                checkboxes = []
-                    .concat(Array.from(document.getElementsByClassName("allvisible-checkbox")))
-                    .concat(Array.from(document.getElementsByClassName(cluster))),
-                isChecked = true,
-                filtered = [];
-
-            for (let coi of coiClasses) checkboxes.concat(Array.from(document.getElementsByClassName(coi)));
-
-            // Filter the checkboxes.
-            for (let checkbox of checkboxes) {
-                if (checkbox.localName == "label") filtered = filtered.concat([checkbox]);
-            }
-
-            // If *any* of the checkboxes are unchecked, we can't view the things.
-            // We also skip over any checkboxes whose COI names aren't included
-            // in the list of COIs we're not displaying; this way, when users
-            // mouse over the COIs, invisible ones don't show up.
-            for (let checkbox of filtered) {
-                let coi = checkbox.classList[3];
-                if (checkbox.classList.length > 3 && !coiClasses.includes(coi)) continue;
-                isChecked = isChecked && checkbox.control.checked;
-            }
+                isChecked = checkIfAllVisible(cluster, cois);
 
             if (isChecked) {
                 return html`
@@ -114,12 +172,12 @@ function watchTooltips(units, clusters, unitsMap, activePatternMatch, identifier
 
 /**
  * @description Initially style the checkboxes; this is modified when COIs are displayed.
+ * @returns {undefined}
  */
-function initialStyles(patternMatch, patternURLs) {
-    let allCheckboxes = []
-            .concat(Array.from(document.getElementsByClassName("coi-checkbox")))
-            .concat(Array.from(document.getElementsByClassName("cluster-checkbox"))),
-        justCOIBoxes = Array.from(document.getElementsByClassName("coi-checkbox"));
+function initialStyles() {
+    // Get all the checkboxes *except* the first one, which is always the top-level
+    // one.
+    let allCheckboxes = retrieveCheckboxes().slice(1);
 
     // Style all of the checkboxes according to the initial style rules, and
     // set the background images to their patterns.
@@ -127,22 +185,6 @@ function initialStyles(patternMatch, patternURLs) {
         checkbox.style["pointer-events"] = "none";
         checkbox.style["opacity"] = 1/2;
     }
-
-    /*
-    // Now, assign backgrounds to each of the COI checkboxes according to their
-    // pattern assignments. This is a little rickety in the event we add more
-    // CSS class designations to the 
-    for (let checkbox of justCOIBoxes) {
-        let clusterName = checkbox.classList[2],
-            coiName = Array.from(checkbox.classList)
-                .slice(3, checkbox.classList.length)
-                .join(" "),
-            pattern = patternMatch[clusterName][coiName],
-            url = chosenPatterns[pattern];
-
-        checkbox.style["background-image"] = `url(${url})`;
-    }
-    */
 }
 
 /**
@@ -153,15 +195,11 @@ function initialStyles(patternMatch, patternURLs) {
 function displayCOIs(units) {
     // Destructure the COI object we get from addCOIs and find all the active
     // checkboxes to disable them.
-    let allCheckboxes = [];
-
     return (checked) => {
-        allCheckboxes = allCheckboxes
-            .concat(Array.from(document.getElementsByClassName("coi-checkbox")))
-            .concat(Array.from(document.getElementsByClassName("cluster-checkbox")));
+        let checkboxes = retrieveCheckboxes().slice(1);
         
         // Disable all the checkboxes and style them accordingly.
-        for (let checkbox of allCheckboxes) {
+        for (let checkbox of checkboxes) {
             checkbox.style["pointer-events"] = checked ? "auto" : "none";
             checkbox.style["opacity"] = checked ? 1 : 1/2;
             units.setOpacity(checked ? 1/3 : 0);
@@ -258,6 +296,7 @@ function listCOIs(cluster, units, unitMap, activePatternMatch, patternMatch, cho
                             display: block;
                             opacity: 0.6;
                             border-radius: 5px;
+                            padding-right: 1em;
                         `,
                         individualCOIDisplayToggle = html`
                             <div style="display: flex; flex-direction: row; align-items: center;">
@@ -343,10 +382,6 @@ function toggleCluster(cluster, units, unitMap, activePatternMatch, patternMatch
     };
 }
 
-function tooltips() {
-    // TODO: make some tooltips for each of the COIs.
-}
-
 /**
  * @description Creates a tab on the toolbar for checking out COIs.
  * @param {Editor} editor Districtr internal Editor object.
@@ -367,7 +402,7 @@ function CoiVisualizationPlugin(editor) {
             let { clusters, unitMap, patternMatch, units, chosenPatterns } = object,
                 displayCallback = displayCOIs(units),
                 activePatternMatch = JSON.parse(JSON.stringify(patternMatch)),
-                tooltipCallback = watchTooltips(units, clusters, unitMap, activePatternMatch),
+                tooltipCallback = watchTooltips(unitMap),
                 tooltipWatcher;
 
             // Add the section for the checkbox.
@@ -411,6 +446,9 @@ function CoiVisualizationPlugin(editor) {
             initialStyles(patternMatch, chosenPatterns);
             tooltipWatcher = new Tooltip(units, tooltipCallback, 0);
             tooltipWatcher.activate();
+
+            // Watch for click events.
+            onFeatureClicked(units, unitMap);
         });
 }
 
