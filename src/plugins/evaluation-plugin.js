@@ -201,9 +201,15 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
+    let lambda_contig = (state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20");
+    
     if (state.plan.problem.type !== "community"
-        && (spatial_abilities(state.place.id).contiguity)
         && (state.units.sourceId !== "ma_towns")
+        && ( (spatial_abilities(state.place.id).contiguity) 
+              || lambda_contig)
+        
     ) {
         tab.addRevealSection(
             "Contiguity",
@@ -211,7 +217,7 @@ export default function EvaluationPlugin(editor) {
                 ContiguitySection(
                     state.parts,
                     state.contiguity,
-                    spatial_abilities(state.place.id).contiguity,
+                    lambda_contig ? 2 : spatial_abilities(state.place.id).contiguity,
                     state.place.state.toLowerCase().replace(" ", ""),
                     uiState,
                     dispatch

@@ -11,7 +11,7 @@ export default function NumberMarkers(state, brush, old=false) {
         console.log("no numberOfParts for NumberMarkers");
         return;
     }
-    if (!spatial_abilities(state.place.id).number_markers) {
+    if (!spatial_abilities(state.place.id).number_markers && old) {
         console.log("not on NumberMarkers allowlist");
         return;
     }
