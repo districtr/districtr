@@ -12687,36 +12687,7 @@
              "min": 0,
              "max": 8727
            },
-           "subgroups": [
-             {
-               "key": "pAfAm",
-               "name": "Black population",
-               "sum": 322553,
-               "min": 0,
-               "max": 1316
-             },
-             {
-               "key": "pAsian",
-               "name": "Asian population",
-               "sum": 454585,
-               "min": 0,
-               "max": 3867
-             },
-             {
-               "key": "pHisp",
-               "name": "Hispanic population",
-               "sum": 1829991,
-               "min": 0,
-               "max": 2444
-             },
-             {
-               "key": "pWhite",
-               "name": "White population",
-               "sum": 1126052,
-               "min": 0,
-               "max": 2208
-             }
-           ]
+           "subgroups": []
          },
          {
            "type": "population",
@@ -12749,6 +12720,20 @@
                "sum": 838897,
                "min": 0,
                "max": 1591
+             },
+             {
+               "key": "cAiAn",
+               "name": "American Indian / Alaska Native population",
+               "sum": 6263,
+               "min": 0,
+               "max": 109
+             },
+             {
+               "key": "cHawaiian_API",
+               "name": "Native Hawaiian / Pacific Islander population",
+               "sum": 3401,
+               "min": 0,
+               "max": 64
              }
            ]
          }
@@ -12772,7 +12757,7 @@
            "type": "circle",
            "source": {
              "type": "vector",
-             "url": "mapbox://districtr.rp_lax20b_blocks_points"
+             "url": "mapbox://districtr.rp_lax20b_blocks_points?v=2"
            },
            "sourceLayer": "rp_lax20b_blocks_points"
          },
@@ -12780,7 +12765,7 @@
            "type": "fill",
            "source": {
              "type": "vector",
-             "url": "mapbox://districtr.rp_lax20b_blocks"
+             "url": "mapbox://districtr.rp_lax20b_blocks?v=2"
            },
            "sourceLayer": "rp_lax20b_blocks"
          }
