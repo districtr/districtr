@@ -17,7 +17,7 @@
     // 0 2px 4px rgba(0, 0, 0, 0.24);
     // box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
     box-shadow: $raised;
-    width: 30%;
+    width: 28%;
     max-width: 32%;
     display: flex;
     flex-direction: column;
@@ -35,6 +35,10 @@
   padding: 0 1rem 1rem 1rem;
   font-size: 0.8rem;
   text-align: left;
+}
+
+.dataset-info {
+    padding-right: 0;
 }
 
 .dataset-info > p {
