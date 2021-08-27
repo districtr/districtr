@@ -11,11 +11,11 @@ function datasetInfo(state) {
     let population = state.population,
         place = state.place,
         populations = {
-            census: "Uses <strong>2010 Census</strong> data",
-            census20: "Uses <strong>2020 Census</strong> data",
+            census: "Uses <strong>2010 Decennial Census</strong> data",
+            census20: "Uses <strong>2020 Decennial Census</strong> data",
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
-            mesa2020: "Uses <strong>2020 Census</strong> population with processing by Redistricting Partners",
+            mesa2020: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> based on the American Community Survey by National Demographics Corporation"
         },
