@@ -4,7 +4,6 @@ import { addCOIs, opacityStyleExpression, patternStyleExpression } from "../laye
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
 
-
 /**
  * @description Gets the right checkboxes based on filtering.
  * @param {String} cluster Cluster identifier.
@@ -86,9 +85,15 @@ function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID2
             origin = window.location.origin;
 
         // Check if all the things in the hierarchy are visible. If they are,
-        // and the user's clicked on the thing, we want to 
+        // and the user's clicked on the thing, we want to send the data to the
+        // new page.
         if (checkIfAllVisible(cluster, cois)) {
-            window.open(origin + "/")
+            let tab = window.open(origin + `/coi-info/`);
+            tab.coidata = {
+                units: units,
+                unitMap: unitMap,
+                
+            }
         }
     });
 }
