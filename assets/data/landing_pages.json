@@ -3273,7 +3273,7 @@
       },
       {
         "name": "Counties",
-        "ids": ["yakima_wa", "kingcountywa"],
+        "ids": ["yakima_wa", "kingcountywa", "yakima_elections"],
         "id": "counties"
       }
     ],

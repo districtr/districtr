@@ -1215,5 +1215,572 @@
         "pluralNoun": "State Legislature Districts"
       }
     ]
+  },
+  {
+    "name": "Yakima County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2012 Legislative District 15 Representative Position 2 (General)",
+            "subgroups": [
+              {
+                "key": "12LEGGGONZ",
+                "name": "Pablo Gonzalez",
+                "sum": 13859,
+                "min": 0,
+                "max": 76
+              },
+              {
+                "key": "12LEGGTAYL",
+                "name": "David V. Taylor",
+                "sum": 21790,
+                "min": 0,
+                "max": 223
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Legislative District 15 Representative Position 2 (Primary)",
+            "subgroups": [
+              {
+                "key": "12LEGPGONZ",
+                "name": "Pablo Gonzalez",
+                "sum": 4113,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "12LEGPTAYL",
+                "name": "David V. Taylor",
+                "sum": 9852,
+                "min": 0,
+                "max": 116
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 State Supreme Court Justice Position 8 (Primary)",
+            "subgroups": [
+              {
+                "key": "12SCOPDANI",
+                "name": "Bruce O. Danielson",
+                "sum": 16136,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "12SCOPSGON",
+                "name": "Steve Gonzalez",
+                "sum": 8799,
+                "min": 0,
+                "max": 40
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 County Commissioner District 1 (General)",
+            "subgroups": [
+              {
+                "key": "16D1GGEARY",
+                "name": "Eric Geary",
+                "sum": 27574,
+                "min": 0,
+                "max": 132
+              },
+              {
+                "key": "16D1GLEITA",
+                "name": "Mike Leita",
+                "sum": 38664,
+                "min": 0,
+                "max": 166
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 County Commissioner District 1 (Primary)",
+            "subgroups": [
+              {
+                "key": "16D1PGEARY",
+                "name": "Eric Geary",
+                "sum": 2236,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "16D1PLEITA",
+                "name": "Mike Leita",
+                "sum": 6479,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "16D1PSTAMB",
+                "name": "Zach Stambaugh",
+                "sum": 1293,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "16D1PCHARL",
+                "name": "Douglas Charles",
+                "sum": 1834,
+                "min": 0,
+                "max": 21
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 County Commissioner District 2 (Primary)",
+            "subgroups": [
+              {
+                "key": "16D2PMANJA",
+                "name": "Debra Manjarrez",
+                "sum": 2464,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "16D2PANDER",
+                "name": "Ron Anderson",
+                "sum": 1964,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "16D2PWATSO",
+                "name": "David Watson",
+                "sum": 1098,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "16D2PEFFLE",
+                "name": "Keith Caffery Effler",
+                "sum": 870,
+                "min": 0,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 County Commissioner District 2 (General)",
+            "subgroups": [
+              {
+                "key": "16D2GMANJA",
+                "name": "Debra Manjarrez",
+                "sum": 31981,
+                "min": 0,
+                "max": 118
+              },
+              {
+                "key": "16D2GANDER",
+                "name": "Ron Anderson",
+                "sum": 34361,
+                "min": 0,
+                "max": 176
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor (General)",
+            "subgroups": [
+              {
+                "key": "16GGINSLEE",
+                "name": "Democratic",
+                "sum": 35027,
+                "min": 0,
+                "max": 128
+              },
+              {
+                "key": "16GGBRYANT",
+                "name": "Republican",
+                "sum": 42920,
+                "min": 0,
+                "max": 214
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Legislative District 14 Representative Position 1 (General)",
+            "subgroups": [
+              {
+                "key": "16LEGGJOHN",
+                "name": "Norm Johnson",
+                "sum": 24786,
+                "min": 0,
+                "max": 236
+              },
+              {
+                "key": "16LEGGSOTO",
+                "name": "Susan Soto Palmer",
+                "sum": 11742,
+                "min": 0,
+                "max": 76
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Legislative District 14 Representative Position 1 (Primary)",
+            "subgroups": [
+              {
+                "key": "16LEGPJOHN",
+                "name": "Norm Johnson",
+                "sum": 10262,
+                "min": 0,
+                "max": 95
+              },
+              {
+                "key": "16LEGPSOTO",
+                "name": "Susan Soto Palmer",
+                "sum": 4233,
+                "min": 0,
+                "max": 38
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Lieutenant Governor (General)",
+            "subgroups": [
+              {
+                "key": "16LGGHABIB",
+                "name": "Democratic",
+                "sum": 30389,
+                "min": 0,
+                "max": 96
+              },
+              {
+                "key": "16LGGMCCLE",
+                "name": "Republican",
+                "sum": 45168,
+                "min": 0,
+                "max": 224
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 United States Senate (General)",
+            "subgroups": [
+              {
+                "key": "16SGMURRAY",
+                "name": "Democratic",
+                "sum": 37595,
+                "min": 0,
+                "max": 135
+              },
+              {
+                "key": "16SGVANCE",
+                "name": "Republican",
+                "sum": 40457,
+                "min": 0,
+                "max": 206
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 County Commissioner District 3 (General)",
+            "subgroups": [
+              {
+                "key": "18D3GCHILD",
+                "name": "Norm Childress",
+                "sum": 40357,
+                "min": 0,
+                "max": 218
+              },
+              {
+                "key": "18D3GSOTOP",
+                "name": "Susan Soto Palmer",
+                "sum": 27092,
+                "min": 0,
+                "max": 98
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 County Commissioner District 3 (Primary)",
+            "subgroups": [
+              {
+                "key": "18D3PDERRE",
+                "name": "Summer Derrey",
+                "sum": 1243,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "18D3PCHILD",
+                "name": "Norm Childress",
+                "sum": 1583,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "18D3PCHANG",
+                "name": "Stephen Changala",
+                "sum": 872,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "18D3PSOTOP",
+                "name": "Susan Soto Palmer",
+                "sum": 2382,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "18D3PHOMER",
+                "name": "Lisa A. Homer",
+                "sum": 939,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "18D3PKNAUT",
+                "name": "Brent Knautz",
+                "sum": 850,
+                "min": 0,
+                "max": 16
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Legislative District 15 Senate (General)",
+            "subgroups": [
+              {
+                "key": "18LEGGAGUI",
+                "name": "Bengie Aguilar",
+                "sum": 13085,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "18LEGGHONE",
+                "name": "Jim Honeyford",
+                "sum": 20225,
+                "min": 0,
+                "max": 223
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Legislative District 15 Senate (Primary)",
+            "subgroups": [
+              {
+                "key": "18LEGPAGUI",
+                "name": "Bengie Aguilar",
+                "sum": 5843,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "18LEGPHONE",
+                "name": "Jim Honeyford",
+                "sum": 11948,
+                "min": 0,
+                "max": 136
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 243231,
+              "min": 0,
+              "max": 1134
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 116024,
+                "min": 0,
+                "max": 646
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 1743,
+                "min": 0,
+                "max": 77
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 109470,
+                "min": 0,
+                "max": 1034
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 2359,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 9072,
+                "min": 0,
+                "max": 277
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 142,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "NH_2MORE",
+                "name": "Two or more races",
+                "sum": 4090,
+                "min": 0,
+                "max": 27
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 331,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 169193,
+              "min": 0,
+              "max": 715
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 93795,
+                "min": 0,
+                "max": 489
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1337,
+                "min": 0,
+                "max": 77
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 63528,
+                "min": 0,
+                "max": 549
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 6038,
+                "min": 0,
+                "max": 153
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 119,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 1829,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 214,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 2333,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID10"
+        },
+        "bounds": [
+          [
+            -121.524,
+            46.0401
+          ],
+          [
+            -119.8654,
+            47.089
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yakima_elections_blocks"
+            },
+            "sourceLayer": "yakima_elections_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yakima_elections_blocks_points"
+            },
+            "sourceLayer": "yakima_elections_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "Washington",
+    "id": "yakima_elections",
+    "districtingProblems": [
+      {
+        "name": "County Commissioners",
+        "numberOfParts": 3,
+        "pluralNoun": "Districts"
+      }
+    ]
   }
 ]
