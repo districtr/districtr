@@ -72,7 +72,7 @@ const stateForEvent = {
 san_jose: 'California',
 siskiyou: 'California',
 redwood_city: 'California',
-napa_city: 'California',
+city_of_napa: 'California',
 napa_boe: 'California',
 napa_college: 'California',
 tuolumne: 'California',
@@ -171,7 +171,7 @@ const validEventCodes = {
   san_jose: 'sanjoseca',
   siskiyou: 'ca_siskiyou',
   redwood_city: 'redwood',
-  napa_city: 'napa2021',
+  city_of_napa: 'napa2021',
 napa_boe: 'napa_boe',
 napa_college: 'napa_college',
 tuolumne: 'ca_tuolumne',
@@ -230,6 +230,8 @@ const unitTypes = {
   'missouri-mapping': {no: 'Precincts'},
   'hia': {no: 'Precincts'},
   mesaaz: {no: 'Blocks'},
+  city_of_napa: {no: 'Blocks'},
+  napa_county: {no: 'Blocks'},
 };
 
 const unitCounts = {
@@ -267,7 +269,6 @@ const coi_events = [
   'ourmapsne',
   'onelovemi',
   'ks-fairmaps',
-  'napa_county',
   'san_jose',
   'siskiyou',
   'redwood_city',
@@ -276,7 +277,6 @@ const coi_events = [
   'solano_county',
   'commoncausepa',
   'santa_clara_county',
-  'napa_city',
   'napa_boe',
   'napa_college',
   'tuolumne',
@@ -295,6 +295,8 @@ const hybrid_events = [
   // 'mesaaz',
   'hia',
   'saccounty',
+  'city_of_napa',
+  'napa_county',
   'saccountymap',
   'fresno',
   'fresnocity',
@@ -604,13 +606,12 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data. \
-Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
-    <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
-    <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
-    Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
-napa_boe: '<p>Every 10 years, Californians get the chance to help reshape five Napa BOE districts based on current United States Census data. \
+  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data.  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p>\
+  <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest. You can also draw your own district map.</strong></p>\
+  <p>Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps. For more information, visit <a href="http://www.countyofnapa.org/398/2021-Redistricting">this link</a>.</p>\
+  <p>Get started by clicking the orange button to draw your community of interest. Click on the blue button to draw your district map of the county. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.”</p>',
+  napa_boe: '<p>Every 10 years, Californians get the chance to help reshape five Napa BOE districts based on current United States Census data. \
   Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
     <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
@@ -622,11 +623,11 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
     </p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_College” (any capitalization) is entered.</p>',
-  napa_city: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+  city_of_napa: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council District Map.</p>\
-     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_City” (any capitalization) is entered.</p>',
+     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community. You can also draw your own district map.</strong></p>\
+     <p>Every map submitted by the public will be carefully reviewed by the demographer and presented to the City Council for their consideration and approval of a final map. For more information, visit <a href="http://www.cityofnapa.org/1010/Redistricting">this link</a>.</p>\
+     <p>Get started by clicking the orange button to draw your community of interest. Click on the blue button to draw your district map of the city. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “City_of_Napa” (any capitalization) is entered.</p>',
  san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -940,7 +941,7 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_county: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_college: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -951,8 +952,8 @@ const longAbout = {
  tuolumne: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
- napa_city: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+ city_of_napa: [
+   "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  kern_county: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1276,7 +1277,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "napa_city", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -1344,7 +1345,7 @@ export default () => {
             } else if (eventCode === "butte_county") {
               document.getElementById("partner-link-a").href = "https://www.buttecounty.net";
               document.getElementById("partnership-a").src = "/assets/partners-butte.png?v=2";
-            } else if (eventCode === "napa_city") {
+            } else if (eventCode === "city_of_napa") {
               document.getElementById("partner-link-a").href = "https://www.cityofnapa.org";
               document.getElementById("partnership-a").src = "/assets/partners-napa-city.png?v=2";
             } else if (eventCode === "humboldt_county") {
