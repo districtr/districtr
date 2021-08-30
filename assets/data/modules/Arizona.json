@@ -1883,6 +1883,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -2019,6 +2020,155 @@
               "url": "mapbox://districtr.mesaaz2_blocks?v=2"
             },
             "sourceLayer": "mesaaz2_blocks"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 520982,
+              "min": 0,
+              "max": 1285
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 312534,
+                "min": 0,
+                "max": 808
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 20113,
+                "min": 0,
+                "max": 204
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 9916,
+                "min": 0,
+                "max": 114
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 13011,
+                "min": 0,
+                "max": 88
+              },
+              {
+                "key": "LF_20_HoPI",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 1914,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "LF_20_Hisp",
+                "name": "Hispanic population",
+                "sum": 140844,
+                "min": 0,
+                "max": 814
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 346406,
+              "min": 0,
+              "max": 1092
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White",
+                "name": "White population",
+                "sum": 252670,
+                "min": 0,
+                "max": 715
+              },
+              {
+                "key": "CVAP_15-19_Black",
+                "name": "Black population",
+                "sum": 11808,
+                "min": 0,
+                "max": 137
+              },
+              {
+                "key": "CVAP_15-19_AmIn",
+                "name": "American Indian population",
+                "sum": 6656,
+                "min": 0,
+                "max": 249
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 5702,
+                "min": 0,
+                "max": 126
+              },
+              {
+                "key": "CVAP_15-19_NHPI",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 1039,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "CVAP_15-19_Hisp",
+                "name": "Hispanic population",
+                "sum": 62274,
+                "min": 0,
+                "max": 310
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -111.8944,
+            33.2773
+          ],
+          [
+            -111.5808,
+            33.5123
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mesaaz2_blocks20_points"
+            },
+            "sourceLayer": "mesaaz2_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mesaaz2_blocks20"
+            },
+            "sourceLayer": "mesaaz2_blocks20"
           }
         ]
       }
