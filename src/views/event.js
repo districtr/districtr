@@ -266,7 +266,6 @@ const coi_events = [
   'ttt',
   'ourmapsmn',
   'micrc',
-  'mesaaz',
   'slo_county',
   'ourmapsne',
   'onelovemi',
@@ -294,7 +293,7 @@ const coi_events = [
 ];
 
 const hybrid_events = [
-  // 'mesaaz',
+  'mesaaz',
   'hia',
   'saccounty',
   'city_of_napa',
