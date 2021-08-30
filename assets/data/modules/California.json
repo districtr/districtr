@@ -3398,6 +3398,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -3515,6 +3516,134 @@
             "sourceLayer": "napa2021_blocks"
           }
         ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 79246,
+              "min": 0,
+              "max": 1251
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 41132,
+                "min": 0,
+                "max": 626
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 579,
+                "min": 0,
+                "max": 53
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 2019,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 31572,
+                "min": 0,
+                "max": 1023
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 50828,
+              "min": 0,
+              "max": 761
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 272,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 85,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 1330,
+                "min": 0,
+                "max": 45
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 46,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 12207,
+                "min": 0,
+                "max": 444
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.3588,
+            38.2087
+          ],
+          [
+            -122.2221,
+            38.3508
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa2021_blocks20_points"
+            },
+            "sourceLayer": "napa2021_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napa2021_blocks20"
+            },
+            "sourceLayer": "napa2021_blocks20"
+          }
+        ]
       }
     ],
     "id": "napa2021",
@@ -3532,9 +3661,138 @@
     "name": "Napa County",
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets":[
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 138019,
+              "min": 0,
+              "max": 1251
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 68909,
+                "min": 0,
+                "max": 841
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 2300,
+                "min": 0,
+                "max": 128
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 10520,
+                "min": 0,
+                "max": 330
+              },
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 48829,
+                "min": 0,
+                "max": 1023
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 93069,
+              "min": 0,
+              "max": 825
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1876,
+                "min": 0,
+                "max": 120
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 225,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 6681,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 151,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 18911,
+                "min": 0,
+                "max": 444
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.6464,
+            38.1549
+          ],
+          [
+            -122.0614,
+            38.8642
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napacounty2021_blocks20_points"
+            },
+            "sourceLayer": "napacounty2021_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.napacounty2021_blocks20"
+            },
+            "sourceLayer": "napacounty2021_blocks20"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -3656,7 +3914,6 @@
     ],
     "id": "napacounty2021",
     "state": "California",
-    "limit": "community",
     "districtingProblems": [
       {
         "name": "County",
@@ -6905,14 +7162,178 @@
       }
     ]
   },
-    {
+  {
     "id": "menlo_park",
     "state": "California",
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 34954,
+              "min": 0,
+              "max": 915
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 19153,
+                "min": 0,
+                "max": 577
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1034,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 28,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 5952,
+                "min": 0,
+                "max": 269
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 378,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 163,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 1968,
+                "min": 0,
+                "max": 54
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 6278,
+                "min": 0,
+                "max": 228
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Total population",
+              "sum": 26857,
+              "min": 0,
+              "max": 783
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White population",
+                "sum": 15213,
+                "min": 0,
+                "max": 479
+              },
+              {
+                "key": "BVAP",
+                "name": "Black population",
+                "sum": 901,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian population",
+                "sum": 21,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian population",
+                "sum": 4776,
+                "min": 0,
+                "max": 262
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 272,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic population",
+                "sum": 4510,
+                "min": 0,
+                "max": 167
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.2293,
+            37.4169
+          ],
+          [
+            -122.0815,
+            37.5343
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.menlo_park_blocks20_points"
+            },
+            "sourceLayer": "menlo_park_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.menlo_park_blocks20"
+            },
+            "sourceLayer": "menlo_park_blocks20"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -12965,6 +13386,7 @@
       "id": "blocks",
       "name": "Blocks",
       "unitType": "Blocks",
+      "hideOnDefault": true,
       "columnSets": [
         {
           "type": "population",
@@ -13081,12 +13503,139 @@
           "sourceLayer": "sanmateo_city_blocks"
         }
       ]
+    },
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 105661,
+            "min": 0,
+            "max": 1562
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 40519,
+              "min": 0,
+              "max": 771
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 1696,
+              "min": 0,
+              "max": 27
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 27786,
+              "min": 0,
+              "max": 538
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 27198,
+              "min": 0,
+              "max": 661
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total population",
+            "sum": 64826,
+            "min": 0,
+            "max": 848
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 1275,
+              "min": 0,
+              "max": 24
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 166,
+              "min": 0,
+              "max": 37
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 14043,
+              "min": 0,
+              "max": 252
+            },
+            {
+              "key": "CVAP_15-19_Hawaiian_API",
+              "name": "Native Hawaiian Pacific Islander population",
+              "sum": 961,
+              "min": 0,
+              "max": 32
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 10236,
+              "min": 0,
+              "max": 353
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -122.355,
+          37.5126
+        ],
+        [
+          -122.275,
+          37.6021
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.sanmateo_city_blocks20_points"
+          },
+          "sourceLayer": "sanmateo_city_blocks20_points"
+        },
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.sanmateo_city_blocks20"
+          },
+          "sourceLayer": "sanmateo_city_blocks20"
+        }
+      ]
     }
   ],
   "state": "California",
   "name": "San Mateo (City)",
   "id": "ca_sanmateo",
-  "limit": "community",
   "districtingProblems": [
     {
       "name": "County",
