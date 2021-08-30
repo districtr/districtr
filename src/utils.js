@@ -706,6 +706,32 @@ export function spatial_abilities(id) {
     shapefile: true,
     municipalities: true,
   },
+  menlo_park: {
+    border: true,
+    neighborhood_borders: 'Neighborhoods',
+    school_districts: true,
+    boundaries: [{
+      id: 'menloh2o',
+      label: 'California Water Service',
+      path: 'menlo_park_water',
+      lineColor: '#007',
+    },{
+      id: 'menloh2o2',
+      label: 'East Palo Alto Water District',
+      path: 'menlo_park_water2',
+      lineColor: '#007',
+    },{
+      id: 'menloh2o3',
+      label: 'Menlo Park Water District',
+      path: 'menlo_park_water3',
+      lineColor: '#007',
+    },{
+      id: 'menlomulti',
+      label: 'Multi-Family Parcels',
+      path: 'menlo_park_multifamily',
+    }
+  ]
+  },
   ca_sanjoaquin: {
     number_markers: true,
     border: true,

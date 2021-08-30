@@ -233,6 +233,7 @@ const unitTypes = {
   city_of_napa: {no: 'Blocks'},
   napa_county: {no: 'Blocks'},
   san_mateo_city: {no: 'Blocks'},
+  'mp-maps': {no: 'Blocks'},
 };
 
 const unitCounts = {
