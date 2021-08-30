@@ -2,11 +2,14 @@ import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
 import Layer, { addBelowLabels } from "../map/Layer";
 
-let layers = {};
+if (!window.blayers) {
+  window.blayers = {};
+}
 
 export function addBoundaryLayer(config, map) {
   const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
-  if (!map.getSource(config.id)) {
+  if (!window.blayers[config.id]) {
+    window.blayers[config.id] = true;
     fetch(`${prefix}${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
         if (map.getSource(config.id)) {
           return;
@@ -15,7 +18,7 @@ export function addBoundaryLayer(config, map) {
           type: 'geojson',
           data: gj
         });
-        layers[config.id] = new Layer(
+        window.blayers[config.id] = new Layer(
             map,
             {
                 id: config.id,
@@ -32,7 +35,8 @@ export function addBoundaryLayer(config, map) {
     });
   }
 
-  if (config.centroids && !map.getSource(`${config.id}_centroids`)) {
+  if (config.centroids && !blayers[config.centroids]) {
+    window.blayers[config.centroids] = true;
     fetch(`${prefix}${config.path}_centroids.geojson?v=2`).then(res => res.json()).then(centroids => {
         if (map.getSource(`${config.id}_centroids`)) {
           return;
@@ -41,7 +45,7 @@ export function addBoundaryLayer(config, map) {
             type: 'geojson',
             data: centroids
         });
-        layers[`${config.id}_centroids`] = new Layer(map, {
+        window.blayers[`${config.id}_centroids`] = new Layer(map, {
             id: `${config.id}_centroids`,
             source: `${config.id}_centroids`,
             type: 'symbol',
@@ -65,7 +69,7 @@ export function addBoundaryLayer(config, map) {
   return html`
     ${toggle(config.label, false, checked => {
         let opacity = checked ? 1 : 0;
-        layers[config.id] && layers[config.id].setOpacity(opacity)
-        layers[`${config.id}_centroids`] && layers[`${config.id}_centroids`].setPaintProperty('text-opacity', opacity);
+        window.blayers[config.id] && window.blayers[config.id].setOpacity(opacity)
+        window.blayers[`${config.id}_centroids`] && window.blayers[`${config.id}_centroids`].setPaintProperty('text-opacity', opacity);
     })}`
 }
