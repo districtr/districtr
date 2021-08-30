@@ -378,7 +378,7 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     ca_contracosta: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
       municipalities: true,
@@ -388,7 +388,7 @@ export function spatial_abilities(id) {
       }
     },
     ftmyers: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
     },
