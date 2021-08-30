@@ -72,7 +72,7 @@ export default function ToolsPlugin(editor) {
             vraEffectiveness(state, colorsAffected);
         }
 
-        if (window.planNumbers && document.querySelector("#toggle-district-numbers") 
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers")
                                && document.querySelector("#toggle-district-numbers").checked) {
             window.planNumbers.update(state, colorsAffected);
         }
@@ -147,51 +147,25 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
+function exportPlanAsSHP(state, geojson) {
     const serialized = state.serialize();
-    Object.keys(serialized.assignment).forEach(assign => {
+    Object.keys(serialized.assignment).forEach((assign) => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    if (retry == 0) {
-        render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
-    }
-    if (state.unitsRecord.name.includes("Block Groups") && !serialized.placeId.includes("_bg")) {
-        serialized.place.id += '_bg';
-        serialized.placeId += '_bg';
-    }
-    if (["2020 VTDs", "2020 Block Groups", "2020 Precincts"].includes(state.unitsRecord.name) && !serialized.placeId.includes("_20")) {
-        serialized.place.id += '_20';
-        serialized.placeId += '_20';
-    } else {
-        console.log(state.unitsRecord.name);
-    }
-    fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
+    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
+    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(serialized)
+        body: JSON.stringify(serialized),
     })
-    .then(response => {
-        let status = response.status;
-        if (status == 200) {
-            response.arrayBuffer().then(
-                data => download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true)
-            );
-        } else {
-            console.error("Download failed; retrying . . .");
-            throw 'Download failed'
-        }
-    })
-    .catch(e => {
-        if (retry < 3) {
-            setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 2000 + 2000 * retry);
-        } else {
-            console.error(e);
-            render(renderModal(`Download failed! Please try again.`), document.getElementById("modal"));
-        }
+    .then((res) => res.arrayBuffer())
+    .catch((e) => console.error(e))
+    .then((data) => {
+        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
     });
 }
 
