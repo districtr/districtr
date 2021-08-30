@@ -228,7 +228,8 @@ const unitTypes = {
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
   'missouri-mapping': {no: 'Precincts'},
-  'hia': {no: 'Precincts'}
+  'hia': {no: 'Precincts'},
+  mesaaz: {no: 'Blocks'},
 };
 
 const unitCounts = {
@@ -922,7 +923,7 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
         save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
 
 
-       
+
 };
 
 const longAbout = {

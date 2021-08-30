@@ -13086,7 +13086,6 @@
   "state": "California",
   "name": "San Mateo (City)",
   "id": "ca_sanmateo",
-  "limit": "community",
   "districtingProblems": [
     {
       "name": "County",

@@ -698,6 +698,7 @@ export function spatial_abilities(id) {
     number_markers: true,
     border: true,
     shapefile: true,
+    neighborhood_borders: 'Neighborhoods',
   },
   ca_kern: {
     number_markers: true,
