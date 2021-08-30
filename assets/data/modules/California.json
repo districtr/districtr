@@ -12023,6 +12023,7 @@
        "id": "blocks",
        "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -12144,6 +12145,134 @@
              "url": "mapbox://districtr.napa_boe_blocks"
            },
            "sourceLayer": "napa_boe_blocks"
+         }
+       ]
+     },
+     {
+       "id": "blocks20",
+       "name": "2020 Blocks",
+       "unitType": "Blocks",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "LF_20_Total",
+             "name": "Total population",
+             "sum": 137789,
+             "min": 0,
+             "max": 1251
+           },
+           "subgroups": [
+             {
+               "key": "LF_20_White",
+               "name": "White population",
+               "sum": 68730,
+               "min": 0,
+               "max": 841
+             },
+             {
+               "key": "LF_20_AfAm",
+               "name": "Black population",
+               "sum": 2298,
+               "min": 0,
+               "max": 128
+             },
+             {
+               "key": "LF_20_Asian",
+               "name": "Asian population",
+               "sum": 10511,
+               "min": 0,
+               "max": 330
+             },
+             {
+               "key": "LF_20_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 48806,
+               "min": 0,
+               "max": 1023
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "CVAP_15-19_Total",
+             "name": "Total population",
+             "sum": 92912,
+             "min": 0,
+             "max": 825
+           },
+           "subgroups": [
+             {
+               "key": "CVAP_15-19_AfAm",
+               "name": "Black population",
+               "sum": 1876,
+               "min": 0,
+               "max": 120
+             },
+             {
+               "key": "CVAP_15-19_AiAn",
+               "name": "American Indian population",
+               "sum": 225,
+               "min": 0,
+               "max": 14
+             },
+             {
+               "key": "CVAP_15-19_Asian",
+               "name": "Asian population",
+               "sum": 6678,
+               "min": 0,
+               "max": 202
+             },
+             {
+               "key": "CVAP_15-19_Hawaiian_API",
+               "name": "Native Hawaiian Pacific Islander population",
+               "sum": 151,
+               "min": 0,
+               "max": 19
+             },
+             {
+               "key": "CVAP_15-19_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 18884,
+               "min": 0,
+               "max": 444
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Geo ID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -122.6464,
+           38.1549
+         ],
+         [
+           -122.0927,
+           38.8642
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.napa_boe_blocks20_points"
+           },
+           "sourceLayer": "napa_boe_blocks20_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.napa_boe_blocks20"
+           },
+           "sourceLayer": "napa_boe_blocks20"
          }
        ]
      }
@@ -12154,7 +12283,7 @@
    "districtingProblems": [
      {
        "name": "BOE",
-       "numberOfParts": 5,
+       "numberOfParts": 7,
        "pluralNoun": "BOE Districts"
      }
    ]
@@ -12165,6 +12294,7 @@
        "id": "blocks",
        "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -12288,6 +12418,134 @@
            "sourceLayer": "napa_boe_blocks"
          }
        ]
+     },
+     {
+       "id": "blocks20",
+       "name": "2020 Blocks",
+       "unitType": "Blocks",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "LF_20_Total",
+             "name": "Total population",
+             "sum": 137789,
+             "min": 0,
+             "max": 1251
+           },
+           "subgroups": [
+             {
+               "key": "LF_20_White",
+               "name": "White population",
+               "sum": 68730,
+               "min": 0,
+               "max": 841
+             },
+             {
+               "key": "LF_20_AfAm",
+               "name": "Black population",
+               "sum": 2298,
+               "min": 0,
+               "max": 128
+             },
+             {
+               "key": "LF_20_Asian",
+               "name": "Asian population",
+               "sum": 10511,
+               "min": 0,
+               "max": 330
+             },
+             {
+               "key": "LF_20_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 48806,
+               "min": 0,
+               "max": 1023
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "CVAP_15-19_Total",
+             "name": "Total population",
+             "sum": 92912,
+             "min": 0,
+             "max": 825
+           },
+           "subgroups": [
+             {
+               "key": "CVAP_15-19_AfAm",
+               "name": "Black population",
+               "sum": 1876,
+               "min": 0,
+               "max": 120
+             },
+             {
+               "key": "CVAP_15-19_AiAn",
+               "name": "American Indian population",
+               "sum": 225,
+               "min": 0,
+               "max": 14
+             },
+             {
+               "key": "CVAP_15-19_Asian",
+               "name": "Asian population",
+               "sum": 6678,
+               "min": 0,
+               "max": 202
+             },
+             {
+               "key": "CVAP_15-19_Hawaiian_API",
+               "name": "Native Hawaiian Pacific Islander population",
+               "sum": 151,
+               "min": 0,
+               "max": 19
+             },
+             {
+               "key": "CVAP_15-19_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 18884,
+               "min": 0,
+               "max": 444
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Geo ID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -122.6464,
+           38.1549
+         ],
+         [
+           -122.0927,
+           38.8642
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.napa_boe_blocks20_points"
+           },
+           "sourceLayer": "napa_boe_blocks20_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.napa_boe_blocks20"
+           },
+           "sourceLayer": "napa_boe_blocks20"
+         }
+       ]
      }
    ],
    "id": "napa_college",
@@ -12296,7 +12554,7 @@
    "districtingProblems": [
      {
        "name": "College",
-       "numberOfParts": 5,
+       "numberOfParts": 7,
        "pluralNoun": "College Districts"
      }
    ]
