@@ -1039,6 +1039,9 @@ export function spatial_abilities(id) {
       load_coi: false,
       school_districts: true,
       municipalities: 'Cities and Towns',
+      portal: {
+        endpoint: 'https://www.indiana-mapping.org',
+      },
     },
     iowa: {
       number_markers: true,
