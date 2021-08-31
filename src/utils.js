@@ -708,9 +708,19 @@ export function spatial_abilities(id) {
   },
   menlo_park: {
     border: true,
-    school_districts: true,
-    neighborhood_borders: 'Neighborhoods',
     boundaries: [{
+      id: 'schools',
+      label: 'School Districts',
+      path: 'school_districts/california/menlo_park',
+      lineColor: '#ffb347',
+      centroids: true,
+    },{
+      id: 'neighborhood',
+      label: 'Neighborhoods',
+      path: 'neighborhoods/california/menlo_park',
+      lineColor: '#47cf83',
+      centroids: true,
+    },{
       id: 'menloh2o',
       label: 'California Water Service',
       path: 'menlo_park_water',
