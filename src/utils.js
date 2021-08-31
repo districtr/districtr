@@ -708,29 +708,43 @@ export function spatial_abilities(id) {
   },
   menlo_park: {
     border: true,
-    neighborhood_borders: 'Neighborhoods',
     school_districts: true,
+    neighborhood_borders: 'Neighborhoods',
     boundaries: [{
       id: 'menloh2o',
       label: 'California Water Service',
       path: 'menlo_park_water',
-      lineColor: '#007',
+      fill: '#44A',
+      centroids: true,
     },{
       id: 'menloh2o2',
       label: 'East Palo Alto Water District',
       path: 'menlo_park_water2',
-      lineColor: '#007',
+      fill: '#44A',
+      centroids: true,
+    },{
+      id: 'menloh2o5',
+      label: 'Palo Alto Park Water District',
+      path: 'menlo_park_water5',
+      fill: '#44A',
+      centroids: true,
     },{
       id: 'menloh2o3',
       label: 'Menlo Park Water District',
       path: 'menlo_park_water3',
-      lineColor: '#007',
+      fill: '#44A',
+      centroids: true,
+    },{
+      id: 'menloh2o4',
+      label: 'O’Connor Water District',
+      path: 'menlo_park_water4',
+      fill: '#44A',
+      centroids: true,
     },{
       id: 'menlomulti',
       label: 'Multi-Family Parcels',
       path: 'menlo_park_multifamily',
-    }
-  ]
+    }]
   },
   ca_sanjoaquin: {
     number_markers: true,

@@ -909,8 +909,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
      is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
      for purposes of its effective and fair representation.”</p>\
      <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
-     <p><strong>Once you have drawn your map, be sure to use the tag &quot;MP-maps&quot;</strong></p>\
-     <p>Click the following link to view <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>Current Districts</a>.</p>",
+     <p>Click the following link to view <a href='https://menlopark.maps.arcgis.com/apps/InformationLookup/index.html?appid=83d9c16b24d2493893fde31135490a7e' target='_blank'>Current Districts</a>.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
