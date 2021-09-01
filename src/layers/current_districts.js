@@ -62,8 +62,8 @@ export function addBoundaryLayer(config, map) {
               'text-anchor': 'center',
               'text-radial-offset': 0,
               'text-justify': 'center',
-              'text-allow-overlap': true,
-              'text-ignore-placement': true,
+              // 'text-allow-overlap': true,
+              // 'text-ignore-placement': true,
             },
             paint: {
               'text-opacity': 0,
