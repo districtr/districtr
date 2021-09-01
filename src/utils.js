@@ -395,6 +395,12 @@ export function spatial_abilities(id) {
       current_districts: true,
       school_districts: true,
       border: true,
+      boundaries: [{
+        id: 'neighborhood',
+        label: 'Neighborhood Community Plan',
+        path: 'neighborhoods/california/ca_SanDiego',
+        centroids: true,
+      }]
     },
     ca_contracosta: {
       number_markers: true,
