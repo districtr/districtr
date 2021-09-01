@@ -627,10 +627,10 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     </p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_College” (any capitalization) is entered.</p>',
   city_of_napa: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community. You can also draw your own district map.</strong></p>\
-     <p>Every map submitted by the public will be carefully reviewed by the demographer and presented to the City Council for their consideration and approval of a final map. For more information, visit <a href="http://www.cityofnapa.org/1010/Redistricting">this link</a>.</p>\
-     <p>Get started by clicking the orange button to draw your community of interest. Click on the blue button to draw your district map of the city. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “City_of_Napa” (any capitalization) is entered.</p>',
+  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community. If you would like to draw a full map, then please select the DISTRICT option to draw lines for four City Council districts.</strong></p>\
+  <p>Every map submission will become a part of the public record and posted on the City’s website. Map submissions will be carefully reviewed by the City’s demographer and presented to the City Council for their consideration and approval of a final adopted map.</p>\
+  <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag ”City_of_Napa” (any capitalization) is entered.</p>',
  san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -956,6 +956,11 @@ const longAbout = {
  ],
  city_of_napa: [
    "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "<h2>Stay Tuned!</h2><p>The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, the online DistrictR mapping tool will be updated on the City’s website.</p>",
+   "<h2><small>Quick Links to Other Napa County Agencies Participating in the Redistricting Process</small></h2><br/>\
+   <ul><li><a href='/event/Napa_County'>Napa County</a></li>\
+   <li><a href='/event/Napa_BOE'>Napa County Board of Education</a></li>\
+   <li><a href='/event/Napa_College'>Napa Valley College</a></li></ul>",
  ],
  kern_county: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1267,6 +1272,10 @@ export default () => {
         } else if (eventCode === "mapsofla") {
             document.getElementById("introExplain").innerText = "";
             document.getElementById("eventHeadline").innerText = "#MapsofLA";
+        } else if (eventCode === "city_of_napa") {
+            document.getElementById("introExplain").innerHTML = "Draw a Map #RedrawNapa<br/>";
+            document.getElementById("eventHeadline").innerText = "City_of_Napa";
+            document.getElementById("communities").innerText = "Start Drawing a Map or Your Community of Interest!";
         }
 
     if (["mp-maps"].includes(eventCode)) {
@@ -1508,7 +1517,7 @@ export default () => {
             document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
-        if(eventCode === "ttt") {
+        if (eventCode === "ttt") {
             let title = document.getElementById("districting-options-title");
             render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.
             You can start in any state and use the tag "TTT" to post here.</text>`, title);
@@ -1655,6 +1664,7 @@ export default () => {
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
         let showPlans = (data, drafts = false) => {
+            console.log(["showPlans", data, drafts]);
             let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
             if (loadExtraPlans) {
                 data.plans.pop();
@@ -1707,7 +1717,8 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
+        let drafturl = eventurl + (window.location.hostname === "localhost" ? "" : "&type=draft");
+        fetch(drafturl.replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
@@ -1721,7 +1732,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
                   ? html`<p>
-                    ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
+                    ${(["saccounty", "saccountymap", "city_of_napa"].includes(eventCode) || !plans.length)
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
                       : ((eventCode == 'pmc-districts')
                         ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
