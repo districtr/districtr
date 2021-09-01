@@ -1739,7 +1739,7 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                             it with the tag "pmc", it will be added to the gallery <a href='/event/pmc' target='_blank'>here</a>.
                             <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
                              They are intended for use as starting points for exploration. You can read more about their properties
-                             in <a href='https://www.dropbox.com/s/o3654c9gkunfy6l/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
+                             in <a href='https://www.dropbox.com/s/udenpl7zns12b22/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
                              which includes data on the plans.</b>`
                         : "Click on any of the maps below to open it in Districtr.")
                       }
