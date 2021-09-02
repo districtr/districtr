@@ -1,43 +1,74 @@
+
 import Tooltip from "../map/Tooltip";
 import { Tab } from "../components/Tab";
-import { addCOIs, opacityStyleExpression, patternStyleExpression } from "../layers/COI";
+import { addCOIs, opacityStyleExpression } from "../layers/COI";
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
 
 /**
  * @description Gets the right checkboxes based on filtering.
- * @param {String} cluster Cluster identifier.
- * @param {String[]} cois Array of COI names to be mapped to COI CSS class tags.
+ * @param {String} cluster Cluster identifier; optional.
  * @returns {HTMLElement[]} An array of filtered checkboxes.
  */
-function retrieveCheckboxes(cluster=null, cois=null) {
-    let checkboxes = Array.from(document.getElementsByClassName("allvisible-checkbox")),
-        filtered = [];
+function retrieveCheckboxes(cluster=null) {
+    // First, get all the checkboxes.
+    let checkboxes = Array.from(document.getElementsByClassName("allvisible-checkbox"));
 
-    // If a cluster name is passed, get only the chekboxes corresponding to the
-    // cluster name; otherwise, get all cluster checkboxes.
+    // If a cluster name is passed, get only the checkbox associated to the cluster's
+    // identifier, as well as that checkbox's children. Otherwise, get all the
+    // checkboxes on the page.
     if (cluster) {
-        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName(cluster)));
+        checkboxes = checkboxes.concat(
+            Array.from(document.getElementsByClassName(cluster))
+        );
     } else {
         checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("cluster-checkbox")));
-    }
-
-    // If a list of specific COIs is passed, we get only the checkboxes whose
-    // COI identifiers belong in the list; otherwise, get all of them.
-    if (cois) {
-        let coiClasses = cois.map((coi) => coi.replaceAll(" ", "-"));
-        for (let coi of coiClasses) checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName(coi)));
-    } else {
         checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("coi-checkbox")));
     }
 
-    // Filter the checkboxes to ensure we're only getting checkboxes, not anything
-    // else.
+    console.dir(checkboxes);
+
+    // Filter to get only the checkboxes, not paragraphs with the same classes.
+    return checkboxes.filter((c) => c.localName == "label");
+}
+
+/**
+ * @description Tells us the status of each checkbox in the hierarchy.
+ * @param {String} cluster Cluster identifier.
+ * @param {String[]} cois Array of COI names.
+ * @returns {Object[]} Array of objects which have a cluster ID, COI name, and checked status.
+ */
+function getCheckboxStatuses(cluster=null, cois=null) {
+    let checkboxes = retrieveCheckboxes(cluster),
+        checkboxStatuses = [],
+        coiClasses = cois ? cois.map((coi) => coi.replaceAll(" ", "-")) : null;
+    
+    // If *any* of the checkboxes are unchecked, we can't view the things.
+    // We also skip over any checkboxes whose COI names aren't included
+    // in the list of COIs we're not displaying; this way, when users
+    // mouse over the COIs, invisible ones don't show up.
     for (let checkbox of checkboxes) {
-        if (checkbox.localName == "label") filtered = filtered.concat([checkbox]);
+        // Get the name of the community of interest, and identify the two
+        // conditions required to skip a checkbox: if its COI name isn't included
+        // in the provided list of COI names; if it doesn't have the required
+        // number of classes.
+        let coi = checkbox.classList[3],
+            hasEnoughClasses = checkbox.classList.length > 3,
+            included = coiClasses ? coiClasses.includes(coi) : false,
+            skipCondition = hasEnoughClasses && !included;
+
+        // If the condition holds, we exclude that checkbox; otherwise, we add
+        // its status to the list of statuses.
+        if (skipCondition) continue;
+
+        checkboxStatuses.push({
+            "cluster": cluster,
+            "coi": coi,
+            "checked": checkbox.control.checked
+        });
     }
 
-    return filtered;
+    return checkboxStatuses;
 }
 
 /**
@@ -47,19 +78,10 @@ function retrieveCheckboxes(cluster=null, cois=null) {
  * @returns {Boolean} Are any of the boxes in the COI's hierarchy checked?
  */
 function checkIfAllVisible(cluster, cois) {
-    let checkboxes = retrieveCheckboxes(cluster, cois),
-        coiClasses = cois.map((coi) => coi.replaceAll(" ", "-")),
+    let statuses = getCheckboxStatuses(cluster, cois),
         isChecked = true;
 
-    // If *any* of the checkboxes are unchecked, we can't view the things.
-    // We also skip over any checkboxes whose COI names aren't included
-    // in the list of COIs we're not displaying; this way, when users
-    // mouse over the COIs, invisible ones don't show up.
-    for (let checkbox of checkboxes) {
-        let coi = checkbox.classList[3];
-        if (checkbox.classList.length > 3 && !coiClasses.includes(coi)) continue;
-        isChecked = isChecked && checkbox.control.checked;
-    }
+    for (let status of statuses) isChecked = isChecked && status["checked"];
 
     return isChecked;
 }
@@ -91,17 +113,16 @@ function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID2
             let tab = window.open(origin + `/coi-info/`);
             tab.coidata = {
                 units: units,
-                unitMap: unitMap,
-                
-            }
+                unitMap: unitMap
+            };
         }
     });
 }
 
 /**
- * @description 
+ * @description Creates a reverse mapping from units to the COIs to which they belong.
  * @param {Object} unitMap Mapping from unit names to cluster and COI names.
- * @returns 
+ * @returns {Object} Object keyed by unit unique identifier, taken to COI names.
  */
 function createReverseMapping(unitMap) {
     let reverseMapping = {};
@@ -266,11 +287,10 @@ function createCOICheckbox(callback) {
  * @param {Object} cluster A cluster of COIs.
  * @param {Object} units A mapbox thing that I can't quite assign a type to.
  * @param {Object} unitMap Maps COI names to units within the cluster.
- * @param {Object} activePatternMatch The active mapping from COI names to patterns.
  * @param {Object} patternMatch The original mapping from COI names to patterns.
  * @returns {HTMLTemplateElement} A lit-html template element.
  */
-function listCOIs(cluster, units, unitMap, activePatternMatch, patternMatch, chosenPatterns) {
+function listCOIs(cluster, units, unitMap, patternMatch, chosenPatterns) {
     return html`
         <div class="toolbar-section-left cluster-display">
             ${
@@ -285,8 +305,7 @@ function listCOIs(cluster, units, unitMap, activePatternMatch, patternMatch, cho
                         _individualCOIDisplayToggle = toggle(
                             coi.name, true,
                             toggleIndividualCOI(
-                                cluster.plan.id, coi.name, units, unitMap,
-                                activePatternMatch, patternMatch
+                                cluster.plan.id, coi.name, units, unitMap
                             ),
                             null,
                             `coi-checkbox ${cluster.plan.id} ${adjustedClassName}`
@@ -333,10 +352,18 @@ function listCOIs(cluster, units, unitMap, activePatternMatch, patternMatch, cho
  * @param {Object} patternMatch The original mapping from COI names to patterns; used to reset.
  * @returns {Function} Callback for the toggle.
  */
-function toggleIndividualCOI(cluster, name, units, unitMap, activePatternMatch, patternMatch) {
+function toggleIndividualCOI(cluster, name, units, unitMap) {
     return (checked) => {
-        activePatternMatch[cluster][name] = checked ? patternMatch[cluster][name] : "transparent";
-        patternStyleExpression(units, unitMap, activePatternMatch);
+        // TODO: here, we have to read the statuses of *all* the checkboxes.
+        // I'm faking myself out by passing the status of the checkbox to the
+        // opacity style expression: that doesn't have to happen. Rather, we
+        // should pass the GEOID transparency assignments *here*: based on the
+        // statuses of the checkboxes, we can determine which units are transparent
+        // and which aren't, then pass those units to the function which modifies
+        // the units' opacities.
+        // Get the geoids we're going to make transparent.
+        let geoids = unitMap[cluster][name];
+        opacityStyleExpression(units, geoids, checked);
     };
 }
 
@@ -349,41 +376,16 @@ function toggleIndividualCOI(cluster, name, units, unitMap, activePatternMatch, 
  * @param {Object} patternMatch The original mapping from COI names to patterns; used to reset.
  * @returns {Function} Callback for the toggle.
  */
-function toggleCluster(cluster, units, unitMap, activePatternMatch, patternMatch) {
+function toggleCluster(cluster, units, unitMap) {
     return (checked) => {
-        // TODO: not sure how to do this yet. Probably going to do it tomorrow.
-        // The question here is this: does this toggle function the same way as the
-        // top button, where it just "turns off the opacity" and then maintains the
-        // checked/unchecked state of the COIs (i.e. disabling the checkboxes for the
-        // COIs it comprises) when they're checked back on; or, does un-checking the
-        // cluster checkbox just uncheck all the toggles below it, and then you have
-        // to re-check all of them later? I think it should be the former.
-
-        // Get the geoids for the units we're turning off.
-        let geoids = [],
-            clusterCheckboxes = Array.from(document.getElementsByClassName(cluster)),
-            filtered = [];
-
-        // Filter the checkboxes.
-        for (let checkbox of clusterCheckboxes) {
-            if (checkbox.classList.length > 3) filtered = filtered.concat([checkbox]);
-        }
-
-        for (let [name, ids] of Object.entries(unitMap[cluster])) {
-            activePatternMatch[cluster][name] = checked ? patternMatch[cluster][name] : "transparent";
-            geoids = geoids.concat(ids);
-        }
-
-        // Disallow interaction with the checkboxes for each of the COIs belonging
-        // to this cluster.
-        for (let checkbox of filtered) {
-            checkbox.style["pointer-events"] = checked ? "auto" : "none";
-            checkbox.style["opacity"] = checked ? 1 : 1/2;
-        }
-
+        // We want to preserve the status of all the units in each cluster and
+        // COI -- this involves getting *all* the checkboxes' statuses and
+        // setting the units' transparencies according to that.
+        let statuses = getCheckboxStatuses();
+        console.dir(statuses);
+        
         // Do the style expression thing.
-        patternStyleExpression(units, unitMap, activePatternMatch);
-        // opacityStyleExpression(units, geoids, checked);
+        opacityStyleExpression(units, geoids, checked);
     };
 }
 
@@ -396,7 +398,8 @@ function CoiVisualizationPlugin(editor) {
     let { state, toolbar, store } = editor,
         tab = new Tab("coi", "Communities", store);
     
-    addCOIs(state, null)
+    // Add COIs to the state.
+    addCOIs(state)
         .then(object => {
             // First, create a a display callback for displaying COIs, retrieve
             // each of the necessary data-carrying things from the object returned
@@ -406,7 +409,6 @@ function CoiVisualizationPlugin(editor) {
             // original pattern assignments for the COIs.
             let { clusters, unitMap, patternMatch, units, chosenPatterns } = object,
                 displayCallback = displayCOIs(units),
-                activePatternMatch = JSON.parse(JSON.stringify(patternMatch)),
                 tooltipCallback = watchTooltips(unitMap),
                 tooltipWatcher;
 
@@ -423,7 +425,7 @@ function CoiVisualizationPlugin(editor) {
                 let name = cluster.plan.id,
                     clusterToggle = toggle(
                         name, true,
-                        toggleCluster(name, units, unitMap, activePatternMatch, patternMatch),
+                        toggleCluster(name, units, unitMap),
                         null, `cluster-checkbox ${name}`
                     );
 
@@ -434,8 +436,8 @@ function CoiVisualizationPlugin(editor) {
                             <h4>${clusterToggle}</h4>
                             ${
                                 listCOIs(
-                                    cluster, units, unitMap, activePatternMatch,
-                                    patternMatch, chosenPatterns
+                                    cluster, units, unitMap, patternMatch,
+                                    chosenPatterns
                                 )
                             }
                         </div>

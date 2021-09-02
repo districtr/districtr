@@ -164,11 +164,14 @@ function resolvesToArray(results) {
 }
 
 export function opacityStyleExpression(units, geoids, checked, opacity=1/3) {
+    // Creat a filter for setting opacities on only the specified units.
     let filter = [
-            "in",
-            ["get", "GEOID20"],
-            ["literal", geoids],
-            checked ? opacity : 0, opacity
+            "case", [
+                "in",
+                ["get", "GEOID20"],
+                ["literal", geoids]
+            ],
+            checked ? opacity : 0, 1/3
         ],
         layer = units.type.replace("symbol", "icon") + "-opacity";
     units.setPaintProperty(layer, filter);
