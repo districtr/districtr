@@ -378,7 +378,7 @@ export function spatial_abilities(id) {
       // find_unpainted: true,
     },
     ca_contracosta: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
       municipalities: true,
@@ -388,7 +388,7 @@ export function spatial_abilities(id) {
       }
     },
     ftmyers: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
     },
@@ -708,29 +708,58 @@ export function spatial_abilities(id) {
   },
   menlo_park: {
     border: true,
-    neighborhood_borders: 'Neighborhoods',
-    school_districts: true,
     boundaries: [{
+      id: 'schools',
+      label: 'School Districts',
+      path: 'school_districts/california/menlo_park',
+      lineColor: '#ffb347',
+      centroids: true,
+    },{
+      id: 'neighborhood',
+      label: 'Neighborhoods',
+      path: 'neighborhoods/california/menlo_park',
+      lineColor: '#47cf83',
+      centroids: true,
+    },{
+      id: 'flooded',
+      label: 'Flood Zone',
+      path: 'menlo_park_floodzone',
+      fill: '#8090c2',
+    },{
       id: 'menloh2o',
       label: 'California Water Service',
       path: 'menlo_park_water',
-      lineColor: '#007',
+      fill: '#44A',
+      // centroids: true,
     },{
       id: 'menloh2o2',
       label: 'East Palo Alto Water District',
       path: 'menlo_park_water2',
-      lineColor: '#007',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o5',
+      label: 'Palo Alto Park Water District',
+      path: 'menlo_park_water5',
+      fill: '#44A',
+      // centroids: true,
     },{
       id: 'menloh2o3',
       label: 'Menlo Park Water District',
       path: 'menlo_park_water3',
-      lineColor: '#007',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o4',
+      label: 'O’Connor Water District',
+      path: 'menlo_park_water4',
+      fill: '#44A',
+      // centroids: true,
     },{
       id: 'menlomulti',
       label: 'Multi-Family Parcels',
       path: 'menlo_park_multifamily',
-    }
-  ]
+    }]
   },
   ca_sanjoaquin: {
     number_markers: true,
@@ -1010,6 +1039,9 @@ export function spatial_abilities(id) {
       load_coi: true,
       school_districts: true,
       municipalities: 'Cities and Towns',
+      portal: {
+        endpoint: 'https://portal.indiana-mapping.org',
+      },
     },
     iowa: {
       number_markers: true,
