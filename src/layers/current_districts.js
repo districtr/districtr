@@ -2,11 +2,14 @@ import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
 import Layer, { addBelowLabels } from "../map/Layer";
 
-let layers = {};
+if (!window.blayers) {
+  window.blayers = {};
+}
 
 export function addBoundaryLayer(config, map) {
   const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
-  if (!map.getSource(config.id)) {
+  if (!window.blayers[config.id]) {
+    window.blayers[config.id] = true;
     fetch(`${prefix}${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
         if (map.getSource(config.id)) {
           return;
@@ -15,13 +18,17 @@ export function addBoundaryLayer(config, map) {
           type: 'geojson',
           data: gj
         });
-        layers[config.id] = new Layer(
+        window.blayers[config.id] = new Layer(
             map,
             {
                 id: config.id,
-                type: 'line',
+                type: (config.fill ? 'fill' : 'line'),
                 source: config.id,
-                paint: {
+                paint: config.fill ? {
+                    'fill-color': config.fill || '#444',
+                    'fill-opacity': 0,
+                    'fill-outline-color': '#070',
+                } : {
                     'line-color': config.lineColor || '#000',
                     'line-opacity': 0,
                     'line-width': config.lineWidth || 1.5,
@@ -32,7 +39,8 @@ export function addBoundaryLayer(config, map) {
     });
   }
 
-  if (config.centroids && !map.getSource(`${config.id}_centroids`)) {
+  if (config.centroids && !blayers[`${config.path}_centroids`]) {
+    window.blayers[`${config.path}_centroids`] = true;
     fetch(`${prefix}${config.path}_centroids.geojson?v=2`).then(res => res.json()).then(centroids => {
         if (map.getSource(`${config.id}_centroids`)) {
           return;
@@ -41,22 +49,27 @@ export function addBoundaryLayer(config, map) {
             type: 'geojson',
             data: centroids
         });
-        layers[`${config.id}_centroids`] = new Layer(map, {
+        window.blayers[`${config.id}_centroids`] = new Layer(map, {
             id: `${config.id}_centroids`,
             source: `${config.id}_centroids`,
             type: 'symbol',
             layout: {
-            'text-field': [
-                'format',
-                ['get', config.namefield || 'NAME'],
-                {'font-scale': 0.75},
-            ],
-            'text-anchor': 'center',
-            'text-radial-offset': 0,
-            'text-justify': 'center'
+              'text-field': [
+                  'format',
+                  ['get', config.namefield || 'NAME'],
+                  {'font-scale': 0.75},
+              ],
+              'text-anchor': 'center',
+              'text-radial-offset': 0,
+              'text-justify': 'center',
+              // 'text-allow-overlap': true,
+              // 'text-ignore-placement': true,
             },
             paint: {
-              'text-opacity': 0
+              'text-opacity': 0,
+              'text-halo-blur': 3,
+              'text-halo-width': 2,
+              'text-halo-color': 'rgba(215, 215, 210, 0.6)',
             }
         });
     });
@@ -64,8 +77,8 @@ export function addBoundaryLayer(config, map) {
 
   return html`
     ${toggle(config.label, false, checked => {
-        let opacity = checked ? 1 : 0;
-        layers[config.id] && layers[config.id].setOpacity(opacity)
-        layers[`${config.id}_centroids`] && layers[`${config.id}_centroids`].setPaintProperty('text-opacity', opacity);
+        let opacity = checked ? (config.fill ? 0.55 : 1) : 0;
+        window.blayers[config.id] && window.blayers[config.id].setOpacity(opacity)
+        window.blayers[`${config.id}_centroids`] && window.blayers[`${config.id}_centroids`].setPaintProperty('text-opacity', opacity);
     })}`
 }

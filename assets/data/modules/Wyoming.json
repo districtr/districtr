@@ -184,8 +184,6 @@
       {
         "id": "blocks20",
         "name": "2020 Blocks",
-        "limit": "community",
-        "hideOnDefault": true,
         "unitType": "Blocks",
         "columnSets": [
           {
