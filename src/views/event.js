@@ -72,7 +72,7 @@ const stateForEvent = {
 san_jose: 'California',
 siskiyou: 'California',
 redwood_city: 'California',
-napa_city: 'California',
+city_of_napa: 'California',
 napa_boe: 'California',
 napa_college: 'California',
 tuolumne: 'California',
@@ -109,6 +109,8 @@ commoncausepa: 'Pennsylvania',
   ocsd: 'California',
   groverbeach: 'California',
   vallejo: 'California',
+  santa_clara_county: 'California',
+  'ft-myers': 'Florida',
   'mp-maps': 'California',
 };
 
@@ -169,7 +171,7 @@ const validEventCodes = {
   san_jose: 'sanjoseca',
   siskiyou: 'ca_siskiyou',
   redwood_city: 'redwood',
-  napa_city: 'napa2021',
+  city_of_napa: 'napa2021',
 napa_boe: 'napa_boe',
 napa_college: 'napa_college',
 tuolumne: 'ca_tuolumne',
@@ -208,6 +210,8 @@ commoncausepa: 'pennsylvania',
   ocsd: 'ca_oceano',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
+  santa_clara_county: 'ca_sc_county',
+  'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
 };
 
@@ -224,7 +228,17 @@ const unitTypes = {
   "fair-districts-oh": {no: 'Precincts'},
   grns: {no: '2011 Wards'},
   'missouri-mapping': {no: 'Precincts'},
-  'hia': {no: 'Precincts'}
+  'hia': {no: 'Precincts'},
+  mesaaz: {no: 'Blocks'},
+  city_of_napa: {no: 'Blocks'},
+  napa_county: {no: 'Blocks'},
+  san_mateo_city: {no: 'Blocks'},
+  napa_boe: {no: 'Blocks'},
+  napa_college: {no: 'Blocks'},
+  santa_clara_county: {no: 'Blocks'},
+  san_jose: {no: 'Blocks'},
+  san_joaquin: {no: 'Blocks'},
+  'mp-maps': {no: 'Blocks'},
 };
 
 const unitCounts = {
@@ -257,38 +271,38 @@ const coi_events = [
   'ttt',
   'ourmapsmn',
   'micrc',
-  'mesaaz',
   'slo_county',
   'ourmapsne',
   'onelovemi',
   'ks-fairmaps',
-  'napa_county',
-  'san_jose',
   'siskiyou',
   'redwood_city',
   'ventura_county',
   'yolo_county',
   'solano_county',
   'commoncausepa',
-  'santa_clara_county',
-  'napa_city',
-  'napa_boe',
-  'napa_college',
   'tuolumne',
   'kern_county',
-  'san_joaquin',
   'san_mateo_city',
   'oakland',
   'martinez',
   'carpinteria',
   'santa_clara_water',
   'humboldt_county',
+  'pasadena2021',
 ];
 
 const hybrid_events = [
-  // 'mesaaz',
+  'mesaaz',
   'hia',
+  'santa_clara_county',
+  'san_jose',
+  'san_joaquin',
   'saccounty',
+  'napa_boe',
+  'napa_college',
+  'city_of_napa',
+  'napa_county',
   'saccountymap',
   'fresno',
   'fresnocity',
@@ -296,7 +310,6 @@ const hybrid_events = [
   'sanmateoco',
   'sanbenito',
   'sonomaco',
-  'pasadena2021',
   'sunnyvale2021',
   'laverne',
   'pomonaca',
@@ -328,6 +341,7 @@ const hybrid_events = [
   'ocsd',
   'groverbeach',
   'vallejo',
+  'ft-myers',
   'mp-maps',
   'mapsofla',
   'butte_county',
@@ -598,29 +612,26 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
-  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data. \
-Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
-    <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
-    <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
-    Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.</p>',
-napa_boe: '<p>Every 10 years, Californians get the chance to help reshape five Napa BOE districts based on current United States Census data. \
-  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
+  napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data.  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p>\
+  <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest. You can also draw your own district map.</strong></p>\
+  <p>Every map submitted will be carefully reviewed by the team charged with redrawing Supervisor District Maps. For more information, visit <a href="http://www.countyofnapa.org/398/2021-Redistricting">this link</a>.</p>\
+  <p>Get started by clicking the orange button to draw your community of interest. Click on the blue button to draw your district map of the county. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_County” (any capitalization) is entered.”</p>',
+  napa_boe: '<p>Every 10 years, Californians get the chance to help reshape the seven Napa County Board of Education districts based on current United States Census data. Redistricting is based on population and communities of interest. A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p> \
     <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
     </p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_BOE” (any capitalization) is entered.</p>',
-napa_college: '<p>Every 10 years, Californians get the chance to help reshape six Napa Valley College Trustee districts based on current United States Census data. \
-  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single trustee district to achieve effective and fair representation for its residents.</p> \
+  napa_college: '<p>Every 10 years, Californians get the chance to help reshape the seven Napa Valley College Trustee districts based on current United States Census data. Redistricting is based on population and communities of interest. A community of interest shares common social and economic interests that should be included within a single trustee district to achieve effective and fair representation for its residents.</p> \
     <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
     </p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_College” (any capitalization) is entered.</p>',
-  napa_city: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council District Map.</p>\
-     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_City” (any capitalization) is entered.</p>',
+  city_of_napa: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community. If you would like to draw a full map, then please select the DISTRICT option to draw lines for four City Council districts.</strong></p>\
+  <p>Every map submission will become a part of the public record and posted on the City’s website. Map submissions will be carefully reviewed by the City’s demographer and presented to the City Council for their consideration and approval of a final adopted map.</p>\
+  <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag ”City_of_Napa” (any capitalization) is entered.</p>',
  san_jose: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -667,7 +678,7 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
       <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
       <p>Every map submitted will be carefully reviewed by the San Joaquin County Redistricting Advisory Committee charged with redrawing and recommending the Supervisorial District Map. <a href="https://wedrawthelines.sjgov.org/" target="_blank">For more information, visit this link.</a></p>\
-      <p>Get started by clicking the orange button below. To view demographic data on the map and add city boundaries, click on the “Data Layers” tab.  After you have drawn your community, please provide a name for your community and provide a short description. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Joaquin” (any capitalization) is entered.</p>',
+      <p>To draw your community click on the orange button. To draw a five district plan click on the purple button. To view demographic data on the map and add city boundaries, click on the “Data Layers” tab. After you have drawn your community, please provide a name for your community and provide a short description. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Joaquin” (any capitalization) is entered.</p>',
   santa_clara_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -676,7 +687,7 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
  butte_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
+    <p>Every map submitted will be carefully reviewed by those charged with redrawing the Supervisorial District Map.</p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
   humboldt_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
@@ -687,11 +698,11 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
  <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
         <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
         <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Clara_Water” (any capitalization) is entered.</p>',
-  san_mateo_city: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-     <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
-     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Mateo_City” (any capitalization) is entered.</p>',
+  san_mateo_city: '<p>The City of San Mateo is in the process of moving from an at-large election system to a by-district election system. To draw these new districts we need to hear from you as it’s important to know about your community so that the district lines can amplify the voices of residents. Learn more on the <a href="https://www.cityofsanmateo.org/4537/District-Elections">Represent San Mateo web page</a>.</p>\
+  <p>Examples of communities can include neighborhood associations, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Every map submitted will be carefully reviewed by professional demographers and decision makers who are charged with drawing the City Council District Map.<br/>\
+  Get started by clicking the orange button to draw your community of interest. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Mateo_City” (any capitalization) is entered.</p>',
   oakland: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
    <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -901,15 +912,22 @@ napa_college: '<p>Every 10 years, Californians get the chance to help reshape si
      is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
      for purposes of its effective and fair representation.”</p>\
      <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
-     <p><strong>Once you have drawn your map, be sure to use the tag &quot;MP-maps&quot;</strong></p>\
-     <p>Click the following link to view <a href='https://www.menlopark.org/1298/2018-districting-process' target='_blank'>Current Districts</a>.</p>",
+     <p>Click the following link to view <a href='https://menlopark.maps.arcgis.com/apps/InformationLookup/index.html?appid=83d9c16b24d2493893fde31135490a7e' target='_blank'>Current Districts</a>.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
   (i.e. unity map, independent submission, regional maps). Common Cause will be working with organizations, groups and communities across the \
   state to collect a critical mass of community maps. These maps, whether as a part of a larger unity map or as independent maps, will be submitted \
   to the Legislative Reapportionment Commission (LRC) to consider as they draft the state legislative districts map.</p>\
-  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>"
+  <p>If you have any questions or concerns please contact us <a href='https://docs.google.com/forms/d/e/1FAIpQLScJWWV1GYowgwXwcw6TEk_RmS_7I_3PMuG2ag-jIx0t8D73pg/viewform' target='_blank'>here</a>.</p>",
+  'ft-myers': "<p>Welcome to The City of Fort Myers Online Redistricting Project.<p>\
+       <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
+       <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
+       <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
+
+
+
 };
 
 const longAbout = {
@@ -920,34 +938,39 @@ const longAbout = {
     "The <a href='https://www.centralsan.org/'>Central Contra Costa Sanitary District</a> (Central San) is transitioning from an at-large election system to an area-based election system. Under the current at-large election system, all five members of the Board of Directors are chosen by constituents from the District’s entire service area. Under area-based elections, the District will be divided into five separate election areas—called “divisions”—and voters residing in each area will select one representative to serve on the Board.",
     "Central San invites all residents of the District to provide input on the options under consideration, and to submit their own maps for consideration."],
   mesaaz: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   slo_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_county: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_college: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  napa_boe: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  tuolumne: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
- napa_city: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+ city_of_napa: [
+   "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "<h2>Stay Tuned!</h2><p>The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, the online DistrictR mapping tool will be updated on the City’s website.</p>",
+   "<h2><small>Quick Links to Other Napa County Agencies Participating in the Redistricting Process</small></h2><br/>\
+   <ul><li><a href='/event/Napa_County'>Napa County</a></li>\
+   <li><a href='/event/Napa_BOE'>Napa County Board of Education</a></li>\
+   <li><a href='/event/Napa_College'>Napa Valley College</a></li></ul>",
  ],
  kern_county: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 san_joaquin: [
-  "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 san_mateo_city: [
-  "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module displays the <strong>2020 Census Decennial population</strong> with processing by Redistricting Partners. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 oakland: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -959,7 +982,7 @@ carpinteria: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 butte_county: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  humboldt_county: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -971,7 +994,9 @@ butte_county: [
     "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   san_jose: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.\
+    <br/><br/>\
+    The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   siskiyou: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -989,7 +1014,9 @@ butte_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   santa_clara_county: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.\
+    <br/><br/>\
+    The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
@@ -1246,6 +1273,10 @@ export default () => {
         } else if (eventCode === "mapsofla") {
             document.getElementById("introExplain").innerText = "";
             document.getElementById("eventHeadline").innerText = "#MapsofLA";
+        } else if (eventCode === "city_of_napa") {
+            document.getElementById("introExplain").innerHTML = "Draw a Map #RedrawNapa<br/>";
+            document.getElementById("eventHeadline").innerText = "City_of_Napa";
+            document.getElementById("communities").innerText = "Start Drawing a Map or Your Community of Interest!";
         }
 
     if (["mp-maps"].includes(eventCode)) {
@@ -1257,222 +1288,222 @@ export default () => {
     if (["commoncausepa"].includes(eventCode)) {
        document.getElementById("partnership-icons").style.display = "block";
        document.getElementById("partner-link-a").href = "https://www.commoncause.org/pennsylvania/";
-       document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png";
+       document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png?v=2";
        document.getElementById("partner-link-b").href = "https://www.commoncause.org/";
-       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png";
+       document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "napa_city", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-mesa.jpeg?v=2";
             } else if (eventCode === "slo_county") {
               document.getElementById("partner-link-a").href = "https://www.slocounty.ca.gov/";
-              document.getElementById("partnership-a").src = "/assets/partners-slo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-slo.png?v=2";
             } else if (eventCode === "napa_county") {
               document.getElementById("partner-link-a").href = "https://www.countyofnapa.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-napa.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa.png?v=2";
               document.getElementById("partnership-a").style.background = '#252532';
             } else if (eventCode === "san_jose") {
               document.getElementById("partner-link-a").href = "https://www.sanjoseca.gov/your-government/departments";
-              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjose.png?v=2";
               document.getElementById("partnership-a").style.background = '#043c4b';
             } else if (eventCode === "siskiyou") {
               document.getElementById("partner-link-a").href = "https://www.co.siskiyou.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png";
+              document.getElementById("partnership-a").src = "/assets/partners-siskiyou.png?v=2";
             } else if (eventCode === "redwood_city") {
               document.getElementById("partner-link-a").href = "https://www.redwoodcity.org/home";
-              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-redwood.jpeg?v=2";
             } else if (eventCode === "ventura_county") {
               document.getElementById("partner-link-a").href = "https://www.ventura.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-ventura.png";
+              document.getElementById("partnership-a").src = "/assets/partners-ventura.png?v=2";
             } else if (eventCode === "yolo_county") {
               document.getElementById("partner-link-a").href = "https://www.yolocounty.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-yolo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-yolo.png?v=2";
               document.getElementById("partnership-a").style.background = '#375e97';
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
             } else if (eventCode === "santa_clara_county") {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
-              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else if (eventCode === "mapsofla") {
               document.getElementById("partner-link-a").href = "https://www.lacity.org";
-              document.getElementById("partnership-a").src = "/assets/partners-lax.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-lax.svg?v=2";
               document.getElementById("partnership-a").style.height = '160px';
               document.getElementById("partnership-a").style.marginTop = '-45px';
             } else if (eventCode === "san_mateo_city") {
               document.getElementById("partner-link-a").href = "https://www.cityofsanmateo.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sm-city.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sm-city.png?v=2";
             } else if (eventCode === "oakland") {
               document.getElementById("partner-link-a").href = "https://www.oaklandca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-oakland.png";
+              document.getElementById("partnership-a").src = "/assets/partners-oakland.png?v=2";
             } else if (eventCode === "martinez") {
               document.getElementById("partner-link-a").href = "https://www.cityofmartinez.org";
-              document.getElementById("partnership-a").src = "/assets/partners-martinez.png";
+              document.getElementById("partnership-a").src = "/assets/partners-martinez.png?v=2";
             } else if (eventCode === "carpinteria") {
               document.getElementById("partner-link-a").href = "https://carpinteriaca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-carpinteria.png";
+              document.getElementById("partnership-a").src = "/assets/partners-carpinteria.png?v=2";
             } else if (eventCode === "santa_clara_water") {
               document.getElementById("partner-link-a").href = "https://www.valleywater.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sc-water.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sc-water.png?v=2";
             } else if (eventCode === "kern_county") {
               document.getElementById("partner-link-a").href = "https://www.kerncounty.com";
-              document.getElementById("partnership-a").src = "/assets/partners-kern.png";
+              document.getElementById("partnership-a").src = "/assets/partners-kern.png?v=2";
             } else if (eventCode === "tuolumne") {
               document.getElementById("partner-link-a").href = "https://www.tuolumnecounty.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-tuolumne.png";
+              document.getElementById("partnership-a").src = "/assets/partners-tuolumne.png?v=2";
             } else if (eventCode === "napa_boe") {
               document.getElementById("partner-link-a").href = "https://napacoe.org/board-of-education/";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-boe.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-boe.png?v=2";
             } else if (eventCode === "butte_county") {
               document.getElementById("partner-link-a").href = "https://www.buttecounty.net";
-              document.getElementById("partnership-a").src = "/assets/partners-butte.png";
-            } else if (eventCode === "napa_city") {
+              document.getElementById("partnership-a").src = "/assets/partners-butte.png?v=2";
+            } else if (eventCode === "city_of_napa") {
               document.getElementById("partner-link-a").href = "https://www.cityofnapa.org";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-city.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-city.png?v=2";
             } else if (eventCode === "humboldt_county") {
               document.getElementById("partner-link-a").href = "https://humboldtgov.org";
-              document.getElementById("partnership-a").src = "/assets/partners-humboldt.png";
+              document.getElementById("partnership-a").src = "/assets/partners-humboldt.png?v=2";
               document.getElementById("partnership-a").style.background = "#46798b";
             } else if (eventCode === "napa_college") {
               document.getElementById("partner-link-a").href = "https://napavalley.edu/AboutNVC/Trustees/Pages/default.aspx";
-              document.getElementById("partnership-a").src = "/assets/partners-napa-college.png";
+              document.getElementById("partnership-a").src = "/assets/partners-napa-college.png?v=2";
             } else if (eventCode === "san_joaquin") {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
-              document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
               document.getElementById("partnership-a").style.background = "#315470";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
-            document.getElementById("partnership-b").src = "/assets/partners-rp.png";
+            document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
           "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
-            document.getElementById("partnership-b").src = "/assets/partners-ndc.png";
+            document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
             if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-sonoma.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sonoma.png?v=2";
             } else if (eventCode === "pasadena2021") {
               document.getElementById("partner-link-a").href = "https://www.cityofpasadena.net/";
-              document.getElementById("partnership-a").src = "/assets/partners-pasadena.png";
+              document.getElementById("partnership-a").src = "/assets/partners-pasadena.png?v=2";
               document.getElementById("partnership-a").style.background = "#00275d";
             } else if (eventCode === "sbcounty") {
               document.getElementById("partner-link-a").href = "https://www.countyofsb.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-santabarbara.png";
+              document.getElementById("partnership-a").src = "/assets/partners-santabarbara.png?v=2";
               document.getElementById("partnership-a").style.background = "#22a8c4";
             } else if (eventCode === "goleta") {
               document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-goleta.png";
+              document.getElementById("partnership-a").src = "/assets/partners-goleta.png?v=2";
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-marin.png";
+              document.getElementById("partnership-a").src = "/assets/partners-marin.png?v=2";
             } else if (eventCode === "marinaca") {
               document.getElementById("partner-link-a").href = "https://cityofmarina.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-marina.png";
+              document.getElementById("partnership-a").src = "/assets/partners-marina.png?v=2";
             } else if (eventCode === "arroyog") {
               document.getElementById("partner-link-a").href = "http://www.arroyogrande.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-arroyo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-arroyo.png?v=2";
             } else if (eventCode === "fresno") {
               document.getElementById("partner-link-a").href = "https://www.co.fresno.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-fresno.png";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno.png?v=2";
               document.getElementById("partnership-a").style.background = "#1C385A";
             } else if (eventCode === "fresnocity") {
               document.getElementById("partner-link-a").href = "https://fresno.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg";
+              document.getElementById("partnership-a").src = "/assets/partners-fresno-city.jpeg?v=2";
             } else if (eventCode === "nevadaco") {
               document.getElementById("partner-link-a").href = "https://www.mynevadacounty.com/";
-              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png";
+              document.getElementById("partnership-a").src = "/assets/partners-ca_nevada.png?v=2";
             } else if (eventCode === "sanmateoco") {
               document.getElementById("partner-link-a").href = "https://www.smcgov.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-sanmateoco.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sanmateoco.png?v=2";
             } else if (eventCode === "kingsco") {
               document.getElementById("partner-link-a").href = "https://www.countyofkings.com/";
-              document.getElementById("partnership-a").src = "/assets/partners-kings.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-kings.svg?v=2";
               document.getElementById("partnership-a").style.background = "#142942";
             } else if (eventCode === "mercedco") {
               document.getElementById("partner-link-a").href = "https://www.co.merced.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-merced.png";
+              document.getElementById("partnership-a").src = "/assets/partners-merced.png?v=2";
             } else if (eventCode === "sanbenito") {
               document.getElementById("partner-link-a").href = "https://www.cosb.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-sanbenito.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sanbenito.svg?v=2";
             } else if (eventCode === "camarillo") {
               document.getElementById("partner-link-a").href = "https://www.ci.camarillo.ca.us/";
-              document.getElementById("partnership-a").src = "/assets/partners-camarillo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-camarillo.png?v=2";
             } else if (eventCode === "chulavista") {
               document.getElementById("partner-link-a").href = "https://www.chulavistaca.gov/";
-              document.getElementById("partnership-a").src = "/assets/partners-chulavista.png";
+              document.getElementById("partnership-a").src = "/assets/partners-chulavista.png?v=2";
             } else if (eventCode === "bellflower") {
               document.getElementById("partner-link-a").href = "https://www.bellflower.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-bellflower.png";
+              document.getElementById("partnership-a").src = "/assets/partners-bellflower.png?v=2";
             } else if (eventCode === "lakee") {
               document.getElementById("partner-link-a").href = "http://www.lake-elsinore.org";
-              document.getElementById("partnership-a").src = "/assets/partners-lake_el.png";
+              document.getElementById("partnership-a").src = "/assets/partners-lake_el.png?v=2";
             } else if (eventCode === "chino2021") {
               document.getElementById("partner-link-a").href = "https://www.cityofchino.org";
-              document.getElementById("partnership-a").src = "/assets/partners-chino.png";
+              document.getElementById("partnership-a").src = "/assets/partners-chino.png?v=2";
             } else if (eventCode === "campbellcity") {
               document.getElementById("partner-link-a").href = "https://www.ci.campbell.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-campbell.png";
+              document.getElementById("partnership-a").src = "/assets/partners-campbell.png?v=2";
               document.getElementById("partnership-a").style.background = "#143e5d";
             } else if (eventCode === "fremont2021") {
               document.getElementById("partner-link-a").href = "https://www.fremont.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-fremont.png";
+              document.getElementById("partnership-a").src = "/assets/partners-fremont.png?v=2";
             } else if (eventCode === "buellton") {
               document.getElementById("partner-link-a").href = "https://cityofbuellton.com";
               document.getElementById("partnership-a").src = "/assets/partners-buellton.webp";
             } else if (eventCode === "groverbeach") {
               document.getElementById("partner-link-a").href = "https://www.grover.org";
-              document.getElementById("partnership-a").src = "/assets/partners-grover.png";
+              document.getElementById("partnership-a").src = "/assets/partners-grover.png?v=2";
             } else if (eventCode === "ocsd") {
               document.getElementById("partner-link-a").href = "https://oceanocsd.org";
-              document.getElementById("partnership-a").src = "/assets/partners-oceano.png";
+              document.getElementById("partnership-a").src = "/assets/partners-oceano.png?v=2";
             } else if (eventCode === "vallejo") {
               document.getElementById("partner-link-a").href = "https://www.cityofvallejo.net";
-              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png";
+              document.getElementById("partnership-a").src = "/assets/partners-vallejo.png?v=2";
             } else if (eventCode === "sunnyvale2021") {
               document.getElementById("partner-link-a").href = "https://sunnyvale.ca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-sunnyvale.svg";
+              document.getElementById("partnership-a").src = "/assets/partners-sunnyvale.svg?v=2";
             } else if (eventCode === "laverne") {
               document.getElementById("partner-link-a").href = "https://www.cityoflaverne.org";
               document.getElementById("partnership-a").src = "/assets/partners-laverne.gif";
             } else if (eventCode === "pomonaca") {
               document.getElementById("partner-link-a").href = "https://www.pomonaca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-pomona.png";
+              document.getElementById("partnership-a").src = "/assets/partners-pomona.png?v=2";
             } else if (eventCode === "richmondca") {
               document.getElementById("partner-link-a").href = "https://www.ci.richmond.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-richmond.png";
+              document.getElementById("partnership-a").src = "/assets/partners-richmond.png?v=2";
             } else if (eventCode === "elcajon") {
               document.getElementById("partner-link-a").href = "https://www.elcajon.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-elcajon.png";
+              document.getElementById("partnership-a").src = "/assets/partners-elcajon.png?v=2";
             } else if (eventCode === "carlsbad2021") {
               document.getElementById("partner-link-a").href = "https://www.carlsbadca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-carlsbad.png";
+              document.getElementById("partnership-a").src = "/assets/partners-carlsbad.png?v=2";
             } else if (eventCode === "encinitas2021") {
               document.getElementById("partner-link-a").href = "https://encinitasca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-encinitas.png";
+              document.getElementById("partnership-a").src = "/assets/partners-encinitas.png?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else if (eventCode === "bp2021") {
               document.getElementById("partner-link-a").href = "http://www.buenapark.com";
-              document.getElementById("partnership-a").src = "/assets/partners-buenapark.png";
+              document.getElementById("partnership-a").src = "/assets/partners-buenapark.png?v=2";
               document.getElementById("partnership-a").style.background = "#263f55";
             } else if (eventCode === "hmb2021") {
               document.getElementById("partner-link-a").href = "https://www.half-moon-bay.ca.us";
-              document.getElementById("partnership-a").src = "/assets/partners-halfmoon.png";
+              document.getElementById("partnership-a").src = "/assets/partners-halfmoon.png?v=2";
               document.getElementById("partnership-a").style.background = "#00457e";
             } else if (eventCode === "stockton2021") {
               document.getElementById("partner-link-a").href = "http://www.stocktonca.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-stockton.png";
+              document.getElementById("partnership-a").src = "/assets/partners-stockton.png?v=2";
             } else if (eventCode === "lodi2021") {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
-              document.getElementById("partnership-a").src = "/assets/partners-lodi.png";
+              document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";
               document.getElementById("partnership-a").style.background = "#000";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
-              document.getElementById("partnership-a").src = "/assets/partners-sacramento.png";
+              document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
             }
         }
 
@@ -1487,7 +1518,7 @@ export default () => {
             document.getElementsByClassName("about-section")[0].style.display = "list-item";
             document.getElementById("about-section-text").innerHTML = longAbout[eventCode].map(p => '<p>' + p + '</p>').join("");
         }
-        if(eventCode === "ttt") {
+        if (eventCode === "ttt") {
             let title = document.getElementById("districting-options-title");
             render(html`<text class="italic-note">This is a training page for using Districtr to draw districts and map communities.
             You can start in any state and use the tag "TTT" to post here.</text>`, title);
@@ -1564,10 +1595,12 @@ export default () => {
           });
         }
 
-        if (hybrid_events.includes(eventCode)) {
-          document.getElementById("draw-goal").innerText = 'drawing';
-        } else {
-          document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+        if (document.getElementById("draw-goal")) {
+          if (hybrid_events.includes(eventCode)) {
+            document.getElementById("draw-goal").innerText = 'drawing';
+          } else {
+            document.getElementById("draw-goal").innerText = coi_events.includes(eventCode) ? "drawing your community" : "drawing districts";
+          }
         }
 
         const target = document.getElementById("districting-options");
@@ -1634,6 +1667,7 @@ export default () => {
                     : (`/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`);
 
         let showPlans = (data, drafts = false) => {
+            console.log(["showPlans", data, drafts]);
             let loadExtraPlans = (data.plans.length > limitNum) || window.location.hostname.includes("localhost");
             if (loadExtraPlans) {
                 data.plans.pop();
@@ -1686,7 +1720,8 @@ export default () => {
         }
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
-        fetch((eventurl + "&type=draft").replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
+        let drafturl = eventurl + (window.location.hostname === "localhost" ? "" : "&type=draft");
+        fetch(drafturl.replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
@@ -1700,14 +1735,14 @@ const plansSection = (plans, eventCode, isProfessionalSamples) =>
                 <h2>${title}</h2>
                 ${(isProfessionalSamples || !proposals_by_event[eventCode])
                   ? html`<p>
-                    ${(["saccounty", "saccountymap"].includes(eventCode) || !plans.length)
+                    ${(["saccounty", "saccountymap", "city_of_napa"].includes(eventCode) || !plans.length)
                       ? "As maps are submitted they will appear below, and you will be able to click on any of the maps to open it in Districtr."
                       : ((eventCode == 'pmc-districts')
                         ? html`Click on any of the maps below to open it in Districtr. If you edit one of these plans, and save
                             it with the tag "pmc", it will be added to the gallery <a href='/event/pmc' target='_blank'>here</a>.
                             <b>These sample plans were generated randomly, using various combinations of the PMC’s criteria.
                              They are intended for use as starting points for exploration. You can read more about their properties
-                             in <a href='https://www.dropbox.com/s/o3654c9gkunfy6l/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
+                             in <a href='https://www.dropbox.com/s/udenpl7zns12b22/Wisconsin.pdf?dl=0' target='_blank'>this summary</a>,
                              which includes data on the plans.</b>`
                         : "Click on any of the maps below to open it in Districtr.")
                       }

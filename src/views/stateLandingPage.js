@@ -9,7 +9,7 @@ export default () => {
     const vraPage = curState === "VRA - Dashboard";
     // document.title = curState.concat(" | Districtr");
     //comment to trigger a build, remove if you see this
-    fetch("/assets/data/landing_pages.json")
+    fetch("/assets/data/landing_pages.json?v=2")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
@@ -138,7 +138,7 @@ const navLinks = (sections, placeIds) =>
             <a href="/new">
                 <img
                     class="nav-links__link nav-links__link--major nav-links__link--img"
-                    src="/assets/usa_light_blue.png"
+                    src="/assets/usa_light_blue.png?v=2"
                     alt="Back to Map"
                   />
             </a>
@@ -297,7 +297,7 @@ const loadablePlan = (plan, place) => html`
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/${place}-plans/${plan.id}.png"
+                src="/assets/${place}-plans/${plan.id}.png?v=2"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">
@@ -324,7 +324,7 @@ const communityOptions = places =>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
-    places.map(place => {
+    places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
         return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`

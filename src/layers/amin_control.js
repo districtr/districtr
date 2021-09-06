@@ -58,7 +58,7 @@ export function addAmerIndianLayer(tab, state) {
 
     let stateSource = state.place.state.toLowerCase().replace(" ", "");
 
-    fetch(`/assets/native_official/${stateSource}.geojson`)
+    fetch(`/assets/native_official/${stateSource}.geojson?v=2`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -94,7 +94,7 @@ export function addAmerIndianLayer(tab, state) {
             data: geojson
         });
 
-        fetch(`/assets/native_official/${stateSource}_centroids.geojson`)
+        fetch(`/assets/native_official/${stateSource}_centroids.geojson?v=2`)
             .then(res => res.json())
             .then((centroids) => {
 

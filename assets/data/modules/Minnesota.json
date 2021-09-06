@@ -2037,5 +2037,201 @@
         "pluralNoun": "State House Districts"
       }
     ]
+  },
+  {
+    "state": "Minnesota",
+    "name": "Minneapolis",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 429986,
+              "min": 0,
+              "max": 3228
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 249611,
+                "min": 0,
+                "max": 2187
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 81088,
+                "min": 0,
+                "max": 2980
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 44514,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 24743,
+                "min": 0,
+                "max": 416
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 5184,
+                "min": 0,
+                "max": 396
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 171,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 22538,
+                "min": 0,
+                "max": 90
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 2137,
+                "min": 0,
+                "max": 25
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 349259,
+              "min": 0,
+              "max": 2603
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 221468,
+                "min": 0,
+                "max": 2185
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 55640,
+                "min": 0,
+                "max": 1891
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 30929,
+                "min": 0,
+                "max": 168
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 3887,
+                "min": 0,
+                "max": 218
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 144,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 20810,
+                "min": 0,
+                "max": 407
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 1566,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 14815,
+                "min": 0,
+                "max": 90
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -93.3303,
+            44.8902
+          ],
+          [
+            -93.1922,
+            45.0649
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.minneapolis_blocks20_points"
+            },
+            "sourceLayer": "minneapolis_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.minneapolis_blocks20"
+            },
+            "sourceLayer": "minneapolis_blocks20"
+          }
+        ]
+      }
+    ],
+    "id": "minneapolis",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 13,
+        "pluralNoun": "City Council Wards"
+      },
+      {
+        "name": "City Park Districts",
+        "numberOfParts": 6,
+        "pluralNoun": "City Park Districts"
+      }
+    ]
   }
 ]

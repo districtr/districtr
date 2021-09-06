@@ -32,7 +32,7 @@ export default function ContiguitySection(allParts, contiguityProblems, contigVe
               >
                 ${Number(dnum) + 1}
               </span>
-              ${contigVersion === 2 ? html`<label>
+              ${contigVersion >= 2 ? html`<label>
                 <input type="checkbox"/>
                 Highlight islands
               </label>` : ""}

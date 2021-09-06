@@ -47,14 +47,21 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    let old_number_markers =  (state.unitsRecord.id !== "blockgroups"
-                                && state.unitsRecord.id !== "blockgroups20"
-                                && state.unitsRecord.id !== "vtds20"
+    const nonCensusUnit = state.unitsRecord.id !== "blockgroups"
+                        && state.unitsRecord.id !== "blockgroups20"
+                        && state.unitsRecord.id !== "vtds20";
+
+    let old_number_markers =  (nonCensusUnit
                                 && (! spatial_abilities(state.place.id).number_markers_lambda));
     window.planNumbers = NumberMarkers(state, brush, old_number_markers);
-    const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
-        ? ContiguityChecker(state, brush)
-        : null;
+
+    let old_contiguity = (nonCensusUnit
+                            && spatial_abilities(state.place.id).contiguity !== 3);
+
+    const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
+                            ? ContiguityChecker(state, brush, old_contiguity)
+                            : null;
+
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
         if (c_checker) {
@@ -65,7 +72,8 @@ export default function ToolsPlugin(editor) {
             vraEffectiveness(state, colorsAffected);
         }
 
-        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers")
+                               && document.querySelector("#toggle-district-numbers").checked) {
             window.planNumbers.update(state, colorsAffected);
         }
     });
@@ -139,51 +147,25 @@ function exportPlanAsJSON(state) {
     const text = JSON.stringify(serialized);
     download(`districtr-plan-${serialized.id}.json`, text);
 }
-function exportPlanAsSHP(state, geojson, retry = 0) { // retry with backoff
+function exportPlanAsSHP(state, geojson) {
     const serialized = state.serialize();
-    Object.keys(serialized.assignment).forEach(assign => {
+    Object.keys(serialized.assignment).forEach((assign) => {
         if (typeof serialized.assignment[assign] === 'number') {
             serialized.assignment[assign] = [serialized.assignment[assign]];
         }
     });
-    if (retry == 0) {
-        render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
-    }
-    if (state.unitsRecord.name.includes("Block Groups") && !serialized.placeId.includes("_bg")) {
-        serialized.place.id += '_bg';
-        serialized.placeId += '_bg';
-    }
-    if (["2020 VTDs", "2020 Block Groups", "2020 Precincts"].includes(state.unitsRecord.name) && !serialized.placeId.includes("_20")) {
-        serialized.place.id += '_20';
-        serialized.placeId += '_20';
-    } else {
-        console.log(state.unitsRecord.name);
-    }
-    fetch("https://xi787ovfyb.execute-api.us-east-1.amazonaws.com/production/export/" + (geojson ? "geojson" : "shp"), {
+    render(renderModal(`Starting your ${geojson ? "GeoJSON" : "SHP"} download `), document.getElementById("modal"));
+    fetch("//mggg.pythonanywhere.com/" + (geojson ? "geojson" : "shp"), {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(serialized)
+        body: JSON.stringify(serialized),
     })
-    .then(response => {
-        let status = response.status;
-        if (status == 200) {
-            response.arrayBuffer().then(
-                data => download(`districtr-plan-${serialized.id}.${geojson ? "geojson.zip" : "shp.zip"}`, data, true)
-            );
-        } else {
-            console.error("Download failed; retrying . . .");
-            throw 'Download failed'
-        }
-    })
-    .catch(e => {
-        if (retry < 3) {
-            setTimeout(exportPlanAsSHP(state, geojson, retry + 1), 2000 + 2000 * retry);
-        } else {
-            console.error(e);
-            render(renderModal(`Download failed! Please try again.`), document.getElementById("modal"));
-        }
+    .then((res) => res.arrayBuffer())
+    .catch((e) => console.error(e))
+    .then((data) => {
+        download(`districtr-plan-${serialized.id}.${geojson ? "geojsons.zip" : "shp.zip"}`, data, true);
     });
 }
 
@@ -203,7 +185,7 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 
 function exportPlanAsBlockAssignment(state, delimiter=",", extension="csv") {
     const assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    const units = state.unitsRecord.unitType;
+    const units = state.unitsRecord.id;
     const stateName = state.place.state;
     render(renderModal(`Starting your block assignment file download `), document.getElementById("modal"));
     fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/block_assignment", {
@@ -246,6 +228,9 @@ function scrollToSection(state, section) {
 
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const censusUnit = state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20";
     let items = [
         {
             name: "About redistricting",
@@ -289,11 +274,11 @@ function getMenuItems(state) {
             onClick: () => exportPlanAsSHP(state, true)
         } : null),
         {
-            name: "Export assignment as CSV",
+            name: "Export assignment as CSV (these units)",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        (state.unitsRecord.unitType === "Block Groups" ? {
-            name: "Export block assignment file",
+        (censusUnit || spatial_abilities(state.place.id).block_assign ? {
+            name: "Export assignment file as CSV (blocks)",
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
         {

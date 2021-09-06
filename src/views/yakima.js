@@ -68,7 +68,7 @@ const loadablePlan = plan => html`
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/yakima-plans/${plan.id}.png"
+                src="/assets/yakima-plans/${plan.id}.png?v=2"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">

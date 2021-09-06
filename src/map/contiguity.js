@@ -10,7 +10,7 @@
 
 import { unitBordersPaintProperty } from "../colors";
 
-export default function ContiguityChecker(state, brush) {
+export default function ContiguityChecker(state, brush, old=false) {
   let place = state.place.id,
       extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
   if (state.units.sourceId === "ma_towns") {
@@ -81,8 +81,45 @@ export default function ContiguityChecker(state, brush) {
     }
     updateIslandBorders();
   }
-
   const updater = (state, colorsAffected) => {
+    const units = state.unitsRecord.id;
+    const stateName = state.place.state;
+    let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
+    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_contiguity", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "state": stateName,
+        "units": units,
+        "assignment": assign})
+    })
+      .then((res) => res.json())
+      .catch((e) => console.error(e))
+      .then((data) => {
+        state.contiguity = {};
+        let issues = [];
+        Object.keys(data).forEach((district) => {
+          if (data[district].length > 1) {
+            // basic contiguity
+            issues.push(Number(district));
+
+            // identify largest section and highlight others
+            let islandareas = [];
+            data[district].sort((a, b) => { return b.length - a.length }).slice(1).forEach(island => {
+              islandareas = islandareas.concat(island);
+            })
+            state.contiguity[Number(district)] = islandareas;
+          } else {
+            state.contiguity[Number(district)] = null;
+          }
+        });
+        setContiguityStatus(issues);
+      });
+  };
+
+  const updater_old = (state, colorsAffected) => {
     let saveplan = state.serialize();
     const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
     fetch(GERRYCHAIN_URL + "/contigv2", {
@@ -122,6 +159,7 @@ export default function ContiguityChecker(state, brush) {
     allDistricts.push(i);
     i++;
   }
-  updater(state, allDistricts);
-  return updater;
+  old ? updater_old(state, allDistricts) : updater(state, allDistricts);
+  
+  return old ? updater_old : updater;
 }
