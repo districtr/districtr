@@ -9,3 +9,7 @@
   Access-Control-Allow-Origin: *
 /css/*
   Access-Control-Allow-Origin: *
+
+## Alternate deploys
+/.netlify/*
+  Access-Control-Allow-Origin: https://massachusetts-mapping.org/
