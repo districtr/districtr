@@ -116,6 +116,7 @@ commoncausepa: 'Pennsylvania',
   'mp-maps': 'California',
   keystonecounts: 'Pennsylvania',
   pavoice: 'Pennsylvania',
+  sandiego: 'California',
 };
 
 const validEventCodes = {
@@ -221,6 +222,7 @@ commoncausepa: 'pennsylvania',
   'mp-maps': 'menlo_park',
   keystonecounts: 'pennsylvania',
   pavoice: 'pennsylvania',
+  sandiego: 'ca_SanDiego',
 };
 
 const blockPlans = {
@@ -304,6 +306,7 @@ const coi_events = [
 
 const hybrid_events = [
   'mesaaz',
+  'sandiego',
   'hia',
   'oakland',
   'long_beach',
@@ -1539,7 +1542,7 @@ export default () => {
             } else if (eventCode === "glendale2021") {
               document.getElementById("partner-link-a").href = "https://www.glendaleaz.com";
               document.getElementById("partnership-a").src = "/assets/partners-glendale.svg";
-              document.getElementById("partnership-a").style.background = "#888";              
+              document.getElementById("partnership-a").style.background = "#888";
             } else if (eventCode === "lodi2021") {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
               document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";

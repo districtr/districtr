@@ -178,6 +178,362 @@
             "sourceLayer": "ca_SanDiego_blocks20"
           }
         ]
+      },
+      {
+        "id": "comm20b",
+        "name": "2020 Communities",
+        "unitType": "Communities",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1386957,
+              "min": 97,
+              "max": 79593
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 564202,
+                "min": 34,
+                "max": 45333
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 77055,
+                "min": 0,
+                "max": 8809
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 410687,
+                "min": 10,
+                "max": 45721
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 243349,
+                "min": 4,
+                "max": 39180
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 3179,
+                "min": 0,
+                "max": 282
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4870,
+                "min": 0,
+                "max": 704
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 73105,
+                "min": 6,
+                "max": 5172
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 8200,
+                "min": 0,
+                "max": 544
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1122797,
+              "min": 77,
+              "max": 65899
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 491885,
+                "min": 24,
+                "max": 39100
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 61862,
+                "min": 0,
+                "max": 7131
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 304574,
+                "min": 6,
+                "max": 34169
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2703,
+                "min": 0,
+                "max": 268
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 4059,
+                "min": 0,
+                "max": 575
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 202677,
+                "min": 2,
+                "max": 32796
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 6261,
+                "min": 0,
+                "max": 435
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 48776,
+                "min": 6,
+                "max": 3512
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Neighborhood name",
+          "key": "Neighborho"
+        },
+        "bounds": [
+          [
+            -117.2823,
+            32.5348
+          ],
+          [
+            -116.9057,
+            33.1142
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_SanDiego_comm20b_points"
+            },
+            "sourceLayer": "ca_SanDiego_comm20b_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_SanDiego_comm20b"
+            },
+            "sourceLayer": "ca_SanDiego_comm20b"
+          }
+        ]
+      },
+      {
+        "id": "beats20",
+        "name": "2020 Beats",
+        "unitType": "Beats",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1386957,
+              "min": 12,
+              "max": 73708
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 564209,
+                "min": 3,
+                "max": 29459
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 77056,
+                "min": 0,
+                "max": 3693
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 410708,
+                "min": 6,
+                "max": 26589
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 243349,
+                "min": 0,
+                "max": 37700
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 3179,
+                "min": 0,
+                "max": 138
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4870,
+                "min": 0,
+                "max": 351
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 73110,
+                "min": 2,
+                "max": 4581
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 8200,
+                "min": 0,
+                "max": 425
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1122820,
+              "min": 9,
+              "max": 60393
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 491889,
+                "min": 1,
+                "max": 26828
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 61863,
+                "min": 0,
+                "max": 2817
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 304589,
+                "min": 6,
+                "max": 19462
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2703,
+                "min": 0,
+                "max": 133
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 4059,
+                "min": 0,
+                "max": 310
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 202677,
+                "min": 0,
+                "max": 31536
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 6261,
+                "min": 0,
+                "max": 385
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 48779,
+                "min": 1,
+                "max": 2880
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.2823,
+            32.5348
+          ],
+          [
+            -116.9057,
+            33.1142
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_SanDiego_blocks20b_points"
+            },
+            "sourceLayer": "ca_SanDiego_blocks20b_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_SanDiego_blocks20b"
+            },
+            "sourceLayer": "ca_SanDiego_blocks20b"
+          }
+        ]
       }
     ],
     "id": "ca_SanDiego",
