@@ -1120,7 +1120,7 @@ export function spatial_abilities(id) {
     maryland: {
       number_markers: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
@@ -1287,7 +1287,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       load_coi: false,
       // find_unpainted: true,
