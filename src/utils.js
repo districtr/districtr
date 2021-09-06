@@ -1039,6 +1039,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       load_coi: false,
       school_districts: true,
+      current_districts: true,
       municipalities: 'Cities and Towns',
       portal: {
         endpoint: 'https://portal.indiana-mapping.org',
