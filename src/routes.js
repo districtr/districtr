@@ -114,7 +114,19 @@ export function savePlanToDB(state, eventCode, planName, callback, forceNotScrat
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
             if (spatial_abilities(state.place.id).shapefile) {
-                fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+                // screenshot
+                if (state.place.id === state.place.state.toLowerCase() && state.unitsRecord.id.includes("blockgroups")) {
+                    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/plan_thumbnail", {
+                      method: 'POST',
+                      mode: 'cors',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ id: info.simple_id }),
+                    }).then((res) => res.text()).then(f => console.log('saved image'))
+                } else {
+                    fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+                }
             }
             callback(info.simple_id, action);
         } else {
