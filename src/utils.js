@@ -1187,7 +1187,10 @@ export function spatial_abilities(id) {
           path: 'city_border/minneapolis',
           label: 'Show Minneapolis Border'
         }
-      ]
+      ],
+      portal: {
+        endpoint: "https://portal.minneapolis-mapping.org"
+      }
     },
     mississippi: {
       number_markers: true,
