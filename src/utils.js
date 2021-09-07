@@ -1254,7 +1254,10 @@ export function spatial_abilities(id) {
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
         }
-      ]
+      ],
+      portal: {
+        endpoint: "https://portal.minneapolis-mapping.org"
+      }
     },
     mississippi: {
       number_markers: true,
