@@ -865,6 +865,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  longbeach: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   ca_solano: {
     border: true,
     shapefile: true,
