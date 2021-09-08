@@ -3041,7 +3041,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Counties", "ids": ["grand_county_2"], "id": "county" }
+      { "name": "Counties", "ids": ["grand_county_3"], "id": "county" }
     ],
     "sections": [
       {
