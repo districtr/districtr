@@ -42,24 +42,27 @@ export default function PopulationBalancePlugin(editor) {
       }).then((res) => res.json())
         .catch((e) => console.error(e))
         .then((data) => {
-          const ids = data["unnassigned_units"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
           const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
-          if (ids && ids > 0) {
+          if (data["unnassigned_units"] && data["unnassigned_units"].length > 0) {
+            const ids = data["unnassigned_units"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
             fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
-              if (bbox.length && typeof bbox[0] === 'number') {
-                bbox = {x: bbox};
-              } else if (bbox.length) {
-                bbox = bbox[0];
-                if (bbox.length) {
+              console.log(bbox);
+              if (! bbox[0].includes(null)) {
+                if (bbox.length && typeof bbox[0] === 'number') {
                   bbox = {x: bbox};
+                } else if (bbox.length) {
+                  bbox = bbox[0];
+                  if (bbox.length) {
+                    bbox = {x: bbox};
+                  }
                 }
-              }
-              Object.values(bbox).forEach(mybbox => {
-                editor.state.map.fitBounds([
-                  [mybbox[0], mybbox[2]],
-                  [mybbox[1], mybbox[3]]
-                ]);
-              });
+                Object.values(bbox).forEach(mybbox => {
+                  editor.state.map.fitBounds([
+                    [mybbox[0], mybbox[2]],
+                    [mybbox[1], mybbox[3]]
+                  ]);
+                });
+              };
             });
           }
         });
@@ -83,20 +86,23 @@ export default function PopulationBalancePlugin(editor) {
             const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
               // : `https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?`
             fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
-              if (bbox.length && typeof bbox[0] === 'number') {
-                bbox = {x: bbox};
-              } else if (bbox.length) {
-                bbox = bbox[0];
-                if (bbox.length) {
+              console.log(bbox);
+              if (! bbox[0].includes(null)) {
+                if (bbox.length && typeof bbox[0] === 'number') {
                   bbox = {x: bbox};
+                } else if (bbox.length) {
+                  bbox = bbox[0];
+                  if (bbox.length) {
+                    bbox = {x: bbox};
+                  }
                 }
-              }
-              Object.values(bbox).forEach(mybbox => {
-                editor.state.map.fitBounds([
-                  [mybbox[0], mybbox[2]],
-                  [mybbox[1], mybbox[3]]
-                ]);
-              });
+                Object.values(bbox).forEach(mybbox => {
+                  editor.state.map.fitBounds([
+                    [mybbox[0], mybbox[2]],
+                    [mybbox[1], mybbox[3]]
+                  ]);
+                });
+              };
             });
           }
         });
