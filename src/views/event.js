@@ -113,6 +113,8 @@ commoncausepa: 'Pennsylvania',
   santa_clara_county: 'California',
   'ft-myers': 'Florida',
   'mp-maps': 'California',
+  keystonecounts: 'Pennsylvania',
+  pavoice: 'Pennsylvania',
 };
 
 const validEventCodes = {
@@ -215,6 +217,8 @@ commoncausepa: 'pennsylvania',
   santa_clara_county: 'ca_sc_county',
   'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
+  keystonecounts: 'pennsylvania',
+  pavoice: 'pennsylvania',
 };
 
 const blockPlans = {
@@ -241,6 +245,8 @@ const unitTypes = {
   san_jose: {no: 'Blocks'},
   san_joaquin: {no: 'Blocks'},
   'mp-maps': {no: 'Blocks'},
+  keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
+  pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
 };
 
 const unitCounts = {
