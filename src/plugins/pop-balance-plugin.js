@@ -42,9 +42,7 @@ export default function PopulationBalancePlugin(editor) {
       }).then((res) => res.json())
         .catch((e) => console.error(e))
         .then((data) => {
-          console.log(data);
           const ids = data["unnassigned_units"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
-          console.log(ids);
           const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
           if (ids && ids > 0) {
             fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
@@ -80,7 +78,6 @@ export default function PopulationBalancePlugin(editor) {
         .then((res) => res.json())
         .catch((e) => console.error(e))
         .then((data) => {
-          console.log(data);
           if (data["-1"] && data["-1"].length) {
             const ids = data["-1"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
             const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
