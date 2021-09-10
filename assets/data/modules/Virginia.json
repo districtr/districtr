@@ -466,7 +466,7 @@
       },
       {
         "id": "vtds20",
-        "name": "2020 VTDs",
+        "name": "2020 Population Adjusted VTDs",
         "unitType": "VTDs",
         "hideOnDefault": true,
         "columnSets": [
