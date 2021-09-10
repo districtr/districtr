@@ -844,6 +844,7 @@
         "id": "blocks20",
         "name": "2020 Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",

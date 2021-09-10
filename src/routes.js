@@ -115,7 +115,11 @@ export function savePlanToDB(state, eventCode, planName, callback, forceNotScrat
             }
             if (spatial_abilities(state.place.id).shapefile) {
                 // screenshot
-                if (state.place.id === state.place.state.toLowerCase() && state.unitsRecord.id.includes("blockgroups")) {
+                if (
+                  (state.place.id === state.place.state.toLowerCase() &&
+                  ["blockgroups20", "vtds20"].includes(state.unitsRecord.id))
+                    || ["new_mexico", "new_mexico_portal"].includes(state.place.id)
+                ) {
                     fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/plan_thumbnail", {
                       method: 'POST',
                       mode: 'cors',
