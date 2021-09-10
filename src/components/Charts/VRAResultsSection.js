@@ -7,7 +7,7 @@ import DataTable from "./DataTable";
 
 const electDescriptions = {
     // 2012
-    "PRES12":"2012 President",
+    "PRES12": "2012 President",
     "SEN12": "2012 US Senate",
     // 2013
     "SEN13": "2013 US Senate",
@@ -45,7 +45,7 @@ const electDescriptions = {
     "AGC19": "2019 Commissioner of Agriculture and Forestry",
     // 2020
     "SEN20": "2020 US Senate",
-    "PRES20": "2020 US President",
+    "PRES20": "2020 US President"
 };
 
 //"":"",
@@ -61,6 +61,7 @@ const candNames = {
                     "JonesD_19P_Lt_Governor": "W. Jones (B)", "EdwardsD_19P_Treasurer": "D. Edwards (B)",
                     "GreenD_19P_Ag_Comm": "M. Green (W)",
                     // 2018
+                    "GOV18PD_BJ": "Ben Jealous (B)", "GOV18D": "Ben Jealous (B)",
                     "GreenupD_18G_SOS": "G. Collins-Greenup (B)","GreenupD_18P_SOS": "G. Collins-Greenup (B)",
                     "ORourkeD_18P_US_Sen": "B. ORourke (W)", "ORourkeD_18G_US_Sen": "B. ORourke (W)",
                     "ValdezD_18P_Governor": "L. Valdez (H)", "ValdezD_18R_Governor": "L. Valdez (H)", "ValdezD_18G_Governor": "L. Valdez (H)",
@@ -80,6 +81,7 @@ const candNames = {
                     // 2017
                     "EdwardsD_17G_Treasurer": "D. Edwards (B)", "EdwardsD_17P_Treasurer": "D. Edwards (B)",
                     // 2016
+                    "SEN16PD_DE": "Donna Edwards (B)", "SEN16D": "Chris Van Hollen (W)",
                     "CampbellD_16G_US_Sen": "F. Campbell (W)", "CampbellD_16P_US_Sen": "F. Campbell (W)",
                     "ClintonD_16G_President": "H. Clinton (W)", "ClintonD_16P_President": "H. Clinton (W)","PRES16PHCLINTON":"H. Clinton (W)","PRES16GHCLINTON":"H. Clinton (W)",
                     "YarbroughD_16P_RR_Comm_1": "G. Yarbrough (B)",  "YarbroughD_16R_RR_Comm_1": "G. Yarbrough (B)","YarbroughD_16G_RR_Comm_1": "G. Yarbrough (B)",
@@ -100,9 +102,12 @@ const candNames = {
                     "LTGOV14PLCHEUNG":"L. Cheung (A)",
                     "GOV14PMCOAKLEY":"M. Coakley (W)","GOV14GMCOAKLEY":"M. Coakley (W)",
                     "GOV14PSGROSSMAN":"S. Grossman (W)",
+                    "GOV14PD_AB": "Anthony Brown (B)", "GOV14D": "Anthony Brown (B)",
+                    "AG14PD_ABR": "Aisha Braveboy (B)", "AG14D": "Brian Frosh (W)",
                     // 2013
                     "SEN13PEMARKEY":"E. Markey (W)","SEN13GEMARKEY":"E. Markey (W)",
                     // 2012
+                    "SEN12PD_CM": "Anthony Muse (B)", "SEN12D": "Ben Cardin (W)",
                     "ObamaD_12P_President": "B. Obama (B)", "ObamaD_12G_President": "B. Obama (B)",
                     "SadlerD_12P_US_Sen": "P. Sadler (W)", "SadlerD_12R_US_Sen": "P. Sadler (W)", "SadlerD_12G_US_Sen": "P. Sadler (W)",
                 };

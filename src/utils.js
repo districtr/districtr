@@ -1121,7 +1121,14 @@ export function spatial_abilities(id) {
       absentee: true,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
+      load_coi: false
+    },
+    md_vra: {
+      number_markers: true,
+      number_markers_lambda: true,
+      vra_effectiveness: true
+      // shapefile: true,
+      // find_unpainted: true,
     },
     baltimore: {
       border: true,
@@ -1143,7 +1150,7 @@ export function spatial_abilities(id) {
         endpoint: 'https://www.massachusetts-mapping.org',
       },
     },
-    ma_vra: {
+      vra: {
       number_markers: true,
       number_markers_lambda: true,
       vra_effectiveness: true,

@@ -1318,5 +1318,216 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "state": "Maryland",
+    "units": [
+      {
+        "id": "VTD",
+        "name": "VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2014 Governor (Primary)",
+            "subgroups": [
+              {
+                "key": "GOV14D",
+                "name": "Anthony Brown",
+                "sum": 818879,
+                "min": 0,
+                "max": 2372
+              },
+              {
+                "key": "GOV14R",
+                "name": "Larry Hogan",
+                "sum": 884425,
+                "min": 0,
+                "max": 3291
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor (Primary)",
+            "subgroups": [
+              {
+                "key": "GOV14PD_AB",
+                "name": "Anthony Brown",
+                "sum": 242891,
+                "min": 0,
+                "max": 910
+              },
+              {
+                "key": "GOV14PD_DG",
+                "name": "Doug Gansler",
+                "sum": 114836,
+                "min": 0,
+                "max": 448
+              },
+              {
+                "key": "GOV14PD_HM",
+                "name": "Heather Mizeur",
+                "sum": 102693,
+                "min": 0,
+                "max": 441
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 United States Senate (Primary)",
+            "subgroups": [
+              {
+                "key": "SEN16PD_CV",
+                "name": "Chris Van Hollen",
+                "sum": 460982,
+                "min": 0,
+                "max": 1320
+              },
+              {
+                "key": "SEN16PD_DE",
+                "name": "Donna Edwards",
+                "sum": 334369,
+                "min": 0,
+                "max": 1520
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor (General)",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Ben Jealous",
+                "sum": 1002646,
+                "min": 0,
+                "max": 3135
+              },
+              {
+                "key": "GOV18R",
+                "name": "Larry Hogan",
+                "sum": 1275635,
+                "min": 0,
+                "max": 4032
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor (Primary)",
+            "subgroups": [
+              {
+                "key": "GOV18PD_BJ",
+                "name": "Ben Jealous",
+                "sum": 226673,
+                "min": 0,
+                "max": 731
+              },
+              {
+                "key": "GOV18PD_JS",
+                "name": "Jim Shea",
+                "sum": 47799,
+                "min": 0,
+                "max": 253
+              },
+              {
+                "key": "GOV18PD_KV",
+                "name": "Krish Vignarajah",
+                "sum": 46976,
+                "min": 0,
+                "max": 119
+              },
+              {
+                "key": "GOV18PD_RM",
+                "name": "Rich Madaleno",
+                "sum": 33556,
+                "min": 0,
+                "max": 355
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting-Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting-Age Population",
+              "sum": 4420588,
+              "min": 0,
+              "max": 11788
+            },
+            "subgroups": [
+              {
+                "key": "BVAP",
+                "name": "Black Voting-AGe Population",
+                "sum": 1239796,
+                "min": 0,
+                "max": 5345
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ADJ_POP",
+              "name": "Prison-Adjusted Population",
+              "sum": 5772231,
+              "min": 0,
+              "max": 15005
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct Identifier",
+          "key": "VTD"
+        },
+        "bounds": [
+          [
+            -79.4877,
+            37.9121
+          ],
+          [
+            -75.0491,
+            39.723
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.md_vra_Precinct"
+            },
+            "sourceLayer": "md_vra_Precinct"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.md_vra_Precinct_points"
+            },
+            "sourceLayer": "md_vra_Precinct_points"
+          }
+        ]
+      }
+    ],
+    "id": "md_vra",
+    "name": "Maryland",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 8,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 47,
+        "pluralNoun": "State Senate Districts"
+      }
+    ]
   }
 ]

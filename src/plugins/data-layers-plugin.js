@@ -25,6 +25,8 @@ export default function DataLayersPlugin(editor) {
 
     const demoLayers = state.layers;
 
+    console.log("loading data layers");
+
     // uploading a float is expensive so sometimes we x1000 to round to nearest 1000
     if (abilities.divisor) {
       state.divisor = abilities.divisor;
@@ -142,6 +144,7 @@ export default function DataLayersPlugin(editor) {
                 ? abilities.current_districts : 'Current Districts',
           });
       } else {
+          console.dir(state);
           if (!one_cd(placeID)) {
             selectBoundaries.push({
                 path: `current_districts/${stateID}/us_house`,
