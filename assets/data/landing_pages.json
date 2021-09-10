@@ -1402,6 +1402,7 @@
         "default": "true",
         "id": "state"
       },
+      { "name": "Counties", "ids": ["essexma"], "id": "county"},
       { "name": "Cities", "ids": ["lowell"], "id": "loc" }
     ],
     "sections": [

@@ -209,6 +209,7 @@ export default function DataLayersPlugin(editor) {
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
+            ${cvapOverlay ? cvapOverlay.render() : null}
             ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
             of racial and ethnic groups from the Census. In the other data layers below,
             you'll be able to select the coalition you have defined.</p>`}
@@ -292,7 +293,8 @@ export default function DataLayersPlugin(editor) {
     );
     coalitionOverlays.push(demographicsOverlay);
 
-    let vapOverlay = null;
+    let vapOverlay = null,
+        cvapOverlay = null;
     if (state.vap) {
         vapOverlay = new OverlayContainer(
             "vap",
@@ -306,7 +308,7 @@ export default function DataLayersPlugin(editor) {
         coalitionOverlays.push(vapOverlay);
     }
     if (state.cvap) {
-        vapOverlay = new OverlayContainer(
+        cvapOverlay = new OverlayContainer(
             "cvap",
             demoLayers.filter(lyr => !lyr.background),
             state.cvap,
@@ -315,7 +317,7 @@ export default function DataLayersPlugin(editor) {
             (abilities.coalition === false) ? null : "Coalition citizen voting age population",
             false // multiple years? not on miami-dade
         );
-        coalitionOverlays.push(vapOverlay);
+        coalitionOverlays.push(cvapOverlay);
     }
 
     if (state.median_income || state.rent) {
