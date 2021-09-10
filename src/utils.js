@@ -453,6 +453,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      current_districts: true,
     },
     ca_carlsbad: {
       coalition: false,
@@ -864,6 +865,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  longbeach: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   ca_solano: {
     border: true,
     shapefile: true,
@@ -1038,6 +1044,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       load_coi: false,
       school_districts: true,
+      current_districts: true,
       municipalities: 'Cities and Towns',
       portal: {
         endpoint: 'https://portal.indiana-mapping.org',
@@ -1118,7 +1125,7 @@ export function spatial_abilities(id) {
     maryland: {
       number_markers: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false
@@ -1259,7 +1266,10 @@ export function spatial_abilities(id) {
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
         }
-      ]
+      ],
+      portal: {
+        endpoint: "https://portal.minneapolis-mapping.org"
+      }
     },
     mississippi: {
       number_markers: true,
@@ -1292,7 +1302,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       load_coi: false,
       // find_unpainted: true,

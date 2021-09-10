@@ -3918,7 +3918,7 @@
       {
         "name": "County",
         "numberOfParts": 5,
-        "pluralNoun": "Council Districts"
+        "pluralNoun": "Supervisorial Districts"
       }
     ]
   },
@@ -12008,9 +12008,138 @@
   {
    "units": [
      {
+       "id": "blocks20",
+       "name": "2020 Blocks",
+       "unitType": "Blocks",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "LF_20_Total",
+             "name": "Total population",
+             "sum": 779233,
+             "min": 0,
+             "max": 3296
+           },
+           "subgroups": [
+             {
+               "key": "LF_20_White",
+               "name": "White population",
+               "sum": 215530,
+               "min": 0,
+               "max": 1004
+             },
+             {
+               "key": "LF_20_AfAm",
+               "name": "Black population",
+               "sum": 56898,
+               "min": 0,
+               "max": 1095
+             },
+             {
+               "key": "LF_20_Asian",
+               "name": "Asian population",
+               "sum": 134684,
+               "min": 0,
+               "max": 450
+             },
+             {
+               "key": "LF_20_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 325725,
+               "min": 0,
+               "max": 1023
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "CVAP_15-19_Total",
+             "name": "Total population",
+             "sum": 440849,
+             "min": 0,
+             "max": 2164
+           },
+           "subgroups": [
+             {
+               "key": "CVAP_15-19_AfAm",
+               "name": "Black population",
+               "sum": 33821,
+               "min": 0,
+               "max": 453
+             },
+             {
+               "key": "CVAP_15-19_AiAn",
+               "name": "American Indian population",
+               "sum": 1264,
+               "min": 0,
+               "max": 64
+             },
+             {
+               "key": "CVAP_15-19_Asian",
+               "name": "Asian population",
+               "sum": 60294,
+               "min": 0,
+               "max": 282
+             },
+             {
+               "key": "CVAP_15-19_Hawaiian_API",
+               "name": "Native Hawaiian Pacific Islander population",
+               "sum": 1905,
+               "min": 0,
+               "max": 43
+             },
+             {
+               "key": "CVAP_15-19_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 134705,
+               "min": 0,
+               "max": 641
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Geo ID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -121.5851,
+           37.4818
+         ],
+         [
+           -120.917,
+           38.3003
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.ca_sanjoaquin_blocks20_points"
+           },
+           "sourceLayer": "ca_sanjoaquin_blocks20_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.ca_sanjoaquin_blocks20"
+           },
+           "sourceLayer": "ca_sanjoaquin_blocks20"
+         }
+       ]
+     },
+     {
        "id": "blocks",
        "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -12136,7 +12265,7 @@
      {
        "name": "County",
        "numberOfParts": 5,
-       "pluralNoun": "Council Districts"
+       "pluralNoun": "Supervisorial Districts"
      }
    ]
  },
@@ -13892,6 +14021,148 @@
      {
        "name": "County",
        "numberOfParts": 15,
+       "pluralNoun": "Council Districts"
+     }
+   ]
+ },
+ {
+   "state": "California",
+   "id": "longbeach",
+   "name": "Long Beach",
+   "units": [
+     {
+       "id": "blocks20",
+       "name": "2020 Blocks",
+       "unitType": "Blocks",
+       "columnSets": [
+         {
+           "type": "population",
+           "name": "Population",
+           "total": {
+             "key": "LF_20_Total",
+             "name": "Total population",
+             "sum": 466742,
+             "min": 0,
+             "max": 1325
+           },
+           "subgroups": [
+             {
+               "key": "LF_20_White",
+               "name": "White population",
+               "sum": 121970,
+               "min": 0,
+               "max": 745
+             },
+             {
+               "key": "LF_20_AfAm",
+               "name": "Black population",
+               "sum": 55894,
+               "min": 0,
+               "max": 772
+             },
+             {
+               "key": "LF_20_Asian",
+               "name": "Asian population",
+               "sum": 59308,
+               "min": 0,
+               "max": 264
+             },
+             {
+               "key": "LF_20_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 201997,
+               "min": 0,
+               "max": 642
+             }
+           ]
+         },
+         {
+           "type": "population",
+           "name": "Citizen Voting Age Population",
+           "total": {
+             "key": "CVAP_15-19_Total",
+             "name": "Total population",
+             "sum": 302089,
+             "min": 0,
+             "max": 1154
+           },
+           "subgroups": [
+             {
+               "key": "CVAP_15-19_AfAm",
+               "name": "Black population",
+               "sum": 42741,
+               "min": 0,
+               "max": 299
+             },
+             {
+               "key": "CVAP_15-19_AiAn",
+               "name": "American Indian population",
+               "sum": 1631,
+               "min": 0,
+               "max": 43
+             },
+             {
+               "key": "CVAP_15-19_Asian",
+               "name": "Asian population",
+               "sum": 39652,
+               "min": 0,
+               "max": 194
+             },
+             {
+               "key": "CVAP_15-19_Hawaiian_API",
+               "name": "Native Hawaiian Pacific Islander population",
+               "sum": 2093,
+               "min": 0,
+               "max": 47
+             },
+             {
+               "key": "CVAP_15-19_Hispanic_or_Latino",
+               "name": "Hispanic population",
+               "sum": 93791,
+               "min": 0,
+               "max": 294
+             }
+           ]
+         }
+       ],
+       "idColumn": {
+         "name": "Geo ID",
+         "key": "GEOID20"
+       },
+       "bounds": [
+         [
+           -118.249,
+           33.7149
+         ],
+         [
+           -118.0632,
+           33.8855
+         ]
+       ],
+       "tilesets": [
+         {
+           "type": "circle",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.longbeach_blocks20_points"
+           },
+           "sourceLayer": "longbeach_blocks20_points"
+         },
+         {
+           "type": "fill",
+           "source": {
+             "type": "vector",
+             "url": "mapbox://districtr.longbeach_blocks20"
+           },
+           "sourceLayer": "longbeach_blocks20"
+         }
+       ]
+     }
+   ],
+   "districtingProblems": [
+     {
+       "name": "City Council",
+       "numberOfParts": 9,
        "pluralNoun": "Council Districts"
      }
    ]
