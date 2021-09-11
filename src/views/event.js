@@ -109,9 +109,12 @@ commoncausepa: 'Pennsylvania',
   ocsd: 'California',
   groverbeach: 'California',
   vallejo: 'California',
+  long_beach: 'California',
   santa_clara_county: 'California',
   'ft-myers': 'Florida',
   'mp-maps': 'California',
+  keystonecounts: 'Pennsylvania',
+  pavoice: 'Pennsylvania',
 };
 
 const validEventCodes = {
@@ -172,6 +175,7 @@ const validEventCodes = {
   siskiyou: 'ca_siskiyou',
   redwood_city: 'redwood',
   city_of_napa: 'napa2021',
+  long_beach: 'longbeach',
 napa_boe: 'napa_boe',
 napa_college: 'napa_college',
 tuolumne: 'ca_tuolumne',
@@ -213,6 +217,8 @@ commoncausepa: 'pennsylvania',
   santa_clara_county: 'ca_sc_county',
   'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
+  keystonecounts: 'pennsylvania',
+  pavoice: 'pennsylvania',
 };
 
 const blockPlans = {
@@ -239,6 +245,8 @@ const unitTypes = {
   san_jose: {no: 'Blocks'},
   san_joaquin: {no: 'Blocks'},
   'mp-maps': {no: 'Blocks'},
+  keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
+  pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
 };
 
 const unitCounts = {
@@ -295,6 +303,7 @@ const coi_events = [
 const hybrid_events = [
   'mesaaz',
   'hia',
+  'long_beach',
   'santa_clara_county',
   'san_jose',
   'san_joaquin',
@@ -612,6 +621,12 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>To learn more about the County’s redistricting effort, visit \
  <a href='https://www.saccounty.net' target='_blank'>www.saccounty.net</a>.</p>",
   'ks-fairmaps': 'Welcome to the event page for Fair Maps Kansas!',
+  long_beach: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Every map submitted to the Long Beach Independent Redistricting Commission will be carefully reviewed and included as part of the public record. For more information, visit <a href="https://www.longbeach.gov/redistricting" target="_blank">this link</a>.</p>\
+  <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Long_Beach”.</p>\
+  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
   napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data.  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p>\
   <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
   <p><strong>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest. You can also draw your own district map.</strong></p>\
@@ -942,6 +957,10 @@ const longAbout = {
   ],
   slo_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  long_beach: [
+    "This mapping module uses the <strong>2020 Decennial Census</strong> population based on the legacy format dataset with processing by Redistricting Partners. The Statewide Database is currently working on the reallocation of the state prisoner population. Once the 2020 Census Data is finalized, this mapping module will be updated. \
+    <br/>For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_county: [
     "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1293,7 +1312,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -1371,6 +1390,9 @@ export default () => {
             } else if (eventCode === "napa_college") {
               document.getElementById("partner-link-a").href = "https://napavalley.edu/AboutNVC/Trustees/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-napa-college.png?v=2";
+            } else if (eventCode === "long_beach") {
+              document.getElementById("partner-link-a").href = "https://www.longbeach.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-longbeach.jpeg";
             } else if (eventCode === "san_joaquin") {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
