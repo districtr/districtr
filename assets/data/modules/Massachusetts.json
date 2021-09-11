@@ -2711,5 +2711,526 @@
         "pluralNoun": "State House Districts"
       }
     ]
-  }
+  },
+    {
+    "id": "ma_vra_vtds20",
+    "state": "Massachusetts",
+    "units": [
+        {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "Block Groups",
+        "columnSets": [
+            {
+            "type": "population",
+            "name": "Population",
+            "total": {
+                "key": "TOTPOP",
+                "name": "Total population",
+                "sum": 7029917,
+                "min": 0,
+                "max": 14304
+            },
+            "subgroups": [
+                {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4748897,
+                "min": 0,
+                "max": 9889
+                },
+                {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 457055,
+                "min": 0,
+                "max": 2703
+                },
+                {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 887685,
+                "min": 0,
+                "max": 3762
+                },
+                {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 9387,
+                "min": 0,
+                "max": 166
+                },
+                {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 504900,
+                "min": 0,
+                "max": 5510
+                },
+                {
+                "key": "NHPI",
+                "name": "Asian population",
+                "sum": 1607,
+                "min": 0,
+                "max": 20
+                },
+                {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 92108,
+                "min": 0,
+                "max": 1004
+                },
+                {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 328278,
+                "min": 0,
+                "max": 1191
+                }
+            ]
+            },
+            {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+                "key": "VAP",
+                "name": "Total voting age population",
+                "sum": 5663723,
+                "min": 0,
+                "max": 13099
+            },
+            "subgroups": [
+                {
+                "key": "WVAP",
+                "name": "White population",
+                "sum": 3988985,
+                "min": 0,
+                "max": 8293
+                },
+                {
+                "key": "BVAP",
+                "name": "Black population",
+                "sum": 351465,
+                "min": 0,
+                "max": 2005
+                },
+                {
+                "key": "HVAP",
+                "name": "Hispanic population",
+                "sum": 621508,
+                "min": 0,
+                "max": 2670
+                },
+                {
+                "key": "AMINVAP",
+                "name": "American Indian population",
+                "sum": 7430,
+                "min": 0,
+                "max": 123
+                },
+                {
+                "key": "ASIANVAP",
+                "name": "Asian population",
+                "sum": 407742,
+                "min": 0,
+                "max": 4881
+                },
+                {
+                "key": "NHPIVAP",
+                "name": "Asian population",
+                "sum": 1391,
+                "min": 0,
+                "max": 20
+                },
+                {
+                "key": "OTHERVAP",
+                "name": "Other races",
+                "sum": 68601,
+                "min": 0,
+                "max": 733
+                },
+                {
+                "key": "2MOREVAP",
+                "name": "Two or more races",
+                "sum": 216601,
+                "min": 0,
+                "max": 818
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2012 Senate",
+            "subgroups": [
+                {
+                "key": "SEN12GEWAR",
+                "name": "Democratic",
+                "sum": 1696347,
+                "min": 0,
+                "max": 3435
+                },
+                {
+                "key": "SEN12GSBRO",
+                "name": "Republican",
+                "sum": 1458055,
+                "min": 0,
+                "max": 2653
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+                {
+                "key": "PRES12GBOB",
+                "name": "Democratic",
+                "sum": 1921290,
+                "min": 0,
+                "max": 3830
+                },
+                {
+                "key": "PRES12GMRO",
+                "name": "Republican",
+                "sum": 1188313,
+                "min": 0,
+                "max": 2280
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2013 Senate",
+            "subgroups": [
+                {
+                "key": "SEN13GEMAR",
+                "name": "Democratic",
+                "sum": 645433,
+                "min": 0,
+                "max": 1219
+                },
+                {
+                "key": "SEN13GGGOM",
+                "name": "Republican",
+                "sum": 525304,
+                "min": 0,
+                "max": 1403
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+                {
+                "key": "SEN14GEMAR",
+                "name": "Democratic",
+                "sum": 1289944,
+                "min": 0,
+                "max": 2233
+                },
+                {
+                "key": "SEN14GHERR",
+                "name": "Republican",
+                "sum": 791954,
+                "min": 0,
+                "max": 1760
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+                {
+                "key": "PRES16GHCL",
+                "name": "Democratic",
+                "sum": 1995200,
+                "min": 0,
+                "max": 4146
+                },
+                {
+                "key": "PRES16GDTR",
+                "name": "Republican",
+                "sum": 1090890,
+                "min": 0,
+                "max": 1892
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+                {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 1044569,
+                "min": 0,
+                "max": 2063
+                },
+                {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1004416,
+                "min": 0,
+                "max": 1817
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+                {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1781338,
+                "min": 0,
+                "max": 3045
+                },
+                {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 885769,
+                "min": 0,
+                "max": 1750
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+                {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 1633369,
+                "min": 0,
+                "max": 2662
+                },
+                {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 979213,
+                "min": 0,
+                "max": 1862
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+                {
+                "key": "AG14GMHEAL",
+                "name": "Democratic",
+                "sum": 1280513,
+                "min": 0,
+                "max": 2099
+                },
+                {
+                "key": "AG14GJMILL",
+                "name": "Republican",
+                "sum": 793823,
+                "min": 0,
+                "max": 1773
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2014 Treasurer and Receiver-General",
+            "subgroups": [
+                {
+                "key": "TRE14GDGOL",
+                "name": "Democratic",
+                "sum": 1120194,
+                "min": 0,
+                "max": 1905
+                },
+                {
+                "key": "TRE14GMHEF",
+                "name": "Republican",
+                "sum": 828896,
+                "min": 0,
+                "max": 1848
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2014 Auditor",
+            "subgroups": [
+                {
+                "key": "AUD14GPBUM",
+                "name": "Democratic",
+                "sum": 1146985,
+                "min": 0,
+                "max": 1976
+                },
+                {
+                "key": "AUD14GSSAI",
+                "name": "Republican",
+                "sum": 757219,
+                "min": 0,
+                "max": 1775
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+                {
+                "key": "AG18GMHEAL",
+                "name": "Democratic",
+                "sum": 1874212,
+                "min": 0,
+                "max": 2928
+                },
+                {
+                "key": "AG18GJMCMA",
+                "name": "Republican",
+                "sum": 804831,
+                "min": 0,
+                "max": 1621
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2018 Treasurer and Receiver-General",
+            "subgroups": [
+                {
+                "key": "TRE18GDGOL",
+                "name": "Democratic",
+                "sum": 1761283,
+                "min": 0,
+                "max": 2803
+                },
+                {
+                "key": "TRE18GKORR",
+                "name": "Republican",
+                "sum": 749596,
+                "min": 0,
+                "max": 1600
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2018 Auditor",
+            "subgroups": [
+                {
+                "key": "AUD18GSBUM",
+                "name": "Democratic",
+                "sum": 1606512,
+                "min": 0,
+                "max": 2635
+                },
+                {
+                "key": "AUD18GHBRA",
+                "name": "Republican",
+                "sum": 801585,
+                "min": 0,
+                "max": 1654
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+                {
+                "key": "PRES20GJBI",
+                "name": "Democratic",
+                "sum": 2382204,
+                "min": 0,
+                "max": 5241
+                },
+                {
+                "key": "PRES20GDTR",
+                "name": "Republican",
+                "sum": 1167206,
+                "min": 0,
+                "max": 1991
+                }
+            ]
+            },
+            {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+                {
+                "key": "SEN20GEMAR",
+                "name": "Democratic",
+                "sum": 2357811,
+                "min": 0,
+                "max": 5132
+                },
+                {
+                "key": "SEN20GKOCO",
+                "name": "Republican",
+                "sum": 1177759,
+                "min": 0,
+                "max": 2034
+                }
+            ]
+            }
+        ],
+        "idColumn": {
+            "name": "2020 Census GEOID",
+            "key": "GEOID20"
+        },
+        "bounds": [
+            [
+            -73.5082,
+            41.1871
+            ],
+            [
+            -69.8589,
+            42.8868
+            ]
+        ],
+        "tilesets": [
+            {
+            "type": "fill",
+            "source": {
+                "type": "vector",
+                "url": "mapbox://districtr.ma_vra_vtds20_vtds20"
+            },
+            "sourceLayer": "ma_vra_vtds20_vtds20"
+            },
+            {
+            "type": "circle",
+            "source": {
+                "type": "vector",
+                "url": "mapbox://districtr.ma_vra_vtds20_vtds20_points"
+            },
+            "sourceLayer": "ma_vra_vtds20_vtds20_points"
+            }
+        ]
+        }
+    ],
+    "name": "Massachusetts",
+    "districtingProblems": [
+        {
+        "name": "Congress",
+        "numberOfParts": 9,
+        "pluralNoun": "Congressional Districts"
+        },
+        {
+        "name": "State Senate",
+        "numberOfParts": 40,
+        "pluralNoun": "State Senate Districts"
+        },
+        {
+        "name": "State House",
+        "numberOfParts": 160,
+        "pluralNoun": "State House Districts"
+        }
+    ]
+    }
 ]

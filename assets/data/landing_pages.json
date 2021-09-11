@@ -3566,7 +3566,7 @@
     "states": ["Louisiana", "Texas", "Massachusetts"],
     "modules": [
       { "name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la" },
-      { "name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts" },
+      { "name": "Massachusetts", "ids": ["ma_vra_vtds20"], "id": "massachusetts" },
       { "name": "Texas", "ids": ["tx_vra"], "id": "tx" }
     ],
     "sections": [
