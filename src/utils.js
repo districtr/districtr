@@ -1769,6 +1769,12 @@ export function spatial_abilities(id) {
         },
         shapefile: true,
       },
+      'grand_county_3': {
+        portal: {
+          endpoint: 'https://portal.utah-mapping.org',
+        },
+        shapefile: true,
+      },
     vermont: {
       number_markers: true,
       county_brush: true,
