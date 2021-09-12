@@ -125,7 +125,7 @@
         "id": "state"
       },
       { "name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties" },
-      { "name": "Cities", "ids": ["phoenix", "mesaaz"], "id": "loc" },
+      { "name": "Cities", "ids": ["phoenix", "mesaaz", "glendaleaz"], "id": "loc" },
       {
         "name": "Zones",
         "ids": ["nwaz", "seaz"],

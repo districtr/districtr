@@ -354,6 +354,18 @@ export function spatial_abilities(id) {
       border: true,
       sideload: true,
     },
+    glendaleaz: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      coalition: false,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/glendaleaz',
+        centroids: true,
+      }]
+    },
     phoenix: {
       native_american: true,
       number_markers: true,
