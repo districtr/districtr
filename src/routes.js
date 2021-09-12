@@ -231,7 +231,7 @@ export function loadPlanFromCSV(assignmentList, state) {
 
     const delimiter = (state.place.id === "louisiana") ? ";" : ",";
 
-    let districtIds = new Set(rows.map((row, index) => row.split(delimiter)[1].split("_")[0] ));
+    let districtIds = new Set(rows.slice(1).map((row, index) => row.split(delimiter)[1].split("_")[0] ));
     if (headers) {districtIds.delete(rows[0].split(delimiter)[1]);}
     districtIds.delete(undefined);
 
