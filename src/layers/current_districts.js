@@ -22,14 +22,19 @@ export function addBoundaryLayer(config, map) {
           return;
         }
         if (config.fill_alt && gj.features.length) {
-            let r, g, b;
+            let knownNames = new Set(), r = 50, g = 70, b = 150;
+            const namefield = config.namefield || "NAME";
             gj.features.forEach((f, idx) => {
-                if (idx % 20 === 0) {
+                if (knownNames.has(name)) {
+                    return;
+                }
+                knownNames.add(f.properties[namefield]);
+                if (shadeNames.length % 40 === 0) {
                     r = 50,
                     g = 70,
                     b = 150
                 }
-                shadeNames.push(["==", ["get", "NAME"], f.properties[(config.namefield || "NAME")]]);
+                shadeNames.push(["==", ["get", namefield], f.properties[namefield]]);
                 r += 6;
                 g += 22;
                 b -= 26;

@@ -393,14 +393,28 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       current_districts: true,
-      school_districts: true,
       border: true,
       boundaries: [{
         id: 'neighborhood',
         label: 'Neighborhood Community Plan',
         path: 'neighborhoods/california/ca_SanDiego',
         centroids: true,
-      }]
+      },{
+        id: 'pbeats',
+        label: 'Police Beats',
+        path: 'neighborhoods/california/ca_SanDiego_beats',
+        centroids: true,
+      },{
+        id: 'schools',
+        label: 'School Districts',
+        path: 'school_districts/california/ca_SanDiego',
+        centroids: true,
+        fill: true,
+        fill_alt: true,
+      }],
+      portal: {
+        endpoint: 'https://portal.sandiego-mapping.org'
+      },
     },
     ca_contracosta: {
       number_markers: true,
