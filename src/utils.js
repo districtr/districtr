@@ -802,6 +802,11 @@ export function spatial_abilities(id) {
       path: 'menlo_park_multifamily',
     }]
   },
+  ca_imperial: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
   ca_sanjoaquin: {
     number_markers: true,
     border: true,

@@ -15106,5 +15106,147 @@
       "pluralNoun": "Council Districts"
     }
   ]
+},
+{
+  "state": "California",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 179702,
+            "min": 0,
+            "max": 3384
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 16813,
+              "min": 0,
+              "max": 224
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 3846,
+              "min": 0,
+              "max": 1067
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 2244,
+              "min": 0,
+              "max": 356
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 153027,
+              "min": 0,
+              "max": 2004
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total population",
+            "sum": 99525,
+            "min": 0,
+            "max": 3258
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 3007,
+              "min": 0,
+              "max": 734
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 624,
+              "min": 0,
+              "max": 71
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 859,
+              "min": 0,
+              "max": 66
+            },
+            {
+              "key": "CVAP_15-19_Hawaiian_API",
+              "name": "Native Hawaiian Pacific Islander population",
+              "sum": 232,
+              "min": 0,
+              "max": 12
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 77844,
+              "min": 0,
+              "max": 2010
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -116.1063,
+          32.6185
+        ],
+        [
+          -114.4629,
+          33.4338
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_imperial_blocks20_points"
+          },
+          "sourceLayer": "ca_imperial_blocks20_points"
+        },
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_imperial_blocks20"
+          },
+          "sourceLayer": "ca_imperial_blocks20"
+        }
+      ]
+    }
+  ],
+  "name": "Imperial County",
+  "id": "ca_imperial",
+  "districtingProblems": [
+    {
+      "name": "County",
+      "numberOfParts": 5,
+      "pluralNoun": "Supervisorial Districts"
+    }
+  ]
 }
 ]
