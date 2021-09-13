@@ -38,7 +38,7 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.sacramento}`;
     } else if (["glendaleaz"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.sacramento2020}`;
-    } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name)) {
+    } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2020 Beats", "2020 Communities"].includes(state.unitsRecord.name)) {
         dataset = `<p><span>&#9432;</span> ${populations.census20}`;
     } else dataset = `<p><span>&#9432;</span> ${populations.census}`;
 

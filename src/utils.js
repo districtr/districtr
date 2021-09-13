@@ -389,6 +389,19 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    ca_SanDiego: {
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
+      school_districts: true,
+      border: true,
+      boundaries: [{
+        id: 'neighborhood',
+        label: 'Neighborhood Community Plan',
+        path: 'neighborhoods/california/ca_SanDiego',
+        centroids: true,
+      }]
+    },
     ca_contracosta: {
       number_markers: true,
       border: true,
@@ -1250,7 +1263,7 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      border: 'Show Minneapolis Border',
+      border: true,
       number_markers: true,
       shapefile: true,
       boundaries: [
