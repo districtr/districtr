@@ -6,6 +6,13 @@ if (!window.blayers) {
   window.blayers = {};
 }
 
+let shadeNames = ["case"];
+const alt_paint = {
+  "fill-outline-color": "#000",
+  "fill-color": shadeNames,
+  "fill-opacity": 0
+};
+
 export function addBoundaryLayer(config, map) {
   const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
   if (!window.blayers[config.id]) {
@@ -14,6 +21,29 @@ export function addBoundaryLayer(config, map) {
         if (map.getSource(config.id)) {
           return;
         }
+        if (config.fill_alt && gj.features.length) {
+            let r, g, b;
+            gj.features.forEach((f, idx) => {
+                if (idx % 20 === 0) {
+                    r = 50,
+                    g = 70,
+                    b = 150
+                }
+                shadeNames.push(["==", ["get", "NAME"], f.properties[(config.namefield || "NAME")]]);
+                r += 6;
+                g += 22;
+                b -= 26;
+                if (g > 170) {
+                    g = 70;
+                }
+                if (b < 80) {
+                    b = 150;
+                }
+                shadeNames.push(`rgb(${r},${g},${b})`);
+            });
+            shadeNames.push("#ddd");
+        }
+
         map.addSource(config.id, {
           type: 'geojson',
           data: gj
@@ -24,11 +54,11 @@ export function addBoundaryLayer(config, map) {
                 id: config.id,
                 type: (config.fill ? 'fill' : 'line'),
                 source: config.id,
-                paint: config.fill ? {
+                paint: config.fill ? (config.fill_alt ? alt_paint : ({
                     'fill-color': config.fill || '#444',
                     'fill-opacity': 0,
                     'fill-outline-color': '#070',
-                } : {
+                })) : {
                     'line-color': config.lineColor || '#000',
                     'line-opacity': 0,
                     'line-width': config.lineWidth || 1.5,
@@ -49,6 +79,9 @@ export function addBoundaryLayer(config, map) {
             type: 'geojson',
             data: centroids
         });
+        const haloColor = config.fill
+          ? 'rgba(255, 255, 250, 0.75)'
+          : 'rgba(215, 215, 210, 0.6)';
         window.blayers[`${config.id}_centroids`] = new Layer(map, {
             id: `${config.id}_centroids`,
             source: `${config.id}_centroids`,
@@ -69,7 +102,7 @@ export function addBoundaryLayer(config, map) {
               'text-opacity': 0,
               'text-halo-blur': 3,
               'text-halo-width': 2,
-              'text-halo-color': 'rgba(215, 215, 210, 0.6)',
+              'text-halo-color': haloColor,
             }
         });
     });
@@ -77,8 +110,8 @@ export function addBoundaryLayer(config, map) {
 
   return html`
     ${toggle(config.label, false, checked => {
-        let opacity = checked ? (config.fill ? 0.55 : 1) : 0;
+        let opacity = checked ? (config.fill ? (config.fill_alt ? 0.2 : 0.55) : 1) : 0;
         window.blayers[config.id] && window.blayers[config.id].setOpacity(opacity)
-        window.blayers[`${config.id}_centroids`] && window.blayers[`${config.id}_centroids`].setPaintProperty('text-opacity', opacity);
+        window.blayers[`${config.id}_centroids`] && window.blayers[`${config.id}_centroids`].setPaintProperty('text-opacity', checked ? 1 : 0);
     })}`
 }

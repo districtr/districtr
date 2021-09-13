@@ -731,8 +731,9 @@ export function spatial_abilities(id) {
       id: 'neighborhood',
       label: 'Neighborhoods',
       path: 'neighborhoods/california/menlo_park',
-      lineColor: '#47cf83',
+      fill: true,
       centroids: true,
+      fill_alt: true,
     },{
       id: 'flooded',
       label: 'Flood Zone',
