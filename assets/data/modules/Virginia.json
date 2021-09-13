@@ -199,6 +199,298 @@
         "unitType": "VTDs",
         "columnSets": [
           {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 8631393,
+              "min": 0,
+              "max": 17815
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 5058363,
+                "min": 0,
+                "max": 8093
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1578090,
+                "min": 0,
+                "max": 5551
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 19080,
+                "min": 0,
+                "max": 306
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 610612,
+                "min": 0,
+                "max": 5324
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 6195,
+                "min": 0,
+                "max": 99
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45394,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 404910,
+                "min": 0,
+                "max": 918
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 908749,
+                "min": 0,
+                "max": 5719
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 6745054,
+              "min": 0,
+              "max": 16422
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4136979,
+                "min": 0,
+                "max": 7586
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1224840,
+                "min": 0,
+                "max": 4865
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 15376,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 478337,
+                "min": 0,
+                "max": 4080
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 4754,
+                "min": 0,
+                "max": 98
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 29385,
+                "min": 0,
+                "max": 221
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 241069,
+                "min": 0,
+                "max": 781
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 614314,
+                "min": 0,
+                "max": 3806
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "G16RPRS",
+                "name": "Republican",
+                "sum": 1768776,
+                "min": 0,
+                "max": 2912
+              },
+              {
+                "key": "G16DPRS",
+                "name": "Democratic",
+                "sum": 1978974,
+                "min": 0,
+                "max": 3046
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "G18RSEN",
+                "name": "Republican",
+                "sum": 1374046,
+                "min": 0,
+                "max": 2122
+              },
+              {
+                "key": "G18DSEN",
+                "name": "Democratic",
+                "sum": 1908819,
+                "min": 0,
+                "max": 2772
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Lt. Governor",
+            "subgroups": [
+              {
+                "key": "G17RLTG",
+                "name": "Republican",
+                "sum": 1224127,
+                "min": 0,
+                "max": 1869
+              },
+              {
+                "key": "G17DLTG",
+                "name": "Democratic",
+                "sum": 1367409,
+                "min": 0,
+                "max": 2295
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 Attorney General",
+            "subgroups": [
+              {
+                "key": "G17RATG",
+                "name": "Republican",
+                "sum": 1209229,
+                "min": 0,
+                "max": 1867
+              },
+              {
+                "key": "G17DATG",
+                "name": "Democratic",
+                "sum": 1384412,
+                "min": 0,
+                "max": 2289
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2017 House of Delegates",
+            "subgroups": [
+              {
+                "key": "G17RHOD",
+                "name": "Republican",
+                "sum": 1075836,
+                "min": 0,
+                "max": 2030
+              },
+              {
+                "key": "G17DHOD",
+                "name": "Democratic",
+                "sum": 1303186,
+                "min": 0,
+                "max": 2335
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "G16RHOR",
+                "name": "Republican",
+                "sum": 1842056,
+                "min": 0,
+                "max": 3032
+              },
+              {
+                "key": "G16DHOR",
+                "name": "Democratic",
+                "sum": 1857666,
+                "min": 0,
+                "max": 2806
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-83.6754, 36.5409],
+          [-75.1664, 39.466]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.va_adj_vtds20"
+            },
+            "sourceLayer": "va_adj_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.va_adj_vtds20_points"
+            },
+            "sourceLayer": "va_adj_vtds20_points"
+          }
+        ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
             "type": "election",
             "name": "2016 President",
             "subgroups": [
