@@ -105,14 +105,20 @@ function renderLeft(pane, context) {
  * @returns {undefined}
  */
 function renderRight(pane, context, state, mapState) {
-    let saveplan = state.serialize();
-    const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-    fetch(GERRYCHAIN_URL + "/eval_page", {
+    const units = state.unitsRecord.id;
+    const stateName = state.place.state;
+    let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
+    console.log(state);
+    const GERRYCHAIN_URL = "https://gvd4917837.execute-api.us-east-1.amazonaws.com";
+    fetch(GERRYCHAIN_URL + "/evaluation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(saveplan),
+      body: JSON.stringify({
+        "state": stateName,
+        "units": units,
+        "assignment": assign}),
     }).then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
