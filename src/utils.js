@@ -806,6 +806,7 @@ export function spatial_abilities(id) {
     number_markers: true,
     border: true,
     shapefile: true,
+    municipalities: "Census Places",
   },
   ca_sanjoaquin: {
     number_markers: true,
