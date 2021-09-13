@@ -221,7 +221,7 @@ function overview_section (state, contig, problems, num_tiles) {
 
     // contiguity
     let contig_section = 
-        (problems && spatial_abilities(state.place.id).contiguity)
+        (problems)
         ? html`
         A plan is called contiguous if every district is internally connected.
         <h5 id="contiguity-status">
