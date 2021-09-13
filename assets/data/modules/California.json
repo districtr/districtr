@@ -180,7 +180,7 @@
         ]
       },
       {
-        "id": "comm20b",
+        "id": "comm20c",
         "name": "2020 Communities",
         "unitType": "Communities",
         "hideOnDefault": true,
@@ -199,56 +199,56 @@
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 564202,
+                "sum": 565133,
                 "min": 34,
                 "max": 45333
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
-                "sum": 77055,
+                "sum": 77543,
                 "min": 0,
                 "max": 8809
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 410687,
+                "sum": 411294,
                 "min": 10,
                 "max": 45721
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
-                "sum": 243349,
+                "sum": 243436,
                 "min": 4,
                 "max": 39180
               },
               {
                 "key": "AMIN",
                 "name": "American Indian population",
-                "sum": 3179,
+                "sum": 3200,
                 "min": 0,
                 "max": 282
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 4870,
+                "sum": 4887,
                 "min": 0,
                 "max": 704
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
-                "sum": 73105,
+                "sum": 73239,
                 "min": 6,
                 "max": 5172
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
-                "sum": 8200,
+                "sum": 8208,
                 "min": 0,
                 "max": 544
               }
@@ -268,56 +268,56 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 491885,
+                "sum": 492810,
                 "min": 24,
                 "max": 39100
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 61862,
+                "sum": 62350,
                 "min": 0,
                 "max": 7131
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 304574,
+                "sum": 305175,
                 "min": 6,
                 "max": 34169
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 2703,
+                "sum": 2724,
                 "min": 0,
                 "max": 268
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 4059,
+                "sum": 4076,
                 "min": 0,
                 "max": 575
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 202677,
+                "sum": 202764,
                 "min": 2,
                 "max": 32796
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 6261,
+                "sum": 6269,
                 "min": 0,
                 "max": 435
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 48776,
+                "sum": 48908,
                 "min": 6,
                 "max": 3512
               }
@@ -325,8 +325,8 @@
           }
         ],
         "idColumn": {
-          "name": "Neighborhood name",
-          "key": "Neighborho"
+          "name": "Neighborhood",
+          "key": "id"
         },
         "bounds": [
           [
@@ -343,17 +343,17 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_SanDiego_comm20b_points"
+              "url": "mapbox://districtr.ca_SanDiego_comm20c_points"
             },
-            "sourceLayer": "ca_SanDiego_comm20b_points"
+            "sourceLayer": "ca_SanDiego_comm20c_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_SanDiego_comm20b"
+              "url": "mapbox://districtr.ca_SanDiego_comm20c"
             },
-            "sourceLayer": "ca_SanDiego_comm20b"
+            "sourceLayer": "ca_SanDiego_comm20c"
           }
         ]
       },
