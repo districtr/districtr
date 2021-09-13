@@ -65,6 +65,7 @@ const stateForEvent = {
   hmb2021: 'California',
   stockton2021: 'California',
   lodi2021: 'California',
+  glendale2021: 'Arizona',
   goleta: 'California',
   sbcounty: 'California',
   'ks-fairmaps': 'Kansas',
@@ -168,6 +169,7 @@ const validEventCodes = {
   hmb2021: 'halfmoon',
   stockton2021: 'ca_stockton',
   lodi2021: 'lodi',
+  glendale2021: 'glendaleaz',
   sonomaco: 'ca_sonoma',
   'ks-fairmaps': 'kansas',
   napa_county: 'napacounty2021',
@@ -331,6 +333,7 @@ const hybrid_events = [
   'hmb2021',
   'stockton2021',
   'lodi2021',
+  'glendale2021',
   'kingsco',
   'mercedco',
   'goleta',
@@ -598,6 +601,11 @@ lodi2021: "<p>Welcome to the Districtr Community of Interest public mapping tool
    <p>To let the City know about your community and what brings it together, \
 share your map and your story using this tool now.</p>\
    <p><strong>To display your map on this page, be sure the tag &quot;Lodi2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+glendale2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Glendale's 2021 city council redistricting.<p>\
+   <p>To let the City know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+   <p><strong>To display your map on this page, be sure the tag &quot;Glendale2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
 marinco: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marin County's 2021 supervisorial redistricting.<p>\
    <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -1128,6 +1136,12 @@ butte_county: [
     "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
+  glendale2021: [
+    "City of Glendale City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+    "This mapping module displays population based on the 2020 Decennial Census and 2019 ACS for CVAP. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
   marinco: [
     "Marin County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
@@ -1405,7 +1419,7 @@ export default () => {
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
-          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021"].includes(eventCode)) {
+          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -1522,6 +1536,10 @@ export default () => {
             } else if (eventCode === "stockton2021") {
               document.getElementById("partner-link-a").href = "http://www.stocktonca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-stockton.png?v=2";
+            } else if (eventCode === "glendale2021") {
+              document.getElementById("partner-link-a").href = "https://www.glendaleaz.com";
+              document.getElementById("partnership-a").src = "/assets/partners-glendale.svg";
+              document.getElementById("partnership-a").style.background = "#888";              
             } else if (eventCode === "lodi2021") {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
               document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";
