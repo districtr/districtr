@@ -354,6 +354,18 @@ export function spatial_abilities(id) {
       border: true,
       sideload: true,
     },
+    glendaleaz: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      coalition: false,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/glendaleaz',
+        centroids: true,
+      }]
+    },
     phoenix: {
       native_american: true,
       number_markers: true,
@@ -376,6 +388,33 @@ export function spatial_abilities(id) {
       shapefile: true,
       sideload: true,
       // find_unpainted: true,
+    },
+    ca_SanDiego: {
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
+      border: true,
+      boundaries: [{
+        id: 'neighborhood',
+        label: 'Neighborhood Community Plan',
+        path: 'neighborhoods/california/ca_SanDiego',
+        centroids: true,
+      },{
+        id: 'pbeats',
+        label: 'Police Beats',
+        path: 'neighborhoods/california/ca_SanDiego_beats',
+        centroids: true,
+      },{
+        id: 'schools',
+        label: 'School Districts',
+        path: 'school_districts/california/ca_SanDiego',
+        centroids: true,
+        fill: true,
+        fill_alt: true,
+      }],
+      portal: {
+        endpoint: 'https://portal.sandiego-mapping.org'
+      },
     },
     ca_contracosta: {
       number_markers: true,
@@ -719,8 +758,9 @@ export function spatial_abilities(id) {
       id: 'neighborhood',
       label: 'Neighborhoods',
       path: 'neighborhoods/california/menlo_park',
-      lineColor: '#47cf83',
+      fill: true,
       centroids: true,
+      fill_alt: true,
     },{
       id: 'flooded',
       label: 'Flood Zone',
@@ -761,6 +801,12 @@ export function spatial_abilities(id) {
       label: 'Multi-Family Parcels',
       path: 'menlo_park_multifamily',
     }]
+  },
+  ca_imperial: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    municipalities: "Census Places",
   },
   ca_sanjoaquin: {
     number_markers: true,
@@ -1244,7 +1290,7 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      border: 'Show Minneapolis Border',
+      border: true,
       number_markers: true,
       shapefile: true,
       boundaries: [
@@ -1771,6 +1817,12 @@ export function spatial_abilities(id) {
       },
     },
       'grand_county_2': {
+        portal: {
+          endpoint: 'https://portal.utah-mapping.org',
+        },
+        shapefile: true,
+      },
+      'grand_county_3': {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },

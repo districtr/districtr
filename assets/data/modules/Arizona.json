@@ -2183,5 +2183,188 @@
         "pluralNoun": "City Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 248415,
+              "min": 0,
+              "max": 1674
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "TotMinCVAP",
+              "name": "Total population",
+              "sum": 969,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "WhtCVAP",
+                "name": "White population",
+                "sum": 1388,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "BlkCVAP",
+                "name": "Black population",
+                "sum": 134,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "APICVAP",
+                "name": "Asian / Pacific Islander population",
+                "sum": 113,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "LatinoCVAP",
+                "name": "Hispanic population",
+                "sum": 668,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHom",
+              "name": "Children at home",
+              "sum": 5,
+              "min": 0.0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 8,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 7,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 17,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGra",
+                "name": "College graduate",
+                "sum": 9,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Inc75k",
+                "name": ">$75k income",
+                "sum": 11,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtH",
+                "name": "Spanish spoken at home",
+                "sum": 4,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtH",
+                "name": "Asian languages spoken at home",
+                "sum": 1,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtH",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0.0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -112.4616,
+            33.5078
+          ],
+          [
+            -112.1516,
+            33.6979
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glendaleaz2_blocks20_points"
+            },
+            "sourceLayer": "glendaleaz2_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glendaleaz2_blocks20"
+            },
+            "sourceLayer": "glendaleaz2_blocks20"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glndazdata3_blockgroups20"
+            },
+            "sourceLayer": "glndazdata3_blockgroups20"
+          }
+        ]
+      }
+    ],
+    "state": "Arizona",
+    "name": "Glendale",
+    "id": "glendaleaz",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]

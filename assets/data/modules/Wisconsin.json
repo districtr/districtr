@@ -2,6 +2,51 @@
   {
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 5893718,
+              "min": 0,
+              "max": 2487
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-92.8894, 42.4917],
+          [-86.2495, 47.3098]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.WI_blocks20"
+            },
+            "sourceLayer": "WI_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.WI_blocks20_points"
+            },
+            "sourceLayer": "WI_blocks20_points"
+          }
+        ]
+      },
+      {
         "id": "wards",
         "name": "2011 Wards",
         "unitType": "Wards",

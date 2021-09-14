@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "ca_SanDiego_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "UNIFIED BONSALL" }, "geometry": { "type": "Point", "coordinates": [ -117.160855050354584, 33.307145666041379 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED BORREGO SPRINGS" }, "geometry": { "type": "Point", "coordinates": [ -116.240402085294846, 33.281999583843259 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED CORONADO" }, "geometry": { "type": "Point", "coordinates": [ -117.163406606180928, 32.669966399073708 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED CARLSBAD" }, "geometry": { "type": "Point", "coordinates": [ -117.29818861373974, 33.137550385970385 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED MT EMPIRE" }, "geometry": { "type": "Point", "coordinates": [ -116.381769793693891, 32.749442116788856 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED OCEANSIDE" }, "geometry": { "type": "Point", "coordinates": [ -117.358655588664163, 33.254624511789793 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED POWAY" }, "geometry": { "type": "Point", "coordinates": [ -117.059173876341291, 32.98121245089844 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED RAMONA" }, "geometry": { "type": "Point", "coordinates": [ -116.831601130817745, 33.035328946661117 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED SAN DIEGO" }, "geometry": { "type": "Point", "coordinates": [ -117.145486222517661, 32.806011136286337 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED SAN MARCOS" }, "geometry": { "type": "Point", "coordinates": [ -117.180985055302401, 33.144899780120369 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED VALLEY CENTER-PAUMA" }, "geometry": { "type": "Point", "coordinates": [ -116.953054166846442, 33.283599810274389 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED VISTA" }, "geometry": { "type": "Point", "coordinates": [ -117.238610796496346, 33.203957576729778 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIFIED WARNER" }, "geometry": { "type": "Point", "coordinates": [ -116.581030558815144, 33.285129379777011 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2007-1,PROP C 2\/05\/08, SER B" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2002-1, PROP U 11\/5\/02, 2002B" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2007-1,PROP C 2\/05\/08, SER A" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2002-1,PROP U 11\/5\/02,2011REF" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2002-1,PROP U, 2014 REF" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND POWAY-SFID 2002-1,PROP U 11\/5\/02,2019REF" }, "geometry": { "type": "Point", "coordinates": [ -117.115058106313498, 32.985543697532684 ] } },
+{ "type": "Feature", "properties": { "NAME": "UNIF BOND SAN MARCOS SFID #1-6\/04\/96, 2004-1 REF" }, "geometry": { "type": "Point", "coordinates": [ -117.181863849091897, 33.144174781349768 ] } }
+]
+}
