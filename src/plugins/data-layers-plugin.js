@@ -288,7 +288,9 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         (abilities.coalition === false) ? null : "Coalition population*", // coalition subgroup
-        (supportMultiYear ? abilities.multiyear : null) // multiple years
+        (supportMultiYear ? abilities.multiyear : null), // multiple years
+        false,
+        abilities.purple_demo,
     );
     coalitionOverlays.push(demographicsOverlay);
 
@@ -301,7 +303,9 @@ export default function DataLayersPlugin(editor) {
             "Show voting age population (VAP)",
             false,
             (abilities.coalition === false) ? null : "Coalition voting age population",
-            false // multiple years? not on miami-dade
+            false,
+            false,
+            abilities.purple_demo,
         );
         coalitionOverlays.push(vapOverlay);
     }
@@ -313,7 +317,9 @@ export default function DataLayersPlugin(editor) {
             "Show citizen voting age population (CVAP)",
             false,
             (abilities.coalition === false) ? null : "Coalition citizen voting age population",
-            false // multiple years? not on miami-dade
+            false,
+            false,
+
         );
         coalitionOverlays.push(vapOverlay);
     }

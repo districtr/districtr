@@ -392,18 +392,25 @@ export function spatial_abilities(id) {
     ca_SanDiego: {
       number_markers: true,
       shapefile: true,
-      current_districts: true,
       border: true,
+      purple_demo: true,
       boundaries: [{
+        id: 'districts',
+        label: 'Current City Council Districts (2011)',
+        path: 'current_districts/california/ca_SanDiego',
+        lineColor: 'orangered',
+      },{
         id: 'neighborhood',
-        label: 'Neighborhood Community Plan',
+        label: 'Community Planning Group Areas',
         path: 'neighborhoods/california/ca_SanDiego',
         centroids: true,
+        lineColor: 'darkgreen',
       },{
-        id: 'pbeats',
-        label: 'Police Beats',
+        id: 'pbeats', // aka police beats
+        label: 'Neighborhood Areas',
         path: 'neighborhoods/california/ca_SanDiego_beats',
         centroids: true,
+        lineColor: 'darkblue',
       },{
         id: 'schools',
         label: 'School Districts',
