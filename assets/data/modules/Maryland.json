@@ -1478,7 +1478,15 @@
               "min": 0,
               "max": 15005
             },
-            "subgroups": []
+            "subgroups": [
+              {
+                "key": "BVAP",
+                "name": "Black Voting-AGe Population",
+                "sum": 1239796,
+                "min": 0,
+                "max": 5345
+              }
+            ]
           }
         ],
         "idColumn": {
