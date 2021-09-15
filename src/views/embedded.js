@@ -101,7 +101,7 @@ export class EmbeddedDistrictr {
                         if (paint_ids.length <= 300) {
                           let placeID = this.state.place.id;
 
-                          fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/unassigned", {
+                          fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/assigned", {
                             method: "POST",
                             headers: {
                               "Content-Type": "application/json",
@@ -113,24 +113,27 @@ export class EmbeddedDistrictr {
                           }).then((res) => res.json())
                             .catch((e) => console.error(e))
                             .then((data) => {
-                              const awsBox = data["unassigned_units"] && data["unassigned_units"].length == 4;
+                              if (data["assigned_units"]) {
+                                data = data["assigned_units"];
+                              }
+                              const awsBox = data && data.length == 4;
                               if (awsBox) {
-                                  if (data["unassigned_units"][0] === data["unassigned_units"][2]) {
-                                      data["unassigned_units"][0] -= 0.05;
-                                      data["unassigned_units"][1] -= 0.05;
-                                      data["unassigned_units"][2] += 0.05;
-                                      data["unassigned_units"][3] += 0.05;
+                                  if (data[0] === data[2]) {
+                                      data[0] -= 0.05;
+                                      data[1] -= 0.05;
+                                      data[2] += 0.05;
+                                      data[3] += 0.05;
                                   } else {
-                                      const lngdiff = data["unassigned_units"][2] - data["unassigned_units"][0],
-                                            latdiff = data["unassigned_units"][3] - data["unassigned_units"][1];
-                                      data["unassigned_units"][0] -= 0.1 * lngdiff;
-                                      data["unassigned_units"][1] -= 0.1 * latdiff;
-                                      data["unassigned_units"][2] += 0.1 * lngdiff;
-                                      data["unassigned_units"][3] += 0.1 * latdiff;
+                                      const lngdiff = data[2] - data[0],
+                                            latdiff = data[3] - data[1];
+                                      data[0] -= 0.1 * lngdiff;
+                                      data[1] -= 0.1 * latdiff;
+                                      data[2] += 0.1 * lngdiff;
+                                      data[3] += 0.1 * latdiff;
                                   }
                                   this.mapState.map.fitBounds([
-                                    [data["unassigned_units"][0], data["unassigned_units"][1]],
-                                    [data["unassigned_units"][2], data["unassigned_units"][3]]
+                                    [data[0], data[1]],
+                                    [data[2], data[3]]
                                   ]);
                                   return;
                               }
