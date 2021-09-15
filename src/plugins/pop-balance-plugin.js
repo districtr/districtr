@@ -1,7 +1,7 @@
 
 import { html } from "lit-html";
 import { Tab } from "../components/Tab";
-import { spatial_abilities } from "../utils";
+import { spatial_abilities, specialStates } from "../utils";
 import HighlightUnassigned from "../components/Charts/HighlightUnassigned";
 import MultiMemberPopBalanceChart from "../components/Charts/MMPopBalanceChart";
 import populationBarChart from "../components/Charts/PopulationBarChart";
@@ -28,7 +28,8 @@ export default function PopulationBalancePlugin(editor) {
 
     const unassignedZoom = (e) => {
       const units = state.unitsRecord.id;
-      const stateName = state.place.state;
+
+      const stateName = specialStates(state.place.id);
       const paint_ids = Object.keys(state.plan.assignment).filter(k => {
           return (typeof state.plan.assignment[k] === 'object')
             ? state.plan.assignment[k][0] || (state.plan.assignment[k][0] === 0)
@@ -135,7 +136,7 @@ export default function PopulationBalancePlugin(editor) {
       };
 
     const zoomToUnassigned = (state.unitsRecord.id === "blockgroups" || state.unitsRecord.id === "blockgroups20"
-                                                                     || state.unitsRecord.id === "vtds20") ?
+                              || spatial_abilities(editor.state.place.id).portal || state.unitsRecord.id === "vtds20") ?
                               unassignedZoom
                               : spatial_abilities(editor.state.place.id).find_unpainted ? zoomToUnassigned_old : null;
 

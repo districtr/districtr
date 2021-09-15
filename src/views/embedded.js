@@ -9,6 +9,7 @@ import { generateId } from "../utils";
 import UIStateStore from "../models/UIStateStore";
 // import MiniToolbar from "../components/Toolbar/MiniToolbar";
 import CommunityPlugin from "../plugins/community-plugin";
+import { specialStates } from "../utils";
 
 const plugins = [ToolsPlugin];
 
@@ -107,7 +108,7 @@ export class EmbeddedDistrictr {
                               "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
-                              "state": this.state.place.state,
+                              "state": specialStates(this.state.place.id),
                               "units": this.state.unitsRecord.id,
                               "assignment": paint_ids})
                           }).then((res) => res.json())

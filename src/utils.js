@@ -5376,3 +5376,25 @@ export function county_fips_to_name(fips, state) {
   let st = state.toLowerCase().replace(' ', '');
   return codes[st][parseInt(fips)]
 }
+
+export function specialStates (moduleID) {
+  // does server rep. this as space, underscore, etc?
+  // pass through here to normalize module names
+  return {
+    dc: "district_of_columbia",
+    ma: "massachusetts",
+    newhampshire: "new_hampshire",
+    newjersey: "new_jersey",
+    new_mexico_portal: "new_mexico",
+    newyork: "new_york",
+    nc: "north_carolina",
+    northcarolina: "north_carolina",
+    northdakota: "north_dakota",
+    puertorico: "puerto_rico",
+    puertorico_prec: "puerto_rico",
+    // RI is OK
+    southcarolina: "south_carolina",
+    southdakota: "south_dakota",
+    westvirginia: "west_virginia",
+  }[moduleID] || moduleID;
+}
