@@ -42,32 +42,51 @@ export default function PopulationBalancePlugin(editor) {
       }).then((res) => res.json())
         .catch((e) => console.error(e))
         .then((data) => {
-          const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
-          if (data["unnassigned_units"] && data["unnassigned_units"].length > 0) {
-            const ids = data["unnassigned_units"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
-            fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
-              console.log(bbox);
-              if (! bbox[0].includes(null)) {
-                if (bbox.length && typeof bbox[0] === 'number') {
-                  bbox = {x: bbox};
-                } else if (bbox.length) {
-                  bbox = bbox[0];
-                  if (bbox.length) {
-                    bbox = {x: bbox};
-                  }
-                }
-                Object.values(bbox).forEach(mybbox => {
-                  editor.state.map.fitBounds([
-                    [mybbox[0], mybbox[2]],
-                    [mybbox[1], mybbox[3]]
-                  ]);
-                });
-              };
-            });
+          const awsBox = data["unassigned_units"] && data["unassigned_units"].length == 4;
+          if (awsBox) {
+              if (data["unassigned_units"][0] === data["unassigned_units"][2]) {
+                  data["unassigned_units"][0] -= 0.05;
+                  data["unassigned_units"][1] -= 0.05;
+                  data["unassigned_units"][2] += 0.05;
+                  data["unassigned_units"][3] += 0.05;
+              } else {
+                  const lngdiff = data["unassigned_units"][2] - data["unassigned_units"][0],
+                        latdiff = data["unassigned_units"][3] - data["unassigned_units"][1];
+                  data["unassigned_units"][0] -= 0.05 * lngdiff;
+                  data["unassigned_units"][1] -= 0.05 * latdiff;
+                  data["unassigned_units"][2] += 0.05 * lngdiff;
+                  data["unassigned_units"][3] += 0.05 * latdiff;
+              }
+              editor.state.map.fitBounds([
+                // lngmin, latmin
+                // lngmax, latmax
+                [data["unassigned_units"][0], data["unassigned_units"][1]],
+                [data["unassigned_units"][2], data["unassigned_units"][3]]
+              ]);
+              return;
           }
+          const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
+          fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
+            if (! bbox[0].includes(null)) {
+              if (bbox.length && typeof bbox[0] === 'number') {
+                bbox = {x: bbox};
+              } else if (bbox.length) {
+                bbox = bbox[0];
+                if (bbox.length) {
+                  bbox = {x: bbox};
+                }
+              }
+              Object.values(bbox).forEach(mybbox => {
+                editor.state.map.fitBounds([
+                  [mybbox[0], mybbox[2]],
+                  [mybbox[1], mybbox[3]]
+                ]);
+              });
+            };
+          });
         });
     };
-    
+
     const zoomToUnassigned_old = (e) => {
         let saveplan = state.serialize();
         const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
