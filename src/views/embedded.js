@@ -93,40 +93,81 @@ export class EmbeddedDistrictr {
                     if (context.assignment) {
                         this.state.plan.assignment = context.assignment; // know loaded district assignments
 
-                        const paint_ids = Object.keys(context.assignment);
-                        if (paint_ids.length <= 250) {
+                        const paint_ids = Object.keys(context.assignment).filter(k => {
+                            return (typeof context.assignment[k] === 'object')
+                              ? context.assignment[k][0] || (context.assignment[k][0] === 0)
+                              : context.assignment || (context.assignment === 0)
+                        });
+                        if (paint_ids.length <= 300) {
                           let placeID = this.state.place.id;
-                          if (["michigan", "ohio", "utah", "pennsylvania", "virginia", "texas", "wisconsin"].includes(placeID) && this.state.units.id.includes("block")) {
-                            placeID += "_bg";
-                          }
-                          const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
-                          fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
-                            let bbox = resp[0];
-                            if (!this.state.place) {
-                              return;
-                            }
-                            if (bbox.includes(null)) {
-                                if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features && this.state.place.landmarks.data.features.length > 1) {
-                                    // landmarks, no districts
-                                    bbox = [180, -180, 90 -90];
-                                } else {
-                                    // no content, no zooming
-                                    return;
+
+                          fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/unassigned", {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                              "state": this.state.place.state,
+                              "units": this.state.unitsRecord.id,
+                              "assignment": paint_ids})
+                          }).then((res) => res.json())
+                            .catch((e) => console.error(e))
+                            .then((data) => {
+                              const awsBox = data["unassigned_units"] && data["unassigned_units"].length == 4;
+                              if (awsBox) {
+                                  if (data["unassigned_units"][0] === data["unassigned_units"][2]) {
+                                      data["unassigned_units"][0] -= 0.05;
+                                      data["unassigned_units"][1] -= 0.05;
+                                      data["unassigned_units"][2] += 0.05;
+                                      data["unassigned_units"][3] += 0.05;
+                                  } else {
+                                      const lngdiff = data["unassigned_units"][2] - data["unassigned_units"][0],
+                                            latdiff = data["unassigned_units"][3] - data["unassigned_units"][1];
+                                      data["unassigned_units"][0] -= 0.1 * lngdiff;
+                                      data["unassigned_units"][1] -= 0.1 * latdiff;
+                                      data["unassigned_units"][2] += 0.1 * lngdiff;
+                                      data["unassigned_units"][3] += 0.1 * latdiff;
+                                  }
+                                  this.mapState.map.fitBounds([
+                                    [data["unassigned_units"][0], data["unassigned_units"][1]],
+                                    [data["unassigned_units"][2], data["unassigned_units"][3]]
+                                  ]);
+                                  return;
+                              }
+
+
+                              if (["michigan", "ohio", "utah", "pennsylvania", "virginia", "texas", "wisconsin"].includes(placeID) && this.state.units.id.includes("block")) {
+                                placeID += "_bg";
+                              }
+                              const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
+                              fetch(`${myurl}ids=${paint_ids.slice(0, 250).join(",")}`).then(res => res.json()).then((resp) => {
+                                let bbox = resp[0];
+                                if (!this.state.place) {
+                                  return;
                                 }
-                            }
-                            if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
-                              // landmarks + districts
-                              this.state.place.landmarks.data.features.forEach((pt) => {
-                                if (pt.geometry.type === "Point") {
-                                  bbox[0] = Math.min(bbox[0], pt.geometry.coordinates[0]);
-                                  bbox[2] = Math.min(bbox[2], pt.geometry.coordinates[1]);
-                                  bbox[1] = Math.max(bbox[1], pt.geometry.coordinates[0]);
-                                  bbox[3] = Math.max(bbox[3], pt.geometry.coordinates[1]);
+                                if (bbox.includes(null)) {
+                                    if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features && this.state.place.landmarks.data.features.length > 1) {
+                                        // landmarks, no districts
+                                        bbox = [180, -180, 90 -90];
+                                    } else {
+                                        // no content, no zooming
+                                        return;
+                                    }
                                 }
+                                if (this.state.place.landmarks && this.state.place.landmarks.data && this.state.place.landmarks.data.features) {
+                                  // landmarks + districts
+                                  this.state.place.landmarks.data.features.forEach((pt) => {
+                                    if (pt.geometry.type === "Point") {
+                                      bbox[0] = Math.min(bbox[0], pt.geometry.coordinates[0]);
+                                      bbox[2] = Math.min(bbox[2], pt.geometry.coordinates[1]);
+                                      bbox[1] = Math.max(bbox[1], pt.geometry.coordinates[0]);
+                                      bbox[3] = Math.max(bbox[3], pt.geometry.coordinates[1]);
+                                    }
+                                  });
+                                }
+                                this.mapState.map.fitBounds([[bbox[0], bbox[2]], [bbox[1], bbox[3]]]);
                               });
-                            }
-                            this.mapState.map.fitBounds([[bbox[0], bbox[2]], [bbox[1], bbox[3]]]);
-                          });
+                            });
                         }
                     }
 

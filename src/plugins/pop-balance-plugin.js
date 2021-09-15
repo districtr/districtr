@@ -52,10 +52,10 @@ export default function PopulationBalancePlugin(editor) {
               } else {
                   const lngdiff = data["unassigned_units"][2] - data["unassigned_units"][0],
                         latdiff = data["unassigned_units"][3] - data["unassigned_units"][1];
-                  data["unassigned_units"][0] -= 0.05 * lngdiff;
-                  data["unassigned_units"][1] -= 0.05 * latdiff;
-                  data["unassigned_units"][2] += 0.05 * lngdiff;
-                  data["unassigned_units"][3] += 0.05 * latdiff;
+                  data["unassigned_units"][0] -= 0.1 * lngdiff;
+                  data["unassigned_units"][1] -= 0.1 * latdiff;
+                  data["unassigned_units"][2] += 0.1 * lngdiff;
+                  data["unassigned_units"][3] += 0.1 * latdiff;
               }
               editor.state.map.fitBounds([
                 // lngmin, latmin
