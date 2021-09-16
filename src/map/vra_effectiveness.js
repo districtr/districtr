@@ -14,7 +14,8 @@ export default function VRAEffectiveness(state, brush, toolbar) {
   const group_map = {
                         "tx_vra": ["Black", "Hispanic"],
                         "la_vra": ["Black"],
-                        "ma_vra": ["Asian", "Black","Hispanic"]
+                        "ma_vra": ["Asian", "Black", "Hispanic"],
+                        "md_vra": ["Black"]
                     };
 
   const groups = group_map[state.place.id];

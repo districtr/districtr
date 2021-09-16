@@ -155,6 +155,8 @@ export default function PopulationBalancePlugin(editor) {
             `
         );
     } else {
+        console.dir(state.population);
+        console.dir(state.activeParts);
         tab.addRevealSection(
             "Population Balance",
             () =>

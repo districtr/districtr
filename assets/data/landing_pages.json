@@ -3563,11 +3563,12 @@
   {
     "state": "VRA - Dashboard",
     "code": "VRA",
-    "states": ["Louisiana", "Texas", "Massachusetts"],
+    "states": ["Louisiana", "Texas", "Massachusetts", "Maryland"],
     "modules": [
       { "name": "Louisiana", "ids": ["la_vra"], "default": "true", "id": "la" },
       { "name": "Massachusetts", "ids": ["ma_vra"], "id": "massachusetts" },
-      { "name": "Texas", "ids": ["tx_vra"], "id": "tx" }
+      { "name": "Texas", "ids": ["tx_vra"], "id": "tx" },
+      { "name": "Maryland", "ids": ["md_vra"], "id": "md" }
     ],
     "sections": [
       {

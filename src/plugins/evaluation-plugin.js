@@ -228,8 +228,16 @@ export default function EvaluationPlugin(editor) {
         );
     }
 
-    // console.log(state);
-    if (showVRA && (state.units.sourceId !== "ma_towns")) {
+    // Set out a list of modules we're excluding (or differentiating) from the
+    // typical set of VRA modules. TODO: this needs to be refactored, because
+    // it's not a great way to do this.
+    let excluded = [
+            "ma_towns",
+            "md_vra_Precinct"
+        ];
+
+    // If the VRA module loaded isn't in the list of 
+    if (showVRA && !excluded.includes(state.units.sourceId)) {
         VRAtab.addRevealSection(
             "VRA Effectiveness Overview",
             (uiState, dispatch) =>
@@ -260,9 +268,7 @@ export default function EvaluationPlugin(editor) {
         //         isOpen: false
         //     }
         // );
-    }
-    
-    if (showVRA && (state.units.sourceId !== "ma_towns")) {
+
         VRAtab.addRevealSection(
             "VRA District Details",
             (uiState, dispatch) =>
@@ -276,6 +282,27 @@ export default function EvaluationPlugin(editor) {
                 ),
             {
                 isOpen: false,
+                activePartIndex: 0,
+                activeSubgroupIndices: [0,0]
+            }
+        );
+    } else if (showVRA && state.units.sourceId === "md_vra_Precinct") {
+        // Otherwise, because we have a special MD module, we want to adjust the
+        // titles of the dropdown menus. Refactoring this should be included in
+        // the above refactoring.
+        VRAtab.addRevealSection(
+            "Statewide Elections – District Details",
+            (uiState, dispatch) =>
+                VRAResultsSection(
+                    "Statewide Elections – District Details",
+                    state.parts,
+                    state.vra_effectiveness,
+                    state.place.id,
+                    uiState,
+                    dispatch
+                ),
+            {
+                isOpen: true,
                 activePartIndex: 0,
                 activeSubgroupIndices: [0,0]
             }
