@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 import Parameter from "../components/Parameter";
 import Select from "../components/Select";
-import { colorByCount, purpleByCount, colorByFraction } from "./color-rules";
+import { colorByCount, colorByFraction, purpleByCount, purpleByFraction } from "./color-rules";
 import Overlay from "./Overlay";
 
 export default class OverlayContainer {
-    constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition, multiYear, percents) {
+    constructor(id, layers, columnSet, toggleText, firstOnly, includeCoalition, multiYear, percents, purpleHardcode) {
         this._id = id;
         this._currentSubgroupIndex = firstOnly ? 1 : 0;
         this.subgroups = columnSet.columns;
@@ -13,6 +13,7 @@ export default class OverlayContainer {
         this.multiYear = multiYear;
         this.yr = 2010;
         this.percents = percents;
+        this.purpleHardcode = purpleHardcode;
 
         if (includeCoalition) {
             this.subgroups = this.subgroups.concat([]);
@@ -69,7 +70,7 @@ export default class OverlayContainer {
         // and to register new overlay types. Plugins could just register
         // their layer styles against columnSet/subgroup types.
         let colorRule =
-            ((this.firstOnly || this.percents) ? purpleByCount
+            ((this.firstOnly || this.percents || this.purpleHardcode) ? purpleByCount
               : ((this.subgroups[0].total === this.subgroups[0])
                   ? colorByCount
                   : colorByFraction)
@@ -150,7 +151,7 @@ export default class OverlayContainer {
             document.getElementById("counts-" + this._id).style.display = "none";
             document.getElementById("percents-" + this._id).style.display = "block";
         } else if (this.firstOnly || (this.subgroups[i].total === this.subgroups[i]) || (this.subgroups[i].key.includes("TOTPOP"))) {
-            if (this.firstOnly) {
+            if (this.firstOnly || this.purpleHardcode) {
                 this.overlay.setColorRule(purpleByCount);
             } else {
                 this.overlay.setColorRule(colorByCount);
@@ -183,7 +184,11 @@ export default class OverlayContainer {
             document.getElementById("counts-" + this._id).style.display = "block";
             document.getElementById("percents-" + this._id).style.display = "none";
         } else {
-            this.overlay.setColorRule(colorByFraction);
+            if (this.purpleHardcode) {
+                this.overlay.setColorRule(purpleByFraction);
+            } else {
+                this.overlay.setColorRule(colorByFraction);
+            }
             document.getElementById("counts-" + this._id).style.display = "none";
             document.getElementById("percents-" + this._id).style.display = "block";
         }
@@ -247,7 +252,7 @@ export default class OverlayContainer {
                 })
             }
             <div id="color-${this._id}" class="color-legend">
-                <span class="gradientbar ${(this.firstOnly || this.percents) ? 'purple' : ''}"></span>
+                <span class="gradientbar ${(this.firstOnly || this.percents || this.purpleHardcode) ? 'purple' : ''}"></span>
                 <br/>
                 <div id="notches-${this._id}" class="notches">
                     <span class="notch">|</span>
