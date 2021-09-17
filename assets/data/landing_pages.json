@@ -3487,6 +3487,10 @@
                 "name": "Congressional Plan (2019 Population)"
               },
               {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan (2020 Population)"
+              },
+              {
                 "id": "statesen_2020wards",
                 "name": "State Senate Plan (2019 Population)"
               },
