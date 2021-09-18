@@ -15248,5 +15248,275 @@
       "pluralNoun": "Supervisorial Districts"
     }
   ]
+},
+{
+  "id": "ojai",
+  "name": "Ojai",
+  "state": "California",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 7637,
+            "min": 0,
+            "max": 431
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 5482,
+              "min": 0,
+              "max": 307
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 26,
+              "min": 0,
+              "max": 4
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 225,
+              "min": 0,
+              "max": 16
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 1465,
+              "min": 0,
+              "max": 142
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total population",
+            "sum": 5604,
+            "min": 0,
+            "max": 311
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 6,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 71,
+              "min": 0,
+              "max": 8
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 549,
+              "min": 0,
+              "max": 41
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -119.2746,
+          34.4292
+        ],
+        [
+          -119.2205,
+          34.4707
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ojai_blocks20_points"
+          },
+          "sourceLayer": "ojai_blocks20_points"
+        },
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ojai_blocks20"
+          },
+          "sourceLayer": "ojai_blocks20"
+        }
+      ]
+    }
+  ],
+  "districtingProblems": [
+    {
+      "name": "County",
+      "numberOfParts": 4,
+      "pluralNoun": "Council Districts"
+    }
+  ]
+},
+{
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 448852,
+            "min": 0,
+            "max": 2942
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 157586,
+              "min": 0,
+              "max": 1032
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 6203,
+              "min": 0,
+              "max": 127
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 210375,
+              "min": 0,
+              "max": 2293
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 49643,
+              "min": 0,
+              "max": 1180
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total population",
+            "sum": 244926,
+            "min": 0,
+            "max": 1525
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 4033,
+              "min": 0,
+              "max": 110
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 324,
+              "min": 0,
+              "max": 14
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 86033,
+              "min": 0,
+              "max": 465
+            },
+            {
+              "key": "CVAP_15-19_Hawaiian_API",
+              "name": "Native Hawaiian Pacific Islander population",
+              "sum": 543,
+              "min": 0,
+              "max": 43
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 20350,
+              "min": 0,
+              "max": 304
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -122.2027,
+          37.2645
+        ],
+        [
+          -121.9678,
+          37.4778
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_foothill_blocks20_points"
+          },
+          "sourceLayer": "ca_foothill_blocks20_points"
+        },
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_foothill_blocks20"
+          },
+          "sourceLayer": "ca_foothill_blocks20"
+        }
+      ]
+    }
+  ],
+  "id": "ca_foothill",
+  "state": "California",
+  "name": "Foothill-De Anza CCD",
+  "districtingProblems": [
+    {
+      "name": "County",
+      "numberOfParts": 5,
+      "pluralNoun": "Trustee Districts"
+    }
+  ]
 }
 ]

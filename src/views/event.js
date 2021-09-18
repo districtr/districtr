@@ -92,6 +92,8 @@ ventura_county: 'California',
 yolo_county: 'California',
 solano_county: 'California',
 imperial_county: 'California',
+ojai: 'California',
+foothilldeanza: 'California',
   'galeo': 'Georgia',
   ourmaps: 'Nebraska',
   marinco: 'California',
@@ -198,6 +200,8 @@ santa_clara_water: 'santa_clara_h2o',
   yolo_county: 'ca_yolo',
   solano_county: 'ca_solano',
   imperial_county: 'ca_imperial',
+  ojai: 'ojai',
+  foothilldeanza: 'ca_foothill',
   'galeo': 'hall_ga',
   goleta: 'ca_goleta',
   sbcounty: 'ca_santabarbara',
@@ -321,6 +325,8 @@ const hybrid_events = [
   'city_of_napa',
   'napa_county',
   'imperial_county',
+  'ojai',
+  'foothilldeanza',
   'saccountymap',
   'fresno',
   'fresnocity',
@@ -759,6 +765,17 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community. You can also start drawing district plans.</strong></p>\
   <p>Every map submitted will be carefully reviewed by the Imperial County Redistricting Advisory Committee charged with redrawing and recommending the Supervisorial District Map.</p>\
   <p>To draw your community click on the orange button. To draw a five district plan click on the purple button. To view demographic data on the map and add city boundaries, click on the “Data Layers” tab. After you have drawn your community, please provide a name for your community and provide a short description. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Imperial_County” (any capitalization) is entered.</p>',
+  ojai: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Every map submitted will be carefully reviewed and included as part of the public record. For more information visit <a href="https://ojai.ca.gov/redistricting/" target="_blank">this link</a>.</p>\
+  <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Ojai”.</p>\
+  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
+  foothilldeanza: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each Trustee represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Trustee. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Get started by clicking the orange button to draw your community or the purple button to draw your map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “FoothillDeAnza”.</p>\
+  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -984,6 +1001,12 @@ const longAbout = {
     <br/>For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   imperial_county: [
+    "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  ojai: [
+    "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  foothilldeanza: [
     "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   napa_county: [
@@ -1343,7 +1366,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "imperial_county"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "imperial_county", "ojai", "foothilldeanza"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -1375,11 +1398,17 @@ export default () => {
             } else if (eventCode === "solano_county") {
               document.getElementById("partner-link-a").href = "https://www.solanocounty.com";
               document.getElementById("partnership-a").src = "/assets/partners-solano.gif";
+            } else if (eventCode === "foothilldeanza") {
+              document.getElementById("partner-link-a").href = "https://www.fhda.edu";
+              document.getElementById("partnership-a").src = "/assets/partners-foothill.jpeg";
+            } else if (eventCode === "ojai") {
+              document.getElementById("partner-link-a").href = "https://ojai.ca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-ojai.jpeg";
             } else if (eventCode === "imperial_county") {
               document.getElementById("partner-link-a").href = "https://imperialcounty.org";
               document.getElementById("partnership-a").src = "/assets/partners-imperial.png";
               document.getElementById("partnership-a").style.height = '85px';
-              document.getElementById("partnership-a").style.marginTop = '-12px';              
+              document.getElementById("partnership-a").style.marginTop = '-12px';
             } else if (eventCode === "santa_clara_county") {
               document.getElementById("partner-link-a").href = "https://www.sccgov.org/sites/scc/Documents/home.html";
               document.getElementById("partnership-a").src = "/assets/partners-sc-county.svg?v=2";

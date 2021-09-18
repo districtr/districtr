@@ -815,6 +815,16 @@ export function spatial_abilities(id) {
     shapefile: true,
     municipalities: "Census Places",
   },
+  ojai: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
+  ca_foothill: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+  },
   ca_sanjoaquin: {
     number_markers: true,
     border: true,
