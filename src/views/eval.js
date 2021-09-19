@@ -303,20 +303,15 @@ function election_section(state) {
     elections.forEach(e => e.subgroups = e.subgroups.length == 1 ? e.subgroups : e.subgroups.filter(p => ['Democratic', 'Republican'].includes(p.name)));
     
     let headers = ['Election'].concat(
-        elections[0].parties.map(party => {
-        const rgb = getPartyRGBColors(party.name + party.key);
-        return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`})).concat(
-        elections[0].parties.map(party => {
+        elections[0].parties.reduce((acc, party) => {
             const rgb = getPartyRGBColors(party.name + party.key);
-            return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`})).concat(
-                [html`<div>Disproportionality</div>`]
-            );
-        
+            return acc.concat([html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`,
+                    html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`])
+        }, [])).concat([html`<div>Disproportionality</div>`]);
+
     let bias_acc = []
     for (let election of elections) {
-        let votes = election.parties.map(party => getCell(party, null)),
-            seats = election.parties.map(party => getCellSeatShare(party, election));
-            let d_votes = election.parties[0].getOverallFraction(),
+        let d_votes = election.parties[0].getOverallFraction(),
             d_seats = election.getSeatsWonParty(election.parties[0]);
         let d_seat_share = d_seats/election.total.data.length;
         let bias_to = (d_votes > d_seat_share) ? "R" : "D";
@@ -333,7 +328,9 @@ function election_section(state) {
 
         rows.push({
             label: parseElectionName(election.name),
-            entries: votes.concat(seats).concat(biases)
+            entries: election.parties.reduce((acc, party) => acc.concat([getCell(party, null), 
+                                                                         getCellSeatShare(party, election)]),
+                                             []).concat(biases)
         });
     }
     let favor = bias_acc.map(x => x > 0 ? 1 : -1).reduce((a,b) => a + b, 0);
