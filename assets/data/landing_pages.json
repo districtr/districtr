@@ -2959,7 +2959,7 @@
       },
       {
         "name": "Cities",
-        "ids": ["austin", "fortworth", "houston"],
+        "ids": ["austin", "fortworth", "houston", "dallastx"],
         "id": "loc"
       }
     ],

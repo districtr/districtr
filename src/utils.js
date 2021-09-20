@@ -1783,6 +1783,12 @@ export function spatial_abilities(id) {
       number_markers: true,
       number_markers_lambda: true,
     },
+    dallastx: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
+    },
     austin: {
       border: true,
       number_markers: true,
