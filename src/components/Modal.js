@@ -55,6 +55,12 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
         if (isFromQAPortal) {
             portalLink = portalLink.replace('portal','qa-portal')
         }
+        let portalName = state.place.state;
+        if (state.place.id === "ca_SanDiego") {
+            portalName = "City of San Diego";
+        } else if (state.place.id === "minneapolis") {
+            portalName = "City of Minneapolis";
+        }
         let withUrl = (_id) => {
             render(renderModal(
                 html`
@@ -78,7 +84,7 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
                     > Copy to Clipboard </button>
                     <br/>
                     <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—other people’s changes will save to a new link.</p>
-                    <p>When you are ready, you can bring this map back to the submission form on the ${state.place.state} Redistricting Public Comment Portal.</p>
+                    <p>When you are ready, you can bring this map back to the submission form on the ${portalName} Redistricting Public Comment Portal.</p>
                     <div style="text-align:center">
                       <a
                         href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
