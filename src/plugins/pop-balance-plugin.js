@@ -95,50 +95,11 @@ export default function PopulationBalancePlugin(editor) {
         });
     };
 
-    const zoomToUnassigned_old = (e) => {
-        let saveplan = state.serialize();
-        const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-        fetch(GERRYCHAIN_URL + "/unassigned", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(saveplan),
-        })
-        .then((res) => res.json())
-        .catch((e) => console.error(e))
-        .then((data) => {
-          if (data["-1"] && data["-1"].length) {
-            const ids = data["-1"].filter(a => !a.includes(null)).sort((a, b) => b.length - a.length)[0];
-            const myurl = `//mggg.pythonanywhere.com/findBBox?place=${placeID}&`;
-              // : `https://mggg-states.subzero.cloud/rest/rpc/bbox_${placeID}?`
-            fetch(`${myurl}ids=${ids.slice(0, 100).join(sep)}`).then(res => res.json()).then((bbox) => {
-              console.log(bbox);
-              if (! bbox[0].includes(null)) {
-                if (bbox.length && typeof bbox[0] === 'number') {
-                  bbox = {x: bbox};
-                } else if (bbox.length) {
-                  bbox = bbox[0];
-                  if (bbox.length) {
-                    bbox = {x: bbox};
-                  }
-                }
-                Object.values(bbox).forEach(mybbox => {
-                  editor.state.map.fitBounds([
-                    [mybbox[0], mybbox[2]],
-                    [mybbox[1], mybbox[3]]
-                  ]);
-                });
-              };
-            });
-          }
-        });
-      };
-
     const zoomToUnassigned = (state.unitsRecord.id === "blockgroups" || state.unitsRecord.id === "blockgroups20"
-                              || spatial_abilities(editor.state.place.id).portal || state.unitsRecord.id === "vtds20") ?
-                              unassignedZoom
-                              : spatial_abilities(editor.state.place.id).find_unpainted ? zoomToUnassigned_old : null;
+                              || spatial_abilities(editor.state.place.id).portal
+                              || spatial_abilities(editor.state.place.id).find_unpainted
+                              || state.unitsRecord.id === "vtds20")
+                                ? unassignedZoom : null;
 
 
     if (problem.type === "multimember") {

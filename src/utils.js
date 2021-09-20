@@ -437,6 +437,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+      find_unpainted: true,
     },
     contracosta: {
       number_markers: true,
@@ -755,6 +756,7 @@ export function spatial_abilities(id) {
   },
   menlo_park: {
     border: true,
+    find_unpainted: true,
     boundaries: [{
       id: 'schools',
       label: 'School Districts',
@@ -814,16 +816,19 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     municipalities: "Census Places",
+    find_unpainted: true,
   },
   ojai: {
     number_markers: true,
     border: true,
     shapefile: true,
+    find_unpainted: true,
   },
   ca_foothill: {
     number_markers: true,
     border: true,
     shapefile: true,
+    find_unpainted: true,
   },
   ca_sanjoaquin: {
     number_markers: true,
@@ -886,6 +891,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    find_unpainted: true,
   },
   ca_martinez: {
     border: true,
@@ -932,6 +938,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    find_unpainted: true,
   },
   ca_solano: {
     border: true,
@@ -1747,6 +1754,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      find_unpainted: true,
     },
     southcarolina: {
       native_american: true,
@@ -1793,6 +1801,7 @@ export function spatial_abilities(id) {
       border: true,
       number_markers: true,
       shapefile: true,
+      find_unpainted: true,
     },
     fortworth: {
       border: true,
