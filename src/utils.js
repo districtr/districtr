@@ -1743,6 +1743,11 @@ export function spatial_abilities(id) {
     providence_ri: {
       border: true,
     },
+    cranston_ri: {
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     southcarolina: {
       native_american: true,
       number_markers: true,
@@ -1780,6 +1785,8 @@ export function spatial_abilities(id) {
     },
     austin: {
       border: true,
+      number_markers: true,
+      shapefile: true,
     },
     fortworth: {
       border: true,
