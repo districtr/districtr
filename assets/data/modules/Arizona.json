@@ -2034,7 +2034,7 @@
             "total": {
               "key": "LF_20_Total",
               "name": "Total population",
-              "sum": 520982,
+              "sum": 504300,
               "min": 0,
               "max": 1285
             },
@@ -2042,42 +2042,42 @@
               {
                 "key": "LF_20_White",
                 "name": "White population",
-                "sum": 312534,
+                "sum": 300538,
                 "min": 0,
                 "max": 808
               },
               {
                 "key": "LF_20_AfAm",
                 "name": "Black population",
-                "sum": 20113,
+                "sum": 19816,
                 "min": 0,
                 "max": 204
               },
               {
                 "key": "LF_20_AiAn",
                 "name": "American Indian population",
-                "sum": 9916,
+                "sum": 9752,
                 "min": 0,
                 "max": 114
               },
               {
                 "key": "LF_20_Asian",
                 "name": "Asian population",
-                "sum": 13011,
+                "sum": 12725,
                 "min": 0,
                 "max": 88
               },
               {
                 "key": "LF_20_HoPI",
                 "name": "Native Hawaiian Pacific Islander population",
-                "sum": 1914,
+                "sum": 1893,
                 "min": 0,
                 "max": 30
               },
               {
-                "key": "LF_20_Hisp",
+                "key": "LF_20_Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 140844,
+                "sum": 137502,
                 "min": 0,
                 "max": 814
               }
@@ -2089,50 +2089,50 @@
             "total": {
               "key": "CVAP_15-19_Total",
               "name": "Total population",
-              "sum": 346406,
+              "sum": 333279,
               "min": 0,
-              "max": 1092
+              "max": 1091
             },
             "subgroups": [
               {
-                "key": "CVAP_15-19_White",
+                "key": "CVAP_15-19_White Alone",
                 "name": "White population",
-                "sum": 252670,
+                "sum": 242049,
                 "min": 0,
                 "max": 715
               },
               {
-                "key": "CVAP_15-19_Black",
+                "key": "CVAP_15-19_Black or African American Alone",
                 "name": "Black population",
-                "sum": 11808,
+                "sum": 11785,
                 "min": 0,
-                "max": 137
+                "max": 136
               },
               {
-                "key": "CVAP_15-19_AmIn",
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
                 "name": "American Indian population",
-                "sum": 6656,
+                "sum": 6552,
                 "min": 0,
-                "max": 249
+                "max": 248
               },
               {
-                "key": "CVAP_15-19_Asian",
+                "key": "CVAP_15-19_Asian Alone",
                 "name": "Asian population",
-                "sum": 5702,
+                "sum": 5684,
                 "min": 0,
                 "max": 126
               },
               {
-                "key": "CVAP_15-19_NHPI",
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
                 "name": "Native Hawaiian Pacific Islander population",
-                "sum": 1039,
+                "sum": 1080,
                 "min": 0,
-                "max": 26
+                "max": 25
               },
               {
-                "key": "CVAP_15-19_Hisp",
+                "key": "CVAP_15-19_Hispanic or Latino",
                 "name": "Hispanic population",
-                "sum": 62274,
+                "sum": 60594,
                 "min": 0,
                 "max": 310
               }
@@ -2158,7 +2158,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz2_blocks20_points"
+              "url": "mapbox://districtr.mesaaz2_blocks20_points?v=2"
             },
             "sourceLayer": "mesaaz2_blocks20_points"
           },
@@ -2166,7 +2166,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.mesaaz2_blocks20"
+              "url": "mapbox://districtr.mesaaz2_blocks20?v=2"
             },
             "sourceLayer": "mesaaz2_blocks20"
           }
@@ -2181,6 +2181,189 @@
         "name": "City Council",
         "numberOfParts": 6,
         "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 248415,
+              "min": 0,
+              "max": 1674
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "TotMinCVAP",
+              "name": "Total population",
+              "sum": 969,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "WhtCVAP",
+                "name": "White population",
+                "sum": 1388,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "BlkCVAP",
+                "name": "Black population",
+                "sum": 134,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "APICVAP",
+                "name": "Asian / Pacific Islander population",
+                "sum": 113,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "LatinoCVAP",
+                "name": "Hispanic population",
+                "sum": 668,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHom",
+              "name": "Children at home",
+              "sum": 5,
+              "min": 0.0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 8,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 7,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 17,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGra",
+                "name": "College graduate",
+                "sum": 9,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Inc75k",
+                "name": ">$75k income",
+                "sum": 11,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtH",
+                "name": "Spanish spoken at home",
+                "sum": 4,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtH",
+                "name": "Asian languages spoken at home",
+                "sum": 1,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtH",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0.0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -112.4616,
+            33.5078
+          ],
+          [
+            -112.1516,
+            33.6979
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glendaleaz2_blocks20_points"
+            },
+            "sourceLayer": "glendaleaz2_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glendaleaz2_blocks20"
+            },
+            "sourceLayer": "glendaleaz2_blocks20"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.glndazdata3_blockgroups20"
+            },
+            "sourceLayer": "glndazdata3_blockgroups20"
+          }
+        ]
+      }
+    ],
+    "state": "Arizona",
+    "name": "Glendale",
+    "id": "glendaleaz",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "Council Districts"
       }
     ]
   }

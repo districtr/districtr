@@ -102,7 +102,7 @@ export default function DataLayersPlugin(editor) {
     let selectBoundaries = abilities.boundaries || [];
     const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
-          placeID = ["california", "ohio"].includes(stateID) ? state.place.id : stateID;
+          placeID = ["california", "ohio", "texas"].includes(stateID) ? state.place.id : stateID;
 
     if (abilities.municipalities) {
         selectBoundaries.push({
@@ -132,9 +132,9 @@ export default function DataLayersPlugin(editor) {
       });
     }
     if (abilities.current_districts) {
-      if (stateID === "california") {
+      if (["california", "texas"].includes(stateID)) {
           selectBoundaries.push({
-              path: `current_districts/california/${placeID}`,
+              path: `current_districts/${stateID}/${placeID}`,
               id: 'cur_district',
               centroids: false,
               label: (typeof abilities.current_districts === 'string')
@@ -287,7 +287,9 @@ export default function DataLayersPlugin(editor) {
         "Show population",
         false, // first only (one layer)?
         (abilities.coalition === false) ? null : "Coalition population*", // coalition subgroup
-        (supportMultiYear ? abilities.multiyear : null) // multiple years
+        (supportMultiYear ? abilities.multiyear : null), // multiple years
+        false,
+        abilities.purple_demo,
     );
     coalitionOverlays.push(demographicsOverlay);
 
@@ -300,7 +302,9 @@ export default function DataLayersPlugin(editor) {
             "Show voting age population (VAP)",
             false,
             (abilities.coalition === false) ? null : "Coalition voting age population",
-            false // multiple years? not on miami-dade
+            false,
+            false,
+            abilities.purple_demo,
         );
         coalitionOverlays.push(vapOverlay);
     }
@@ -312,7 +316,9 @@ export default function DataLayersPlugin(editor) {
             "Show citizen voting age population (CVAP)",
             false,
             (abilities.coalition === false) ? null : "Coalition citizen voting age population",
-            false // multiple years? not on miami-dade
+            false,
+            false,
+
         );
         coalitionOverlays.push(vapOverlay);
     }

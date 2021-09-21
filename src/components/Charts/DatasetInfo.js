@@ -13,6 +13,7 @@ function datasetInfo(state) {
         populations = {
             census: "Uses <strong>2010 Decennial Census</strong> data",
             census20: "Uses <strong>2020 Decennial Census</strong> data",
+            census20adj: "Uses <strong>2020 Decennial Census</strong> prison-adjusted data",
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
             mesa2020: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
@@ -35,9 +36,13 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
     } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.sacramento}`;
+    } else if ("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
     } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name)) {
         dataset = `<p><span>&#9432;</span> ${populations.census20}`;
-    } else dataset = `<p><span>&#9432;</span> ${populations.census}`;
+    } else { 
+        dataset = `<p><span>&#9432;</span> ${populations.census}`;
+    }
 
     return dataset + ` on <strong>${units}</strong>.</p>`;
 }

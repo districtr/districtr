@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "glendaleaz_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "BARREL" }, "geometry": { "type": "Point", "coordinates": [ -112.187376000435151, 33.573084573174071 ] } },
+{ "type": "Feature", "properties": { "NAME": "CACTUS" }, "geometry": { "type": "Point", "coordinates": [ -112.162438124000104, 33.542966925015129 ] } },
+{ "type": "Feature", "properties": { "NAME": "CHOLLA" }, "geometry": { "type": "Point", "coordinates": [ -112.198392444129212, 33.671071925626151 ] } },
+{ "type": "Feature", "properties": { "NAME": "OCOTILLO" }, "geometry": { "type": "Point", "coordinates": [ -112.191113803709001, 33.53283938397707 ] } },
+{ "type": "Feature", "properties": { "NAME": "SAHUARO" }, "geometry": { "type": "Point", "coordinates": [ -112.19244179494514, 33.625447984288925 ] } },
+{ "type": "Feature", "properties": { "NAME": "YUCCA" }, "geometry": { "type": "Point", "coordinates": [ -112.35912071112007, 33.54107875514989 ] } }
+]
+}

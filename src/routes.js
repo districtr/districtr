@@ -114,7 +114,23 @@ export function savePlanToDB(state, eventCode, planName, callback, forceNotScrat
                 localStorage.setItem("districtr_token_" + info.simple_id, info.token + "_" + (1 * new Date()));
             }
             if (spatial_abilities(state.place.id).shapefile) {
-                fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+                // screenshot
+                if (
+                  (state.place.id === state.place.state.toLowerCase() &&
+                  ["blockgroups20", "vtds20"].includes(state.unitsRecord.id))
+                    || ["new_mexico", "new_mexico_portal"].includes(state.place.id)
+                ) {
+                    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/plan_thumbnail", {
+                      method: 'POST',
+                      mode: 'cors',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ id: info.simple_id }),
+                    }).then((res) => res.text()).then(f => console.log('saved image'))
+                } else {
+                    fetch("//mggg.pythonanywhere.com/picture2?id=" + info.simple_id).then((res) => res.text()).then(f => console.log('saved image'))
+                }
             }
             callback(info.simple_id, action);
         } else {
@@ -215,7 +231,7 @@ export function loadPlanFromCSV(assignmentList, state) {
 
     const delimiter = (state.place.id === "louisiana") ? ";" : ",";
 
-    let districtIds = new Set(rows.map((row, index) => row.split(delimiter)[1].split("_")[0] ));
+    let districtIds = new Set(rows.slice(1).map((row, index) => row.split(delimiter)[1].split("_")[0] ));
     if (headers) {districtIds.delete(rows[0].split(delimiter)[1]);}
     districtIds.delete(undefined);
 

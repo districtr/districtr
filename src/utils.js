@@ -354,6 +354,18 @@ export function spatial_abilities(id) {
       border: true,
       sideload: true,
     },
+    glendaleaz: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      coalition: false,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/glendaleaz',
+        centroids: true,
+      }]
+    },
     phoenix: {
       native_american: true,
       number_markers: true,
@@ -377,6 +389,40 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    ca_SanDiego: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      purple_demo: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current City Council Districts (2011)',
+        path: 'current_districts/california/ca_SanDiego',
+        lineColor: 'orangered',
+      },{
+        id: 'neighborhood',
+        label: 'Community Planning Group Areas',
+        path: 'neighborhoods/california/ca_SanDiego',
+        centroids: true,
+        lineColor: 'darkgreen',
+      },{
+        id: 'pbeats', // aka police beats
+        label: 'Neighborhood Areas',
+        path: 'neighborhoods/california/ca_SanDiego_beats',
+        centroids: true,
+        lineColor: 'darkblue',
+      },{
+        id: 'schools',
+        label: 'School Districts',
+        path: 'school_districts/california/ca_SanDiego',
+        centroids: true,
+        fill: true,
+        fill_alt: true,
+      }],
+      portal: {
+        endpoint: 'https://portal.sandiego-mapping.org'
+      },
+    },
     ca_contracosta: {
       number_markers: true,
       border: true,
@@ -391,6 +437,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+      find_unpainted: true,
     },
     contracosta: {
       number_markers: true,
@@ -453,6 +500,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      current_districts: true,
     },
     ca_carlsbad: {
       coalition: false,
@@ -708,6 +756,7 @@ export function spatial_abilities(id) {
   },
   menlo_park: {
     border: true,
+    find_unpainted: true,
     boundaries: [{
       id: 'schools',
       label: 'School Districts',
@@ -718,8 +767,9 @@ export function spatial_abilities(id) {
       id: 'neighborhood',
       label: 'Neighborhoods',
       path: 'neighborhoods/california/menlo_park',
-      lineColor: '#47cf83',
+      fill: true,
       centroids: true,
+      fill_alt: true,
     },{
       id: 'flooded',
       label: 'Flood Zone',
@@ -760,6 +810,25 @@ export function spatial_abilities(id) {
       label: 'Multi-Family Parcels',
       path: 'menlo_park_multifamily',
     }]
+  },
+  ca_imperial: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    municipalities: "Census Places",
+    find_unpainted: true,
+  },
+  ojai: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    find_unpainted: true,
+  },
+  ca_foothill: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    find_unpainted: true,
   },
   ca_sanjoaquin: {
     number_markers: true,
@@ -822,6 +891,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    find_unpainted: true,
   },
   ca_martinez: {
     border: true,
@@ -863,6 +933,12 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
     municipalities: true,
+  },
+  longbeach: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    find_unpainted: true,
   },
   ca_solano: {
     border: true,
@@ -1038,6 +1114,7 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       load_coi: true,
       school_districts: true,
+      current_districts: true,
       municipalities: 'Cities and Towns',
       portal: {
         endpoint: 'https://portal.indiana-mapping.org',
@@ -1118,7 +1195,7 @@ export function spatial_abilities(id) {
     maryland: {
       number_markers: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
@@ -1230,7 +1307,7 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      border: 'Show Minneapolis Border',
+      border: true,
       number_markers: true,
       shapefile: true,
       boundaries: [
@@ -1252,7 +1329,10 @@ export function spatial_abilities(id) {
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
         }
-      ]
+      ],
+      portal: {
+        endpoint: "https://portal.minneapolis-mapping.org"
+      }
     },
     mississippi: {
       number_markers: true,
@@ -1285,7 +1365,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       load_coi: false,
       // find_unpainted: true,
@@ -1670,6 +1750,12 @@ export function spatial_abilities(id) {
     providence_ri: {
       border: true,
     },
+    cranston_ri: {
+      border: true,
+      shapefile: true,
+      number_markers: true,
+      find_unpainted: true,
+    },
     southcarolina: {
       native_american: true,
       number_markers: true,
@@ -1705,8 +1791,17 @@ export function spatial_abilities(id) {
       number_markers: true,
       number_markers_lambda: true,
     },
+    dallastx: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
+    },
     austin: {
       border: true,
+      number_markers: true,
+      shapefile: true,
+      find_unpainted: true,
     },
     fortworth: {
       border: true,
@@ -1754,6 +1849,12 @@ export function spatial_abilities(id) {
       },
     },
       'grand_county_2': {
+        portal: {
+          endpoint: 'https://portal.utah-mapping.org',
+        },
+        shapefile: true,
+      },
+      'grand_county_3': {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },
@@ -5296,4 +5397,26 @@ export function county_fips_to_name(fips, state) {
   };
   let st = state.toLowerCase().replace(' ', '');
   return codes[st][parseInt(fips)]
+}
+
+export function specialStates (moduleID) {
+  // does server rep. this as space, underscore, etc?
+  // pass through here to normalize module names
+  return {
+    dc: "district_of_columbia",
+    ma: "massachusetts",
+    newhampshire: "new_hampshire",
+    newjersey: "new_jersey",
+    new_mexico_portal: "new_mexico",
+    newyork: "new_york",
+    nc: "north_carolina",
+    northcarolina: "north_carolina",
+    northdakota: "north_dakota",
+    puertorico: "puerto_rico",
+    puertorico_prec: "puerto_rico",
+    // RI is OK
+    southcarolina: "south_carolina",
+    southdakota: "south_dakota",
+    westvirginia: "west_virginia",
+  }[moduleID] || moduleID;
 }
