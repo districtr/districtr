@@ -16,10 +16,7 @@ const schema = new mongoose.Schema({
     type: String,
     max: 100
   },
-  simple_id: {
-    type: String,
-    max: 12
-  },
+  simple_id: mongoose.Schema.Types.Mixed,
   token: String,
   startDate: Date,
   screenshot: String,
