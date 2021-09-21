@@ -165,7 +165,7 @@ function addCOISources(map, tilesets, border) {
         numLoaded = tilesets.length === 2,
         baseUnits = tilesets.find(t => t.type === "fill"),
         blockGroups = false,
-        bgName, bgURL, precincts, new_precincts, tracts;
+        bgName, bgURL;
     
     if (border && flagged && numLoaded && blockGroups) {
         // Now, we've identified our filled tileset -- that is, the set of units
@@ -179,37 +179,13 @@ function addCOISources(map, tilesets, border) {
             .replace("precincts", "blockgroups")
             .replace("counties", "blockgroups");
 
-        
-    if (spatial_abilities(borderId).coi2 && tilesets[0].coi2) {
-        precincts = addPrecincts(
-            map,
-            tilesets.find(tileset => tileset.source.url.includes("nc_precincts")),
-            layerAdder,
-            false
-        );
-        new_precincts = addPrecincts(
-            map,
-            tilesets.find(tileset => tileset.source.url.includes("norcar2_precincts")),
-            layerAdder,
-            true
-        );
-        tracts = addTracts(
-            map,
-            tilesets.find(tileset => tileset.source.url.includes("tracts")),
-            layerAdder
-        );
-    } else if (["sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont", "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark", "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz"].includes(borderId)) {
-        tracts = addTracts(
-            map,
-            tilesets.find(tileset => tileset.source.url.includes("blockgroups")),
-            layerAdder
-        );
-    } else if (spatial_abilities(borderId).county_filter) {
-        tracts = addTracts(
-            map,
-            tilesets.find(tileset => tileset.source.url.includes("precincts")),
-            layerAdder
-        );
+        // Now, if the URL exists -- that is, if we want to display the block
+        // group layer on top of our base units -- we add the block groups
+        // as a source.
+        if (baseUnits) map.addSource(bgName, { type: "vector", url: bgURL });
+    } else if (border && flagged && numLoaded) {
+        // Otherwise, if we want to just use the existing tileset, we may have
+        // to add another. Not sure yet.
     }
 
     return baseUnits;

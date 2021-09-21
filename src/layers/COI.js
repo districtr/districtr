@@ -163,7 +163,7 @@ function resolvesToArray(results) {
     return Promise.resolve(values);
 }
 
-export function opacityStyleExpression(units, geoids, checked, opacity=1/3) {
+export function opacityStyleExpression(units, geoids, opacity=1/3) {
     // Creat a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
@@ -171,7 +171,7 @@ export function opacityStyleExpression(units, geoids, checked, opacity=1/3) {
                 ["get", "GEOID20"],
                 ["literal", geoids]
             ],
-            checked ? opacity : 0, 1/3
+            0, opacity
         ],
         layer = units.type.replace("symbol", "icon") + "-opacity";
     units.setPaintProperty(layer, filter);
