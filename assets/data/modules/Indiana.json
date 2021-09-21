@@ -575,27 +575,7 @@
           },
           {
             "type": "election",
-            "name": "2016 Governor",
-            "subgroups": [
-              {
-                "key": "GOV16D",
-                "name": "Democratic",
-                "sum": 1233661,
-                "min": 0,
-                "max": 935
-              },
-              {
-                "key": "GOV16R",
-                "name": "Republican",
-                "sum": 1386597,
-                "min": 0,
-                "max": 1611
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 Senate",
+            "name": "2016 US Senate",
             "subgroups": [
               {
                 "key": "SEN16D",
@@ -630,6 +610,166 @@
                 "sum": 1644132,
                 "min": 0,
                 "max": 1672
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor",
+            "subgroups": [
+              {
+                "key": "GOV16D",
+                "name": "Democratic",
+                "sum": 1233661,
+                "min": 0,
+                "max": 935
+              },
+              {
+                "key": "GOV16R",
+                "name": "Republican",
+                "sum": 1386597,
+                "min": 0,
+                "max": 1611
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US Senate",
+            "subgroups": [
+              {
+                "key": "G18USSDDON",
+                "name": "Democratic",
+                "sum": 1023798,
+                "min": 0,
+                "max": 874
+              },
+              {
+                "key": "G18USSRBRA",
+                "name": "Republican",
+                "sum": 1158690,
+                "min": 0,
+                "max": 1430
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "G18SOSDHAR",
+                "name": "Democratic",
+                "sum": 911788,
+                "min": 0,
+                "max": 851
+              },
+              {
+                "key": "G18SOSRLAW",
+                "name": "Republican",
+                "sum": 1263751,
+                "min": 0,
+                "max": 1456
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Auditor",
+            "subgroups": [
+              {
+                "key": "G18AUDDWHI",
+                "name": "Democratic",
+                "sum": 913942,
+                "min": 0,
+                "max": 842
+              },
+              {
+                "key": "G18AUDRKLU",
+                "name": "Republican",
+                "sum": 1236266,
+                "min": 0,
+                "max": 1442
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "G18TREDAGU",
+                "name": "Democratic",
+                "sum": 919819,
+                "min": 0,
+                "max": 855
+              },
+              {
+                "key": "G18TRERMIT",
+                "name": "Republican",
+                "sum": 1301642,
+                "min": 0,
+                "max": 1490
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "G20PREDBID",
+                "name": "Democratic",
+                "sum": 1242498,
+                "min": 0,
+                "max": 1391
+              },
+              {
+                "key": "G20PRERTRU",
+                "name": "Republican",
+                "sum": 1729859,
+                "min": 0,
+                "max": 2062
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Governor",
+            "subgroups": [
+              {
+                "key": "G20GOVDMYE",
+                "name": "Democratic",
+                "sum": 968097,
+                "min": 0,
+                "max": 1087
+              },
+              {
+                "key": "G20GOVRHOL",
+                "name": "Republican",
+                "sum": 1706727,
+                "min": 0,
+                "max": 2072
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Attorney General",
+            "subgroups": [
+              {
+                "key": "G20ATGDWEI",
+                "name": "Democratic",
+                "sum": 1229632,
+                "min": 0,
+                "max": 1301
+              },
+              {
+                "key": "G20ATGRROK",
+                "name": "Republican",
+                "sum": 1721983,
+                "min": 0,
+                "max": 2038
               }
             ]
           },
@@ -791,17 +931,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20"
+              "url": "mapbox://districtr.indiana_vtds20"
             },
-            "sourceLayer": "in_vtds20"
+            "sourceLayer": "indiana_vtds20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20_points"
+              "url": "mapbox://districtr.indiana_vtds20_points"
             },
-            "sourceLayer": "in_vtds20_points"
+            "sourceLayer": "indiana_vtds20_points"
           }
         ]
       },
