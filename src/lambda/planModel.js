@@ -16,7 +16,10 @@ const schema = new mongoose.Schema({
     type: String,
     max: 100
   },
-  simple_id: Number,
+  simple_id: {
+    type: String,
+    max: 12
+  },
   token: String,
   startDate: Date,
   screenshot: String,

@@ -27,8 +27,12 @@ exports.handler = async (event, context) => {
               startDate: new Date(),
               isScratch: data.isScratch || false,
           };
-      const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
-      plan.simple_id = nextPlanID.value;
+      if (event.queryStringParameters.id && event.queryStringParameters.id.includes("_")) {
+          plan.simple_id = event.queryStringParameters.id;
+      } else {
+          const nextPlanID = await Sequence.findOneAndUpdate({ name: "plan_ids" }, {"$inc": {"value": 1}});
+          plan.simple_id = nextPlanID.value;
+      }
 
       await Plan.create(plan)
       return {
