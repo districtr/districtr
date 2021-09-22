@@ -380,7 +380,7 @@ function election_section(state, partisanship) {
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     
-    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias", "Eguia's Metric*"];
+    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias*", "Eguia's Metric*"];
     let dec = true;
     let score_rows = Object.entries(partisanship.election_scores).map(([name, stats]) => {
         return {
