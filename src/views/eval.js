@@ -108,7 +108,14 @@ function renderRight(pane, context, state, mapState) {
     const units = state.unitsRecord.id;
     const stateName = state.place.state;
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    console.log(state);
+    let elections = state.elections.map(e => {
+        let elect = [["name", e.name], 
+                     ["candidates", e.subgroups.map(c => {
+                        let candidates = [["name", c.name],["key", c.key]];
+                        return Object.fromEntries(candidates);})]]
+        return Object.fromEntries(elect);
+    });
+    console.log(elections);
     const GERRYCHAIN_URL = "https://gvd4917837.execute-api.us-east-1.amazonaws.com";
     fetch(GERRYCHAIN_URL + "/evaluation", {
       method: "POST",
@@ -118,7 +125,8 @@ function renderRight(pane, context, state, mapState) {
       body: JSON.stringify({
         "state": stateName,
         "units": units,
-        "assignment": assign}),
+        "assignment": assign,
+        "elections": elections}),
     }).then((res) => res.json())
       .catch((e) => console.error(e))
       .then((data) => {
@@ -139,7 +147,7 @@ function renderRight(pane, context, state, mapState) {
 
             let analyzer = new Analyzer(state, mapState, innerTemplate);
             analyzer.addRevealSection("Basics", (uiState, dispatch) => overview_section(state, data.contiguity, data.split, data.num_units))
-            analyzer.addRevealSection("Election Results and Proportionality", (uiState, dispatch) => election_section(state))
+            analyzer.addRevealSection("Election Results and Partisanship", (uiState, dispatch) => election_section(state, data.partisanship))
             analyzer.addRevealSection("Compactness", (uiState, dispatch) => compactness_section(state, data.cut_edges, data.polsbypopper))
             data.counties == -1 ? "" : 
                 analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
@@ -197,7 +205,27 @@ export default function renderAnalysisView() {
     getPlanContext().then((context) => renderLeft(left, context));
 }
 
+// Functions for formating a non-election table.
+function getBackgroundColor(value) {
+    return `rgba(0, 0, 0, ${Math.min(
+        roundToDecimal(Math.max(value, 0) * 0.98 + 0.02, 2),
+        1
+    )})`;
+}
 
+function getCellStyle(value) {
+    const background = getBackgroundColor(value);
+    const color = value > 0.4 ? "white" : "black";
+    return `background: ${background}; color: ${color}`;
+}
+
+function getCellBasic(value, decimals, simple=false) {
+    // const value = subgroup.values(part.id)
+    return {
+        content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
+        style: (simple ? `color: black` : getCellStyle(value)) + `; text-align: center;`
+    };
+}
 
 /***** ANALYSIS SECTIONS ******/
 // Overview Section
@@ -292,7 +320,7 @@ function overview_section (state, contig, problems, num_tiles) {
 }
 
 // Election Results Section
-function election_section(state) {
+function election_section(state, partisanship) {
     let elections = state.elections;
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
@@ -343,9 +371,25 @@ function election_section(state) {
         default: favorstr = "favored different parties in different elections";
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
+    
+    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias", "Eugia's Metric*"];
+    let dec = true;
+    let score_rows = Object.entries(partisanship.election_scores).map(([name, stats]) => {
+        return {
+            label: parseElectionName(name),
+            entries: [getCellBasic(stats.efficiency_gap, dec), getCellBasic(stats.mean_median, dec), 
+                      getCellBasic(stats.partisan_bias, dec), getCellBasic(stats.eugia_county, dec)]
+        }
+    });
+    
+    // console.log(score_rows);
+    
     return html`
         Our dataset contains ${bias_acc.length} recent statewide ${elections.length > 1 ? html`elections`
         : html`election`} for ${state.place.name}.
+        <br/>
+        <br/>
+        <h4 text-align="center">Proportionality</h4>
         Relative to proportionality, your plan has an average lean of ${Math.abs(avg_bias)} seats towards 
         <strong>${(avg_bias > 0) ? html`Republicans` : html`Democrats`}</strong> over these elections.<br/>
         The disproportionality ${favorstr}.
@@ -354,6 +398,25 @@ function election_section(state) {
         ${two_party ? html`<strong>Votes vs. Seats by Election (among the two major parties)</strong>` 
             : html`<strong>Votes vs. Seats by Election</strong>`}
         ${DataTable(headers, rows, true)}
+        <br/>
+        <h4 text-align="center">Partisanship Metrics</h4>
+        The following scores were computed with respected to the <strong>${partisanship.party}</strong> party.  This
+        means that for scores that are signed to show favour to a party, a possitive score reflects
+        a bias towards the ${partisanship.party} party.  Scores with a star (*) have this property.
+        ${DataTable(score_headers, score_rows, true)}
+        <br/>
+        <br/>
+        <h4 text-align="center">Competitiveness Metrics</h4>
+        A swing district is on that changes party control at least once across the ${elections.length}
+        recent statewide ${elections.length > 1 ? html`elections` : html`election`}
+        <strong>Your plan has ${partisanship.plan_scores.num_swing_districts} swing districts</strong>
+        (out of ${state.plan.parts.length} districts).  
+        <br/>
+        <br/>
+        A competive district is one that is within a 3 point margin of a 50% vote share.  Across the
+        ${state.plan.parts.length} districts and ${elections.length} elections <strong>your plan had
+        ${partisanship.plan_scores.num_competitive_districts} districts within this competitive
+        margin.</strong>
         `;
 }
 
@@ -367,29 +430,7 @@ function compactness_section(state, cut_edges, plan_scores) {
     // check that polsby popper calculation worked
     let successful_calc = (plan_scores !== "Polsby Popper unavailable for this geometry.");
     let year = enacted_year(state_name_to_postal(state.place.name), state.plan.problem.name);
-    if (enacted && successful_calc) {
-        headers = [html`Your Plan (${state.unitsRecord.unitType.toLowerCase()})`, `${year} Enacted Plan (Census Definition)`];
-        for (let c of columns) {
-            rows.push({
-                label: c,
-                entries: [
-                    {content: roundToDecimal(plan_scores[c.toLowerCase()], 3)},
-                    {content: roundToDecimal(enacted[c.toLowerCase()], 3)}
-            ]})
-        }
-        let mean_diff = enacted.mean - plan_scores.mean;
-        if (mean_diff > 0.2)
-            comparison = "significantly less compact than"
-        else if (mean_diff > 0.05)
-            comparison = "slightly less compact than"
-        else if (mean_diff > -0.05)
-            comparison = "about as compact as"
-        else if (mean_diff > 0.2)
-            comparison = "slightly more compact than"
-        else
-            comparison = "significantly more compact than"
-    }
-    else if (successful_calc) {
+    if (successful_calc) {
         headers = ["Your Plan"];
         for (let c of columns) {
             rows.push({
@@ -421,11 +462,7 @@ function compactness_section(state, cut_edges, plan_scores) {
         on the units, this depends on mapping choices like the map projection and the 
         resolution of the boundaries. A higher Polsby Popper score is regarded as a more compact 
         district; the highest possible score of an individual district is 1, which is only achieved 
-        by perfect circles.<br/><br/>
-        <div class="italic-note">This table compares your plan to the 
-        official census definition of the last enacted plan. 
-        The inclusion of water and other issues of resolution might make 
-        the Census plan score differently than its Districtr rendering.</div>
+        by perfect circles.
         ${polsbypopper_table}
         `;
 }
