@@ -409,14 +409,14 @@ function election_section(state, partisanship) {
         <h4 text-align="center">Competitiveness Metrics</h4>
         A swing district is on that changes party control at least once across the ${elections.length}
         recent statewide ${elections.length > 1 ? html`elections` : html`election`}
-        <strong>Your plan has ${partisanship.plan_scores.num_swing_districts} swing districts</strong>
+        Your plan has <strong>${partisanship.plan_scores.num_swing_districts} swing districts</strong>
         (out of ${state.plan.parts.length} districts).  
         <br/>
         <br/>
         A competive district is one that is within a 3 point margin of a 50% vote share.  Across the
-        ${state.plan.parts.length} districts and ${elections.length} elections <strong>your plan had
-        ${partisanship.plan_scores.num_competitive_districts} districts within this competitive
-        margin.</strong>
+        ${state.plan.parts.length} districts and ${elections.length} elections your plan had
+        <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong> within this
+        competitive margin.
         `;
 }
 
