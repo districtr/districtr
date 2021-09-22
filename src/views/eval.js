@@ -12,7 +12,7 @@ import populateDatasetInfo from "../components/Charts/DatasetInfo";
 import { getCell, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
-import { interpolateRdBu, interpolateBlues, interpolateReds } from "d3-scale-chromatic";
+import { interpolateBlues, interpolateReds } from "d3-scale-chromatic";
 import { roundToDecimal, county_fips_to_name, spatial_abilities, stateNameToFips, COUNTIES_TILESET } from "../utils";
 import { districtColors } from "../colors";
 import Layer, { addBelowLabels } from "../map/Layer";
@@ -251,8 +251,8 @@ function overview_section (state, contig, problems, num_tiles) {
     let missing = num_tiles - Object.keys(state.plan.assignment).length;
     let unassigned_section = 
         html`
-        ${missing == 0 ? html`All ${num_tiles} ${state.unitsRecord.unitType.toLowerCase()} are assigned, making the plan complete.`
-            : html`${Object.keys(state.plan.assignment).length} of ${num_tiles} are assigned, making the plan incomplete.`}
+        ${missing == 0 ? html`All ${num_tiles} ${state.unitsRecord.unitType.toLowerCase()} are assigned, making the plan <strong>complete</strong>.`
+            : html`${Object.keys(state.plan.assignment).length} of ${num_tiles} are assigned, making the plan <strong>incomplete</strong>.`}
         `
 
     // contiguity
@@ -330,6 +330,7 @@ function overview_section (state, contig, problems, num_tiles) {
 // Election Results Section
 function election_section(state, partisanship) {
     let elections = state.elections;
+    let num_districts = state.plan.parts.length;
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
     let rows = [];
@@ -350,16 +351,20 @@ function election_section(state, partisanship) {
         let d_votes = election.parties[0].getOverallFraction(),
             d_seats = election.getSeatsWonParty(election.parties[0]);
         let d_seat_share = d_seats/election.total.data.length;
-        let bias_to = (d_votes > d_seat_share) ? "R" : "D";
+        let bias_to = (Math.abs(d_votes - d_seat_share)*num_districts < 0.5) ? "N" : (d_votes > d_seat_share) ? "R" : "D";
 
 
         // > 0 if biased towards Rs, < 0 if toward Ds
         let bias_by = Math.round(((d_votes - d_seat_share) * election.total.data.length) * 10)/10;
         bias_acc.push(bias_by);
         
+        let disportionality = Math.abs(bias_by) / (2*num_districts);
         let biases = [
-            (bias_to == "R") ? {content: `Leans Republican by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.2)}`}
-                             : {content: `Leans Democrat by ${Math.abs(bias_by)} seats`, style: `background: ${interpolateRdBu(.8)}`}    
+            (bias_to == "N") ? {content: `As proportional as possible`, style: `background: #f9f9f9`}
+                             : (bias_to == "R") ? {content: `Leans Republican by ${Math.abs(bias_by)} seats`,
+                                                   style: `background: ${interpolateReds(disportionality)}`}
+                                                : {content: `Leans Democrat by ${Math.abs(bias_by)} seats`,
+                                                   style: `background: ${interpolateBlues(disportionality)}`}    
         ]
 
         rows.push({
@@ -409,10 +414,11 @@ function election_section(state, partisanship) {
             : html`<strong>Votes vs. Seats by Election</strong>`}
         ${DataTable(headers, rows, true)}
         <br/>
-        <h4 text-align="center">Partisanship Metrics</h4>
-        The following scores were computed with respected to the <strong>${partisanship.party}</strong> party.  This
-        means that for scores that are signed to show favour to a party, a possitive score reflects
-        a bias towards the ${partisanship.party} party.  Scores with a star (*) have this property.
+        <h4 text-align="center">Other Partisanship Metrics</h4>
+        The following scores were computed with respected to the <strong>${partisanship.party}</strong>
+        party.  This means that for scores that are signed to show favour to a party, a possitive
+        score reflects a bias towards the ${partisanship.party} party.  Scores with a star (*) have
+        this property.
         ${DataTable(score_headers, score_rows, true)}
         <br/>
         <br/>
@@ -420,11 +426,11 @@ function election_section(state, partisanship) {
         A swing district is on that changes party control at least once across the ${elections.length}
         recent statewide ${elections.length > 1 ? html`elections` : html`election`}
         Your plan has <strong>${partisanship.plan_scores.num_swing_districts} swing districts</strong>
-        (out of ${state.plan.parts.length} districts).  
+        (out of ${num_districts} districts).  
         <br/>
         <br/>
-        A competive district is one that is within a 3 point margin of a 50% vote share.  Across the
-        ${state.plan.parts.length} districts and ${elections.length} elections your plan had
+        A competive district is one where each party is between a 47% – 53% vote margin.  Across the
+        ${num_districts} districts and ${elections.length} elections your plan had
         <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong> within this
         competitive margin.
         `;
