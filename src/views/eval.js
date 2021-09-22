@@ -12,7 +12,7 @@ import populateDatasetInfo from "../components/Charts/DatasetInfo";
 import { getCell, getCellSeatShare, parseElectionName } from "../components/Charts/PartisanSummary";
 import { getPartyRGBColors } from "../layers/color-rules"
 import { DataTable } from "../components/Charts/DataTable"
-import { interpolateRdBu } from "d3-scale-chromatic";
+import { interpolateRdBu, interpolateBlues, interpolateReds } from "d3-scale-chromatic";
 import { roundToDecimal, county_fips_to_name, spatial_abilities, stateNameToFips, COUNTIES_TILESET } from "../utils";
 import { districtColors } from "../colors";
 import Layer, { addBelowLabels } from "../map/Layer";
@@ -206,24 +206,32 @@ export default function renderAnalysisView() {
 }
 
 // Functions for formating a non-election table.
-function getBackgroundColor(value) {
-    return `rgba(0, 0, 0, ${Math.min(
-        roundToDecimal(Math.max(value, 0) * 0.98 + 0.02, 2),
-        1
-    )})`;
+function getBackgroundColor(value, party) {
+    // console.log(party);
+    // console.log(value);
+    let p = party.toLowerCase()[0];
+    let color = html`rgba(0, 0, 0, 0)`;
+
+    if ((p === "d" && value > 0) || (p === 'r' && value < 0)) {
+        color = interpolateBlues(Math.abs(value));
+    }
+    if ((p === "r" && value > 0) || (p === 'd' && value < 0)) {
+        color = interpolateReds(Math.abs(value));
+    }
+    return color;
 }
 
-function getCellStyle(value) {
-    const background = getBackgroundColor(value);
-    const color = value > 0.4 ? "white" : "black";
+function getCellStyle(value, party) {
+    const background = getBackgroundColor(value, party);
+    const color = Math.abs(value) > 0.8 ? "white" : "black";
     return `background: ${background}; color: ${color}`;
 }
 
-function getCellBasic(value, decimals, simple=false) {
+function getCellBasic(value, decimals, party, simple=false) {
     // const value = subgroup.values(part.id)
     return {
         content: `${roundToDecimal(value * 100, decimals ? 1 : 0)}%`,
-        style: (simple ? `color: black` : getCellStyle(value)) + `; text-align: center;`
+        style: (simple ? `color: black` : getCellStyle(value, party)) + `; text-align: center;`
     };
 }
 
@@ -372,13 +380,15 @@ function election_section(state, partisanship) {
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     
-    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias", "Eugia's Metric*"];
+    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias", "Eguia's Metric*"];
     let dec = true;
     let score_rows = Object.entries(partisanship.election_scores).map(([name, stats]) => {
         return {
             label: parseElectionName(name),
-            entries: [getCellBasic(stats.efficiency_gap, dec), getCellBasic(stats.mean_median, dec), 
-                      getCellBasic(stats.partisan_bias, dec), getCellBasic(stats.eugia_county, dec)]
+            entries: [getCellBasic(stats.efficiency_gap, dec, partisanship.party),
+                      getCellBasic(stats.mean_median, dec, partisanship.party), 
+                      getCellBasic(stats.partisan_bias, dec, partisanship.party),
+                      getCellBasic(stats.eguia_county, dec, partisanship.party)]
         }
     });
     
