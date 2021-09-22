@@ -209,16 +209,16 @@ export default function renderAnalysisView() {
 function getBackgroundColor(value, party) {
     // console.log(party);
     // console.log(value);
+    let buffer = 0.001;
     let p = party.toLowerCase()[0];
-    let color = html`rgba(0, 0, 0, 0)`;
 
-    if ((p === "d" && value > 0) || (p === 'r' && value < 0)) {
-        color = interpolateBlues(Math.abs(value));
+    if ((p === "d" && value > 0 + buffer) || (p === 'r' && value < 0 - buffer)) {
+        return interpolateBlues(Math.abs(value));
     }
-    if ((p === "r" && value > 0) || (p === 'd' && value < 0)) {
-        color = interpolateReds(Math.abs(value));
+    if ((p === "r" && value > 0 + buffer) || (p === 'd' && value < 0 - buffer)) {
+        return interpolateReds(Math.abs(value));
     }
-    return color;
+    return "#f9f9f9";
 }
 
 function getCellStyle(value, party) {
