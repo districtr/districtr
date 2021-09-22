@@ -344,9 +344,10 @@ function election_section(state, partisanship) {
             const rgb = getPartyRGBColors(party.name + party.key);
             return acc.concat([html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Votes</div>`,
                     html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name.substring(0,3)} Seats</div>`])
-        }, [])).concat([html`<div>Disproportionality</div>`]);
+        }, [])).concat([html`<div>Dispro-portionality</div>`]);
 
     let bias_acc = []
+    const width = `${Math.round(81 / headers.length)}%`;
     for (let election of elections) {
         let d_votes = election.parties[0].getOverallFraction(),
             d_seats = election.getSeatsWonParty(election.parties[0]);
@@ -360,11 +361,12 @@ function election_section(state, partisanship) {
         
         let disportionality = Math.abs(bias_by) / (2*num_districts);
         let biases = [
-            (bias_to == "N") ? {content: `As proportional as possible`, style: `background: #f9f9f9`}
+            (bias_to == "N") ? {content: `As proportional as possible`, 
+                                style: `background: #f9f9f9 ; width: ${width};`}
                              : (bias_to == "R") ? {content: `Leans Republican by ${Math.abs(bias_by)} seats`,
-                                                   style: `background: ${interpolateReds(disportionality)}`}
+                                                   style: `background: ${interpolateReds(disportionality)}; width: ${width};`}
                                                 : {content: `Leans Democrat by ${Math.abs(bias_by)} seats`,
-                                                   style: `background: ${interpolateBlues(disportionality)}`}    
+                                                   style: `background: ${interpolateBlues(disportionality)}; width: ${width};`}
         ]
 
         rows.push({
