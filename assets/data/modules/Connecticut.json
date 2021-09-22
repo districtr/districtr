@@ -261,7 +261,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ct_vtds20"
+              "url": "mapbox://districtr.ct_vtds20?v=2"
             },
             "sourceLayer": "ct_vtds20"
           },
@@ -269,7 +269,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ct_vtds20_points"
+              "url": "mapbox://districtr.ct_vtds20_points?v=2"
             },
             "sourceLayer": "ct_vtds20_points"
           }
