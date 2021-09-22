@@ -17,11 +17,11 @@ import { getPartyRGBColors } from "../../layers/color-rules"
  */
 export function getCellStyle(percent, party) {
     if ((party.name === "Democratic" || party.name.includes("(Dem)")) && percent > 0.5) {
-        return `background: ${interpolateRdBu(percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
+        return `text-align: center; background: ${interpolateRdBu(percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
     } else if ((party.name === "Republican" || party.name.includes("(Rep)")) && percent > 0.5) {
-        return `background: ${interpolateRdBu(1 - percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
+        return `text-align: center; background: ${interpolateRdBu(1 - percent)}; color: ${percent > 0.9 ? "white" : "black"}`;
     }
-    return `background: #f9f9f9`;
+    return `text-align: center; background: #f9f9f9`;
 }
 
 export function getCell(party, part) {
