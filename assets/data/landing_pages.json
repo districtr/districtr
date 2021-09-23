@@ -1003,7 +1003,7 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
@@ -2998,6 +2998,10 @@
                 "name": "Congressional Plan"
               },
               {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan on 2020 Voting Districts (VTD)"
+              },
+              {
                 "id": "state_senate",
                 "name": "State Senate Plan"
               },
@@ -3479,16 +3483,8 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
-                "name": "Congressional Plan (2010 Population)"
-              },
-              {
-                "id": "congress_2020wards",
-                "name": "Congressional Plan (2019 Population)"
-              },
-              {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan (2020 Population)"
+                "name": "Congressional Plan"
               },
               {
                 "id": "statesen_2020wards",
@@ -3676,7 +3672,7 @@
             "title": "Enacted Plans in Texas",
             "plans": [
               {
-                "id": "tx-congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
