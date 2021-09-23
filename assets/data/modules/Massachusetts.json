@@ -2314,7 +2314,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_vtds20"
+              "url": "mapbox://districtr.ma_vtds20?v=2"
             },
             "sourceLayer": "ma_vtds20"
           },
@@ -2322,7 +2322,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_vtds20_points"
+              "url": "mapbox://districtr.ma_vtds20_points?v=2"
             },
             "sourceLayer": "ma_vtds20_points"
           }

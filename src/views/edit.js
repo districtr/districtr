@@ -69,10 +69,6 @@ function getPlanContext() {
         // remove token; save a new plan
         localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
-        if (isNaN(finalURLpage * 1)) {
-            // original _id plans
-            finalURLpage = '&_id=' + finalURLpage;
-        }
         return loadPlanFromURL(`/.netlify/functions/planRead?id=${finalURLpage}`).catch(e => {
             console.error(`Could not load plan ${finalURLpage} from database`);
             navigateTo("/");

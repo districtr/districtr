@@ -14,8 +14,15 @@ exports.handler = async (event, context) => {
           throw new Error('No token for update');
       }
 
+      let eid = event.queryStringParameters.id;
+      try {
+        eid = Number(eid);
+      } catch(e) {
+        
+      }
+
       const plan = await Plan.findOne({
-          simple_id: event.queryStringParameters.id,
+          simple_id: eid,
           token: token
       });
 
