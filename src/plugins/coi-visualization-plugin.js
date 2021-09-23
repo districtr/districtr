@@ -1,7 +1,12 @@
 
 import Tooltip from "../map/Tooltip";
 import { Tab } from "../components/Tab";
-import { addCOIs, opacityStyleExpression } from "../layers/COI";
+import {
+    addCOIs,
+    opacityStyleExpression,
+    clusterPatternStyleExpression,
+    coiPatternStyleExpression
+} from "../layers/COI";
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
 
@@ -36,48 +41,26 @@ function retrieveCheckboxes(cluster=null) {
  * @param {String[]} cois Array of COI names.
  * @returns {Object[]} Array of objects which have a cluster ID, COI name, and checked status.
  */
-function getCheckboxStatuses(cluster=null, cois=null) {
+function getCheckboxStatuses(cluster=null) {
     let checkboxes = cluster ? retrieveCheckboxes(cluster) : retrieveCheckboxes(),
-        checkboxStatuses = [],
-        coiClasses = cois ? cois.map((coi) => coi.replaceAll(" ", "-")) : null;
+        checkboxStatuses = [];
     
     // If *any* of the checkboxes are unchecked, we can't view the things.
     // We also skip over any checkboxes whose COI names aren't included
     // in the list of COIs we're not displaying; this way, when users
     // mouse over the COIs, invisible ones don't show up.
     for (let checkbox of checkboxes) {
-        if (cluster || cois) {
-            // Get the name of the community of interest, and identify the two
-            // conditions required to skip a checkbox: if its COI name isn't included
-            // in the provided list of COI names; if it doesn't have the required
-            // number of classes.
-            let coi = checkbox.classList[3],
-                hasEnoughClasses = checkbox.classList.length > 3,
-                included = coiClasses ? coiClasses.includes(coi) : false,
-                addCondition = hasEnoughClasses && included;
-            
-            // If the condition holds, we exclude that checkbox; otherwise, we add
-            // its status to the list of statuses.
-            if (addCondition) {
-                checkboxStatuses.push({
-                    "cluster": cluster,
-                    "coi": coi.replaceAll("-", " "),
-                    "checked": checkbox.control.checked
-                });
-            }
-        } else {
-            let classes = checkbox.classList,
-                numClasses = classes.length,
-                cluster = numClasses > 2 ? classes[2] : null,
-                coi = numClasses > 3 ? classes[3] : null;
-            
-            checkboxStatuses.push({
-                "cluster": cluster,
-                "coi": coi ? coi.replaceAll("-", " ") : null,
-                "checked": checkbox.control.checked,
-                "entity": checkbox
-            });
-        }
+        let classes = checkbox.classList,
+            numClasses = classes.length,
+            cluster = numClasses > 2 ? classes[2] : null,
+            coi = numClasses > 3 ? classes[3] : null;
+        
+        checkboxStatuses.push({
+            "cluster": cluster,
+            "coi": coi ? coi.replaceAll("-", " ") : null,
+            "checked": checkbox.control.checked,
+            "entity": checkbox
+        });
     }
 
     return checkboxStatuses;
@@ -89,15 +72,24 @@ function getCheckboxStatuses(cluster=null, cois=null) {
  * @param {String[]} cois Array of COI names.
  * @returns {Boolean} Are any of the boxes in the COI's hierarchy checked?
  */
-function checkIfAllVisible(cluster, cois) {
-    let statuses = getCheckboxStatuses(cluster, cois),
-        isChecked = true;
+function checkIfVisible(cluster) {
+    let statuses = getCheckboxStatuses(cluster),
+        allVisible = statuses.filter((s) => !s["cluster"])[0]["checked"],
+        statusesInCluster = statuses.filter((s) => s["cluster"] == cluster),
+        isChecked = allVisible;
 
-    for (let status of statuses) isChecked = isChecked && status["checked"];
+    for (let status of statusesInCluster) isChecked = isChecked && status["checked"];
 
     return isChecked;
 }
 
+/**
+ * 
+ * @param {*} units 
+ * @param {*} unitMap 
+ * @param {*} activePatternMatch 
+ * @param {*} identifier 
+ */
 function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID20") {
     let map = units.map,
         sourceLayer = units.sourceLayer,
@@ -108,9 +100,11 @@ function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID2
         // unique identifier, find its cluster and COI name, and check if it's
         // visible. If it is, then we want to open a new window and pass the
         // information to it.
-        let _selectedFeatures = map.queryRenderedFeatures(e.point),
+        let _selectedFeatures = map.queryRenderedFeatures(e.point);
+
+        let
             selectedFeatures = _selectedFeatures.map(f => {
-                if (f.properties.source === sourceLayer) return f;
+                if (f.source === sourceLayer) return f;
             }),
             feature = selectedFeatures[0],
             geoid = feature.properties[identifier],
@@ -121,7 +115,7 @@ function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID2
         // Check if all the things in the hierarchy are visible. If they are,
         // and the user's clicked on the thing, we want to send the data to the
         // new page.
-        if (checkIfAllVisible(cluster, cois)) {
+        if (checkIfVisible(cluster, cois)) {
             let tab = window.open(origin + `/coi-info/`);
             tab.coidata = {
                 units: units,
@@ -190,17 +184,12 @@ function watchTooltips(unitMap, identifier="GEOID20") {
             // Then, we iterate over these checkboxes and if *any* of them are
             // unchecked, we don't display the tooltip.
             let cluster = reverseMapping[geoid]["cluster"],
-                cois = reverseMapping[geoid]["coi"],
-                isChecked = checkIfAllVisible(cluster, cois);
+                isChecked = checkIfVisible(cluster);
 
             if (isChecked) {
                 return html`
                     <div class="tooltip__text__small tooltip__text--column">
-                        ${
-                            reverseMapping[geoid]["coi"].map(
-                                (d) => html`<div style="text-align: center;">${d}</div>`
-                            )
-                        }
+                       <div style="text-align: center;">${cluster}</div>
                     </div>
                 `;
             } else return null;
@@ -249,7 +238,7 @@ function displayCOIs(units, unitMap) {
 
         // Apparently this isn't working properly now? So confused by this.
         if (!initialized) {
-            units.setOpacity(checked ? 1/3 : 0);
+            units.setOpacity(1/3);
             initialized = true;
         } else {
             if (checked) {
@@ -368,6 +357,13 @@ function listCOIs(cluster, units, unitMap, patternMatch, chosenPatterns) {
     `;
 }
 
+/**
+ * 
+ * @param {String} cluster Name of the cluster we *aren't* getting.
+ * @param {Object} unitMap Maps individual COI names to the units they cover.
+ * @param {Array} statuses 
+ * @returns 
+ */
 function getOtherGEOIDs(cluster, unitMap, statuses) {
     // Create a container for GEOIDs and get the clusters which are turned off
     // that *aren't* `cluster`. We do this because when a box is checked, the
@@ -420,33 +416,16 @@ function toggleVisibility(units, unitMap, cluster, coi=null) {
     return (checked) => {
         // Get all the checkbox statuses and create a container for GEOIDs.
         let statuses = getCheckboxStatuses(),
-        statusesInCluster = statuses.filter((s) => s.cluster == cluster && s.coi),
         geoids = [];
 
         // First, handle the logic for making a thing *invisible*.
         if (!checked) {
-            // Next, check whether we're making an individual COI invisible, or
-            // an entire cluster invisible.
-            if (coi) {
-                // If we're making an individual COI invisible, grab the GEOIDs
-                // for that COI *plus* the GEOIDs for other invisible things in
-                // the same cluster.
-                geoids = geoids.concat(unitMap[cluster][coi]);
-
-                for (let status of statusesInCluster) {
-                    if (!status.checked) geoids = geoids.concat(unitMap[cluster][status.coi]);
-                }
-            } else {
-                // If we're making an entire cluster invisible, grab all the GEOIDs
-                // in the cluster.
-                for (let geos of Object.values(unitMap[cluster])) geoids = geoids.concat(geos);
-                for (let status of statusesInCluster) toggleCheckboxStyle(status.entity, checked);
-            }
+            for (let geos of Object.values(unitMap[cluster])) geoids = geoids.concat(geos);
         // Now, handle when we make things *visible*.
         } else {
-            for (let status of statusesInCluster) {
-                if (!status.checked) geoids = geoids.concat(unitMap[cluster][status.coi]);
-                toggleCheckboxStyle(status.entity, checked);
+            let inactive = statuses.filter((s) => !s.checked);
+            for (let status of inactive) {
+                for (let geos of Object.values(unitMap[status.cluster])) geoids = geoids.concat(geos);
             }
         }
 
@@ -471,14 +450,20 @@ function CoiVisualizationPlugin(editor) {
     // Add COIs to the state.
     addCOIs(state)
         .then(object => {
-            // First, create a a display callback for displaying COIs, retrieve
-            // each of the necessary data-carrying things from the object returned
-            // by the call to `addCOIs`, and create a *copy* of the pattern map.
-            // We make a deep copy, so the copy -- which holds the state of
-            // activated/deactivated COIs -- can be modified without losing the
-            // original pattern assignments for the COIs.
-            let { clusters, unitMap, patternMatch, units, chosenPatterns } = object,
-                displayCallback = displayCOIs(units, unitMap),
+            // Destructure the object sent to us from addCOIs.
+            let {
+                    clusters, unitMap, coiPatternMatch, clusterPatternMatch,
+                    units, patterns
+                } = object;
+
+            // For each of the COIs, get the block groups that it
+            // covers and create a mapbox style expression assigning
+            // a pattern overlay to the units.
+            clusterPatternStyleExpression(units, unitMap, clusterPatternMatch);
+            units.setOpacity(0);
+
+            // Get display callbacks and stuff.
+            let displayCallback = displayCOIs(units, unitMap),
                 tooltipCallback = watchTooltips(unitMap),
                 tooltipWatcher;
 
@@ -499,6 +484,7 @@ function CoiVisualizationPlugin(editor) {
                         null, `cluster-checkbox ${name}`
                     );
 
+                /*
                 // Add a section with a toggle for a label.
                 tab.addSection(
                     () => html`
@@ -513,6 +499,15 @@ function CoiVisualizationPlugin(editor) {
                         </div>
                     `
                 );
+                */
+                // Add a section just containing the cluster toggle.
+                tab.addSection(
+                    () => html`
+                        <div class="toolbar-section-left">
+                            <h4>${clusterToggle}</h4>
+                        </div>
+                  `
+                );
             }
 
             // Add the tab to the tool pane and force a render.
@@ -520,7 +515,7 @@ function CoiVisualizationPlugin(editor) {
             editor.render();
 
             // Initially style the checkboxes and create tooltips.
-            initialStyles(patternMatch, chosenPatterns);
+            initialStyles(clusterPatternMatch, patterns);
             tooltipWatcher = new Tooltip(units, tooltipCallback, 0);
             tooltipWatcher.activate();
 

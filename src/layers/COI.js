@@ -138,6 +138,25 @@ function patternsToCOIs(unitMap, patterns) {
 }
 
 /**
+ * @description Maps cluster names to pattern names so we can easily reference later.
+ * @param {unitMap} unitMap Maps cluster names to COI names to units.
+ * @param {Object} patterns Patterns we've chosen.
+ * @returns Object Takes COI names to pattern names.
+ */
+ function patternsToClusters(unitMap, patterns) {
+    let mapping = {};
+
+    for (let clusterIdentifier of Object.keys(unitMap)) {
+        // Create an empty mapping for the *cluster* into which we can assign
+        // patterns for the individual COIs. Then, for each of the individual
+        // COIs, assign to it the first pattern in the list of patterns.
+        mapping[clusterIdentifier] = patterns.shift();
+    }
+
+    return mapping;
+}
+
+/**
  * @description Removes properties from `object` not specified in `included`.
  * @param {Object} object Object to have properties removed.
  * @param {Array} included Properties retained.
@@ -164,7 +183,7 @@ function resolvesToArray(results) {
 }
 
 export function opacityStyleExpression(units, geoids, opacity=1/3) {
-    // Creat a filter for setting opacities on only the specified units.
+    // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
                 "in",
@@ -181,10 +200,10 @@ export function opacityStyleExpression(units, geoids, opacity=1/3) {
  * @description Creates a style expression for the units.
  * @param {Object} units Units we're coloring.
  * @param {Object} unitMap Unit mapping.
- * @param {Object} patternMatch Pattern mapping; just unitMapping, but instead of units, it's pattern names.
+ * @param {Object} coiPatternMatch Pattern mapping; just unitMapping, but instead of units, it's pattern names.
  * @returns {Array[]} Array of expressions.
  */
-export function patternStyleExpression(units, unitMap, patternMatch) {
+export function coiPatternStyleExpression(units, unitMap, coiPatternMatch) {
     let expression = ["case"];
 
     // For each of the clusters and the COIs within that cluster, assign each
@@ -196,7 +215,7 @@ export function patternStyleExpression(units, unitMap, patternMatch) {
                 ["get", "GEOID20"],
                 ["literal", geoids]
             ];
-            expression.push(subexpression, patternMatch[clusterIdentifier][coiName]);
+            expression.push(subexpression, coiPatternMatch[clusterIdentifier][coiName]);
         }
     }
 
@@ -205,6 +224,32 @@ export function patternStyleExpression(units, unitMap, patternMatch) {
     units.setPaintProperty("fill-pattern", expression);
 
     return expression;
+}
+
+export function clusterPatternStyleExpression(units, unitMap, clusterPatternMatch) {
+    let expression = ["case"];
+
+    // For each of the clusters, assign a pattern to the it.
+    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
+        let geoids = [],
+            subexpression;
+
+        // Get all the GEOIDs in that cluster.
+        for (let geos of Object.values(cluster)) geoids = geoids.concat(geos);
+        
+        // Create the subexpression.
+        subexpression = [
+            "in",
+            ["get", "GEOID20"],
+            ["literal", geoids]
+        ];
+
+        expression.push(subexpression, clusterPatternMatch[clusterIdentifier]);
+    }
+
+    // Make the remaining units transparent and enforce the style rule.
+    expression.push("transparent");
+    units.setPaintProperty("fill-pattern", expression);
 }
 
 /**
@@ -231,28 +276,20 @@ export function addCOIs(state) {
                 unitMap = createUnitMap(filtered);
 
             return loadPatternMapping().then(patterns => {
-                // Get the total number of COI names.
-                let numberOfNames = 0;
-                for (let cluster of Object.values(unitMap)) numberOfNames += Object.keys(cluster).length;
+                let coiPatterns = Array.from(Object.keys(patterns)),
+                    clusterPatterns = Array.from(Object.keys(patterns));
 
                 // Now, get the right number of names, pare down the object mapping
                 // names to URLs to only contain the desired names, and map COIs
                 // to patterns.
-                let names = Object.keys(patterns).slice(0, numberOfNames),
-                    chosenPatterns = include(patterns, names),
-                    patternMatch = patternsToCOIs(unitMap, names);
-
+                let coiPatternMatch = patternsToCOIs(unitMap, coiPatterns),
+                    clusterPatternMatch = patternsToClusters(unitMap, clusterPatterns);
+                
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
-                return loadPatterns(map, chosenPatterns)
+                return loadPatterns(map, patterns)
                     .then(loadedPatterns => resolvesToArray(loadedPatterns))
                     .then(_ => {
-                        // For each of the COIs, get the block groups that it
-                        // covers and create a mapbox style expression assigning
-                        // a pattern overlay to the units.
-                        patternStyleExpression(coiunits, unitMap, patternMatch);
-                        coiunits.setOpacity(0);
-
                         // From here, we want to return all the necessary items
                         // for properly rendering the COIs in the tool pane. We
                         // should return the style expression, the unit mapping,
@@ -260,9 +297,10 @@ export function addCOIs(state) {
                         return {
                             clusters: clusters,
                             unitMap: unitMap,
-                            patternMatch: patternMatch,
+                            coiPatternMatch: coiPatternMatch,
+                            clusterPatternMatch: clusterPatternMatch,
                             units: coiunits,
-                            chosenPatterns: chosenPatterns
+                            patterns: patterns
                         };
                     });
             });
