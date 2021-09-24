@@ -55,6 +55,9 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal, draft) {
         if (isFromQAPortal) {
             portalLink = portalLink.replace('portal','qa-portal')
         }
+        if (draft) {
+            portalLink += '/plans'
+        }
         let portalName = state.place.state;
         if (state.place.id === "ca_SanDiego") {
             portalName = "City of San Diego";
@@ -87,7 +90,7 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal, draft) {
                     <p>When you are ready, you can bring this map back to the submission form on the ${portalName} Redistricting Public Comment Portal.</p>
                     <div style="text-align:center">
                       <a
-                        href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}&id=${_id}${draft && "&draftid=" + draft}#form"
+                        href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}${draft ? "&draftid=" + draft : ""}#form"
                         target="_blank"
                         style="margin-left:auto;margin-right:auto;padding:6px;background:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
                       >
