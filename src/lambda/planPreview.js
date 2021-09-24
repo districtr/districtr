@@ -13,9 +13,10 @@ exports.handler = async (event, context) => {
   };
 
   try {
+    const eid = event.queryStringParameters.id;
     let search = event.queryStringParameters._id ?
           { _id: event.queryStringParameters._id }
-          : { simple_id: event.queryStringParameters.id }
+          : { simple_id: eid.includes("_") ? eid : Number(eid) }
         ,
         myHost = event.queryStringParameters.hostname;
     if (myHost) {
