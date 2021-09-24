@@ -68,6 +68,26 @@ $half-width: calc(50vw - 0.5em);
   align-items: center;
 }
 
+#coi-right {
+  padding: 3em;
+}
+
+#cluster-right > #cluster-display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  row-gap: 10px 20px;
+}
+
+.coi-card {
+  width: calc((100%/3) - 1em);
+  border-radius: 3%;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.5em;
+}
+
 // Styles for the SlideShow.
 .analysis--inner {
   width: calc(80% - 0.5em);

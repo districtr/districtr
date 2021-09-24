@@ -369,17 +369,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20"
+              "url": "mapbox://districtr.indiana_vtds20"
             },
-            "sourceLayer": "in_vtds20"
+            "sourceLayer": "indiana_vtds20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20_points"
+              "url": "mapbox://districtr.indiana_vtds20_points"
             },
-            "sourceLayer": "in_vtds20_points"
+            "sourceLayer": "indiana_vtds20_points"
           }
         ]
       }
@@ -734,17 +734,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20"
+              "url": "mapbox://districtr.indiana_vtds20"
             },
-            "sourceLayer": "in_vtds20"
+            "sourceLayer": "indiana_vtds20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_vtds20_points"
+              "url": "mapbox://districtr.indiana_vtds20_points"
             },
-            "sourceLayer": "in_vtds20_points"
+            "sourceLayer": "indiana_vtds20_points"
           }
         ]
       }

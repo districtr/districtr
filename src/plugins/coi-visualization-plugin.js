@@ -1,4 +1,3 @@
-
 import Tooltip from "../map/Tooltip";
 import { Tab } from "../components/Tab";
 import {
@@ -83,14 +82,7 @@ function checkIfVisible(cluster) {
     return isChecked;
 }
 
-/**
- * 
- * @param {*} units 
- * @param {*} unitMap 
- * @param {*} activePatternMatch 
- * @param {*} identifier 
- */
-function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID20") {
+function onFeatureClicked(place, units, unitMap, coiPatterns, identifier="GEOID20") {
     let map = units.map,
         sourceLayer = units.sourceLayer,
         reverseMapping = createReverseMapping(unitMap);
@@ -100,28 +92,37 @@ function onFeatureClicked(units, unitMap, activePatternMatch, identifier="GEOID2
         // unique identifier, find its cluster and COI name, and check if it's
         // visible. If it is, then we want to open a new window and pass the
         // information to it.
-        let _selectedFeatures = map.queryRenderedFeatures(e.point);
+        try {
+            let _selectedFeatures = map.queryRenderedFeatures(e.point),
+                selectedFeatures = _selectedFeatures.map((f) => {
+                    if (f.source === sourceLayer) return f;
+                }),
+                features = selectedFeatures.map((f) => {
+                    if (f && f.hasOwnProperty("properties")) {
+                        if (reverseMapping[f.properties["GEOID20"]]) return f;
+                    }
+                }),
+                feature = features[0],
+                geoid = feature.properties[identifier],
+                cluster = reverseMapping[geoid]["cluster"],
+                cois = reverseMapping[geoid]["coi"],
+                origin = window.location.origin;
 
-        let
-            selectedFeatures = _selectedFeatures.map(f => {
-                if (f.source === sourceLayer) return f;
-            }),
-            feature = selectedFeatures[0],
-            geoid = feature.properties[identifier],
-            cluster = reverseMapping[geoid]["cluster"],
-            cois = reverseMapping[geoid]["coi"],
-            origin = window.location.origin;
-
-        // Check if all the things in the hierarchy are visible. If they are,
-        // and the user's clicked on the thing, we want to send the data to the
-        // new page.
-        if (checkIfVisible(cluster, cois)) {
-            let tab = window.open(origin + `/coi-info/`);
-            tab.coidata = {
-                units: units,
-                unitMap: unitMap
-            };
-        }
+            // Check if all the things in the hierarchy are visible. If they are,
+            // and the user's clicked on the thing, we want to send the data to the
+            // new page.
+            if (checkIfVisible(cluster, cois)) {
+                let tab = window.open(origin + "/coi-info");
+                tab.coidata = {
+                    units: units,
+                    unitMap: unitMap,
+                    place: place,
+                    cluster: cluster,
+                    cois: cois,
+                    coiPatterns: coiPatterns
+                };
+            }
+        } catch (e) { console.error(e); };
     });
 }
 
@@ -220,10 +221,7 @@ function initialStyles() {
  * @returns {Function} Callback for Toggle.
  */
 function displayCOIs(units, unitMap) {
-    // Destructure the COI object we get from addCOIs and find all the active
-    // checkboxes to disable them.
     let initialized = false;
-    
     return (checked) => {
         // Only grab the checkboxes relating to clusters or individual COIs,
         // cutting off the one which changes the opacity for the whole layer.
@@ -300,64 +298,6 @@ function createCOICheckbox(callback) {
 }
 
 /**
- * @descriptions Creates a renderable HTML entity for the COIs within a cluster.
- * @param {Object} cluster A cluster of COIs.
- * @param {Object} units A mapbox thing that I can't quite assign a type to.
- * @param {Object} unitMap Maps COI names to units within the cluster.
- * @param {Object} patternMatch The original mapping from COI names to patterns.
- * @returns {HTMLTemplateElement} A lit-html template element.
- */
-function listCOIs(cluster, units, unitMap, patternMatch, chosenPatterns) {
-    return html`
-        <div class="toolbar-section-left cluster-display">
-            ${
-                // Here, we map over each part of the cluster -- where each
-                // part is a COI -- and create a checkbox for each one. We add
-                // the cluster ID and the COI name as classes to each of the
-                // toggles so we can selectively en/disable them when toggling
-                // further up in the hierarchy. Also get the background image
-                // for 
-                cluster.plan.parts.map((coi) => {
-                    let adjustedClassName = coi.name.replaceAll(" ", "-"),
-                        _individualCOIDisplayToggle = toggle(
-                            coi.name, true,
-                            toggleVisibility(units, unitMap, cluster.plan.id, coi.name),
-                            null,
-                            `coi-checkbox ${cluster.plan.id} ${adjustedClassName}`
-                        ),
-                        imageURL = chosenPatterns[
-                            patternMatch[cluster.plan.id][coi.name]
-                        ],
-                        styles = `
-                            background-image: url('${imageURL}');
-                            height: 1em;
-                            width: 3em;
-                            display: block;
-                            opacity: 0.6;
-                            border-radius: 5px;
-                            padding-right: 1em;
-                        `,
-                        individualCOIDisplayToggle = html`
-                            <div style="display: flex; flex-direction: row; align-items: center;">
-                                ${_individualCOIDisplayToggle}
-                                <span style="${styles}"></span>
-                            </div>
-                        `;
-                    
-                    // Style the inner `div`s according to the same rules.
-                    return html`
-                        <div class="toolbar-section-left">
-                            ${individualCOIDisplayToggle}
-                            <p style='padding-top: 0.25rem' class='${cluster.plan.id} ${coi.name}'>${coi.description}</p>
-                        </div>
-                    `;
-                })
-            }
-        </div>
-    `;
-}
-
-/**
  * 
  * @param {String} cluster Name of the cluster we *aren't* getting.
  * @param {Object} unitMap Maps individual COI names to the units they cover.
@@ -409,7 +349,7 @@ function toggleCheckboxStyle(checkbox, checked) {
  * @param {String} coi Name of a COI.
  * @returns {Function} Handles the toggling action.
  */
-function toggleVisibility(units, unitMap, cluster, coi=null) {
+function toggleVisibility(units, unitMap, cluster) {
     // All GEOIDs passed to `opacityStyleExpression` will have an opacity of
     // zero, and all others an opacity of 1/3 (by default). Here's the logic to
     // determine which GEOIDs are included in the list to be made invisible.
@@ -445,6 +385,7 @@ function toggleVisibility(units, unitMap, cluster, coi=null) {
  */
 function CoiVisualizationPlugin(editor) {
     let { state, toolbar, store } = editor,
+        { place } = state,
         tab = new Tab("coi", "Communities", store);
     
     // Add COIs to the state.
@@ -483,23 +424,7 @@ function CoiVisualizationPlugin(editor) {
                         toggleVisibility(units, unitMap, name),
                         null, `cluster-checkbox ${name}`
                     );
-
-                /*
-                // Add a section with a toggle for a label.
-                tab.addSection(
-                    () => html`
-                        <div class="toolbar-section-left">
-                            <h4>${clusterToggle}</h4>
-                            ${
-                                listCOIs(
-                                    cluster, units, unitMap, patternMatch,
-                                    chosenPatterns
-                                )
-                            }
-                        </div>
-                    `
-                );
-                */
+                
                 // Add a section just containing the cluster toggle.
                 tab.addSection(
                     () => html`
@@ -520,7 +445,7 @@ function CoiVisualizationPlugin(editor) {
             tooltipWatcher.activate();
 
             // Watch for click events.
-            onFeatureClicked(units, unitMap);
+            onFeatureClicked(place, units, unitMap, coiPatternMatch);
         });
 }
 

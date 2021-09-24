@@ -252,6 +252,14 @@ export function clusterPatternStyleExpression(units, unitMap, clusterPatternMatc
     units.setPaintProperty("fill-pattern", expression);
 }
 
+export function retrieveCOIs(place) {
+    let localURL = "/assets/sample_module.json",
+        remoteURL = `/.netlify/functions/moduleRead?module=${place.id}&state=${place.state}&page=1`,
+        URL = window.location.hostname == "localhost" ? localURL : remoteURL;
+
+    return URL;
+}
+
 /**
  * @description Configures COI-related functionality in districting mode.
  * @param {State} state Holds state for the application.
@@ -260,9 +268,7 @@ export function clusterPatternStyleExpression(units, unitMap, clusterPatternMatc
  */
 export function addCOIs(state) {
     let { map, coiunits, place } = state,
-        localURL = "/assets/sample_module.json",
-        remoteURL = `/.netlify/functions/moduleRead?module=${place.id}&state=${place.state}&page=1`,
-        URL = window.location.hostname == "localhost" ? localURL : remoteURL;
+        URL = retrieveCOIs(place);
 
     // Fetch COI data from the provided URL. Note that in order to return the
     // required data to the caller, we have to return *all* the Promises and
