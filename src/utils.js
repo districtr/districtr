@@ -939,6 +939,7 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
     find_unpainted: true,
+    current_districts: true,
   },
   ca_solano: {
     border: true,
