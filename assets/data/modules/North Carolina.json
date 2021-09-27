@@ -1799,56 +1799,56 @@
               {
                 "key": "EL08G_GV_D",
                 "name": "Democratic",
-                "sum": 2138046,
+                "sum": 2138043,
                 "min": 0,
-                "max": 9439
+                "max": 4059
               },
               {
                 "key": "EL08G_GV_R",
                 "name": "Republican",
-                "sum": 1997134,
+                "sum": 1997148,
                 "min": 0,
-                "max": 6430
+                "max": 4382
               }
             ]
           },
           {
             "type": "election",
-            "name": "2008 Senate",
+            "name": "2008 US Senate",
             "subgroups": [
               {
                 "key": "EL08G_USS_",
                 "name": "Democratic",
-                "sum": 2240835,
+                "sum": 2240838,
                 "min": 0,
-                "max": 9332
+                "max": 4471
               },
               {
                 "key": "EL08G_US_1",
                 "name": "Republican",
-                "sum": 1883929,
+                "sum": 1883930,
                 "min": 0,
-                "max": 5236
+                "max": 3470
               }
             ]
           },
           {
             "type": "election",
-            "name": "2010 Senate",
+            "name": "2010 US Senate",
             "subgroups": [
               {
                 "key": "EL10G_USS_",
                 "name": "Democratic",
-                "sum": 1141697,
+                "sum": 1141690,
                 "min": 0,
-                "max": 4882
+                "max": 2733
               },
               {
                 "key": "EL10G_US_1",
                 "name": "Republican",
-                "sum": 1454082,
+                "sum": 1454083,
                 "min": 0,
-                "max": 3848
+                "max": 2694
               }
             ]
           },
@@ -1859,36 +1859,16 @@
               {
                 "key": "EL12G_GV_D",
                 "name": "Democratic",
-                "sum": 1925267,
+                "sum": 1925272,
                 "min": 0,
-                "max": 9068
+                "max": 4277
               },
               {
                 "key": "EL12G_GV_R",
                 "name": "Republican",
-                "sum": 2437225,
+                "sum": 2437221,
                 "min": 0,
-                "max": 8101
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2012 President",
-            "subgroups": [
-              {
-                "key": "EL12G_PR_D",
-                "name": "Democratic",
-                "sum": 2171289,
-                "min": 0,
-                "max": 9734
-              },
-              {
-                "key": "EL12G_PR_R",
-                "name": "Republican",
-                "sum": 2267351,
-                "min": 0,
-                "max": 7192
+                "max": 4978
               }
             ]
           },
@@ -1899,36 +1879,76 @@
               {
                 "key": "EL14G_USS_",
                 "name": "Democratic",
-                "sum": 1416838,
+                "sum": 1416842,
                 "min": 0,
-                "max": 4539
+                "max": 3024
               },
               {
                 "key": "EL14G_US_1",
                 "name": "Republican",
-                "sum": 1370301,
+                "sum": 1370298,
                 "min": 0,
-                "max": 5821
+                "max": 3455
               }
             ]
           },
           {
             "type": "election",
-            "name": "2016 President",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "EL12G_PR_D",
+                "name": "Democratic",
+                "sum": 2171298,
+                "min": 0,
+                "max": 4879
+              },
+              {
+                "key": "EL12G_PR_R",
+                "name": "Republican",
+                "sum": 2267344,
+                "min": 0,
+                "max": 4503
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "EL16G_PR_D",
                 "name": "Democratic",
-                "sum": 2180319,
+                "sum": 2180326,
                 "min": 0,
-                "max": 9556
+                "max": 5211
               },
               {
                 "key": "EL16G_PR_R",
                 "name": "Republican",
-                "sum": 2359753,
+                "sum": 2359750,
                 "min": 0,
-                "max": 7202
+                "max": 4808
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US Senate",
+            "subgroups": [
+              {
+                "key": "EL16G_US_1",
+                "name": "Democratic",
+                "sum": 2119699,
+                "min": 0,
+                "max": 5059
+              },
+              {
+                "key": "EL16G_USS_",
+                "name": "Republican",
+                "sum": 2392433,
+                "min": 0,
+                "max": 4819
               }
             ]
           },
@@ -1939,16 +1959,16 @@
               {
                 "key": "EL16G_GV_D",
                 "name": "Democratic",
-                "sum": 2300380,
+                "sum": 2300389,
                 "min": 0,
-                "max": 9363
+                "max": 5289
               },
               {
                 "key": "EL16G_GV_R",
                 "name": "Republican",
-                "sum": 2296036,
+                "sum": 2296035,
                 "min": 0,
-                "max": 7376
+                "max": 4381
               }
             ]
           },
@@ -2092,12 +2112,18 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-84.3218, 33.7529],
-          [-75.4001, 36.5881]
+          [
+            -84.3218,
+            33.7529
+          ],
+          [
+            -75.4001,
+            36.5881
+          ]
         ],
         "tilesets": [
           {

@@ -1593,27 +1593,7 @@
         "columnSets": [
           {
             "type": "election",
-            "name": "2018 Governor",
-            "subgroups": [
-              {
-                "key": "GOV18D",
-                "name": "Democratic",
-                "sum": 994340,
-                "min": 0,
-                "max": 3735
-              },
-              {
-                "key": "GOV18R",
-                "name": "Republican",
-                "sum": 1330863,
-                "min": 0,
-                "max": 13570
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 Senate",
+            "name": "2018 US Senate",
             "subgroups": [
               {
                 "key": "SEN18D",
@@ -1628,6 +1608,26 @@
                 "sum": 1135200,
                 "min": 0,
                 "max": 12247
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 1179193,
+                "min": 0,
+                "max": 4505
+              },
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 1139250,
+                "min": 0,
+                "max": 12657
               }
             ]
           },
@@ -1648,6 +1648,26 @@
                 "sum": 1201398,
                 "min": 0,
                 "max": 12702
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 994340,
+                "min": 0,
+                "max": 3735
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1330863,
+                "min": 0,
+                "max": 13570
               }
             ]
           },
@@ -1831,12 +1851,18 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-114.8163, 31.3323],
-          [-109.0452, 37.0037]
+          [
+            -114.8163,
+            31.3323
+          ],
+          [
+            -109.0452,
+            37.0037
+          ]
         ],
         "tilesets": [
           {
