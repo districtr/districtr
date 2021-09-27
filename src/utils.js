@@ -226,6 +226,7 @@ export const stateNameToFips = {
   colorado: "08",
   connecticut: "09",
   delaware: 10,
+  dc: 11,
   "district of columbia": 11,
   district_of_columbia: 11,
   districtofcolumbia: 11,
@@ -258,6 +259,7 @@ export const stateNameToFips = {
   newjersey: 34,
   "new mexico": 35,
   new_mexico: 35,
+  new_mexico_portal: 35,
   newmexico: 35,
   "new york": 36,
   new_york: 36,
@@ -374,6 +376,10 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
+      border: true,
+      shapefile: true,
+      number_markers_lambda: true,
+      find_unpainted: true,
     },
     arkansas: {
       number_markers: true,
