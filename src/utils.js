@@ -376,10 +376,20 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
+      number_markers_lambda: true,
       border: true,
       shapefile: true,
-      number_markers_lambda: true,
       find_unpainted: true,
+      current_districts: true,
+    },
+    yuma_awc: {
+      native_american: true,
+      number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      find_unpainted: true,
+      current_districts: true,
     },
     arkansas: {
       number_markers: true,
