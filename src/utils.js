@@ -380,7 +380,12 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       find_unpainted: true,
-      current_districts: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma',
+        centroids: true,
+      }],
     },
     yuma_awc: {
       native_american: true,
@@ -389,7 +394,12 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       find_unpainted: true,
-      current_districts: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma_awc',
+        centroids: true,
+      }],
     },
     arkansas: {
       number_markers: true,
