@@ -120,6 +120,8 @@ commoncausepa: 'Pennsylvania',
   keystonecounts: 'Pennsylvania',
   pavoice: 'Pennsylvania',
   sandiego: 'California',
+  yumasup: 'Arizona',
+  yumaawc: 'Arizona',
 };
 
 const validEventCodes = {
@@ -229,6 +231,8 @@ commoncausepa: 'pennsylvania',
   keystonecounts: 'pennsylvania',
   pavoice: 'pennsylvania',
   sandiego: 'ca_SanDiego',
+  yumasup: 'yuma',
+  yumaawc: 'yuma_awc',
 };
 
 const blockPlans = {
@@ -256,6 +260,7 @@ const unitTypes = {
   san_joaquin: {no: 'Blocks'},
   oakland: {no: 'Blocks'},
   'mp-maps': {no: 'Blocks'},
+  yumasup: {no: 'Blocks'},
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
 };
@@ -313,6 +318,8 @@ const coi_events = [
 const hybrid_events = [
   'mesaaz',
   'sandiego',
+  'yumasup',
+  'yumaawc',
   'hia',
   'oakland',
   'long_beach',
@@ -827,6 +834,16 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Camarillo&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  yumasup: "<p>Welcome to the Districtr Community of Interest public mapping tool for Yuma County's 2021 supervisorial redistricting.<p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;YumaSup&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  yumaawc: "<p>Welcome to the Districtr Community of Interest public mapping tool for Arizona Western College's 2021 trustee board redistricting.<p>\
+     <p>To let the College know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;YumaAWC&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   bellflower: "<p>Welcome to the Districtr Community of Interest public mapping tool for Bellflower's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
      neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
@@ -1087,6 +1104,18 @@ butte_county: [
   ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
+  ],
+  yumasup: [
+    "Yuma County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays population based on the 2020 Decennial Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  yumaawc: [
+    "Arizona Western College Board of Trustees District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three Yuma County districts as equal in population as possible and that each member represents about the same number of constituents. \
+    We encourage residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions.",
+    "This mapping module displays population based on the 2020 Decennial Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   saccounty: [
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1467,7 +1496,7 @@ export default () => {
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
-          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021"].includes(eventCode)) {
+          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021", "yumasup", "yumaawc"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -1485,6 +1514,12 @@ export default () => {
             } else if (eventCode === "goleta") {
               document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
               document.getElementById("partnership-a").src = "/assets/partners-goleta.png?v=2";
+            } else if (eventCode === "yumasup") {
+              document.getElementById("partner-link-a").href = "https://www.yumacountyaz.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-yuma.png";
+            } else if (eventCode === "yumaawc") {
+              document.getElementById("partner-link-a").href = "https://www.azwestern.edu";
+              document.getElementById("partnership-a").src = "/assets/partners-awc.png";
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
               document.getElementById("partnership-a").src = "/assets/partners-marin.png?v=2";

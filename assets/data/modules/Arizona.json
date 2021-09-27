@@ -1336,6 +1336,260 @@
     ]
   },
   {
+    "name": "Arizona Western College (Yuma)",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population2020",
+              "name": "Total population",
+              "sum": 203881,
+              "min": 0,
+              "max": 4706
+            },
+            "subgroups": [
+              {
+                "key": "OMB_NH_Wht",
+                "name": "White population",
+                "sum": 61123,
+                "min": 0,
+                "max": 1288
+              },
+              {
+                "key": "OMB_Blk",
+                "name": "Black population",
+                "sum": 4076,
+                "min": 0,
+                "max": 864
+              },
+              {
+                "key": "OMB_Latino",
+                "name": "Hispanic population",
+                "sum": 130003,
+                "min": 0,
+                "max": 1986
+              },
+              {
+                "key": "OMB_AsnPI",
+                "name": "Asian / Pacific Islander population",
+                "sum": 3324,
+                "min": 0,
+                "max": 51
+              },
+              {
+                "key": "OMB_Native",
+                "name": "American Indian population",
+                "sum": 3129,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "OMB_MultiRace",
+                "name": "Two or more races",
+                "sum": 525,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "OMB_Other",
+                "name": "Other races",
+                "sum": 1701,
+                "min": 0,
+                "max": 361
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18Pop",
+              "name": "Voting age population",
+              "sum": 153169,
+              "min": 0,
+              "max": 4705
+            },
+            "subgroups": [
+              {
+                "key": "OMB_VAP_NH_Wht",
+                "name": "White voting age population",
+                "sum": 53451,
+                "min": 0,
+                "max": 1288
+              },
+              {
+                "key": "OMB_VAP_Blk",
+                "name": "Black voting age population",
+                "sum": 3289,
+                "min": 0,
+                "max": 863
+              },
+              {
+                "key": "OMB_VAP_Latino",
+                "name": "Hispanic voting age population",
+                "sum": 89679,
+                "min": 0,
+                "max": 1986
+              },
+              {
+                "key": "OMB_VAP_Native",
+                "name": "Native American voting age population",
+                "sum": 2405,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "OMB_VAP_AsnPI",
+                "name": "Asian / Pacific Islander voting age population",
+                "sum": 2603,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "OMB_Other_VAP",
+                "name": "Other races voting age population",
+                "sum": 1362,
+                "min": 0,
+                "max": 361
+              },
+              {
+                "key": "OMB_VAP_MultiRace",
+                "name": "Two or more races voting age population",
+                "sum": 380,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 92,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 124,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 57,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 306,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 125,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75k",
+                "name": ">$75k income",
+                "sum": 188,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 59,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 8,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 9,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -114.8163,
+            32.0389
+          ],
+          [
+            -113.3332,
+            33.4645
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yuma_blocks20_points"
+            },
+            "sourceLayer": "yuma_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yuma_blocks20"
+            },
+            "sourceLayer": "yuma_blocks20"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.yumadata_blockgroups20"
+            },
+            "sourceLayer": "yumadata_blockgroups20"
+          }
+        ]
+      }
+    ],
+    "id": "yuma_awc",
+    "state": "Arizona",
+    "districtingProblems": [
+      {
+        "name": "Board of Trustees",
+        "numberOfParts": 3,
+        "pluralNoun": "Trustee Districts"
+      }
+    ]
+  },
+  {
     "state": "Arizona",
     "id": "arizona",
     "units": [
