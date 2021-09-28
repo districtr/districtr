@@ -438,7 +438,10 @@ function election_section(state, partisanship) {
         <h4 text-align="center">Competitiveness Metrics</h4>
         A “swing district” is one that has been won by each major party at least once over the
         elections in this dataset.
-        Your plan has <strong>${partisanship.plan_scores.num_swing_districts} swing districts</strong>
+        Your plan has ${partisanship.plan_scores.num_party_districts} districts that always go
+        ${partisanship.party}, ${partisanship.plan_scores.num_op_party_districts} districts that
+        always go ${partisanship.party.toLowerCase()[0] === 'd' ? "Republican" : "Democratic"}, and
+        <strong>${partisanship.plan_scores.num_swing_districts} swing districts</strong>
         (out of ${num_districts} districts).  
         <br/>
         <br/>
