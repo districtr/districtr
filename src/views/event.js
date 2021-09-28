@@ -1974,20 +1974,6 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                 ${isProfessionalSamples ? "" : html`<span>Updated<br/>
                       ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>
-            ${(coi_events.includes(eventCode) || isProfessionalSamples)
-                ? null
-                : html`
-                  <span style="margin:10px">
-                      ${(coi_events.includes(eventCode) || districtGoal == 250) ? "" : (districtCount + "/" + districtGoal + " districts")}
-                      ${unitOff ? html`<br/>` : null }
-                      ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
-                  </span>
-                  <span style="margin:10px;margin-top:0;">
-                    ${(districtOff || unitOff)
-                        ? "Incomplete"
-                        : "Complete"}
-                  </span>`
-            }
         </li>
     </a>`;
 }
