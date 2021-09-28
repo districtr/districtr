@@ -284,7 +284,7 @@ function overview_section (state, contig, problems, num_tiles) {
                             ${Number(dnum) + 1}
                         </span>`})}</div>`}
             Note that contiguity can be subtle because of bodies of water and because of
-            disconnected units.  Open <a href="/edit">the plan in Districtr</a> to examine the contiguity gaps.
+            disconnected units.  <a href="/edit">Open in Districtr</a> to examine the contiguity gaps.
             `
         : html`Contiguity status not available for ${state.place.name}.`
     
@@ -590,9 +590,11 @@ function county_section(state, data, municipalities) {
     </ul>
     <div>`
     : html`<div style="text-align:left">
-    ${state.place.name} has <strong>${data.num_counties} ${pnoun}</strong>. 
-    Your plan splits ${plural_singular(num_split)} a total of ${data.splits} times. ${plural_singular_tobe(c_in_2)}
+    ${state.place.name} has ${data.num_counties} ${pnoun}. 
+    Your plan splits <strong>${plural_singular(num_split)}</strong>. ${plural_singular_tobe(c_in_2)}
     split in two pieces and ${plural_singular_tobe(c_in_3more)} split into three or more pieces.
+    <br/>
+    (The number of pieces is the same as counting the number of districts touched by the county)
     <br/><br/>
     The population in ${c_forced} of ${state.place.name}'s ${pnoun} is larger than a district,
     sometimes several times larger.
@@ -623,7 +625,6 @@ function county_section(state, data, municipalities) {
     return html`${county_toggle}<br/>${text}<br/>
     ${num_split > 0 ? html`
         <h4 text-align:"center">${noun_cap} Split Details</h4>
-        (The number of pieces is the same as counting the number of districts touched by the county)<br/><br/>
         ${DataTable(headers, rows, true)}` : ""}`
 }
 
