@@ -239,6 +239,10 @@ input, textarea {
         transform-origin:0 0;
     }
 
+    nav > ul {
+      display: none;
+    }
+
     .report-data-list .toolbar-checkbox,
     .mapboxgl-control-container, .geocoder {
         display: none;
