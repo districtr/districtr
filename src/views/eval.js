@@ -262,7 +262,7 @@ function overview_section (state, contig, problems, num_tiles) {
         ${missing == 0 ? html`This plan is <strong>complete</strong>.`
                        : html`This plan is <strong>incomplete</strong>.  Be sure all districts are
                             present and all units are assigned to complete the plan –
-                            <a href="${edit_url}">open in Districtr</a> to continue editing.`}
+                            <a href="${edit_url}" target="_blank">open in Districtr</a> to continue editing.`}
         `
 
     // contiguity
@@ -287,7 +287,7 @@ function overview_section (state, contig, problems, num_tiles) {
                             ${Number(dnum) + 1}
                         </span>`})}</div>`}
             Note that contiguity can be subtle because of bodies of water and because of
-            disconnected units.  <a href="${edit_url}">Open in Districtr</a> to examine the contiguity gaps.
+            disconnected units.  <a href="${edit_url}" target="_blank">Open in Districtr</a> to examine the contiguity gaps.
             `
         : html`Contiguity status not available for ${state.place.name}.`
     
