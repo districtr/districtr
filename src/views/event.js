@@ -1011,7 +1011,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
         save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
   cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
-<p>Please take this opportunity to draw your own districts using the redistricting requirements as listed here. – <a href="https://www.dallascityhall.com" target="_blank">www.dallascityhall.com</a></p>\
+<p>Please take this opportunity to draw your own districts using the redistricting requirements as listed <a href="https://www.dallascityhall.com" target="_blank">here</a>.</p>\
 <p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of the City where people have a common interest that needs a voice in government.</p>\
 <p><strong>Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1108,10 +1108,8 @@ butte_county: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   cityofdallas: [
-    "This mapping module uses the 2020 Decennial Census population with processing by \
-Redistricting Partners. The data was prepared by ARCBridge Consulting. For the last decade, \
-ARCBridge Consulting has supported cities, community college districts, school boards, and \
-other special districts. To learn more about ARCBridge – visit <a href='https://www.arcbridge.com' target='_blank'>www.arcbridge.com</a>"
+    "This mapping module uses the 2020 Decennial Census population processed by ARCBridge Consulting.\
+    To learn more about ARCBridge – visit <a href='https://www.arcbridge.com' target='_blank'>their website</a>."
   ],
   santa_ana: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
