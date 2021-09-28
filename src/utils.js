@@ -774,6 +774,12 @@ export function spatial_abilities(id) {
     shapefile: true,
     neighborhood_borders: 'Neighborhoods',
   },
+  ca_santa_ana: {
+    number_markers: true,
+    number_markers_lambda: true,
+    border: true,
+    shapefile: true,
+  },
   ca_kern: {
     number_markers: true,
     border: true,
