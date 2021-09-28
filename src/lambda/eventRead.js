@@ -36,13 +36,13 @@ exports.handler = async (event, context) => {
     }
     if (skipNum) {
       plans = await Plan.find(query)
-      .select("_id simple_id startDate plan.problem plan.place plan.placeId screenshot2 planName isScratch")
+      .select("_id simple_id startDate plan.problem plan.place plan.placeId plan.units screenshot2 planName isScratch")
       .sort([["simple_id", -1]])
       .skip(skipNum)
       .limit(Number(event.queryStringParameters.limit || 8));
     } else {
       plans = await Plan.find(query)
-      .select("_id simple_id startDate plan.problem plan.place plan.placeId screenshot2 planName isScratch")
+      .select("_id simple_id startDate plan.problem plan.place plan.placeId plan.units screenshot2 planName isScratch")
       .sort([["simple_id", -1]])
       .limit(Number(event.queryStringParameters.limit || 8));
     }
