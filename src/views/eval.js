@@ -240,7 +240,7 @@ function getCellBasic(value, decimals, party, simple=false) {
 function overview_section (state, contig, problems, num_tiles) {
     const planURL = getPlanURLFromQueryParam();
     let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
-    let edit_url = planURL.length > 0 ? "/edit?url=" + planURL : "/edit" + finalURLpage;
+    let edit_url = planURL.length > 0 ? "/edit?url=" + planURL : "/edit/" + finalURLpage;
     // plan details
     let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
         .reduce((a,b) => a + b, 0),
