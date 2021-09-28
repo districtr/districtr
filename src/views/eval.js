@@ -242,43 +242,52 @@ function overview_section (state, contig, problems, num_tiles) {
     let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
         .reduce((a,b) => a + b, 0),
         dist_num = state.plan.problem.numberOfParts;
-    let details = html`<div style="text-align:left">
-        This plan features ${state.plan.problem.pluralNoun} for ${state.place.name} (${dist_num} districts).
-        The units are ${state.unitsRecord.unitType.toLowerCase()}.
-        ${dist_num == drawn ? "All" : ""} ${drawn} districts are present.`
+    let details = html`<div>
+        ${state.unitsRecord.unitType.toLowerCase() === "vtds" ? html`(VTDs, also called “voting
+        tabulation districts” or “voting districts,” are the closest approximation of electoral
+        precincts in Census geography.)<br/>` : null}
+        The plan type is ${state.plan.problem.pluralNoun} for ${state.place.name} (${dist_num} districts).
+        `
 
     // missing units
     let missing = num_tiles - Object.keys(state.plan.assignment).length;
     let unassigned_section = 
         html`
-        ${missing == 0 ? html`All ${num_tiles} ${state.unitsRecord.unitType.toLowerCase()} are assigned, making the plan <strong>complete</strong>.`
-            : html`${Object.keys(state.plan.assignment).length} of ${num_tiles} are assigned, making the plan <strong>incomplete</strong>.`}
+        ${dist_num == drawn ? "All" : ""} ${drawn} districts are present.<br/>
+        ${missing == 0 ? "All" : ""} ${Object.keys(state.plan.assignment).length}
+        ${state.unitsRecord.unitType.toLowerCase()} are assigned to a district.<br/>
+        ${missing == 0 ? html`This plan is <strong>complete</strong>.`
+                       : html`This plan is <strong>incomplete</strong>.  Be sure all districts are
+                       present and all units are assigned to complete the plan –
+                       <a href="">open in Districtr</a>
+                       to continue editing.`}
         `
 
     // contiguity
     let contig_section = 
         (problems)
         ? html`
-        A plan is called contiguous if every district is internally connected.
-        <h5 id="contiguity-status">
-        ${contig ? "By our adjacency definition, your plan is contiguous." 
-            : html`The following districts have contiguity gaps:
-        </h5>
-        <div class="district-row" style="display:block">
-            ${state.parts.map((part, dnum) => {
-            return html`
-                <span
-                    class="part-number"
-                    style="background:${districtColors[dnum % districtColors.length].hex};
-                    display:${problems.includes(dnum)
-                        ? "inline-flex"
-                        : "none"}"
-                >
-                    ${Number(dnum) + 1}
-                </span>`})}</div>`}`
-        : html`<h5 id="contiguity-status">
-                Contiguity status not available for ${state.place.name}.
-            </h5>`
+            A plan is called contiguous if every district is internally connected.
+            This plan appears to be ${contig ? html`<strong>contiguous</strong>.` 
+                : html`<strong>discontiguous</strong>.<br/>
+                The following districts may have contiguity gaps:
+                
+                <div class="district-row" style="display:block">
+                    ${state.parts.map((part, dnum) => {
+                    return html`
+                        <span
+                            class="part-number"
+                            style="background:${districtColors[dnum % districtColors.length].hex};
+                            display:${problems.includes(dnum)
+                                ? "inline-flex"
+                                : "none"}"
+                        >
+                            ${Number(dnum) + 1}
+                        </span>`})}</div>`}
+            Note that contiguity can be subtle because of bodies of water and because of
+            disconnected units.  Open <a href="">the plan in Districtr</a> to examine the contiguity gaps.
+            `
+        : html`Contiguity status not available for ${state.place.name}.`
     
     // population deviation
     let deviations = state.population.deviations();
@@ -293,10 +302,12 @@ function overview_section (state, contig, problems, num_tiles) {
             argmax = d;
         }
     }
-    let pop_section = html`<div style="text-align:left"><strong>Population deviation</strong>
-    is the percentage difference in population between districts and the ideal population of a district
-    (if the population were split perfectly evenly). 
-    Legislative plans should typically have deviations under ± 5%. Congressional plans are typically more tightly balanced.<br/>
+    let pop_section = html`<div style="text-align:left">
+    The ideal size of a district is arrived at by dividing the total population of the state equally
+    into the specified number of districts. Population deviation of a plan is measured as the
+    largest amount that any district differs from ideal size. Legislative plans should typically have
+    individual deviations under ± 5%, which ensures a top-to-bottom deviation of under 10%.
+    Congressional plans are typically more tightly balanced.<br/>
     Your plan's most populous district is district  
     <span
         class="part-number"
@@ -315,14 +326,15 @@ function overview_section (state, contig, problems, num_tiles) {
     
     // aggregate all the parts
     return html`
-    <h4 text-align="center">Type, Data, and Units</h4>
+    <h4 text-align="center">Data, Units, and Plan Type</h4>
     <div class="dataset-info">
-                ${populateDatasetInfo(state)}
-            </div>
+        ${populateDatasetInfo(state)}
+    </div>
     ${details}<br/>
-    <h4 text-align="center">Completeness and Contiguity</h4>
+    <h4 text-align="center">Completeness</h4>
     ${unassigned_section}<br/><br/>
-    ${contig_section}<br/>
+    <h4 text-align="center">Contiguity</h4>
+    ${contig_section}<br/><br/>
     <h4 text-align="center">Population Deviation</h4>
     ${pop_section}</div>`;
 }
@@ -387,7 +399,7 @@ function election_section(state, partisanship) {
     }
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     
-    let score_headers = ['Election', "Efficiency Gap*", "Mean Median*", "Partisan Bias*", "Eguia's Metric*"];
+    let score_headers = ['Election', "Efficiency Gap", "Mean Median", "Partisan Bias", "Eguia's Metric"];
     let dec = true;
     let score_rows = Object.entries(partisanship.election_scores).map(([name, stats]) => {
         return {
@@ -402,8 +414,8 @@ function election_section(state, partisanship) {
     // console.log(score_rows);
     
     return html`
-        Our dataset contains ${bias_acc.length} recent statewide ${elections.length > 1 ? html`elections`
-        : html`election`} for ${state.place.name}.
+        Our current dataset contains <strong>${bias_acc.length} recent statewide 
+        ${elections.length > 1 ? html`elections` : html`election`}</strong> for ${state.place.name}.
         <br/>
         <br/>
         <h4 text-align="center">Proportionality</h4>
@@ -417,24 +429,24 @@ function election_section(state, partisanship) {
         ${DataTable(headers, rows, true)}
         <br/>
         <h4 text-align="center">Other Partisanship Metrics</h4>
-        The following scores were computed with respected to the <strong>${partisanship.party}</strong>
-        party.  This means that for scores that are signed to show favour to a party, a possitive
-        score reflects a bias towards the ${partisanship.party} party.  Scores with a star (*) have
-        this property.
+        The following scores can all be found in the political science literature, but are not
+        necessarily endorsed by leading scholars at this time. They are included here for completeness.<br/>
+        In this case, the point-of-view party is the <strong>${partisanship.party}</strong> party,
+        so positive scores are thought to show a pro-${partisanship.party} lean. <br/><br/>
         ${DataTable(score_headers, score_rows, true)}
         <br/>
         <br/>
         <h4 text-align="center">Competitiveness Metrics</h4>
-        A swing district is on that changes party control at least once across the ${elections.length}
-        recent statewide ${elections.length > 1 ? html`elections` : html`election`}
+        A “swing district” is one that has been won by each major party at least once over the
+        elections in this dataset.
         Your plan has <strong>${partisanship.plan_scores.num_swing_districts} swing districts</strong>
         (out of ${num_districts} districts).  
         <br/>
         <br/>
-        A competive district is one where each party is between a 47% – 53% vote margin.  Across the
-        ${num_districts} districts and ${elections.length} elections your plan had
-        <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong> within this
-        competitive margin.
+        A “competitive district” is one where each party has 47% – 53% of the major-party vote in a
+        district. Your plan had <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong>
+        within this competitive margin, out of a possible total of 
+        (${num_districts} districts * ${elections.length} elections) = ${num_districts*elections.length}.
         `;
 }
 
@@ -467,20 +479,20 @@ function compactness_section(state, cut_edges, plan_scores) {
         districts in the plan - you can think of this as the "scissors complexity," 
         or how much work you'd need to do to cut out the plan. You should only compare 
         the cut edges count when you're looking at two plans for the same state using the 
-        same units. Then, a lower number of cut edges means a plan is more compact.<br/>
+        same units. Then, a lower number of cut edges means a plan is more compact.<br/><br/>
         ${cut_edges > 0 ?
-        html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.unitType.toLowerCase()}.`
+        html`Your plan has <strong>${cut_edges}</strong> cut edges between ${state.unitsRecord.unitType}.`
         : html`Cut Edges count not available for ${state.place.name}.`}
         </div>
         <br/>        
         <h4>Polsby Popper Scores</h4>
         <div style='text-align: left'>
         A classic measurement of compactness is the <strong>Polsby Popper score</strong>, which 
-        is a comparison of the area of a district to its perimeter. Instead of depending 
-        on the units, this depends on mapping choices like the map projection and the 
-        resolution of the boundaries. A higher Polsby Popper score is regarded as a more compact 
-        district; the highest possible score of an individual district is 1, which is only achieved 
-        by perfect circles.
+        is a comparison of the area of a district to its perimeter. Instead of being sensitive to
+        the choice of units, like cut edges, this depends on mapping choices like the map projection
+        and the resolution of the boundaries. A higher Polsby Popper score is regarded as signaling
+        a more compact district; the highest possible score of an individual district is 1, which is
+        only achieved by perfect circles.
         ${polsbypopper_table}
         `;
 }
@@ -495,14 +507,13 @@ function county_section(state, data, municipalities) {
     // need population info on the python anywhere dual graph for this
     if (data.population != -1) {
         Object.keys(data.population).map(x => 
-            forced[x] = Math.ceil(data.population[x]/state.population.ideal) - 1
+            forced[x] = Math.ceil(data.population[x]/state.population.ideal)
         );
 
         forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     // get number of splits to be forced
     let c_forced = Object.values(forced).reduce((a,b) => b > 0 ? a + 1 : a, 0);
-
     let num_split = Object.keys(data.split_list).length;
 
     // county button
@@ -555,11 +566,18 @@ function county_section(state, data, municipalities) {
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 ))}`
+    const c_forced_in_2 = Object.values(forced).reduce((a,b) => b === 2 ? a + 1 : a, 0);
+    const c_forced_in_3more = Object.values(forced).reduce((a,b) => b > 2 ? a + 1 : a, 0);
+    const c_in_2 = Object.values(data.split_list).reduce((a,b) => b.length === 2 ? a + 1 : a, 0);
+    const c_in_3more = Object.values(data.split_list).reduce((a,b) => b.length > 2 ? a + 1 : a, 0);
+    
+    const plural_singular = (num) => num === 1 ? html`1 ${noun}` : html`${num} ${pnoun}`;
+    const plural_singular_tobe = (num) => num === 1 ? html`1 ${noun} is` : html`${num} ${pnoun} are`;
     
     let text = (data.population == -1) 
     ? html`<div style="text-align:left">
     ${state.place.name} has ${data.num_counties} ${pnoun}
-    Your plan splits ${num_split} ${pnoun} a total of ${data.splits} times.<br/>
+    Your plan splits ${plural_singular(num_split)} a total of ${data.splits} times.<br/>
     The split ${pnoun} are:
     <ul>
     ${Object.keys(data.split_list).map(x => {
@@ -570,20 +588,17 @@ function county_section(state, data, municipalities) {
     </ul>
     <div>`
     : html`<div style="text-align:left">
-    ${state.place.name} has ${data.num_counties} ${pnoun}. 
-    Your plan splits ${num_split} ${pnoun} a total of ${data.splits} times.<br/>
-    The population in ${c_forced} of ${state.place.name}'s ${pnoun} is larger than a district. <br/>
-    ${num_split > 0 ? html`
-        In total, ${forced_splits} of the splits ${forced_splits == 1 ? "is" : "are"} forced by population size.`
-        : ""}
+    ${state.place.name} has <strong>${data.num_counties} ${pnoun}</strong>. 
+    Your plan splits ${plural_singular(num_split)} a total of ${data.splits} times. ${plural_singular_tobe(c_in_2)}
+    split in two pieces and ${plural_singular_tobe(c_in_3more)} split into three or more pieces.
     <br/><br/>
-    A split is "forced by population" if a ${noun} is too large to be contained within one district, 
-    and therefore must be split. For example, if the ideal district population was 20,000, and a 
-    ${noun} had 30,000 people, there would be 1 forced split. If the ${noun} had 50,000 people, 
-    then there would be 2 forced splits.<br/><br/>
-    Note that it may be necessary to split some counties even if no particular county has a forced split.
-    For example, picture a state with three counties of equal population, being split into 2 districts.
-    No particular split is forced, but some splitting must take place.</div>`
+    The population in ${c_forced} of ${state.place.name}'s ${pnoun} is larger than a district,
+    sometimes several times larger.
+    ${num_split > 0 ? html`
+        In total, population size forces ${plural_singular(c_forced_in_2)} to be split in two and
+        ${plural_singular(c_forced_in_3more)} to be split into three or more pieces.`
+        : ""}
+    <br/>`
     
     // if the dual graph on python anywhere doesn't have population
     if (data.population == -1)
@@ -591,22 +606,23 @@ function county_section(state, data, municipalities) {
 
     // build the table
     let noun_cap = municipalities ? "Municipality" : "County";
-    let headers = ["Splits in your plan", "Splits forced by Pop."],
+    let headers = [noun_cap, "# Pieces", "Minimium Possible"],
         rows = [];
     for (let c of Object.keys(data.split_list)) {
         let c_name = isNaN(c) ? c : (county_fips_to_name(c, state.place.state) + " County");
         rows.push({
             label: c_name,
             entries: [
-                {content: (data.split_list[c].length - 1)},
+                {content: data.split_list[c].length},
                 {content: forced[c]}
             ]
         })
     }
     return html`${county_toggle}<br/>${text}<br/>
     ${num_split > 0 ? html`
-        <h4 text-align:"center">${noun_cap} Split Details</h4> 
-        ${DataTable(headers, rows)}` : ""}`
+        <h4 text-align:"center">${noun_cap} Split Details</h4>
+        (The number of pieces is the same as counting the number of districts touched by the county)<br/><br/>
+        ${DataTable(headers, rows, true)}` : ""}`
 }
 
 /** HELPER FUNCTIONS */
