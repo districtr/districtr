@@ -73,6 +73,7 @@ const stateForEvent = {
 san_jose: 'California',
 siskiyou: 'California',
 redwood_city: 'California',
+cityofdallas: 'Texas',
 city_of_napa: 'California',
 napa_boe: 'California',
 napa_college: 'California',
@@ -183,6 +184,7 @@ const validEventCodes = {
   san_jose: 'sanjoseca',
   siskiyou: 'ca_siskiyou',
   redwood_city: 'redwood',
+  cityofdallas: 'dallastx',
   city_of_napa: 'napa2021',
   long_beach: 'longbeach',
 napa_boe: 'napa_boe',
@@ -322,6 +324,7 @@ const hybrid_events = [
   'san_mateo_city',
   'kern_county',
   'redwood_city',
+  'cityofdallas',
   'mesaaz',
   'sandiego',
   'yumasup',
@@ -1006,10 +1009,15 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
        <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
-        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
-
-
-
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
+  cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
+<p>Please take this opportunity to draw your own districts using the redistricting requirements as listed here. – <a href="https://www.dallascityhall.com" target="_blank">www.dallascityhall.com</a></p>\
+<p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of the City where people have a common interest that needs a voice in government.</p>\
+<p><strong>Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+<p>Every map submitted will be carefully reviewed by the City of Dallas Redistricting Commission. For more information, visit <a href="https://dallascityhall.com" target="_blank">City of Dallas Citizen Redistricting Commission</a>.</p>\
+<p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
+<p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
 };
 
 const longAbout = {
@@ -1098,6 +1106,12 @@ butte_county: [
   ],
   redwood_city: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  cityofdallas: [
+    "This mapping module uses the 2020 Decennial Census population with processing by \
+Redistricting Partners. The data was prepared by ARCBridge Consulting. For the last decade, \
+ARCBridge Consulting has supported cities, community college districts, school boards, and \
+other special districts. To learn more about ARCBridge – visit <a href='https://www.arcbridge.com' target='_blank'>www.arcbridge.com</a>"
   ],
   santa_ana: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1393,6 +1407,9 @@ export default () => {
             document.getElementById("introExplain").innerHTML = "Draw a Map #RedrawNapa<br/>";
             document.getElementById("eventHeadline").innerText = "City_of_Napa";
             document.getElementById("communities").innerText = "Start Drawing a Map or Your Community of Interest!";
+        } else if (eventCode === "cityofdallas") {
+          document.getElementById("introExplain").innerHTML = "";
+          document.getElementById("eventHeadline").innerText = "Welcome to the Public Mapping Page for the City of Dallas TX";
         }
 
     if (["mp-maps"].includes(eventCode)) {
@@ -1648,6 +1665,13 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
             }
+        } else if (["cityofdallas"].includes(eventCode)) {
+          document.getElementById("partnership-icons").style.display = "block";
+          document.getElementById("partnership-b").src = "/assets/partners-arcbridge.jpeg";
+          document.getElementById("partner-link-b").href = "https://www.arcbridge.com";
+          document.getElementById("partner-link-a").href = "https://dallascityhall.com";
+          document.getElementById("partnership-a").src = "/assets/partners-dallas.png";
+
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;

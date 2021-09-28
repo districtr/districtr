@@ -4994,7 +4994,7 @@
     "districtingProblems": [
       {
         "name": "County",
-        "numberOfParts": 6,
+        "numberOfParts": 7,
         "pluralNoun": "Council Districts"
       }
     ]
@@ -15760,7 +15760,7 @@
   "districtingProblems": [
     {
       "name": "City Council",
-      "numberOfParts": 5,
+      "numberOfParts": 6,
       "pluralNoun": "Council Districts"
     }
   ]
