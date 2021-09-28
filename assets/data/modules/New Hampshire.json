@@ -9,7 +9,7 @@
         "columnSets": [
           {
             "type": "election",
-            "name": "2012 President",
+            "name": "2012 Presidential",
             "subgroups": [
               {
                 "key": "PRES12D",
@@ -49,6 +49,26 @@
           },
           {
             "type": "election",
+            "name": "2012 US House",
+            "subgroups": [
+              {
+                "key": "USH12D",
+                "name": "Democratic",
+                "sum": 340925,
+                "min": 0,
+                "max": 7316
+              },
+              {
+                "key": "USH12R",
+                "name": "Republican",
+                "sum": 311636,
+                "min": 0,
+                "max": 7558
+              }
+            ]
+          },
+          {
+            "type": "election",
             "name": "2014 Governor",
             "subgroups": [
               {
@@ -69,7 +89,7 @@
           },
           {
             "type": "election",
-            "name": "2016 President",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "PRES16D",
@@ -109,7 +129,7 @@
           },
           {
             "type": "election",
-            "name": "2016 Senate",
+            "name": "2016 US Senate",
             "subgroups": [
               {
                 "key": "SEN16D",
@@ -129,7 +149,27 @@
           },
           {
             "type": "election",
-            "name": "2016 Governor",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 336575,
+                "min": 0,
+                "max": 6359
+              },
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 316367,
+                "min": 0,
+                "max": 8084
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
             "subgroups": [
               {
                 "key": "GOV18D",
@@ -144,46 +184,6 @@
                 "sum": 302764,
                 "min": 0,
                 "max": 7293
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2020 President",
-            "subgroups": [
-              {
-                "key": "PRES20D",
-                "name": "Democratic",
-                "sum": 424937,
-                "min": 0,
-                "max": 8725
-              },
-              {
-                "key": "PRES20R",
-                "name": "Republican",
-                "sum": 365660,
-                "min": 0,
-                "max": 9969
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2020 Senate",
-            "subgroups": [
-              {
-                "key": "SEN20D",
-                "name": "Democratic",
-                "sum": 450778,
-                "min": 0,
-                "max": 9229
-              },
-              {
-                "key": "SEN20R",
-                "name": "Republican",
-                "sum": 326229,
-                "min": 0,
-                "max": 8716
               }
             ]
           },
@@ -204,6 +204,66 @@
                 "sum": 516609,
                 "min": 0,
                 "max": 13202
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20D",
+                "name": "Democratic",
+                "sum": 424937,
+                "min": 0,
+                "max": 8725
+              },
+              {
+                "key": "PRES20R",
+                "name": "Republican",
+                "sum": 365660,
+                "min": 0,
+                "max": 9969
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US House",
+            "subgroups": [
+              {
+                "key": "USH20D",
+                "name": "Democratic",
+                "sum": 413895,
+                "min": 0,
+                "max": 8245
+              },
+              {
+                "key": "USH20R",
+                "name": "Republican",
+                "sum": 354045,
+                "min": 0,
+                "max": 9292
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN20D",
+                "name": "Democratic",
+                "sum": 450778,
+                "min": 0,
+                "max": 9229
+              },
+              {
+                "key": "SEN20R",
+                "name": "Republican",
+                "sum": 326229,
+                "min": 0,
+                "max": 8716
               }
             ]
           },
@@ -347,12 +407,18 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-72.5571, 42.697],
-          [-70.5751, 45.3058]
+          [
+            -72.5571,
+            42.697
+          ],
+          [
+            -70.5751,
+            45.3058
+          ]
         ],
         "tilesets": [
           {
