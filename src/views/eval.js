@@ -254,8 +254,8 @@ function overview_section (state, contig, problems, num_tiles) {
     let unassigned_section = 
         html`
         ${dist_num == drawn ? "All" : ""} ${drawn} districts are present.<br/>
-        ${missing == 0 ? "All" : ""} ${Object.keys(state.plan.assignment).length}
-        ${state.unitsRecord.unitType.toLowerCase()} are assigned to a district.<br/>
+        ${missing == 0 ? "All" : ""} ${Object.keys(state.plan.assignment).length} / ${num_tiles}
+        ${state.unitsRecord.unitType} are assigned to a district.<br/>
         ${missing == 0 ? html`This plan is <strong>complete</strong>.`
                        : html`This plan is <strong>incomplete</strong>.  Be sure all districts are
                             present and all units are assigned to complete the plan –
