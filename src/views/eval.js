@@ -238,6 +238,9 @@ function getCellBasic(value, decimals, party, simple=false) {
 /***** ANALYSIS SECTIONS ******/
 // Overview Section
 function overview_section (state, contig, problems, num_tiles) {
+    const planURL = getPlanURLFromQueryParam();
+    let finalURLpage = window.location.pathname.split("/").slice(-1)[0];
+    let edit_url = planURL.length > 0 ? "/edit?url=" + planURL : "/edit" + finalURLpage;
     // plan details
     let drawn = state.population.total.data.map(x => x > 0 ? 1 : 0)
         .reduce((a,b) => a + b, 0),
@@ -259,7 +262,7 @@ function overview_section (state, contig, problems, num_tiles) {
         ${missing == 0 ? html`This plan is <strong>complete</strong>.`
                        : html`This plan is <strong>incomplete</strong>.  Be sure all districts are
                             present and all units are assigned to complete the plan –
-                            <a href="/edit">open in Districtr</a> to continue editing.`}
+                            <a href="${edit_url}">open in Districtr</a> to continue editing.`}
         `
 
     // contiguity
@@ -284,7 +287,7 @@ function overview_section (state, contig, problems, num_tiles) {
                             ${Number(dnum) + 1}
                         </span>`})}</div>`}
             Note that contiguity can be subtle because of bodies of water and because of
-            disconnected units.  <a href="/edit">Open in Districtr</a> to examine the contiguity gaps.
+            disconnected units.  <a href="${edit_url}">Open in Districtr</a> to examine the contiguity gaps.
             `
         : html`Contiguity status not available for ${state.place.name}.`
     
