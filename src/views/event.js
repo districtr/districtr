@@ -793,11 +793,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Every map submitted will be carefully reviewed and included as part of the public record. For more information visit <a href="https://ojai.ca.gov/redistricting/" target="_blank">this link</a>.</p>\
   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Ojai”.</p>\
   <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
-  foothilldeanza: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each Trustee represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Trustee. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
-  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
-  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-  <p>Get started by clicking the orange button to draw your community or the purple button to draw your map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “FoothillDeAnza”.</p>\
-  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
+  foothilldeanza: '<p>For the first time since its founding in 1957, the Foothill-De Anza Community College District is changing the way it elects members of its Board of Trustees. The district will move from an at-large election system, where voting takes place districtwide, to having voters in each of five trustee areas elect a member to serve on the governing board.</p>\
+    <p>This requires dividing the district’s 448,000+ residents into five trustee areas of roughly equal population size, based on the 2020 Census.</p>\
+    <p>As part of the transition process, the public is invited to help identify “communities of interest” that would benefit from being kept together when creating trustee area boundary maps as well as to propose boundaries for trustee areas.</p>\
+    <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community of interest and share what makes it a community. You can also use the mapping tool to propose boundaries for the five trustee areas.</strong></p>\
+    <p>Get started by clicking the orange button to draw your community or the purple button to draw your trustee area boundary map. Be sure to click “Save” in the upper right corner of the mapping module to post your map, come back to it later, or share it with others.</p>\
+    <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -1408,6 +1410,9 @@ export default () => {
         } else if (eventCode === "cityofdallas") {
           document.getElementById("introExplain").innerHTML = "";
           document.getElementById("eventHeadline").innerText = "Welcome to the Public Mapping Page for the City of Dallas TX";
+        } else if (eventCode === "foothilldeanza") {
+          document.getElementById("introExplain").innerHTML = "";
+          document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
         }
 
     if (["mp-maps"].includes(eventCode)) {
