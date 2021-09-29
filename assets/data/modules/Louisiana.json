@@ -16,16 +16,16 @@
               {
                 "key": "GOV15D",
                 "name": "Democratic",
-                "sum": 646073,
+                "sum": 646080,
                 "min": 0,
-                "max": 1001
+                "max": 1132
               },
               {
                 "key": "GOV15R",
                 "name": "Republican",
-                "sum": 505695,
+                "sum": 505697,
                 "min": 0,
-                "max": 960
+                "max": 762
               }
             ]
           },
@@ -36,56 +36,83 @@
               {
                 "key": "SOS15D",
                 "name": "Democratic",
-                "sum": 393926,
+                "sum": 393937,
                 "min": 0,
-                "max": 717
+                "max": 826
               },
               {
                 "key": "SOS15R",
                 "name": "Republican",
-                "sum": 649227,
+                "sum": 649209,
                 "min": 0,
-                "max": 1155
+                "max": 1022
               }
             ]
           },
           {
             "type": "election",
-            "name": "2016 President",
+            "name": "2016 Presidential",
             "subgroups": [
               {
                 "key": "PRES16D",
                 "name": "Democratic",
-                "sum": 778870,
+                "sum": 778882,
                 "min": 0,
-                "max": 1484
+                "max": 1456
               },
               {
                 "key": "PRES16R",
                 "name": "Republican",
-                "sum": 1177983,
+                "sum": 1177979,
                 "min": 0,
-                "max": 1784
+                "max": 1726
               }
             ]
           },
           {
             "type": "election",
-            "name": "2016 Senate Runoff",
+            "name": "2016 US Senate Runoff",
             "subgroups": [
               {
                 "key": "SEN16roD",
                 "name": "Democratic",
-                "sum": 346959,
+                "sum": 346977,
                 "min": 0,
-                "max": 780
+                "max": 862
               },
               {
                 "key": "SEN16roR",
                 "name": "Republican",
-                "sum": 535751,
+                "sum": 535752,
                 "min": 0,
-                "max": 1023
+                "max": 1068
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Dem. Presidential Primary",
+            "subgroups": [
+              {
+                "key": "PRES16pD2",
+                "name": "Clinton",
+                "sum": 221324,
+                "min": 0,
+                "max": 669
+              },
+              {
+                "key": "PRES16pD6",
+                "name": "O'Malley",
+                "sum": 2091,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "PRES16pD7",
+                "name": "Sanders",
+                "sum": 72179,
+                "min": 0,
+                "max": 135
               }
             ]
           },
@@ -96,96 +123,36 @@
               {
                 "key": "TRE17D",
                 "name": "Democratic",
-                "sum": 165071,
+                "sum": 165076,
                 "min": 0,
                 "max": 607
               },
               {
                 "key": "TRE17R",
                 "name": "Republican",
-                "sum": 208009,
+                "sum": 207992,
                 "min": 0,
-                "max": 454
+                "max": 504
               }
             ]
           },
           {
             "type": "election",
-            "name": "2018 Secretary of State",
+            "name": "2018 Secretary of State Special",
             "subgroups": [
               {
                 "key": "SOS18D",
                 "name": "Democratic",
                 "sum": 209596,
                 "min": 0,
-                "max": 592
+                "max": 744
               },
               {
                 "key": "SOS18R",
                 "name": "Republican",
-                "sum": 306309,
+                "sum": 306291,
                 "min": 0,
-                "max": 800
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2019 Governor",
-            "subgroups": [
-              {
-                "key": "GOV19D",
-                "name": "Democratic",
-                "sum": 774495,
-                "min": 0,
-                "max": 1634
-              },
-              {
-                "key": "GOV19R",
-                "name": "Republican",
-                "sum": 734282,
-                "min": 0,
-                "max": 1300
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 Treasurer",
-            "subgroups": [
-              {
-                "key": "TRE19pD",
-                "name": "Democratic",
-                "sum": 442745,
-                "min": 0,
-                "max": 944
-              },
-              {
-                "key": "TRE19pR",
-                "name": "Republican",
-                "sum": 769477,
-                "min": 0,
-                "max": 1378
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2019 Secretary of State",
-            "subgroups": [
-              {
-                "key": "SOS19D",
-                "name": "Democratic",
-                "sum": 601131,
-                "min": 0,
-                "max": 1264
-              },
-              {
-                "key": "SOS19R",
-                "name": "Republican",
-                "sum": 867610,
-                "min": 0,
-                "max": 1567
+                "max": 860
               }
             ]
           },
@@ -196,16 +163,96 @@
               {
                 "key": "AG19D",
                 "name": "Democratic",
-                "sum": 436511,
+                "sum": 436489,
                 "min": 0,
-                "max": 984
+                "max": 862
               },
               {
                 "key": "AG19R",
                 "name": "Republican",
-                "sum": 855353,
+                "sum": 855335,
                 "min": 0,
-                "max": 1474
+                "max": 1450
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Governor",
+            "subgroups": [
+              {
+                "key": "GOV19D",
+                "name": "Democratic",
+                "sum": 774500,
+                "min": 0,
+                "max": 1279
+              },
+              {
+                "key": "GOV19R",
+                "name": "Republican",
+                "sum": 734282,
+                "min": 0,
+                "max": 1223
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE19pD",
+                "name": "Democratic",
+                "sum": 442742,
+                "min": 0,
+                "max": 940
+              },
+              {
+                "key": "TRE19pR",
+                "name": "Republican",
+                "sum": 769469,
+                "min": 0,
+                "max": 1272
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS19D",
+                "name": "Democratic",
+                "sum": 601116,
+                "min": 0,
+                "max": 1169
+              },
+              {
+                "key": "SOS19R",
+                "name": "Republican",
+                "sum": 867607,
+                "min": 0,
+                "max": 1318
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Lt. Governor",
+            "subgroups": [
+              {
+                "key": "LG19D",
+                "name": "Democratic",
+                "sum": 413567,
+                "min": 0,
+                "max": 863
+              },
+              {
+                "key": "LG19R",
+                "name": "Republican",
+                "sum": 884296,
+                "min": 0,
+                "max": 1423
               }
             ]
           },
@@ -349,12 +396,18 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-94.0434, 28.8551],
-          [-88.7584, 33.0196]
+          [
+            -94.0434,
+            28.8551
+          ],
+          [
+            -88.7584,
+            33.0196
+          ]
         ],
         "tilesets": [
           {

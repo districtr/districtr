@@ -73,6 +73,7 @@ const stateForEvent = {
 san_jose: 'California',
 siskiyou: 'California',
 redwood_city: 'California',
+cityofdallas: 'Texas',
 city_of_napa: 'California',
 napa_boe: 'California',
 napa_college: 'California',
@@ -120,6 +121,9 @@ commoncausepa: 'Pennsylvania',
   keystonecounts: 'Pennsylvania',
   pavoice: 'Pennsylvania',
   sandiego: 'California',
+  yumasup: 'Arizona',
+  yumaawc: 'Arizona',
+  santa_ana: 'California',
 };
 
 const validEventCodes = {
@@ -180,6 +184,7 @@ const validEventCodes = {
   san_jose: 'sanjoseca',
   siskiyou: 'ca_siskiyou',
   redwood_city: 'redwood',
+  cityofdallas: 'dallastx',
   city_of_napa: 'napa2021',
   long_beach: 'longbeach',
 napa_boe: 'napa_boe',
@@ -229,6 +234,9 @@ commoncausepa: 'pennsylvania',
   keystonecounts: 'pennsylvania',
   pavoice: 'pennsylvania',
   sandiego: 'ca_SanDiego',
+  yumasup: 'yuma',
+  yumaawc: 'yuma_awc',
+  santa_ana: 'ca_santa_ana',
 };
 
 const blockPlans = {
@@ -255,7 +263,12 @@ const unitTypes = {
   san_jose: {no: 'Blocks'},
   san_joaquin: {no: 'Blocks'},
   oakland: {no: 'Blocks'},
+  kern_county: {no: 'Blocks'},
+  humboldt_county: {no: 'Blocks'},
+  ventura_county: {no: 'Blocks'},
+  redwood_city: {no: 'Blocks'},
   'mp-maps': {no: 'Blocks'},
+  yumasup: {no: 'Blocks'},
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
 };
@@ -276,7 +289,6 @@ const coi_events = [
   'cc-md-ss',
   'cc md ss',
   'cc-nm-abq',
-  // 'santafe',
   'mggg-nm',
   'pmc-demo',
   'pmc',
@@ -295,24 +307,28 @@ const coi_events = [
   'onelovemi',
   'ks-fairmaps',
   'siskiyou',
-  'redwood_city',
-  'ventura_county',
   'yolo_county',
   'solano_county',
   'commoncausepa',
   'tuolumne',
-  'kern_county',
-  'san_mateo_city',
   'martinez',
   'carpinteria',
   'santa_clara_water',
-  'humboldt_county',
   'pasadena2021',
 ];
 
 const hybrid_events = [
+  'santa_ana',
+  'humboldt_county',
+  'ventura_county',
+  'san_mateo_city',
+  'kern_county',
+  'redwood_city',
+  'cityofdallas',
   'mesaaz',
   'sandiego',
+  'yumasup',
+  'yumaawc',
   'hia',
   'oakland',
   'long_beach',
@@ -648,6 +664,11 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Every map submitted to the Long Beach Independent Redistricting Commission will be carefully reviewed and included as part of the public record. For more information, visit <a href="https://www.longbeach.gov/redistricting" target="_blank">this link</a>.</p>\
   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Long_Beach”.</p>\
   <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
+  santa_ana: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
+  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Santa_Ana”.</p>\
+  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
   napa_county: '<p>Every 10 years, Californians get the chance to help reshape five Napa County Board of Supervisor districts based on current United States Census data.  Redistricting is based on population and communities of interest.  A community of interest shares common social and economic interests that should be included within a single supervisor district to achieve effective and fair representation for its residents.</p>\
   <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
   <p><strong>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest. You can also draw your own district map.</strong></p>\
@@ -739,6 +760,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
   <p>Every map submitted will be carefully reviewed by professional demographers and decision makers who are charged with drawing the City Council District Map.<br/>\
   Get started by clicking the orange button to draw your community of interest. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “San_Mateo_City” (any capitalization) is entered.</p>',
+
   oakland: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
   <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -771,11 +793,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Every map submitted will be carefully reviewed and included as part of the public record. For more information visit <a href="https://ojai.ca.gov/redistricting/" target="_blank">this link</a>.</p>\
   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Ojai”.</p>\
   <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
-  foothilldeanza: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each Trustee represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Trustee. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
-  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
-  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-  <p>Get started by clicking the orange button to draw your community or the purple button to draw your map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “FoothillDeAnza”.</p>\
-  <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
+  foothilldeanza: '<p>For the first time since its founding in 1957, the Foothill-De Anza Community College District is changing the way it elects members of its Board of Trustees. The district will move from an at-large election system, where voting takes place districtwide, to having voters in each of five trustee areas elect a member to serve on the governing board.</p>\
+    <p>This requires dividing the district’s 448,000+ residents into five trustee areas of roughly equal population size, based on the 2020 Census.</p>\
+    <p>As part of the transition process, the public is invited to help identify “communities of interest” that would benefit from being kept together when creating trustee area boundary maps as well as to propose boundaries for trustee areas.</p>\
+    <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community of interest and share what makes it a community. You can also use the mapping tool to propose boundaries for the five trustee areas.</strong></p>\
+    <p>Get started by clicking the orange button to draw your community or the purple button to draw your trustee area boundary map. Be sure to click “Save” in the upper right corner of the mapping module to post your map, come back to it later, or share it with others.</p>\
+    <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
   galeo: 'Welcome to the event page for GALEO!',
   marinaca: "<p>Welcome to the Districtr Community of Interest public mapping tool for Marina's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -826,6 +850,16 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
      <p>To let the City know about your community and what brings it together, \
   share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Camarillo&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  yumasup: "<p>Welcome to the Districtr Community of Interest public mapping tool for Yuma County's 2021 supervisorial redistricting.<p>\
+     <p>To let the County know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;YumaSup&quot; is filled \
+  out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  yumaawc: "<p>Welcome to the Districtr Community of Interest public mapping tool for Arizona Western College's 2021 trustee board redistricting.<p>\
+     <p>To let the College know about your community and what brings it together, \
+  share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;YumaAWC&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   bellflower: "<p>Welcome to the Districtr Community of Interest public mapping tool for Bellflower's 2021 city council redistricting.<p>\
      <p>As part of the redistricting process, the California FAIR MAPS Act includes \
@@ -977,10 +1011,15 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
        <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
-        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
-
-
-
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
+  cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
+<p>Please take this opportunity to draw your own districts using the redistricting requirements as listed <a href="https://www.dallascityhall.com" target="_blank">here</a>.</p>\
+<p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
+<p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of the City where people have a common interest that needs a voice in government.</p>\
+<p><strong>Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+<p>Every map submitted will be carefully reviewed by the City of Dallas Redistricting Commission. For more information, visit <a href="https://dallascityhall.com" target="_blank">City of Dallas Citizen Redistricting Commission</a>.</p>\
+<p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
+<p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
 };
 
 const longAbout = {
@@ -997,8 +1036,7 @@ const longAbout = {
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   long_beach: [
-    "This mapping module uses the <strong>2020 Decennial Census</strong> population based on the legacy format dataset with processing by Redistricting Partners. The Statewide Database is currently working on the reallocation of the state prisoner population. Once the 2020 Census Data is finalized, this mapping module will be updated. \
-    <br/>For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   imperial_county: [
     "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1030,13 +1068,13 @@ const longAbout = {
    <li><a href='/event/Napa_College'>Napa Valley College</a></li></ul>",
  ],
  kern_county: [
-  "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 san_joaquin: [
-  "This mapping module displays the Legacy Format of the <strong>2020 Census Data</strong> released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 20, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>The data is prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 san_mateo_city: [
-  "This mapping module displays the <strong>2020 Census Decennial population</strong> with processing by Redistricting Partners. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 oakland: [
   "This mapping module uses the <strong>2020 Census Data</strong> population based on the legacy format dataset with processing by Redistricting Partners. The Statewide Database is currently working on the reallocation of the state prisoner population. Once the 2020 Census Data is finalized, this mapping module will be updated.<br/><br/>\
@@ -1049,16 +1087,16 @@ carpinteria: [
   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 butte_county: [
-  "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  humboldt_county: [
-   "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+   "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  santa_clara_water: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
  mapsofla: [
-    "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   san_jose: [
     "This mapping module displays the Legacy Format of the 2020 Census Data released by the U.S. Census Bureau on August 12, 2021. The Statewide Database is currently working on the reallocation of the state prisoner population. This prisoner population reallocation is estimated to take nearly a full month and the final 2020 Census Data will be available for official use by September 23, 2021. Once the 2020 Census Data is finalized, this mapping module will be updated.\
@@ -1069,10 +1107,17 @@ butte_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   redwood_city: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  cityofdallas: [
+    "This mapping module uses the 2020 Decennial Census population processed by ARCBridge Consulting.\
+    To learn more about ARCBridge – visit <a href='https://www.arcbridge.com' target='_blank'>their website</a>."
+  ],
+  santa_ana: [
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   ventura_county: [
-    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   yolo_county: [
     "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
@@ -1087,6 +1132,18 @@ butte_county: [
   ],
   prjusd: [
     "This mapping module displays 2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by <a href='https://www.coopstrategies.com' target='_blank'>Cooperative Strategies</a>. Cooperative Strategies is a comprehensive planning and demographics firm that has been retained by the School District to assist in its transition from at-large to by-area elections. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.",
+  ],
+  yumasup: [
+    "Yuma County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
+    "This mapping module displays population based on the 2020 Decennial Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+  ],
+  yumaawc: [
+    "Arizona Western College Board of Trustees District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the three Yuma County districts as equal in population as possible and that each member represents about the same number of constituents. \
+    We encourage residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full three-district map suggestions.",
+    "This mapping module displays population based on the 2020 Decennial Census blocks. \
+    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   saccounty: [
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1350,6 +1407,12 @@ export default () => {
             document.getElementById("introExplain").innerHTML = "Draw a Map #RedrawNapa<br/>";
             document.getElementById("eventHeadline").innerText = "City_of_Napa";
             document.getElementById("communities").innerText = "Start Drawing a Map or Your Community of Interest!";
+        } else if (eventCode === "cityofdallas") {
+          document.getElementById("introExplain").innerHTML = "";
+          document.getElementById("eventHeadline").innerText = "Welcome to the Public Mapping Page for the City of Dallas TX";
+        } else if (eventCode === "foothilldeanza") {
+          document.getElementById("introExplain").innerHTML = "";
+          document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
         }
 
     if (["mp-maps"].includes(eventCode)) {
@@ -1366,7 +1429,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "imperial_county", "ojai", "foothilldeanza"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -1458,6 +1521,9 @@ export default () => {
             } else if (eventCode === "long_beach") {
               document.getElementById("partner-link-a").href = "https://www.longbeach.gov";
               document.getElementById("partnership-a").src = "/assets/partners-longbeach.jpeg";
+            } else if (eventCode === "santa_ana") {
+              document.getElementById("partner-link-a").href = "https://www.santa-ana.org";
+              document.getElementById("partnership-a").src = "/assets/partners-santa-ana.png";
             } else if (eventCode === "san_joaquin") {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
@@ -1467,7 +1533,7 @@ export default () => {
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
-          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021"].includes(eventCode)) {
+          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021", "yumasup", "yumaawc"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
@@ -1485,6 +1551,12 @@ export default () => {
             } else if (eventCode === "goleta") {
               document.getElementById("partner-link-a").href = "https://www.cityofgoleta.org/";
               document.getElementById("partnership-a").src = "/assets/partners-goleta.png?v=2";
+            } else if (eventCode === "yumasup") {
+              document.getElementById("partner-link-a").href = "https://www.yumacountyaz.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-yuma.png";
+            } else if (eventCode === "yumaawc") {
+              document.getElementById("partner-link-a").href = "https://www.azwestern.edu";
+              document.getElementById("partnership-a").src = "/assets/partners-awc.png";
             } else if (eventCode === "marinco") {
               document.getElementById("partner-link-a").href = "https://www.marincounty.org/";
               document.getElementById("partnership-a").src = "/assets/partners-marin.png?v=2";
@@ -1596,6 +1668,13 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
             }
+        } else if (["cityofdallas"].includes(eventCode)) {
+          document.getElementById("partnership-icons").style.display = "block";
+          document.getElementById("partnership-b").src = "/assets/partners-arcbridge.jpeg";
+          document.getElementById("partner-link-b").href = "https://www.arcbridge.com";
+          document.getElementById("partner-link-a").href = "https://dallascityhall.com";
+          document.getElementById("partnership-a").src = "/assets/partners-dallas.png";
+
         }
 
         // document.getElementById("eventCode").innerText = og_eventCode;
@@ -1895,20 +1974,6 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
                 ${isProfessionalSamples ? "" : html`<span>Updated<br/>
                       ${(new Date(plan.startDate)).toLocaleString()}</span>`}
             </figcaption>
-            ${(coi_events.includes(eventCode) || isProfessionalSamples)
-                ? null
-                : html`
-                  <span style="margin:10px">
-                      ${(coi_events.includes(eventCode) || districtGoal == 250) ? "" : (districtCount + "/" + districtGoal + " districts")}
-                      ${unitOff ? html`<br/>` : null }
-                      ${unitOff ? (Math.floor(100 * unitCount/unitCounts[eventCode]) + "% of units") : null}
-                  </span>
-                  <span style="margin:10px;margin-top:0;">
-                    ${(districtOff || unitOff)
-                        ? "Incomplete"
-                        : "Complete"}
-                  </span>`
-            }
         </li>
     </a>`;
 }

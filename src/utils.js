@@ -226,6 +226,7 @@ export const stateNameToFips = {
   colorado: "08",
   connecticut: "09",
   delaware: 10,
+  dc: 11,
   "district of columbia": 11,
   district_of_columbia: 11,
   districtofcolumbia: 11,
@@ -258,6 +259,7 @@ export const stateNameToFips = {
   newjersey: 34,
   "new mexico": 35,
   new_mexico: 35,
+  new_mexico_portal: 35,
   newmexico: 35,
   "new york": 36,
   new_york: 36,
@@ -374,6 +376,30 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      find_unpainted: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma',
+        centroids: true,
+      }],
+    },
+    yuma_awc: {
+      native_american: true,
+      number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      find_unpainted: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma_awc',
+        centroids: true,
+      }],
     },
     arkansas: {
       number_markers: true,
@@ -748,6 +774,12 @@ export function spatial_abilities(id) {
     shapefile: true,
     neighborhood_borders: 'Neighborhoods',
   },
+  ca_santa_ana: {
+    number_markers: true,
+    number_markers_lambda: true,
+    border: true,
+    shapefile: true,
+  },
   ca_kern: {
     number_markers: true,
     border: true,
@@ -939,6 +971,7 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
     find_unpainted: true,
+    current_districts: true,
   },
   ca_solano: {
     border: true,

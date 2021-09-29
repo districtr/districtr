@@ -8,6 +8,66 @@
         "columnSets": [
           {
             "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 500976,
+                "min": 0,
+                "max": 1403
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 644577,
+                "min": 0,
+                "max": 1852
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Lt. Governor",
+            "subgroups": [
+              {
+                "key": "LG18D",
+                "name": "Democratic",
+                "sum": 406796,
+                "min": 0,
+                "max": 1170
+              },
+              {
+                "key": "LG18R",
+                "name": "Republican",
+                "sum": 729222,
+                "min": 0,
+                "max": 2167
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US House",
+            "subgroups": [
+              {
+                "key": "USH18D",
+                "name": "Democratic",
+                "sum": 428459,
+                "min": 0,
+                "max": 1194
+              },
+              {
+                "key": "USH18R",
+                "name": "Republican",
+                "sum": 730540,
+                "min": 0,
+                "max": 2249
+              }
+            ]
+          },
+          {
+            "type": "election",
             "name": "2018 Attorney General",
             "subgroups": [
               {
@@ -20,7 +80,7 @@
               {
                 "key": "AG18R",
                 "name": "Republican",
-                "sum": 750772,
+                "sum": 750775,
                 "min": 0,
                 "max": 2265
               }
@@ -28,21 +88,41 @@
           },
           {
             "type": "election",
-            "name": "2018 Governor",
+            "name": "2018 State Auditor",
             "subgroups": [
               {
-                "key": "GOV18D",
-                "name": "Democratic",
-                "sum": 500975,
+                "key": "AUD18L",
+                "name": "Libertarian",
+                "sum": 270311,
                 "min": 0,
-                "max": 1403
+                "max": 750
               },
               {
-                "key": "GOV18R",
+                "key": "AUD18R",
                 "name": "Republican",
-                "sum": 644579,
+                "sum": 818855,
                 "min": 0,
-                "max": 1852
+                "max": 2434
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18I",
+                "name": "Independent",
+                "sum": 309530,
+                "min": 0,
+                "max": 851
+              },
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 779658,
+                "min": 0,
+                "max": 2290
               }
             ]
           },
@@ -186,12 +266,18 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
+          "name": "VTD GEOID code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-103.0024, 33.6158],
-          [-94.431, 37.0023]
+          [
+            -103.0024,
+            33.6158
+          ],
+          [
+            -94.431,
+            37.0023
+          ]
         ],
         "tilesets": [
           {

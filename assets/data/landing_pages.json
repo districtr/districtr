@@ -247,7 +247,7 @@
     "modules": [
       {"name": "Statewide", "ids": ["california"], "id": "state", "default": "true"},
       {"name": "Counties", "ids": ["lax", "sacramento", "sanluiso", "ca_sonoma", "ca_marin", "ca_santabarbara", "napacounty2021", "ca_siskiyou", "ca_yolo", "ca_ventura", "ca_solano", "ca_merced", "ca_kings", "ca_fresno", "ca_nevada", "ca_contracosta", "ca_sm_county", "ca_sanbenito", "ca_sc_county", "ca_kern", "ca_sanjoaquin", "ca_tuolumne", "ca_butte", "ca_humboldt", "ca_imperial"], "id": "counties"},
-      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_foothill", "ca_buellton", "ca_grover", "laverne", "sunnyvale", "pomona", "ca_richmond", "elcajon", "ca_carlsbad", "encinitas", "buenapark", "halfmoon", "ca_stockton", "lodi", "ca_sanmateo", "ca_oakland", "ca_martinez", "carpinteria", "rp_lax", "longbeach", "ca_SanDiego", "ojai"], "id": "loc"},
+      {"name": "Cities", "ids": ["santa_clara", "ontarioca", "ca_goleta", "menlo_park", "sanjoseca", "redwood", "napa2021", "ca_marina", "ca_arroyo", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "lake_el", "ca_chino", "ca_campbell", "ca_fremont", "ca_vallejo", "ca_oceano", "ca_foothill", "ca_buellton", "ca_grover", "laverne", "sunnyvale", "pomona", "ca_richmond", "elcajon", "ca_carlsbad", "encinitas", "buenapark", "halfmoon", "ca_stockton", "lodi", "ca_sanmateo", "ca_oakland", "ca_martinez", "carpinteria", "rp_lax", "longbeach", "ca_SanDiego", "ojai", "ca_santa_ana"], "id": "loc"},
       {"name": "School Districts", "ids": ["napaschools"], "id": "schools"}
     ],
     "sections": [
@@ -601,7 +601,7 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
@@ -1003,11 +1003,11 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
-                "id": "state_senate",
+                "id": "state_sen2020vtd",
                 "name": "State Senate Plan"
               },
               {
@@ -1868,6 +1868,28 @@
           {
             "name": "Census Block Groups",
             "content_source": "/assets/about/landing/community_blockgroups.html"
+          }
+        ]
+      },
+      {
+        "name": "Explore sample plans",
+        "nav": "Enacted Plans",
+        "type": "plans",
+        "ref": "ne",
+        "disc": "The plans below were all legally enacted in the previous Census cycle.",
+        "plans": [
+          {
+            "title": "Enacted Plans",
+            "plans": [
+              {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan"
+              },
+              {
+                "id": "state_sen2020vtd",
+                "name": "State Senate Plan"
+              }
+            ]
           }
         ]
       }
@@ -2994,11 +3016,11 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
-                "id": "state_senate",
+                "id": "state_sen2020vtd",
                 "name": "State Senate Plan"
               },
               {
@@ -3212,15 +3234,15 @@
         "disc": "The plans below were all legally enacted in the previous Census cycle.",
         "plans": [
           {
-            "title": "2011-12 Enacted Plans",
+            "title": "Enacted Plans",
             "plans": [
               {
-                "id": "cong_2012",
-                "name": "2012 Enacted Congressional Plan"
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan"
               },
               {
-                "id": "state_sen",
-                "name": "2011 Enacted State Senate Plan"
+                "id": "state_sen2020vtd",
+                "name": "State Senate Plan"
               },
               {
                 "id": "house_2011",
@@ -3479,12 +3501,8 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
-                "name": "Congressional Plan (2010 Population)"
-              },
-              {
-                "id": "congress_2020wards",
-                "name": "Congressional Plan (2019 Population)"
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan"
               },
               {
                 "id": "statesen_2020wards",
@@ -3672,11 +3690,11 @@
             "title": "Enacted Plans in Texas",
             "plans": [
               {
-                "id": "tx-congress",
+                "id": "congress_2020vtd",
                 "name": "Congressional Plan"
               },
               {
-                "id": "tx-state-senate",
+                "id": "state_sen2020vtd",
                 "name": "State Senate Plan"
               },
               {
