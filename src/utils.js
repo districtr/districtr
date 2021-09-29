@@ -226,6 +226,7 @@ export const stateNameToFips = {
   colorado: "08",
   connecticut: "09",
   delaware: 10,
+  dc: 11,
   "district of columbia": 11,
   district_of_columbia: 11,
   districtofcolumbia: 11,
@@ -258,6 +259,7 @@ export const stateNameToFips = {
   newjersey: 34,
   "new mexico": 35,
   new_mexico: 35,
+  new_mexico_portal: 35,
   newmexico: 35,
   "new york": 36,
   new_york: 36,
@@ -354,6 +356,18 @@ export function spatial_abilities(id) {
       border: true,
       sideload: true,
     },
+    glendaleaz: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      coalition: false,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/glendaleaz',
+        centroids: true,
+      }]
+    },
     phoenix: {
       native_american: true,
       number_markers: true,
@@ -362,6 +376,30 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      find_unpainted: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma',
+        centroids: true,
+      }],
+    },
+    yuma_awc: {
+      native_american: true,
+      number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      find_unpainted: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'current_districts/arizona/yuma_awc',
+        centroids: true,
+      }],
     },
     arkansas: {
       number_markers: true,
@@ -377,8 +415,42 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    ca_SanDiego: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      purple_demo: true,
+      boundaries: [{
+        id: 'districts',
+        label: 'Current City Council Districts (2011)',
+        path: 'current_districts/california/ca_SanDiego',
+        lineColor: 'orangered',
+      },{
+        id: 'neighborhood',
+        label: 'Community Planning Group Areas',
+        path: 'neighborhoods/california/ca_SanDiego',
+        centroids: true,
+        lineColor: 'darkgreen',
+      },{
+        id: 'pbeats', // aka police beats
+        label: 'Neighborhood Areas',
+        path: 'neighborhoods/california/ca_SanDiego_beats',
+        centroids: true,
+        lineColor: 'darkblue',
+      },{
+        id: 'schools',
+        label: 'School Districts',
+        path: 'school_districts/california/ca_SanDiego',
+        centroids: true,
+        fill: true,
+        fill_alt: true,
+      }],
+      portal: {
+        endpoint: 'https://portal.sandiego-mapping.org'
+      },
+    },
     ca_contracosta: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
       municipalities: true,
@@ -388,9 +460,10 @@ export function spatial_abilities(id) {
       }
     },
     ftmyers: {
-      number_markers: false,
+      number_markers: true,
       border: true,
       shapefile: true,
+      find_unpainted: true,
     },
     contracosta: {
       number_markers: true,
@@ -453,6 +526,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      current_districts: true,
     },
     ca_carlsbad: {
       coalition: false,
@@ -698,12 +772,95 @@ export function spatial_abilities(id) {
     number_markers: true,
     border: true,
     shapefile: true,
+    neighborhood_borders: 'Neighborhoods',
+  },
+  ca_santa_ana: {
+    number_markers: true,
+    number_markers_lambda: true,
+    border: true,
+    shapefile: true,
   },
   ca_kern: {
     number_markers: true,
     border: true,
     shapefile: true,
     municipalities: true,
+  },
+  menlo_park: {
+    border: true,
+    find_unpainted: true,
+    boundaries: [{
+      id: 'schools',
+      label: 'School Districts',
+      path: 'school_districts/california/menlo_park',
+      lineColor: '#ffb347',
+      centroids: true,
+    },{
+      id: 'neighborhood',
+      label: 'Neighborhoods',
+      path: 'neighborhoods/california/menlo_park',
+      fill: true,
+      centroids: true,
+      fill_alt: true,
+    },{
+      id: 'flooded',
+      label: 'Flood Zone',
+      path: 'menlo_park_floodzone',
+      fill: '#8090c2',
+    },{
+      id: 'menloh2o',
+      label: 'California Water Service',
+      path: 'menlo_park_water',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o2',
+      label: 'East Palo Alto Water District',
+      path: 'menlo_park_water2',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o5',
+      label: 'Palo Alto Park Water District',
+      path: 'menlo_park_water5',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o3',
+      label: 'Menlo Park Water District',
+      path: 'menlo_park_water3',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menloh2o4',
+      label: 'O’Connor Water District',
+      path: 'menlo_park_water4',
+      fill: '#44A',
+      // centroids: true,
+    },{
+      id: 'menlomulti',
+      label: 'Multi-Family Parcels',
+      path: 'menlo_park_multifamily',
+    }]
+  },
+  ca_imperial: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    municipalities: "Census Places",
+    find_unpainted: true,
+  },
+  ojai: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    find_unpainted: true,
+  },
+  ca_foothill: {
+    number_markers: true,
+    border: true,
+    shapefile: true,
+    find_unpainted: true,
   },
   ca_sanjoaquin: {
     number_markers: true,
@@ -725,6 +882,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    coalition: false,
     current_districts: 'Current Council Districts',
     boundaries: [{
       id: 'latimes_places',
@@ -765,6 +923,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    find_unpainted: true,
   },
   ca_martinez: {
     border: true,
@@ -806,6 +965,13 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
     municipalities: true,
+  },
+  longbeach: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    find_unpainted: true,
+    current_districts: true,
   },
   ca_solano: {
     border: true,
@@ -981,7 +1147,11 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       load_coi: false,
       school_districts: true,
+      current_districts: true,
       municipalities: 'Cities and Towns',
+      portal: {
+        endpoint: 'https://portal.indiana-mapping.org',
+      },
     },
     iowa: {
       number_markers: true,
@@ -1058,7 +1228,7 @@ export function spatial_abilities(id) {
     maryland: {
       number_markers: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       find_unpainted: true,
       load_coi: false,
@@ -1170,7 +1340,7 @@ export function spatial_abilities(id) {
       }]
     },
     minneapolis: {
-      border: 'Show Minneapolis Border',
+      border: true,
       number_markers: true,
       shapefile: true,
       boundaries: [
@@ -1192,7 +1362,10 @@ export function spatial_abilities(id) {
           path: 'neighborhoods/minnesota/minneapolis',
           centroids: true
         }
-      ]
+      ],
+      portal: {
+        endpoint: "https://portal.minneapolis-mapping.org"
+      }
     },
     mississippi: {
       number_markers: true,
@@ -1225,7 +1398,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       native_american: true,
       county_brush: true,
-      absentee: true,
+      // absentee: true,
       shapefile: true,
       load_coi: false,
       // find_unpainted: true,
@@ -1610,6 +1783,12 @@ export function spatial_abilities(id) {
     providence_ri: {
       border: true,
     },
+    cranston_ri: {
+      border: true,
+      shapefile: true,
+      number_markers: true,
+      find_unpainted: true,
+    },
     southcarolina: {
       native_american: true,
       number_markers: true,
@@ -1645,8 +1824,17 @@ export function spatial_abilities(id) {
       number_markers: true,
       number_markers_lambda: true,
     },
+    dallastx: {
+      border: true,
+      number_markers: true,
+      shapefile: true,
+      current_districts: true,
+    },
     austin: {
       border: true,
+      number_markers: true,
+      shapefile: true,
+      find_unpainted: true,
     },
     fortworth: {
       border: true,
@@ -1694,6 +1882,12 @@ export function spatial_abilities(id) {
       },
     },
       'grand_county_2': {
+        portal: {
+          endpoint: 'https://portal.utah-mapping.org',
+        },
+        shapefile: true,
+      },
+      'grand_county_3': {
         portal: {
           endpoint: 'https://portal.utah-mapping.org',
         },
@@ -5236,4 +5430,26 @@ export function county_fips_to_name(fips, state) {
   };
   let st = state.toLowerCase().replace(' ', '');
   return codes[st][parseInt(fips)]
+}
+
+export function specialStates (moduleID) {
+  // does server rep. this as space, underscore, etc?
+  // pass through here to normalize module names
+  return {
+    dc: "district_of_columbia",
+    ma: "massachusetts",
+    newhampshire: "new_hampshire",
+    newjersey: "new_jersey",
+    new_mexico_portal: "new_mexico",
+    newyork: "new_york",
+    nc: "north_carolina",
+    northcarolina: "north_carolina",
+    northdakota: "north_dakota",
+    puertorico: "puerto_rico",
+    puertorico_prec: "puerto_rico",
+    // RI is OK
+    southcarolina: "south_carolina",
+    southdakota: "south_dakota",
+    westvirginia: "west_virginia",
+  }[moduleID] || moduleID;
 }

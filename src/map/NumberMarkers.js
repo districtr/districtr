@@ -1,6 +1,6 @@
 import Layer from "./Layer";
 import { colorScheme } from "../colors";
-import { spatial_abilities } from "../utils";
+import { spatial_abilities, stateNameToFips } from "../utils";
 import { Chance } from "chance";
 
 export default function NumberMarkers(state, brush, old=false) {
@@ -155,7 +155,9 @@ export default function NumberMarkers(state, brush, old=false) {
                 // }
 
                 const units = state.unitsRecord.id;
-                const stateName = state.place.state;
+                const stateName = stateNameToFips[state.place.id]
+                  ? state.place.state
+                  : state.place.id;
                 const assign = markers[district_num];
                 // console.log(assign);
                 // console.log(stateName);
