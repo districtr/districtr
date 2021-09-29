@@ -49,8 +49,8 @@ export default () => {
             render(upload.render(), document.getElementById("json-upload"));
 
             // Build map for clicking for loadable plans
-            let plans_tgt = document.getElementById('loadable-plans');
-            render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
+            // let plans_tgt = document.getElementById('loadable-plans');
+            // render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
         });
 }
 
