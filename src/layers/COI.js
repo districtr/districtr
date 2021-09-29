@@ -1,29 +1,8 @@
 
 import Filter from "bad-words";
 import Tooltip from "../map/Tooltip";
+import { spatial_abilities } from "../utils";
 const wordfilter = new Filter();
-
-/**
- * @description Filters user-generated clusters according to specified rules.
- * @param {Object[]} clusters Array of cluster tilesets/assignments/whatever they are.
- * @returns {Object[]} Filtered clusters.
- */
-function filterCOIs(clusters) {
-    // Set a list of rules (anonymous functions) each COI must abide by to be
-    // displayed. Cast things to Booleans for consistency.
-    let rules = [
-            coi => Boolean(coi.plan),
-            coi => Boolean(coi.plan.assignment)
-        ],
-        filterer = cluster => {
-            for (let rule of rules) if (!rule(cluster)) return false;
-            return true;
-        };
-
-    // If *any* of the rules fail, the COI can't be included. Otherwise, include
-    // the COI.
-    return clusters.filter(filterer);
-}
 
 /**
  * @description For each of the clusters and their comprising COIs, get the units they cover.
@@ -38,8 +17,8 @@ function createUnitMap(clusters) {
     // covers. I really wish there was a better way to selectively do opacity
     // stuff on things rather than having to re-write the whole fucking style
     // expression -- that's really annoying.
-    for (let cluster of clusters) {
-        let clusterIdentifier = cluster.plan.id,
+    for (let [label, cluster] of Object.entries(clusters)) {
+        let clusterIdentifier = label,
             identifiers = {},
             clusterMap = {};
 
@@ -143,10 +122,10 @@ function patternsToCOIs(unitMap, patterns) {
  * @param {Object} patterns Patterns we've chosen.
  * @returns Object Takes COI names to pattern names.
  */
- function patternsToClusters(unitMap, patterns) {
+ function patternsToClusters(clusters, patterns) {
     let mapping = {};
 
-    for (let clusterIdentifier of Object.keys(unitMap)) {
+    for (let clusterIdentifier of Object.keys(clusters)) {
         // Create an empty mapping for the *cluster* into which we can assign
         // patterns for the individual COIs. Then, for each of the individual
         // COIs, assign to it the first pattern in the list of patterns.
@@ -182,12 +161,12 @@ function resolvesToArray(results) {
     return Promise.resolve(values);
 }
 
-export function opacityStyleExpression(units, geoids, opacity=1/3) {
+export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/4) {
     // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
                 "in",
-                ["get", "GEOID20"],
+                ["get", id],
                 ["literal", geoids]
             ],
             0, opacity
@@ -203,7 +182,7 @@ export function opacityStyleExpression(units, geoids, opacity=1/3) {
  * @param {Object} coiPatternMatch Pattern mapping; just unitMapping, but instead of units, it's pattern names.
  * @returns {Array[]} Array of expressions.
  */
-export function coiPatternStyleExpression(units, unitMap, coiPatternMatch) {
+export function coiPatternStyleExpression(units, unitMap, coiPatternMatch, id="GEOID20") {
     let expression = ["case"];
 
     // For each of the clusters and the COIs within that cluster, assign each
@@ -212,7 +191,7 @@ export function coiPatternStyleExpression(units, unitMap, coiPatternMatch) {
         for (let [coiName, geoids] of Object.entries(cluster)) {
             let subexpression = [
                 "in",
-                ["get", "GEOID20"],
+                ["get", id],
                 ["literal", geoids]
             ];
             expression.push(subexpression, coiPatternMatch[clusterIdentifier][coiName]);
@@ -226,38 +205,31 @@ export function coiPatternStyleExpression(units, unitMap, coiPatternMatch) {
     return expression;
 }
 
-export function clusterPatternStyleExpression(units, unitMap, clusterPatternMatch) {
+export function clusterPatternStyleExpression(units, clusterPatternMatch, id="GEOID20") {
     let expression = ["case"];
 
-    // For each of the clusters, assign a pattern to the it.
-    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
-        let geoids = [],
-            subexpression;
-
-        // Get all the GEOIDs in that cluster.
-        for (let geos of Object.values(cluster)) geoids = geoids.concat(geos);
-        
-        // Create the subexpression.
-        subexpression = [
+    // Assign a pattern to each cluster.
+    for (let label of Object.keys(clusterPatternMatch)) {
+        let subexpression = [
             "in",
-            ["get", "GEOID20"],
-            ["literal", geoids]
+            ["get", id],
+            ["literal", label]
         ];
 
-        expression.push(subexpression, clusterPatternMatch[clusterIdentifier]);
+        expression.push(subexpression, clusterPatternMatch[label]);
     }
-
+    
     // Make the remaining units transparent and enforce the style rule.
     expression.push("transparent");
     units.setPaintProperty("fill-pattern", expression);
 }
 
 export function retrieveCOIs(place) {
-    let localURL = "/assets/sample_module.json",
+    let localURL = "/assets/clusters/MI/clusters.json",
         remoteURL = `/.netlify/functions/moduleRead?module=${place.id}&state=${place.state}&page=1`,
         URL = window.location.hostname == "localhost" ? localURL : remoteURL;
 
-    return URL;
+    return localURL;
 }
 
 /**
@@ -267,8 +239,9 @@ export function retrieveCOIs(place) {
  * @returns {Promise} Promise which resolves to the necessary objects for visualizing COIs.
  */
 export function addCOIs(state) {
-    let { map, coiunits, place } = state,
-        URL = retrieveCOIs(place);
+    let { map, coiunits, clusterUnits, place } = state,
+        URL = retrieveCOIs(place),
+        coi = spatial_abilities(place.id).coi;
 
     // Fetch COI data from the provided URL. Note that in order to return the
     // required data to the caller, we have to return *all* the Promises and
@@ -277,19 +250,17 @@ export function addCOIs(state) {
     return fetch(URL)
         .then(res => res.json())
         .then(clusters => {
-            // Filter COI clusters and create a mapping from names to patterns.
-            let filtered = filterCOIs(clusters),
-                unitMap = createUnitMap(filtered);
+            // Since we're using clusters we've created, we don't have to filter
+            // stuff out anymore.
+            let unitMap = createUnitMap(clusters);
 
             return loadPatternMapping().then(patterns => {
-                let coiPatterns = Array.from(Object.keys(patterns)),
-                    clusterPatterns = Array.from(Object.keys(patterns));
+                let clusterPatterns = Array.from(Object.keys(patterns));
 
                 // Now, get the right number of names, pare down the object mapping
                 // names to URLs to only contain the desired names, and map COIs
                 // to patterns.
-                let coiPatternMatch = patternsToCOIs(unitMap, coiPatterns),
-                    clusterPatternMatch = patternsToClusters(unitMap, clusterPatterns);
+                let clusterPatternMatch = patternsToClusters(unitMap, clusterPatterns);
                 
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
@@ -303,10 +274,12 @@ export function addCOIs(state) {
                         return {
                             clusters: clusters,
                             unitMap: unitMap,
-                            coiPatternMatch: coiPatternMatch,
                             clusterPatternMatch: clusterPatternMatch,
-                            units: coiunits,
-                            patterns: patterns
+                            coiUnits: coiunits,
+                            clusterUnits: clusterUnits,
+                            patterns: patterns,
+                            clusterKey: coi.clusterKey,
+                            coiKey: coi.coiKey
                         };
                     });
             });

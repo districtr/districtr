@@ -753,5 +753,58 @@
     ],
     "state": "Michigan",
     "name": "Michigan"
+  },
+  {
+    "units": [
+      {
+        "hideOnDefault": true,
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Label",
+          "key": "label"
+        },
+        "bounds": [
+          [
+            -90.4184,
+            41.6961
+          ],
+          [
+            -83.1885,
+            48.3061
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.michigan_bg_clusters"
+            },
+            "sourceLayer": "michigan_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.michigan_bg_clusters_points"
+            },
+            "sourceLayer": "michigan_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "state": "Michigan",
+    "name": "Michigan",
+    "id": "michigan",
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
+      }
+    ]
   }
 ]

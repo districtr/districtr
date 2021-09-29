@@ -599,3 +599,12 @@ li:first-child > input:checked ~ .tabs__tab {
 .elect_tooltip:hover .elect_tooltiptext {
     visibility: visible;
 }
+
+.cluster-tile {
+    width: 90%;
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1em;
+}

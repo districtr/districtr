@@ -1,13 +1,25 @@
 import mapboxgl from "mapbox-gl";
 import { unitBordersPaintProperty, getUnitColorProperty } from "../colors";
 import Layer from "./Layer";
-import { stateNameToFips, COUNTIES_TILESET, spatial_abilities, numberWithCommas } from "../utils";
+import {
+    stateNameToFips,
+    COUNTIES_TILESET,
+    spatial_abilities,
+    numberWithCommas
+} from "../utils";
 import { createMarginPerCapitaRule } from "../layers/color-rules";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
 
 export class MapState {
+    /**
+     * @constructor
+     * @description Instantiates MapState, which holds the state for the current map.
+     * @param {String} mapContainer Container element for the map.
+     * @param {Object} options Map options.
+     * @param {String} mapStyle Map style.
+     */
     constructor(mapContainer, options, mapStyle) {
         this.map = new mapboxgl.Map({
             container: mapContainer,
@@ -28,10 +40,16 @@ export class MapState {
     }
 }
 
-function addUnits(map, parts, tileset, layerAdder, coibg) {
-    const units = new Layer(
-        map,
-        {
+/**
+ * @dsecription Adds base units to the map.
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {Array} parts Array of Parts to be added to the map.
+ * @param {Object} tileset MapboxGL tileset specification.
+ * @param {Function} layerAdder How we add layers to the map.
+ * @returns {Object} Deconstructible object containing base units and borders.
+ */
+function addBaseUnits(map, parts, tileset, layerAdder) {
+    const units = new Layer(map, {
             id: tileset.sourceLayer,
             source: tileset.sourceLayer,
             "source-layer": tileset.sourceLayer,
@@ -43,9 +61,8 @@ function addUnits(map, parts, tileset, layerAdder, coibg) {
         },
         layerAdder
     );
-    const unitsBorders = new Layer(
-        map,
-        {
+
+    const unitsBorders = new Layer(map, {
             id: tileset.sourceLayer + "-borders",
             type: "line",
             source: tileset.sourceLayer,
@@ -55,24 +72,16 @@ function addUnits(map, parts, tileset, layerAdder, coibg) {
         layerAdder
     );
 
-    let coiunits, coiunits2;
-    if (coibg) {
-        coiunits = new Layer(
-            map,
-            {
-                id: "browse_" + coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
-                source: coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
-                "source-layer": coibg.sourceLayer.replace("precincts", "blockgroups").replace("counties", "blockgroups"),
-                type: "fill",
-                paint: { "fill-opacity": 1/2, "fill-pattern": "transparent" }
-            },
-            layerAdder
-        );
-    }
-
-    return { units, unitsBorders, coiunits, coiunits2 };
+    return { units, unitsBorders };
 }
 
+/**
+ * 
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {Object} tileset Mapbox
+ * @param {*} layerAdder 
+ * @returns 
+ */
 function addPoints(map, tileset, layerAdder) {
     if (!tileset) {
         return null;
@@ -92,19 +101,70 @@ function addPoints(map, tileset, layerAdder) {
     );
 }
 
-function addPrecincts(map, tileset, layerAdder, newest) {
-    return new Layer(map, {
-        id: "extra-precincts" + (newest ? "_new" : ""),
-        type: "fill",
-        source: tileset.sourceLayer,
-        "source-layer": tileset.sourceLayer,
-        paint: {
-            "fill-opacity": 0
-        }
-    });
+function addPrecincts(map, tilesets, stateName) {
+    let stateHasCOI2 = spatial_abilities(stateName).coi2,
+        tilesetHasCOI2 = tilesets[0].coi2,
+        oldTileset, newTileset, oldPrecincts, newPrecincts;
+
+    // TODO: figure out a better way to handle these exceptions.
+    if (stateHasCOI2 && tilesetHasCOI2) {
+        oldTileset = tilesets.find((t) => t.source.url.includes("nc_precincts"));
+        newTileset = tilesets.find((t) => t.source.url.includes("norcar2_precincts"));
+
+        oldPrecincts = new Layer(map, {
+            id: "extra-precincts",
+            type: "fill",
+            source: oldTileset.sourceLayer,
+            "source-layer": oldTileset.sourceLayer,
+            paint: {
+                "fill-opacitt": 0
+            }
+        });
+
+        newPrecincts = new Layer(map, {
+            id: "extra-precincts_new",
+            type: "fill",
+            source: newTileset.sourceLayer,
+            "source-layer": newTileset.sourceLayer,
+            paint: {
+                "fill-opacitt": 0
+            }
+        });
+    }
+
+    return { oldPrecincts, newPrecincts };
 }
 
-function addTracts(map, tileset, layerAdder) {
+/**
+ * @description Adds Census tracts as a background layer in the specified locations.
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {Object[]} tilesets Array of MapboxGL tileset specifications.
+ * @param {String} stateName Name of the state we're redistricting in.
+ * @returns {Layer|null} Null if the exception isn't included, or a Layer instance.
+ */
+function addTracts(map, tilesets, stateName) {
+    let exceptions = [
+            "sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta",
+            "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina",
+            "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower",
+            "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont",
+            "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark",
+            "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne",
+            "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc"
+        ],
+        isException = exceptions.includes(stateName),
+        hasCountyFilter = spatial_abilities(stateName).county_filter,
+        tileType,
+        tileset;
+
+    // If this state isn't one of the exceptions or doesn't have a county filter,
+    // return null immediately.
+    if (!(isException || hasCountyFilter)) return null;
+
+    // Otherwise, create a new Layer.
+    tileType = isException ? "blockgroups" : "precincts";
+    tileset = tilesets.find((t) => t.source.url.includes(tileType));
+
     return new Layer(map, {
         id: "extra-tracts",
         type: "fill",
@@ -116,8 +176,17 @@ function addTracts(map, tileset, layerAdder) {
     });
 }
 
+/**
+ * @description Adds a county layer to the map.
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {Object[]} tileset Array of MapboxGL tileset specifications.
+ * @param {Function} layerAdder How we add layers to the map.
+ * @param {String} placeID Identifier for the given place.
+ * @returns {Layer} A districtr Layer instance.
+ */
 function addCounties(map, tileset, layerAdder, placeID) {
     map.addSource(tileset.sourceLayer, tileset.source);
+
     return new Layer(map, {
         id: "county-hover",
         type: "fill",
@@ -141,7 +210,18 @@ function addCounties(map, tileset, layerAdder, placeID) {
     layerAdder);
 }
 
-function addBGs(map, tileset, layerAdder) {
+/**
+ * @description Adds block groups units to areas which require them.
+ * @param {mapboxgl.Map} map MapboxGL map object.
+ * @param {Object} tileset MapboxGL tileset specification.
+ * @param {Function} layerAdder How to aadd layers to the map.
+ */
+function addBGs(map, tileset, layerAdder, borderID) {
+    // Manage exceptions.
+    let exceptions = ["yuma", "nwaz", "seaz", "maricopa", "phoenix"];
+    if (!exceptions.includes(borderID)) return null;
+
+    // Otherwise, create a block groups layer.
     return new Layer(map, {
         id: "extra-bgs",
         type: "fill",
@@ -154,50 +234,75 @@ function addBGs(map, tileset, layerAdder) {
     });
 }
 
-function addCOISources(map, tilesets, border) {
-    // First, we need to verify that:
-    //      1. we are actually performing a redistricting,
-    //      2. that the proper `load_coi` flag is set for the jurisdiction we're
-    //         redistricting,
-    //      3. and that the number of tilesets we've loaded is 2 (we don't want
-    //         to load any more than we can afford).
-    let flagged = spatial_abilities(border).load_coi,
-        numLoaded = tilesets.length === 2,
-        baseUnits = tilesets.find(t => t.type === "fill"),
-        blockGroups = false,
-        bgName, bgURL;
-    
-    if (border && flagged && numLoaded && blockGroups) {
-        // Now, we've identified our filled tileset -- that is, the set of units
-        // we're using to redistrict. Next, we want to load the tileset we'll be
-        // using to display our COIs; this is typically the same tileset, but
-        // since we need to modify 
-        bgName = baseUnits.sourceLayer
-            .replace("precincts", "blockgroups")
-            .replace("counties", "blockgroups");
-        bgURL = baseUnits.source.url
-            .replace("precincts", "blockgroups")
-            .replace("counties", "blockgroups");
+/**
+ * @description Adds COI units to the map.
+ * @param {mapboxgl.Map} map MapboxGL Map object.
+ * @param {String} stateName Name of the state we're redistricting in.
+ * @returns {Object} A deconstructible pair of cluster units and COI units.
+ */
+function addCOIUnits(map, stateName) {
+    // For this new standard, we're defining the COI units in `utils.js` rather
+    // than handling them here.
+    let coi = spatial_abilities(stateName).coi;
 
-        // Now, if the URL exists -- that is, if we want to display the block
-        // group layer on top of our base units -- we add the block groups
-        // as a source.
-        if (baseUnits) map.addSource(bgName, { type: "vector", url: bgURL });
-    } else if (border && flagged && numLoaded) {
-        // Otherwise, if we want to just use the existing tileset, we may have
-        // to add another. Not sure yet.
-    }
+    // If we don't load COIs, do nothing; otherwise, load the units.
+    if (!coi) return null;
 
-    return baseUnits;
+    // Add COI units.
+    let tilesets = coi.tilesets,
+        clusterTileset = tilesets.find((t) => t.clusterLayer),
+        coiTileset = tilesets.find((t) => !t.clusterLayer && t.type == "fill"),
+        existingSources = Object.keys(map.getStyle().sources),
+        clusterLayerExists = existingSources.includes(clusterTileset.sourceLayer),
+        coiLayerExists = existingSources.includes(coiTileset.sourceLayer),
+        clusterUnits, coiUnits;
+
+    if (!clusterLayerExists && !coiLayerExists) {
+
+    // Add sources for each layer, but don't doubly add them.
+    for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
+
+    // Create a new Layer for the cluster units.
+    clusterUnits = new Layer(map, {
+        id: clusterTileset.sourceLayer,
+        type: clusterTileset.type,
+        source: clusterTileset.sourceLayer,
+        "source-layer": clusterTileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0,
+            "fill-color": "transparent"
+        }
+    });
+
+    // Create a new Layer for the COI units.
+    coiUnits = new Layer(map, {
+        id: coiTileset.sourceLayer,
+        type: coiTileset.type,
+        source: coiTileset.sourceLayer,
+        "source-layer": coiTileset.sourceLayer,
+        paint: {
+            "fill-opacity": 0,
+            "fill-color": "transparent"
+        }
+    });
 }
 
-function cities(map, border) {
+    return { clusterUnits, coiUnits };
+}
+
+/**
+ * @description Adds city borders to certain modules.
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {String} stateName Name of the state we're redistricting in.
+ * @returns {undefined}
+ */
+function cities(map, stateName) {
     // If the border flag for cities doesn't exist, then return immediately.
-    if (!spatial_abilities(border).border) return
+    if (!spatial_abilities(stateName).border) return null;
 
     // Otherwise, retrieve city border data from /assets and plot the borders
     // as a Layer on the Map.
-    fetch(`/assets/city_border/${border}.geojson?v=2`)
+    fetch(`/assets/city_border/${stateName}.geojson?v=2`)
         .then(res => res.json())
         .then(geojson => {
             // Add a Map source for the border itself. TODO: this is a bit messy,
@@ -258,36 +363,50 @@ function cities(map, border) {
  * @param {mapboxgl.Map} map Map rendered to the view.
  * @param {mapboxgl.Map|null} swipemap Typically null.
  * @param {Object[]} parts Objects for each district in the plan.
- * @param {mapboxgl.tileset[]} tilesets Tilesets loaded by default.
- * @param {Function} adder Inserts new Layers. 
- * @param {string} border Name of the jurisdiction we're in.
+ * @param {Object[]} tilesets MapboxGL tileset specifications loaded by default.
+ * @param {Function} layerAdder Inserts new Layers. 
+ * @param {String} borderID Name of something. Don't know.
+ * @param {string} stateName Name of the jurisdiction we're in.
  */
-export function addLayers(map, swipemap, parts, tilesets, adder, border) {
+export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, stateName) {
     // For each of the default tilesets -- base units and points -- add them as
     // sources for the Map.
     for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
 
-    // Now, we add block group sources to the Map, and get back the base unit
-    // tileset. Since we've separated these out, we want to add the base unit
-    // tileset to the map.
-    let baseUnits = addCOISources(map, tilesets, border),
-        { units, unitsBorders, coiunits, coiUnits2 } = addUnits(
-            map, parts, baseUnits, adder, baseUnits
-        ),
-        points = addPoints(
-            map,
-            tilesets.find(t => t.type === "circle"),
-            adder
-        ),
-        counties = addCounties(map, COUNTIES_TILESET, adder, border),
-        bg_areas = null,
-        precincts, new_precincts, tracts;
+        // Add base units to the map.
+    let clusterTileset = tilesets.find((t) => t.type === "fill"),
+        { units, unitsBorders } = addBaseUnits(map, parts, clusterTileset, layerAdder),
+
+        // Add point units to the map.
+        pointTileset = tilesets.find((t) => t.type === "circle"),
+        points = addPoints(map, pointTileset, layerAdder),
+
+        // Add county units to the map.
+        counties = addCounties(map, COUNTIES_TILESET, layerAdder, stateName),
+        
+        // Add block group units to the map.
+        bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups")),
+        bgAreas = addBGs(map, bgTileset, layerAdder, borderID),
+        bg_areas = bgAreas,
+
+        // Add COI units to the map.
+        { clusterUnits, coiUnits } = addCOIUnits(map, stateName.toLowerCase()),
+        coiunits = coiUnits,
+        coiUnits2 = null,
+
+        // Add *specifically handled* precinct units to the map.
+        { oldPrecincts, newPrecincts } = addPrecincts(map, tilesets, stateName),
+        precincts = oldPrecincts,
+        new_precincts = newPrecincts,
+
+        // Add *specifically handled* tract units to the map.
+        tracts = addTracts(map, tilesets, stateName);
 
     // Cities in Communities of Interest will have thicker borders.
-    cities(map, border);
-    
+    cities(map, stateName);
+
     return {
         units, unitsBorders, coiunits, coiUnits2, points, counties, bg_areas,
-        precincts, new_precincts, tracts
-    }
+        precincts, new_precincts, tracts, clusterUnits
+    };
 }

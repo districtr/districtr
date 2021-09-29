@@ -29,6 +29,7 @@ $half-width: calc(50vw - 0.5em);
 .pane {
   width: $half-width;
   height: 100%;
+  overflow: scroll;
 
   .mapcontainer, .map, .mapboxgl-map, .mapboxgl-canvas {
     width: $half-width;
@@ -68,8 +69,8 @@ $half-width: calc(50vw - 0.5em);
   align-items: center;
 }
 
-#coi-right {
-  padding: 3em;
+#cluster-right {
+  padding: 1em;
 }
 
 #cluster-right > #cluster-display {
@@ -77,7 +78,8 @@ $half-width: calc(50vw - 0.5em);
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: flex-start;
-  row-gap: 10px 20px;
+  row-gap: 10px;
+  align-self: center;
 }
 
 .coi-card {

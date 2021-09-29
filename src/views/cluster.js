@@ -23,44 +23,12 @@ import populateDatasetInfo from "../components/Charts/DatasetInfo";
     return "mapbox://styles/mapbox/streets-v11";
 }
 
-function getBbox(features) {
-    let points = features.map((f) => f.geometry.coordinates),
-        x = points.map((p) => p[0]).sort((a,b) => a-b),
-        y = points.map((p) => p[1]).sort((a,b) => a-b),
-        [xmin, xmax] = [x[0], x[x.length-1]],
-        [ymin, ymax] = [y[0], y[y.length-1]];
-
-    return [
-        [xmin, ymin],
-        [xmax, ymax]
-    ];
-}
-
-function renderMap(container, context, units, unitMap, clusterName) {
-    // Create a MapState object from the context retrieved from the database and
-    // provide it with the correct arguments to render.
-    
-    // Calculate the bounding box for the units inside the cluster.
-    let geoids = [],
-        q;
-
-    // Get the GEOIDs for the specified units, and query on those units.
-    for (let geos of Object.values(unitMap[clusterName])) geoids = geoids.concat(geos);
-    q = units.map.querySourceFeatures(units.sourceId + "_points", {
-        "filter": [
-            "in",
-            ["get", "GEOID20"],
-            ["literal", geoids]
-        ],
-        "sourceLayer": units.sourceLayer + "_points"
-    });
-
-    // When drawing the map, allow panning and zooming but set the bounding box
-    // to the boundary of the GEOIDs belonging to the cluster.
+function renderMap(container, coiLayer, plan, bounds) {
+    // Create a new MapState to render the communities.
     const mapState = new MapState(
         container,
         {
-            bounds: getBbox(q),
+            bounds: [bounds._sw, bounds._ne],
             fitBoundsOptions: {
                 padding: {
                     top: 50,
@@ -76,21 +44,34 @@ function renderMap(container, context, units, unitMap, clusterName) {
 
     mapState.map.on("load", () => {
         // Create a new State after loading the mapState; enable drag-panning
-        // and render the map.
-        let state = new State(mapState.map, null, context, () => { });
+        // and render the map. first, set the plan's columnSets property to be
+        // an empty array.
+        let state = new State(mapState.map, null, plan, () => { }),
+            coiUnits, tooltipCallback, tooltipWatcher;
+
+        state.plan.assignment = plan.assignment;
         state.units.map.dragPan.enable();
         state.render();
+
+        console.dir(state);
+
+        // Add a tooltip watcher.
+        coiUnits = state.layers.find((l) => l.sourceLayer == coiLayer);
+        console.dir(coiUnits);
+        tooltipCallback = watchTooltips(coiLayer);
+        tooltipWatcher = new Tooltip(coiUnits, tooltipCallback, 0);
+        tooltipWatcher.activate();
     });
 }
 
 /**
  * @desc Renders the left Pane to the desired content; in this case, that's the
  * map.
- * @param {DisplayPane} pane The DisplayPane om the left.
- * @param {Object} context Context object.
+ * @param {DisplayPane} pane The DisplayPane on the left.
+ * @param {Object} plan Plan object for COIs.
  * @returns {undefined}
  */
-function renderLeft(pane, context, units, unitMap, cluster) {
+function renderLeft(pane, coiLayer, plan, bounds) {
     // Set the inner HTML of the Pane.
     pane.inner = html`
         <div class="mapcontainer">
@@ -100,7 +81,7 @@ function renderLeft(pane, context, units, unitMap, cluster) {
 
     // Render the template to the Pane and load the map in.
     pane.render();
-    renderMap("map", context, units, unitMap, cluster);
+    renderMap("map", coiLayer, plan, bounds);
 }
 
 /**
@@ -109,11 +90,11 @@ function renderLeft(pane, context, units, unitMap, cluster) {
  * @param {Object} context Context object.
  * @returns {undefined}
  */
-function renderRight(pane, clusterName, context) {
-    let cluster = context.filter((c) => c.plan.id == clusterName)[0];
+function renderRight(pane, context) {
+    let cluster = context;
 
     pane.inner = html`
-        <h2 style="padding: 1em">${cluster.plan.id}</h2>
+        <h2 style="padding: 1em">${cluster.plan.name}</h2>
         <div id="cluster-display">
             ${
                 cluster.plan.parts.map((coi, i) => html`
@@ -121,8 +102,12 @@ function renderRight(pane, clusterName, context) {
                         <h4 style="border-bottom: 2px solid ${colorScheme[i]}">
                             ${coi.name}
                         </h4>
-                        <p style="text-align: justify;">
-                            ${coi.description}
+                        <p style="text-align: left;">
+                            ${
+                                coi.description ?
+                                coi.description :
+                                "No description is provided for this community."
+                            }
                         </p>
                     </div>`
                 )
@@ -132,6 +117,28 @@ function renderRight(pane, clusterName, context) {
     pane.render();
 }
 
+function watchTooltips(coiLayer) {
+    // Specify the layer we're clicking on.
+
+    return (features) => {
+        // If we have no units we don't have to do anything!
+        // if (features.length === 0) return null;
+
+        /*
+        return html`
+            <div class="tooltip__text__small tooltip__text--column">
+                <div style="text-align: center;">${nameString}</div>
+            </div>
+        `;
+        */
+    };
+}
+
+/**
+ * @description Retrieves plan context.
+ * @param {Object} place districtr-interpretable place object.
+ * @returns {Promise} Promise which returns the necessary COI data.
+ */
 function getPlanContext(place) {
     let URL = retrieveCOIs(place);
     return fetch(URL).then(res => res.json());
@@ -144,16 +151,17 @@ function getPlanContext(place) {
 export default function renderAnalysisView() {
     // Create left display pane.    
     // hold on creating the right one, bc we need the mapstate first
-    let { units, unitMap, place, cluster, cois, patterns } = window.coidata,
+    let { place, coiLayer, cluster, bounds } = JSON.parse(window.localStorage.getItem("coidata")),
         left = new DisplayPane({ id: "cluster-left" }),
-        right = new DisplayPane({ id: "cluster-right" });
+        right = new DisplayPane({ id: "cluster-right" }),
+        clusterData, tooltipWatcher, tooltipCallback;
 
     // The object that's returned is a context object containing a list of
     // clusters. Filter based on the cluster name to get the proper context.
     getPlanContext(place).then((context) => {
-        let filtered = context.filter((c) => c.plan.id == cluster).shift();
-        renderLeft(left, filtered.plan, units, unitMap, cluster);
-        renderRight(right, cluster, context);
+        clusterData = context[cluster];
+        renderLeft(left, coiLayer, clusterData.plan, bounds);
+        renderRight(right, clusterData);
     });
 }
 

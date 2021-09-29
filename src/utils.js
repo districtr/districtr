@@ -1249,6 +1249,40 @@ export function spatial_abilities(id) {
       },
     },
     michigan: {
+      load_coi: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.michigan_blockgroups"
+            },
+            type: "fill",
+            sourceLayer: "michigan_blockgroups",
+            clusterLayer: false
+          },
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.michigan_blockgroups_points"
+            },
+            type: "circle",
+            sourceLayer: "michigan_blockgroups_points",
+            clusterLayer: false
+          },
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.michigan_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "michigan_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "label",
+        coiKey: "GEOID10"
+      },
       number_markers: true,
       number_markers_lambda: true,
       native_american: true,

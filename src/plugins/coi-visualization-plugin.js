@@ -8,6 +8,7 @@ import {
 } from "../layers/COI";
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
+import { spatial_abilities } from "../utils";
 
 /**
  * @description Gets the right checkboxes based on filtering.
@@ -51,12 +52,10 @@ function getCheckboxStatuses(cluster=null) {
     for (let checkbox of checkboxes) {
         let classes = checkbox.classList,
             numClasses = classes.length,
-            cluster = numClasses > 2 ? classes[2] : null,
-            coi = numClasses > 3 ? classes[3] : null;
+            cluster = numClasses > 2 ? classes[2] : null;
         
         checkboxStatuses.push({
             "cluster": cluster,
-            "coi": coi ? coi.replaceAll("-", " ") : null,
             "checked": checkbox.control.checked,
             "entity": checkbox
         });
@@ -82,10 +81,9 @@ function checkIfVisible(cluster) {
     return isChecked;
 }
 
-function onFeatureClicked(place, units, unitMap, coiPatterns, identifier="GEOID20") {
-    let map = units.map,
-        sourceLayer = units.sourceLayer,
-        reverseMapping = createReverseMapping(unitMap);
+function onFeatureClicked(place, clusterUnits, coiUnits, coiKey="GEOID20") {
+    let map = clusterUnits.map,
+        sourceLayer = clusterUnits.sourceLayer;
 
     map.on("click", sourceLayer, (e) => {
         // Get the first selected feature belonging to the right layer, get its
@@ -93,34 +91,26 @@ function onFeatureClicked(place, units, unitMap, coiPatterns, identifier="GEOID2
         // visible. If it is, then we want to open a new window and pass the
         // information to it.
         try {
-            let _selectedFeatures = map.queryRenderedFeatures(e.point),
-                selectedFeatures = _selectedFeatures.map((f) => {
-                    if (f.source === sourceLayer) return f;
+            let selectedFeatures = map.queryRenderedFeatures(e.point, {
+                    layers: [sourceLayer]
                 }),
-                features = selectedFeatures.map((f) => {
-                    if (f && f.hasOwnProperty("properties")) {
-                        if (reverseMapping[f.properties["GEOID20"]]) return f;
-                    }
-                }),
-                feature = features[0],
-                geoid = feature.properties[identifier],
-                cluster = reverseMapping[geoid]["cluster"],
-                cois = reverseMapping[geoid]["coi"],
+                selectedClusters = selectedFeatures.map((f) => f.properties.label),
+                cluster = selectedClusters[0],
                 origin = window.location.origin;
 
             // Check if all the things in the hierarchy are visible. If they are,
             // and the user's clicked on the thing, we want to send the data to the
             // new page.
-            if (checkIfVisible(cluster, cois)) {
-                let tab = window.open(origin + "/coi-info");
-                tab.coidata = {
-                    units: units,
-                    unitMap: unitMap,
+            if (checkIfVisible(cluster)) {
+                let tab = window.open(origin + "/coi-info"),
+                    storage = tab.localStorage;
+
+                storage.setItem("coidata", JSON.stringify({
                     place: place,
                     cluster: cluster,
-                    cois: cois,
-                    coiPatterns: coiPatterns
-                };
+                    coiLayer: coiUnits.sourceLayer,
+                    bounds: map.getBounds()
+                }));
             }
         } catch (e) { console.error(e); };
     });
@@ -162,38 +152,28 @@ function createReverseMapping(unitMap) {
  * @param {String} identifier Unique identifier for units.
  * @returns {Function} Function which renders tooltips.
  */
-function watchTooltips(unitMap, identifier="GEOID20") {
-    let reverseMapping = createReverseMapping(unitMap);
-
+function watchTooltips() {
     return (features) => {
         // If we have no units we don't have to do anything!
         if (features.length === 0) return null;
 
-        // Otherwise, we obtain the feature we want, get its GEOID, and check
-        // whether it's visible.
-        let feature = features[0],
-            geoid = feature.properties[identifier];
+        // Otherwise, get the names of all the hovered-over features that are
+        // visible.
+        let statuses = getCheckboxStatuses(),
+            invisibleNames = statuses
+                .filter((s) => !s.checked)
+                .map((s) => s.cluster),
+            names = features
+                .filter((f) => !invisibleNames.includes(f.properties.label))
+                .map((f) => f.properties.label),
+            nameString = names.join(", ");
 
-        // Now, we want to check that the unit we're hovering over belongs to the
-        // set of units in the COIs. If it does, we want to create a tooltip.
-        if (reverseMapping[geoid]) {
-            // For the current feature, get the cluster identifier and the COI(s)
-            // to which it belongs. We also retrieve three categories of
-            // checkbox: the checkbox which controls displaying *all* the COIs;
-            // the checkbox which controls the display of the *cluster* of COIs;
-            // the checkbox which controls the display of the *current* COIs.
-            // Then, we iterate over these checkboxes and if *any* of them are
-            // unchecked, we don't display the tooltip.
-            let cluster = reverseMapping[geoid]["cluster"],
-                isChecked = checkIfVisible(cluster);
-
-            if (isChecked) {
-                return html`
-                    <div class="tooltip__text__small tooltip__text--column">
-                       <div style="text-align: center;">${cluster}</div>
-                    </div>
-                `;
-            } else return null;
+        if (names.length > 0) {
+            return html`
+                <div class="tooltip__text__small tooltip__text--column">
+                    <div style="text-align: center;">${nameString}</div>
+                </div>
+            `;
         } else return null;
     };
 }
@@ -220,13 +200,14 @@ function initialStyles() {
  * @param {Object} units Layer we're adjusting.
  * @returns {Function} Callback for Toggle.
  */
-function displayCOIs(units, unitMap) {
-    let initialized = false;
+function displayCOIs(units) {
+    let map = units.map,
+        layer = units.sourceLayer;
+
     return (checked) => {
         // Only grab the checkboxes relating to clusters or individual COIs,
         // cutting off the one which changes the opacity for the whole layer.
-        let checkboxes = retrieveCheckboxes().slice(1),
-            statuses = getCheckboxStatuses();
+        let checkboxes = retrieveCheckboxes().slice(1);
         
         // Disable all the checkboxes and style them accordingly.
         for (let checkbox of checkboxes) {
@@ -235,16 +216,8 @@ function displayCOIs(units, unitMap) {
         }
 
         // Apparently this isn't working properly now? So confused by this.
-        if (!initialized) {
-            units.setOpacity(1/3);
-            initialized = true;
-        } else {
-            if (checked) {
-                opacityStyleExpression(units, getOtherGEOIDs("", unitMap, statuses));
-            } else {
-                units.setOpacity(0);
-            }
-        }
+        if (checked) map.setLayoutProperty(layer, "visibility", "visible");
+        else map.setLayoutProperty(layer, "visibility", "none");
     };
 }
 
@@ -336,9 +309,15 @@ function getOtherGEOIDs(cluster, unitMap, statuses) {
     return geoids;
 }
 
-function toggleCheckboxStyle(checkbox, checked) {
-    checkbox.style["pointer-events"] = checked ? "auto" : "none";
-    checkbox.style["opacity"] = checked ? 1 : 1/2;
+function toggleClusterVisibility(clusterUnits, clusterKey) {
+    return (_) => {
+        // Get the statuses of the checkboxes.
+        let statuses = getCheckboxStatuses(),
+            unchecked = statuses.filter((s) => !s.checked),
+            invisible = unchecked.map((s) => s.cluster);
+        
+        opacityStyleExpression(clusterUnits, invisible, clusterKey);
+    };
 }
 
 /**
@@ -377,6 +356,25 @@ function toggleVisibility(units, unitMap, cluster) {
     };
 }
 
+/**
+ * @description Toggles the visibility of the COI layer based on zoom level.
+ * @param {Object} units districtr units object.
+ * @param {Number} threshold Level at which we make COIs visible/invisible.
+ * @returns {undefined}
+ */
+function toggleOnZoom(units, threshold=7) {
+    let map = units.map;
+
+    // Callback for when the zoom level changes.
+    map.on("zoom", () => {
+        let zoomLevel = map.getZoom(),
+            layer = units.sourceLayer;
+
+        if (zoomLevel > threshold) map.setLayoutProperty(layer, "visibility", "visible");
+        else map.setLayoutProperty(layer, "visibility", "none");
+    });
+}
+
 
 /**
  * @description Creates a tab on the toolbar for checking out COIs.
@@ -386,7 +384,11 @@ function toggleVisibility(units, unitMap, cluster) {
 function CoiVisualizationPlugin(editor) {
     let { state, toolbar, store } = editor,
         { place } = state,
-        tab = new Tab("coi", "Communities", store);
+        tab = new Tab("coi", "Communities", store),
+        shouldDisplay = spatial_abilities(place.id).coi;
+
+    // If we shouldn't display COIs, just return nothing.
+    if (!shouldDisplay) return;
     
     // Add COIs to the state.
     addCOIs(state)
@@ -394,18 +396,21 @@ function CoiVisualizationPlugin(editor) {
             // Destructure the object sent to us from addCOIs.
             let {
                     clusters, unitMap, coiPatternMatch, clusterPatternMatch,
-                    units, patterns
-                } = object;
+                    clusterUnits, coiUnits, patterns, clusterKey, coiKey
+                } = object,
+                map = clusterUnits.map,
+                clusterLayer = clusterUnits.sourceLayer;
 
             // For each of the COIs, get the block groups that it
             // covers and create a mapbox style expression assigning
             // a pattern overlay to the units.
-            clusterPatternStyleExpression(units, unitMap, clusterPatternMatch);
-            units.setOpacity(0);
+            clusterPatternStyleExpression(clusterUnits, clusterPatternMatch, clusterKey);
+            map.setLayoutProperty(clusterLayer, "visibility", "none");
+            clusterUnits.setOpacity(1/4);
 
             // Get display callbacks and stuff.
-            let displayCallback = displayCOIs(units, unitMap),
-                tooltipCallback = watchTooltips(unitMap),
+            let displayCallback = displayCOIs(clusterUnits),
+                tooltipCallback = watchTooltips(),
                 tooltipWatcher;
 
             // Add the section for the checkbox.
@@ -417,21 +422,38 @@ function CoiVisualizationPlugin(editor) {
             // cluster turns off the visualization for *any* of the COIs in the
             // cluster, and unchecking any COI only turns off the visualization
             // for that COI.
-            for (let cluster of clusters) {
-                let name = cluster.plan.id,
+            for (let [label, cluster] of Object.entries(clusters)) {
+                let identifier = cluster.plan.id,
+                    name = cluster.plan.name,
+                    pattern = patterns[clusterPatternMatch[label]],
                     clusterToggle = toggle(
                         name, true,
-                        toggleVisibility(units, unitMap, name),
-                        null, `cluster-checkbox ${name}`
+                        toggleClusterVisibility(clusterUnits, clusterKey),
+                        null, `cluster-checkbox ${identifier}`
                     );
                 
                 // Add a section just containing the cluster toggle.
                 tab.addSection(
                     () => html`
-                        <div class="toolbar-section-left">
-                            <h4>${clusterToggle}</h4>
+                        <div style="opacity: 1/2; background-color: white"
+                            <div 
+                                class="toolbar-section-left cluster-tile"
+                                style="
+                                    background-image: url('${pattern}');
+                                    margin-bottom: 0.5em;
+                                "
+                            >
+                                <h4
+                                    style="
+                                        background-color: white;
+                                        border-radius: 5%;
+                                    "
+                                >
+                                    ${clusterToggle}
+                                </h4>
+                            </div>
                         </div>
-                  `
+                    `
                 );
             }
 
@@ -441,11 +463,14 @@ function CoiVisualizationPlugin(editor) {
 
             // Initially style the checkboxes and create tooltips.
             initialStyles(clusterPatternMatch, patterns);
-            tooltipWatcher = new Tooltip(units, tooltipCallback, 0);
+            tooltipWatcher = new Tooltip(clusterUnits, tooltipCallback, 0);
             tooltipWatcher.activate();
 
             // Watch for click events.
-            onFeatureClicked(place, units, unitMap, coiPatternMatch);
+            onFeatureClicked(place, clusterUnits, coiUnits, coiKey);
+
+            // Watch for zoom levels.
+            // toggleOnZoom(clusterUnits);
         });
 }
 
