@@ -469,9 +469,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20"
+              "url": "mapbox://districtr.pa_vtds20b"
             },
-            "sourceLayer": "pa_vtds20"
+            "sourceLayer": "pa_vtds20b"
           }
         ]
       },
