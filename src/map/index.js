@@ -253,39 +253,42 @@ function addCOIUnits(map, stateName) {
         clusterTileset = tilesets.find((t) => t.clusterLayer),
         coiTileset = tilesets.find((t) => !t.clusterLayer && t.type == "fill"),
         existingSources = Object.keys(map.getStyle().sources),
-        clusterLayerExists = existingSources.includes(clusterTileset.sourceLayer),
-        coiLayerExists = existingSources.includes(coiTileset.sourceLayer),
+        clusterLayerAlreadyExists = clusterTileset ? existingSources.includes(clusterTileset.sourceLayer) : true,
+        coiLayerAlreadyExists = coiTileset ? existingSources.includes(coiTileset.sourceLayer) : true,
         clusterUnits, coiUnits;
-
-    if (!clusterLayerExists && !coiLayerExists) {
-
-    // Add sources for each layer, but don't doubly add them.
+    
+    // Add tileset sources.
     for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
 
-    // Create a new Layer for the cluster units.
-    clusterUnits = new Layer(map, {
-        id: clusterTileset.sourceLayer,
-        type: clusterTileset.type,
-        source: clusterTileset.sourceLayer,
-        "source-layer": clusterTileset.sourceLayer,
-        paint: {
-            "fill-opacity": 0,
-            "fill-color": "transparent"
-        }
-    });
+    // Create a new Layer for the cluster units, if the cluster unit tileset is
+    // specified (per utils.js).
+    if (!clusterLayerAlreadyExists && clusterTileset) {
+        clusterUnits = new Layer(map, {
+            id: clusterTileset.sourceLayer,
+            type: clusterTileset.type,
+            source: clusterTileset.sourceLayer,
+            "source-layer": clusterTileset.sourceLayer,
+            paint: {
+                "fill-opacity": 0,
+                "fill-color": "transparent"
+            }
+        });
+    }
 
-    // Create a new Layer for the COI units.
-    coiUnits = new Layer(map, {
-        id: coiTileset.sourceLayer,
-        type: coiTileset.type,
-        source: coiTileset.sourceLayer,
-        "source-layer": coiTileset.sourceLayer,
-        paint: {
-            "fill-opacity": 0,
-            "fill-color": "transparent"
-        }
-    });
-}
+    // Create a new Layer for the COI units, if the COI unit tileset is
+    // specified.
+    if (!coiLayerAlreadyExists && coiTileset) {
+        coiUnits = new Layer(map, {
+            id: coiTileset.sourceLayer,
+            type: coiTileset.type,
+            source: coiTileset.sourceLayer,
+            "source-layer": coiTileset.sourceLayer,
+            paint: {
+                "fill-opacity": 0,
+                "fill-color": "transparent"
+            }
+        });
+    }
 
     return { clusterUnits, coiUnits };
 }

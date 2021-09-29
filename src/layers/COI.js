@@ -122,31 +122,18 @@ function patternsToCOIs(unitMap, patterns) {
  * @param {Object} patterns Patterns we've chosen.
  * @returns Object Takes COI names to pattern names.
  */
- function patternsToClusters(clusters, patterns) {
+ function patternsToClusters(clusters, patterns, clusterKey) {
     let mapping = {};
 
-    for (let clusterIdentifier of Object.keys(clusters)) {
+    for (let cluster of clusters) {
         // Create an empty mapping for the *cluster* into which we can assign
         // patterns for the individual COIs. Then, for each of the individual
         // COIs, assign to it the first pattern in the list of patterns.
+        let clusterIdentifier = cluster[clusterKey];
         mapping[clusterIdentifier] = patterns.shift();
     }
 
     return mapping;
-}
-
-/**
- * @description Removes properties from `object` not specified in `included`.
- * @param {Object} object Object to have properties removed.
- * @param {Array} included Properties retained.
- * @returns Object
- */
-function include(object, included) {
-    return Object.fromEntries(
-        Object
-            .entries(object)
-            .filter(([key]) => included.includes(key))
-    );
 }
 
 /**
@@ -161,7 +148,7 @@ function resolvesToArray(results) {
     return Promise.resolve(values);
 }
 
-export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/4) {
+export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/2) {
     // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
@@ -224,12 +211,15 @@ export function clusterPatternStyleExpression(units, clusterPatternMatch, id="GE
     units.setPaintProperty("fill-pattern", expression);
 }
 
-export function retrieveCOIs(place) {
-    let localURL = "/assets/clusters/MI/clusters.json",
-        remoteURL = `/.netlify/functions/moduleRead?module=${place.id}&state=${place.state}&page=1`,
-        URL = window.location.hostname == "localhost" ? localURL : remoteURL;
+/**
+ * @description Retrieves the appropriate URL to get cluster resources.
+ * @param {Object} coi districtr-interpretable COI object as specified in utils.js.
+ * @returns {String} URL at which the cluster resources are located.
+ */
+export function retrieveCOIs(coi) {
+    let URL = coi.clusterData.url;
 
-    return localURL;
+    return URL;
 }
 
 /**
@@ -239,9 +229,9 @@ export function retrieveCOIs(place) {
  * @returns {Promise} Promise which resolves to the necessary objects for visualizing COIs.
  */
 export function addCOIs(state) {
-    let { map, coiunits, clusterUnits, place } = state,
-        URL = retrieveCOIs(place),
-        coi = spatial_abilities(place.id).coi;
+    let { map, clusterUnits, place } = state,
+        coi = spatial_abilities(place.id).coi,
+        URL = retrieveCOIs(coi);
 
     // Fetch COI data from the provided URL. Note that in order to return the
     // required data to the caller, we have to return *all* the Promises and
@@ -250,17 +240,14 @@ export function addCOIs(state) {
     return fetch(URL)
         .then(res => res.json())
         .then(clusters => {
-            // Since we're using clusters we've created, we don't have to filter
-            // stuff out anymore.
-            let unitMap = createUnitMap(clusters);
-
             return loadPatternMapping().then(patterns => {
                 let clusterPatterns = Array.from(Object.keys(patterns));
 
                 // Now, get the right number of names, pare down the object mapping
                 // names to URLs to only contain the desired names, and map COIs
                 // to patterns.
-                let clusterPatternMatch = patternsToClusters(unitMap, clusterPatterns);
+                let clusterPatternMatch = patternsToClusters(clusters, clusterPatterns, coi.clusterKey);
+                console.dir(clusterPatternMatch);
                 
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
@@ -273,13 +260,10 @@ export function addCOIs(state) {
                         // the pattern mapping, and the COIs themselves.
                         return {
                             clusters: clusters,
-                            unitMap: unitMap,
                             clusterPatternMatch: clusterPatternMatch,
-                            coiUnits: coiunits,
                             clusterUnits: clusterUnits,
                             patterns: patterns,
-                            clusterKey: coi.clusterKey,
-                            coiKey: coi.coiKey
+                            clusterKey: coi.clusterKey
                         };
                     });
             });

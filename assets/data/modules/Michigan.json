@@ -755,6 +755,8 @@
     "name": "Michigan"
   },
   {
+    "name": "Michigan",
+    "id": "michigan",
     "units": [
       {
         "hideOnDefault": true,
@@ -763,17 +765,17 @@
         "unitType": "Block Groups",
         "columnSets": [],
         "idColumn": {
-          "name": "Cluster Label",
-          "key": "label"
+          "name": "Cluster Name",
+          "key": "cluster"
         },
         "bounds": [
           [
-            -90.4184,
+            -88.1176,
             41.6961
           ],
           [
-            -83.1885,
-            48.3061
+            -82.706,
+            46.9765
           ]
         ],
         "tilesets": [
@@ -797,8 +799,6 @@
       }
     ],
     "state": "Michigan",
-    "name": "Michigan",
-    "id": "michigan",
     "districtingProblems": [
       {
         "name": "Communities of Interest",

@@ -81,7 +81,7 @@ function checkIfVisible(cluster) {
     return isChecked;
 }
 
-function onFeatureClicked(place, clusterUnits, coiUnits, coiKey="GEOID20") {
+function onFeatureClicked(clusters, clusterUnits, clusterKey) {
     let map = clusterUnits.map,
         sourceLayer = clusterUnits.sourceLayer;
 
@@ -94,56 +94,22 @@ function onFeatureClicked(place, clusterUnits, coiUnits, coiKey="GEOID20") {
             let selectedFeatures = map.queryRenderedFeatures(e.point, {
                     layers: [sourceLayer]
                 }),
-                selectedClusters = selectedFeatures.map((f) => f.properties.label),
-                cluster = selectedClusters[0],
+                selectedClusters = selectedFeatures.map((f) => f.properties[clusterKey]),
+                selected = selectedClusters[0],
                 origin = window.location.origin;
 
             // Check if all the things in the hierarchy are visible. If they are,
             // and the user's clicked on the thing, we want to send the data to the
             // new page.
-            if (checkIfVisible(cluster)) {
+            if (checkIfVisible(selected)) {
                 let tab = window.open(origin + "/coi-info"),
-                    storage = tab.localStorage;
+                    storage = tab.localStorage,
+                    cluster = clusters.find((c) => c[clusterKey] == selected);
 
-                storage.setItem("coidata", JSON.stringify({
-                    place: place,
-                    cluster: cluster,
-                    coiLayer: coiUnits.sourceLayer,
-                    bounds: map.getBounds()
-                }));
+                storage.setItem("coidata", JSON.stringify(cluster));
             }
         } catch (e) { console.error(e); };
     });
-}
-
-/**
- * @description Creates a reverse mapping from units to the COIs to which they belong.
- * @param {Object} unitMap Mapping from unit names to cluster and COI names.
- * @returns {Object} Object keyed by unit unique identifier, taken to COI names.
- */
-function createReverseMapping(unitMap) {
-    let reverseMapping = {};
-
-    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
-        for (let [coiid, geoids] of Object.entries(cluster)) {
-            for (let geoid of geoids) {
-                let cois = [];
-
-                // Figuring out whether we need to add new COIs to units which are
-                // mapped to twice.
-                if (reverseMapping[geoid]) cois = reverseMapping[geoid]["coi"].concat([coiid]);
-                else cois = [coiid];
-
-                // Add to the reverse mapping.
-                reverseMapping[geoid] = {
-                    "cluster": clusterIdentifier,
-                    "coi": cois
-                };
-            }
-        }
-    }
-
-    return reverseMapping;
 }
 
 /**
@@ -152,7 +118,11 @@ function createReverseMapping(unitMap) {
  * @param {String} identifier Unique identifier for units.
  * @returns {Function} Function which renders tooltips.
  */
-function watchTooltips() {
+function watchTooltips(clusters, clusterKey) {
+    // Create a mapping from clusters to their long names.
+    let nameMap = {};
+    for (let cluster of clusters) nameMap[cluster[clusterKey]] = cluster["name"];
+
     return (features) => {
         // If we have no units we don't have to do anything!
         if (features.length === 0) return null;
@@ -164,8 +134,8 @@ function watchTooltips() {
                 .filter((s) => !s.checked)
                 .map((s) => s.cluster),
             names = features
-                .filter((f) => !invisibleNames.includes(f.properties.label))
-                .map((f) => f.properties.label),
+                .filter((f) => !invisibleNames.includes(f.properties[clusterKey]))
+                .map((f) => nameMap[f.properties[clusterKey]]),
             nameString = names.join(", ");
 
         if (names.length > 0) {
@@ -270,45 +240,6 @@ function createCOICheckbox(callback) {
     };
 }
 
-/**
- * 
- * @param {String} cluster Name of the cluster we *aren't* getting.
- * @param {Object} unitMap Maps individual COI names to the units they cover.
- * @param {Array} statuses 
- * @returns 
- */
-function getOtherGEOIDs(cluster, unitMap, statuses) {
-    // Create a container for GEOIDs and get the clusters which are turned off
-    // that *aren't* `cluster`. We do this because when a box is checked, the
-    // statuses of *all other units* should be frozen; only the modified status
-    // has its units made visible/invisible.
-    let geoids = [],
-        disabledClusters = statuses.filter((s) => 
-            s.cluster && s.cluster !== cluster && !s.coi && !s.checked
-        ),
-        disabledClusterNames = statuses.map((s) => {
-            if (s.cluster && s.cluster!== cluster && !s.coi && !s.checked) return s.cluster;
-        }),
-        disabledCOIs = statuses.filter((s) => 
-            s.cluster !== cluster && !disabledClusterNames.includes(s.cluster)
-            && s.coi && !s.checked
-        );
-
-    // For each of the disabled clusters, grab all of the GEOIDs inside them.
-    for (let disabledCluster of disabledClusters) {
-        // Get the mapping from COI names to GEOIDs and grab all the GEOIDs.
-        let units = unitMap[disabledCluster.cluster];
-        for (let geos of Object.values(units)) geoids = geoids.concat(geos);
-    }
-
-    // Now, iterate over the disabled COIs.
-    for (let disabledCOI of disabledCOIs) {
-        geoids = geoids.concat(unitMap[disabledCOI.cluster][disabledCOI.coi]);
-    }
-
-    return geoids;
-}
-
 function toggleClusterVisibility(clusterUnits, clusterKey) {
     return (_) => {
         // Get the statuses of the checkboxes.
@@ -319,62 +250,6 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
         opacityStyleExpression(clusterUnits, invisible, clusterKey);
     };
 }
-
-/**
- * @description Toggles the visibility of a cluster or an individual COI.
- * @param {Object} units A mapbox thing I can't quite assign a type to.
- * @param {Object} unitMap Maps COI names to units within the cluster.
- * @param {String} cluster Name of a cluster.
- * @param {String} coi Name of a COI.
- * @returns {Function} Handles the toggling action.
- */
-function toggleVisibility(units, unitMap, cluster) {
-    // All GEOIDs passed to `opacityStyleExpression` will have an opacity of
-    // zero, and all others an opacity of 1/3 (by default). Here's the logic to
-    // determine which GEOIDs are included in the list to be made invisible.
-    return (checked) => {
-        // Get all the checkbox statuses and create a container for GEOIDs.
-        let statuses = getCheckboxStatuses(),
-        geoids = [];
-
-        // First, handle the logic for making a thing *invisible*.
-        if (!checked) {
-            for (let geos of Object.values(unitMap[cluster])) geoids = geoids.concat(geos);
-        // Now, handle when we make things *visible*.
-        } else {
-            let inactive = statuses.filter((s) => !s.checked);
-            for (let status of inactive) {
-                for (let geos of Object.values(unitMap[status.cluster])) geoids = geoids.concat(geos);
-            }
-        }
-
-        // Get the GEOIDs from all the other things.
-        geoids = geoids.concat(getOtherGEOIDs(cluster, unitMap, statuses));
-
-        // Pass the invisible IDs to the opacity expression generator.
-        opacityStyleExpression(units, geoids);
-    };
-}
-
-/**
- * @description Toggles the visibility of the COI layer based on zoom level.
- * @param {Object} units districtr units object.
- * @param {Number} threshold Level at which we make COIs visible/invisible.
- * @returns {undefined}
- */
-function toggleOnZoom(units, threshold=7) {
-    let map = units.map;
-
-    // Callback for when the zoom level changes.
-    map.on("zoom", () => {
-        let zoomLevel = map.getZoom(),
-            layer = units.sourceLayer;
-
-        if (zoomLevel > threshold) map.setLayoutProperty(layer, "visibility", "visible");
-        else map.setLayoutProperty(layer, "visibility", "none");
-    });
-}
-
 
 /**
  * @description Creates a tab on the toolbar for checking out COIs.
@@ -395,8 +270,8 @@ function CoiVisualizationPlugin(editor) {
         .then(object => {
             // Destructure the object sent to us from addCOIs.
             let {
-                    clusters, unitMap, coiPatternMatch, clusterPatternMatch,
-                    clusterUnits, coiUnits, patterns, clusterKey, coiKey
+                    clusters, clusterPatternMatch, clusterUnits, patterns,
+                    clusterKey
                 } = object,
                 map = clusterUnits.map,
                 clusterLayer = clusterUnits.sourceLayer;
@@ -406,11 +281,11 @@ function CoiVisualizationPlugin(editor) {
             // a pattern overlay to the units.
             clusterPatternStyleExpression(clusterUnits, clusterPatternMatch, clusterKey);
             map.setLayoutProperty(clusterLayer, "visibility", "none");
-            clusterUnits.setOpacity(1/4);
+            clusterUnits.setOpacity(1/2);
 
             // Get display callbacks and stuff.
             let displayCallback = displayCOIs(clusterUnits),
-                tooltipCallback = watchTooltips(),
+                tooltipCallback = watchTooltips(clusters, clusterKey),
                 tooltipWatcher;
 
             // Add the section for the checkbox.
@@ -422,10 +297,10 @@ function CoiVisualizationPlugin(editor) {
             // cluster turns off the visualization for *any* of the COIs in the
             // cluster, and unchecking any COI only turns off the visualization
             // for that COI.
-            for (let [label, cluster] of Object.entries(clusters)) {
-                let identifier = cluster.plan.id,
-                    name = cluster.plan.name,
-                    pattern = patterns[clusterPatternMatch[label]],
+            for (let cluster of clusters) {
+                let name = cluster.name,
+                    identifier = cluster[clusterKey],
+                    pattern = patterns[clusterPatternMatch[identifier]],
                     clusterToggle = toggle(
                         name, true,
                         toggleClusterVisibility(clusterUnits, clusterKey),
@@ -467,10 +342,7 @@ function CoiVisualizationPlugin(editor) {
             tooltipWatcher.activate();
 
             // Watch for click events.
-            onFeatureClicked(place, clusterUnits, coiUnits, coiKey);
-
-            // Watch for zoom levels.
-            // toggleOnZoom(clusterUnits);
+            onFeatureClicked(clusters, clusterUnits, clusterKey);
         });
 }
 

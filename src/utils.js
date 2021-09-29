@@ -1255,24 +1255,6 @@ export function spatial_abilities(id) {
           {
             source: {
               type: "vector",
-              url: "mapbox://districtr.michigan_blockgroups"
-            },
-            type: "fill",
-            sourceLayer: "michigan_blockgroups",
-            clusterLayer: false
-          },
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.michigan_blockgroups_points"
-            },
-            type: "circle",
-            sourceLayer: "michigan_blockgroups_points",
-            clusterLayer: false
-          },
-          {
-            source: {
-              type: "vector",
               url: "mapbox://districtr.michigan_bg_clusters"
             },
             type: "fill",
@@ -1280,8 +1262,10 @@ export function spatial_abilities(id) {
             clusterLayer: true
           }
         ],
-        clusterKey: "label",
-        coiKey: "GEOID10"
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/MI/clusters.json"
+        }
       },
       number_markers: true,
       number_markers_lambda: true,
