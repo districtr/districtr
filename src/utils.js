@@ -1145,7 +1145,6 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      load_coi: true,
       school_districts: true,
       current_districts: true,
       municipalities: 'Cities and Towns',
