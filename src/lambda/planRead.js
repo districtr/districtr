@@ -13,9 +13,11 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    let search = event.queryStringParameters._id ?
-          { _id: event.queryStringParameters._id }
-          : { simple_id: event.queryStringParameters.id }
+    const eid = event.queryStringParameters.id,
+          mongoid = event.queryStringParameters._id;
+    let search = mongoid ?
+          { _id: mongoid }
+          : { simple_id: eid.includes("_") ? eid : Number(eid) }
         ,
         myHost = event.queryStringParameters.hostname;
     if (myHost) {

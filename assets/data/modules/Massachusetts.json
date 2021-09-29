@@ -2104,19 +2104,119 @@
         "columnSets": [
           {
             "type": "election",
+            "name": "2012 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN12GEWAR",
+                "name": "Democratic",
+                "sum": 1696347,
+                "min": 0,
+                "max": 3435
+              },
+              {
+                "key": "SEN12GSBRO",
+                "name": "Republican",
+                "sum": 1458055,
+                "min": 0,
+                "max": 2653
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12GBOB",
+                "name": "Democratic",
+                "sum": 1921290,
+                "min": 0,
+                "max": 3830
+              },
+              {
+                "key": "PRES12GMRO",
+                "name": "Republican",
+                "sum": 1188313,
+                "min": 0,
+                "max": 2280
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2013 US Senate Special",
+            "subgroups": [
+              {
+                "key": "SEN13GEMAR",
+                "name": "Democratic",
+                "sum": 645433,
+                "min": 0,
+                "max": 1219
+              },
+              {
+                "key": "SEN13GGGOM",
+                "name": "Republican",
+                "sum": 525304,
+                "min": 0,
+                "max": 1403
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN14GEMAR",
+                "name": "Democratic",
+                "sum": 1289944,
+                "min": 0,
+                "max": 2233
+              },
+              {
+                "key": "SEN14GHERR",
+                "name": "Republican",
+                "sum": 791954,
+                "min": 0,
+                "max": 1760
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16GHCL",
+                "name": "Democratic",
+                "sum": 1995200,
+                "min": 0,
+                "max": 4146
+              },
+              {
+                "key": "PRES16GDTR",
+                "name": "Republican",
+                "sum": 1090890,
+                "min": 0,
+                "max": 1892
+              }
+            ]
+          },
+          {
+            "type": "election",
             "name": "2014 Governor",
             "subgroups": [
               {
                 "key": "GOV14D",
                 "name": "Democratic",
-                "sum": 1004413,
+                "sum": 1004416,
                 "min": 0,
                 "max": 1817
               },
               {
                 "key": "GOV14R",
                 "name": "Republican",
-                "sum": 1044571,
+                "sum": 1044569,
                 "min": 0,
                 "max": 2063
               }
@@ -2144,21 +2244,181 @@
           },
           {
             "type": "election",
-            "name": "2018 Senate",
+            "name": "2018 US Senate",
             "subgroups": [
               {
                 "key": "SEN18D",
                 "name": "Democratic",
-                "sum": 1633371,
+                "sum": 1633369,
                 "min": 0,
                 "max": 2662
               },
               {
                 "key": "SEN18R",
                 "name": "Republican",
-                "sum": 979212,
+                "sum": 979213,
                 "min": 0,
                 "max": 1862
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14GMHEAL",
+                "name": "Democratic",
+                "sum": 1280513,
+                "min": 0,
+                "max": 2099
+              },
+              {
+                "key": "AG14GJMILL",
+                "name": "Republican",
+                "sum": 793823,
+                "min": 0,
+                "max": 1773
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE14GDGOL",
+                "name": "Democratic",
+                "sum": 1120194,
+                "min": 0,
+                "max": 1905
+              },
+              {
+                "key": "TRE14GMHEF",
+                "name": "Republican",
+                "sum": 828896,
+                "min": 0,
+                "max": 1848
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD14GPBUM",
+                "name": "Democratic",
+                "sum": 1146985,
+                "min": 0,
+                "max": 1976
+              },
+              {
+                "key": "AUD14GSSAI",
+                "name": "Republican",
+                "sum": 757219,
+                "min": 0,
+                "max": 1775
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18GMHEAL",
+                "name": "Democratic",
+                "sum": 1874212,
+                "min": 0,
+                "max": 2928
+              },
+              {
+                "key": "AG18GJMCMA",
+                "name": "Republican",
+                "sum": 804831,
+                "min": 0,
+                "max": 1621
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18GDGOL",
+                "name": "Democratic",
+                "sum": 1761283,
+                "min": 0,
+                "max": 2803
+              },
+              {
+                "key": "TRE18GKORR",
+                "name": "Republican",
+                "sum": 749596,
+                "min": 0,
+                "max": 1600
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18GSBUM",
+                "name": "Democratic",
+                "sum": 1606512,
+                "min": 0,
+                "max": 2635
+              },
+              {
+                "key": "AUD18GHBRA",
+                "name": "Republican",
+                "sum": 801585,
+                "min": 0,
+                "max": 1654
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20GJBI",
+                "name": "Democratic",
+                "sum": 2382204,
+                "min": 0,
+                "max": 5241
+              },
+              {
+                "key": "PRES20GDTR",
+                "name": "Republican",
+                "sum": 1167206,
+                "min": 0,
+                "max": 1991
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN20GEMAR",
+                "name": "Democratic",
+                "sum": 2357811,
+                "min": 0,
+                "max": 5132
+              },
+              {
+                "key": "SEN20GKOCO",
+                "name": "Republican",
+                "sum": 1177759,
+                "min": 0,
+                "max": 2034
               }
             ]
           },
@@ -2306,15 +2566,21 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-73.5082, 41.1871],
-          [-69.8589, 42.8868]
+          [
+            -73.5082,
+            41.1871
+          ],
+          [
+            -69.8589,
+            42.8868
+          ]
         ],
         "tilesets": [
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_vtds20"
+              "url": "mapbox://districtr.ma_vtds20?v=2"
             },
             "sourceLayer": "ma_vtds20"
           },
@@ -2322,7 +2588,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_vtds20_points"
+              "url": "mapbox://districtr.ma_vtds20_points?v=2"
             },
             "sourceLayer": "ma_vtds20_points"
           }

@@ -38,7 +38,7 @@ export function renderModal(innerContent) {
     return template;
 }
 
-export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
+export function renderSaveModal(state, savePlanToDB, isFromQAPortal, draft) {
     const target = document.getElementById("modal");
     savePlanToDB(state, undefined, null, (_id, action) => {
         let eventdefault = "";
@@ -54,6 +54,15 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
         }
         if (isFromQAPortal) {
             portalLink = portalLink.replace('portal','qa-portal')
+        }
+        if (draft) {
+            portalLink += '/plans'
+        }
+        let portalName = state.place.state;
+        if (state.place.id === "ca_SanDiego") {
+            portalName = "City of San Diego";
+        } else if (state.place.id === "minneapolis") {
+            portalName = "City of Minneapolis";
         }
         let withUrl = (_id) => {
             render(renderModal(
@@ -78,10 +87,10 @@ export function renderSaveModal(state, savePlanToDB, isFromQAPortal) {
                     > Copy to Clipboard </button>
                     <br/>
                     <p>You can close this window and keep working, and update whenever you’d like.  Even if you share the link, nobody but you can change your plan—other people’s changes will save to a new link.</p>
-                    <p>When you are ready, you can bring this map back to the submission form on the ${state.place.state} Redistricting Public Comment Portal.</p>
+                    <p>When you are ready, you can bring this map back to the submission form on the ${portalName} Redistricting Public Comment Portal.</p>
                     <div style="text-align:center">
                       <a
-                        href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}#form"
+                        href="${portalLink}?${state.plan.problem.type === "community" ? "coi" : "plan"}id=${_id}${draft ? "&draftid=" + draft : ""}#form"
                         target="_blank"
                         style="margin-left:auto;margin-right:auto;padding:6px;background:#1b5956;color:#fff;border-radius:.5rem;padding:.375rem .75rem;font-size:1rem;margin-top:.5rem;display:inline-block;"
                       >

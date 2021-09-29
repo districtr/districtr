@@ -9,261 +9,21 @@
         "columnSets": [
           {
             "type": "election",
-            "name": "2012 President",
-            "subgroups": [
-              {
-                "key": "PRES12D",
-                "name": "Democratic",
-                "sum": 242584,
-                "min": 0,
-                "max": 1702
-              },
-              {
-                "key": "PRES12R",
-                "name": "Republican",
-                "sum": 165430,
-                "min": 0,
-                "max": 1535
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2012 Senate",
-            "subgroups": [
-              {
-                "key": "SEN12D",
-                "name": "Democratic",
-                "sum": 265419,
-                "min": 0,
-                "max": 1834
-              },
-              {
-                "key": "SEN12R",
-                "name": "Republican",
-                "sum": 115654,
-                "min": 0,
-                "max": 1130
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2012 US House",
-            "subgroups": [
-              {
-                "key": "USH12D",
-                "name": "Democratic",
-                "sum": 249934,
-                "min": 0,
-                "max": 1721
-              },
-              {
-                "key": "USH12R",
-                "name": "Republican",
-                "sum": 129706,
-                "min": 0,
-                "max": 1193
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2012 Governor",
-            "subgroups": [
-              {
-                "key": "GOV12D",
-                "name": "Democratic",
-                "sum": 275989,
-                "min": 0,
-                "max": 1872
-              },
-              {
-                "key": "GOV12R",
-                "name": "Republican",
-                "sum": 113786,
-                "min": 0,
-                "max": 1148
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Senate",
-            "subgroups": [
-              {
-                "key": "SEN14D",
-                "name": "Democratic",
-                "sum": 130585,
-                "min": 0,
-                "max": 1036
-              },
-              {
-                "key": "SEN14R",
-                "name": "Republican",
-                "sum": 98810,
-                "min": 0,
-                "max": 986
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 US House",
-            "subgroups": [
-              {
-                "key": "USH14D",
-                "name": "Democratic",
-                "sum": 137181,
-                "min": 0,
-                "max": 1123
-              },
-              {
-                "key": "USH14R",
-                "name": "Republican",
-                "sum": 85136,
-                "min": 0,
-                "max": 854
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Attorney General",
-            "subgroups": [
-              {
-                "key": "AG14D",
-                "name": "Democratic",
-                "sum": 121405,
-                "min": 0,
-                "max": 962
-              },
-              {
-                "key": "AG14R",
-                "name": "Republican",
-                "sum": 90257,
-                "min": 0,
-                "max": 906
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Treasurer",
-            "subgroups": [
-              {
-                "key": "TRE14D",
-                "name": "Democratic",
-                "sum": 100222,
-                "min": 0,
-                "max": 750
-              },
-              {
-                "key": "TRE14R",
-                "name": "Republican",
-                "sum": 123104,
-                "min": 0,
-                "max": 1267
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Auditor",
-            "subgroups": [
-              {
-                "key": "AUD14D",
-                "name": "Democratic",
-                "sum": 103941,
-                "min": 0,
-                "max": 805
-              },
-              {
-                "key": "AUD14R",
-                "name": "Republican",
-                "sum": 123102,
-                "min": 0,
-                "max": 1135
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 President",
-            "subgroups": [
-              {
-                "key": "PRES16D",
-                "name": "Democratic",
-                "sum": 235614,
-                "min": 0,
-                "max": 1769
-              },
-              {
-                "key": "PRES16R",
-                "name": "Republican",
-                "sum": 185067,
-                "min": 0,
-                "max": 1861
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 US House",
-            "subgroups": [
-              {
-                "key": "USH16D",
-                "name": "Democratic",
-                "sum": 233545,
-                "min": 0,
-                "max": 1732
-              },
-              {
-                "key": "USH16R",
-                "name": "Republican",
-                "sum": 172240,
-                "min": 0,
-                "max": 1679
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 Governor",
-            "subgroups": [
-              {
-                "key": "GOV16D",
-                "name": "Democratic",
-                "sum": 248321,
-                "min": 0,
-                "max": 1907
-              },
-              {
-                "key": "GOV16R",
-                "name": "Republican",
-                "sum": 166833,
-                "min": 0,
-                "max": 1601
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 Senate",
+            "name": "2018 US Senate",
             "subgroups": [
               {
                 "key": "SEN18D",
                 "name": "Democratic",
-                "sum": 217388,
+                "sum": 217386,
                 "min": 0,
-                "max": 1913
+                "max": 2200
               },
               {
                 "key": "SEN18R",
                 "name": "Republican",
-                "sum": 137102,
+                "sum": 137105,
                 "min": 0,
-                "max": 1386
+                "max": 1836
               }
             ]
           },
@@ -274,16 +34,16 @@
               {
                 "key": "USH18D",
                 "name": "Democratic",
-                "sum": 227353,
+                "sum": 227358,
                 "min": 0,
-                "max": 1969
+                "max": 2291
               },
               {
                 "key": "USH18R",
                 "name": "Republican",
-                "sum": 125363,
+                "sum": 125368,
                 "min": 0,
-                "max": 1289
+                "max": 1705
               }
             ]
           },
@@ -294,16 +54,56 @@
               {
                 "key": "AG18D",
                 "name": "Democratic",
-                "sum": 218348,
+                "sum": 218356,
                 "min": 0,
-                "max": 1961
+                "max": 2175
               },
               {
                 "key": "AG18R",
                 "name": "Republican",
-                "sum": 137728,
+                "sum": 137726,
                 "min": 0,
-                "max": 1352
+                "max": 1880
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18D",
+                "name": "Democratic",
+                "sum": 205623,
+                "min": 0,
+                "max": 2111
+              },
+              {
+                "key": "AUD18R",
+                "name": "Republican",
+                "sum": 149479,
+                "min": 0,
+                "max": 1926
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 State House",
+            "subgroups": [
+              {
+                "key": "SH18D",
+                "name": "Democratic",
+                "sum": 199723,
+                "min": 0,
+                "max": 2100
+              },
+              {
+                "key": "SH18R",
+                "name": "Republican",
+                "sum": 135694,
+                "min": 0,
+                "max": 2058
               }
             ]
           },
@@ -314,36 +114,336 @@
               {
                 "key": "TRE18D",
                 "name": "Democratic",
-                "sum": 187240,
+                "sum": 187237,
                 "min": 0,
-                "max": 1547
+                "max": 1938
               },
               {
                 "key": "TRE18R",
                 "name": "Republican",
-                "sum": 163998,
+                "sum": 164002,
                 "min": 0,
-                "max": 1706
+                "max": 2060
               }
             ]
           },
           {
             "type": "election",
-            "name": "2018 Auditor",
+            "name": "2016 State House",
             "subgroups": [
               {
-                "key": "AUD18D",
+                "key": "SH16D",
                 "name": "Democratic",
-                "sum": 205623,
+                "sum": 226084,
                 "min": 0,
-                "max": 1864
+                "max": 2630
               },
               {
-                "key": "AUD18R",
+                "key": "SH16R",
                 "name": "Republican",
-                "sum": 149479,
+                "sum": 149872,
                 "min": 0,
-                "max": 1413
+                "max": 2379
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Governor",
+            "subgroups": [
+              {
+                "key": "GOV16D",
+                "name": "Democratic",
+                "sum": 248312,
+                "min": 0,
+                "max": 2471
+              },
+              {
+                "key": "GOV16R",
+                "name": "Republican",
+                "sum": 166838,
+                "min": 0,
+                "max": 2131
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 233541,
+                "min": 0,
+                "max": 2168
+              },
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 172241,
+                "min": 0,
+                "max": 2266
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 235617,
+                "min": 0,
+                "max": 2120
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 185064,
+                "min": 0,
+                "max": 2504
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 State House",
+            "subgroups": [
+              {
+                "key": "SH14D",
+                "name": "Democratic",
+                "sum": 116353,
+                "min": 0,
+                "max": 1222
+              },
+              {
+                "key": "SH14R",
+                "name": "Republican",
+                "sum": 91576,
+                "min": 0,
+                "max": 1264
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 US House",
+            "subgroups": [
+              {
+                "key": "USH14D",
+                "name": "Democratic",
+                "sum": 137182,
+                "min": 0,
+                "max": 1291
+              },
+              {
+                "key": "USH14R",
+                "name": "Republican",
+                "sum": 85138,
+                "min": 0,
+                "max": 933
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD14D",
+                "name": "Democratic",
+                "sum": 103942,
+                "min": 0,
+                "max": 937
+              },
+              {
+                "key": "AUD14R",
+                "name": "Republican",
+                "sum": 123101,
+                "min": 0,
+                "max": 1348
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE14D",
+                "name": "Democratic",
+                "sum": 100223,
+                "min": 0,
+                "max": 956
+              },
+              {
+                "key": "TRE14R",
+                "name": "Republican",
+                "sum": 123103,
+                "min": 0,
+                "max": 1283
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14D",
+                "name": "Democratic",
+                "sum": 121406,
+                "min": 0,
+                "max": 1158
+              },
+              {
+                "key": "AG14R",
+                "name": "Republican",
+                "sum": 90262,
+                "min": 0,
+                "max": 964
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN14D",
+                "name": "Democratic",
+                "sum": 130586,
+                "min": 0,
+                "max": 1213
+              },
+              {
+                "key": "SEN14R",
+                "name": "Republican",
+                "sum": 98816,
+                "min": 0,
+                "max": 1077
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 State House",
+            "subgroups": [
+              {
+                "key": "SH12D",
+                "name": "Democratic",
+                "sum": 226719,
+                "min": 0,
+                "max": 2034
+              },
+              {
+                "key": "SH12R",
+                "name": "Republican",
+                "sum": 124810,
+                "min": 0,
+                "max": 1776
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 State Senate",
+            "subgroups": [
+              {
+                "key": "SSEN12D",
+                "name": "Democratic",
+                "sum": 234612,
+                "min": 0,
+                "max": 2182
+              },
+              {
+                "key": "SSEN12R",
+                "name": "Republican",
+                "sum": 123378,
+                "min": 0,
+                "max": 3119
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Governor",
+            "subgroups": [
+              {
+                "key": "GOV12D",
+                "name": "Democratic",
+                "sum": 275993,
+                "min": 0,
+                "max": 2478
+              },
+              {
+                "key": "GOV12R",
+                "name": "Republican",
+                "sum": 113791,
+                "min": 0,
+                "max": 1341
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 US House",
+            "subgroups": [
+              {
+                "key": "USH12D",
+                "name": "Democratic",
+                "sum": 249933,
+                "min": 0,
+                "max": 2345
+              },
+              {
+                "key": "USH12R",
+                "name": "Republican",
+                "sum": 129703,
+                "min": 0,
+                "max": 1335
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN12D",
+                "name": "Democratic",
+                "sum": 265420,
+                "min": 0,
+                "max": 2487
+              },
+              {
+                "key": "SEN12R",
+                "name": "Republican",
+                "sum": 115656,
+                "min": 0,
+                "max": 1241
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12D",
+                "name": "Democratic",
+                "sum": 242587,
+                "min": 0,
+                "max": 2100
+              },
+              {
+                "key": "PRES12R",
+                "name": "Republican",
+                "sum": 165430,
+                "min": 0,
+                "max": 1888
               }
             ]
           },
@@ -491,15 +591,21 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-75.789, 38.4511],
-          [-74.9842, 39.8395]
+          [
+            -75.789,
+            38.4511
+          ],
+          [
+            -74.9842,
+            39.8395
+          ]
         ],
         "tilesets": [
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.de_vtds20"
+              "url": "mapbox://districtr.de_vtds20?v=2"
             },
             "sourceLayer": "de_vtds20"
           },
@@ -507,7 +613,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.de_vtds20_points"
+              "url": "mapbox://districtr.de_vtds20_points?v=2"
             },
             "sourceLayer": "de_vtds20_points"
           }

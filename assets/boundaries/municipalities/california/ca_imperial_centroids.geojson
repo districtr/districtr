@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "ca_imperial_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Brawley" }, "geometry": { "type": "Point", "coordinates": [ -115.516027005524109, 33.01881195985883 ] } },
+{ "type": "Feature", "properties": { "NAME": "Brawley" }, "geometry": { "type": "Point", "coordinates": [ -115.52879520403215, 32.977955371433225 ] } },
+{ "type": "Feature", "properties": { "NAME": "Calexico" }, "geometry": { "type": "Point", "coordinates": [ -115.494356126537497, 32.684931886419101 ] } },
+{ "type": "Feature", "properties": { "NAME": "El Centro" }, "geometry": { "type": "Point", "coordinates": [ -115.559508663398802, 32.786509341361729 ] } },
+{ "type": "Feature", "properties": { "NAME": "Holtville" }, "geometry": { "type": "Point", "coordinates": [ -115.378068106186674, 32.812932192830786 ] } },
+{ "type": "Feature", "properties": { "NAME": "Imperial" }, "geometry": { "type": "Point", "coordinates": [ -115.572026354133456, 32.839005399546799 ] } },
+{ "type": "Feature", "properties": { "NAME": "Westmorland" }, "geometry": { "type": "Point", "coordinates": [ -115.628760600873221, 33.046233444242283 ] } },
+{ "type": "Feature", "properties": { "NAME": "Westmorland" }, "geometry": { "type": "Point", "coordinates": [ -115.621836085124158, 33.03838053898901 ] } },
+{ "type": "Feature", "properties": { "NAME": "Calipatria" }, "geometry": { "type": "Point", "coordinates": [ -115.492249039408506, 33.169275690045744 ] } },
+{ "type": "Feature", "properties": { "NAME": "Calipatria" }, "geometry": { "type": "Point", "coordinates": [ -115.514670148095249, 33.125276919248591 ] } },
+{ "type": "Feature", "properties": { "NAME": "Calipatria" }, "geometry": { "type": "Point", "coordinates": [ -115.549322624212692, 33.151064685201675 ] } },
+{ "type": "Feature", "properties": { "NAME": "Bombay Beach" }, "geometry": { "type": "Point", "coordinates": [ -115.726901639932208, 33.355609853313851 ] } },
+{ "type": "Feature", "properties": { "NAME": "Desert Shores" }, "geometry": { "type": "Point", "coordinates": [ -116.039423325904551, 33.404111362006041 ] } },
+{ "type": "Feature", "properties": { "NAME": "Heber" }, "geometry": { "type": "Point", "coordinates": [ -115.529398618700668, 32.732494156558779 ] } },
+{ "type": "Feature", "properties": { "NAME": "El Centro Naval Air Facility" }, "geometry": { "type": "Point", "coordinates": [ -115.668073069000826, 32.825231766347116 ] } },
+{ "type": "Feature", "properties": { "NAME": "Niland" }, "geometry": { "type": "Point", "coordinates": [ -115.514439632987518, 33.238707946662515 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ocotillo" }, "geometry": { "type": "Point", "coordinates": [ -116.001878296926165, 32.743124851988597 ] } },
+{ "type": "Feature", "properties": { "NAME": "Palo Verde" }, "geometry": { "type": "Point", "coordinates": [ -114.727094544875314, 33.427843028219634 ] } },
+{ "type": "Feature", "properties": { "NAME": "Salton City" }, "geometry": { "type": "Point", "coordinates": [ -115.960950919058774, 33.299433476961454 ] } },
+{ "type": "Feature", "properties": { "NAME": "Salton Sea Beach" }, "geometry": { "type": "Point", "coordinates": [ -116.011375589795236, 33.375844891339511 ] } },
+{ "type": "Feature", "properties": { "NAME": "Seeley" }, "geometry": { "type": "Point", "coordinates": [ -115.684289804338079, 32.7892675363329 ] } },
+{ "type": "Feature", "properties": { "NAME": "Winterhaven" }, "geometry": { "type": "Point", "coordinates": [ -114.637797851151575, 32.737183358261198 ] } }
+]
+}

@@ -145,6 +145,11 @@ export function colorByFraction(subgroup) {
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 
+export function purpleByFraction(subgroup) {
+    const rgb = [0, 0, 139];
+    return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
+}
+
 // Demographic color rules:
 
 export const demographicColorRules = [
