@@ -9,6 +9,7 @@ import {
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
 import { spatial_abilities } from "../utils";
+import Button from "../components/Button";
 
 /**
  * @description Gets the right checkboxes based on filtering.
@@ -81,35 +82,17 @@ function checkIfVisible(cluster) {
     return isChecked;
 }
 
-function onFeatureClicked(clusters, clusterUnits, clusterKey) {
-    let map = clusterUnits.map,
-        sourceLayer = clusterUnits.sourceLayer;
-
-    map.on("click", sourceLayer, (e) => {
+function onFeatureClicked(cluster) {
+    return (e) => {
         // Get the first selected feature belonging to the right layer, get its
         // unique identifier, find its cluster and COI name, and check if it's
         // visible. If it is, then we want to open a new window and pass the
         // information to it.
-        try {
-            let selectedFeatures = map.queryRenderedFeatures(e.point, {
-                    layers: [sourceLayer]
-                }),
-                selectedClusters = selectedFeatures.map((f) => f.properties[clusterKey]),
-                selected = selectedClusters[0],
-                origin = window.location.origin;
+        let tab = window.open(origin + "/coi-info"),
+            storage = tab.localStorage;
 
-            // Check if all the things in the hierarchy are visible. If they are,
-            // and the user's clicked on the thing, we want to send the data to the
-            // new page.
-            if (checkIfVisible(selected)) {
-                let tab = window.open(origin + "/coi-info"),
-                    storage = tab.localStorage,
-                    cluster = clusters.find((c) => c[clusterKey] == selected);
-
-                storage.setItem("coidata", JSON.stringify(cluster));
-            }
-        } catch (e) { console.error(e); };
-    });
+        storage.setItem("coidata", JSON.stringify(cluster));
+    };
 }
 
 /**
@@ -121,7 +104,7 @@ function onFeatureClicked(clusters, clusterUnits, clusterKey) {
 function watchTooltips(clusters, clusterKey) {
     // Create a mapping from clusters to their long names.
     let nameMap = {};
-    for (let cluster of clusters) nameMap[cluster[clusterKey]] = cluster["name"];
+    for (let cluster of clusters) nameMap[cluster[clusterKey]] = cluster["cluster"];
 
     return (features) => {
         // If we have no units we don't have to do anything!
@@ -135,7 +118,7 @@ function watchTooltips(clusters, clusterKey) {
                 .map((s) => s.cluster),
             names = features
                 .filter((f) => !invisibleNames.includes(f.properties[clusterKey]))
-                .map((f) => nameMap[f.properties[clusterKey]]),
+                .map((f) => "C" + nameMap[f.properties[clusterKey]]),
             nameString = names.join(", ");
 
         if (names.length > 0) {
@@ -302,22 +285,25 @@ function CoiVisualizationPlugin(editor) {
                     identifier = cluster[clusterKey],
                     pattern = patterns[clusterPatternMatch[identifier]],
                     clusterToggle = toggle(
-                        name, true,
+                        "Cluster C" + identifier + " – " + name, true,
                         toggleClusterVisibility(clusterUnits, clusterKey),
                         null, `cluster-checkbox ${identifier}`
+                    ),
+                    infoButton = new Button(
+                        onFeatureClicked(cluster),
+                        {
+                            label: "More Info – Cluster C" + identifier
+                        }
                     );
                 
                 // Add a section just containing the cluster toggle.
                 tab.addSection(
                     () => html`
-                        <div style="opacity: 1/2; background-color: white"
+                        <div style="opacity: 1/2; background-color: white; border=1px solid #e0e0e0; border-radius: 5%">
                             <div 
                                 class="toolbar-section-left cluster-tile"
-                                style="
-                                    background-image: url('${pattern}');
-                                    margin-bottom: 0.5em;
-                                "
                             >
+                                <span style="height: 3em; width: 3em; background-image: url('${pattern}');"></span>
                                 <h4
                                     style="
                                         background-color: white;
@@ -326,7 +312,11 @@ function CoiVisualizationPlugin(editor) {
                                 >
                                     ${clusterToggle}
                                 </h4>
+                                <div class="toolbar-section-left cluster-tile">   
+                                    ${infoButton}
+                                </div>
                             </div>
+
                         </div>
                     `
                 );
@@ -340,9 +330,6 @@ function CoiVisualizationPlugin(editor) {
             initialStyles(clusterPatternMatch, patterns);
             tooltipWatcher = new Tooltip(clusterUnits, tooltipCallback, 0);
             tooltipWatcher.activate();
-
-            // Watch for click events.
-            onFeatureClicked(clusters, clusterUnits, clusterKey);
         });
 }
 

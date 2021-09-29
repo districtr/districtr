@@ -52,7 +52,7 @@ export default function renderClusterDataView() {
                         return html`
                             <tr>
                                 <td class="ui-data data-table__cell" style="text-align: center;">
-                                    <a href="https://michigan-mapping.org/submission/${s['cluster_id']}">${s['cluster_id']}</a>
+                                    <a target="_blank" href="https://michigan-mapping.org/submission/${s['cluster_id']}">${s['cluster_id']}</a>
                                 </td>
                                 <td class="ui-data data-table__cell" style="padding: 0.9em; font-size: 0.9em; text-align: left;">
                                     <strong>${s['title']}.</strong> ${description}
