@@ -599,25 +599,3 @@ li:first-child > input:checked ~ .tabs__tab {
 .elect_tooltip:hover .elect_tooltiptext {
     visibility: visible;
 }
-
-.cluster-tile {
-    width: 90%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin-left: 1em;
-}
-
-.cluster-tile > h4 {
-    display: flex;
-}
-
-.cluster-tile > span {
-    display: flex;
-}
-
-.cluster-button {
-    font-size: 0.8em;
-}

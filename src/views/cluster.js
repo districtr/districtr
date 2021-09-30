@@ -1,6 +1,5 @@
 
 import { html, render } from "lit-html";
-import DataTable from "../components/Charts/DataTable";
 
 
 function createTitle(cluster) {
@@ -8,7 +7,7 @@ function createTitle(cluster) {
         clusterID = cluster["id"];
 
     return html`
-        <h1>Cluster ${clusterID} – ${title}</h1>
+        <h2 class="cluster-page__header">Cluster ${clusterID} – ${title}</h2>
     `;
 }
 

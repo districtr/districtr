@@ -1,0 +1,76 @@
+
+@import "./mixins";
+@import "./colors";
+
+.cluster-tile {
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+}
+
+.cluster-tile__subcluster {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.cluster-tile__component {
+    display: flex;
+}
+
+.cluster-tile__pattern {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.25rem;
+    align-self: center;
+}
+
+.cluster-tile__title {
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e0;
+    width: 90%;
+    text-align: center;
+}
+
+.cluster-tile__header {
+    font-size: 0.95em !important;
+    font-weight: normal !important;
+}
+
+.cluster-tile__label {
+    display: flex;
+    margin-left: auto;
+}
+
+.cluster-tile__button {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+    font-size: 0.6rem !important;
+
+    &:hover {
+        background-color: $districtr-grey-hover !important;
+    }
+}
+
+.cluster-page__header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

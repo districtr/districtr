@@ -4,12 +4,10 @@ import { html, TemplateResult } from "lit-html";
 /**
  * Creates a Button object which performs the action specified by ``onChange``.
  * @param {String} label Text inside the Button.
- * @param {String} hoverText Tooltip text to display when the Button is hovered
- * over.
+ * @param {String} hoverText Tooltip text to display when the Button is hovered over.
  * @param {function(Event)} onClick Callback which consumes an Event.
  * @param {String|Number} optionalID Optional HTML identifier.
- * @param {String} classname Optional classname for the Button; defaults to
- * "button--alternate".
+ * @param {String} classname Optional classname for the Button; defaults to "button--alternate".
  * @returns {TemplateResult}
  * @constructor
  */
@@ -18,14 +16,14 @@ export class Button {
         onClick,
         {
             label="button", hoverText="button", optionalID=null,
-            className="button--alternate"
+            buttonClassName="button--alternate", labelClassName=""
         }
     ) {
         // Create this object's HTML template.
         this.template = html`
-            <label>
+            <label class="${labelClassName}"">
                 <button
-                    class=${className}
+                    class="${buttonClassName} button--alternate"
                     title="${hoverText}"
                     type="button"
                     id="${optionalID}"

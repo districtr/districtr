@@ -3,8 +3,7 @@ import { Tab } from "../components/Tab";
 import {
     addCOIs,
     opacityStyleExpression,
-    clusterPatternStyleExpression,
-    coiPatternStyleExpression
+    clusterPatternStyleExpression
 } from "../layers/COI";
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
@@ -66,28 +65,15 @@ function getCheckboxStatuses(cluster=null) {
 }
 
 /**
- * @description Checks if any of the boxes in the hierarchy are checked.
- * @param {String} cluster Cluster identifier.
- * @param {String[]} cois Array of COI names.
- * @returns {Boolean} Are any of the boxes in the COI's hierarchy checked?
+ * @description Callback for get-info buttons.
+ * @param {Object} cluster districtr-interpretable COI cluster object.
+ * @returns {Function} Callback for when "more info" buttons are clicked.
  */
-function checkIfVisible(cluster) {
-    let statuses = getCheckboxStatuses(cluster),
-        allVisible = statuses.filter((s) => !s["cluster"])[0]["checked"],
-        statusesInCluster = statuses.filter((s) => s["cluster"] == cluster),
-        isChecked = allVisible;
-
-    for (let status of statusesInCluster) isChecked = isChecked && status["checked"];
-
-    return isChecked;
-}
-
-function onFeatureClicked(cluster) {
+function onClusterClicked(cluster) {
     return (e) => {
-        // Get the first selected feature belonging to the right layer, get its
-        // unique identifier, find its cluster and COI name, and check if it's
-        // visible. If it is, then we want to open a new window and pass the
-        // information to it.
+        // When the cluster's button is clicked, store the cluster in local
+        // storage for the new window (so it can reload when refreshed) and
+        // open the window in a new tab.
         let tab = window.open(origin + "/coi-info"),
             storage = tab.localStorage;
 
@@ -111,7 +97,11 @@ function watchTooltips(clusters, clusterKey) {
         if (features.length === 0) return null;
 
         // Otherwise, get the names of all the hovered-over features that are
-        // visible.
+        // visible. First, get the checkbox statuses and retrieve the clusters
+        // that aren't visible. Then, get the names of the features we're
+        // hovering over, filter them by their inclusion in the list of invisible
+        // names, and map them to their cluster identifiers (with a "C"). Then,
+        // join the names and show them to the user.
         let statuses = getCheckboxStatuses(),
             invisibleNames = statuses
                 .filter((s) => !s.checked)
@@ -223,6 +213,12 @@ function createCOICheckbox(callback) {
     };
 }
 
+/**
+ * @description Callback for cluster geometry visibility.
+ * @param {Layer} clusterUnits districtr Layer object corresponding to cluster geometries.
+ * @param {String} clusterKey Unique identifier for geometries in `clusterUnits`.
+ * @returns {Function} Callback which decides which things are invisible.
+ */
 function toggleClusterVisibility(clusterUnits, clusterKey) {
     return (_) => {
         // Get the statuses of the checkboxes.
@@ -232,6 +228,103 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
         
         opacityStyleExpression(clusterUnits, invisible, clusterKey);
     };
+}
+
+/**
+ * @description Creates a section for each cluster.
+ * @param {Object[]} clusterGroup Array of districtr-interpretable cluster objects.
+ * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {Object} clusterPatternMatch Maps cluster names to patterns.
+ * @param {Object} patterns Maps pattern names to URLs.
+ * @param {String} clusterKey Cluster unique identifier.
+ * @returns {Function} Callback when the section is created.
+ */
+function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey) {
+    let hasSubclusters = clusterGroup.length > 1,
+        clusterId = hasSubclusters ? clusterGroup[0]["subclusterOf"] : "C" + clusterGroup[0][clusterKey],
+        clusterName = "Cluster " + clusterId;
+
+    return () => html`
+        <div class="cluster-tile">
+            <div class="cluster-tile__title">${clusterName}</div>
+            ${subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey)}
+        </div>
+    `;
+}
+
+/**
+ * @description Creates a subsection for each cluster.
+ * @param {Object[]} clusterGroup Array of districtr-interpretable cluster objects.
+ * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {Object} clusterPatternMatch Maps cluster names to patterns.
+ * @param {Object} patterns Maps pattern names to URLs.
+ * @param {String} clusterKey Cluster unique identifier.
+ * @returns {HTMLTemplateElement} lit-html template element.
+ */
+function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey) {
+    // For each cluster grouping, create a tile. For each cluster in the grouping,
+    // create a subcluster tile with that subcluster's information in it.
+    return html`
+        ${clusterGroup.map(cluster => {
+            // For each tile in the grouping, get the required information
+            // and make checkboxes and info buttons.
+            let hasParent = cluster["subclusterOf"],
+                name = hasParent ? cluster["subcluster"] : cluster["name"],
+                identifier = cluster[clusterKey],
+                pattern = patterns[clusterPatternMatch[identifier]],
+                clusterToggle = toggle(
+                    name, true,
+                    toggleClusterVisibility(clusterUnits, clusterKey),
+                    null, `cluster-checkbox ${identifier}`
+                ),
+                infoButton = new Button(
+                    onClusterClicked(cluster),
+                    {
+                        label: "Supporting Data",
+                        buttonClassName: "cluster-tile__button",
+                        labelClassName: "cluster-tile__component cluster-tile__label"
+                    }
+                );
+
+            return html`
+                <div class="cluster-tile__subcluster">
+                    <div class="cluster-tile__component cluster-tile__pattern" style="background-image: url('${pattern}');"></div>
+                    <h4 class="cluster-tile__component cluster-tile__header">
+                        ${clusterToggle}
+                    </h4>
+                    ${infoButton}
+                </div>
+            `;
+        })}
+    `;
+}
+
+function createClusterGroups(clusters) {
+    let clusterGroups = [],
+        skippable = [];
+
+    // Iterate over the clusters, creating arrays of subclusters; if a
+    // cluster's by itself in its array, then it has no subclusters. If
+    // an array has multiple clusters, we display them together.
+    for (let cluster of clusters) {
+        // Get the subcluster for each cluster and find all the other
+        // clusters with the same parent.
+        let subclusterOf = cluster["subclusterOf"],
+            subclusters = subclusterOf ? 
+                clusters.filter((c) => c["subclusterOf"] == subclusterOf) :
+                [cluster];
+        
+        // If this cluster is a subcluster *and* it's not already accounted
+        // for, add it. Otherwise, do nothing.
+        if (!skippable.includes(subclusterOf)) {
+            clusterGroups.push(subclusters);
+        }
+
+        // If we have a cluster to skip, skip it. Otherwise, do nothing.
+        if (subclusterOf) skippable.push(subclusterOf);
+    }
+
+    return clusterGroups;
 }
 
 /**
@@ -257,7 +350,12 @@ function CoiVisualizationPlugin(editor) {
                     clusterKey
                 } = object,
                 map = clusterUnits.map,
-                clusterLayer = clusterUnits.sourceLayer;
+                clusterLayer = clusterUnits.sourceLayer,
+
+                // Get display callbacks and stuff.
+                displayCallback = displayCOIs(clusterUnits),
+                tooltipCallback = watchTooltips(clusters, clusterKey),
+                tooltipWatcher;
 
             // For each of the COIs, get the block groups that it
             // covers and create a mapbox style expression assigning
@@ -266,13 +364,12 @@ function CoiVisualizationPlugin(editor) {
             map.setLayoutProperty(clusterLayer, "visibility", "none");
             clusterUnits.setOpacity(1/2);
 
-            // Get display callbacks and stuff.
-            let displayCallback = displayCOIs(clusterUnits),
-                tooltipCallback = watchTooltips(clusters, clusterKey),
-                tooltipWatcher;
-
             // Add the section for the checkbox.
             tab.addSection(createCOICheckbox(displayCallback));
+
+            // Create arrays of subclusters to properly create the cluster tiles.
+            let clusterGroups = createClusterGroups(clusters),
+                section;
 
             // For each cluster of COIs, add a dropdown section (with a checkbox
             // as its label) which allows the user to display only certain
@@ -280,46 +377,14 @@ function CoiVisualizationPlugin(editor) {
             // cluster turns off the visualization for *any* of the COIs in the
             // cluster, and unchecking any COI only turns off the visualization
             // for that COI.
-            for (let cluster of clusters) {
-                let name = cluster.name,
-                    identifier = cluster[clusterKey],
-                    pattern = patterns[clusterPatternMatch[identifier]],
-                    clusterToggle = toggle(
-                        "Cluster C" + identifier + " – " + name, true,
-                        toggleClusterVisibility(clusterUnits, clusterKey),
-                        null, `cluster-checkbox ${identifier}`
-                    ),
-                    infoButton = new Button(
-                        onFeatureClicked(cluster),
-                        {
-                            label: "More Info – Cluster C" + identifier
-                        }
+            for (let clusterGroup of clusterGroups) {
+                    section = clusterSection(
+                        clusterGroup, clusterUnits, clusterPatternMatch, patterns,
+                        clusterKey
                     );
                 
                 // Add a section just containing the cluster toggle.
-                tab.addSection(
-                    () => html`
-                        <div style="opacity: 1/2; background-color: white; border=1px solid #e0e0e0; border-radius: 5%">
-                            <div 
-                                class="toolbar-section-left cluster-tile"
-                            >
-                                <span style="height: 3em; width: 3em; background-image: url('${pattern}');"></span>
-                                <h4
-                                    style="
-                                        background-color: white;
-                                        border-radius: 5%;
-                                    "
-                                >
-                                    ${clusterToggle}
-                                </h4>
-                                <div class="toolbar-section-left cluster-tile">   
-                                    ${infoButton}
-                                </div>
-                            </div>
-
-                        </div>
-                    `
-                );
+                tab.addSection(section);
             }
 
             // Add the tab to the tool pane and force a render.

@@ -247,7 +247,6 @@ export function addCOIs(state) {
                 // names to URLs to only contain the desired names, and map COIs
                 // to patterns.
                 let clusterPatternMatch = patternsToClusters(clusters, clusterPatterns, coi.clusterKey);
-                console.dir(clusterPatternMatch);
                 
                 // Now, we want to load each of the patterns and assign them to
                 // expressions.
