@@ -459,6 +459,19 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
     },
+    ca_sutter: {
+      number_markers: true,
+      number_markers_lambda: true,
+      border: true,
+      shapefile: true,
+      municipalities: true,
+      current_districts: true,
+      boundaries: [{
+        id: 'precincts',
+        label: 'Current Precincts',
+        path: 'current_districts/california/ca_sutter_precincts',
+      }]
+    },
     ftmyers: {
       number_markers: true,
       border: true,
