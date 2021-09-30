@@ -547,6 +547,197 @@
     ]
   },
   {
+    "name": "Sutter County",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 99930,
+              "min": 0,
+              "max": 945
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 41501,
+                "min": 0,
+                "max": 428
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 1804,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 31676,
+                "min": 0,
+                "max": 412
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 18017,
+                "min": 0,
+                "max": 347
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 869,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 279,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 5159,
+                "min": 0,
+                "max": 52
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 625,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 74878,
+              "min": 0,
+              "max": 703
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 33915,
+                "min": 0,
+                "max": 357
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 1447,
+                "min": 0,
+                "max": 53
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 20795,
+                "min": 0,
+                "max": 254
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American voting age population",
+                "sum": 658,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 227,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 13930,
+                "min": 0,
+                "max": 286
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 460,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races voting age population",
+                "sum": 3446,
+                "min": 0,
+                "max": 34
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.9483,
+            38.7346
+          ],
+          [
+            -121.4144,
+            39.3057
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sutter_blocks20_points?v=2"
+            },
+            "sourceLayer": "ca_sutter_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_sutter_blocks20?v=2"
+            },
+            "sourceLayer": "ca_sutter_blocks20"
+          }
+        ]
+      }
+    ],
+    "id": "ca_sutter",
+    "districtingProblems": [
+      {
+        "name": "County",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
     "name": "Contra Costa CentralSan",
     "units": [
       {
