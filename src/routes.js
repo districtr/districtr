@@ -222,6 +222,9 @@ export function loadPlanFromCSV(assignmentList, state) {
         //     throw new Error("CSV is for this module but a different division map (e.g. districts)");
         // }
         state.problem.numberOfParts = partCount * 1;
+    } else if (!headers[1].match(/\d/)) {
+        // Sept 2021 fix, no numbers in first line = useless header
+        console.log("custom header");
     } else {
         // old format, no column headers
         headers = null;
@@ -252,6 +255,10 @@ export function loadPlanFromCSV(assignmentList, state) {
                     key = (isNaN(cols[0] * 1) || cols[0].match(/[^0-9]/) || cols[0][0] === "0")
                         ? cols[0]
                         : cols[0] * 1;
+                if (!cols[1].match(/\d/)) {
+                    console.log("no assigned value in row " + index);
+                    return;
+                }
                 if (typeof(key) === "string" && (key.includes("\""))) {
                     key = key.slice(1, -1);
                 }
