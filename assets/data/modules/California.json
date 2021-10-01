@@ -561,7 +561,7 @@
             "total": {
               "key": "TOTPOP20",
               "name": "Total population",
-              "sum": 99930,
+              "sum": 99926,
               "min": 0,
               "max": 945
             },
@@ -569,21 +569,21 @@
               {
                 "key": "WPOP20",
                 "name": "White population",
-                "sum": 41501,
+                "sum": 41499,
                 "min": 0,
                 "max": 428
               },
               {
                 "key": "BPOP20",
                 "name": "Black population",
-                "sum": 1804,
+                "sum": 1803,
                 "min": 0,
                 "max": 65
               },
               {
                 "key": "HISP20",
                 "name": "Hispanic population",
-                "sum": 31676,
+                "sum": 31675,
                 "min": 0,
                 "max": 412
               },
@@ -630,7 +630,7 @@
             "total": {
               "key": "VAP20",
               "name": "Voting age population",
-              "sum": 74878,
+              "sum": 74874,
               "min": 0,
               "max": 703
             },
@@ -638,21 +638,21 @@
               {
                 "key": "WVAP20",
                 "name": "White voting age population",
-                "sum": 33915,
+                "sum": 33913,
                 "min": 0,
                 "max": 357
               },
               {
                 "key": "BVAP20",
                 "name": "Black voting age population",
-                "sum": 1447,
+                "sum": 1446,
                 "min": 0,
                 "max": 53
               },
               {
                 "key": "HVAP20",
                 "name": "Hispanic voting age population",
-                "sum": 20795,
+                "sum": 20794,
                 "min": 0,
                 "max": 254
               },
@@ -713,7 +713,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sutter_blocks20_points?v=2"
+              "url": "mapbox://districtr.ca_sutter_blocks20_points?v=3"
             },
             "sourceLayer": "ca_sutter_blocks20_points"
           },
@@ -721,7 +721,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sutter_blocks20?v=2"
+              "url": "mapbox://districtr.ca_sutter_blocks20?v=3"
             },
             "sourceLayer": "ca_sutter_blocks20"
           }
@@ -9228,7 +9228,7 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 1168064,
+              "sum": 1168069,
               "min": 0,
               "max": 2439
             },
@@ -9236,21 +9236,21 @@
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 455879,
+                "sum": 455881,
                 "min": 0,
                 "max": 1968
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
-                "sum": 99000,
+                "sum": 98999,
                 "min": 0,
                 "max": 614
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 315423,
+                "sum": 315425,
                 "min": 0,
                 "max": 1055
               },
@@ -9264,7 +9264,7 @@
               {
                 "key": "AMIN",
                 "name": "American Indian population",
-                "sum": 2569,
+                "sum": 2570,
                 "min": 0,
                 "max": 12
               },
@@ -9285,7 +9285,7 @@
               {
                 "key": "OTHER",
                 "name": "Other races",
-                "sum": 8463,
+                "sum": 8464,
                 "min": 0,
                 "max": 64
               }
@@ -9297,7 +9297,7 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 904809,
+              "sum": 904814,
               "min": 0,
               "max": 1881
             },
@@ -9305,28 +9305,28 @@
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 382743,
+                "sum": 382745,
                 "min": 0,
                 "max": 1542
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 77484,
+                "sum": 77483,
                 "min": 0,
                 "max": 431
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 220992,
+                "sum": 220994,
                 "min": 0,
                 "max": 695
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 2079,
+                "sum": 2080,
                 "min": 0,
                 "max": 12
               },
@@ -9347,7 +9347,7 @@
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 6084,
+                "sum": 6085,
                 "min": 0,
                 "max": 51
               },
@@ -9380,7 +9380,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_CCosta_blockgroups20_points?v=2"
+              "url": "mapbox://districtr.ca_CCosta_blockgroups20_points?v=3"
             },
             "sourceLayer": "ca_CCosta_blockgroups20_points"
           },
@@ -9388,7 +9388,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_CCosta_blockgroups20?v=2"
+              "url": "mapbox://districtr.ca_CCosta_blockgroups20?v=3"
             },
             "sourceLayer": "ca_CCosta_blockgroups20"
           }
