@@ -23,7 +23,7 @@ function createTitle(cluster) {
  */
 export default function renderClusterDataView() {
     // Grab the cluster information and create a title.
-    let cluster = JSON.parse(window.localStorage.getItem("coidata")),
+    let { cluster, portal } = JSON.parse(window.localStorage.getItem("coidata")),
         titleEntity = Array.from(document.getElementsByClassName("title"))[0],
         title = createTitle(cluster);
 
@@ -61,7 +61,7 @@ export default function renderClusterDataView() {
                         return html`
                             <tr>
                                 <td class="ui-data data-table__cell" style="text-align: center;">
-                                    <a target="_blank" href="https://michigan-mapping.org/submission/${s['cluster_id']}">${s['cluster_id']}</a>
+                                    <a target="_blank" href="${portal}/submission/${s['cluster_id']}">${s['cluster_id']}</a>
                                 </td>
                                 <td class="ui-data data-table__cell" style="padding: 0.9em; font-size: 0.9em; text-align: left;">
                                     <strong>${s['title']}.</strong> ${description}

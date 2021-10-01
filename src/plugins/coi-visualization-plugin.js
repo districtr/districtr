@@ -69,7 +69,7 @@ function getCheckboxStatuses() {
  * @param {Object} cluster districtr-interpretable COI cluster object.
  * @returns {Function} Callback for when "more info" buttons are clicked.
  */
-function onSupportingDataClicked(cluster) {
+function onSupportingDataClicked(cluster, portal) {
     return (_) => {
         // When the cluster's button is clicked, store the cluster in local
         // storage for the new window (so it can reload when refreshed) and
@@ -77,7 +77,7 @@ function onSupportingDataClicked(cluster) {
         let tab = window.open(origin + "/coi-info"),
             storage = tab.localStorage;
 
-        storage.setItem("coidata", JSON.stringify(cluster));
+        storage.setItem("coidata", JSON.stringify({ cluster: cluster, portal: portal }));
     };
 }
 
@@ -148,6 +148,7 @@ function initiallyStyleCheckboxes() {
     for (let checkbox of controls) {
         checkbox.style["pointer-events"] = "none";
         checkbox.style["opacity"] = 1/2;
+        checkbox.disabled = true;
     }
 }
 
@@ -169,6 +170,7 @@ function toggleClusterLayerVisibility(clusterUnits) {
         for (let checkbox of controls) {
             checkbox.style["pointer-events"] = checked ? "auto" : "none";
             checkbox.style["opacity"] = checked ? 1 : 1/2;
+            checkbox.disabled = !checked;
         }
 
         // Depending on the state of the layer visibility checkbox, make the
@@ -248,9 +250,10 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
  * @param {Object} clusterPatternMatch Maps cluster names to patterns.
  * @param {Object} patterns Maps pattern names to URLs.
  * @param {String} clusterKey Cluster unique identifier.
+ * @param {String} portal URL for linking.
  * @returns {Function} Callback when the section is created.
  */
-function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey) {
+function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal) {
     // Check if this is a single subcluster or multiple subclusters; based on
     // this, set the cluster ID and cluster name.
     let hasSubclusters = clusterGroup.length > 1,
@@ -260,7 +263,7 @@ function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, pattern
     return () => html`
         <div class="cluster-tile">
             <div class="cluster-tile__title">${clusterName}</div>
-            ${subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey)}
+            ${subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal)}
         </div>
     `;
 }
@@ -272,9 +275,10 @@ function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, pattern
  * @param {Object} clusterPatternMatch Maps cluster names to patterns.
  * @param {Object} patterns Maps pattern names to URLs.
  * @param {String} clusterKey Cluster unique identifier.
+ * @param {String} portal Portal URL for linking.
  * @returns {HTMLTemplateElement} lit-html template element.
  */
-function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey) {
+function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal) {
     // For each cluster grouping, create a tile. For each cluster in the grouping,
     // create a subcluster tile with that subcluster's information in it.
     return html`
@@ -291,7 +295,7 @@ function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patt
                     null, `cluster-checkbox ${identifier}`
                 ),
                 infoButton = new Button(
-                    onSupportingDataClicked(cluster),
+                    onSupportingDataClicked(cluster, portal),
                     {
                         label: "Supporting Data",
                         buttonClassName: "cluster-tile__button",
@@ -428,7 +432,8 @@ function CoiVisualizationPlugin(editor) {
     let { state, toolbar, store } = editor,
         { place } = state,
         tab = new Tab("coi", "Communities", store),
-        shouldDisplay = spatial_abilities(place.id).coi;
+        shouldDisplay = spatial_abilities(place.id).coi,
+        portal = spatial_abilities(place.id).portal.endpoint;
 
     // If we shouldn't display COIs, just return nothing.
     if (!shouldDisplay) return;
@@ -468,7 +473,7 @@ function CoiVisualizationPlugin(editor) {
             for (let clusterGroup of clusterGroups) {
                     section = clusterSection(
                         clusterGroup, clusterUnits, clusterPatternMatch, patterns,
-                        clusterKey
+                        clusterKey, portal
                     );
                 
                 // Add a section just containing the cluster toggle.
