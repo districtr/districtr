@@ -1990,6 +1990,23 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wisconsin2020: {
       number_markers: true,
@@ -2005,6 +2022,24 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      load_coi: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wisco2019acs: {
       number_markers: true,
@@ -2021,6 +2056,23 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wyoming: {
       native_american: true,
