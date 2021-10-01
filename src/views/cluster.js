@@ -3,9 +3,9 @@ import { html, render } from "lit-html";
 
 
 /**
- * 
- * @param {*} cluster 
- * @returns 
+ * @description Creates a header for the data page.
+ * @param {object} cluster districtr-interpretable cluster object.
+ * @returns {HTMLTemplateElement}
  */
 function createTitle(cluster) {
     let title = cluster["name"],
@@ -18,6 +18,9 @@ function createTitle(cluster) {
     `;
 }
 
+/**
+ * @description Renders the cluster data view.
+ */
 export default function renderClusterDataView() {
     // Grab the cluster information and create a title.
     let cluster = JSON.parse(window.localStorage.getItem("coidata")),
