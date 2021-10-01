@@ -345,15 +345,16 @@ function overview_section (state, contig, problems, num_tiles) {
 
 // Election Results Section
 function election_section(state, partisanship) {
-    let elections = state.elections;
+    // let elections = state.elections;
+    let elections = state.elections.filter(e => e.subgroups.every(c => ['d', 'r'].includes(c.name.toLowerCase()[0])));
     let num_districts = state.plan.parts.length;
     if (state.elections.length < 1)
         return html`No election data available for ${state.place.name}.`
     let rows = [];
 
     // filters to only two parties, but only sets the global once
-    two_party = two_party == -1 ? elections.map(e => e.subgroups.length == 2).reduce((a,b) => a + b, 0) == elections.length : two_party;
-    elections.forEach(e => e.subgroups = e.subgroups.length == 1 ? e.subgroups : e.subgroups.filter(p => ['Democratic', 'Republican'].includes(p.name)));
+    // two_party = two_party == -1 ? elections.map(e => e.subgroups.length == 2).reduce((a,b) => a + b, 0) == elections.length : two_party;
+    // elections.forEach(e => e.subgroups = e.subgroups.length == 1 ? e.subgroups : e.subgroups.filter(p => ['Democratic', 'Republican'].includes(p.name)));
     
     let headers = ['Election'].concat(
         elections[0].parties.reduce((acc, party) => {
@@ -428,8 +429,7 @@ function election_section(state, partisanship) {
         The disproportionality ${favorstr}.
         <br/>
         <br/>
-        ${two_party ? html`<strong>Votes vs. Seats by Election (among the two major parties)</strong>` 
-            : html`<strong>Votes vs. Seats by Election</strong>`}
+        <strong>Votes vs. Seats by Election (among the two major parties)</strong>
         ${DataTable(headers, rows, true)}
         <br/>
         <h4 text-align="center">Other Partisanship Metrics</h4>
