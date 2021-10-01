@@ -108,10 +108,7 @@ function renderRight(pane, context, state, mapState) {
     const units = state.unitsRecord.id;
     const stateName = state.place.state;
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    console.log(state.elections.map(e => e.subgroups.map(c => c.name.toLowerCase()[0])));
-    console.log(state.elections.map(e => e.subgroups.every(c => ['d', 'r'].includes(c.name.toLowerCase()[0]))));
     let two_party_elects = state.elections.filter(e => e.subgroups.every(c => ['d', 'r'].includes(c.name.toLowerCase()[0])));
-    console.log(two_party_elects);
     let elections = two_party_elects.map(e => {
                                             let elect = [["name", e.name], 
                                                         ["candidates", e.subgroups.map(c => {
@@ -119,7 +116,6 @@ function renderRight(pane, context, state, mapState) {
                                                             return Object.fromEntries(candidates);})]]
                                             return Object.fromEntries(elect);
                                         });
-    console.log(elections);
     const GERRYCHAIN_URL = "https://gvd4917837.execute-api.us-east-1.amazonaws.com";
     fetch(GERRYCHAIN_URL + "/evaluation", {
       method: "POST",
@@ -420,7 +416,7 @@ function election_section(state, partisanship) {
     });
     
     // console.log(score_rows);
-    
+    let num_elects = Object.keys(partisanship.election_scores).length;
     return html`
         Our current dataset contains <strong>${bias_acc.length} recent statewide 
         ${elections.length > 1 ? html`elections` : html`election`}</strong> for ${state.place.name}.
@@ -457,7 +453,7 @@ function election_section(state, partisanship) {
         A “competitive district” is one where each party has 47% – 53% of the major-party vote in a
         district. Your plan had <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong>
         within this competitive margin, out of a possible total of 
-        (${num_districts} districts * ${partisanship.election_scores.length} elections) = ${num_districts*partisanship.election_scores.length}.
+        (${num_districts} districts * ${num_elects} elections) = ${num_districts*num_elects}.
         `;
 }
 
