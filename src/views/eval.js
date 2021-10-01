@@ -108,13 +108,17 @@ function renderRight(pane, context, state, mapState) {
     const units = state.unitsRecord.id;
     const stateName = state.place.state;
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    let elections = state.elections.map(e => {
-        let elect = [["name", e.name], 
-                     ["candidates", e.subgroups.map(c => {
-                        let candidates = [["name", c.name],["key", c.key]];
-                        return Object.fromEntries(candidates);})]]
-        return Object.fromEntries(elect);
-    });
+    console.log(state.elections.map(e => e.subgroups.map(c => c.name.toLowerCase()[0])));
+    console.log(state.elections.map(e => e.subgroups.every(c => ['d', 'r'].includes(c.name.toLowerCase()[0]))));
+    let two_party_elects = state.elections.filter(e => e.subgroups.every(c => ['d', 'r'].includes(c.name.toLowerCase()[0])));
+    console.log(two_party_elects);
+    let elections = two_party_elects.map(e => {
+                                            let elect = [["name", e.name], 
+                                                        ["candidates", e.subgroups.map(c => {
+                                                            let candidates = [["name", c.name],["key", c.key]];
+                                                            return Object.fromEntries(candidates);})]]
+                                            return Object.fromEntries(elect);
+                                        });
     console.log(elections);
     const GERRYCHAIN_URL = "https://gvd4917837.execute-api.us-east-1.amazonaws.com";
     fetch(GERRYCHAIN_URL + "/evaluation", {
@@ -127,9 +131,11 @@ function renderRight(pane, context, state, mapState) {
         "units": units,
         "assignment": assign,
         "elections": elections}),
-    }).then((res) => res.json())
-      .catch((e) => console.error(e))
-      .then((data) => {
+    })
+    .then((res) => res.json())
+    .catch((e) => console.error(e))
+    .then((data) => {
+            console.log(data);
             if (data.error) {
                 render(html`Analysis unavailable for ${state.place.state} 
                         on ${state.unitsRecord.unitType.toLowerCase()}.<br/>
@@ -451,7 +457,7 @@ function election_section(state, partisanship) {
         A “competitive district” is one where each party has 47% – 53% of the major-party vote in a
         district. Your plan had <strong>${partisanship.plan_scores.num_competitive_districts} districts</strong>
         within this competitive margin, out of a possible total of 
-        (${num_districts} districts * ${elections.length} elections) = ${num_districts*elections.length}.
+        (${num_districts} districts * ${partisanship.election_scores.length} elections) = ${num_districts*partisanship.election_scores.length}.
         `;
 }
 
