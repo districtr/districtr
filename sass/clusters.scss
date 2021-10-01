@@ -9,14 +9,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex-basis: 100%;
     flex-wrap: wrap;
-    margin-left: 1rem;
+    margin-left: 5%;
     border-radius: 0.25rem;
-    border: 1px solid #e0e0e0;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 0.2rem;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0.25rem;
 }
 
 .cluster-tile__subcluster {
@@ -36,10 +35,12 @@
 }
 
 .cluster-tile__pattern {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
     margin-right: 0.25rem;
-    align-self: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    flex-shrink:0;
 }
 
 .cluster-tile__title {
@@ -47,6 +48,8 @@
     border-bottom: 1px solid #e0e0e0;
     width: 90%;
     text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .cluster-tile__header {
@@ -59,7 +62,7 @@
     margin-left: auto;
 }
 
-.cluster-tile__button {
+.cluster-tile__button, .cluster-control__button {
     background-color: white !important;
     color: black !important;
     border: 2px solid black !important;
@@ -72,5 +75,67 @@
 
 .cluster-page__header {
     margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    width: 80%;
+    margin-left: 10%;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.cluster-page__description {
+    text-align: left;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 1.2rem;
+    padding: 0;
     margin-bottom: 2rem;
+}
+
+.cluster-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cluster-control__checkbox-container {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.25rem;
+}
+
+.cluster-control__checkbox {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: auto;
+}
+
+.cluster-control__component {
+    display: flex;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.cluster-control__subcomponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cluster-control__slider {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#pattern-intensity-slider {
+    margin-left: 0.5rem;
+}
+
+.cluster-control__button {
+    font-size: 1rem !important;
 }

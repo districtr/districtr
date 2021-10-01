@@ -2,12 +2,19 @@
 import { html, render } from "lit-html";
 
 
+/**
+ * 
+ * @param {*} cluster 
+ * @returns 
+ */
 function createTitle(cluster) {
     let title = cluster["name"],
-        clusterID = cluster["id"];
+        clusterID = cluster["id"],
+        description = cluster["description"];
 
     return html`
         <h2 class="cluster-page__header">Cluster ${clusterID} – ${title}</h2>
+        <p class="cluster-page__description">${description}</p>
     `;
 }
 

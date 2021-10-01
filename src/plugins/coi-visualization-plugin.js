@@ -15,34 +15,34 @@ import Button from "../components/Button";
  * @param {String} cluster Cluster identifier; optional.
  * @returns {HTMLElement[]} An array of filtered checkboxes.
  */
-function retrieveCheckboxes(cluster=null) {
+function retrieveCheckboxes() {
     // First, get all the checkboxes.
-    let checkboxes = Array.from(document.getElementsByClassName("allvisible-checkbox"));
+    let checkboxes = Array.from(document.getElementsByClassName("cluster-checkbox"));
 
-    // If a cluster name is passed, get only the checkbox associated to the cluster's
-    // identifier, as well as that checkbox's children. Otherwise, get all the
-    // checkboxes on the page.
-    if (cluster) {
-        checkboxes = checkboxes.concat(
-            Array.from(document.getElementsByClassName(cluster))
-        );
-    } else {
-        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("cluster-checkbox")));
-        checkboxes = checkboxes.concat(Array.from(document.getElementsByClassName("coi-checkbox")));
-    }
-
-    // Filter to get only the checkboxes, not paragraphs with the same classes.
+    // Filter to ensure we're only getting checkboxes.
     return checkboxes.filter((c) => c.localName == "label");
 }
 
 /**
+ * @description Unchecks all checkboxes and forces the layer opacity to obey.
+ * @param {Boolean} state Are all the checkboxes checked or unchecked?
+ * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {String} clusterKey Unique identifier for geometries of `clusterUnits`.
+ * @returns {undefined}
+ */
+function setCheckState(state, clusterUnits, clusterKey) {
+    return (_) => {
+        for (let checkbox of retrieveCheckboxes()) checkbox.control.checked = state;
+        toggleClusterVisibility(clusterUnits, clusterKey)();
+    };
+}
+
+/**
  * @description Tells us the status of each checkbox in the hierarchy.
- * @param {String} cluster Cluster identifier.
- * @param {String[]} cois Array of COI names.
  * @returns {Object[]} Array of objects which have a cluster ID, COI name, and checked status.
  */
-function getCheckboxStatuses(cluster=null) {
-    let checkboxes = cluster ? retrieveCheckboxes(cluster) : retrieveCheckboxes(),
+function getCheckboxStatuses() {
+    let checkboxes = retrieveCheckboxes(),
         checkboxStatuses = [];
     
     // If *any* of the checkboxes are unchecked, we can't view the things.
@@ -69,8 +69,8 @@ function getCheckboxStatuses(cluster=null) {
  * @param {Object} cluster districtr-interpretable COI cluster object.
  * @returns {Function} Callback for when "more info" buttons are clicked.
  */
-function onClusterClicked(cluster) {
-    return (e) => {
+function onSupportingDataClicked(cluster) {
+    return (_) => {
         // When the cluster's button is clicked, store the cluster in local
         // storage for the new window (so it can reload when refreshed) and
         // open the window in a new tab.
@@ -122,43 +122,57 @@ function watchTooltips(clusters, clusterKey) {
 }
 
 /**
+ * @description Retrieves all the stylable control elements from the DOM.
+ * @returns {HTMLElement[]} Array of stylable HTML control elements.
+ */
+function getStylableControls() {
+    let intensitySlider = document.getElementsByClassName("cluster-control__slider")[0],
+        uncheckAllButton = document.getElementById("cluster-control__button-uncheck"),
+        recheckAllButton = document.getElementById("cluster-control__button-check"),
+        checkboxes = retrieveCheckboxes();
+
+    return checkboxes.concat([intensitySlider, uncheckAllButton, recheckAllButton]);
+}
+
+/**
  * @description Initially style the checkboxes; this is modified when COIs are displayed.
  * @returns {undefined}
  */
-function initialStyles() {
+function initiallyStyleCheckboxes() {
     // Get all the checkboxes *except* the first one, which is always the top-level
     // one.
-    let allCheckboxes = retrieveCheckboxes().slice(1);
+    let controls = getStylableControls();
 
     // Style all of the checkboxes according to the initial style rules, and
     // set the background images to their patterns.
-    for (let checkbox of allCheckboxes) {
+    for (let checkbox of controls) {
         checkbox.style["pointer-events"] = "none";
         checkbox.style["opacity"] = 1/2;
     }
 }
 
 /**
- * @description Handles turning COI viz on and off.
- * @param {Object} units Layer we're adjusting.
+ * @description Handles turning the cluster layer viz on and off.
+ * @param {Object} clusterUnits Layer we're adjusting.
  * @returns {Function} Callback for Toggle.
  */
-function displayCOIs(units) {
-    let map = units.map,
-        layer = units.sourceLayer;
+function toggleClusterLayerVisibility(clusterUnits) {
+    let map = clusterUnits.map,
+        layer = clusterUnits.sourceLayer;
 
     return (checked) => {
         // Only grab the checkboxes relating to clusters or individual COIs,
         // cutting off the one which changes the opacity for the whole layer.
-        let checkboxes = retrieveCheckboxes().slice(1);
-        
+        let controls = getStylableControls();
+
         // Disable all the checkboxes and style them accordingly.
-        for (let checkbox of checkboxes) {
+        for (let checkbox of controls) {
             checkbox.style["pointer-events"] = checked ? "auto" : "none";
             checkbox.style["opacity"] = checked ? 1 : 1/2;
         }
 
-        // Apparently this isn't working properly now? So confused by this.
+        // Depending on the state of the layer visibility checkbox, make the
+        // entire layer visible or invisible.
         if (checked) map.setLayoutProperty(layer, "visibility", "visible");
         else map.setLayoutProperty(layer, "visibility", "none");
     };
@@ -195,22 +209,18 @@ function adjustToolpaneWidth() {
  * @param {Function} callback Callback function called whenever the checkbox is clicked.
  * @returns {HTMLTemplateElement} HTML template rendered to the browser, with a sneaky directive.
  */
-function createCOICheckbox(callback) {
-    return () => {
-        let COIDisplayToggle = toggle(
-                "Display Communities of Interest", false, callback, "",
-                "allvisible-checkbox"
-            );
+function createLayerToggleCheckbox(callback) {
+    let clusterDisplayToggle = new toggle(
+            "Display Cluster Layer", false, callback, "cluster-control__checkbox",
+            "cluster-control__checkbox"
+        );
 
-        return html`
-            <div class="toolbar-section">
-                <div class="toolbar-inner-large" style="border-bottom: 1px solid #e0e0e0">
-                    ${COIDisplayToggle}
-                </div>
-            </div>
-            ${adjustToolpaneWidth()}
-        `;
-    };
+    return html`
+        <div class="cluster-control__component cluster-control__checkbox-container">
+            ${clusterDisplayToggle}
+        <div>
+        ${adjustToolpaneWidth()}
+    `;
 }
 
 /**
@@ -224,9 +234,10 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
         // Get the statuses of the checkboxes.
         let statuses = getCheckboxStatuses(),
             unchecked = statuses.filter((s) => !s.checked),
-            invisible = unchecked.map((s) => s.cluster);
+            invisible = unchecked.map((s) => s.cluster),
+            opacity = getCurrentOpacity();
         
-        opacityStyleExpression(clusterUnits, invisible, clusterKey);
+        opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
     };
 }
 
@@ -240,6 +251,8 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
  * @returns {Function} Callback when the section is created.
  */
 function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey) {
+    // Check if this is a single subcluster or multiple subclusters; based on
+    // this, set the cluster ID and cluster name.
     let hasSubclusters = clusterGroup.length > 1,
         clusterId = hasSubclusters ? clusterGroup[0]["subclusterOf"] : "C" + clusterGroup[0][clusterKey],
         clusterName = "Cluster " + clusterId;
@@ -278,7 +291,7 @@ function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patt
                     null, `cluster-checkbox ${identifier}`
                 ),
                 infoButton = new Button(
-                    onClusterClicked(cluster),
+                    onSupportingDataClicked(cluster),
                     {
                         label: "Supporting Data",
                         buttonClassName: "cluster-tile__button",
@@ -299,6 +312,11 @@ function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patt
     `;
 }
 
+/**
+ * @desctiption Generates groups of subclusters.
+ * @param {Object[]} clusters An array of districtr-interpretable cluster objects.
+ * @returns {Array[]} Array of districtr-interpretable subcluster objects, grouped by parent cluster.
+ */
 function createClusterGroups(clusters) {
     let clusterGroups = [],
         skippable = [];
@@ -308,7 +326,10 @@ function createClusterGroups(clusters) {
     // an array has multiple clusters, we display them together.
     for (let cluster of clusters) {
         // Get the subcluster for each cluster and find all the other
-        // clusters with the same parent.
+        // clusters with the same parent. This relies on each subcluster having
+        // a property which specifies its parent cluster: this property is
+        // `null` for clusters with a single subcluster, but the parent cluster's
+        // identifier for clusters with more thaan one subcluster.
         let subclusterOf = cluster["subclusterOf"],
             subclusters = subclusterOf ? 
                 clusters.filter((c) => c["subclusterOf"] == subclusterOf) :
@@ -325,6 +346,77 @@ function createClusterGroups(clusters) {
     }
 
     return clusterGroups;
+}
+
+/**
+ * 
+ * @param {Layer} clusterUnits districtr Layer corresponding to cluster.
+ * @returns 
+ */
+function createControls(clusterUnits, clusterKey) {
+    let layerToggle = toggleClusterLayerVisibility(clusterUnits),
+        uncheckAllButton = new Button(
+            setCheckState(false, clusterUnits, clusterKey),
+            {
+                label: "Uncheck All Clusters",
+                optionalID: "cluster-control__button-uncheck",
+                buttonClassName: "cluster-control__button"
+            }
+        ),
+        recheckAllButton = new Button(
+            setCheckState(true, clusterUnits, clusterKey),
+            {
+                label: "Check All Clusters",
+                optionalID: "cluster-control__button-check",
+                buttonClassName: "cluster-control__button"
+            }
+        );
+
+    return () => html`
+        <div class="toolbar-section cluster-control cluster-control__component">
+            ${createLayerToggleCheckbox(layerToggle)}
+            ${createOpacitySlider()}
+            <div class="cluster-control__component cluster-control__subcomponent">
+                ${uncheckAllButton}
+                ${recheckAllButton}
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * @description Creates an intensity slider.
+ * @returns {Function} Callback with an HTMLTemplateElement.
+ */
+function createOpacitySlider() {
+    return html`
+        <div class="cluster-control__component cluster-control__slider">
+            <label class="cluster-control__component" for="pattern-intensity-slider">Pattern Intensity</label>
+            <input class="cluster-control__component" id="pattern-intensity-slider" type="range" value="25" max="100" min="0">
+        </div>
+    `;
+}
+
+/**
+ * @description Handles opacity changes.
+ * @param {Layer} clusterUnits districtr Layer object corresponding to COI units.
+ * @returns {undefined}
+ */
+function handleOpacitySlider(clusterUnits, clusterKey) {
+    let slider = document.getElementById("pattern-intensity-slider");
+
+    slider.addEventListener("input", (e) => {
+        toggleClusterVisibility(clusterUnits, clusterKey)();
+    });
+}
+
+/**
+ * @description Gets the current opacity set by the slider.
+ * @returns {Number} Fractional value in [0,1] representing the opacity of the layer.
+ */
+function getCurrentOpacity() {
+    let slider = document.getElementById("pattern-intensity-slider");
+    return parseInt(slider.value)/100;
 }
 
 /**
@@ -353,8 +445,8 @@ function CoiVisualizationPlugin(editor) {
                 clusterLayer = clusterUnits.sourceLayer,
 
                 // Get display callbacks and stuff.
-                displayCallback = displayCOIs(clusterUnits),
                 tooltipCallback = watchTooltips(clusters, clusterKey),
+                initialOpacity = 1/4,
                 tooltipWatcher;
 
             // For each of the COIs, get the block groups that it
@@ -362,21 +454,17 @@ function CoiVisualizationPlugin(editor) {
             // a pattern overlay to the units.
             clusterPatternStyleExpression(clusterUnits, clusterPatternMatch, clusterKey);
             map.setLayoutProperty(clusterLayer, "visibility", "none");
-            clusterUnits.setOpacity(1/2);
+            clusterUnits.setOpacity(initialOpacity);
 
-            // Add the section for the checkbox.
-            tab.addSection(createCOICheckbox(displayCallback));
+            // Add the section for the display checkbox and the intensity.
+            tab.addSection(createControls(clusterUnits, clusterKey));
 
             // Create arrays of subclusters to properly create the cluster tiles.
             let clusterGroups = createClusterGroups(clusters),
                 section;
 
-            // For each cluster of COIs, add a dropdown section (with a checkbox
-            // as its label) which allows the user to display only certain
-            // clusters or certain COIs within those clusters. Unchecking any
-            // cluster turns off the visualization for *any* of the COIs in the
-            // cluster, and unchecking any COI only turns off the visualization
-            // for that COI.
+            // For each cluster group, add a specially styled section to the
+            // tab.
             for (let clusterGroup of clusterGroups) {
                     section = clusterSection(
                         clusterGroup, clusterUnits, clusterPatternMatch, patterns,
@@ -391,8 +479,12 @@ function CoiVisualizationPlugin(editor) {
             toolbar.addTab(tab);
             editor.render();
 
+            // Once things have been rendered, add an even handler for the
+            // opacity slider.
+            handleOpacitySlider(clusterUnits, clusterKey);
+
             // Initially style the checkboxes and create tooltips.
-            initialStyles(clusterPatternMatch, patterns);
+            initiallyStyleCheckboxes(clusterPatternMatch, patterns);
             tooltipWatcher = new Tooltip(clusterUnits, tooltipCallback, 0);
             tooltipWatcher.activate();
         });

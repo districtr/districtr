@@ -1,52 +1,5 @@
 
-import Filter from "bad-words";
-import Tooltip from "../map/Tooltip";
 import { spatial_abilities } from "../utils";
-const wordfilter = new Filter();
-
-/**
- * @description For each of the clusters and their comprising COIs, get the units they cover.
- * @param {Object[]} clusters List of clusters, defined as Plans.
- * @returns Object COIs and the units they cover; a Set containing unique COI names.
- */
-function createUnitMap(clusters) {
-    let unitMap = {};
-    
-    // Create a mapping from cluster IDs to a mapping which takes individual COI
-    // names to the units the COI covers, as well as *all* the units the COI
-    // covers. I really wish there was a better way to selectively do opacity
-    // stuff on things rather than having to re-write the whole fucking style
-    // expression -- that's really annoying.
-    for (let [label, cluster] of Object.entries(clusters)) {
-        let clusterIdentifier = label,
-            identifiers = {},
-            clusterMap = {};
-
-        // Get the names of the clusters so we can re-name later.
-        for (let part of cluster.plan.parts) identifiers[part.id] = part.name;
-
-        // For each of the COIs in the cluster, map the *identifier* of the COI
-        // to the units it covers. This populates the `clusterMap` object, which
-        // we'll be modifying in a moment.
-        for (let [unit, coiids] of Object.entries(cluster.plan.assignment)) {
-            // Sometimes -- when units belong only to one COI -- the COI identifiers
-            // are reported only as integers and *not* lists of integers. Here,
-            // we just force them to be lists of numbers.
-            if (!Array.isArray(coiids)) coiids = [coiids];
-
-            for (let coiid of coiids) {
-                let name = identifiers[coiid];
-                if (clusterMap[name]) clusterMap[name].push(unit);
-                else clusterMap[name] = [unit];
-            }
-        }
-
-        unitMap[clusterIdentifier] = clusterMap;
-    }
-
-    // Return the summed object and the unique names accompanying it.
-    return unitMap;
-}
 
 /**
  * @description Fetches a JSON file which maps pattern names to filepaths. Needed
@@ -95,42 +48,30 @@ function loadPatterns(map, patternMapping) {
 }
 
 /**
- * @description Maps COI names to pattern names so we can easily reference later.
- * @param {unitMap} unitMap Maps cluster names to COI names to units.
- * @param {Object} patterns Patterns we've chosen.
- * @returns Object Takes COI names to pattern names.
- */
-function patternsToCOIs(unitMap, patterns) {
-    let mapping = {};
-
-    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
-        // Create an empty mapping for the *cluster* into which we can assign
-        // patterns for the individual COIs. Then, for each of the individual
-        // COIs, assign to it the first pattern in the list of patterns.
-        mapping[clusterIdentifier] = {};
-
-        for (let coiIdentifier of Object.keys(cluster)) {
-            mapping[clusterIdentifier][coiIdentifier] = patterns.shift();
-        }
-    }
-    return mapping;
-}
-
-/**
  * @description Maps cluster names to pattern names so we can easily reference later.
  * @param {unitMap} unitMap Maps cluster names to COI names to units.
  * @param {Object} patterns Patterns we've chosen.
  * @returns Object Takes COI names to pattern names.
  */
  function patternsToClusters(clusters, patterns, clusterKey) {
-    let mapping = {};
+    let mapping = {},
+        numClusters = clusters.length,
+        interval = 5,
+        numIntervals = Math.ceil(numClusters/interval),
+        patternSlice = patterns.slice(0, interval),
+        repeatedPatterns = [];
+
+    // Generate a list of repeated patterns.
+    for (let _=0; _ < numIntervals; _++) {
+        repeatedPatterns = repeatedPatterns.concat(patternSlice);
+    }
 
     for (let cluster of clusters) {
         // Create an empty mapping for the *cluster* into which we can assign
         // patterns for the individual COIs. Then, for each of the individual
         // COIs, assign to it the first pattern in the list of patterns.
         let clusterIdentifier = cluster[clusterKey];
-        mapping[clusterIdentifier] = patterns.shift();
+        mapping[clusterIdentifier] = repeatedPatterns.shift();
     }
 
     return mapping;
@@ -148,7 +89,7 @@ function resolvesToArray(results) {
     return Promise.resolve(values);
 }
 
-export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/2) {
+export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/4) {
     // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
@@ -192,6 +133,13 @@ export function coiPatternStyleExpression(units, unitMap, coiPatternMatch, id="G
     return expression;
 }
 
+/**
+ * @description Sets pattern fill properties on specified units.
+ * @param {Layer} units districtr Layer object on which we're setting patterns.
+ * @param {Object} clusterPatternMatch Maps cluster names to patterns.
+ * @param {String} id Unique ID column on geometries in `units`.
+ * @return {undefined}
+ */
 export function clusterPatternStyleExpression(units, clusterPatternMatch, id="GEOID20") {
     let expression = ["case"];
 

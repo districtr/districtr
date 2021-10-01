@@ -7,7 +7,9 @@ import { html, TemplateResult } from "lit-html";
  * @param {String} hoverText Tooltip text to display when the Button is hovered over.
  * @param {function(Event)} onClick Callback which consumes an Event.
  * @param {String|Number} optionalID Optional HTML identifier.
- * @param {String} classname Optional classname for the Button; defaults to "button--alternate".
+ * @param {String} buttonClassName Optional classname for the Button; defaults to "button--alternate".
+ * @param {String} labelClassName Optional classname for the Label; defaults to empty.
+ * @param {Boolean} state Optional; if treated as a checkbox, is switched when the button's clicked.
  * @returns {TemplateResult}
  * @constructor
  */
@@ -16,7 +18,8 @@ export class Button {
         onClick,
         {
             label="button", hoverText="button", optionalID=null,
-            buttonClassName="button--alternate", labelClassName=""
+            buttonClassName="button--alternate", labelClassName="",
+            state=false
         }
     ) {
         // Create this object's HTML template.
@@ -27,7 +30,7 @@ export class Button {
                     title="${hoverText}"
                     type="button"
                     id="${optionalID}"
-                    @click="${e => onClick(e)}"
+                    @click="${(e) => onClick(e)}"
                 >
                     ${label}
                 </button>
@@ -37,6 +40,7 @@ export class Button {
         // Get the internal object and make it accessible to the user in the
         // event they need to modify it.
         this.entity = document.getElementById(optionalID);
+        this.state = state;
         
         // Return the TemplateResult so it can be rendered to the screen.
         return this.template;
