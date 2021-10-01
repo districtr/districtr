@@ -455,6 +455,11 @@ export function spatial_abilities(id) {
       shapefile: true,
       municipalities: true,
       current_districts: true,
+      boundaries: [{
+        id: 'contracosta_cdp',
+        label: 'Census Designated Places',
+        path: 'ca_contracosta_cdp',
+      }],
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
