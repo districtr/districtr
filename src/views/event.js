@@ -263,6 +263,8 @@ const unitTypes = {
   napa_college: {no: 'Blocks'},
   santa_clara_county: {no: 'Blocks'},
   san_jose: {no: 'Blocks'},
+  pasadena2021: {no: 'Blocks'},
+  centralsan: {no: 'Blocks'},
   san_joaquin: {no: 'Blocks'},
   oakland: {no: 'Blocks'},
   slo_county: {no: 'Blocks'},

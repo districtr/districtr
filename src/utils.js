@@ -1018,13 +1018,12 @@ export function spatial_abilities(id) {
       // sideload: true,
     },
     ccsanitation: {
-      // multiyear: 2018,
       shapefile: true,
     },
     ccsanitation2: {
-      multiyear: 2018,
       shapefile: true,
       border: true,
+      current_districts: true,
     },
     santa_clara: {
       border: true,
