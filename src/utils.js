@@ -755,11 +755,15 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
   },
   napacounty2021: {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     municipalities: true,
   },
   ca_tuolumne: {
@@ -788,6 +792,8 @@ export function spatial_abilities(id) {
   },
   ca_sanmateo: {
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     border: true,
     shapefile: true,
     neighborhood_borders: 'Neighborhoods',
@@ -801,6 +807,8 @@ export function spatial_abilities(id) {
   ca_kern: {
     number_markers: true,
     border: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     shapefile: true,
     municipalities: true,
   },
@@ -900,6 +908,8 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     coalition: false,
     current_districts: 'Current Council Districts',
     boundaries: [{
@@ -918,6 +928,8 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     municipalities: 'Census Designated Places',
     current_districts: true,
     native_american: true,
@@ -932,6 +944,8 @@ export function spatial_abilities(id) {
   ca_humboldt: {
     border: true,
     shapefile: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     number_markers: true,
     municipalities: true,
     sideload: true,
@@ -947,6 +961,8 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
   },
   carpinteria: {
     border: true,
@@ -968,6 +984,8 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    number_markers_lambda: true,
+    // contiguity: 2,
     current_districts: true,
     school_districts: true,
     neighborhood_borders: true,
@@ -1012,6 +1030,8 @@ export function spatial_abilities(id) {
     sanluiso: {
       coalition: false,
       number_markers: true,
+      number_markers_lambda: true,
+      // contiguity: 2,
       shapefile: true,
       border: true,
       municipalities: true,
@@ -1024,6 +1044,8 @@ export function spatial_abilities(id) {
       shapefile: true,
       border: true,
       current_districts: true,
+      number_markers: true,
+      number_markers_lambda: true,
     },
     santa_clara: {
       border: true,
@@ -1068,6 +1090,7 @@ export function spatial_abilities(id) {
     },
     dc: {
       number_markers: true,
+      number_markers_lambda: true,
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
@@ -1809,12 +1832,14 @@ export function spatial_abilities(id) {
     southcarolina: {
       native_american: true,
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
     },
     southdakota: {
       native_american: true,
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
     },
@@ -1850,6 +1875,7 @@ export function spatial_abilities(id) {
     austin: {
       border: true,
       number_markers: true,
+      number_markers_lambda: true,
       shapefile: true,
       find_unpainted: true,
     },
@@ -1959,6 +1985,7 @@ export function spatial_abilities(id) {
     },
     westvirginia: {
       number_markers: true,
+      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
