@@ -6,15 +6,15 @@ if (!window.blayers) {
   window.blayers = {};
 }
 
-let shadeNames = ["case"];
-const alt_paint = {
-  "fill-outline-color": "#000",
-  "fill-color": shadeNames,
-  "fill-opacity": 0
-};
-
 export function addBoundaryLayer(config, map) {
   const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
+  let shadeNames = ["case"];
+  const alt_paint = {
+    "fill-outline-color": "#000",
+    "fill-color": shadeNames,
+    "fill-opacity": 0
+  };
+
   if (!window.blayers[config.id]) {
     window.blayers[config.id] = true;
     fetch(`${prefix}${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
@@ -23,6 +23,11 @@ export function addBoundaryLayer(config, map) {
         }
         if (config.fill_alt && gj.features.length) {
             let knownNames = new Set(), r = 50, g = 70, b = 150;
+            if (config.fill_alt === "orange") {
+              r = 230;
+              g = 174;
+              b = 105;
+            }
             const namefield = config.namefield || "NAME";
             gj.features.forEach((f, idx) => {
                 if (knownNames.has(name)) {
@@ -62,7 +67,7 @@ export function addBoundaryLayer(config, map) {
                 paint: config.fill ? (config.fill_alt ? alt_paint : ({
                     'fill-color': config.fill || '#444',
                     'fill-opacity': 0,
-                    'fill-outline-color': '#070',
+                    'fill-outline-color': '#444',
                 })) : {
                     'line-color': config.lineColor || '#000',
                     'line-opacity': 0,
