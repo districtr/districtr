@@ -1959,7 +1959,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${urlcode}">
         <li class="plan-thumbs__thumb">
-            ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
+            ${(screenshot && screenshot.length > 50)
                 ? html`<img
                     class="thumb__img"
                     src="${screenshot}"
