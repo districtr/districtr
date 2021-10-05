@@ -1,5 +1,6 @@
 
 import { spatial_abilities } from "../utils";
+import { unitBordersPaintProperty } from "../colors";
 
 /**
  * @description Fetches a JSON file which maps pattern names to filepaths. Needed
@@ -61,7 +62,7 @@ function loadPatterns(map, patternMapping) {
         patternSlice = patterns.slice(0, interval),
         repeatedPatterns = [];
 
-    // Generate a list of repeated patterns.
+    // Generate a list of repeated patterns with interval width `interval`.
     for (let _=0; _ < numIntervals; _++) {
         repeatedPatterns = repeatedPatterns.concat(patternSlice);
     }
@@ -89,48 +90,61 @@ function resolvesToArray(results) {
     return Promise.resolve(values);
 }
 
-export function opacityStyleExpression(units, geoids, id="GEOID20", opacity=1/4) {
+/**
+ * @description Sets (or unsets) the border of a given unit.
+ * @param {Layer} units districtr Layer object.
+ * @param {String[]} identifiers Array of unit identifiers to make invisible.
+ * @param {String} id Mapbox column containing the unique IDs in `identifiers`.
+ * @param {String} color Color to which the border is set.
+ * @returns {undefined}
+ */
+export function borderStyleExpression(units, identifier, id="GEOID20", color="#FF0000") {
+    // Create a filter for setting colors, widths, and opacities of the specified
+    // units.
+    let defaultLineWidth = 0,
+        defaultLineOpacity = unitBordersPaintProperty["line-opacity"],
+        subfilter = [
+            "case", [
+                "in",
+                ["get", id],
+                ["literal", identifier]
+            ]
+        ],
+        colorFilter = subfilter.concat(
+            [color, "transparent"]
+        ),
+        widthFilter = subfilter.concat(
+            [4, defaultLineWidth]
+        ),
+        opacityFilter = subfilter.concat(
+            [0.8, defaultLineOpacity]
+        );
+
+    units.setPaintProperty("line-color", colorFilter);
+    units.setPaintProperty("line-width", widthFilter);
+    units.setPaintProperty("line-opacity", opacityFilter);
+}
+
+/**
+ * @description Modifies the opacities of the units in the layer.
+ * @param {Layer} units districtr Layer object.
+ * @param {String[]} identifiers Array of unit identifiers to make invisible.
+ * @param {String} id Mapbox column containing the unique IDs in `identifiers`.
+ * @param {Number} opacity Opacity level; defaults to 25%.
+ * @returns {undefined}
+ */
+export function opacityStyleExpression(units, identifiers, id="GEOID20", opacity=1/4) {
     // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [
                 "in",
                 ["get", id],
-                ["literal", geoids]
+                ["literal", identifiers]
             ],
             0, opacity
         ],
         layer = units.type.replace("symbol", "icon") + "-opacity";
     units.setPaintProperty(layer, filter);
-}
-
-/**
- * @description Creates a style expression for the units.
- * @param {Object} units Units we're coloring.
- * @param {Object} unitMap Unit mapping.
- * @param {Object} coiPatternMatch Pattern mapping; just unitMapping, but instead of units, it's pattern names.
- * @returns {Array[]} Array of expressions.
- */
-export function coiPatternStyleExpression(units, unitMap, coiPatternMatch, id="GEOID20") {
-    let expression = ["case"];
-
-    // For each of the clusters and the COIs within that cluster, assign each
-    // COI a pattern according 
-    for (let [clusterIdentifier, cluster] of Object.entries(unitMap)) {
-        for (let [coiName, geoids] of Object.entries(cluster)) {
-            let subexpression = [
-                "in",
-                ["get", id],
-                ["literal", geoids]
-            ];
-            expression.push(subexpression, coiPatternMatch[clusterIdentifier][coiName]);
-        }
-    }
-
-    // Make the remaining units transparent and enforce the style rule.
-    expression.push("transparent");
-    units.setPaintProperty("fill-pattern", expression);
-
-    return expression;
 }
 
 /**
@@ -177,7 +191,7 @@ export function retrieveCOIs(coi) {
  * @returns {Promise} Promise which resolves to the necessary objects for visualizing COIs.
  */
 export function addCOIs(state) {
-    let { map, clusterUnits, place } = state,
+    let { map, clusterUnits, clusterUnitsLines, place } = state,
         coi = spatial_abilities(place.id).coi,
         URL = retrieveCOIs(coi);
 
@@ -209,6 +223,7 @@ export function addCOIs(state) {
                             clusters: clusters,
                             clusterPatternMatch: clusterPatternMatch,
                             clusterUnits: clusterUnits,
+                            clusterUnitsLines: clusterUnitsLines,
                             patterns: patterns,
                             clusterKey: coi.clusterKey
                         };

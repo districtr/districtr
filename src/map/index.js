@@ -4,10 +4,8 @@ import Layer from "./Layer";
 import {
     stateNameToFips,
     COUNTIES_TILESET,
-    spatial_abilities,
-    numberWithCommas
+    spatial_abilities
 } from "../utils";
-import { createMarginPerCapitaRule } from "../layers/color-rules";
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoiZGlzdHJpY3RyIiwiYSI6ImNqbjUzMTE5ZTBmcXgzcG81ZHBwMnFsOXYifQ.8HRRLKHEJA0AismGk2SX2g";
@@ -76,11 +74,11 @@ function addBaseUnits(map, parts, tileset, layerAdder) {
 }
 
 /**
- * 
+ * @description Adds a Points layer to the map.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
- * @param {Object} tileset Mapbox
- * @param {*} layerAdder 
- * @returns 
+ * @param {Object} tileset districtr-interpretable tileset specification.
+ * @param {Function} layerAdder How do we add stuff?
+ * @returns {Layer} districtr Layer object.
  */
 function addPoints(map, tileset, layerAdder) {
     if (!tileset) {
@@ -101,6 +99,13 @@ function addPoints(map, tileset, layerAdder) {
     );
 }
 
+/**
+ * @description Adds precinct layers to the map.
+ * @param {mapboxgl.Map} map MapboxGL Map instance.
+ * @param {Object[]} tilesets districtr-interpretable tileset specifications.
+ * @param {String} stateName How do we add stuff?
+ * @returns {[Object, Object]} Pair of Layer objects corresponding to precincts.
+ */
 function addPrecincts(map, tilesets, stateName) {
     let stateHasCOI2 = spatial_abilities(stateName).coi2,
         tilesetHasCOI2 = tilesets[0].coi2,
@@ -117,7 +122,7 @@ function addPrecincts(map, tilesets, stateName) {
             source: oldTileset.sourceLayer,
             "source-layer": oldTileset.sourceLayer,
             paint: {
-                "fill-opacitt": 0
+                "fill-opacity": 0
             }
         });
 
@@ -127,7 +132,7 @@ function addPrecincts(map, tilesets, stateName) {
             source: newTileset.sourceLayer,
             "source-layer": newTileset.sourceLayer,
             paint: {
-                "fill-opacitt": 0
+                "fill-opacity": 0
             }
         });
     }
@@ -255,13 +260,13 @@ function addCOIUnits(map, stateName) {
         existingSources = Object.keys(map.getStyle().sources),
         clusterLayerAlreadyExists = clusterTileset ? existingSources.includes(clusterTileset.sourceLayer) : true,
         coiLayerAlreadyExists = coiTileset ? existingSources.includes(coiTileset.sourceLayer) : true,
-        clusterUnits, coiUnits;
+        clusterUnits, coiUnits, clusterUnitsLines, coiUnitsLines;
     
     // Add tileset sources.
     for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
 
     // Create a new Layer for the cluster units, if the cluster unit tileset is
-    // specified (per utils.js).
+    // specified (per utils.js); also add the lines for this layer.
     if (!clusterLayerAlreadyExists && clusterTileset) {
         clusterUnits = new Layer(map, {
             id: clusterTileset.sourceLayer,
@@ -273,10 +278,21 @@ function addCOIUnits(map, stateName) {
                 "fill-color": "transparent"
             }
         });
+
+        clusterUnitsLines = new Layer(map, {
+            id: clusterTileset.sourceLayer + "-lines",
+            type: "line",
+            source: clusterTileset.sourceLayer,
+            "source-layer": clusterTileset.sourceLayer,
+            paint: {
+                "line-width": 0,
+                "line-color": "transparent"
+            }
+        });
     }
 
     // Create a new Layer for the COI units, if the COI unit tileset is
-    // specified.
+    // specified; also add the lines for this layer.
     if (!coiLayerAlreadyExists && coiTileset) {
         coiUnits = new Layer(map, {
             id: coiTileset.sourceLayer,
@@ -288,9 +304,20 @@ function addCOIUnits(map, stateName) {
                 "fill-color": "transparent"
             }
         });
+
+        coiUnitsLines = new Layer(map, {
+            id: coiTileset.sourceLayer,
+            type: "line",
+            source: coiTileset.sourceLayer,
+            "source-layer": coiTileset.sourceLayer,
+            paint: {
+                "line-width": 0,
+                "line-color": "transparent"
+            }
+        });
     }
 
-    return { clusterUnits, coiUnits };
+    return { clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines };
 }
 
 /**
@@ -393,7 +420,9 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         bg_areas = bgAreas,
 
         // Add COI units to the map.
-        { clusterUnits, coiUnits } = addCOIUnits(map, stateName.toLowerCase()),
+        {
+            clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines
+        } = addCOIUnits(map, stateName.toLowerCase()),
         coiunits = coiUnits,
         coiUnits2 = null,
 
@@ -410,6 +439,6 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
 
     return {
         units, unitsBorders, coiunits, coiUnits2, points, counties, bg_areas,
-        precincts, new_precincts, tracts, clusterUnits
+        precincts, new_precincts, tracts, clusterUnits, clusterUnitsLines
     };
 }

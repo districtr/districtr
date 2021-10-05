@@ -3,7 +3,8 @@ import { Tab } from "../components/Tab";
 import {
     addCOIs,
     opacityStyleExpression,
-    clusterPatternStyleExpression
+    clusterPatternStyleExpression,
+    borderStyleExpression
 } from "../layers/COI";
 import { html, directive } from "lit-html";
 import { toggle } from "../components/Toggle";
@@ -129,9 +130,14 @@ function getStylableControls() {
     let intensitySlider = document.getElementsByClassName("cluster-control__slider")[0],
         uncheckAllButton = document.getElementById("cluster-control__button-uncheck"),
         recheckAllButton = document.getElementById("cluster-control__button-check"),
+        highlightClusterButtons = Array.from(
+            document.getElementsByClassName(".cluster-tile__highlight")
+        ),
         checkboxes = retrieveCheckboxes();
 
-    return checkboxes.concat([intensitySlider, uncheckAllButton, recheckAllButton]);
+    return checkboxes
+        .concat([intensitySlider, uncheckAllButton, recheckAllButton])
+        .concat(highlightClusterButtons);
 }
 
 /**
@@ -213,7 +219,7 @@ function adjustToolpaneWidth() {
  */
 function createLayerToggleCheckbox(callback) {
     let clusterDisplayToggle = new toggle(
-            "Display Cluster Layer", false, callback, "cluster-control__checkbox",
+            "Show Cluster Layer", false, callback, "cluster-control__checkbox",
             "cluster-control__checkbox"
         );
 
@@ -223,6 +229,50 @@ function createLayerToggleCheckbox(callback) {
         <div>
         ${adjustToolpaneWidth()}
     `;
+}
+/**
+ * @description Callback for cluster broder visibility.
+ * @param {Layer} clusterUnits districtr Layer object corresponding to cluster geometries.
+ * @param {String} clusterKey Unique identifier for geometries in `clusterUnits`.
+ * @returns {Function} Callback which decides which borders are visible.
+ */
+function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterKey) {
+    return (e) => {
+        let button = e.target,
+            otherButtons = Array
+                .from(document.getElementsByClassName("cluster-tile__highlight"))
+                .filter((b) => b.id !== clusterIdentifier),
+            defaultStyles = "cluster-tile__button cluster-tile__highlight button--alternate",
+            activeStyle = "cluster-tile__highlight-active";
+
+        // Set some styles on the button based on its state. If the button's
+        // active and we're making it not active, then we want to re-style it,
+        // turn off the layer's border styling, and re-set its state. Otherwise,
+        // do the opposite.
+        if (button.active) {
+            button.className = defaultStyles;
+            borderStyleExpression(clusterUnits, null, clusterKey);
+            button.active = false;
+            button.innerHTML = "Highlight";
+        } else if (!button.active) {
+            // Modify the classes.
+            button.className = defaultStyles + " " + activeStyle;
+
+            // Modify the classes for the buttons that weren't clicked.
+            for (let other of otherButtons) {
+                other.active = false;
+                other.className = defaultStyles;
+                other.innerHTML = "Highlight";
+            }
+
+            // Add the border to the map.
+            borderStyleExpression(clusterUnits, clusterIdentifier, clusterKey);
+            button.active = true;
+
+            // Change the inner text to show "highlighted".
+            button.innerHTML = "Highlighted";
+        }
+    };
 }
 
 /**
@@ -235,8 +285,8 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
     return (_) => {
         // Get the statuses of the checkboxes.
         let statuses = getCheckboxStatuses(),
-            unchecked = statuses.filter((s) => !s.checked),
-            invisible = unchecked.map((s) => s.cluster),
+            unchecked = statuses.filter((s) => !s["checked"]),
+            invisible = unchecked.map((s) => s["cluster"]),
             opacity = getCurrentOpacity();
         
         opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
@@ -247,23 +297,36 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
  * @description Creates a section for each cluster.
  * @param {Object[]} clusterGroup Array of districtr-interpretable cluster objects.
  * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {Layer} clusterUnitsLines districtr Layer object for cluster unit *borders*.
  * @param {Object} clusterPatternMatch Maps cluster names to patterns.
  * @param {Object} patterns Maps pattern names to URLs.
  * @param {String} clusterKey Cluster unique identifier.
  * @param {String} portal URL for linking.
  * @returns {Function} Callback when the section is created.
  */
-function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal) {
+function clusterSection(
+        clusterGroup, clusterUnits, clusterUnitsLines, clusterPatternMatch,
+        patterns, clusterKey, portal
+    ) {
     // Check if this is a single subcluster or multiple subclusters; based on
     // this, set the cluster ID and cluster name.
     let hasSubclusters = clusterGroup.length > 1,
-        clusterId = hasSubclusters ? clusterGroup[0]["subclusterOf"] : "C" + clusterGroup[0][clusterKey],
+        clusterId = (
+            hasSubclusters ?
+                clusterGroup[0]["subclusterOf"] :
+                "C" + clusterGroup[0][clusterKey]
+            ) + " – " + clusterGroup[0]["name"],
         clusterName = "Cluster " + clusterId;
 
     return () => html`
         <div class="cluster-tile">
             <div class="cluster-tile__title">${clusterName}</div>
-            ${subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal)}
+            ${
+                subClusterSection(
+                    clusterGroup, clusterUnits, clusterUnitsLines,
+                    clusterPatternMatch, patterns, clusterKey, portal
+                )
+            }
         </div>
     `;
 }
@@ -272,13 +335,17 @@ function clusterSection(clusterGroup, clusterUnits, clusterPatternMatch, pattern
  * @description Creates a subsection for each cluster.
  * @param {Object[]} clusterGroup Array of districtr-interpretable cluster objects.
  * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {Layer} clusterUnitsLines districtr Layer object for cluster unit *borders*.
  * @param {Object} clusterPatternMatch Maps cluster names to patterns.
  * @param {Object} patterns Maps pattern names to URLs.
  * @param {String} clusterKey Cluster unique identifier.
  * @param {String} portal Portal URL for linking.
  * @returns {HTMLTemplateElement} lit-html template element.
  */
-function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patterns, clusterKey, portal) {
+function subClusterSection(
+        clusterGroup, clusterUnits, clusterUnitsLines, clusterPatternMatch,
+        patterns, clusterKey, portal
+    ) {
     // For each cluster grouping, create a tile. For each cluster in the grouping,
     // create a subcluster tile with that subcluster's information in it.
     return html`
@@ -295,21 +362,34 @@ function subClusterSection(clusterGroup, clusterUnits, clusterPatternMatch, patt
                     null, `cluster-checkbox ${identifier}`
                 ),
                 infoButton = new Button(
-                    onSupportingDataClicked(cluster, portal),
-                    {
+                    onSupportingDataClicked(cluster, portal), {
                         label: "Supporting Data",
                         buttonClassName: "cluster-tile__button",
                         labelClassName: "cluster-tile__component cluster-tile__label"
+                    }
+                ),
+                highlightButton = new Button(
+                    toggleClusterBorderVisibility(clusterUnitsLines, cluster[clusterKey], clusterKey), {
+                        label: "Highlight",
+                        optionalID: cluster[clusterKey],
+                        buttonClassName: "cluster-tile__button cluster-tile__highlight",
+                        labelClassName: "cluster-tile__component cluster-tile__label cluster-tile__highlight-label"
                     }
                 );
 
             return html`
                 <div class="cluster-tile__subcluster">
-                    <div class="cluster-tile__component cluster-tile__pattern" style="background-image: url('${pattern}');"></div>
+                    <div
+                        class="cluster-tile__component cluster-tile__pattern"
+                        style="background-image: url('${pattern}');"
+                    ></div>
                     <h4 class="cluster-tile__component cluster-tile__header">
                         ${clusterToggle}
                     </h4>
-                    ${infoButton}
+                    <div class="cluster-tile__button-container">
+                        ${infoButton}
+                        ${highlightButton}
+                    </div>
                 </div>
             `;
         })}
@@ -353,7 +433,7 @@ function createClusterGroups(clusters) {
 }
 
 /**
- * 
+ * @description Creates the set of user controls.
  * @param {Layer} clusterUnits districtr Layer corresponding to cluster.
  * @returns 
  */
@@ -362,7 +442,7 @@ function createControls(clusterUnits, clusterKey) {
         uncheckAllButton = new Button(
             setCheckState(false, clusterUnits, clusterKey),
             {
-                label: "Uncheck All Clusters",
+                label: "Hide All Clusters",
                 optionalID: "cluster-control__button-uncheck",
                 buttonClassName: "cluster-control__button"
             }
@@ -370,7 +450,7 @@ function createControls(clusterUnits, clusterKey) {
         recheckAllButton = new Button(
             setCheckState(true, clusterUnits, clusterKey),
             {
-                label: "Check All Clusters",
+                label: "Show All Clusters",
                 optionalID: "cluster-control__button-check",
                 buttonClassName: "cluster-control__button"
             }
@@ -389,14 +469,19 @@ function createControls(clusterUnits, clusterKey) {
 }
 
 /**
- * @description Creates an intensity slider.
+ * @description Creates a pattern intensity slider.
  * @returns {Function} Callback with an HTMLTemplateElement.
  */
 function createOpacitySlider() {
     return html`
         <div class="cluster-control__component cluster-control__slider">
-            <label class="cluster-control__component" for="pattern-intensity-slider">Pattern Intensity</label>
-            <input class="cluster-control__component" id="pattern-intensity-slider" type="range" value="25" max="100" min="0">
+            <label class="cluster-control__component" for="pattern-intensity-slider">
+                Pattern Intensity
+            </label>
+            <input
+                class="cluster-control__component" id="pattern-intensity-slider"
+                type="range" value="25" max="100" min="0"
+            >
         </div>
     `;
 }
@@ -443,8 +528,8 @@ function CoiVisualizationPlugin(editor) {
         .then(object => {
             // Destructure the object sent to us from addCOIs.
             let {
-                    clusters, clusterPatternMatch, clusterUnits, patterns,
-                    clusterKey
+                    clusters, clusterPatternMatch, clusterUnits, clusterUnitsLines,
+                    patterns, clusterKey
                 } = object,
                 map = clusterUnits.map,
                 clusterLayer = clusterUnits.sourceLayer,
@@ -454,9 +539,7 @@ function CoiVisualizationPlugin(editor) {
                 initialOpacity = 1/4,
                 tooltipWatcher;
 
-            // For each of the COIs, get the block groups that it
-            // covers and create a mapbox style expression assigning
-            // a pattern overlay to the units.
+            // Assign each cluster's geometry to a pattern.
             clusterPatternStyleExpression(clusterUnits, clusterPatternMatch, clusterKey);
             map.setLayoutProperty(clusterLayer, "visibility", "none");
             clusterUnits.setOpacity(initialOpacity);
@@ -472,8 +555,8 @@ function CoiVisualizationPlugin(editor) {
             // tab.
             for (let clusterGroup of clusterGroups) {
                     section = clusterSection(
-                        clusterGroup, clusterUnits, clusterPatternMatch, patterns,
-                        clusterKey, portal
+                        clusterGroup, clusterUnits, clusterUnitsLines,
+                        clusterPatternMatch, patterns, clusterKey, portal
                     );
                 
                 // Add a section just containing the cluster toggle.

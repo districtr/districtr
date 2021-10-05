@@ -73,6 +73,31 @@
     }
 }
 
+.cluster-tile__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+}
+
+.cluster-tile__highlight-label {
+    width: 100%;
+}
+
+.cluster-tile__highlight {
+    width: 100%;
+
+    &:hover {
+        color: red !important;
+        border: 2px solid red !important;
+    }
+}
+
+.cluster-tile__highlight-active {
+    color: red !important;
+    border: 2px solid red !important;
+}
+
 .cluster-page__header {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -99,6 +124,7 @@
     width: 90%;
     margin-left: 5%;
     border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.25rem;
 }
 
 .cluster-control__checkbox-container {
