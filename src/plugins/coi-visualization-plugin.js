@@ -12,16 +12,14 @@ import { spatial_abilities } from "../utils";
 import Button from "../components/Button";
 
 /**
- * @description Gets the right checkboxes based on filtering.
+ * @description Gets the right checkboxes.
  * @param {String} cluster Cluster identifier; optional.
  * @returns {HTMLElement[]} An array of filtered checkboxes.
  */
 function retrieveCheckboxes() {
-    // First, get all the checkboxes.
-    let checkboxes = Array.from(document.getElementsByClassName("cluster-checkbox"));
-
-    // Filter to ensure we're only getting checkboxes.
-    return checkboxes.filter((c) => c.localName == "label");
+    return Array
+        .from(document.getElementsByClassName("cluster-checkbox"))
+        .filter((c) => c.localName == "label");
 }
 
 /**
@@ -355,9 +353,13 @@ function subClusterSection(
             let hasParent = cluster["subclusterOf"],
                 name = hasParent ? cluster["subcluster"] : cluster["name"],
                 identifier = cluster[clusterKey],
+                styledLabel = () => html`
+                    <strong style="font-size: 1.1rem;">C${identifier} </strong>
+                    <i style="font-size: 0.9rem;">${name}</i>
+                `,
                 pattern = patterns[clusterPatternMatch[identifier]],
                 clusterToggle = toggle(
-                    name, true,
+                    styledLabel(), true,
                     toggleClusterVisibility(clusterUnits, clusterKey),
                     null, `cluster-checkbox ${identifier}`
                 ),
@@ -517,8 +519,10 @@ function CoiVisualizationPlugin(editor) {
     let { state, toolbar, store } = editor,
         { place } = state,
         tab = new Tab("coi", "Communities", store),
-        shouldDisplay = spatial_abilities(place.id).coi,
-        portal = spatial_abilities(place.id).portal.endpoint;
+
+        abilities = spatial_abilities(place.id),
+        shouldDisplay = abilities.coi,
+        portal = abilities.portal.endpoint;
 
     // If we shouldn't display COIs, just return nothing.
     if (!shouldDisplay) return;
@@ -526,7 +530,7 @@ function CoiVisualizationPlugin(editor) {
     // Add COIs to the state.
     addCOIs(state)
         .then(object => {
-            // Destructure the object sent to us from addCOIs.
+                // Destructure the object sent to us from addCOIs.
             let {
                     clusters, clusterPatternMatch, clusterUnits, clusterUnitsLines,
                     patterns, clusterKey

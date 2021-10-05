@@ -214,20 +214,15 @@ export function addCOIs(state) {
                 // expressions.
                 return loadPatterns(map, patterns)
                     .then(loadedPatterns => resolvesToArray(loadedPatterns))
-                    .then(_ => {
-                        // From here, we want to return all the necessary items
-                        // for properly rendering the COIs in the tool pane. We
-                        // should return the style expression, the unit mapping,
-                        // the pattern mapping, and the COIs themselves.
-                        return {
+                    .then((_) => ({
                             clusters: clusters,
                             clusterPatternMatch: clusterPatternMatch,
                             clusterUnits: clusterUnits,
                             clusterUnitsLines: clusterUnitsLines,
                             patterns: patterns,
                             clusterKey: coi.clusterKey
-                        };
-                    });
+                        })
+                    );
             });
         });
 }
