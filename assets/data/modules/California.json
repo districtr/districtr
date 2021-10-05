@@ -15123,7 +15123,7 @@
    "districtingProblems": [
      {
        "name": "County",
-       "numberOfParts": 5,
+       "numberOfParts": 4,
        "pluralNoun": "Council Districts"
      }
    ]
