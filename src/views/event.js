@@ -318,10 +318,10 @@ const coi_events = [
   'tuolumne',
   'carpinteria',
   'santa_clara_water',
-  'pasadena2021',
 ];
 
 const hybrid_events = [
+  'pasadena2021',
   'santa_ana',
   'slo_county',
   'martinez',
