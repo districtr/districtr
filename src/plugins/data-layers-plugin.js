@@ -60,8 +60,8 @@ export default function DataLayersPlugin(editor) {
                   state.brush.deactivate();
                 }
             })}
-            ${(["chicago_community_areas", "montana_blocks", "wyoming_blocks"].includes(state.units.sourceId)
-                || (! abilities.number_markers && nonCensusUnit)
+            ${(["chicago_community_areas", "montana_blocks", "iowa_counties", "iowa_counties20", "wyoming_blocks", "wyoming_blocks20", "wisconsin_blocks20"].includes(state.units.sourceId)
+                || (!abilities.number_markers)
             ) ? null
                 : toggle(districtNumberLabel, false, checked => {
                     if (checked) {
@@ -101,9 +101,12 @@ export default function DataLayersPlugin(editor) {
     }
 
     let selectBoundaries = abilities.boundaries || [];
-    const showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
+    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
           placeID = ["california", "ohio", "texas"].includes(stateID) ? state.place.id : stateID;
+    if (state.place.state === "Washington, DC") {
+      showingCounties = false;
+    }
 
     if (abilities.municipalities) {
         selectBoundaries.push({
@@ -171,7 +174,7 @@ export default function DataLayersPlugin(editor) {
     if (selectBoundaries && selectBoundaries.length) {
         tab.addRevealSection(
             'Boundaries',
-            (uiState, dispatch) => selectBoundaries.map((config, idx) => {
+            () => selectBoundaries.map((config, idx) => {
               if (config.unitType && !state.units.id.includes(config.unitType)) {
                 return "";
               }

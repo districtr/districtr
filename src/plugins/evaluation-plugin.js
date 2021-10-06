@@ -100,7 +100,7 @@ export default function EvaluationPlugin(editor) {
             }
         );
     }
-    
+
     if (state.vap) {
         tab.addRevealSection(
             "Voting Age Population by Race",
@@ -204,12 +204,11 @@ export default function EvaluationPlugin(editor) {
     let lambda_contig = (state.unitsRecord.id === "blockgroups"
                         || state.unitsRecord.id === "blockgroups20"
                         || state.unitsRecord.id === "vtds20");
-    
     if (state.plan.problem.type !== "community"
-        && (state.units.sourceId !== "ma_towns")
-        && ( (spatial_abilities(state.place.id).contiguity) 
+        && (!["ma_towns", "iowa_counties", "iacty20_counties"].includes(state.units.sourceId))
+        && ( (spatial_abilities(state.place.id).contiguity)
               || lambda_contig)
-        
+
     ) {
         tab.addRevealSection(
             "Contiguity",
@@ -245,7 +244,7 @@ export default function EvaluationPlugin(editor) {
                 isOpen: false
             }
         );
-    
+
         // VRAtab.addRevealSection(
         //     "VRA Alignment",
         //     (uiState, dispatch) =>
@@ -261,7 +260,7 @@ export default function EvaluationPlugin(editor) {
         //     }
         // );
     }
-    
+
     if (showVRA && (state.units.sourceId !== "ma_towns")) {
         VRAtab.addRevealSection(
             "VRA District Details",

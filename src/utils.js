@@ -308,10 +308,10 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: true,
     },
     alaska: {
       number_markers: true,
-      number_markers_lambda: true,
       native_american: true,
       shapefile: true,
       school_districts: true,
@@ -376,7 +376,6 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
-      number_markers_lambda: true,
       border: true,
       shapefile: true,
       find_unpainted: true,
@@ -390,7 +389,6 @@ export function spatial_abilities(id) {
     yuma_awc: {
       native_american: true,
       number_markers: true,
-      number_markers_lambda: true,
       border: true,
       shapefile: true,
       find_unpainted: true,
@@ -466,7 +464,6 @@ export function spatial_abilities(id) {
     },
     ca_sutter: {
       number_markers: true,
-      number_markers_lambda: true,
       border: true,
       shapefile: true,
       municipalities: true,
@@ -755,11 +752,13 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
   },
   napacounty2021: {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     municipalities: true,
   },
   ca_tuolumne: {
@@ -788,19 +787,20 @@ export function spatial_abilities(id) {
   },
   ca_sanmateo: {
     number_markers: true,
+    // contiguity: 2,
     border: true,
     shapefile: true,
     neighborhood_borders: 'Neighborhoods',
   },
   ca_santa_ana: {
     number_markers: true,
-    number_markers_lambda: true,
     border: true,
     shapefile: true,
   },
   ca_kern: {
     number_markers: true,
     border: true,
+    // contiguity: 2,
     shapefile: true,
     municipalities: true,
   },
@@ -901,6 +901,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     coalition: false,
     current_districts: 'Current Council Districts',
     boundaries: [{
@@ -919,6 +920,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     municipalities: 'Census Designated Places',
     current_districts: true,
     native_american: true,
@@ -933,6 +935,7 @@ export function spatial_abilities(id) {
   ca_humboldt: {
     border: true,
     shapefile: true,
+    // contiguity: 2,
     number_markers: true,
     municipalities: true,
     sideload: true,
@@ -948,6 +951,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
   },
   carpinteria: {
     border: true,
@@ -969,6 +973,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     current_districts: true,
     school_districts: true,
     neighborhood_borders: true,
@@ -1013,19 +1018,20 @@ export function spatial_abilities(id) {
     sanluiso: {
       coalition: false,
       number_markers: true,
+      // contiguity: 2,
       shapefile: true,
       border: true,
       municipalities: true,
       // sideload: true,
     },
     ccsanitation: {
-      // multiyear: 2018,
       shapefile: true,
     },
     ccsanitation2: {
-      multiyear: 2018,
       shapefile: true,
       border: true,
+      current_districts: true,
+      number_markers: true,
     },
     santa_clara: {
       border: true,
@@ -1176,7 +1182,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       contiguity: 2,
       shapefile: true,
-      number_markers_lambda: true,
       // find_unpainted: true,
     },
     kansas: {
@@ -1218,8 +1223,7 @@ export function spatial_abilities(id) {
     louisiana: {
       native_american: true,
       county_brush: true, // lakes
-      // number_markers: true, // fetch is failing?
-      // number_markers_lambda: true,
+      number_markers: true, // fetch is failing?
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
@@ -1230,7 +1234,6 @@ export function spatial_abilities(id) {
       vra_effectiveness: true,
       county_brush: true, // lakes
       number_markers: true,
-      number_markers_lambda: true,
     },
     batonrouge: {
       number_markers: true,
@@ -1265,7 +1268,6 @@ export function spatial_abilities(id) {
     },
     ma: {
       number_markers: true,
-      number_markers_lambda: true,
       shapefile: true,
       // find_unpainted: true,
       portal: {
@@ -1274,14 +1276,12 @@ export function spatial_abilities(id) {
     },
     ma_vra: {
       number_markers: true,
-      number_markers_lambda: true,
       vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
     },
     ma_vra2: {
       number_markers: true,
-      number_markers_lambda: true,
       // vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
@@ -1302,7 +1302,6 @@ export function spatial_abilities(id) {
     },
     michigan: {
       number_markers: true,
-      number_markers_lambda: true,
       native_american: true,
       county_brush: true,
       shapefile: true,
@@ -1324,7 +1323,6 @@ export function spatial_abilities(id) {
     },
     mn2020acs: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
@@ -1445,7 +1443,6 @@ export function spatial_abilities(id) {
     },
     new_mexico: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,
@@ -1456,7 +1453,6 @@ export function spatial_abilities(id) {
     },
     new_mexico_portal: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,
@@ -1594,7 +1590,6 @@ export function spatial_abilities(id) {
       },
     ohio: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       // find_unpainted: true - needs contiguity
@@ -1766,7 +1761,6 @@ export function spatial_abilities(id) {
     },
     pennsylvania: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -1827,7 +1821,6 @@ export function spatial_abilities(id) {
     },
     texas: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       contiguity: 2,
       shapefile: true,
@@ -1837,11 +1830,18 @@ export function spatial_abilities(id) {
         endpoint: "https://portal.texas-mapping.org",
       },
     },
+    tarranttx: {
+      number_markers: true,
+      contiguity: true,
+    },
+    harristx: {
+      number_markers: true,
+      contiguity: true,
+    },
     tx_vra: {
       vra_effectiveness: true,
       county_brush: true,
       number_markers: true,
-      number_markers_lambda: true,
     },
     dallastx: {
       border: true,
@@ -1854,9 +1854,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: true,
     },
     fortworth: {
       border: true,
+      number_markers: true,
     },
     houston: {
       border: true,
@@ -1997,7 +1999,6 @@ export function spatial_abilities(id) {
     },
     wisco2019acs: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
