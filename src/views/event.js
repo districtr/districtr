@@ -1858,8 +1858,10 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip < 0)
+            if (drafts && draftskip < 0) {
               data.plans = [];
+              loadExtraPlans = true;
+            }
             drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
