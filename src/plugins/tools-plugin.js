@@ -47,19 +47,14 @@ export default function ToolsPlugin(editor) {
 
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
-    const nonCensusUnit = state.unitsRecord.id !== "blockgroups"
-                        && state.unitsRecord.id !== "blockgroups20"
-                        && state.unitsRecord.id !== "vtds20";
+    window.planNumbers = NumberMarkers(state, brush);
 
-    let old_number_markers =  (nonCensusUnit
-                                && (! spatial_abilities(state.place.id).number_markers_lambda));
-    window.planNumbers = NumberMarkers(state, brush, old_number_markers);
-
-    let old_contiguity = (nonCensusUnit
-                            && spatial_abilities(state.place.id).contiguity !== 3);
-
-    const c_checker = ((spatial_abilities(state.place.id).contiguity || !old_contiguity) && state.problem.type !== "community")
-                            ? ContiguityChecker(state, brush, old_contiguity)
+    const contiguity_on = (spatial_abilities(state.place.id).contiguity
+                        || state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20");
+    const c_checker = (contiguity_on && state.problem.type !== "community")
+                            ? ContiguityChecker(state, brush, false)
                             : null;
 
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
