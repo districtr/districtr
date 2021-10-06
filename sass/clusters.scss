@@ -2,6 +2,19 @@
 @import "./mixins";
 @import "./colors";
 
+.cluster-tile__subcluster-checkbox {
+    display: flex;
+    width: 100%
+}
+
+.cluster-tile__subcluster-checkbox > input {
+    width: 1.1rem;
+}
+
+.cluster-tile__checkbox-container {
+    width: 100%;
+}
+
 .cluster-tile {
     width: 90%;
     height: auto;
@@ -35,8 +48,8 @@
 }
 
 .cluster-tile__pattern {
-    height: 2rem;
-    width: 2rem;
+    height: 1rem;
+    width: 50%;
     margin-right: 0.25rem;
     border: 1px solid #e0e0e0;
     border-radius: 0.25rem;
@@ -55,6 +68,13 @@
 .cluster-tile__header {
     font-size: 0.95em !important;
     font-weight: normal !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cluster-tile__header > i {
+    font-size: 0.7rem;
 }
 
 .cluster-tile__label {
@@ -128,7 +148,6 @@
 }
 
 .cluster-control__checkbox-container {
-    width: 100%;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 0.25rem;
 }

@@ -71,8 +71,17 @@ function loadPatterns(map, patternMapping) {
         // Create an empty mapping for the *cluster* into which we can assign
         // patterns for the individual COIs. Then, for each of the individual
         // COIs, assign to it the first pattern in the list of patterns.
-        let clusterIdentifier = cluster[clusterKey];
-        mapping[clusterIdentifier] = repeatedPatterns.shift();
+        let clusterIdentifier = cluster[clusterKey],
+            chosenPattern = repeatedPatterns.shift();
+
+        // If the cluster has multiple subclusters, then we assign the same
+        // pattern to the clusters.
+        if (cluster["subclusters"]) {
+            for (let subcluster of cluster["subclusters"]) {
+                let subclusterIdentifier = subcluster[clusterKey];
+                mapping[subclusterIdentifier] = chosenPattern;
+            }
+        } else mapping[clusterIdentifier] = chosenPattern;
     }
 
     return mapping;
@@ -105,7 +114,7 @@ export function borderStyleExpression(units, identifier, id="GEOID20", color="#F
         defaultLineOpacity = unitBordersPaintProperty["line-opacity"],
         subfilter = [
             "case", [
-                "in",
+                "==",
                 ["get", id],
                 ["literal", identifier]
             ]

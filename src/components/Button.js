@@ -11,6 +11,7 @@ import { html, TemplateResult } from "lit-html";
  * @param {String} labelClassName Optional classname for the Label; defaults to empty.
  * @param {Boolean} state Optional; if treated as a checkbox, is switched when the button's clicked.
  * @param {Function} onMouseOver Optional; action taken when button is moused over.
+ * @param {Function} sideEffect Optional; action taken alongside `onMouseOver`.
  * @returns {TemplateResult}
  * @constructor
  */
@@ -20,7 +21,7 @@ export class Button {
         {
             label="button", hoverText="button", optionalID=null,
             buttonClassName="button--alternate", labelClassName="",
-            state=false, onMouseOver=(e)=>{}
+            state=false, onMouseOver=(e)=>{}, sideEffect=(e)=>{}
         }
     ) {
         // Create this object's HTML template.
@@ -31,7 +32,10 @@ export class Button {
                     title="${hoverText}"
                     type="button"
                     id="${optionalID}"
-                    @click="${(e) => onClick(e)}"
+                    @click="${(e) => {
+                        onClick(e);
+                        sideEffect(e);
+                    }}"
                     @mouseover="${(e) => onMouseOver(e)}"
                 >
                     ${label}

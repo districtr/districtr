@@ -37,6 +37,26 @@ function setCheckState(state, clusterUnits, clusterKey) {
 }
 
 /**
+ * @description Hides all the unit borders when all clusters are hidden.
+ * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @returns {Function} Callback when the "hide all" button is clicked.
+ */
+function hideAllBorders(clusterUnits, clusterKey) {
+    return (_) => {
+        let buttons = Array.from(document.getElementsByClassName("cluster-tile__highlight")),
+            defaultStyles = "cluster-tile__button cluster-tile__highlight button--alternate";
+
+        // Reset all the stuff.
+        for (let button of buttons) {
+            button.className = defaultStyles;
+            button.active = false;
+            button.innerHTML = "Highlight";
+        }
+        borderStyleExpression(clusterUnits, null, clusterKey);
+    };
+}
+
+/**
  * @description Tells us the status of each checkbox in the hierarchy.
  * @returns {Object[]} Array of objects which have a cluster ID, COI name, and checked status.
  */
@@ -89,7 +109,11 @@ function onSupportingDataClicked(cluster, portal) {
 function watchTooltips(clusters, clusterKey) {
     // Create a mapping from clusters to their long names.
     let nameMap = {};
-    for (let cluster of clusters) nameMap[cluster[clusterKey]] = cluster["cluster"];
+    for (let cluster of clusters) {
+        for (let subcluster of cluster["subclusters"]) {
+            nameMap[subcluster[clusterKey]] = subcluster[clusterKey];
+        }
+    }
 
     return (features) => {
         // If we have no units we don't have to do anything!
@@ -106,6 +130,7 @@ function watchTooltips(clusters, clusterKey) {
                 .filter((s) => !s.checked)
                 .map((s) => s.cluster),
             names = features
+                .filter((f) => Object.values(nameMap).includes(f.properties[clusterKey]))
                 .filter((f) => !invisibleNames.includes(f.properties[clusterKey]))
                 .map((f) => "C" + nameMap[f.properties[clusterKey]]),
             nameString = names.join(", ");
@@ -303,25 +328,27 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
  * @returns {Function} Callback when the section is created.
  */
 function clusterSection(
-        clusterGroup, clusterUnits, clusterUnitsLines, clusterPatternMatch,
+        cluster, clusterUnits, clusterUnitsLines, clusterPatternMatch,
         patterns, clusterKey, portal
     ) {
     // Check if this is a single subcluster or multiple subclusters; based on
     // this, set the cluster ID and cluster name.
-    let hasSubclusters = clusterGroup.length > 1,
-        clusterId = (
-            hasSubclusters ?
-                clusterGroup[0]["subclusterOf"] :
-                "C" + clusterGroup[0][clusterKey]
-            ) + " – " + clusterGroup[0]["name"],
-        clusterName = "Cluster " + clusterId;
+    let hasMultipleSubclusters = cluster["subclusters"].length > 1,
+        clusterName = "Cluster C" + cluster[clusterKey] + " – " + cluster["name"],
+        identifier = cluster[clusterKey],
+        clusterToggle = toggle(
+            clusterName, true, toggleClusterVisibility(clusterUnits, clusterKey),
+            null, `cluster-checkbox ${identifier}`
+        );
 
     return () => html`
         <div class="cluster-tile">
-            <div class="cluster-tile__title">${clusterName}</div>
+            <div class="cluster-tile__title">
+                ${ hasMultipleSubclusters ? clusterToggle : clusterName }
+            </div>
             ${
                 subClusterSection(
-                    clusterGroup, clusterUnits, clusterUnitsLines,
+                    cluster["subclusters"], clusterUnits, clusterUnitsLines,
                     clusterPatternMatch, patterns, clusterKey, portal
                 )
             }
@@ -331,7 +358,7 @@ function clusterSection(
 
 /**
  * @description Creates a subsection for each cluster.
- * @param {Object[]} clusterGroup Array of districtr-interpretable cluster objects.
+ * @param {Object[]} subclusters Array of districtr-interpretable cluster objects.
  * @param {Layer} clusterUnits districtr Layer object for cluster units.
  * @param {Layer} clusterUnitsLines districtr Layer object for cluster unit *borders*.
  * @param {Object} clusterPatternMatch Maps cluster names to patterns.
@@ -341,33 +368,38 @@ function clusterSection(
  * @returns {HTMLTemplateElement} lit-html template element.
  */
 function subClusterSection(
-        clusterGroup, clusterUnits, clusterUnitsLines, clusterPatternMatch,
+        subclusters, clusterUnits, clusterUnitsLines, clusterPatternMatch,
         patterns, clusterKey, portal
     ) {
     // For each cluster grouping, create a tile. For each cluster in the grouping,
     // create a subcluster tile with that subcluster's information in it.
     return html`
-        ${clusterGroup.map(cluster => {
+        ${subclusters.map(cluster => {
             // For each tile in the grouping, get the required information
             // and make checkboxes and info buttons.
-            let hasParent = cluster["subclusterOf"],
-                name = hasParent ? cluster["subcluster"] : cluster["name"],
+            let name = cluster["keywords"].join(", "),
                 identifier = cluster[clusterKey],
                 styledLabel = () => html`
-                    <strong style="font-size: 1.1rem;">C${identifier} </strong>
-                    <i style="font-size: 0.9rem;">${name}</i>
+                    <div class="cluster-tile__component cluster-tile__header">
+                        <div
+                            class="cluster-tile__component cluster-tile__pattern"
+                            style="background-image: url('${pattern}');"
+                        ></div>
+                        <i>${name}</i>
+                    </div>
                 `,
                 pattern = patterns[clusterPatternMatch[identifier]],
                 clusterToggle = toggle(
                     styledLabel(), true,
                     toggleClusterVisibility(clusterUnits, clusterKey),
-                    null, `cluster-checkbox ${identifier}`
+                    null, `cluster-checkbox ${identifier} cluster-tile__subcluster-checkbox`
                 ),
                 infoButton = new Button(
                     onSupportingDataClicked(cluster, portal), {
                         label: "Supporting Data",
                         buttonClassName: "cluster-tile__button",
-                        labelClassName: "cluster-tile__component cluster-tile__label"
+                        labelClassName: "cluster-tile__component cluster-tile__label",
+                        hoverText: "Opens a new tab with this cluster's supporting data."
                     }
                 ),
                 highlightButton = new Button(
@@ -375,22 +407,19 @@ function subClusterSection(
                         label: "Highlight",
                         optionalID: cluster[clusterKey],
                         buttonClassName: "cluster-tile__button cluster-tile__highlight",
-                        labelClassName: "cluster-tile__component cluster-tile__label cluster-tile__highlight-label"
+                        labelClassName: "cluster-tile__component cluster-tile__label cluster-tile__highlight-label",
+                        hoverText: "Shows the border of this cluster in bright red."
                     }
                 );
 
             return html`
                 <div class="cluster-tile__subcluster">
-                    <div
-                        class="cluster-tile__component cluster-tile__pattern"
-                        style="background-image: url('${pattern}');"
-                    ></div>
-                    <h4 class="cluster-tile__component cluster-tile__header">
+                    <div class="cluster-tile__checkbox-container">
                         ${clusterToggle}
-                    </h4>
+                    </div>
                     <div class="cluster-tile__button-container">
-                        ${infoButton}
                         ${highlightButton}
+                        ${infoButton}
                     </div>
                 </div>
             `;
@@ -399,54 +428,19 @@ function subClusterSection(
 }
 
 /**
- * @desctiption Generates groups of subclusters.
- * @param {Object[]} clusters An array of districtr-interpretable cluster objects.
- * @returns {Array[]} Array of districtr-interpretable subcluster objects, grouped by parent cluster.
- */
-function createClusterGroups(clusters) {
-    let clusterGroups = [],
-        skippable = [];
-
-    // Iterate over the clusters, creating arrays of subclusters; if a
-    // cluster's by itself in its array, then it has no subclusters. If
-    // an array has multiple clusters, we display them together.
-    for (let cluster of clusters) {
-        // Get the subcluster for each cluster and find all the other
-        // clusters with the same parent. This relies on each subcluster having
-        // a property which specifies its parent cluster: this property is
-        // `null` for clusters with a single subcluster, but the parent cluster's
-        // identifier for clusters with more thaan one subcluster.
-        let subclusterOf = cluster["subclusterOf"],
-            subclusters = subclusterOf ? 
-                clusters.filter((c) => c["subclusterOf"] == subclusterOf) :
-                [cluster];
-        
-        // If this cluster is a subcluster *and* it's not already accounted
-        // for, add it. Otherwise, do nothing.
-        if (!skippable.includes(subclusterOf)) {
-            clusterGroups.push(subclusters);
-        }
-
-        // If we have a cluster to skip, skip it. Otherwise, do nothing.
-        if (subclusterOf) skippable.push(subclusterOf);
-    }
-
-    return clusterGroups;
-}
-
-/**
  * @description Creates the set of user controls.
  * @param {Layer} clusterUnits districtr Layer corresponding to cluster.
  * @returns 
  */
-function createControls(clusterUnits, clusterKey) {
+function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
     let layerToggle = toggleClusterLayerVisibility(clusterUnits),
         uncheckAllButton = new Button(
             setCheckState(false, clusterUnits, clusterKey),
             {
                 label: "Hide All Clusters",
                 optionalID: "cluster-control__button-uncheck",
-                buttonClassName: "cluster-control__button"
+                buttonClassName: "cluster-control__button",
+                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey)
             }
         ),
         recheckAllButton = new Button(
@@ -549,17 +543,16 @@ function CoiVisualizationPlugin(editor) {
             clusterUnits.setOpacity(initialOpacity);
 
             // Add the section for the display checkbox and the intensity.
-            tab.addSection(createControls(clusterUnits, clusterKey));
+            tab.addSection(createControls(clusterUnits, clusterUnitsLines, clusterKey));
 
             // Create arrays of subclusters to properly create the cluster tiles.
-            let clusterGroups = createClusterGroups(clusters),
-                section;
+            let section;
 
             // For each cluster group, add a specially styled section to the
             // tab.
-            for (let clusterGroup of clusterGroups) {
+            for (let cluster of clusters) {
                     section = clusterSection(
-                        clusterGroup, clusterUnits, clusterUnitsLines,
+                        cluster, clusterUnits, clusterUnitsLines,
                         clusterPatternMatch, patterns, clusterKey, portal
                     );
                 
