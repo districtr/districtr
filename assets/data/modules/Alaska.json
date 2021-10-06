@@ -927,6 +927,13 @@
             },
             "subgroups": [
               {
+                "key": "AKNATVAP",
+                "name": "Alaska Native voting age population",
+                "sum": 105737,
+                "min": 0,
+                "max": 664
+              },
+              {
                 "key": "WVAP",
                 "name": "White voting age population",
                 "sum": 340580,
@@ -991,30 +998,30 @@
         },
         "bounds": [
           [
-            -179.228,
-            51.1753
+            -179.2311,
+            51.1751
           ],
           [
             -129.98,
-            71.4411
+            71.4398
           ]
         ],
         "tilesets": [
           {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.alaska_blocks20_points?v=2"
-            },
-            "sourceLayer": "alaska_blocks20_points"
-          },
-          {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.alaska_blocks20?v=2"
+              "url": "mapbox://districtr.ak_blocks20?v=2"
             },
-            "sourceLayer": "alaska_blocks20"
+            "sourceLayer": "ak_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ak_blocks20_points?v=2"
+            },
+            "sourceLayer": "ak_blocks20_points"
           }
         ]
       }
