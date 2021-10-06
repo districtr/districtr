@@ -200,7 +200,6 @@ export default function DataLayersPlugin(editor) {
 
     if (state.place.id === "alaska_blocks") {
         state.population.subgroups = [];
-        state.vap.subgroups = [];
     }
 
     tab.addRevealSection(
