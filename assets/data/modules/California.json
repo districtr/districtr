@@ -3810,6 +3810,14 @@
               "url": "mapbox://districtr.ca_pasadena_blocks20"
             },
             "sourceLayer": "ca_pasadena_blocks20"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pasadenadasta_blockgroups"
+            },
+            "sourceLayer": "pasadenadasta_blockgroups"
           }
         ]
       },
