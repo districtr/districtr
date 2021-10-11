@@ -33,11 +33,10 @@
 
 .cluster-tile__subcluster {
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; 
     width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -48,8 +47,8 @@
 }
 
 .cluster-tile__pattern {
-    height: 1rem;
-    width: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
     margin-right: 0.25rem;
     border: 1px solid #e0e0e0;
     border-radius: 0.25rem;
@@ -79,7 +78,11 @@
 
 .cluster-tile__label {
     display: flex;
-    margin-left: auto;
+    flex-grow: 1;
+}
+
+.cluster-tile__button {
+    flex-grow: 1;
 }
 
 .cluster-tile__button, .cluster-control__button {
@@ -95,13 +98,15 @@
 
 .cluster-tile__button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-left: auto;
+    justify-content: flex-start;
 }
 
-.cluster-tile__highlight-label {
+.cluster-tile__subcluster-keywords {
     width: 100%;
+    text-align: left;
+    font-size: 0.7rem;
 }
 
 .cluster-tile__highlight {

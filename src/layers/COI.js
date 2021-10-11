@@ -68,20 +68,12 @@ function loadPatterns(map, patternMapping) {
     }
 
     for (let cluster of clusters) {
-        // Create an empty mapping for the *cluster* into which we can assign
-        // patterns for the individual COIs. Then, for each of the individual
-        // COIs, assign to it the first pattern in the list of patterns.
-        let clusterIdentifier = cluster[clusterKey],
-            chosenPattern = repeatedPatterns.shift();
-
         // If the cluster has multiple subclusters, then we assign the same
         // pattern to the clusters.
-        if (cluster["subclusters"]) {
-            for (let subcluster of cluster["subclusters"]) {
-                let subclusterIdentifier = subcluster[clusterKey];
-                mapping[subclusterIdentifier] = chosenPattern;
-            }
-        } else mapping[clusterIdentifier] = chosenPattern;
+        for (let subcluster of cluster["subclusters"]) {
+            let subclusterIdentifier = subcluster[clusterKey];
+            mapping[subclusterIdentifier] = repeatedPatterns.shift();
+        }
     }
 
     return mapping;
@@ -137,7 +129,7 @@ export function borderStyleExpression(units, identifier, id="GEOID20", color="#F
 /**
  * @description Modifies the opacities of the units in the layer.
  * @param {Layer} units districtr Layer object.
- * @param {String[]} identifiers Array of unit identifiers to make invisible.
+ * @param {String[]} identifiers Array of unit identifiers to make invisi ble.
  * @param {String} id Mapbox column containing the unique IDs in `identifiers`.
  * @param {Number} opacity Opacity level; defaults to 25%.
  * @returns {undefined}

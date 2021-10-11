@@ -50,7 +50,6 @@ function hideAllBorders(clusterUnits, clusterKey) {
         for (let button of buttons) {
             button.className = defaultStyles;
             button.active = false;
-            button.innerHTML = "Highlight";
         }
         borderStyleExpression(clusterUnits, null, clusterKey);
     };
@@ -276,7 +275,6 @@ function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterK
             button.className = defaultStyles;
             borderStyleExpression(clusterUnits, null, clusterKey);
             button.active = false;
-            button.innerHTML = "Highlight";
         } else if (!button.active) {
             // Modify the classes.
             button.className = defaultStyles + " " + activeStyle;
@@ -285,15 +283,11 @@ function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterK
             for (let other of otherButtons) {
                 other.active = false;
                 other.className = defaultStyles;
-                other.innerHTML = "Highlight";
             }
 
             // Add the border to the map.
             borderStyleExpression(clusterUnits, clusterIdentifier, clusterKey);
             button.active = true;
-
-            // Change the inner text to show "highlighted".
-            button.innerHTML = "Highlighted";
         }
     };
 }
@@ -333,19 +327,11 @@ function clusterSection(
     ) {
     // Check if this is a single subcluster or multiple subclusters; based on
     // this, set the cluster ID and cluster name.
-    let hasMultipleSubclusters = cluster["subclusters"].length > 1,
-        clusterName = "Cluster C" + cluster[clusterKey] + " – " + cluster["name"],
-        identifier = cluster[clusterKey],
-        clusterToggle = toggle(
-            clusterName, true, toggleClusterVisibility(clusterUnits, clusterKey),
-            null, `cluster-checkbox ${identifier}`
-        );
+    let clusterName = "Cluster C" + cluster[clusterKey] + " – " + cluster["name"];
 
     return () => html`
         <div class="cluster-tile">
-            <div class="cluster-tile__title">
-                ${ hasMultipleSubclusters ? clusterToggle : clusterName }
-            </div>
+            <div class="cluster-tile__title">${clusterName}</div>
             ${
                 subClusterSection(
                     cluster["subclusters"], clusterUnits, clusterUnitsLines,
@@ -379,20 +365,16 @@ function subClusterSection(
             // and make checkboxes and info buttons.
             let name = cluster["keywords"].join(", "),
                 identifier = cluster[clusterKey],
-                styledLabel = () => html`
-                    <div class="cluster-tile__component cluster-tile__header">
-                        <div
-                            class="cluster-tile__component cluster-tile__pattern"
-                            style="background-image: url('${pattern}');"
-                        ></div>
-                        <i>${name}</i>
-                    </div>
-                `,
                 pattern = patterns[clusterPatternMatch[identifier]],
-                clusterToggle = toggle(
-                    styledLabel(), true,
+                clusterButton = new Button(
                     toggleClusterVisibility(clusterUnits, clusterKey),
-                    null, `cluster-checkbox ${identifier} cluster-tile__subcluster-checkbox`
+                    {
+                        label: "Show Pattern",
+                        hoverText: "Display this cluster's pattern on the map.",
+                        optionalID: identifier,
+                        buttonClassName: `cluster-checkbox ${identifier} cluster-tile__button`,
+                        labelClassName: "cluster-tile__component cluster-tile__label"
+                    }
                 ),
                 infoButton = new Button(
                     onSupportingDataClicked(cluster, portal), {
@@ -414,12 +396,18 @@ function subClusterSection(
 
             return html`
                 <div class="cluster-tile__subcluster">
-                    <div class="cluster-tile__checkbox-container">
-                        ${clusterToggle}
-                    </div>
                     <div class="cluster-tile__button-container">
+                        <div
+                            class="cluster-tile__pattern"
+                            style="background-image: url('${pattern}');"
+                        ></div>
+
+                        ${clusterButton}
                         ${highlightButton}
                         ${infoButton}
+                    </div>
+                    <div class="cluster-tile__subcluster-keywords">
+                        <i>C${identifier} – ${name}</i>
                     </div>
                 </div>
             `;
