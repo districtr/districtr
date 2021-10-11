@@ -103,6 +103,16 @@
     justify-content: flex-start;
 }
 
+.cluster-tile__button-toggle-active {
+    background-color: black !important;
+    color: white !important;
+
+    &:hover {
+        background-color: white !important;
+        color: black !important;
+    }
+}
+
 .cluster-tile__subcluster-keywords {
     width: 100%;
     text-align: left;
@@ -188,4 +198,8 @@
 
 .cluster-control__button {
     font-size: 1rem !important;
+}
+
+.cluster-control__button-next, .cluster-control__button-previous {
+    font-size: 0.8rem;
 }

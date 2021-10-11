@@ -55,8 +55,10 @@ function loadPatterns(map, patternMapping) {
  * @returns Object Takes COI names to pattern names.
  */
  function patternsToClusters(clusters, patterns, clusterKey) {
+    let numClusters = 0;
+        for (let cluster of clusters) numClusters += cluster["subclusters"].length;
+
     let mapping = {},
-        numClusters = clusters.length,
         interval = 5,
         numIntervals = Math.ceil(numClusters/interval),
         patternSlice = patterns.slice(0, interval),
@@ -94,7 +96,7 @@ function resolvesToArray(results) {
 /**
  * @description Sets (or unsets) the border of a given unit.
  * @param {Layer} units districtr Layer object.
- * @param {String[]} identifiers Array of unit identifiers to make invisible.
+ * @param {String[]} identifiers Identifier of unit whose border we're making visible.
  * @param {String} id Mapbox column containing the unique IDs in `identifiers`.
  * @param {String} color Color to which the border is set.
  * @returns {undefined}

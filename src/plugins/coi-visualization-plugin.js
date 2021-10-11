@@ -12,27 +12,33 @@ import { spatial_abilities } from "../utils";
 import Button from "../components/Button";
 
 /**
- * @description Gets the right checkboxes.
+ * @description Gets the right checkbox buttons.
  * @param {String} cluster Cluster identifier; optional.
- * @returns {HTMLElement[]} An array of filtered checkboxes.
+ * @returns {HTMLElement[]} An array of filtered checkbox buttons,
  */
-function retrieveCheckboxes() {
-    return Array
-        .from(document.getElementsByClassName("cluster-checkbox"))
-        .filter((c) => c.localName == "label");
+function retrieveCheckboxButtons() {
+    return Array.from(document.getElementsByClassName("cluster-tile__button-toggle"));
 }
 
 /**
- * @description Unchecks all checkboxes and forces the layer opacity to obey.
+ * @description Makes everything invisible.
  * @param {Boolean} state Are all the checkboxes checked or unchecked?
  * @param {Layer} clusterUnits districtr Layer object for cluster units.
  * @param {String} clusterKey Unique identifier for geometries of `clusterUnits`.
  * @returns {undefined}
  */
-function setCheckState(state, clusterUnits, clusterKey) {
+function makeAllInvisible(clusterUnits, clusterKey) {
     return (_) => {
-        for (let checkbox of retrieveCheckboxes()) checkbox.control.checked = state;
-        toggleClusterVisibility(clusterUnits, clusterKey)();
+        for (let button of retrieveCheckboxButtons()) {
+            button.checked = false;
+            button.className = "cluster-tile__button cluster-tile__button-toggle button--alternate";
+        }
+
+        // Make everything invisible.
+        let invisible = getCheckboxButtonStatuses().map((c) => c["cluster"]),
+            opacity = getCurrentOpacity();
+
+        opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
     };
 }
 
@@ -51,6 +57,7 @@ function hideAllBorders(clusterUnits, clusterKey) {
             button.className = defaultStyles;
             button.active = false;
         }
+
         borderStyleExpression(clusterUnits, null, clusterKey);
     };
 }
@@ -59,23 +66,19 @@ function hideAllBorders(clusterUnits, clusterKey) {
  * @description Tells us the status of each checkbox in the hierarchy.
  * @returns {Object[]} Array of objects which have a cluster ID, COI name, and checked status.
  */
-function getCheckboxStatuses() {
-    let checkboxes = retrieveCheckboxes(),
+function getCheckboxButtonStatuses() {
+    let buttons = retrieveCheckboxButtons(),
         checkboxStatuses = [];
-    
+
     // If *any* of the checkboxes are unchecked, we can't view the things.
     // We also skip over any checkboxes whose COI names aren't included
     // in the list of COIs we're not displaying; this way, when users
     // mouse over the COIs, invisible ones don't show up.
-    for (let checkbox of checkboxes) {
-        let classes = checkbox.classList,
-            numClasses = classes.length,
-            cluster = numClasses > 2 ? classes[2] : null;
-        
+    for (let button of buttons) {
         checkboxStatuses.push({
-            "cluster": cluster,
-            "checked": checkbox.control.checked,
-            "entity": checkbox
+            "cluster": button.id,
+            "checked": button.checked,
+            "entity": button
         });
     }
 
@@ -124,7 +127,7 @@ function watchTooltips(clusters, clusterKey) {
         // hovering over, filter them by their inclusion in the list of invisible
         // names, and map them to their cluster identifiers (with a "C"). Then,
         // join the names and show them to the user.
-        let statuses = getCheckboxStatuses(),
+        let statuses = getCheckboxButtonStatuses(),
             invisibleNames = statuses
                 .filter((s) => !s.checked)
                 .map((s) => s.cluster),
@@ -151,24 +154,23 @@ function watchTooltips(clusters, clusterKey) {
 function getStylableControls() {
     let intensitySlider = document.getElementsByClassName("cluster-control__slider")[0],
         uncheckAllButton = document.getElementById("cluster-control__button-uncheck"),
-        recheckAllButton = document.getElementById("cluster-control__button-check"),
+        nextButton = document.getElementById("cluster-control__button-next"),
+        previousButton = document.getElementById("cluster-control__button-previous"),
         highlightClusterButtons = Array.from(
             document.getElementsByClassName(".cluster-tile__highlight")
         ),
-        checkboxes = retrieveCheckboxes();
+        checkboxes = retrieveCheckboxButtons();
 
     return checkboxes
-        .concat([intensitySlider, uncheckAllButton, recheckAllButton])
+        .concat([intensitySlider, uncheckAllButton, nextButton, previousButton])
         .concat(highlightClusterButtons);
 }
 
 /**
- * @description Initially style the checkboxes; this is modified when COIs are displayed.
+ * @description Initially style the controls; this is modified when COIs are displayed.
  * @returns {undefined}
  */
-function initiallyStyleCheckboxes() {
-    // Get all the checkboxes *except* the first one, which is always the top-level
-    // one.
+function initiallyStyleCheckboxButtons() {
     let controls = getStylableControls();
 
     // Style all of the checkboxes according to the initial style rules, and
@@ -299,9 +301,21 @@ function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterK
  * @returns {Function} Callback which decides which things are invisible.
  */
 function toggleClusterVisibility(clusterUnits, clusterKey) {
-    return (_) => {
-        // Get the statuses of the checkboxes.
-        let statuses = getCheckboxStatuses(),
+    return (e) => {
+        // Change the button style and state if we're calling this for an
+        // individual cluster.
+        if (e) {
+            let button = e.target,
+                defaultStyles = "cluster-tile__button cluster-tile__button-toggle button--alternate",
+                active = " cluster-tile__button-toggle-active";
+
+            // Toggle the cluster's state and modify its style.
+            button.checked = !button.checked;
+            button.className = button.checked ? defaultStyles + active : defaultStyles;
+        }
+
+        // Get the statuses of the checkbox buttons.
+        let statuses = getCheckboxButtonStatuses(),
             unchecked = statuses.filter((s) => !s["checked"]),
             invisible = unchecked.map((s) => s["cluster"]),
             opacity = getCurrentOpacity();
@@ -372,7 +386,7 @@ function subClusterSection(
                         label: "Show Pattern",
                         hoverText: "Display this cluster's pattern on the map.",
                         optionalID: identifier,
-                        buttonClassName: `cluster-checkbox ${identifier} cluster-tile__button`,
+                        buttonClassName: "cluster-tile__button cluster-tile__button-toggle",
                         labelClassName: "cluster-tile__component cluster-tile__label"
                     }
                 ),
@@ -416,27 +430,93 @@ function subClusterSection(
 }
 
 /**
+ * @description Navigates to the next (or previous) cluster.
+ * @param {Boolean} direction Which direction we're going; `false` is backwards, `true` forwards.
+ * @param {Layer} clusterUnits districtr Layer object.
+ * @param {Layer} clusterUnitsLines districtr Layer object for cluster borders.
+ * @param {String} clusterKey Cluster unique identifier.
+ * @returns {Function} Function to make things visible/invisible.
+ */
+function goToNextCluster(direction, clusterUnits, clusterUnitsLines, clusterKey) {
+    return (e) => {
+            // Get the list of statuses; this is only to retrieve the cluster IDs
+            // in the order they're rendered.
+        let statuses = getCheckboxButtonStatuses(),
+            order = statuses.map((s) => s["cluster"]),
+
+            // Get the first visible cluster or the first cluster in the list of
+            // clusters; this is our "current" cluster. Then, get its index in
+            // the list of things and calculate the next index we'll be traveling
+            // to.
+            visible = statuses.filter((s) => !s["checked"]),
+            current = visible.length? visible[0] : statuses[0],
+
+            // No idea why there's an off-by-one error here, but it's happening.
+            activeIndex = order.indexOf(current["cluster"]),
+            nextIndex = direction ? (activeIndex+1)%statuses.length : (activeIndex-1)%statuses.length,
+
+            // Get the current and next buttons, as well as the necessary
+            // identifiers.
+            activeButton = statuses[activeIndex]["entity"],
+            nextButton = statuses[nextIndex]["entity"],
+            invisible = statuses
+                .map((s) => s["cluster"])
+                .filter((s) => s["cluster"] != nextButton.id),
+            
+            // Set some styles.
+            defaultStyles = "cluster-tile__button cluster-tile__button-toggle button--alternate",
+            activeStyles = " cluster-tile__button-toggle-active",
+            opacity = getCurrentOpacity();
+
+        console.dir(order);
+        console.dir(activeIndex);
+        console.dir(nextIndex);
+
+        // Restyle buttons.
+        activeButton.checked = false;
+        activeButton.className = defaultStyles;
+        nextButton.checked = true;
+        nextButton.className = defaultStyles + activeStyles;
+
+        // Make things visible/invisible.
+        opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
+        borderStyleExpression(clusterUnitsLines, nextButton.id, clusterKey);
+    };
+}
+
+/**
  * @description Creates the set of user controls.
  * @param {Layer} clusterUnits districtr Layer corresponding to cluster.
  * @returns 
  */
 function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
     let layerToggle = toggleClusterLayerVisibility(clusterUnits),
+        showNextButton = new Button(
+            goToNextCluster(true, clusterUnits, clusterUnitsLines, clusterKey), {
+                label: "Show Next ↓ ",
+                optionalID: "cluster-control__button-next",
+                buttonClassName: "cluster-control__button",
+                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
+                hoverText: "Switch focus to the next cluster in the list."
+            }
+        ),
         uncheckAllButton = new Button(
-            setCheckState(false, clusterUnits, clusterKey),
+            makeAllInvisible(clusterUnits, clusterKey),
             {
                 label: "Hide All Clusters",
                 optionalID: "cluster-control__button-uncheck",
                 buttonClassName: "cluster-control__button",
-                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey)
+                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
+                hoverText: "Hide all clusters and cluster borders."
             }
         ),
-        recheckAllButton = new Button(
-            setCheckState(true, clusterUnits, clusterKey),
-            {
-                label: "Show All Clusters",
-                optionalID: "cluster-control__button-check",
-                buttonClassName: "cluster-control__button"
+        showPreviousButton = new Button(
+           goToNextCluster(false, clusterUnits, clusterUnitsLines, clusterKey), {
+                label: " ↑ Show Previous",
+                optionalID: "cluster-control__button-previous",
+                buttonClassName: "cluster-control__button",
+                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
+                hoverText: "Switch focues to the previous cluster in the list."
             }
         );
 
@@ -445,8 +525,9 @@ function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
             ${createLayerToggleCheckbox(layerToggle)}
             ${createOpacitySlider()}
             <div class="cluster-control__component cluster-control__subcomponent">
+                ${showPreviousButton}
                 ${uncheckAllButton}
-                ${recheckAllButton}
+                ${showNextButton}
             </div>
         </div>
     `;
@@ -490,6 +571,18 @@ function handleOpacitySlider(clusterUnits, clusterKey) {
 function getCurrentOpacity() {
     let slider = document.getElementById("pattern-intensity-slider");
     return parseInt(slider.value)/100;
+}
+
+/**
+ * @description Sets the initial state of all the checkboxes.
+ * @returns {undefined}
+ */
+function setInitialCheckboxButtonState() {
+    let buttons = retrieveCheckboxButtons();
+
+    for (let button of buttons) {
+        button.checked = false;
+    }
 }
 
 /**
@@ -552,12 +645,13 @@ function CoiVisualizationPlugin(editor) {
             toolbar.addTab(tab);
             editor.render();
 
-            // Once things have been rendered, add an even handler for the
+            // Once things have been rendered, add an event handler for the
             // opacity slider.
             handleOpacitySlider(clusterUnits, clusterKey);
 
             // Initially style the checkboxes and create tooltips.
-            initiallyStyleCheckboxes(clusterPatternMatch, patterns);
+            initiallyStyleCheckboxButtons(clusterPatternMatch, patterns);
+            setInitialCheckboxButtonState();
             tooltipWatcher = new Tooltip(clusterUnits, tooltipCallback, 0);
             tooltipWatcher.activate();
         });
