@@ -5508,5 +5508,58 @@
         "pluralNoun": "Wards"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "hideOnDefault": true,
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Name",
+          "key": "cluster"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            42.2516
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_bg_clusters"
+            },
+            "sourceLayer": "ohio_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_bg_clusters_points"
+            },
+            "sourceLayer": "ohio_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "id": "ohio",
+    "state": "Ohio",
+    "name": "Ohio",
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
+      }
+    ]
   }
 ]

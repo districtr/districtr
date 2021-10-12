@@ -1614,7 +1614,25 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.ohio-mapping.org',
       },
       school_districts: true,
-      current_districts: true
+      current_districts: true,
+      // COI clusters.
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.ohio_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "ohio_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/OH/clusters.json"
+        }
+      }
     },
     ohcentral: {
       multiyear: 2019,
