@@ -39,16 +39,52 @@ function retrieveHighlightButtons() {
 }
 
 /**
+ * @description Re-styles the provided button to minimize code reuse.
+ * @param {HTMLElement} button HTML `button` entity to be re-styled.
+ * @param {Boolean} on Whether we're turning this button on or off.
+ * @returns {undefined}
+ */
+function toggleHighlightButtonStyles(button, on) {
+    if (on) {
+        button.className = defaultHighlightStyles + activeHighlightStyles;
+        button.active = true;
+        button.innerHTML = "Hide Border";
+    } else {
+        button.className = defaultHighlightStyles;
+        button.active = false;
+        button.innerHTML = "Show Border";
+    }
+}
+
+/**
+ * @description Re-styles the provided button to minimize code reuse.
+ * @param {HTMLElement} button HTML `button` entity to be re-styled.
+ * @param {Boolean} on Whether we're turning this button on or off.
+ * @returns {undefined}
+ */
+ function togglePatternButtonStyles(button, on) {
+    if (on) {
+        button.className = defaultPatternStyles + activePatternStyles;
+        button.checked = true;
+        button.innerHTML = "Hide Pattern";
+    } else {
+        button.className = defaultPatternStyles;
+        button.checked = false;
+        button.innerHTML = "Show Pattern";
+    }
+}
+
+/**
  * @description Makes everything invisible.
  * @param {Layer} clusterUnits districtr Layer object for cluster units.
+ * @param {Layer} clusterUnitsLines districtr Layer object for cluster units' borders.
  * @param {String} clusterKey Unique identifier for geometries of `clusterUnits`.
  * @returns {undefined}
  */
-function makeAllInvisible(clusterUnits, clusterKey) {
+function makeAllInvisible(clusterUnits, clusterUnitsLines, clusterKey) {
     return (_) => {
         for (let button of retrieveCheckboxButtons()) {
-            button.checked = false;
-            button.className = defaultPatternStyles;
+            togglePatternButtonStyles(button, false);
         }
 
         // Make everything invisible.
@@ -56,6 +92,7 @@ function makeAllInvisible(clusterUnits, clusterKey) {
             opacity = getCurrentOpacity();
 
         opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
+        borderStyleExpression(clusterUnitsLines, null, clusterKey);
     };
 }
 
@@ -70,11 +107,7 @@ function hideAllBorders(clusterUnits, clusterKey) {
         let buttons = retrieveHighlightButtons();
 
         // Reset all the stuff.
-        for (let button of buttons) {
-            button.className = defaultHighlightStyles;
-            button.active = false;
-        }
-
+        for (let button of buttons) toggleHighlightButtonStyles(button, false);
         borderStyleExpression(clusterUnits, null, clusterKey);
     };
 }
@@ -207,7 +240,8 @@ function initiallyStyleCheckboxButtons() {
  */
 function toggleClusterLayerVisibility(clusterUnits, clusterUnitsLines, clusterKey) {
     let map = clusterUnits.map,
-        layer = clusterUnits.sourceLayer,
+        clusterLayer = clusterUnits.id,
+        borderLayer = clusterUnitsLines.id,
         initialized = false;
 
     return (checked) => {
@@ -239,9 +273,8 @@ function toggleClusterLayerVisibility(clusterUnits, clusterUnitsLines, clusterKe
             borderStyleExpression(clusterUnitsLines, firstPattern["id"], clusterKey);
 
             // Style the checkbox.
-            firstPattern.checked = true;
-            firstPattern.className = defaultPatternStyles + activePatternStyles;
-            firstHighlight.className = defaultHighlightStyles + activeHighlightStyles;
+            togglePatternButtonStyles(firstPattern, true);
+            toggleHighlightButtonStyles(firstHighlight, true);
 
             // We're initialized!
             initialized = true;
@@ -249,8 +282,13 @@ function toggleClusterLayerVisibility(clusterUnits, clusterUnitsLines, clusterKe
 
         // Depending on the state of the layer visibility checkbox, make the
         // entire layer visible or invisible.
-        if (checked) map.setLayoutProperty(layer, "visibility", "visible");
-        else map.setLayoutProperty(layer, "visibility", "none");
+        if (checked) {
+            map.setLayoutProperty(clusterLayer, "visibility", "visible");
+            map.setLayoutProperty(borderLayer, "visibility", "visible");
+        } else {
+            map.setLayoutProperty(clusterLayer, "visibility", "none");
+            map.setLayoutProperty(borderLayer, "visibility", "none");
+        }
     };
 }
 
@@ -315,23 +353,15 @@ function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterK
         // turn off the layer's border styling, and re-set its state. Otherwise,
         // do the opposite.
         if (button.active) {
-            button.className = defaultHighlightStyles;
+            toggleHighlightButtonStyles(button, false);
             borderStyleExpression(clusterUnits, null, clusterKey);
-            button.active = false;
         } else if (!button.active) {
             // Modify the classes.
-            button.className = defaultHighlightStyles + " " + activeHighlightStyles;
-
-            // Modify the classes for the buttons that weren't clicked.
-            for (let other of otherButtons) {
-                other.active = false;
-                other.className = defaultHighlightStyles;
-            }
+            toggleHighlightButtonStyles(button, true);
+            for (let other of otherButtons) toggleHighlightButtonStyles(other, false);
 
             // Add the border to the map.
-            console.dir(clusterIdentifier);
             borderStyleExpression(clusterUnits, clusterIdentifier, clusterKey);
-            button.active = true;
         }
     };
 }
@@ -347,13 +377,9 @@ function toggleClusterVisibility(clusterUnits, clusterKey) {
         // Change the button style and state if we're calling this for an
         // individual cluster.
         if (e) {
-            let button = e.target;
-
             // Toggle the cluster's state and modify its style.
-            button.checked = !button.checked;
-            button.className = button.checked ?
-                defaultPatternStyles + activePatternStyles :
-                defaultPatternStyles;
+            let button = e.target;
+            togglePatternButtonStyles(button, !button.checked);
         }
 
         // Get the statuses of the checkbox buttons.
@@ -442,7 +468,7 @@ function subClusterSection(
                 ),
                 highlightButton = new Button(
                     toggleClusterBorderVisibility(clusterUnitsLines, cluster[clusterKey], clusterKey), {
-                        label: "Highlight",
+                        label: "Show Border",
                         optionalID: cluster[clusterKey],
                         buttonClassName: "cluster-tile__button cluster-tile__highlight",
                         labelClassName: "cluster-tile__component cluster-tile__label cluster-tile__highlight-label",
@@ -514,17 +540,10 @@ function goToNextCluster(direction, clusterUnits, clusterUnitsLines, clusterKey)
             opacity = getCurrentOpacity();
 
         // Restyle buttons.
-        activePatternButton.checked = false;
-        activePatternButton.className = defaultPatternStyles;
-        activeHighlightButton.active = false;
-        activeHighlightButton.className = defaultHighlightStyles;
-
-        nextPatternButton.checked = true;
-        nextPatternButton.className = defaultPatternStyles + activePatternStyles;
-        nextHighlightButton.active = true;
-        nextHighlightButton.className = defaultHighlightStyles + activeHighlightStyles;
-
-        console.dir(nextHighlightButton);
+        togglePatternButtonStyles(activePatternButton, false);
+        toggleHighlightButtonStyles(activeHighlightButton, false);
+        togglePatternButtonStyles(nextPatternButton, true);
+        toggleHighlightButtonStyles(nextHighlightButton, true);
 
         // Make things visible/invisible.
         opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
@@ -550,9 +569,9 @@ function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
             }
         ),
         uncheckAllButton = new Button(
-            makeAllInvisible(clusterUnits, clusterKey),
+            makeAllInvisible(clusterUnits, clusterUnitsLines, clusterKey),
             {
-                label: "Hide All Clusters",
+                label: "Clear",
                 optionalID: uncheckAllButtonClass,
                 buttonClassName: "cluster-control__button",
                 sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
@@ -564,7 +583,7 @@ function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
                 label: " ↑ Show Previous",
                 optionalID: previousButtonClass,
                 buttonClassName: "cluster-control__button",
-                hoverText: "Switch focues to the previous cluster in the list."
+                hoverText: "Switch focus to the previous cluster in the list."
             }
         );
 

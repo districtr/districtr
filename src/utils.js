@@ -1420,6 +1420,23 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.missouri_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "missouri_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/MO/clusters.json"
+        }
+      }
     },
     montana: {
       native_american: true,
