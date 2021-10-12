@@ -133,10 +133,10 @@ export function borderStyleExpression(units, identifier, id="GEOID20", color="#F
  * @param {Layer} units districtr Layer object.
  * @param {String[]} identifiers Array of unit identifiers to make invisi ble.
  * @param {String} id Mapbox column containing the unique IDs in `identifiers`.
- * @param {Number} opacity Opacity level; defaults to 25%.
+ * @param {Number} opacity Opacity level; defaults to 75%.
  * @returns {undefined}
  */
-export function opacityStyleExpression(units, identifiers, id="GEOID20", opacity=1/4) {
+export function opacityStyleExpression(units, identifiers, id="GEOID20", opacity=3/4) {
     // Create a filter for setting opacities on only the specified units.
     let filter = [
             "case", [

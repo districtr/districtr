@@ -239,6 +239,7 @@ function toggleClusterLayerVisibility(clusterUnits, clusterUnitsLines, clusterKe
             borderStyleExpression(clusterUnitsLines, firstPattern["id"], clusterKey);
 
             // Style the checkbox.
+            firstPattern.checked = true;
             firstPattern.className = defaultPatternStyles + activePatternStyles;
             firstHighlight.className = defaultHighlightStyles + activeHighlightStyles;
 
@@ -306,9 +307,8 @@ function createLayerToggleCheckbox(callback) {
 function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterKey) {
     return (e) => {
         let button = e.target,
-            otherButtons = Array
-                .from(document.getElementsByClassName("cluster-tile__highlight"))
-                .filter((b) => b.id !== clusterIdentifier);
+            otherButtons = retrieveHighlightButtons()
+                .filter((b) => b["id"] !== clusterIdentifier);
 
         // Set some styles on the button based on its state. If the button's
         // active and we're making it not active, then we want to re-style it,
@@ -329,6 +329,7 @@ function toggleClusterBorderVisibility(clusterUnits, clusterIdentifier, clusterK
             }
 
             // Add the border to the map.
+            console.dir(clusterIdentifier);
             borderStyleExpression(clusterUnits, clusterIdentifier, clusterKey);
             button.active = true;
         }
@@ -483,6 +484,7 @@ function goToNextCluster(direction, clusterUnits, clusterUnitsLines, clusterKey)
             // Get the list of statuses; this is only to retrieve the cluster IDs
             // in the order they're rendered.
         let statuses = getCheckboxButtonStatuses(),
+            highlightButtons = retrieveHighlightButtons(),
             order = statuses.map((s) => s["cluster"]),
 
             // Get the first visible cluster or the first cluster in the list of
@@ -490,7 +492,7 @@ function goToNextCluster(direction, clusterUnits, clusterUnitsLines, clusterKey)
             // the list of things and calculate the next index we'll be traveling
             // to.
             visible = statuses.filter((s) => s["checked"]),
-            current = visible.length? visible[0] : statuses[0],
+            current = visible.length ? visible[0] : statuses[statuses.length-1],
 
             // Adjusting the index is a bit odd: going forward, we can just mod;
             // going backward, mod doesn't work properly (rude, honestly) so we
@@ -502,22 +504,31 @@ function goToNextCluster(direction, clusterUnits, clusterUnitsLines, clusterKey)
 
             // Get the current and next buttons, as well as the necessary
             // identifiers.
-            activeButton = statuses[activeIndex]["entity"],
-            nextButton = statuses[nextIndex]["entity"],
-            invisible = order.filter((id) => id.toString() !== nextButton["id"].toString()),
+            activePatternButton = statuses[activeIndex]["entity"],
+            nextPatternButton = statuses[nextIndex]["entity"],
+            activeHighlightButton = highlightButtons[activeIndex],
+            nextHighlightButton = highlightButtons[nextIndex],
+            invisible = order.filter((id) => id.toString() !== nextPatternButton["id"].toString()),
             
             // Set some styles.
             opacity = getCurrentOpacity();
 
         // Restyle buttons.
-        activeButton.checked = false;
-        activeButton.className = defaultPatternStyles;
-        nextButton.checked = true;
-        nextButton.className = defaultPatternStyles + activePatternStyles;
+        activePatternButton.checked = false;
+        activePatternButton.className = defaultPatternStyles;
+        activeHighlightButton.active = false;
+        activeHighlightButton.className = defaultHighlightStyles;
+
+        nextPatternButton.checked = true;
+        nextPatternButton.className = defaultPatternStyles + activePatternStyles;
+        nextHighlightButton.active = true;
+        nextHighlightButton.className = defaultHighlightStyles + activeHighlightStyles;
+
+        console.dir(nextHighlightButton);
 
         // Make things visible/invisible.
         opacityStyleExpression(clusterUnits, invisible, clusterKey, opacity);
-        borderStyleExpression(clusterUnitsLines, nextButton.id, clusterKey);
+        borderStyleExpression(clusterUnitsLines, nextPatternButton["id"], clusterKey);
     };
 }
 
@@ -535,7 +546,6 @@ function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
                 label: "Show Next ↓ ",
                 optionalID: nextButtonClass,
                 buttonClassName: "cluster-control__button",
-                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
                 hoverText: "Switch focus to the next cluster in the list."
             }
         ),
@@ -554,7 +564,6 @@ function createControls(clusterUnits, clusterUnitsLines, clusterKey) {
                 label: " ↑ Show Previous",
                 optionalID: previousButtonClass,
                 buttonClassName: "cluster-control__button",
-                sideEffect: hideAllBorders(clusterUnitsLines, clusterKey),
                 hoverText: "Switch focues to the previous cluster in the list."
             }
         );
@@ -584,7 +593,7 @@ function createOpacitySlider() {
             </label>
             <input
                 class="cluster-control__component" id="pattern-intensity-slider"
-                type="range" value="25" max="100" min="0"
+                type="range" value="75" max="100" min="0"
             >
         </div>
     `;
