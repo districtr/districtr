@@ -163,6 +163,19 @@
     padding-bottom: 0.25rem;
 }
 
+.cluster-control__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.cluster-control__header > * {
+    background-color: white;
+}
+
 .cluster-control__checkbox-container {
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 0.25rem;
@@ -176,8 +189,20 @@
 
 .cluster-control__component {
     display: flex;
-    margin-top: 0.25rem;
     margin-bottom: 0.25rem;
+    padding-top: 0.25rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+.tab__body {
+    padding-top: 0;
+}
+
+.cluster-control__component > * {
+    background-color: white;
 }
 
 .cluster-control__subcomponent {
