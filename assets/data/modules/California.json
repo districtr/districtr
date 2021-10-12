@@ -741,7 +741,178 @@
     "name": "Contra Costa CentralSan",
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 372175,
+              "min": 0,
+              "max": 2439
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 38251,
+                "min": 0,
+                "max": 242
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 213149,
+                "min": 0,
+                "max": 1968
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black DOJ population",
+                "sum": 9486,
+                "min": 0,
+                "max": 178
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian DOJ population",
+                "sum": 2910,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian DOJ population",
+                "sum": 98923,
+                "min": 0,
+                "max": 982
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "sum": 1092,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other DOJ population",
+                "sum": 5577,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races DOJ population",
+                "sum": 2786,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total population",
+              "sum": 289840,
+              "min": 0,
+              "max": 1881
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 176477,
+                "min": 0,
+                "max": 1542
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black DOJ population",
+                "sum": 7157,
+                "min": 0,
+                "max": 178
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian DOJ population",
+                "sum": 70438,
+                "min": 0,
+                "max": 658
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 26984,
+                "min": 0,
+                "max": 198
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American DOJ population",
+                "sum": 2272,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "sum": 885,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other DOJ population",
+                "sum": 3994,
+                "min": 0,
+                "max": 26
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -122.2446,
+            37.7266
+          ],
+          [
+            -121.8718,
+            38.0668
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation2_blocks20_points"
+            },
+            "sourceLayer": "ccsanitation2_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ccsanitation2_blocks20"
+            },
+            "sourceLayer": "ccsanitation2_blocks20"
+          }
+        ]
+      },
+      {
         "limit": "event",
+        "hideOnDefault": true,
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
@@ -1805,66 +1976,66 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 39538223,
+              "sum": 39523437,
               "min": 0,
-              "max": 37892
+              "max": 37933
             },
             "subgroups": [
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 13714587,
+                "sum": 13709273,
                 "min": 0,
-                "max": 20474
+                "max": 20486
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
-                "sum": 2119286,
+                "sum": 2116414,
                 "min": 0,
-                "max": 3085
+                "max": 3093
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 15579652,
+                "sum": 15571928,
                 "min": 0,
-                "max": 10948
+                "max": 10964
               },
               {
                 "key": "ASIAN",
                 "name": "Asian population",
-                "sum": 5978795,
+                "sum": 5978113,
                 "min": 0,
                 "max": 6375
               },
               {
                 "key": "AMIN",
                 "name": "American Indian population",
-                "sum": 156085,
+                "sum": 155342,
                 "min": 0,
-                "max": 1305
+                "max": 1307
               },
               {
                 "key": "NHPI",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 138167,
+                "sum": 138209,
                 "min": 0,
                 "max": 359
               },
               {
                 "key": "2MORE",
                 "name": "Two or more races",
-                "sum": 1627722,
+                "sum": 1625866,
                 "min": 0,
                 "max": 1293
               },
               {
                 "key": "OTHER",
                 "name": "Other races",
-                "sum": 223929,
+                "sum": 228292,
                 "min": 0,
-                "max": 229
+                "max": 230
               }
             ]
           },
@@ -1874,64 +2045,64 @@
             "total": {
               "key": "VAP",
               "name": "Voting age population",
-              "sum": 30827105,
+              "sum": 30812349,
               "min": 0,
-              "max": 31280
+              "max": 31321
             },
             "subgroups": [
               {
                 "key": "WVAP",
                 "name": "White voting age population",
-                "sum": 11672897,
+                "sum": 11667542,
                 "min": 0,
-                "max": 17307
+                "max": 17319
               },
               {
                 "key": "BVAP",
                 "name": "Black voting age population",
-                "sum": 1694380,
+                "sum": 1691462,
                 "min": 0,
-                "max": 2945
+                "max": 2594
               },
               {
                 "key": "HVAP",
                 "name": "Hispanic voting age population",
-                "sum": 11083294,
+                "sum": 11075636,
                 "min": 0,
-                "max": 8851
+                "max": 8867
               },
               {
                 "key": "AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 122657,
+                "sum": 121917,
                 "min": 0,
-                "max": 900
+                "max": 902
               },
               {
                 "key": "NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 109178,
+                "sum": 109222,
                 "min": 0,
                 "max": 318
               },
               {
                 "key": "ASIANVAP",
                 "name": "Asian voting age population",
-                "sum": 4906293,
+                "sum": 4905619,
                 "min": 0,
                 "max": 5852
               },
               {
                 "key": "OTHERVAP",
                 "name": "Other races voting age population",
-                "sum": 162339,
+                "sum": 166715,
                 "min": 0,
-                "max": 228
+                "max": 229
               },
               {
                 "key": "2MOREVAP",
                 "name": "Two or more races voting age population",
-                "sum": 1076067,
+                "sum": 1074236,
                 "min": 0,
                 "max": 695
               }
@@ -1957,7 +2128,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_20_blockgroups"
+              "url": "mapbox://districtr.ca_20_blockgroups?v=3"
             },
             "sourceLayer": "ca_20_blockgroups"
           },
@@ -1965,7 +2136,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_20_blockgroups_points"
+              "url": "mapbox://districtr.ca_20_blockgroups_points?v=3"
             },
             "sourceLayer": "ca_20_blockgroups_points"
           }
@@ -3473,9 +3644,188 @@
     "name": "Pasadena",
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 139255,
+              "min": 0,
+              "max": 755
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 45996,
+                "min": 0,
+                "max": 471
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 50914,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black DOJ population",
+                "sum": 11984,
+                "min": 0,
+                "max": 149
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian DOJ population",
+                "sum": 730,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian DOJ population",
+                "sum": 26705,
+                "min": 0,
+                "max": 313
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "sum": 165,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other DOJ population",
+                "sum": 1534,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races DOJ population",
+                "sum": 1226,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total population",
+              "sum": 116574,
+              "min": 0,
+              "max": 711
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 45325,
+                "min": 0,
+                "max": 342
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black DOJ population",
+                "sum": 10135,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian DOJ population",
+                "sum": 22806,
+                "min": 0,
+                "max": 273
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 35440,
+                "min": 0,
+                "max": 350
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American DOJ population",
+                "sum": 640,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "sum": 136,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other DOJ population",
+                "sum": 1183,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -118.1982,
+            34.1173
+          ],
+          [
+            -118.0656,
+            34.2515
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_pasadena_blocks20_points"
+            },
+            "sourceLayer": "ca_pasadena_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_pasadena_blocks20"
+            },
+            "sourceLayer": "ca_pasadena_blocks20"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pasadenadasta_blockgroups"
+            },
+            "sourceLayer": "pasadenadasta_blockgroups"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -15123,7 +15473,7 @@
    "districtingProblems": [
      {
        "name": "County",
-       "numberOfParts": 5,
+       "numberOfParts": 4,
        "pluralNoun": "Council Districts"
      }
    ]

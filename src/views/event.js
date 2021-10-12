@@ -263,6 +263,8 @@ const unitTypes = {
   napa_college: {no: 'Blocks'},
   santa_clara_county: {no: 'Blocks'},
   san_jose: {no: 'Blocks'},
+  pasadena2021: {no: 'Blocks'},
+  centralsan: {no: 'Blocks'},
   san_joaquin: {no: 'Blocks'},
   oakland: {no: 'Blocks'},
   slo_county: {no: 'Blocks'},
@@ -316,10 +318,10 @@ const coi_events = [
   'tuolumne',
   'carpinteria',
   'santa_clara_water',
-  'pasadena2021',
 ];
 
 const hybrid_events = [
+  'pasadena2021',
   'santa_ana',
   'slo_county',
   'martinez',
@@ -776,10 +778,10 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Oakland”.\
   <br/>For a detailed how-to guide of Districtr, visit our <a href="/guide">Guide page</a>.</p>',
   martinez: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-   <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Martinez” (any capitalization) is entered.</p>',
+  <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+  <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council Districts.</p>\
+  <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Martinez” (any capitalization) is entered.</p>',
   carpinteria: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
    <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1856,8 +1858,10 @@ export default () => {
                 data.plans.pop();
             }
             // hide at start
-            if (drafts && draftskip < 0)
+            if (drafts && draftskip < 0) {
               data.plans = [];
+              loadExtraPlans = true;
+            }
             drafts
               ? prevDrafts = prevDrafts.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))))
               : prevPlans = prevPlans.concat(data.plans.filter(p => !((blockPlans[eventCode] || []).includes(p.simple_id))));
@@ -1959,7 +1963,7 @@ const loadablePlan = (plan, eventCode, isProfessionalSamples) => {
     return html`
     <a href="/edit/${plan.simple_id || plan._id}?event=${urlcode}">
         <li class="plan-thumbs__thumb">
-            ${(screenshot && screenshot.length > 60 && screenshot.indexOf("data") === 0)
+            ${(screenshot && screenshot.length > 50)
                 ? html`<img
                     class="thumb__img"
                     src="${screenshot}"

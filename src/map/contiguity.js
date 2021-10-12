@@ -9,8 +9,9 @@
 // that modify the innerHTML of the file
 
 import { unitBordersPaintProperty } from "../colors";
+import { stateNameToFips } from "../utils";
 
-export default function ContiguityChecker(state, brush, old=false) {
+export default function ContiguityChecker(state, brush) {
   let place = state.place.id,
       extra_source = (state.units.sourceId === "ma_precincts_02_10") ? "ma_02" : 0;
   if (state.units.sourceId === "ma_towns") {
@@ -63,7 +64,7 @@ export default function ContiguityChecker(state, brush, old=false) {
         contiguity_breaks.length
             ? "Districts may have contiguity gaps"
             : "No contiguity gaps detected";
-    
+
       let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
       for (let d = 0; d < myDistricts.length; d++) {
         // show-hide label altogether
@@ -83,7 +84,13 @@ export default function ContiguityChecker(state, brush, old=false) {
   }
   const updater = (state, colorsAffected) => {
     const units = state.unitsRecord.id;
-    const stateName = state.place.state;
+    let stateName = state.place.id;
+    if (state.place.id === "dc") {
+      stateName = "district_of_columbia";
+    } else if (stateNameToFips[state.place.id] || state.unitsRecord.id.includes("blockgroup") || state.unitsRecord.id.includes("vtds20")) {
+      stateName = state.place.state;
+    }
+
     let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
     fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_contiguity", {
       method: "POST",
@@ -119,47 +126,13 @@ export default function ContiguityChecker(state, brush, old=false) {
       });
   };
 
-  const updater_old = (state, colorsAffected) => {
-    let saveplan = state.serialize();
-    const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-    fetch(GERRYCHAIN_URL + "/contigv2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(saveplan),
-    })
-      .then((res) => res.json())
-      .catch((e) => console.error(e))
-      .then((data) => {
-        state.contiguity = {};
-        let issues = [];
-        Object.keys(data).forEach((district) => {
-          if (data[district].length > 1) {
-            // basic contiguity
-            issues.push(Number(district));
-
-            // identify largest section and highlight others
-            let islandareas = [];
-            data[district].sort((a, b) => { return b.length - a.length }).slice(1).forEach(island => {
-              islandareas = islandareas.concat(island);
-            })
-            state.contiguity[Number(district)] = islandareas;
-          } else {
-            state.contiguity[Number(district)] = null;
-          }
-        });
-        setContiguityStatus(issues);
-      });
-  };
-
   let allDistricts = [],
     i = 0;
   while (i < state.problem.numberOfParts) {
     allDistricts.push(i);
     i++;
   }
-  old ? updater_old(state, allDistricts) : updater(state, allDistricts);
-  
-  return old ? updater_old : updater;
+  updater(state, allDistricts);
+
+  return updater;
 }
