@@ -25,7 +25,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins().filter(a => !!a);
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -37,17 +37,12 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = () => [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-<<<<<<< HEAD
-    (context.place.id === "alaska_blocks") ? null : EvaluationPlugin,
-    (context.units.load_coi) ? null : CoiVisualizationPlugin
-=======
     EvaluationPlugin,
-    AnalysisPlugin
->>>>>>> 5baebf85b8d7ab95b826d10e4b75f5f52a062446
+    context.units.coi ? null : CoiVisualizationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
