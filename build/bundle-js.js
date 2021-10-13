@@ -6,7 +6,7 @@ const IE_TARGETS = "> 0.25%, last 2 versions, Firefox ESR, not dead";
 const MODERN_TARGETS =
     "> 0.25%, last 2 versions, Firefox ESR, not dead, not ie < 999";
 
-export function bundleView(view, production = true, cache) {
+export function bundleView(view, production=true, cache) {
     return (
         rollup({
             input: `./src/views/${view}.js`,
@@ -21,7 +21,7 @@ export function bundleView(view, production = true, cache) {
                 file: `./dist/es5/${view}.js`,
                 format: "umd",
                 name: "ieBundle",
-                sourcemap: production
+                sourcemap: true
             })
         ),
         rollup({
@@ -37,13 +37,13 @@ export function bundleView(view, production = true, cache) {
                 file: `./dist/es6/${view}.js`,
                 format: "umd",
                 name: "bundle",
-                sourcemap: production
+                sourcemap: true
             })
         )
     );
 }
 
-export default function bundleViews(production = true, caches) {
+export default function bundleViews(production=true, caches) {
     return new Promise((resolve, reject) =>
         fs.readdir("./src/views/", (err, files) => {
             if (err) {
