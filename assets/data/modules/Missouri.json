@@ -786,6 +786,184 @@
             "sourceLayer": "missouri_20_blockgroups20"
           }
         ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6154913,
+              "min": 0,
+              "max": 28809
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4663907,
+                "min": 0,
+                "max": 16285
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 692774,
+                "min": 0,
+                "max": 4515
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 303068,
+                "min": 0,
+                "max": 4410
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 132158,
+                "min": 0,
+                "max": 1395
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 23496,
+                "min": 0,
+                "max": 207
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 9293,
+                "min": 0,
+                "max": 496
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 307840,
+                "min": 0,
+                "max": 1627
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 22377,
+                "min": 0,
+                "max": 159
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 4775612,
+              "min": 0,
+              "max": 22840
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3723642,
+                "min": 0,
+                "max": 13088
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 514169,
+                "min": 0,
+                "max": 3783
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 197173,
+                "min": 0,
+                "max": 3429
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 18642,
+                "min": 0,
+                "max": 171
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 6340,
+                "min": 0,
+                "max": 314
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 104558,
+                "min": 0,
+                "max": 1213
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 14896,
+                "min": 0,
+                "max": 150
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 196192,
+                "min": 0,
+                "max": 914
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD GEOID code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -95.7747,
+            35.9957
+          ],
+          [
+            -89.099,
+            40.6136
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mo_vtds20"
+            },
+            "sourceLayer": "mo_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mo_vtds20_points"
+            },
+            "sourceLayer": "mo_vtds20_points"
+          }
+        ]
       }
     ],
     "name": "Missouri",
