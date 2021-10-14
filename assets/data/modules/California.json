@@ -5221,7 +5221,7 @@
             "total": {
               "key": "LF_20_Tota",
               "name": "Total population",
-              "sum": 1052736,
+              "sum": 1015445,
               "min": 0,
               "max": 2943
             },
@@ -5229,28 +5229,28 @@
               {
                 "key": "LF_20_Whit",
                 "name": "White population",
-                "sum": 247356,
+                "sum": 236245,
                 "min": 0,
                 "max": 1080
               },
               {
                 "key": "LF_20_AfAm",
                 "name": "Black population",
-                "sum": 28410,
+                "sum": 27797,
                 "min": 0,
                 "max": 238
               },
               {
                 "key": "LF_20_Asia",
                 "name": "Asian population",
-                "sum": 401144,
+                "sum": 387168,
                 "min": 0,
                 "max": 2293
               },
               {
                 "key": "LF_20_Hisp",
                 "name": "Hispanic population",
-                "sum": 327422,
+                "sum": 317562,
                 "min": 0,
                 "max": 1308
               }
