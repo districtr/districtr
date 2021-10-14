@@ -420,17 +420,23 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
 
         // Add county units to the map.
         counties = addCounties(map, COUNTIES_TILESET, layerAdder, stateName),
-        
+
         // Add block group units to the map.
         bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups")),
         bgAreas = addBGs(map, bgTileset, layerAdder, borderID),
         bg_areas = bgAreas,
+        clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines;
 
         // Add COI units to the map.
-        {
-            clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines
-        } = addCOIUnits(map, stateName.toLowerCase()),
-        coiunits = coiUnits,
+        try {
+          let updates = addCOIUnits(map, stateName.toLowerCase());
+          clusterUnits = updates.clusterUnits;
+          clusterUnitsLines = updates.clusterUnitsLines;
+          coiUnits = updates.coiUnits;
+          coiUnitsLines = updates.coiUnitsLines;
+        } catch (e) {}
+
+        let coiunits = coiUnits,
         coiUnits2 = null,
 
         // Add *specifically handled* precinct units to the map.
@@ -439,7 +445,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         new_precincts = newPrecincts,
 
         // Add *specifically handled* tract units to the map.
-        tracts = addTracts(map, tilesets, stateName);
+        tracts = addTracts(map, tilesets, borderID);
 
     // Cities in Communities of Interest will have thicker borders.
     cities(map, stateName);
