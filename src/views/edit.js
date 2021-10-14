@@ -42,7 +42,7 @@ const defaultPlugins = (context) => [
     PopulationBalancePlugin,
     DataLayersPlugin,
     EvaluationPlugin,
-    context.units.coi ? null : CoiVisualizationPlugin
+    context.units.coi ? CoiVisualizationPlugin : null
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
