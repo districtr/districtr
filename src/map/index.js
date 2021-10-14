@@ -251,7 +251,14 @@ function addCOIUnits(map, stateName) {
     let coi = spatial_abilities(stateName).coi;
 
     // If we don't load COIs, do nothing; otherwise, load the units.
-    if (!coi) return null;
+    if (!coi) {
+        return {
+            clusterUnits: null,
+            clusterUnitsLines: null,
+            coiUnits: null,
+            coiUNitsLines: null
+        };
+    }
 
     // Add COI units.
     let tilesets = coi.tilesets,
