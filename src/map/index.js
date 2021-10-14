@@ -251,7 +251,14 @@ function addCOIUnits(map, stateName) {
     let coi = spatial_abilities(stateName).coi;
 
     // If we don't load COIs, do nothing; otherwise, load the units.
-    if (!coi) return null;
+    if (!coi) {
+        return {
+            clusterUnits: null,
+            clusterUnitsLines: null,
+            coiUnits: null,
+            coiUNitsLines: null
+        };
+    }
 
     // Add COI units.
     let tilesets = coi.tilesets,
@@ -418,18 +425,12 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups")),
         bgAreas = addBGs(map, bgTileset, layerAdder, borderID),
         bg_areas = bgAreas,
-        clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines;
 
         // Add COI units to the map.
-        try {
-          let updates = addCOIUnits(map, stateName.toLowerCase());
-          clusterUnits = updates.clusterUnits;
-          clusterUnitsLines = updates.clusterUnitsLines;
-          coiUnits = updates.coiUnits;
-          coiUnitsLines = updates.coiUnitsLines;
-        } catch (e) {}
-
-        let coiunits = coiUnits,
+        {
+            clusterUnits, clusterUnitsLines, coiUnits, coiUnitsLines
+        } = addCOIUnits(map, stateName.toLowerCase()),
+        coiunits = coiUnits,
         coiUnits2 = null,
 
         // Add *specifically handled* precinct units to the map.
