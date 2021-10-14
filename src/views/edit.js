@@ -16,7 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
-import AnalysisPlugin from "../plugins/analysis-plugin";
+import CoiVisualizationPlugin from "../plugins/coi-visualization-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -25,7 +25,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins().filter(a => !!a);
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -37,12 +37,12 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = () => [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
     EvaluationPlugin,
-    AnalysisPlugin
+    context.units.coi ? null : CoiVisualizationPlugin
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 

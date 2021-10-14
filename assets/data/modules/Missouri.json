@@ -986,5 +986,58 @@
         "name": "State House"
       }
     ]
+  },
+  {
+    "state": "Missouri",
+    "name": "Missouri",
+    "id": "missouri",
+    "units": [
+      {
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "hideOnDefault": true,
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Name",
+          "key": "cluster"
+        },
+        "bounds": [
+          [
+            -95.5548,
+            36.4971
+          ],
+          [
+            -89.099,
+            40.5734
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.missouri_bg_clusters"
+            },
+            "sourceLayer": "missouri_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.missouri_bg_clusters_points"
+            },
+            "sourceLayer": "missouri_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
+      }
+    ]
   }
 ]

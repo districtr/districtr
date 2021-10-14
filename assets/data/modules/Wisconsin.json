@@ -1566,5 +1566,58 @@
         "pluralNoun": "State Assembly Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "hideOnDefault": true,
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Name",
+          "key": "cluster"
+        },
+        "bounds": [
+          [
+            -92.8894,
+            42.4919
+          ],
+          [
+            -86.7501,
+            47.1249
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            "sourceLayer": "wisconsin_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wisconsin_bg_clusters_points"
+            },
+            "sourceLayer": "wisconsin_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "id": "wisconsin",
+    "state": "Wisconsin",
+    "name": "Wisconsin",
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
+      }
+    ]
   }
 ]
