@@ -29,7 +29,6 @@ $half-width: calc(50vw - 0.5em);
 .pane {
   width: $half-width;
   height: 100%;
-  overflow: scroll;
 
   .mapcontainer, .map, .mapboxgl-map, .mapboxgl-canvas {
     width: $half-width;
@@ -67,27 +66,6 @@ $half-width: calc(50vw - 0.5em);
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-#cluster-right {
-  padding: 1em;
-}
-
-#cluster-right > #cluster-display {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  row-gap: 10px;
-  align-self: center;
-}
-
-.coi-card {
-  width: calc((100%/3) - 1em);
-  border-radius: 3%;
-  text-align: center;
-  font-size: 0.8em;
-  padding: 0.5em;
 }
 
 // Styles for the SlideShow.

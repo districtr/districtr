@@ -271,10 +271,6 @@
 /eval/:place/:plan /eval?url=/assets/:place-plans/:plan.json 302
 /eval/* /eval.html 200
 
-## COI viz redirects
-/coi-info/:place/:plan/ /edit/ 302
-/coi-info/* /coi-info.html 200
-
 ## Plan Redirects
 /lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302
 /Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302

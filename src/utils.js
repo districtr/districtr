@@ -1170,6 +1170,7 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      load_coi: false,
       school_districts: true,
       current_districts: true,
       municipalities: 'Cities and Towns',
@@ -1300,24 +1301,6 @@ export function spatial_abilities(id) {
       },
     },
     michigan: {
-      load_coi: true,
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.michigan_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "michigan_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/MI/clusters.json"
-        }
-      },
       number_markers: true,
       native_american: true,
       county_brush: true,
@@ -1420,23 +1403,6 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.missouri_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "missouri_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/MO/clusters.json"
-        }
-      }
     },
     montana: {
       native_american: true,
@@ -1631,25 +1597,7 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.ohio-mapping.org',
       },
       school_districts: true,
-      current_districts: true,
-      // COI clusters.
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.ohio_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "ohio_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/OH/clusters.json"
-        }
-      }
+      current_districts: true
     },
     ohcentral: {
       multiyear: 2019,
@@ -2033,23 +1981,6 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.wisconsin_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "wisconsin_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/WI/clusters.json"
-        }
-      }
     },
     wisconsin2020: {
       number_markers: true,
@@ -2065,24 +1996,6 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
-      load_coi: true,
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.wisconsin_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "wisconsin_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/WI/clusters.json"
-        }
-      }
     },
     wisco2019acs: {
       number_markers: true,
@@ -2098,23 +2011,6 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
-      coi: {
-        tilesets: [
-          {
-            source: {
-              type: "vector",
-              url: "mapbox://districtr.wisconsin_bg_clusters"
-            },
-            type: "fill",
-            sourceLayer: "wisconsin_bg_clusters",
-            clusterLayer: true
-          }
-        ],
-        clusterKey: "cluster",
-        clusterData: {
-          url: "/assets/clusters/WI/clusters.json"
-        }
-      }
     },
     wyoming: {
       native_american: true,
