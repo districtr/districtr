@@ -771,9 +771,9 @@
         ]
       },
       {
-        "id": "vtds20",
-        "name": "2020 VTDs",
-        "unitType": "VTDs",
+        "id": "precincts2",
+        "name": "2020 Precincts",
+        "unitType": "Precincts",
         "columnSets": [
           {
             "type": "population",
@@ -915,29 +915,35 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
-          "key": "GEOID20"
+          "name": "Precinct unique identifier",
+          "key": "GEOID"
         },
         "bounds": [
-          [-109.0504, 31.3322],
-          [-103.002, 37.0002]
+          [
+            -109.0504,
+            31.3322
+          ],
+          [
+            -103.002,
+            37.0002
+          ]
         ],
         "tilesets": [
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.NMoct11_vtds20"
+              "url": "mapbox://districtr.new_mexico_precincts2"
             },
-            "sourceLayer": "NMoct11_vtds20"
+            "sourceLayer": "new_mexico_precincts2"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.NMoct11_vtds20_points"
+              "url": "mapbox://districtr.new_mexico_precincts2_points"
             },
-            "sourceLayer": "NMoct11_vtds20_points"
+            "sourceLayer": "new_mexico_precincts2_points"
           }
         ]
       }
@@ -1507,9 +1513,9 @@
         ]
       },
       {
-        "id": "vtds20",
-        "name": "2020 VTDs",
-        "unitType": "VTDs",
+        "id": "precincts2",
+        "name": "2020 Precincts",
+        "unitType": "Precincts",
         "columnSets": [
           {
             "type": "population",
@@ -1651,29 +1657,35 @@
           }
         ],
         "idColumn": {
-          "name": "2020 Census GEOID",
-          "key": "GEOID20"
+          "name": "Precinct unique identifier",
+          "key": "GEOID"
         },
         "bounds": [
-          [-109.0504, 31.3322],
-          [-103.002, 37.0002]
+          [
+            -109.0504,
+            31.3322
+          ],
+          [
+            -103.002,
+            37.0002
+          ]
         ],
         "tilesets": [
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.NMoct11_vtds20"
+              "url": "mapbox://districtr.new_mexico_precincts2"
             },
-            "sourceLayer": "NMoct11_vtds20"
+            "sourceLayer": "new_mexico_precincts2"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.NMoct11_vtds20_points"
+              "url": "mapbox://districtr.new_mexico_precincts2_points"
             },
-            "sourceLayer": "NMoct11_vtds20_points"
+            "sourceLayer": "new_mexico_precincts2_points"
           }
         ]
       }
