@@ -1,7 +1,7 @@
 {
   "assignment": {},
-  "id": "d24fbd18",
-  "idColumn": { "key": "GEOID20", "name": "2020 Census GEOID" },
+  "id": "6b3f388b",
+  "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "type": "community",
     "numberOfParts": 50,
@@ -9,7 +9,7 @@
   },
   "parts": [{ "id": 0, "displayNumber": 1, "name": "Community 1" }],
   "place": {
-    "id": "new_mexico_portal",
+    "id": "new_mexico",
     "landmarks": {
       "type": "geojson",
       "data": { "type": "FeatureCollection", "features": [] }
@@ -17,11 +17,11 @@
     "state": "New Mexico",
     "name": "New Mexico"
   },
-  "placeId": "new_mexico_portal",
+  "placeId": "new_mexico",
   "units": {
-    "id": "vtds20",
-    "name": "2020 VTDs",
-    "unitType": "VTDs",
+    "id": "precincts2",
+    "name": "2020 Precincts",
+    "unitType": "Precincts",
     "columnSets": [
       {
         "type": "population",
@@ -162,7 +162,7 @@
         ]
       }
     ],
-    "idColumn": { "name": "2020 Census GEOID", "key": "GEOID20" },
+    "idColumn": { "name": "Precinct unique identifier", "key": "GEOID" },
     "bounds": [
       [-109.0504, 31.3322],
       [-103.002, 37.0002]
@@ -172,17 +172,17 @@
         "type": "fill",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.NMoct11_vtds20"
+          "url": "mapbox://districtr.new_mexico_precincts2"
         },
-        "sourceLayer": "NMoct11_vtds20"
+        "sourceLayer": "new_mexico_precincts2"
       },
       {
         "type": "circle",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.NMoct11_vtds20_points"
+          "url": "mapbox://districtr.new_mexico_precincts2_points"
         },
-        "sourceLayer": "NMoct11_vtds20_points"
+        "sourceLayer": "new_mexico_precincts2_points"
       }
     ]
   }
