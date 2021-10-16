@@ -330,27 +330,30 @@ function addCOIUnits(map, stateName) {
 /**
  * @description Adds city borders to certain modules.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
- * @param {String} stateName Name of the state we're redistricting in.
+ * @param {String} cityID Module ID
  * @returns {undefined}
  */
-function cities(map, stateName) {
+function cities(map, cityID) {
     // If the border flag for cities doesn't exist, then return immediately.
-    if (!spatial_abilities(stateName).border) return null;
+    if (!spatial_abilities(cityID).border) return null;
 
     // Otherwise, retrieve city border data from /assets and plot the borders
     // as a Layer on the Map.
-    fetch(`/assets/city_border/${stateName}.geojson?v=2`)
+    fetch(`/assets/city_border/${cityID}.geojson?v=2`)
         .then(res => res.json())
         .then(geojson => {
             // Add a Map source for the border itself. TODO: this is a bit messy,
             // and should be cleaned up later.
             map.addSource("city_border", {
-                type: "FeatureCollection",
-                features: geojson.features.map(
-                    f => f.geometry.type === "Polygon"
-                    ? { type: "Feature", geometry: { "type": "LineString", coordinates: f.geometry.coordinates[0] } }
-                    : f
-                )
+                type: "geojson",
+                data: {
+                  type: "FeatureCollection",
+                  features: geojson.features.map(
+                      f => f.geometry.type === "Polygon"
+                      ? { type: "Feature", geometry: { "type": "LineString", coordinates: f.geometry.coordinates[0] } }
+                      : f
+                  )
+                }
             });
 
             // Add a map source for the border polygons.
@@ -401,9 +404,9 @@ function cities(map, stateName) {
  * @param {mapboxgl.Map|null} swipemap Typically null.
  * @param {Object[]} parts Objects for each district in the plan.
  * @param {Object[]} tilesets MapboxGL tileset specifications loaded by default.
- * @param {Function} layerAdder Inserts new Layers. 
- * @param {String} borderID Name of something. Don't know.
- * @param {string} stateName Name of the jurisdiction we're in.
+ * @param {Function} layerAdder Inserts new Layers.
+ * @param {String} borderID Name of the map module
+ * @param {string} stateName Name of the state
  */
 export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, stateName) {
     // For each of the default tilesets -- base units and points -- add them as
@@ -442,7 +445,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         tracts = addTracts(map, tilesets, borderID);
 
     // Cities in Communities of Interest will have thicker borders.
-    cities(map, stateName);
+    cities(map, borderID);
 
     return {
         units, unitsBorders, coiunits, coiUnits2, points, counties, bg_areas,
