@@ -76,6 +76,7 @@ redwood_city: 'California',
 cityofdallas: 'Texas',
 city_of_napa: 'California',
 napa_boe: 'California',
+livermore: 'California',
 napa_college: 'California',
 tuolumne: 'California',
 mapsofla: 'California',
@@ -189,6 +190,7 @@ const validEventCodes = {
   city_of_napa: 'napa2021',
   long_beach: 'longbeach',
 napa_boe: 'napa_boe',
+livermore: 'livermore',
 napa_college: 'napa_college',
 tuolumne: 'ca_tuolumne',
 mapsofla: 'rp_lax',
@@ -346,6 +348,7 @@ const hybrid_events = [
   'san_joaquin',
   'saccounty',
   'napa_boe',
+  'livermore',
   'napa_college',
   'city_of_napa',
   'napa_county',
@@ -689,6 +692,10 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
     </p>\
     <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Napa_BOE” (any capitalization) is entered.</p>',
+  livermore: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents substantially the same number of constituents. How those lines are drawn affects how people are represented.</p>\
+  <p>Redistricting also determines which neighborhoods and communities are grouped together into a district.  Communities are those with common social or economic interests that should be included within a single district for effective, fair representation.  They are best described by those with first‐hand knowledge.  <strong>We want to hear about your community; you know it best!</strong></p>\
+  <p><strong>You can also submit your own plan for how to divide the city into four districts.</strong>  Every plan submitted to the City will be carefully reviewed and included as part of the public record. For more information, <a href="https://drawlivermore.org" target="_blank">visit this link</a>.</p>\
+  <p>Get started by clicking the orange or purple button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Livermore”.</p>',
   napa_college: '<p>Every 10 years, Californians get the chance to help reshape the seven Napa Valley College Trustee districts based on current United States Census data. Redistricting is based on population and communities of interest. A community of interest shares common social and economic interests that should be included within a single trustee district to achieve effective and fair representation for its residents.</p> \
     <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
@@ -1073,6 +1080,9 @@ const longAbout = {
  napa_boe: [
    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
+ livermore: [
+   "This mapping model uses the official Redistricting Database of California, published by the Statewide Database with processing by Wagaman Strategies."
+ ],
  tuolumne: [
    "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
@@ -1444,7 +1454,7 @@ export default () => {
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
           }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza", "livermore"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -1543,6 +1553,9 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
               document.getElementById("partnership-a").style.background = "#315470";
+            } else if (eventCode === "livermore") {
+              document.getElementById("partner-link-a").href = "https://www.cityoflivermore.net";
+              document.getElementById("partnership-a").src = "/assets/partners-livermore.svg";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
