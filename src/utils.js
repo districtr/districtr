@@ -451,6 +451,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+      coalition: false,
     },
     ca_contracosta: {
       number_markers: true,
