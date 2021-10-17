@@ -1452,7 +1452,14 @@ export default () => {
        document.getElementById("partnership-a").src = "/assets/CC_Share_PA.png?v=2";
        document.getElementById("partner-link-b").href = "https://www.commoncause.org/";
        document.getElementById("partnership-b").src = "/assets/commoncauselogo.png?v=2";
-          }
+    }
+    if (eventCode === "livermore") {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.cityoflivermore.net";
+      document.getElementById("partnership-a").src = "/assets/partners-livermore.svg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
 
         if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza", "livermore"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
@@ -1553,9 +1560,6 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
               document.getElementById("partnership-a").style.background = "#315470";
-            } else if (eventCode === "livermore") {
-              document.getElementById("partner-link-a").href = "https://www.cityoflivermore.net";
-              document.getElementById("partnership-a").src = "/assets/partners-livermore.svg";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
