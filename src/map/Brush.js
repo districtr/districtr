@@ -84,7 +84,11 @@ export default class Brush extends HoverWithRadius {
                                 }
                             }
                             if (substr) {
-                                return [key, ps[key].substring(0, substr)];
+                                if (typeof ps[key] === 'number') {
+                                  return [key, Number(String(ps[key]).substring(0, substr))];
+                                } else {
+                                  return [key, ps[key].substring(0, substr)];
+                                }
                             } else {
                                 if (!fn) {
                                     fn = x => x;
