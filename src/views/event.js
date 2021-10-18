@@ -282,6 +282,7 @@ const unitTypes = {
   yumasup: {no: 'Blocks'},
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
+  saccounty: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -1170,11 +1171,14 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   saccounty: [
-    "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county. \
-    For more information, please visit <a href='https://www.saccounty.net/Redistricting/' target='_blank'>www.saccounty.net/Redistricting/</a>",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the \
+    five districts as equal in population as possible so that each member represents about the same number of constituents. The County encourages \
+    residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district \
+    map suggestions for the whole county. For more information, please visit the County’s <a href='https://www.saccounty.net/Redistricting/' target='_blank'>website</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   sonomaco: [
     "Sonoma County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
