@@ -3227,9 +3227,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sacdata_blockgroups20"
+              "url": "mapbox://districtr.sacdatabg_blockgroups20"
             },
-            "sourceLayer": "sacdata_blockgroups20"
+            "sourceLayer": "sacdatabg_blockgroups20"
           }
         ]
       },
