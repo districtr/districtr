@@ -3163,7 +3163,7 @@
               },
               {
                 "key": "Inc75",
-                "name": "\\>$75k income",
+                "name": ">$75k income",
                 "sum": 438,
                 "min": 0,
                 "max": 1
@@ -3227,9 +3227,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sacramento_blockgroups20"
+              "url": "mapbox://districtr.sacdata_blockgroups20"
             },
-            "sourceLayer": "sacramento_blockgroups20"
+            "sourceLayer": "sacdata_blockgroups20"
           }
         ]
       },
