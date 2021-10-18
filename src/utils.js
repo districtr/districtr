@@ -447,6 +447,12 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.sandiego-mapping.org'
       },
     },
+    livermore: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+      coalition: false,
+    },
     ca_contracosta: {
       number_markers: true,
       border: true,

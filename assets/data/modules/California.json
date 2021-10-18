@@ -17431,5 +17431,111 @@
       "pluralNoun": "Trustee Districts"
     }
   ]
+},
+{
+  "id": "livermore",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "Population Total",
+            "name": "Total population",
+            "sum": 88006,
+            "min": 0,
+            "max": 870
+          },
+          "subgroups": []
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP Total",
+            "name": "Total population",
+            "sum": 61954,
+            "min": 0,
+            "max": 643
+          },
+          "subgroups": [
+            {
+              "key": "CVAP NH White",
+              "name": "White population",
+              "sum": 43149,
+              "min": 0,
+              "max": 495
+            },
+            {
+              "key": "CVAP Black",
+              "name": "Black population",
+              "sum": 1638,
+              "min": 0,
+              "max": 121
+            },
+            {
+              "key": "CVAP Asian",
+              "name": "Asian population",
+              "sum": 7263,
+              "min": 0,
+              "max": 220
+            },
+            {
+              "key": "CVAP Latino",
+              "name": "Hispanic population",
+              "sum": 9026,
+              "min": 0,
+              "max": 260
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "BLOCK20"
+      },
+      "bounds": [
+        [
+          -121.8482,
+          37.6286
+        ],
+        [
+          -121.6967,
+          37.7322
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.livermore_blocks_points"
+          },
+          "sourceLayer": "livermore_blocks_points"
+        },
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.livermore_blocks"
+          },
+          "sourceLayer": "livermore_blocks"
+        }
+      ]
+    }
+  ],
+  "name": "Livermore",
+  "state": "California",
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 4,
+      "pluralNoun": "Council Districts"
+    }
+  ]
 }
 ]
