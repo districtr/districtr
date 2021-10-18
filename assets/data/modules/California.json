@@ -3135,7 +3135,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renters",
                 "sum": 356,
                 "min": 0,
                 "max": 1
