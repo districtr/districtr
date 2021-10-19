@@ -4664,65 +4664,65 @@
               "key": "ChildAtHome",
               "name": "Children at home",
               "sum": 7,
-              "min": 0,
-              "max": 0
+              "min": 0.0,
+              "max": 1
             },
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renters",
                 "sum": 11,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "Apts",
                 "name": "Multi-family residents",
                 "sum": 9,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "HSGrads",
                 "name": "High school graduate",
                 "sum": 23,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
                 "name": "College graduate",
                 "sum": 13,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "Inc75",
                 "name": ">$75k income",
                 "sum": 16,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "SpanishAtHome",
                 "name": "Spanish spoken at home",
                 "sum": 5,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "AsnLangAtHome",
                 "name": "Asian languages spoken at home",
                 "sum": 1,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               },
               {
                 "key": "OthLangAtHome",
                 "name": "Other languages spoken at home",
                 "sum": 1,
-                "min": 0,
-                "max": 0
+                "min": 0.0,
+                "max": 1
               }
             ]
           }
@@ -4762,9 +4762,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.goletadata2_blockgroups20"
+              "url": "mapbox://districtr.goletadata3_blockgroups20"
             },
-            "sourceLayer": "goletadata2_blockgroups20"
+            "sourceLayer": "goletadata3_blockgroups20"
           }
         ]
       }
