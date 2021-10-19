@@ -4762,9 +4762,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.goletadata_blockgroups20"
+              "url": "mapbox://districtr.goletadata2_blockgroups20"
             },
-            "sourceLayer": "goletadata_blockgroups20"
+            "sourceLayer": "goletadata2_blockgroups20"
           }
         ]
       }

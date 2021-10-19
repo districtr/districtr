@@ -282,7 +282,8 @@ const unitTypes = {
   yumasup: {no: 'Blocks'},
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
-  saccounty: {no: 'Blocks'}
+  saccounty: {no: 'Blocks'},
+  goleta: {no: 'Blocks'}
 };
 
 const unitCounts = {
