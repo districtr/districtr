@@ -126,7 +126,7 @@ commoncausepa: 'Pennsylvania',
   yumasup: 'Arizona',
   yumaawc: 'Arizona',
   santa_ana: 'California',
-  "SanDimas2021": "California"
+  "sandimas2021": "California"
 };
 
 const validEventCodes = {
@@ -242,7 +242,7 @@ commoncausepa: 'pennsylvania',
   yumasup: 'yuma',
   yumaawc: 'yuma_awc',
   santa_ana: 'ca_santa_ana',
-  "SanDimas2021": "san_dimas"
+  "sandimas2021": "san_dimas"
 };
 
 const blockPlans = {
@@ -404,7 +404,7 @@ const hybrid_events = [
   'mp-maps',
   'mapsofla',
   'butte_county',
-  "SanDimas2021"
+  "sandimas2021"
 ];
 
 const portal_events = [
@@ -1048,7 +1048,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
 <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
 
-  "SanDimas2021": `
+  "sandimas2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Dimas' 2021 city council redistricting.</p>
     <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
     considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
@@ -1424,7 +1424,7 @@ butte_county: [
      Standing as an independent voice for positive change, a watchdog against corruption, and protector against abuse of power, \
      we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization."
   ],
-  "SanDimas2021": [
+  "sandimas2021": [
     `
     San Dimas City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
@@ -1603,7 +1603,7 @@ export default () => {
             document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
         } else if (
           [
-            "SanDimas2021", "saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty",
+            "sandimas2021", "saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty",
             "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog",
             "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity",
             "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton",
