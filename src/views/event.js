@@ -282,7 +282,8 @@ const unitTypes = {
   yumasup: {no: 'Blocks'},
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
-  saccounty: {no: 'Blocks'}
+  saccounty: {no: 'Blocks'},
+  goleta: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -1364,8 +1365,10 @@ butte_county: [
   goleta: [
     "City of Goleta City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   marinaca: [
     "City of Marina City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
