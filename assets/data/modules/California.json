@@ -18033,5 +18033,258 @@
       "pluralNoun": "Council Districts"
     }
   ]
-}
+},
+  {
+    "name": "San Dimas",
+    "state": "California",
+    "id": "san_dimas",
+    "units": [
+      {
+        "id": "Block",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 35020,
+              "min": 0,
+              "max": 1044
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 12991,
+                "min": 0,
+                "max": 420
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 14292,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black DOJ population",
+                "sum": 1376,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian DOJ population",
+                "sum": 316,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian DOJ population",
+                "sum": 5377,
+                "min": 0,
+                "max": 353
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "sum": 51,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other DOJ population",
+                "sum": 400,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races DOJ population",
+                "sum": 215,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total VAP",
+              "sum": 28298,
+              "min": 0,
+              "max": 851
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 12456,
+                "min": 0,
+                "max": 339
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black DOJ population",
+                "sum": 1082,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian DOJ population",
+                "sum": 4334,
+                "min": 0,
+                "max": 292
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 9631,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American DOJ population",
+                "sum": 287,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "sum": 47,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other DOJ population",
+                "sum": 319,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 7,
+              "min": 0,
+              "max": 0
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 5,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 19,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 7,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "Inc75",
+                "name": "\\>$75k income",
+                "sum": 12,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "GEOID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.854,
+            34.0637
+          ],
+          [
+            -117.7722,
+            34.1652
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimas_Block"
+            },
+            "sourceLayer": "san_dimas_Block"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimas_Block_points"
+            },
+            "sourceLayer": "san_dimas_Block_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  }
 ]
