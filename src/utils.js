@@ -508,6 +508,13 @@ export function spatial_abilities(id) {
       sideload: true,
       // divisor: 1000,
     },
+    san_dimas: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false
+    },
     ca_sonoma: {
       coalition: false,
       border: true,
@@ -599,12 +606,6 @@ export function spatial_abilities(id) {
       current_districts: true,
     },
     ca_goleta: {
-      coalition: false,
-      border: true,
-      shapefile: true,
-      number_markers: true,
-    },
-    san_dimas: {
       coalition: false,
       border: true,
       shapefile: true,

@@ -409,7 +409,7 @@ const hybrid_events = [
 
 const portal_events = [
   'open-maps',
-  'fyi',
+  'fyi'
 ];
 
 const eventDescriptions = {
