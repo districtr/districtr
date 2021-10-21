@@ -7912,64 +7912,64 @@
               "key": "ChildAtHome",
               "name": "Children home percent",
               "sum": 142,
-              "min": 0,
-              "max": 0
+              "min": 0.0,
+              "max": 1
             },
             "subgroups": [
               {
                 "key": "Renters",
                 "name": "Renter percent",
                 "sum": 184,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Apts",
                 "name": "Multi-family residents percent",
                 "sum": 106,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
                 "name": "High school grad percent",
                 "sum": 272,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
                 "name": "College grad percent",
                 "sum": 74,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Inc75",
                 "name": "Upper income percent",
                 "sum": 114,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
                 "name": "Spanish spoken at home percent",
                 "sum": 111,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
                 "name": "Asian languages spoken at home percent",
                 "sum": 27,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
                 "name": "Other languages spoken at home percent",
                 "sum": 14,
-                "min": 0,
+                "min": 0.0,
                 "max": 1
               }
             ]
