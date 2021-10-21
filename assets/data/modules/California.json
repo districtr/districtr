@@ -18177,7 +18177,7 @@
           },
           {
             "type": "population",
-            "name": "Population",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
               "name": "Children at home",
@@ -18275,6 +18275,14 @@
               "url": "mapbox://districtr.san_dimas_Block_points"
             },
             "sourceLayer": "san_dimas_Block_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimasbg_BlockGroup"
+            },
+            "sourceLayer": "san_dimasbg_BlockGroup"
           }
         ]
       }

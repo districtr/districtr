@@ -604,6 +604,12 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    san_dimas: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_santabarbara: {
       coalition: false,
       border: true,

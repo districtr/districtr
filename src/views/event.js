@@ -1614,7 +1614,11 @@ export default () => {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
-            if (eventCode === "sonomaco") {
+            
+            if (eventCode == "sandimas2021") {
+              document.getElementById("partner-link-a").href = "https://sandimasca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partners-san-dimas.png?v=2";
+            } else if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-sonoma.png?v=2";
             } else if (eventCode === "pasadena2021") {

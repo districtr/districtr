@@ -80,7 +80,6 @@ function getPlanContext() {
 }
 
 function loadContext(context) {
-    console.dir(context);
     const root = document.getElementById("root");
     const showVRA = spatial_abilities(context.place.id).vra_effectiveness;
     root.className = "";
