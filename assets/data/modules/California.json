@@ -18181,7 +18181,7 @@
             "name": "Percentages",
             "total": {
                 "key": "ChildAtHome",
-                "name": "Children home percent",
+                "name": "Children home",
                 "sum": 7,
                 "min": 0,
                 "max": 1
@@ -18189,56 +18189,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 5,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 3,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 19,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 7,
                 "min": 0,
                 "max": 1
               },
               {
-                "key": "Inc75",
-                "name": "Upper income percent",
+                "key": ">$75K income",
+                "name": "Upper income",
                 "sum": 12,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 3,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 1,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 0,
                 "min": 0,
                 "max": 1

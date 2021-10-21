@@ -1430,13 +1430,13 @@ butte_county: [
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
     interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
-    county.
+    city.
     `,
     `
     This mapping module displays 2020 Decennial Census population, adjusted per California state law to
     reallocate incarcerated populations to their last known residential address, on Census blocks. For more
     information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
-    website</a>. The "Additional demographics" in the module, displays 2019 ACS data on the Census block groups.
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
     The data was prepared by National Demographics Corporation. To learn more about their team click
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
