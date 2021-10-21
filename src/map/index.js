@@ -155,7 +155,8 @@ function addTracts(map, tilesets, stateName) {
             "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont",
             "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark",
             "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne",
-            "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc"
+            "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc",
+            "san_dimas"
         ],
         isException = exceptions.includes(stateName),
         hasCountyFilter = spatial_abilities(stateName).county_filter,
