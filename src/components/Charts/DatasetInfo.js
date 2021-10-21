@@ -43,7 +43,7 @@ function datasetInfo(state) {
         if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland"].includes(place.id))
           || (["california", "ca_SanDiego", "ca_contracosta", "ca_sutter", "menlo_park"].includes(state.place.id))) {
             dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
-        } else if (["ccsanitation2", "ca_pasadena", "sacramento", "ca_goleta", "ca_fresno"].includes(state.place.id)) {
+        } else if (["ccsanitation2", "ca_pasadena", "sacramento", "ca_goleta", "ca_fresno", "ca_cvista"].includes(state.place.id)) {
           // 2020 - NDC - Prison
           dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
         } else {
