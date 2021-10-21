@@ -127,6 +127,7 @@ commoncausepa: 'Pennsylvania',
   yumaawc: 'Arizona',
   santa_ana: 'California',
   'glendora2021': 'California',
+  "sandimas2021": "California",
 };
 
 const validEventCodes = {
@@ -243,6 +244,7 @@ commoncausepa: 'pennsylvania',
   yumaawc: 'yuma_awc',
   santa_ana: 'ca_santa_ana',
   'glendora2021': 'ca_glendora',
+  "sandimas2021": "san_dimas",
 };
 
 const blockPlans = {
@@ -285,7 +287,8 @@ const unitTypes = {
   keystonecounts: {no: ['VTDs', 'Precincts', 'Block Groups']},
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
   saccounty: {no: 'Blocks'},
-  goleta: {no: 'Blocks'}
+  goleta: {no: 'Blocks'},
+  san_dimas: { no: "Blocks" }
 };
 
 const unitCounts = {
@@ -323,7 +326,7 @@ const coi_events = [
   'commoncausepa',
   'tuolumne',
   'carpinteria',
-  'santa_clara_water',
+  'santa_clara_water'
 ];
 
 const hybrid_events = [
@@ -404,11 +407,12 @@ const hybrid_events = [
   'mapsofla',
   'butte_county',
   'glendora2021',
+  "sandimas2021",
 ];
 
 const portal_events = [
   'open-maps',
-  'fyi',
+  'fyi'
 ];
 
 const eventDescriptions = {
@@ -1037,7 +1041,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
        <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
-        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
   cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
 <p>Please take this opportunity to draw your own districts using the redistricting requirements as listed <a href="https://www.dallascityhall.com" target="_blank">here</a>.</p>\
 <p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
@@ -1047,7 +1051,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
 <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
   glendora2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Glendora's 2021 city council redistricting.<p>\
-  <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+  <p>As part of the redistricting process, the California FAIR MAPS Act incudes \
   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
   population that shares common social or economic interests that should \
   be included within a single district for purposes of its effective and fair \
@@ -1056,6 +1060,14 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
   <p><strong>To display your map on this page, be sure the tag &quot;Glendora2021&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  "sandimas2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Dimas' 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `
 };
 
 const longAbout = {
@@ -1432,6 +1444,23 @@ butte_county: [
     in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
+  "sandimas2021": [
+    `
+    San Dimas City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address, on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ]
 };
 
 const proposals_by_event = {
@@ -1592,12 +1621,24 @@ export default () => {
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
             document.getElementById("partnership-b").src = "/assets/partners-rp.png?v=2";
-        } else if (["saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty", "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog", "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity", "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton", "groverbeach",
-          "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca", "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021", "glendale2021", "yumasup", "yumaawc", "glendora2021"].includes(eventCode)) {
+        } else if (
+          [
+            "sandimas2021", "saccounty", "saccountymap", "sonomaco", "pasadena2021", "sbcounty",
+            "goleta", "marinco", "fresno", "nevadaco", "kingsco", "mercedco", "marinaca", "arroyog",
+            "sanmateoco", "sanbenito", "chulavista", "camarillo", "bellflower", "fresnocity",
+            "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton",
+            "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
+            "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
+            "glendale2021", "yumasup", "yumaawc", "glendora2021"
+          ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
-            if (eventCode === "sonomaco") {
+            
+            if (eventCode == "sandimas2021") {
+              document.getElementById("partner-link-a").href = "https://sandimasca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partners-san-dimas.png?v=2";
+            } else if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-sonoma.png?v=2";
             } else if (eventCode === "pasadena2021") {

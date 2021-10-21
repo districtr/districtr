@@ -17,7 +17,7 @@ function datasetInfo(state) {
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
             mesa2020: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
-            ndc_prison_2020: "Uses <strong>2020 Decennial Census</strong> prison-adjusted population with processing by National Demographics Corporation",
+            ndc_prison_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation"
@@ -43,7 +43,7 @@ function datasetInfo(state) {
         if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland"].includes(place.id))
           || (["california", "ca_SanDiego", "ca_contracosta", "ca_sutter", "menlo_park"].includes(state.place.id))) {
             dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
-        } else if (["ccsanitation2", "ca_pasadena", "sacramento", "ca_goleta", "ca_glendora"].includes(state.place.id)) {
+        } else if (["san_dimas", "ccsanitation2", "ca_pasadena", "sacramento", "ca_goleta", "ca_glendora"].includes(state.place.id)) {
           // 2020 - NDC - Prison
           dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
         } else {
