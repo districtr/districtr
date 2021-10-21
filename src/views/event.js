@@ -1041,7 +1041,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>The City of Fort Myers is one of the fastest-growing cities in the nation. The population and demographic makeup of the City have changed substantially since the last redistricting in 2010.</p>\
        <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
-        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>"
+        save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
   cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
 <p>Please take this opportunity to draw your own districts using the redistricting requirements as listed <a href="https://www.dallascityhall.com" target="_blank">here</a>.</p>\
 <p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
