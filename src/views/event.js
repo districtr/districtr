@@ -1724,6 +1724,10 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
               document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";
               document.getElementById("partnership-a").style.background = "#000";
+            } else if (eventCode === "glendora2021") {
+              document.getElementById("partner-link-a").href = "https://drawglendora.org/";
+              document.getElementById("partnership-a").src = "/assets/partners-glendora.png?v=2";
+            }
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
