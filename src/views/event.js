@@ -128,6 +128,12 @@ commoncausepa: 'Pennsylvania',
   santa_ana: 'California',
   'glendora2021': 'California',
   "sandimas2021": "California",
+  "anaheim2021": "California",
+  "arcadia2021": "California:",
+  "lamirada2021": "California",
+  "lakewood2021": "California",
+  "laplacentia2021": "California",
+  "sanbruno2021": "California"
 };
 
 const validEventCodes = {
@@ -245,6 +251,12 @@ commoncausepa: 'pennsylvania',
   santa_ana: 'ca_santa_ana',
   'glendora2021': 'ca_glendora',
   "sandimas2021": "san_dimas",
+  "anaheim2021": "anaheim",
+  "arcadia2021": "arcadia",
+  "lamirada2021": "la_mirada",
+  "lakewood2021": "placentia",
+  "laplacentia2021": "lakewood",
+  "sanbruno2021": "san_bruno"
 };
 
 const blockPlans = {
@@ -288,7 +300,13 @@ const unitTypes = {
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
   saccounty: {no: 'Blocks'},
   goleta: {no: 'Blocks'},
-  san_dimas: { no: "Blocks" }
+  san_dimas: { no: "Blocks" },
+  anaheim: { no: "Blocks" },
+  arcadia: { no: "Blocks" },
+  la_mirada: { no: "Blocks" },
+  placentia: { no: "Blocks" },
+  lakewood: { no: "Blocks" },
+  san_bruno: { no: "Blocks" }
 };
 
 const unitCounts = {
@@ -408,6 +426,12 @@ const hybrid_events = [
   'butte_county',
   'glendora2021',
   "sandimas2021",
+  "anaheim2021",
+  "arcadia2021",
+  "lamirada2021",
+  "placentia2021",
+  "lakewood2021",
+  "sanbruno2021"
 ];
 
 const portal_events = [
@@ -1060,6 +1084,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
   <p><strong>To display your map on this page, be sure the tag &quot;Glendora2021&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+  
   "sandimas2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Dimas' 2021 city council redistricting.</p>
     <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
@@ -1067,7 +1092,23 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     should be included within a single district for purposes of its effective and fair representation."</p>
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
     <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
-  `
+  `,
+  "anaheim2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for City of Anaheim's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `,
+  "arcadia2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Bruno's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `,
 };
 
 const longAbout = {
