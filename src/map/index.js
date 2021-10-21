@@ -141,13 +141,15 @@ function addPrecincts(map, tilesets, stateName) {
 }
 
 /**
- * @description Adds Census tracts as a background layer in the specified locations.
+ * @description Adds Census tracts (or block groups, or precincts) as a background layer.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
  * @param {Object[]} tilesets Array of MapboxGL tileset specifications.
  * @param {String} stateName Name of the state we're redistricting in.
  * @returns {Layer|null} Null if the exception isn't included, or a Layer instance.
  */
 function addTracts(map, tilesets, stateName) {
+    // Create a list of exceptions which require the loading of block group tilesets
+    // rather than precinct or tract tilesets.
     let exceptions = [
             "sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta",
             "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina",
