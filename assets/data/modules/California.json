@@ -18035,268 +18035,6 @@
     ]
   },
   {
-    "id": "san_dimas",
-    "name": "San Dimas",
-    "state": "California",
-    "units": [
-      {
-        "id": "blocks20",
-        "name": "2020 Blocks",
-        "unitType": "Blocks",
-        "hideOnDefault": true,
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "Population_CA_Adj_swdb",
-              "name": "Total population",
-              "sum": 35020,
-              "min": 0,
-              "max": 1044
-            },
-            "subgroups": [
-              {
-                "key": "Hispanic Origin",
-                "name": "Hispanic population",
-                "sum": 12991,
-                "min": 0,
-                "max": 420
-              },
-              {
-                "key": "NH_Wht",
-                "name": "White Alone population",
-                "sum": 14292,
-                "min": 0,
-                "max": 401
-              },
-              {
-                "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
-                "sum": 1376,
-                "min": 0,
-                "max": 49
-              },
-              {
-                "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
-                "sum": 316,
-                "min": 0,
-                "max": 11
-              },
-              {
-                "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
-                "sum": 5377,
-                "min": 0,
-                "max": 353
-              },
-              {
-                "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
-                "sum": 51,
-                "min": 0,
-                "max": 4
-              },
-              {
-                "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
-                "sum": 400,
-                "min": 0,
-                "max": 19
-              },
-              {
-                "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
-                "sum": 215,
-                "min": 0,
-                "max": 11
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "18+_Population P4",
-              "name": "Total population",
-              "sum": 28298,
-              "min": 0,
-              "max": 851
-            },
-            "subgroups": [
-              {
-                "key": "NH18+_Wht",
-                "name": "White Alone population",
-                "sum": 12456,
-                "min": 0,
-                "max": 339
-              },
-              {
-                "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
-                "sum": 1082,
-                "min": 0,
-                "max": 38
-              },
-              {
-                "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
-                "sum": 4334,
-                "min": 0,
-                "max": 292
-              },
-              {
-                "key": "H18+_Pop",
-                "name": "Hispanic population",
-                "sum": 9631,
-                "min": 0,
-                "max": 322
-              },
-              {
-                "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
-                "sum": 287,
-                "min": 0,
-                "max": 11
-              },
-              {
-                "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
-                "sum": 47,
-                "min": 0,
-                "max": 4
-              },
-              {
-                "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
-                "sum": 319,
-                "min": 0,
-                "max": 12
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Percentages",
-            "total": {
-                "key": "ChildAtHome",
-                "name": "Children home",
-                "sum": 7,
-                "min": 0,
-                "max": 1
-              },
-            "subgroups": [
-              {
-                "key": "Renters",
-                "name": "Renter",
-                "sum": 5,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "Apts",
-                "name": "Multi-family residents",
-                "sum": 3,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "HSGrads",
-                "name": "High school grad",
-                "sum": 19,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "CollegeGrads",
-                "name": "College grad",
-                "sum": 7,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "Inc75",
-                "name": ">$75K income",
-                "sum": 12,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "SpanishAtHome",
-                "name": "Spanish spoken at home",
-                "sum": 3,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home",
-                "sum": 1,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "OthLangAtHome",
-                "name": "Other languages spoken at home",
-                "sum": 0,
-                "min": 0,
-                "max": 1
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Geo ID",
-          "key": "Block"
-        },
-        "bounds": [
-          [
-            -117.854,
-            34.0637
-          ],
-          [
-            -117.7722,
-            34.1652
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.san_dimas_blocks20"
-            },
-            "sourceLayer": "san_dimas_blocks20"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.san_dimas_blocks20_points"
-            },
-            "sourceLayer": "san_dimas_blocks20_points"
-          },
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.san_dimas_bg_blockgroups"
-            },
-            "sourceLayer": "san_dimas_bg_blockgroups"
-          }
-        ]
-      }
-    ],
-    "districtingProblems": [
-      {
-        "name": "City Council",
-        "numberOfParts": 4,
-        "pluralNoun": "City Council Districts"
-      }
-    ]
-  },
-  {
     "id": "ca_glendora",
     "state": "California",
     "name": "Glendora",
@@ -18559,6 +18297,8 @@
   },
   {
     "id": "anaheim",
+    "name": "Anaheim",
+    "state": "California",
     "units": [
       {
         "id": "blocks20",
@@ -18798,12 +18538,9 @@
             },
             "sourceLayer": "anaheim_bg_blockgroups"
           }
-        ],
-        "hideOnDefault": true
+        ]
       }
     ],
-    "name": "Anaheim",
-    "state": "California",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -18814,6 +18551,8 @@
   },
   {
     "id": "arcadia",
+    "name": "Arcadia",
+    "state": "California",
     "units": [
       {
         "id": "blocks20",
@@ -19060,12 +18799,9 @@
             },
             "sourceLayer": "arcadia_bg_blockgroups"
           }
-        ],
-        "hideOnDefault": true
+        ]
       }
     ],
-    "name": "Arcadia",
-    "state": "California",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -19076,6 +18812,8 @@
   },
   {
     "id": "la_mirada",
+    "name": "La Mirada",
+    "state": "California",
     "units": [
       {
         "id": "blocks20",
@@ -19322,12 +19060,9 @@
             },
             "sourceLayer": "la_mirada_bg_blockgroups"
           }
-        ],
-        "hideOnDefault": true
+        ]
       }
     ],
-    "name": "La Mirada",
-    "state": "California",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -19338,6 +19073,8 @@
   },
   {
     "id": "placentia",
+    "name": "Placentia",
+    "state": "California",
     "units": [
       {
         "id": "blocks20",
@@ -19577,274 +19314,9 @@
             },
             "sourceLayer": "placentia_bg_blockgroups"
           }
-        ],
-        "hideOnDefault": true
+        ]
       }
     ],
-    "name": "La Placentia",
-    "state": "California",
-    "districtingProblems": [
-      {
-        "name": "City Council",
-        "numberOfParts": 5,
-        "pluralNoun": "City Council Districts"
-      }
-    ]
-  },
-  {
-    "id": "lakewood",
-    "units": [
-      {
-        "id": "blocks20",
-        "name": "2020 Blocks",
-        "unitType": "Blocks",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "Population_CA_Adj_swdb",
-              "name": "Total population",
-              "sum": 82713,
-              "min": 0,
-              "max": 1454
-            },
-            "subgroups": [
-              {
-                "key": "Hispanic Origin",
-                "name": "Hispanic population",
-                "sum": 29559,
-                "min": 0,
-                "max": 473
-              },
-              {
-                "key": "NH_Wht",
-                "name": "White Alone population",
-                "sum": 25925,
-                "min": 0,
-                "max": 200
-              },
-              {
-                "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
-                "sum": 7203,
-                "min": 0,
-                "max": 372
-              },
-              {
-                "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
-                "sum": 806,
-                "min": 0,
-                "max": 26
-              },
-              {
-                "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
-                "sum": 16556,
-                "min": 0,
-                "max": 430
-              },
-              {
-                "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
-                "sum": 798,
-                "min": 0,
-                "max": 15
-              },
-              {
-                "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
-                "sum": 917,
-                "min": 0,
-                "max": 14
-              },
-              {
-                "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
-                "sum": 948,
-                "min": 0,
-                "max": 18
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "18+_Population P4",
-              "name": "Total population",
-              "sum": 65419,
-              "min": 0,
-              "max": 1071
-            },
-            "subgroups": [
-              {
-                "key": "NH18+_Wht",
-                "name": "White Alone population",
-                "sum": 22580,
-                "min": 0,
-                "max": 184
-              },
-              {
-                "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
-                "sum": 5652,
-                "min": 0,
-                "max": 258
-              },
-              {
-                "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
-                "sum": 13314,
-                "min": 0,
-                "max": 332
-              },
-              {
-                "key": "H18+_Pop",
-                "name": "Hispanic population",
-                "sum": 21315,
-                "min": 0,
-                "max": 344
-              },
-              {
-                "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
-                "sum": 714,
-                "min": 0,
-                "max": 24
-              },
-              {
-                "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
-                "sum": 618,
-                "min": 0,
-                "max": 15
-              },
-              {
-                "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
-                "sum": 696,
-                "min": 0,
-                "max": 11
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Percentages",
-            "total": {
-              "key": "ChildAtHome",
-              "name": "Children home",
-              "sum": 24,
-              "min": 0,
-              "max": 1
-            },
-            "subgroups": [
-              {
-                "key": "Renters",
-                "name": "Renter",
-                "sum": 16,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "Apts",
-                "name": "Multi-family residents",
-                "sum": 7,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "HSGrads",
-                "name": "High school grad",
-                "sum": 62,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "CollegeGrads",
-                "name": "College grad",
-                "sum": 20,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "Inc75",
-                "name": ">$75K income",
-                "sum": 43,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "SpanishAtHome",
-                "name": "Spanish spoken at home",
-                "sum": 12,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home",
-                "sum": 8,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "OthLangAtHome",
-                "name": "Other languages spoken at home",
-                "sum": 1,
-                "min": 0,
-                "max": 1
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Geo ID",
-          "key": "Block"
-        },
-        "bounds": [
-          [
-            -118.1677,
-            33.82
-          ],
-          [
-            -118.0589,
-            33.8691
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.lakewood_blocks20"
-            },
-            "sourceLayer": "lakewood_blocks20"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.lakewood_blocks20_points"
-            },
-            "sourceLayer": "lakewood_blocks20_points"
-          },
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.lakewood_bg_blockgroups"
-            },
-            "sourceLayer": "lakewood_bg_blockgroups"
-          }
-        ],
-        "hideOnDefault": true
-      }
-    ],
-    "name": "Lakewood",
-    "state": "California",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -19855,6 +19327,8 @@
   },
   {
     "id": "san_bruno",
+    "name": "San Bruno",
+    "state": "California",
     "units": [
       {
         "id": "blocks20",
@@ -19888,42 +19362,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 839,
                 "min": 0,
                 "max": 55
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 228,
                 "min": 0,
                 "max": 16
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 14910,
                 "min": 0,
                 "max": 939
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 1215,
                 "min": 0,
                 "max": 60
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 817,
                 "min": 0,
                 "max": 63
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 651,
                 "min": 0,
                 "max": 24
@@ -19950,14 +19424,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 716,
                 "min": 0,
                 "max": 55
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 12272,
                 "min": 0,
                 "max": 836
@@ -19971,21 +19445,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 181,
                 "min": 0,
                 "max": 16
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 932,
                 "min": 0,
                 "max": 52
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 663,
                 "min": 0,
                 "max": 52
@@ -20101,16 +19575,535 @@
             },
             "sourceLayer": "san_bruno_bg_blockgroups"
           }
-        ],
-        "hideOnDefault": true
+        ]
       }
     ],
-    "name": "San Bruno",
-    "state": "California",
     "districtingProblems": [
       {
         "name": "City Council",
         "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "id": "san_dimas",
+    "name": "San Dimas",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 35020,
+              "min": 0,
+              "max": 1044
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 12991,
+                "min": 0,
+                "max": 420
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 14292,
+                "min": 0,
+                "max": 401
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black DOJ population",
+                "sum": 1376,
+                "min": 0,
+                "max": 49
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian DOJ population",
+                "sum": 316,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian DOJ population",
+                "sum": 5377,
+                "min": 0,
+                "max": 353
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "sum": 51,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other DOJ population",
+                "sum": 400,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races DOJ population",
+                "sum": 215,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total population",
+              "sum": 28298,
+              "min": 0,
+              "max": 851
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 12456,
+                "min": 0,
+                "max": 339
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black DOJ population",
+                "sum": 1082,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian DOJ population",
+                "sum": 4334,
+                "min": 0,
+                "max": 292
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 9631,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American DOJ population",
+                "sum": 287,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "sum": 47,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other DOJ population",
+                "sum": 319,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children home",
+              "sum": 7,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school grad",
+                "sum": 19,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College grad",
+                "sum": 7,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75K income",
+                "sum": 12,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.854,
+            34.0637
+          ],
+          [
+            -117.7722,
+            34.1652
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimas_blocks20"
+            },
+            "sourceLayer": "san_dimas_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimas_blocks20_points"
+            },
+            "sourceLayer": "san_dimas_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.san_dimas_bg_blockgroups"
+            },
+            "sourceLayer": "san_dimas_bg_blockgroups"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "state": "California",
+    "name": "Lakewood",
+    "id": "lakewood",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 82713,
+              "min": 0,
+              "max": 1454
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 29559,
+                "min": 0,
+                "max": 473
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 25925,
+                "min": 0,
+                "max": 200
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 7203,
+                "min": 0,
+                "max": 372
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 806,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 16556,
+                "min": 0,
+                "max": 430
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 798,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 917,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 948,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total population",
+              "sum": 65419,
+              "min": 0,
+              "max": 1071
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 22580,
+                "min": 0,
+                "max": 184
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black population",
+                "sum": 5652,
+                "min": 0,
+                "max": 258
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian population",
+                "sum": 13314,
+                "min": 0,
+                "max": 332
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 21315,
+                "min": 0,
+                "max": 344
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American population",
+                "sum": 714,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 618,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other population",
+                "sum": 696,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children home",
+              "sum": 24,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter",
+                "sum": 16,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 7,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school grad",
+                "sum": 62,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College grad",
+                "sum": 20,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75K income",
+                "sum": 43,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 12,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 8,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -118.1677,
+            33.82
+          ],
+          [
+            -118.0589,
+            33.8691
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lakewood_blocks20"
+            },
+            "sourceLayer": "lakewood_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lakewood_blocks20_points"
+            },
+            "sourceLayer": "lakewood_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lakewood_bg_blockgroups"
+            },
+            "sourceLayer": "lakewood_bg_blockgroups"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
         "pluralNoun": "City Council Districts"
       }
     ]

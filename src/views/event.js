@@ -1539,7 +1539,7 @@ butte_county: [
       Anaheim City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
       the four districts as equal in population as possible so that each member represents about the same number
       of constituents. The City encourages residents to participate by suggesting neighborhood and community of
-      interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+      interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole
       city.
       `,
       `
@@ -1555,7 +1555,7 @@ butte_county: [
     Arcadia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
-    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole
     city.
     `,
     `
@@ -1572,7 +1572,7 @@ butte_county: [
     La Mirada City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
-    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole
     city.
     `,
     `
@@ -1589,7 +1589,7 @@ butte_county: [
     Lakewood City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
-    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole
     city.
     `,
     `
@@ -1606,7 +1606,7 @@ butte_county: [
     La Placentia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
-    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole
     city.
     `,
     `

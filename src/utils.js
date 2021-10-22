@@ -512,14 +512,14 @@ export function spatial_abilities(id) {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false
     },
     anaheim: {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false,
       current_districts: true
     },
@@ -527,7 +527,7 @@ export function spatial_abilities(id) {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false,
       current_districts: true
     },
@@ -535,7 +535,7 @@ export function spatial_abilities(id) {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false,
       current_districts: true
     },
@@ -543,14 +543,14 @@ export function spatial_abilities(id) {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false
     },
     placentia: {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false,
       current_districts: true
     },
@@ -558,7 +558,7 @@ export function spatial_abilities(id) {
       coalition: false,
       shapefile: true,
       number_markers: true,
-      border: false,
+      border: true,
       sideload: false
     },
     ca_sonoma: {
