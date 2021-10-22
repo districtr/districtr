@@ -401,6 +401,8 @@ export default function DataLayersPlugin(editor) {
         );
     }
 
+    console.dir(state);
+    
     if (state.pcts) {
       const pctOverlay = new OverlayContainer(
           "pcts",

@@ -141,13 +141,15 @@ function addPrecincts(map, tilesets, stateName) {
 }
 
 /**
- * @description Adds Census tracts as a background layer in the specified locations.
+ * @description Adds Census tracts (or block groups, or precincts) as a background layer.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
  * @param {Object[]} tilesets Array of MapboxGL tileset specifications.
  * @param {String} stateName Name of the state we're redistricting in.
  * @returns {Layer|null} Null if the exception isn't included, or a Layer instance.
  */
 function addTracts(map, tilesets, stateName) {
+    // Create a list of exceptions which require the loading of block group tilesets
+    // rather than precinct or tract tilesets.
     let exceptions = [
             "sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta",
             "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina",
@@ -156,12 +158,15 @@ function addTracts(map, tilesets, stateName) {
             "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark",
             "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne",
             "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc",
-            "ca_glendora", "san_dimas"
+            "ca_glendora", "san_dimas", "anaheim", "arcadia", "la_mirada", "placentia",
+            "lakewood", "san_bruno"
         ],
         isException = exceptions.includes(stateName),
         hasCountyFilter = spatial_abilities(stateName).county_filter,
         tileType,
         tileset;
+
+    console.dir(stateName, isException);
 
     // If this state isn't one of the exceptions or doesn't have a county filter,
     // return null immediately.
@@ -170,6 +175,8 @@ function addTracts(map, tilesets, stateName) {
     // Otherwise, create a new Layer.
     tileType = isException ? "blockgroups" : "precincts";
     tileset = tilesets.find((t) => t.source.url.includes(tileType));
+
+    console.dir(tileset);
 
     return new Layer(map, {
         id: "extra-tracts",
