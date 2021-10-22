@@ -289,13 +289,13 @@ const unitTypes = {
   saccounty: {no: 'Blocks'},
   goleta: {no: 'Blocks'},
   san_dimas: { no: "Blocks" },
-  ca_fresno: {no: "Blocks"},
-  ca_kings: {no: "Blocks"},
-  ca_marin: {no: "Blocks"},
-  ca_merced: {no: "Blocks"},
-  ca_sanbenito: {no: "Blocks"},
-  ca_santabarbara: {no: "Blocks"},
-  ca_sm_county: {no: "Blocks"},
+  fresno: {no: "Blocks"},
+  kingsco: {no: "Blocks"},
+  marinco: {no: "Blocks"},
+  mercedco: {no: "Blocks"},
+  sanbenito: {no: "Blocks"},
+  sbcounty: {no: "Blocks"},
+  sanmateoco: {no: "Blocks"},
   laverne: {no: "Blocks"}
 };
 
