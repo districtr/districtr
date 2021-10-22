@@ -273,7 +273,7 @@ const unitTypes = {
   martinez: {no: 'Blocks'},
   yolo_county: {no: 'Blocks'},
   siskiyou: {no: 'Blocks'},
-  solano_county: {no: 'Blocks'},Blocks
+  solano_county: {no: 'Blocks'},
   kern_county: {no: 'Blocks'},
   humboldt_county: {no: 'Blocks'},
   ventura_county: {no: 'Blocks'},

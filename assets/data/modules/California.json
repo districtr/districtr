@@ -3981,7 +3981,7 @@
                 "name": "Renter percent",
                 "sum": 151,
                 "min": 0.0,
-                "max": 01
+                "max": 1
               },
               {
                 "key": "Apts",
