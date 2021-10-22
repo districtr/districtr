@@ -288,7 +288,15 @@ const unitTypes = {
   pavoice: {no: ['VTDs', 'Precincts', 'Block Groups']},
   saccounty: {no: 'Blocks'},
   goleta: {no: 'Blocks'},
-  san_dimas: { no: "Blocks" }
+  san_dimas: { no: "Blocks" },
+  ca_fresno: {no: "Blocks"},
+  ca_kings: {no: "Blocks"},
+  ca_marin: {no: "Blocks"},
+  ca_merced: {no: "Blocks"},
+  ca_sanbenito: {no: "Blocks"},
+  ca_santabarbara: {no: "Blocks"},
+  ca_sm_county: {no: "Blocks"},
+  laverne: {no: "Blocks"}
 };
 
 const unitCounts = {
@@ -1227,8 +1235,10 @@ butte_county: [
   laverne: [
     "City of La Verne City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   pomonaca: [
     "City of Pomona City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1293,20 +1303,26 @@ butte_county: [
   marinco: [
     "Marin County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   mercedco: [
     "Merced County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   kingsco: [
     "Kings County District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   fremont2021: [
     "City of Fremont District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1366,8 +1382,10 @@ butte_county: [
   fresno: [
     "Fresno County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   nevadaco: [
     "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1378,14 +1396,18 @@ butte_county: [
   sanmateoco: [
     "San Mateo County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   sanbenito: [
     "San Benito County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   goleta: [
     "City of Goleta City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1428,8 +1450,10 @@ butte_county: [
   sbcounty: [
     "Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   commoncausepa: [
     "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
