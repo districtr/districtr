@@ -5112,7 +5112,7 @@
               "name": "Children at home",
               "sum": 101,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -5557,7 +5557,7 @@
               "name": "Children at home",
               "sum": 51,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -8123,7 +8123,7 @@
               "name": "Children at home",
               "sum": 36,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -8567,7 +8567,7 @@
               "name": "Children at home",
               "sum": 72,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -9013,7 +9013,7 @@
               "name": "Children at home",
               "sum": 261,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -10101,7 +10101,7 @@
               "name": "Children at home",
               "sum": 166,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -10548,7 +10548,7 @@
               "name": "Children at home",
               "sum": 19,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -14465,7 +14465,7 @@
               "name": "Children at home",
               "sum": 5,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
