@@ -126,6 +126,8 @@ commoncausepa: 'Pennsylvania',
   yumasup: 'Arizona',
   yumaawc: 'Arizona',
   santa_ana: 'California',
+  poway2021: 'California',
+  torrance2021: 'California'
 };
 
 const validEventCodes = {
@@ -241,6 +243,8 @@ commoncausepa: 'pennsylvania',
   yumasup: 'yuma',
   yumaawc: 'yuma_awc',
   santa_ana: 'ca_santa_ana',
+  poway2021: 'ca_poway',
+  torrance2021: 'ca_torrance'
 };
 
 const blockPlans = {
@@ -287,7 +291,9 @@ const unitTypes = {
   fresnocity: {no: 'Blocks'},
   chulavista: {no: 'Blocks'},
   stockton2021: {no: 'Blocks'},
-  sonomaco: {no: 'Blocks'}
+  sonomaco: {no: 'Blocks'},
+  poway2021: {no: 'Blocks'},
+  torrance2021: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -405,6 +411,8 @@ const hybrid_events = [
   'mp-maps',
   'mapsofla',
   'butte_county',
+  'poway2021',
+  'torrance2021'
 ];
 
 const portal_events = [
@@ -1047,6 +1055,26 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>Every map submitted will be carefully reviewed by the City of Dallas Redistricting Commission. For more information, visit <a href="https://dallascityhall.com" target="_blank">City of Dallas Citizen Redistricting Commission</a>.</p>\
 <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
 <p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
+poway2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Poway County’s 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the city know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Poway2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+torrance2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Torrance County’s 2021 city counci redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the city know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Torrance2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
 };
 
 const longAbout = {
@@ -1430,6 +1458,22 @@ butte_county: [
     "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
      Standing as an independent voice for positive change, a watchdog against corruption, and protector against abuse of power, \
      we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization."
+  ],
+  poway2021: [
+    "Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+  ],
+  torrance2021: [
+    "Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
 };
 
