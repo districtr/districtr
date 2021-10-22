@@ -273,7 +273,7 @@ const unitTypes = {
   martinez: {no: 'Blocks'},
   yolo_county: {no: 'Blocks'},
   siskiyou: {no: 'Blocks'},
-  solano_county: {no: 'Blocks'},
+  solano_county: {no: 'Blocks'},Blocks
   kern_county: {no: 'Blocks'},
   humboldt_county: {no: 'Blocks'},
   ventura_county: {no: 'Blocks'},
@@ -286,7 +286,8 @@ const unitTypes = {
   goleta: {no: 'Blocks'},
   fresnocity: {no: 'Blocks'},
   chulavista: {no: 'Blocks'},
-  stockton2021: {no: 'Blocks'}
+  stockton2021: {no: 'Blocks'},
+  sonomaco: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -1187,8 +1188,10 @@ butte_county: [
   sonomaco: [
     "Sonoma County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   pasadena2021: [
     "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
