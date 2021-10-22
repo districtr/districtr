@@ -1,6 +1,6 @@
 {
   "assignment": {},
-  "id": "a7a5ead6",
+  "id": "cc3523ba",
   "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "pluralNoun": "Congressional Districts",
@@ -24,7 +24,7 @@
   "placeId": "new_mexico",
   "units": {
     "id": "precincts2",
-    "name": "2020 Precincts",
+    "name": "2021 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {

@@ -1,6 +1,6 @@
 {
   "assignment": {},
-  "id": "1bf2cc81",
+  "id": "db83bc37",
   "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "pluralNoun": "State House Districts",
@@ -91,7 +91,7 @@
   "placeId": "new_mexico",
   "units": {
     "id": "precincts2",
-    "name": "2020 Precincts",
+    "name": "2021 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {
