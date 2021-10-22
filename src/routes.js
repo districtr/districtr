@@ -148,9 +148,9 @@ export function getContextFromStorage() {
     let state;
     try {
         state = JSON.parse(savedState);
-        if (state.place && state.units && state.units.columnSets && (state.place.id === "new_mexico") && window.location.href.includes("portal")) {
-            state.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
-        }
+//         if (state.place && state.units && state.units.columnSets && (state.place.id === "new_mexico") && window.location.href.includes("portal")) {
+//             state.units.columnSets = state.units.columnSets.filter(c => c.type !== "election");
+//         }
     } catch (e) {
         localStorage.removeItem("savedState");
         navigateTo("/new");
@@ -185,10 +185,10 @@ export function loadPlanFromJSON(planRecord) {
             place.landmarks = (planRecord.place || {}).landmarks;
             planRecord.units = place.units.find(u => (u.name === planRecord.units.name) || (u.name === "Wards" && planRecord.units.name === "2011 Wards") || (u.name === "2011 Wards" && planRecord.units.name === "Wards"));
         }
-        if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
-            // hide election data on New Mexico portal maps
-            planRecord.units.columnSets = planRecord.units.columnSets.filter(c => c.type !== "election");
-        }
+//         if (planRecord.place && (planRecord.place.id === "new_mexico") && planRecord.units && planRecord.units.columnSets && window.location.href.includes("portal")) {
+//             // hide election data on New Mexico portal maps
+//             planRecord.units.columnSets = planRecord.units.columnSets.filter(c => c.type !== "election");
+//         }
         return {
             ...planRecord,
             place
