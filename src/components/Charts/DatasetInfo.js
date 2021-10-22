@@ -20,7 +20,8 @@ function datasetInfo(state) {
             ndc_prison_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
-            ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation"
+            ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
+            ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -52,6 +53,9 @@ function datasetInfo(state) {
             ) {
           // 2020 - NDC - Prison
           dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
+        } else if (["placentia", "anaheim"].includes(state.place.id)) {
+            // 2020 NDC un-adjusted population.
+            dataset = `<p><span>&#9432;</span> ${populations.ndc_2020}`;
         } else {
           // 2020 generic
           dataset = `<p><span>&#9432;</span> ${populations.census20}`;

@@ -132,7 +132,7 @@ commoncausepa: 'Pennsylvania',
   "arcadia2021": "California",
   "lamirada2021": "California",
   "lakewood2021": "California",
-  "laplacentia2021": "California",
+  "placentia2021": "California",
   "sanbruno2021": "California"
 };
 
@@ -255,7 +255,7 @@ commoncausepa: 'pennsylvania',
   "arcadia2021": "arcadia",
   "lamirada2021": "la_mirada",
   "lakewood2021": "lakewood",
-  "laplacentia2021": "placentia",
+  "placentia2021": "placentia",
   "sanbruno2021": "san_bruno"
 };
 
@@ -429,7 +429,7 @@ const hybrid_events = [
   "anaheim2021",
   "arcadia2021",
   "lamirada2021",
-  "laplacentia2021",
+  "placentia2021",
   "lakewood2021",
   "sanbruno2021"
 ];
@@ -1125,13 +1125,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
     <p><strong>To display your map on this page, be sure the tag "Lakewood2021" is filled out after you've clicked "Save" to share the map.</strong></p>
   `,
-  "laplacentia2021": `
+  "placentia2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for the City of Placentia's 2021 city council redistricting.</p>
     <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
     considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
     should be included within a single district for purposes of its effective and fair representation."</p>
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
-    <p><strong>To display your map on this page, be sure the tag "LaPlacentia2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+    <p><strong>To display your map on this page, be sure the tag "Placentia2021" is filled out after you've clicked "Save" to share the map.</strong></p>
   `,
   "sanbruno2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for the City of San Bruno's 2021 city council redistricting.</p>
@@ -1601,9 +1601,9 @@ butte_county: [
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
   ],
-  "laplacentia2021": [
+  "placentia2021": [
     `
-    La Placentia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    Placentia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
     the four districts as equal in population as possible so that each member represents about the same number
     of constituents. The City encourages residents to participate by suggesting neighborhood and community of
     interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole
@@ -1803,7 +1803,7 @@ export default () => {
             "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
-            "lamirada2021", "lakewood2021", "laplacentia2021", "sanbruno2021"
+            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
@@ -1812,7 +1812,7 @@ export default () => {
             if (eventCode == "sanbruno2021") {
               document.getElementById("partner-link-a").href = "https://www.sanbruno.ca.gov/";
               document.getElementById("partnership-a").src = "/assets/partner-logos/san-bruno.png?v=2";
-            } else if (eventCode == "laplacentia2021") {
+            } else if (eventCode == "placentia2021") {
               document.getElementById("partner-link-a").href = "https://www.placentia.org/";
               document.getElementById("partnership-a").src = "/assets/partner-logos/placentia.png?v=2";
             } else if (eventCode == "lakewood2021") {
