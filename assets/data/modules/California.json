@@ -7768,248 +7768,6 @@
             "sourceLayer": "fresnodata_blockgroups"
           }
         ]
-      },
-      {
-        "id": "blocks20",
-        "name": "Blocks",
-        "unitType": "Blocks",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "Population_CA_Adj_swdb",
-              "name": "Total population",
-              "sum": 544574,
-              "min": 0,
-              "max": 2451
-            },
-            "subgroups": [
-              {
-                "key": "Hispanic Origin",
-                "name": "Hispanic population",
-                "sum": 275038,
-                "min": 0,
-                "max": 1396
-              },
-              {
-                "key": "NH_Wht",
-                "name": "White Alone population",
-                "sum": 130079,
-                "min": 0,
-                "max": 548
-              },
-              {
-                "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
-                "sum": 41429,
-                "min": 0,
-                "max": 386
-              },
-              {
-                "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
-                "sum": 7210,
-                "min": 0,
-                "max": 31
-              },
-              {
-                "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
-                "sum": 81259,
-                "min": 0,
-                "max": 615
-              },
-              {
-                "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
-                "sum": 1074,
-                "min": 0,
-                "max": 8
-              },
-              {
-                "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
-                "sum": 4901,
-                "min": 0,
-                "max": 34
-              },
-              {
-                "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
-                "sum": 3585,
-                "min": 0,
-                "max": 86
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "18+_Population P4",
-              "name": "Total population",
-              "sum": 394247,
-              "min": 0,
-              "max": 2451
-            },
-            "subgroups": [
-              {
-                "key": "NH18+_Wht",
-                "name": "White Alone population",
-                "sum": 109995,
-                "min": 0,
-                "max": 548
-              },
-              {
-                "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
-                "sum": 29325,
-                "min": 0,
-                "max": 386
-              },
-              {
-                "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
-                "sum": 59063,
-                "min": 0,
-                "max": 489
-              },
-              {
-                "key": "H18+_Pop",
-                "name": "Hispanic population",
-                "sum": 183564,
-                "min": 0,
-                "max": 1396
-              },
-              {
-                "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
-                "sum": 5671,
-                "min": 0,
-                "max": 23
-              },
-              {
-                "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
-                "sum": 800,
-                "min": 0,
-                "max": 8
-              },
-              {
-                "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
-                "sum": 3623,
-                "min": 0,
-                "max": 33
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Percentages",
-            "total": {
-              "key": "ChildAtHome",
-              "name": "Children home percent",
-              "sum": 142,
-              "min": 0.0,
-              "max": 1
-            },
-            "subgroups": [
-              {
-                "key": "Renters",
-                "name": "Renter percent",
-                "sum": 184,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "Apts",
-                "name": "Multi-family residents percent",
-                "sum": 106,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "HSGrads",
-                "name": "High school grad percent",
-                "sum": 272,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "CollegeGrads",
-                "name": "College grad percent",
-                "sum": 74,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "Inc75",
-                "name": "Upper income percent",
-                "sum": 114,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
-                "sum": 111,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
-                "sum": 27,
-                "min": 0.0,
-                "max": 1
-              },
-              {
-                "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
-                "sum": 14,
-                "min": 0.0,
-                "max": 1
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "2020 Blocks",
-          "key": "Block"
-        },
-        "bounds": [
-          [-119.9344, 36.6622],
-          [-119.6505, 36.9115]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_fresno_blocks20"
-            },
-            "sourceLayer": "ca_fresno_blocks20"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_fresno_blocks20_points"
-            },
-            "sourceLayer": "ca_fresno_blocks20_points"
-          },
-
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_fresno_blockgroups20"
-            },
-            "sourceLayer": "ca_fresno_blockgroups20"
-          }
-        ]
       }
     ],
     "name": "Fresno County",
@@ -9250,7 +9008,7 @@
       },
       {
         "id": "blocks20",
-        "name": "Blocks",
+        "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -10082,6 +9840,248 @@
               "url": "mapbox://districtr.fresnocidata_blockgroups"
             },
             "sourceLayer": "fresnocidata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 544574,
+              "min": 0,
+              "max": 2451
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 275038,
+                "min": 0,
+                "max": 1396
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 130079,
+                "min": 0,
+                "max": 548
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black DOJ population",
+                "sum": 41429,
+                "min": 0,
+                "max": 386
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian DOJ population",
+                "sum": 7210,
+                "min": 0,
+                "max": 31
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian DOJ population",
+                "sum": 81259,
+                "min": 0,
+                "max": 615
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "sum": 1074,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other DOJ population",
+                "sum": 4901,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races DOJ population",
+                "sum": 3585,
+                "min": 0,
+                "max": 86
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "18+_Population P4",
+              "name": "Total population",
+              "sum": 394247,
+              "min": 0,
+              "max": 2451
+            },
+            "subgroups": [
+              {
+                "key": "NH18+_Wht",
+                "name": "White Alone population",
+                "sum": 109995,
+                "min": 0,
+                "max": 548
+              },
+              {
+                "key": "DOJ_NH18+_Blk",
+                "name": "Black DOJ population",
+                "sum": 29325,
+                "min": 0,
+                "max": 386
+              },
+              {
+                "key": "DOJ_NH18+_Asn",
+                "name": "Asian DOJ population",
+                "sum": 59063,
+                "min": 0,
+                "max": 489
+              },
+              {
+                "key": "H18+_Pop",
+                "name": "Hispanic population",
+                "sum": 183564,
+                "min": 0,
+                "max": 1396
+              },
+              {
+                "key": "DOJ_NH18+_Ind",
+                "name": "Native American DOJ population",
+                "sum": 5671,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "DOJ_NH18+_Hwn",
+                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "sum": 800,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "DOJ_NH18+_Oth",
+                "name": "Other DOJ population",
+                "sum": 3623,
+                "min": 0,
+                "max": 33
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children home percent",
+              "sum": 142,
+              "min": 0.0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter percent",
+                "sum": 184,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents percent",
+                "sum": 106,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school grad percent",
+                "sum": 272,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College grad percent",
+                "sum": 74,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": "Upper income percent",
+                "sum": 114,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home percent",
+                "sum": 111,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home percent",
+                "sum": 27,
+                "min": 0.0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home percent",
+                "sum": 14,
+                "min": 0.0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Blocks",
+          "key": "Block"
+        },
+        "bounds": [
+          [-119.9344, 36.6622],
+          [-119.6505, 36.9115]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fresno_blocks20"
+            },
+            "sourceLayer": "ca_fresno_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fresno_blocks20_points"
+            },
+            "sourceLayer": "ca_fresno_blocks20_points"
+          },
+
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fresno_blockgroups20"
+            },
+            "sourceLayer": "ca_fresno_blockgroups20"
           }
         ]
       }
