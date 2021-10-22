@@ -9391,8 +9391,8 @@
               "key": "ChildAtHome",
               "name": "Children home percent",
               "sum": 142,
-              "min": 0,
-              "max": 0
+              "min": 0.0,
+              "max": 1
             },
             "subgroups": [
               {
