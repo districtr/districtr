@@ -158,12 +158,15 @@ function addTracts(map, tilesets, stateName) {
             "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark",
             "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne",
             "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc",
-            "ca_glendora", "san_dimas"
+            "ca_glendora", "san_dimas", "anaheim", "arcadia", "la_mirada", "placentia",
+            "lakewood", "san_bruno"
         ],
         isException = exceptions.includes(stateName),
         hasCountyFilter = spatial_abilities(stateName).county_filter,
         tileType,
         tileset;
+
+    console.dir(stateName, isException);
 
     // If this state isn't one of the exceptions or doesn't have a county filter,
     // return null immediately.
@@ -172,6 +175,8 @@ function addTracts(map, tilesets, stateName) {
     // Otherwise, create a new Layer.
     tileType = isException ? "blockgroups" : "precincts";
     tileset = tilesets.find((t) => t.source.url.includes(tileType));
+
+    console.dir(tileset);
 
     return new Layer(map, {
         id: "extra-tracts",

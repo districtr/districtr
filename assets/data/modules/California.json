@@ -18691,13 +18691,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 109,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -18953,13 +18953,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 15,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -19215,13 +19215,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 11,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -19470,13 +19470,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 12,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -19732,13 +19732,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 24,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {
@@ -19994,13 +19994,13 @@
           },
           {
             "type": "population",
-            "name": "Child at home",
+            "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home",
               "sum": 9,
               "min": 0,
-              "max": 0
+              "max": 1
             },
             "subgroups": [
               {

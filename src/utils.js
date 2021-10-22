@@ -515,6 +515,52 @@ export function spatial_abilities(id) {
       border: false,
       sideload: false
     },
+    anaheim: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false,
+      current_districts: true
+    },
+    arcadia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false,
+      current_districts: true
+    },
+    la_mirada: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false,
+      current_districts: true
+    },
+    lakewood: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false
+    },
+    placentia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false,
+      current_districts: true
+    },
+    san_bruno: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: false,
+      sideload: false
+    },
     ca_sonoma: {
       coalition: false,
       border: true,

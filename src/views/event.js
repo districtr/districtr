@@ -129,7 +129,7 @@ commoncausepa: 'Pennsylvania',
   'glendora2021': 'California',
   "sandimas2021": "California",
   "anaheim2021": "California",
-  "arcadia2021": "California:",
+  "arcadia2021": "California",
   "lamirada2021": "California",
   "lakewood2021": "California",
   "laplacentia2021": "California",
@@ -254,8 +254,8 @@ commoncausepa: 'pennsylvania',
   "anaheim2021": "anaheim",
   "arcadia2021": "arcadia",
   "lamirada2021": "la_mirada",
-  "lakewood2021": "placentia",
-  "laplacentia2021": "lakewood",
+  "lakewood2021": "lakewood",
+  "laplacentia2021": "placentia",
   "sanbruno2021": "san_bruno"
 };
 
@@ -429,7 +429,7 @@ const hybrid_events = [
   "anaheim2021",
   "arcadia2021",
   "lamirada2021",
-  "placentia2021",
+  "laplacentia2021",
   "lakewood2021",
   "sanbruno2021"
 ];
@@ -1099,16 +1099,48 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
     should be included within a single district for purposes of its effective and fair representation."</p>
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
-    <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+    <p><strong>To display your map on this page, be sure the tag "Anaheim2021" is filled out after you've clicked "Save" to share the map.</strong></p>
   `,
   "arcadia2021": `
-    <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Bruno's 2021 city council redistricting.</p>
+    <p>Welcome to the Districtr Community of Interest public mapping tool for City of Arcadia's 2021 city council redistricting.</p>
     <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
     considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
     should be included within a single district for purposes of its effective and fair representation."</p>
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
-    <p><strong>To display your map on this page, be sure the tag "SanDimas2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+    <p><strong>To display your map on this page, be sure the tag "Arcadia2021" is filled out after you've clicked "Save" to share the map.</strong></p>
   `,
+  "lamirada2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for the City of La Mirada's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "LaMirada2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `,
+  "lakewood2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for the City of Lakewood's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "Lakewood2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `,
+  "laplacentia2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for the City of Placentia's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "LaPlacentia2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `,
+  "sanbruno2021": `
+    <p>Welcome to the Districtr Community of Interest public mapping tool for the City of San Bruno's 2021 city council redistricting.</p>
+    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+    should be included within a single district for purposes of its effective and fair representation."</p>
+    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+    <p><strong>To display your map on this page, be sure the tag "SanBruno2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+  `
 };
 
 const longAbout = {
@@ -1501,6 +1533,106 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
+  ],
+  "anaheim2021": [
+      `
+      Anaheim City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+      the four districts as equal in population as possible so that each member represents about the same number
+      of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+      interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+      city.
+      `,
+      `
+      This mapping module displays 2020 Decennial Census population on Census blocks. For more
+      information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+      website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+      The data was prepared by National Demographics Corporation. To learn more about their team click
+      <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+      `
+  ],
+  "arcadia2021": [
+    `
+    Arcadia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address, on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ],
+  "lamirada2021": [
+    `
+    La Mirada City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address, on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ],
+  "lakewood2021": [
+    `
+    Lakewood City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address, on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ],
+  "laplacentia2021": [
+    `
+    La Placentia City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ],
+  "sanbruno2021": [
+    `
+    San Bruno City Council Boundaries must be redrawn every 10 years using U.S. Census data in order to make
+    the four districts as equal in population as possible so that each member represents about the same number
+    of constituents. The City encourages residents to participate by suggesting neighborhood and community of
+    interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole
+    city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address, on Census blocks. For more
+    information, please visit the Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
+    The data was prepared by National Demographics Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
   ]
 };
 
@@ -1670,15 +1802,34 @@ export default () => {
             "campbellcity", "chino2021", "fremont2021", "lakee", "vallejo", "ocsd", "buellton",
             "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
-            "glendale2021", "yumasup", "yumaawc", "glendora2021"
+            "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
+            "lamirada2021", "lakewood2021", "laplacentia2021", "sanbruno2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
             
-            if (eventCode == "sandimas2021") {
+            if (eventCode == "sanbruno2021") {
+              document.getElementById("partner-link-a").href = "https://www.sanbruno.ca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/san-bruno.png?v=2";
+            } else if (eventCode == "laplacentia2021") {
+              document.getElementById("partner-link-a").href = "https://www.placentia.org/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/placentia.png?v=2";
+            } else if (eventCode == "lakewood2021") {
+              document.getElementById("partner-link-a").href = "https://www.lakewoodcity.org/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/lakewood.png?v=2";
+            } else if (eventCode == "lamirada2021") {
+              document.getElementById("partner-link-a").href = "https://www.cityoflamirada.org/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/la-mirada.png?v=2";
+            } else if (eventCode == "anaheim2021") {
+              document.getElementById("partner-link-a").href = "https://www.anaheim.net/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/anaheim.png?v=2";
+            } else if (eventCode == "arcadia2021") {
+              document.getElementById("partner-link-a").href = "https://www.arcadiaca.gov/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/arcadia.png?v=2";
+            } else if (eventCode == "sandimas2021") {
               document.getElementById("partner-link-a").href = "https://sandimasca.gov/";
-              document.getElementById("partnership-a").src = "/assets/partners-san-dimas.png?v=2";
+              document.getElementById("partnership-a").src = "/assets/parter-logos/partners-san-dimas.png?v=2";
             } else if (eventCode === "sonomaco") {
               document.getElementById("partner-link-a").href = "https://sonomacounty.ca.gov";
               document.getElementById("partnership-a").src = "/assets/partners-sonoma.png?v=2";
