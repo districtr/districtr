@@ -4,9 +4,9 @@ import { loadPlanFromURL, loadPlanFromJSON, navigateTo, savePlanToStorage } from
 import Button from "../components/Button";
 import PlanUploader from "../components/PlanUploader";
 import { PlaceMapWithData } from "../components/PlaceMap";
-
+ 
 let available_plans = []
-
+ 
 export default () => {
     fetch("/assets/data/landing_pages.json?v=2")
         .then(response => response.json()).then(data => {
@@ -15,8 +15,17 @@ export default () => {
                 let ref = uspost[st.state];
                 for (let sec of st.sections) {
                     if (sec.type == 'plans' && sec.ref == ref) {
-                        available_plans.push(st.state);
-                        break;
+                          let outer_plans = [];
+                          let inner_plans = [];
+                          outer_plans = sec.plans;
+                          inner_plans = outer_plans[0].plans;
+                          if(inner_plans[0].hasOwnProperty("on_eval")){
+                              available_plans.push(st.state);
+                              break;
+                         }
+                         else{
+                             continue;
+                         }
                     }
                 }
             }
@@ -36,7 +45,7 @@ export default () => {
                         navigateTo("/eval");
                     });
                 })
-
+ 
             let from_link = html`<div class="modal-item" id="url">
                     <p>
                         Paste the shareable URL or plan code for an existing Districtr
@@ -47,13 +56,13 @@ export default () => {
                 </div>`
             render(from_link, document.getElementById('link-upload'));
             render(upload.render(), document.getElementById("json-upload"));
-
+ 
             // Build map for clicking for loadable plans
-            // let plans_tgt = document.getElementById('loadable-plans');
-            // render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
+            let plans_tgt = document.getElementById('loadable-plans');
+            render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
         });
 }
-
+ 
 /** Plan Loading */
 function loadPlan(url) {
     // load a test plan if developing
@@ -64,7 +73,7 @@ function loadPlan(url) {
     .then(res => res.json())
     .then(loadPlanFromJSON);
 }
-
+ 
 /** Helper functions */
 const plansSection = (plans, place) =>
     plans.map(
@@ -74,15 +83,15 @@ const plansSection = (plans, place) =>
             </section>
         `
     );
-
+ 
 const loadablePlans = (plans, place) =>
     html`
         <ul class="plan-thumbs">
             ${plans.map(p => loadablePlan(p, place))}
         </ul>
     `;
-
-
+ 
+ 
 const loadablePlan = (plan, place) => html`
         <a href="eval?url=/assets/${place}-plans/${plan.id}.json?v=2">
             <li class="plan-thumbs__thumb">
@@ -97,7 +106,7 @@ const loadablePlan = (plan, place) => html`
             </li>
         </a>
 `;
-
+ 
 function showPlans(feature, data, tgt) {
     let curState = feature.properties.NAME;
     if (!curState)
@@ -106,14 +115,34 @@ function showPlans(feature, data, tgt) {
         curState = "Washington, DC";
     var stateData = data.filter(st => st.state === curState)[0];
     let plans = [], ref = uspost[curState];
-    for (let section of stateData.sections)
-        if (section.type == 'plans' && section.ref == ref)
-            plans = plans.concat(section.plans)
-    if (plans.length > 0 && available_plans.includes(curState))
+    for (let section of stateData.sections){
+        if (section.type == 'plans' && section.ref == ref){
+            let out_plans = [] //out_plans: outermost plan array
+            out_plans = section.plans
+            if(out_plans.length != 0){
+              for(var i = 0; i < 2; i++){
+                if(out_plans[i] !== undefined){
+                    let temp = [];
+                    temp = out_plans[i].plans.filter(p => (p.on_eval === "true" || p.on_eval === undefined));
+                    out_plans[i].plans = temp;
+                }
+                else{
+                    break;
+                }
+ 
+              }
+ 
+              plans = plans.concat(out_plans)
+              console.log(plans);
+        }
+      }
+    }
+    if (plans.length > 0 && available_plans.includes(curState)){
         render(plansSection(plans, ref), tgt);
         window.location.hash = "#loadable-plans-header"
+    }
 }
-
+ 
 const uspost = {
     "Alabama": "al",
     "Alaska": "ak",
