@@ -105,6 +105,7 @@ export default class State {
             place.id,
             place.state
         );
+        
         this.columnSets = getColumnSets(this, units);
 
         this.subscribers = [];
@@ -128,7 +129,8 @@ export default class State {
             bg_areas, bg_points,
             swipeUnits, swipeUnitsBorders,
             points, swipePoints,
-            counties, precincts, new_precincts, tracts
+             counties, precincts, new_precincts, tracts,
+            clusterUnits, clusterUnitsLines
         } = addLayers(map,
             swipemap,
             this.parts,
@@ -141,6 +143,8 @@ export default class State {
         this.units = units;
         this.unitsBorders = unitsBorders;
         this.coiunits = coiunits;
+        this.clusterUnits = clusterUnits;
+        this.clusterUnitsLines = clusterUnitsLines;
         this.coiunits2 = coiunits2;
         this.swipeUnits = swipeUnits;
         // this.swipeUnitsBorders = swipeUnitsBorders;

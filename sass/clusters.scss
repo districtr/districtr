@@ -1,0 +1,231 @@
+
+@import "./mixins";
+@import "./colors";
+
+.cluster-tile__subcluster-checkbox {
+    display: flex;
+    width: 100%
+}
+
+.cluster-tile__subcluster-checkbox > input {
+    width: 1.1rem;
+}
+
+.cluster-tile__checkbox-container {
+    width: 100%;
+}
+
+.cluster-tile {
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    border-radius: 0.25rem;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0.25rem;
+}
+
+.cluster-tile__subcluster {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.cluster-tile__component {
+    display: flex;
+}
+
+.cluster-tile__pattern {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    flex-shrink:0;
+}
+
+.cluster-tile__title {
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e0;
+    width: 90%;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.cluster-tile__header {
+    font-size: 0.95em !important;
+    font-weight: normal !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cluster-tile__header > i {
+    font-size: 0.7rem;
+}
+
+.cluster-tile__label {
+    display: flex;
+    width: 33%;
+}
+
+.cluster-tile__button {
+    flex-grow: 1;
+}
+
+.cluster-tile__button, .cluster-control__button {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+    font-size: 0.6rem !important;
+
+    &:hover {
+        background-color: $districtr-grey-hover !important;
+    }
+}
+
+.cluster-tile__button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cluster-tile__button-toggle-active {
+    background-color: black !important;
+    color: white !important;
+
+    &:hover {
+        background-color: white !important;
+        color: black !important;
+    }
+}
+
+.cluster-tile__subcluster-keywords {
+    width: 100%;
+    text-align: left;
+    font-size: 0.7rem;
+}
+
+.cluster-tile__highlight {
+    width: 100%;
+
+    &:hover {
+        color: #eb4034 !important;
+        border: 2px solid #eb4034 !important;
+    }
+}
+
+.cluster-tile__highlight-active {
+    color: white !important;
+    border: 2px solid #eb4034 !important;
+    background-color: #eb4034 !important;
+}
+
+.cluster-page__header {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    width: 80%;
+    margin-left: 10%;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.cluster-page__description {
+    text-align: left;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 1.2rem;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.cluster-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.25rem;
+}
+
+.cluster-control__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.cluster-control__header > * {
+    background-color: white;
+}
+
+.cluster-control__checkbox-container {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.25rem;
+}
+
+.cluster-control__checkbox {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: auto;
+}
+
+.cluster-control__component {
+    display: flex;
+    margin-bottom: 0.25rem;
+    padding-top: 0.25rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+.tab__body {
+    padding-top: 0;
+}
+
+.cluster-control__component > * {
+    background-color: white;
+}
+
+.cluster-control__subcomponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cluster-control__slider {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#pattern-intensity-slider {
+    margin-left: 0.5rem;
+}
+
+.cluster-control__button {
+    font-size: 1rem !important;
+}
+
+.cluster-control__button-next, .cluster-control__button-previous {
+    font-size: 0.8rem;
+}

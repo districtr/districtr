@@ -1,7 +1,7 @@
 {
   "assignment": {},
-  "id": "c17b4a9f",
-  "idColumn": { "key": "GEOID20", "name": "2020 Census GEOID" },
+  "id": "89a1fb9e",
+  "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "pluralNoun": "Public Education Commission Districts",
     "numberOfParts": 10,
@@ -20,7 +20,7 @@
     { "id": 9, "displayNumber": 10, "name": "District 10" }
   ],
   "place": {
-    "id": "new_mexico_portal",
+    "id": "new_mexico",
     "landmarks": {
       "type": "geojson",
       "data": { "type": "FeatureCollection", "features": [] }
@@ -28,10 +28,10 @@
     "state": "New Mexico",
     "name": "New Mexico"
   },
-  "placeId": "new_mexico_portal",
+  "placeId": "new_mexico",
   "units": {
-    "id": "precincts",
-    "name": "2020 Precincts",
+    "id": "precincts2",
+    "name": "2021 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {
@@ -42,7 +42,7 @@
           "name": "Total Population",
           "sum": 2117522,
           "min": 0,
-          "max": 2737
+          "max": 2470
         },
         "subgroups": [
           {
@@ -57,7 +57,7 @@
             "name": "Black population",
             "sum": 38330,
             "min": 0,
-            "max": 260
+            "max": 233
           },
           {
             "key": "AMIN",
@@ -111,7 +111,7 @@
           "name": "Voting age population",
           "sum": 1638989,
           "min": 0,
-          "max": 2183
+          "max": 1963
         },
         "subgroups": [
           {
@@ -126,14 +126,14 @@
             "name": "Black voting age population",
             "sum": 30778,
             "min": 0,
-            "max": 192
+            "max": 186
           },
           {
             "key": "AMINVAP",
             "name": "American Indian voting age population",
             "sum": 137360,
             "min": 0,
-            "max": 1570
+            "max": 1542
           },
           {
             "key": "ASIANVAP",
@@ -173,7 +173,7 @@
         ]
       }
     ],
-    "idColumn": { "name": "2020 Census GEOID", "key": "GEOID20" },
+    "idColumn": { "name": "Precinct unique identifier", "key": "GEOID" },
     "bounds": [
       [-109.0504, 31.3322],
       [-103.002, 37.0002]
@@ -183,17 +183,17 @@
         "type": "fill",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.nm_precincts"
+          "url": "mapbox://districtr.new_mexico_precincts2"
         },
-        "sourceLayer": "nm_precincts"
+        "sourceLayer": "new_mexico_precincts2"
       },
       {
         "type": "circle",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.nm_precincts_points"
+          "url": "mapbox://districtr.new_mexico_precincts2_points"
         },
-        "sourceLayer": "nm_precincts_points"
+        "sourceLayer": "new_mexico_precincts2_points"
       }
     ]
   }

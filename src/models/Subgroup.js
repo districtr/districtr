@@ -103,6 +103,7 @@ const ABBREVIATIONS = {
     AMINVAP: "Native VAP",
     NHPIVAP: "NHPI VAP",
     ASIANVAP: "AVAP",
+    AKNATVAP: "AK Native VAP",
     OTHERVAP: "Other VAP",
     OTHVAP: "Other VAP",
     "2MOREVAP": "2+ VAP"

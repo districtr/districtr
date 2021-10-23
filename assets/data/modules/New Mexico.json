@@ -187,9 +187,181 @@
   {
     "units": [
       {
+        "id": "precincts2",
+        "name": "2021 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 2117522,
+              "min": 0,
+              "max": 2470
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 772952,
+                "min": 0,
+                "max": 1445
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 38330,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 188610,
+                "min": 0,
+                "max": 2108
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 35261,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 1451,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 10340,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 59767,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1010811,
+                "min": 0,
+                "max": 2291
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1638989,
+              "min": 0,
+              "max": 1963
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 664062,
+                "min": 0,
+                "max": 1158
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 30778,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 137360,
+                "min": 0,
+                "max": 1542
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 28989,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1199,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 7925,
+                "min": 0,
+                "max": 59
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 41912,
+                "min": 0,
+                "max": 180
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 726764,
+                "min": 0,
+                "max": 1674
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [-109.0504, 31.3322],
+          [-103.002, 37.0002]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.new_mexico_precincts2"
+            },
+            "sourceLayer": "new_mexico_precincts2"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.new_mexico_precincts2_points"
+            },
+            "sourceLayer": "new_mexico_precincts2_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "2020 Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "election",
@@ -768,6 +940,175 @@
             "sourceLayer": "new_mexico_precincts_points"
           }
         ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 2117522,
+              "min": 0,
+              "max": 2470
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 772952,
+                "min": 0,
+                "max": 1445
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 38330,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 188610,
+                "min": 0,
+                "max": 2108
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 35261,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 1451,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 10340,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 59767,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1010811,
+                "min": 0,
+                "max": 2291
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1638989,
+              "min": 0,
+              "max": 1963
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 664062,
+                "min": 0,
+                "max": 1158
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 30778,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 137360,
+                "min": 0,
+                "max": 1542
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 28989,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1199,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 7925,
+                "min": 0,
+                "max": 59
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 41912,
+                "min": 0,
+                "max": 180
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 726764,
+                "min": 0,
+                "max": 1674
+              }
+            ]
+          }
+        ],
+        "idColumn": { "name": "2020 Census GEOID", "key": "GEOID20" },
+        "bounds": [
+          [-109.0504, 31.3322],
+          [-103.002, 37.0002]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.NMoct11_vtds20"
+            },
+            "sourceLayer": "NMoct11_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.NMoct11_vtds20_points"
+            },
+            "sourceLayer": "NMoct11_vtds20_points"
+          }
+        ]
       }
     ],
     "id": "new_mexico",
@@ -1166,6 +1507,7 @@
         "id": "precincts",
         "name": "2020 Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1330,6 +1672,346 @@
               "url": "mapbox://districtr.nm_precincts_points"
             },
             "sourceLayer": "nm_precincts_points"
+          }
+        ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 2117522,
+              "min": 0,
+              "max": 2470
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 772952,
+                "min": 0,
+                "max": 1445
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 38330,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 188610,
+                "min": 0,
+                "max": 2108
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 35261,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 1451,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 10340,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 59767,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1010811,
+                "min": 0,
+                "max": 2291
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1638989,
+              "min": 0,
+              "max": 1963
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 664062,
+                "min": 0,
+                "max": 1158
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 30778,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 137360,
+                "min": 0,
+                "max": 1542
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 28989,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1199,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 7925,
+                "min": 0,
+                "max": 59
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 41912,
+                "min": 0,
+                "max": 180
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 726764,
+                "min": 0,
+                "max": 1674
+              }
+            ]
+          }
+        ],
+        "idColumn": { "name": "2020 Census GEOID", "key": "GEOID20" },
+        "bounds": [
+          [-109.0504, 31.3322],
+          [-103.002, 37.0002]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.NMoct11_vtds20"
+            },
+            "sourceLayer": "NMoct11_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.NMoct11_vtds20_points"
+            },
+            "sourceLayer": "NMoct11_vtds20_points"
+          }
+        ]
+      },
+      {
+        "id": "precincts2",
+        "name": "2020 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 2117522,
+              "min": 0,
+              "max": 2470
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 772952,
+                "min": 0,
+                "max": 1445
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 38330,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 188610,
+                "min": 0,
+                "max": 2108
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 35261,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 1451,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 10340,
+                "min": 0,
+                "max": 82
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 59767,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 1010811,
+                "min": 0,
+                "max": 2291
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 1638989,
+              "min": 0,
+              "max": 1963
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 664062,
+                "min": 0,
+                "max": 1158
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 30778,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 137360,
+                "min": 0,
+                "max": 1542
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 28989,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 1199,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 7925,
+                "min": 0,
+                "max": 59
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 41912,
+                "min": 0,
+                "max": 180
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 726764,
+                "min": 0,
+                "max": 1674
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "GEOID"
+        },
+        "bounds": [
+          [-109.0504, 31.3322],
+          [-103.002, 37.0002]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.new_mexico_precincts2"
+            },
+            "sourceLayer": "new_mexico_precincts2"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.new_mexico_precincts2_points"
+            },
+            "sourceLayer": "new_mexico_precincts2_points"
           }
         ]
       }

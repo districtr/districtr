@@ -308,10 +308,10 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: true,
     },
     alaska: {
       number_markers: true,
-      number_markers_lambda: true,
       native_american: true,
       shapefile: true,
       school_districts: true,
@@ -376,7 +376,6 @@ export function spatial_abilities(id) {
     yuma: {
       native_american: true,
       number_markers: true,
-      number_markers_lambda: true,
       border: true,
       shapefile: true,
       find_unpainted: true,
@@ -390,7 +389,6 @@ export function spatial_abilities(id) {
     yuma_awc: {
       native_american: true,
       number_markers: true,
-      number_markers_lambda: true,
       border: true,
       shapefile: true,
       find_unpainted: true,
@@ -449,15 +447,38 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.sandiego-mapping.org'
       },
     },
+    livermore: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+      coalition: false,
+    },
     ca_contracosta: {
       number_markers: true,
       border: true,
       shapefile: true,
       municipalities: true,
       current_districts: true,
+      boundaries: [{
+        id: 'contracosta_cdp',
+        label: 'Census Designated Places',
+        path: 'ca_contracosta_cdp',
+      }],
       portal: {
         endpoint: 'https://portal.contracosta-mapping.org'
       }
+    },
+    ca_sutter: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+      municipalities: true,
+      current_districts: true,
+      boundaries: [{
+        id: 'precincts',
+        label: 'Current Precincts',
+        path: 'current_districts/california/ca_sutter_precincts',
+      }]
     },
     ftmyers: {
       number_markers: true,
@@ -486,6 +507,59 @@ export function spatial_abilities(id) {
       border: true,
       sideload: true,
       // divisor: 1000,
+    },
+    san_dimas: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    anaheim: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    arcadia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    la_mirada: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    lakewood: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    placentia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    san_bruno: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
     },
     ca_sonoma: {
       coalition: false,
@@ -578,6 +652,12 @@ export function spatial_abilities(id) {
       current_districts: true,
     },
     ca_goleta: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
+    ca_glendora: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -737,11 +817,13 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
   },
   napacounty2021: {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     municipalities: true,
   },
   ca_tuolumne: {
@@ -770,19 +852,20 @@ export function spatial_abilities(id) {
   },
   ca_sanmateo: {
     number_markers: true,
+    // contiguity: 2,
     border: true,
     shapefile: true,
     neighborhood_borders: 'Neighborhoods',
   },
   ca_santa_ana: {
     number_markers: true,
-    number_markers_lambda: true,
     border: true,
     shapefile: true,
   },
   ca_kern: {
     number_markers: true,
     border: true,
+    // contiguity: 2,
     shapefile: true,
     municipalities: true,
   },
@@ -793,14 +876,15 @@ export function spatial_abilities(id) {
       id: 'schools',
       label: 'School Districts',
       path: 'school_districts/california/menlo_park',
-      lineColor: '#ffb347',
       centroids: true,
+      fill: true,
+      fill_alt: 'orange',
     },{
       id: 'neighborhood',
       label: 'Neighborhoods',
       path: 'neighborhoods/california/menlo_park',
-      fill: true,
       centroids: true,
+      fill: true,
       fill_alt: true,
     },{
       id: 'flooded',
@@ -811,31 +895,31 @@ export function spatial_abilities(id) {
       id: 'menloh2o',
       label: 'California Water Service',
       path: 'menlo_park_water',
-      fill: '#44A',
+      fill: '#c6dbef',
       // centroids: true,
     },{
       id: 'menloh2o2',
       label: 'East Palo Alto Water District',
       path: 'menlo_park_water2',
-      fill: '#44A',
+      fill: '#9ecae1',
       // centroids: true,
     },{
       id: 'menloh2o5',
       label: 'Palo Alto Park Water District',
       path: 'menlo_park_water5',
-      fill: '#44A',
+      fill: '#6baed6',
       // centroids: true,
     },{
       id: 'menloh2o3',
       label: 'Menlo Park Water District',
       path: 'menlo_park_water3',
-      fill: '#44A',
+      fill: '#3182bd',
       // centroids: true,
     },{
       id: 'menloh2o4',
       label: 'O’Connor Water District',
       path: 'menlo_park_water4',
-      fill: '#44A',
+      fill: '#08519c',
       // centroids: true,
     },{
       id: 'menlomulti',
@@ -882,6 +966,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     coalition: false,
     current_districts: 'Current Council Districts',
     boundaries: [{
@@ -900,6 +985,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     municipalities: 'Census Designated Places',
     current_districts: true,
     native_american: true,
@@ -914,6 +1000,7 @@ export function spatial_abilities(id) {
   ca_humboldt: {
     border: true,
     shapefile: true,
+    // contiguity: 2,
     number_markers: true,
     municipalities: true,
     sideload: true,
@@ -929,6 +1016,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
   },
   carpinteria: {
     border: true,
@@ -950,6 +1038,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    // contiguity: 2,
     current_districts: true,
     school_districts: true,
     neighborhood_borders: true,
@@ -994,19 +1083,20 @@ export function spatial_abilities(id) {
     sanluiso: {
       coalition: false,
       number_markers: true,
+      // contiguity: 2,
       shapefile: true,
       border: true,
       municipalities: true,
       // sideload: true,
     },
     ccsanitation: {
-      // multiyear: 2018,
       shapefile: true,
     },
     ccsanitation2: {
-      multiyear: 2018,
       shapefile: true,
       border: true,
+      current_districts: true,
+      number_markers: true,
     },
     santa_clara: {
       border: true,
@@ -1145,7 +1235,6 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
-      load_coi: false,
       school_districts: true,
       current_districts: true,
       municipalities: 'Cities and Towns',
@@ -1157,7 +1246,6 @@ export function spatial_abilities(id) {
       number_markers: true,
       contiguity: 2,
       shapefile: true,
-      number_markers_lambda: true,
       // find_unpainted: true,
     },
     kansas: {
@@ -1199,8 +1287,7 @@ export function spatial_abilities(id) {
     louisiana: {
       native_american: true,
       county_brush: true, // lakes
-      // number_markers: true, // fetch is failing?
-      // number_markers_lambda: true,
+      number_markers: true, // fetch is failing?
       contiguity: 2,
       shapefile: true,
       find_unpainted: true,
@@ -1211,7 +1298,6 @@ export function spatial_abilities(id) {
       vra_effectiveness: true,
       county_brush: true, // lakes
       number_markers: true,
-      number_markers_lambda: true,
     },
     batonrouge: {
       number_markers: true,
@@ -1246,7 +1332,6 @@ export function spatial_abilities(id) {
     },
     ma: {
       number_markers: true,
-      number_markers_lambda: true,
       shapefile: true,
       // find_unpainted: true,
       portal: {
@@ -1255,14 +1340,12 @@ export function spatial_abilities(id) {
     },
     ma_vra: {
       number_markers: true,
-      number_markers_lambda: true,
       vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
     },
     ma_vra2: {
       number_markers: true,
-      number_markers_lambda: true,
       // vra_effectiveness: true,
       // shapefile: true,
       // find_unpainted: true,
@@ -1282,8 +1365,25 @@ export function spatial_abilities(id) {
       },
     },
     michigan: {
+      load_coi: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.michigan_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "michigan_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/MI/clusters.json"
+        }
+      },
       number_markers: true,
-      number_markers_lambda: true,
       native_american: true,
       county_brush: true,
       shapefile: true,
@@ -1305,7 +1405,6 @@ export function spatial_abilities(id) {
     },
     mn2020acs: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
@@ -1386,6 +1485,23 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: "https://portal.missouri-mapping.org",
       },
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.missouri_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "missouri_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/MO/clusters.json"
+        }
+      }
     },
     montana: {
       native_american: true,
@@ -1426,7 +1542,6 @@ export function spatial_abilities(id) {
     },
     new_mexico: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,
@@ -1437,7 +1552,6 @@ export function spatial_abilities(id) {
     },
     new_mexico_portal: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       contiguity: 2,
@@ -1575,7 +1689,6 @@ export function spatial_abilities(id) {
       },
     ohio: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       // find_unpainted: true - needs contiguity
@@ -1583,7 +1696,25 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.ohio-mapping.org',
       },
       school_districts: true,
-      current_districts: true
+      current_districts: true,
+      // COI clusters.
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.ohio_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "ohio_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/OH/clusters.json"
+        }
+      }
     },
     ohcentral: {
       multiyear: 2019,
@@ -1747,7 +1878,6 @@ export function spatial_abilities(id) {
     },
     pennsylvania: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       shapefile: true,
       find_unpainted: true,
@@ -1808,7 +1938,6 @@ export function spatial_abilities(id) {
     },
     texas: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       contiguity: 2,
       shapefile: true,
@@ -1818,11 +1947,18 @@ export function spatial_abilities(id) {
         endpoint: "https://portal.texas-mapping.org",
       },
     },
+    tarranttx: {
+      number_markers: true,
+      contiguity: true,
+    },
+    harristx: {
+      number_markers: true,
+      contiguity: true,
+    },
     tx_vra: {
       vra_effectiveness: true,
       county_brush: true,
       number_markers: true,
-      number_markers_lambda: true,
     },
     dallastx: {
       border: true,
@@ -1835,9 +1971,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       find_unpainted: true,
+      contiguity: true,
     },
     fortworth: {
       border: true,
+      number_markers: true,
     },
     houston: {
       border: true,
@@ -1960,6 +2098,23 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wisconsin2020: {
       number_markers: true,
@@ -1975,10 +2130,27 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      load_coi: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wisco2019acs: {
       number_markers: true,
-      number_markers_lambda: true,
       county_brush: true,
       native_american: true,
       shapefile: true,
@@ -1991,6 +2163,23 @@ export function spatial_abilities(id) {
         endpoint: 'https://portal.wisconsin-mapping.org',
       },
       sideload: true,
+      coi: {
+        tilesets: [
+          {
+            source: {
+              type: "vector",
+              url: "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            type: "fill",
+            sourceLayer: "wisconsin_bg_clusters",
+            clusterLayer: true
+          }
+        ],
+        clusterKey: "cluster",
+        clusterData: {
+          url: "/assets/clusters/WI/clusters.json"
+        }
+      }
     },
     wyoming: {
       native_american: true,
