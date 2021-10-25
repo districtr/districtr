@@ -19075,9 +19075,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sonoma_blockgroups20"
+              "url": "mapbox://districtr.ca_poway_blockgroups20"
             },
-            "sourceLayer": "ca_sonoma_blockgroups20"
+            "sourceLayer": "ca_poway_blockgroups20"
           }
         ]
       }
@@ -19329,9 +19329,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_sonoma_blockgroups20"
+              "url": "mapbox://districtr.ca_torrance_blockgroups20"
             },
-            "sourceLayer": "ca_sonoma_blockgroups20"
+            "sourceLayer": "ca_torrance_blockgroups20"
           }
         ]
       }
