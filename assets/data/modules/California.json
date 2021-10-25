@@ -748,42 +748,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 9486,
                 "min": 0,
                 "max": 178
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 2910,
                 "min": 0,
                 "max": 24
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 98923,
                 "min": 0,
                 "max": 982
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 1092,
                 "min": 0,
                 "max": 23
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 5577,
                 "min": 0,
                 "max": 40
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 2786,
                 "min": 0,
                 "max": 18
@@ -810,14 +810,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 7157,
                 "min": 0,
                 "max": 178
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 70438,
                 "min": 0,
                 "max": 658
@@ -831,21 +831,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 2272,
                 "min": 0,
                 "max": 18
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 885,
                 "min": 0,
                 "max": 23
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 3994,
                 "min": 0,
                 "max": 26
@@ -3861,42 +3861,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 10044,
                 "min": 0,
                 "max": 139
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 9378,
                 "min": 0,
                 "max": 37
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 28891,
                 "min": 0,
                 "max": 651
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 2548,
                 "min": 0,
                 "max": 56
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 8114,
                 "min": 0,
                 "max": 35
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 2838,
                 "min": 0,
                 "max": 12
@@ -3923,14 +3923,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 7557,
                 "min": 0,
                 "max": 110
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 22929,
                 "min": 0,
                 "max": 629
@@ -3944,21 +3944,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 7461,
                 "min": 0,
                 "max": 33
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 1958,
                 "min": 0,
                 "max": 45
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 6295,
                 "min": 0,
                 "max": 32
@@ -4117,42 +4117,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 11984,
                 "min": 0,
                 "max": 149
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 730,
                 "min": 0,
                 "max": 9
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 26705,
                 "min": 0,
                 "max": 313
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 165,
                 "min": 0,
                 "max": 21
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1534,
                 "min": 0,
                 "max": 15
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 1226,
                 "min": 0,
                 "max": 13
@@ -4179,14 +4179,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 10135,
                 "min": 0,
                 "max": 100
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 22806,
                 "min": 0,
                 "max": 273
@@ -4200,21 +4200,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 640,
                 "min": 0,
                 "max": 9
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 136,
                 "min": 0,
                 "max": 20
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1183,
                 "min": 0,
                 "max": 13
@@ -9690,42 +9690,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 41429,
                 "min": 0,
                 "max": 386
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 7210,
                 "min": 0,
                 "max": 31
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 81259,
                 "min": 0,
                 "max": 615
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 1074,
                 "min": 0,
                 "max": 8
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 4901,
                 "min": 0,
                 "max": 34
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 3585,
                 "min": 0,
                 "max": 86
@@ -9752,14 +9752,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 29325,
                 "min": 0,
                 "max": 386
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 59063,
                 "min": 0,
                 "max": 489
@@ -9773,21 +9773,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 5671,
                 "min": 0,
                 "max": 23
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 800,
                 "min": 0,
                 "max": 8
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 3623,
                 "min": 0,
                 "max": 33
@@ -9869,14 +9869,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -119.9344,
-            36.6622
-          ],
-          [
-            -119.6505,
-            36.9115
-          ]
+          [-119.9344, 36.6622],
+          [-119.6505, 36.9115]
         ],
         "tilesets": [
           {
@@ -18141,42 +18135,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 1376,
                 "min": 0,
                 "max": 49
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 316,
                 "min": 0,
                 "max": 11
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 5377,
                 "min": 0,
                 "max": 353
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 51,
                 "min": 0,
                 "max": 4
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 400,
                 "min": 0,
                 "max": 19
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 215,
                 "min": 0,
                 "max": 11
@@ -18203,14 +18197,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 1082,
                 "min": 0,
                 "max": 38
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 4334,
                 "min": 0,
                 "max": 292
@@ -18224,21 +18218,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 287,
                 "min": 0,
                 "max": 11
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 47,
                 "min": 0,
                 "max": 4
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 319,
                 "min": 0,
                 "max": 12
@@ -18636,49 +18630,49 @@
             "subgroups": [
               {
                 "key": "OMB_Latino",
-                "name": "Hispanic or Latino OMB population",
+                "name": "Hispanic or Latino population",
                 "sum": 9017,
                 "min": 0,
                 "max": 582
               },
               {
                 "key": "OMB_NH_Wht",
-                "name": "White Alone OMB population",
+                "name": "White Alone population",
                 "sum": 28896,
                 "min": 0,
                 "max": 908
               },
               {
                 "key": "OMB_Blk",
-                "name": "Black OMB population",
+                "name": "Black population",
                 "sum": 1006,
                 "min": 0,
                 "max": 84
               },
               {
                 "key": "OMB_Native",
-                "name": "American Indian OMB population",
+                "name": "American Indian population",
                 "sum": 545,
                 "min": 0,
                 "max": 19
               },
               {
                 "key": "OMB_AsnPI",
-                "name": "Asian, Native Hawaiian, and Pacific Islander OMB population",
+                "name": "Asian, Native Hawaiian, and Pacific Islander population",
                 "sum": 8323,
                 "min": 0,
                 "max": 392
               },
               {
                 "key": "OMB_Other",
-                "name": "Other OMB population",
+                "name": "Other population",
                 "sum": 699,
                 "min": 0,
                 "max": 21
               },
               {
                 "key": "OMB_MultiRace",
-                "name": "2+ races OMB population",
+                "name": "2+ races population",
                 "sum": 355,
                 "min": 0,
                 "max": 9
@@ -18698,49 +18692,49 @@
             "subgroups": [
               {
                 "key": "OMB_VAP_NH_Wht",
-                "name": "White Alone OMB population",
+                "name": "White Alone population",
                 "sum": 23577,
                 "min": 0,
                 "max": 823
               },
               {
                 "key": "OMB_VAP_Blk",
-                "name": "Black OMB population",
+                "name": "Black population",
                 "sum": 710,
                 "min": 0,
                 "max": 61
               },
               {
                 "key": "OMB_VAP_AsnPI",
-                "name": "Asian, Native Hawaiian, and Pacific Islander OMB population",
+                "name": "Asian, Native Hawaiian, and Pacific Islander population",
                 "sum": 6186,
                 "min": 0,
                 "max": 324
               },
               {
                 "key": "OMB_VAP_Latino",
-                "name": "Hispanic or Latino OMB population",
+                "name": "Hispanic or Latino population",
                 "sum": 5956,
                 "min": 0,
                 "max": 402
               },
               {
                 "key": "OMB_VAP_Native",
-                "name": "Native American OMB population",
+                "name": "Native American population",
                 "sum": 435,
                 "min": 0,
                 "max": 19
               },
               {
                 "key": "OMB_VAP_Other",
-                "name": "Other OMB population",
+                "name": "Other population",
                 "sum": 497,
                 "min": 0,
                 "max": 14
               },
               {
                 "key": "OMB_VAP_MultiRace",
-                "name": "2+ races OMB population",
+                "name": "2+ races population",
                 "sum": 594,
                 "min": 0,
                 "max": 12
@@ -18897,42 +18891,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 5634,
                 "min": 0,
                 "max": 141
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 911,
                 "min": 0,
                 "max": 15
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 56235,
                 "min": 0,
                 "max": 701
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 700,
                 "min": 0,
                 "max": 17
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 2244,
                 "min": 0,
                 "max": 60
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 1480,
                 "min": 0,
                 "max": 21
@@ -18959,14 +18953,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 4371,
                 "min": 0,
                 "max": 92
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 44252,
                 "min": 0,
                 "max": 509
@@ -18980,21 +18974,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 812,
                 "min": 0,
                 "max": 15
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 540,
                 "min": 0,
                 "max": 12
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1690,
                 "min": 0,
                 "max": 44
