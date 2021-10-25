@@ -48,7 +48,8 @@ function datasetInfo(state) {
                 [
                     "san_dimas", "ccsanitation2", "ca_pasadena", "sacramento",
                     "ca_goleta", "ca_glendora", "arcadia", "la_mirada", "lakewood",
-                    "san_bruno"
+                    "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
+                    "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison
