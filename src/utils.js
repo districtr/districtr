@@ -810,6 +810,12 @@ export function spatial_abilities(id) {
     shapefile: true,
     municipalities: true,
   },
+  ca_poway: {
+    coalition: false
+  },
+  ca_torrance: {
+    coalition: false
+  },
   menlo_park: {
     border: true,
     find_unpainted: true,
