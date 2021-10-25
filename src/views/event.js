@@ -1441,8 +1441,8 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   chulavista: [
-    "Chula Vista City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
-    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full seven-district map suggestions for the whole city.",
+    "Chula Vista City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
     "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
     last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
     in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
@@ -1766,6 +1766,14 @@ export default () => {
             } else if (eventCode === "lodi2021") {
               document.getElementById("partner-link-a").href = "https://www.lodi.gov";
               document.getElementById("partnership-a").src = "/assets/partners-lodi.png?v=2";
+              document.getElementById("partnership-a").style.background = "#000";
+            } else if (eventCode === "torrance2021") {
+              document.getElementById("partner-link-a").href = "https://www.torranceca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-torrance.png";
+              document.getElementById("partnership-a").style.background = "#888";
+            } else if (eventCode === "poway2021") {
+              document.getElementById("partner-link-a").href = "https://www.poway.org";
+              document.getElementById("partnership-a").src = "/assets/partners-poway.png";
               document.getElementById("partnership-a").style.background = "#000";
             } else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
