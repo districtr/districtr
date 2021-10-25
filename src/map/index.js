@@ -166,8 +166,6 @@ function addTracts(map, tilesets, stateName) {
         tileType,
         tileset;
 
-    console.dir(stateName, isException);
-
     // If this state isn't one of the exceptions or doesn't have a county filter,
     // return null immediately.
     if (!(isException || hasCountyFilter)) return null;
@@ -175,8 +173,6 @@ function addTracts(map, tilesets, stateName) {
     // Otherwise, create a new Layer.
     tileType = isException ? "blockgroups" : "precincts";
     tileset = tilesets.find((t) => t.source.url.includes(tileType));
-
-    console.dir(tileset);
 
     return new Layer(map, {
         id: "extra-tracts",
