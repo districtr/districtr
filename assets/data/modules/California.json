@@ -3222,7 +3222,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 361.18690000000004,
                 "min": 0.0,
                 "max": 1
@@ -3737,7 +3737,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -3970,7 +3970,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 110,
               "min": 0.0,
               "max": 1
@@ -3978,56 +3978,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 151,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 72,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 360,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 146,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 219,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 70,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 10,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 11,
                 "min": 0.0,
                 "max": 1
@@ -4234,7 +4234,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 41,
                 "min": 0,
                 "max": 1
@@ -4419,7 +4419,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 41,
                 "min": 0,
                 "max": 1
@@ -4617,7 +4617,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 8,
                 "min": 0.0,
                 "max": 1
@@ -5057,7 +5057,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 106,
                 "min": 0.0,
                 "max": 1
@@ -5254,7 +5254,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 47,
                 "min": 0,
                 "max": 1
@@ -7524,7 +7524,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -7720,7 +7720,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -7918,7 +7918,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -8247,7 +8247,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -8444,7 +8444,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -8758,7 +8758,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 8,
                 "min": 0.0,
                 "max": 1
@@ -8957,7 +8957,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 8,
                 "min": 0.0,
                 "max": 1
@@ -9094,42 +9094,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 14288,
                 "min": 0,
                 "max": 202
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 1309,
                 "min": 0,
                 "max": 21
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 45303,
                 "min": 0,
                 "max": 552
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 1451,
                 "min": 0,
                 "max": 30
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1829,
                 "min": 0,
                 "max": 34
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 3055,
                 "min": 0,
                 "max": 24
@@ -9156,14 +9156,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 10870,
                 "min": 0,
                 "max": 178
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 35079,
                 "min": 0,
                 "max": 429
@@ -9177,21 +9177,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 1076,
                 "min": 0,
                 "max": 21
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 1141,
                 "min": 0,
                 "max": 20
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1274,
                 "min": 0,
                 "max": 26
@@ -9203,7 +9203,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 142,
               "min": 0,
               "max": 1
@@ -9211,56 +9211,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 184,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 106,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 272,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 74,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 114,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 111,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 27,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 14,
                 "min": 0.0,
                 "max": 1
@@ -9396,7 +9396,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -9595,7 +9595,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -9795,7 +9795,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -10041,7 +10041,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 142,
               "min": 0,
               "max": 1
@@ -10049,56 +10049,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 184,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 106,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 272,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 74,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 114,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 111,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 27,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 14,
                 "min": 0,
                 "max": 1
@@ -10234,7 +10234,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11011,7 +11011,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11206,7 +11206,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11404,7 +11404,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11602,7 +11602,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11800,7 +11800,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -11980,7 +11980,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -12175,7 +12175,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -12368,7 +12368,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -12816,7 +12816,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -13014,7 +13014,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -13215,7 +13215,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -13411,7 +13411,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -13609,7 +13609,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -13807,7 +13807,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -14004,7 +14004,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -14203,7 +14203,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -14402,7 +14402,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -14601,7 +14601,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -14725,42 +14725,42 @@
               },
               {
                 "key": "DOJ_NH_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 41443,
                 "min": 0,
                 "max": 487
               },
               {
                 "key": "DOJ_NH_Ind",
-                "name": "American Indian DOJ population",
+                "name": "American Indian population",
                 "sum": 2995,
                 "min": 0,
                 "max": 21
               },
               {
                 "key": "DOJ_NH_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 71061,
                 "min": 0,
                 "max": 455
               },
               {
                 "key": "DOJ_NH_Hwn",
-                "name": "Native Hawaiian / Pacific Islander DOJ population",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 2695,
                 "min": 0,
                 "max": 24
               },
               {
                 "key": "DOJ_NH_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 2576,
                 "min": 0,
                 "max": 39
               },
               {
                 "key": "DOJ_NH_OthMR",
-                "name": "2+ races DOJ population",
+                "name": "2+ races population",
                 "sum": 4451,
                 "min": 0,
                 "max": 30
@@ -14787,14 +14787,14 @@
               },
               {
                 "key": "DOJ_NH18+_Blk",
-                "name": "Black DOJ population",
+                "name": "Black population",
                 "sum": 30108,
                 "min": 0,
                 "max": 485
               },
               {
                 "key": "DOJ_NH18+_Asn",
-                "name": "Asian DOJ population",
+                "name": "Asian population",
                 "sum": 53554,
                 "min": 0,
                 "max": 367
@@ -14808,21 +14808,21 @@
               },
               {
                 "key": "DOJ_NH18+_Ind",
-                "name": "Native American DOJ population",
+                "name": "Native American population",
                 "sum": 2420,
                 "min": 0,
                 "max": 20
               },
               {
                 "key": "DOJ_NH18+_Hwn",
-                "name": "Native Hawaiian Pacific Islander DOJ population",
+                "name": "Native Hawaiian Pacific Islander population",
                 "sum": 1994,
                 "min": 0,
                 "max": 24
               },
               {
                 "key": "DOJ_NH18+_Oth",
-                "name": "Other DOJ population",
+                "name": "Other population",
                 "sum": 1943,
                 "min": 0,
                 "max": 24
@@ -14834,7 +14834,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 94,
               "min": 0.0,
               "max": 1
@@ -14842,56 +14842,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 116,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 53,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 170,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 38,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 77,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 65,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 27,
                 "min": 0.0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 8,
                 "min": 0.0,
                 "max": 1
@@ -15038,7 +15038,7 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 124,
                 "min": 0,
                 "max": 1
@@ -19230,7 +19230,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 110,
               "min": 0.0,
               "max": 1
@@ -19238,56 +19238,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 151,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 72,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 360,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 146,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 219,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 70,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 10,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 11,
                 "min": 0,
                 "max": 1
@@ -19484,7 +19484,7 @@
             "name": "Percentages",
             "total": {
               "key": "ChildAtHome",
-              "name": "Children home percent",
+              "name": "Children home ",
               "sum": 110,
               "min": 0,
               "max": 1
@@ -19492,56 +19492,56 @@
             "subgroups": [
               {
                 "key": "Renters",
-                "name": "Renter percent",
+                "name": "Renter",
                 "sum": 151,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Apts",
-                "name": "Multi-family residents percent",
+                "name": "Multi-family residents",
                 "sum": 72,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
-                "name": "High school grad percent",
+                "name": "High school grad",
                 "sum": 360,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
-                "name": "College grad percent",
+                "name": "College grad",
                 "sum": 146,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Inc75",
-                "name": "Upper income percent",
+                "name": "Upper income",
                 "sum": 219,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
-                "name": "Spanish spoken at home percent",
+                "name": "Spanish spoken at home",
                 "sum": 70,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "AsnLangAtHome",
-                "name": "Asian languages spoken at home percent",
+                "name": "Asian languages spoken at home",
                 "sum": 10,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "OthLangAtHome",
-                "name": "Other languages spoken at home percent",
+                "name": "Other languages spoken at home",
                 "sum": 11,
                 "min": 0,
                 "max": 1
