@@ -812,15 +812,11 @@ export function spatial_abilities(id) {
   },
   ca_poway: {
     coalition: false,
-    number_markers: true,
-    municipalities: true,
-    border: true
+    number_markers: true
   },
   ca_torrance: {
     coalition: false,
-    number_markers: true,
-    municipalities: true,
-    border: true
+    number_markers: true
   },
   menlo_park: {
     border: true,
