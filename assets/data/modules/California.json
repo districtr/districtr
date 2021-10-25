@@ -16688,6 +16688,7 @@
        "id": "blocks",
        "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -16804,14 +16805,142 @@
            "sourceLayer": "ca_tuolumne_blocks"
          }
        ]
-     }
+     },
+     {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 53011,
+            "min": 0,
+            "max": 484
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 5985,
+              "min": 0,
+              "max": 70
+            },
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 41708,
+              "min": 0,
+              "max": 419
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 209,
+              "min": 0,
+              "max": 9
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 725,
+              "min": 0,
+              "max": 32
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total VAP",
+            "sum": 42627,
+            "min": 0,
+            "max": 2490
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 753,
+              "min": 0,
+              "max": 651
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 202,
+              "min": 0,
+              "max": 66
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 3877,
+              "min": 0,
+              "max": 791
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 410,
+              "min": 0,
+              "max": 71
+            },
+            {
+              "key": "CVAP_15-19_Hawaiian_API",
+              "name": "Native Hawaiian Pacific Islander population",
+              "sum": 65,
+              "min": 0,
+              "max": 35
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -120.6533,
+          37.6337
+        ],
+        [
+          -119.1962,
+          38.4335
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_tuolumne_blocks20"
+          },
+          "sourceLayer": "ca_tuolumne_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_tuolumne_blocks20_points"
+          },
+          "sourceLayer": "ca_tuolumne_blocks20_points"
+        }
+      ]
+    }
    ],
    "id": "ca_tuolumne",
    "districtingProblems": [
      {
-       "name": "City Council",
+       "name": "County Supervisor",
        "numberOfParts": 5,
-       "pluralNoun": "Supervisor Districts"
+       "pluralNoun": "Supervisorial Districts"
      }
    ]
  },
