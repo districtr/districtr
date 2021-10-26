@@ -1707,7 +1707,8 @@ butte_county: [
     website</a>. The "Additional demographics" in the module display 2019 ACS data on the Census block groups.
     The data was prepared by National Demographics Corporation. To learn more about their team click
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
-    `,
+    `
+  ],
     poway2021: [
       "Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
@@ -1725,7 +1726,6 @@ butte_county: [
       team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
     ],
   
-  ]
 };
 
 const proposals_by_event = {
