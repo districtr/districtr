@@ -141,13 +141,15 @@ function addPrecincts(map, tilesets, stateName) {
 }
 
 /**
- * @description Adds Census tracts as a background layer in the specified locations.
+ * @description Adds Census tracts (or block groups, or precincts) as a background layer.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
  * @param {Object[]} tilesets Array of MapboxGL tileset specifications.
  * @param {String} stateName Name of the state we're redistricting in.
  * @returns {Layer|null} Null if the exception isn't included, or a Layer instance.
  */
 function addTracts(map, tilesets, stateName) {
+    // Create a list of exceptions which require the loading of block group tilesets
+    // rather than precinct or tract tilesets.
     let exceptions = [
             "sacramento", "ca_sonoma", "ca_pasadena", "ca_santabarbara", "ca_goleta",
             "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina",
@@ -155,7 +157,12 @@ function addTracts(map, tilesets, stateName) {
             "ca_camarillo", "ca_fresno_ci", "ca_campbell", "ca_chino", "ca_fremont",
             "lake_el", "ca_vallejo", "ca_buellton", "ca_oceano", "ca_grover", "buenapark",
             "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne",
-            "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc", "ca_poway", "ca_torrance"
+            "encinitas", "lodi", "pomona", "sunnyvale", "glendaleaz", "yuma", "yuma_awc",
+            "ca_glendora", "san_dimas", "ca_santabarbara", "ca_marin", "ca_kings",
+            "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
+            "ca_glendora", "san_dimas", "anaheim", "arcadia", "la_mirada", "placentia",
+            "lakewood", "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
+            "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne", "ca_poway", "ca_torrance"
         ],
         isException = exceptions.includes(stateName),
         hasCountyFilter = spatial_abilities(stateName).county_filter,

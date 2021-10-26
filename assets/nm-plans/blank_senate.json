@@ -1,6 +1,6 @@
 {
   "assignment": {},
-  "id": "fbae5999",
+  "id": "89a1fb9e",
   "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "pluralNoun": "State Senate Districts",
@@ -63,7 +63,7 @@
   "placeId": "new_mexico",
   "units": {
     "id": "precincts2",
-    "name": "2020 Precincts",
+    "name": "2021 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {

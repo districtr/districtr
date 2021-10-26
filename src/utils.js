@@ -508,6 +508,59 @@ export function spatial_abilities(id) {
       sideload: true,
       // divisor: 1000,
     },
+    san_dimas: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    anaheim: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    arcadia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    la_mirada: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    lakewood: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    placentia: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    san_bruno: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
     ca_sonoma: {
       coalition: false,
       border: true,
@@ -604,12 +657,18 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
+    ca_glendora: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_santabarbara: {
       coalition: false,
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: 'Supervisorial Districts',
+      current_districts: true,
     },
     ca_fresno: {
       coalition: false,

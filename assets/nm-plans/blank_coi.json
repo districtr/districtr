@@ -1,6 +1,6 @@
 {
   "assignment": {},
-  "id": "6b3f388b",
+  "id": "8733f978",
   "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
   "problem": {
     "type": "community",
@@ -20,7 +20,7 @@
   "placeId": "new_mexico",
   "units": {
     "id": "precincts2",
-    "name": "2020 Precincts",
+    "name": "2021 Precincts",
     "unitType": "Precincts",
     "columnSets": [
       {
