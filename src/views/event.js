@@ -1728,7 +1728,8 @@ const proposals_by_event = {
   centralsan: true,
   'pmc-districts': true,
   prjusd: true,
-  san_mateo_city: true
+  san_mateo_city: true,
+  butte_county: true
 };
 
 export default () => {
