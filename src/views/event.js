@@ -117,7 +117,6 @@ commoncausepa: 'Pennsylvania',
   groverbeach: 'California',
   vallejo: 'California',
   long_beach: 'California',
-  santa_clara_county: 'California',
   'ft-myers': 'Florida',
   'mp-maps': 'California',
   keystonecounts: 'Pennsylvania',
@@ -153,7 +152,7 @@ const validEventCodes = {
   'mggg-nm': ['new_mexico', 'new_mexico_bg', 'santafe'],
   'pmc-demo': ['wisconsin2020', 'wisconsin'],
   pmc: ['wisconsin2020', 'wisconsin'],
-  'pmc-districts':['wisconsin2020','wisconsin'],
+  'pmc-districts': ['wisconsin2020', 'wisconsin'],
   powercoalition: 'batonrouge',
   'open-maps': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
   'fair-districts-oh': ['ohio', 'akroncanton', 'cincinnati', 'clevelandeuclid', 'columbus', 'dayton', 'limaoh', 'mansfield', 'portsmouthoh', 'toledo', 'youngstown', 'ohcentral', 'ohakron', 'ohcin', 'ohcle', 'ohse', 'ohtoledo'],
@@ -163,7 +162,7 @@ const validEventCodes = {
   'towsonu-baltimore': 'baltimore',
   fairmapstexas: 'texas',
   'missouri-mapping': 'missouri',
-  'ourmapsmn': ['minnesota','olmsted','washington_mn','stlouis_mn','rochestermn'],
+  'ourmapsmn': ['minnesota', 'olmsted', 'washington_mn', 'stlouis_mn', 'rochestermn'],
   'micrc': 'michigan',
   mesaaz: 'mesaaz',
   slo_county: 'sanluiso',
@@ -243,7 +242,6 @@ commoncausepa: 'pennsylvania',
   ocsd: 'ca_oceano',
   groverbeach: 'ca_grover',
   vallejo: 'ca_vallejo',
-  santa_clara_county: 'ca_sc_county',
   'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
   keystonecounts: 'pennsylvania',
@@ -262,11 +260,10 @@ commoncausepa: 'pennsylvania',
   "sanbruno2021": "san_bruno",
   poway2021: 'ca_poway',
   torrance2021: 'ca_torrance'
-
 };
 
 const blockPlans = {
-  powercoalition: [9439, 9446],
+  powercoalition: [9439, 9446]
 };
 
 const unitTypes = {
@@ -336,7 +333,7 @@ const unitCounts = {
   buncombe: 67,
   'towsonu-baltimore': 653,
   prjusd: 2818,
-  'pmc-districts':7078
+  'pmc-districts': 7078
 };
 
 const coi_events = [
@@ -1572,25 +1569,25 @@ butte_county: [
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   sbcounty: [
-    "Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    `Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
     "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
     last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
     in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
   ],
   commoncausepa: [
-    "Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
+    `Common Cause Pennsylvania is the defender of citizens’ rights in the halls of power and in our communities.\
      Standing as an independent voice for positive change, a watchdog against corruption, and protector against abuse of power, \
-     we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization."
+     we work to hold public officials accountable and responsive to citizens. Common Cause Pennsylvania is a nonpartisan, good government organization.`
   ],
   glendora2021: [
-    "City of Glendora City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    `City of Glendora City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
     "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
     last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
     in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`,
   ],
   "sandimas2021": [
     `
@@ -1710,29 +1707,28 @@ butte_county: [
     `
   ],
     poway2021: [
-      "Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+      `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
       last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
       in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
     torrance2021: [
-      "Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+      `Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
       last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
       in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
-    ],
-  
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ]
 };
 
 const proposals_by_event = {
   centralsan: true,
   'pmc-districts': true,
   prjusd: true,
-  san_mateo_city: true,
+  san_mateo_city: true
 };
 
 export default () => {
