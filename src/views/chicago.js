@@ -192,11 +192,11 @@ const numberList = numbers => html`
 `;
 
 const loadablePlan = plan => html`
-    <a href="/edit?url=/assets/chicago-plans/${plan.id}.json">
+    <a href="/edit?url=/assets/chicago-plans/${plan.id}.json?v=2">
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/chicago-plans/${plan.id}.png"
+                src="/assets/chicago-plans/${plan.id}.png?v=2"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">

@@ -1,1 +1,189 @@
-{"assignment":{},"id":"a7c99bea","idColumn":{"key":"NAME10","name":"Precinct unique identifier"},"problem":{"type":"community","numberOfParts":50,"pluralNoun":"Community"},"parts":[{"id":0,"displayNumber":1,"name":"Community 1"}],"place":{"id":"new_mexico","landmarks":{"type":"geojson","data":{"type":"FeatureCollection","features":[]}},"state":"New Mexico","name":"New Mexico"},"placeId":"new_mexico","units":{"id":"precincts","name":"Precincts","unitType":"Precincts","columnSets":[{"type":"population","name":"Population","total":{"key":"TOTPOP","name":"Total population","sum":2059179,"min":0,"max":8135},"subgroups":[{"key":"NH_WHITE","name":"White population","sum":833810,"min":0,"max":3165},{"key":"NH_BLACK","name":"Black population","sum":35462,"min":0,"max":460},{"key":"HISP","name":"Hispanic population","sum":953403,"min":0,"max":8026},{"key":"NH_ASIAN","name":"Asian population","sum":26305,"min":0,"max":371},{"key":"NH_AMIN","name":"American Indian population","sum":175368,"min":0,"max":3205},{"key":"NH_NHPI","name":"Native Hawaiian and Pacific Islander population","sum":1246,"min":0,"max":36},{"key":"NH_2MORE","name":"Two or more races","sum":29835,"min":0,"max":220},{"key":"NH_OTHER","name":"Other races","sum":3750,"min":0,"max":66}]},{"type":"population","name":"Voting Age Population","total":{"key":"VAP","name":"Voting age population","sum":1540507,"min":0,"max":5265},"subgroups":[{"key":"WVAP","name":"White voting age population","sum":697848,"min":0,"max":2517},{"key":"BVAP","name":"Black voting age population","sum":27453,"min":0,"max":314},{"key":"HVAP","name":"Hispanic voting age population","sum":651326,"min":0,"max":5196},{"key":"AMINVAP","name":"Native American voting age population","sum":121962,"min":0,"max":2125},{"key":"NHPIVAP","name":"Native Hawaiian and Pacific Islander voting age population","sum":987,"min":0,"max":23},{"key":"ASIANVAP","name":"Asian voting age population","sum":20956,"min":0,"max":250},{"key":"OTHERVAP","name":"Other races voting age population","sum":2633,"min":0,"max":47},{"key":"2MOREVAP","name":"Two or more races voting age population","sum":17342,"min":0,"max":83}]},{"type":"election","name":"2016 Presidential","subgroups":[{"key":"PRES16D","name":"Democratic","sum":385234,"min":0,"max":1746},{"key":"PRES16R","name":"Republican","sum":319667,"min":0,"max":1197}],"year":"2016"},{"type":"election","name":"2016 Secretary of State","subgroups":[{"key":"SOS16D","name":"Democratic","sum":433227,"min":0,"max":1827},{"key":"SOS16R","name":"Republican","sum":334733,"min":0,"max":1178}],"year":"2016"},{"type":"election","name":"2018 Governor","subgroups":[{"key":"GOV18D","name":"Democratic","sum":398368,"min":0,"max":1849},{"key":"GOV18R","name":"Republican","sum":298091,"min":0,"max":1079}],"year":"2018"},{"type":"election","name":"2018 Senate","subgroups":[{"key":"SEN18D","name":"Democratic","sum":376998,"min":0,"max":1841},{"key":"SEN18R","name":"Republican","sum":212813,"min":0,"max":898}],"year":"2018"},{"type":"election","name":"2018 Secretary of State","subgroups":[{"key":"SOS18D","name":"Democratic","sum":399134,"min":0,"max":1842},{"key":"SOS18R","name":"Republican","sum":257306,"min":0,"max":1009}],"year":"2018"},{"type":"election","name":"2018 Attorney General","subgroups":[{"key":"AG18D","name":"Democratic","sum":427583,"min":0,"max":1892},{"key":"AG18R","name":"Republican","sum":231296,"min":0,"max":914}],"year":"2018"}],"idColumn":{"name":"Precinct unique identifier","key":"NAME10"},"bounds":[[-109.0502,31.3322],[-103.002,37.0003]],"tilesets":[{"type":"fill","source":{"type":"vector","url":"mapbox://districtr.new_mexico_precincts"},"sourceLayer":"new_mexico_precincts"},{"type":"circle","source":{"type":"vector","url":"mapbox://districtr.new_mexico_precincts_points"},"sourceLayer":"new_mexico_precincts_points"}]}}
+{
+  "assignment": {},
+  "id": "8733f978",
+  "idColumn": { "key": "GEOID", "name": "Precinct unique identifier" },
+  "problem": {
+    "type": "community",
+    "numberOfParts": 50,
+    "pluralNoun": "Community"
+  },
+  "parts": [{ "id": 0, "displayNumber": 1, "name": "Community 1" }],
+  "place": {
+    "id": "new_mexico",
+    "landmarks": {
+      "type": "geojson",
+      "data": { "type": "FeatureCollection", "features": [] }
+    },
+    "state": "New Mexico",
+    "name": "New Mexico"
+  },
+  "placeId": "new_mexico",
+  "units": {
+    "id": "precincts2",
+    "name": "2021 Precincts",
+    "unitType": "Precincts",
+    "columnSets": [
+      {
+        "type": "population",
+        "name": "Population",
+        "total": {
+          "key": "TOTPOP",
+          "name": "Total Population",
+          "sum": 2117522,
+          "min": 0,
+          "max": 2470
+        },
+        "subgroups": [
+          {
+            "key": "WHITE",
+            "name": "White population",
+            "sum": 772952,
+            "min": 0,
+            "max": 1445
+          },
+          {
+            "key": "BLACK",
+            "name": "Black population",
+            "sum": 38330,
+            "min": 0,
+            "max": 233
+          },
+          {
+            "key": "AMIN",
+            "name": "American Indian population",
+            "sum": 188610,
+            "min": 0,
+            "max": 2108
+          },
+          {
+            "key": "ASIAN",
+            "name": "Asian population",
+            "sum": 35261,
+            "min": 0,
+            "max": 280
+          },
+          {
+            "key": "NHPI",
+            "name": "Native Hawaiian and Pacific Islanders population",
+            "sum": 1451,
+            "min": 0,
+            "max": 19
+          },
+          {
+            "key": "OTHER",
+            "name": "Other races",
+            "sum": 10340,
+            "min": 0,
+            "max": 82
+          },
+          {
+            "key": "2MORE",
+            "name": "Two or more races",
+            "sum": 59767,
+            "min": 0,
+            "max": 274
+          },
+          {
+            "key": "HISP",
+            "name": "Hispanic population",
+            "sum": 1010811,
+            "min": 0,
+            "max": 2291
+          }
+        ]
+      },
+      {
+        "type": "population",
+        "name": "Voting Age Population",
+        "total": {
+          "key": "VAP",
+          "name": "Voting age population",
+          "sum": 1638989,
+          "min": 0,
+          "max": 1963
+        },
+        "subgroups": [
+          {
+            "key": "WVAP",
+            "name": "White voting age population",
+            "sum": 664062,
+            "min": 0,
+            "max": 1158
+          },
+          {
+            "key": "BVAP",
+            "name": "Black voting age population",
+            "sum": 30778,
+            "min": 0,
+            "max": 186
+          },
+          {
+            "key": "AMINVAP",
+            "name": "American Indian voting age population",
+            "sum": 137360,
+            "min": 0,
+            "max": 1542
+          },
+          {
+            "key": "ASIANVAP",
+            "name": "Asian voting age population",
+            "sum": 28989,
+            "min": 0,
+            "max": 202
+          },
+          {
+            "key": "NHPIVAP",
+            "name": "Native Hawaiian and Pacific Islanders voting age population",
+            "sum": 1199,
+            "min": 0,
+            "max": 19
+          },
+          {
+            "key": "OTHERVAP",
+            "name": "Other races voting age population",
+            "sum": 7925,
+            "min": 0,
+            "max": 59
+          },
+          {
+            "key": "2MOREVAP",
+            "name": "Two or more races voting age population",
+            "sum": 41912,
+            "min": 0,
+            "max": 180
+          },
+          {
+            "key": "HVAP",
+            "name": "Hispanic voting age population",
+            "sum": 726764,
+            "min": 0,
+            "max": 1674
+          }
+        ]
+      }
+    ],
+    "idColumn": { "name": "Precinct unique identifier", "key": "GEOID" },
+    "bounds": [
+      [-109.0504, 31.3322],
+      [-103.002, 37.0002]
+    ],
+    "tilesets": [
+      {
+        "type": "fill",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.new_mexico_precincts2"
+        },
+        "sourceLayer": "new_mexico_precincts2"
+      },
+      {
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.new_mexico_precincts2_points"
+        },
+        "sourceLayer": "new_mexico_precincts2_points"
+      }
+    ]
+  }
+}

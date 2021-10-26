@@ -12,7 +12,7 @@ export function onlyCommunities() {
     justCommunities = true;
 }
 
-function communitiesFilter(place) {
+export function communitiesFilter(place) {
     if (justCommunities) {
         place.districtingProblems = [
             { type: "community", numberOfParts: 250, pluralNoun: "Community" }
@@ -53,10 +53,30 @@ export function PlacesListForState(
     );
 }
 
-export function getUnits(place, problem, show_just_communities = false, eventCode = false) {
+export function getAllUnits(place, problem) {
+    return getUnits(place, problem, false, false, true);
+}
+
+export function getUnits(place, problem, show_just_communities = false, eventCode = false, allUnits = false) {
     if (problem.units) {
         return place.units.filter(units => problem.units.includes(units.id));
     }
+    // added getAll argument so we can get even non-limited ones
+    // for the "Show All" button
+    if (allUnits) {
+        return place.units.sort((a,b) => {
+            const x = a.name.toLowerCase();
+            const y = b.name.toLowerCase();
+            if (x < y) {
+                return -1;
+            }
+            if (x > y) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
     return place.units.filter((unitType) => eventCode || !unitType.limit || (unitType.limit === "community" && show_just_communities))
         .sort((a, b) => {
 
@@ -85,7 +105,9 @@ const problemTypeInfo = {
 
 function getProblemInfo(place, problem, units, onClick) {
     return html`
-        ${problemTypeInfo[problem.type] || ""}
+        <div class="place-info">
+          ${problem.custom_intro || problemTypeInfo[problem.type] || ""}
+        </div>
         ${problem.type !== "community"
             ? html`
                   ${problem.partCounts.length > 1
@@ -96,12 +118,12 @@ function getProblemInfo(place, problem, units, onClick) {
                                 html`<button
                                     @click=${() => onClick(place, problem, units, null, num)}
                                 >
-                                    ${num}
+                                    ${problem.number_intro || ""}${num}
                                 </button>`
                             )}
                         </div>`
                       : html`<div class="place-info">
-                          ${problem.numberOfParts} ${problem.pluralNoun}
+                          ${problem.number_intro || ""}${problem.numberOfParts} ${problem.pluralNoun}
                         </div>`
                   }
               `
@@ -121,9 +143,11 @@ export function placeItems(place, onClick, eventCode, portalCode) {
                         <div class="place-name">
                             ${place.name}
                         </div>
-                        ${problemTypeInfo[problem.type] || ""}
+                        <div class="place-info">
+                            ${problem.custom_intro || problemTypeInfo[problem.type] || ""}
+                        </div>
                         ${problem.type === "community" ? "" : html`<div class="place-info">
-                            ${problem.numberOfParts} ${problem.pluralNoun}
+                            ${problem.number_intro || ""}${problem.numberOfParts} ${problem.pluralNoun}
                         </div>`}
                         <div class="place-info">
                             Built out of ${units.name.toLowerCase()}

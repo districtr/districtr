@@ -11,7 +11,7 @@ let _colorScheme = [
     "#00cd99",
     "#99cd00",
     "#cd0099",
-    "#9900cd",
+    "#aa44ef", // lighter, req from San Diego
     // Color brewer:
     "#8dd3c7",
     "#bebada",

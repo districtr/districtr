@@ -23,8 +23,8 @@ export default class PlanUploader {
         return html`
             <label class="plan-loader">
                 <input type="file" @change="${this.handleFiles}" />
-                <img src="/assets/upload.png" width="50px" style="margin-right:0.75rem;">
-                Choose File
+                <img src="/assets/upload.png?v=2" width="50px" style="margin-right:0.75rem;">
+                <text>Choose File</text>
             </label>
         `;
     }

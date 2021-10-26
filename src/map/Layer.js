@@ -101,6 +101,10 @@ export default class Layer {
             ];
         if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP", "COUNTYFP10", "cnty_nm", "county_nam", "locality"].includes(countyProp)) {
             filterStrings.push(["==", ["get", countyProp], fips]);
+        } else if (typeof fips === 'number') {
+            // 35059 - 35060 * 10^6 (for numeric ids)
+            filterStrings.push([">=", ["get", countyProp], fips * Math.pow(10, 6)]);
+            filterStrings.push(["<", ["get", countyProp], (fips + 1) * Math.pow(10, 6)]);
         } else {
             filterStrings.push([">=", ["get", countyProp], fips]);
             filterStrings.push(["<", ["get", countyProp], ((isNaN(fips * 1) || (String(fips)[0] === "0") || countyProp.toLowerCase().includes("name")) ? fips + "z" : String(Number(fips) + 1))]);

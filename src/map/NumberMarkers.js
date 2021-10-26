@@ -1,6 +1,7 @@
 import Layer from "./Layer";
 import { colorScheme } from "../colors";
-import { spatial_abilities } from "../utils";
+import { spatial_abilities, stateNameToFips } from "../utils";
+import { Chance } from "chance";
 
 export default function NumberMarkers(state, brush) {
     const spacer = String.fromCharCode(8202) + String.fromCharCode(8202);
@@ -49,7 +50,10 @@ export default function NumberMarkers(state, brush) {
         } else {
             ctx.font = '500 32px Source Sans Pro';
         }
-        let numtxt = String(dnum + 1).split("").join(spacer)
+        let numtxt = String(dnum + 1).split("").join(spacer);
+        if (state.place.id === "alaska" && state.problem && state.problem.name === "State Senate") {
+          numtxt = 'ABCDEFGHIJKLMNOPQRST'.charAt(dnum);
+        }
         let numwidth = Math.round(ctx.measureText(numtxt).width / 2);
         // ctx.shadowColor = "#000";
         // ctx.shadowBlur = 5;
@@ -82,10 +86,10 @@ export default function NumberMarkers(state, brush) {
                         "icon-size": 0.75
                     }
                 },
-                (map, layer) => {
-                    const layers = map.getStyle().layers;
-                    map.addLayer(layer, layers[layers.length - 1].id);
-                }
+                // (map, layer) => {
+                //     const layers = map.getStyle().layers;
+                //     map.addLayer(layer, layers[layers.length - 1].id);
+                // }
             ));
         });
     });
@@ -144,41 +148,51 @@ export default function NumberMarkers(state, brush) {
             function check_district(d_index) {
                 // up to 100 random GEOIDs in GET url
                 // have requested help to POST
-                if (d_index >= moveMarkers.length) {
-                    return;
-                }
                 let district_num = moveMarkers[d_index];
-                let filterOdds = 100 / markers[district_num].length;
-                if (filterOdds < 1) {
-                    markers[district_num] = markers[district_num].filter(() => (Math.random() < filterOdds));
+                // var random = new Chance(markers[district_num]);
+                // if (markers[district_num].length > 100) {
+                //     markers[district_num] = random.pickset(markers[district_num], 100);
+                // }
+
+                const units = state.unitsRecord.id;
+                let stateName = state.place.id;
+                if (state.place.id === "dc") {
+                  stateName = "district_of_columbia";
+                } else if (stateNameToFips[state.place.id] || state.unitsRecord.id.includes("blockgroup") || state.unitsRecord.id.includes("vtds20")) {
+                  stateName = state.place.state;
                 }
-                const serverurl = `//mggg.pythonanywhere.com/findCenter?place=${placeID}&`;
-                    // : `https://mggg-states.subzero.cloud/rest/rpc/merged_${placeID}?`
-                fetch(`${serverurl}ids=${markers[district_num].join(sep)}`).then(res => res.json()).then((centroid) => {
-                    while (centroid.length === 1) {
-                        centroid = centroid[0];
-                    }
-                    if (typeof centroid === "object" && centroid[`merged_${placeID}`]) {
-                        centroid = centroid[`merged_${placeID}`];
-                    }
-                    let latlng = centroid.split(" "),
-                        lat = latlng[1].split(")")[0] * 1,
-                        lng = latlng[0].split("(")[1] * 1;
+                const assign = markers[district_num];
+                fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_center", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        state: stateName,
+                        units: units,
+                        dist_id: district_num,
+                        assignment: assign
+                    })
+                })
+                .then((res) => res.json())
+                .catch((e) => console.error(e))
+                .then((data) => {
                     if (numberMarkers[district_num]) {
-                        numberMarkers[district_num].geometry.coordinates = [lng, lat];
+                        numberMarkers[district_num].geometry.coordinates = data["coord"];
                     } else {
                         numberMarkers[district_num] = {
                             type: "Feature",
-                            geometry: { type: "Point", coordinates: [lng, lat] }
+                            geometry: { type: "Point", coordinates: data["coord"] }
                         };
                     }
                     map.getSource("number_source_" + district_num).setData(numberMarkers[district_num]);
-                    check_district(d_index + 1);
-                }).catch(() => {
-                    check_district(d_index + 1);
-                });
+
+                })
             }
-            check_district(0);
+
+            for (let d_index = 0; d_index < moveMarkers.length; d_index++) {
+              check_district(d_index);
+            }
 
             // remove a number marker if the district has no units left on the map
             Object.keys(numberMarkers).forEach((previous_dnum) => {
@@ -188,6 +202,6 @@ export default function NumberMarkers(state, brush) {
             });
         }
     };
-    updater(state);
+    // updater(state);
     return { update: updater };
 }

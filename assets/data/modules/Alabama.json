@@ -9,6 +9,7 @@
         "name": "Block Groups",
         "unitType": "Block Groups",
 		    "limit": "hide",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -560,6 +561,8 @@
         "id": "blockgroups_2019",
         "name": "2019 Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "limit": "hide",
         "columnSets": [
           {
             "type": "population",
@@ -661,6 +664,561 @@
               "url": "mapbox://districtr.alabama2019_blockgroups_points"
             },
             "sourceLayer": "alabama2019_blockgroups_points"
+          }
+        ]
+      },
+      {
+         "id": "blockgroups20",
+         "name": "2020 Block Groups",
+         "unitType": "Block Groups",
+         "hideOnDefault": true,
+         "columnSets": [
+           {
+             "type": "population",
+             "name": "Population",
+             "total": {
+               "key": "TOTPOP",
+               "name": "Total population",
+               "sum": 5024279,
+               "min": 0,
+               "max": 5534
+             },
+             "subgroups": [
+               {
+                 "key": "WHITE",
+                 "name": "White population",
+                 "sum": 3171351,
+                 "min": 0,
+                 "max": 4046
+               },
+               {
+                 "key": "BLACK",
+                 "name": "Black population",
+                 "sum": 1288159,
+                 "min": 0,
+                 "max": 2792
+               },
+               {
+                 "key": "HISP",
+                 "name": "Hispanic population",
+                 "sum": 264047,
+                 "min": 0,
+                 "max": 1698
+               },
+               {
+                 "key": "ASIAN",
+                 "name": "Asian population",
+                 "sum": 75918,
+                 "min": 0,
+                 "max": 1176
+               },
+               {
+                 "key": "AMIN",
+                 "name": "American Indian population",
+                 "sum": 23119,
+                 "min": 0,
+                 "max": 1151
+               },
+               {
+                 "key": "NHPI",
+                 "name": "Native Hawaiian and Pacific Islander population",
+                 "sum": 2612,
+                 "min": 0,
+                 "max": 50
+               },
+               {
+                 "key": "2MORE",
+                 "name": "Two or more races",
+                 "sum": 184618,
+                 "min": 0,
+                 "max": 253
+               },
+               {
+                 "key": "OTHER",
+                 "name": "Other races",
+                 "sum": 14455,
+                 "min": 0,
+                 "max": 127
+               }
+             ]
+           },
+           {
+             "type": "population",
+             "name": "Voting Age Population",
+             "total": {
+               "key": "VAP",
+               "name": "Voting age population",
+               "sum": 3917166,
+               "min": 0,
+               "max": 5460
+             },
+             "subgroups": [
+               {
+                 "key": "WVAP",
+                 "name": "White voting age population",
+                 "sum": 2564544,
+                 "min": 0,
+                 "max": 3923
+               },
+               {
+                 "key": "BVAP",
+                 "name": "Black voting age population",
+                 "sum": 976732,
+                 "min": 0,
+                 "max": 2744
+               },
+               {
+                 "key": "HVAP",
+                 "name": "Hispanic voting age population",
+                 "sum": 166856,
+                 "min": 0,
+                 "max": 1676
+               },
+               {
+                 "key": "AMINVAP",
+                 "name": "Native American voting age population",
+                 "sum": 18137,
+                 "min": 0,
+                 "max": 840
+               },
+               {
+                 "key": "NHPIVAP",
+                 "name": "Native Hawaiian and Pacific Islander voting age population",
+                 "sum": 1872,
+                 "min": 0,
+                 "max": 37
+               },
+               {
+                 "key": "ASIANVAP",
+                 "name": "Asian voting age population",
+                 "sum": 59997,
+                 "min": 0,
+                 "max": 786
+               },
+               {
+                 "key": "OTHERVAP",
+                 "name": "Other races voting age population",
+                 "sum": 9084,
+                 "min": 0,
+                 "max": 127
+               },
+               {
+                 "key": "2MOREVAP",
+                 "name": "Two or more races voting age population",
+                 "sum": 119944,
+                 "min": 0,
+                 "max": 168
+               }
+             ]
+           }
+         ],
+         "idColumn": {
+           "name": "Block group FIPS code",
+           "key": "GEOID"
+         },
+         "bounds": [
+           [
+             -88.4732,
+             30.1905
+           ],
+           [
+             -84.8882,
+             35.008
+           ]
+         ],
+         "tilesets": [
+           {
+             "type": "circle",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.al_20_blockgroups20_points"
+             },
+             "sourceLayer": "al_20_blockgroups20_points"
+           },
+           {
+             "type": "fill",
+             "source": {
+               "type": "vector",
+               "url": "mapbox://districtr.al_20_blockgroups20"
+             },
+             "sourceLayer": "al_20_blockgroups20"
+           }
+         ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "G16PREDCLI",
+                "name": "Democratic",
+                "sum": 729631,
+                "min": 1,
+                "max": 4676
+              },
+              {
+                "key": "G16PRERTRU",
+                "name": "Republican",
+                "sum": 1318636,
+                "min": 0,
+                "max": 7790
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US Senate",
+            "subgroups": [
+              {
+                "key": "G16USSDCRU",
+                "name": "Democratic",
+                "sum": 748775,
+                "min": 1,
+                "max": 4637
+              },
+              {
+                "key": "G16USSRSHE",
+                "name": "Republican",
+                "sum": 1335478,
+                "min": 0,
+                "max": 7842
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "G18GOVDMAD",
+                "name": "Democratic",
+                "sum": 694487,
+                "min": 1,
+                "max": 3795
+              },
+              {
+                "key": "G18GOVRIVE",
+                "name": "Republican",
+                "sum": 1022463,
+                "min": 0,
+                "max": 6224
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Lt. Governor",
+            "subgroups": [
+              {
+                "key": "G18LTGDBOY",
+                "name": "Democratic",
+                "sum": 660008,
+                "min": 0,
+                "max": 3819
+              },
+              {
+                "key": "G18LTGRAIN",
+                "name": "Republican",
+                "sum": 1044938,
+                "min": 0,
+                "max": 6414
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "G18ATGDSIE",
+                "name": "Democratic",
+                "sum": 702857,
+                "min": 1,
+                "max": 3852
+              },
+              {
+                "key": "G18ATGRMAR",
+                "name": "Republican",
+                "sum": 1004460,
+                "min": 0,
+                "max": 6097
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "G18SOSDMIL",
+                "name": "Democratic",
+                "sum": 658533,
+                "min": 0,
+                "max": 3753
+              },
+              {
+                "key": "G18SOSRMER",
+                "name": "Republican",
+                "sum": 1032416,
+                "min": 0,
+                "max": 6257
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Auditor",
+            "subgroups": [
+              {
+                "key": "G18AUDDJOS",
+                "name": "Democratic",
+                "sum": 665701,
+                "min": 0,
+                "max": 3750
+              },
+              {
+                "key": "G18AUDRZEI",
+                "name": "Republican",
+                "sum": 1018455,
+                "min": 0,
+                "max": 6136
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "G18TREOWRI",
+                "name": "Other/write-in",
+                "sum": 31958,
+                "min": 0,
+                "max": 253
+              },
+              {
+                "key": "G18TRERMCM",
+                "name": "Republican",
+                "sum": 1085077,
+                "min": 0,
+                "max": 6513
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "G20PREDBID",
+                "name": "Democratic",
+                "sum": 849621,
+                "min": 0,
+                "max": 4950
+              },
+              {
+                "key": "G20PRERTRU",
+                "name": "Republican",
+                "sum": 1441157,
+                "min": 0,
+                "max": 8891
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "G20USSDJON",
+                "name": "Democratic",
+                "sum": 920485,
+                "min": 0,
+                "max": 5062
+              },
+              {
+                "key": "G20USSRTUB",
+                "name": "Republican",
+                "sum": 1392074,
+                "min": 0,
+                "max": 8507
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 5024279,
+              "min": 6,
+              "max": 28753
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 3171351,
+                "min": 0,
+                "max": 19599
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1288159,
+                "min": 0,
+                "max": 10187
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 264047,
+                "min": 0,
+                "max": 7558
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 75918,
+                "min": 0,
+                "max": 2665
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 23119,
+                "min": 0,
+                "max": 1185
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2612,
+                "min": 0,
+                "max": 99
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 184618,
+                "min": 0,
+                "max": 1332
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 14455,
+                "min": 0,
+                "max": 153
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 3917166,
+              "min": 1,
+              "max": 22360
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 2564544,
+                "min": 0,
+                "max": 16062
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 976732,
+                "min": 0,
+                "max": 7697
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 166856,
+                "min": 0,
+                "max": 4268
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 18137,
+                "min": 0,
+                "max": 860
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1872,
+                "min": 0,
+                "max": 64
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 59997,
+                "min": 0,
+                "max": 1896
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 9084,
+                "min": 0,
+                "max": 149
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 119944,
+                "min": 0,
+                "max": 814
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD GEOID code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -88.4732,
+            30.1444
+          ],
+          [
+            -84.8882,
+            35.008
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.al_vtds20"
+            },
+            "sourceLayer": "al_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.al_vtds20_points"
+            },
+            "sourceLayer": "al_vtds20_points"
           }
         ]
       }

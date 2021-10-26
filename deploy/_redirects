@@ -7,7 +7,7 @@
 /event/* /event.html 200
 /tag/* /tag.html 200
 /group/* /group.html 200
-/user_guide /guide
+/user_guide /guide 302
 
 ## Landing Pages
 /alabama/*          /alabama.html 200
@@ -60,228 +60,236 @@
 /west-virginia/*    /west-virginia.html 200
 /wisconsin/*        /wisconsin.html 200
 /wyoming/*          /wyoming.html 200
-/new/al/*          /alabama
-/new/ak/*           /alaska
-/new/az/*          /arizona
-/new/ar/*         /arkansas
-/new/ca/*       /california
-/new/co/*         /colorado
-/new/ct/*      /connecticut
-/new/de/*         /delaware
-/new/fl/*          /florida
-/new/ga/*          /georgia
-/new/hi/*           /hawaii
-/new/id/*            /idaho
-/new/il/*         /illinois
-/new/in/*          /indiana
-/new/ia/*             /iowa
-/new/ks/*           /kansas
-/new/ky/*         /kentucky
-/new/la/*        /louisiana
-/new/me/*            /maine
-/new/md/*         /maryland
-/new/ma/*    /massachusetts
-/new/mi/*         /michigan
-/new/mn/*        /minnesota
-/new/ms/*      /mississippi
-/new/mo/*         /missouri
-/new/mt/*          /montana
-/new/ne/*         /nebraska
-/new/nv/*           /nevada
-/new/nh/*    /new-hampshire
-/new/nj/*       /new-jersey
-/new/nm/*       /new-mexico
-/new/ny/*         /new-york
-/new/nc/*   /north-carolina
-/new/nd/*     /north-dakota
-/new/oh/*             /ohio
-/new/ok/*         /oklahoma
-/new/or/*           /oregon
-/new/pa/*     /pennsylvania
-/new/ri/*     /rhode-island
-/new/sc/*   /south-carolina
-/new/sd/*     /south-dakota
-/new/tn/*        /tennessee
-/new/tx/*            /texas
-/new/ut/*             /utah
-/new/vt/*          /vermont
-/new/va/*         /virginia
-/new/wa/*       /washington
-/new/wv/*    /west-virginia
-/new/wi/*        /wisconsin
-/new/wy/*          /wyoming
-/community/al/*          /alabama?mode=coi
-/community/ak/*           /alaska?mode=coi
-/community/az/*          /arizona?mode=coi
-/community/ar/*         /arkansas?mode=coi
-/community/ca/*       /california?mode=coi
-/community/co/*         /colorado?mode=coi
-/community/ct/*      /connecticut?mode=coi
-/community/de/*         /delaware?mode=coi
-/community/fl/*          /florida?mode=coi
-/community/ga/*          /georgia?mode=coi
-/community/hi/*           /hawaii?mode=coi
-/community/id/*            /idaho?mode=coi
-/community/il/*         /illinois?mode=coi
-/community/in/*          /indiana?mode=coi
-/community/ia/*             /iowa?mode=coi
-/community/ks/*           /kansas?mode=coi
-/community/ky/*         /kentucky?mode=coi
-/community/la/*        /louisiana?mode=coi
-/community/me/*            /maine?mode=coi
-/community/md/*         /maryland?mode=coi
-/community/ma/*    /massachusetts?mode=coi
-/community/mi/*         /michigan?mode=coi
-/community/mn/*        /minnesota?mode=coi
-/community/ms/*      /mississippi?mode=coi
-/community/mo/*         /missouri?mode=coi
-/community/mt/*          /montana?mode=coi
-/community/ne/*         /nebraska?mode=coi
-/community/nv/*           /nevada?mode=coi
-/community/nh/*    /new-hampshire?mode=coi
-/community/nj/*       /new-jersey?mode=coi
-/community/nm/*       /new-mexico?mode=coi
-/community/ny/*         /new-york?mode=coi
-/community/nc/*   /north-carolina?mode=coi
-/community/nd/*     /north-dakota?mode=coi
-/community/oh/*             /ohio?mode=coi
-/community/ok/*         /oklahoma?mode=coi
-/community/or/*           /oregon?mode=coi
-/community/pa/*     /pennsylvania?mode=coi
-/community/ri/*     /rhode-island?mode=coi
-/community/sc/*   /south-carolina?mode=coi
-/community/sd/*     /south-dakota?mode=coi
-/community/tn/*        /tennessee?mode=coi
-/community/tx/*            /texas?mode=coi
-/community/ut/*             /utah?mode=coi
-/community/vt/*          /vermont?mode=coi
-/community/va/*         /virginia?mode=coi
-/community/wa/*       /washington?mode=coi
-/community/wv/*    /west-virginia?mode=coi
-/community/wi/*        /wisconsin?mode=coi
-/community/wy/*          /wyoming?mode=coi
-/new/AL/*          /alabama
-/new/AK/*           /alaska
-/new/AZ/*          /arizona
-/new/AR/*         /arkansas
-/new/CA/*       /california
-/new/CO/*         /colorado
-/new/CT/*      /connecticut
-/new/DE/*         /delaware
-/new/FL/*          /florida
-/new/GA/*          /georgia
-/new/HI/*           /hawaii
-/new/ID/*            /idaho
-/new/IL/*         /illinois
-/new/IN/*          /indiana
-/new/IA/*             /iowa
-/new/KS/*           /kansas
-/new/KY/*         /kentucky
-/new/LA/*        /louisiana
-/new/ME/*            /maine
-/new/MD/*         /maryland
-/new/MA/*    /massachusetts
-/new/MI/*         /michigan
-/new/MN/*        /minnesota
-/new/MS/*      /mississippi
-/new/MO/*         /missouri
-/new/MT/*          /montana
-/new/NE/*         /nebraska
-/new/NV/*           /nevada
-/new/NH/*    /new-hampshire
-/new/NJ/*       /new-jersey
-/new/NM/*       /new-mexico
-/new/NY/*         /new-york
-/new/NC/*   /north-carolina
-/new/ND/*     /north-dakota
-/new/OH/*             /ohio
-/new/OK/*         /oklahoma
-/new/OR/*           /oregon
-/new/PA/*     /pennsylvania
-/new/RI/*     /rhode-island
-/new/SC/*   /south-carolina
-/new/SD/*     /south-dakota
-/new/TN/*        /tennessee
-/new/TX/*            /texas
-/new/UT/*             /utah
-/new/VT/*          /vermont
-/new/VA/*         /virginia
-/new/WA/*       /washington
-/new/WV/*    /west-virginia
-/new/WI/*        /wisconsin
-/new/WY/*          /wyoming
-/community/AL/*          /alabama?mode=coi
-/community/AK/*           /alaska?mode=coi
-/community/AZ/*          /arizona?mode=coi
-/community/AR/*         /arkansas?mode=coi
-/community/CA/*       /california?mode=coi
-/community/CO/*         /colorado?mode=coi
-/community/CT/*      /connecticut?mode=coi
-/community/DE/*         /delaware?mode=coi
-/community/FL/*          /florida?mode=coi
-/community/GA/*          /georgia?mode=coi
-/community/HI/*           /hawaii?mode=coi
-/community/ID/*            /idaho?mode=coi
-/community/IL/*         /illinois?mode=coi
-/community/IN/*          /indiana?mode=coi
-/community/IA/*             /iowa?mode=coi
-/community/KS/*           /kansas?mode=coi
-/community/KY/*         /kentucky?mode=coi
-/community/LA/*        /louisiana?mode=coi
-/community/ME/*            /maine?mode=coi
-/community/MD/*         /maryland?mode=coi
-/community/MA/*    /massachusetts?mode=coi
-/community/MI/*         /michigan?mode=coi
-/community/MN/*        /minnesota?mode=coi
-/community/MS/*      /mississippi?mode=coi
-/community/MO/*         /missouri?mode=coi
-/community/MT/*          /montana?mode=coi
-/community/NE/*         /nebraska?mode=coi
-/community/NV/*           /nevada?mode=coi
-/community/NH/*    /new-hampshire?mode=coi
-/community/NJ/*       /new-jersey?mode=coi
-/community/NM/*       /new-mexico?mode=coi
-/community/NY/*         /new-york?mode=coi
-/community/NC/*   /north-carolina?mode=coi
-/community/ND/*     /north-dakota?mode=coi
-/community/OH/*             /ohio?mode=coi
-/community/OK/*         /oklahoma?mode=coi
-/community/OR/*           /oregon?mode=coi
-/community/PA/*     /pennsylvania?mode=coi
-/community/RI/*     /rhode-island?mode=coi
-/community/SC/*   /south-carolina?mode=coi
-/community/SD/*     /south-dakota?mode=coi
-/community/TN/*        /tennessee?mode=coi
-/community/TX/*            /texas?mode=coi
-/community/UT/*             /utah?mode=coi
-/community/VT/*          /vermont?mode=coi
-/community/VA/*         /virginia?mode=coi
-/community/WA/*       /washington?mode=coi
-/community/WV/*    /west-virginia?mode=coi
-/community/WI/*        /wisconsin?mode=coi
-/community/WY/*          /wyoming?mode=coi
-/new/:state/*       /:state
-/community/:state/*       /:state?mode=coi
+/new/al/*          /alabama 302
+/new/ak/*           /alaska 302
+/new/az/*          /arizona 302
+/new/ar/*         /arkansas 302
+/new/ca/*       /california 302
+/new/co/*         /colorado 302
+/new/ct/*      /connecticut 302
+/new/de/*         /delaware 302
+/new/fl/*          /florida 302
+/new/ga/*          /georgia 302
+/new/hi/*           /hawaii 302
+/new/id/*            /idaho 302
+/new/il/*         /illinois 302
+/new/in/*          /indiana 302
+/new/ia/*             /iowa 302
+/new/ks/*           /kansas 302
+/new/ky/*         /kentucky 302
+/new/la/*        /louisiana 302
+/new/me/*            /maine 302
+/new/md/*         /maryland 302
+/new/ma/*    /massachusetts 302
+/new/mi/*         /michigan 302
+/new/mn/*        /minnesota 302
+/new/ms/*      /mississippi 302
+/new/mo/*         /missouri 302
+/new/mt/*          /montana 302
+/new/ne/*         /nebraska 302
+/new/nv/*           /nevada 302
+/new/nh/*    /new-hampshire 302
+/new/nj/*       /new-jersey 302
+/new/nm/*       /new-mexico 302
+/new/ny/*         /new-york 302
+/new/nc/*   /north-carolina 302
+/new/nd/*     /north-dakota 302
+/new/oh/*             /ohio 302
+/new/ok/*         /oklahoma 302
+/new/or/*           /oregon 302
+/new/pa/*     /pennsylvania 302
+/new/ri/*     /rhode-island 302
+/new/sc/*   /south-carolina 302
+/new/sd/*     /south-dakota 302
+/new/tn/*        /tennessee 302
+/new/tx/*            /texas 302
+/new/ut/*             /utah 302
+/new/vt/*          /vermont 302
+/new/va/*         /virginia 302
+/new/wa/*       /washington 302
+/new/wv/*    /west-virginia 302
+/new/wi/*        /wisconsin 302
+/new/wy/*          /wyoming 302
+/community/al/*          /alabama?mode=coi 302
+/community/ak/*           /alaska?mode=coi 302
+/community/az/*          /arizona?mode=coi 302
+/community/ar/*         /arkansas?mode=coi 302
+/community/ca/*       /california?mode=coi 302
+/community/co/*         /colorado?mode=coi 302
+/community/ct/*      /connecticut?mode=coi 302
+/community/de/*         /delaware?mode=coi 302
+/community/fl/*          /florida?mode=coi 302
+/community/ga/*          /georgia?mode=coi 302
+/community/hi/*           /hawaii?mode=coi 302
+/community/id/*            /idaho?mode=coi 302
+/community/il/*         /illinois?mode=coi 302
+/community/in/*          /indiana?mode=coi 302
+/community/ia/*             /iowa?mode=coi 302
+/community/ks/*           /kansas?mode=coi 302
+/community/ky/*         /kentucky?mode=coi 302
+/community/la/*        /louisiana?mode=coi 302
+/community/me/*            /maine?mode=coi 302
+/community/md/*         /maryland?mode=coi 302
+/community/ma/*    /massachusetts?mode=coi 302
+/community/mi/*         /michigan?mode=coi 302
+/community/mn/*        /minnesota?mode=coi 302
+/community/ms/*      /mississippi?mode=coi 302
+/community/mo/*         /missouri?mode=coi 302
+/community/mt/*          /montana?mode=coi 302
+/community/ne/*         /nebraska?mode=coi 302
+/community/nv/*           /nevada?mode=coi 302
+/community/nh/*    /new-hampshire?mode=coi 302
+/community/nj/*       /new-jersey?mode=coi 302
+/community/nm/*       /new-mexico?mode=coi 302
+/community/ny/*         /new-york?mode=coi 302
+/community/nc/*   /north-carolina?mode=coi 302
+/community/nd/*     /north-dakota?mode=coi 302
+/community/oh/*             /ohio?mode=coi 302
+/community/ok/*         /oklahoma?mode=coi 302
+/community/or/*           /oregon?mode=coi 302
+/community/pa/*     /pennsylvania?mode=coi 302
+/community/ri/*     /rhode-island?mode=coi 302
+/community/sc/*   /south-carolina?mode=coi 302
+/community/sd/*     /south-dakota?mode=coi 302
+/community/tn/*        /tennessee?mode=coi 302
+/community/tx/*            /texas?mode=coi 302
+/community/ut/*             /utah?mode=coi 302
+/community/vt/*          /vermont?mode=coi 302
+/community/va/*         /virginia?mode=coi 302
+/community/wa/*       /washington?mode=coi 302
+/community/wv/*    /west-virginia?mode=coi 302
+/community/wi/*        /wisconsin?mode=coi 302
+/community/wy/*          /wyoming?mode=coi 302
+/new/AL/*          /alabama 302
+/new/AK/*           /alaska 302
+/new/AZ/*          /arizona 302
+/new/AR/*         /arkansas 302
+/new/CA/*       /california 302
+/new/CO/*         /colorado 302
+/new/CT/*      /connecticut 302
+/new/DE/*         /delaware 302
+/new/FL/*          /florida 302
+/new/GA/*          /georgia 302
+/new/HI/*           /hawaii 302
+/new/ID/*            /idaho 302
+/new/IL/*         /illinois 302
+/new/IN/*          /indiana 302
+/new/IA/*             /iowa 302
+/new/KS/*           /kansas 302
+/new/KY/*         /kentucky 302
+/new/LA/*        /louisiana 302
+/new/ME/*            /maine 302
+/new/MD/*         /maryland 302
+/new/MA/*    /massachusetts 302
+/new/MI/*         /michigan 302
+/new/MN/*        /minnesota 302
+/new/MS/*      /mississippi 302
+/new/MO/*         /missouri 302
+/new/MT/*          /montana 302
+/new/NE/*         /nebraska 302
+/new/NV/*           /nevada 302
+/new/NH/*    /new-hampshire 302
+/new/NJ/*       /new-jersey 302
+/new/NM/*       /new-mexico 302
+/new/NY/*         /new-york 302
+/new/NC/*   /north-carolina 302
+/new/ND/*     /north-dakota 302
+/new/OH/*             /ohio 302
+/new/OK/*         /oklahoma 302
+/new/OR/*           /oregon 302
+/new/PA/*     /pennsylvania 302
+/new/RI/*     /rhode-island 302
+/new/SC/*   /south-carolina 302
+/new/SD/*     /south-dakota 302
+/new/TN/*        /tennessee 302
+/new/TX/*            /texas 302
+/new/UT/*             /utah 302
+/new/VT/*          /vermont 302
+/new/VA/*         /virginia 302
+/new/WA/*       /washington 302
+/new/WV/*    /west-virginia 302
+/new/WI/*        /wisconsin 302
+/new/WY/*          /wyoming 302
+/community/AL/*          /alabama?mode=coi 302
+/community/AK/*           /alaska?mode=coi 302
+/community/AZ/*          /arizona?mode=coi 302
+/community/AR/*         /arkansas?mode=coi 302
+/community/CA/*       /california?mode=coi 302
+/community/CO/*         /colorado?mode=coi 302
+/community/CT/*      /connecticut?mode=coi 302
+/community/DE/*         /delaware?mode=coi 302
+/community/FL/*          /florida?mode=coi 302
+/community/GA/*          /georgia?mode=coi 302
+/community/HI/*           /hawaii?mode=coi 302
+/community/ID/*            /idaho?mode=coi 302
+/community/IL/*         /illinois?mode=coi 302
+/community/IN/*          /indiana?mode=coi 302
+/community/IA/*             /iowa?mode=coi 302
+/community/KS/*           /kansas?mode=coi 302
+/community/KY/*         /kentucky?mode=coi 302
+/community/LA/*        /louisiana?mode=coi 302
+/community/ME/*            /maine?mode=coi 302
+/community/MD/*         /maryland?mode=coi 302
+/community/MA/*    /massachusetts?mode=coi 302
+/community/MI/*         /michigan?mode=coi 302
+/community/MN/*        /minnesota?mode=coi 302
+/community/MS/*      /mississippi?mode=coi 302
+/community/MO/*         /missouri?mode=coi 302
+/community/MT/*          /montana?mode=coi 302
+/community/NE/*         /nebraska?mode=coi 302
+/community/NV/*           /nevada?mode=coi 302
+/community/NH/*    /new-hampshire?mode=coi 302
+/community/NJ/*       /new-jersey?mode=coi 302
+/community/NM/*       /new-mexico?mode=coi 302
+/community/NY/*         /new-york?mode=coi 302
+/community/NC/*   /north-carolina?mode=coi 302
+/community/ND/*     /north-dakota?mode=coi 302
+/community/OH/*             /ohio?mode=coi 302
+/community/OK/*         /oklahoma?mode=coi 302
+/community/OR/*           /oregon?mode=coi 302
+/community/PA/*     /pennsylvania?mode=coi 302
+/community/RI/*     /rhode-island?mode=coi 302
+/community/SC/*   /south-carolina?mode=coi 302
+/community/SD/*     /south-dakota?mode=coi 302
+/community/TN/*        /tennessee?mode=coi 302
+/community/TX/*            /texas?mode=coi 302
+/community/UT/*             /utah?mode=coi 302
+/community/VT/*          /vermont?mode=coi 302
+/community/VA/*         /virginia?mode=coi 302
+/community/WA/*       /washington?mode=coi 302
+/community/WV/*    /west-virginia?mode=coi 302
+/community/WI/*        /wisconsin?mode=coi 302
+/community/WY/*          /wyoming?mode=coi 302
+/new/:state/*       /:state 302
+/community/:state/*       /:state?mode=coi 302
 
-/new/* /new.html
-/community/* /community.html
-/communities/* /community.html
+/new/* /new.html 302
+/community/* /community.html 302
+/communities/* /community.html 302
+
+## Eval Page Redirects
+/eval/:place/:plan /eval?url=/assets/:place-plans/:plan.json 302
+/eval/* /eval.html 200
+
+## COI viz redirects
+/coi-info/:place/:plan/ /edit/ 302
+/coi-info/* /coi-info.html 200
 
 ## Plan Redirects
-/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
-/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
-/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan
-/plans/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
-/plans/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan
-/plans/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan
-/portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#portal
-/qa-portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#qa-portal
+/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/plans/lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/plans/Lowell-districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/plans/Lowell-Districts /edit?url=/assets/plans/lowell-districts.json#plan 302
+/portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#portal 302
+/qa-portal/:place/:plan /edit?url=/assets/:place-plans/:plan.json#qa-portal 302
 
-/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan
-/:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan
-/:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan
+/:place/:plan /edit?url=/assets/:place-plans/:plan.json#plan 302
+/:place/:plan?layer=:layer /edit?url=/assets/:place-plans/:plan.json&layer=:layer#plan 302
+/:place/:plan?layer=:layer&ltype=:ltype /edit?url=/assets/:place-plans/:plan.json&layer=:layer&ltype=:ltype#plan 302
 
 # last failed typos
-/new/*        /new
-/community/*  /community
-/*            /
+/new/*        /new 302
+/community/*  /community 302
+/*            / 302

@@ -3,13 +3,15 @@ import { actions } from "../../reducers/charts";
 import { districtColors } from "../../colors";
 
 export default function ContiguitySection(allParts, contiguityProblems, contigVersion, state, uiState, dispatch) {
-  
+  if (!contiguityProblems) {
+    contiguityProblems = {};
+  }
   const showWarning = ['wisconsin', 'ohio'].includes(state);
   return html`
     <section class="toolbar-section">
-      ${showWarning ? html`<p class="italic-note">This tool checks if districts are contiguous.  
-        Note that the units themselves may be disconnected into several tiny pieces, 
-        so districts may be technically contiguous (in terms of the 
+      ${showWarning ? html`<p class="italic-note">This tool checks if districts are contiguous.
+        Note that the units themselves may be disconnected into several tiny pieces,
+        so districts may be technically contiguous (in terms of the
         network of units) though their appearance is disconnected.</p>` : ""}
       <h4 id="contiguity-status">
         ${Object.keys(contiguityProblems).filter(k => contiguityProblems[k] && contiguityProblems[k].length > 1).length
@@ -32,7 +34,7 @@ export default function ContiguitySection(allParts, contiguityProblems, contigVe
               >
                 ${Number(dnum) + 1}
               </span>
-              ${contigVersion === 2 ? html`<label>
+              ${contigVersion >= 2 ? html`<label>
                 <input type="checkbox"/>
                 Highlight islands
               </label>` : ""}

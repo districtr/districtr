@@ -1,5 +1,5 @@
 import { html, render, directive } from "lit-html";
-import { listPlacesForState, getUnits } from "../components/PlacesList";
+import { listPlacesForState, getUnits, getAllUnits } from "../components/PlacesList";
 import { startNewPlan } from "../routes";
 import { until } from "lit-html/directives/until";
 
@@ -8,7 +8,8 @@ export default () => {
     var curState = document.head.id;
     const vraPage = curState === "VRA - Dashboard";
     // document.title = curState.concat(" | Districtr");
-    fetch("/assets/data/landing_pages.json")
+    //comment to trigger a build, remove if you see this
+    fetch("/assets/data/landing_pages.json?v=2")
         .then(response => response.json()).then(data => {
             var stateData = data.filter(st => st.state === curState)[0];
 
@@ -20,7 +21,7 @@ export default () => {
                    document.getElementById("nav-links"));
 
 
-            
+
             const vraFutures = vraPage ? stateData.states.map(st => listPlacesForState(st, true)) : null
             const statePlaces = vraPage ? Promise.all(vraFutures) : listPlacesForState(stateData.state, true);
 
@@ -66,20 +67,21 @@ export default () => {
                     toggleViz($("." + def.id));
                     selected.ids.map(id => $("." + id).show());
                 }
-                
-                
+
+
                 // config toggle buttons
-                $('input[name="place-selection"]:radio').click(function(){
+                $('input[name="place-selection"]:radio').click(function() {
                     var inputValue = $(this).attr("value");
                     var targetBox = $("." + inputValue);
                     selected = stateData.modules.filter(m => m.id === inputValue)[0];
-
 
                     $(".places-list__item").hide();
                     if (vraPage) {
                         toggleViz(targetBox);
                     }
                     selected.ids.map(id => $("." + id).show());
+
+                    document.getElementById("custom").checked = false;
                 });
 
                 $('input[name="draw-selection"]:radio').click(function(){
@@ -136,7 +138,7 @@ const navLinks = (sections, placeIds) =>
             <a href="/new">
                 <img
                     class="nav-links__link nav-links__link--major nav-links__link--img"
-                    src="/assets/usa_light_blue.png"
+                    src="/assets/usa_light_blue.png?v=2"
                     alt="Back to Map"
                   />
             </a>
@@ -295,7 +297,7 @@ const loadablePlan = (plan, place) => html`
         <li class="plan-thumbs__thumb">
             <img
                 class="thumb__img"
-                src="/assets/${place}-plans/${plan.id}.png"
+                src="/assets/${place}-plans/${plan.id}.png?v=2"
                 alt="Districting Plan ${plan.id}"
             />
             <figcaption class="thumb__caption">
@@ -310,10 +312,7 @@ const loadablePlan = (plan, place) => html`
 const districtingOptions = places =>
     html`
         <ul class="places-list places-list--columns">
-            ${(document.getElementById("custom") && document.getElementById("custom").checked)
-              ? customPlaceItemsTemplate(places, startNewPlan)
-              : placeItemsTemplate(places, startNewPlan)
-            }
+              ${placeItemsTemplate(places, startNewPlan)}
         </ul>
     `;
 
@@ -321,43 +320,24 @@ const communityOptions = places =>
     html`
         <ul class="places-list places-list--columns">
             ${placeItemsTemplateCommunities(places, startNewPlan)}
-
         </ul>
     `;
 
 const placeItemsTemplateCommunities = (places, onClick) =>
-    places.map(place => {
+    places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place => {
         var problem = { type: "community", numberOfParts: 50, pluralNoun: "Community" };
-        return getUnits(place, problem, true).map(
+        return getUnits(place, problem, true).filter(u => !u.hideOnDefault).map(
             units => html`
             <li class="${place.id} places-list__item places-list__item--small"
                 @click="${() => onClick(place, problem, units)}">
                 <div class="place-name">${place.name}</div>
                 ${problemTypeInfo[problem.type] || ""}
                 <div class="place-info">
-                    Built out of ${units.name.toLowerCase()}
+                    Built out of ${units.name}
                 </div>
             </li>
             `)
     }).reduce((items, item) => [...items, ...item], []);
-
-function getProblems(place) {
-    let districtingProblems = [],
-        seenIds = new Set();
-    place.districtingProblems.forEach((problem) => {
-        let problemID = problem.name + problem.pluralNoun;
-        if (seenIds.has(problemID)) {
-            districtingProblems[districtingProblems.length - 1].partCounts.push(
-                problem.numberOfParts
-            );
-        } else {
-            seenIds.add(problemID);
-            problem.partCounts = [problem.numberOfParts];
-            districtingProblems.push(problem);
-        }
-    });
-    return districtingProblems;
-}
 
 const problemTypeInfo = {
     multimember: html`
@@ -370,8 +350,16 @@ const problemTypeInfo = {
     `
 };
 
-const placeItemsTemplate = (places, onClick) =>
-    places.map(place =>
+const placeItemsTemplate = (places, onClick) => {
+    const showAll = document.getElementById("custom") && document.getElementById("custom").checked;
+
+    let num_hidden = places.map(place => place.districtingProblems.filter(problem => problem.hideOnDefault)).reduce((items, item) => [...items, ...item], []).length ||
+                        places.map(place => place.districtingProblems.filter(problem => !problem.hideOnDefault)
+                        .map(problem => getAllUnits(place, problem).filter(u => u.hideOnDefault)))
+                        .reduce((items, item) => [...items, ...item], []) // have to flatten twice I guess
+                        .reduce((items, item) => [...items, ...item], []).length;
+
+    return places.sort((a, b) => (a.name < b.name) ? -1 : 1).map(place =>
         place.districtingProblems
         .sort((a, b) => {
             // change so Reapportioned always comes first
@@ -388,16 +376,19 @@ const placeItemsTemplate = (places, onClick) =>
             }
             return a.numberOfParts - b.numberOfParts;
         })
+        .filter(problem => showAll || !problem.hideOnDefault)
         .map(problem =>
-            getUnits(place, problem).map(
-                units => 
-                // this ternary can be removed if we don't want to deal with the new 
+            getAllUnits(place, problem)
+            .filter(unit => showAll || !unit.hideOnDefault)
+            .map(
+                units =>
+                // this ternary can be removed if we don't want to deal with the new
                 // district numbers separately
                 problem.pluralNoun.includes("Reapportioned") ?
                 html`
                 <li
-                    class="${place.id} places-list__item places-list__item--small reapportioned"
-                    @click="${() => onClick(place, problem, units)}"
+                class="${place.id} places-list__item places-list__item--small reapportioned ${(problem.hideOnDefault || units.hideOnDefault) && "old-card"}"
+                @click="${() => onClick(place, problem, units)}"
                 >
                     <div class="place-name">
                         ${place.name}
@@ -407,14 +398,14 @@ const placeItemsTemplate = (places, onClick) =>
                         ${problem.numberOfParts} Congressional Districts
                     </div>
                     <div class="place-info">
-                        Built out of ${units.name.toLowerCase()}
+                        Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                     </div>
                 </li>
             `
                 : html`
                     <li
-                        class="${place.id} places-list__item places-list__item--small"
-                        @click="${() => onClick(place, problem, units)}"
+                    class="${place.id} places-list__item places-list__item--small ${(problem.hideOnDefault || units.hideOnDefault) && "old-card"}"
+                    @click="${() => onClick(place, problem, units)}"
                     >
                         <div class="place-name">
                             ${place.name}
@@ -424,20 +415,23 @@ const placeItemsTemplate = (places, onClick) =>
                             ${problem.numberOfParts} ${problem.pluralNoun}
                         </div>
                         <div class="place-info">
-                            Built out of ${units.name.toLowerCase()}
+                            Built out of ${units.unitType == 'VTDs' ? units.name : units.name.toLowerCase()}
                         </div>
                     </li>
                 `
             )
         ))
-        .reduce((items, item) => [...items, ...item], []).concat([
-          places.filter(p => ["california", "florida", "michigan", "minnesota", "olmsted", "rochestermn", "westvirginia", "texas"].includes(p.id)).length ? html`<li>
-            <div style="padding-top:30px">
-                <input type="checkbox" id="custom" name="custom-selection">
-                <label for="custom">Customize</label>
-            </div>
-          </li>` : ""
+        .reduce((items, item) => [...items, ...item], [])
+        .concat([
+            (!showAll && num_hidden) ? html`<li>
+                <div style="padding-top:30px">
+                    <input type="checkbox" id="custom" name="custom-selection">
+                    <label for="custom">${showAll ? "Show Less" : "Show All"}</label>
+                </div>
+            </li>`
+          : ""
         ]);
+    };
 
 const customPlaceItemsTemplate = (places, onClick) =>
     places.map(place =>
@@ -472,7 +466,7 @@ const customPlaceItemsTemplate = (places, onClick) =>
             )
         ))
         .reduce((items, item) => [...items, ...item], []).concat([
-          html`<li>
+            html`<li>
             <div style="padding-top:30px">
                 <input type="checkbox" id="custom" name="custom-selection">
                 <label for="custom">Customize</label>

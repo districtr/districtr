@@ -16,6 +16,7 @@ import PopulationBalancePlugin from "../plugins/pop-balance-plugin";
 import DataLayersPlugin from "../plugins/data-layers-plugin";
 import CommunityPlugin from "../plugins/community-plugin";
 import MultiLayersPlugin from "../plugins/multi-layers-plugin";
+import CoiVisualizationPlugin from "../plugins/coi-visualization-plugin";
 import { spatial_abilities, boundsOfGJ } from "../utils";
 
 function getPlugins(context) {
@@ -24,7 +25,7 @@ function getPlugins(context) {
     } else if (context.problem.type === "community") {
         return communityIdPlugins;
     } else {
-        return defaultPlugins;
+        return defaultPlugins(context).filter(a => !!a);
     }
 }
 
@@ -36,11 +37,12 @@ function getMapStyle(context) {
     }
 }
 
-const defaultPlugins = [
+const defaultPlugins = (context) => [
     ToolsPlugin,
     PopulationBalancePlugin,
     DataLayersPlugin,
-    EvaluationPlugin
+    EvaluationPlugin,
+    spatial_abilities(context.place.id).coi ? CoiVisualizationPlugin : null
 ];
 const communityIdPlugins = [ToolsPlugin, DataLayersPlugin, CommunityPlugin];
 
@@ -63,14 +65,10 @@ function getPlanContext() {
             // eslint-disable-next-line no-console
             console.error(e);
         });
-    } else if (!["edit", "coi", "plan"].includes(finalURLpage.toLowerCase())) {
+    } else if (!["edit", "coi", "plan", "embedded"].includes(finalURLpage.toLowerCase())) {
         // remove token; save a new plan
         localStorage.removeItem("districtr_token_" + finalURLpage);
         // load JSON plan from DB
-        if (isNaN(finalURLpage * 1)) {
-            // original _id plans
-            finalURLpage = '&_id=' + finalURLpage;
-        }
         return loadPlanFromURL(`/.netlify/functions/planRead?id=${finalURLpage}`).catch(e => {
             console.error(`Could not load plan ${finalURLpage} from database`);
             navigateTo("/");

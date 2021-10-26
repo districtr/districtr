@@ -2,9 +2,241 @@
   {
     "units": [
       {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 248124,
+                "min": 0,
+                "max": 1699
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 178596,
+                "min": 0,
+                "max": 1372
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 198011,
+                "min": 0,
+                "max": 1584
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 140716,
+                "min": 0,
+                "max": 1398
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 231441,
+                "min": 0,
+                "max": 1653
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 144996,
+                "min": 0,
+                "max": 1228
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1097379,
+              "min": 0,
+              "max": 8516
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 754050,
+                "min": 0,
+                "max": 6804
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 55386,
+                "min": 0,
+                "max": 888
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 182101,
+                "min": 0,
+                "max": 4199
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 38367,
+                "min": 0,
+                "max": 1408
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 3513,
+                "min": 0,
+                "max": 160
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 320,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 52250,
+                "min": 0,
+                "max": 951
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 11392,
+                "min": 0,
+                "max": 279
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 887594,
+              "min": 0,
+              "max": 8030
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 642435,
+                "min": 0,
+                "max": 6431
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 41924,
+                "min": 0,
+                "max": 651
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 125988,
+                "min": 0,
+                "max": 2888
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 2699,
+                "min": 0,
+                "max": 119
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 255,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 31412,
+                "min": 0,
+                "max": 1390
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 8453,
+                "min": 0,
+                "max": 207
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 34428,
+                "min": 0,
+                "max": 666
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-71.9073, 41.0958],
+          [-71.0886, 42.0188]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ri_vtds20"
+            },
+            "sourceLayer": "ri_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ri_vtds20_points"
+            },
+            "sourceLayer": "ri_vtds20_points"
+          }
+        ]
+      },
+      {
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "election",
@@ -216,14 +448,8 @@
           "key": "PRENAME"
         },
         "bounds": [
-          [
-            -71.8924,
-            41.1466
-          ],
-          [
-            -71.1205,
-            42.0188
-          ]
+          [-71.8924, 41.1466],
+          [-71.1205, 42.0188]
         ],
         "tilesets": [
           {
@@ -248,6 +474,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -393,14 +620,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -71.8937,
-            41.1455
-          ],
-          [
-            -71.1199,
-            42.0188
-          ]
+          [-71.8937, 41.1455],
+          [-71.1199, 42.0188]
         ],
         "tilesets": [
           {
@@ -592,14 +813,8 @@
           "key": "NAME10"
         },
         "bounds": [
-          [
-            -71.4727,
-            41.7724
-          ],
-          [
-            -71.3766,
-            41.8616
-          ]
+          [-71.4727, 41.7724],
+          [-71.3766, 41.8616]
         ],
         "tilesets": [
           {
@@ -629,6 +844,297 @@
         "pluralNoun": "City Council Wards",
         "numberOfParts": 15,
         "name": "City Council"
+      }
+    ]
+  },
+  {
+    "name": "Cranston",
+    "state": "Rhode Island",
+    "id": "cranston_ri",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 82934,
+              "min": 0,
+              "max": 922
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 54454,
+                "min": 0,
+                "max": 376
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 4048,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 15067,
+                "min": 0,
+                "max": 286
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 5693,
+                "min": 0,
+                "max": 153
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 212,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 22,
+                "min": 0,
+                "max": 2
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 2929,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 509,
+                "min": 0,
+                "max": 10
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 67190,
+              "min": 0,
+              "max": 921
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 46676,
+                "min": 0,
+                "max": 376
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 3301,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 10501,
+                "min": 0,
+                "max": 286
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American voting age population",
+                "sum": 184,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 20,
+                "min": 0,
+                "max": 2
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 4349,
+                "min": 0,
+                "max": 106
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 364,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races voting age population",
+                "sum": 1795,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -71.5593,
+            41.7301
+          ],
+          [
+            -71.377,
+            41.8072
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cranston_blocks20_points"
+            },
+            "sourceLayer": "cranston_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cranston_blocks20"
+            },
+            "sourceLayer": "cranston_blocks20"
+          }
+        ]
+      },
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 80387,
+              "min": 0,
+              "max": 1043
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 62055,
+                "min": 0,
+                "max": 880
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 3654,
+                "min": 0,
+                "max": 278
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 8709,
+                "min": 0,
+                "max": 289
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 4110,
+                "min": 0,
+                "max": 86
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 200,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 33,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 242,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Census GEOID",
+          "key": "GEOID10"
+        },
+        "nameColumn": {
+          "name": "Block Name",
+          "key": "NAME10"
+        },
+        "bounds": [
+          [-71.5596, 41.7301],
+          [-71.3837, 41.807]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cranston_ri_blocks"
+            },
+            "sourceLayer": "cranston_ri_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.cranston_ri_blocks_points"
+            },
+            "sourceLayer": "cranston_ri_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "City Council and Mayoral Wards"
       }
     ]
   }

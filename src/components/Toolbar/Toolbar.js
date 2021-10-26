@@ -5,7 +5,7 @@ import { actions } from "../../reducers/toolbar";
 import { savePlanToDB } from "../../routes";
 import Tabs from "../Tabs";
 import OptionsContainer from "./OptionsContainer";
-import { renderSaveModal } from "../Modal";
+import { renderSaveModal, renderEventModal } from "../Modal";
 import { spatial_abilities } from "../../utils";
 
 export default class Toolbar {
@@ -52,12 +52,22 @@ export default class Toolbar {
         btn.className = "saved";
         btn.disabled = true;
 
-        if (spatial_abilities(this.state.place.id).portal && (window.location.href.includes("portal") || window.location.href.includes("qa-portal"))) {
-            let btn = e.target;
-            btn.innerText = "Saved";
-            btn.className = "saved";
+        const saved = () => {
+          let btn = e.target;
+          btn.innerText = "Saved";
+          btn.className = "saved";
+        };
 
-            renderSaveModal(this.state, savePlanToDB, window.location.href.includes("qa-portal"));
+        console.log(window.location.href);
+        if (spatial_abilities(this.state.place.id).portal && (window.location.href.includes("portal") || window.location.href.includes("qa-portal"))) {
+            saved();
+            renderSaveModal(this.state, savePlanToDB, window.location.href.includes("qa-portal"), new URLSearchParams(
+                window.location.search
+              ).get("draft"));
+            return;
+        } else if (window.location.href.includes("event")) {
+            saved();
+            renderEventModal(this.state, savePlanToDB, window.location.href.split("event=")[1].split("&")[0].split("#")[0]);
             return;
         }
 
@@ -67,9 +77,7 @@ export default class Toolbar {
                 document.getElementById("save-popup").className = "show";
                 document.getElementById("code-popup").innerText = `https://${window.location.host}/${action}/${_id}`;
 
-                let btn = e.target;
-                btn.innerText = "Saved";
-                btn.className = "saved";
+                saved();
             } else {
                 console.error("Failed to save map");
             }
@@ -99,7 +107,7 @@ export default class Toolbar {
             eventdefault = window.location.href.split("event=")[1].split("&")[0].split("#")[0];
         }
         return html`
-        <div class="toolbar">
+        <div class="toolbar toolbar-animated">
             <nav>
                 <div class="toolbar-top">
                     <div class="icon-list">
@@ -136,7 +144,7 @@ export default class Toolbar {
                                 document.body.appendChild(dummy);
                                 dummy.value = link;
                                 dummy.focus();
-                                dummy.select(); 
+                                dummy.select();
                                 dummy.setSelectionRange(0, 99999); /* For mobile devices */
                                 document.execCommand("copy");
                                 document.body.removeChild(dummy);

@@ -84,7 +84,11 @@ export default class Brush extends HoverWithRadius {
                                 }
                             }
                             if (substr) {
-                                return [key, ps[key].substring(0, substr)];
+                                if (typeof ps[key] === 'number') {
+                                  return [key, Number(String(ps[key]).substring(0, substr))];
+                                } else {
+                                  return [key, ps[key].substring(0, substr)];
+                                }
                             } else {
                                 if (!fn) {
                                     fn = x => x;
@@ -99,6 +103,7 @@ export default class Brush extends HoverWithRadius {
                         };
                     [countyProp, countyFIPS] = idSearch("GEOID10", 5)
                         || idSearch("GEOID", 5)
+                        || idSearch("GEOID20", 5)
                         || idSearch("county_nam") // Michigan
                         || idSearch("VTD", 5)
                         || idSearch("VTDID", 5)

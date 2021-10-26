@@ -2,10 +2,11 @@
   {
     "units": [
       {
-        "limit": "community",
+        "limit": "hide",
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -151,14 +152,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -84.8203,
-            38.4034
-          ],
-          [
-            -80.5185,
-            41.9825
-          ]
+          [-84.8203, 38.4034],
+          [-80.5185, 41.9825]
         ],
         "tilesets": [
           {
@@ -180,9 +175,153 @@
         ]
       },
       {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 8959
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 6265
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 1377
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 2998
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4493,
+                "min": 0,
+                "max": 155
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 374
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 87
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 7254
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 6101
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 800
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 43
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 87
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 1980
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 87
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 260
+              }
+            ]
+          }
+        ],
         "idColumn": {
-          "name": "Precinct unique identifier",
-          "key": "PRECODE"
+          "name": "Block group FIPS code",
+          "key": "GEOID"
         },
         "bounds": [
           [
@@ -190,9 +329,632 @@
             38.4034
           ],
           [
-            -80.5185,
-            41.9775
+            -80.5187,
+            41.9825
           ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_20_blockgroups_points"
+            },
+            "sourceLayer": "ohio_20_blockgroups_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_20_blockgroups"
+            },
+            "sourceLayer": "ohio_20_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "townships20",
+        "name": "2020 Townships",
+        "unitType": "Townships",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 880329
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 459264
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 250669
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 1575
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 50708
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islanders population",
+                "sum": 4493,
+                "min": 0,
+                "max": 408
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 5203
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 43922
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 68672
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 688777
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 393370
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 176703
+              },
+              {
+                "key": "AMINVAP",
+                "name": "American Indian voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 1264
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 40616
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islanders voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 260
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 3492
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 27471
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 45601
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            42.3271
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_townships20"
+            },
+            "sourceLayer": "oh_townships20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_townships20_points"
+            },
+            "sourceLayer": "oh_townships20_points"
+          }
+        ]
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 2393913,
+                "min": 0,
+                "max": 1692
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 2840372,
+                "min": 0,
+                "max": 1044
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 1996910,
+                "min": 0,
+                "max": 1331
+              },
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 3118570,
+                "min": 0,
+                "max": 1060
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 US House",
+            "subgroups": [
+              {
+                "key": "USH16D",
+                "name": "Democratic",
+                "sum": 2154523,
+                "min": 0,
+                "max": 1390
+              },
+              {
+                "key": "USH16R",
+                "name": "Republican",
+                "sum": 2996016,
+                "min": 0,
+                "max": 1100
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 State Senate",
+            "subgroups": [
+              {
+                "key": "SSEN16D",
+                "name": "Democratic",
+                "sum": 821821,
+                "min": 0,
+                "max": 732
+              },
+              {
+                "key": "SSEN16R",
+                "name": "Republican",
+                "sum": 1640505,
+                "min": 0,
+                "max": 996
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 State House",
+            "subgroups": [
+              {
+                "key": "STH16D",
+                "name": "Democratic",
+                "sum": 1961345,
+                "min": 0,
+                "max": 1236
+              },
+              {
+                "key": "STH16R",
+                "name": "Republican",
+                "sum": 2836621,
+                "min": 0,
+                "max": 1025
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 2070048,
+                "min": 0,
+                "max": 935
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 2235830,
+                "min": 0,
+                "max": 909
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 2086708,
+                "min": 0,
+                "max": 892
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 2276421,
+                "min": 0,
+                "max": 891
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18D",
+                "name": "Democratic",
+                "sum": 2008295,
+                "min": 0,
+                "max": 914
+              },
+              {
+                "key": "AUD18R",
+                "name": "Republican",
+                "sum": 2156660,
+                "min": 0,
+                "max": 886
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 2052107,
+                "min": 0,
+                "max": 911
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 2214279,
+                "min": 0,
+                "max": 880
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18D",
+                "name": "Democratic",
+                "sum": 2024198,
+                "min": 0,
+                "max": 901
+              },
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 2308427,
+                "min": 0,
+                "max": 912
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 2358511,
+                "min": 0,
+                "max": 969
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 2057553,
+                "min": 0,
+                "max": 860
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20D_Bi",
+                "name": "Democratic",
+                "sum": 2679165,
+                "min": 0,
+                "max": 1120
+              },
+              {
+                "key": "PRES20R_Tr",
+                "name": "Republican",
+                "sum": 3154834,
+                "min": 0,
+                "max": 1293
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 11799448,
+              "min": 0,
+              "max": 6495
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 8954135,
+                "min": 0,
+                "max": 5530
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 1457180,
+                "min": 0,
+                "max": 2804
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 521308,
+                "min": 0,
+                "max": 1415
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 296604,
+                "min": 0,
+                "max": 1198
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 18949,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4493,
+                "min": 0,
+                "max": 161
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 501562,
+                "min": 0,
+                "max": 272
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 45217,
+                "min": 0,
+                "max": 154
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 9207562,
+              "min": 0,
+              "max": 6400
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 7218892,
+                "min": 0,
+                "max": 5485
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 1073902,
+                "min": 0,
+                "max": 2770
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 336028,
+                "min": 0,
+                "max": 881
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 15496,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 3233,
+                "min": 0,
+                "max": 92
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 228920,
+                "min": 0,
+                "max": 1043
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 28843,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 302248,
+                "min": 0,
+                "max": 185
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD GEOID code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            42.3271
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_vtds20"
+            },
+            "sourceLayer": "oh_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.oh_vtds20_points"
+            },
+            "sourceLayer": "oh_vtds20_points"
+          }
+        ]
+      },
+      {
+        "idColumn": {
+          "name": "Precinct unique identifier",
+          "key": "PRECODE"
+        },
+        "bounds": [
+          [-84.8203, 38.4034],
+          [-80.5185, 41.9775]
         ],
         "tilesets": [
           {
@@ -215,6 +977,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -432,7 +1195,8 @@
       {
         "numberOfParts": 16,
         "pluralNoun": "Congressional Districts",
-        "name": "Congress"
+        "name": "Congress",
+        "hideOnDefault": true
       },
       {
         "numberOfParts": 33,
@@ -820,14 +1584,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -84.0361,
-            39.4681
-          ],
-          [
-            -82.1791,
-            40.9956
-          ]
+          [-84.0361, 39.4681],
+          [-82.1791, 40.9956]
         ],
         "tilesets": [
           {
@@ -1236,14 +1994,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -82.4369,
-            40.2143
-          ],
-          [
-            -80.5187,
-            41.5017
-          ]
+          [-82.4369, 40.2143],
+          [-80.5187, 41.5017]
         ],
         "tilesets": [
           {
@@ -1645,14 +2397,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -84.8203,
-            38.7704
-          ],
-          [
-            -83.2524,
-            40.4832
-          ]
+          [-84.8203, 38.7704],
+          [-83.2524, 40.4832]
         ],
         "tilesets": [
           {
@@ -2060,14 +2806,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -82.3481,
-            40.9882
-          ],
-          [
-            -80.5192,
-            41.9825
-          ]
+          [-82.3481, 40.9882],
+          [-80.5192, 41.9825]
         ],
         "tilesets": [
           {
@@ -2469,14 +3209,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -84.0527,
-            38.4034
-          ],
-          [
-            -80.5947,
-            40.5994
-          ]
+          [-84.0527, 38.4034],
+          [-80.5947, 40.5994]
         ],
         "tilesets": [
           {
@@ -2881,14 +3615,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -84.8062,
-            40.3517
-          ],
-          [
-            -82.3365,
-            41.829
-          ]
+          [-84.8062, 40.3517],
+          [-82.3365, 41.829]
         ],
         "tilesets": [
           {
@@ -3075,14 +3803,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -81.6885,
-            40.6351
-          ],
-          [
-            -81.0866,
-            41.3512
-          ]
+          [-81.6885, 40.6351],
+          [-81.0866, 41.3512]
         ],
         "tilesets": [
           {
@@ -3267,14 +3989,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -84.7122,
-            39.0519
-          ],
-          [
-            -84.3688,
-            39.221
-          ]
+          [-84.7122, 39.0519],
+          [-84.3688, 39.221]
         ],
         "tilesets": [
           {
@@ -3460,14 +4176,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -81.879,
-            41.3906
-          ],
-          [
-            -81.4879,
-            41.6351
-          ]
+          [-81.879, 41.3906],
+          [-81.4879, 41.6351]
         ],
         "tilesets": [
           {
@@ -3496,7 +4206,8 @@
         "pluralNoun": "Wards"
       }
     ]
-  },  {
+  },
+  {
     "id": "columbus",
     "limit": "community",
     "name": "Columbus",
@@ -3651,14 +4362,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -83.2103,
-            39.8002
-          ],
-          [
-            -82.7409,
-            40.1573
-          ]
+          [-83.2103, 39.8002],
+          [-82.7409, 40.1573]
         ],
         "tilesets": [
           {
@@ -3687,7 +4392,8 @@
         "pluralNoun": "Wards"
       }
     ]
-  },  {
+  },
+  {
     "id": "dayton",
     "limit": "community",
     "name": "Dayton",
@@ -3841,14 +4547,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -84.3114,
-            39.7018
-          ],
-          [
-            -84.0929,
-            39.9208
-          ]
+          [-84.3114, 39.7018],
+          [-84.0929, 39.9208]
         ],
         "tilesets": [
           {
@@ -3878,7 +4578,8 @@
         "pluralNoun": "Wards"
       }
     ]
-  },  {
+  },
+  {
     "id": "limaoh",
     "limit": "community",
     "units": [
@@ -4031,14 +4732,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -84.1651,
-            40.6877
-          ],
-          [
-            -84.0707,
-            40.803
-          ]
+          [-84.1651, 40.6877],
+          [-84.0707, 40.803]
         ],
         "tilesets": [
           {
@@ -4069,7 +4764,8 @@
         "pluralNoun": "Wards"
       }
     ]
-  },  {
+  },
+  {
     "id": "mansfield",
     "limit": "community",
     "units": [
@@ -4222,14 +4918,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -82.5901,
-            40.6878
-          ],
-          [
-            -82.4555,
-            40.8436
-          ]
+          [-82.5901, 40.6878],
+          [-82.4555, 40.8436]
         ],
         "tilesets": [
           {
@@ -4260,7 +4950,8 @@
         "pluralNoun": "Wards"
       }
     ]
-  },   {
+  },
+  {
     "name": "Portsmouth",
     "state": "Ohio",
     "id": "portsmouthoh",
@@ -4415,14 +5106,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -83.0134,
-            38.7259
-          ],
-          [
-            -82.8703,
-            38.7742
-          ]
+          [-83.0134, 38.7259],
+          [-82.8703, 38.7742]
         ],
         "tilesets": [
           {
@@ -4604,14 +5289,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -83.6948,
-            41.5803
-          ],
-          [
-            -83.4542,
-            41.7328
-          ]
+          [-83.6948, 41.5803],
+          [-83.4542, 41.7328]
         ],
         "tilesets": [
           {
@@ -4798,14 +5477,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -80.7237,
-            41.05
-          ],
-          [
-            -80.5679,
-            41.1478
-          ]
+          [-80.7237, 41.05],
+          [-80.5679, 41.1478]
         ],
         "tilesets": [
           {
@@ -4833,6 +5506,59 @@
         "name": "Wards",
         "numberOfParts": 8,
         "pluralNoun": "Wards"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "hideOnDefault": true,
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Name",
+          "key": "cluster"
+        },
+        "bounds": [
+          [
+            -84.8203,
+            38.4034
+          ],
+          [
+            -80.5187,
+            42.2516
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_bg_clusters"
+            },
+            "sourceLayer": "ohio_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ohio_bg_clusters_points"
+            },
+            "sourceLayer": "ohio_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "id": "ohio",
+    "state": "Ohio",
+    "name": "Ohio",
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
       }
     ]
   }

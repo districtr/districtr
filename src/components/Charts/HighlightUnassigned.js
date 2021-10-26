@@ -20,7 +20,7 @@ export default function HighlightUnassigned(unitsBorders, zoomFunction) {
             })}
             <div id="zoom-to-unassigned" style="display:none">
                 ${zoomFunction
-                  ? html`<button @click="${zoomFunction}">Zoom to unasssigned</button>`
+                  ? html`<button @click="${zoomFunction}">Zoom to unassigned</button>`
                   : ''
                 }
             </div>

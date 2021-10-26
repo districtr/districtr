@@ -12,6 +12,7 @@
 @import "components/header-with-toggle";
 @import "components/media";
 @import "components/_legend";
+@import "clusters";
 
 .option-list {
     padding: 0 1rem;
@@ -239,6 +240,10 @@ input, textarea {
         transform-origin:0 0;
     }
 
+    nav > ul {
+      display: none;
+    }
+
     .report-data-list .toolbar-checkbox,
     .mapboxgl-control-container, .geocoder {
         display: none;
@@ -415,4 +420,25 @@ iframe {
   padding-right: 10px;
   font-size: small;
   font-style: italic;
+}
+
+.modal-content {
+  .col {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  label.wrap {
+    cursor: pointer;
+    font-weight: normal;
+  }
+
+  input {
+    background: #fff;
+  }
 }

@@ -17,10 +17,15 @@
     // 0 2px 4px rgba(0, 0, 0, 0.24);
     // box-shadow: -10px 0px 15px -20px rgba(0, 0, 0, 0.3);
     box-shadow: $raised;
-    width: 25%;
-    max-width: 350px;
+    width: 28%;
+    max-width: 32%;
     display: flex;
     flex-direction: column;
+}
+
+.toolbar-animated {
+    transition-property: width;
+    transition-duration: 1s;
 }
 
 .toolbar-section {
@@ -30,11 +35,40 @@
     align-items: center;
 }
 
+.toolbar-section-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 0 0 0 1rem;
+}
+
+.toolbar-section-left > p {
+    margin-top: 0;
+    font-size: 0.8em;
+}
+
+.cluster-display {
+    border: 1px $districtr-grey-active;
+    border-radius: 5%;
+}
+
+.toolbar-inner-large {
+    font-weight: bold;
+    display: flex;
+    padding: 1rem;
+    text-align: justify;
+}
+
 .toolbar-inner {
   display: flex;
   padding: 0 1rem 1rem 1rem;
   font-size: 0.8rem;
-  text-align: justify;
+  text-align: left;
+}
+
+.dataset-info {
+    padding-right: 0;
 }
 
 .dataset-info > p {
@@ -42,7 +76,7 @@
 }
 
 .dataset-info > span {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
 }
 
 .district-row {

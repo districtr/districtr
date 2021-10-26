@@ -9,6 +9,7 @@
 // that modify the innerHTML of the file
 
 import { unitBordersPaintProperty } from "../colors";
+import { stateNameToFips } from "../utils";
 
 export default function ContiguityChecker(state, brush) {
   let place = state.place.id,
@@ -63,7 +64,7 @@ export default function ContiguityChecker(state, brush) {
         contiguity_breaks.length
             ? "Districts may have contiguity gaps"
             : "No contiguity gaps detected";
-    
+
       let myDistricts = document.querySelectorAll('.district-row .contiguity-label');
       for (let d = 0; d < myDistricts.length; d++) {
         // show-hide label altogether
@@ -81,16 +82,25 @@ export default function ContiguityChecker(state, brush) {
     }
     updateIslandBorders();
   }
-
   const updater = (state, colorsAffected) => {
-    let saveplan = state.serialize();
-    const GERRYCHAIN_URL = "//mggg.pythonanywhere.com";
-    fetch(GERRYCHAIN_URL + "/contigv2", {
+    const units = state.unitsRecord.id;
+    let stateName = state.place.id;
+    if (state.place.id === "dc") {
+      stateName = "district_of_columbia";
+    } else if (stateNameToFips[state.place.id] || state.unitsRecord.id.includes("blockgroup") || state.unitsRecord.id.includes("vtds20")) {
+      stateName = state.place.state;
+    }
+
+    let assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
+    fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_contiguity", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(saveplan),
+      body: JSON.stringify({
+        "state": stateName,
+        "units": units,
+        "assignment": assign})
     })
       .then((res) => res.json())
       .catch((e) => console.error(e))
@@ -123,5 +133,6 @@ export default function ContiguityChecker(state, brush) {
     i++;
   }
   updater(state, allDistricts);
+
   return updater;
 }

@@ -27,12 +27,10 @@ export function addAmerIndianLayer(tab, state) {
 
         let native_am_type = "Pueblos, Tribes, and Nations"; // NM
     if (state.place.state === "Alaska") {
-        native_am_type = "Alaskan Native Communities";
-    } else if (["California"].includes(state.place.state)) {
-        native_am_type = "Indian Communities";
+        native_am_type = "Alaska Native Communities";
     } else if (["Alabama", "Colorado", "Florida", "Georgia", "Idaho", "Iowa", "Kansas", "Louisiana", "Nebraska", "South Carolina", "South Dakota", "Wyoming"].includes(state.place.state)) {
         native_am_type = "Native American Areas (Census)";
-    } else if (["Connecticut", "Delaware", "Montana", "Oregon", "Virginia", "Wisconsin"].includes(state.place.state)) {
+    } else if (["California", "Connecticut", "Delaware", "Montana", "Oregon", "Virginia", "Wisconsin"].includes(state.place.state)) {
         native_am_type = "Tribal Nations";
     } else if (state.place.state === "Hawaii") {
         native_am_type = "Hawaiian Home Lands";
@@ -60,7 +58,7 @@ export function addAmerIndianLayer(tab, state) {
 
     let stateSource = state.place.state.toLowerCase().replace(" ", "");
 
-    fetch(`/assets/native_official/${stateSource}.geojson`)
+    fetch(`/assets/native_official/${stateSource}.geojson?v=2`)
         .then(res => res.json())
         .then((geojson) => {
 
@@ -96,7 +94,7 @@ export function addAmerIndianLayer(tab, state) {
             data: geojson
         });
 
-        fetch(`/assets/native_official/${stateSource}_centroids.geojson`)
+        fetch(`/assets/native_official/${stateSource}_centroids.geojson?v=2`)
             .then(res => res.json())
             .then((centroids) => {
 

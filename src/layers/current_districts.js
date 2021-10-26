@@ -1,252 +1,127 @@
 import { html } from "lit-html";
 import { toggle } from "../components/Toggle";
-import { spatial_abilities, nested } from "../utils";
 import Layer, { addBelowLabels } from "../map/Layer";
 
-export function addBoundaryLayers(tab, state, current_districts, school_districts, municipalities) {
-    // check if we have to draw anything, if not, just leave
-    if (!current_districts && !school_districts && !municipalities)
-        return;
+if (!window.blayers) {
+  window.blayers = {};
+}
 
-    let borders = {},
-        placeID = state.place.state.toLowerCase().replace(" ","");
-    
-    // current districts should be stored in assets/boundaries/current_districts/[state]/
-    // if the state name is two words, it should be just have the space removed
-    if (current_districts) {
-        fetch(`/assets/boundaries/current_districts/${placeID}/us_house.geojson`).then(res => res.json()).then((fed) => {
-        fetch(`/assets/boundaries/current_districts/${placeID}/state_house.geojson`).then(res => res.json()).then((state_house) => {
-        fetch(`/assets/boundaries/current_districts/${placeID}/state_senate.geojson`).then(res => res.json()).then((state_senate) => {
+export function addBoundaryLayer(config, map) {
+  const prefix = config.path.includes("city_border") ? '/assets/' : '/assets/boundaries/';
+  let shadeNames = ["case"];
+  const alt_paint = {
+    "fill-outline-color": "#000",
+    "fill-color": shadeNames,
+    "fill-opacity": 0
+  };
 
-            state.map.addSource('fed_districts', {
-                type: 'geojson',
-                data: fed
+  if (!window.blayers[config.id]) {
+    window.blayers[config.id] = true;
+    fetch(`${prefix}${config.path}.geojson?v=2`).then(res => res.json()).then(gj => {
+        if (map.getSource(config.id)) {
+          return;
+        }
+        if (config.fill_alt && gj.features.length) {
+            let knownNames = new Set(), r = 50, g = 70, b = 150;
+            if (config.fill_alt === "orange") {
+              r = 230;
+              g = 174;
+              b = 105;
+            }
+            const namefield = config.namefield || "NAME";
+            gj.features.forEach((f, idx) => {
+                if (knownNames.has(name)) {
+                    return;
+                }
+                knownNames.add(f.properties[namefield]);
+                if (shadeNames.length % 40 === 0) {
+                    r = 50,
+                    g = 70,
+                    b = 150
+                }
+                shadeNames.push(["==", ["get", namefield], f.properties[namefield]]);
+                r += 6;
+                g += 22;
+                b -= 26;
+                if (g > 170) {
+                    g = 70;
+                }
+                if (b < 80) {
+                    b = 150;
+                }
+                shadeNames.push(`rgb(${r},${g},${b})`);
             });
-            state.map.addSource('state_house', {
-                type: 'geojson',
-                data: state_house
-            });
-            state.map.addSource('state_senate', {
-                type: 'geojson',
-                data: state_senate
-            });
+            shadeNames.push("#ddd");
+        }
 
-            borders.federal = new Layer(
-                state.map,
-                {
-                    id: 'fed_districts',
-                    type: 'line',
-                    source: 'fed_districts',
-                    paint: {
-                        'line-color': '#000',
-                        'line-opacity': 0,
-                        'line-width': 2
-                    }
-                },
-                addBelowLabels
-            );
-            borders.senate = new Layer(
-                state.map,
-                {
-                    id: 'state_senate',
-                    type: 'line',
-                    source: 'state_senate',
-                    paint: {
-                        'line-color': '#000',
-                        'line-opacity': 0,
-                        'line-width': nested(placeID) ? 2 : 1.5
-                    } 
-                },
-                addBelowLabels
-            );
-            borders.house = new Layer(
-                state.map,
-                {
-                    id: 'state_house',
-                    type: 'line',
-                    source: 'state_house',
-                    paint: nested(placeID) ? 
-                    {
-                        'line-color': '#ff0000',
-                        'line-opacity': 0,
-                        'line-width': .75
-                    } :
-                    {
-                        'line-color': '#000',
-                        'line-opacity': 0,
-                        'line-width': 1.5
-                    }
-                },
-                addBelowLabels
-            );
-        })})});
-    }
-    // school districts should be stored in /assets/boundaries/school_districts/[state]/
-    if (school_districts) {
-        fetch(`/assets/boundaries/school_districts/${placeID}/${placeID}_schools.geojson`).then(res => res.json()).then((schools) => {
-        fetch(`/assets/boundaries/school_districts/${placeID}/${placeID}_schools_centroids.geojson`).then(res => res.json()).then((centroids) => {
-        
-            state.map.addSource('schools', {
-                type: 'geojson',
-                data: schools
-            });
-            borders.schools = new Layer(state.map,
-                {
-                    id: 'schools',
-                    source: 'schools',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-    
-            state.map.addSource('centroids', {
-                type: 'geojson',
-                data: centroids
-            });
-            borders.school_labels = new Layer(state.map,
-                {
-                    id: 'centroids',
-                    source: 'centroids',
-                    type: 'symbol',
-                    layout: {
-                    'text-field': [
-                        'format',
-                        ['get', 'NAME'],
-                        {'font-scale': 0.75},
-                    ],
-                    'text-anchor': 'center',
-                    'text-radial-offset': 0,
-                    'text-justify': 'center'
-                    },
-                    paint: {
-                    'text-opacity': 0
-                    }
-                },
-                addBelowLabels
-            );
-        })});
-    }
-    // municipal boundaries should be stored in /assets/boundaries/municipalities/[state]/
-    if (municipalities) {
-        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities.geojson`).then(res => res.json()).then((muni) => {
-        fetch(`/assets/boundaries/municipalities/${placeID}/${placeID}_municipalities_centroids.geojson`).then(res => res.json()).then((centroids) => {
-        
-            state.map.addSource('muni', {
-                type: 'geojson',
-                data: muni
-            });
-            borders.municipalities = new Layer(state.map,
-                {
-                    id: 'muni',
-                    source: 'muni',
-                    type: 'line',
-                    paint: { "line-color": "#000", "line-width": 2, "line-opacity": 0 }
-                },
-                addBelowLabels
-            );
-    
-            state.map.addSource('muni_centroids', {
-                type: 'geojson',
-                data: centroids
-            });
-            borders.muni_labels = new Layer(state.map,
-                {
-                    id: 'muni_centroids',
-                    source: 'muni_centroids',
-                    type: 'symbol',
-                    layout: {
-                    'text-field': [
-                        'format',
-                        ['get', 'NAME'],
-                        {'font-scale': 0.75},
-                    ],
-                    'text-anchor': 'center',
-                    'text-radial-offset': 0,
-                    'text-justify': 'center'
-                    },
-                    paint: {
-                    'text-opacity': 0
-                    }
-                },
-                addBelowLabels
-            );
-        })});
-    }
-
-    let currentBorder = null;
-    let showBorder = (e, lyr) => {
-        Object.keys(borders).forEach(lvl => {
-            // have to link the labels to the schools
-            if (lvl === 'school_labels') 
-                borders[lvl].setPaintProperty('text-opacity', (lyr === 'schools') ? 1 : 0);
-            else if (lvl === 'muni_labels')
-                borders[lvl].setPaintProperty('text-opacity', (lyr === 'municipalities') ? 1 : 0);
-            else if (nested(placeID) && lvl == 'house')
-                borders[lvl].setOpacity((lyr === 'senate') ? 1 : 0);
-            else
-                borders[lvl].setOpacity(lyr === lvl ? 1 : 0);
+        map.addSource(config.id, {
+          type: 'geojson',
+          data: gj
         });
-    };
+        window.blayers[config.id] = new Layer(
+            map,
+            {
+                id: config.id,
+                type: (config.fill ? 'fill' : 'line'),
+                source: config.id,
+                paint: config.fill ? (config.fill_alt ? alt_paint : ({
+                    'fill-color': config.fill || '#444',
+                    'fill-opacity': 0,
+                    'fill-outline-color': '#444',
+                })) : {
+                    'line-color': config.lineColor || '#000',
+                    'line-opacity': 0,
+                    'line-width': config.lineWidth || 1.5,
+                }
+            },
+            addBelowLabels
+        );
+    });
+  }
 
-    // create radio buttons depending on what exists
-    tab.addSection(() =>
-        html`
-        <div id='district-overlay'>    
-            <h5>Previous Boundaries</h5>
-            <li>
-                <label style="cursor: pointer;">
-                    <input type="radio" name="districts" value="hidden" @change="${e => showBorder(null)}" checked/>
-                    Hidden
-                </label>
-            </li>
-            ${current_districts ?
-                (nested(placeID) ? 
-                html`<li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        US Congress
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Legislature (Nested)
-                    </label>
-                </li>` : 
-                html`<li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="fed" @change="${e => showBorder(e, 'federal')}"/>
-                        US Congress
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="senate" @change="${e => showBorder(e, 'senate')}"/>
-                        State Senate
-                    </label>
-                </li>
-                <li>
-                    <label style="cursor: pointer;">
-                        <input type="radio" name="districts" value="house" @change="${e => showBorder(e, 'house')}"/>
-                        State House
-                    </label>
-                </li>`): ""}
-                ${school_districts ? 
-                    html`<li>
-                        <label style="cursor: pointer;">
-                            <input type="radio" name="districts" value="schools" @change="${e => showBorder(e, 'schools')}"/>
-                            School Districts
-                        </label>
-                    </li>` : ""}
-                ${municipalities ? 
-                    html`<li>
-                        <label style="cursor: pointer;">
-                            <input type="radio" name="districts" value="municipalities" @change="${e => showBorder(e, 'municipalities')}"/>
-                            Municipalities
-                        </label>
-                    </li>`: ""}
-                </div>
-                `
-    )
+  if (config.centroids && !blayers[`${config.path}_centroids`]) {
+    window.blayers[`${config.path}_centroids`] = true;
+    fetch(`${prefix}${config.path}_centroids.geojson?v=2`).then(res => res.json()).then(centroids => {
+        if (map.getSource(`${config.id}_centroids`)) {
+          return;
+        }
+        map.addSource(`${config.id}_centroids`, {
+            type: 'geojson',
+            data: centroids
+        });
+        const haloColor = config.fill
+          ? 'rgba(255, 255, 250, 0.75)'
+          : 'rgba(215, 215, 210, 0.6)';
+        window.blayers[`${config.id}_centroids`] = new Layer(map, {
+            id: `${config.id}_centroids`,
+            source: `${config.id}_centroids`,
+            type: 'symbol',
+            layout: {
+              'text-field': [
+                  'format',
+                  ['get', config.namefield || 'NAME'],
+                  {'font-scale': 0.75},
+              ],
+              'text-anchor': 'center',
+              'text-radial-offset': 0,
+              'text-justify': 'center',
+              // 'text-allow-overlap': true,
+              // 'text-ignore-placement': true,
+            },
+            paint: {
+              'text-opacity': 0,
+              'text-halo-blur': 3,
+              'text-halo-width': 2,
+              'text-halo-color': haloColor,
+            }
+        });
+    });
+  }
+
+  return html`
+    ${toggle(config.label, false, checked => {
+        let opacity = checked ? (config.fill ? (config.fill_alt ? 0.2 : 0.55) : 1) : 0;
+        window.blayers[config.id] && window.blayers[config.id].setOpacity(opacity)
+        window.blayers[`${config.id}_centroids`] && window.blayers[`${config.id}_centroids`].setPaintProperty('text-opacity', checked ? 1 : 0);
+    })}`
 }

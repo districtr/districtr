@@ -48,9 +48,15 @@ export default function ToolsPlugin(editor) {
     let vraEffectiveness = showVRA ? VRAEffectiveness(state, brush, toolbar) : null;
 
     window.planNumbers = NumberMarkers(state, brush);
-    const c_checker = (spatial_abilities(state.place.id).contiguity && state.problem.type !== "community")
-        ? ContiguityChecker(state, brush)
-        : null;
+
+    const contiguity_on = (spatial_abilities(state.place.id).contiguity
+                        || state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20");
+    const c_checker = (contiguity_on && state.problem.type !== "community")
+                            ? ContiguityChecker(state, brush, false)
+                            : null;
+
     brush.on("colorop", (isUndoRedo, colorsAffected) => {
         savePlanToStorage(state.serialize());
         if (c_checker) {
@@ -61,7 +67,8 @@ export default function ToolsPlugin(editor) {
             vraEffectiveness(state, colorsAffected);
         }
 
-        if (window.planNumbers && document.querySelector("#toggle-district-numbers") && document.querySelector("#toggle-district-numbers").checked) {
+        if (window.planNumbers && document.querySelector("#toggle-district-numbers")
+                               && document.querySelector("#toggle-district-numbers").checked) {
             window.planNumbers.update(state, colorsAffected);
         }
     });
@@ -71,7 +78,7 @@ export default function ToolsPlugin(editor) {
         new BrushTool(brush, state.parts, brushOptions),
         new EraserTool(brush),
         new InspectTool(
-            state.units,
+            state.layers,
             state.columnSets,
             state.nameColumn,
             state.unitsRecord,
@@ -87,7 +94,9 @@ export default function ToolsPlugin(editor) {
     }
     toolbar.selectTool("pan");
     toolbar.setMenuItems(getMenuItems(editor.state));
-    toolbar.setState(state);
+    if (!window.location.href.includes("embed")) {
+        toolbar.setState(state);
+    }
 
     hotkeys.filter = ({ target }) => {
         return (
@@ -171,7 +180,7 @@ function exportPlanAsAssignmentFile(state, delimiter = ",", extension = "csv") {
 
 function exportPlanAsBlockAssignment(state, delimiter=",", extension="csv") {
     const assign = Object.fromEntries(Object.entries(state.plan.assignment).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));
-    const units = state.unitsRecord.unitType;
+    const units = state.unitsRecord.id;
     const stateName = state.place.state;
     render(renderModal(`Starting your block assignment file download `), document.getElementById("modal"));
     fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/block_assignment", {
@@ -214,6 +223,9 @@ function scrollToSection(state, section) {
 
 function getMenuItems(state) {
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
+    const censusUnit = state.unitsRecord.id === "blockgroups"
+                        || state.unitsRecord.id === "blockgroups20"
+                        || state.unitsRecord.id === "vtds20";
     let items = [
         {
             name: "About redistricting",
@@ -248,20 +260,20 @@ function getMenuItems(state) {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)
         },
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as SHP`,
             onClick: () => exportPlanAsSHP(state)
         } : null),
-        (spatial_abilities(state.place.id).shapefile ?  {
+        ((spatial_abilities(state.place.id).shapefile && !state.unitsRecord.id.includes("2020 VTD")) ?  {
             name: `Export${state.problem.type === "community" ? " COI " : " "}plan as GeoJSON`,
             onClick: () => exportPlanAsSHP(state, true)
         } : null),
         {
-            name: "Export assignment as CSV",
+            name: "Export assignment as CSV (these units)",
             onClick: () => exportPlanAsAssignmentFile(state)
         },
-        (state.unitsRecord.unitType === "Block Groups" ? {
-            name: "Export block assignment file",
+        (censusUnit || spatial_abilities(state.place.id).block_assign ? {
+            name: "Export assignment file as CSV (blocks)",
             onClick: () => exportPlanAsBlockAssignment(state)
         }: null),
         {

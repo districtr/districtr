@@ -9,12 +9,12 @@ import { getCell } from "../components/Charts/PartisanSummary"
 
 
 export default class PartisanOverlayContainer {
-    constructor(id, layers, elections, toolbar, bipolarText) {
+    constructor(id, layers, elections, toolbar, bipolarText, countyFilter) {
         this._id = id;
         this.elections = elections;
         this.layers = layers;
         this.electionOverlays = elections.map(
-            election => new PartisanOverlay(layers, election)
+            election => new PartisanOverlay(layers, election, countyFilter)
         );
         this._currentElectionIndex = 0;
         this._inspection = toolbar.toolsById.inspect;
@@ -82,8 +82,8 @@ export default class PartisanOverlayContainer {
     }
 
     syncInspectTool() {
-        console.log("syncing")
-        console.log(this._inspection);
+        // console.log("syncing")
+        // console.log(this._inspection);
         const curElect = this.elections[this._currentElectionIndex].name;
         const inspectIndex = this._inspection.columnSets.findIndex(cs => cs.name === curElect);
         // console.log(curElect);
@@ -114,7 +114,7 @@ export default class PartisanOverlayContainer {
 
     render() {
         const overlay = this.currentElectionOverlay;
-        let headers = this.elections[this._currentElectionIndex].parties.map(party => {
+        const headers = this.elections[this._currentElectionIndex].parties.map(party => {
             const rgb = getPartyRGBColors(party.name + party.key);
             return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`
         });
@@ -127,7 +127,11 @@ export default class PartisanOverlayContainer {
                         this.elections,
                         ((i) => {
                             this.setElection(i); 
-                                render(html`${DataTable(headers, 
+                                render(html`${
+                                        DataTable(this.elections[this._currentElectionIndex].parties.map(party => {
+                                            const rgb = getPartyRGBColors(party.name + party.key);
+                                            return html`<div style="color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})">${party.name}</div>`
+                                        }), 
                                         [{label: "Overall", 
                                         entries: this.elections[this._currentElectionIndex].parties.map(
                                             party => getCell(party, null))}])}`,

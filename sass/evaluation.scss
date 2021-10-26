@@ -1,0 +1,8 @@
+@import "_mixins";
+@import "_colors";
+@import "_base";
+@import "components/_button";
+
+.go-button label {
+    background-color: white;
+}

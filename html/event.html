@@ -8,7 +8,12 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="/css/state_landing.css"
+            href="/css/state_landing.css?v=2"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/landing_page.css?v=2"
         />
         <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Playfair+Display:700"
@@ -78,6 +83,12 @@
             cursor: pointer;
             padding: 15px;
           }
+          button#loadMoreDrafts, img#event-pinwheel-drafts {
+            margin-left: 45%;
+            min-width: 10%;
+            cursor: pointer;
+            padding: 15px;
+          }
           figure, #mini-maps .label {
             width: 320px;
             margin: 0;
@@ -96,7 +107,7 @@
             <nav class="site-nav">
                 <div class="site-nav__logo">
                     <a href="/">
-                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png" alt="Home">
+                        <img class="site-nav__logo__img" src="/assets/districtr-splash-clear.png?v=2" alt="Home">
                     </a>
                     <script>
                         function openNav() {
@@ -124,11 +135,16 @@
                 Sample Plans
             </a>
         </li>
-        <li class="nav">
+        <li class="nav" id="shared-nav">
             <a class="nav-links__link nav-links__link--major" href="#shared">
                 Shared Maps
             </a>
         </li>
+        <li class="nav" id='drafts-nav'>
+          <a class="nav-links__link nav-links__link--major" href="#drafts">
+               Works in Progress
+          </a>
+      </li>
         <li class="about-section" class="nav" style="display: none">
             <a class="nav-links__link nav-links__link--major" href="#about-section">
                 About
@@ -175,6 +191,7 @@
                 <div id="proposals"></div>
                 <div id="examples"></div>
                 <div id="plans"></div>
+                <div id="drafts"></div>
                 <div id="about-section">
                   <h2>About</h2>
                   <div id="about-section-text">
@@ -182,17 +199,17 @@
                   <div id="partnership-icons">
                     <div>
                       <a id='partner-link-a' href='#' target='_blank'>
-                        <img id="partnership-a" height='65' alt='Logo for Mesa Arizona' style='margin-right:30px'/>
+                        <img id="partnership-a" height='65' alt='Logo for government partner' style='margin-right:30px'/>
                       </a>
                       <a id='partner-link-b' href='#' target='_blank'>
-                        <img id="partnership-b" height='60' alt='Logo for Redistricting Partners'/>
+                        <img id="partnership-b" height='60' alt='Logo for company partner'/>
                       </a>
                     </div>
                   </div>
                 </div>
             </article>
         </main>
-        <script src="/es6/event.js"></script>
+        <script src="/es6/event.js?v=2"></script>
         <script>
             if (Object.assign === undefined || fetch === undefined) {
                 document.write(
@@ -201,7 +218,7 @@
                 document.write(
                     '<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"><\/script>'
                 );
-                document.write('<script src="/es5/event.js"><\/script>');
+                document.write('<script src="/es5/event.js?v=2"><\/script>');
                 document.write("<script>ieBundle();<\/script>");
             } else {
                 bundle();

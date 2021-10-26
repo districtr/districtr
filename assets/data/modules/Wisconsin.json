@@ -2,9 +2,56 @@
   {
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total Population",
+              "sum": 5893718,
+              "min": 0,
+              "max": 2487
+            },
+            "subgroups": []
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-92.8894, 42.4917],
+          [-86.2495, 47.3098]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.WI_blocks20"
+            },
+            "sourceLayer": "WI_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.WI_blocks20_points"
+            },
+            "sourceLayer": "WI_blocks20_points"
+          }
+        ]
+      },
+      {
         "id": "wards",
         "name": "2011 Wards",
         "unitType": "Wards",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -219,14 +266,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -92.886697124409,
-            42.49192
-          ],
-          [
-            -86.805868,
-            47.037013
-          ]
+          [-92.886697124409, 42.49192],
+          [-86.805868, 47.037013]
         ],
         "tilesets": [
           {
@@ -251,6 +292,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -396,14 +438,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -92.8894,
-            42.4919
-          ],
-          [
-            -86.7501,
-            47.1249
-          ]
+          [-92.8894, 42.4919],
+          [-86.7501, 47.1249]
         ],
         "tilesets": [
           {
@@ -424,6 +460,457 @@
           }
         ],
         "limit": "community"
+      },
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2012 Senate",
+            "subgroups": [
+              {
+                "key": "SEN12D",
+                "name": "Democratic",
+                "sum": 1547105,
+                "min": 0,
+                "max": 2325
+              },
+              {
+                "key": "SEN12R",
+                "name": "Republican",
+                "sum": 1380127,
+                "min": 0,
+                "max": 1344
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 President",
+            "subgroups": [
+              {
+                "key": "PRES12D",
+                "name": "Democratic",
+                "sum": 1620986,
+                "min": 0,
+                "max": 2324
+              },
+              {
+                "key": "PRES12R",
+                "name": "Republican",
+                "sum": 1407966,
+                "min": 0,
+                "max": 1360
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Governor",
+            "subgroups": [
+              {
+                "key": "GOV12D",
+                "name": "Democratic",
+                "sum": 1164479,
+                "min": 0,
+                "max": 2115
+              },
+              {
+                "key": "GOV12R",
+                "name": "Republican",
+                "sum": 1335584,
+                "min": 0,
+                "max": 1257
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1122913,
+                "min": 0,
+                "max": 2064
+              },
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 1259722,
+                "min": 0,
+                "max": 1226
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14D",
+                "name": "Democratic",
+                "sum": 1066867,
+                "min": 0,
+                "max": 1969
+              },
+              {
+                "key": "AG14R",
+                "name": "Republican",
+                "sum": 1211387,
+                "min": 0,
+                "max": 1222
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS14D",
+                "name": "Democratic",
+                "sum": 1161112,
+                "min": 0,
+                "max": 1942
+              },
+              {
+                "key": "SOS14R",
+                "name": "Republican",
+                "sum": 1074834,
+                "min": 0,
+                "max": 1104
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE14D",
+                "name": "Democratic",
+                "sum": 1026548,
+                "min": 0,
+                "max": 1744
+              },
+              {
+                "key": "TRE14R",
+                "name": "Republican",
+                "sum": 1120138,
+                "min": 0,
+                "max": 1140
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "PRES16D",
+                "name": "Democratic",
+                "sum": 1382536,
+                "min": 0,
+                "max": 2479
+              },
+              {
+                "key": "PRES16R",
+                "name": "Republican",
+                "sum": 1405283,
+                "min": 0,
+                "max": 1212
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "SEN16D",
+                "name": "Democratic",
+                "sum": 1380335,
+                "min": 0,
+                "max": 2479
+              },
+              {
+                "key": "SEN16R",
+                "name": "Republican",
+                "sum": 1479478,
+                "min": 0,
+                "max": 1383
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 1472914,
+                "min": 0,
+                "max": 2810
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 1184884,
+                "min": 0,
+                "max": 1207
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 1324313,
+                "min": 0,
+                "max": 2743
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1295083,
+                "min": 0,
+                "max": 1304
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18D",
+                "name": "Democratic",
+                "sum": 1305901,
+                "min": 0,
+                "max": 2738
+              },
+              {
+                "key": "AG18R",
+                "name": "Republican",
+                "sum": 1288711,
+                "min": 0,
+                "max": 1324
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Secretary of State",
+            "subgroups": [
+              {
+                "key": "SOS18D",
+                "name": "Democratic",
+                "sum": 1380751,
+                "min": 0,
+                "max": 2725
+              },
+              {
+                "key": "SOS18R",
+                "name": "Republican",
+                "sum": 1235034,
+                "min": 0,
+                "max": 1252
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18D",
+                "name": "Democratic",
+                "sum": 1324111,
+                "min": 0,
+                "max": 2711
+              },
+              {
+                "key": "TRE18R",
+                "name": "Republican",
+                "sum": 1216811,
+                "min": 0,
+                "max": 1238
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 5893718,
+              "min": 0,
+              "max": 6115
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4634018,
+                "min": 0,
+                "max": 3977
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 366508,
+                "min": 0,
+                "max": 2510
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 447290,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 174267,
+                "min": 0,
+                "max": 1282
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 48384,
+                "min": 0,
+                "max": 901
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1892,
+                "min": 0,
+                "max": 53
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 203746,
+                "min": 0,
+                "max": 299
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 17613,
+                "min": 0,
+                "max": 219
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 4612300,
+              "min": 0,
+              "max": 5278
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3774226,
+                "min": 0,
+                "max": 3692
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 258704,
+                "min": 0,
+                "max": 1764
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 284069,
+                "min": 0,
+                "max": 1665
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 35459,
+                "min": 0,
+                "max": 606
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1446,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 126019,
+                "min": 0,
+                "max": 1164
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 12562,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 119815,
+                "min": 0,
+                "max": 270
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-92.8894, 42.4917],
+          [-86.2495, 47.3098]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wi_vtds20"
+            },
+            "sourceLayer": "wi_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wi_vtds20_points"
+            },
+            "sourceLayer": "wi_vtds20_points"
+          }
+        ]
       }
     ],
     "name": "Wisconsin",
@@ -453,6 +940,7 @@
         "id": "wards",
         "name": "2020 Wards",
         "unitType": "Wards",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -744,14 +1232,8 @@
           "key": "Code-2"
         },
         "bounds": [
-          [
-            -92.8894,
-            42.4919
-          ],
-          [
-            -86.764,
-            47.0807
-          ]
+          [-92.8894, 42.4919],
+          [-86.764, 47.0807]
         ],
         "tilesets": [
           {
@@ -800,6 +1282,7 @@
         "id": "wards",
         "name": "2020 Wards",
         "unitType": "Wards",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1040,14 +1523,8 @@
           "key": "COUNTYFP"
         },
         "bounds": [
-          [
-            -92.886697,
-            42.49192
-          ],
-          [
-            -86.805868,
-            47.037
-          ]
+          [-92.886697, 42.49192],
+          [-86.805868, 47.037]
         ],
         "tilesets": [
           {
@@ -1087,6 +1564,59 @@
         "name": "State Assembly",
         "numberOfParts": 99,
         "pluralNoun": "State Assembly Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "hideOnDefault": true,
+        "id": "bg_clusters",
+        "name": "Block Group Clusters",
+        "unitType": "Block Groups",
+        "columnSets": [],
+        "idColumn": {
+          "name": "Cluster Name",
+          "key": "cluster"
+        },
+        "bounds": [
+          [
+            -92.8894,
+            42.4919
+          ],
+          [
+            -86.7501,
+            47.1249
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wisconsin_bg_clusters"
+            },
+            "sourceLayer": "wisconsin_bg_clusters"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wisconsin_bg_clusters_points"
+            },
+            "sourceLayer": "wisconsin_bg_clusters_points"
+          }
+        ]
+      }
+    ],
+    "id": "wisconsin",
+    "state": "Wisconsin",
+    "name": "Wisconsin",
+    "districtingProblems": [
+      {
+        "name": "Communities of Interest",
+        "numberOfParts": 0,
+        "pluralNoun": "Communities of Interest"
       }
     ]
   }

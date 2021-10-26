@@ -145,6 +145,11 @@ export function colorByFraction(subgroup) {
     return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
 }
 
+export function purpleByFraction(subgroup) {
+    const rgb = [0, 0, 139];
+    return ["rgba", ...rgb, subgroup.fractionAsMapboxExpression()];
+}
+
 // Demographic color rules:
 
 export const demographicColorRules = [
@@ -154,7 +159,15 @@ export const demographicColorRules = [
 
 // Partisan color rules:
 
-function colorbyVoteShare(party, colorStops) {
+function colorbyVoteShare(party, colorStops, countyFilter) {
+    if (countyFilter) {
+      return [
+        "case",
+        countyFilter,
+        colorbyVoteShare(party, colorStops),
+        "rgba(0, 0, 0, 0)"
+      ];
+    }
     return [
         "interpolate",
         ["linear"],
@@ -182,9 +195,9 @@ function getPartisanColorStops(party, num_parties) {
     ];
 }
 
-export const voteShareRule = num_parties => (party) => {
+export const voteShareRule = (num_parties, countyFilter) => (party) => {
     const colorStops = getPartisanColorStops(party, num_parties);
-    return colorbyVoteShare(party, colorStops);
+    return colorbyVoteShare(party, colorStops, countyFilter);
 }
 
 function marginPerCapitaExpression(election, party, population) {

@@ -16,11 +16,14 @@ import { savePlanToStorage } from "../routes";
 export default function CommunityPlugin(editor) {
     const { state, mapState } = editor;
 
-    addLocationSearch(mapState);
-
-    const tab = new Tab("community", "Drawing", editor.store);
-    const about = new AboutSection(editor);
-    tab.addRevealSection("Areas of Interest", about.render);
+    let tab, about;
+    if (editor.store) {
+        // non-embed
+        addLocationSearch(mapState);
+        tab = new Tab("community", "Drawing", editor.store);
+        about = new AboutSection(editor);
+        tab.addRevealSection("Areas of Interest", about.render);
+    }
 
     let lm = state.place.landmarks;
     if (!lm.source && !lm.type) {
@@ -63,6 +66,12 @@ export default function CommunityPlugin(editor) {
           state.render();
         });
     }
+
+    if (!editor.store) {
+        // embed
+        return;
+    }
+
     lmo = new LandmarkOptions(
         state.map.landmarks,
         lm.data.features,
@@ -105,6 +114,19 @@ export default function CommunityPlugin(editor) {
             isOpen: false,
             activePartIndex: 0
         });
+    }
+    if (state.cvap) {
+      const cvapPivot = PivotTable(
+          "Citizen Voting Age Population",
+          state.cvap,
+          state.place.name,
+          state.parts,
+          (spatial_abilities(state.place.id).coalition === false) ? false : "Coalition CVAP"
+      );
+      evaluationTab.addRevealSection("Citizen Voting Age Population", cvapPivot, {
+        isOpen: false,
+        activePartIndex: 0
+      });
     }
 
     if (state.incomes && !["maricopa", "phoenix", "yuma", "seaz", "nwaz"].includes(state.place.id)) {
@@ -274,7 +296,7 @@ class LandmarkOptions {
                 title="New Marker"
                 style="border: 2px solid #aaa;margin-left:auto;margin-right:auto;"
               >
-                <img src="/assets/new_landmark.svg"/>
+                <img src="/assets/new_landmark.svg?v=2"/>
                 New
               </button>
           </div>

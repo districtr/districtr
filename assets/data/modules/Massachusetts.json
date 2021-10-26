@@ -38,38 +38,14 @@
                 "type": "Polygon",
                 "coordinates": [
                   [
-                    [
-                      -71.3211798,
-                      42.6387895
-                    ],
-                    [
-                      -71.321032,
-                      42.63873
-                    ],
-                    [
-                      -71.3208178,
-                      42.638387
-                    ],
-                    [
-                      -71.3213012,
-                      42.6383255
-                    ],
-                    [
-                      -71.3213378,
-                      42.6381281
-                    ],
-                    [
-                      -71.3229971,
-                      42.6383757
-                    ],
-                    [
-                      -71.3227895,
-                      42.6391669
-                    ],
-                    [
-                      -71.3211798,
-                      42.6387895
-                    ]
+                    [-71.3211798, 42.6387895],
+                    [-71.321032, 42.63873],
+                    [-71.3208178, 42.638387],
+                    [-71.3213012, 42.6383255],
+                    [-71.3213378, 42.6381281],
+                    [-71.3229971, 42.6383757],
+                    [-71.3227895, 42.6391669],
+                    [-71.3211798, 42.6387895]
                   ]
                 ]
               },
@@ -77,10 +53,7 @@
                 "name": "Clemente Park",
                 "leisure": "park",
                 "short_description": "Clemente Park, renamed for baseball player Roberto Clemente in 1973, has been heavily used by Lowell's communities of color for decades.  Recently, one of the few Cambodian city councilors brought up the issue that the park had no lighting, unlike  parks in the city, making it dangerous for recreational use at night.",
-                "representativePoint": [
-                  -71.321937,
-                  42.6385585
-                ]
+                "representativePoint": [-71.321937, 42.6385585]
               }
             },
             {
@@ -90,262 +63,82 @@
                 "coordinates": [
                   [
                     [
-                      [
-                        -71.3112467,
-                        42.646723
-                      ],
-                      [
-                        -71.3106506,
-                        42.6464432
-                      ],
-                      [
-                        -71.3104423,
-                        42.6466834
-                      ],
-                      [
-                        -71.3104877,
-                        42.6467047
-                      ],
-                      [
-                        -71.3104378,
-                        42.6467598
-                      ],
-                      [
-                        -71.3105414,
-                        42.6468094
-                      ],
-                      [
-                        -71.3106085,
-                        42.6467382
-                      ],
-                      [
-                        -71.3108942,
-                        42.6468723
-                      ],
-                      [
-                        -71.3108281,
-                        42.6469422
-                      ],
-                      [
-                        -71.3109524,
-                        42.6470008
-                      ],
-                      [
-                        -71.3109749,
-                        42.6469756
-                      ],
-                      [
-                        -71.311,
-                        42.6469466
-                      ],
-                      [
-                        -71.3110374,
-                        42.6469642
-                      ],
-                      [
-                        -71.3112467,
-                        42.646723
-                      ]
+                      [-71.3112467, 42.646723],
+                      [-71.3106506, 42.6464432],
+                      [-71.3104423, 42.6466834],
+                      [-71.3104877, 42.6467047],
+                      [-71.3104378, 42.6467598],
+                      [-71.3105414, 42.6468094],
+                      [-71.3106085, 42.6467382],
+                      [-71.3108942, 42.6468723],
+                      [-71.3108281, 42.6469422],
+                      [-71.3109524, 42.6470008],
+                      [-71.3109749, 42.6469756],
+                      [-71.311, 42.6469466],
+                      [-71.3110374, 42.6469642],
+                      [-71.3112467, 42.646723]
                     ]
                   ],
                   [
                     [
-                      [
-                        -71.3090152,
-                        42.6472373
-                      ],
-                      [
-                        -71.3093287,
-                        42.6468913
-                      ],
-                      [
-                        -71.3086462,
-                        42.6465568
-                      ],
-                      [
-                        -71.3083327,
-                        42.6469028
-                      ],
-                      [
-                        -71.3090152,
-                        42.6472373
-                      ]
+                      [-71.3090152, 42.6472373],
+                      [-71.3093287, 42.6468913],
+                      [-71.3086462, 42.6465568],
+                      [-71.3083327, 42.6469028],
+                      [-71.3090152, 42.6472373]
                     ]
                   ],
                   [
                     [
-                      [
-                        -71.3097319,
-                        42.6474985
-                      ],
-                      [
-                        -71.3103962,
-                        42.6467419
-                      ],
-                      [
-                        -71.3109847,
-                        42.6470214
-                      ],
-                      [
-                        -71.3105489,
-                        42.6475177
-                      ],
-                      [
-                        -71.3103207,
-                        42.6477776
-                      ],
-                      [
-                        -71.310228,
-                        42.6477336
-                      ],
-                      [
-                        -71.3102058,
-                        42.6477589
-                      ],
-                      [
-                        -71.3097923,
-                        42.6475625
-                      ],
-                      [
-                        -71.3098142,
-                        42.6475376
-                      ],
-                      [
-                        -71.3097319,
-                        42.6474985
-                      ]
+                      [-71.3097319, 42.6474985],
+                      [-71.3103962, 42.6467419],
+                      [-71.3109847, 42.6470214],
+                      [-71.3105489, 42.6475177],
+                      [-71.3103207, 42.6477776],
+                      [-71.310228, 42.6477336],
+                      [-71.3102058, 42.6477589],
+                      [-71.3097923, 42.6475625],
+                      [-71.3098142, 42.6475376],
+                      [-71.3097319, 42.6474985]
                     ]
                   ],
                   [
                     [
-                      [
-                        -71.3125536,
-                        42.6479293
-                      ],
-                      [
-                        -71.3125906,
-                        42.6479445
-                      ],
-                      [
-                        -71.3125645,
-                        42.6479652
-                      ],
-                      [
-                        -71.3126209,
-                        42.648011
-                      ],
-                      [
-                        -71.3128408,
-                        42.6477821
-                      ],
-                      [
-                        -71.3127496,
-                        42.6477308
-                      ],
-                      [
-                        -71.3127282,
-                        42.6477584
-                      ],
-                      [
-                        -71.3127013,
-                        42.6477427
-                      ],
-                      [
-                        -71.3127228,
-                        42.6477111
-                      ],
-                      [
-                        -71.3125404,
-                        42.6474467
-                      ],
-                      [
-                        -71.3121512,
-                        42.6474316
-                      ],
-                      [
-                        -71.3119342,
-                        42.6476756
-                      ],
-                      [
-                        -71.3121166,
-                        42.6479399
-                      ],
-                      [
-                        -71.3125136,
-                        42.6479557
-                      ],
-                      [
-                        -71.3125536,
-                        42.6479293
-                      ]
+                      [-71.3125536, 42.6479293],
+                      [-71.3125906, 42.6479445],
+                      [-71.3125645, 42.6479652],
+                      [-71.3126209, 42.648011],
+                      [-71.3128408, 42.6477821],
+                      [-71.3127496, 42.6477308],
+                      [-71.3127282, 42.6477584],
+                      [-71.3127013, 42.6477427],
+                      [-71.3127228, 42.6477111],
+                      [-71.3125404, 42.6474467],
+                      [-71.3121512, 42.6474316],
+                      [-71.3119342, 42.6476756],
+                      [-71.3121166, 42.6479399],
+                      [-71.3125136, 42.6479557],
+                      [-71.3125536, 42.6479293]
                     ]
                   ],
                   [
                     [
-                      [
-                        -71.31153,
-                        42.6479882
-                      ],
-                      [
-                        -71.311819,
-                        42.6476692
-                      ],
-                      [
-                        -71.3119517,
-                        42.6475226
-                      ],
-                      [
-                        -71.3120374,
-                        42.6475587
-                      ],
-                      [
-                        -71.3121506,
-                        42.6474315
-                      ],
-                      [
-                        -71.312057,
-                        42.6473916
-                      ],
-                      [
-                        -71.3121125,
-                        42.6473304
-                      ],
-                      [
-                        -71.3117807,
-                        42.6471679
-                      ],
-                      [
-                        -71.311911,
-                        42.647024
-                      ],
-                      [
-                        -71.31178,
-                        42.6469598
-                      ],
-                      [
-                        -71.3115184,
-                        42.6472487
-                      ],
-                      [
-                        -71.3110383,
-                        42.6477787
-                      ],
-                      [
-                        -71.3110218,
-                        42.647797
-                      ],
-                      [
-                        -71.3113972,
-                        42.6479809
-                      ],
-                      [
-                        -71.3114334,
-                        42.6479408
-                      ],
-                      [
-                        -71.31153,
-                        42.6479882
-                      ]
+                      [-71.31153, 42.6479882],
+                      [-71.311819, 42.6476692],
+                      [-71.3119517, 42.6475226],
+                      [-71.3120374, 42.6475587],
+                      [-71.3121506, 42.6474315],
+                      [-71.312057, 42.6473916],
+                      [-71.3121125, 42.6473304],
+                      [-71.3117807, 42.6471679],
+                      [-71.311911, 42.647024],
+                      [-71.31178, 42.6469598],
+                      [-71.3115184, 42.6472487],
+                      [-71.3110383, 42.6477787],
+                      [-71.3110218, 42.647797],
+                      [-71.3113972, 42.6479809],
+                      [-71.3114334, 42.6479408],
+                      [-71.31153, 42.6479882]
                     ]
                   ]
                 ]
@@ -468,14 +261,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -71.3825,
-            42.6065
-          ],
-          [
-            -71.2713,
-            42.6665
-          ]
+          [-71.3825, 42.6065],
+          [-71.2713, 42.6665]
         ],
         "tilesets": [
           {
@@ -504,6 +291,7 @@
         "id": "towns",
         "name": "Towns",
         "unitType": "Towns",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -886,14 +674,8 @@
           "key": "town_name"
         },
         "bounds": [
-          [
-            -73.5082,
-            41.2388
-          ],
-          [
-            -69.9275,
-            42.8868
-          ]
+          [-73.5082, 41.2388],
+          [-69.9275, 42.8868]
         ],
         "tilesets": [
           {
@@ -918,6 +700,7 @@
         "id": "precincts_02_10",
         "name": "Precincts, 2002-2010",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1229,14 +1012,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -73.5081,
-            41.238
-          ],
-          [
-            -69.928,
-            42.8868
-          ]
+          [-73.5081, 41.238],
+          [-69.928, 42.8868]
         ],
         "tilesets": [
           {
@@ -1261,6 +1038,7 @@
         "id": "precincts_12_16",
         "name": "Precincts, 2012-2016",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1559,14 +1337,8 @@
           "key": "NAME"
         },
         "bounds": [
-          [
-            -73.5081,
-            41.238
-          ],
-          [
-            -69.928,
-            42.8868
-          ]
+          [-73.5081, 41.238],
+          [-69.928, 42.8868]
         ],
         "tilesets": [
           {
@@ -1591,6 +1363,7 @@
         "id": "blockgroups",
         "name": "Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -1736,14 +1509,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -73.5081,
-            41.23
-          ],
-          [
-            -69.9233,
-            42.8868
-          ]
+          [-73.5081, 41.23],
+          [-69.9233, 42.8868]
         ],
         "tilesets": [
           {
@@ -2283,14 +2050,8 @@
           "key": "NAME"
         },
         "bounds": [
-          [
-            -73.5081,
-            41.238
-          ],
-          [
-            -69.928,
-            42.8868
-          ]
+          [-73.5081, 41.238],
+          [-69.928, 42.8868]
         ],
         "tilesets": [
           {
@@ -2313,6 +2074,892 @@
       }
     ],
     "id": "ma_vra",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 9,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 40,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 160,
+        "pluralNoun": "State House Districts"
+      }
+    ]
+  },
+  {
+    "state": "Massachusetts",
+    "name": "Massachusetts",
+    "id": "ma_vra2",
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2012 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN12GEWAR",
+                "name": "Democratic",
+                "sum": 1696347,
+                "min": 0,
+                "max": 3435
+              },
+              {
+                "key": "SEN12GSBRO",
+                "name": "Republican",
+                "sum": 1458055,
+                "min": 0,
+                "max": 2653
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12GBOB",
+                "name": "Democratic",
+                "sum": 1921290,
+                "min": 0,
+                "max": 3830
+              },
+              {
+                "key": "PRES12GMRO",
+                "name": "Republican",
+                "sum": 1188313,
+                "min": 0,
+                "max": 2280
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2013 US Senate Special",
+            "subgroups": [
+              {
+                "key": "SEN13GEMAR",
+                "name": "Democratic",
+                "sum": 645433,
+                "min": 0,
+                "max": 1219
+              },
+              {
+                "key": "SEN13GGGOM",
+                "name": "Republican",
+                "sum": 525304,
+                "min": 0,
+                "max": 1403
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN14GEMAR",
+                "name": "Democratic",
+                "sum": 1289944,
+                "min": 0,
+                "max": 2233
+              },
+              {
+                "key": "SEN14GHERR",
+                "name": "Republican",
+                "sum": 791954,
+                "min": 0,
+                "max": 1760
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16GHCL",
+                "name": "Democratic",
+                "sum": 1995200,
+                "min": 0,
+                "max": 4146
+              },
+              {
+                "key": "PRES16GDTR",
+                "name": "Republican",
+                "sum": 1090890,
+                "min": 0,
+                "max": 1892
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1004416,
+                "min": 0,
+                "max": 1817
+              },
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 1044569,
+                "min": 0,
+                "max": 2063
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18D",
+                "name": "Democratic",
+                "sum": 885769,
+                "min": 0,
+                "max": 1750
+              },
+              {
+                "key": "GOV18R",
+                "name": "Republican",
+                "sum": 1781338,
+                "min": 0,
+                "max": 3045
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN18D",
+                "name": "Democratic",
+                "sum": 1633369,
+                "min": 0,
+                "max": 2662
+              },
+              {
+                "key": "SEN18R",
+                "name": "Republican",
+                "sum": 979213,
+                "min": 0,
+                "max": 1862
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG14GMHEAL",
+                "name": "Democratic",
+                "sum": 1280513,
+                "min": 0,
+                "max": 2099
+              },
+              {
+                "key": "AG14GJMILL",
+                "name": "Republican",
+                "sum": 793823,
+                "min": 0,
+                "max": 1773
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE14GDGOL",
+                "name": "Democratic",
+                "sum": 1120194,
+                "min": 0,
+                "max": 1905
+              },
+              {
+                "key": "TRE14GMHEF",
+                "name": "Republican",
+                "sum": 828896,
+                "min": 0,
+                "max": 1848
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD14GPBUM",
+                "name": "Democratic",
+                "sum": 1146985,
+                "min": 0,
+                "max": 1976
+              },
+              {
+                "key": "AUD14GSSAI",
+                "name": "Republican",
+                "sum": 757219,
+                "min": 0,
+                "max": 1775
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "AG18GMHEAL",
+                "name": "Democratic",
+                "sum": 1874212,
+                "min": 0,
+                "max": 2928
+              },
+              {
+                "key": "AG18GJMCMA",
+                "name": "Republican",
+                "sum": 804831,
+                "min": 0,
+                "max": 1621
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Treasurer",
+            "subgroups": [
+              {
+                "key": "TRE18GDGOL",
+                "name": "Democratic",
+                "sum": 1761283,
+                "min": 0,
+                "max": 2803
+              },
+              {
+                "key": "TRE18GKORR",
+                "name": "Republican",
+                "sum": 749596,
+                "min": 0,
+                "max": 1600
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 State Auditor",
+            "subgroups": [
+              {
+                "key": "AUD18GSBUM",
+                "name": "Democratic",
+                "sum": 1606512,
+                "min": 0,
+                "max": 2635
+              },
+              {
+                "key": "AUD18GHBRA",
+                "name": "Republican",
+                "sum": 801585,
+                "min": 0,
+                "max": 1654
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20GJBI",
+                "name": "Democratic",
+                "sum": 2382204,
+                "min": 0,
+                "max": 5241
+              },
+              {
+                "key": "PRES20GDTR",
+                "name": "Republican",
+                "sum": 1167206,
+                "min": 0,
+                "max": 1991
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 US Senate",
+            "subgroups": [
+              {
+                "key": "SEN20GEMAR",
+                "name": "Democratic",
+                "sum": 2357811,
+                "min": 0,
+                "max": 5132
+              },
+              {
+                "key": "SEN20GKOCO",
+                "name": "Republican",
+                "sum": 1177759,
+                "min": 0,
+                "max": 2034
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 7029917,
+              "min": 0,
+              "max": 14304
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4748897,
+                "min": 0,
+                "max": 9889
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 457055,
+                "min": 0,
+                "max": 2703
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 887685,
+                "min": 0,
+                "max": 3762
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 504900,
+                "min": 0,
+                "max": 5510
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 9387,
+                "min": 0,
+                "max": 166
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1607,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 328278,
+                "min": 0,
+                "max": 1191
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 92108,
+                "min": 0,
+                "max": 1004
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 5663723,
+              "min": 0,
+              "max": 13099
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 3988985,
+                "min": 0,
+                "max": 8293
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 351465,
+                "min": 0,
+                "max": 2005
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 621508,
+                "min": 0,
+                "max": 2670
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 7430,
+                "min": 0,
+                "max": 123
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1391,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 407742,
+                "min": 0,
+                "max": 4881
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 68601,
+                "min": 0,
+                "max": 733
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 216601,
+                "min": 0,
+                "max": 818
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -73.5082,
+            41.1871
+          ],
+          [
+            -69.8589,
+            42.8868
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vtds20?v=2"
+            },
+            "sourceLayer": "ma_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vtds20_points?v=2"
+            },
+            "sourceLayer": "ma_vtds20_points"
+          }
+        ]
+      },
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 6547629,
+              "min": 75,
+              "max": 10172
+            },
+            "subgroups": [
+              {
+                "key": "NH_WHITE",
+                "name": "White population",
+                "sum": 4984800,
+                "min": 6,
+                "max": 8192
+              },
+              {
+                "key": "NH_BLACK",
+                "name": "Black population",
+                "sum": 391693,
+                "min": 0,
+                "max": 2801
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 627654,
+                "min": 0,
+                "max": 3038
+              },
+              {
+                "key": "NH_ASIAN",
+                "name": "Asian population",
+                "sum": 347495,
+                "min": 0,
+                "max": 4051
+              },
+              {
+                "key": "NH_AMIN",
+                "name": "American Indian population",
+                "sum": 10778,
+                "min": 0,
+                "max": 171
+              },
+              {
+                "key": "NH_NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 1467,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "NH_OTHER",
+                "name": "Other races",
+                "sum": 61547,
+                "min": 0,
+                "max": 815
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 5128706,
+              "min": 64,
+              "max": 8064
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 4029458,
+                "min": 3,
+                "max": 6633
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 288523,
+                "min": 0,
+                "max": 2031
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 416775,
+                "min": 0,
+                "max": 2098
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 8219,
+                "min": 0,
+                "max": 127
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1189,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 269089,
+                "min": 0,
+                "max": 3594
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races voting age population",
+                "sum": 45871,
+                "min": 0,
+                "max": 563
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races voting age population",
+                "sum": 69582,
+                "min": 0,
+                "max": 311
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Senate",
+            "subgroups": [
+              {
+                "key": "SEN12GEWAR",
+                "name": "Democratic",
+                "sum": 1696346,
+                "min": 19,
+                "max": 3435
+              },
+              {
+                "key": "SEN12GSBRO",
+                "name": "Republican",
+                "sum": 1458048,
+                "min": 2,
+                "max": 2765
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES12GBOB",
+                "name": "Democratic",
+                "sum": 1921290,
+                "min": 15,
+                "max": 3830
+              },
+              {
+                "key": "PRES12GMRO",
+                "name": "Republican",
+                "sum": 1188314,
+                "min": 1,
+                "max": 2365
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2013 Senate",
+            "subgroups": [
+              {
+                "key": "SEN13GEMAR",
+                "name": "Democratic",
+                "sum": 645429,
+                "min": 0,
+                "max": 1219
+              },
+              {
+                "key": "SEN13GGGOM",
+                "name": "Republican",
+                "sum": 525307,
+                "min": 0,
+                "max": 1403
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Senate",
+            "subgroups": [
+              {
+                "key": "SEN14GEMAR",
+                "name": "Democratic",
+                "sum": 1289944,
+                "min": 3,
+                "max": 2233
+              },
+              {
+                "key": "SEN14GHERR",
+                "name": "Republican",
+                "sum": 791950,
+                "min": 0,
+                "max": 1760
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14GCBAK",
+                "name": "Republican",
+                "sum": 1044573,
+                "min": 0,
+                "max": 2063
+              },
+              {
+                "key": "GOV14GMCOA",
+                "name": "Democratic",
+                "sum": 1004408,
+                "min": 3,
+                "max": 1817
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES16GHCL",
+                "name": "Democratic",
+                "sum": 1995196,
+                "min": 1,
+                "max": 4146
+              },
+              {
+                "key": "PRES16GDTR",
+                "name": "Republican",
+                "sum": 1090893,
+                "min": 0,
+                "max": 2313
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "GOV18GCBAK",
+                "name": "Republican",
+                "sum": 1781341,
+                "min": 1,
+                "max": 3071
+              },
+              {
+                "key": "GOV18GJGON",
+                "name": "Democratic",
+                "sum": 885770,
+                "min": 1,
+                "max": 1750
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "SEN18GEWAR",
+                "name": "Democratic",
+                "sum": 1633371,
+                "min": 2,
+                "max": 2662
+              },
+              {
+                "key": "SEN18GGDIE",
+                "name": "Republican",
+                "sum": 979210,
+                "min": 0,
+                "max": 1992
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "PRES20GJBI",
+                "name": "Democratic",
+                "sum": 2382202,
+                "min": 1,
+                "max": 5241
+              },
+              {
+                "key": "PRES20GDTR",
+                "name": "Republican",
+                "sum": 1167202,
+                "min": 0,
+                "max": 2391
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+              {
+                "key": "SEN20GEMAR",
+                "name": "Democratic",
+                "sum": 2357809,
+                "min": 1,
+                "max": 5132
+              },
+              {
+                "key": "SEN20GKOCO",
+                "name": "Republican",
+                "sum": 1177765,
+                "min": 0,
+                "max": 2323
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct name",
+          "key": "NAME"
+        },
+        "bounds": [
+          [-73.5081, 41.238],
+          [-69.928, 42.8868]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vra2_precincts"
+            },
+            "sourceLayer": "ma_vra2_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ma_vra2_precincts_points"
+            },
+            "sourceLayer": "ma_vra2_precincts_points"
+          }
+        ]
+      }
+    ],
     "districtingProblems": [
       {
         "name": "Congress",

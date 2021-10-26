@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "menlo_park_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Felton Gables" }, "geometry": { "type": "Point", "coordinates": [ -122.189173059444826, 37.461927564576271 ] } },
+{ "type": "Feature", "properties": { "NAME": "Downtown" }, "geometry": { "type": "Point", "coordinates": [ -122.184052024365158, 37.449936396585208 ] } },
+{ "type": "Feature", "properties": { "NAME": "Allied Arts / Stanford Park" }, "geometry": { "type": "Point", "coordinates": [ -122.177219109960788, 37.445619760501295 ] } },
+{ "type": "Feature", "properties": { "NAME": "West Menlo" }, "geometry": { "type": "Point", "coordinates": [ -122.191060830258365, 37.439926968968756 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sharon Heights" }, "geometry": { "type": "Point", "coordinates": [ -122.20948787720134, 37.425590650690403 ] } },
+{ "type": "Feature", "properties": { "NAME": "Belle Haven" }, "geometry": { "type": "Point", "coordinates": [ -122.15944575682957, 37.476363634919309 ] } },
+{ "type": "Feature", "properties": { "NAME": "Suburban Park Lorelei Manor Flood Triangle" }, "geometry": { "type": "Point", "coordinates": [ -122.171426804369275, 37.474933824446659 ] } },
+{ "type": "Feature", "properties": { "NAME": "South of Seminary\/Vintage Oaks" }, "geometry": { "type": "Point", "coordinates": [ -122.165888514890213, 37.459747697386234 ] } },
+{ "type": "Feature", "properties": { "NAME": "The Willows" }, "geometry": { "type": "Point", "coordinates": [ -122.154716635188336, 37.459998894767168 ] } },
+{ "type": "Feature", "properties": { "NAME": "Park Forest / Spruce / San Antonio" }, "geometry": { "type": "Point", "coordinates": [ -122.191384433073097, 37.459342509825134 ] } },
+{ "type": "Feature", "properties": { "NAME": "Central Menlo" }, "geometry": { "type": "Point", "coordinates": [ -122.181980596949472, 37.457740406170302 ] } },
+{ "type": "Feature", "properties": { "NAME": "Linfield Oaks" }, "geometry": { "type": "Point", "coordinates": [ -122.172055567820223, 37.453701630905179 ] } }
+]
+}
