@@ -566,7 +566,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: 'Supervisorial Districts',
+      current_districts: true,
     },
     sunnyvale: {
       coalition: false,
@@ -868,6 +868,14 @@ export function spatial_abilities(id) {
     // contiguity: 2,
     shapefile: true,
     municipalities: true,
+  },
+  ca_poway: {
+    coalition: false,
+    number_markers: true
+  },
+  ca_torrance: {
+    coalition: false,
+    number_markers: true
   },
   menlo_park: {
     border: true,
