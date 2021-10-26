@@ -133,7 +133,10 @@ commoncausepa: 'Pennsylvania',
   "lamirada2021": "California",
   "lakewood2021": "California",
   "placentia2021": "California",
-  "sanbruno2021": "California"
+  "sanbruno2021": "California",
+  poway2021: 'California',
+  torrance2021: 'California'
+
 };
 
 const validEventCodes = {
@@ -256,7 +259,10 @@ commoncausepa: 'pennsylvania',
   "lamirada2021": "la_mirada",
   "lakewood2021": "lakewood",
   "placentia2021": "placentia",
-  "sanbruno2021": "san_bruno"
+  "sanbruno2021": "san_bruno",
+  poway2021: 'ca_poway',
+  torrance2021: 'ca_torrance'
+
 };
 
 const blockPlans = {
@@ -314,7 +320,14 @@ const unitTypes = {
   sanbenito: {no: "Blocks"},
   sbcounty: {no: "Blocks"},
   sanmateoco: {no: "Blocks"},
-  laverne: {no: "Blocks"}
+  laverne: {no: "Blocks"},
+  fresnocity: {no: 'Blocks'},
+  chulavista: {no: 'Blocks'},
+  stockton2021: {no: 'Blocks'},
+  sonomaco: {no: 'Blocks'},
+  poway2021: {no: 'Blocks'},
+  torrance2021: {no: 'Blocks'}
+
 };
 
 const unitCounts = {
@@ -439,7 +452,10 @@ const hybrid_events = [
   "lamirada2021",
   "placentia2021",
   "lakewood2021",
-  "sanbruno2021"
+  "sanbruno2021",
+  'poway2021',
+  'torrance2021'
+
 ];
 
 const portal_events = [
@@ -1148,7 +1164,28 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     should be included within a single district for purposes of its effective and fair representation."</p>
     <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
     <p><strong>To display your map on this page, be sure the tag "SanBruno2021" is filled out after you've clicked "Save" to share the map.</strong></p>
-  `
+  `,
+  poway2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Poway County’s 2021 city council redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the city know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Poway2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+torrance2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Torrance County’s 2021 city counci redistricting.<p>\
+     <p>As part of the redistricting process, the California FAIR MAPS Act includes \
+     neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
+     population that shares common social or economic interests that should \
+     be included within a single district for purposes of its effective and fair \
+     representation.”</p>\
+     <p>To let the city know about your community and what brings it together, \
+share your map and your story using this tool now.</p>\
+     <p><strong>To display your map on this page, be sure the tag &quot;Torrance2021&quot; is filled \
+out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
+
 };
 
 const longAbout = {
@@ -1290,8 +1327,10 @@ butte_county: [
   sonomaco: [
     "Sonoma County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   pasadena2021: [
     "City of Pasadena City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1358,8 +1397,10 @@ butte_county: [
   stockton2021: [
     "City of Stockton City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   lodi2021: [
     "City of Lodi City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1460,6 +1501,14 @@ butte_county: [
     in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
+  fresnocity: [
+    "Fresno City Council Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the seven districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full seven-district map suggestions for the whole city.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
+  ],
   nevadaco: [
     "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
@@ -1517,8 +1566,10 @@ butte_county: [
   chulavista: [
     "Chula Vista City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
   ],
   sbcounty: [
     "Santa Barbara County Supervisorial District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1657,7 +1708,24 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
-  ]
+  ],
+    poway2021: [
+      "Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    ],
+    torrance2021: [
+      "Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    ],
+  
 };
 
 const proposals_by_event = {
@@ -1827,7 +1895,7 @@ export default () => {
             "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
-            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021"
+            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
@@ -1984,7 +2052,15 @@ export default () => {
             } else if (eventCode === "glendora2021") {
               document.getElementById("partner-link-a").href = "https://drawglendora.org/";
               document.getElementById("partnership-a").src = "/assets/partners-glendora.png?v=2";
-            } else {
+            } else if (eventCode === "torrance2021") {
+              document.getElementById("partner-link-a").href = "https://www.torranceca.gov";
+              document.getElementById("partnership-a").src = "/assets/partners-torrance.png";
+              document.getElementById("partnership-a").style.background = "#888";
+            } else if (eventCode === "poway2021") {
+              document.getElementById("partner-link-a").href = "https://www.poway.org";
+              document.getElementById("partnership-a").src = "/assets/partners-poway.png";
+              document.getElementById("partnership-a").style.background = "#000";
+            }  else {
               document.getElementById("partner-link-a").href = "https://www.saccounty.net/Redistricting/Pages/default.aspx";
               document.getElementById("partnership-a").src = "/assets/partners-sacramento.png?v=2";
             }

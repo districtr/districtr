@@ -21,7 +21,7 @@ function datasetInfo(state) {
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
-            ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation"
+            ndc_2020: "Uses adjusted <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -37,7 +37,7 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.mesa2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
-    } else if ((["sacramento", "ca_sonoma", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_fresno", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_cvista", "ca_bellflower", "ca_camarillo", "ca_fresno_ci", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "ca_stockton", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) 
+    } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "ca_camarillo", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) 
             && !(["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name))) {
                 dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
     } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name)) {
@@ -54,7 +54,7 @@ function datasetInfo(state) {
             ) {
           // 2020 - NDC - Prison
           dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
-        } else if (["placentia", "anaheim"].includes(state.place.id)) {
+        } else if (["placentia", "anaheim", "ca_fresno_ci", "ca_cvista", "ca_stockton", "ca_sonoma", "ca_poway", "ca_torrance"].includes(state.place.id)) {
             // 2020 NDC un-adjusted population.
             dataset = `<p><span>&#9432;</span> ${populations.ndc_2020}`;
         } else {
