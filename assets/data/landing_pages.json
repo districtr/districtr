@@ -343,7 +343,9 @@
           "san_bruno",
           "san_dimas",
           "ca_poway",
-          "ca_torrance"
+          "ca_torrance",
+          "yuba_city",
+          "buena_park"
         ],
         "id": "loc"
       },
