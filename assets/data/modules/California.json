@@ -23080,7 +23080,7 @@
               },
               {
                 "key": "OMB_Blk",
-                "name": "Black OMB Population",
+                "name": "Black Population",
                 "sum": 2772,
                 "min": 0,
                 "max": 133
@@ -23294,9 +23294,9 @@
     "name": "Buena Park Library Districts",
     "districtingProblems": [
       {
-        "name": "Library District Board",
+        "name": "Trustee District",
         "numberOfParts": 5,
-        "pluralNoun": "Library District Board"
+        "pluralNoun": "Trustee Districts"
       }
     ]
   },
@@ -23543,9 +23543,9 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.yuba-city_blockgroups"
+              "url": "mapbox://districtr.yuba_city_blockgroups"
             },
-            "sourceLayer": "yuba-city_blockgroups"
+            "sourceLayer": "yuba_city_blockgroups"
           }
         ]
       }

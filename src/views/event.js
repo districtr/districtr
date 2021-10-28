@@ -134,8 +134,9 @@ commoncausepa: 'Pennsylvania',
   "placentia2021": "California",
   "sanbruno2021": "California",
   poway2021: 'California',
-  torrance2021: 'California'
-
+  torrance2021: 'California',
+  bpld2021: 'California',
+  yubacity: 'California'
 };
 
 const validEventCodes = {
@@ -325,8 +326,9 @@ const unitTypes = {
   stockton2021: {no: 'Blocks'},
   sonomaco: {no: 'Blocks'},
   poway2021: {no: 'Blocks'},
-  torrance2021: {no: 'Blocks'}
-
+  torrance2021: {no: 'Blocks'},
+  buena_park: {no: 'Blocks'},
+  yuba_city: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -1186,6 +1188,22 @@ share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Torrance2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
 
+"bpld2021": `
+<p>Welcome to the Districtr Community of Interest public mapping tool for redistricting the Buena Park Library Districts for the Board of Trustees.</p>
+<p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+should be included within a single district for purposes of its effective and fair representation."</p>
+<p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+<p><strong>To display your map on this page, be sure the tag "BPLD2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+`,
+"yubacity": `
+<p>Welcome to the Districtr Community of Interest public mapping tool for City of Yuba's 2021 city council redistricting.</p>
+<p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
+considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
+should be included within a single district for purposes of its effective and fair representation."</p>
+<p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
+<p><strong>To display your map on this page, be sure the tag "YubaCity" is filled out after you've clicked "Save" to share the map.</strong></p>
+`,
 };
 
 const longAbout = {
@@ -1726,12 +1744,11 @@ butte_county: [
       team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
     bpld2021: [
-      `Buena Park Library District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
-      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
-      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+      `Buena Park Library District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible so that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole board.\
+      This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. \
+      For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. \
+      To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
     yubacity: [
       `Yuba City City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \

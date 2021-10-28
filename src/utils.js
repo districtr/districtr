@@ -518,15 +518,15 @@ export function spatial_abilities(id) {
     yuba_city: {
       coalition: false,
       shapefile: false,
-      number_markers: false,
-      border: false,
+      number_markers: true,
+      border: true,
       sideload: false
     },
     buena_park: {
       coalition: false,
       shapefile: false,
-      number_markers: false,
-      border: false,
+      number_markers: true,
+      border: true,
       sideload: false
     },
     anaheim: {
