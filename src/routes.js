@@ -197,7 +197,7 @@ export function loadPlanFromJSON(planRecord) {
 }
 
 export function loadPlanFromCSV(assignmentList, state) {
-    let rows = assignmentList.trim().split("\n");
+    let rows = assignmentList.trim().split(/\r?\n/);
     let headers = rows[0].replace(/"/g, "").trim().split(",");
     if (
         headers[0].indexOf("id-") === 0
