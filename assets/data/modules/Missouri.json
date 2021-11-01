@@ -614,6 +614,7 @@
         "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -791,7 +792,6 @@
         "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
-        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "election",
