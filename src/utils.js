@@ -505,8 +505,22 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       border: true,
-      sideload: true,
+      sideload: true
       // divisor: 1000,
+    },
+    "29palms": {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    navajoco: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false
     },
     san_dimas: {
       coalition: false,
