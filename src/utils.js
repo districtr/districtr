@@ -513,14 +513,16 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       border: true,
-      sideload: false
+      sideload: false,
+      current_districts: true
     },
     navajoco: {
       coalition: false,
       shapefile: true,
       number_markers: true,
       border: true,
-      sideload: false
+      sideload: false,
+      current_districts: true
     },
     san_dimas: {
       coalition: false,
