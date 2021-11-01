@@ -508,19 +508,16 @@ function compactness_section(state, cut_edges, plan_scores) {
 function county_section(state, data, municipalities) {
     let pnoun = municipalities ? "municipalities" : "counties",
         noun = municipalities ? "municipality" : "county";
-        
-    let forced = {};
-    let forced_splits = 0;
+
     // need population info on the python anywhere dual graph for this
+    let forced = {};
     if (data.population != -1) {
         Object.keys(data.population).map(x => 
             forced[x] = Math.ceil(data.population[x]/state.population.ideal)
         );
-
-        forced_splits = Object.values(forced).reduce((a,b) => a + b, 0);
     }
     // get number of splits to be forced
-    let c_forced = Object.values(forced).reduce((a,b) => b > 0 ? a + 1 : a, 0);
+    let c_forced = Object.values(forced).reduce((a,b) => b > 1 ? a + 1 : a, 0);
     let num_split = Object.keys(data.split_list).length;
 
     // county button
