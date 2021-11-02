@@ -498,7 +498,7 @@ export function spatial_abilities(id) {
     pasorobles: {
       number_markers: true,
       border: true,
-      shapefile: true,
+      shapefile: true
     },
     sacramento: {
       coalition: false,
@@ -516,13 +516,28 @@ export function spatial_abilities(id) {
       sideload: false,
       current_districts: true
     },
+    yuba_city: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    buena_park: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
     navajoco: {
       coalition: false,
       shapefile: true,
       number_markers: true,
       border: true,
       sideload: false,
-      current_districts: true
+      current_districts: "Supervisorial Districts",
+      boundaries: []
     },
     san_dimas: {
       coalition: false,

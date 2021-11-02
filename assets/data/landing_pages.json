@@ -344,7 +344,9 @@
           "san_dimas",
           "ca_poway",
           "ca_torrance",
-          "29palms"
+          "29palms",
+          "yuba_city",
+          "buena_park"
         ],
         "id": "loc"
       },

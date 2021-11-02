@@ -2922,7 +2922,7 @@
               },
               {
                 "key": "OMB_Blk",
-                "name": "Black OMB Population",
+                "name": "Black Population",
                 "sum": 887,
                 "min": 0,
                 "max": 160
