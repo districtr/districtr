@@ -1871,7 +1871,6 @@ butte_county: [
     The Board encourages residents to participate by suggesting neighborhood and
     community of interest maps of areas that should be kept undivided, and full
     five-district map suggestions for the whole board.`,
-
     `This mapping module displays
     2020 Decennial Census population, adjusted per California state law to
     reallocate incarcerated populations to their last known residential address,
@@ -1884,7 +1883,7 @@ butte_county: [
   ],
   yubacity: [
     `Yuba City City Council District Boundaries must be redrawn every 10 years
-    using U.S. Census data in order to make the six districts as equal in population
+    using U.S. Census data in order to make the five districts as equal in population
     as possible and that each member represents about the same number of constituents.
     The City encourages residents to participate by suggesting neighborhood and
     community of interest maps of areas that should be kept undivided, and full
