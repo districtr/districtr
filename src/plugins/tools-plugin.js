@@ -1,11 +1,13 @@
 import hotkeys from 'hotkeys-js';
 
 import BrushTool from "../components/Toolbar/BrushTool";
+import EyedropperTool from "../components/Toolbar/EyedropperTool";
 import EraserTool from "../components/Toolbar/EraserTool";
 import InspectTool from "../components/Toolbar/InspectTool";
 import PanTool from "../components/Toolbar/PanTool";
 import LandmarkTool from "../components/Toolbar/LandmarkTool";
 import Brush from "../map/Brush";
+import Eyedropper from "../map/Eyedropper";
 import CommunityBrush from "../map/CommunityBrush";
 import { HoverWithRadius } from "../map/Hover";
 import NumberMarkers from "../map/NumberMarkers";
@@ -22,6 +24,7 @@ export default function ToolsPlugin(editor) {
     const brush = (state.problem.type === 'community')
         ? new CommunityBrush(state.units, 20, 0)
         : new Brush(state.units, 20, 0);
+    const eyedropper = new Eyedropper(state.units, brush);
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
@@ -84,7 +87,8 @@ export default function ToolsPlugin(editor) {
             state.unitsRecord,
             state.parts,
             spatial_abilities(state.place.id).divisor,
-        )
+        ),
+        new EyedropperTool(eyedropper, brush, state.parts)
     ];
 
     for (let tool of tools) {
