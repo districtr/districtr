@@ -124,7 +124,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Counties", "ids": ["maricopa", "yuma"], "id": "counties" },
+      { "name": "Counties", "ids": ["maricopa", "yuma", "navajoco"], "id": "counties" },
       {
         "name": "Cities",
         "ids": ["phoenix", "mesaaz", "glendaleaz"],
@@ -343,7 +343,10 @@
           "san_bruno",
           "san_dimas",
           "ca_poway",
-          "ca_torrance"
+          "ca_torrance",
+          "29palms",
+          "yuba_city",
+          "buena_park"
         ],
         "id": "loc"
       },

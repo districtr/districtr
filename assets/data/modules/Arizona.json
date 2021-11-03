@@ -2887,5 +2887,259 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population2020",
+              "name": "Total population",
+              "sum": 106717,
+              "min": 0,
+              "max": 1032
+            },
+            "subgroups": [
+              {
+                "key": "OMB_Latino",
+                "name": "Hispanic or Latino population",
+                "sum": 10887,
+                "min": 0,
+                "max": 583
+              },
+              {
+                "key": "OMB_NH_Wht",
+                "name": "White Alone population",
+                "sum": 44786,
+                "min": 0,
+                "max": 299
+              },
+              {
+                "key": "OMB_Blk",
+                "name": "Black Population",
+                "sum": 887,
+                "min": 0,
+                "max": 160
+              },
+              {
+                "key": "OMB_Native",
+                "name": "American Indian population",
+                "sum": 48149,
+                "min": 0,
+                "max": 772
+              },
+              {
+                "key": "OMB_AsnPI",
+                "name": "Asian, Native Hawaiian, and Pacific Islander Population",
+                "sum": 880,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "OMB_Other",
+                "name": "Other population",
+                "sum": 648,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "OMB_MultiRace",
+                "name": "2+ races population",
+                "sum": 480,
+                "min": 0,
+                "max": 7
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "[18+_Pop]",
+              "name": "Total population",
+              "sum": 79208,
+              "min": 0,
+              "max": 1032
+            },
+            "subgroups": [
+              {
+                "key": "OMB_VAP_NH_Wht",
+                "name": "White Alone Population",
+                "sum": 36129,
+                "min": 0,
+                "max": 256
+              },
+              {
+                "key": "OMB_VAP_Latino",
+                "name": "Hispanic or Latino Population",
+                "sum": 7334,
+                "min": 0,
+                "max": 583
+              },
+              {
+                "key": "OMB_VAP_Blk",
+                "name": "Black Population",
+                "sum": 688,
+                "min": 0,
+                "max": 160
+              },
+              {
+                "key": "OMB_VAP_Native",
+                "name": "American Indian population",
+                "sum": 33645,
+                "min": 0,
+                "max": 477
+              },
+              {
+                "key": "OMB_VAP_AsnPI",
+                "name": "Asian, Native Hawaiian, and Pacific Islander Population",
+                "sum": 645,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "OMB_Other_VAP",
+                "name": "Other population",
+                "sum": 516,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "OMB_VAP_MultiRace",
+                "name": "2+ races population",
+                "sum": 251,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children home",
+              "sum": 23,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renter",
+                "sum": 28,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school grad",
+                "sum": 77,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College grad",
+                "sum": 14,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75K income",
+                "sum": 21,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 26,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -110.7507,
+            33.5672
+          ],
+          [
+            -109.8267,
+            37.0037
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.navajoco_blocks20"
+            },
+            "sourceLayer": "navajoco_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.navajoco_blocks20_points"
+            },
+            "sourceLayer": "navajoco_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.navajoco_bg_blockgroups"
+            },
+            "sourceLayer": "navajoco_bg_blockgroups"
+          }
+        ]
+      }
+    ],
+    "name": "Navajo County",
+    "state": "Arizona",
+    "id": "navajoco",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]

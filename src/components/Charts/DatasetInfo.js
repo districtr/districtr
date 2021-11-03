@@ -21,7 +21,7 @@ function datasetInfo(state) {
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
-            ndc_2020: "Uses adjusted <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation"
+            ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -49,12 +49,17 @@ function datasetInfo(state) {
                     "san_dimas", "ccsanitation2", "ca_pasadena", "sacramento",
                     "ca_goleta", "ca_glendora", "arcadia", "la_mirada", "lakewood",
                     "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
-                    "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne"
+                    "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
+                    "29palms", "yuba_city"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison
           dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
-        } else if (["placentia", "anaheim", "ca_fresno_ci", "ca_cvista", "ca_stockton", "ca_sonoma", "ca_poway", "ca_torrance"].includes(state.place.id)) {
+        } else if (
+            [
+                "placentia", "anaheim", "ca_fresno_ci", "ca_cvista", "ca_stockton",
+                "ca_sonoma", "ca_poway", "ca_torrance", "navajoco", "buena_park"
+            ].includes(state.place.id)) {
             // 2020 NDC un-adjusted population.
             dataset = `<p><span>&#9432;</span> ${populations.ndc_2020}`;
         } else {

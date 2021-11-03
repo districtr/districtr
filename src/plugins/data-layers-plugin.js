@@ -102,7 +102,7 @@ export default function DataLayersPlugin(editor) {
     let selectBoundaries = abilities.boundaries || [];
     let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
-          placeID = ["california", "ohio", "texas"].includes(stateID) ? state.place.id : stateID;
+          placeID = ["california", "ohio", "texas", "arizona"].includes(stateID) ? state.place.id : stateID;
     if (state.place.state === "Washington, DC") {
       showingCounties = false;
     }
@@ -134,8 +134,9 @@ export default function DataLayersPlugin(editor) {
             ? abilities.neighborhood_borders : 'Neighborhood Associations',
       });
     }
+
     if (abilities.current_districts) {
-      if (["california", "texas"].includes(stateID)) {
+      if (["california", "texas", "arizona"].includes(stateID)) {
           selectBoundaries.push({
               path: `current_districts/${stateID}/${placeID}`,
               id: 'cur_district',
@@ -400,8 +401,6 @@ export default function DataLayersPlugin(editor) {
             </div>`
         );
     }
-
-    console.dir(state);
     
     if (state.pcts) {
       const pctOverlay = new OverlayContainer(
