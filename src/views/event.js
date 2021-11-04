@@ -138,7 +138,8 @@ commoncausepa: 'Pennsylvania',
   "29palms": "California",
   "navajoco": "Arizona",
   bpld2021: 'California',
-  yubacity: 'California'
+  yubacity: 'California',
+  "watsonville": "California"
 };
 
 const validEventCodes = {
@@ -266,7 +267,8 @@ commoncausepa: 'pennsylvania',
   "29palms": "29palms",
   "navajoco": "navajoco",
   bpld2021: 'buena_park',
-  yubacity: 'yuba_city'
+  yubacity: 'yuba_city',
+  "watsonville": "ca_watsonville"
 };
 
 const blockPlans = {
@@ -466,7 +468,8 @@ const hybrid_events = [
   "29palms",
   "navajoco",
   "bpld2021",
-  "yubacity"
+  "yubacity",
+  "watsonville"
 ];
 
 const portal_events = [
@@ -1285,6 +1288,32 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       <strong>To display your map on this page, be sure the tag "YubaCity" is
       filled out after you've clicked "Save" to share the map.</strong>
     </p>
+  `,
+  "watsonville": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Councilmember 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. We 
+      want to hear about your community; you know it best!
+    </p>
+    <p>
+      You can also submit your own plan for how to divide the city into seven districts. 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, visit this link.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button. To share your map, click “Save” 
+      in the upper right corner of the mapping module. To pin your map to this page, be 
+      sure the tag “Watsonville”.
+    </p>
   `
 };
 
@@ -1897,6 +1926,12 @@ butte_county: [
     Census block groups. The data was prepared by National Demographics Corporation.
     To learn more about their team click <a href='https://www.ndcresearch.com/about-us/'
     target=_blank>here</a>.`
+  ],
+  "watsonville": [
+    `
+    This mapping model uses the official Redistricting Database of California, published 
+    by the Statewide Database with processing by Wagaman Strategies.
+    `
   ]
 };
 
