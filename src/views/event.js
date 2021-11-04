@@ -134,8 +134,11 @@ commoncausepa: 'Pennsylvania',
   "placentia2021": "California",
   "sanbruno2021": "California",
   poway2021: 'California',
-  torrance2021: 'California'
-
+  torrance2021: 'California',
+  "29palms": "California",
+  "navajoco": "Arizona",
+  bpld2021: 'California',
+  yubacity: 'California'
 };
 
 const validEventCodes = {
@@ -259,7 +262,11 @@ commoncausepa: 'pennsylvania',
   "placentia2021": "placentia",
   "sanbruno2021": "san_bruno",
   poway2021: 'ca_poway',
-  torrance2021: 'ca_torrance'
+  torrance2021: 'ca_torrance',
+  "29palms": "29palms",
+  "navajoco": "navajoco",
+  bpld2021: 'buena_park',
+  yubacity: 'yuba_city'
 };
 
 const blockPlans = {
@@ -325,7 +332,10 @@ const unitTypes = {
   sonomaco: {no: 'Blocks'},
   poway2021: {no: 'Blocks'},
   torrance2021: {no: 'Blocks'},
-
+  "29palms": {no: 'Blocks'},
+  "navajoco": {no: 'Blocks'},
+  bpld2021: {no: 'Blocks'},
+  yubacity: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -453,7 +463,10 @@ const hybrid_events = [
   'tuolumne_county',
   'poway2021',
   'torrance2021',
-
+  "29palms",
+  "navajoco",
+  "bpld2021",
+  "yubacity"
 ];
 
 const portal_events = [
@@ -1124,12 +1137,25 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     <p><strong>To display your map on this page, be sure the tag "Anaheim2021" is filled out after you've clicked "Save" to share the map.</strong></p>
   `,
   "arcadia2021": `
-    <p>Welcome to the Districtr Community of Interest public mapping tool for City of Arcadia's 2021 city council redistricting.</p>
-    <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
-    considerations. California law defines Communities of Interest as "a population that shares common social or economic interests that
-    should be included within a single district for purposes of its effective and fair representation."</p>
-    <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
-    <p><strong>To display your map on this page, be sure the tag "Arcadia2021" is filled out after you've clicked "Save" to share the map.</strong></p>
+    <p>
+      Welcome to the Districtr Community of Interest public mapping tool for City
+      of Arcadia's 2021 city council redistricting.
+    </p>
+    <p>
+      As part of the redistricting process, the California FAIR MAPS Act includes
+      neighborhoods and "Communities of Interest" as important considerations.
+      California law defines Communities of Interest as "a population that shares
+      common social or economic interests that should be included within a single
+      district for purposes of its effective and fair representation."
+    </p>
+    <p>
+      To let the City know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "Arcadia2021" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
   `,
   "lamirada2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for the City of La Mirada's 2021 city council redistricting.</p>
@@ -1183,7 +1209,83 @@ torrance2021: "<p>Welcome to the Districtr Community of Interest public mapping 
 share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Torrance2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-
+ "29palms": `
+    <p>
+      Welcome to the Districtr Community of Interest public mapping tool for the
+      City of Twentynine Palms' City Council redistricting.
+    </p>
+    <p>
+      As part of the redistricting process, the California FAIR MAPS Act includes
+      neighborhoods and "Communities of Interest" as important considerations.
+      California law defines Communities of Interest as "a population that shares
+      common social or economic interests that should be included within a single
+      district for purposes of its effective and fair representation."
+    </p>
+    <p>
+      To let the City know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "29palms" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
+  `,
+  "navajoco": `
+    <p>
+      Welcome to the Districtr Community of Interest public mapping tool for
+      Navajo County's 2021 supervisorial redistricting.
+    </p>
+    <p>
+      To let the County know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p style="font-weight: bold;">
+      To display your map on this page, be sure the tag "NavajoCo" is filled out
+      after you've clicked "Save" to share the map.
+    </p>
+  `,
+  "bpld2021": `
+    <p>
+      Welcome to the Districtr Community of Interest public mapping tool for
+      redistricting the Buena Park Library Districts for the Board of Trustees.
+    </p>
+    <p>
+      As part of the redistricting process, the California FAIR MAPS Act includes
+      neighborhoods and "Communities of Interest" as important considerations.
+      California law defines Communities of Interest as "a population that shares
+      common social or economic interests that should be included within a single
+      district for purposes of its effective and fair representation."
+    </p>
+    <p>
+      To let the Board know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "BPLD2021" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
+  `,
+  "yubacity": `
+    <p>
+      Welcome to the Districtr Community of Interest public mapping tool for
+      City of Yuba's 2021 city council redistricting.
+    </p>
+    <p>
+      As part of the redistricting process, the California FAIR MAPS Act includes
+      neighborhoods and "Communities of Interest" as important considerations.
+      California law defines Communities of Interest as "a population that shares
+      common social or economic interests that should be included within a single
+      district for purposes of its effective and fair representation."
+    </p>
+    <p>
+      To let the City know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "YubaCity" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
+  `
 };
 
 const longAbout = {
@@ -1709,22 +1811,93 @@ butte_county: [
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
   ],
-    poway2021: [
-      `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
-      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
-    ],
-    torrance2021: [
-      `Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
-      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
-      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
-    ]
+  poway2021: [
+    `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+  ],
+  torrance2021: [
+    `Torrance City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+    in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+  ],
+  "29palms": [
+    `
+    Twentynine Palms City Council Boundaries must be redrawn every 10 years using
+    U.S. Census data in order to make the five districts as equal in population
+    as possible so that each member represents about the same number of constituents.
+    The City encourages residents to participate by suggesting neighborhood and
+    community of interest maps of areas that should be kept undivided, and full
+    five-district map suggestions for the whole city.
+    `,
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per
+    California state law to reallocate incarcerated populations to their last known
+    residential address, on Census blocks. For more information, please visit the
+    Statewide Database's <a href='https://statewidedatabase.org/redistricting2021/'>
+    website</a>. The "Additional demographics" in the module display 2019 ACS data
+    on the Census block groups. The data was prepared by National Demographics
+    Corporation. To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/'>here</a>.
+    `
+  ],
+  "navajoco": [
+    `
+    Navajo County Board of Supervisor District Boundaries must be redrawn every
+    10 years using U.S. Census data in order to make the five districts as equal
+    in population as possible and that each member represents about the same
+    number of constituents. The County encourages residents to participate by
+    suggesting neighborhood and community of interest maps of areas that should
+    be kept undivided, and full five-district map suggestions for the whole
+    county.
+    `,
+    `
+    This mapping module displays population based on the 2020 Decennial Census
+    blocks. The data was prepared by National Demographics Corporation. To learn
+    more about their team click
+    <a href="https://www.ndcresearch.com/about-us/">here</a>.
+    `
+  ],
+  bpld2021: [
+    `Buena Park Library District Boundaries must be redrawn every 10 years using
+    U.S. Census data in order to make the five districts as equal in population
+    as possible so that each member represents about the same number of constituents.
+    The Board encourages residents to participate by suggesting neighborhood and
+    community of interest maps of areas that should be kept undivided, and full
+    five-district map suggestions for the whole board.`,
+    `This mapping module displays
+    2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address,
+    on Census blocks. For more information, please visit the Statewide Database's
+    <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.
+    The “Additional demographics” in the module, displays 2019 ACS data on the
+    Census block groups. The data was prepared by National Demographics Corporation.
+    To learn more about their team click
+    <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+  ],
+  yubacity: [
+    `Yuba City City Council District Boundaries must be redrawn every 10 years
+    using U.S. Census data in order to make the five districts as equal in population
+    as possible and that each member represents about the same number of constituents.
+    The City encourages residents to participate by suggesting neighborhood and
+    community of interest maps of areas that should be kept undivided, and full
+    five-district map suggestions for the whole city.`,
+    `This mapping module displays
+    2020 Decennial Census population, adjusted per California state law to
+    reallocate incarcerated populations to their last known residential address,
+    on Census blocks. For more information, please visit the Statewide Database’s
+    <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.
+    The “Additional demographics” in the module, displays 2019 ACS data on the
+    Census block groups. The data was prepared by National Demographics Corporation.
+    To learn more about their team click <a href='https://www.ndcresearch.com/about-us/'
+    target=_blank>here</a>.`
+  ]
 };
 
 const proposals_by_event = {
@@ -1894,13 +2067,26 @@ export default () => {
             "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
-            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021"
+            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021",
+            "29palms", "navajoco", "yubacity", "bpld2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
-            
-            if (eventCode == "sanbruno2021") {
+          
+            if (eventCode == "yubacity") {
+              document.getElementById("partner-link-a").href = "https://www.yubacity.net/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/yuba_city.png?v=2";
+            } else if (eventCode == "bpld2021") {
+              document.getElementById("partner-link-a").href = "https://buenaparklibrary.org/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/buena_park.png?v=2";
+            } else if (eventCode == "navajoco") {
+              document.getElementById("partner-link-a").href = "https://www.navajocountyaz.gov/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/navajoco.png?v=2";
+            } else if (eventCode == "29palms") {
+              document.getElementById("partner-link-a").href = "https://www.ci.twentynine-palms.ca.us/";
+              document.getElementById("partnership-a").src = "/assets/partner-logos/29palms.png?v=2";
+            } else if (eventCode == "sanbruno2021") {
               document.getElementById("partner-link-a").href = "https://www.sanbruno.ca.gov/";
               document.getElementById("partnership-a").src = "/assets/partner-logos/san-bruno.png?v=2";
             } else if (eventCode == "placentia2021") {
