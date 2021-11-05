@@ -860,10 +860,9 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Martinez” (any capitalization) is entered.</p>',
   carpinteria: `
     <p>
-      Every 10 years, local governments use new U.S. Census data to redraw their district lines 
-      to reflect how local populations have changed. This process, called redistricting, is important 
-      in ensuring that each City Council member represents the same number of constituents. How those 
-      lines are drawn affects how people are represented.
+      The City of Carpinteria is moving to five city council districts. This process, called districting, 
+      is important in ensuring, in part, that each City Council member represents the same number of constituents. 
+      How those lines are drawn affects how people are represented.
     </p>
     <p>
       Redistricting also determines which neighborhoods and communities are grouped together into a 
