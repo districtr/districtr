@@ -1293,7 +1293,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     <p>
       Every ten years, local governments use new United States Census data to redraw 
       their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Councilmember 
+      called redistricting, is important in ensuring that each City Council Member 
       represents substantially the same number of constituents. How those lines are 
       drawn affects how people are represented.
     </p>
@@ -1301,13 +1301,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       Redistricting also determines which neighborhoods and communities are grouped 
       together into a district. Communities are those with common social or economic 
       interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. We 
-      want to hear about your community; you know it best!
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      You can also submit your own plan for how to divide the city into seven districts. 
+      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
       Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, visit this link.
+      the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
     </p>
     <p>
       Get started by clicking the orange or purple button. To share your map, click “Save” 
@@ -1929,8 +1929,12 @@ butte_county: [
   ],
   "watsonville": [
     `
-    This mapping model uses the official Redistricting Database of California, published 
-    by the Statewide Database with processing by Wagaman Strategies.
+    This mapping module displays 2020 Decennial Census population, adjusted per California 
+    state law to reallocate incarcerated populations to their last known residential address, 
+    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
+    For the last decade, Redistricting Partners has supported cities, community college districts, 
+    school boards, hospital districts, water boards, and other special districts. To learn more 
+    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ]
 };
