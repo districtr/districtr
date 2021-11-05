@@ -1342,16 +1342,19 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
-                "name": "Congressional Plan"
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "false"
               },
               {
                 "id": "state_house",
-                "name": "State House Plan"
+                "name": "State House Plan",
+                "on_eval": "false"
               }
             ]
           }
