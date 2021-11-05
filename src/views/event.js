@@ -335,7 +335,8 @@ const unitTypes = {
   "29palms": {no: 'Blocks'},
   "navajoco": {no: 'Blocks'},
   bpld2021: {no: 'Blocks'},
-  yubacity: {no: 'Blocks'}
+  yubacity: {no: 'Blocks'},
+  "carpinteria": { no: 'Blocks' }
 };
 
 const unitCounts = {
@@ -371,7 +372,6 @@ const coi_events = [
   'onelovemi',
   'ks-fairmaps',
   'commoncausepa',
-  'carpinteria',
   'santa_clara_water'
 ];
 
@@ -466,7 +466,8 @@ const hybrid_events = [
   "29palms",
   "navajoco",
   "bpld2021",
-  "yubacity"
+  "yubacity",
+  "carpinteria"
 ];
 
 const portal_events = [
@@ -857,11 +858,28 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
   <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the City Council Districts.</p>\
   <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Martinez” (any capitalization) is entered.</p>',
-  carpinteria: '<p>Every 10 years, Californians get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-   <p>Examples of communities can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-    <p>Every map submitted will be carefully reviewed by the residents charged with redrawing the Supervisorial District Map.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Carpinteria” (any capitalization) is entered.</p>',
+  carpinteria: `
+    <p>
+      Every 10 years, local governments use new U.S. Census data to redraw their district lines 
+      to reflect how local populations have changed. This process, called redistricting, is important 
+      in ensuring that each City Council member represents the same number of constituents. How those 
+      lines are drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped together into a 
+      district. Communities are those with common social or economic interests that should be included 
+      within a single district for effective, fair representation. They are best described by those with 
+      first‐hand knowledge. <strong>We want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> Every plan submitted 
+      to the City will be carefully reviewed and included as part of the public record.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button. To share your map, click “Save” in the upper 
+      right corner of the mapping module. To pin your map to this page, be sure the tag “Carpinteria”.
+    </p>
+  `,
   solano_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
        <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1355,7 +1373,14 @@ martinez: [
   "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
 ],
 carpinteria: [
-  "This mapping module displays 2015-2019 American Community Survey data disaggregated onto Census blocks. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  `
+    This mapping module displays 2020 Decennial Census population, adjusted per California 
+    state law to reallocate incarcerated populations to their last known residential address, 
+    on Census blocks. This data was processed Redistricting Partners. For the last decade, 
+    Redistricting Partners has supported cities, community college districts, school boards, 
+    hospital districts, water boards, and other special districts. To learn more about their 
+    team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+  `
 ],
 butte_county: [
   "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",

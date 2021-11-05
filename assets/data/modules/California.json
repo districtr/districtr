@@ -19309,6 +19309,7 @@
        "id": "blocks",
        "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -19418,16 +19419,144 @@
            "sourceLayer": "carpinteria_blocks"
          }
        ]
-     }
+     },
+     {
+      "id": "blocks20",
+      "name": "Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 13293,
+            "min": 0,
+            "max": 666
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 6485,
+              "min": 0,
+              "max": 544
+            },
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 5885,
+              "min": 0,
+              "max": 364
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 75,
+              "min": 0,
+              "max": 7
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 299,
+              "min": 0,
+              "max": 20
+            },
+            {
+              "key": "LF_20_AiAn",
+              "name": "American Indian population",
+              "sum": 36,
+              "min": 0,
+              "max": 5
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total VAP",
+            "sum": 8876,
+            "min": 0,
+            "max": 514
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 42,
+              "min": 0,
+              "max": 10
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 167,
+              "min": 0,
+              "max": 19
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 2642,
+              "min": 0,
+              "max": 233
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 3,
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -119.5427,
+          34.3815
+        ],
+        [
+          -119.4801,
+          34.4136
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.carpinteria_blocks20"
+          },
+          "sourceLayer": "carpinteria_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.carpinteria_blocks20_points"
+          },
+          "sourceLayer": "carpinteria_blocks20_points"
+        }
+      ]
+    }
    ],
    "name": "Carpinteria",
    "id": "carpinteria",
    "state": "California",
    "districtingProblems": [
      {
-       "name": "County",
-       "numberOfParts": 3,
-       "pluralNoun": "Council Districts"
+       "name": "City Council",
+       "numberOfParts": 5,
+       "pluralNoun": "City Council Districts"
      }
    ]
  },
@@ -22338,128 +22467,6 @@
         "name": "County",
         "numberOfParts": 5,
         "pluralNoun": "Supervisorial Districts"
-      }
-    ]
-  },
-  {
-    "units": [
-      {
-        "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "ACS_15-19_Total",
-              "name": "Total population",
-              "sum": 13579,
-              "min": 0,
-              "max": 834
-            },
-            "subgroups": [
-              {
-                "key": "ACS_15-19_AfAm",
-                "name": "Black population",
-                "sum": 49,
-                "min": 0,
-                "max": 11
-              },
-              {
-                "key": "ACS_15-19_Asian",
-                "name": "Asian population",
-                "sum": 290,
-                "min": 0,
-                "max": 30
-              },
-              {
-                "key": "ACS_15-19_Hispanic_or_Latino",
-                "name": "Hispanic population",
-                "sum": 6053,
-                "min": 0,
-                "max": 525
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Citizen Voting Age Population",
-            "total": {
-              "key": "CVAP_15-19_Total",
-              "name": "Total population",
-              "sum": 9017,
-              "min": 0,
-              "max": 514
-            },
-            "subgroups": [
-              {
-                "key": "CVAP_15-19_AfAm",
-                "name": "Black population",
-                "sum": 45,
-                "min": 0,
-                "max": 10
-              },
-              {
-                "key": "CVAP_15-19_AiAn",
-                "name": "American Indian population",
-                "sum": 3,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "key": "CVAP_15-19_Asian",
-                "name": "Asian population",
-                "sum": 173,
-                "min": 0,
-                "max": 19
-              },
-              {
-                "key": "CVAP_15-19_Hispanic_or_Latino",
-                "name": "Hispanic population",
-                "sum": 2677,
-                "min": 0,
-                "max": 233
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Geo ID",
-          "key": "GEOID20"
-        },
-        "bounds": [
-          [-119.5427, 34.3815],
-          [-119.4801, 34.4136]
-        ],
-        "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.carpinteria_blocks_points"
-            },
-            "sourceLayer": "carpinteria_blocks_points"
-          },
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.carpinteria_blocks"
-            },
-            "sourceLayer": "carpinteria_blocks"
-          }
-        ]
-      }
-    ],
-    "name": "Carpinteria",
-    "id": "carpinteria",
-    "state": "California",
-    "districtingProblems": [
-      {
-        "name": "County",
-        "numberOfParts": 3,
-        "pluralNoun": "Council Districts"
       }
     ]
   },
