@@ -498,15 +498,46 @@ export function spatial_abilities(id) {
     pasorobles: {
       number_markers: true,
       border: true,
-      shapefile: true,
+      shapefile: true
     },
     sacramento: {
       coalition: false,
       shapefile: true,
       number_markers: true,
       border: true,
-      sideload: true,
+      sideload: true
       // divisor: 1000,
+    },
+    "29palms": {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    yuba_city: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    buena_park: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    navajoco: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: "Supervisorial Districts",
+      boundaries: []
     },
     san_dimas: {
       coalition: false,
@@ -566,7 +597,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: 'Supervisorial Districts',
+      current_districts: true,
     },
     sunnyvale: {
       coalition: false,
@@ -668,7 +699,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: 'Supervisorial Districts',
+      current_districts: true,
     },
     ca_fresno: {
       coalition: false,
@@ -868,6 +899,14 @@ export function spatial_abilities(id) {
     // contiguity: 2,
     shapefile: true,
     municipalities: true,
+  },
+  ca_poway: {
+    coalition: false,
+    number_markers: true
+  },
+  ca_torrance: {
+    coalition: false,
+    number_markers: true
   },
   menlo_park: {
     border: true,
