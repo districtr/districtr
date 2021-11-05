@@ -335,7 +335,8 @@ const unitTypes = {
   "29palms": {no: 'Blocks'},
   "navajoco": {no: 'Blocks'},
   bpld2021: {no: 'Blocks'},
-  yubacity: {no: 'Blocks'}
+  yubacity: {no: 'Blocks'},
+  "mapsofla": { no: 'Blocks' },
 };
 
 const unitCounts = {
