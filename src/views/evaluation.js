@@ -57,7 +57,7 @@ export default () => {
             render(from_link, document.getElementById('link-upload'));
             render(upload.render(), document.getElementById("json-upload"));
  
-            // Build map for clicking for loadable plans
+            // // Build map for clicking for loadable plans
             let plans_tgt = document.getElementById('loadable-plans');
             render(until(PlaceMapWithData((f) => showPlans(f, data, plans_tgt), available_plans), ""), document.getElementById('map-div'));
         });
@@ -120,7 +120,7 @@ function showPlans(feature, data, tgt) {
             let out_plans = [] //out_plans: outermost plan array
             out_plans = section.plans
             if(out_plans.length != 0){
-              for(var i = 0; i < 2; i++){
+              for(var i = 0; i < out_plans.length; i++){
                 if(out_plans[i] !== undefined){
                     let temp = [];
                     temp = out_plans[i].plans.filter(p => (p.on_eval === "true" || p.on_eval === undefined));
