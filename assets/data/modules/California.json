@@ -26899,5 +26899,217 @@
         "pluralNoun": "City Council Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population Total",
+              "name": "Total population",
+              "sum": 64381,
+              "min": 0,
+              "max": 916
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP Total",
+              "name": "Total CVAP",
+              "sum": 43240,
+              "min": 0,
+              "max": 819
+            },
+            "subgroups": [
+              {
+                "key": "CVAP Black",
+                "name": "Black population",
+                "sum": 3823,
+                "min": 0,
+                "max": 185
+              },
+              {
+                "key": "CVAP Asian",
+                "name": "Asian population",
+                "sum": 4598,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "CVAP Latino",
+                "name": "Hispanic population",
+                "sum": 8584,
+                "min": 0,
+                "max": 163
+              },
+              {
+                "key": "CVAP NH White",
+                "name": "White population",
+                "sum": 24984,
+                "min": 0,
+                "max": 671
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "BLOCK20"
+        },
+        "bounds": [
+          [
+            -121.76,
+            37.8888
+          ],
+          [
+            -121.6779,
+            37.9712
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_brentwood_blocks20"
+            },
+            "sourceLayer": "ca_brentwood_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_brentwood_blocks20_points"
+            },
+            "sourceLayer": "ca_brentwood_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_brentwood",
+    "name": "Brentwood",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population Total",
+              "name": "Total population",
+              "sum": 44465,
+              "min": 0,
+              "max": 1191
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP Total",
+              "name": "Total CVAP",
+              "sum": 31611,
+              "min": 0,
+              "max": 1325
+            },
+            "subgroups": [
+              {
+                "key": "CVAP Black",
+                "name": "Black population",
+                "sum": 663,
+                "min": 0,
+                "max": 84
+              },
+              {
+                "key": "CVAP Asian",
+                "name": "Asian population",
+                "sum": 1806,
+                "min": 0,
+                "max": 105
+              },
+              {
+                "key": "CVAP Latino",
+                "name": "Hispanic population",
+                "sum": 5932,
+                "min": 0,
+                "max": 251
+              },
+              {
+                "key": "CVAP NH White",
+                "name": "White population",
+                "sum": 22752,
+                "min": 0,
+                "max": 1029
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "BLOCK20"
+        },
+        "bounds": [
+          [
+            -122.732,
+            38.3143
+          ],
+          [
+            -122.6667,
+            38.3724
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_rohnert_blocks20"
+            },
+            "sourceLayer": "ca_rohnert_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_rohnert_blocks20_points"
+            },
+            "sourceLayer": "ca_rohnert_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_rohnert",
+    "name": "Rohnert Park",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
