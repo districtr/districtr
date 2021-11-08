@@ -1062,6 +1062,16 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
   },
+  ca_brentwood: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
+  ca_rohnert: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+  },
   sanjoseca: {
     border: true,
     shapefile: true,
