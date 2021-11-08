@@ -1310,9 +1310,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
     </p>
     <p>
-      Get started by clicking the orange or purple button. To share your map, click “Save” 
-      in the upper right corner of the mapping module. To pin your map to this page, be 
-      sure the tag “Watsonville”.
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
     </p>
   `
 };
