@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Mount Diablo Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -121.976788116723398, 37.956821774855321 ] } },
+{ "type": "Feature", "properties": { "NAME": "Martinez Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -122.149972050947937, 37.980941889900777 ] } },
+{ "type": "Feature", "properties": { "NAME": "Antioch Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -121.805841469441603, 37.978847779159466 ] } },
+{ "type": "Feature", "properties": { "NAME": "John Swett Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -122.218742320694403, 38.027155975090949 ] } },
+{ "type": "Feature", "properties": { "NAME": "Pittsburg Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -121.889029281025813, 38.002407986759195 ] } },
+{ "type": "Feature", "properties": { "NAME": "West Contra Costa Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -122.331315507255894, 37.972483855165542 ] } },
+{ "type": "Feature", "properties": { "NAME": "San Ramon Valley Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -121.94091069170419, 37.805382352207573 ] } },
+{ "type": "Feature", "properties": { "NAME": "Brentwood Union Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -121.748465087481605, 37.907059843914062 ] } },
+{ "type": "Feature", "properties": { "NAME": "Byron Union Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -121.652911088300513, 37.847087949896114 ] } },
+{ "type": "Feature", "properties": { "NAME": "Canyon Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -122.170789928887459, 37.830125196546433 ] } },
+{ "type": "Feature", "properties": { "NAME": "Knightsen Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -121.61606786009574, 37.962275226363985 ] } },
+{ "type": "Feature", "properties": { "NAME": "Lafayette Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -122.115594121224191, 37.897234529660743 ] } },
+{ "type": "Feature", "properties": { "NAME": "Moraga Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -122.10884857301798, 37.83168379366532 ] } },
+{ "type": "Feature", "properties": { "NAME": "Oakley Union Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -121.652285993211549, 38.033660257728641 ] } },
+{ "type": "Feature", "properties": { "NAME": "Orinda Union Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -122.19528147259912, 37.889986068439086 ] } },
+{ "type": "Feature", "properties": { "NAME": "Walnut Creek Elementary School District" }, "geometry": { "type": "Point", "coordinates": [ -122.053902155384293, 37.8874006913925 ] } },
+{ "type": "Feature", "properties": { "NAME": "Livermore Valley Joint Unified School District" }, "geometry": { "type": "Point", "coordinates": [ -121.794701660152327, 37.80315230917703 ] } }
+]
+}
