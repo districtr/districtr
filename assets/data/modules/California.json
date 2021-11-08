@@ -26899,5 +26899,111 @@
         "pluralNoun": "City Council Districts"
       }
     ]
+  },
+  {
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population Total",
+              "name": "Total population",
+              "sum": 52760,
+              "min": 0,
+              "max": 1290
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP Total",
+              "name": "Total CVAP",
+              "sum": 25115,
+              "min": 0,
+              "max": 545
+            },
+            "subgroups": [
+              {
+                "key": "CVAP Black",
+                "name": "Black population",
+                "sum": 253,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP Asian",
+                "name": "Asian population",
+                "sum": 1163,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "CVAP Latino",
+                "name": "Hispanic population",
+                "sum": 16549,
+                "min": 0,
+                "max": 426
+              },
+              {
+                "key": "CVAP NH White",
+                "name": "White population",
+                "sum": 7031,
+                "min": 0,
+                "max": 208
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "BLOCK20"
+        },
+        "bounds": [
+          [
+            -121.8273,
+            36.8843
+          ],
+          [
+            -121.7324,
+            37.0192
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_watsonville_blocks20"
+            },
+            "sourceLayer": "ca_watsonville_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_watsonville_blocks20_points"
+            },
+            "sourceLayer": "ca_watsonville_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_watsonville",
+    "name": "Watsonville",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
