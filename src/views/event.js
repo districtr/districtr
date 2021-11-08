@@ -138,7 +138,9 @@ commoncausepa: 'Pennsylvania',
   "29palms": "California",
   "navajoco": "Arizona",
   bpld2021: 'California',
-  yubacity: 'California'
+  yubacity: 'California',
+  "rohnert_park": "California",
+  "brentwood": "California"
 };
 
 const validEventCodes = {
@@ -266,7 +268,9 @@ commoncausepa: 'pennsylvania',
   "29palms": "29palms",
   "navajoco": "navajoco",
   bpld2021: 'buena_park',
-  yubacity: 'yuba_city'
+  yubacity: 'yuba_city',
+  "rohnert_park": "ca_rohnert",
+  "brentwood": "ca_brentwood"
 };
 
 const blockPlans = {
@@ -467,7 +471,9 @@ const hybrid_events = [
   "navajoco",
   "bpld2021",
   "yubacity",
-  "carpinteria"
+  "carpinteria",
+  "rohnert_park",
+  "brentwood"
 ];
 
 const portal_events = [
@@ -1302,6 +1308,56 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       <strong>To display your map on this page, be sure the tag "YubaCity" is
       filled out after you've clicked "Save" to share the map.</strong>
     </p>
+  `,
+  "rohnert_park": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Council Member 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, 
+      <a href='https://www.rpcity.org/city_hall/administration/city_clerk/city_elections/redistricting' target=_blank>visit this link</a>.
+    </p>
+    <p>
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
+    </p>
+  `,
+  "brentwood": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Council Member 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, 
+      <a href='https://www.brentwoodca.gov/gov/admin/clerk/redistricting.asp' target=_blank>visit this link</a>.
+    </p>
+    <p>
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
+    </p>
   `
 };
 
@@ -1921,6 +1977,26 @@ butte_county: [
     Census block groups. The data was prepared by National Demographics Corporation.
     To learn more about their team click <a href='https://www.ndcresearch.com/about-us/'
     target=_blank>here</a>.`
+  ],
+  "rohnert_park": [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California 
+    state law to reallocate incarcerated populations to their last known residential address, 
+    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
+    For the last decade, Redistricting Partners has supported cities, community college districts, 
+    school boards, hospital districts, water boards, and other special districts. To learn more 
+    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
+  "brentwood": [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California 
+    state law to reallocate incarcerated populations to their last known residential address, 
+    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
+    For the last decade, Redistricting Partners has supported cities, community college districts, 
+    school boards, hospital districts, water boards, and other special districts. To learn more 
+    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
   ]
 };
 
