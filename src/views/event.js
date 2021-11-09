@@ -138,7 +138,9 @@ commoncausepa: 'Pennsylvania',
   "29palms": "California",
   "navajoco": "Arizona",
   bpld2021: 'California',
-  yubacity: 'California'
+  yubacity: 'California',
+  "marinccd": "California",
+  "oxnarduhsd": "California"
 };
 
 const validEventCodes = {
@@ -266,7 +268,9 @@ commoncausepa: 'pennsylvania',
   "29palms": "29palms",
   "navajoco": "navajoco",
   bpld2021: 'buena_park',
-  yubacity: 'yuba_city'
+  yubacity: 'yuba_city',
+  "marinccd": "marinco",
+  "oxnarduhsd": "oxnarduhsd"
 };
 
 const blockPlans = {
@@ -336,7 +340,9 @@ const unitTypes = {
   "navajoco": {no: 'Blocks'},
   bpld2021: {no: 'Blocks'},
   yubacity: {no: 'Blocks'},
-  "carpinteria": { no: 'Blocks' }
+  "carpinteria": { no: 'Blocks' },
+  "marinccd": { no: 'Blocks' },
+  "oxnarduhsd": { no: 'Blocks' }
 };
 
 const unitCounts = {
@@ -467,7 +473,9 @@ const hybrid_events = [
   "navajoco",
   "bpld2021",
   "yubacity",
-  "carpinteria"
+  "carpinteria",
+  "marinccd",
+  "oxnarduhsd"
 ];
 
 const portal_events = [
@@ -1302,6 +1310,64 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       <strong>To display your map on this page, be sure the tag "YubaCity" is
       filled out after you've clicked "Save" to share the map.</strong>
     </p>
+  `,
+  "marinccd": `
+    <p>
+      Welcome to the public mapping page for the Marin Community College District
+      (MCCD) Board of Trustees. MCCD is transitioning from at-large elections to
+      by-area elections to be implemented for the November 2022 election. In
+      by-area elections, MCCD will consist of 7 voting areas that are roughly
+      equal in population. Board members will be elected from each of the seven
+      areas only by voters who reside within the respective areas. Board members
+      will be required to reside within the area from which they are elected.
+      For example, Area A’s representative on the MCCD Board will need to reside
+      within Area A and is only elected by voters who reside within Area A. 
+    </p>
+    <p>
+      As part of the creation of voting areas, MCCD is seeking public input on
+      what these voting areas should look like. To let MCCD know what you think
+      the maps should look like, you can create your own map utilizing this
+      website or you can take one of the previously created maps and modify it,
+      then submit the map for consideration by the Board of Trustees.
+      <a href="https://districtr.org/guide">Click here</a> for a tutorial.
+    </p>
+    <p>
+      To let the Board know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "MarinCCD" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
+  `,
+  "oxnarduhsd": `
+    <p>
+      Welcome to the public mapping page for the Oxnard Union High School District
+      (OUHSD) Board of Trustees. OUHSD is transitioning from at-large elections to
+      by-area elections to be implemented for the November 2022 election. In
+      by-area elections, OUHSD will consist of five voting areas that are roughly
+      equal in population. Board members will be elected from each of the five areas
+      only by voters who reside within the respective areas. Board members will be
+      required to reside within the area from which they are elected. For example,
+      Area A’s representative on the OUHSD Board will need to reside within Area A
+      and is only elected by voters who reside within Area A. 
+    </p>
+    <p>
+      As part of the creation of voting areas, OUHSD is seeking public input on
+      what these voting areas should look like. To let OUHSD know what you think
+      the maps should look like, you can create your own map utilizing this website
+      or you can take one of the previously created maps and modify it, then submit 
+      the map for consideration by the Board of Trustees.
+      <a href="https://districtr.org/guide">Click here</a> for a tutorial.
+    </p>
+    <p>
+      To let the Board know about your community and what brings it together,
+      share your map and your story using this tool now.
+    </p>
+    <p>
+      <strong>To display your map on this page, be sure the tag "OxnardUHSD" is
+      filled out after you've clicked "Save" to share the map.</strong>
+    </p>
   `
 };
 
@@ -1921,6 +1987,28 @@ butte_county: [
     Census block groups. The data was prepared by National Demographics Corporation.
     To learn more about their team click <a href='https://www.ndcresearch.com/about-us/'
     target=_blank>here</a>.`
+  ],
+  "marinccd": [
+    `This mapping module displays 2020 Decennial Census population, adjusted per
+    California state law to reallocate incarcerated populations to their last
+    known residential address, on Census blocks. For more information, please
+    visit the Statewide Database’s website. The data was prepared by
+    <a href="https://www.coopstrategies.com/#/">Cooperative Strategies</a>,
+    a comprehensive planning and demographics firm that has been
+    retained by the School District to assist in redistricting. Over the last
+    decade, Cooperative Strategies has assisted more than 50 school districts
+    across California draw their voting areas.`
+  ],
+  "oxnarduhsd": [
+    `This mapping module displays 2020 Decennial Census population, adjusted per
+    California state law to reallocate incarcerated populations to their last
+    known residential address, on Census blocks. For more information, please
+    visit the Statewide Database’s website. The data was prepared by
+    <a href="https://www.coopstrategies.com/#/">Cooperative Strategies</a>,
+    a comprehensive planning and demographics firm that has been
+    retained by the School District to assist in redistricting. Over the last
+    decade, Cooperative Strategies has assisted more than 50 school districts
+    across California draw their voting areas.`
   ]
 };
 
@@ -2091,7 +2179,7 @@ export default () => {
             "groverbeach", "sunnyvale2021", "lodi2021", "laverne", "elcajon", "richmondca",
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
-            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021",
+            "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021", "poway2021", "torrance2021",
             "29palms", "navajoco", "yubacity", "bpld2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
@@ -2391,6 +2479,7 @@ export default () => {
         listPlacesForState(stateForEvent[eventCode], coi_events.includes(eventCode)).then(places => {
             validEventCodes[eventCode].forEach(placeID => {
                 let place = places.find(p => p.id === placeID);
+                
                 if (coi_events.includes(eventCode) || coi_events.includes(placeID)) {
                     place.districtingProblems = [
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }

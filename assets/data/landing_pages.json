@@ -350,7 +350,7 @@
         ],
         "id": "loc"
       },
-      { "name": "School Districts", "ids": ["napaschools"], "id": "schools" }
+      { "name": "School Districts", "ids": ["napaschools", "oxnarduhsd", "marinco"], "id": "schools" }
     ],
     "sections": [
       {

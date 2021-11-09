@@ -338,7 +338,7 @@ function addCOIUnits(map, stateName) {
 /**
  * @description Adds city borders to certain modules.
  * @param {mapboxgl.Map} map MapboxGL Map instance.
- * @param {String} cityID Module ID
+ * @param {String} cityID Module identifier.
  * @returns {undefined}
  */
 function cities(map, cityID) {
@@ -376,7 +376,7 @@ function cities(map, cityID) {
             });
 
             // Now, add layers for each.
-            new Layer(
+            let _ = new Layer(
                 map,
                 {
                     id: "city_border",
@@ -390,6 +390,7 @@ function cities(map, cityID) {
                 }
             );
 
+            /*
             new Layer(
                 map,
                 {
@@ -402,6 +403,7 @@ function cities(map, cityID) {
                     }
                 }
             );
+            */
         });
 }
 
