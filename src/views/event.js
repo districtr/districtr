@@ -140,7 +140,8 @@ commoncausepa: 'Pennsylvania',
   bpld2021: 'California',
   yubacity: 'California',
   "marinccd": "California",
-  "oxnarduhsd": "California"
+  "oxnarduhsd": "California",
+  "watsonville": "California"
 };
 
 const validEventCodes = {
@@ -270,7 +271,8 @@ commoncausepa: 'pennsylvania',
   bpld2021: 'buena_park',
   yubacity: 'yuba_city',
   "marinccd": "marinco",
-  "oxnarduhsd": "oxnarduhsd"
+  "oxnarduhsd": "oxnarduhsd",
+  "watsonville": "ca_watsonville"
 };
 
 const blockPlans = {
@@ -342,7 +344,8 @@ const unitTypes = {
   yubacity: {no: 'Blocks'},
   "carpinteria": { no: 'Blocks' },
   "marinccd": { no: 'Blocks' },
-  "oxnarduhsd": { no: 'Blocks' }
+  "oxnarduhsd": { no: 'Blocks' },
+  "mapsofla": { no: 'Blocks' },
 };
 
 const unitCounts = {
@@ -475,7 +478,8 @@ const hybrid_events = [
   "yubacity",
   "carpinteria",
   "marinccd",
-  "oxnarduhsd"
+  "oxnarduhsd",
+  "carpinteria"
 ];
 
 const portal_events = [
@@ -793,7 +797,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
  <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
  <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
  <p>Every map submitted to the City Redistricting Commission will be carefully reviewed and included as part of the public record. For more information, visit <a href="https://laccrc2021.org" target="_blank">this link</a>.</p>\
- <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MapsofLA”.\
+ <p>Get started by clicking the orange or purple button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “MapsofLA”.\
  <br/>For a detailed how-to guide of Districtr, visit our <a href="/guide">Guide page</a>.</p><br/>',
   siskiyou: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor Board districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
   <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
@@ -1367,6 +1371,29 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     <p>
       <strong>To display your map on this page, be sure the tag "OxnardUHSD" is
       filled out after you've clicked "Save" to share the map.</strong>
+    </p>`,
+  "watsonville": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Council Member 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
+    </p>
+    <p>
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
     </p>
   `
 };
@@ -2009,6 +2036,16 @@ butte_county: [
     retained by the School District to assist in redistricting. Over the last
     decade, Cooperative Strategies has assisted more than 50 school districts
     across California draw their voting areas.`
+  ],
+  "watsonville": [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California 
+    state law to reallocate incarcerated populations to their last known residential address, 
+    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
+    For the last decade, Redistricting Partners has supported cities, community college districts, 
+    school boards, hospital districts, water boards, and other special districts. To learn more 
+    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
   ]
 };
 
@@ -2479,7 +2516,7 @@ export default () => {
         listPlacesForState(stateForEvent[eventCode], coi_events.includes(eventCode)).then(places => {
             validEventCodes[eventCode].forEach(placeID => {
                 let place = places.find(p => p.id === placeID);
-                
+
                 if (coi_events.includes(eventCode) || coi_events.includes(placeID)) {
                     place.districtingProblems = [
                         { type: "community", numberOfParts: 250, pluralNoun: "Community" }

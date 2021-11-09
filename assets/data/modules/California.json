@@ -19566,8 +19566,9 @@
    "units": [
      {
        "id": "blocks",
-       "name": "2020 Blocks",
+       "name": "Blocks",
        "unitType": "Blocks",
+       "hideOnDefault": true,
        "columnSets": [
          {
            "type": "population",
@@ -19662,7 +19663,127 @@
            "sourceLayer": "rp_lax20b_blocks"
          }
        ]
-     }
+     },
+     {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 3912125,
+            "min": 0,
+            "max": 8732
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 1835916,
+              "min": 0,
+              "max": 2452
+            },
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 1126412,
+              "min": 0,
+              "max": 2208
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 329225,
+              "min": 0,
+              "max": 1318
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 454365,
+              "min": 0,
+              "max": 3867
+            },
+            {
+              "key": "LF_20_AiAn",
+              "name": "American Indian population",
+              "sum": 6614,
+              "min": 0,
+              "max": 42
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total CVAP",
+            "sum": 2360823,
+            "min": 0,
+            "max": 5751
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_AfAm",
+              "name": "Black population",
+              "sum": 266333,
+              "min": 0,
+              "max": 1533
+            },
+            {
+              "key": "CVAP_15-19_Asian",
+              "name": "Asian population",
+              "sum": 276996,
+              "min": 0,
+              "max": 1929
+            },
+            {
+              "key": "CVAP_15-19_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 838897,
+              "min": 0,
+              "max": 1591
+            },
+            {
+              "key": "CVAP_15-19_AiAn",
+              "name": "American Indian population",
+              "sum": 6263,
+              "min": 0,
+              "max": 109
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -118.6682,
+          33.7037
+        ],
+        [
+          -118.1553,
+          34.3373
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.rp_lax_blocks20"
+          },
+          "sourceLayer": "rp_lax_blocks20"
+        }
+      ]
+    }
    ],
    "state": "California",
    "districtingProblems": [
@@ -22471,71 +22592,84 @@
     ]
   },
   {
-    "id": "rp_lax",
-    "name": "Los Angeles (City)",
     "units": [
       {
         "id": "blocks",
-        "name": "2020 Blocks",
+        "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "pTotal",
+              "key": "ACS_15-19_Total",
               "name": "Total population",
-              "sum": 3912125,
+              "sum": 13579,
               "min": 0,
-              "max": 8732
+              "max": 834
             },
-            "subgroups": []
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 49,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 290,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 6053,
+                "min": 0,
+                "max": 525
+              }
+            ]
           },
           {
             "type": "population",
             "name": "Citizen Voting Age Population",
             "total": {
-              "key": "cTotal",
+              "key": "CVAP_15-19_Total",
               "name": "Total population",
-              "sum": 2360823,
+              "sum": 9017,
               "min": 0,
-              "max": 5751
+              "max": 514
             },
             "subgroups": [
               {
-                "key": "cAfAm",
+                "key": "CVAP_15-19_AfAm",
                 "name": "Black population",
-                "sum": 266333,
+                "sum": 45,
                 "min": 0,
-                "max": 1533
+                "max": 10
               },
               {
-                "key": "cAsian",
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CVAP_15-19_Asian",
                 "name": "Asian population",
-                "sum": 276996,
+                "sum": 173,
                 "min": 0,
-                "max": 1929
+                "max": 19
               },
               {
-                "key": "cHisp",
+                "key": "CVAP_15-19_Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 838897,
+                "sum": 2677,
                 "min": 0,
-                "max": 1591
-              },
-              {
-                "key": "cAiAn",
-                "name": "American Indian / Alaska Native population",
-                "sum": 6263,
-                "min": 0,
-                "max": 109
-              },
-              {
-                "key": "cHawaiian_API",
-                "name": "Native Hawaiian / Pacific Islander population",
-                "sum": 3401,
-                "min": 0,
-                "max": 64
+                "max": 233
               }
             ]
           }
@@ -22545,34 +22679,36 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-118.6682, 33.7037],
-          [-118.1553, 34.3373]
+          [-119.5427, 34.3815],
+          [-119.4801, 34.4136]
         ],
         "tilesets": [
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.rp_lax20b_blocks_points?v=3"
+              "url": "mapbox://districtr.carpinteria_blocks_points"
             },
-            "sourceLayer": "rp_lax20b_blocks_points"
+            "sourceLayer": "carpinteria_blocks_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.rp_lax20b_blocks?v=3"
+              "url": "mapbox://districtr.carpinteria_blocks"
             },
-            "sourceLayer": "rp_lax20b_blocks"
+            "sourceLayer": "carpinteria_blocks"
           }
         ]
       }
     ],
+    "name": "Carpinteria",
+    "id": "carpinteria",
     "state": "California",
     "districtingProblems": [
       {
         "name": "County",
-        "numberOfParts": 15,
+        "numberOfParts": 3,
         "pluralNoun": "Council Districts"
       }
     ]
@@ -26896,6 +27032,112 @@
       {
         "name": "City Council",
         "numberOfParts": 5,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
+  },
+  {
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population Total",
+              "name": "Total population",
+              "sum": 52760,
+              "min": 0,
+              "max": 1290
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP Total",
+              "name": "Total CVAP",
+              "sum": 25115,
+              "min": 0,
+              "max": 545
+            },
+            "subgroups": [
+              {
+                "key": "CVAP Black",
+                "name": "Black population",
+                "sum": 253,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP Asian",
+                "name": "Asian population",
+                "sum": 1163,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "CVAP Latino",
+                "name": "Hispanic population",
+                "sum": 16549,
+                "min": 0,
+                "max": 426
+              },
+              {
+                "key": "CVAP NH White",
+                "name": "White population",
+                "sum": 7031,
+                "min": 0,
+                "max": 208
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "BLOCK20"
+        },
+        "bounds": [
+          [
+            -121.8273,
+            36.8843
+          ],
+          [
+            -121.7324,
+            37.0192
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_watsonville_blocks20"
+            },
+            "sourceLayer": "ca_watsonville_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_watsonville_blocks20_points"
+            },
+            "sourceLayer": "ca_watsonville_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_watsonville",
+    "name": "Watsonville",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
         "pluralNoun": "City Council Districts"
       }
     ]

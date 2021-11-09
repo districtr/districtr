@@ -457,6 +457,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+      school_districts: true,
       municipalities: true,
       current_districts: true,
       boundaries: [{
@@ -861,6 +862,12 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       current_districts: true,
+    },
+    ca_watsonville: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
     },
   ca_marina: {
     coalition: false,
