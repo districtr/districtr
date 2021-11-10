@@ -835,7 +835,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
     <p>Every map submitted will be carefully reviewed by those charged with redrawing the Supervisorial District Map.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
+    <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
   humboldt_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1966,7 +1966,8 @@ const proposals_by_event = {
   centralsan: true,
   'pmc-districts': true,
   prjusd: true,
-  san_mateo_city: true
+  san_mateo_city: true,
+  butte_county: true
 };
 
 export default () => {
