@@ -1354,7 +1354,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
+      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> 
       Every plan submitted to the City will be carefully reviewed and included as part of 
       the public record. For more information, 
       <a href='https://www.rpcity.org/city_hall/administration/city_clerk/city_elections/redistricting' target=_blank>visit this link</a>.
@@ -1379,7 +1379,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
+      <strong>You can also submit your own plan for how to divide the city into four districts.</strong> 
       Every plan submitted to the City will be carefully reviewed and included as part of 
       the public record. For more information, 
       <a href='https://www.brentwoodca.gov/gov/admin/clerk/redistricting.asp' target=_blank>visit this link</a>.
@@ -2009,32 +2009,23 @@ butte_county: [
   ],
   "rohnert_park": [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California 
-    state law to reallocate incarcerated populations to their last known residential address, 
-    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
-    For the last decade, Redistricting Partners has supported cities, community college districts, 
-    school boards, hospital districts, water boards, and other special districts. To learn more 
-    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
     `
   ],
   "brentwood": [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California 
-    state law to reallocate incarcerated populations to their last known residential address, 
-    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
-    For the last decade, Redistricting Partners has supported cities, community college districts, 
-    school boards, hospital districts, water boards, and other special districts. To learn more 
-    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
     `
   ],
   "watsonville": [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California 
-    state law to reallocate incarcerated populations to their last known residential address, 
-    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
-    For the last decade, Redistricting Partners has supported cities, community college districts, 
-    school boards, hospital districts, water boards, and other special districts. To learn more 
-    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
     `
   ]
 };
@@ -2094,8 +2085,29 @@ export default () => {
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }
+    if (["rohnert_park"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.rpcity.org/";
+      document.getElementById("partnership-a").src = "/assets/partners-rohnert-park.jpeg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["brentwood"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.brentwoodca.gov/default.asp";
+      document.getElementById("partnership-a").src = "/assets/partners-brentwood.png";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["watsonville"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://cityofwatsonville.org/";
+      document.getElementById("partnership-a").src = "/assets/partners-watsonville.png";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
 
-        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne_county", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza", "livermore", "rohnert_park", "brentwood"].includes(eventCode)) {
+        if (["mesaaz", "slo_county", "napa_county", "san_jose", "siskiyou", "redwood_city", "ventura_county", "yolo_county", "solano_county", "santa_clara_county", "city_of_napa", "kern_county", "san_joaquin", "san_mateo_city", "oakland", "martinez", "butte_county", "santa_clara_water", "tuolumne_county", "napa_college", "napa_boe", "carpinteria", "humboldt_county", "mapsofla", "long_beach", "santa_ana", "imperial_county", "ojai", "foothilldeanza", "livermore"].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             if (eventCode === "mesaaz") {
               document.getElementById("partner-link-a").href = "https://www.mesaaz.gov";
@@ -2194,12 +2206,6 @@ export default () => {
               document.getElementById("partner-link-a").href = "https://www.sjgov.org";
               document.getElementById("partnership-a").src = "/assets/partners-sanjoaquin.svg?v=2";
               document.getElementById("partnership-a").style.background = "#315470";
-            } else if (eventCode === "rohnert_park") {
-              document.getElementById("partner-link-a").href = "https://www.rpcity.org/";
-              document.getElementById("partnership-a").src = "/assets/partners-rohnert-park.jpeg";
-            } else if (eventCode === "brentwood") {
-              document.getElementById("partner-link-a").href = "https://www.brentwoodca.gov/default.asp";
-              document.getElementById("partnership-a").src = "/assets/partners-brentwood.png";
             }
 
             document.getElementById("partner-link-b").href = "https://redistrictingpartners.com";
