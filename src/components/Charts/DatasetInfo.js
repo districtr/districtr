@@ -33,7 +33,7 @@ function datasetInfo(state) {
 
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
-    } else if (["rp_lax", "ca_butte", "mesaaz", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria", "ca_watsonville"].includes(place.id)) {
+    } else if (["rp_lax", "ca_butte", "mesaaz", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria", "ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
