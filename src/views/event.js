@@ -183,7 +183,7 @@ const validEventCodes = {
   laverne: 'laverne',
   pomonaca: 'pomona',
   richmondca: 'ca_richmond',
-  elcajon: 'elcajon',
+  elcajon: 'ca_elcajon',
   carlsbad2021: 'ca_carlsbad',
   encinitas2021: 'encinitas',
   bp2021: 'buenapark',
@@ -328,7 +328,14 @@ const unitTypes = {
   poway2021: {no: 'Blocks'},
   torrance2021: {no: 'Blocks'},
   buena_park: {no: 'Blocks'},
-  yuba_city: {no: 'Blocks'}
+  yuba_city: {no: 'Blocks'},
+  ca_camarillo: {no: 'Blocks'},
+  ca_grover: {no: 'Blocks'},
+  ca_elcajon: {no: 'Blocks'},
+  ca_arroyo: {no: 'Blocks'},
+  ca_nevada: {no: 'Blocks'},
+  ca_pomona: {no: 'Blocks'},
+  ca_chino: {no: 'Blocks'}
 };
 
 const unitCounts = {
@@ -457,7 +464,12 @@ const hybrid_events = [
   'poway2021',
   'torrance2021',
   'bpld2021',
-  'yuba_city'
+  'yuba_city',
+  'ca_camarillo',
+  'ca_grover',
+  'ca_elcajon',
+  'ca_arroyo',
+  'ca_nevada'
 ];
 
 const portal_events = [
@@ -1752,6 +1764,62 @@ butte_county: [
     ],
     yubacity: [
       `Yuba City City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_camarillo: [
+      `Camarillo City of Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_grover: [
+      `Grover Beach City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_elcajon: [
+      `El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_arroyo: [
+      `Arroyo Grande City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_nevada: [
+      `Nevada County Board of Supervisors District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_pomona: [
+      `Pomona City of Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
+      "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
+      last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
+      in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
+      team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
+    ],
+    ca_chino: [
+      `Chino City of Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
       last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \

@@ -9351,6 +9351,134 @@
             "sourceLayer": "canvdata_blockgroups"
           }
         ]
+      },
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 102284,
+              "min": 0,
+              "max": 980
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 10409,
+                "min": 0,
+                "max": 300
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White population",
+                "sum": 82882,
+                "min": 0,
+                "max": 698
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 819,
+                "min": 0,
+                "max": 31
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 2422,
+                "min": 0,
+                "max": 35
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "swdb_cvap19_total",
+              "name": "Total VAP",
+              "sum": 80145,
+              "min": 0,
+              "max": 684
+            },
+            "subgroups": [
+              {
+                "key": "swdb_cvap19_blk",
+                "name": "Black population",
+                "sum": 491,
+                "min": 0,
+                "max": 45
+              },
+              {
+                "key": "swdb_cvap19_api",
+                "name": "Asian population",
+                "sum": 1270,
+                "min": 0,
+                "max": 32
+              },
+              {
+                "key": "swdb_cvap19_h",
+                "name": "Hispanic population",
+                "sum": 5608,
+                "min": 0,
+                "max": 262
+              },
+              {
+                "key": "swdb_cvap19_ind",
+                "name": "American Indian population",
+                "sum": 1425,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "swdb_cvap19_omr",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 247,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -121.2798,
+            39.0052
+          ],
+          [
+            -120.0038,
+            39.5269
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_Nevada_blocks"
+            },
+            "sourceLayer": "ca_Nevada_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_Nevada_blocks_points"
+            },
+            "sourceLayer": "ca_Nevada_blocks_points"
+          }
+        ]
       }
     ],
     "districtingProblems": [
