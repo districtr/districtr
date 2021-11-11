@@ -552,7 +552,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       border: true,
-      current_districts: "Community College Districts",
+      current_districts: "Marin County",
       boundaries: [
         {
           path: "municipalities/california/marinco",
