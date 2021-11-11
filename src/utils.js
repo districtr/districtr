@@ -457,6 +457,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       shapefile: true,
+      school_districts: true,
       municipalities: true,
       current_districts: true,
       boundaries: [{
@@ -498,15 +499,46 @@ export function spatial_abilities(id) {
     pasorobles: {
       number_markers: true,
       border: true,
-      shapefile: true,
+      shapefile: true
     },
     sacramento: {
       coalition: false,
       shapefile: true,
       number_markers: true,
       border: true,
-      sideload: true,
+      sideload: true
       // divisor: 1000,
+    },
+    "29palms": {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: true
+    },
+    yuba_city: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    buena_park: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    navajoco: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      sideload: false,
+      current_districts: "Supervisorial Districts",
+      boundaries: []
     },
     san_dimas: {
       coalition: false,
@@ -779,6 +811,12 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
+    ca_watsonville: {
+      coalition: false,
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
   ca_marina: {
     coalition: false,
     border: true,
@@ -1030,6 +1068,18 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+  },
+  ca_brentwood: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    coalition: false,
+  },
+  ca_rohnert: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    coalition: false,
   },
   sanjoseca: {
     border: true,
