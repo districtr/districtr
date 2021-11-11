@@ -162,8 +162,14 @@ function addTracts(map, tilesets, stateName) {
             "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
             "ca_glendora", "san_dimas", "anaheim", "arcadia", "la_mirada", "placentia",
             "lakewood", "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
+<<<<<<< HEAD
             "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
             "ca_poway", "ca_torrance", "29palms", "navajoco", "yuba_city", "buena_park"
+=======
+            "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne", "ca_poway", "ca_torrance",
+            "yuba_city","twoninepalms","buena_park", "ca_grover", "ca_camarillo", "ca_elcajon", "ca_nevada",
+            "ca_arroyo", "ca_pomona","ca_chino"
+>>>>>>> module_cali
         ],
         isException = exceptions.includes(stateName),
         hasCountyFilter = spatial_abilities(stateName).county_filter,
