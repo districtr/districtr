@@ -135,7 +135,6 @@ commoncausepa: 'Pennsylvania',
   "sanbruno2021": "California",
   poway2021: 'California',
   torrance2021: 'California',
-<<<<<<< HEAD
   "29palms": "California",
   "navajoco": "Arizona",
   bpld2021: 'California',
@@ -143,10 +142,6 @@ commoncausepa: 'Pennsylvania',
   "rohnert_park": "California",
   "brentwood": "California",
   "watsonville": "California"
-=======
-  bpld2021: 'California',
-  yubacity: 'California'
->>>>>>> module_cali
 };
 
 const validEventCodes = {
@@ -271,7 +266,6 @@ commoncausepa: 'pennsylvania',
   "sanbruno2021": "san_bruno",
   poway2021: 'ca_poway',
   torrance2021: 'ca_torrance',
-<<<<<<< HEAD
   "29palms": "29palms",
   "navajoco": "navajoco",
   bpld2021: 'buena_park',
@@ -279,10 +273,6 @@ commoncausepa: 'pennsylvania',
   "rohnert_park": "ca_rohnert",
   "brentwood": "ca_brentwood",
   "watsonville": "ca_watsonville"
-=======
-  bpld2021: 'buena_park',
-  yubacity: 'yuba_city'
->>>>>>> module_cali
 };
 
 const blockPlans = {
@@ -1904,7 +1894,7 @@ butte_county: [
     the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
     incarcerated populations to their last known residential address.
     `
-  ]
+  ],
     poway2021: [
       `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
