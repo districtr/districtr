@@ -348,14 +348,6 @@ const unitTypes = {
   sonomaco: {no: 'Blocks'},
   poway2021: {no: 'Blocks'},
   torrance2021: {no: 'Blocks'},
-<<<<<<< HEAD
-  "29palms": {no: 'Blocks'},
-  "navajoco": {no: 'Blocks'},
-  bpld2021: {no: 'Blocks'},
-  yubacity: {no: 'Blocks'},
-  "mapsofla": { no: 'Blocks' },
-  "carpinteria": { no: 'Blocks' },
-=======
   buena_park: {no: 'Blocks'},
   yuba_city: {no: 'Blocks'},
   ca_camarillo: {no: 'Blocks'},
@@ -365,7 +357,6 @@ const unitTypes = {
   ca_nevada: {no: 'Blocks'},
   ca_pomona: {no: 'Blocks'},
   ca_chino: {no: 'Blocks'}
->>>>>>> module_cali
 };
 
 const unitCounts = {
@@ -492,17 +483,6 @@ const hybrid_events = [
   'tuolumne_county',
   'poway2021',
   'torrance2021',
-<<<<<<< HEAD
-  "29palms",
-  "navajoco",
-  "bpld2021",
-  "yubacity",
-  "carpinteria",
-  "rohnert_park",
-  "brentwood",
-  "watsonville",
-  "carpinteria"
-=======
   'bpld2021',
   'yuba_city',
   'ca_camarillo',
@@ -510,7 +490,6 @@ const hybrid_events = [
   'ca_elcajon',
   'ca_arroyo',
   'ca_nevada'
->>>>>>> module_cali
 ];
 
 const portal_events = [
@@ -1269,159 +1248,6 @@ torrance2021: "<p>Welcome to the Districtr Community of Interest public mapping 
 share your map and your story using this tool now.</p>\
      <p><strong>To display your map on this page, be sure the tag &quot;Torrance2021&quot; is filled \
 out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-<<<<<<< HEAD
- "29palms": `
-    <p>
-      Welcome to the Districtr Community of Interest public mapping tool for the
-      City of Twentynine Palms' City Council redistricting.
-    </p>
-    <p>
-      As part of the redistricting process, the California FAIR MAPS Act includes
-      neighborhoods and "Communities of Interest" as important considerations.
-      California law defines Communities of Interest as "a population that shares
-      common social or economic interests that should be included within a single
-      district for purposes of its effective and fair representation."
-    </p>
-    <p>
-      To let the City know about your community and what brings it together,
-      share your map and your story using this tool now.
-    </p>
-    <p>
-      <strong>To display your map on this page, be sure the tag "29palms" is
-      filled out after you've clicked "Save" to share the map.</strong>
-    </p>
-  `,
-  "navajoco": `
-    <p>
-      Welcome to the Districtr Community of Interest public mapping tool for
-      Navajo County's 2021 supervisorial redistricting.
-    </p>
-    <p>
-      To let the County know about your community and what brings it together,
-      share your map and your story using this tool now.
-    </p>
-    <p style="font-weight: bold;">
-      To display your map on this page, be sure the tag "NavajoCo" is filled out
-      after you've clicked "Save" to share the map.
-    </p>
-  `,
-  "bpld2021": `
-    <p>
-      Welcome to the Districtr Community of Interest public mapping tool for
-      redistricting the Buena Park Library Districts for the Board of Trustees.
-    </p>
-    <p>
-      As part of the redistricting process, the California FAIR MAPS Act includes
-      neighborhoods and "Communities of Interest" as important considerations.
-      California law defines Communities of Interest as "a population that shares
-      common social or economic interests that should be included within a single
-      district for purposes of its effective and fair representation."
-    </p>
-    <p>
-      To let the Board know about your community and what brings it together,
-      share your map and your story using this tool now.
-    </p>
-    <p>
-      <strong>To display your map on this page, be sure the tag "BPLD2021" is
-      filled out after you've clicked "Save" to share the map.</strong>
-    </p>
-  `,
-  "yubacity": `
-    <p>
-      Welcome to the Districtr Community of Interest public mapping tool for
-      City of Yuba's 2021 city council redistricting.
-    </p>
-    <p>
-      As part of the redistricting process, the California FAIR MAPS Act includes
-      neighborhoods and "Communities of Interest" as important considerations.
-      California law defines Communities of Interest as "a population that shares
-      common social or economic interests that should be included within a single
-      district for purposes of its effective and fair representation."
-    </p>
-    <p>
-      To let the City know about your community and what brings it together,
-      share your map and your story using this tool now.
-    </p>
-    <p>
-      <strong>To display your map on this page, be sure the tag "YubaCity" is
-      filled out after you've clicked "Save" to share the map.</strong>
-    </p>
-  `,
-  "watsonville": `
-    <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
-      drawn affects how people are represented.
-    </p>
-    <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
-      want to hear about your community; you know it best!</strong>
-    </p>
-    <p>
-      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
-    </p>
-    <p>
-      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
-    </p>
-  `,
-  "rohnert_park": `
-    <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
-      drawn affects how people are represented.
-    </p>
-    <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
-      want to hear about your community; you know it best!</strong>
-    </p>
-    <p>
-      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, 
-      <a href='https://www.rpcity.org/city_hall/administration/city_clerk/city_elections/redistricting' target=_blank>visit this link</a>.
-    </p>
-    <p>
-      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
-    </p>
-  `,
-  "brentwood": `
-    <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
-      drawn affects how people are represented.
-    </p>
-    <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
-      want to hear about your community; you know it best!</strong>
-    </p>
-    <p>
-      <strong>You can also submit your own plan for how to divide the city into four districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, 
-      <a href='https://www.brentwoodca.gov/gov/admin/clerk/redistricting.asp' target=_blank>visit this link</a>.
-    </p>
-    <p>
-      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
-    </p>
-  `
-=======
 
 "bpld2021": `
 <p>Welcome to the Districtr Community of Interest public mapping tool for redistricting the Buena Park Library Districts for the Board of Trustees.</p>
@@ -1439,7 +1265,6 @@ should be included within a single district for purposes of its effective and fa
 <p>To let the City know about your community and what brings it together, share your map and your story using this tool now.</p>
 <p><strong>To display your map on this page, be sure the tag "YubaCity" is filled out after you've clicked "Save" to share the map.</strong></p>
 `,
->>>>>>> module_cali
 };
 
 const longAbout = {
@@ -1972,7 +1797,6 @@ butte_county: [
     <a href='https://www.ndcresearch.com/about-us/'>here</a>.
     `
   ],
-<<<<<<< HEAD
   poway2021: [
     `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
@@ -2081,7 +1905,6 @@ butte_county: [
     incarcerated populations to their last known residential address.
     `
   ]
-=======
     poway2021: [
       `Poway City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
@@ -2169,7 +1992,6 @@ butte_county: [
       in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
       team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
->>>>>>> module_cali
 };
 
 const proposals_by_event = {
