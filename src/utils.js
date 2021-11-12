@@ -589,13 +589,6 @@ export function spatial_abilities(id) {
           label: "Cities and Towns",
           centroids: false,
           fill: false
-        },
-        {
-          path: "school_districts/california/oxnarduhsd_hs",
-          id: "high_schools",
-          label: "High School Attendance Zones",
-          centroids: false,
-          fill: false
         }
       ]
     },
