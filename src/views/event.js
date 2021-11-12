@@ -141,6 +141,8 @@ commoncausepa: 'Pennsylvania',
   yubacity: 'California',
   "marinccd": "California",
   "oxnarduhsd": "California",
+  "rohnert_park": "California",
+  "brentwood": "California",
   "watsonville": "California"
 };
 
@@ -272,6 +274,8 @@ commoncausepa: 'pennsylvania',
   yubacity: 'yuba_city',
   "marinccd": "marinco",
   "oxnarduhsd": "oxnarduhsd",
+  "rohnert_park": "ca_rohnert",
+  "brentwood": "ca_brentwood",
   "watsonville": "ca_watsonville"
 };
 
@@ -479,6 +483,9 @@ const hybrid_events = [
   "carpinteria",
   "marinccd",
   "oxnarduhsd",
+  "rohnert_park",
+  "brentwood",
+  "watsonville",
   "carpinteria"
 ];
 
@@ -843,7 +850,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
     <p>Every map submitted will be carefully reviewed by those charged with redrawing the Supervisorial District Map.</p>\
-    <p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
+    <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Butte_County” (any capitalization) is entered.</p>',
   humboldt_county: '<p>Every 10 years, Californians get the chance to help reshape their Supervisor districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
 <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
    <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1391,6 +1398,56 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
       Every plan submitted to the City will be carefully reviewed and included as part of 
       the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
+    </p>
+    <p>
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
+    </p>
+  `,
+  "rohnert_park": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Council Member 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, 
+      <a href='https://www.rpcity.org/city_hall/administration/city_clerk/city_elections/redistricting' target=_blank>visit this link</a>.
+    </p>
+    <p>
+      To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
+    </p>
+  `,
+  "brentwood": `
+    <p>
+      Every ten years, local governments use new United States Census data to redraw 
+      their district lines to reflect how local populations have changed. This process, 
+      called redistricting, is important in ensuring that each City Council Member 
+      represents substantially the same number of constituents. How those lines are 
+      drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are grouped 
+      together into a district. Communities are those with common social or economic 
+      interests that should be included within a single district for effective, fair 
+      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      want to hear about your community; you know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into four districts.</strong> 
+      Every plan submitted to the City will be carefully reviewed and included as part of 
+      the public record. For more information, 
+      <a href='https://www.brentwoodca.gov/gov/admin/clerk/redistricting.asp' target=_blank>visit this link</a>.
     </p>
     <p>
       To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
@@ -2037,14 +2094,25 @@ butte_county: [
     decade, Cooperative Strategies has assisted more than 50 school districts
     across California draw their voting areas.`
   ],
+  "rohnert_park": [
+    `
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
+    `
+  ],
+  "brentwood": [
+    `
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
+    `
+  ],
   "watsonville": [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California 
-    state law to reallocate incarcerated populations to their last known residential address, 
-    on Census blocks. This data was processed by Wagaman Strategies and Redistricting Partners. 
-    For the last decade, Redistricting Partners has supported cities, community college districts, 
-    school boards, hospital districts, water boards, and other special districts. To learn more 
-    about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    This mapping module uses the official 2020 Redistricting Database of California, published by 
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    incarcerated populations to their last known residential address.
     `
   ]
 };
@@ -2053,7 +2121,8 @@ const proposals_by_event = {
   centralsan: true,
   'pmc-districts': true,
   prjusd: true,
-  san_mateo_city: true
+  san_mateo_city: true,
+  butte_county: true
 };
 
 export default () => {
@@ -2100,6 +2169,27 @@ export default () => {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://www.cityoflivermore.net";
       document.getElementById("partnership-a").src = "/assets/partners-livermore.svg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["rohnert_park"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.rpcity.org/";
+      document.getElementById("partnership-a").src = "/assets/partners-rohnert-park.jpeg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["brentwood"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.brentwoodca.gov/default.asp";
+      document.getElementById("partnership-a").src = "/assets/partners-brentwood.png";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["watsonville"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://cityofwatsonville.org/";
+      document.getElementById("partnership-a").src = "/assets/partners-watsonville.png";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }
