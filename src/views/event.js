@@ -188,7 +188,7 @@ const validEventCodes = {
   laverne: 'laverne',
   pomonaca: 'pomona',
   richmondca: 'ca_richmond',
-  elcajon: 'ca_elcajon',
+  elcajon: 'elcajon',
   carlsbad2021: 'ca_carlsbad',
   encinitas2021: 'encinitas',
   bp2021: 'buenapark',
@@ -1942,7 +1942,7 @@ butte_county: [
       in the module, displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
       team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
-    ca_elcajon: [
+    elcajon: [
       `El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \

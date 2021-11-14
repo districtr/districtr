@@ -627,7 +627,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
-    pomona: {
+    ca_pomona: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -641,7 +641,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    elcajon: {
+    ca_elcajon: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -797,6 +797,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
+      current_districts: true,
     },
     ca_oceano: {
       coalition: false,
@@ -843,6 +844,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
+    current_districts: true,
   },
   ca_cvista: {
     coalition: false,
