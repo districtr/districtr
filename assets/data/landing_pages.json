@@ -318,7 +318,7 @@
           "sunnyvale",
           "pomona",
           "ca_richmond",
-          "elcajon",
+          "ca_elcajon",
           "ca_carlsbad",
           "encinitas",
           "buenapark",
@@ -344,16 +344,11 @@
           "san_dimas",
           "ca_poway",
           "ca_torrance",
-<<<<<<< HEAD
           "29palms",
           "yuba_city",
           "buena_park",
           "ca_brentwood",
           "ca_rohnert"
-=======
-          "yuba_city",
-          "buena_park"
->>>>>>> module_cali
         ],
         "id": "loc"
       },
