@@ -1942,7 +1942,7 @@ butte_county: [
     ],
     elcajon: [
       `The City of El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
-      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, as well as full four-district map suggestions for the whole city.",
+      The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, as well as full four-district map suggestions for the whole city."
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
       last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The citizen voting age population (CVAP) and “Additional demographics” \
       displays 2019 ACS data. The data was prepared by National Demographics Corporation. To learn more about their \

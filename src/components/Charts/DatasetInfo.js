@@ -54,7 +54,7 @@ function datasetInfo(state) {
                     "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
                     "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
                     "29palms", "yuba_city",
-                    "twoninepalms","ca_camarillo","ca_grover","ca_elcajon",
+                    "twoninepalms","ca_camarillo","ca_grover","elcajon",
                     "ca_arroyo","ca_nevada","ca_pomona","ca_chino"
                 ].includes(state.place.id)
             ) {
