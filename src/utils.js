@@ -853,7 +853,7 @@ export function spatial_abilities(id) {
     number_markers: true,
     current_districts: true,
   },
-  ca_camarillo: {
+  camarillo: {
     coalition: false,
     border: true,
     shapefile: true,
