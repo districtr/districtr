@@ -342,7 +342,6 @@ const unitTypes = {
   yuba_city: {no: 'Blocks'},
   ca_camarillo: {no: 'Blocks'},
   ca_grover: {no: 'Blocks'},
-  ca_elcajon: {no: 'Blocks'},
   ca_arroyo: {no: 'Blocks'},
   ca_nevada: {no: 'Blocks'},
   ca_pomona: {no: 'Blocks'},
@@ -477,7 +476,6 @@ const hybrid_events = [
   'yuba_city',
   'ca_camarillo',
   'ca_grover',
-  'ca_elcajon',
   'ca_arroyo',
   'ca_nevada'
 ];
