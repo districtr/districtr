@@ -27795,7 +27795,7 @@
 },
 {
   "state": "California",
-  "id": "ca_elcajon",
+  "id": "elcajon",
   "units": [
     {
       "id": "blocks",
@@ -27804,7 +27804,7 @@
       "columnSets": [
         {
           "type": "population",
-          "name": "Population",
+          "name": "Citizen Voting Age Population",
           "total": {
             "key": "Population_CA_Adj_swdb",
             "name": "Total population",
