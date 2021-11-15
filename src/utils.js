@@ -792,7 +792,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    ca_grover: {
+    groverbeach: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -839,7 +839,7 @@ export function spatial_abilities(id) {
     number_markers: true,
     current_districts: true,
   },
-  ca_arroyo: {
+  arroyog: {
     coalition: false,
     border: true,
     shapefile: true,

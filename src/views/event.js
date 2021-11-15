@@ -236,7 +236,7 @@ commoncausepa: 'pennsylvania',
   kingsco: 'ca_kings',
   mercedco: 'ca_merced',
   marinaca: 'ca_marina',
-  arroyog: 'ca_arroyo',
+  arroyog: 'arroyog',
   chulavista: 'ca_cvista',
   bellflower: 'ca_bellflower',
   camarillo: 'ca_camarillo',
@@ -246,7 +246,7 @@ commoncausepa: 'pennsylvania',
   campbellcity: 'ca_campbell',
   buellton: 'ca_buellton',
   ocsd: 'ca_oceano',
-  groverbeach: 'ca_grover',
+  groverbeach: 'groverbeach',
   vallejo: 'ca_vallejo',
   'ft-myers': 'ftmyers',
   'mp-maps': 'menlo_park',
@@ -341,8 +341,8 @@ const unitTypes = {
   buena_park: {no: 'Blocks'},
   yuba_city: {no: 'Blocks'},
   ca_camarillo: {no: 'Blocks'},
-  ca_grover: {no: 'Blocks'},
-  ca_arroyo: {no: 'Blocks'},
+  groverbeach: {no: 'Blocks'},
+  arroyog: {no: 'Blocks'},
   ca_nevada: {no: 'Blocks'},
   ca_pomona: {no: 'Blocks'},
   ca_chino: {no: 'Blocks'}
@@ -475,8 +475,7 @@ const hybrid_events = [
   'bpld2021',
   'yuba_city',
   'ca_camarillo',
-  'ca_grover',
-  'ca_arroyo',
+  'arroyog',
   'ca_nevada'
 ];
 
@@ -1948,7 +1947,7 @@ butte_county: [
       displays 2019 ACS data. The data was prepared by National Demographics Corporation. To learn more about their \
       team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.`
     ],
-    ca_arroyo: [
+    arroyog: [
       `Arroyo Grande City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
       The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
       "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \

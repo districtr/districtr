@@ -9748,7 +9748,7 @@
       }
     ],
     "name": "Arroyo Grande",
-    "id": "ca_arroyo",
+    "id": "arroyog",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -13964,7 +13964,7 @@
     ],
     "name": "Grover Beach",
     "state": "California",
-    "id": "ca_grover",
+    "id": "groverbeach",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -27357,7 +27357,7 @@
 
 {
   "state": "California",
-  "id": "ca_arroyo",
+  "id": "arroyog",
   "units": [
     {
       "id": "blocks",
@@ -27366,7 +27366,7 @@
       "columnSets": [
         {
           "type": "population",
-          "name": "Population",
+          "name": "Citizen Voting Age Population",
           "total": {
             "key": "Population_CA_Adj_swdb",
             "name": "Total population",
@@ -27808,7 +27808,7 @@
           "total": {
             "key": "Population_CA_Adj_swdb",
             "name": "Total population",
-            "sum": 106584,
+            "sum": 106583,
             "min": 0,
             "max": 2031
           },
@@ -28014,7 +28014,7 @@
 },
 {
   "state": "California",
-  "id": "ca_grover",
+  "id": "groverbeach",
   "units": [
     {
       "id": "blocks",
