@@ -858,7 +858,7 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
-    current_districts: true,
+    current_districts: false,
   },
   ca_bellflower: {
     coalition: false,
