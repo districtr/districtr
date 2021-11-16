@@ -9233,7 +9233,7 @@
     ]
   },
   {
-    "id": "ca_nevada",
+    "id": "nevadaco",
     "state": "California",
     "name": "Nevada County",
     "units": [
@@ -12993,7 +12993,7 @@
         ]
       }
     ],
-    "id": "ca_fremont",
+    "id": "fremont2021",
     "name": "Fremont",
     "state": "California",
     "districtingProblems": [
@@ -13008,8 +13008,8 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -13193,7 +13193,7 @@
     ],
     "name": "Chino",
     "state": "California",
-    "id": "ca_chino",
+    "id": "chino2021",
     "districtingProblems": [
       {
         "name": "City Council",
@@ -13206,8 +13206,8 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -15057,12 +15057,12 @@
   {
     "state": "California",
     "name": "Pomona",
-    "id": "pomona",
+    "id": "pomonaca",
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -15850,8 +15850,8 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -16033,7 +16033,7 @@
         ]
       }
     ],
-    "id": "encinitas",
+    "id": "encinitas2021",
     "state": "California",
     "name": "Encinitas",
     "districtingProblems": [
@@ -27362,7 +27362,7 @@
     {
       "id": "blocks",
       "name": "2020 Blocks",
-      "unitType": "Blocks",
+      "unitType": "2020 Blocks",
       "columnSets": [
         {
           "type": "population",
@@ -27576,12 +27576,12 @@
 },
 {
   "state": "California",
-  "id": "ca_Nevada",
+  "id": "nevadaco",
   "units": [
     {
       "id": "blocks",
       "name": "2020 Blocks",
-      "unitType": "Blocks",
+      "unitType": "2020 Blocks",
       "columnSets": [
         {
           "type": "population",
@@ -27800,7 +27800,7 @@
     {
       "id": "blocks",
       "name": "2020 Blocks",
-      "unitType": "Blocks",
+      "unitType": "2020 Blocks",
       "columnSets": [
         {
           "type": "population",
@@ -28019,7 +28019,7 @@
     {
       "id": "blocks",
       "name": "2020 Blocks",
-      "unitType": "Blocks",
+      "unitType": "2020 Blocks",
       "columnSets": [
         {
           "type": "population",
@@ -28226,12 +28226,12 @@
 },
 {
   "state": "California",
-  "id": "ca_camarillo",
+  "id": "camarillo",
   "units": [
     {
       "id": "blocks",
       "name": "2020 Blocks",
-      "unitType": "Blocks",
+      "unitType": "2020 Blocks",
       "columnSets": [
         {
           "type": "population",

@@ -627,7 +627,7 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
     },
-    ca_pomona: {
+    pomonaca: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -655,7 +655,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    encinitas: {
+    encinitas2021: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -730,7 +730,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    ca_nevada: {
+    nevadaco: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -758,7 +758,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    ca_chino: {
+    chino2021: {
       coalition: false,
       border: true,
       shapefile: true,
@@ -772,7 +772,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
-    ca_fremont: {
+    fremont2021: {
       coalition: false,
       border: true,
       shapefile: true,

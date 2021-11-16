@@ -40,7 +40,7 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
     } else if (["ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.wagaman_2020}`;
-    } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_nevada", "ca_marina", "arroyog", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "camarillo", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "groverbeach", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) 
+    } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "nevadaco", "ca_marina", "arroyog", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "camarillo", "fremont2021", "lake_el", "chino2021", "ca_campbell", "ca_vallejo", "ca_oceano", "groverbeach", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas2021", "lodi", "pomonaca", "sunnyvale"].includes(place.id)) 
             && !(["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name))) {
                 dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
     } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts"].includes(state.unitsRecord.name)) {
@@ -55,7 +55,7 @@ function datasetInfo(state) {
                     "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
                     "29palms", "yuba_city",
                     "twoninepalms","camarillo","groverbeach","elcajon",
-                    "arroyog","ca_nevada","ca_pomona","ca_chino"
+                    "arroyog","nevadaco","pomonaca","chino2021","fremont2021"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison
