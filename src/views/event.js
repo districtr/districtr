@@ -344,14 +344,16 @@ const unitTypes = {
   yubacity: {no: 'Blocks'},
   "mapsofla": { no: 'Blocks' },
   "carpinteria": { no: 'Blocks' },
-  "bp2021": { no: 'Blocks'},
-  "arroyog": { no: 'Blocks'},
-  "camarillo": { no: 'Blocks'},
-  "chino2021": { no: 'Blocks'},
-  "groverbeach": { no: 'Blocks'},
-  "nevadaco": { no: 'Blocks'},
-  "elcajon": { no: 'Blocks'},
-  "pomonaca": { no: 'Blocks'},
+  "bp2021": { no: 'Blocks' },
+  "arroyog": { no: 'Blocks' },
+  "camarillo": { no: 'Blocks' },
+  "chino2021": { no: 'Blocks' },
+  "groverbeach": { no: 'Blocks' },
+  "nevadaco": { no: 'Blocks' },
+  "elcajon": { no: 'Blocks' },
+  "pomonaca": { no: 'Blocks' },
+  "fremont2021": { no: 'Blocks' },
+  "encinitas2021": { no: 'Blocks' },
 };
 
 const unitCounts = {
@@ -1572,12 +1574,14 @@ butte_county: [
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   pomonaca: [
-    "City of Pomona City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Pomona City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   richmondca: [
     "City of Richmond City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1586,12 +1590,14 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   elcajon: [
-    "City of El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of El Cajon City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   carlsbad2021: [
     "City of Carlsbad City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1600,18 +1606,24 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   encinitas2021: [
-    "City of Encinitas City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Encinitas City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   bp2021: [
-    "City of Buena Park City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Buena Park City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   hmb2021: [
     "City of Half Moon Bay City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1664,10 +1676,14 @@ butte_county: [
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   fremont2021: [
-    "City of Fremont District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Fremont District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full six-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   campbellcity: [
     "City of Campell District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1688,12 +1704,14 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   groverbeach: [
-    "City of Grover Beach District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Grover Beach District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   vallejo: [
     "City of Vallejo District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the six districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1708,12 +1726,14 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   chino2021: [
-    "City of Chino District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "City of Chino District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   saccountymap: [
     "Sacramento County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1739,12 +1759,14 @@ butte_county: [
     team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>."
   ],
   nevadaco: [
-    "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "Nevada County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The County encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole county.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   sanmateoco: [
     "San Mateo County Board of Supervisor District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
@@ -1777,20 +1799,24 @@ butte_county: [
     The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
   ],
   arroyog: [
-    "Arroyo Grande City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "Arroyo Grande City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   camarillo: [
-    "Camarillo City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
+    "Camarillo City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible, so that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-district map suggestions for the whole city.",
-    "This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their \
-    last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The “Additional demographics” \
-    in the module displays 2019 ACS data on the Census block groups. The data was prepared by National Demographics Corporation. To learn more about their \
-    team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   bellflower: [
     "Bellflower City Council District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the five districts as equal in population as possible and that each member represents about the same number of constituents. \
