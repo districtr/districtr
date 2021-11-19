@@ -2258,6 +2258,9 @@ export function spatial_abilities(id) {
     wyoming: {
       native_american: true,
       number_markers: true,
+    },
+    stlouis: {
+      number_markers: true
     }
   };
   return status[id] || {};
