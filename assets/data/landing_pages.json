@@ -320,7 +320,7 @@
           "ca_richmond",
           "elcajon",
           "ca_carlsbad",
-          "encinitas2021",
+          "encinitas",
           "buenapark",
           "halfmoon",
           "ca_stockton",
@@ -1854,6 +1854,11 @@
         "ids": ["missouri"],
         "default": "true",
         "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": ["stlouis"],
+        "id": "counties"
       }
     ],
     "sections": [

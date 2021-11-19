@@ -1159,5 +1159,154 @@
         "pluralNoun": "Communities of Interest"
       }
     ]
+  },
+  {
+    "name": "St. Louis",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total Population",
+              "sum": 301578,
+              "min": 0,
+              "max": 1137
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White Population",
+                "sum": 129368,
+                "min": 0,
+                "max": 684
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black Population",
+                "sum": 128993,
+                "min": 0,
+                "max": 558
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic Population",
+                "sum": 15405,
+                "min": 0,
+                "max": 264
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian Population",
+                "sum": 12205,
+                "min": 0,
+                "max": 326
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian Population",
+                "sum": 614,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting Age Population",
+              "sum": 247547,
+              "min": 0,
+              "max": 1120
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White Voting Age Population",
+                "sum": 115743,
+                "min": 0,
+                "max": 676
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black Voting Age Population",
+                "sum": 98485,
+                "min": 0,
+                "max": 556
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic Voting Age Population",
+                "sum": 11254,
+                "min": 0,
+                "max": 177
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian Voting Age Population",
+                "sum": 10875,
+                "min": 0,
+                "max": 323
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "American Indian Voting Age Population",
+                "sum": 502,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -90.3205,
+            38.532
+          ],
+          [
+            -90.1663,
+            38.7744
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.stlouis_blocks"
+            },
+            "sourceLayer": "stlouis_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.stlouis_blocks_points"
+            },
+            "sourceLayer": "stlouis_blocks_points"
+          }
+        ]
+      }
+    ],
+    "id": "stlouis",
+    "state": "Missouri",
+    "districtingProblems": [
+      {
+        "name": "Board of Aldermen",
+        "numberOfParts": 14,
+        "pluralNoun": "Wards"
+      }
+    ]
   }
 ]
