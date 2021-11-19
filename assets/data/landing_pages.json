@@ -1856,9 +1856,15 @@
         "id": "state"
       },
       {
+<<<<<<< HEAD
         "name": "Cities",
         "ids": ["stlouis"],
         "id": "loc"
+=======
+        "name": "Counties",
+        "ids": ["stlouis"],
+        "id": "counties"
+>>>>>>> 697b2812... add st. louis module
       }
     ],
     "sections": [
