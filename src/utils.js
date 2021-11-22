@@ -2260,7 +2260,8 @@ export function spatial_abilities(id) {
       number_markers: true,
     },
     stlouis: {
-      number_markers: true
+      number_markers: true,
+      border: true
     }
   };
   return status[id] || {};
