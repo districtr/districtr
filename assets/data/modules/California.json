@@ -15169,8 +15169,8 @@
       },
       {
         "id": "blocks20",
-        "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -15178,66 +15178,66 @@
             "total": {
               "key": "Population_CA_Adj_swdb",
               "name": "Total population",
-              "sum": 2811,
+              "sum": 12739,
               "min": 0,
-              "max": 173
+              "max": 266
             },
             "subgroups": [
               {
                 "key": "Hispanic Origin",
                 "name": "Hispanic population",
-                "sum": 755,
+                "sum": 3994,
                 "min": 0,
-                "max": 44
+                "max": 114
               },
               {
                 "key": "NH_Wht",
                 "name": "White Alone population",
-                "sum": 1726,
+                "sum": 7256,
                 "min": 0,
-                "max": 148
+                "max": 187
               },
               {
                 "key": "DOJ_NH_Blk",
                 "name": "Black population",
-                "sum": 36,
+                "sum": 187,
                 "min": 0,
-                "max": 3
+                "max": 8
               },
               {
                 "key": "DOJ_NH_Ind",
                 "name": "American Indian population",
-                "sum": 75,
-                "min": 0,
-                "max": 7
-              },
-              {
-                "key": "DOJ_NH_Asn",
-                "name": "Asian population",
-                "sum": 121,
+                "sum": 286,
                 "min": 0,
                 "max": 9
               },
               {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 688,
+                "min": 0,
+                "max": 20
+              },
+              {
                 "key": "DOJ_NH_Hwn",
                 "name": "Native Hawaiian / Pacific Islander population",
-                "sum": 1,
+                "sum": 32,
                 "min": 0,
-                "max": 1
+                "max": 3
               },
               {
                 "key": "DOJ_NH_Oth",
                 "name": "Other population",
-                "sum": 75,
+                "sum": 211,
                 "min": 0,
-                "max": 6
+                "max": 8
               },
               {
                 "key": "DOJ_NH_OthMR",
                 "name": "2+ races population",
-                "sum": 22,
+                "sum": 85,
                 "min": 0,
-                "max": 4
+                "max": 5
               }
             ]
           },
@@ -15247,50 +15247,50 @@
             "total": {
               "key": "st1519_m2_totbyagg",
               "name": "Total CVAP",
-              "sum": 1936,
+              "sum": 9960,
               "min": 0,
-              "max": 119
+              "max": 227
             },
             "subgroups": [
               {
                 "key": "st1519_m2_nhw",
                 "name": "White Alone CVAP",
-                "sum": 1424,
+                "sum": 7001,
                 "min": 0,
-                "max": 115
+                "max": 197
               },
               {
                 "key": "st1519_m2_nhb",
                 "name": "Black CVAP",
-                "sum": 60,
+                "sum": 209,
                 "min": 0,
-                "max": 10
+                "max": 25
               },
               {
                 "key": "st1519_m2_nhapi",
                 "name": "Asian and Pacific Islander CVAP",
-                "sum": 161,
+                "sum": 552,
                 "min": 0,
-                "max": 24
+                "max": 37
               },
               {
                 "key": "st1519_m2_h",
                 "name": "Hispanic CVAP",
-                "sum": 285,
+                "sum": 2054,
                 "min": 0,
-                "max": 23
+                "max": 57
               },
               {
                 "key": "st1519_m2_nhi",
                 "name": "Native American CVAP",
-                "sum": 3,
+                "sum": 138,
                 "min": 0,
-                "max": 3
+                "max": 9
               },
               {
                 "key": "st1519_m2_nhoth",
                 "name": "Other CVAP",
-                "sum": 1,
+                "sum": 4,
                 "min": 0,
                 "max": 1
               }
@@ -15302,7 +15302,7 @@
             "total": {
               "key": "ChildAtHome",
               "name": "Children at home",
-              "sum": 1,
+              "sum": 2,
               "min": 0,
               "max": 1
             },
@@ -15310,42 +15310,42 @@
               {
                 "key": "Renters",
                 "name": "Renters",
-                "sum": 1,
+                "sum": 4,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Apts",
                 "name": "Multi-family residents",
-                "sum": 0,
+                "sum": 2,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "HSGrads",
                 "name": "High school graduate",
-                "sum": 3,
+                "sum": 8,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "CollegeGrads",
                 "name": "College graduate",
-                "sum": 1,
+                "sum": 2,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "Inc75",
                 "name": ">$75k income",
-                "sum": 1,
+                "sum": 4,
                 "min": 0,
                 "max": 1
               },
               {
                 "key": "SpanishAtHome",
                 "name": "Spanish spoken at home",
-                "sum": 0,
+                "sum": 1,
                 "min": 0,
                 "max": 1
               },
@@ -15372,12 +15372,12 @@
         },
         "bounds": [
           [
-            -120.6296,
-            35.1089
+            -120.6386,
+            35.1055
           ],
           [
-            -120.6144,
-            35.1318
+            -120.6044,
+            35.1344
           ]
         ],
         "tilesets": [
