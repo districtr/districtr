@@ -15385,25 +15385,25 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks20"
+              "url": "mapbox://districtr.ca_grover2_blocks20"
             },
-            "sourceLayer": "ca_grover_blocks20"
+            "sourceLayer": "ca_grover2_blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks20_points"
+              "url": "mapbox://districtr.ca_grover2_blocks20_points"
             },
-            "sourceLayer": "ca_grover_blocks20_points"
+            "sourceLayer": "ca_grover2_blocks20_points"
           },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.grovedata_blockgroups20"
+              "url": "mapbox://districtr.grovedata2_blockgroups20"
             },
-            "sourceLayer": "grovedata_blockgroups20"
+            "sourceLayer": "grovedata2_blockgroups20"
           }
         ]
       }
