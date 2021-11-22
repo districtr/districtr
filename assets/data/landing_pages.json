@@ -1856,9 +1856,9 @@
         "id": "state"
       },
       {
-        "name": "Counties",
+        "name": "Cities",
         "ids": ["stlouis"],
-        "id": "counties"
+        "id": "loc"
       }
     ],
     "sections": [
