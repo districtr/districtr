@@ -1164,9 +1164,9 @@
     "name": "St. Louis",
     "units": [
       {
-        "id": "2020 blocks",
+        "id": "blocks",
         "name": "2020 Blocks",
-        "unitType": "Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
