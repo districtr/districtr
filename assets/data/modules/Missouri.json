@@ -1165,13 +1165,8 @@
     "units": [
       {
         "id": "blocks",
-<<<<<<< HEAD
-        "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
-=======
         "name": "Blocks",
         "unitType": "Blocks",
->>>>>>> 697b2812... add st. louis module
         "columnSets": [
           {
             "type": "population",
