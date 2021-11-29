@@ -14994,7 +14994,7 @@
             "total": {
               "key": "Est_Population",
               "name": "Total population",
-              "sum": 13520,
+              "sum": 13509,
               "min": 0,
               "max": 363
             },
@@ -15008,34 +15008,34 @@
               "name": "Total population",
               "sum": 9947,
               "min": 0,
-              "max": 267
+              "max": 268
             },
             "subgroups": [
               {
                 "key": "CVAP_White",
                 "name": "White population",
-                "sum": 6993,
+                "sum": 6995,
                 "min": 0,
                 "max": 185
               },
               {
                 "key": "CVAP_Black",
                 "name": "Black population",
-                "sum": 230,
+                "sum": 228,
                 "min": 0,
                 "max": 30
               },
               {
                 "key": "CVAP_Asian_Amer",
                 "name": "Asian population",
-                "sum": 510,
+                "sum": 517,
                 "min": 0,
                 "max": 43
               },
               {
                 "key": "CVAP_Latino",
                 "name": "Hispanic population",
-                "sum": 2046,
+                "sum": 2039,
                 "min": 0,
                 "max": 81
               },
@@ -15044,14 +15044,14 @@
                 "name": "Native American population",
                 "sum": 138,
                 "min": 0,
-                "max": 31
+                "max": 32
               },
               {
                 "key": "CVAP_Pacific_Isl",
                 "name": "Native Hawaiian Pacific Islander population",
                 "sum": 25,
                 "min": 0,
-                "max": 18
+                "max": 19
               },
               {
                 "key": "CVAP_Other",
@@ -15137,25 +15137,31 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-120.6386, 35.1055],
-          [-120.6044, 35.1344]
+          [
+            -120.6386,
+            35.1055
+          ],
+          [
+            -120.6044,
+            35.1344
+          ]
         ],
         "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks_points"
-            },
-            "sourceLayer": "ca_grover_blocks_points"
-          },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks"
+              "url": "mapbox://districtr.ca_grover2_blocks"
             },
-            "sourceLayer": "ca_grover_blocks"
+            "sourceLayer": "ca_grover2_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_grover2_blocks_points"
+            },
+            "sourceLayer": "ca_grover2_blocks_points"
           },
           {
             "type": "fill",
