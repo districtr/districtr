@@ -1854,6 +1854,12 @@
         "ids": ["missouri"],
         "default": "true",
         "id": "state"
+      },
+      {
+        "name": "Cities",
+        "ids": ["stlouis"],
+        "default": "true",
+        "id": "loc"
       }
     ],
     "sections": [
