@@ -141,7 +141,8 @@ commoncausepa: 'Pennsylvania',
   yubacity: 'California',
   "rohnert_park": "California",
   "brentwood": "California",
-  "watsonville": "California"
+  "watsonville": "California",
+  sbusd: "California"
 };
 
 const validEventCodes = {
@@ -273,7 +274,7 @@ commoncausepa: 'pennsylvania',
   "rohnert_park": "ca_rohnert",
   "brentwood": "ca_brentwood",
   "watsonville": "ca_watsonville",
-  sbusd: "sbusd"
+  sbusd: "sbusd",
 };
 
 const blockPlans = {
