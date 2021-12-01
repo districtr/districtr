@@ -797,6 +797,13 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
+    sbusd: {
+      coalition: false,
+      border: true,
+      number_markers: true,
+      school_districts: true,
+      municipalities: true,
+    },
     ca_sanbenito: {
       coalition: false,
       border: true,

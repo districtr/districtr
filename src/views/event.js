@@ -272,7 +272,8 @@ commoncausepa: 'pennsylvania',
   yubacity: 'yuba_city',
   "rohnert_park": "ca_rohnert",
   "brentwood": "ca_brentwood",
-  "watsonville": "ca_watsonville"
+  "watsonville": "ca_watsonville",
+  sbusd: "sbusd"
 };
 
 const blockPlans = {
@@ -1373,6 +1374,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
     </p>
   `,
+  sbusd:`
+  <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.
+  </p>
+  <p>
+  As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+  </p>
+  `,
   "brentwood": `
     <p>
       Every ten years, local governments use new United States Census data to redraw 
@@ -2076,6 +2084,17 @@ butte_county: [
     This mapping module uses the official 2020 Redistricting Database of California, published by 
     the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
     incarcerated populations to their last known residential address.
+    `
+  ],
+  sbusd: [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law 
+    to reallocate incarcerated populations to their last known residential address, on Census blocks. 
+    For more information, please visit the Statewide Database’s website. The data was prepared by 
+    <a href="https://www.coopstrategies.com/#/">Cooperative Strategies</a>, a comprehensive planning 
+    and demographics firm that has been retained by the School District to assist in redistricting. 
+    Over the last decade, Cooperative Strategies has assisted more than 50 school districts across 
+    California draw their voting areas.
     `
   ]
 };
