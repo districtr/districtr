@@ -1559,7 +1559,7 @@
               },
               {
                 "key": "POP_HAWPI",
-                "name": "Native Hawaiian Pacific Islander",
+                "name": "Native Hawaiian Pacific Islander Population",
                 "sum": 163,
                 "min": 0,
                 "max": 21
@@ -1593,42 +1593,42 @@
             "subgroups": [
               {
                 "key": "CVAP19_WHT",
-                "name": "White Voting Age Population",
+                "name": "White Citizen Voting Age Population",
                 "sum": 93830,
                 "min": 0,
                 "max": 1011
               },
               {
                 "key": "CVAP19_BLK",
-                "name": "Black Voting Age Population",
+                "name": "Black Citizen Voting Age Population",
                 "sum": 3233,
                 "min": 0,
                 "max": 121
               },
               {
                 "key": "CVAP19_HSP",
-                "name": "Hispanic Voting Age Population",
+                "name": "Hispanic Citizen Voting Age Population",
                 "sum": 31131,
                 "min": 0,
                 "max": 673
               },
               {
                 "key": "CVAP19_ASN",
-                "name": "Asian Voting Age Population",
+                "name": "Asian Citizen Voting Age Population",
                 "sum": 8548,
                 "min": 0,
                 "max": 469
               },
               {
                 "key": "CVAP19_HWP",
-                "name": "Native Hawaiian Pacific Islander Voting Age Population",
+                "name": "Native Hawaiian Pacific Islander Citizen Voting Age Population",
                 "sum": 15,
                 "min": 0,
                 "max": 7
               },
               {
                 "key": "CVAP19_2MR",
-                "name": "Two or More Races Voting Age Population",
+                "name": "Two or More Races Citizen Voting Age Population",
                 "sum": 2825,
                 "min": 0,
                 "max": 120
