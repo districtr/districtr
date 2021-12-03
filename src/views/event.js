@@ -2091,7 +2091,7 @@ butte_county: [
     `
     This mapping module displays 2020 Decennial Census population, adjusted per California state law 
     to reallocate incarcerated populations to their last known residential address, on Census blocks. 
-    For more information, please visit the Statewide Database’s website. The data was prepared by 
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. The data was prepared by 
     <a href="https://www.coopstrategies.com/#/">Cooperative Strategies</a>, a comprehensive planning 
     and demographics firm that has been retained by the School District to assist in redistricting. 
     Over the last decade, Cooperative Strategies has assisted more than 50 school districts across 
