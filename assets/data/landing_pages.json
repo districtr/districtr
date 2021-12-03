@@ -2710,7 +2710,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["pennsylvania"],
+        "ids": ["pennsylvania", "pa_adj", "pa_pris_adj"],
         "default": "true",
         "id": "state"
       },
