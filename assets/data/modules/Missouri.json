@@ -1213,6 +1213,27 @@
                 "sum": 614,
                 "min": 0,
                 "max": 6
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian Pacific Islander",
+                "sum": 88,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or More Races Population",
+                "sum": 13132,
+                "min": 0,
+                "max": 63
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other Race Population",
+                "sum": 1773,
+                "min": 0,
+                "max": 53
               }
             ]
           },
@@ -1261,6 +1282,27 @@
                 "sum": 502,
                 "min": 0,
                 "max": 6
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian Pacific Islander Voting Age Population",
+                "sum": 73,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or More Races Voting Age Population",
+                "sum": 9280,
+                "min": 0,
+                "max": 62
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other Race Voting Age Population",
+                "sum": 1335,
+                "min": 0,
+                "max": 53
               }
             ]
           }

@@ -14994,7 +14994,7 @@
             "total": {
               "key": "Est_Population",
               "name": "Total population",
-              "sum": 13520,
+              "sum": 13509,
               "min": 0,
               "max": 363
             },
@@ -15008,34 +15008,34 @@
               "name": "Total population",
               "sum": 9947,
               "min": 0,
-              "max": 267
+              "max": 268
             },
             "subgroups": [
               {
                 "key": "CVAP_White",
                 "name": "White population",
-                "sum": 6993,
+                "sum": 6995,
                 "min": 0,
                 "max": 185
               },
               {
                 "key": "CVAP_Black",
                 "name": "Black population",
-                "sum": 230,
+                "sum": 228,
                 "min": 0,
                 "max": 30
               },
               {
                 "key": "CVAP_Asian_Amer",
                 "name": "Asian population",
-                "sum": 510,
+                "sum": 517,
                 "min": 0,
                 "max": 43
               },
               {
                 "key": "CVAP_Latino",
                 "name": "Hispanic population",
-                "sum": 2046,
+                "sum": 2039,
                 "min": 0,
                 "max": 81
               },
@@ -15044,14 +15044,14 @@
                 "name": "Native American population",
                 "sum": 138,
                 "min": 0,
-                "max": 31
+                "max": 32
               },
               {
                 "key": "CVAP_Pacific_Isl",
                 "name": "Native Hawaiian Pacific Islander population",
                 "sum": 25,
                 "min": 0,
-                "max": 18
+                "max": 19
               },
               {
                 "key": "CVAP_Other",
@@ -15137,25 +15137,31 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-120.6386, 35.1055],
-          [-120.6044, 35.1344]
+          [
+            -120.6386,
+            35.1055
+          ],
+          [
+            -120.6044,
+            35.1344
+          ]
         ],
         "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks_points"
-            },
-            "sourceLayer": "ca_grover_blocks_points"
-          },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks"
+              "url": "mapbox://districtr.ca_grover2_blocks"
             },
-            "sourceLayer": "ca_grover_blocks"
+            "sourceLayer": "ca_grover2_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_grover2_blocks_points"
+            },
+            "sourceLayer": "ca_grover2_blocks_points"
           },
           {
             "type": "fill",
@@ -19289,270 +19295,6 @@
       }
     ]
   },
-  {
-   "units": [
-     {
-       "id": "blocks20",
-       "name": "2020 Blocks",
-       "unitType": "Blocks",
-       "columnSets": [
-         {
-           "type": "population",
-           "name": "Population",
-           "total": {
-             "key": "LF_20_Total",
-             "name": "Total population",
-             "sum": 777312,
-             "min": 0,
-             "max": 1799
-           },
-           "subgroups": [
-             {
-               "key": "LF_20_White",
-               "name": "White population",
-               "sum": 214667,
-               "min": 0,
-               "max": 762
-             },
-             {
-               "key": "LF_20_AfAm",
-               "name": "Black population",
-               "sum": 56337,
-               "min": 0,
-               "max": 482
-             },
-             {
-               "key": "LF_20_Asian",
-               "name": "Asian population",
-               "sum": 134684,
-               "min": 0,
-               "max": 450
-             },
-             {
-               "key": "LF_20_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 325178,
-               "min": 0,
-               "max": 808
-             }
-           ]
-         },
-         {
-           "type": "population",
-           "name": "Citizen Voting Age Population",
-           "total": {
-             "key": "CVAP_15-19_Total",
-             "name": "Total population",
-             "sum": 440849,
-             "min": 0,
-             "max": 2164
-           },
-           "subgroups": [
-             {
-               "key": "CVAP_15-19_AfAm",
-               "name": "Black population",
-               "sum": 33821,
-               "min": 0,
-               "max": 453
-             },
-             {
-               "key": "CVAP_15-19_AiAn",
-               "name": "American Indian population",
-               "sum": 1264,
-               "min": 0,
-               "max": 64
-             },
-             {
-               "key": "CVAP_15-19_Asian",
-               "name": "Asian population",
-               "sum": 60294,
-               "min": 0,
-               "max": 282
-             },
-             {
-               "key": "CVAP_15-19_Hawaiian_API",
-               "name": "Native Hawaiian Pacific Islander population",
-               "sum": 1905,
-               "min": 0,
-               "max": 43
-             },
-             {
-               "key": "CVAP_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 134705,
-               "min": 0,
-               "max": 641
-             }
-           ]
-         }
-       ],
-       "idColumn": {
-         "name": "Geo ID",
-         "key": "GEOID20"
-       },
-       "bounds": [
-         [
-           -121.5851,
-           37.4818
-         ],
-         [
-           -120.917,
-           38.3003
-         ]
-       ],
-       "tilesets": [
-         {
-           "type": "circle",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks20_points?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks20_points"
-         },
-         {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks20?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks20"
-         }
-       ]
-     },
-     {
-       "id": "blocks",
-       "name": "Blocks",
-       "unitType": "Blocks",
-       "hideOnDefault": true,
-       "columnSets": [
-         {
-           "type": "population",
-           "name": "Population",
-           "total": {
-             "key": "ACS_15-19_Total",
-             "name": "Total population",
-             "sum": 738505,
-             "min": 0,
-             "max": 2340
-           },
-           "subgroups": [
-             {
-               "key": "ACS_15-19_AfAm",
-               "name": "Black population",
-               "sum": 47251,
-               "min": 0,
-               "max": 557
-             },
-             {
-               "key": "ACS_15-19_Asian",
-               "name": "Asian population",
-               "sum": 109546,
-               "min": 0,
-               "max": 536
-             },
-             {
-               "key": "ACS_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 303394,
-               "min": 0,
-               "max": 941
-             }
-           ]
-         },
-         {
-           "type": "population",
-           "name": "Citizen Voting Age Population",
-           "total": {
-             "key": "CVAP_15-19_Total",
-             "name": "Total population",
-             "sum": 440849,
-             "min": 0,
-             "max": 2164
-           },
-           "subgroups": [
-             {
-               "key": "CVAP_15-19_AfAm",
-               "name": "Black population",
-               "sum": 33821,
-               "min": 0,
-               "max": 453
-             },
-             {
-               "key": "CVAP_15-19_AiAn",
-               "name": "American Indian population",
-               "sum": 1264,
-               "min": 0,
-               "max": 64
-             },
-             {
-               "key": "CVAP_15-19_Asian",
-               "name": "Asian population",
-               "sum": 60294,
-               "min": 0,
-               "max": 282
-             },
-             {
-               "key": "CVAP_15-19_Hawaiian_API",
-               "name": "Native Hawaiian Pacific Islander population",
-               "sum": 1905,
-               "min": 0,
-               "max": 43
-             },
-             {
-               "key": "CVAP_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 134705,
-               "min": 0,
-               "max": 641
-             }
-           ]
-         }
-       ],
-       "idColumn": {
-         "name": "Geo ID",
-         "key": "GEOID20"
-       },
-       "bounds": [
-         [
-           -121.5851,
-           37.4818
-         ],
-         [
-           -120.9207,
-           38.3002
-         ]
-       ],
-       "tilesets": [
-         {
-           "type": "circle",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks_points?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks_points"
-         },
-         {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks"
-         }
-       ]
-     }
-   ],
-   "id": "ca_sanjoaquin",
-   "state": "California",
-   "name": "San Joaquin County",
-   "districtingProblems": [
-     {
-       "name": "County",
-       "numberOfParts": 5,
-       "pluralNoun": "Supervisorial Districts"
-     }
-   ]
- },
  {
    "name": "Tuolumne County",
    "state": "California",
