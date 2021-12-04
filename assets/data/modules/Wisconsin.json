@@ -464,6 +464,7 @@
       {
         "id": "vtds20",
         "name": "2020 VTDs",
+        "hideOnDefault": true,
         "unitType": "VTDs",
         "columnSets": [
           {
@@ -1529,6 +1530,7 @@
         "id": "wards",
         "name": "2020 Wards (updated)",
         "unitType": "2020 Wards (updated)",
+        "hideOnDefault": false,
         "columnSets": [
           {
             "type": "population",
@@ -1693,16 +1695,19 @@
     ],
     "districtingProblems": [
       {
+        "hideOnDefault": false,
         "name": "Congress",
         "numberOfParts": 8,
         "pluralNoun": "Congressional Districts"
       },
       {
+        "hideOnDefault": false,
         "name": "State Senate",
         "numberOfParts": 33,
         "pluralNoun": "State Senate Districts"
       },
       {
+        "hideOnDefault": false,
         "name": "State Assembly",
         "numberOfParts": 99,
         "pluralNoun": "State Assembly Districts"
