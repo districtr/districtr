@@ -50,7 +50,6 @@ function datasetInfo(state) {
             dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
         } else if (["pa_adj"].includes(place.id)) {
             dataset = `<p><span>&#9432;</span> ${populations.census20non_p_adj}`;
-        }
         } else if (
                 [
                     "san_dimas", "ccsanitation2", "ca_pasadena", "sacramento",
