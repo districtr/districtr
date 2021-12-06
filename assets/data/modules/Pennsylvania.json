@@ -1,11 +1,8 @@
 [
   {
-    "id": "pa_adj",
-    "state": "Pennsylvania",
-    "name": "Pennsylvania",
     "units": [
       {
-        "id": "vtds20_adj",
+        "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
         "columnSets": [
@@ -267,21 +264,24 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_adj"
+              "url": "mapbox://districtr.pa_adj_vtds20"
             },
-            "sourceLayer": "pa_vtds20_adj"
+            "sourceLayer": "pa_adj_vtds20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_adj_points"
+              "url": "mapbox://districtr.pa_adj_vtds20_points"
             },
-            "sourceLayer": "pa_vtds20_adj_points"
+            "sourceLayer": "pa_adj_vtds20_points"
           }
         ]
       }
     ],
+    "name": "Pennsylvania",
+    "id": "pa_adj",
+    "state": "Pennsylvania",
     "districtingProblems": [
       {
         "name": "Congress",
@@ -291,12 +291,12 @@
     ]
   },
   {
-    "name": "Pennsylvania",
-    "id": "pa_prison_adj",
     "state": "Pennsylvania",
+    "id": "pa_prison_adj",
+    "name": "Pennsylvania",
     "units": [
       {
-        "id": "vtds20_prison_adj",
+        "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
         "columnSets": [
@@ -558,17 +558,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_prison_adj"
+              "url": "mapbox://districtr.pa_prison_adj_vtds20"
             },
-            "sourceLayer": "pa_vtds20_prison_adj"
+            "sourceLayer": "pa_prison_adj_vtds20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_prison_adj_points"
+              "url": "mapbox://districtr.pa_prison_adj_vtds20_points"
             },
-            "sourceLayer": "pa_vtds20_prison_adj_points"
+            "sourceLayer": "pa_prison_adj_vtds20_points"
           }
         ]
       }
