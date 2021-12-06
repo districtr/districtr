@@ -25259,7 +25259,7 @@
     "units": [
       {
         "id": "blocks20",
-        "name": "2020 Blocks",
+        "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
@@ -25268,38 +25268,38 @@
             "total": {
               "key": "LF_20_Total",
               "name": "Total population",
-              "sum": 311393,
+              "sum": 311653,
               "min": 0,
               "max": 3016
             },
             "subgroups": [
               {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 239069,
+                "min": 0,
+                "max": 2874
+              },
+              {
                 "key": "LF_20_White",
                 "name": "White population",
-                "sum": 26581,
+                "sum": 26637,
                 "min": 0,
                 "max": 501
               },
               {
                 "key": "LF_20_AfAm",
                 "name": "Black population",
-                "sum": 2817,
+                "sum": 2818,
                 "min": 0,
                 "max": 160
               },
               {
                 "key": "LF_20_Asian",
                 "name": "Asian population",
-                "sum": 37457,
+                "sum": 37484,
                 "min": 0,
                 "max": 874
-              },
-              {
-                "key": "LF_20_Hispanic_or_Latino",
-                "name": "Hispanic population",
-                "sum": 238913,
-                "min": 0,
-                "max": 2874
               }
             ]
           },
@@ -25308,8 +25308,8 @@
             "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP_15-19_Total",
-              "name": "Total population",
-              "sum": 154199,
+              "name": "Total VAP",
+              "sum": 154338,
               "min": 0,
               "max": 1443
             },
@@ -25322,6 +25322,20 @@
                 "max": 73
               },
               {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 26493,
+                "min": 0,
+                "max": 558
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 94854,
+                "min": 0,
+                "max": 824
+              },
+              {
                 "key": "CVAP_15-19_American Indian or Alaska Native Alone",
                 "name": "American Indian population",
                 "sum": 482,
@@ -25329,25 +25343,11 @@
                 "max": 43
               },
               {
-                "key": "CVAP_15-19_Asian Alone",
-                "name": "Asian population",
-                "sum": 26482,
-                "min": 0,
-                "max": 558
-              },
-              {
                 "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
                 "name": "Native Hawaiian Pacific Islander population",
                 "sum": 532,
                 "min": 0,
                 "max": 45
-              },
-              {
-                "key": "CVAP_15-19_Hispanic or Latino",
-                "name": "Hispanic population",
-                "sum": 94811,
-                "min": 0,
-                "max": 824
               }
             ]
           }
@@ -25357,25 +25357,31 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-117.9439, 33.6919],
-          [-117.8303, 33.784]
+          [
+            -117.9439,
+            33.6919
+          ],
+          [
+            -117.8303,
+            33.784
+          ]
         ],
         "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_santa_ana_blocks20_points"
-            },
-            "sourceLayer": "ca_santa_ana_blocks20_points"
-          },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_santa_ana_blocks20"
+              "url": "mapbox://districtr.ca_santa_ana2_blocks20"
             },
-            "sourceLayer": "ca_santa_ana_blocks20"
+            "sourceLayer": "ca_santa_ana2_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_santa_ana2_blocks20_points"
+            },
+            "sourceLayer": "ca_santa_ana2_blocks20_points"
           }
         ]
       }
