@@ -292,9 +292,11 @@
   },
   {
     "name": "Pennsylvania",
+    "id": "pa_prison_adj",
+    "state": "Pennsylvania",
     "units": [
       {
-        "id": "vtds20_pris_adj",
+        "id": "vtds20_prison_adj",
         "name": "2020 VTDs",
         "unitType": "VTDs",
         "columnSets": [
@@ -305,14 +307,14 @@
               {
                 "key": "G16PREDCLI",
                 "name": "Democratic",
-                "sum": 1729351,
+                "sum": 2926393,
                 "min": 0,
-                "max": 1829
+                "max": 3896
               },
               {
                 "key": "G16PRERTRU",
                 "name": "Republican",
-                "sum": 2077866,
+                "sum": 2971090,
                 "min": 0,
                 "max": 2264
               }
@@ -325,16 +327,16 @@
               {
                 "key": "G16USSDMCG",
                 "name": "Democratic",
-                "sum": 1698835,
+                "sum": 2864967,
                 "min": 0,
-                "max": 1751
+                "max": 3444
               },
               {
                 "key": "G16USSRTOO",
                 "name": "Republican",
-                "sum": 2055247,
+                "sum": 2951591,
                 "min": 0,
-                "max": 2312
+                "max": 2460
               }
             ]
           },
@@ -345,14 +347,14 @@
               {
                 "key": "G18USSDCAS",
                 "name": "Democratic",
-                "sum": 1695876,
+                "sum": 2792687,
                 "min": 0,
-                "max": 1723
+                "max": 2681
               },
               {
                 "key": "G18USSRBAR",
                 "name": "Republican",
-                "sum": 1499708,
+                "sum": 2135231,
                 "min": 0,
                 "max": 1858
               }
@@ -365,14 +367,14 @@
               {
                 "key": "G18GOVDWOL",
                 "name": "Democratic",
-                "sum": 1770380,
+                "sum": 2895937,
                 "min": 0,
-                "max": 1774
+                "max": 2745
               },
               {
                 "key": "G18GOVRWAG",
                 "name": "Republican",
-                "sum": 1429757,
+                "sum": 2040226,
                 "min": 0,
                 "max": 1726
               }
@@ -385,14 +387,14 @@
               {
                 "key": "GOV14D",
                 "name": "Democratic",
-                "sum": 1147046,
+                "sum": 1909492,
                 "min": 0,
                 "max": 1149
               },
               {
                 "key": "GOV14R",
                 "name": "Republican",
-                "sum": 1104241,
+                "sum": 1568804,
                 "min": 0,
                 "max": 1504
               }
@@ -404,64 +406,64 @@
             "total": {
               "key": "TOTPOP20",
               "name": "Total population",
-              "sum": 8305168,
+              "sum": 13002700,
               "min": 0,
-              "max": 9000
+              "max": 13319
             },
             "subgroups": [
               {
                 "key": "WPOP20",
                 "name": "White population",
-                "sum": 6484960,
+                "sum": 9553417,
                 "min": 0,
-                "max": 7094
+                "max": 10776
               },
               {
                 "key": "BPOP20",
                 "name": "Black population",
-                "sum": 592864,
+                "sum": 1368978,
                 "min": 0,
                 "max": 3078
               },
               {
                 "key": "HISP20",
                 "name": "Hispanic population",
-                "sum": 623369,
+                "sum": 1049615,
                 "min": 0,
                 "max": 3283
               },
               {
                 "key": "ASIANPOP20",
                 "name": "Asian population",
-                "sum": 265538,
+                "sum": 506676,
                 "min": 0,
                 "max": 3045
               },
               {
                 "key": "AMINPOP20",
                 "name": "American Indian population",
-                "sum": 9181,
+                "sum": 15028,
                 "min": 0,
                 "max": 40
               },
               {
                 "key": "NHPIPOP20",
                 "name": "Native Hawaiian and Pacific Islander population",
-                "sum": 1900,
+                "sum": 3162,
                 "min": 0,
-                "max": 16
+                "max": 52
               },
               {
                 "key": "2MOREPOP20",
                 "name": "Two or more races",
-                "sum": 294830,
+                "sum": 451285,
                 "min": 0,
-                "max": 383
+                "max": 764
               },
               {
                 "key": "OTHERPOP20",
                 "name": "Other races",
-                "sum": 32575,
+                "sum": 54606,
                 "min": 0,
                 "max": 152
               }
@@ -473,66 +475,66 @@
             "total": {
               "key": "VAP20",
               "name": "Voting age population",
-              "sum": 6620569,
+              "sum": 10353633,
               "min": 0,
-              "max": 6967
+              "max": 13274
             },
             "subgroups": [
               {
                 "key": "WVAP20",
                 "name": "White voting age population",
-                "sum": 5350296,
+                "sum": 7884010,
                 "min": 0,
-                "max": 5498
+                "max": 10750
               },
               {
                 "key": "BVAP20",
                 "name": "Black voting age population",
-                "sum": 444071,
+                "sum": 1039831,
                 "min": 0,
                 "max": 2162
               },
               {
                 "key": "HVAP20",
                 "name": "Hispanic voting age population",
-                "sum": 412737,
+                "sum": 704258,
                 "min": 0,
                 "max": 2245
               },
               {
                 "key": "AMINVAP20",
                 "name": "Native American voting age population",
-                "sum": 7414,
+                "sum": 12124,
                 "min": 0,
                 "max": 40
               },
               {
                 "key": "NHPIVAP20",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 1495,
+                "sum": 2519,
                 "min": 0,
-                "max": 7
+                "max": 52
               },
               {
                 "key": "ASIANVAP20",
                 "name": "Asian voting age population",
-                "sum": 205545,
+                "sum": 398350,
                 "min": 0,
                 "max": 1869
               },
               {
                 "key": "OTHERVAP20",
                 "name": "Other races voting age population",
-                "sum": 21780,
+                "sum": 36880,
                 "min": 0,
                 "max": 148
               },
               {
                 "key": "2MOREVAP20",
                 "name": "Two or more races voting age population",
-                "sum": 177293,
+                "sum": 275661,
                 "min": 0,
-                "max": 220
+                "max": 756
               }
             ]
           }
@@ -556,23 +558,21 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_pris_adj"
+              "url": "mapbox://districtr.pa_vtds20_prison_adj"
             },
-            "sourceLayer": "pa_vtds20_pris_adj"
+            "sourceLayer": "pa_vtds20_prison_adj"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pa_vtds20_pris_adj_points"
+              "url": "mapbox://districtr.pa_vtds20_prison_adj_points"
             },
-            "sourceLayer": "pa_vtds20_pris_adj_points"
+            "sourceLayer": "pa_vtds20_prison_adj_points"
           }
         ]
       }
     ],
-    "id": "pa_pris_adj",
-    "state": "Pennsylvania",
     "districtingProblems": [
       {
         "name": "State Senate",
