@@ -804,6 +804,33 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
     },
+    pvsd: {
+      coalition: false,
+      border: true,
+      number_markers: true,
+      boundaries: [{
+        id: 'es_boundary',
+        label: 'Feeder School Boundaries',
+        path: 'school_districts/california/pvsd_feeder',
+        lineColor: 'brown',
+      },{
+        id: 'citycouncil',
+        label: 'Camarillo City Council Districts (2010)',
+        path: 'current_districts/california/camarillo_city_council',
+        lineColor: 'blue',
+      },
+      {
+        id: 'places',
+        label: 'Census Places',
+        path: 'neighborhoods/california/camarillo_places',
+        lineColor: 'red',
+      },{
+        id: 'parks',
+        label: 'Parks',
+        path: 'neighborhoods/california/camarillo_parks',
+        lineColor: 'green',
+      }],
+    },
     ca_sanbenito: {
       coalition: false,
       border: true,
