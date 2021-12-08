@@ -492,7 +492,8 @@ const hybrid_events = [
   "rohnert_park",
   "brentwood",
   "watsonville",
-  "carpinteria"
+  "carpinteria",
+  "pvsd"
 ];
 
 const portal_events = [
